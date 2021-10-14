@@ -1,74 +1,77 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Flex, Show } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { zoho_url } from 'common/constants'
 import banner from 'images/common/careers/besquare-banner.png'
 import bannerMobile from 'images/common/careers/besquare-banner-mobile.png'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
-    width: 85%;
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
+    border-radius: 10px;
+    max-width: 1200px;
+    padding: 0 0 80px;
 
-    @media ${device.tablet} {
+    @media (max-width: 1230px) {
+        padding: 0 24px 80px;
+    }
+
+    @media ${device.tabletL} {
         width: 90%;
+        padding: 0 0 40px;
     }
 `
-const BackgroundImage = styled.div`
-    background-color: var(--color-black);
+const MainWrapper = styled(Flex)`
+    background: var(--color-black);
     border-radius: 10px;
-    padding: 70px 100px;
-    color: white;
-    position: relative;
-    height: 41.9rem;
-
-    @media ${device.laptopL} {
-        height: 397px;
-    }
+    height: 390px;
+    background-image: url(${banner});
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top right;
 
     @media ${device.laptopM} {
-        padding: 50px;
-        height: 353px;
+        height: 360px;
     }
 
-    @media ${device.tablet} {
+    @media (max-width: 1100px) {
+        height: 330px;
+    }
+
+    @media ${device.tabletL} {
+        height: 546px;
+        width: 328px;
         background-image: url(${bannerMobile});
-        background-position: bottom;
-        background-size: cover;
-        height: 100vh;
-        padding: 20px;
+        background-position: bottom -36px right;
     }
 `
-
-const BackgroundPattern = styled.img`
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 95rem;
-    height: initial;
-    border-radius: 10px;
-
-    @media ${device.laptopL} {
-        width: 90rem;
-        height: initial;
-    }
+const LeftWrapper = styled(Flex)`
+    padding: 55px 0 55px 100px;
+    justify-content: flex-start;
     @media ${device.laptopM} {
-        width: 80rem;
-        height: initial;
+        padding: 55px 0 55px 60px;
+    }
+    @media (max-width: 1100px) {
+        padding: 55px 0 55px 32px;
     }
     @media ${device.tabletL} {
-        width: 54rem;
+        padding: 40px 21px 0 29px;
+        justify-content: center;
+        align-items: flex-start;
     }
-    @media ${device.tablet} {
-        width: 44rem;
-    }
-    @media ${device.tabletS} {
-        width: 400px;
-    }
-    @media ${device.mobileL} {
-        width: unset;
-        max-width: unset;
+`
+const LeftChild = styled(Flex)`
+    flex-direction: column;
+    color: white;
+    max-width: 326px;
+    z-index: 2;
+
+    @media ${device.tabletL} {
+        height: unset;
     }
 `
 
@@ -76,11 +79,13 @@ const StyledHeader = styled(Header)`
     font-size: 32px;
     line-height: 40px;
     color: var(--color-white);
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
         font-size: 28px;
         line-height: 34px;
+        max-width: 278px;
     }
 `
 const StyledText = styled(Text)`
@@ -89,21 +94,14 @@ const StyledText = styled(Text)`
     color: var(--color-white);
     margin-bottom: 3rem;
 
-    @media ${device.tablet} {
-        font-size: 12px;
-        line-height: 20px;
-    }
-`
-
-const StyledDiv = styled.div`
-    width: 38%;
-
-    @media ${device.laptopL} {
-        width: 32%;
+    @media (max-width: 1100px) {
+        margin-bottom: 16px;
     }
 
-    @media ${device.tablet} {
-        width: 80%;
+    @media ${device.tabletL} {
+        font-size: 11px;
+        line-height: 16px;
+        max-width: 224px;
     }
 `
 
@@ -113,19 +111,21 @@ const StyledLinkButton = styled(LinkButton)`
     line-height: 20px;
     font-weight: bold;
     border-radius: 4px;
+    width: 102px;
+    white-space: nowrap;
 
-    @media ${device.tablet} {
-        font-size: 12px;
-        line-height: 20px;
+    @media ${device.tabletL} {
+        height: fit-content;
+        padding: 6px 16px;
     }
 `
 
 const BeSquareBanner = () => {
     return (
         <StyledSection>
-            <Flex position="relative">
-                <BackgroundImage>
-                    <StyledDiv>
+            <MainWrapper>
+                <LeftWrapper>
+                    <LeftChild>
                         <StyledHeader as="h3" type="section-title">
                             Join the Deriv graduate programme
                         </StyledHeader>
@@ -136,19 +136,16 @@ const BeSquareBanner = () => {
                         </StyledText>
                         <StyledLinkButton
                             secondary="true"
-                            to={'/besquare/'}
+                            to={zoho_url}
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             Apply now
                         </StyledLinkButton>
-                    </StyledDiv>
-                    <Show.Desktop>
-                        <BackgroundPattern src={banner} alt="background pattern" />
-                    </Show.Desktop>
-                </BackgroundImage>
-            </Flex>
+                    </LeftChild>
+                </LeftWrapper>
+            </MainWrapper>
         </StyledSection>
     )
 }

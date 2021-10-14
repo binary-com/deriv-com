@@ -46,6 +46,7 @@ const BackDrop = styled.section`
 `
 const StyledSectionContainer = styled(SectionContainer)`
     margin: 0 16px;
+    max-width: 100%;
     @media ${device.tablet} {
         padding: 40px 0;
         margin: 0;

@@ -18,13 +18,19 @@ const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 3
 
 const address_france = ['Wojo Madeleine, 18 Boulevard Malesherbes,', 'Paris 75008']
 
+const address_guernsey = ['5 St James Street, St Peter Port,', 'Guernsey, GY1 2NZ']
+
 const address_labuan = [
     'F16, 1st Floor, Paragon Labuan,',
     'Jalan Tun Mustapha, Labuan 87000,',
     'Sabah',
 ]
 
-const address_malta = ['Level 3, W Business Centre,', 'Triq Dun Karm Birkirkara,', 'BKR9033 Malta']
+const address_malta = [
+    'Lev e l 3, W   Business Centre,',
+    'Triq Dun Karm B ir kirkara,',
+    'BKR9033 Malta',
+]
 
 const address_melaka = ['67-1 & 69-1, Jalan KLJ 6, Taman Kota', 'Laksamana Jaya, Melaka 75200']
 
@@ -45,4 +51,5 @@ export {
     address_rwanda,
     address_france,
     address_uk,
+    address_guernsey,
 }

@@ -150,6 +150,7 @@ const MapSection = styled(SectionContainer)`
     padding: 0 0 80px;
 
     @media ${device.laptop} {
+        max-height: 200%;
         width: 91%;
         margin: 0 4.5%;
         padding: 0 0 40px;
@@ -160,8 +161,15 @@ const ImageWrapper = styled.div`
     width: 100%;
     @media ${device.laptop} {
         object-fit: cover;
-        max-width: 100%;
-        max-height: 100%;
+        max-width: 488px;
+        width: 100%;
+        height: 100%;
+        max-height: 360px;
+    }
+    @media ${device.tablet} {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
     }
     @media ${device.mobile} {
         max-height: 260px;
@@ -173,7 +181,9 @@ const StyledImageWrapper = styled.div`
     width: 100%;
 
     @media ${device.tablet} {
+        height: 100%;
         max-width: 100%;
+        object-fit: cover;
         padding: 0;
         margin: 0;
     }
@@ -391,7 +401,7 @@ export const LocationLayout = ({ location, images }) => {
             </SecondSection>
             <MapSection>
                 <LocationCard>
-                    <LocationFlex min_height="38rem" jc="unset" tablet_direction="column">
+                    <LocationFlex min_height="38rem" jc="cover" tablet_direction="column">
                         <ImageWrapper>
                             {location.has_iframe ? (
                                 <Iframe

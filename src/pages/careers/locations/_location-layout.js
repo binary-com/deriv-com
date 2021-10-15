@@ -170,6 +170,7 @@ const ImageWrapper = styled.div`
         object-fit: cover;
         width: 100%;
         height: 100%;
+        max-height: 380px;
     }
     @media ${device.mobile} {
         max-height: 260px;
@@ -402,12 +403,12 @@ export const LocationLayout = ({ location, images }) => {
             <MapSection>
                 <LocationCard>
                     <LocationFlex min_height="38rem" jc="cover" tablet_direction="column">
-                        <ImageWrapper>
-                            {location.has_iframe ? (
-                                <Iframe
-                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
-                                />
-                            ) : (
+                        {location.has_iframe ? (
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
+                            />
+                        ) : (
+                            <ImageWrapper>
                                 <LocalizedLink
                                     to={location.google_map_link}
                                     external
@@ -420,8 +421,9 @@ export const LocationLayout = ({ location, images }) => {
                                         width="100%"
                                     />
                                 </LocalizedLink>
-                            )}
-                        </ImageWrapper>
+                            </ImageWrapper>
+                        )}
+
                         <LocationInformationFlex
                             p="3.2rem 6rem"
                             direction="column"

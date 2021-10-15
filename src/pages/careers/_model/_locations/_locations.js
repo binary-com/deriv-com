@@ -229,7 +229,7 @@ export const paris = {
     address: address_france,
     map_img: 'paris_map',
     google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
-    has_iframe: true,
+    has_iframe: false,
 }
 
 export const london = {
@@ -249,7 +249,7 @@ export const london = {
     address: address_uk,
     map_img: 'london_map',
     google_map_link: 'https://goo.gl/maps/DJaQaFd9jqGiPB7e9',
-    has_iframe: true,
+    has_iframe: false,
 }
 export const guernsey = {
     name: 'guernsey',
@@ -268,7 +268,7 @@ export const guernsey = {
     address: address_guernsey,
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
-    has_iframe: true,
+    has_iframe: false,
 }
 export const all_offices = [
     london,

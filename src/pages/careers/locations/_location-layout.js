@@ -161,7 +161,7 @@ const ImageWrapper = styled.div`
     width: 100%;
     @media ${device.laptop} {
         object-fit: cover;
-        max-width: 488px;
+        max-width: 100%;
         width: 100%;
         height: 100%;
         max-height: 360px;

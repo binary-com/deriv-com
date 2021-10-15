@@ -30,5 +30,9 @@ export default {
             alt: 'List item 4',
             text: 'If you’re successful, we’ll send you a confirmation letter.',
         },
+        {
+            alt: 'List item 5',
+            text: 'If you are successful, we will send you a confirmation letter.',
+        },
     ],
 }

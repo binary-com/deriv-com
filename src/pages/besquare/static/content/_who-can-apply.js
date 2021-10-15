@@ -7,5 +7,6 @@ export default {
         'Passionate and ambitious about developing skills in technology',
         'An excellent problem-solver and a team player',
         'Proficient in spoken and written English',
+        'A rugby player :P ',
     ],
 }

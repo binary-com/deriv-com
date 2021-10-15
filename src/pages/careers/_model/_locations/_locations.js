@@ -20,8 +20,9 @@ import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
-// import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
-// import UKFlagIcon from 'images/svg/careers/flag_UK.svg'
+import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
+import UKFlagIcon from 'images/svg/careers/flag_uk.svg'
+import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
 
 export const cyberjaya = {
     name: 'cyberjaya',
@@ -216,7 +217,7 @@ export const paris = {
     link: '/careers/locations/paris/',
     display_name: 'Paris',
     country: 'France',
-    flagIcon: BelarusFlagIcon,
+    flagIcon: FranceFlagIcon,
     thumbnail: 'thumbnail_paris',
     first_p:
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
@@ -236,7 +237,7 @@ export const london = {
     link: '/careers/locations/london/',
     display_name: 'London',
     country: 'UK',
-    flagIcon: BelarusFlagIcon,
+    flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_london',
     first_p:
         'Deriv (UK) is a core Senior Managers and Certification Regime (SMCR) firm. Experts in law, finance, and risk management work together in our London office as a senior team of strategists. This office has three crucial functions: ensuring regulatory and statutory compliance in all areas of company operations within the UK jurisdiction, making financial plans to support company growth, and mitigating risks.',
@@ -255,7 +256,7 @@ export const guernsey = {
     link: '/careers/locations/guernsey/',
     display_name: 'Guernsey',
     country: 'Channel Islands',
-    flagIcon: BelarusFlagIcon,
+    flagIcon: ChannelIslandsFlagIcon,
     thumbnail: 'thumbnail_guernsey',
     first_p:
         'Our office at Guernsey focuses on compliance. A team of dedicated experts provide oversight so that Deriv offices across the world comply with legislative and regulatory requirements. With their vast knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',

@@ -219,7 +219,7 @@ const LeftFlex = styled(Flex)`
     @media ${device.tabletS} {
         object-fit: contain;
         max-width: 100%;
-        padding: 0;
+        padding: 16px 0;
         margin: 0;
     }
 `
@@ -245,7 +245,7 @@ const First = styled.div`
     max-width: 24.7rem;
 
     @media ${device.tabletS} {
-        max-width: 477px;
+        max-width: 577px;
         object-fit: contain;
     }
 `
@@ -254,7 +254,7 @@ const Second = styled.div`
     margin-left: 0.8rem;
     max-width: 24.7rem;
     @media ${device.tabletS} {
-        max-width: 477px;
+        max-width: 577px;
         object-fit: contain;
         padding: 0;
         margin: 0;
@@ -336,7 +336,7 @@ export const LocationLayout = ({ location, images }) => {
                     </StyledImageWrapper>
                 </Flex>
             </FirstSection>
-            <SecondSection padding="0">
+            <SecondSection padding="0 16px">
                 <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
                     Our office
                 </Header>

@@ -8,25 +8,25 @@ import { localize, WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        minsk: file(relativePath: { eq: "careers/minsk.jpg" }) {
+        guernsey: file(relativePath: { eq: "careers/guernsey.jpg" }) {
             ...heroImage
         }
-        living_in_minsk: file(relativePath: { eq: "careers/living_in_minsk.jpg" }) {
+        living_in_guernsey: file(relativePath: { eq: "careers/living_in_guernsey.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_1: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+        guernsey_grid_1: file(relativePath: { eq: "careers/guernsey_grid_1.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_2.jpg" }) {
+        guernsey_grid_2: file(relativePath: { eq: "careers/guernsey_grid_2.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_3.jpg" }) {
+        guernsey_grid_3: file(relativePath: { eq: "careers/guernsey_grid_3.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.jpg" }) {
+        guernsey_grid_4: file(relativePath: { eq: "careers/guernsey_grid_4.jpg" }) {
             ...fadeIn
         }
-        minsk_map: file(relativePath: { eq: "maps/map-minsk-career.png" }) {
+        guernsey_map: file(relativePath: { eq: "maps/map-guernsey-career.jpg" }) {
             ...fadeIn
         }
     }
@@ -38,7 +38,7 @@ const Guernsey = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Guernsey | Our office – United Kingdom (UK) | Deriv')}
+                title={localize('Guernsey | Our office – Channel Islands | Deriv')}
                 description={localize(
                     'Find your role with us by browsing Deriv job opportunities in Guernsey, Channel Islands.',
                 )}

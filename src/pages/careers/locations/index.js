@@ -191,7 +191,7 @@ const Locations = () => {
                     laptop_columns="repeat(3, minmax(280px, 384px))"
                     laptop_margin="0 16px"
                     tablet_columns="repeat(2, 1fr)"
-                    mobile_columns="328px"
+                    mobile_columns="minmax(300px, 384px)"
                     mobile_row_gap="37px"
                     style={{ marginTop: '0rem', justifyContent: 'center' }}
                     margin="0 16px"

@@ -8,25 +8,25 @@ import { localize, WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        minsk: file(relativePath: { eq: "careers/minsk.jpg" }) {
+        london: file(relativePath: { eq: "careers/london.jpg" }) {
             ...heroImage
         }
-        living_in_minsk: file(relativePath: { eq: "careers/living_in_minsk.jpg" }) {
+        living_in_london: file(relativePath: { eq: "careers/living_in_london.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_1: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {
+        london_grid_1: file(relativePath: { eq: "careers/london_grid_1.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_2.jpg" }) {
+        london_grid_2: file(relativePath: { eq: "careers/london_grid_2.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_3.jpg" }) {
+        london_grid_3: file(relativePath: { eq: "careers/london_grid_3.jpg" }) {
             ...fadeIn
         }
-        minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.jpg" }) {
+        london_grid_4: file(relativePath: { eq: "careers/london_grid_4.jpg" }) {
             ...fadeIn
         }
-        minsk_map: file(relativePath: { eq: "maps/map-minsk-career.png" }) {
+        london_map: file(relativePath: { eq: "maps/map-london-career.png" }) {
             ...fadeIn
         }
     }

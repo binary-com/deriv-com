@@ -223,7 +223,7 @@ export const paris = {
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
-    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map: 'cnWCUN529qw38Yce6',
     map_text:
         'There are always exciting projects to work on at Deriv (France). The bright team working at our R&D branch is the think tank that helps create our next generation of online trading products. If you’re driven with the same passion and are looking for new challenges to embrace, join our team in Paris.',
     address: address_france,
@@ -243,7 +243,7 @@ export const london = {
         'Deriv (UK) is a core Senior Managers and Certification Regime (SMCR) firm. Experts in law, finance, and risk management work together in our London office as a senior team of strategists. This office has three crucial functions: ensuring regulatory and statutory compliance in all areas of company operations within the UK jurisdiction, making financial plans to support company growth, and mitigating risks.',
     first_img: 'living_in_london',
     grid_images: ['london_grid_1', 'london_grid_2', 'london_grid_3', 'london_grid_4'],
-    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map: 'DJaQaFd9jqGiPB7e9',
     map_text:
         'Working at Deriv (UK) means collaborating with talented professionals on exciting challenges. We value an analytical mindset, a can-do approach, and leadership skills. This is a chance to participate in devising road plans and shaping policies for a global company. A career in the fintech industry never gets boring. Join our London office if you are ready for a mighty adventure.',
     address: address_uk,
@@ -262,7 +262,7 @@ export const guernsey = {
         'Our office at Guernsey focuses on compliance. A team of dedicated experts provide oversight so that Deriv offices across the world comply with legislative and regulatory requirements. With their vast knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',
     first_img: 'living_in_guernsey',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
-    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map: 'M8p55z3Wu4EKhQ3A7',
     map_text:
         'Our office at Guernsey focuses on compliance. A team of dedicated experts provide oversight so that Deriv offices across the world comply with legislative and regulatory requirements. With their vast knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',
     address: address_guernsey,

@@ -349,8 +349,11 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
                         }
                         title={<Localize translate_text="BinaryBot" />}
+                        to="https://bot.deriv.com/"
+                        external="true"
+                        target="_blank"
                         onClick={onClick}
-                        to="https://bot.deriv.com/#"
+                        otherLinkProps={{ rel: 'noopener noreferrer' }}
                     />
                 )}
             </Flex>
@@ -384,8 +387,11 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
                         }
                         title={<Localize translate_text="BinaryBot" />}
-                        onClick={onClick}
                         to="https://bot.deriv.com/"
+                        external="true"
+                        target="_blank"
+                        onClick={onClick}
+                        otherLinkProps={{ rel: 'noopener noreferrer' }}
                     />
                 )}
             </Flex>

@@ -277,6 +277,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={<Localize translate_text="BinaryBot" />}
                                 onClick={handleArrowClick}
                                 to="https://bot.deriv.com/"
+                                external="true"
+                                target="_blank"
+                                otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
                     </AccordionItem>

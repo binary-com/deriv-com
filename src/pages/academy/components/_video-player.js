@@ -106,13 +106,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
     }
 
     return (
-        <VideoWrapper
-            onClick={() => {
-                closeVideo()
-                document.exitPictureInPicture()
-            }}
-            show={is_show}
-        >
+        <VideoWrapper onClick={() => closeVideo()} show={is_show}>
             <VidPlayerWrapper>
                 <VidDivWrapper>
                     <Flex direction="column">
@@ -127,7 +121,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                         </StyledFlex>
                         <VidPlayer
                             controls
-                            disablePictureInPicture
+                            // disablePictureInPicture
                             controlsList="nodownload"
                             autoPlay
                             onClick={(event) => event.stopPropagation()}

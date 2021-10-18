@@ -151,7 +151,7 @@ const MapSection = styled(SectionContainer)`
     padding: 0 0 80px;
 
     @media ${device.laptop} {
-        max-height: 200%;
+        max-height: unset;
         width: 91%;
         margin: 0 4.5%;
         padding: 0 0 40px;
@@ -160,6 +160,7 @@ const MapSection = styled(SectionContainer)`
 const ImageWrapper = styled.div`
     max-width: 588px;
     width: 100%;
+    max-height: 332px;
     @media ${device.laptop} {
         object-fit: cover;
         max-width: 100%;
@@ -173,7 +174,7 @@ const ImageWrapper = styled.div`
         height: 100%;
         max-height: 380px;
     }
-    @media ${device.mobile} {
+    @media ${device.mobileL} {
         max-height: 260px;
     }
 `
@@ -206,6 +207,7 @@ const LocationCard = styled.article`
 const CardText = styled(Text)`
     margin-top: 8px;
     margin-bottom: 37px;
+    display: block;
     @media ${device.mobileL} {
         margin-top: 24px;
         font-size: 14px;
@@ -314,6 +316,7 @@ const LocationFlex = styled(Flex)`
 
 const LocationInformationFlex = styled(Flex)`
     padding: 40px;
+    display: block;
     @media ${device.laptop} {
         padding: 24px 16px;
     }
@@ -329,6 +332,10 @@ const StyledDiv = styled.div`
 `
 const MapQueryImage = styled(QueryImage)`
     object-fit: cover;
+    @media ${device.tablet} {
+        max-width: 100%;
+        height: unset;
+    }
 `
 
 export const LocationLayout = ({ location, images }) => {

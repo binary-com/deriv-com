@@ -54,6 +54,7 @@ const VidPlayer = styled.video`
     width: 100%;
     max-height: 558px;
     background-color: var(--color-black);
+    outline: none;
 
     @media ${device.desktopS} {
         max-height: 900px;
@@ -91,10 +92,8 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                 setIsShow(!is_show)
             }
         }
-
-        return () => {
-            document.removeEventListener('keydown', handleKeyboardEvent, false)
-        }
+        vidElement.focus()
+        return document.removeEventListener('keydown', handleKeyboardEvent, false)
     }, [])
 
     const handleKeyboardEvent = (e) => {
@@ -122,7 +121,6 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                         </StyledFlex>
                         <VidPlayer
                             controls
-                            disablePictureInPicture
                             controlsList="nodownload"
                             autoPlay
                             onClick={(event) => event.stopPropagation()}

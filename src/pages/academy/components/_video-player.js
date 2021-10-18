@@ -54,6 +54,7 @@ const VidPlayer = styled.video`
     width: 100%;
     max-height: 558px;
     background-color: var(--color-black);
+    outline: none;
 
     @media ${device.desktopS} {
         max-height: 900px;
@@ -67,7 +68,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
     let vidElement
 
     useEffect(() => {
-        document.addEventListener('keydown', handleEscape, false)
+        document.addEventListener('keydown', handleKeyboardEvent, false)
 
         vidElement = vidRef.current
         vidElement.addEventListener('enterpictureinpicture', () => {
@@ -91,14 +92,11 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                 setIsShow(!is_show)
             }
         }
-
-        return () => {
-            document.removeEventListener('keydown', handleEscape, false)
-        }
+        vidElement.focus()
+        return () => document.removeEventListener('keydown', handleKeyboardEvent, false)
     }, [])
 
-    const handleEscape = (e) => {
-        setIsShow(!is_show)
+    const handleKeyboardEvent = (e) => {
         if (e.key === 'Escape') {
             closeVideo()
         }

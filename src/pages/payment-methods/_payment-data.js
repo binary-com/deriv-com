@@ -66,9 +66,9 @@ const getCurrency = (currencies) => {
 const getReference = (key, reference, locale) => {
     if (reference !== '') {
         if (locale.length && ReferencePDF[`${key}_${locale}`]) {
-            return { reference: `${key}-payment-method.pdf`, locales: locale }
+            return { reference: `${reference}-payment-method.pdf`, locales: locale }
         }
-        return ReferencePDF[key] ? { reference: `${key}-payment-method.pdf` } : null
+        return ReferencePDF[key] ? { reference: `${reference}-payment-method.pdf` } : null
     }
     return null
 }
@@ -105,6 +105,7 @@ const PaymentDataGenerator = () => {
                     )
                     return {
                         name,
+                        key,
                         method: payment_method_logo,
                         currencies: getCurrency(currencies),
                         min_max_deposit: getMinMaxLimit(min_deposit, max_deposit),

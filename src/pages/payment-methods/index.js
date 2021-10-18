@@ -93,16 +93,13 @@ const getClientResidence = () => {
 
 const getClientCountry = () => {
     let current_client_country = ''
-    // for testing purpose only
-    if (typeof window !== 'undefined') {
-        const query_string = window.location.search
-        const url_params = new URLSearchParams(query_string)
-        const countryFromParams = url_params.get('country')
-        current_client_country = countryFromParams
-    }
-    //
-    else if (isLoggedIn()) {
+    if (isLoggedIn()) {
         current_client_country = getClientResidence()
+    } else if (
+        typeof window !== 'undefined' &&
+        new URLSearchParams(window.location.search).get('country')
+    ) {
+        current_client_country = new URLSearchParams(window.location.search).get('country')
     } else {
         const [website_status] = useWebsiteStatus()
         current_client_country = website_status?.clients_country || ''
@@ -258,10 +255,10 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {pd.data.map((data, indx) => {
+                            {pd.data.map((data) => {
                                 return (
                                     <ExpandList
-                                        key={indx}
+                                        key={data.key}
                                         data={data}
                                         is_crypto={pd.is_crypto}
                                         config={crypto_config}

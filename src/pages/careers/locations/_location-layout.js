@@ -11,9 +11,10 @@ import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/careers/map.svg'
 
 const Pin = styled.img`
-    min-width: 24px;
-    height: 24px;
-    margin-right: 13px;
+    width: 12px;
+    height: 16px;
+    margin-right: 10px;
+    margin-top: 3px;
 `
 
 const StyledBackground = styled(BackgroundImage)`
@@ -204,7 +205,7 @@ const LocationCard = styled.article`
 
 const CardText = styled(Text)`
     margin-top: 8px;
-    margin-bottom: 40px;
+    margin-bottom: 37px;
     @media ${device.mobileL} {
         margin-top: 24px;
         font-size: 14px;
@@ -331,7 +332,7 @@ const MapQueryImage = styled(QueryImage)`
 `
 
 export const LocationLayout = ({ location, images }) => {
-    const { display_name } = location
+    const { display_name, map_office_name } = location
     if (!display_name) return null
 
     return (
@@ -432,7 +433,7 @@ export const LocationLayout = ({ location, images }) => {
                         >
                             <StyledDiv>
                                 <Header as="h3" type="subtitle-1">
-                                    {`Working at Deriv (${display_name})`}
+                                    {`Working at Deriv ${map_office_name}`}
                                 </Header>
                                 <CardText>{location.map_text}</CardText>
                                 <Flex jc="unset">

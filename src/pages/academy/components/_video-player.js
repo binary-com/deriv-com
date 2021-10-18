@@ -121,6 +121,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                         </StyledFlex>
                         <VidPlayer
                             controls
+                            disablePictureInPicture
                             controlsList="nodownload"
                             autoPlay
                             onClick={(event) => event.stopPropagation()}

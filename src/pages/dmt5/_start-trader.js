@@ -8,6 +8,7 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
+import { DerivStore } from 'store'
 
 const query = graphql`
     query {
@@ -21,6 +22,12 @@ const query = graphql`
             ...fadeIn
         }
         demo_step2_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step2-mobile.png" }) {
+            ...fadeIn
+        }
+        demo_step2_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step2-eu.png" }) {
+            ...fadeIn
+        }
+        demo_step2_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step2-mobile-eu.png" }) {
             ...fadeIn
         }
         demo_step3: file(relativePath: { eq: "dmt5/dmt5-demo-step3.png" }) {
@@ -45,6 +52,12 @@ const query = graphql`
             ...fadeIn
         }
         real_step3_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step3-mobile.png" }) {
+            ...fadeIn
+        }
+        real_step3_eu: file(relativePath: { eq: "dmt5/dmt5-real-step3-eu.png" }) {
+            ...fadeIn
+        }
+        real_step3_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step3-mobile-eu.png" }) {
             ...fadeIn
         }
         real_step4: file(relativePath: { eq: "dmt5/dmt5-real-step4.png" }) {
@@ -163,10 +176,13 @@ const StartTrader = () => {
     const handleLogin = () => {
         return Login.loginUrl()
     }
+
+    const { is_eu_country } = React.useContext(DerivStore)
+
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('How to get started with a DMT5 account')}
+                {localize('How to get started with a Deriv MT5 account')}
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem
@@ -184,7 +200,7 @@ const StartTrader = () => {
                     onClick={() => onTabClick('Real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real money account')}
+                        {is_eu_country ? localize('Real account') : localize('Real money account')}
                     </StyledText>
                 </TabItem>
             </Flex>
@@ -219,20 +235,35 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Add a DMT5 demo account and choose what you want to trade" />
+                                is_eu_country ? (
+                                    <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+                                ) : (
+                                    <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
+                                )
                             }
                         >
                             <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
-                                    alt="demo_step2"
-                                />
+                                {is_eu_country ? (
+                                    <QueryImage
+                                        data={
+                                            data[
+                                                is_mobile ? 'demo_step2_mobile_eu' : 'demo_step2_eu'
+                                            ]
+                                        }
+                                        alt="demo_step2_eu"
+                                    />
+                                ) : (
+                                    <QueryImage
+                                        data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
+                                        alt="demo_step2"
+                                    />
+                                )}
                             </ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser" />
+                                <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
                             }
                             item_width="36rem"
                         >
@@ -272,7 +303,11 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Create a Deriv real money account" />
+                                is_eu_country ? (
+                                    <Localize translate_text="Create a Deriv real account." />
+                                ) : (
+                                    <Localize translate_text="Create a Deriv real money account." />
+                                )
                             }
                         >
                             <ImageWrapper>
@@ -285,20 +320,35 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
+                                is_eu_country ? (
+                                    <Localize translate_text="Create a CFDs real account based on your trade preference." />
+                                ) : (
+                                    <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
+                                )
                             }
                         >
                             <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
-                                    alt="real_step3"
-                                />
+                                {is_eu_country ? (
+                                    <QueryImage
+                                        data={
+                                            data[
+                                                is_mobile ? 'real_step3_mobile_eu' : 'real_step3_eu'
+                                            ]
+                                        }
+                                        alt="real_step3"
+                                    />
+                                ) : (
+                                    <QueryImage
+                                        data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
+                                        alt="real_step3"
+                                    />
+                                )}
                             </ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser" />
+                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
                             }
                         >
                             <ImageWrapper>

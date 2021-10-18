@@ -93,13 +93,10 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
             }
         }
         vidElement.focus()
-        return document.removeEventListener('keydown', handleKeyboardEvent, false)
+        return () => document.removeEventListener('keydown', handleKeyboardEvent, false)
     }, [])
 
     const handleKeyboardEvent = (e) => {
-        if (e.code === 'Space') {
-            vidElement.paused ? vidElement.play() : vidElement.pause()
-        }
         if (e.key === 'Escape') {
             closeVideo()
         }

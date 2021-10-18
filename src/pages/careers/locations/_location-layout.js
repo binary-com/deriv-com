@@ -164,7 +164,7 @@ const ImageWrapper = styled.div`
         max-width: 100%;
         width: 100%;
         height: 100%;
-        max-height: 360px;
+        max-height: 100%;
     }
     @media ${device.tablet} {
         object-fit: cover;
@@ -203,10 +203,12 @@ const LocationCard = styled.article`
 `
 
 const CardText = styled(Text)`
-    margin-top: 1.6rem;
-    margin-bottom: 4rem;
+    margin-top: 8px;
+    margin-bottom: 40px;
     @media ${device.mobileL} {
+        margin-top: 24px;
         font-size: 14px;
+        margin-bottom: 24px;
     }
 `
 
@@ -299,7 +301,6 @@ const Fourth = styled.div`
     }
 `
 const LocationFlex = styled(Flex)`
-    max-height: 356px;
     margin: 0;
     padding: 0;
     @media ${device.tabletL} {
@@ -418,6 +419,7 @@ export const LocationLayout = ({ location, images }) => {
                                         data={images[location.map_img]}
                                         alt={location.display_name + 'map'}
                                         width="100%"
+                                        height="100%"
                                     />
                                 </LocalizedLink>
                             </ImageWrapper>

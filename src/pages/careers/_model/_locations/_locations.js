@@ -32,7 +32,7 @@ export const cyberjaya = {
     flagIcon: MalaysiaFlagIcon,
     thumbnail: 'thumbnail_cyberjaya',
     first_p:
-        "Deriv Group's headquarters is located in Cyberjaya and is home to a majority of teams such as Back-end and Front-end, IT Operations, Customer Support, Compliance, Marketing, Trading, Business Intelligence, and Human resources, to name a few. Our teams’ efforts are focused on delivering a comprehensive suite of digital trading solutions with agile customer support.",
+        "Deriv Group's headquarters is located in Cyberjaya and is home to a majority of teams such as Back-end and Front-end, IT Operations, Customer Support, Compliance, Marketing, Trading, Business Intelligence, and Human Resources, to name a few. Our teams’ efforts are focused on delivering a comprehensive suite of digital trading solutions with agile customer support.",
     first_img: 'living_in_cyberjaya',
     grid_images: ['cyberjaya_grid_1', 'cyberjaya_grid_2', 'cyberjaya_grid_3', 'cyberjaya_grid_4'],
     map: 'ChIJyTcAIli2zTERA4MWDMgk9i0',
@@ -264,7 +264,7 @@ export const guernsey = {
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
     map: 'M8p55z3Wu4EKhQ3A7',
     map_text:
-        'Our office at Guernsey focuses on compliance. A team of dedicated experts provide oversight so that Deriv offices across the world comply with legislative and regulatory requirements. With their vast knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',
+        'At Deriv (Guernsey), we study regulatory landscapes in different Deriv jurisdictions to ensure the right thing is done at all times. We seek self-motivation, attention to detail, and a strong interest in law. Deriv (Guernsey) gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
     address: address_guernsey,
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',

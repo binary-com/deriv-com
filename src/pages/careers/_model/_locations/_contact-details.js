@@ -27,8 +27,8 @@ const address_labuan = [
 ]
 
 const address_malta = [
-    'Lev e l 3, W   Business Centre,',
-    'Triq Dun Karm B ir kirkara,',
+    'Level 3, W   Business Centre,',
+    'Triq Dun Karm Birkirkara,',
     'BKR9033 Malta',
 ]
 

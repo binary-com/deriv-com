@@ -93,13 +93,13 @@ const getClientResidence = () => {
 
 const getClientCountry = () => {
     let current_client_country = ''
-    if (isLoggedIn()) {
-        current_client_country = getClientResidence()
-    } else if (
+    if (
         typeof window !== 'undefined' &&
         new URLSearchParams(window.location.search).get('country')
     ) {
         current_client_country = new URLSearchParams(window.location.search).get('country')
+    } else if (isLoggedIn()) {
+        current_client_country = getClientResidence()
     } else {
         const [website_status] = useWebsiteStatus()
         current_client_country = website_status?.clients_country || ''

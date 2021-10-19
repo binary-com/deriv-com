@@ -73,7 +73,7 @@ const DMT5 = () => {
                 meta_attributes={meta_attributes}
             />
             <DHero
-                title={localize('Deriv MetaTrader 5 (DMT5)')}
+                title={localize('Deriv MT5 (DMT5)')}
                 content={<Localize translate_text="The all-in-one CFD trading platform" />}
                 join_us_for_free
                 Logo={dmt5_logo}

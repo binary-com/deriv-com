@@ -89,6 +89,7 @@ const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
+
 const StyledDiv = styled.div`
     flex-direction: column;
     width: 100%;

@@ -6,33 +6,33 @@ import {
     OurValues,
     EmployeeTestimonial,
     OurHiringProcess,
+    JoinYourTeam,
+    BeSquareBanner,
 } from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const meta_attributes = {
-    og_title: localize('Careers | Join and grow with us | Deriv'),
-    og_description: localize(
-        'Looking for a great place to work? Deriv is looking for smart, talented, and dedicated people who are up for a challenging and rewarding career.',
-    ),
+    og_title: 'Deriv Careers | Join and grow with us',
+    og_description: 'Join our incredible team where your growth is just as important as ours.',
 }
 
 const Careers = () => (
-    <Layout type="careers" margin_top={7}>
+    <Layout type="careers">
         <SEO
-            title={localize('Careers | Join and grow with us | Deriv')}
-            description={localize(
-                'Looking for a great place to work? Deriv is looking for smart, talented, and dedicated people who are up for a challenging and rewarding career.',
-            )}
+            title={'Deriv Careers | Join and grow with us'}
+            description={'Join our incredible team where your growth is just as important as ours.'}
             meta_attributes={meta_attributes}
         />
         <Hero />
         <WhoWeLookFor />
-        <LifeAtDerivCarousel />
+        <JoinYourTeam />
         <OurValues />
+        <LifeAtDerivCarousel />
         <EmployeeTestimonial />
         <OurHiringProcess />
+        <BeSquareBanner />
     </Layout>
 )
 

@@ -99,7 +99,7 @@ const MarginCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
+                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
                     )}
                 </SectionSubtitle>
                 <ContentContainer mt="8rem" mb="4rem">
@@ -379,7 +379,7 @@ const MarginCalculator = () => {
                             >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/margin/">
+                            <StyledLinkButton secondary="true" to="/trade-types/cfds/">
                                 {localize('Learn more about margin')}
                             </StyledLinkButton>
                         </LinkWrapper>

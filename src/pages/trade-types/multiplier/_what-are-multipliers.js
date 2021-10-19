@@ -5,6 +5,7 @@ import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
 import CFDs from './_cfds.js'
 import SyntheticIndices from './_synthetic-indices.js'
+import Cryptocurrencies from './_cryptocurrencies.js'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -386,6 +387,7 @@ const WhatAreOptions = () => {
                 display_title={localize('Instruments available to trade on Multipliers')}
                 Forex={CFDs}
                 SyntheticIndices={SyntheticIndices}
+                Cryptocurrencies={Cryptocurrencies}
             />
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
@@ -448,12 +450,18 @@ const WhatAreOptions = () => {
                                 <img src={Seven} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Trade 24/7, 365 days a year')}
+                                {is_eu_country
+                                    ? localize('Trade anytime')
+                                    : localize('Trade 24/7, 365 days a year')}
                             </Text>
                             <Text>
-                                {localize(
-                                    'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
-                                )}
+                                {is_eu_country
+                                    ? localize(
+                                          'Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays.',
+                                      )
+                                    : localize(
+                                          'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
+                                      )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>

@@ -51,7 +51,7 @@ const AgreementLabel = ({
                     components={[
                         <LocalizedLinkText
                             key={0}
-                            type={link_path}
+                            type="terms_and_conditions/#clients"
                             external="true"
                             rel="noopener noreferrer"
                             size="14px"

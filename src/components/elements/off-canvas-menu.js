@@ -204,7 +204,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 onClick={handleArrowClick}
@@ -472,7 +472,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Regulatory information')}</span>
                         </StyledLink>
-                        <StyledLink to="/terms-and-conditions/" onClick={handleArrowClick}>
+                        <StyledLink to="/terms-and-conditions/#clients" onClick={handleArrowClick}>
                             <div>
                                 <img src={Terms} alt="" width="24" height="24" />
                             </div>

@@ -230,7 +230,7 @@ const YourComponent = () => {
             components={[
                 <LocalizedLinkText
                     key={0}
-                    to="/terms-and-conditions/"
+                    to="/terms-and-conditions/#clients"
                     color="red"
                     weight="bold"
                 />,

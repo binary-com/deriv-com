@@ -147,6 +147,10 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                     name: 'referrer',
                     content: 'origin',
                 },
+                {
+                    name: 'version',
+                    content: process.env.GATSBY_DERIV_VERSION,
+                },
                 ...(no_index || no_index_staging || is_ach_page
                     ? [
                           {

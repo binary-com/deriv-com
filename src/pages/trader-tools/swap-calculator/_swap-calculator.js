@@ -112,7 +112,7 @@ const SwapCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
+                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5 (DMT5).',
                     )}
                 </SectionSubtitle>
 
@@ -447,10 +447,7 @@ const SwapCalculator = () => {
                                         </StyledLinkButton>
                                     }
                                     {
-                                        <StyledLinkButton
-                                            secondary="true"
-                                            to="/trade-types/margin#swap-policy/"
-                                        >
+                                        <StyledLinkButton secondary="true" to="/trade-types/cfds/">
                                             {localize('Learn more about swap')}
                                         </StyledLinkButton>
                                     }
@@ -777,10 +774,7 @@ const SwapCalculator = () => {
                                     >
                                         {localize('Go to DMT5 dashboard')}
                                     </StyledLinkButton>
-                                    <StyledLinkButton
-                                        secondary="true"
-                                        to="/trade-types/margin#swap-policy/"
-                                    >
+                                    <StyledLinkButton secondary="true" to="/trade-types/cfds/">
                                         {localize('Learn more about swap')}
                                     </StyledLinkButton>
                                 </LinkWrapper>

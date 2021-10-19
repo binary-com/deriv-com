@@ -78,6 +78,17 @@ export const continuous_indices = [
 
 export const volatility_indices = continuous_indices
 
+export const volatility_indices_eu = [
+    {
+        src: icons.VINDEXIC200,
+        text: <Localize translate_text="Volatility 200 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEXIC300,
+        text: <Localize translate_text="Volatility 300 (1s) Index" />,
+    },
+]
+
 export const crash_boom = [
     {
         src: icons.BOOM1000,
@@ -94,6 +105,17 @@ export const crash_boom = [
     {
         src: icons.CRASH500,
         text: <Localize translate_text="Crash 500 Index" />,
+    },
+]
+
+export const crash_boom_eu = [
+    {
+        src: icons.VCRASHIC300,
+        text: <Localize translate_text="Crash 300 Index" />,
+    },
+    {
+        src: icons.VBOOMIC300,
+        text: <Localize translate_text="Boom 300 Index" />,
     },
 ]
 
@@ -670,49 +692,48 @@ export const american_stocks = [
     },
 ]
 
-// TODO: Can be deleted in the future if the full list of cryptocurrencies are not needed for either margin/multipliers
-// export const cryptocurrencies = [
-//     {
-//         src: icons.BTC,
-//         text: <Localize translate_text="Bitcoin" />,
-//     },
-//     {
-//         src: icons.BCH,
-//         text: <Localize translate_text="Bitcoin Cash" />,
-//     },
-//     {
-//         src: icons.ETH,
-//         text: <Localize translate_text="Ethereum" />,
-//     },
-//     {
-//         src: icons.LTC,
-//         text: <Localize translate_text="Litecoin" />,
-//     },
-//     {
-//         src: icons.EOS,
-//         text: <Localize translate_text="EOS" />,
-//     },
-//     {
-//         src: icons.BNB,
-//         text: <Localize translate_text="Binance Coin" />,
-//     },
-//     {
-//         src: icons.DASH,
-//         text: <Localize translate_text="DASH" />,
-//     },
-//     {
-//         src: icons.XRP,
-//         text: <Localize translate_text="Ripple" />,
-//     },
-//     {
-//         src: icons.MNR,
-//         text: <Localize translate_text="Monero" />,
-//     },
-//     {
-//         src: icons.ZEC,
-//         text: <Localize translate_text="ZCash" />,
-//     },
-// ]
+export const cryptocurrencies_trade_type = [
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="Bitcoin" />,
+    },
+    {
+        src: icons.BCH,
+        text: <Localize translate_text="Bitcoin Cash" />,
+    },
+    {
+        src: icons.ETH,
+        text: <Localize translate_text="Ethereum" />,
+    },
+    {
+        src: icons.LTC,
+        text: <Localize translate_text="Litecoin" />,
+    },
+    {
+        src: icons.EOS,
+        text: <Localize translate_text="EOS" />,
+    },
+    {
+        src: icons.BNB,
+        text: <Localize translate_text="Binance Coin" />,
+    },
+    {
+        src: icons.DASH,
+        text: <Localize translate_text="DASH" />,
+    },
+    {
+        src: icons.XRP,
+        text: <Localize translate_text="Ripple" />,
+    },
+    {
+        src: icons.MNR,
+        text: <Localize translate_text="Monero" />,
+    },
+    {
+        src: icons.ZEC,
+        text: <Localize translate_text="ZCash" />,
+    },
+]
 
 export const cryptocurrencies_cfds = [
     {
@@ -818,5 +839,27 @@ export const energy = [
     {
         src: icons.OILUSD,
         text: <Localize translate_text="Oil/USD" />,
+    },
+]
+
+export const volatility_indices_trade_type_eu = [
+    {
+        src: icons.VOLATILITY200EU,
+        text: <Localize translate_text="Volatility 200 Index" />,
+    },
+    {
+        src: icons.VOLATILITY300EU,
+        text: <Localize translate_text="Volatility 300 Index" />,
+    },
+]
+
+export const crash_boom_trade_type_eu = [
+    {
+        src: icons.CRASH300EU,
+        text: <Localize translate_text="Crash 300 Index" />,
+    },
+    {
+        src: icons.BOOM300EU,
+        text: <Localize translate_text="Boom 300 Index " />,
     },
 ]

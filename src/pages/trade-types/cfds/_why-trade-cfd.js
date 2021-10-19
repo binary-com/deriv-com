@@ -41,7 +41,7 @@ const WhyTradeCFD = () => {
                     <WhyTradeItem>
                         <img src={SyntheticIndices} alt="synthetic indices" />
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
-                            {localize('All favourite markets')}
+                            {localize('All your favourite markets')}
                         </Text>
                         <Text mb="4rem">
                             {is_eu_country

@@ -205,6 +205,8 @@ export const articles = [
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Accounts" />,
                 label: 'differences-of-dmt5-accounts',
+                title_eu: <Localize translate_text="What is the CFDs account?" />,
+                label_eu: 'what-is-cfds-account',
             },
             {
                 title: (

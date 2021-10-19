@@ -28,6 +28,7 @@ export const cyberjaya = {
     name: 'cyberjaya',
     link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
+    map_office_name: '(Cyberjaya)',
     country: 'Malaysia',
     flagIcon: MalaysiaFlagIcon,
     thumbnail: 'thumbnail_cyberjaya',
@@ -247,7 +248,7 @@ export const london = {
     link: '/careers/locations/london/',
     display_name: 'London',
     map_office_name: '(UK)',
-    country: 'UK',
+    country: 'United Kingdom',
     flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_london',
     first_p:

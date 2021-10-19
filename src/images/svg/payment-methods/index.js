@@ -18,6 +18,7 @@ import Webmoney from './payment-webmoney.svg'
 import Paysafecard from './payment-paysafe.svg'
 import Paylivre from './payment-paylivre.svg'
 import Jeton from './payment-jeton.svg'
+import Sticpay from './payment-sticpay.svg'
 ///
 import Airtm from './payment-airtm.svg'
 import Bitcoin from './payment-bitcoin.svg'
@@ -50,6 +51,7 @@ export default {
     Paysafecard,
     Paylivre,
     Jeton,
+    Sticpay,
     Airtm,
     Bitcoin,
     Banxa,

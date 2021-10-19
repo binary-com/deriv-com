@@ -90,7 +90,7 @@ const DisclaimerSection = () => {
                     </DisclaimerParagraph>
                     <DisclaimerParagraph>
                         <Localize
-                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                             components={[
                                 <StaticAsset
                                     key={0}
@@ -105,11 +105,6 @@ const DisclaimerSection = () => {
                 <DisclaimerParagraph>
                     {localize(
                         "This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
-                    )}
-                </DisclaimerParagraph>
-                <DisclaimerParagraph>
-                    {localize(
-                        'Trading options may not be suitable for everyone, so please ensure that you fully understand the risks involved.',
                     )}
                 </DisclaimerParagraph>
                 <RiskWarning>
@@ -134,7 +129,7 @@ const DisclaimerSection = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent: 63 }}
+                                    values={{ loss_percent: 66 }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
@@ -164,7 +159,7 @@ const DisclaimerSection = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent: 63 }}
+                                    values={{ loss_percent: 66 }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>

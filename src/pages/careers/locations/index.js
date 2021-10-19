@@ -96,6 +96,7 @@ const StyledDiv = styled.div`
     min-height: 140px;
     padding: 24px 24px 24px 25px;
 `
+
 const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>

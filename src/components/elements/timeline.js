@@ -82,12 +82,16 @@ export const TimelineTick = ({ pb, color, children, ...props }) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
-                <FlexWrapper key={idx} is_border={false} pb={pb}>
-                    <OvalWrapper color="transparent">
-                        <Checkmark color={color}></Checkmark>
-                    </OvalWrapper>
-                    <ContentWrapper>{child}</ContentWrapper>
-                </FlexWrapper>
+                <>
+                    {child && (
+                        <FlexWrapper key={idx} is_border={false} pb={pb}>
+                            <OvalWrapper color="transparent">
+                                <Checkmark color={color}></Checkmark>
+                            </OvalWrapper>
+                            <ContentWrapper>{child}</ContentWrapper>
+                        </FlexWrapper>
+                    )}
+                </>
             ))}
         </div>
     )

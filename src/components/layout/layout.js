@@ -94,7 +94,7 @@ export const CFDWarning = ({ is_ppc }) => {
                     <CFDText>
                         <Localize
                             translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>{{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                            values={{ loss_percent: 63 }}
+                            values={{ loss_percent: 66 }}
                             components={[<strong key={0} />]}
                         />
                     </CFDText>

@@ -89,11 +89,17 @@ const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
+const StyledDiv = styled.div`
+    flex-direction: column;
+    width: 100%;
+    min-height: 140px;
+    padding: 24px 24px 24px 25px;
+`
 const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
-            <div style={{ padding: '32px 32px 22px 32px' }}>
+            <StyledDiv>
                 <Header as="h5" size="var(--text-size-sm)">
                     {city_name}
                 </Header>
@@ -101,10 +107,10 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
                     <StyledImg src={Icon} alt="" />
                     <StyledText weight="bold">{country_name}</StyledText>
                 </Flex>
-                <Flex ai="center" jc="flex-end">
+                <Flex ai="center" jc="flex-end" width="100%">
                     <ChevronRight />
                 </Flex>
-            </div>
+            </StyledDiv>
         </CountryCardWrapper>
     )
 }

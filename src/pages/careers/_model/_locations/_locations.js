@@ -28,6 +28,7 @@ export const cyberjaya = {
     name: 'cyberjaya',
     link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
+    map_office_name: '(Cyberjaya)',
     country: 'Malaysia',
     flagIcon: MalaysiaFlagIcon,
     thumbnail: 'thumbnail_cyberjaya',

@@ -248,7 +248,7 @@ export const london = {
     link: '/careers/locations/london/',
     display_name: 'London',
     map_office_name: '(UK)',
-    country: 'UK',
+    country: 'United Kingdom',
     flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_london',
     first_p:

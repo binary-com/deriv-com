@@ -181,9 +181,10 @@ const ImageWrapper = styled.div`
 
 const StyledImageWrapper = styled.div`
     max-width: 888px;
-    width: 100%;
+    width: 59%;
 
     @media ${device.tablet} {
+        width: 100%;
         height: 100%;
         max-width: 100%;
         object-fit: cover;

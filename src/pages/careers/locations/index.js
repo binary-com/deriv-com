@@ -3,29 +3,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyledCard } from '../_layout-components/_team-card'
-import {
-    cyberjaya,
-    malta,
-    dubai,
-    labuan,
-    asuncion,
-    ipoh,
-    melaka,
-    cyprus,
-    rwanda,
-    minsk,
-} from '../_model/_locations/_locations'
+import { all_offices } from '../_model/_locations/_locations'
+import device from 'themes/device'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
-import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
-import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
-import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
-import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg'
-import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
-import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
-import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
 const meta_attributes = {
@@ -43,20 +26,32 @@ const ChevronRight = styled(Chevron)`
 
 const BackDrop = styled.section`
     background-color: var(--color-black);
-    padding: 12rem 0;
+    padding: 120px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    @media ${device.mobile} {
+        padding: 80px 0;
+        align-items: center;
+    }
+
     ${Header} {
-        padding-bottom: 4rem;
+        padding-bottom: 16px;
     }
     ${Text} {
         max-width: 79.2rem;
         text-align: center;
     }
 `
-
+const StyledSectionContainer = styled(SectionContainer)`
+    margin: 0 16px;
+    max-width: 100%;
+    @media ${device.tablet} {
+        padding: 40px 0;
+        margin: 0;
+    }
+`
 const StyledImg = styled.img`
     margin-right: 8px;
 `
@@ -78,32 +73,35 @@ const Hero = () => (
 )
 
 const CountryCardWrapper = styled(StyledCard)`
-    max-width: 38.4rem;
     display: flex;
     flex-direction: column;
     text-decoration: none;
+    margin: 0;
 
     svg {
         margin-right: 8px;
     }
 `
+const StyledText = styled(Text)`
+    font-size: 16px;
 
+    @media ${device.laptop} {
+        font-size: 14px;
+    }
+`
 const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
-            <div style={{ padding: '32px' }}>
+            <div style={{ padding: '32px 32px 22px 32px' }}>
                 <Header as="h5" size="var(--text-size-sm)">
                     {city_name}
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
                     <StyledImg src={Icon} alt="" />
-                    <Text weight="bold">{country_name}</Text>
+                    <StyledText weight="bold">{country_name}</StyledText>
                 </Flex>
                 <Flex ai="center" jc="flex-end">
-                    {/* <Text>
-                        {open_positions} {'open positions'}
-                    </Text> */}
                     <ChevronRight />
                 </Flex>
             </div>
@@ -114,7 +112,7 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
 CountryCard.propTypes = {
     city_name: PropTypes.string,
     country_name: PropTypes.string,
-    Icon: PropTypes.func,
+    Icon: PropTypes.string,
     img_data: PropTypes.object,
     link: PropTypes.string,
     open_positions: PropTypes.number,
@@ -152,6 +150,15 @@ const query = graphql`
         thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.jpg" }) {
             ...fadeIn
         }
+        thumbnail_paris: file(relativePath: { eq: "careers/thumbnail_paris.jpg" }) {
+            ...fadeIn
+        }
+        thumbnail_london: file(relativePath: { eq: "careers/thumbnail_london.jpg" }) {
+            ...fadeIn
+        }
+        thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.jpg" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -168,93 +175,39 @@ const Locations = () => {
                 meta_attributes={meta_attributes}
             />
             <Hero />
-            <Container direction="column">
-                <SectionContainer>
-                    <Header as="h2" align="center" size={'var(--text-size-header-1)'}>
-                        Explore our locations
-                    </Header>
-                    <CssGrid
-                        columns="repeat(3, 38.4rem)"
-                        row_gap="6rem"
-                        column_gap="2.4rem"
-                        laptop_columns="repeat(2, 38.4rem)"
-                        tablet_columns="repeat(2, 38.4rem)"
-                        mobile_columns="38.4rem"
-                        style={{ marginTop: '8rem', justifyContent: 'center' }}
-                    >
+            <StyledSectionContainer direction="column" padding="80px 16px">
+                <Header
+                    as="h2"
+                    align="center"
+                    padding="0 0 35px"
+                    size={'var(--text-size-header-1)'}
+                >
+                    Explore our locations
+                </Header>
+                <CssGrid
+                    columns="repeat(3, 384px)"
+                    row_gap="40px"
+                    column_gap="24px"
+                    laptop_columns="repeat(3, minmax(280px, 384px))"
+                    laptop_margin="0 16px"
+                    tablet_columns="repeat(2, 1fr)"
+                    mobile_columns="minmax(300px, 384px)"
+                    mobile_row_gap="37px"
+                    style={{ marginTop: '0rem', justifyContent: 'center' }}
+                    margin="0 16px"
+                >
+                    {all_offices.map((office) => (
                         <CountryCard
-                            Icon={MaltaFlagIcon}
-                            img_data={images[malta.thumbnail]}
-                            country_name={malta.country}
-                            city_name={malta.display_name}
-                            link={malta.link}
+                            key={office.name}
+                            Icon={office.flagIcon}
+                            img_data={images[office.thumbnail]}
+                            country_name={office.country}
+                            city_name={office.display_name}
+                            link={office.link}
                         />
-                        <CountryCard
-                            Icon={UAEFlagIcon}
-                            img_data={images[dubai.thumbnail]}
-                            country_name={dubai.country}
-                            city_name={dubai.display_name}
-                            link={dubai.link}
-                        />
-                        <CountryCard
-                            Icon={MalaysiaFlagIcon}
-                            img_data={images[cyberjaya.thumbnail]}
-                            country_name={cyberjaya.country}
-                            city_name={cyberjaya.display_name}
-                            link={cyberjaya.link}
-                        />
-                        <CountryCard
-                            Icon={MalaysiaFlagIcon}
-                            img_data={images[labuan.thumbnail]}
-                            country_name={labuan.country}
-                            city_name={labuan.display_name}
-                            link={labuan.link}
-                        />
-                        <CountryCard
-                            Icon={MalaysiaFlagIcon}
-                            img_data={images[ipoh.thumbnail]}
-                            country_name={ipoh.country}
-                            city_name={ipoh.display_name}
-                            link={ipoh.link}
-                        />
-                        <CountryCard
-                            Icon={MalaysiaFlagIcon}
-                            img_data={images[melaka.thumbnail]}
-                            country_name={melaka.country}
-                            city_name={melaka.display_name}
-                            link={melaka.link}
-                        />
-                        <CountryCard
-                            Icon={ParaguayFlagIcon}
-                            img_data={images[asuncion.thumbnail]}
-                            country_name={asuncion.country}
-                            city_name={asuncion.display_name}
-                            link={asuncion.link}
-                        />
-                        <CountryCard
-                            Icon={CyprusFlagIcon}
-                            img_data={images[cyprus.thumbnail]}
-                            country_name={cyprus.country}
-                            city_name={'Limassol'}
-                            link={cyprus.link}
-                        />
-                        <CountryCard
-                            Icon={RwandaFlagIcon}
-                            img_data={images[rwanda.thumbnail]}
-                            country_name={rwanda.country}
-                            city_name={'Kigali'}
-                            link={rwanda.link}
-                        />
-                        <CountryCard
-                            Icon={BelarusFlagIcon}
-                            img_data={images[minsk.thumbnail]}
-                            country_name={minsk.country}
-                            city_name={'Minsk'}
-                            link={minsk.link}
-                        />
-                    </CssGrid>
-                </SectionContainer>
-            </Container>
+                    ))}
+                </CssGrid>
+            </StyledSectionContainer>
         </Layout>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import ExpandList from './_expanded-list'
@@ -141,9 +141,13 @@ const getPaymentsBasedOnCountry = (payment_data, current_client_country) => {
 const DisplayAccordion = (locale) => {
     const { crypto_config } = React.useContext(DerivStore)
     const current_client_country = getClientCountry()
+    // eslint-disable-next-line no-console
     console.log(current_client_country)
-    const payment_list = getPaymentsBasedOnCountry(payment_data, current_client_country)
-    if (!payment_list.length) {
+    const [show_table, setShowTable] = useState(false)
+
+    const paymentsBasedOnCountry = getPaymentsBasedOnCountry(payment_data, current_client_country)
+
+    if (!paymentsBasedOnCountry.length) {
         return (
             <>
                 <BoldText>
@@ -152,40 +156,49 @@ const DisplayAccordion = (locale) => {
             </>
         )
     }
-    return (
-        <Accordion has_single_state>
-            {payment_list.map((pd, idx) => {
-                return (
-                    <AccordionItem
-                        key={idx}
-                        content_style={{
-                            background: 'var(--color-white)',
-                            boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-                        }}
-                        header_style={{
-                            borderRadius: '6px',
-                        }}
-                        style={{
-                            padding: '2.2rem 4.8rem',
-                            position: 'relative',
-                            background: 'var(--color-white)',
-                            paddingBottom: pd.note ? '5rem' : '2.2rem',
-                        }}
-                        parent_style={{
-                            marginBottom: '2.4rem',
-                        }}
-                        header={pd.name}
-                    >
-                        <DisplayAccordianItem
-                            pd={pd}
-                            crypto_config={crypto_config}
-                            locale={locale}
-                        />
-                    </AccordionItem>
-                )
-            })}
-        </Accordion>
-    )
+
+    useEffect(() => {
+        setShowTable(true)
+    }, [paymentsBasedOnCountry])
+
+    if (show_table) {
+        return (
+            <Accordion has_single_state>
+                {paymentsBasedOnCountry.map((pd, idx) => {
+                    return (
+                        <AccordionItem
+                            key={idx}
+                            content_style={{
+                                background: 'var(--color-white)',
+                                boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
+                            }}
+                            header_style={{
+                                borderRadius: '6px',
+                            }}
+                            style={{
+                                padding: '2.2rem 4.8rem',
+                                position: 'relative',
+                                background: 'var(--color-white)',
+                                paddingBottom: pd.note ? '5rem' : '2.2rem',
+                            }}
+                            parent_style={{
+                                marginBottom: '2.4rem',
+                            }}
+                            header={pd.name}
+                        >
+                            <DisplayAccordianItem
+                                pd={pd}
+                                crypto_config={crypto_config}
+                                locale={locale}
+                            />
+                        </AccordionItem>
+                    )
+                })}
+            </Accordion>
+        )
+    }
+
+    return <></>
 }
 
 DisplayAccordion.propTypes = {

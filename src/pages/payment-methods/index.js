@@ -104,7 +104,7 @@ const getClientCountry = () => {
         const [website_status] = useWebsiteStatus()
         current_client_country = website_status?.clients_country || ''
     }
-    return current_client_country
+    return current_client_country.toLowerCase()
 }
 const getPaymentsBasedOnCountry = (payment_data, current_client_country) => {
     const payments_data_array = payment_data.map((category) => {

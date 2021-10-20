@@ -4,7 +4,7 @@ import { besquare_signup_url } from 'common/constants'
 import { localize } from 'components/localization'
 import BeSquareLogo from 'images/svg/be-square/be-square-logo.svg'
 
-const be_square_apply = false
+const hasApplyButton = false
 
 const BeSquareNav = () => (
     <Section>
@@ -14,7 +14,7 @@ const BeSquareNav = () => (
                     <img src={BeSquareLogo} width="278" height="27" />
                 </StyledLogoLink>
             </LogoWrapper>
-            {be_square_apply && (
+            {hasApplyButton && (
                 <ButtonWrapper
                     secondary="true"
                     to={besquare_signup_url}

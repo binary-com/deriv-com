@@ -50,11 +50,11 @@ const BeSquareFooter = () => {
             link_to: 'https://twitter.com/besquarebyderiv',
         },
     ]
-    const besquare_banner = false
+    const hasBesquareBanner = false
     const data = useStaticQuery(query)
     return (
         <React.Fragment>
-            {besquare_banner && (
+            {hasBesquareBanner && (
                 <Section color="black">
                     <ContentContainer>
                         <ImageWrapper

@@ -128,8 +128,8 @@ const career_data = {
                 },
                 {
                     title: 'Security Engineer',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000005397347',
+                    location: 'Cyberjaya, Malaysia',
+                    id: '590522000000554001',
                 },
                 {
                     title: 'Database Administrator',
@@ -178,8 +178,8 @@ const career_data = {
                 },
                 {
                     title: 'Client Support Executive',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000001477280',
+                    location: 'Birkirkara, Malta',
+                    id: '590522000000468342',
                 },
                 {
                     title: 'Client Support Executive',

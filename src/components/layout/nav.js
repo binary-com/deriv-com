@@ -94,7 +94,7 @@ export const LogoLink = styled(LocalizedLink)`
     }
 `
 
-const Line = styled.div`
+export const Line = styled.div`
     width: 1px;
     height: 28px;
     margin-right: 8px;
@@ -496,6 +496,8 @@ const NavDesktop = ({
     const [show_button, showButton, hideButton] = moveButton()
     const current_page = useActiveLinkState('main')
 
+    const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
+
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -611,10 +613,7 @@ const NavDesktop = ({
                                 <span>{localize('Log in')}</span>
                             </NowrapButton>
                         )}
-                        <LocalizedLink
-                            id="dm-signup"
-                            to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}
-                        >
+                        <LocalizedLink id="dm-signup" to={signup_url}>
                             {!hide_signup_login && (
                                 <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
                                     <span>{localize('Create free demo account')}</span>

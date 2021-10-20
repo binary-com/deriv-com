@@ -7,7 +7,6 @@ import {
     EmployeeTestimonial,
     OurHiringProcess,
     JoinYourTeam,
-    BeSquareBanner,
 } from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -32,7 +31,7 @@ const Careers = () => (
         <LifeAtDerivCarousel />
         <EmployeeTestimonial />
         <OurHiringProcess />
-        <BeSquareBanner />
+        {/* <BeSquareBanner /> */}
     </Layout>
 )
 

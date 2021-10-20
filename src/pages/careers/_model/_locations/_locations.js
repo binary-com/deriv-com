@@ -284,12 +284,12 @@ export const guernsey = {
     has_iframe: false,
 }
 export const all_offices = [
-    london,
+    // london,
     dubai,
-    paris,
+    // paris,
     malta,
     cyprus,
-    guernsey,
+    // guernsey,
     cyberjaya,
     labuan,
     ipoh,
@@ -309,7 +309,7 @@ export const locations = {
     cyprus: `${cyprus.display_name}, ${cyprus.country}`,
     rwanda: `${rwanda.display_name}, ${rwanda.country}`,
     belarus: `${minsk.display_name}, ${minsk.country}`,
-    france: `${paris.display_name}, ${paris.country}`,
-    uk: `${london.display_name}, ${london.country}`,
-    guernsey: `${guernsey.display_name}, ${guernsey.country}`,
+    // france: `${paris.display_name}, ${paris.country}`,
+    // uk: `${london.display_name}, ${london.country}`,
+    // guernsey: `${guernsey.display_name}, ${guernsey.country}`,
 }

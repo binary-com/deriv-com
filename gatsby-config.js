@@ -76,7 +76,7 @@ module.exports = {
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers|besquare|livechat|blog|academy/
+                        const ignore_localized_regex = /careers|besquare|livechat|academy/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)

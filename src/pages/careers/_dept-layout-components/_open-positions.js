@@ -21,7 +21,7 @@ const PositionLink = styled(LocalizedLink)`
 const JobWrapper = styled.div`
     border-bottom: 1px solid #f2f3f4;
     display: grid;
-    grid-template-columns: 2fr 5fr auto;
+    grid-template-columns: 3fr 5fr auto;
     padding: 24px 35px 24px 18px;
 
     @media ${device.tablet} {

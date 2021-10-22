@@ -226,9 +226,6 @@ export const SocialWrapper = styled.div`
     }
 `
 
-export const StyledGamstop = styled.img`
-    margin-right: 2.4rem;
-`
 export const StyledCoatArms = styled.div`
     margin-right: 2.4rem;
 `

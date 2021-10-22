@@ -16,7 +16,7 @@ import { localize } from 'components/localization'
 
 const query = graphql`
     query {
-        dbot: file(relativePath: { eq: "interim-dbot-bg.png" }) {
+        dbot: file(relativePath: { eq: "interim/interim-dbot-bg.png" }) {
             ...fadeIn
         }
     }

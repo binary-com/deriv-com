@@ -60,6 +60,7 @@ const Everything = () => {
                                     translate_text="Just log in with your <0>Binary.com</0> credentials and start trading right away."
                                     components={[
                                         <LocalizedLinkText
+                                            id="dm-binary-login-link-2"
                                             key={0}
                                             external="true"
                                             weight="bold"
@@ -113,7 +114,7 @@ const Everything = () => {
                             </Header>
                             <Text>
                                 {localize(
-                                    'Trade the way you like on the Deriv MetaTrader 5 (DMT5), DTrader, DBot — and the classic SmartTrader.',
+                                    'Trade the way you like on the Deriv MT5 (DMT5), DTrader, DBot — and the classic SmartTrader.',
                                 )}
                             </Text>
                         </ResponsiveBox>

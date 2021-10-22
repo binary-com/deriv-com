@@ -137,6 +137,7 @@ const DerivIBProgramme = () => {
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader
+                            id="dm-affiliate-contact-us"
                             as="h4"
                             type="sub-section-title"
                             align="center"
@@ -313,15 +314,10 @@ const ib_dmt5_financial = {
                     ],
                 },
                 {
-                    title: (
-                        <Localize
-                            key={0}
-                            translate_text="Commission per lot (1 standard forex lot is 100k units)"
-                        />
-                    ),
+                    title: <Localize key={0} translate_text="Commission per lot" />,
                     list: [
-                        <Localize key={1} translate_text="5" />,
-                        <Localize key={2} translate_text="5" />,
+                        <Localize key={1} translate_text="USD 2" />,
+                        <Localize key={2} translate_text="USD 4" />,
                     ],
                 },
             ],

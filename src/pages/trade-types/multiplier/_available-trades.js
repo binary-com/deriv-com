@@ -6,8 +6,9 @@ import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 //SVG
-import ForexIcon from 'images/svg/market-forex.svg'
-import SyntheticIcon from 'images/svg/market-synthetic-indices.svg'
+import ForexIcon from 'images/svg/trade-types/market-forex.svg'
+import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
+import CryptocurrencyIcon from 'images/svg/markets/cryptocurrencies.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -56,7 +57,6 @@ const CardWrapper = styled(Flex)`
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 36rem;
     min-height: 7.72rem;
     height: auto;
     padding: 0;
@@ -65,6 +65,15 @@ const CardContainer = styled(Flex)`
     z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
     padding-right: 5rem;
 
+    :first-child {
+        width: 25%;
+    }
+    :nth-child(2) {
+        width: 35%;
+    }
+    :last-child {
+        width: 40%;
+    }
     ${Flex} {
         padding: 2.71rem 0 0 3.2rem;
 
@@ -72,18 +81,19 @@ const CardContainer = styled(Flex)`
             width: 32px;
             height: 32px;
             margin-right: 1.6rem;
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0')};
+            display: ${(props) => (props.active_tab === props.name ? 'block' : 'none')};
         }
         h4 {
             color: ${(props) =>
                 props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
+            margin-left: ${(props) => (props.active_tab === props.name ? '0' : '10px')};
         }
         @media ${device.tabletL} {
-            width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 44px 0;
+            padding: 10px 28px 0 8px;
+            width: fit-content;
 
             img {
                 width: 16px;
@@ -117,9 +127,20 @@ const CardContainer = styled(Flex)`
     }
     @media ${device.tabletL} {
         width: 100%;
-        height: 6rem;
+        height: 48px;
         min-width: unset;
+        min-height: unset;
         padding-right: 0;
+
+        :first-child {
+            width: 90px;
+        }
+        :nth-child(2) {
+            width: fit-content;
+        }
+        :last-child {
+            width: fit-content;
+        }
     }
 `
 const TabCFDIcon = styled.img`
@@ -169,6 +190,14 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
                 {active_tab === 'Synthetic Indices' && (
                     <TabOptionIcon src={SyntheticIcon} alt="" name={name} active_tab={active_tab} />
                 )}
+                {active_tab === 'Cryptocurrencies' && (
+                    <TabOptionIcon
+                        src={CryptocurrencyIcon}
+                        alt=""
+                        name={name}
+                        active_tab={active_tab}
+                    />
+                )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}
                 </CardHeader>
@@ -193,7 +222,7 @@ class AvailableTrades extends React.Component {
         this.setState({ active_tab: new_tab })
     }
     render() {
-        const { display_title, Forex, SyntheticIndices } = this.props
+        const { display_title, Forex, SyntheticIndices, Cryptocurrencies } = this.props
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center" as="h2">
@@ -217,10 +246,19 @@ class AvailableTrades extends React.Component {
                                 active_tab={this.state.active_tab}
                             />
                         )}
+                        {Cryptocurrencies && (
+                            <Card
+                                name="Cryptocurrencies"
+                                display_name={<Localize translate_text="Cryptocurrencies" />}
+                                onTabChange={() => this.handleTabChange('Cryptocurrencies')}
+                                active_tab={this.state.active_tab}
+                            />
+                        )}
                     </CardWrapper>
                     <ContentWrapper>
                         {this.state.active_tab === 'Forex' && <Forex />}
                         {this.state.active_tab === 'Synthetic Indices' && <SyntheticIndices />}
+                        {this.state.active_tab === 'Cryptocurrencies' && <Cryptocurrencies />}
                     </ContentWrapper>
                 </StyledContainer>
             </StyledSection>
@@ -229,6 +267,7 @@ class AvailableTrades extends React.Component {
 }
 
 AvailableTrades.propTypes = {
+    Cryptocurrencies: PropTypes.func,
     display_title: PropTypes.object,
     Forex: PropTypes.func,
     SyntheticIndices: PropTypes.func,

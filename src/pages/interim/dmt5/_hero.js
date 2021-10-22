@@ -16,7 +16,7 @@ import { localize } from 'components/localization'
 
 const query = graphql`
     query {
-        dmt5: file(relativePath: { eq: "interim-dmt5-bg.png" }) {
+        dmt5: file(relativePath: { eq: "interim/interim-dmt5-bg.png" }) {
             ...fadeIn
         }
     }

@@ -17,8 +17,8 @@ import { getLocationHash, sanitize } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 // Icons
-import SearchIcon from 'images/svg/search.svg'
-import CrossIcon from 'images/svg/cross.svg'
+import SearchIcon from 'images/svg/help/search.svg'
+import CrossIcon from 'images/svg/help/cross.svg'
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
@@ -434,6 +434,16 @@ class HelpCentreClass extends Component {
                                                             category_is_expanded &&
                                                             can_expand &&
                                                             idxb === item.articles.length - 1
+                                                        const title_type =
+                                                            this.props.is_eu_country && ar.title_eu
+                                                                ? ar.title_eu
+                                                                : ar.title
+
+                                                        const label_type =
+                                                            this.props.is_eu_country && ar.label_eu
+                                                                ? ar.label_eu
+                                                                : ar.label
+
                                                         return (
                                                             <ListNoBullets key={idxb}>
                                                                 <ShowItem
@@ -445,10 +455,10 @@ class HelpCentreClass extends Component {
                                                                         to={convertToHash(
                                                                             item.category.props
                                                                                 .translate_text,
-                                                                            ar.label,
+                                                                            label_type,
                                                                         )}
                                                                     >
-                                                                        {ar.title}
+                                                                        {title_type}
                                                                     </StyledLink>
                                                                 </ShowItem>
 

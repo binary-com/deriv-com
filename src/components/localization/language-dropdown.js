@@ -5,7 +5,7 @@ import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { QueryImage, Text } from 'components/elements'
-import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
+import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
 const Container = styled.div`

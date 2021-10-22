@@ -1,8 +1,42 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { LocalizedLink } from 'components/localization'
+import { generateResponsiveStyles } from '../containers/box'
 import { Margins, Paddings } from 'themes/function'
 import device from 'themes/device'
+
+const baseStyles = ({
+    m,
+    mt,
+    ml,
+    mr,
+    mb,
+    p,
+    pt,
+    pl,
+    pr,
+    pb,
+    align,
+    lh,
+    min_width,
+    max_width,
+    min_height,
+    max_height,
+    width,
+    height,
+}) => css`
+    min-width: ${min_width};
+    max-width: ${max_width};
+    min-height: ${min_height};
+    max-height: ${max_height};
+    width: ${width};
+    height: ${height};
+    text-align: ${align};
+    line-height: ${lh};
+    ${Margins({ m, mt, ml, mr, mb })}
+    ${Paddings({ p, pt, pl, pr, pb })}
+`
+
+const responsiveStyles = generateResponsiveStyles(baseStyles)
 
 const createElement = React.createElement
 
@@ -41,6 +75,8 @@ export const Text = styled.p`
     @media ${device.tabletL} {
         font-size: ${(props) => props.size || '16px'};
     }
+
+    ${responsiveStyles}
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>
@@ -133,6 +169,8 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
             if (props.type === 'extra-small') return '12px'
         }};
     }
+
+    ${responsiveStyles}
 `
 
 export const LinkText = styled(Text).attrs({ as: 'a' })`
@@ -141,21 +179,4 @@ export const LinkText = styled(Text).attrs({ as: 'a' })`
 
 export const SpanLinkText = styled(Text).attrs({ as: 'span' })`
     ${BaseLink}
-`
-
-export const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
-    ${BaseElement}
-    font-weight: ${(props) => props.weight || 'normal'};
-    font-size: ${(props) => props.size || '1.6rem'};
-    text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-        color: var(--color-red);
-        text-decoration: underline;
-    }
-
-    @media ${device.tabletL} {
-        font-size: ${(props) => props.size || '16px'};
-    }
 `

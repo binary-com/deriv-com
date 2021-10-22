@@ -38,7 +38,7 @@ const WhatIsTrader = () => {
             </StyledHeader>
             <StyledText max_width="79.2rem" align="center">
                 {localize(
-                    'MetaTrader 5 (MT5) is a trading platform developed by MetaQuotes that gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, and commodities – on a single platform. Deriv brings the MT5 experience to a superior level for both new and experienced traders with exclusive access to innovative trade types.',
+                    'Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
                 )}
             </StyledText>
         </Section>

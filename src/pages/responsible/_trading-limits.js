@@ -195,24 +195,16 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                         <TimelineTick.Item>
                                             <Text>
-                                                {isUKOrMXAccount(current_client_country)
-                                                    ? localize(
-                                                          'If you live in the United Kingdom, Customer Support can only remove or weaken your trading limits after 24 hours of receiving the request.',
-                                                      )
-                                                    : localize(
-                                                          'Customer Support can only remove or weaken your trading limits after 24 hours of receiving the request.',
-                                                      )}
+                                                {localize(
+                                                    'Customer Support can only remove or weaken your trading limits after 24 hours of receiving the request.',
+                                                )}
                                             </Text>
                                         </TimelineTick.Item>
                                         <TimelineTick.Item>
                                             <Text>
-                                                {isUKOrMXAccount(current_client_country)
-                                                    ? localize(
-                                                          'If you live in the Isle of Man, Customer Support can only remove or weaken your trading limits after your trading limit period has expired.',
-                                                      )
-                                                    : localize(
-                                                          'You can also completely exclude yourself from trading for a specified period in your account settings. The minimum period of self-exclusion is 6 months. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
-                                                      )}
+                                                {localize(
+                                                    'You can also completely exclude yourself from trading for a specified period in your account settings. The minimum period of self-exclusion is 6 months. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
+                                                )}
                                             </Text>
                                         </TimelineTick.Item>
                                         <TimelineTick.Item>

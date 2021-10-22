@@ -1,12 +1,11 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { EuLogoWrapper, StyledCoatArms, StyledGamstop, StyledMgaLogo } from './common/style.js'
+import { EuLogoWrapper, StyledCoatArms, StyledMgaLogo } from './common/style.js'
 import { LocalizedLink } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import { mga_link_url } from 'common/constants'
 //EU icons
-import Gamstop from 'images/svg/layout/gamstop.svg'
 import MgaLogo from 'images/svg/layout/mga-logo.svg'
 import Over18 from 'images/svg/layout/over-18.svg'
 
@@ -24,14 +23,6 @@ const AdditionalEUSection = () => {
         <Show.Eu>
             <Show.Desktop>
                 <EuLogoWrapper mt="1rem" ai="center">
-                    <LocalizedLink
-                        external="true"
-                        to="https://www.gamstop.co.uk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <StyledGamstop src={Gamstop} alt="gamstop desktop" />
-                    </LocalizedLink>
                     <LocalizedLink
                         external="true"
                         to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
@@ -83,14 +74,6 @@ const AdditionalEUSection = () => {
                             rel="noopener noreferrer"
                         >
                             <StyledMgaLogo src={MgaLogo} alt="mga logo" />
-                        </LocalizedLink>
-                        <LocalizedLink
-                            external="true"
-                            to="https://www.gamstop.co.uk"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <StyledGamstop src={Gamstop} alt="gamstop mobile" />
                         </LocalizedLink>
                     </Flex>
                     <img src={Over18} alt="over18 mobile" />

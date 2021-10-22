@@ -1,43 +1,17 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { EuLogoWrapper, StyledCoatArms, StyledMgaLogo } from './common/style.js'
+import { EuLogoWrapper, StyledMgaLogo } from './common/style.js'
 import { LocalizedLink } from 'components/localization'
-import { QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import { mga_link_url } from 'common/constants'
 //EU icons
 import MgaLogo from 'images/svg/layout/mga-logo.svg'
 import Over18 from 'images/svg/layout/over-18.svg'
 
-const query = graphql`
-    query {
-        iom: file(relativePath: { eq: "isle-of-man-coat-of-arms.png" }) {
-            ...fadeIn
-        }
-    }
-`
 const AdditionalEUSection = () => {
-    const image_query = useStaticQuery(query)
-
     return (
         <Show.Eu>
             <Show.Desktop>
                 <EuLogoWrapper mt="1rem" ai="center">
-                    <LocalizedLink
-                        external="true"
-                        to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <StyledCoatArms>
-                            <QueryImage
-                                data={image_query.iom}
-                                alt={'IOM'}
-                                width="6.4rem"
-                                height="auto"
-                            />
-                        </StyledCoatArms>
-                    </LocalizedLink>
                     <LocalizedLink
                         external="true"
                         to={mga_link_url}
@@ -51,21 +25,6 @@ const AdditionalEUSection = () => {
             </Show.Desktop>
             <Show.Mobile>
                 <EuLogoWrapper mt="1rem" ai="center">
-                    <LocalizedLink
-                        external="true"
-                        to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <StyledCoatArms>
-                            <QueryImage
-                                data={image_query.iom}
-                                alt={'IOM'}
-                                width="6.4rem"
-                                height="auto"
-                            />
-                        </StyledCoatArms>
-                    </LocalizedLink>
                     <Flex fd="column" width="auto">
                         <LocalizedLink
                             external="true"

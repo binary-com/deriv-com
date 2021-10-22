@@ -69,19 +69,6 @@ const DisclaimerSection = () => {
                     </DisclaimerParagraph>
                     <DisclaimerParagraph>
                         <Localize
-                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, licensed and regulated by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>)."
-                            components={[
-                                <StaticAsset
-                                    key={0}
-                                    target="_blank"
-                                    href="/regulatory/Deriv_(MX)_Ltd.pdf"
-                                    rel="noopener noreferrer"
-                                />,
-                            ]}
-                        />
-                    </DisclaimerParagraph>
-                    <DisclaimerParagraph>
-                        <Localize
                             translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                             components={[
                                 <StaticAsset

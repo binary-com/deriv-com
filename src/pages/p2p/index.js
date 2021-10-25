@@ -74,7 +74,7 @@ const DP2PHome = () => {
                     <ExchangeSteps />
                     <Availability />
                     <P2PBanner
-                        title={localize('Hassle-free deposits and withdrawals')}
+                        title={localize('Make hassle-free deposits and withdrawals today')}
                         image_name="DP2P"
                     />
                 </>

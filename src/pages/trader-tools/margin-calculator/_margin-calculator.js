@@ -3,7 +3,6 @@ import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     getMargin,
-    numberWithCommas,
     numberSubmitFormat,
     getContractSize,
     getCurrency,
@@ -144,7 +143,7 @@ const MarginCalculator = () => {
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
-                                                {numberWithCommas(values.margin)}
+                                                {values.margin}
                                             </CalculatorOutputField>
                                             <CalculatorOutputSymbol>
                                                 {values.marginSymbol}

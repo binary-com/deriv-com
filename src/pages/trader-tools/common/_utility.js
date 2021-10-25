@@ -401,10 +401,6 @@ export const numberWithoutCommas = (input) => {
     return input.toString().replace(/,/g, '')
 }
 
-export const numberWithCommas = (input) => {
-    return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-}
-
 export const numberSubmitFormat = (input) => {
     return input.replace(/^0+(?!\.|$)/, '')
 }

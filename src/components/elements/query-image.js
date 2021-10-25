@@ -7,14 +7,15 @@ export const ImageWrapper = styled.div`
     & .gatsby-image-wrapper {
         width: ${(props) => props.width || '100%'};
         height: ${(props) => props.height};
+        border-radius: ${(props) => props.b_radius};
     }
 `
 
-const QueryImage = ({ alt, className, data, height, is_eager, width }) => {
+const QueryImage = ({ alt, className, data, height, is_eager, width, b_radius }) => {
     const image = getImage(data)
     if (data) {
         return (
-            <ImageWrapper width={width} height={height} className={className}>
+            <ImageWrapper b_radius={b_radius} width={width} height={height} className={className}>
                 <GatsbyImage
                     image={image}
                     alt={alt}
@@ -29,6 +30,7 @@ const QueryImage = ({ alt, className, data, height, is_eager, width }) => {
 
 QueryImage.propTypes = {
     alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    b_radius: PropTypes.string,
     className: PropTypes.string,
     data: PropTypes.object.isRequired,
     height: PropTypes.string,

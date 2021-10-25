@@ -6,12 +6,12 @@ on:
             - master
         paths-ignore:
             - '**.md'
-    repository_dispatch:
-        types: [publish_blog]
 
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: staging
+    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
+    GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
 
 jobs:
     lint:

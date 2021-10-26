@@ -5,7 +5,6 @@ import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
 import GamStop from 'images/svg/layout/gamstop.svg'
-import BeGambleAware from 'images/svg/responsible/begambleaware.svg'
 import Underage from 'images/svg/responsible/underage.svg'
 import UnderageMobile from 'images/svg/responsible/underage-mobile.svg'
 import Filtering from 'images/svg/responsible/filtering-controls.svg'
@@ -28,28 +27,6 @@ const help_content = [
             <LocalizedLinkText
                 mt="1rem"
                 to="https://www.gamstop.co.uk/"
-                color="red"
-                external="true"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Localize translate_text="Click here to find out more" />
-            </LocalizedLinkText>
-        ),
-    },
-    {
-        header: <Localize translate_text="BeGambleAware" />,
-        text: (
-            <Text pb="1rem">
-                <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
-            </Text>
-        ),
-        icon: <img src={BeGambleAware} alt="begambleaware" width="160" height="64" />,
-        icon_mobile: <img src={BeGambleAware} alt="begambleaware" width="80" height="21" />,
-        link: (
-            <LocalizedLinkText
-                mt="1rem"
-                to="https://www.begambleaware.org/"
                 color="red"
                 external="true"
                 target="_blank"

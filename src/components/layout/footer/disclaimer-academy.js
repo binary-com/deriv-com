@@ -121,15 +121,9 @@ const DisclaimerSectionAcademy = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                                    translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and for more information."
                                     components={[
                                         <BoldLink key={0} target="_blank" to="/responsible/" />,
-                                        <BoldLink
-                                            external="true"
-                                            key={1}
-                                            target="_blank"
-                                            to="https://www.begambleaware.org/"
-                                        />,
                                     ]}
                                 />
                             </DisclaimerParagraph>
@@ -151,15 +145,9 @@ const DisclaimerSectionAcademy = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> if you need further information."
+                                    translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> for more information."
                                     components={[
                                         <BoldLink key={0} target="_blank" to="/responsible/" />,
-                                        <BoldLink
-                                            external="true"
-                                            key={1}
-                                            target="_blank"
-                                            to="https://www.begambleaware.org/"
-                                        />,
                                     ]}
                                 />
                             </DisclaimerParagraph>

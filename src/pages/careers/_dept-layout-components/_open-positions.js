@@ -9,7 +9,6 @@ import RightArrow from 'images/svg/career-right-arrow.svg'
 import device from 'themes/device'
 
 const getLink = (id) => {
-    3
     return `https://deriv.zohorecruit.com/jobs/Careers/${id}`
 }
 

@@ -2,11 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, Show, Box } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
-import { isUKOrMXAccount } from 'common/utility'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
-import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;
@@ -82,8 +80,6 @@ const StyledSubHeader = styled(Header)`
 `
 
 const TradingLimits = () => {
-    const [website_status] = useWebsiteStatus()
-    const current_client_country = website_status?.clients_country || ''
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
@@ -209,46 +205,23 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                         <TimelineTick.Item>
                                             <Text>
-                                                {isUKOrMXAccount(current_client_country)
-                                                    ? localize(
-                                                          'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
-                                                      )
-                                                    : localize(
-                                                          'When you’ve set your self-exclusion period, we will refund your account balance to you.',
-                                                      )}
-                                            </Text>
-                                        </TimelineTick.Item>
-
-                                        {isUKOrMXAccount(current_client_country) && (
-                                            <TimelineTick.Item>
-                                                <Text>
-                                                    {localize(
-                                                        'When you’ve set your self-exclusion period, we will refund your account balance to you.',
-                                                    )}
-                                                </Text>
-                                            </TimelineTick.Item>
-                                        )}
-
-                                        <TimelineTick.Item>
-                                            <Text>
-                                                {isUKOrMXAccount(current_client_country)
-                                                    ? localize(
-                                                          'If you don’t ask for a removal of self-exclusion after the expiry, it is not removed automatically. Customer Support can only remove your self-exclusion after your self-exclusion period has expired. ',
-                                                      )
-                                                    : localize(
-                                                          'If you don’t ask for a removal of self-exclusion after the expiry, it is not removed automatically. If you live in the United Kingdom, Customer Support can only remove your self-exclusion after your self-exclusion period has expired. ',
-                                                      )}
+                                                {localize(
+                                                    'When you’ve set your self-exclusion period, we will refund your account balance to you.',
+                                                )}
                                             </Text>
                                         </TimelineTick.Item>
                                         <TimelineTick.Item>
                                             <Text>
-                                                {isUKOrMXAccount(current_client_country)
-                                                    ? localize(
-                                                          'If you wish to resume trading when your self-exclusion expires and once you have made a request to remove self-exclusion, there will be a cooling-off period of 24 hours before you are allowed access to our site. Please make your request by calling +447723580049. Requests by chat or email shall not be entertained.',
-                                                      )
-                                                    : localize(
-                                                          'If you wish to resume trading when your self-exclusion expires and once you have made a request to remove self-exclusion, there will be a cooling-off period of 24 hours before you are allowed access to our site. If you live in the United Kingdom, please make your request by calling +447723580049. Requests by chat or email shall not be entertained.',
-                                                      )}
+                                                {localize(
+                                                    'If you don’t ask for a removal of self-exclusion after the expiry, it is not removed automatically.',
+                                                )}
+                                            </Text>
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            <Text>
+                                                {localize(
+                                                    'If you wish to resume trading when your self-exclusion expires and once you have made a request to remove self-exclusion, there will be a cooling-off period of 24 hours before you are allowed access to our site. If you live in the United Kingdom, please make your request by calling +447723580049. Requests by chat or email shall not be entertained.',
+                                                )}
                                             </Text>
                                         </TimelineTick.Item>
                                     </TimelineTick>

@@ -140,7 +140,7 @@ const DisclaimerSection = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0>  for more if information."
+                                    translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0>  if you need further information."
                                     components={[
                                         <BoldLink key={0} target="_blank" to="/responsible/" />,
                                     ]}

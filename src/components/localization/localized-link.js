@@ -108,7 +108,6 @@ const InternalLink = ({
     const is_non_localized = non_localized_links.includes(to.replace(/\/$/, ''))
     const is_index = to === `/`
     const localized_url = getLocalizedUrl(path, is_index, to)
-
     const path_to = is_default || is_non_localized ? to : localized_url
     let internal_to = path_to
 
@@ -154,10 +153,9 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
     } else if (new_tab_no_modal.includes(type)) {
-        return `${localized_link_url[type]}${locale === 'en' ? '' : '/' + locale}/${type.replace(
-            /_/g,
-            '-',
-        )}`
+        return `${localized_link_url[type]}${locale === 'en' ? '' : '/' + locale}/${
+            type.replace(/_/g, '-') + '/'
+        }`
     } else {
         return to
     }
@@ -181,7 +179,8 @@ const ExternalLink = ({
     const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
-    const url = getURLFormat(type, locale, to, affiliate_lang)
+    const lang_path = language_config[locale].path
+    const url = getURLFormat(type, lang_path, to, affiliate_lang)
 
     const show_modal =
         is_eu_country &&

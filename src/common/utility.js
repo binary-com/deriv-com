@@ -195,7 +195,7 @@ export const getDomain = () =>
         ? deriv_cookie_domain
         : 'binary.sx'
 
-export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`
+export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `/` : to}`
 
 export const nonENLangUrlReplace = (current_path) => {
     const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u

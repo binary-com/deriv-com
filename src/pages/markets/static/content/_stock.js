@@ -1,10 +1,10 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import Deposit from 'images/svg/deposit-and-withdrawal.svg'
-import ExtendedTime from 'images/svg/extended-trading-times.svg'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import MinimalCapital from 'images/svg/minimal-capital.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
+import Deposit from 'images/svg/markets/deposit-and-withdrawal.svg'
+import ExtendedTime from 'images/svg/markets/extended-trading-times.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support.svg'
+import MinimalCapital from 'images/svg/markets/minimal-capital.svg'
+import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
 
 export default [
     {

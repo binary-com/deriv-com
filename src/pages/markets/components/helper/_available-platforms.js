@@ -7,11 +7,11 @@ import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import DBot from 'images/svg/dbot-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader-icon.svg'
-import SmartTrader from 'images/svg/smarttrader.svg'
-import DerivX from 'images/svg/deriv-x.svg'
+import DBot from 'images/svg/dbot/dbot-icon.svg'
+import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import SmartTrader from 'images/svg/custom/smarttrader.svg'
+import DerivX from 'images/svg/custom/deriv-x.svg'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;

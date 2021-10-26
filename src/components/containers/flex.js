@@ -1,6 +1,15 @@
-import styled from 'styled-components'
-import Box from './box'
+import styled, { css } from 'styled-components'
+import Box, { generateResponsiveStyles } from './box'
 import device from 'themes/device'
+
+export const flexStyles = ({ jc, ai, fw, fd }) => css`
+    justify-content: ${jc};
+    align-items: ${ai};
+    flex-wrap: ${fw};
+    flex-direction: ${fd};
+`
+
+const responsiveStyles = generateResponsiveStyles(flexStyles)
 
 const Flex = styled(Box)`
     display: flex;
@@ -17,6 +26,8 @@ const Flex = styled(Box)`
         justify-content: ${(props) => (props.tablet_jc ? props.tablet_jc : '')};
         flex-wrap: ${(props) => props.tablet_fw};
     }
+
+    ${responsiveStyles}
 `
 
 export default Flex

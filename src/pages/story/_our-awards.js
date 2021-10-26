@@ -8,16 +8,16 @@ import { localize } from 'components/localization'
 
 const query = graphql`
     query {
-        mena: file(relativePath: { eq: "mena.png" }) {
+        mena: file(relativePath: { eq: "story/mena.png" }) {
             ...fadeIn
         }
-        wealth: file(relativePath: { eq: "wealth.png" }) {
+        wealth: file(relativePath: { eq: "story/wealth.png" }) {
             ...fadeIn
         }
-        winner: file(relativePath: { eq: "winner.png" }) {
+        winner: file(relativePath: { eq: "story/winner.png" }) {
             ...fadeIn
         }
-        global_brand: file(relativePath: { eq: "global-brand.png" }) {
+        global_brand: file(relativePath: { eq: "story/global-brand.png" }) {
             ...fadeIn
         }
     }

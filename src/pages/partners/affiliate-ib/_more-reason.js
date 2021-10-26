@@ -4,9 +4,9 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import GlobalAffiliate from 'images/svg/global-affiliate-support.svg'
-import ProvenReferral from 'images/svg/proven-referral-tools.svg'
-import HighValue from 'images/svg/high-value-partnership.svg'
+import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
+import ProvenReferral from 'images/svg/partners/proven-referral-tools.svg'
+import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
 const ReasonHeader = styled(Header)`
     @media ${device.tabletL} {

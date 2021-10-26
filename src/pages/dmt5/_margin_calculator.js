@@ -7,19 +7,22 @@ import { Carousel, Header, LinkText, QueryImage, Text } from 'components/element
 import { LinkButton } from 'components/form'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const query = graphql`
     query {
-        margin_calculator: file(relativePath: { eq: "dmt5-margin-calculator.png" }) {
+        margin_calculator: file(relativePath: { eq: "dmt5/dmt5-margin-calculator.png" }) {
             ...fadeIn
         }
-        margin_calculator_mobile: file(relativePath: { eq: "dmt5-margin-calculator-mobile.png" }) {
+        margin_calculator_mobile: file(
+            relativePath: { eq: "dmt5/dmt5-margin-calculator-mobile.png" }
+        ) {
             ...fadeIn
         }
-        swap_calculator: file(relativePath: { eq: "dmt5-swap-calculator.png" }) {
+        swap_calculator: file(relativePath: { eq: "dmt5/dmt5-swap-calculator.png" }) {
             ...fadeIn
         }
-        swap_calculator_mobile: file(relativePath: { eq: "dmt5-swap-calculator-mobile.png" }) {
+        swap_calculator_mobile: file(relativePath: { eq: "dmt5/dmt5-swap-calculator-mobile.png" }) {
             ...fadeIn
         }
     }
@@ -158,7 +161,7 @@ const CalculatorCard = ({ button_text, image_alt_name, image_name, link, name, t
                     <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
                 </Show.Mobile>
             </ImageWrapper>
-            <StyledLinkButton tertiary="true" to={link} external="true" target="_blank">
+            <StyledLinkButton tertiary="true" to={link}>
                 <Localize translate_text={button_text} />
             </StyledLinkButton>
         </StyledCardContainer>
@@ -217,6 +220,8 @@ const MarginCalculator = () => {
         },
     }
 
+    const { is_eu_country } = React.useContext(DerivStore)
+
     return (
         <SectionContainer>
             <StyledFlexContainer>
@@ -230,24 +235,39 @@ const MarginCalculator = () => {
                 >
                     <StyledBox max_width="100%">
                         <MainHeader type="page-title" lh="1.25" align="left">
-                            <Localize translate_text="Take control of your trades on DMT5" />
+                            <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
-                            <Localize
-                                translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
-                                components={[
-                                    <LinkText
-                                        color="red"
-                                        key={0}
-                                        target="_blank"
-                                        href="/trade-types/cfds/"
-                                        rel="noopener noreferrer"
-                                    />,
-                                ]}
-                            />
+                            {is_eu_country ? (
+                                <Localize
+                                    translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
+                                    components={[
+                                        <LinkText
+                                            color="red"
+                                            key={0}
+                                            target="_blank"
+                                            href="/trade-types/cfds/"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            ) : (
+                                <Localize
+                                    translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
+                                    components={[
+                                        <LinkText
+                                            color="red"
+                                            key={0}
+                                            target="_blank"
+                                            href="/trade-types/cfds/"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            )}
                         </StyledText>
                         <StyledText>
-                            <Localize translate_text="With the calculators and numerous analytical tools available on the DMT5 platform, you’ll be able to manage your capital and trading positions better." />
+                            <Localize translate_text="With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better." />
                         </StyledText>
                     </StyledBox>
                 </StyledFlex>

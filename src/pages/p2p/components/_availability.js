@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import Desktop from 'images/svg/p2p-desktop.svg'
-import Mobile from 'images/svg/p2p-mobile.svg'
+import Desktop from 'images/svg/p2p/p2p-desktop.svg'
+import Mobile from 'images/svg/p2p/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
 import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'components/elements'
 import { Flex, SectionContainer, Show } from 'components/containers'
@@ -45,7 +45,7 @@ const PlatformCard = styled.article`
         max-width: 328px;
     }
     @media ${device.mobileM} {
-        max-width: 310px;
+        max-width: 335px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -140,7 +140,7 @@ const Availability = () => {
                 mb="4rem"
             >
                 <Show.Desktop min_width="992">{localize('How to get Deriv P2P')}</Show.Desktop>
-                <Show.Mobile>{localize('Available on desktop and mobile')}</Show.Mobile>
+                <Show.Mobile>{localize('How to get Deriv P2P')}</Show.Mobile>
             </StyledHeader>
             <Flex
                 tablet_direction="column"
@@ -154,12 +154,7 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Show.Desktop min_width="992">
-                                <Localize translate_text="On your computer" />
-                            </Show.Desktop>
-                            <Show.Mobile>
-                                <Localize translate_text="Deriv P2P on your computer" />
-                            </Show.Mobile>
+                            <Localize translate_text="On your computer" />
                         </StyledCardHeader>
                     </Row>
                     <div>
@@ -168,6 +163,7 @@ const Availability = () => {
                                 translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                 components={[
                                     <SpanLinkText
+                                        id="dm-p2p-login-link"
                                         size={24}
                                         onClick={handleLogin}
                                         color="red"
@@ -175,6 +171,7 @@ const Availability = () => {
                                         key={0}
                                     />,
                                     <LocalizedLinkText
+                                        id="dm-p2p-signup-link"
                                         to="/signup/"
                                         size={24}
                                         color="red"
@@ -198,12 +195,7 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Show.Desktop min_width="992">
-                                <Localize translate_text="On your mobile" />
-                            </Show.Desktop>
-                            <Show.Mobile>
-                                <Localize translate_text="DP2P on your mobile" />
-                            </Show.Mobile>
+                            <Localize translate_text="On your mobile" />
                         </StyledCardHeader>
                     </Row>
                     <div>

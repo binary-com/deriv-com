@@ -5,9 +5,9 @@ import Loadable from '@loadable/component'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
-import dbot_logo from 'images/svg/dbot-icon.svg'
-import DBotBG from 'images/svg/dbot-bg.svg'
-import DBotBGMobile from 'images/svg/dbot-bg-mobile.svg'
+import dbot_logo from 'images/svg/dbot/dbot-icon.svg'
+import DBotBG from 'images/svg/dbot/dbot-bg.svg'
+import DBotBGMobile from 'images/svg/dbot/dbot-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
@@ -28,7 +28,7 @@ const meta_attributes = {
 
 const query = graphql`
     query {
-        deriv_platform: file(relativePath: { eq: "dbot-banner.png" }) {
+        deriv_platform: file(relativePath: { eq: "dbot/dbot-banner.png" }) {
             ...fadeIn
         }
     }

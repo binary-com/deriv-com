@@ -8,19 +8,19 @@ import { LinkButton } from 'components/form'
 
 const query = graphql`
     query {
-        step_1: file(relativePath: { eq: "dbot-step1.png" }) {
+        step_1: file(relativePath: { eq: "dbot-video/dbot-step1.png" }) {
             ...fadeIn
         }
-        step_2: file(relativePath: { eq: "dbot-step2.png" }) {
+        step_2: file(relativePath: { eq: "dbot-video/dbot-step2.png" }) {
             ...fadeIn
         }
-        step_3: file(relativePath: { eq: "dbot-step3.png" }) {
+        step_3: file(relativePath: { eq: "dbot-video/dbot-step3.png" }) {
             ...fadeIn
         }
-        step_4: file(relativePath: { eq: "dbot-step4.png" }) {
+        step_4: file(relativePath: { eq: "dbot-video/dbot-step4.png" }) {
             ...fadeIn
         }
-        step_5: file(relativePath: { eq: "dbot-step5.png" }) {
+        step_5: file(relativePath: { eq: "dbot-video/dbot-step5.png" }) {
             ...fadeIn
         }
     }

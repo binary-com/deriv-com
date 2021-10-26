@@ -15,32 +15,32 @@ import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 // icons
-import Blog from 'images/svg/blog-nav.svg'
+import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
-import Cryptocurrencies from 'images/svg/cryptocurrencies-nav.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
+import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
+import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
-import DerivX from 'images/svg/deriv-x.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader-icon.svg'
-import Forex from 'images/svg/forex-nav.svg'
+import DerivX from 'images/svg/custom/deriv-x.svg'
+import DBot from 'images/svg/dbot/dbot-icon.svg'
+import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
-import CFD from 'images/svg/margin-trading-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Options from 'images/svg/options-nav.svg'
+import CFD from 'images/svg/custom/margin-trading-nav.svg'
+import Multipliers from 'images/svg/custom/multipliers-nav.svg'
+import Options from 'images/svg/custom/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
 import Signals from 'images/svg/menu/signals.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Smarttrader from 'images/svg/custom/smarttrader.svg'
+import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import TraderTool from 'images/svg/trader-tool-nav.svg'
+import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
+import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -143,9 +143,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
             title={localize('DMT5')}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
             content={[
-                localize(
-                    'Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform.',
-                ),
+                localize('Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform.'),
             ]}
             is_inline_icon
             min_height="12.4rem"
@@ -308,7 +306,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     aria_label="DMT5"
                     icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                     content={
-                        <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
+                        <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}
@@ -527,13 +525,9 @@ export const NavResources = ({ onClick }) => (
         />
         <CardLink
             icon={() => <img src={Blog} alt="" width="24" height="24" />}
-            title={localize('Blog')}
+            title={localize('Academy')}
             onClick={onClick}
-            to=""
-            type="blog"
-            external="true"
-            target="_blank"
-            rel="noopener noreferrer"
+            to="/academy/"
         />
     </Flex>
 )

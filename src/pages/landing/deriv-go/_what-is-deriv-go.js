@@ -10,7 +10,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     padding-top: 40px;
 
     @media ${device.tabletL} {
-        padding-top: 20px;
+        padding-top: 0;
     }
 `
 
@@ -21,7 +21,7 @@ const StyledContainer = styled(Container)`
 
     @media ${device.tabletL} {
         flex-direction: column;
-        padding: 20px 0 40px;
+        padding: 16px 0 40px;
     }
 `
 
@@ -31,13 +31,18 @@ const NumberWrapper = styled.div`
     justify-content: center;
     width: 32.8rem;
 `
+
+const StyledTitle = styled(Header)`
+    @media ${device.tabletL} {
+        padding-top: 24px;
+    }
+`
+
 const StyledSubTitle = styled(Text)`
     padding-top: 8px;
     font-size: 24px;
 
     @media ${device.tabletL} {
-        padding-top: 0;
-        margin: 12px 0;
         font-size: 18px;
     }
 `
@@ -70,9 +75,9 @@ const WhatIsDerivGo = () => {
             <StyledContainer>
                 {items.map((item, index) => (
                     <NumberWrapper key={index}>
-                        <Header as="h3" type="heading-3" align="center">
+                        <StyledTitle as="h3" type="heading-3" align="center">
                             {item.title}
-                        </Header>
+                        </StyledTitle>
                         <StyledSubTitle align="center">{item.subtitle}</StyledSubTitle>
                     </NumberWrapper>
                 ))}

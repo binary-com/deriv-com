@@ -113,7 +113,9 @@ const CookieBanner = ({ onAccept, onDecline, is_open }) => {
                 <Localize translate_text="Cookies help us to give you a better experience and personalised content on our site. " />
                 <Localize
                     translate_text="If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>."
-                    components={[<LinkText key={0} to="/terms-and-conditions/" color="red" />]}
+                    components={[
+                        <LinkText key={0} to="/terms-and-conditions/#clients" color="red" />,
+                    ]}
                 />
             </StyledText>
             <Flex>

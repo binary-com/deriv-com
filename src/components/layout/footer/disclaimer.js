@@ -83,7 +83,7 @@ const DisclaimerSection = () => {
                 </Show.Eu>
                 <DisclaimerParagraph>
                     {localize(
-                        "This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
+                        "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
                 <RiskWarning>

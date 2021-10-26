@@ -14,6 +14,7 @@ const NeedSignUp = () => (
                 translate_text="As an existing <0>Binary.com</0> user, you won’t need to sign up. You’ll be able to log in to <1>Deriv.com</1> with your <0>Binary.com</0> credentials and trade with what’s in your <0>Binary.com</0> account."
                 components={[
                     <LocalizedLinkText
+                        id="dm-binary-login-link-3"
                         key={0}
                         external="true"
                         to="home"

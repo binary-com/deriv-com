@@ -92,7 +92,7 @@ export const WhyTrade = ({ children, header, text }) => {
                         }
                     })}
                 </ItemContainer>
-                <StyledButton to="/signup/" secondary="true">
+                <StyledButton id="dm-why-trade-signup" to="/signup/" secondary="true">
                     {localize('Create free demo account')}
                 </StyledButton>
             </Flex>

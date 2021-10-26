@@ -15,12 +15,12 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
-import TradingExperts from 'images/svg/trading-experts.svg'
-import Affiliates from 'images/svg/affiliates.svg'
-import CommunityManagers from 'images/svg/community-managers.svg'
-import Email from 'images/svg/pa-email.svg'
-import Reply from 'images/svg/pa-reply.svg'
-import Listed from 'images/svg/pa-listed.svg'
+import TradingExperts from 'images/svg/partners/trading-experts.svg'
+import Affiliates from 'images/svg/partners/affiliates.svg'
+import CommunityManagers from 'images/svg/partners/community-managers.svg'
+import Email from 'images/svg/partners/pa-email.svg'
+import Reply from 'images/svg/partners/pa-reply.svg'
+import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 
 const HeaderHowToApply = styled(SecondaryHeader)`
@@ -204,7 +204,13 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <ButtonWrapper padding="3.4rem 0 0">
-                <LinkButton secondary external="true" to="mailto:partners@deriv.com" is_mail_link>
+                <LinkButton
+                    id="dm-page-affiliate-email-apply"
+                    secondary
+                    external="true"
+                    to="mailto:partners@deriv.com"
+                    is_mail_link
+                >
                     {localize('Send us an email to apply')}
                 </LinkButton>
             </ButtonWrapper>

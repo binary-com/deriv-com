@@ -2,7 +2,7 @@ import React from 'react'
 import { LoveTradingComponent } from '../_love-trading'
 import { Localize } from 'components/localization'
 import PlatformMt5 from 'images/svg/interim/bg-dmt5.svg'
-import PlatformMt5Mobile from 'images/common/interim-mt5-mobile-bg.png'
+import PlatformMt5Mobile from 'images/common/interim/interim-mt5-mobile-bg.png'
 
 const content = {
     left: {

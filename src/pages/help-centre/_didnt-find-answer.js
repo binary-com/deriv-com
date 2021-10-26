@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
-import ContactUsIcon from 'images/svg/livechat-red.svg'
+import ContactUsIcon from 'images/svg/help/livechat-red.svg'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);

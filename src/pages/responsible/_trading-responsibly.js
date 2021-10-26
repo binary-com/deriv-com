@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import DontBorrow from 'images/svg/dont-borrow.svg'
-import FreeDemo from 'images/svg/free-demo.svg'
-import SetLimitLosses from 'images/svg/set-limit-chart.svg'
-import BadJudgement from 'images/svg/bad-judgement.svg'
-import Info from 'images/svg/info.svg'
+import DontBorrow from 'images/svg/responsible/dont-borrow.svg'
+import FreeDemo from 'images/svg/responsible/free-demo.svg'
+import SetLimitLosses from 'images/svg/responsible/set-limit-chart.svg'
+import BadJudgement from 'images/svg/responsible/bad-judgement.svg'
+import Info from 'images/svg/responsible/info.svg'
 import { SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -73,7 +73,7 @@ const ContentWrapper = styled(Flex)`
     }
 `
 const StyledFlex = styled(Flex)`
-    max-width: 60.4rem;
+    max-width: 77rem;
     max-height: 6.6rem;
     border-radius: 6rem;
     box-shadow: inset 0 -1px 0 0 #f2f3f4;
@@ -162,7 +162,7 @@ const TradingResponsibly = () => {
                             <IcInfo src={Info} alt="info" width="24" height="24" />
                             <NoticeText size="1.4rem" ml="1.6rem" mr="1.5rem">
                                 <Localize
-                                    translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on commodities, forex, and cryptocurrencies."
+                                    translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies."
                                     components={[
                                         <LocalizedLinkText
                                             key={0}

@@ -131,7 +131,7 @@ const AffiliateGeneral = () => (
         <TextPrimary>
             <Localize
                 translate_text="Anyone aged 18 years and above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>."
-                components={[<LocalizedLinkText to="/terms-and-conditions/" key={0} />]}
+                components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
             />
         </TextPrimary>
     </ItemContainer>

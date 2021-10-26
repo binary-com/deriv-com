@@ -7,6 +7,7 @@ import MarketInstruments from '../sections/_market_instruments.js'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -14,33 +15,41 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const CFDs = ({ market_content, market_tab_name }) => (
-    <StyledSection padding="4rem 0 8rem">
-        <ContentWrapper>
-            <Descriptions>
-                <StyledText align="center" font_size="16px">
-                    {localize(
-                        'CFD trading allows you to bet on the price movement of the underlying asset without purchasing it.',
+const CFDs = ({ market_content, market_tab_name }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
+    return (
+        <StyledSection padding="4rem 0 8rem">
+            <ContentWrapper>
+                <Descriptions>
+                    <StyledText align="center" font_size="16px">
+                        {localize(
+                            'CFD trading allows you to bet on the price movement of the underlying asset without purchasing it.',
+                        )}
+                    </StyledText>
+                    <StyledText align="center" mt="16px" font_size="16px">
+                        {is_eu_country
+                            ? localize(
+                                  'On Deriv, trading CFDs on leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
+                              )
+                            : localize(
+                                  'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
+                              )}
+                    </StyledText>
+                    {market_tab_name === 'stock-indices' ? (
+                        <AvailablePlatforms dmt5 />
+                    ) : (
+                        <AvailablePlatforms dmt5 derivx />
                     )}
+                </Descriptions>
+                <StyledText font_size={'16px'} weight="bold" mt="4rem">
+                    {localize('Instruments available for CFD trading')}
                 </StyledText>
-                <StyledText align="center" mt="16px" font_size="16px">
-                    {localize(
-                        'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
-                    )}
-                </StyledText>
-                {market_tab_name === 'stock-indices' ? (
-                    <AvailablePlatforms dmt5 />
-                ) : (
-                    <AvailablePlatforms dmt5 derivx />
-                )}
-            </Descriptions>
-            <StyledText font_size={'16px'} weight="bold" mt="4rem">
-                {localize('Instruments available for CFD trading')}
-            </StyledText>
-            <MarketInstruments market_content={market_content} />
-        </ContentWrapper>
-    </StyledSection>
-)
+                <MarketInstruments market_content={market_content} />
+            </ContentWrapper>
+        </StyledSection>
+    )
+}
 
 CFDs.propTypes = {
     market_content: PropTypes.object,

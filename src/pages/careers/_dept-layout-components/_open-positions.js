@@ -9,6 +9,7 @@ import RightArrow from 'images/svg/career-right-arrow.svg'
 import device from 'themes/device'
 
 const getLink = (id) => {
+    3
     return `https://deriv.zohorecruit.com/jobs/Careers/${id}`
 }
 
@@ -28,6 +29,15 @@ const JobWrapper = styled.div`
         grid-template-columns: 6fr 5fr auto;
     }
 `
+const StyledVacancies = styled(Flex)`
+    @media ${device.tablet} {
+        max-width: 144px;
+        word-break: break-word;
+    }
+    @media ${device.mobileS} {
+        font-size: 16px;
+    }
+`
 
 const OpenPositions = (data) => {
     const hidden = data.data == undefined
@@ -42,11 +52,11 @@ const OpenPositions = (data) => {
                         return (
                             <PositionLink key={idx} external to={getLink(item.id)} target="_blank">
                                 <JobWrapper>
-                                    <Flex ai="center">
+                                    <StyledVacancies ai="center">
                                         <Header type="subtitle-1" as="h">
                                             {item.title}
                                         </Header>
-                                    </Flex>
+                                    </StyledVacancies>
                                     <Flex ai="center">
                                         <Header
                                             p="15px"

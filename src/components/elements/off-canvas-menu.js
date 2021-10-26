@@ -451,18 +451,11 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
-                        <StyledLink
-                            to=""
-                            type="blog"
-                            external="true"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleArrowClick}
-                        >
+                        <StyledLink to="/academy/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Blog} alt="" width="24" height="24" />
                             </div>
-                            <Span>{localize('Blog')}</Span>
+                            <Span>{localize('Academy')}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>

@@ -314,10 +314,11 @@ export const query = graphql`
     }
 `
 
-const DerivBlog = ({ data }) => {
+const DerivBlog = ({ data, location }) => {
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
         og_description: 'Your one-stop online trading learning hub.',
+        og_url: `${location.origin}${location.pathname}`,
     }
 
     const settings = {
@@ -410,6 +411,7 @@ const DerivBlog = ({ data }) => {
 
 DerivBlog.propTypes = {
     data: PropTypes.object,
+    location: PropTypes.object,
 }
 
 export default WithIntl()(DerivBlog)

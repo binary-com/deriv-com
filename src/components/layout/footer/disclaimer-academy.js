@@ -4,7 +4,6 @@ import {
     DisclaimerParagraph,
     RiskWarning,
     StaticAsset,
-    StaticAssetLink,
     BoldLink,
 } from './common/style.js'
 import { Show } from 'components/containers'
@@ -63,26 +62,6 @@ const DisclaimerSectionAcademy = () => {
                                     key={0}
                                     target="_blank"
                                     href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
-                                    rel="noopener noreferrer"
-                                />,
-                            ]}
-                        />
-                    </DisclaimerParagraph>
-                    <DisclaimerParagraph>
-                        <Localize
-                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, licensed and regulated by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the UK Gambling Commission for clients in the UK (<1>account no. 39172</1>)."
-                            components={[
-                                <StaticAsset
-                                    key={0}
-                                    target="_blank"
-                                    href="/regulatory/Deriv_(MX)_Ltd.pdf"
-                                    rel="noopener noreferrer"
-                                />,
-                                <StaticAssetLink
-                                    external="true"
-                                    key={1}
-                                    target="_blank"
-                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                     rel="noopener noreferrer"
                                 />,
                             ]}

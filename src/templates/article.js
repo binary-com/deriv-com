@@ -327,7 +327,12 @@ export const query = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(
+                                quality: 100
+                                webpOptions: { quality: 100 }
+                                avifOptions: { quality: 100, lossless: true }
+                                placeholder: BLURRED
+                            )
                         }
                     }
                 }
@@ -358,7 +363,12 @@ export const query = graphql`
                         description
                         imageFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(
+                                    quality: 100
+                                    webpOptions: { quality: 100 }
+                                    avifOptions: { quality: 100, lossless: true }
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                     }
@@ -367,7 +377,12 @@ export const query = graphql`
                         description
                         imageFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(
+                                    quality: 100
+                                    webpOptions: { quality: 100 }
+                                    avifOptions: { quality: 100, lossless: true }
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                     }
@@ -381,7 +396,12 @@ export const query = graphql`
                         description
                         imageFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(
+                                    quality: 100
+                                    webpOptions: { quality: 100 }
+                                    avifOptions: { quality: 100, lossless: true }
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                     }

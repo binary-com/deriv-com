@@ -33,6 +33,9 @@ const StyledVacancies = styled(Flex)`
         max-width: 144px;
         word-break: break-word;
     }
+`
+
+const StyledHeader = styled(Header)`
     @media ${device.mobileS} {
         font-size: 16px;
     }
@@ -52,9 +55,9 @@ const OpenPositions = (data) => {
                             <PositionLink key={idx} external to={getLink(item.id)} target="_blank">
                                 <JobWrapper>
                                     <StyledVacancies ai="center">
-                                        <Header type="subtitle-1" as="h">
+                                        <StyledHeader type="subtitle-1" as="h1">
                                             {item.title}
-                                        </Header>
+                                        </StyledHeader>
                                     </StyledVacancies>
                                     <Flex ai="center">
                                         <Header

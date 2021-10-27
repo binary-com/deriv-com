@@ -355,10 +355,8 @@ const DerivBlog = ({ data }) => {
     return (
         <Layout type="academy">
             <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
-                description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
-                )}
+                title={localize('Blogs, video tutorials, and more | Deriv Academy')}
+                description={localize('Your one-stop online trading learning hub.')}
             />
             <MainWrapper>
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>

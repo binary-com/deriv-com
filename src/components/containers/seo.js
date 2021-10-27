@@ -96,10 +96,6 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                     content: title,
                 },
                 {
-                    property: 'og:url',
-                    content: meta_attributes?.page_url || site_url,
-                },
-                {
                     property: 'og:description',
                     content: meta_attributes?.og_description || default_og_description,
                 },

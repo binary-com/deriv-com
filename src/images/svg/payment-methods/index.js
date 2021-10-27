@@ -31,6 +31,10 @@ import Tether from './payment-tether.svg'
 import Usdc from './payment-usd-coin.svg'
 import Changelly from './payment-changelly.svg'
 import Xanpool from './payment-xanpool.svg'
+import BoletoBancario from './payment-boleto-bancario.svg'
+import Advcash from './payment-advcash.svg'
+import Jcb from './payment-jcb.svg'
+import Pix from './payment-pix.svg'
 export default {
     Visa,
     VisaElectron,
@@ -63,4 +67,8 @@ export default {
     Usdc,
     Changelly,
     Xanpool,
+    BoletoBancario,
+    Advcash,
+    Jcb,
+    Pix,
 }

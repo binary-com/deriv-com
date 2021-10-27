@@ -364,6 +364,27 @@
         "logo": "Zingpay"
     },
     {
+        "name": "Trustly",
+        "category": "Online Banking",
+        "key": "trustly",
+        "description": "Enjoy fast, smooth, and secure deposits and withdrawals with Trustly.",
+        "deposit_proccessing_time": "Instant",
+        "min_deposit": "10|10",
+        "max_deposit": "100|100",
+        "withdrawal_processing_time": "1 - 2 working days",
+        "min_withdrawal": "10|10",
+        "max_withdrawal": "10000|500",
+        "link_deriv": "https://www.trustly.net/",
+        "currencies": [["GBP", "USD"], ["EUR"]],
+        "countries": {
+            "included": ["AT", "DK", "EE", "FI", "DE", "NL", "PL", "SE", "GB"],
+            "excluded": []
+        },
+        "reference": "",
+        "locale": [],
+        "logo": "Trustly"
+    },
+    {
         "name": "Fasapay",
         "category": "E-wallets",
         "key": "fasapay",
@@ -1151,39 +1172,18 @@
         "logo": "Onlinenaira"
     },
     {
-        "name": "Trustly",
-        "category": "E-wallets",
-        "key": "trustly",
-        "description": "Enjoy fast, smooth, and secure deposits and withdrawals with Trustly.",
-        "deposit_proccessing_time": "Instant",
-        "min_deposit": "10|10",
-        "max_deposit": "100|100",
-        "withdrawal_processing_time": "1 - 2 working days",
-        "min_withdrawal": "10|10",
-        "max_withdrawal": "10000|500",
-        "link_deriv": "https://www.trustly.net/",
-        "currencies": [["GBP", "USD"], ["EUR"]],
-        "countries": {
-            "included": ["AT", "DK", "EE", "FI", "DE", "NL", "PL", "SE", "GB"],
-            "excluded": []
-        },
-        "reference": "",
-        "locale": [],
-        "logo": "Trustly"
-    },
-    {
         "name": "Beyonic",
         "category": "E-wallets",
         "key": "beyonic",
         "description": "Make deposits easily using your mobile. For clients in Uganda and Tanzania.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "5",
-        "max_deposit": "1000",
+        "min_deposit": "5|5",
+        "max_deposit": "1000|1,000",
         "withdrawal_processing_time": "1 - 2 working days ",
-        "min_withdrawal": "5",
-        "max_withdrawal": "1000",
+        "min_withdrawal": "5|5",
+        "max_withdrawal": "1000|1,000",
         "link_deriv": "https://beyonic.com/",
-        "currencies": [["TZS", "UGX"]],
+        "currencies": [["TZS", "UGX"], ["USD"]],
         "countries": {
             "included": ["TZ", "UG"],
             "excluded": []
@@ -1198,13 +1198,13 @@
         "key": "astropay",
         "description": "Enjoy fast and secure deposits and withdrawals with Astropay.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "5",
-        "max_deposit": "2500",
+        "min_deposit": "5|5",
+        "max_deposit": "2500|2500",
         "withdrawal_processing_time": "1 working day",
-        "min_withdrawal": "5",
-        "max_withdrawal": "2500",
+        "min_withdrawal": "5|5",
+        "max_withdrawal": "2500|2,500",
         "link_deriv": "https://astropay.com/?lang=en",
-        "currencies": [["USD"]],
+        "currencies": [["USD"], ["USD"]],
         "countries": {
             "included": ["AR", "BR", "CL", "CO", "EC", "IN", "MX", "PE"],
             "excluded": []
@@ -1219,13 +1219,13 @@
         "key": "1foryou",
         "description": "Make deposits easily with cash voucher payment solution for South Africa.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "10",
-        "max_deposit": "1000",
+        "min_deposit": "10|10",
+        "max_deposit": "1000|1,000",
         "withdrawal_processing_time": "Not Available",
-        "min_withdrawal": "Not Available",
-        "max_withdrawal": "Not Available",
+        "min_withdrawal": "Not Available|Not Available",
+        "max_withdrawal": "Not Available|Not Available",
         "link_deriv": "https://1foryou.com/",
-        "currencies": [["USD"]],
+        "currencies": [["USD"], ["USD"]],
         "countries": {
             "included": ["ZA"],
             "excluded": []
@@ -1240,13 +1240,13 @@
         "key": "advcash",
         "description": "Enjoy fast, smooth, and secure deposits and withdrawals with AdvCash.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "5",
-        "max_deposit": "1000",
+        "min_deposit": "5|5",
+        "max_deposit": "1000|1,000",
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
         "link_deriv": "https://advcash.gi/en/",
-        "currencies": [["USD"]],
+        "currencies": [["USD"], ["USD"]],
         "countries": {
             "included": [],
             "excluded": [
@@ -1499,5 +1499,47 @@
         "reference": "",
         "locale": [],
         "logo": "Xanpool"
+    },
+    {
+        "name": "PIX",
+        "category": "Online Banking",
+        "key": "pix",
+        "description": "Make fast deposits using PIX, the most popular payment solution provided by Brazilian banks.",
+        "deposit_proccessing_time": "Instant",
+        "min_deposit": "10",
+        "max_deposit": "1000",
+        "withdrawal_processing_time": "1 - 2 working days",
+        "min_withdrawal": "10",
+        "max_withdrawal": "10000",
+        "link_deriv": "",
+        "currencies": [["USD"]],
+        "countries": {
+            "included": ["BR"],
+            "excluded": []
+        },
+        "reference": "",
+        "locale": [],
+        "logo": "Pix"
+    },
+    {
+        "name": "PayRetailers",
+        "category": "Online Banking",
+        "key": "payretailers",
+        "description": "Payments simplified. Fast and reliable way to deposit funds in your local currency.",
+        "deposit_proccessing_time": "Instant",
+        "min_deposit": "50",
+        "max_deposit": "1000",
+        "withdrawal_processing_time": "1 working day ",
+        "min_withdrawal": "50",
+        "max_withdrawal": "1000",
+        "link_deriv": "https://virtual-pay.io/",
+        "currencies": [["USD"]],
+        "countries": {
+            "included": ["AR", "CL", "CO", "EC", "SV", "MX", "PA", "PE"],
+            "excluded": []
+        },
+        "reference": "",
+        "locale": [],
+        "logo": "Payretailers"
     }
 ]

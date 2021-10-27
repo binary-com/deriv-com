@@ -6,7 +6,7 @@ import device, { size } from 'themes/device'
 import { getWindowWidth } from 'common/utility'
 import { Box } from 'components/containers'
 import { Desktop } from 'components/containers/show'
-import { useTabState } from 'components/hooks/use-tab-state'
+import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 
 const StyledSideTab = styled(Box)`
     padding: 0;
@@ -114,7 +114,7 @@ const Tab = ({ active_tab, font_size, label, line_height, mobile, onClick, opaci
 const getTabs = (children) => children.map((child) => child.props.label)
 
 const SideTab = ({ children, font_size, is_sticky, line_height, opacity, tab_header }) => {
-    const [active_tab, setActiveTab] = useTabState(getTabs(children))
+    const [active_tab, setActiveTab] = useTabStateQuery(getTabs(children))
     const [is_menu, setMenu] = useState(false)
 
     const Tabs = (props) => {

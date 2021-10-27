@@ -172,7 +172,7 @@ const StaffReview = (review_data) => {
                     fd="row"
                     ai="center"
                     tablet_direction="column"
-                    bg="var(--color-grey-40)"
+                    bg="var(--color-grey-41)"
                 >
                     <Flex max_width="432px" jc="left" tablet_direction="column" tablet_ai="center">
                         <StyledQueryImage

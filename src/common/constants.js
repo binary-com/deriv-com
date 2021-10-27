@@ -82,6 +82,7 @@ export const localized_link_url = Object.freeze({
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
+    domain_full_url: domain_full_url,
     'terms_and_conditions/#clients': domain_full_url,
     'terms_and_conditions/#business-partners': domain_full_url,
 })
@@ -102,3 +103,4 @@ export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom
 export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
 export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
+export const cms_assets_end_point = 'https://cms.deriv.cloud/assets/'

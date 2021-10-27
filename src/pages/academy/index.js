@@ -315,6 +315,11 @@ export const query = graphql`
 `
 
 const DerivBlog = ({ data }) => {
+    const meta_attributes = {
+        og_title: 'Blogs, video tutorials, and more | Deriv Academy',
+        og_description: 'Your one-stop online trading learning hub.',
+    }
+
     const settings = {
         options: {
             loop: true,
@@ -355,8 +360,11 @@ const DerivBlog = ({ data }) => {
     return (
         <Layout type="academy">
             <SEO
-                title={localize('Blogs, video tutorials, and more | Deriv Academy')}
-                description={localize('Your one-stop online trading learning hub.')}
+                title={localize('Articles, trading guide and resources | Deriv')}
+                description={localize(
+                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+                )}
+                meta_attributes={meta_attributes}
             />
             <MainWrapper>
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>

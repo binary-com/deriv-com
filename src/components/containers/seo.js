@@ -97,7 +97,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:url',
-                    content: meta_attributes?.og_url || site_url,
+                    content: meta_attributes?.page_url || site_url,
                 },
                 {
                     property: 'og:description',

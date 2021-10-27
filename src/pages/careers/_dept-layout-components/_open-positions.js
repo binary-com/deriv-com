@@ -36,7 +36,7 @@ const StyledVacancies = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
-    @media ${device.mobileS} {
+    @media (max-width: 340px) {
         font-size: 16px;
     }
 `

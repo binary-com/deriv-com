@@ -55,12 +55,16 @@ const Banner = ({ detailsObj, detailsPreviewObj }) => {
                             <QueryImage
                                 data={detailsObj.imgSrcDesktop}
                                 alt={detailsObj.imgAltDesktop}
+                                width="282px"
+                                height="444px"
                             />
                         </DesktopWrapper>
                         <MobileWrapper>
                             <QueryImage
                                 data={detailsObj.imgSrcMobile}
                                 alt={detailsObj.imgAltMobile}
+                                width="328px"
+                                height="460px"
                             />
                         </MobileWrapper>
                     </>

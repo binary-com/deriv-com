@@ -92,6 +92,7 @@ const DepositDMT5 = () => (
                     <strong key={0} />,
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/account-transfer`}
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -119,6 +120,7 @@ const WithdrawDMT5 = () => (
                     <strong key={0} />,
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/account-transfer`}
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -156,6 +158,7 @@ const ResetDMT5Password = () => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/mt5`}
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

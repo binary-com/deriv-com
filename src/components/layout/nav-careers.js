@@ -51,7 +51,6 @@ const CareerLink = styled(StyledLink)`
 
 const CareerLogo = styled(LogoLink)`
     margin-right: 3.2rem;
-
     @media ${device.tabletS} {
         margin-right: 0;
         max-width: 100px;

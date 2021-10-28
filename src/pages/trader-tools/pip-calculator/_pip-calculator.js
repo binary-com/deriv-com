@@ -6,7 +6,6 @@ import {
     resetValidationPip,
     getCurrency,
     getContractSize,
-    numberWithCommas,
     numberSubmitFormat,
     getMaxLength,
 } from '../common/_utility'
@@ -149,7 +148,7 @@ const PipCalculator = () => {
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
-                                                {numberWithCommas(values.margin)}
+                                                {values.margin}
                                             </CalculatorOutputField>
                                             <CalculatorOutputSymbol>
                                                 {values.marginSymbol}

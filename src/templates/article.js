@@ -53,6 +53,8 @@ const ArticlesTemplate = (props) => {
     const meta_title = post_data?.meta_title
     const meta_description = post_data?.meta_description
     const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
+    const og_title = post_data?.og_title
+    const og_description = post_data?.og_description
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -79,6 +81,8 @@ const ArticlesTemplate = (props) => {
         og_img_width: '600',
         og_img_height: '315',
         og_img: og_image,
+        og_title: og_title ? og_title : meta_title,
+        og_description: og_description ? og_description : meta_description,
     }
 
     return (
@@ -306,6 +310,8 @@ export const query = graphql`
                 blog_title
                 meta_title
                 meta_description
+                og_title
+                og_description
                 published_date
                 read_time_in_minutes
                 blog_post

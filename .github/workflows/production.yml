@@ -63,7 +63,7 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-node-
 
@@ -74,7 +74,7 @@ jobs:
                   path: |
                       public
                       .cache
-                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
                   restore-keys: |
                       ${{ runner.os }}-gatsby-build-
 

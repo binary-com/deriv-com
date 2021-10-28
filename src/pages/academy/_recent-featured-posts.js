@@ -51,7 +51,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 <Tabs.Panel label={localize('Recent posts')}>
                     <ArticleContentWrapper>
                         <LeftContent>
-                            <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}`}>
+                            <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}/`}>
                                 <MainArticle image={getAssetUrl(headline_recent?.main_image?.id)}>
                                     <Description>
                                         <TagParentWrapper>
@@ -91,7 +91,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                             {recents.map((article) => {
                                 return (
                                     <RedirectLink
-                                        to={`/academy/blog/posts/${article.slug}`}
+                                        to={`/academy/blog/posts/${article.slug}/`}
                                         key={article.slug}
                                     >
                                         <SmallArticle>
@@ -133,7 +133,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 <Tabs.Panel label={localize('Featured posts')}>
                     <ArticleContentWrapper>
                         <LeftContent>
-                            <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}`}>
+                            <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}/`}>
                                 <MainArticle image={getAssetUrl(headline_featured.main_image.id)}>
                                     <Description>
                                         <TagParentWrapper>
@@ -173,7 +173,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                             {featureds.map((article) => {
                                 return (
                                     <RedirectLink
-                                        to={`/academy/blog/posts/${article.slug}`}
+                                        to={`/academy/blog/posts/${article.slug}/`}
                                         key={article.slug}
                                     >
                                         <SmallArticle>

@@ -280,9 +280,9 @@
         "logo": "Paytrust88"
     },
     {
-        "name": "DragonPhoenix",
+        "name": "Walaopay",
         "category": "Online Banking",
-        "key": "dragonphoenix",
+        "key": "walaopay",
         "description": "Deposit and withdraw easily in THB, IDR, and VND.",
         "deposit_proccessing_time": "Instant",
         "min_deposit": "10",
@@ -296,9 +296,9 @@
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "dragonphoenix",
+        "reference": "walaopay",
         "locale": [],
-        "logo": "Dragonphoenix"
+        "logo": "Walaopay"
     },
     {
         "name": "Ngan Luong",
@@ -383,6 +383,48 @@
         "reference": "",
         "locale": [],
         "logo": "Trustly"
+    },
+    {
+        "name": "PIX",
+        "category": "Online Banking",
+        "key": "pix",
+        "description": "Make fast deposits using PIX, the most popular payment solution provided by Brazilian banks.",
+        "deposit_proccessing_time": "Instant",
+        "min_deposit": "10",
+        "max_deposit": "1000",
+        "withdrawal_processing_time": "1 - 2 working days",
+        "min_withdrawal": "10",
+        "max_withdrawal": "10000",
+        "link_deriv": "",
+        "currencies": [["USD"]],
+        "countries": {
+            "included": ["BR"],
+            "excluded": []
+        },
+        "reference": "",
+        "locale": [],
+        "logo": "Pix"
+    },
+    {
+        "name": "PayRetailers",
+        "category": "Online Banking",
+        "key": "payretailers",
+        "description": "Payments simplified. Fast and reliable way to deposit funds in your local currency.",
+        "deposit_proccessing_time": "Instant",
+        "min_deposit": "50",
+        "max_deposit": "1000",
+        "withdrawal_processing_time": "1 working day ",
+        "min_withdrawal": "50",
+        "max_withdrawal": "1000",
+        "link_deriv": "https://virtual-pay.io/",
+        "currencies": [["USD"]],
+        "countries": {
+            "included": ["AR", "CL", "CO", "EC", "SV", "MX", "PA", "PE"],
+            "excluded": []
+        },
+        "reference": "",
+        "locale": [],
+        "logo": "Payretailers"
     },
     {
         "name": "Fasapay",
@@ -1052,84 +1094,6 @@
         "logo": "Airtm"
     },
     {
-        "name": "Bitcoin",
-        "category": "Cryptocurrencies",
-        "key": "bitcoin",
-        "description": "Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.",
-        "deposit_proccessing_time": "Funds available as soon as confirmed",
-        "min_deposit": "Not Available",
-        "max_deposit": "Not Available",
-        "withdrawal_processing_time": "Subject to internal checks",
-        "min_withdrawal": "0.0022",
-        "max_withdrawal": "Not Available",
-        "link_deriv": "",
-        "currencies": [["BTC"]],
-        "countries": {
-            "included": [],
-            "excluded": [
-                "EU",
-                "UK",
-                "AF",
-                "AE",
-                "CA",
-                "CF",
-                "HK",
-                "IL",
-                "IR",
-                "IQ",
-                "JE",
-                "MY",
-                "MT",
-                "RW",
-                "PY",
-                "US",
-                "SY"
-            ]
-        },
-        "reference": "bitcoin",
-        "locale": [],
-        "logo": "Bitcoin"
-    },
-    {
-        "name": "Banxa",
-        "category": "Fiat onramp",
-        "key": "banxa",
-        "description": "Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free.",
-        "deposit_proccessing_time": "5 - 30 minutes",
-        "min_deposit": "50",
-        "max_deposit": "5000",
-        "withdrawal_processing_time": "Not Available",
-        "min_withdrawal": "Not Available",
-        "max_withdrawal": "Not Available",
-        "link_deriv": "https://banxa.com/",
-        "currencies": [["USD", "EUR", "GBP", "AUD", "BTC", "LTC", "USDT", "USDC"]],
-        "countries": {
-            "included": [],
-            "excluded": [
-                "EU",
-                "UK",
-                "AF",
-                "AE",
-                "CA",
-                "CF",
-                "HK",
-                "IL",
-                "IR",
-                "IQ",
-                "JE",
-                "MY",
-                "MT",
-                "RW",
-                "PY",
-                "US",
-                "SY"
-            ]
-        },
-        "reference": "",
-        "locale": [],
-        "logo": "Banxa"
-    },
-    {
         "name": "Boleto Bancario",
         "category": "E-wallets",
         "key": "boleto-bancario",
@@ -1177,13 +1141,13 @@
         "key": "beyonic",
         "description": "Make deposits easily using your mobile. For clients in Uganda and Tanzania.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "5|5",
-        "max_deposit": "1000|1,000",
+        "min_deposit": "5",
+        "max_deposit": "1000",
         "withdrawal_processing_time": "1 - 2 working days ",
-        "min_withdrawal": "5|5",
-        "max_withdrawal": "1000|1,000",
+        "min_withdrawal": "5",
+        "max_withdrawal": "1000",
         "link_deriv": "https://beyonic.com/",
-        "currencies": [["TZS", "UGX"], ["USD"]],
+        "currencies": [["TZS", "UGX"]],
         "countries": {
             "included": ["TZ", "UG"],
             "excluded": []
@@ -1198,13 +1162,13 @@
         "key": "astropay",
         "description": "Enjoy fast and secure deposits and withdrawals with Astropay.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "5|5",
-        "max_deposit": "2500|2500",
+        "min_deposit": "5",
+        "max_deposit": "2500",
         "withdrawal_processing_time": "1 working day",
-        "min_withdrawal": "5|5",
-        "max_withdrawal": "2500|2,500",
+        "min_withdrawal": "5",
+        "max_withdrawal": "2500",
         "link_deriv": "https://astropay.com/?lang=en",
-        "currencies": [["USD"], ["USD"]],
+        "currencies": [["USD"]],
         "countries": {
             "included": ["AR", "BR", "CL", "CO", "EC", "IN", "MX", "PE"],
             "excluded": []
@@ -1216,23 +1180,23 @@
     {
         "name": "1ForYou",
         "category": "E-wallets",
-        "key": "1foryou",
+        "key": "oneforyou",
         "description": "Make deposits easily with cash voucher payment solution for South Africa.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "10|10",
-        "max_deposit": "1000|1,000",
+        "min_deposit": "10",
+        "max_deposit": "1000",
         "withdrawal_processing_time": "Not Available",
-        "min_withdrawal": "Not Available|Not Available",
-        "max_withdrawal": "Not Available|Not Available",
+        "min_withdrawal": "Not Available",
+        "max_withdrawal": "Not Available",
         "link_deriv": "https://1foryou.com/",
-        "currencies": [["USD"], ["USD"]],
+        "currencies": [["USD"]],
         "countries": {
             "included": ["ZA"],
             "excluded": []
         },
         "reference": "",
         "locale": [],
-        "logo": "1foryou"
+        "logo": "Oneforyou"
     },
     {
         "name": "AdvCash",
@@ -1240,13 +1204,13 @@
         "key": "advcash",
         "description": "Enjoy fast, smooth, and secure deposits and withdrawals with AdvCash.",
         "deposit_proccessing_time": "Instant ",
-        "min_deposit": "5|5",
-        "max_deposit": "1000|1,000",
+        "min_deposit": "5",
+        "max_deposit": "1000",
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
         "link_deriv": "https://advcash.gi/en/",
-        "currencies": [["USD"], ["USD"]],
+        "currencies": [["USD"]],
         "countries": {
             "included": [],
             "excluded": [
@@ -1283,6 +1247,45 @@
         "reference": "",
         "locale": [],
         "logo": "Advcash"
+    },
+    {
+        "name": "Bitcoin",
+        "category": "Cryptocurrencies",
+        "key": "bitcoin",
+        "description": "Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.",
+        "deposit_proccessing_time": "Funds available as soon as confirmed",
+        "min_deposit": "Not Available",
+        "max_deposit": "Not Available",
+        "withdrawal_processing_time": "Subject to internal checks",
+        "min_withdrawal": "0.0022",
+        "max_withdrawal": "Not Available",
+        "link_deriv": "",
+        "currencies": [["BTC"]],
+        "countries": {
+            "included": [],
+            "excluded": [
+                "EU",
+                "UK",
+                "AF",
+                "AE",
+                "CA",
+                "CF",
+                "HK",
+                "IL",
+                "IR",
+                "IQ",
+                "JE",
+                "MY",
+                "MT",
+                "RW",
+                "PY",
+                "US",
+                "SY"
+            ]
+        },
+        "reference": "bitcoin",
+        "locale": [],
+        "logo": "Bitcoin"
     },
     {
         "name": "Ethereum",
@@ -1441,6 +1444,45 @@
         "logo": "Usdc"
     },
     {
+        "name": "Banxa",
+        "category": "Fiat onramp",
+        "key": "banxa",
+        "description": "Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free.",
+        "deposit_proccessing_time": "5 - 30 minutes",
+        "min_deposit": "50",
+        "max_deposit": "5000",
+        "withdrawal_processing_time": "Not Available",
+        "min_withdrawal": "Not Available",
+        "max_withdrawal": "Not Available",
+        "link_deriv": "https://banxa.com/",
+        "currencies": [["USD", "EUR", "GBP", "AUD", "BTC", "LTC", "USDT", "USDC"]],
+        "countries": {
+            "included": [],
+            "excluded": [
+                "EU",
+                "UK",
+                "AF",
+                "AE",
+                "CA",
+                "CF",
+                "HK",
+                "IL",
+                "IR",
+                "IQ",
+                "JE",
+                "MY",
+                "MT",
+                "RW",
+                "PY",
+                "US",
+                "SY"
+            ]
+        },
+        "reference": "",
+        "locale": [],
+        "logo": "Banxa"
+    },
+    {
         "name": "Changelly",
         "category": "Fiat onramp",
         "key": "changelly",
@@ -1499,47 +1541,5 @@
         "reference": "",
         "locale": [],
         "logo": "Xanpool"
-    },
-    {
-        "name": "PIX",
-        "category": "Online Banking",
-        "key": "pix",
-        "description": "Make fast deposits using PIX, the most popular payment solution provided by Brazilian banks.",
-        "deposit_proccessing_time": "Instant",
-        "min_deposit": "10",
-        "max_deposit": "1000",
-        "withdrawal_processing_time": "1 - 2 working days",
-        "min_withdrawal": "10",
-        "max_withdrawal": "10000",
-        "link_deriv": "",
-        "currencies": [["USD"]],
-        "countries": {
-            "included": ["BR"],
-            "excluded": []
-        },
-        "reference": "",
-        "locale": [],
-        "logo": "Pix"
-    },
-    {
-        "name": "PayRetailers",
-        "category": "Online Banking",
-        "key": "payretailers",
-        "description": "Payments simplified. Fast and reliable way to deposit funds in your local currency.",
-        "deposit_proccessing_time": "Instant",
-        "min_deposit": "50",
-        "max_deposit": "1000",
-        "withdrawal_processing_time": "1 working day ",
-        "min_withdrawal": "50",
-        "max_withdrawal": "1000",
-        "link_deriv": "https://virtual-pay.io/",
-        "currencies": [["USD"]],
-        "countries": {
-            "included": ["AR", "CL", "CO", "EC", "SV", "MX", "PA", "PE"],
-            "excluded": []
-        },
-        "reference": "",
-        "locale": [],
-        "logo": "Payretailers"
     }
 ]

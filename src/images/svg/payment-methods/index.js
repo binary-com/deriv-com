@@ -35,6 +35,11 @@ import BoletoBancario from './payment-boleto-bancario.svg'
 import Advcash from './payment-advcash.svg'
 import Jcb from './payment-jcb.svg'
 import Pix from './payment-pix.svg'
+import Payretailers from './payment-payretailers.svg'
+import Astropay from './payment-astropay.svg'
+import Beyonic from './payment-beyonic.svg'
+import Walaopay from './payment-walaopay.svg'
+import Oneforyou from './payment-1foryou.svg'
 export default {
     Visa,
     VisaElectron,
@@ -71,4 +76,9 @@ export default {
     Advcash,
     Jcb,
     Pix,
+    Payretailers,
+    Astropay,
+    Beyonic,
+    Walaopay,
+    Oneforyou,
 }

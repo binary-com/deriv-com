@@ -309,7 +309,7 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
             component: articleTemplate,
             context: {
                 locale: 'en',
-                pathname: `/academy/blog/posts/${blog_post.slug}`,
+                pathname: `/academy/blog/posts/${blog_post.slug}/`,
                 slug: blog_post.slug,
             },
         })

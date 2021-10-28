@@ -61,7 +61,7 @@ jobs:
                   path: ~/.npm
                   key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
-                      ${{ runner.os }}-node-
+                      ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}
 
             - name: Cache Gatsby
               id: gatsby-cache-build
@@ -72,7 +72,7 @@ jobs:
                       .cache
                   key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
                   restore-keys: |
-                      ${{ runner.os }}-gatsby-build-
+                      ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
 
             - run: npm ci
             - run: npm run format

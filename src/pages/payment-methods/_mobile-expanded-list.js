@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Chevron from 'images/svg/custom/chevron-thick.svg'
+import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Button } from 'components/form/'
-import PDF from 'images/svg/pdf-icon-black.svg'
 import device from 'themes/device.js'
-import Chevron from 'images/svg/chevron-thick.svg'
 
 const StyledItemWrapper = styled(Flex)`
     border-bottom: ${(props) => (props.is_expanded ? '1px solid var(--color-grey-8)' : 'none')};

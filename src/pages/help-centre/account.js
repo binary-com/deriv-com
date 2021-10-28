@@ -115,6 +115,7 @@ const CloseAccount = () => (
                 components={[
                     <StyledLink
                         to={`${deriv_app_url}/account/deactivate-account`}
+                        external="true"
                         target="_blank"
                         weight="bold"
                         rel="noopener noreferrer"

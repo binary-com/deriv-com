@@ -6,6 +6,8 @@ on:
             - 'production*'
         paths-ignore:
             - '**.md'
+    repository_dispatch:
+        types: [publish_blog]
 
 env:
     GATSBY_CPU_COUNT: 2
@@ -84,7 +86,7 @@ jobs:
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
               with:
-                path: public/storybook
+                  path: public/storybook
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName

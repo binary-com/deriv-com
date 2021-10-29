@@ -325,7 +325,7 @@ export const PreviewContainer = styled(Box)`
         margin: 0 auto 16px auto;
         height: 100%;
         max-width: fit-content;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
     & td {
         min-width: 85px;

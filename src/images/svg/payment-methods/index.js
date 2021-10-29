@@ -39,7 +39,7 @@ import Payretailers from './payment-payretailers.svg'
 import Astropay from './payment-astropay.svg'
 import Beyonic from './payment-beyonic.svg'
 import Walaopay from './payment-walaopay.svg'
-import Oneforyou from './payment-1foryou.svg'
+import Oneforyou from './payment-oneforyou.svg'
 export default {
     Visa,
     VisaElectron,

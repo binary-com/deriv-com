@@ -145,6 +145,4 @@ const PaymentDataGenerator = () => {
     })
 }
 const payment_data = PaymentDataGenerator()
-// eslint-disable-next-line no-console
-console.log(payment_data)
 export default payment_data

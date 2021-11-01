@@ -9,17 +9,6 @@ import DifferentPassword from 'images/svg/responsible/diff-password.svg'
 import PaymentMethod from 'images/svg/responsible/payment-method.svg'
 import SecureBrowser from 'images/svg/responsible/secure-browser.svg'
 
-const StyledBox = styled(Box)`
-    @media ${device.tablet} {
-        padding-top: 40px;
-    }
-`
-const StyledContainer = styled(Container)`
-    @media ${device.tablet} {
-        width: 100%;
-        padding: 0 16px;
-    }
-`
 const Ul = styled(Flex).attrs({ as: 'ul' })`
     width: 100%;
     flex-wrap: wrap;
@@ -49,31 +38,27 @@ const Li = styled(Flex).attrs({ as: 'li' })`
 const ResponsiveBox = styled(Box)`
     width: 100%;
 
-    ${Text} {
-        max-width: 28.8rem;
-        margin: auto;
-    }
     @media ${device.tabletL} {
         margin-left: 0;
         margin-top: 1.6rem;
-
-        ${Text} {
-            max-width: 100%;
-        }
     }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         font-size: var(--text-size-m);
-        margin-bottom: 24px;
     }
 `
 
 const SecureAccount = () => {
     return (
-        <StyledBox pt="8rem" pb="15rem" bg="rgba(245, 247, 250, 0.32)">
-            <StyledContainer fd="column" ai="center">
-                <StyledHeader size="var(--text-size-xl)" align="center" mb="2rem">
+        <Box pt="8rem" pb="15rem" bg="rgba(245, 247, 250, 0.32)" tablet={{ pt: '40px' }}>
+            <Container fd="column" ai="center" tablet={{ width: '100%', p: '0 16px' }}>
+                <StyledHeader
+                    size="var(--text-size-xl)"
+                    align="center"
+                    mb="2rem"
+                    tablet={{ mb: '24px' }}
+                >
                     {localize('Securing your account')}
                 </StyledHeader>
                 <Ul jc="center" ai="center">
@@ -82,7 +67,7 @@ const SecureAccount = () => {
                             <img src={DifferentPassword} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text mobile_max_width="100%">
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
                                     'Use strong and varied passwords. Make them as difficult as possible for anyone to guess.',
                                 )}
@@ -94,7 +79,7 @@ const SecureAccount = () => {
                             <img src={SecureBrowser} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text>
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
                                     'Use a secure web browser such as Google Chrome. Always install the latest software updates because they include security patches.',
                                 )}
@@ -106,7 +91,7 @@ const SecureAccount = () => {
                             <img src={PaymentMethod} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text>
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 <Localize
                                     translate_text="Keep your login details secure and <0>enable two-factor authentication</0> to prevent unauthorised usage of your account."
                                     components={[
@@ -127,7 +112,7 @@ const SecureAccount = () => {
                             <img src={InstallAntivirus} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text>
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
                                     'Use antivirus and firewalls to further secure your devices.',
                                 )}
@@ -135,8 +120,8 @@ const SecureAccount = () => {
                         </ResponsiveBox>
                     </Li>
                 </Ul>
-            </StyledContainer>
-        </StyledBox>
+            </Container>
+        </Box>
     )
 }
 

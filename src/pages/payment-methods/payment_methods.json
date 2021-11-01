@@ -32,7 +32,7 @@
                 "SY"
             ]
         },
-        "reference": "visa",
+        "reference": "Visa",
         "locale": [],
         "logo": "Visa"
     },
@@ -106,7 +106,7 @@
                 "SY"
             ]
         },
-        "reference": "mastercard",
+        "reference": "Mastercard",
         "locale": [],
         "logo": "Mastercard"
     },
@@ -143,7 +143,7 @@
                 "SY"
             ]
         },
-        "reference": "maestro",
+        "reference": "Maestro",
         "locale": [],
         "logo": "Maestro"
     },
@@ -180,7 +180,7 @@
                 "SY"
             ]
         },
-        "reference": "diners",
+        "reference": "Diners",
         "locale": [],
         "logo": "Diners"
     },
@@ -296,7 +296,7 @@
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "walaopay",
+        "reference": "Walaopay",
         "locale": [],
         "logo": "Walaopay"
     },
@@ -317,8 +317,8 @@
             "included": ["VN"],
             "excluded": []
         },
-        "reference": "ngan-luong",
-        "locale": ["vn"],
+        "reference": "NganLuong",
+        "locale": ["vi"],
         "logo": "NganLuong"
     },
     {
@@ -338,7 +338,7 @@
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "help2pay",
+        "reference": "Help2pay",
         "locale": [],
         "logo": "Help2pay"
     },
@@ -359,7 +359,7 @@
             "included": ["SA"],
             "excluded": []
         },
-        "reference": "zingpay",
+        "reference": "Zingpay",
         "locale": [],
         "logo": "Zingpay"
     },
@@ -459,7 +459,7 @@
                 "SY"
             ]
         },
-        "reference": "fasapay",
+        "reference": "Fasapay",
         "locale": [],
         "logo": "Fasapay"
     },
@@ -496,7 +496,7 @@
                 "SY"
             ]
         },
-        "reference": "perfect-money",
+        "reference": "PerfectMoney",
         "locale": [],
         "logo": "PerfectMoney"
     },
@@ -663,7 +663,7 @@
                 "ZW"
             ]
         },
-        "reference": "skrill",
+        "reference": "Skrill",
         "locale": [],
         "logo": "Skrill"
     },
@@ -830,7 +830,7 @@
                 "ZW"
             ]
         },
-        "reference": "neteller",
+        "reference": "Neteller",
         "locale": [],
         "logo": "Neteller"
     },
@@ -881,7 +881,7 @@
                 "YE"
             ]
         },
-        "reference": "webmoney",
+        "reference": "Webmoney",
         "locale": [],
         "logo": "Webmoney"
     },
@@ -970,7 +970,7 @@
             "included": ["BR"],
             "excluded": []
         },
-        "reference": "paylivre",
+        "reference": "Paylivre",
         "locale": [],
         "logo": "Paylivre"
     },
@@ -1015,7 +1015,7 @@
                 "YE"
             ]
         },
-        "reference": "jeton",
+        "reference": "Jeton",
         "locale": [],
         "logo": "Jeton"
     },
@@ -1052,7 +1052,7 @@
                 "SY"
             ]
         },
-        "reference": "sticpay",
+        "reference": "Sticpay",
         "locale": [],
         "logo": "Sticpay"
     },
@@ -1089,7 +1089,7 @@
                 "SY"
             ]
         },
-        "reference": "airtm",
+        "reference": "Airtm",
         "locale": [],
         "logo": "Airtm"
     },
@@ -1283,7 +1283,7 @@
                 "SY"
             ]
         },
-        "reference": "bitcoin",
+        "reference": "Bitcoin",
         "locale": [],
         "logo": "Bitcoin"
     },
@@ -1322,7 +1322,7 @@
                 "SY"
             ]
         },
-        "reference": "ethereum",
+        "reference": "Ethereum",
         "locale": [],
         "logo": "Ethereum"
     },
@@ -1361,7 +1361,7 @@
                 "SY"
             ]
         },
-        "reference": "litecoin",
+        "reference": "Litecoin",
         "locale": [],
         "logo": "Litecoin"
     },

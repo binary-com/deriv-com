@@ -63,12 +63,16 @@ const getCurrency = (currencies) => {
     return values
 }
 
-const getReference = (key, reference, locale) => {
+const getReference = (reference, locale) => {
     if (reference !== '') {
-        if (locale.length && ReferencePDF[`${key}_${locale}`]) {
-            return { reference: `${reference}-payment-method.pdf`, locales: locale }
+        if (locale.length) {
+            const availableLocalPdfs = locale.filter((lang) => ReferencePDF[`${reference}_${lang}`])
+            return {
+                reference: `${reference}-payment-method.pdf`,
+                locales: `${availableLocalPdfs}`,
+            }
         }
-        return ReferencePDF[key] ? { reference: `${reference}-payment-method.pdf` } : null
+        return ReferencePDF[reference] ? { reference: `${reference}-payment-method.pdf` } : null
     }
     return null
 }
@@ -115,7 +119,7 @@ const PaymentDataGenerator = () => {
                         description: <Localize translate_text={description} />,
                         countries,
                         ...(link_deriv !== '' && { url: link_deriv }),
-                        ...getReference(key, reference, locale),
+                        ...getReference(reference, locale),
                     }
                 },
             )

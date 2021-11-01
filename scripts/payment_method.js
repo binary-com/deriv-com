@@ -195,10 +195,9 @@ const filterFunctions = {
                     return {
                         ...details,
                         logo: ucWord(sentencizeStr(key, '-')),
-                        reference: reference.toLowerCase() === 'yes' ? file_name : '',
+                        reference: reference.toLowerCase() === 'yes' ? ucWord(sentencizeStr(key, '-')) : '',
                     }
                 }
-
                 return null
             }),
         )
@@ -249,7 +248,7 @@ fs.createReadStream(source_path)
                             break
                     }
                 }
-
+    
                 return final_value
             },
         }),
@@ -258,8 +257,15 @@ fs.createReadStream(source_path)
         json.push(data)
     })
     .on('end', () => {
+        console.log(`Payment methods are being generated, and page is going to be updated. For more info visit payment-methods.md file. 
+
+        Icon Directory: ('src/images/svg/payment-methods/index.js')
+        PDF Directory: ('static/payment-methods/index.js')
+        
+        `)
+        
         const parsed_json = filterFunctions.flatten(json)
         const final_json = JSON.stringify(parsed_json, null, 2)
 
-        fs.writeFile(output_path, final_json, 'utf8', () => `${output_path} has been generated`)
+        fs.writeFile(output_path, final_json, 'utf8', () => console.log(`${Object.keys(parsed_json).length} payment methods found. ${output_path} has been generated`))
     })

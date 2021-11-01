@@ -13,7 +13,6 @@ import {
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
-import { DerivStore } from 'store'
 
 export const SharedLinkStyle = css`
     color: var(--color-white);
@@ -186,12 +185,10 @@ const ExternalLink = ({
     type,
     ...props
 }) => {
-    const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = getURLFormat(type, replaceLocale(locale), to, affiliate_lang)
     const show_modal =
-        is_eu_country &&
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&

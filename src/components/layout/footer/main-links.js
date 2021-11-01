@@ -66,8 +66,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
-                                to=""
-                                type="binary_bot"
+                                to="https://bot.deriv.com"
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"

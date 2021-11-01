@@ -180,7 +180,6 @@ const filterFunctions = {
                 filterFunctions.sanitize(d)
 
                 const { key, platform, reference } = d
-                const file_name = escapeStr(key)
 
                 const details = {}
 

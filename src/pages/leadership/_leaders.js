@@ -29,9 +29,6 @@ const query = graphql`
         munsei_loke: file(relativePath: { eq: "leaders/munsei-loke.png" }) {
             ...fadeIn
         }
-        denis_makagonov: file(relativePath: { eq: "leaders/denis-makagonov.png" }) {
-            ...fadeIn
-        }
         waqas_awan: file(relativePath: { eq: "leaders/waqas-awan.png" }) {
             ...fadeIn
         }
@@ -42,9 +39,6 @@ const query = graphql`
             ...fadeIn
         }
         arun_venkataraman: file(relativePath: { eq: "leaders/arun-venkataraman.png" }) {
-            ...fadeIn
-        }
-        ashkan_nemati: file(relativePath: { eq: "leaders/ashkan-nemati.png" }) {
             ...fadeIn
         }
         rakshit_choudhary_mobile: file(
@@ -70,9 +64,6 @@ const query = graphql`
         munsei_loke_mobile: file(relativePath: { eq: "leaders/munsei-loke-mobile.png" }) {
             ...fadeIn
         }
-        denis_makagonov_mobile: file(relativePath: { eq: "leaders/denis-makagonov-mobile.png" }) {
-            ...fadeIn
-        }
         waqas_awan_mobile: file(relativePath: { eq: "leaders/waqas-awan-mobile.png" }) {
             ...fadeIn
         }
@@ -87,9 +78,6 @@ const query = graphql`
         arun_venkataraman_mobile: file(
             relativePath: { eq: "leaders/arun-venkataraman-mobile.png" }
         ) {
-            ...fadeIn
-        }
-        ashkan_nemati_mobile: file(relativePath: { eq: "leaders/ashkan-nemati-mobile.png" }) {
             ...fadeIn
         }
     }

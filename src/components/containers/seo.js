@@ -6,7 +6,14 @@ import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/og_deriv.png'
 
-const non_localized_links = ['/careers', '/careers/', '/besquare', '/besquare/']
+const non_localized_links = [
+    '/careers',
+    '/careers/',
+    '/besquare',
+    '/besquare/',
+    '/academy',
+    '/academy/',
+]
 
 const languages = Object.keys(language_config)
 languages.push('x-default')

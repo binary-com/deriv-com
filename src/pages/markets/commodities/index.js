@@ -43,7 +43,7 @@ const CommoditiesPage = () => (
             title={localize('Commodities market | Commodities trading | Deriv')}
         />
         <Hero />
-        <NavTab route_from={'commodities'} route_offset={600} />
+        <NavTab route_from={'commodities'} route_offset={550} />
         <Commodities simple_step_content={simple_step_content_commodities} />
         <Signup appearance={Appearances.public} />
     </Layout>

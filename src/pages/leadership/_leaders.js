@@ -158,14 +158,6 @@ const leaders_data = [
         image: 'munsei_loke',
     },
     {
-        name: 'Denis Makagonov',
-        position: <Localize translate_text="Business Intelligence Manager" />,
-        description: (
-            <Localize translate_text="Denis has more than 10 years of data management experience. Denis previously worked with Forex Club (Libertex), one of the world’s leading forex retail brokers in Russia, and CIS as an enterprise data architect. Denis holds an engineering degree in computer systems information processing and management from Karaganda State Technical University in Kazakhstan." />
-        ),
-        image: 'denis_makagonov',
-    },
-    {
         name: 'Waqas Awan',
         position: <Localize translate_text="Head of Product Design" />,
         description: (
@@ -196,14 +188,6 @@ const leaders_data = [
             <Localize translate_text="Arun coordinates our product development teams with our operations teams. He has over 12 years of experience in the information industry and has a comprehensive perspective into his field. Arun holds a master’s degree in bioinformatics from Bharathiar University in India." />
         ),
         image: 'arun_venkataraman',
-    },
-    {
-        name: 'Ashkan Nemati',
-        position: <Localize translate_text="Head of Front-end" />,
-        description: (
-            <Localize translate_text="Ashkan directs our front-end resources across the globe. He has over a decade of experience working with marketers, engineers, and designers in the entertainment and trading industries. Ashkan and his team focus on building a user-centric trading experience, which can help our users make better trading decisions. He holds an MBA from Management and Science University." />
-        ),
-        image: 'ashkan_nemati',
     },
 ]
 const StyledSection = styled(SectionContainer)`

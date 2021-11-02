@@ -247,6 +247,7 @@ const ArticleEmailBanner = () => {
             email,
             created_at: Math.round(Date.now() / 1000),
             name,
+            type: 'Academy',
         })
     }
 

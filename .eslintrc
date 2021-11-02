@@ -1,5 +1,30 @@
 {
     "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+    "overrides": [
+    {
+        "files": ["*.{ts,tsx}"],
+        "parser": "@typescript-eslint/parser",
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/recommended",
+            "plugin:react/recommended",
+            "plugin:import/errors",
+            "plugin:import/warnings"
+        ],
+        "parserOptions": {
+            "project": "./tsconfig.json",
+            "ecmaVersion": 2020,
+            "sourceType": "module" // Allows for the use of imports
+        }
+    }
+    ],
+    "plugins": ["@typescript-eslint"],
     "rules": {
         "strict": 0,
         "camelcase": 0,
@@ -63,12 +88,6 @@
             }
         ]
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings"
-    ],
     "env": {
         "es6": true,
         "browser": true,
@@ -80,8 +99,9 @@
             "node": {
                 "paths": [
                     "src"
-                ]
-            }
+                ],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+              }
         },
         "react": {
             "version": "17"

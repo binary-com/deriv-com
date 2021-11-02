@@ -6,6 +6,8 @@ on:
             - 'production*'
         paths-ignore:
             - '**.md'
+    repository_dispatch:
+        types: [publish_blog]
 
 env:
     GATSBY_CPU_COUNT: 2
@@ -61,9 +63,9 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
-                      ${{ runner.os }}-node-
+                      ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}
 
             - name: Cache Gatsby
               id: gatsby-cache-build
@@ -72,9 +74,9 @@ jobs:
                   path: |
                       public
                       .cache
-                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
                   restore-keys: |
-                      ${{ runner.os }}-gatsby-build-
+                      ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
 
             - run: npm ci
             - run: npm run format
@@ -84,7 +86,7 @@ jobs:
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
               with:
-                path: public/storybook
+                  path: public/storybook
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName

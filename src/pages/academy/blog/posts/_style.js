@@ -321,7 +321,15 @@ export const PreviewContainer = styled(Box)`
         font-style: italic;
     }
     & table {
-        margin-bottom: 16px;
+        display: block;
+        margin: 0 auto 16px auto;
+        height: 100%;
+        max-width: fit-content;
+        overflow-x: auto;
+    }
+    & td {
+        min-width: 85px;
+        padding: 6px;
     }
     @media ${device.laptop} {
         max-width: none;
@@ -355,6 +363,9 @@ export const PreviewContainer = styled(Box)`
         }
         & h6 {
             ${SharedMobileHeadingStyles}
+        }
+        & table {
+            font-size: 12px;
         }
     }
 `

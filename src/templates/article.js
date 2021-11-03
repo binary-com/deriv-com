@@ -56,7 +56,6 @@ const ArticlesTemplate = (props) => {
     const og_title = post_data?.og_title
     const og_description = post_data?.og_description
     const test_data = post_data?.test_data
-    console.log(test_data)
 
     const side_banner_data_details = {
         max_w_value: '328px',

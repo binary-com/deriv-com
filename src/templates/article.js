@@ -59,7 +59,7 @@ const ArticlesTemplate = (props) => {
     const side_banner_data_details = {
         max_w_value: '328px',
         max_w_tablet: '320px',
-        isExternal: true,
+        isExternal: footer_banner_data?.cta_url.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: side_banner_data?.cta_url,
         imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
         imgAltDesktop: side_banner_data?.banner_image?.description,
@@ -68,7 +68,7 @@ const ArticlesTemplate = (props) => {
     const footer_banner_details = {
         max_w_value: '792px',
         max_w_tablet: '580px',
-        isExternal: true,
+        isExternal: footer_banner_data?.cta_url.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: footer_banner_data?.cta_url,
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
         imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,

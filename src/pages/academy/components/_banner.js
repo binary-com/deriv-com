@@ -45,7 +45,7 @@ const Banner = ({ detailsObj, detailsPreviewObj }) => {
                     <>
                         <QueryImage
                             data={detailsObj.imgSrcDesktop}
-                            alt={detailsObj.imgAltDesktop}
+                            alt={detailsObj.imgAltDesktop || ''}
                         />
                     </>
                 )}
@@ -54,7 +54,7 @@ const Banner = ({ detailsObj, detailsPreviewObj }) => {
                         <DesktopWrapper>
                             <QueryImage
                                 data={detailsObj.imgSrcDesktop}
-                                alt={detailsObj.imgAltDesktop}
+                                alt={detailsObj.imgAltDesktop || ''}
                                 width="282px"
                                 height="444px"
                             />
@@ -86,7 +86,7 @@ const Banner = ({ detailsObj, detailsPreviewObj }) => {
                     <>
                         <img
                             src={`${cms_assets_end_point}${detailsPreviewObj.imgSrcDesktop}`}
-                            alt={detailsPreviewObj.imgAltDesktop}
+                            alt={detailsPreviewObj.imgAltDesktop || ''}
                         />
                     </>
                 )}
@@ -95,7 +95,7 @@ const Banner = ({ detailsObj, detailsPreviewObj }) => {
                         <DesktopWrapper>
                             <img
                                 src={`${cms_assets_end_point}${detailsPreviewObj.imgSrcDesktop}`}
-                                alt={detailsPreviewObj.imgAltDesktop}
+                                alt={detailsPreviewObj.imgAltDesktop || ''}
                             />
                         </DesktopWrapper>
                         <MobileWrapper>

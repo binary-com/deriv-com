@@ -55,6 +55,7 @@ const ArticlesTemplate = (props) => {
     const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
     const og_title = post_data?.og_title
     const og_description = post_data?.og_description
+    const test_data = post_data?.test_data
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -91,6 +92,7 @@ const ArticlesTemplate = (props) => {
                 description={meta_description}
                 title={meta_title}
                 meta_attributes={meta_attributes}
+                no_index={test_data}
             />
             <>
                 {isMounted && (
@@ -165,7 +167,7 @@ const ArticlesTemplate = (props) => {
                                                                 }
                                                                 alt={
                                                                     post_data?.author?.image
-                                                                        ?.description
+                                                                        ?.description || ''
                                                                 }
                                                             />
                                                         </WriterImage>
@@ -188,7 +190,7 @@ const ArticlesTemplate = (props) => {
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
                                         <QueryImage
                                             data={post_data?.main_image?.imageFile}
-                                            alt={post_data?.main_image?.description}
+                                            alt={post_data?.main_image?.description || ''}
                                             className="standard-query-img"
                                         />
                                     </HeroImageContainer>
@@ -210,7 +212,7 @@ const ArticlesTemplate = (props) => {
                                                             }
                                                             alt={
                                                                 post_data?.author?.image
-                                                                    ?.description
+                                                                    ?.description || ''
                                                             }
                                                         />
                                                     </WriterImage>
@@ -312,6 +314,7 @@ export const query = graphql`
                 meta_description
                 og_title
                 og_description
+                test_data
                 published_date
                 read_time_in_minutes
                 blog_post

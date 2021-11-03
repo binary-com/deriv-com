@@ -220,7 +220,7 @@ const TradingLimits = () => {
                                         <TimelineTick.Item>
                                             <Text>
                                                 {localize(
-                                                    'If you wish to resume trading when your self-exclusion expires and once you have made a request to remove self-exclusion, there will be a cooling-off period of 24 hours before you are allowed access to our site. If you live in the United Kingdom, please make your request by calling +447723580049. Requests by chat or email shall not be entertained.',
+                                                    'If you wish to resume trading when your self-exclusion expires and once you have made a request to remove self-exclusion, there will be a cooling-off period of 24 hours before you are allowed access to our site.',
                                                 )}
                                             </Text>
                                         </TimelineTick.Item>

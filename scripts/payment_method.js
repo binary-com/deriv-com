@@ -217,7 +217,7 @@ fs.createReadStream(source_path)
             },
             // eslint-disable-next-line
             mapValues: ({ header, index, value }) => {
-                let final_value = value
+                let final_value = value.trim();
 
                 const filter_option = column_filters[header]
 

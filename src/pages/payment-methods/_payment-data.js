@@ -18,14 +18,23 @@ const NoIconText = styled.div`
 
 const getMinMaxLimit = (minValue, maxValue) => {
     if (maxValue === 'No maximum' || maxValue === 'Not Available')
-        return <Localize translate_text={`${minValue}`} />
+        return <Localize translate_text="{{minValue}}" values={{ minValue }} />
+
     if (minValue.includes('|') && maxValue.includes('|')) {
         let min_array = minValue.split('|')
         let max_array = maxValue.split('|')
-        const values = min_array.map((amount, i) => amount + '-' + max_array[i]).join('<0></0>')
-        return <Localize translate_text={values} components={[<br key={0} />]} />
+        const min_max_value = min_array
+            .map((amount, i) => amount + '-' + max_array[i])
+            .join('<0></0>')
+        return (
+            <Localize
+                translate_text="{{min_max_value}}"
+                values={{ min_max_value }}
+                components={[<br key={0} />]}
+            />
+        )
     }
-    return <Localize translate_text={`${minValue} - ${maxValue}`} />
+    return <Localize translate_text="{{minValue}} - {{maxValue}}" values={{ minValue, maxValue }} />
 }
 
 const categorizePaymentMethod = (json) => {
@@ -149,4 +158,5 @@ const PaymentDataGenerator = () => {
     })
 }
 const payment_data = PaymentDataGenerator()
+console.log(payment_data)
 export default payment_data

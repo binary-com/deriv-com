@@ -63,7 +63,7 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: side_banner_data?.cta_url,
         imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
-        imgAltDesktop: side_banner_data?.banner_image?.description || '',
+        imgAltDesktop: side_banner_data?.banner_image?.description,
     }
 
     const footer_banner_details = {
@@ -72,9 +72,9 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: footer_banner_data?.cta_url,
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
-        imgAltDesktop: footer_banner_data?.desktop_banner_image?.description || '',
+        imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.imageFile,
-        imgAltMobile: footer_banner_data?.mobile_banner_image?.description || '',
+        imgAltMobile: footer_banner_data?.mobile_banner_image?.description,
     }
 
     const meta_attributes = {

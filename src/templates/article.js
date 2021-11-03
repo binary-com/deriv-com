@@ -55,6 +55,8 @@ const ArticlesTemplate = (props) => {
     const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
     const og_title = post_data?.og_title
     const og_description = post_data?.og_description
+    const test_data = post_data?.test_data
+    console.log(test_data)
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -62,7 +64,7 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: side_banner_data?.cta_url,
         imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
-        imgAltDesktop: side_banner_data?.banner_image?.description,
+        imgAltDesktop: side_banner_data?.banner_image?.description || '',
     }
 
     const footer_banner_details = {
@@ -71,9 +73,9 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: footer_banner_data?.cta_url,
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
-        imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,
+        imgAltDesktop: footer_banner_data?.desktop_banner_image?.description || '',
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.imageFile,
-        imgAltMobile: footer_banner_data?.mobile_banner_image?.description,
+        imgAltMobile: footer_banner_data?.mobile_banner_image?.description || '',
     }
 
     const meta_attributes = {
@@ -91,6 +93,7 @@ const ArticlesTemplate = (props) => {
                 description={meta_description}
                 title={meta_title}
                 meta_attributes={meta_attributes}
+                no_index={test_data}
             />
             <>
                 {isMounted && (
@@ -165,7 +168,7 @@ const ArticlesTemplate = (props) => {
                                                                 }
                                                                 alt={
                                                                     post_data?.author?.image
-                                                                        ?.description
+                                                                        ?.description || ''
                                                                 }
                                                             />
                                                         </WriterImage>
@@ -188,7 +191,7 @@ const ArticlesTemplate = (props) => {
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
                                         <QueryImage
                                             data={post_data?.main_image?.imageFile}
-                                            alt={post_data?.main_image?.description}
+                                            alt={post_data?.main_image?.description || ''}
                                             className="standard-query-img"
                                         />
                                     </HeroImageContainer>
@@ -210,7 +213,7 @@ const ArticlesTemplate = (props) => {
                                                             }
                                                             alt={
                                                                 post_data?.author?.image
-                                                                    ?.description
+                                                                    ?.description || ''
                                                             }
                                                         />
                                                     </WriterImage>
@@ -312,6 +315,7 @@ export const query = graphql`
                 meta_description
                 og_title
                 og_description
+                test_data
                 published_date
                 read_time_in_minutes
                 blog_post

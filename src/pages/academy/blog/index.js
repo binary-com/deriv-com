@@ -93,7 +93,10 @@ export default WithIntl()(ArticlesPage)
 export const query = graphql`
     query AllArticlesQuery {
         directus {
-            blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
+            blog(
+                filter: { status: { _eq: "published" }, test_data: { _eq: false } }
+                sort: "-published_date"
+            ) {
                 id
                 main_image {
                     id

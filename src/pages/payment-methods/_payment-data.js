@@ -158,5 +158,4 @@ const PaymentDataGenerator = () => {
     })
 }
 const payment_data = PaymentDataGenerator()
-console.log(payment_data)
 export default payment_data

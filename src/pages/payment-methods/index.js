@@ -101,7 +101,7 @@ const getClientCountry = () => {
     }
     return current_client_country.toLowerCase()
 }
-const getPaymentsBasedOnCountry = (payment_data, current_client_country) => {
+const getPaymentsBasedOnCountry = (current_client_country) => {
     const payments_data_array = payment_data.map((category) => {
         const filteredData = category.data.filter((item) => {
             if (item.countries.included.length) {
@@ -129,16 +129,16 @@ const getPaymentsBasedOnCountry = (payment_data, current_client_country) => {
             data: filteredData,
         }
     })
-    const payment_list = payments_data_array.filter((item) => item.data.length)
-    return payment_list
+    return payments_data_array.filter((item) => item.data.length)
 }
 
 const DisplayAccordion = (locale) => {
     const { crypto_config } = React.useContext(DerivStore)
-    const current_client_country = getClientCountry()
+    let current_client_country = getClientCountry()
+    current_client_country = 'vn'
     const [show_table, setShowTable] = useState(false)
 
-    const paymentsBasedOnCountry = getPaymentsBasedOnCountry(payment_data, current_client_country)
+    const paymentsBasedOnCountry = getPaymentsBasedOnCountry(current_client_country)
 
     if (!paymentsBasedOnCountry.length) {
         return (

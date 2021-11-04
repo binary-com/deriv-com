@@ -68,8 +68,7 @@ const getsortedCategories = (categories) => {
 
 const getCurrency = (currencies) => {
     if (currencies.length === 1) return currencies[0].join(' ')
-    const values = currencies.map((group) => `${group.join(' ')}`).join('\n')
-    return values
+    return currencies.map((group) => `${group.join(' ')}`).join('\n')
 }
 
 const getReference = (key, reference, locale) => {

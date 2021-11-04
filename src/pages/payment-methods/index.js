@@ -93,12 +93,7 @@ const getClientResidence = () => {
 
 const getClientCountry = () => {
     let current_client_country = ''
-    if (
-        typeof window !== 'undefined' &&
-        new URLSearchParams(window.location.search).get('country')
-    ) {
-        current_client_country = new URLSearchParams(window.location.search).get('country')
-    } else if (isLoggedIn()) {
+    if (isLoggedIn()) {
         current_client_country = getClientResidence()
     } else {
         const [website_status] = useWebsiteStatus()
@@ -141,8 +136,6 @@ const getPaymentsBasedOnCountry = (payment_data, current_client_country) => {
 const DisplayAccordion = (locale) => {
     const { crypto_config } = React.useContext(DerivStore)
     const current_client_country = getClientCountry()
-    // eslint-disable-next-line no-console
-    console.log(current_client_country)
     const [show_table, setShowTable] = useState(false)
 
     const paymentsBasedOnCountry = getPaymentsBasedOnCountry(payment_data, current_client_country)

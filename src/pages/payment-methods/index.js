@@ -134,8 +134,7 @@ const getPaymentsBasedOnCountry = (current_client_country) => {
 
 const DisplayAccordion = (locale) => {
     const { crypto_config } = React.useContext(DerivStore)
-    let current_client_country = getClientCountry()
-    current_client_country = 'vn'
+    const current_client_country = getClientCountry()
     const [show_table, setShowTable] = useState(false)
 
     const paymentsBasedOnCountry = getPaymentsBasedOnCountry(current_client_country)

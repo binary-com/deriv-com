@@ -56,6 +56,7 @@ const ArticlesPage = ({ data }) => {
     const article_data = is_eu_country
         ? data.directus.blog.filter((item) => item.hide_for_eu == false)
         : data.directus.blog
+
     const meta_attributes = {
         og_title: 'Trading tips, guides, and more.',
         og_description:
@@ -63,7 +64,8 @@ const ArticlesPage = ({ data }) => {
         og_type: 'website',
         og_img_width: '600',
         og_img_height: '315',
-        og_img: HeroImage,
+        og_img: article_data[0].main_image.imageFile.childImageSharp.gatsbyImageData.images.fallback
+            .src,
     }
     return (
         <Layout type="academy">

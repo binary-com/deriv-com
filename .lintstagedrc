@@ -3,7 +3,7 @@
         "eslint --fix",
         "stylelint --formatter verbose",
     ],
-    "src/**/*.{js,jsx,json,md}": [
+    "src/**/*.{js,jsx,ts,tsx,json,md}": [
         "prettier --write",
     ]
 }

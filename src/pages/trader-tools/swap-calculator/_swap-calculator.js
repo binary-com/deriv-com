@@ -11,7 +11,6 @@ import {
     getCurrency,
     numberSubmitFormatNegative,
     numberSubmitFormat,
-    numberWithCommas,
     getMaxLength,
 } from '../common/_utility'
 import {
@@ -180,7 +179,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {values.swapCharge}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -503,7 +502,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {values.swapCharge}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}

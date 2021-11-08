@@ -56,7 +56,10 @@ const VideosPage = ({ data }) => {
     const video_data = is_eu_country
         ? data.directus.videos.filter((item) => item.hide_for_eu == false)
         : data.directus.videos
-
+    const meta_attributes = {
+        og_title: 'Platform tours, webinars, and more.',
+        og_description: 'Our products and services explained in detail.',
+    }
     return (
         <Layout type="academy">
             <SEO
@@ -64,6 +67,7 @@ const VideosPage = ({ data }) => {
                 description={localize(
                     "Learn how to trade using our trading videos and tutorials at Deriv's online trading academy.",
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero jc="center" ai="center">
                 <SmallContainer>

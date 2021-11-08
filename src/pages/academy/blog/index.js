@@ -61,11 +61,6 @@ const ArticlesPage = ({ data }) => {
         og_title: 'Trading tips, guides, and more.',
         og_description:
             'Educational content at your fingertips – everything you need to know to start trading or upgrade your trading skills.',
-        og_type: 'website',
-        og_img_width: '600',
-        og_img_height: '315',
-        og_img: article_data[0].main_image.imageFile.childImageSharp.gatsbyImageData.images.fallback
-            .src,
     }
     return (
         <Layout type="academy">

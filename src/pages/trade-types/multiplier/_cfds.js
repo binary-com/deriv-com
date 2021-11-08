@@ -87,12 +87,16 @@ const CFDs = () => {
                     {localize('Forex pairs available for multipliers trading')}
                 </StyledTitle>
                 <MarketInstruments market_content={major_pairs} />
-                <Show.Desktop>
-                    <MarketInstruments market_content={forex_cfds_desktop} />
-                </Show.Desktop>
-                <Show.Mobile>
-                    <MarketInstruments market_content={forex_cfds_mobile} />
-                </Show.Mobile>
+                {!is_eu_country && (
+                    <>
+                        <Show.Desktop>
+                            <MarketInstruments market_content={forex_cfds_desktop} />
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <MarketInstruments market_content={forex_cfds_mobile} />
+                        </Show.Mobile>
+                    </>
+                )}
             </Flex>
         </SectionContainer>
     )

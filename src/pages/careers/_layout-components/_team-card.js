@@ -63,10 +63,10 @@ const StyledText = styled(Text)`
     }
 `
 
-const TeamCard = ({ to, img_data, alt, display_team_name, tagline }) => (
+const TeamCard = ({ to, img_data, img_alt, display_team_name, tagline }) => (
     <StyledCard height="144px" to={to}>
         <ImageWrapper>
-            <QueryImage data={img_data} height="144px" width="100%" alt={alt} />
+            <QueryImage data={img_data} height="144px" width="100%" alt={img_alt} />
         </ImageWrapper>
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
@@ -76,8 +76,8 @@ const TeamCard = ({ to, img_data, alt, display_team_name, tagline }) => (
 )
 
 TeamCard.propTypes = {
-    alt: PropTypes.string,
     display_team_name: PropTypes.string,
+    img_alt: PropTypes.string,
     img_data: PropTypes.object,
     tagline: PropTypes.string,
     team_name: PropTypes.string,

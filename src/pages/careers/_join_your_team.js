@@ -81,7 +81,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.backendDevelopment,
             to: '/careers/back-end/',
-            alt: 'Back-end development jobs at Deriv',
+            img_alt: 'Back-end development jobs at Deriv',
             display_team_name: 'Back-end Development',
             tagline:
                 'We develop and fortify our website, platforms, and app architecture that power our users’ experience.',
@@ -89,7 +89,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.marketingGlobalPartnerships,
             to: '/careers/marketing/',
-            alt: 'Marketing and global partnership jobs at Deriv',
+            img_alt: 'Marketing and global partnership jobs at Deriv',
             display_team_name: 'Marketing & Global Partnerships',
             tagline:
                 'We conceptualise and implement creative marketing solutions to help our business grow.',
@@ -97,7 +97,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.cyberSecurityIT,
             to: '/careers/cyber-security-it/',
-            alt: 'Cyber security and IT jobs at Deriv',
+            img_alt: 'Cyber security and IT jobs at Deriv',
             display_team_name: 'Cyber Security & IT',
             tagline:
                 'We support all the teams in our organisation to achieve our goals without roadblocks and hiccups.',
@@ -105,7 +105,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.customerSupport,
             to: '/careers/customer-support/',
-            alt: 'Customer support jobs at Deriv',
+            img_alt: 'Customer support jobs at Deriv',
             display_team_name: 'Customer Support',
             tagline:
                 'We care about providing helpful solutions to our clients to make their trading experience with us even better.',
@@ -113,7 +113,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.peopleManagement,
             to: '/careers/people-management/',
-            alt: 'People management jobs at Deriv',
+            img_alt: 'People management jobs at Deriv',
             display_team_name: 'People Management',
             tagline:
                 'We bring in go-getters, link them with the right opportunities, and support them in every way to help them grow.',
@@ -121,14 +121,14 @@ const JoinYourTeam = () => {
         {
             img_data: data.productDesignUX,
             to: '/careers/product-design/',
-            alt: 'Product design and UX jobs at Deriv',
+            img_alt: 'Product design and UX jobs at Deriv',
             display_team_name: 'Product Design & UX',
             tagline: 'We create design and user experiences that make trading with us enjoyable.',
         },
         {
             img_data: data.legalCompliance,
             to: '/careers/legal-compliance/',
-            alt: 'Legal and compliance jobs at Deriv',
+            img_alt: 'Legal and compliance jobs at Deriv',
             display_team_name: 'Legal & Compliance',
             tagline:
                 'We navigate the legal and regulatory environment to help our business maintain the highest ethical standards.',
@@ -136,14 +136,14 @@ const JoinYourTeam = () => {
         {
             img_data: data.financeAccounts,
             to: '/careers/finance-accounts/',
-            alt: 'Finance and account jobs at Deriv',
+            img_alt: 'Finance and account jobs at Deriv',
             display_team_name: 'Finance & Accounts',
             tagline: 'We’re all about helping the company make good decisions about money.',
         },
         {
             img_data: data.paymentSolutionsIntegration,
             to: '/careers/payment-solutions/',
-            alt: 'Payment solutions and integration jobs at Deriv',
+            img_alt: 'Payment solutions and integration jobs at Deriv',
             display_team_name: 'Payment Solutions & Integration',
             tagline:
                 'We make it easy for clients to trade from anywhere in the world, with any currency.',
@@ -151,14 +151,14 @@ const JoinYourTeam = () => {
         {
             img_data: data.frontendDevelopment,
             to: '/careers/front-end/',
-            alt: 'Front-end development jobs at Deriv',
+            img_alt: 'Front-end development jobs at Deriv',
             display_team_name: 'Front-end Development',
             tagline: 'We code creative and user-friendly web pages and platforms.',
         },
         {
             img_data: data.tradingOperations,
             to: '/careers/trading-operations/',
-            alt: 'Trading operations jobs at Deriv',
+            img_alt: 'Trading operations jobs at Deriv',
             display_team_name: 'Trading Operations',
             tagline:
                 'We work behind the scenes to make sure trading operations are functioning as they should.',
@@ -166,7 +166,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.softwareTesting,
             to: '/careers/software-testing/',
-            alt: 'Software testing jobs at Deriv',
+            img_alt: 'Software testing jobs at Deriv',
             display_team_name: 'Software Testing',
             tagline:
                 'We look after the quality of our websites and trading platforms to deliver a world-class experience.',
@@ -174,7 +174,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.businessExcellence,
             to: '/careers/business-excellence/',
-            alt: 'Business excellence jobs at Deriv',
+            img_alt: 'Business excellence jobs at Deriv',
             display_team_name: 'Business Excellence',
             tagline:
                 'We improve company-wide performance by helping teams optimise their processes and resources.',
@@ -182,7 +182,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.internalAudit,
             to: '/careers/internal-audit/',
-            alt: 'Internal audit jobs at Deriv',
+            img_alt: 'Internal audit jobs at Deriv',
             display_team_name: 'Internal Audit',
             tagline:
                 'We provide independent evaluations of the company to reduce risk and improve operations.',
@@ -190,7 +190,7 @@ const JoinYourTeam = () => {
         {
             img_data: data.projectManagement,
             to: '/careers/project-management/',
-            alt: 'Project management jobs at Deriv',
+            img_alt: 'Project management jobs at Deriv',
             display_team_name: 'Project Management',
             tagline:
                 'We take care of collaboration details to ensure that projects are completed in a timely, efficient manner.',
@@ -220,7 +220,7 @@ const JoinYourTeam = () => {
                             key={index}
                             img_data={item.img_data}
                             to={item.to}
-                            alt={item.alt}
+                            img_alt={item.img_alt}
                             display_team_name={item.display_team_name}
                             tagline={item.tagline}
                         />

@@ -234,7 +234,7 @@ export const cyprus = {
         'Group of man discussing',
         'Man looking on his desktop screen with charts',
         'Girl having a call online',
-        '',
+        "Deriv's office location in Limassol,Cyprus",
     ],
     map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
     map_text:
@@ -259,9 +259,9 @@ export const rwanda = {
     first_img_alt: 'Kigali city view',
     grid_images: ['rwanda_grid_1', 'rwanda_grid_2', 'rwanda_grid_3', 'rwanda_grid_4'],
     grid_img_alt: [
-        'Man standing and explaining',
-        'Discussing in group',
-        '',
+        'Man standing and explaining to the team',
+        'Group discussion with team',
+        "Deriv's office location in Kigali, Rwanda",
         'Girl sitting on a chair',
     ],
     map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',

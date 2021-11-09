@@ -76,7 +76,10 @@ const AvailablePlatforms = ({
             ai="center"
         >
             <StyledText tablet_direction={tablet_direction}>{localize('Available on')}</StyledText>
-            <PlatformsContainer ai="center">
+            <PlatformsContainer
+                width={tablet_direction === 'column' ? '100%' : 'unset'}
+                ai="center"
+            >
                 {dmt5 && (
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">

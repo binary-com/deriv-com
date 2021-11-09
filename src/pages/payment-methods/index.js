@@ -101,27 +101,25 @@ const getClientCountry = () => {
     }
     return current_client_country.toLowerCase()
 }
-const getPaymentsBasedOnCountry = (current_client_country) => {
+
+const filterCountry = (countriesArray, client_country) => {
+    const countries = countriesArray.map((i) => i.toLowerCase())
+    if (countries.includes(client_country)) {
+        return true
+    } else if (countries.includes('eu')) {
+        return isEuCountry(client_country)
+    }
+    return false
+}
+
+const getPaymentsBasedOnCountry = () => {
+    const client_country = getClientCountry()
     const payments_data_array = payment_data.map((category) => {
         const filteredData = category.data.filter((item) => {
-            if (item.countries.included.length) {
-                const includedCountries = item.countries.included.map((i) => i.toLowerCase())
-                if (includedCountries.includes(current_client_country)) {
-                    return true
-                } else if (includedCountries.includes('eu')) {
-                    return isEuCountry(current_client_country)
-                }
-                return false
-            } else if (item.countries.excluded.length) {
-                const excludedCountries = item.countries.excluded.map((i) => i.toLowerCase())
-                if (excludedCountries.includes(current_client_country)) {
-                    return false
-                }
-                if (excludedCountries.includes('eu')) {
-                    return !isEuCountry(current_client_country)
-                }
-                return true
-            }
+            if (item.countries.included.length)
+                return filterCountry(item.countries.included, client_country)
+            else if (item.countries.excluded.length)
+                return !filterCountry(item.countries.excluded, client_country)
             return true
         })
         return {
@@ -134,18 +132,15 @@ const getPaymentsBasedOnCountry = (current_client_country) => {
 
 const DisplayAccordion = (locale) => {
     const { crypto_config } = React.useContext(DerivStore)
-    const current_client_country = getClientCountry()
     const [show_table, setShowTable] = useState(false)
 
-    const paymentsBasedOnCountry = getPaymentsBasedOnCountry(current_client_country)
+    const paymentsBasedOnCountry = getPaymentsBasedOnCountry()
 
     if (!paymentsBasedOnCountry.length) {
         return (
-            <>
-                <BoldText>
-                    {localize('Sorry! No payment options are available for your country')}
-                </BoldText>
-            </>
+            <BoldText>
+                {localize('Sorry! No payment options are available for your country')}
+            </BoldText>
         )
     }
 

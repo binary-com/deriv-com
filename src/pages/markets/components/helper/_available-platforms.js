@@ -39,8 +39,6 @@ const StyledText = styled(Text)`
 
     @media ${device.tabletL} {
         font-size: 16px;
-        margin-bottom: 10px;
-        width: 100%;
         text-align: center;
     }
     @media ${device.mobileL} {
@@ -78,10 +76,7 @@ const AvailablePlatforms = ({
             ai="center"
         >
             <StyledText tablet_direction={tablet_direction}>{localize('Available on')}</StyledText>
-            <PlatformsContainer
-                width={tablet_direction === 'column' ? '100%' : 'unset'}
-                ai="center"
-            >
+            <PlatformsContainer ai="center">
                 {dmt5 && (
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">

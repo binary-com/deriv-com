@@ -10,11 +10,6 @@ import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        text-align: left;
-    }
-`
 const AvailablePlatformsWrapper = styled(Flex)`
     border-bottom: 1px solid var(--color-grey-21);
     padding-bottom: 40px;
@@ -73,13 +68,13 @@ const CFDs = () => {
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="720px" m="0 auto" direction="column">
-                <StyledText align="center">
+                <Text align="center">
                     {is_eu_country ? (
                         <Localize translate_text="Trade forex with multipliers with tight spreads, and benefit from multiple opportunities to trade on world events." />
                     ) : (
                         <Localize translate_text="Trade forex with multipliers with high leverage and tight spreads, and benefit from multiple opportunities to trade on world events." />
                     )}
-                </StyledText>
+                </Text>
                 <AvailablePlatformsWrapper mb="40px">
                     <AvailablePlatforms m_top="16px" dtrader />
                 </AvailablePlatformsWrapper>

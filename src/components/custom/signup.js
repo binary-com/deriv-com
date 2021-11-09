@@ -20,6 +20,7 @@ import device from 'themes/device.js'
 
 const Form = styled.form`
     height: 100%;
+    z-index: 1;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 
     @media ${device.mobileL} {

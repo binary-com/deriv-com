@@ -863,3 +863,26 @@ export const crash_boom_trade_type_eu = [
         text: <Localize translate_text="Boom 300 Index " />,
     },
 ]
+
+export const swap_free_pairs = [
+    {
+        src: icons.AUDINDEX,
+        text: <Localize translate_text="AUD Index" />,
+    },
+    {
+        src: icons.EURINDEX,
+        text: <Localize translate_text="EUR Index" />,
+    },
+    {
+        src: icons.GBPINDEX,
+        text: <Localize translate_text="GBP Index" />,
+    },
+    {
+        src: icons.USDINDEX,
+        text: <Localize translate_text="USD Index" />,
+    },
+    {
+        src: icons.GOLDINDEX,
+        text: <Localize translate_text="Gold Index" />,
+    },
+]

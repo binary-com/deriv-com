@@ -23,6 +23,7 @@ import CryptocurrenciesMultipliers from './_cryptocurrencies-multipliers'
 import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
+import SwapFreePairs from './_swap-free-pairs'
 
 export {
     Americas,
@@ -50,4 +51,5 @@ export {
     AmericanStocks,
     AsianIndices,
     EuropeanIndices,
+    SwapFreePairs,
 }

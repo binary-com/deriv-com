@@ -11,8 +11,7 @@ import { LinkButton } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
-        margin-top: 2rem;
-        padding: 40px 16px 0;
+        padding: 40px 16px;
     }
 `
 
@@ -24,7 +23,7 @@ const StyledContainer = styled(Container)`
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 16px;
         line-height: 30px;
         text-align: center;
     }
@@ -40,8 +39,8 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const Titlebtn = ({ btnlabel, text }) => {
-    const major_pairs = {
+const Tablebtn = ({ btnlabel, text }) => {
+    const swap_free_pairs = {
         markets_list: {
             col: 4,
             tablet_col: 3,
@@ -56,12 +55,15 @@ const Titlebtn = ({ btnlabel, text }) => {
     }
 
     return (
-        <StyledSection background="var(--color-grey-30)" padding="7rem 0 3rem">
+        <StyledSection background="var(--color-grey-30)" padding="3rem 0">
             <StyledContainer direction="column">
-                <StyledText mt="16px" pl="2rem" pr="2rem" size="3.2rem" weight="700">
+                <StyledText align="left" size="1.7rem">
                     {text}
                 </StyledText>
-                <MarketInstruments market_content={major_pairs} />
+                <MarketInstruments
+                    market_content={swap_free_pairs}
+                    background="var(--color-white)"
+                />
                 <TryButton
                     m="4.2rem 0 40px"
                     target="_blank"
@@ -77,9 +79,9 @@ const Titlebtn = ({ btnlabel, text }) => {
     )
 }
 
-Titlebtn.propTypes = {
+Tablebtn.propTypes = {
     btnlabel: PropTypes.string,
     text: PropTypes.string,
 }
 
-export default Titlebtn
+export default Tablebtn

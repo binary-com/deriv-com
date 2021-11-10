@@ -866,23 +866,79 @@ export const crash_boom_trade_type_eu = [
 
 export const swap_free_pairs = [
     {
-        src: icons.AUDINDEX,
-        text: <Localize translate_text="AUD Index" />,
+        src: icons.AUDCAD,
+        text: <Localize translate_text="AUD/CAD" />,
     },
     {
-        src: icons.EURINDEX,
-        text: <Localize translate_text="EUR Index" />,
+        src: icons.AUDCHF,
+        text: <Localize translate_text="AUD/CHF" />,
     },
     {
-        src: icons.GBPINDEX,
-        text: <Localize translate_text="GBP Index" />,
+        src: icons.AUDJPY,
+        text: <Localize translate_text="AUD/JPY" />,
     },
     {
-        src: icons.USDINDEX,
-        text: <Localize translate_text="USD Index" />,
+        src: icons.AUDNZD,
+        text: <Localize translate_text="AUD/NZD" />,
     },
     {
-        src: icons.GOLDINDEX,
-        text: <Localize translate_text="Gold Index" />,
+        src: icons.AUDUSD,
+        text: <Localize translate_text="AUD/USD" />,
+    },
+    {
+        src: icons.EURAUD,
+        text: <Localize translate_text="EUR/AUD" />,
+    },
+    {
+        src: icons.EURCAD,
+        text: <Localize translate_text="EUR/CAD" />,
+    },
+    {
+        src: icons.EURCHF,
+        text: <Localize translate_text="EUR/CHF" />,
+    },
+    {
+        src: icons.EURGBP,
+        text: <Localize translate_text="EUR/GBP" />,
+    },
+    {
+        src: icons.EURJPY,
+        text: <Localize translate_text="EUR/JPY" />,
+    },
+    {
+        src: icons.EURNZD,
+        text: <Localize translate_text="EUR/NZD" />,
+    },
+    {
+        src: icons.EURUSD,
+        text: <Localize translate_text="EUR/USD" />,
+    },
+    {
+        src: icons.GBPCHF,
+        text: <Localize translate_text="GBP/CHF" />,
+    },
+    {
+        src: icons.GBPJPY,
+        text: <Localize translate_text="GBP/JPY" />,
+    },
+    {
+        src: icons.GBPUSD,
+        text: <Localize translate_text="GBP/USD" />,
+    },
+    {
+        src: icons.NZDUSD,
+        text: <Localize translate_text="NZD/USD" />,
+    },
+    {
+        src: icons.USDCAD,
+        text: <Localize translate_text="USD/CAD" />,
+    },
+    {
+        src: icons.USDCHF,
+        text: <Localize translate_text="USD/CHF" />,
+    },
+    {
+        src: icons.USDJPY,
+        text: <Localize translate_text="USD/JPY" />,
     },
 ]

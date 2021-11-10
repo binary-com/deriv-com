@@ -68,7 +68,7 @@ const DP2P_CONTENT = [
     },
 ]
 
-const TradeForex = () => {
+const ForexTrading = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix the second Hero-component during page's loading
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
@@ -79,9 +79,9 @@ const TradeForex = () => {
             {is_mounted && (
                 <>
                     <Hero
-                        title={localize('Our forex spreads are lower than ever')}
+                        title={localize('Take advantage of the best trading conditions by Deriv')}
                         content={
-                            <Localize translate_text="Open forex trades at a lower cost and capitalise on the market more effectively." />
+                            <Localize translate_text="Your trusted broker with intuitive forex trading platforms, convenient payment options, and a 24/7 support team." />
                         }
                     />
                     <IconTextRow />
@@ -98,4 +98,4 @@ const TradeForex = () => {
     )
 }
 
-export default WithIntl()(TradeForex)
+export default WithIntl()(ForexTrading)

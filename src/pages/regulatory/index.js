@@ -459,7 +459,7 @@ const Regulatory = (locale) => {
                             </Desktop>
                             <Text mt="0.8rem">
                                 {localize(
-                                    'Deriv Limited - 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands - is the holding company for the above subsidiaries.',
+                                    'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
                                 )}
                             </Text>
                         </CssGridColumn>

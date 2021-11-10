@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Arrow from 'images/svg/landing/arrow.svg'
 import RightAd from 'images/svg/landing/percent.svg'
 import SettlePayment from 'images/svg/landing/zero.svg'
 import CompleteOrder from 'images/svg/landing/doller.svg'
@@ -110,7 +111,7 @@ const IconTextRow = () => {
             <CardContainer pr="4.7rem" pl="6.7rem">
                 <Card direction="column">
                     <Row>
-                        <img src={RightAd} alt="" width="98px" />
+                        <img src={Arrow} alt="" width="96.5px" />
                     </Row>
                     <Row>
                         <Column>
@@ -121,13 +122,43 @@ const IconTextRow = () => {
                                 as="h4"
                                 color="black-3"
                             >
-                                {localize('High leverage')}
+                                {localize('Low spreads')}
                             </StyledCardHeader>
                             <StyledText
                                 size="24px"
                                 color="black-3"
                                 lh="31px"
                                 pr="0.7rem"
+                                mb="3rem"
+                                weight="350"
+                            >
+                                {localize(
+                                    'Open trades at a lower cost and increase your potential gains.',
+                                )}
+                            </StyledText>
+                        </Column>
+                    </Row>
+                </Card>
+                <Card direction="column">
+                    <Row>
+                        <img src={RightAd} alt="" width="98px" />
+                    </Row>
+                    <Row>
+                        <Column>
+                            <StyledCardHeader
+                                p="0 0.6rem"
+                                m="6.5rem 0 1.8rem"
+                                type="subtitle-1"
+                                as="h4"
+                                color="black-3"
+                            >
+                                {localize('High leverage')}
+                            </StyledCardHeader>
+                            <StyledText
+                                lh="31px"
+                                size="24px"
+                                color="black-3"
+                                p="0 0.6rem"
                                 mb="3rem"
                                 weight="350"
                             >
@@ -140,7 +171,7 @@ const IconTextRow = () => {
                 </Card>
                 <Card direction="column">
                     <Row>
-                        <img src={SettlePayment} alt="" width="80px" />
+                        <img src={SettlePayment} alt="" width="79px" />
                     </Row>
                     <Row>
                         <Column>
@@ -170,7 +201,7 @@ const IconTextRow = () => {
                 </Card>
                 <Card direction="column">
                     <Row>
-                        <img src={CompleteOrder} alt="" width="109px" />
+                        <img src={CompleteOrder} alt="" width="108px" />
                     </Row>
                     <Row>
                         <Column>

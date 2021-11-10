@@ -16,6 +16,7 @@ const BackgroundWrapper = styled(Background)`
 
 const Wrapper = styled(Container)`
     @media ${device.tabletS} {
+        height: 70rem;
         margin-left: 0;
         padding: 2rem 16px 0;
         flex-direction: column-reverse;
@@ -34,7 +35,7 @@ const InformationWrapper = styled(Flex)`
         padding: 0 16px;
     }
     @media ${device.mobileL} {
-        max-width: 328px;
+        max-width: 390px;
         padding: 0;
     }
 `
@@ -46,7 +47,7 @@ const StyledHeader = styled(Header)`
         margin-top: 1.3rem;
     }
     @media ${device.mobileS} {
-        margin-top: 0;
+        margin-top: 15px;
     }
 `
 

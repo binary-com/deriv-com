@@ -16,7 +16,23 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_story = /story/g.test(page.path)
     const is_market = /markets/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
-
+    const is_landing_ebooks =/landing\/ebooks/g.test(page.path)
+    
+    if (is_landing_ebooks) {
+        createRedirect({
+            fromPath: `/landing/ebooks/`,
+            toPath: `/404/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/landing/ebooks`,
+            toPath: `/404`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+    
     if (is_responsible_trading) {
         createRedirect({
             fromPath: `/responsible-trading/`,
@@ -171,6 +187,20 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/responsible-trading`,
                 toPath: `/${lang}/responsible`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+        if (is_landing_ebooks) {
+            createRedirect({
+                fromPath: `/${lang}/landing/ebooks/`,
+                toPath: `/${lang}/404/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/landing/ebooks`,
+                toPath: `/${lang}/404`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

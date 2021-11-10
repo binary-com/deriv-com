@@ -14,6 +14,8 @@ import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
 import SignupSimple from 'components/custom/_signup-simple'
+import SignupAffiliate from 'components/custom/_signup-affiliate'
+import SignupAffiliateDetails from 'components/custom/_signup-affiliate-details'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -51,10 +53,12 @@ export const Appearances = {
     lightFlat: 'lightFlat',
     public: 'public',
     newSignup: 'newSignup',
+    affiliateSignup: 'affiliateSignup',
+    affiliateSignupDetails: 'affiliateSignupDetails',
 }
 
 const Signup = (props) => {
-    const [email, setEmail] = useState('')
+    const [user_data, setUserData] = useState({})
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
@@ -80,8 +84,11 @@ const Signup = (props) => {
     }
 
     const handleInputChange = (e) => {
-        const { value } = e.target
-        setEmail(value)
+        const { value, name } = e.target
+        setUserData({
+            ...user_data,
+            [name]: value,
+        })
         handleValidation(value)
     }
 
@@ -103,6 +110,7 @@ const Signup = (props) => {
     }
 
     const handleEmailSignup = (e) => {
+        const { email } = user_data
         e.preventDefault()
         setSubmitting(true)
         const formatted_email = email.replace(/\s/g, '')
@@ -146,7 +154,10 @@ const Signup = (props) => {
     }
 
     const clearEmail = () => {
-        setEmail('')
+        setUserData({
+            ...user_data,
+            email: '',
+        })
         setEmailErrorMsg('')
     }
     const handleSocialSignup = (e) => {
@@ -165,7 +176,10 @@ const Signup = (props) => {
         const parameters = {
             autofocus: props.autofocus,
             clearEmail: clearEmail,
-            email: email,
+            email: user_data.email,
+            first_name: user_data.first_name,
+            last_name: user_data.last_name,
+            date: user_data.date,
             email_error_msg: email_error_msg,
             handleInputChange: handleInputChange,
             handleLogin: handleLogin,
@@ -180,6 +194,10 @@ const Signup = (props) => {
                 return <SignupSimple {...parameters}></SignupSimple>
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
+            case Appearances.affiliateSignup:
+                return <SignupAffiliate {...parameters}></SignupAffiliate>
+            case Appearances.affiliateSignupDetails:
+                return <SignupAffiliateDetails {...parameters}></SignupAffiliateDetails>
             case Appearances.public:
                 return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:

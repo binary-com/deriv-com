@@ -277,8 +277,8 @@ fs.createReadStream(source_path)
             console.log(`${Object.keys(parsed_json).length} payment methods found. ${output_path} has been generated`)
 
 
-        const localiseArray = parsed_json.map(({ name,category, description, min_deposit, max_deposit, deposit_proccessing_time, min_withdrawal, max_withdrawal, withdrawal_processing_time }) => {
-            const dataToTranslate = [
+        const dataToTranslate = parsed_json.map(({ name,category, description, min_deposit, max_deposit, deposit_proccessing_time, min_withdrawal, max_withdrawal, withdrawal_processing_time }) => {
+            return [
                 `<Localize translate_text='${name}'/>`,
                 `<Localize translate_text='${category}'/>`,
                 `<Localize translate_text='${description}'/>`,
@@ -288,13 +288,11 @@ fs.createReadStream(source_path)
                 `<Localize translate_text='${min_withdrawal}'/>`,
                 `<Localize translate_text='${max_withdrawal}'/>`,
                 `<Localize translate_text='${withdrawal_processing_time}'/>`]
-
-            return dataToTranslate
         })
        
-        const finalDataToTranslate = JSON.stringify(localiseArray, null, 2)
+        const finalDataToTranslate = JSON.stringify(dataToTranslate, null, 2)
         
-        fs.writeFile(translation_output_path, finalDataToTranslate, 'utf8', () => console.log(`\nTranslation file generated`))
+        fs.writeFile(translation_output_path, finalDataToTranslate, 'utf8', () => console.log(`\n Translation file generated at ${translation_output_path}`))
 
     })
     })

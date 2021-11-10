@@ -13,7 +13,14 @@ const output_path = path.join(
     'payment-methods',
     'payment_methods.json',
 )
-
+const translation_output_path = path.join(
+    __dirname,
+    '..',
+    'src',
+    'pages',
+    'payment-methods',
+    'payment-methods-translation.js',
+)
 const column_filters = {
     currencies: {
         type: 'double_array',
@@ -266,5 +273,28 @@ fs.createReadStream(source_path)
         const parsed_json = filterFunctions.flatten(json)
         const final_json = JSON.stringify(parsed_json, null, 2)
 
-        fs.writeFile(output_path, final_json, 'utf8', () => console.log(`${Object.keys(parsed_json).length} payment methods found. ${output_path} has been generated`))
+        fs.writeFile(output_path, final_json, 'utf8', () =>{ 
+            console.log(`${Object.keys(parsed_json).length} payment methods found. ${output_path} has been generated`)
+
+
+        const localiseArray = parsed_json.map(({ name,category, description, min_deposit, max_deposit, deposit_proccessing_time, min_withdrawal, max_withdrawal, withdrawal_processing_time }) => {
+            const dataToTranslate = [
+                `<Localize translate_text='${name}'/>`,
+                `<Localize translate_text='${category}'/>`,
+                `<Localize translate_text='${description}'/>`,
+                `<Localize translate_text='${min_deposit}'/>`,
+                `<Localize translate_text='${max_deposit}'/>`,
+                `<Localize translate_text='${deposit_proccessing_time}'/>`,
+                `<Localize translate_text='${min_withdrawal}'/>`,
+                `<Localize translate_text='${max_withdrawal}'/>`,
+                `<Localize translate_text='${withdrawal_processing_time}'/>`]
+
+            return dataToTranslate
+        })
+       
+        const finalDataToTranslate = JSON.stringify(localiseArray, null, 2)
+        
+        fs.writeFile(translation_output_path, finalDataToTranslate, 'utf8', () => console.log(`\nTranslation file generated`))
+
+    })
     })

@@ -276,23 +276,35 @@ fs.createReadStream(source_path)
         fs.writeFile(output_path, final_json, 'utf8', () =>{ 
             console.log(`${Object.keys(parsed_json).length} payment methods found. ${output_path} has been generated`)
 
+        })
 
-        const dataToTranslate = parsed_json.map(({ name,category, description, min_deposit, max_deposit, deposit_proccessing_time, min_withdrawal, max_withdrawal, withdrawal_processing_time }) => {
-            return [
-                `localize('${name}')`,
-                `localize('${description}')`,
-                `localize('${category}')`,
-                `localize('${min_deposit}')`,
-                `localize('${max_deposit}')`,
-                `localize('${deposit_proccessing_time}')`,
-                `localize('${min_withdrawal}')`,
-                `localize('${max_withdrawal}')`,
-                `localize('${withdrawal_processing_time}')`]
-            })
-       
-        const finalDataToTranslate = JSON.stringify(dataToTranslate, null, 2)
-        
-        fs.writeFile(translation_output_path, finalDataToTranslate, 'utf8', () => console.log(`\n Translation file generated at ${translation_output_path}`))
+        const page_content = 
+        `import { localize } from 'components/localization'
+        const dataToTranslate = [${parsed_json.map(({ name,
+                                            category,
+                                            description,
+                                            min_deposit,
+                                            max_deposit,
+                                            deposit_proccessing_time,
+                                            min_withdrawal,
+                                            max_withdrawal,
+                                            withdrawal_processing_time }) =>
+                                            [
+                                                `\n localize("${name}")`,
+                                                `\n localize("${description}")`,
+                                                `\n localize("${category}")`,
+                                                `\n localize("${min_deposit}")`,
+                                                `\n localize("${max_deposit}")`,
+                                            `\n localize("${deposit_proccessing_time}")`,
+                                                `\n localize("${min_withdrawal}")`,
+                                                `\n localize("${max_withdrawal}")`,
+                                                `\n localize("${withdrawal_processing_time}")`
+                                            ]
+                                        )}]
 
-    })
+         export default dataToTranslate`
+                            
+        fs.writeFile(translation_output_path, page_content, 'utf8', () => console.log(`\n Translation file generated at ${translation_output_path}`))
+
+    
     })

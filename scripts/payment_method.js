@@ -278,18 +278,18 @@ fs.createReadStream(source_path)
 
 
         const dataToTranslate = parsed_json.map(({ name,category, description, min_deposit, max_deposit, deposit_proccessing_time, min_withdrawal, max_withdrawal, withdrawal_processing_time }) => {
-            return {
-                name:`<Localize translate_text='${name}'/>`,
-                category:`<Localize translate_text='${category}'/>`,
-                description:`<Localize translate_text='${description}'/>`,
-                min_deposit:`<Localize translate_text='${min_deposit}'/>`,
-                max_deposit:`<Localize translate_text='${max_deposit}'/>`,
-                deposit_proccessing_time:`<Localize translate_text='${deposit_proccessing_time}'/>`,
-                min_withdrawal:`<Localize translate_text='${min_withdrawal}'/>`,
-                max_withdrawal:`<Localize translate_text='${max_withdrawal}'/>`,
-                withdrawal_processing_time:`<Localize translate_text='${withdrawal_processing_time}'/>`}
-        })
-       console.log(dataToTranslate);
+            return [
+                `localize('${name}')`,
+                `localize('${description}')`,
+                `localize('${category}')`,
+                `localize('${min_deposit}')`,
+                `localize('${max_deposit}')`,
+                `localize('${deposit_proccessing_time}')`,
+                `localize('${min_withdrawal}')`,
+                `localize('${max_withdrawal}')`,
+                `localize('${withdrawal_processing_time}')`]
+            })
+       
         const finalDataToTranslate = JSON.stringify(dataToTranslate, null, 2)
         
         fs.writeFile(translation_output_path, finalDataToTranslate, 'utf8', () => console.log(`\n Translation file generated at ${translation_output_path}`))

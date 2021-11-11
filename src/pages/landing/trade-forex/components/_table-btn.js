@@ -25,7 +25,6 @@ const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 16px;
         line-height: 30px;
-        text-align: center;
     }
 `
 
@@ -57,7 +56,7 @@ const Tablebtn = ({ btnlabel, text }) => {
     return (
         <StyledSection background="var(--color-grey-30)" padding="3rem 0">
             <StyledContainer direction="column">
-                <StyledText align="left" size="1.7rem">
+                <StyledText width="100%" size="1.7rem">
                     {text}
                 </StyledText>
                 <MarketInstruments
@@ -70,7 +69,7 @@ const Tablebtn = ({ btnlabel, text }) => {
                     rel="noopener noreferrer nofollow"
                     type="submit"
                     secondary="true"
-                    to={'https://app.deriv.com/'}
+                    to={'https://deriv.com/signup/'}
                 >
                     {btnlabel}
                 </TryButton>

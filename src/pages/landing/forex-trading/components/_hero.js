@@ -106,7 +106,7 @@ const HeroComponent = ({ title, content, background_data }) => {
                         rel="noopener noreferrer nofollow"
                         type="submit"
                         secondary="true"
-                        to={'https://app.deriv.com/'}
+                        to={'https://deriv.com/signup/'}
                     >
                         {localize('Star trading')}
                     </TryButton>
@@ -118,7 +118,7 @@ const HeroComponent = ({ title, content, background_data }) => {
 
 const query = graphql`
     query {
-        p2p_hero_background: file(relativePath: { eq: "landing/trade-fx.png" }) {
+        p2p_hero_background: file(relativePath: { eq: "landing/trade-fx.jpg" }) {
             ...fadeIn
         }
         p2p_hero_background_mobile: file(relativePath: { eq: "landing/trade-fx-m.jpg" }) {

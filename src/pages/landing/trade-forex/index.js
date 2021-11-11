@@ -28,7 +28,7 @@ const DP2P_CONTENT = [
         ),
 
         image_name: 'login',
-        image_alt: localize('Buy and sell'),
+        image_alt: localize('Login'),
     },
     {
         title: <Localize translate_text="Step 2" />,
@@ -46,7 +46,7 @@ const DP2P_CONTENT = [
         ),
 
         image_name: 'dmt5_acc',
-        image_alt: localize('Local currency'),
+        image_alt: localize('DMT5 account'),
     },
     {
         title: <Localize translate_text="Step 3" />,
@@ -63,8 +63,8 @@ const DP2P_CONTENT = [
             />
         ),
 
-        image_name: 'dmt5_acc',
-        image_alt: localize('Buy and sell'),
+        image_name: 'dmt5_login',
+        image_alt: localize('DMT5 login'),
     },
 ]
 

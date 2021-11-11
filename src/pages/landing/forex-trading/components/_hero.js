@@ -108,7 +108,7 @@ const HeroComponent = ({ title, content, background_data }) => {
                         secondary="true"
                         to={'https://deriv.com/signup/'}
                     >
-                        {localize('Star trading')}
+                        {localize('Start trading')}
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>

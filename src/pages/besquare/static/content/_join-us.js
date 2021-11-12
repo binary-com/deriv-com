@@ -31,6 +31,14 @@ export default {
             src: ProfessionalGuidanceIcon,
             text: (
                 <>
+                    <strong>Rich resume experience</strong> by starting your IT career with us.
+                </>
+            ),
+        },
+        {
+            src: ProfessionalGuidanceIcon,
+            text: (
+                <>
                     <strong>Professional guidance</strong> that helps you set clear career goals to
                     realise your potential
                 </>

@@ -17,9 +17,9 @@ export default {
         "Over the course of 6 months, you'll go through 10 modules and face exciting challenges",
     content: [
         {
-            src: FrontEnd,
+            src: ProductDesign,
             alt: 'Front-end development Icon',
-            text: 'Front-end development',
+            text: 'FE',
             content: [
                 'Deploy and collaborate with GitHub — so what makes GitHub so special?',
                 'Design responsive websites using CSS, JavaScript, HTML, and beyond.',
@@ -27,9 +27,9 @@ export default {
             ],
         },
         {
-            src: ProductDesign,
+            src: FrontEnd,
             alt: 'Product design Icon',
-            text: 'Product design',
+            text: 'PD',
             content: [
                 'Grasp UX design and principles — why is design so essential and how to use it best?',
                 'Define solutions with a user-centric design approach.',
@@ -40,7 +40,7 @@ export default {
         {
             src: MobileDev,
             alt: 'Mobile development Icon',
-            text: 'Mobile development',
+            text: 'MD',
             content: [
                 'Build iOS and Android apps with a single codebase.',
                 'Apply version control to the codebase: seamless teamwork is no longer a headache.',
@@ -51,7 +51,7 @@ export default {
         {
             src: BackEnd,
             alt: 'Back-end development Icon',
-            text: 'Back-end development',
+            text: 'BE',
             content: [
                 'Master the basics of the software development life cycle (SDLC).',
                 'See how the system interacts using APIs and stores data for future usage.',
@@ -59,9 +59,9 @@ export default {
             ],
         },
         {
-            src: PlatformArchitecture,
+            src: QualityAssurance,
             alt: 'Platform architecture Icon',
-            text: 'Platform architecture',
+            text: 'PA',
             content: [
                 'Design and plan systems from high-level system concepts down to low-level details.',
                 'Explore horizontal and vertical scaling — service, database, cache, and code patterns.',
@@ -69,8 +69,9 @@ export default {
                 'Study cloud technologies — what’s out there and how to choose the right pieces for the puzzle.',
             ],
         },
+        {},
         {
-            src: QualityAssurance,
+            src: PlatformArchitecture,
             alt: 'Quality assurance Icon',
             text: 'Quality assurance',
             content: [
@@ -82,7 +83,7 @@ export default {
         {
             src: DevAndOperations,
             alt: 'Development and operations Icon',
-            text: 'Development and operations',
+            text: 'DevOps',
             content: [
                 'DevOps, GitOps, CodeOps... NoOps? Explore evolving styles of deployment, maintenance, and monitoring.',
                 'Automate and chill: build a recipe once, replicate to thousands of nodes.',
@@ -101,7 +102,7 @@ export default {
         {
             src: BusinessIntelligence,
             alt: 'Business Intelligence Icon',
-            text: 'Business intelligence',
+            text: 'BI',
             content: [
                 'Understand business intelligence concepts and their vital importance.',
                 'Learn about data warehousing, data collection and modelling principles.',
@@ -112,7 +113,7 @@ export default {
         {
             src: QuantAnalysis,
             alt: 'Quantitative analysis Icon',
-            text: 'Quantitative analysis',
+            text: 'Quantss',
             content: [
                 'Explore the role of financial markets and its participants in the economic machine.',
                 'Apply the concepts of probability and statistics to solve concrete problems.',
@@ -121,6 +122,5 @@ export default {
             ],
         },
     ],
-    text:
-        'Besides these hard skills, you’ll learn essential soft skills that are based on Harvard Business Review principles. You’ll also get the chance to extend your professional network and connect with veteran techies as they share their professional experience.',
+    text: 'Besides these hard skills, you’ll learn essential soft skills that are based on Harvard Business Review principles. You’ll also get the chance to extend your professional network and connect with veteran techies as they share their professional experience.',
 }

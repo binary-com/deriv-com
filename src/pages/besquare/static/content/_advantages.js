@@ -35,11 +35,18 @@ export default {
             text: 'Open to Malaysian graduates even with no work experience',
         },
         {
+            src: CrossDomainTrainingIcon,
+            alt: 'Cross-domain training icon',
+            title: 'Free Programme',
+            text: 'Free Programme with Free Lunch - Food and Drinks',
+        },
+        {
             src: TrainIcon,
             alt: 'Train to get hired icon',
             title: 'Train to get hired',
             text: 'A chance to boost your CV and your employability',
         },
+        {},
         {
             src: PaidProgrammeIcon,
             alt: 'Paid programme icon',

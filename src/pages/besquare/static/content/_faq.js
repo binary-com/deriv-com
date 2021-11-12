@@ -11,8 +11,7 @@ export default [
                     'No, it’s not. The BeSquare programme is a 6-month paid graduate programme where you will get essential skills and experience to boost your job application to any company, including Deriv.',
             },
             {
-                title:
-                    'Am I allowed to accept job offers from other companies during the programme?',
+                title: 'Am I allowed to accept job offers from other companies during the programme?',
                 subtitle:
                     'You have the option to accept any job offers you receive during the programme.',
             },
@@ -59,6 +58,24 @@ export default [
                     <p>
                         To find out about your application status, email us at{' '}
                         <Link href="mailto:apply@besquare.my">apply@besquare.my</Link>.
+                    </p>
+                ),
+            },
+        ],
+    },
+    {
+        title: 'Extra information',
+        content: [
+            {
+                title: 'Do we have other offers with besquare ?',
+                subtitle: ' Yes, free car park',
+            },
+            {
+                title: 'Any free transport facilities to reach Deriv ?',
+                subtitle: (
+                    <p>
+                        You can contact us via the email for more information about free transport
+                        at <Link href="mailto:umithra@binary.com">transport@bsqaure.my</Link>
                     </p>
                 ),
             },

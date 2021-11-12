@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { deriv_mt5_app_url } from 'common/constants'
 import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
@@ -171,7 +172,12 @@ const InterestFreeTrading = () => {
                 <StyledRightText>
                     <Localize translate_text="Enjoy interest-free trading with no swap charges on overnight positions for forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices." />
                 </StyledRightText>
-                <StyledLinkButton secondary="true" to="" external="true" target="_blank">
+                <StyledLinkButton
+                    secondary="true"
+                    to={deriv_mt5_app_url}
+                    external="true"
+                    target="_blank"
+                >
                     <Localize translate_text="Choose swap-free trading now" />
                 </StyledLinkButton>
             </StyledFlex>

@@ -47,6 +47,7 @@ export const query = graphql`
                 filter: {
                     tags: { tags_id: { tag_name: { _contains: "Market report" } } }
                     status: { _eq: "published" }
+                    test_data: { _eq: false }
                 }
                 limit: 6
                 sort: "-published_date"
@@ -74,6 +75,7 @@ export const query = graphql`
                     tags: { tags_id: { tag_name: { _contains: "Market report" } } }
                     status: { _eq: "published" }
                     hide_for_eu: { _eq: false }
+                    test_data: { _eq: false }
                 }
                 limit: 6
                 sort: "-published_date"
@@ -193,7 +195,7 @@ export const query = graphql`
                 }
             }
             recent: blog(
-                filter: { status: { _eq: "published" } }
+                filter: { status: { _eq: "published" }, test_data: { _eq: false } }
                 sort: "-published_date"
                 limit: 8
             ) {
@@ -221,7 +223,11 @@ export const query = graphql`
                 read_time_in_minutes
             }
             recent_eu: blog(
-                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                filter: {
+                    status: { _eq: "published" }
+                    hide_for_eu: { _eq: false }
+                    test_data: { _eq: false }
+                }
                 sort: "-published_date"
                 limit: 8
             ) {
@@ -250,7 +256,11 @@ export const query = graphql`
                 read_time_in_minutes
             }
             featured: blog(
-                filter: { status: { _eq: "published" }, featured: { _eq: true } }
+                filter: {
+                    status: { _eq: "published" }
+                    featured: { _eq: true }
+                    test_data: { _eq: false }
+                }
                 sort: "-published_date"
                 limit: 8
             ) {
@@ -282,6 +292,7 @@ export const query = graphql`
                     status: { _eq: "published" }
                     featured: { _eq: true }
                     hide_for_eu: { _eq: false }
+                    test_data: { _eq: false }
                 }
                 sort: "-published_date"
                 limit: 8

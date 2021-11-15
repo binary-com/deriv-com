@@ -53,11 +53,14 @@ const ArticlesTemplate = (props) => {
     const meta_title = post_data?.meta_title
     const meta_description = post_data?.meta_description
     const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
+    const og_title = post_data?.og_title
+    const og_description = post_data?.og_description
+    const test_data = post_data?.test_data
 
     const side_banner_data_details = {
         max_w_value: '328px',
         max_w_tablet: '320px',
-        isExternal: true,
+        isExternal: footer_banner_data?.cta_url?.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: side_banner_data?.cta_url,
         imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
         imgAltDesktop: side_banner_data?.banner_image?.description,
@@ -66,7 +69,7 @@ const ArticlesTemplate = (props) => {
     const footer_banner_details = {
         max_w_value: '792px',
         max_w_tablet: '580px',
-        isExternal: true,
+        isExternal: footer_banner_data?.cta_url?.search(/deriv\.(com|me)/g) === -1 ? true : false,
         redirectLink: footer_banner_data?.cta_url,
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
         imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,
@@ -79,6 +82,8 @@ const ArticlesTemplate = (props) => {
         og_img_width: '600',
         og_img_height: '315',
         og_img: og_image,
+        og_title: og_title ? og_title : meta_title,
+        og_description: og_description ? og_description : meta_description,
     }
 
     return (
@@ -87,6 +92,7 @@ const ArticlesTemplate = (props) => {
                 description={meta_description}
                 title={meta_title}
                 meta_attributes={meta_attributes}
+                no_index={test_data}
             />
             <>
                 {isMounted && (
@@ -161,7 +167,7 @@ const ArticlesTemplate = (props) => {
                                                                 }
                                                                 alt={
                                                                     post_data?.author?.image
-                                                                        ?.description
+                                                                        ?.description || ''
                                                                 }
                                                             />
                                                         </WriterImage>
@@ -184,7 +190,7 @@ const ArticlesTemplate = (props) => {
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
                                         <QueryImage
                                             data={post_data?.main_image?.imageFile}
-                                            alt={post_data?.main_image?.description}
+                                            alt={post_data?.main_image?.description || ''}
                                             className="standard-query-img"
                                         />
                                     </HeroImageContainer>
@@ -206,7 +212,7 @@ const ArticlesTemplate = (props) => {
                                                             }
                                                             alt={
                                                                 post_data?.author?.image
-                                                                    ?.description
+                                                                    ?.description || ''
                                                             }
                                                         />
                                                     </WriterImage>
@@ -306,6 +312,9 @@ export const query = graphql`
                 blog_title
                 meta_title
                 meta_description
+                og_title
+                og_description
+                test_data
                 published_date
                 read_time_in_minutes
                 blog_post
@@ -327,7 +336,12 @@ export const query = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(
+                                quality: 100
+                                webpOptions: { quality: 100 }
+                                avifOptions: { quality: 100, lossless: true }
+                                placeholder: BLURRED
+                            )
                         }
                     }
                 }
@@ -358,7 +372,12 @@ export const query = graphql`
                         description
                         imageFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(
+                                    quality: 100
+                                    webpOptions: { quality: 100 }
+                                    avifOptions: { quality: 100, lossless: true }
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                     }
@@ -367,7 +386,12 @@ export const query = graphql`
                         description
                         imageFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(
+                                    quality: 100
+                                    webpOptions: { quality: 100 }
+                                    avifOptions: { quality: 100, lossless: true }
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                     }
@@ -381,7 +405,12 @@ export const query = graphql`
                         description
                         imageFile {
                             childImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(
+                                    quality: 100
+                                    webpOptions: { quality: 100 }
+                                    avifOptions: { quality: 100, lossless: true }
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                     }

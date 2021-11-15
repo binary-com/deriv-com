@@ -75,10 +75,6 @@ export const routeBack = () => {
 }
 export const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
-// Formats number to comma separated string
-export const getCommaSeparatedNumber = (input) =>
-    input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-
 export const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
 export const getLanguage = () =>
@@ -196,7 +192,7 @@ export const getDomain = () =>
         ? deriv_cookie_domain
         : 'binary.sx'
 
-export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`
+export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `/` : to}`
 
 export const nonENLangUrlReplace = (current_path) => {
     const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u

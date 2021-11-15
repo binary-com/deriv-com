@@ -113,7 +113,6 @@ const InternalLink = ({
     const is_non_localized = non_localized_links.includes(to.replace(/\/$/, ''))
     const is_index = to === `/`
     const localized_url = getLocalizedUrl(path, is_index, to)
-
     const path_to = is_default || is_non_localized ? to : localized_url
     let internal_to = path_to
 
@@ -161,11 +160,11 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
     } else if (new_tab_no_modal.includes(type)) {
-        return `${localized_link_url.domain_full_url}${
-            locale === 'en' ? '' : '/' + locale
-        }/${type.replace(/_/g, '-')}`
+        return `${localized_link_url.domain_full_url}${locale === 'en' ? '' : '/' + locale}/${
+            type.replace(/_/g, '-') + '/'
+        }`
     } else if (only_en_new_tab_no_modal.includes(type)) {
-        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-')}`
+        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-') + '/'}`
     } else {
         return to
     }

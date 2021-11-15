@@ -64,6 +64,16 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 {localize('SmartTrader')}
                             </Link>
                         </LinkWrapper>
+                        <LinkWrapper>
+                            <Link
+                                to="https://bot.deriv.com"
+                                external="true"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {localize('BinaryBot')}
+                            </Link>
+                        </LinkWrapper>
                     </LinksCol>
                     {!is_ppc && (
                         <LinksCol>

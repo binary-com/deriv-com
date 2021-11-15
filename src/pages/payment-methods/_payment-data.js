@@ -838,7 +838,7 @@ const payment_data = [
         is_dp2p: true,
         name: <Localize translate_text="Deriv P2P" />,
         note: (
-            <Localize translate_text="Please contact our customer support in you wish to increase your daily deposit/withdrawal limits." />
+            <Localize translate_text="Please contact our customer support if you wish to increase your daily deposit/withdrawal limits." />
         ),
         data: [
             {

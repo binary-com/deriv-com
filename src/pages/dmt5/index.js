@@ -7,18 +7,19 @@ import {
     Flexibility,
     DBanner,
     MarginCalculator,
+    SwapFreeTrading,
 } from './_lazy-load'
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
 import DHero from 'components/custom/_dhero-2'
-import BackgroundPatternDMT5 from 'images/svg/bg_banner_dmt5.svg'
-import BackgroundPatternDMT5_mobile from 'images/svg/bg_banner_dmt5_mobile.svg'
+import BackgroundPatternDMT5 from 'images/svg/dmt5/bg_banner_dmt5.svg'
+import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
-import dmt5_logo from 'images/svg/dmt5-icon.svg'
+import dmt5_logo from 'images/svg/dmt5/dmt5-icon.svg'
 import { SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import DMT5BG from 'images/svg/dmt5-bg.svg'
-import DMT5BG2 from 'images/svg/dmt5-bg2.svg'
+import DMT5BG from 'images/svg/dmt5/dmt5-bg.svg'
+import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 
@@ -31,7 +32,7 @@ const meta_attributes = {
 
 const query = graphql`
     query {
-        deriv_platform: file(relativePath: { eq: "dmt5-banner.png" }) {
+        deriv_platform: file(relativePath: { eq: "dmt5/dmt5-banner.png" }) {
             ...fadeIn
         }
     }
@@ -40,7 +41,7 @@ const query = graphql`
 const numbers_content = [
     {
         title: <Localize translate_text="330K+" />,
-        subtitle: <Localize translate_text="clients on DMT5" />,
+        subtitle: <Localize translate_text="clients on Deriv MT5" />,
     },
     {
         title: <Localize translate_text="100+" />,
@@ -73,7 +74,7 @@ const DMT5 = () => {
                 meta_attributes={meta_attributes}
             />
             <DHero
-                title={localize('Deriv MetaTrader 5 (DMT5)')}
+                title={localize('Deriv MT5 (DMT5)')}
                 content={<Localize translate_text="The all-in-one CFD trading platform" />}
                 join_us_for_free
                 Logo={dmt5_logo}
@@ -97,7 +98,7 @@ const DMT5 = () => {
             <MarginCalculator />
             <Flexibility />
             {/* TODO: add/revise this section when swap free trading design is ready */}
-            {/* <SwapFreeTrading /> */}
+            <SwapFreeTrading />
             <StaticQuery
                 query={query}
                 render={(data) => (
@@ -105,7 +106,7 @@ const DMT5 = () => {
                         background_pattern={
                             is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
                         }
-                        title={<Localize translate_text="Get into the DMT5 experience" />}
+                        title={<Localize translate_text="Get into the Deriv MT5 experience" />}
                         data={data}
                     />
                 )}

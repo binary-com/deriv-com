@@ -1,4 +1,7 @@
 const language_config = require(`./i18n-config.js`)
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -73,7 +76,7 @@ module.exports = {
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers|besquare|livechat/
+                        const ignore_localized_regex = /careers|besquare|livechat|academy/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
@@ -173,7 +176,7 @@ module.exports = {
             resolve: 'gatsby-plugin-eslint',
             options: {
                 stages: ['develop'],
-                extensions: ['js'],
+                extensions: ['js', 'ts', 'jsx', 'tsx'],
                 exclude: ['node_modules', '.cache', 'public'],
             },
         },
@@ -184,7 +187,14 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/', '/storybook/'],
+                        disallow: [
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                            '/endpoint/',
+                            '/livechat/',
+                            '/storybook/',
+                        ],
                     },
                 ],
             },
@@ -209,6 +219,18 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+            },
+        },
+        {
+            resolve: '@directus/gatsby-source-directus',
+            options: {
+                url: 'https://cms.deriv.cloud',
+                auth: {
+                    token: process.env.DIRECTUS_AUTH_TOKEN,
+                },
+                dev: {
+                    refresh: '5s',
+                },
             },
         },
     ],

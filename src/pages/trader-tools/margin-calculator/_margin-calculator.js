@@ -3,7 +3,6 @@ import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     getMargin,
-    numberWithCommas,
     numberSubmitFormat,
     getContractSize,
     getCurrency,
@@ -53,7 +52,7 @@ import {
     Text,
 } from 'components/elements'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -99,7 +98,7 @@ const MarginCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
+                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
                     )}
                 </SectionSubtitle>
                 <ContentContainer mt="8rem" mb="4rem">
@@ -144,7 +143,7 @@ const MarginCalculator = () => {
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
-                                                {numberWithCommas(values.margin)}
+                                                {values.margin}
                                             </CalculatorOutputField>
                                             <CalculatorOutputSymbol>
                                                 {values.marginSymbol}
@@ -379,7 +378,7 @@ const MarginCalculator = () => {
                             >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/margin/">
+                            <StyledLinkButton secondary="true" to="/trade-types/cfds/">
                                 {localize('Learn more about margin')}
                             </StyledLinkButton>
                         </LinkWrapper>

@@ -7,7 +7,12 @@ import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import { localized_link_url } from 'common/constants'
-import { getLocalizedUrl, getDerivAppLocalizedURL, getThaiExcludedLocale } from 'common/utility'
+import {
+    getLocalizedUrl,
+    getDerivAppLocalizedURL,
+    getThaiExcludedLocale,
+    replaceLocale,
+} from 'common/utility'
 import { DerivStore } from 'store'
 
 export const SharedLinkStyle = css`
@@ -108,7 +113,6 @@ const InternalLink = ({
     const is_non_localized = non_localized_links.includes(to.replace(/\/$/, ''))
     const is_index = to === `/`
     const localized_url = getLocalizedUrl(path, is_index, to)
-
     const path_to = is_default || is_non_localized ? to : localized_url
     let internal_to = path_to
 
@@ -142,7 +146,9 @@ const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
 // add item to this array if you need to make an internal link open on a new tab without modal window
-const new_tab_no_modal = ['terms_and_conditions']
+// !only for  paths without localisation: add item to this array if you need to make an internal link open on a new tab without modal window
+const only_en_new_tab_no_modal = ['tnc/security-and-privacy.pdf']
+const new_tab_no_modal = ['terms_and_conditions/#clients']
 
 const getURLFormat = (type, locale, to, affiliate_lang) => {
     if (deriv_app_links.includes(type)) {
@@ -154,10 +160,11 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
     } else if (new_tab_no_modal.includes(type)) {
-        return `${localized_link_url[type]}${locale === 'en' ? '' : '/' + locale}/${type.replace(
-            /_/g,
-            '-',
-        )}`
+        return `${localized_link_url.domain_full_url}${locale === 'en' ? '' : '/' + locale}/${
+            type.replace(/_/g, '-') + '/'
+        }`
+    } else if (only_en_new_tab_no_modal.includes(type)) {
+        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-') + '/'}`
     } else {
         return to
     }
@@ -181,17 +188,21 @@ const ExternalLink = ({
     const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
-    const url = getURLFormat(type, locale, to, affiliate_lang)
-
+    const url = getURLFormat(type, replaceLocale(locale), to, affiliate_lang)
     const show_modal =
         is_eu_country &&
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&
         !deriv_social_platforms.includes(type) &&
-        !new_tab_no_modal.includes(type)
+        !new_tab_no_modal.includes(type) &&
+        !only_en_new_tab_no_modal.includes(type)
 
     const default_style = { cursor: 'pointer' }
+    let final_target = target
+    if (new_tab_no_modal.includes(type) || only_en_new_tab_no_modal.includes(type)) {
+        final_target = '__blank'
+    }
 
     const handleClick = (e) => {
         if (show_modal) {
@@ -217,7 +228,7 @@ const ExternalLink = ({
             href={!show_modal ? url : ''}
             onClick={show_modal ? handleClick : null}
             disabled={!mounted}
-            target={new_tab_no_modal.includes(type) ? '__blank' : target}
+            target={final_target}
             rel={rel}
             {...props}
         >

@@ -1,19 +1,59 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { zoho_url } from 'common/constants'
+// SVG
+import Career1 from 'images/svg/careers/career-1.svg'
+import Career2 from 'images/svg/careers/career-2.svg'
+import Career3 from 'images/svg/careers/career-3.svg'
+import Career4 from 'images/svg/careers/career-4.svg'
+import DownwardsLeft from 'images/svg/careers/downwards-left.svg'
+import DownwardsRight from 'images/svg/careers/downwards-right.svg'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import { Text, Header, LinkText } from 'components/elements'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
-// SVG
-import Career1 from 'images/svg/career-1.svg'
-import Career2 from 'images/svg/career-2.svg'
-import Career3 from 'images/svg/career-3.svg'
-import Career4 from 'images/svg/career-4.svg'
-import DownwardsLeft from 'images/svg/downwards-left.svg'
-import DownwardsRight from 'images/svg/downwards-right.svg'
+import TipIcon from 'images/svg/careers/career-tip.svg'
 
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 8rem 0 5rem 0;
+    border-top: 1px solid #e5e5e5;
+
+    @media ${device.tablet} {
+        border: none;
+    }
+`
 const StyledHeader = styled(Header)`
     margin-bottom: 5.8rem;
+    font-size: 48px;
+    line-height: 60px;
+
+    @media ${device.tablet} {
+        font-size: 28px;
+        line-height: 34px;
+    }
+`
+
+const StyledLinkButton = styled(LinkButton)`
+    padding: 10px, 16px, 10px, 16px;
+    font-size: 20px;
+    font-weight: bold;
+`
+
+const StyledAnotherHeader = styled(Header)`
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    font-size: 32px;
+    line-height: 40px;
+
+    & span {
+        color: var(--color-red);
+    }
+
+    @media ${device.tablet} {
+        font-size: 24px;
+        line-height: 30px;
+    }
 `
 
 const ProcessContainer = styled.div`
@@ -26,7 +66,11 @@ const StyledTipsCard = styled(Flex)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
     position: relative;
-    max-width: 30.9rem;
+    max-width: 350px;
+
+    @media ${device.tablet} {
+        max-width: 100% !important;
+    }
 
     &::after {
         content: '';
@@ -52,32 +96,55 @@ const StyledTipsCard = styled(Flex)`
     }
 `
 
-const TipsRounded = styled.div`
-    background: var(--color-black);
-    border-radius: 50%;
-    padding: 2px 9px;
+const TipsRounded = styled.img`
     margin-right: 0.8rem;
-    height: 2.2rem;
-    color: var(--color-white);
-    font-size: var(--text-size-s);
+`
+const TipsCardText = styled(Text)`
+    font-size: 16px;
+    line-height: 24px;
+`
+
+const StyledContainer = styled(Container)`
+    flex-direction: column;
+    align-items: center;
 `
 
 const TipsCard = ({ content, right, style }) => (
     <StyledTipsCard direction="column" right={right} style={style}>
         <Flex direction="row" mb="1.3rem" jc="flex-start">
-            <TipsRounded>!</TipsRounded>
+            <TipsRounded src={TipIcon} alt="career1" />
             <Text weight="bold">Tips:</Text>
         </Flex>
-        <Text size="var(--text-size-xs)">{content}</Text>
+        <TipsCardText>{content}</TipsCardText>
     </StyledTipsCard>
 )
 
 const SecondaryHeader = styled(Header)`
-    margin-bottom: 2.4rem;
+    margin-bottom: 16px;
+    font-size: 48px;
+    line-height: 60px;
+
+    @media ${device.tablet} {
+        font-size: 28px;
+        line-height: 34px;
+    }
+`
+const DescriptionText = styled(Text)`
+    font-size: 24px;
+    line-height: 36px;
+
+    @media ${device.tablet} {
+        font-size: 18px;
+        line-height: 26px;
+    }
 `
 
 const ProcessWrapper = styled(Flex)`
     max-width: 46.4rem;
+
+    @media ${device.tablet} {
+        max-width: 100% !important;
+    }
 `
 
 const Process = ({ title, description, style }) => (
@@ -85,13 +152,13 @@ const Process = ({ title, description, style }) => (
         <SecondaryHeader as="h2" type="page-title">
             {title}
         </SecondaryHeader>
-        <Text size="var(--text-size-sm)">{description}</Text>
+        <DescriptionText>{description}</DescriptionText>
     </ProcessWrapper>
 )
 
 const SharedIconLeftStyles = css`
-    height: 129px;
-    width: 129px;
+    height: 120px;
+    width: 120px;
     margin: auto 4rem auto 6.4rem;
 
     @media ${device.tablet} {
@@ -99,8 +166,8 @@ const SharedIconLeftStyles = css`
     }
 `
 const SharedIconRightStyles = css`
-    height: 129px;
-    width: 129px;
+    height: 120px;
+    width: 120px;
     margin: auto 6.4rem auto 4rem;
 
     @media ${device.tablet} {
@@ -124,18 +191,36 @@ const StyledCareer4 = styled.img`
     ${SharedIconRightStyles}
 `
 
-const DownwardsShape = styled(Show.Desktop)`
+const DownwardsShape = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
 `
 
 const StyledDownwardsRight = styled.img`
-    margin: -25px 60px -40px 0;
+    margin: -106px 60px -87px 0;
+
+    @media ${device.tablet} {
+        margin: 0 -60px -109px 0;
+        height: auto;
+    }
+`
+const StyledDownwardsRight1 = styled.img`
+    margin: -74px 60px -67px 0;
+
+    @media ${device.tablet} {
+        margin: 0 -60px -109px 0;
+        height: auto;
+    }
 `
 
 const StyledDownwardsLeft = styled.img`
-    margin: -25px 0 -70px 50px;
+    margin: -75px -19px -142px 0;
+
+    @media ${device.tablet} {
+        margin: 0 0 -109px -61px;
+        height: auto;
+    }
 `
 
 const ResponsiveFlex1 = styled(Flex)`
@@ -155,8 +240,10 @@ const SubResponsiveFlex1 = styled(Flex)`
 const ResponsiveFlex2 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
         margin-top: 4.8rem;
+        margin-left: 0;
+        width: 100%;
     }
 `
 
@@ -186,7 +273,7 @@ const ResponsiveFlex4 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
         margin-top: 4.8rem;
-        align-items: flex-end;
+        align-items: flex-start;
     }
 `
 
@@ -206,7 +293,7 @@ const StyledLinkText = styled(LinkText)`
 `
 
 const OurHiringProcess = () => (
-    <SectionContainer padding="0 0 12rem">
+    <StyledSectionContainer>
         <Container direction="column">
             <StyledHeader as="h3" type="section-title" align="center">
                 Our hiring process
@@ -232,7 +319,7 @@ const OurHiringProcess = () => (
                     </SubResponsiveFlex1>
                 </ResponsiveFlex1>
                 <DownwardsShape>
-                    <StyledDownwardsRight src={DownwardsRight} alt="downwards right" />
+                    <StyledDownwardsRight1 src={DownwardsRight} alt="downwards right" />
                 </DownwardsShape>
                 <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
                     <SubResponsiveFlex2 direction="row" width="unset">
@@ -297,6 +384,22 @@ const OurHiringProcess = () => (
                 </ResponsiveFlex4>
             </ProcessContainer>
         </Container>
+
+        <StyledContainer>
+            <StyledAnotherHeader as="h3" type="section-title" align="center">
+                Make an impact. Start your Deriv journey <span>now</span>.
+            </StyledAnotherHeader>
+            <StyledLinkButton
+                secondary="true"
+                to={zoho_url}
+                external="true"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                See all jobs
+            </StyledLinkButton>
+        </StyledContainer>
+
         <Show.Eu>
             <Container>
                 <StyledText mt="8rem">
@@ -314,7 +417,7 @@ const OurHiringProcess = () => (
                 </StyledText>
             </Container>
         </Show.Eu>
-    </SectionContainer>
+    </StyledSectionContainer>
 )
 
 Process.propTypes = {

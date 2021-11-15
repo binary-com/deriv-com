@@ -4,7 +4,7 @@ import SocialWrapperComponent from './social-wrapper'
 import { DerivLogoWrapper, StyledLogo } from './common/style.js'
 import { Show } from 'components/containers'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
-import DerivLogo from 'images/svg/deriv-footer.svg'
+import DerivLogo from 'images/svg/layout/deriv-footer.svg'
 import { isUKOrMXAccount } from 'common/utility'
 import {
     fb_uk_url,

@@ -16,7 +16,7 @@ import { localize, Localize } from 'components/localization'
 
 const query = graphql`
     query {
-        deriv: file(relativePath: { eq: "hero-platform.png" }) {
+        deriv: file(relativePath: { eq: "interim/hero-platform.png" }) {
             ...fadeIn
         }
     }

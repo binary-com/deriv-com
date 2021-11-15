@@ -5,6 +5,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+import { DerivStore } from 'store'
 
 const WhatIsDMT5 = () => (
     <ArticleWrapper>
@@ -35,30 +36,49 @@ const DifferenceDMT5DTrader = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts = () => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize(
-                'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
-            )}
-        </StyledHeader>
-        <Text>
-            {localize(
-                'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
-            )}
-        </Text>
-        <StyledText>
-            {localize(
-                'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
-            )}
-        </StyledText>
-        <StyledText>
-            {localize(
-                'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
-            )}
-        </StyledText>
-    </ArticleWrapper>
-)
+const DifferentAccounts = () => {
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">
+                {localize(
+                    'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+                )}
+            </StyledHeader>
+            <>
+                <Text>
+                    {localize(
+                        'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
+                    )}
+                </Text>
+                <StyledText>
+                    {localize(
+                        'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
+                    )}
+                </StyledText>
+                <StyledText>
+                    {localize(
+                        'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
+                    )}
+                </StyledText>
+            </>
+        </ArticleWrapper>
+    )
+}
+
+const WhatIsCFDsAccount = () => {
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{localize('What is the CFDs account?')}</StyledHeader>
+            {
+                <Text>
+                    {localize(
+                        'The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies.',
+                    )}
+                </Text>
+            }
+        </ArticleWrapper>
+    )
+}
 
 const DepositDMT5 = () => (
     <ArticleWrapper>
@@ -72,6 +92,7 @@ const DepositDMT5 = () => (
                     <strong key={0} />,
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/account-transfer`}
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -99,6 +120,7 @@ const WithdrawDMT5 = () => (
                     <strong key={0} />,
                     <ExternalLink
                         to={`${deriv_app_url}/cashier/account-transfer`}
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -136,6 +158,7 @@ const ResetDMT5Password = () => (
                 components={[
                     <ExternalLink
                         to={`${deriv_app_url}/mt5`}
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -149,6 +172,7 @@ const ResetDMT5Password = () => (
 
 const DMT5Article = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const { is_eu_country } = React.useContext(DerivStore)
 
     return (
         <div>
@@ -167,13 +191,22 @@ const DMT5Article = () => {
                     label="differences-of-dtrader-and-dmt5"
                     is_mounted={is_mounted}
                 />
-                <DifferentAccounts
-                    text={localize(
-                        'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
-                    )}
-                    label="differences-of-dmt5-accounts"
-                    is_mounted={is_mounted}
-                />
+                {is_eu_country ? (
+                    <WhatIsCFDsAccount
+                        text={localize('What is the CFDs account?')}
+                        label="what-is-cfds-account"
+                        is_mounted={is_mounted}
+                    />
+                ) : (
+                    <DifferentAccounts
+                        text={localize(
+                            'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+                        )}
+                        label="differences-of-dmt5-accounts"
+                        is_mounted={is_mounted}
+                    />
+                )}
+
                 <WithdrawDMT5
                     text={localize('How can I withdraw funds from my DMT5 real money account?')}
                     label="withdraw-funds-from-DMT5"

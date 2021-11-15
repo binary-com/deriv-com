@@ -12,7 +12,7 @@ import { Localize, localize } from 'components/localization'
 const query = graphql`
     query {
         background: file(relativePath: { eq: "home/platform_devices.png" }) {
-            ...fadeIn
+            ...homePageHeroFadeIn
         }
     }
 `
@@ -185,6 +185,7 @@ const Hero = ({ is_ppc }) => {
                                     alt="platform devices mobile"
                                     width="100%"
                                     height="233"
+                                    is_eager
                                 />
                             </Show.Mobile>
                         )}
@@ -194,12 +195,13 @@ const Hero = ({ is_ppc }) => {
                                 alt="platform devices"
                                 width="100%"
                                 height="346"
+                                is_eager
                             />
                         </Show.Desktop>
                     </ImageWrapper>
                 </StyledHeroContainer>
                 <ButtonWrapper>
-                    <HeroButton secondary="true" to="/signup/">
+                    <HeroButton id="dm-hero-signup" secondary="true" to="/signup/">
                         <Localize translate_text="Create free demo account" />
                     </HeroButton>
                 </ButtonWrapper>

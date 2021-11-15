@@ -6,15 +6,20 @@ on:
             - 'production*'
         paths-ignore:
             - '**.md'
+    repository_dispatch:
+        types: [publish_blog]
 
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
+    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
+    GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
 
 jobs:
     lint:
         timeout-minutes: 10
         runs-on: ubuntu-latest
+        environment: production
 
         steps:
             - name: Checkout 🛎️
@@ -23,7 +28,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: 12
+                  node-version: 14
             - name: Cache dependencies
               id: cache
               uses: actions/cache@v2
@@ -41,6 +46,7 @@ jobs:
         needs: lint
         timeout-minutes: 30
         runs-on: ubuntu-latest
+        environment: production
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
@@ -48,15 +54,18 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '12.x'
+                  node-version: '14.x'
+
+            - name: Set version env variable
+              run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
             - name: Cache dependencies
               uses: actions/cache@v2
               with:
                   path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
-                      ${{ runner.os }}-node-
+                      ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}
 
             - name: Cache Gatsby
               id: gatsby-cache-build
@@ -65,14 +74,20 @@ jobs:
                   path: |
                       public
                       .cache
-                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
                   restore-keys: |
-                      ${{ runner.os }}-gatsby-build-
+                      ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
 
             - run: npm ci
             - run: npm run format
             - run: npm run test
             - run: npm run build
+
+            - name: Remove Storybook
+              uses: JesseTG/rm@v1.0.2
+              with:
+                  path: public/storybook
+
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:

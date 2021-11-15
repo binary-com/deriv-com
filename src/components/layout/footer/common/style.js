@@ -80,6 +80,7 @@ export const LinksWrapper = styled.div`
         padding: 0;
     }
 `
+
 export const LinksCol = styled(Flex)`
     flex-direction: column;
     width: fit-content;
@@ -88,6 +89,11 @@ export const LinksCol = styled(Flex)`
 
     :last-child {
         margin-right: 0;
+    }
+
+    @media (min-width: 993px) and (max-width: 1050px) {
+        min-width: 0;
+        max-width: 100px;
     }
 `
 
@@ -100,6 +106,13 @@ export const Link = styled(StyledLink)`
     font-size: var(--text-size-xs);
     line-height: 1.5;
 `
+export const AcademyWrapper = styled.div`
+    color: var(--color-red-1);
+    font-size: var(--text-size-xs);
+    line-height: 1.5;
+    margin-top: 10px;
+`
+
 export const LinkWrapper = styled.div`
     margin-top: ${(props) => (props.first_child == 'true' ? '0.8rem' : '1.6rem')};
 

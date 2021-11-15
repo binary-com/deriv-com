@@ -6,7 +6,6 @@ import {
     getCurrency,
     getPnlMarginCommon,
     numberSubmitFormat,
-    numberWithCommas,
     resetValidationPnlMargin,
     getMaxLength,
 } from '../common/_utility'
@@ -55,7 +54,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMarginCalculator = () => {
     const query = graphql`
@@ -283,9 +282,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
-                                                                    values.stopLossPips,
-                                                                )}
+                                                                {values.stopLossPips}
                                                             </PnLCalculatorOutputField>
                                                             <PnLCalculatorOutputSymbol>
                                                                 {values.pnlMarginSymbol}
@@ -298,9 +295,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
-                                                                    values.stopLossLevel,
-                                                                )}
+                                                                {values.stopLossLevel}
                                                             </PnLCalculatorOutputField>
                                                             <PnLCalculatorOutputSymbol>
                                                                 {values.pnlMarginSymbol}
@@ -316,9 +311,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
-                                                                    values.takeProfitPips,
-                                                                )}
+                                                                {values.takeProfitPips}
                                                             </PnLCalculatorOutputField>
                                                             <PnLCalculatorOutputSymbol>
                                                                 {values.pnlMarginSymbol}
@@ -331,9 +324,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
-                                                                    values.takeProfitLevel,
-                                                                )}
+                                                                {values.takeProfitLevel}
                                                             </PnLCalculatorOutputField>
                                                             <PnLCalculatorOutputSymbol>
                                                                 {values.pnlMarginSymbol}
@@ -723,9 +714,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.stopLossPips,
-                                                                    )}
+                                                                    {values.stopLossPips}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
                                                                     {values.pnlMarginSymbol}
@@ -738,9 +727,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.stopLossLevel,
-                                                                    )}
+                                                                    {values.stopLossLevel}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
                                                                     {values.pnlMarginSymbol}
@@ -756,9 +743,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.takeProfitPips,
-                                                                    )}
+                                                                    {values.takeProfitPips}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
                                                                     {values.pnlMarginSymbol}
@@ -771,9 +756,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.takeProfitLevel,
-                                                                    )}
+                                                                    {values.takeProfitLevel}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
                                                                     {values.pnlMarginSymbol}
@@ -1109,7 +1092,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MetaTrader 5 (DMT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
@@ -1244,7 +1227,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MetaTrader 5 (DMT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MT5 (DMT5) is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">

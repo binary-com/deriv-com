@@ -205,6 +205,8 @@ export const articles = [
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Accounts" />,
                 label: 'differences-of-dmt5-accounts',
+                title_eu: <Localize translate_text="What is the CFDs account?" />,
+                label_eu: 'what-is-cfds-account',
             },
             {
                 title: (
@@ -320,22 +322,22 @@ export const articles = [
                 label: 'deriv-x-account-information',
             },
             // TODO: uncomment this once deriv x real is ready
-            // {
-            //     title: (
-            //         <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />
-            //     ),
-            //     category: 'Deriv X',
-            //     sub_category: <Localize translate_text="Platforms" />,
-            //     label: 'deposit-funds',
-            // },
-            // {
-            //     title: (
-            //         <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />
-            //     ),
-            //     category: 'Deriv X',
-            //     sub_category: <Localize translate_text="Platforms" />,
-            //     label: 'withdraw-funds-from-deriv-x',
-            // },
+            {
+                title: (
+                    <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />
+                ),
+                category: 'Deriv X',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'deposit-funds',
+            },
+            {
+                title: (
+                    <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />
+                ),
+                category: 'Deriv X',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'withdraw-funds-from-deriv-x',
+            },
         ],
     },
     {

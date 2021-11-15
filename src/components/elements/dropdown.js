@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { getCommaSeparatedNumber } from 'common/utility'
 import { useDropdown } from 'components/hooks/use-dropdown'
 import { Text } from 'components/elements/typography'
-import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
+import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
@@ -313,7 +312,7 @@ export const BottomLabel = ({ error, contractSize }) => {
 
             {contractSize && (
                 <ContractSizeWrapper lh="1.4" align="left">
-                    Contract size : {getCommaSeparatedNumber(contractSize)}
+                    Contract size : {contractSize}
                 </ContractSizeWrapper>
             )}
         </StyledDiv>

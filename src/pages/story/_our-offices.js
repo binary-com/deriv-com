@@ -7,7 +7,7 @@ import { Header, Text, BackgroundImage } from 'components/elements'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import { ReactComponent as Chevron } from 'images/svg/chevron-thick.svg'
+import { ReactComponent as Chevron } from 'images/svg/custom/chevron-thick.svg'
 
 const query = graphql`
     query {

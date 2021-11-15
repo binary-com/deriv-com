@@ -8,53 +8,61 @@ import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
-import MapPin from 'images/svg/map.svg'
+import MapPin from 'images/svg/careers/map.svg'
 
 const Pin = styled.img`
-    min-width: 24px;
-    height: 24px;
-    margin-right: 13px;
+    width: 12px;
+    height: 16px;
+    margin-right: 10px;
+    margin-top: 3px;
 `
 
 const StyledBackground = styled(BackgroundImage)`
     width: 100%;
-    height: 80rem;
+    height: 660px;
     object-fit: contain;
-    @media ${device.tabletL} {
-        height: 65.3rem;
+    @media ${device.laptop} {
+        height: 521px;
     }
 `
 
 const StyledContainer = styled(CareerContainer)`
     flex-direction: column;
-    align-items: flex-start;
     height: 100%;
-
-    @media ${device.tablet} {
-        padding: 0 2rem;
-    }
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xxl);
-    margin-bottom: 1.6rem;
+    font-size: 64px;
+    margin-bottom: 16px;
     color: var(--color-white);
+    text-align: center;
+    line-height: 80px;
+`
+const SecondStyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        margin-bottom: 40px;
+    }
+
+    margin-bottom: 0 24px;
+`
+const StyledLinkButton = styled(LinkButton)`
+    font-size: 20px;
+    line-height: 30px;
+    @media ${device.tablet} {
+        font-size: 18px;
+        max-width: 317px;
+    }
+    @media (max-width: 340px) {
+        font-size: 15px;
+    }
 `
 
-const Subheadline = styled(Text)`
-    font-size: var(--text-size-m);
-    color: var(--color-white);
-    max-width: 69rem;
-    margin-bottom: 3.2rem;
-`
-
-const Hero = ({ display_name, img_data, description }) => {
+const Hero = ({ display_name, img_data }) => {
     return (
         <StyledBackground data={img_data} alt={display_name}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <Subheadline>{description}</Subheadline>
-                <LinkButton
+                <StyledLinkButton
                     has_no_end_slash
                     secondary="true"
                     to={zoho_url}
@@ -63,7 +71,7 @@ const Hero = ({ display_name, img_data, description }) => {
                     external
                 >
                     View open positions in {display_name}
-                </LinkButton>
+                </StyledLinkButton>
             </StyledContainer>
         </StyledBackground>
     )
@@ -76,52 +84,43 @@ Hero.propTypes = {
     name: PropTypes.string,
 }
 
-const First = styled.div`
-    margin-right: 0.8rem;
-    width: 100%;
-    max-width: 24.7rem;
-`
-
-const Second = styled.div`
-    margin-left: 0.8rem;
-    width: 100%;
-    max-width: 24.7rem;
-`
-
-const Third = styled.div`
-    width: 100%;
-    max-width: 50.9rem;
-    margin-top: 0.8rem;
-`
-
-const Fourth = styled.div`
-    width: 100%;
-    max-width: 51.4rem;
-
-    @media ${device.tabletS} {
-        max-width: 407px;
-        object-fit: contain;
-    }
-`
-
 const FirstSection = styled(SectionContainer)`
+    max-width: 996px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media ${device.laptop} {
+        width: 91%;
+        margin: 0 4.5%;
+        padding: 40px 0;
+    }
+
     ${Header} {
-        margin-bottom: 4rem;
+        margin-bottom: 40px;
+        @media ${device.tablet} {
+            margin-bottom: 0;
+        }
+        @media (max-width: 350px) {
+            font-size: 26px;
+        }
     }
     ${Flex} {
+        max-width: 996px;
+        padding: 0;
+        margin: 0;
         @media ${device.tablet} {
             align-items: center;
         }
     }
     ${Text} {
-        max-width: 41.5rem;
-        margin-right: 6.4rem;
+        max-width: 384px;
+        margin-right: 24px;
         font-size: 20px;
 
         @media ${device.tablet} {
-            margin-right: 0;
-            margin-bottom: 2rem;
             max-width: 100%;
+            margin: 8px 0 20px;
+            padding: 0;
             text-align: center;
             font-size: 16px;
         }
@@ -129,77 +128,126 @@ const FirstSection = styled(SectionContainer)`
             text-align: left;
         }
     }
-    @media ${device.tablet} {
-        padding: 8rem 2rem;
+`
+const SecondSection = styled(SectionContainer)`
+    padding: 0 0 80px;
+    max-width: 996px;
+    margin: 0 auto;
+    @media ${device.laptop} {
+        width: unset;
+        margin: 0 4.5%;
+        padding: 0 0 40px;
+    }
+    @media ${device.tabletL} {
+        width: unset;
+        margin: 0 4.5%;
+        padding: 0 0 40px;
+    }
+`
+const MapSection = styled(SectionContainer)`
+    max-width: 996px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0 80px;
+
+    @media ${device.laptop} {
+        max-height: unset;
+        width: 91%;
+        margin: 0 4.5%;
+        padding: 0 0 40px;
     }
 `
 const ImageWrapper = styled.div`
-    max-width: 53.9rem;
+    max-width: 588px;
     width: 100%;
-
-    @media ${device.tablet} {
-        height: 260px;
+    max-height: 332px;
+    @media ${device.laptop} {
+        object-fit: cover;
         max-width: 100%;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+    }
+    @media ${device.tablet} {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        max-height: 380px;
+    }
+    @media ${device.mobileL} {
+        max-height: 260px;
     }
 `
 
 const StyledImageWrapper = styled.div`
-    max-width: 53.9rem;
-    width: 100%;
+    max-width: 888px;
+    width: 59%;
 
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
+        width: 100%;
+        height: 100%;
         max-width: 100%;
+        object-fit: cover;
+        padding: 0;
+        margin: 0;
     }
 `
 
 const LocationCard = styled.article`
     overflow: hidden;
-    max-width: 99.6rem;
+    max-width: 996px;
     margin: 0 auto;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
 
-    @media ${device.tablet} {
-        margin: 0 16px;
+    @media ${device.laptop} {
+        margin: 0 auto;
     }
 `
 
 const CardText = styled(Text)`
-    margin-top: 1.6rem;
-    margin-bottom: 4rem;
+    margin-top: 8px;
+    margin-bottom: 37px;
+    display: block;
+    @media ${device.mobileL} {
+        margin-top: 24px;
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
 `
 
 const Iframe = styled.iframe`
     width: 100%;
-    height: 100%;
     border: 0;
 `
-
 const StyledFlex = styled(Flex)`
     width: 100%;
-
+    @media ${device.tabletL} {
+        width: unset;
+        max-width: 100%;
+    }
     @media ${device.tabletS} {
         flex-direction: column;
         justify-content: center;
     }
 `
-
 const LeftFlex = styled(Flex)`
+    width: 100%;
+    padding: 0;
     @media ${device.tabletS} {
-        margin: 0 16px 16px;
-        width: auto;
-        align-items: center;
+        object-fit: contain;
+        max-width: 100%;
+        padding: 0 0 8px;
+        margin: 0;
     }
 `
 
 const RightFlex = styled(Flex)`
     margin-left: 0.8rem;
     justify-content: flex-start;
-
     @media ${device.tabletS} {
         width: auto;
-        margin: 0 16px;
-        justify-content: center;
+        margin: 0;
     }
 `
 
@@ -207,33 +255,92 @@ const InnerLeftFlex = styled(Flex)`
     justify-content: flex-end;
 
     @media ${device.tabletS} {
-        justify-content: center;
+        justify-content: unset;
+    }
+`
+const First = styled.div`
+    margin-right: 0.8rem;
+    width: 100%;
+    max-width: 24.7rem;
+    @media ${device.tabletS} {
+        margin-right: 0;
+        margin-right: 4px;
+        max-width: 50%;
     }
 `
 
+const Second = styled.div`
+    margin-left: 0.8rem;
+    width: 100%;
+    max-width: 24.7rem;
+    @media ${device.tabletS} {
+        margin-left: 0;
+        margin-left: 4px;
+        max-width: 50%;
+    }
+`
+
+const Third = styled.div`
+    display: flex;
+    flex-direction: flex-start;
+    width: 100%;
+    max-width: 50.9rem;
+    margin-top: 0.8rem;
+
+    @media ${device.tabletS} {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+`
+
+const Fourth = styled.div`
+    width: 100%;
+    max-width: 100%;
+    max-width: 51.4rem;
+    @media ${device.tabletS} {
+        max-width: 100%;
+        object-fit: contain;
+        padding: 0;
+    }
+`
 const LocationFlex = styled(Flex)`
-    @media ${device.tablet} {
+    margin: 0;
+    padding: 0;
+    @media ${device.tabletL} {
+        max-height: unset;
+        height: 100%;
         align-items: center;
         flex-direction: column-reverse;
     }
 `
 
 const LocationInformationFlex = styled(Flex)`
-    @media ${device.tablet} {
+    padding: 40px;
+    display: block;
+    @media ${device.laptop} {
         padding: 24px 16px;
     }
 `
 
 const StyledDiv = styled.div`
-    max-width: 32.4rem;
+    max-width: 400px;
 
     @media ${device.tablet} {
         max-width: 100%;
+        height: unset;
+    }
+`
+const MapQueryImage = styled(QueryImage)`
+    object-fit: cover;
+    @media ${device.tablet} {
+        max-width: 100%;
+        height: unset;
     }
 `
 
 export const LocationLayout = ({ location, images }) => {
-    const { display_name } = location
+    const { display_name, map_office_name } = location
     if (!display_name) return null
 
     return (
@@ -241,99 +348,100 @@ export const LocationLayout = ({ location, images }) => {
             <Hero
                 display_name={display_name}
                 name={location.name}
-                description={location.header_p}
                 img_data={images[location.name]}
             />
-            <CareerContainer>
-                <FirstSection>
-                    <Header align="center" as="h2" size="var(--text-size-header-5)">
-                        Living in {display_name}
+            <FirstSection>
+                <SecondStyledHeader align="center" as="h2" size="var(--text-size-header-5)">
+                    Deriv in {display_name}
+                </SecondStyledHeader>
+                <Flex tablet_direction="column">
+                    <Text>{location.first_p}</Text>
+                    <StyledImageWrapper>
+                        <QueryImage
+                            data={images[location.first_img]}
+                            alt={display_name}
+                            width="100%"
+                            height="100%"
+                        />
+                    </StyledImageWrapper>
+                </Flex>
+            </FirstSection>
+            <SecondSection padding="0px 16px">
+                <SectionContainer padding="0">
+                    <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
+                        Our office
                     </Header>
-                    <Flex tablet_direction="column">
-                        <Text>{location.first_p}</Text>
-                        <StyledImageWrapper>
-                            <QueryImage
-                                data={images[location.first_img]}
-                                alt={display_name}
-                                width="100%"
-                            />
-                        </StyledImageWrapper>
-                    </Flex>
-                </FirstSection>
-            </CareerContainer>
-            <SectionContainer padding="0">
-                <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
-                    Our office
-                </Header>
-                <StyledFlex>
-                    <LeftFlex direction="column" mr="0.8rem" ai="flex-end">
-                        <InnerLeftFlex mb="0.8rem">
-                            <First>
+                    <StyledFlex>
+                        <LeftFlex direction="column" mr="0.8rem" ai="flex-end">
+                            <InnerLeftFlex mb="0.8rem">
+                                <First>
+                                    <QueryImage
+                                        data={images[location.grid_images[0]]}
+                                        alt={location.display_name + ' Worklife'}
+                                        width="100%"
+                                    />
+                                </First>
+                                <Second>
+                                    <QueryImage
+                                        data={images[location.grid_images[1]]}
+                                        alt={location.display_name + ' Worklife 2'}
+                                        width="100%"
+                                    />
+                                </Second>
+                            </InnerLeftFlex>
+                            <Third>
                                 <QueryImage
-                                    data={images[location.grid_images[0]]}
-                                    alt={location.display_name + ' Worklife'}
+                                    data={images[location.grid_images[2]]}
+                                    alt={location.display_name + ' Worklife 3'}
                                     width="100%"
                                 />
-                            </First>
-                            <Second>
+                            </Third>
+                        </LeftFlex>
+                        <RightFlex>
+                            <Fourth>
                                 <QueryImage
-                                    data={images[location.grid_images[1]]}
-                                    alt={location.display_name + ' Worklife 2'}
+                                    data={images[location.grid_images[3]]}
+                                    alt={location.display_name + ' Worklife 4'}
                                     width="100%"
                                 />
-                            </Second>
-                        </InnerLeftFlex>
-                        <Third>
-                            <QueryImage
-                                data={images[location.grid_images[2]]}
-                                alt={location.display_name + ' Worklife 3'}
-                                width="100%"
-                            />
-                        </Third>
-                    </LeftFlex>
-                    <RightFlex>
-                        <Fourth>
-                            <QueryImage
-                                data={images[location.grid_images[3]]}
-                                alt={location.display_name + ' Worklife 4'}
-                                width="100%"
-                            />
-                        </Fourth>
-                    </RightFlex>
-                </StyledFlex>
-            </SectionContainer>
-            <SectionContainer>
+                            </Fourth>
+                        </RightFlex>
+                    </StyledFlex>
+                </SectionContainer>
+            </SecondSection>
+            <MapSection>
                 <LocationCard>
-                    <LocationFlex min_height="42.2rem" jc="unset" tablet_direction="column">
-                        <ImageWrapper>
-                            {location.has_iframe ? (
-                                <Iframe
-                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
-                                />
-                            ) : (
+                    <LocationFlex min_height="38rem" jc="cover" tablet_direction="column">
+                        {location.has_iframe ? (
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
+                            />
+                        ) : (
+                            <ImageWrapper>
                                 <LocalizedLink
                                     to={location.google_map_link}
                                     external
                                     rel="noopener noreferrer"
                                     target="_blank"
                                 >
-                                    <QueryImage
+                                    <MapQueryImage
                                         data={images[location.map_img]}
                                         alt={location.display_name + 'map'}
                                         width="100%"
                                         height="100%"
                                     />
                                 </LocalizedLink>
-                            )}
-                        </ImageWrapper>
+                            </ImageWrapper>
+                        )}
+
                         <LocationInformationFlex
                             p="3.2rem 6rem"
                             direction="column"
                             max_width="44.4rem"
                         >
                             <StyledDiv>
-                                <Header as="h3" size="24px">
-                                    Location
+                                <Header as="h3" type="subtitle-1">
+                                    {`Working at Deriv ${map_office_name}`}
                                 </Header>
                                 <CardText>{location.map_text}</CardText>
                                 <Flex jc="unset">
@@ -360,7 +468,7 @@ export const LocationLayout = ({ location, images }) => {
                         </LocationInformationFlex>
                     </LocationFlex>
                 </LocationCard>
-            </SectionContainer>
+            </MapSection>
         </>
     )
 }

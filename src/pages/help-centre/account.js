@@ -36,7 +36,7 @@ const WhoCanOpenAnAccount = () => (
             </StyledListItem>
             <StyledListItem>
                 {localize(
-                    'Clients cannot be a resident in Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+                    'Clients cannot be a resident in Belarus, Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, Rwanda, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
                 )}
             </StyledListItem>
         </StyledList>
@@ -115,6 +115,7 @@ const CloseAccount = () => (
                 components={[
                     <StyledLink
                         to={`${deriv_app_url}/account/deactivate-account`}
+                        external="true"
                         target="_blank"
                         weight="bold"
                         rel="noopener noreferrer"

@@ -11,7 +11,6 @@ import {
     getCurrency,
     numberSubmitFormatNegative,
     numberSubmitFormat,
-    numberWithCommas,
     getMaxLength,
 } from '../common/_utility'
 import {
@@ -55,7 +54,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const StyledInputGroup = styled(InputGroup)`
     margin: 0;
@@ -112,7 +111,7 @@ const SwapCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
+                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MT5 (DMT5).',
                     )}
                 </SectionSubtitle>
 
@@ -180,7 +179,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {values.swapCharge}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -447,10 +446,7 @@ const SwapCalculator = () => {
                                         </StyledLinkButton>
                                     }
                                     {
-                                        <StyledLinkButton
-                                            secondary="true"
-                                            to="/trade-types/margin#swap-policy/"
-                                        >
+                                        <StyledLinkButton secondary="true" to="/trade-types/cfds/">
                                             {localize('Learn more about swap')}
                                         </StyledLinkButton>
                                     }
@@ -506,7 +502,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {values.swapCharge}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -777,10 +773,7 @@ const SwapCalculator = () => {
                                     >
                                         {localize('Go to DMT5 dashboard')}
                                     </StyledLinkButton>
-                                    <StyledLinkButton
-                                        secondary="true"
-                                        to="/trade-types/margin#swap-policy/"
-                                    >
+                                    <StyledLinkButton secondary="true" to="/trade-types/cfds/">
                                         {localize('Learn more about swap')}
                                     </StyledLinkButton>
                                 </LinkWrapper>

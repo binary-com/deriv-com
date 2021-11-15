@@ -6,7 +6,14 @@ import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/og_deriv.png'
 
-const non_localized_links = ['/careers', '/careers/']
+const non_localized_links = [
+    '/careers',
+    '/careers/',
+    '/besquare',
+    '/besquare/',
+    '/academy',
+    '/academy/',
+]
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
@@ -146,6 +153,10 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 {
                     name: 'referrer',
                     content: 'origin',
+                },
+                {
+                    name: 'version',
+                    content: process.env.GATSBY_DERIV_VERSION,
                 },
                 ...(no_index || no_index_staging || is_ach_page
                     ? [

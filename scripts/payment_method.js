@@ -306,13 +306,13 @@ fs.createReadStream(source_path)
 
         const content = [${dataToTranslate}]
 
-        const paymentsPageLocalize = ()=> {
+        const paymentMethodsTranslation = ()=> {
              return (
                      <>{content}</>
                     )
         }
 
-         export default paymentsPageLocalize`
+         export default paymentMethodsTranslation`
                             
         fs.writeFile(translation_output_path, page_content, 'utf8', () => console.log(`\n Translation file generated at ${translation_output_path}`))
 

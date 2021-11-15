@@ -391,8 +391,8 @@ const content = [
     localize('Not Available'),
 ]
 
-const paymentsPageLocalize = () => {
+const paymentMethodsTranslation = () => {
     return <>{content}</>
 }
 
-export default paymentsPageLocalize
+export default paymentMethodsTranslation

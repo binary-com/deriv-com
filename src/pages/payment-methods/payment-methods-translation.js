@@ -1,4 +1,6 @@
+import React from 'react'
 import { localize } from 'components/localization'
+
 const dataToTranslate = [
     localize('Visa'),
     localize('Deposit and withdraw using your Visa credit or debit card.'),
@@ -389,4 +391,8 @@ const dataToTranslate = [
     localize('Not Available'),
 ]
 
-export default dataToTranslate
+const paymentsPageLocalize = () => {
+    return <>{dataToTranslate}</>
+}
+
+export default paymentsPageLocalize

@@ -279,7 +279,9 @@ fs.createReadStream(source_path)
         })
 
         const page_content = 
-        `import { localize } from 'components/localization'
+        `import React from 'react'
+        import { localize } from 'components/localization'
+
         const dataToTranslate = [${parsed_json.map(({ name,
                                             category,
                                             description,
@@ -295,14 +297,20 @@ fs.createReadStream(source_path)
                                                 `\n localize("${category}")`,
                                                 `\n localize("${min_deposit}")`,
                                                 `\n localize("${max_deposit}")`,
-                                            `\n localize("${deposit_proccessing_time}")`,
+                                                `\n localize("${deposit_proccessing_time}")`,
                                                 `\n localize("${min_withdrawal}")`,
                                                 `\n localize("${max_withdrawal}")`,
                                                 `\n localize("${withdrawal_processing_time}")`
                                             ]
                                         )}]
 
-         export default dataToTranslate`
+        const paymentsPageLocalize = ()=> {
+             return (
+                     <>{dataToTranslate}</>
+                    )
+        }
+
+         export default paymentsPageLocalize`
                             
         fs.writeFile(translation_output_path, page_content, 'utf8', () => console.log(`\n Translation file generated at ${translation_output_path}`))
 

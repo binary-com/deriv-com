@@ -15,6 +15,14 @@ const AllVideos = ({ video_data }) => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
     }, [show])
 
+    // opens the video player based on the valid video id passed to url params
+    useEffect(() => {
+        const params = new URLSearchParams(location.search)
+        const video = params.get('video')
+        const video_track = video_data.find((item) => item.video_id == video)?.video_file.id
+        if (video_track) openVideo(video_track)
+    }, [])
+
     const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
 
     const openVideo = (video_id) => {

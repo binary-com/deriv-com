@@ -22,12 +22,12 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/landing/ebooks/`,
             toPath: `/404/`,
-            redirectInBrowser: false,
+            redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
             fromPath: `/landing/ebooks`,
-            toPath: `/404/`,
+            toPath: `/404`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -200,7 +200,7 @@ exports.onCreatePage = ({ page, actions }) => {
             })
             createRedirect({
                 fromPath: `/${lang}/landing/ebooks`,
-                toPath: `/${lang}/404/`,
+                toPath: `/${lang}/404`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

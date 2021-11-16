@@ -25,12 +25,12 @@ exports.onCreatePage = ({ page, actions }) => {
             redirectInBrowser: true,
             isPermanent: true,
         })
-        createRedirect({
-            fromPath: `/landing/ebooks`,
-            toPath: `/404`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
+        // createRedirect({
+        //     fromPath: `/landing/ebooks`,
+        //     toPath: `/404`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
     }
     
     if (is_responsible_trading) {
@@ -198,12 +198,12 @@ exports.onCreatePage = ({ page, actions }) => {
                 redirectInBrowser: true,
                 isPermanent: true,
             })
-            createRedirect({
-                fromPath: `/${lang}/landing/ebooks`,
-                toPath: `/${lang}/404`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
+            // createRedirect({
+            //     fromPath: `/${lang}/landing/ebooks`,
+            //     toPath: `/${lang}/404`,
+            //     redirectInBrowser: true,
+            //     isPermanent: true,
+            // })
         }
 
         if (is_contact_us) {

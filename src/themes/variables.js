@@ -80,6 +80,7 @@ const Variables = css`
         --color-orange-3: #33140e;
         --color-green-1: #bccdce;
         --color-green-2: #e2ebec;
+        --color-green-3: #2e8836;
         --color-brown: #33140e;
 
         /* sizes */

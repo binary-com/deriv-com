@@ -17,8 +17,9 @@ const ParentWrapper = styled(Container)`
     justify-content: center;
     flex-wrap: wrap;
     max-width: 964px;
+    width: 100%;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         flex-direction: column;
     }
 `
@@ -34,9 +35,11 @@ const ContentWrapper = styled(Flex)`
         margin-right: 24px;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         max-width: 58.8rem;
         width: 100%;
+        padding: 0 16px;
+        margin-bottom: 34px;
 
         :nth-child(odd) {
             margin-right: 0;
@@ -46,8 +49,9 @@ const ContentWrapper = styled(Flex)`
 const BtnWrapper = styled(Flex)`
     margin-top: 16px;
     padding-bottom: 80px;
-    @media ${device.tabletL} {
-        padding-bottom: 40px;
+    @media ${device.laptop} {
+        margin-top: 0;
+        padding-bottom: 0;
     }
 `
 const StyledLinkButton = styled(LinkButton)`
@@ -96,7 +100,7 @@ const benefitsItems = [
 const Benefits = () => {
     return (
         <ParentWrapper>
-            <Flex>
+            <Flex laptop={{ p: '0 16px' }}>
                 <Header type="heading-3" align="center" mb="40px">
                     {localize('Deriv is everything you love about Binary.com, plus more')}
                 </Header>

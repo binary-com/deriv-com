@@ -11,7 +11,7 @@ import { localize, WithIntl } from 'components/localization'
 
 const JumpIndices = () => {
     return (
-        <Layout type="jump-indices">
+        <Layout type="binary-to-deriv" margin_top="0">
             <SEO
                 title={localize('Binary to Deriv')}
                 description={localize('Trade jump indices, the new synthetics with a twist')}

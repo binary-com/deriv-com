@@ -12,23 +12,23 @@ const SectionWrapper = styled(SectionContainer)`
         padding: 40px 0;
     }
 `
-const StyledHeader = styled(Header)`
-    text-align: center;
-    max-width: 1200px;
-    @media ${device.tabletL} {
-        max-width: 58.8rem;
-    }
-`
 
 const DBanner = () => {
     return (
         <SectionWrapper>
             <Flex>
-                <StyledHeader type="heading-3" weight="normal">
+                <Header
+                    type="heading-3"
+                    weight="normal"
+                    align="center"
+                    max_width="90rem"
+                    as="h3"
+                    tabletL={{ max_width: '58.8rem' }}
+                >
                     {localize(
-                        'We’ve moved our trading platforms to Deriv so we can focus onboosting your trading experience.',
+                        'We’ve moved our trading platforms to Deriv so we can focus on boosting your trading experience.',
                     )}
-                </StyledHeader>
+                </Header>
             </Flex>
         </SectionWrapper>
     )

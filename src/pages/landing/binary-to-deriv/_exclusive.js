@@ -65,18 +65,31 @@ const ItemsWrapper = styled(Flex)`
     }
 
     @media ${device.tablet} {
+        margin: 0 auto 24px;
+
         :nth-child(odd) {
             margin-right: auto;
         }
         :last-child {
-            margin-right: auto;
+            margin: 0 auto 0 !important;
         }
-
-        margin: 0 auto 24px;
     }
 
     @media ${device.mobileL} {
         max-width: 100%;
+    }
+`
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 24px;
+        line-height: 36px;
+        max-width: 264px;
+    }
+`
+const StyledSmallHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+        line-height: 24px;
     }
 `
 
@@ -110,15 +123,16 @@ const exclusiveItems = [
 const Exclusive = () => {
     const data = useStaticQuery(query)
     return (
-        <Container fd="column" pt="40px" pb="120px">
-            <Flex fd="column" mb="40px">
-                <Header type="heading-3" align="center" mb="8px">
+        <Container fd="column" pt="40px" pb="120px" tablet={{ pb: '40px' }}>
+            <Flex fd="column" mb="40px" tabletL={{ mb: '24px' }}>
+                <Header as="h2" type="heading-2" align="center" mb="8px">
                     {localize('Exclusively on Deriv')}
                 </Header>
-                <Header type="subtitle-1" align="center" weight="normal">
-                    {localize(
-                        'There’s a bright future ahead. Find these bonus features and more on Deriv:',
-                    )}
+                <Header as="h3" type="subtitle-1" align="center" weight="normal">
+                    {localize('There’s a bright future ahead.')}
+                </Header>
+                <Header as="h3" type="subtitle-1" align="center" weight="normal">
+                    {localize('Find these bonus features and more on Deriv:')}
                 </Header>
             </Flex>
             <ParentWrapper>
@@ -133,12 +147,16 @@ const Exclusive = () => {
                                 />
                             </ContentWrapper>
                             <Flex fd="column" p="32px">
-                                <Header type="subtitle-1" mb="8px" align="center">
+                                <StyledHeader type="subtitle-1" mb="8px" align="center">
                                     {items.header}
-                                </Header>
-                                <Header type="paragraph-1" weight="normal" align="center">
+                                </StyledHeader>
+                                <StyledSmallHeader
+                                    type="paragraph-1"
+                                    weight="normal"
+                                    align="center"
+                                >
                                     {items.desc}
-                                </Header>
+                                </StyledSmallHeader>
                             </Flex>
                         </ItemsWrapper>
                     )

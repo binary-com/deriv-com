@@ -8,6 +8,7 @@ import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import BeSquareNav from './besquare/nav'
 import BeSquareFooter from './besquare/footer'
 import JumpIndicesNav from './jump-indices/nav'
+import BinaryToDerivNav from './binary-to-deriv/nav'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
@@ -204,6 +205,10 @@ const Layout = ({
         case 'be-square':
             Navigation = <BeSquareNav />
             FooterNav = <BeSquareFooter />
+            break
+        case 'binary-to-deriv':
+            Navigation = <BinaryToDerivNav />
+            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
             Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />

@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
 import { Carousel, Header, QueryImage } from 'components/elements'
 import { Container, Flex } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -203,7 +202,7 @@ const DHero = () => {
                                                     rel="noopener noreferrer"
                                                     secondary="true"
                                                 >
-                                                    {localize('Take me to Deriv')}
+                                                    Take me to Deriv
                                                 </StyledLinkButton>
                                             </BtnWrapper>
                                         </MobileWrapper>

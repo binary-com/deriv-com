@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
 import device from 'themes/device.js'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import pattern from 'images/common/binary-to-deriv/pattern.png'
@@ -184,7 +183,7 @@ const FooterBanner = () => {
                                 rel="noopener noreferrer"
                                 secondary="true"
                             >
-                                {localize('Trade on Deriv')}
+                                Trade on Deriv
                             </StyledLinkButton>
                         </BtnWrapper>
                     </Flex>
@@ -220,7 +219,7 @@ const FooterBanner = () => {
                                     rel="noopener noreferrer"
                                     secondary="true"
                                 >
-                                    {localize('Try Deriv now')}
+                                    Try Deriv now
                                 </StyledLinkRightButton>
                             </BtnWrapper>
                         </RightHeaderWrapper>

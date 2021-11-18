@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { LocalizedLink } from 'components/localization'
 import device from 'themes/device.js'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
@@ -69,7 +69,7 @@ const Favorite = () => {
         <Container>
             <Flex fd="column" mb="120px" tabletL={{ mb: '60px' }}>
                 <Header type="heading-2" align="center" mb="40px" tabletL={{ mb: '24px' }}>
-                    {localize('Access your favourite platforms in one place')}
+                    Access your favourite platforms in one place
                 </Header>
                 <Flex tabletL={{ fd: 'column' }}>
                     <ImageWrapper>

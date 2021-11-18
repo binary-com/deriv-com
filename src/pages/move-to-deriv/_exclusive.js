@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const query = graphql`
@@ -126,13 +125,13 @@ const Exclusive = () => {
         <Container fd="column" pt="40px" pb="120px" tablet={{ pb: '40px' }}>
             <Flex fd="column" mb="40px" tabletL={{ mb: '24px' }}>
                 <Header as="h2" type="heading-2" align="center" mb="8px">
-                    {localize('Exclusively on Deriv')}
+                    Exclusively on Deriv
                 </Header>
                 <Header as="h3" type="subtitle-1" align="center" weight="normal">
-                    {localize('There’s a bright future ahead.')}
+                    There’s a bright future ahead.
                 </Header>
                 <Header as="h3" type="subtitle-1" align="center" weight="normal">
-                    {localize('Find these bonus features and more on Deriv:')}
+                    Find these bonus features and more on Deriv:
                 </Header>
             </Flex>
             <ParentWrapper>

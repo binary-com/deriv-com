@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 import EnhancedIcon from 'images/svg/binary-to-deriv/enhanced-icon.svg'
@@ -102,7 +101,7 @@ const Benefits = () => {
         <ParentWrapper>
             <Flex laptop={{ p: '0 16px' }}>
                 <Header type="heading-3" align="center" mb="40px">
-                    {localize('Deriv is everything you love about Binary.com, plus more')}
+                    Deriv is everything you love about Binary.com, plus more
                 </Header>
             </Flex>
             {benefitsItems.map((items, index) => {
@@ -128,7 +127,7 @@ const Benefits = () => {
                         rel="noopener noreferrer"
                         secondary="true"
                     >
-                        {localize('Explore Deriv now')}
+                        Explore Deriv now
                     </StyledLinkButton>
                 </BtnWrapper>
             </Flex>

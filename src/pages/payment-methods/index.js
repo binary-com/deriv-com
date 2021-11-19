@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
+import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -12,6 +14,8 @@ import { DerivStore } from 'store'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { isLoggedIn, getDomain, getClientInformation } from 'common/utility'
 import { isEuCountry } from 'common/country-base'
+import device from 'themes/device'
+
 const meta_attributes = {
     og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
     og_description: localize(
@@ -21,11 +25,16 @@ const meta_attributes = {
 
 const AccordionContainer = styled.div`
     width: 100%;
+
+    @media ${device.tabletL} {
+        max-width: 58.8rem;
+        margin: 0 auto;
+    }
 `
 
 const Th = styled.th`
     vertical-align: middle;
-    padding: 1.6rem 2rem;
+    padding: 16px 0 16px 24px;
 
     :first-child {
         position: sticky;
@@ -34,18 +43,38 @@ const Th = styled.th`
         left: -5px; /* required */
         background-color: var(--color-white);
         z-index: 2;
-
+        width: 128px;
+        padding: 16px 0 16px 16px;
+    }
+    :nth-child(7) {
         p {
             text-align: center;
         }
     }
+    :last-child {
+        width: 50px;
+    }
 `
-
+const SectionTopContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 48px 16px 40px;
+    }
+`
+const SectionContentContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 24px 0 40px;
+    }
+`
+const TopContainer = styled(Container)`
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
 const StyledTable = styled.table`
     table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
-    margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
+    margin: ${(props) => (props.has_note ? '0 auto 2.4rem' : '0 auto')};
 `
 
 const Thead = styled.thead`
@@ -66,7 +95,6 @@ const Tr = styled.tr`
 const BoldText = styled(Text)`
     font-weight: bold;
 `
-
 const Notes = styled.div`
     position: absolute;
     width: 100%;
@@ -79,10 +107,21 @@ const Notes = styled.div`
 const OuterDiv = styled.div`
     position: relative;
 `
-
 const InnerDiv = styled.div`
     overflow-x: auto;
     overflow-y: visible;
+`
+const DesktopWrapper = styled.div`
+    display: block;
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+const MobileWrapper = styled.div`
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+    }
 `
 
 const getClientResidence = () => {
@@ -133,8 +172,8 @@ const getPaymentsBasedOnCountry = () => {
 const DisplayAccordion = (locale) => {
     const { crypto_config } = React.useContext(DerivStore)
     const [show_table, setShowTable] = useState(false)
-
     const paymentsBasedOnCountry = getPaymentsBasedOnCountry()
+    const [is_mobile] = useBrowserResize(992)
 
     if (!paymentsBasedOnCountry.length) {
         return (
@@ -148,36 +187,69 @@ const DisplayAccordion = (locale) => {
         setShowTable(true)
     }, [paymentsBasedOnCountry])
 
+    const content_style = is_mobile
+        ? {
+              boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
+              borderBottomLeftRadius: '6px',
+              borderBottomRightRadius: '6px',
+          }
+        : {
+              background: 'var(--color-white)',
+              boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
+          }
+
+    const header_style = is_mobile
+        ? {
+              borderRadius: '6px',
+              padding: '28px 16px',
+              height: '80px',
+          }
+        : {
+              borderRadius: '6px',
+          }
+    const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
+
     if (show_table) {
         return (
             <Accordion has_single_state>
                 {paymentsBasedOnCountry.map((pd, idx) => {
+                    const styles = is_mobile
+                        ? {
+                              padding: '0 16px 0',
+                              position: 'relative',
+                              background: 'var(--color-white)',
+                              paddingBottom: pd.note ? '5rem' : '2.2rem',
+                          }
+                        : {
+                              padding: '0 48px 24px',
+                              position: 'relative',
+                              background: 'var(--color-white)',
+                              paddingBottom: pd.note ? '5rem' : '2.2rem',
+                          }
+
                     return (
                         <AccordionItem
                             key={idx}
-                            content_style={{
-                                background: 'var(--color-white)',
-                                boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-                            }}
-                            header_style={{
-                                borderRadius: '6px',
-                            }}
-                            style={{
-                                padding: '2.2rem 4.8rem',
-                                position: 'relative',
-                                background: 'var(--color-white)',
-                                paddingBottom: pd.note ? '5rem' : '2.2rem',
-                            }}
-                            parent_style={{
-                                marginBottom: '2.4rem',
-                            }}
+                            content_style={content_style}
+                            header_style={header_style}
+                            style={styles}
+                            parent_style={parent_style}
                             header={pd.name}
                         >
-                            <DisplayAccordianItem
-                                pd={pd}
-                                crypto_config={crypto_config}
-                                locale={locale}
-                            />
+                            <DesktopWrapper>
+                                <DisplayAccordianItem
+                                    pd={pd}
+                                    crypto_config={crypto_config}
+                                    locale={locale}
+                                />
+                            </DesktopWrapper>
+                            <MobileWrapper>
+                                <MobileAccordianItem
+                                    pd={pd}
+                                    crypto_config={crypto_config}
+                                    locale={locale}
+                                />
+                            </MobileWrapper>
                         </AccordionItem>
                     )
                 })}
@@ -299,33 +371,45 @@ const PaymentMethods = (locale) => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <SectionContainer>
-                <Container direction="column">
-                    <Header as="h1" type="display-title" align="center" mb="1.6rem">
+            <SectionTopContainer>
+                <TopContainer direction="column" width="100%">
+                    <Header as="h1" type="hero" align="center" mb="1.6rem">
                         {localize('Payment methods')}
                     </Header>
-                    <Text align="center" size="var(--text-size-m)">
+                    <Header
+                        align="center"
+                        as="h3"
+                        type="subtitle-1"
+                        weight="normal"
+                        mobile_max_width="326px"
+                    >
                         {localize('We support a variety of deposit and withdrawal options.')}
-                    </Text>
-                    <Text align="center" size="var(--text-size-m)">
+                    </Header>
+                    <Header
+                        align="center"
+                        as="h3"
+                        type="subtitle-1"
+                        weight="normal"
+                        mobile_max_width="326px"
+                    >
                         {localize('Learn more about our payment methods and how to use them.')}
-                    </Text>
-                </Container>
-            </SectionContainer>
+                    </Header>
+                </TopContainer>
+            </SectionTopContainer>
             <Divider height="2px" />
-            <SectionContainer>
+            <SectionContentContainer>
                 <Container direction="column">
                     <AccordionContainer>
                         <DisplayAccordion locale={locale} />
                     </AccordionContainer>
-                    <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
+                    <Header mt="1.6rem" type="paragraph-2" align="left" weight="normal">
                         <Localize
                             translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
                             components={[<strong key={0} />]}
                         />
-                    </Text>
+                    </Header>
                 </Container>
-            </SectionContainer>
+            </SectionContentContainer>
             {is_p2p_allowed_country && (
                 <>
                     <Divider height="2px" />

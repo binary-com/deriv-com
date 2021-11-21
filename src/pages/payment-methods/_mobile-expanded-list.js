@@ -88,10 +88,68 @@ const StyledRefLink = styled(Flex)`
 
 const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, payment_data }) => {
     const [is_expanded, setExpanded] = React.useState(false)
-    const toggleExpand = () => {
-        setExpanded(!is_expanded)
+    const toggleExpand = () => setExpanded(!is_expanded)
+    const deposit_row_headings = () => {
+        if (is_crypto || is_fiat_onramp)
+            return <Header type="subtitle-2">{localize('Min deposit')}</Header>
+        return is_dp2p ? (
+            <Header type="subtitle-2"> {localize('Supported Deriv accounts')} </Header>
+        ) : (
+            <>
+                <Header type="subtitle-2">{localize('Min-max')}</Header>
+                <Header type="subtitle-2">{localize('deposit')}</Header>
+            </>
+        )
     }
 
+    const withdrawal_processing_row_headings = () => {
+        if (is_crypto) return <Header type="subtitle-2"> {localize('Min withdrawal')} </Header>
+        return is_dp2p ? (
+            <Header type="subtitle-2">{localize('Daily deposit limits')}</Header>
+        ) : (
+            <>
+                <Header type="subtitle-2">{localize('Min-max')}</Header>
+                <Header type="subtitle-2">{localize('withdrawal')}</Header>
+            </>
+        )
+    }
+
+    const deposit_processing_row_headings = () => {
+        if (is_fiat_onramp)
+            return <Header type="subtitle-2">{localize('Deposit processing time')} </Header>
+        return is_dp2p ? (
+            <Header type="subtitle-2">{localize('Daily withdrawal limits')}</Header>
+        ) : (
+            <Header type="subtitle-2">
+                <Header type="subtitle-2">{localize('Deposit')}</Header>
+                <Header type="subtitle-2">{localize('processing time')}</Header>
+            </Header>
+        )
+    }
+
+    const getReference = () => {
+        if (payment_data.reference)
+            return (
+                <RefIcon
+                    href={`/payment-methods/${
+                        payment_data.locales?.includes(locale.locale.language)
+                            ? locale.locale.language + '/' + payment_data.reference
+                            : payment_data.reference
+                    }`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <StyledPDF src={PDF} alt="PDF" />
+                </RefIcon>
+            )
+        return payment_data.reference_link ? (
+            <StyledRefLink jc="flex-end">{payment_data.reference_link}</StyledRefLink>
+        ) : (
+            <ValueText type="subtitle-2" weight="normal">
+                -
+            </ValueText>
+        )
+    }
     return (
         <>
             <StyledItemWrapper
@@ -121,20 +179,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
 
                     {/* second row */}
                     <StyledRow jc="space-between" ai="center">
-                        <StyledItemDiv>
-                            {is_crypto || is_fiat_onramp ? (
-                                <Header type="subtitle-2">{localize('Min deposit')}</Header>
-                            ) : is_dp2p ? (
-                                <Header type="subtitle-2">
-                                    {localize('Supported Deriv accounts')}
-                                </Header>
-                            ) : (
-                                <>
-                                    <Header type="subtitle-2">{localize('Min-max')}</Header>
-                                    <Header type="subtitle-2">{localize('deposit')}</Header>
-                                </>
-                            )}
-                        </StyledItemDiv>
+                        <StyledItemDiv>{deposit_row_headings()}</StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText type="subtitle-2" weight="normal">
                                 {payment_data.min_max_deposit}
@@ -147,22 +192,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                         <>
                             <StyledRow jc="space-between" ai="center">
                                 <StyledItemDiv>
-                                    {is_crypto ? (
-                                        <Header type="subtitle-2">
-                                            {localize('Min withdrawal')}
-                                        </Header>
-                                    ) : is_dp2p ? (
-                                        <Header type="subtitle-2">
-                                            {localize('Daily deposit limits')}
-                                        </Header>
-                                    ) : (
-                                        <>
-                                            <Header type="subtitle-2">{localize('Min-max')}</Header>
-                                            <Header type="subtitle-2">
-                                                {localize('withdrawal')}
-                                            </Header>
-                                        </>
-                                    )}
+                                    {withdrawal_processing_row_headings()}
                                 </StyledItemDiv>
                                 <StyledKeyDiv>
                                     {Array.isArray(payment_data.min_max_withdrawal) ? (
@@ -183,22 +213,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
 
                     {/* 4th row */}
                     <StyledRow jc="space-between" ai="center">
-                        <StyledItemDiv>
-                            {is_fiat_onramp ? (
-                                <Header type="subtitle-2">
-                                    {localize('Deposit processing time')}
-                                </Header>
-                            ) : is_dp2p ? (
-                                <Header type="subtitle-2">
-                                    {localize('Daily withdrawal limits')}
-                                </Header>
-                            ) : (
-                                <Header type="subtitle-2">
-                                    <Header type="subtitle-2">{localize('Deposit')}</Header>
-                                    <Header type="subtitle-2">{localize('processing time')}</Header>
-                                </Header>
-                            )}
-                        </StyledItemDiv>
+                        <StyledItemDiv>{deposit_processing_row_headings()}</StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText type="subtitle-2" weight="normal">
                                 {payment_data.deposit_time}
@@ -238,33 +253,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                         <StyledItemDiv>
                             <Header type="subtitle-2">{localize('Reference')}</Header>
                         </StyledItemDiv>
-                        <StyledKeyDiv>
-                            <>
-                                {payment_data.reference ? (
-                                    <RefIcon
-                                        href={`/payment-methods/${
-                                            payment_data.locales?.includes(locale.locale.language)
-                                                ? locale.locale.language +
-                                                  '/' +
-                                                  payment_data.reference
-                                                : payment_data.reference
-                                        }`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <StyledPDF src={PDF} alt="PDF" />
-                                    </RefIcon>
-                                ) : payment_data.reference_link ? (
-                                    <StyledRefLink jc="flex-end">
-                                        {payment_data.reference_link}
-                                    </StyledRefLink>
-                                ) : (
-                                    <ValueText type="subtitle-2" weight="normal">
-                                        -
-                                    </ValueText>
-                                )}
-                            </>
-                        </StyledKeyDiv>
+                        <StyledKeyDiv>{getReference()}</StyledKeyDiv>
                     </StyledRow>
                     {payment_data.description && (
                         <Flex p="16px 0" fd="column">

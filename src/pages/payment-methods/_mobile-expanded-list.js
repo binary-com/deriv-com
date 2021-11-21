@@ -102,7 +102,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
         )
     }
 
-    const withdrawal_processing_row_headings = () => {
+    const withdrawal_row_headings = () => {
         if (is_crypto) return <Header type="subtitle-2"> {localize('Min withdrawal')} </Header>
         return is_dp2p ? (
             <Header type="subtitle-2">{localize('Daily deposit limits')}</Header>
@@ -191,9 +191,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {!is_fiat_onramp && (
                         <>
                             <StyledRow jc="space-between" ai="center">
-                                <StyledItemDiv>
-                                    {withdrawal_processing_row_headings()}
-                                </StyledItemDiv>
+                                <StyledItemDiv>{withdrawal_row_headings()}</StyledItemDiv>
                                 <StyledKeyDiv>
                                     {Array.isArray(payment_data.min_max_withdrawal) ? (
                                         payment_data.min_max_withdrawal.map((md, idx) => (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -68,14 +68,14 @@ const BinaryToDerivNav = ({ is_ppc }) => {
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
 
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         const currentScrollPos = window.pageYOffset
         setVisible(
             (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
                 currentScrollPos < 10,
         )
         setPrevScrollPos(currentScrollPos)
-    }
+    }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)

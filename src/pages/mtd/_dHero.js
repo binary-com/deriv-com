@@ -39,6 +39,10 @@ const ItemsWrapper = styled(Flex)`
     flex-direction: row;
     height: 478px;
 
+    @media ${device.desktopL} {
+        height: 500px;
+    }
+
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         height: auto;
@@ -52,6 +56,9 @@ const LeftWrapper = styled(Flex)`
     max-height: 312px;
     margin-right: 24px;
 
+    @media ${device.desktopL} {
+        max-height: 100%;
+    }
     @media (max-width: 1222px) {
         max-height: unset;
         padding-bottom: 80px;
@@ -87,6 +94,9 @@ export const MobileWrapper = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
+    @media ${device.desktopL} {
+        font-size: 80px;
+    }
     @media ${device.tablet} {
         font-size: 32px;
         line-height: 40px;

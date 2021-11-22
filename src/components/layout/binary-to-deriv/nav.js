@@ -88,7 +88,7 @@ const BinaryToDerivNav = ({ is_ppc }) => {
             <Section background={visible}>
                 <ContentContainer>
                     <LogoWrapper>
-                        <LogoLink to="/" aria-label={localize('Home')}>
+                        <LogoLink to="https://deriv.com/" aria-label={localize('Home')}>
                             <QueryImage
                                 data={data['binary']}
                                 alt={localize('Binary')}
@@ -100,7 +100,7 @@ const BinaryToDerivNav = ({ is_ppc }) => {
                     </LogoWrapper>
                     <BtnWrapper>
                         <StyledLinkRightButton
-                            to="/signup/"
+                            to="https://deriv.com/signup/"
                             rel="noopener noreferrer"
                             secondary="true"
                         >

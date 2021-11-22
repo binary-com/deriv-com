@@ -78,7 +78,7 @@ const Favorite = () => {
                             alt="Deriv MT5 favorite"
                             width="100%"
                         />
-                        <LearnMore to="/dmt5/">
+                        <LearnMore external="true" to="https://deriv.com/dmt5/">
                             <Text>Learn more</Text>
                             <ArrowImg src={Arrow} alt="arrow" />
                         </LearnMore>
@@ -89,7 +89,7 @@ const Favorite = () => {
                             alt="Dtrader favorite"
                             width="100%"
                         />
-                        <LearnMore to="/dtrader/">
+                        <LearnMore external="true" to="https://deriv.com/dtrader/">
                             <Text>Learn more</Text>
                             <ArrowImg src={Arrow} alt="arrow" />
                         </LearnMore>

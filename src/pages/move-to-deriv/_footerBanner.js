@@ -179,7 +179,7 @@ const FooterBanner = () => {
                         </Header>
                         <BtnWrapper jc="flex-start" tablet={{ jc: 'center' }}>
                             <StyledLinkButton
-                                to="/signup/"
+                                to="https://deriv.com/signup/"
                                 rel="noopener noreferrer"
                                 secondary="true"
                             >
@@ -215,7 +215,7 @@ const FooterBanner = () => {
                             </Header>
                             <BtnWrapper height="auto">
                                 <StyledLinkRightButton
-                                    to="/signup/"
+                                    to="https://deriv.com/signup/"
                                     rel="noopener noreferrer"
                                     secondary="true"
                                 >

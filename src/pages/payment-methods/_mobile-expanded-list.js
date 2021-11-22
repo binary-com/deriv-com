@@ -120,10 +120,10 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
         return is_dp2p ? (
             <Header type="subtitle-2">{localize('Daily withdrawal limits')}</Header>
         ) : (
-            <Header type="subtitle-2">
+            <>
                 <Header type="subtitle-2">{localize('Deposit')}</Header>
                 <Header type="subtitle-2">{localize('processing time')}</Header>
-            </Header>
+            </>
         )
     }
 
@@ -176,7 +176,6 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                             </ValueText>
                         </StyledKeyDiv>
                     </StyledRow>
-
                     {/* second row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>{deposit_row_headings()}</StyledItemDiv>

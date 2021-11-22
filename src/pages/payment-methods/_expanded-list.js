@@ -46,6 +46,9 @@ const Td = styled.td`
         background-color: var(--color-white);
         z-index: 2;
     }
+    :nth-child(2) {
+        padding: 0.8rem 4rem;
+    }
     & .tooltip {
         padding: 0.8rem;
         border-radius: 4px;
@@ -108,15 +111,31 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
+    const formatted_currencies = data.currencies.map((d) => d.join(' '))
+    const splitCurrencies = (currencies) =>
+        currencies.map((text, idx) => (
+            <Text key={idx}>
+                {text}
+                <br />{' '}
+            </Text>
+        ))
+
     // const getCryptoConfig = (name) => {
     //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
     // }
+
     return (
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
                 <Td colSpan={is_fiat_onramp && '3'}>
-                    <Text style={{ whiteSpace: 'pre-wrap' }}>{data.currencies}</Text>
+                    {data.currencies.length === 1 && (
+                        <Text>
+                            {formatted_currencies}
+                            <br />
+                        </Text>
+                    )}
+                    {data.currencies.length > 1 && splitCurrencies(formatted_currencies)}
                 </Td>
                 <Td>
                     {Array.isArray(data.min_max_deposit) ? (

@@ -65,12 +65,6 @@ const getsortedCategories = (categories) => {
 
     return final_categories
 }
-
-const getCurrency = (currencies) => {
-    if (currencies.length === 1) return currencies[0].join(' ')
-    return currencies.map((group) => `${group.join(' ')}`).join('\n')
-}
-
 const getReference = (key, reference, locale) => {
     if (reference !== '') {
         if (locale.length) {
@@ -119,7 +113,7 @@ const PaymentDataGenerator = () => {
                         name,
                         key,
                         method: payment_method_logo,
-                        currencies: getCurrency(currencies),
+                        currencies,
                         min_max_deposit: getMinMaxLimit(min_deposit, max_deposit),
                         min_max_withdrawal: getMinMaxLimit(min_withdrawal, max_withdrawal),
                         deposit_time: <Localize translate_text={deposit_proccessing_time} />,

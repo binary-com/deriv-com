@@ -116,7 +116,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
         currencies.map((text, idx) => (
             <Text key={idx}>
                 {text}
-                <br />{' '}
+                <br />
             </Text>
         ))
 

@@ -375,7 +375,7 @@ const ArticleEmailBanner = () => {
                                         components={[
                                             <StyledLocalizedLink
                                                 key={0}
-                                                type="tnc/security-and-privacy.pdf"
+                                                to="tnc/security-and-privacy.pdf"
                                                 external="true"
                                                 rel="noopener noreferrer"
                                                 size="14px"

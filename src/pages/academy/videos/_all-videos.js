@@ -5,36 +5,38 @@ import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import VideoPlayer from '../components/_video-player'
 import VideoCard from './_video-card'
 import { Flex } from 'components/containers'
+import { slugify } from 'common/utility'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
     const [play_video_id, setPlayVideoId] = useState('')
-    const [video_params, setVideoParams] = useQueryParam('video', StringParam)
+    const [title_params, setTitleParams] = useQueryParam('t', StringParam)
+
+    // opens the video player based on the valid video title passed to url params
+    useEffect(() => {
+        const video_track = video_data.find((item) => slugify(item.video_title) == title_params)
+            ?.video_file.id
+        if (video_track) openVideo(video_track, title_params)
+    }, [])
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
     }, [show])
 
-    // opens the video player based on the valid video id passed to url params
-    useEffect(() => {
-        const video_track = video_data.find((item) => item.video_id == video_params)?.video_file.id
-        if (video_track) openVideo(video_track, video_params)
-    }, [])
-
     const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
 
-    const openVideo = (track_id, video_id) => {
+    const openVideo = (track_id, video_title) => {
         setPlayVideoId(track_id)
-        setVideoParams(video_id)
+        setTitleParams(video_title)
         setShow(true)
     }
 
     const closeVideo = () => {
         setShow(false)
         setPlayVideoId('')
-        setVideoParams()
+        setTitleParams()
     }
     return (
         <Container m="0 auto" fd="column">
@@ -51,7 +53,9 @@ const AllVideos = ({ video_data }) => {
                         <VideoCard
                             key={item.video_id}
                             item={item}
-                            openVideo={() => openVideo(item.video_file.id, item.video_id)}
+                            openVideo={() =>
+                                openVideo(item.video_file.id, slugify(item.video_title))
+                            }
                         />
                     )
                 })}

@@ -171,9 +171,11 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                             <Header type="subtitle-2">{localize('Currencies')}</Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText type="subtitle-2" weight="normal">
-                                {payment_data.currencies}
-                            </ValueText>
+                            {payment_data.currencies.map((cur, index) => (
+                                <ValueText key={index} type="subtitle-2" weight="normal">
+                                    {cur.join(' ')}
+                                </ValueText>
+                            ))}
                         </StyledKeyDiv>
                     </StyledRow>
                     {/* second row */}

@@ -63,7 +63,7 @@ const query = graphql`
         }
     }
 `
-const BinaryToDerivNav = ({ is_ppc }) => {
+const BinaryToDerivNav = () => {
     const data = useStaticQuery(query)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
@@ -109,7 +109,7 @@ const BinaryToDerivNav = ({ is_ppc }) => {
                     </BtnWrapper>
                 </ContentContainer>
             </Section>
-            <CFDWarning is_ppc={is_ppc} />
+            <CFDWarning no_eu_banner={true} />
         </>
     )
 }

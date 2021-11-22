@@ -111,7 +111,9 @@ const Benefits = () => {
                             <Icon src={items.icon} alt={items.icon_alt} />
                         </Flex>
                         <Flex fd="column">
-                            <Header type="subtitle-1">{items.header}</Header>
+                            <Header type="subtitle-1" mb="8px">
+                                {items.header}
+                            </Header>
                             <Header type="paragraph-1" weight="normal">
                                 {items.desc}
                             </Header>

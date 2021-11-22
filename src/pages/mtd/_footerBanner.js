@@ -27,6 +27,10 @@ const ParentWrapper = styled(Flex)`
     z-index: 3;
     overflow: hidden;
 
+    @media ${device.desktopL} {
+        height: 370px;
+    }
+
     @media ${device.laptop} {
         height: 280px;
     }
@@ -59,7 +63,6 @@ const LeftWrapper = styled(Flex)`
         padding-top: 40px;
         width: 100%;
         max-width: unset;
-        height: 240px;
         margin-bottom: 80px;
     }
 `
@@ -147,6 +150,18 @@ export const MobileWrapper = styled.div`
         width: 100%;
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: 32px;
+        line-height: 40px;
+    }
+`
+const StyledHeaderBottom = styled(Header)`
+    @media ${device.tablet} {
+        font-size: 32px;
+        line-height: 40px;
+    }
+`
 
 const FooterBanner = () => {
     const data = useStaticQuery(query)
@@ -162,13 +177,14 @@ const FooterBanner = () => {
                         laptopM={{ max_width: '360px' }}
                         tablet={{ max_width: '328px' }}
                     >
-                        <Header
+                        <StyledHeader
                             as="h3"
                             type="heading-3"
-                            tablet={{ align: 'center', p: '0 40px 8px' }}
+                            mb="8px"
+                            tablet={{ align: 'center' }}
                         >
                             Binary.com has moved to Deriv since 30 November
-                        </Header>
+                        </StyledHeader>
                         <Header
                             type="paragraph-1"
                             weight="normal"
@@ -210,9 +226,14 @@ const FooterBanner = () => {
                             </ImageWrapper>
                         </MobileWrapper>
                         <RightHeaderWrapper fd="column" height="auto" max_width="388px">
-                            <Header type="heading-3" color="white" align="center">
+                            <StyledHeaderBottom
+                                type="heading-3"
+                                color="white"
+                                align="center"
+                                tabletS={{ max_width: '380px', m: '0 auto' }}
+                            >
                                 Want to continue trading?
-                            </Header>
+                            </StyledHeaderBottom>
                             <BtnWrapper height="auto">
                                 <StyledLinkRightButton
                                     to="https://deriv.com/signup/"

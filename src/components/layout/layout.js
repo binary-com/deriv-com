@@ -87,9 +87,9 @@ const CFDText = styled(Text)`
     }
 `
 
-export const CFDWarning = ({ is_ppc }) => {
+export const CFDWarning = ({ is_ppc, no_eu_banner }) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    if (is_ppc || is_eu_country) {
+    if ((is_ppc || is_eu_country) && !no_eu_banner) {
         return (
             <CFDWrapper>
                 <CFDContainer>
@@ -103,6 +103,8 @@ export const CFDWarning = ({ is_ppc }) => {
                 </CFDContainer>
             </CFDWrapper>
         )
+    } else if (no_eu_banner) {
+        return <></>
     }
     return <></>
 }
@@ -253,6 +255,7 @@ const Layout = ({
 
 CFDWarning.propTypes = {
     is_ppc: PropTypes.bool,
+    no_eu_banner: PropTypes.bool,
 }
 
 Layout.propTypes = {

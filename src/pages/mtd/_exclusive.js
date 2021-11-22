@@ -79,10 +79,12 @@ const ItemsWrapper = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
+    margin: 0 0 8px;
     @media ${device.tabletL} {
         font-size: 24px;
         line-height: 36px;
         max-width: 264px;
+        margin: 0 auto 8px;
     }
 `
 const StyledSmallHeader = styled(Header)`
@@ -92,35 +94,36 @@ const StyledSmallHeader = styled(Header)`
     }
 `
 
-const exclusiveItems = [
-    {
-        image: 'multiplier',
-        image_alt: 'Multiplier',
-        header: 'Trade multipliers',
-        desc: 'Combine the upside of leverage trading with the simplicity and limited risk of options.',
-    },
-    {
-        image: 'jump_indices',
-        image_alt: 'Jump Indices',
-        header: 'Trade Jump indices',
-        desc: 'Experience equal probability of an upward or downward price jump every 20 minutes on average. Available 24/7.',
-    },
-    {
-        image: 'deriv_academy',
-        image_alt: 'Deriv Academy',
-        header: 'Upskill with Deriv Academy',
-        desc: 'Boost your trading skills at our learning hub. Get the know-how on markets, trade types, platforms, plus more.',
-    },
-    {
-        image: 'trade_in_the_moment',
-        image_alt: 'Trade in the moment',
-        header: 'Trade in-the-moment',
-        desc: 'Experience powerful, in-line charts for seamless trading. No more scrolling or taking your eyes off the market. ',
-    },
-]
-
 const Exclusive = () => {
     const data = useStaticQuery(query)
+
+    const exclusiveItems = [
+        {
+            image: 'multiplier',
+            image_alt: 'Multiplier',
+            header: 'Trade multipliers',
+            desc: 'Combine the upside of leverage trading with the simplicity and limited risk of options.',
+        },
+        {
+            image: 'jump_indices',
+            image_alt: 'Jump Indices',
+            header: 'Trade Jump indices',
+            desc: 'Experience equal probability of an upward or downward price jump every 20 minutes on average. Available 24/7.',
+        },
+        {
+            image: 'deriv_academy',
+            image_alt: 'Deriv Academy',
+            header: 'Upskill with Deriv Academy',
+            desc: 'Boost your trading skills at our learning hub. Get the know-how on markets, trade types, platforms, plus more.',
+        },
+        {
+            image: 'trade_in_the_moment',
+            image_alt: 'Trade in the moment',
+            header: 'Trade <br /> in-the-moment',
+            desc: 'Experience powerful, in-line charts for seamless trading. No more scrolling or taking your eyes off the market. ',
+        },
+    ]
+
     return (
         <Container fd="column" pt="40px" pb="120px" tablet={{ pb: '40px' }}>
             <Flex fd="column" mb="40px" tabletL={{ mb: '24px' }}>
@@ -146,9 +149,11 @@ const Exclusive = () => {
                                 />
                             </ContentWrapper>
                             <Flex fd="column" p="32px">
-                                <StyledHeader type="subtitle-1" mb="8px" align="center">
-                                    {items.header}
-                                </StyledHeader>
+                                <StyledHeader
+                                    type="subtitle-1"
+                                    align="center"
+                                    dangerouslySetInnerHTML={{ __html: items.header }}
+                                />
                                 <StyledSmallHeader
                                     type="paragraph-1"
                                     weight="normal"

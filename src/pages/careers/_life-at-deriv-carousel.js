@@ -144,45 +144,93 @@ const LifeAtDerivCarousel = () => {
                     <Show.Desktop>
                         <GridDiv>
                             <ColumnDiv>
-                                <img src={Presentation} loading="lazy" />
-                                <img src={TableTennis} loading="lazy" />
+                                <img
+                                    src={Presentation}
+                                    alt="Man giving a presentation to team"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src={TableTennis}
+                                    alt="Two people playing table tennis"
+                                    loading="lazy"
+                                />
                             </ColumnDiv>
                             <ColumnDiv>
-                                <img src={FitnessImage} loading="lazy" />
-                                <img src={GamesImage} loading="lazy" />
+                                <img
+                                    src={FitnessImage}
+                                    alt="Group of people doing yoga"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src={GamesImage}
+                                    alt="Group of people playing foosball"
+                                    loading="lazy"
+                                />
                             </ColumnDiv>
                         </GridDiv>
                         <ThirdRow>
                             <div>
-                                <img src={GymImage} loading="lazy" />
+                                <img
+                                    src={GymImage}
+                                    alt="Man doing incline bench press at office gym"
+                                    loading="lazy"
+                                />
                             </div>
                             <div>
-                                <img src={Teambuilding} loading="lazy" />
+                                <img
+                                    src={Teambuilding}
+                                    alt="Water rafting team building activity"
+                                    loading="lazy"
+                                />
                             </div>
                         </ThirdRow>
                     </Show.Desktop>
                     <Show.Mobile>
                         <MobileColumn>
                             <div>
-                                <img src={PresentationMobile} loading="lazy" />
+                                <img
+                                    src={PresentationMobile}
+                                    alt="Man giving a presentation to team"
+                                    loading="lazy"
+                                />
                             </div>
                             <div>
-                                <img src={FitnessImageMobile} loading="lazy" />
+                                <img
+                                    src={FitnessImageMobile}
+                                    alt="Group of people doing yoga"
+                                    loading="lazy"
+                                />
                             </div>
                         </MobileColumn>
                         <MobileSingleImage>
-                            <img src={TableTennisMobile} loading="lazy" />
+                            <img
+                                src={TableTennisMobile}
+                                alt="Two people playing table tennis"
+                                loading="lazy"
+                            />
                         </MobileSingleImage>
                         <MobileColumn>
                             <div>
-                                <img src={GamesImageMobile} loading="lazy" />
+                                <img
+                                    src={GamesImageMobile}
+                                    alt="Group of people playing foosball"
+                                    loading="lazy"
+                                />
                             </div>
                             <div>
-                                <img src={GymImageMobie} loading="lazy" />
+                                <img
+                                    src={GymImageMobie}
+                                    alt="Man doing incline bench press at office gym"
+                                    loading="lazy"
+                                />
                             </div>
                         </MobileColumn>
                         <MobileSingleImage>
-                            <img src={TeambuildingMobile} loading="lazy" />
+                            <img
+                                src={TeambuildingMobile}
+                                alt="Water rafting team building activity"
+                                loading="lazy"
+                            />
                         </MobileSingleImage>
                     </Show.Mobile>
                 </StyledContainer>

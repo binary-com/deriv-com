@@ -10,7 +10,7 @@ import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
 
 const StyledContainer = styled.div`
-    background-color: var(--color-grey-25);
+    background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
     width: 100%;
     height: fit-content;
 `

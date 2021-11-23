@@ -182,6 +182,7 @@ const StaffReview = (review_data) => {
                                     ? data[review_data.data.image_mobile]
                                     : data[review_data.data.image]
                             }
+                            alt={review_data.data.img_alt}
                         />
                     </Flex>
                     <Description ai="center" fd="column" jc="right" tablet_jc="center">

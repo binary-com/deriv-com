@@ -195,7 +195,7 @@ const StartTrader = () => {
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding="12px 24px"
+                    mobile_padding="21px 12px"
                     active={tab === 'Real'}
                     onClick={() => onTabClick('Real')}
                 >

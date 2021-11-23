@@ -50,7 +50,7 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }) =
     return (
         <CardWrapper {...card_wrapper}>
             <IconWrapper {...icon_wrapper} src={custom_icon?.src || card_content.src} alt="" />
-            {title_component && title_component}
+            {title_component}
             <TextWrapper {...text_wrapper}>{card_content.text}</TextWrapper>
             {has_list && getCurrentDropdownComponent()}
         </CardWrapper>

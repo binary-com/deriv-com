@@ -23,8 +23,8 @@ const meta_attributes = {
     og_img: BeSquareOg,
 }
 
-const BeSquare = (): ReactElement => (
-    <Layout type="besquare">
+const BeSquare = () => (
+    <Layout type="careers">
         <SEO
             title={'IT graduate programme for Malaysians | BeSquare by Deriv'}
             description={

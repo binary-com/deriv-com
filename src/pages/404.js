@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, navigate } from 'gatsby'
 import { isBrowser } from 'common/utility'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -40,6 +40,15 @@ const ButtonWrapper = styled.div`
 `
 
 const PageNotFound = () => {
+    React.useEffect(() => {
+        if (window.location.pathname.includes('/regulatory/kid')) {
+            navigate(
+                window.location.origin +
+                    window.location.pathname.slice(0, 16) +
+                    window.location.pathname.slice(19),
+            )
+        }
+    }, [])
     const data = useStaticQuery(query)
     return (
         isBrowser() && (

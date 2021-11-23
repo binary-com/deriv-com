@@ -10,9 +10,10 @@ import Map from 'images/svg/landing/map.svg'
 
 const Wrapper = styled.section`
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
     background-color: rgba(200, 214, 215, 0.22);
@@ -22,7 +23,7 @@ const Wrapper = styled.section`
     }
 `
 const Content = styled.div`
-    width: 43.8rem;
+    width: 42rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -30,17 +31,15 @@ const Content = styled.div`
     margin-top: 9.4rem;
 
     @media ${device.tablet} {
-        display: none;
+        order: 2;
+    }
+
+    @media ${device.mobileL} {
+        padding: 15rem 2rem;
     }
 `
 const StyledDiv = styled.div`
-    padding: 10rem 0;
-    height: 80vh;
     background-color: rgba(200, 214, 215, 0.22);
-
-    @media ${device.mobileL} {
-        padding: 0;
-    }
 `
 
 const StyledMap = styled.img`
@@ -49,6 +48,10 @@ const StyledMap = styled.img`
 
     @media ${device.laptop} {
         width: auto;
+    }
+    @media ${device.tablet} {
+        padding-top: 120rem;
+        width: 100%;
     }
 `
 
@@ -90,7 +93,6 @@ const affiliateSignup = () => {
                         </Text>
                     </Content>
                 )}
-
                 <Signup
                     appearance={Appearances.affiliateSignup}
                     bgColor="grey-14"

@@ -186,6 +186,7 @@ const Hero = ({ is_ppc }) => {
                                     width="100%"
                                     height="233"
                                     loading="eager"
+                                    is_eager="true"
                                 />
                             </Show.Mobile>
                         )}
@@ -196,6 +197,7 @@ const Hero = ({ is_ppc }) => {
                                 width="100%"
                                 height="346"
                                 loading="eager"
+                                is_eager="true"
                             />
                         </Show.Desktop>
                     </ImageWrapper>

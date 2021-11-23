@@ -173,13 +173,19 @@ const Signup = (props) => {
     }
 
     const renderSwitch = (param) => {
+        const { email, first_name, last_name, date, country, address, mobile_number, password } =
+            user_data
         const parameters = {
             autofocus: props.autofocus,
             clearEmail: clearEmail,
-            email: user_data.email,
-            first_name: user_data.first_name,
-            last_name: user_data.last_name,
-            date: user_data.date,
+            email,
+            first_name,
+            last_name,
+            date,
+            country,
+            address,
+            mobile_number,
+            password,
             email_error_msg: email_error_msg,
             handleInputChange: handleInputChange,
             handleLogin: handleLogin,

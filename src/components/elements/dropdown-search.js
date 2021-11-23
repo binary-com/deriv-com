@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
@@ -76,6 +76,10 @@ const DropdownSearch = ({
             setOpen(true)
         }
     }
+
+    useEffect(() => {
+        setDropdownItems([...items])
+    }, [items])
 
     return (
         <>

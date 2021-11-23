@@ -22,6 +22,7 @@ const Description = styled.section`
 
 const benefits_content = [
     {
+        id: 'benefit_join',
         header: <Localize translate_text="Join for free" />,
         text: (
             <Text>
@@ -33,6 +34,7 @@ const benefits_content = [
         icon: <img src={Join} alt="join" />,
     },
     {
+        id: 'benefit_earn',
         header: <Localize translate_text="Earn daily" />,
         text: (
             <Text>
@@ -44,6 +46,7 @@ const benefits_content = [
         icon: <img src={Earn} alt="earn" />,
     },
     {
+        id: 'benefit_products',
         header: <Localize translate_text="A variety of products for your clients" />,
         text: (
             <Text>
@@ -55,6 +58,7 @@ const benefits_content = [
         icon: <img src={Products} alt="products" />,
     },
     {
+        id: 'benefit_support',
         header: <Localize translate_text="Get the support you need" />,
         text: (
             <Text>
@@ -66,8 +70,6 @@ const benefits_content = [
         icon: <img src={Support} alt="support" width="48" height="64" />,
     },
 ]
-
-// Deal with common styles
 
 const Content = styled.div`
     width: 43.8rem;
@@ -84,12 +86,12 @@ const Content = styled.div`
 const Benefits = () => {
     return (
         <Content>
-            {benefits_content.map((item, idx) => {
+            {benefits_content.map((item) => {
                 return (
-                    <Benefit key={{ idx }}>
+                    <Benefit key={item.id}>
                         <Icon>{item.icon}</Icon>
                         <Description>
-                            <Header mt="2.4rem" as="h3" type="section-title">
+                            <Header mt="2.4rem" as="h4" type="subtitle-2">
                                 {item.header}
                             </Header>
                             {item.text}

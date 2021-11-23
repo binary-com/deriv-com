@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { DropdownSearch } from '../elements'
+import { useResidenceList } from '../hooks/use-residence-list'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
-// SVG
-import Apple from 'images/svg/custom/apple.svg'
-import Facebook from 'images/svg/custom/facebook-blue.svg'
-import Google from 'images/svg/custom/google.svg'
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -93,53 +91,6 @@ const SignupWithContainer = styled.div`
         margin-top: 4rem;
     }
 `
-
-const SocialButton = styled(Button)`
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: none;
-    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
-    border: solid 1px var(--color-grey-21);
-    width: 12.5rem;
-    height: 3.8rem;
-    padding: 0.5rem 0;
-
-    &:hover {
-        background: ${(props) => {
-            if (props.provider === 'facebook') return 'var(--color-grey-4)'
-        }};
-    }
-
-    @media ${device.tabletL} {
-        width: 100%;
-        height: 6rem;
-        margin-top: 1rem;
-    }
-    @media ${device.mobileM} {
-        &:first-child {
-            margin-right: 1.2rem;
-        }
-    }
-`
-
-const SocialWrapper = styled.div`
-    width: 100%;
-    margin-top: 2.4rem;
-    display: flex;
-    justify-content: space-between;
-
-    @media ${device.tabletL} {
-        flex-direction: column;
-        margin-top: 1rem;
-    }
-    @media ${device.mobile} {
-        justify-content: space-around;
-    }
-    @media ${device.mobileS} {
-        justify-content: space-between;
-    }
-`
 const LoginText = styled(Text)`
     text-align: center;
     align-self: center;
@@ -153,18 +104,7 @@ const LoginText = styled(Text)`
         font-size: 2rem;
     }
 `
-const SocialText = styled(Text)`
-    margin-right: 1.4rem;
-    margin-left: 0.7rem;
-    font-weight: 500;
-    font-size: 1.2rem;
-    color: var(--color-grey-16);
 
-    @media ${device.tabletL} {
-        margin-left: 2.7rem;
-        font-size: 14px;
-    }
-`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
@@ -175,14 +115,18 @@ const SignupAffiliateDetails = ({
     first_name,
     last_name,
     date,
+    country,
+    address,
+    mobile_number,
+    password,
     email_error_msg,
     handleInputChange,
     handleLogin,
-    handleSocialSignup,
     handleValidation,
     is_submitting,
 }) => {
     const [is_checked, setChecked] = useState(false)
+    const residence_list = useResidenceList()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -193,7 +137,7 @@ const SignupAffiliateDetails = ({
             id: 'dm-first-name-input',
             name: 'first_name',
             type: 'text',
-            error: email_error_msg,
+            error: null,
             value: first_name,
             label: 'First Name',
             placeholder: 'First Name',
@@ -204,22 +148,66 @@ const SignupAffiliateDetails = ({
             id: 'dm-last-name-input',
             name: 'last_name',
             type: 'text',
-            error: false,
+            error: null,
             value: last_name,
             label: 'Last Name',
             placeholder: 'Last Name',
-            handleError: () => console.log('handle error'),
+            handleError: () => true,
             required: true,
         },
         {
             id: 'dm-date-input',
             name: 'date',
             type: 'date',
-            error: false,
+            error: null,
             value: date,
             label: 'Date of Birth',
             placeholder: 'Date of Birth',
-            handleError: () => console.log('handle error'),
+            handleError: () => true,
+            required: true,
+        },
+        {
+            id: 'dm-country-select',
+            name: 'country',
+            type: 'select',
+            error: null,
+            value: country,
+            label: 'Country of residence',
+            placeholder: 'Country of residence',
+            handleError: () => true,
+            required: true,
+        },
+        {
+            id: 'dm-address',
+            name: 'address',
+            type: 'text',
+            error: null,
+            value: address,
+            label: 'Address',
+            placeholder: 'Address',
+            handleError: () => true,
+            required: true,
+        },
+        {
+            id: 'dm-mobile-number',
+            name: 'mobile-number',
+            type: 'tel',
+            error: null,
+            value: mobile_number,
+            label: 'Mobile number',
+            placeholder: 'Mobile number',
+            handleError: () => true,
+            required: true,
+        },
+        {
+            id: 'dm-password',
+            name: 'password',
+            type: 'password',
+            error: null,
+            value: password,
+            label: 'Password',
+            placeholder: 'Password',
+            handleError: () => true,
             required: true,
         },
     ]
@@ -233,10 +221,26 @@ const SignupAffiliateDetails = ({
                 {localize('Complete this form to sign up for our partnership programme.')}
             </SubTitle>
             <InputGroup>
-                {form_inputs.map((item, idx) => {
-                    return (
+                {form_inputs.map((item) => {
+                    return item.name === 'country' ? (
+                        <DropdownSearch
+                            id={item.id}
+                            key={item.id}
+                            // contractSize={values.contractSize}
+                            default_item={''}
+                            // error={item.error}
+                            items={residence_list}
+                            label={localize('Country of residence')}
+                            onChange={(value) => {
+                                console.log(value)
+                            }}
+                            // selected_item={values.symbol}
+                            // onBlur={handleBlur}
+                            // bottomLabel
+                        />
+                    ) : (
                         <Input
-                            key={idx}
+                            key={item.id}
                             id={item.id}
                             name={item.name}
                             type={item.type}
@@ -258,6 +262,19 @@ const SignupAffiliateDetails = ({
                     )
                 })}
             </InputGroup>
+            <SignupWithContainer>
+                <Line />
+                <StyledText color="grey-5" align="center" tabletFontSize="12px">
+                    {localize('Choose a plan')}
+                </StyledText>
+                <Line />
+            </SignupWithContainer>
+            {/*handle Change for two types of checkbox*/}
+            <AgreementLabel
+                pepLabel={localize('I declare that I am not a politically exposed person.')}
+                isChecked={is_checked}
+                handleChangeCheckbox={handleChange}
+            />
             <AgreementLabel isChecked={is_checked} handleChangeCheckbox={handleChange} />
             <EmailButton
                 isChecked={is_checked}
@@ -266,51 +283,8 @@ const SignupAffiliateDetails = ({
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
                 id="dm-new-signup"
             >
-                {localize('Create demo account')}
+                {localize('Signup')}
             </EmailButton>
-            <SignupWithContainer>
-                <Line />
-                <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                    {localize('Or sign up with')}
-                </StyledText>
-                <Line />
-            </SignupWithContainer>
-
-            <SocialWrapper justify="space-between" gap="0" grid="2">
-                <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="google"
-                    data-provider="google"
-                    id="dm-signup-google"
-                    type="button"
-                    social
-                >
-                    <img src={Google} alt="google" width="24" height="24" />
-                    <SocialText>Google</SocialText>
-                </SocialButton>
-                <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="facebook"
-                    data-provider="facebook"
-                    id="dm-signup-facebook"
-                    type="button"
-                    social
-                >
-                    <img src={Facebook} alt="facebook" width="24" height="24" />
-                    <SocialText>Facebook</SocialText>
-                </SocialButton>
-                <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="apple"
-                    data-provider="apple"
-                    id="dm-signup-apple"
-                    type="button"
-                    social
-                >
-                    <img src={Apple} alt="apple" width="24" height="24" />
-                    <SocialText>Apple</SocialText>
-                </SocialButton>
-            </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
                 <StyledLinkText
@@ -328,8 +302,10 @@ const SignupAffiliateDetails = ({
 }
 
 SignupAffiliateDetails.propTypes = {
+    address: PropTypes.bool,
     autofocus: PropTypes.bool,
     clearEmail: PropTypes.func,
+    country: PropTypes.string,
     date: PropTypes.string,
     email: PropTypes.string,
     email_error_msg: PropTypes.string,
@@ -341,6 +317,8 @@ SignupAffiliateDetails.propTypes = {
     is_ppc: PropTypes.bool,
     is_submitting: PropTypes.bool,
     last_name: PropTypes.string,
+    mobile_number: PropTypes.number,
+    password: PropTypes.string,
 }
 
 export default SignupAffiliateDetails

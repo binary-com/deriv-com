@@ -324,3 +324,10 @@ export const replaceLocale = (locale) => {
     }
     return checked_locale
 }
+
+export const calculateReadTime = (text) => {
+    const wpm = 225 // average adult words per minute
+    const words = text.trim().split(/\s+/).length
+    const time = Math.ceil(words / wpm)
+    return time
+}

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import { StandardImgWrapper } from '../common/_styles'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
+import { LocalizedLink, localize } from 'components/localization'
+import { calculateReadTime } from 'common/utility'
 import EyeIcon from 'images/svg/eye.svg'
 import device from 'themes/device'
 
@@ -107,7 +108,9 @@ const MarketNews = ({ data }) => {
                                                 weight="normal"
                                                 color="grey-5"
                                             >
-                                                {data.read_time_in_minutes} min read
+                                                {calculateReadTime(data?.blog_post) +
+                                                    ' ' +
+                                                    localize('min read')}
                                             </Header>
                                         </Flex>
                                     </ContentWrapper>

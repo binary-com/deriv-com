@@ -60,7 +60,7 @@ export const query = graphql`
                         tag_name
                     }
                 }
-                read_time_in_minutes
+                blog_post
                 main_image {
                     imageFile {
                         childImageSharp {
@@ -89,7 +89,7 @@ export const query = graphql`
                         tag_name
                     }
                 }
-                read_time_in_minutes
+                blog_post
                 main_image {
                     imageFile {
                         childImageSharp {
@@ -220,7 +220,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             recent_eu: blog(
                 filter: {
@@ -253,7 +253,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             featured: blog(
                 filter: {
@@ -285,7 +285,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             featured_eu: blog(
                 filter: {
@@ -319,7 +319,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
         }
     }

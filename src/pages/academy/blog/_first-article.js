@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
+import { LocalizedLink, localize } from 'components/localization'
+import { calculateReadTime } from 'common/utility'
 
 const StyledFlex = styled(Flex)`
     border-radius: 8px;
@@ -88,7 +89,7 @@ const FirstArticle = ({ item }) => {
                             type="paragraph-2"
                             width="auto"
                         >
-                            {item.read_time_in_minutes && `• ${item.read_time_in_minutes} min read`}
+                            {`• ${calculateReadTime(item?.blog_post)}` + ' ' + localize('min read')}
                         </Header>
                     </Flex>
                     <Header as="h3" type="heading-3">

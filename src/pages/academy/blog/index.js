@@ -124,7 +124,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
                 published_date
             }
         }

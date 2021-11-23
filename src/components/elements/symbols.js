@@ -78,9 +78,6 @@ import GOLDEUR from 'images/svg/symbols/gold-eur.svg'
 import GOLDUSD from 'images/svg/symbols/gold-usd.svg'
 import GOOGL from 'images/svg/symbols/googl.svg'
 import GS from 'images/svg/symbols/gs.svg'
-import HFVOL10 from 'images/svg/symbols/hf-volatility-10.svg'
-import HFVOL100 from 'images/svg/symbols/hf-volatility-100.svg'
-import HFVOL50 from 'images/svg/symbols/hf-volatility-50.svg'
 import HKDJPY from 'images/svg/symbols/hkd-jpy.svg'
 import HPQ from 'images/svg/symbols/hpq.svg'
 import IBM from 'images/svg/symbols/ibm.svg'
@@ -337,9 +334,6 @@ export {
     GOLDUSD,
     GOOGL,
     GS,
-    HFVOL10,
-    HFVOL100,
-    HFVOL50,
     HKDJPY,
     HPQ,
     IBM,

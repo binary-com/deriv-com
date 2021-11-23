@@ -23,7 +23,7 @@ const query = graphql`
         demo_step2_mobile: file(relativePath: { eq: "deriv-x/mobile-demo-2.png" }) {
             ...fadeIn
         }
-        demo_step3: file(relativePath: { eq: "deriv-x/start-trading.png" }) {
+        demo_step3: file(relativePath: { eq: "deriv-x/demo-3.png" }) {
             ...fadeIn
         }
         demo_step3_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {
@@ -47,7 +47,7 @@ const query = graphql`
         real_step3_mobile: file(relativePath: { eq: "deriv-x/mobile-real-3.png" }) {
             ...fadeIn
         }
-        real_step4: file(relativePath: { eq: "deriv-x/start-trading.png" }) {
+        real_step4: file(relativePath: { eq: "deriv-x/real-4.png" }) {
             ...fadeIn
         }
         real_step4_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {

@@ -197,6 +197,7 @@ const BlogPreview = () => {
                                         <img
                                             src={`${cms_assets_end_point}${post_data?.main_image?.id}`}
                                             alt=""
+                                            className="standard-query-img"
                                         />
                                     </HeroImageContainer>
                                 </HeroRightWrapper>

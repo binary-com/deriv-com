@@ -19,11 +19,20 @@ const query = graphql`
         }
     }
 `
+const BannerWrapper = styled(Flex)`
+    border-top: 1px solid var(--color-grey-17);
+    border-bottom: 1px solid var(--color-grey-17);
 
+    @media (min-width: 1440px) {
+        background-image: url(${(props) => props.background_pattern});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top right -54rem;
+    }
+`
 const ParentWrapper = styled(Flex)`
     max-width: 1440px;
     height: 304px;
-    border: 1px solid var(--color-grey-17);
     z-index: 3;
     overflow: hidden;
 
@@ -108,6 +117,17 @@ const RightHeaderWrapper = styled(Flex)`
 const PatternWrapper = styled.img`
     width: 100%;
     height: 100%;
+
+    @media (min-width: 1440px) {
+        display: none;
+    }
+`
+const PatternDivReplacer = styled.div`
+    display: none;
+    @media (min-width: 1440px) {
+        display: flex;
+        width: 946px;
+    }
 `
 const BtnWrapper = styled(Flex)`
     margin-top: 24px;
@@ -168,7 +188,7 @@ const FooterBanner = () => {
     const [is_mobile] = useBrowserResize()
 
     return (
-        <Flex>
+        <BannerWrapper background_pattern={pattern}>
             <ParentWrapper>
                 <LeftWrapper>
                     <Flex
@@ -210,6 +230,7 @@ const FooterBanner = () => {
                     ) : (
                         <PatternWrapper src={pattern_mobile} alt="" />
                     )}
+                    <PatternDivReplacer />
                     <RightItem>
                         <DesktopWrapper>
                             <ImageWrapper>
@@ -247,7 +268,7 @@ const FooterBanner = () => {
                     </RightItem>
                 </RightWrapper>
             </ParentWrapper>
-        </Flex>
+        </BannerWrapper>
     )
 }
 

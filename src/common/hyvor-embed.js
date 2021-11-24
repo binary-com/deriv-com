@@ -45,7 +45,7 @@ const Embed = (props) => {
         addScript('//talk.hyvor.com/web-api/embed', 'ht-embed-script')
     }
 
-    return <div id="hyvor-talk-view" />
+    return <div id="hyvor-talk-view" style={{ width: '100%' }} />
 }
 
 export default Embed

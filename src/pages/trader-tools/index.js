@@ -58,7 +58,7 @@ const tools = [
     {
         title: <Localize translate_text="PnL for multipliers" />,
         subtitle: (
-            <Localize translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your favour." />
+            <Localize translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your prediction." />
         ),
         link: {
             text: <Localize translate_text="Try PnL for multipliers calculator" />,

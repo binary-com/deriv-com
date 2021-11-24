@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
-import forex_content from '../../static/content/_forex'
+import { ForexContent } from '../../static/content/_forex'
 import { forex_cfds } from '../../static/content/_cfds'
 import { forex_multiplier } from '../../static/content/_multipliers'
 import { forex_options } from '../../static/content/_digital-options'
@@ -24,9 +24,7 @@ const Forex = ({ simple_step_content }) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {forex_content.map((content, index) => (
-                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
-                ))}
+                <ForexContent />
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_content={forex_cfds} />}

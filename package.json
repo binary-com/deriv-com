@@ -28,6 +28,7 @@
         "gatsby-plugin-sharp": "^3.7.1",
         "gatsby-plugin-sitemap": "^3.3.0",
         "gatsby-plugin-svgr": "^3.0.0-beta.0",
+        "gatsby-plugin-use-query-params": "^1.0.1",
         "gatsby-source-filesystem": "^3.7.1",
         "gatsby-transformer-sharp": "^3.7.1",
         "gbimage-bridge": "^0.1.4",
@@ -43,6 +44,7 @@
         "react-i18next": "^11.11.0",
         "react-is": "^17.0.2",
         "react-perfect-scrollbar": "^1.5.8",
+        "use-query-params": "^1.2.3",
         "web-push-notifications": "^3.22.0",
         "webpack": "^5.39.0"
     },

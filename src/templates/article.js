@@ -62,8 +62,7 @@ const ArticlesTemplate = (props) => {
             `,
             })
             addScript({
-                async: true,
-                src: '//talk.hyvor.com/web-api/embed.js',
+                src: '/hyvor.js',
             })
         }, [document])
 

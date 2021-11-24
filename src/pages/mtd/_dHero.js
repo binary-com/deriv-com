@@ -158,16 +158,12 @@ const DHero = () => {
 
     const heroDetails = [
         {
-            header: 'It’s so easy to switch to Deriv',
-            desc: 'No sign up required — just use your Binary.com credentials',
             img: 'hero_dmt5_banner',
             img_alt: 'dmt5 banner',
             img_mobile: 'hero_dmt5_banner_mobile',
             img_alt_mobile: 'dmt5 banner mobile',
         },
         {
-            header: 'It’s so easy to switch to Deriv',
-            desc: 'You can trade on Deriv just as you do on Binary.com, with added products and benefits.',
             img: 'hero_dtrader_banner',
             img_alt: 'dtrader banner',
             img_mobile: 'hero_dtrader_banner_mobile',
@@ -178,67 +174,69 @@ const DHero = () => {
     return (
         <MainWrapper>
             <ParentWrapper>
-                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
-                    {heroDetails.map((items, index) => {
-                        return (
-                            <Flex key={index}>
-                                <ItemsWrapper>
-                                    <LeftWrapper>
-                                        <StyledHeader
-                                            type="hero"
-                                            color="white"
-                                            mb="32px"
-                                            mt="24px"
-                                            tabletL={{
-                                                max_width: '58.8rem',
-                                                mb: '16px',
-                                                mt: '16px',
-                                            }}
-                                        >
-                                            {items.header}
-                                        </StyledHeader>
-                                        <StyledSmallHeader
-                                            type="heading-3"
-                                            color="white"
-                                            weight="normal"
-                                            tabletL={{ max_width: '58.8rem' }}
-                                        >
-                                            {items.desc}
-                                        </StyledSmallHeader>
-                                        <MobileWrapper>
-                                            <BtnWrapper>
-                                                <StyledLinkButton
-                                                    to="https://deriv.com/"
-                                                    rel="noopener noreferrer"
-                                                    secondary="true"
-                                                    external="true"
-                                                >
-                                                    Take me to Deriv
-                                                </StyledLinkButton>
-                                            </BtnWrapper>
-                                        </MobileWrapper>
-                                    </LeftWrapper>
-                                    <RightWrapper>
-                                        <DesktopWrapper>
-                                            <QueryImage
-                                                data={data[items.img]}
-                                                alt={items.img_alt}
-                                                width="100%"
-                                            />
-                                        </DesktopWrapper>
-                                        <MobileWrapper>
-                                            <QueryImage
-                                                data={data[items.img_mobile]}
-                                                alt={items.img_alt_mobile}
-                                                width="100%"
-                                            />
-                                        </MobileWrapper>
-                                    </RightWrapper>
-                                </ItemsWrapper>
-                            </Flex>
-                        )
-                    })}
-                </Carousel>
+                <Flex>
+                    <ItemsWrapper>
+                        <LeftWrapper>
+                            <StyledHeader
+                                type="hero"
+                                color="white"
+                                mb="32px"
+                                mt="24px"
+                                tabletL={{
+                                    max_width: '58.8rem',
+                                    mb: '16px',
+                                    mt: '16px',
+                                }}
+                            >
+                                It’s so easy to switch to Deriv
+                            </StyledHeader>
+                            <StyledSmallHeader
+                                type="heading-3"
+                                color="white"
+                                weight="normal"
+                                tabletL={{ max_width: '58.8rem' }}
+                            >
+                                No sign up required — just use your Binary.com credentials
+                            </StyledSmallHeader>
+                            <MobileWrapper>
+                                <BtnWrapper>
+                                    <StyledLinkButton
+                                        to="https://deriv.com/"
+                                        rel="noopener noreferrer"
+                                        secondary="true"
+                                        external="true"
+                                    >
+                                        Take me to Deriv
+                                    </StyledLinkButton>
+                                </BtnWrapper>
+                            </MobileWrapper>
+                        </LeftWrapper>
+                        <RightWrapper>
+                            <Carousel has_autoplay autoplay_interval={3500} {...settings}>
+                                {heroDetails.map((items, index) => {
+                                    return (
+                                        <Flex key={index}>
+                                            <DesktopWrapper>
+                                                <QueryImage
+                                                    data={data[items.img]}
+                                                    alt={items.img_alt}
+                                                    width="100%"
+                                                />
+                                            </DesktopWrapper>
+                                            <MobileWrapper>
+                                                <QueryImage
+                                                    data={data[items.img_mobile]}
+                                                    alt={items.img_alt_mobile}
+                                                    width="100%"
+                                                />
+                                            </MobileWrapper>
+                                        </Flex>
+                                    )
+                                })}
+                            </Carousel>
+                        </RightWrapper>
+                    </ItemsWrapper>
+                </Flex>
             </ParentWrapper>
             <BackgroundWrapper bg_image={background_url} />
         </MainWrapper>

@@ -123,7 +123,7 @@ const Benefits = () => {
             })}
             <Flex>
                 <BtnWrapper>
-                    <StyledLinkButton external="true" to="https://deriv.com/" secondary="true">
+                    <StyledLinkButton to="https://deriv.com/" secondary="true">
                         Explore Deriv now
                     </StyledLinkButton>
                 </BtnWrapper>

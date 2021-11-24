@@ -36,15 +36,36 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import { convertDate } from 'common/utility'
+import { convertDate, addScript, isBrowser } from 'common/utility'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
     const [isMounted, setMounted] = useState(false)
+
     useEffect(() => {
         setMounted(true)
-        isMounted && window.scrollTo(0, 0)
+        if (isMounted) {
+            window.scrollTo(0, 0)
+        }
     }, [isMounted])
+
+    isBrowser() &&
+        useEffect(() => {
+            addScript({
+                async: true,
+                text: `
+            var HYVOR_TALK_WEBSITE = 5731;
+            var HYVOR_TALK_CONFIG = {
+                url: false,
+                id: ${article_title}
+            };
+            `,
+            })
+            addScript({
+                async: true,
+                src: '//talk.hyvor.com/web-api/embed.js',
+            })
+        }, [document])
 
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
@@ -85,6 +106,23 @@ const ArticlesTemplate = (props) => {
         og_title: og_title ? og_title : meta_title,
         og_description: og_description ? og_description : meta_description,
     }
+
+    // const addScriptForHyvor = () => {
+    //     addScript({
+    //         async: true,
+    //         text: `
+    //         var HYVOR_TALK_WEBSITE = 5731;
+    //         var HYVOR_TALK_CONFIG = {
+    //             url: 'https://deriv-com-git-fork-sean-binary-test-comments.binary.sx/',
+    //             id: ${article_title}
+    //         };
+    //         `,
+    //     })
+    //     addScript({
+    //         async: true,
+    //         src: '//talk.hyvor.com/web-api/embed.js',
+    //     })
+    // }
 
     return (
         <Layout type="academy">
@@ -287,6 +325,7 @@ const ArticlesTemplate = (props) => {
                                         <ArticleEmailBanner />
                                     </MobileWrapper>
                                 </Flex>
+                                <div id="hyvor-talk-view"></div>
                             </RightBodyContainerWrapper>
                         </BodyContainer>
                     </SectionContainer>

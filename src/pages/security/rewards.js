@@ -7,12 +7,12 @@ import LowIcon from 'images/svg/security/low.svg'
 import MediumIcon from 'images/svg/security/medium.svg'
 import HighIcon from 'images/svg/security/high.svg'
 import CriticalIcon from 'images/svg/security/critical.svg'
+import device from 'themes/device'
 
 const Card = styled(Flex)`
     border: 1px solid #d6d6d6;
     box-sizing: border-box;
     border-radius: 8px;
-    min-width: 282px;
     width: 282px;
     height: 362px;
     flex-direction: column;
@@ -20,12 +20,21 @@ const Card = styled(Flex)`
     padding: 24px;
     background-color: var(--color-white);
     margin: 0 12px;
+
+    @media ${device.laptopM} {
+        min-width: 282px;
+    }
 `
 
 const CardWrapper = styled(Flex)`
     margin-top: 40px;
     flex-direction: row;
-    overflow-y: scroll;
+
+    @media ${device.laptopM} {
+        overflow-x: scroll;
+        position: relative;
+        justify-content: flex-start;
+    }
 `
 
 const Title = styled(Header)`
@@ -38,6 +47,13 @@ const Subtitle = styled(Header)`
 
     :last-child {
         margin-bottom: 0;
+    }
+`
+const ItemsWrapper = styled(Flex)`
+    width: 100%;
+
+    @media ${device.laptopM} {
+        width: auto;
     }
 `
 
@@ -94,37 +110,39 @@ const Rewards = () => {
                     )}
                 </Header>
                 <CardWrapper>
-                    {card_content.map((item, idx) => {
-                        return (
-                            <Card key={idx}>
-                                <img src={item.icon} />
-                                <Header mt="8px" mb="16px" align="center" type="subtitle-2">
-                                    {item.header}
-                                </Header>
-                                <Title type="paragraph-1">
-                                    <Localize
-                                        translate_text={item.title_1}
-                                        components={[<strong key={0} />]}
-                                    />
-                                </Title>
-                                {item.type !== 'short' && (
-                                    <>
-                                        <Subtitle type="subtitle-1" align="center">
-                                            {item.sub_title_1}
-                                        </Subtitle>
-                                        <Title type="paragraph-1">{item.title_2}</Title>
-                                        <Subtitle type="subtitle-1" align="center">
-                                            {item.sub_title_2}
-                                        </Subtitle>
-                                        <Title type="paragraph-1">{item.title_3}</Title>
-                                        <Subtitle type="subtitle-1" align="center">
-                                            {item.sub_title_3}
-                                        </Subtitle>
-                                    </>
-                                )}
-                            </Card>
-                        )
-                    })}
+                    <ItemsWrapper>
+                        {card_content.map((item, idx) => {
+                            return (
+                                <Card key={idx}>
+                                    <img src={item.icon} />
+                                    <Header mt="8px" mb="16px" align="center" type="subtitle-2">
+                                        {item.header}
+                                    </Header>
+                                    <Title type="paragraph-1">
+                                        <Localize
+                                            translate_text={item.title_1}
+                                            components={[<strong key={0} />]}
+                                        />
+                                    </Title>
+                                    {item.type !== 'short' && (
+                                        <>
+                                            <Subtitle type="subtitle-1" align="center">
+                                                {item.sub_title_1}
+                                            </Subtitle>
+                                            <Title type="paragraph-1">{item.title_2}</Title>
+                                            <Subtitle type="subtitle-1" align="center">
+                                                {item.sub_title_2}
+                                            </Subtitle>
+                                            <Title type="paragraph-1">{item.title_3}</Title>
+                                            <Subtitle type="subtitle-1" align="center">
+                                                {item.sub_title_3}
+                                            </Subtitle>
+                                        </>
+                                    )}
+                                </Card>
+                            )
+                        })}
+                    </ItemsWrapper>
                 </CardWrapper>
             </Container>
         </SectionContainer>

@@ -36,8 +36,9 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import { convertDate, addScript, isBrowser } from 'common/utility'
+import { convertDate } from 'common/utility'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import Embed from 'common/hyvor-embed'
 
 const ArticlesTemplate = (props) => {
     const [isMounted, setMounted] = useState(false)
@@ -49,21 +50,21 @@ const ArticlesTemplate = (props) => {
         }
     }, [isMounted])
 
-    isBrowser() &&
-        useEffect(() => {
-            addScript({
-                text: `
-            var HYVOR_TALK_WEBSITE = 5731;
-            var HYVOR_TALK_CONFIG = {
-                url: false,
-                id: ${article_title}
-            };
-            `,
-            })
-            addScript({
-                src: '/hyvor.js',
-            })
-        }, [document])
+    // isBrowser() &&
+    //     useEffect(() => {
+    //         addScript({
+    //             text: `
+    //         var HYVOR_TALK_WEBSITE = 5731;
+    //         var HYVOR_TALK_CONFIG = {
+    //             url: false,
+    //             id: ${article_title}
+    //         };
+    //         `,
+    //         })
+    //         addScript({
+    //             src: '/hyvor.js',
+    //         })
+    //     }, [document])
 
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
@@ -104,23 +105,6 @@ const ArticlesTemplate = (props) => {
         og_title: og_title ? og_title : meta_title,
         og_description: og_description ? og_description : meta_description,
     }
-
-    // const addScriptForHyvor = () => {
-    //     addScript({
-    //         async: true,
-    //         text: `
-    //         var HYVOR_TALK_WEBSITE = 5731;
-    //         var HYVOR_TALK_CONFIG = {
-    //             url: 'https://deriv-com-git-fork-sean-binary-test-comments.binary.sx/',
-    //             id: ${article_title}
-    //         };
-    //         `,
-    //     })
-    //     addScript({
-    //         async: true,
-    //         src: '//talk.hyvor.com/web-api/embed.js',
-    //     })
-    // }
 
     return (
         <Layout type="academy">
@@ -323,7 +307,8 @@ const ArticlesTemplate = (props) => {
                                         <ArticleEmailBanner />
                                     </MobileWrapper>
                                 </Flex>
-                                <div id="hyvor-talk-view"></div>
+                                {/* <div id="hyvor-talk-view"></div> */}
+                                <Embed websiteId={5731} id={article_title} />
                             </RightBodyContainerWrapper>
                         </BodyContainer>
                     </SectionContainer>

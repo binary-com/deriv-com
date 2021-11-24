@@ -469,23 +469,23 @@ const DerivBlog = ({ data }) => {
     //arranges homepage banners in ascendingly on order value
     homepage_banner_data.sort((a, b) => parseInt(a.order) - parseInt(b.order))
 
-    const market_news_data = is_eu_country
-        ? data.directus.market_news_eu
-        : is_uk_country
-        ? data.directus.market_news_uk
-        : data.directus.market_news
+    let market_news_data,
+     recent_data,
+     featured_data
 
-    const recent_data = is_eu_country
-        ? data.directus.recent_eu
-        : is_uk_country
-        ? data.directus.recent_uk
-        : data.directus.recent
-
-    const featured_data = is_eu_country
-        ? data.directus.featured_eu
-        : is_uk_country
-        ? data.directus.featured_uk
-        : data.directus.featured
+    if (is_eu_country) {
+        market_news_data = data.directus.market_news_eu
+        recent_data = data.directus.recent_eu
+        featured_data = data.directus.featured_eu
+    } else if (is_uk_country) {
+        market_news_data = data.directus.market_news_uk
+        recent_data = data.directus.recent_uk
+        featured_data = data.directus.featured_uk
+    } else {
+        market_news_data = data.directus.market_news
+        recent_data = data.directus.recent
+        featured_data = data.directus.featured
+    }
 
     const non_featured_video_list_data = is_eu_country
         ? data.directus.videos_eu

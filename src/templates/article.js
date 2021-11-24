@@ -52,7 +52,6 @@ const ArticlesTemplate = (props) => {
     isBrowser() &&
         useEffect(() => {
             addScript({
-                async: true,
                 text: `
             var HYVOR_TALK_WEBSITE = 5731;
             var HYVOR_TALK_CONFIG = {

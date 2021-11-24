@@ -15,7 +15,7 @@ const DisclaimerSection = () => {
             <DisclaimerWrapper>
                 <DisclaimerParagraph>
                     <Localize
-                        translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union. It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request."
+                        translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union. It is also authorised and subject to limited regulations by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request."
                         components={[
                             <StaticAsset
                                 key={0}
@@ -28,18 +28,10 @@ const DisclaimerSection = () => {
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     <Localize
-                        translate_text="Deriv (Europe) Limited, W Business Centre, Level
-                        3, Triq Dun Karm, Birkirkara, BKR 9033, Malta is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority” (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                        translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated in the United Kingdom by the UK Gambling Commission (<0>account no. 39172</0>)."
                         components={[
-                            <StaticAsset
-                                key={0}
-                                target="_blank"
-                                href="/regulatory/Deriv_(Europe)_Limited.pdf"
-                                rel="noopener noreferrer"
-                            />,
                             <StaticAssetLink
-                                external="true"
-                                key={1}
+                                key={0}
                                 target="_blank"
                                 to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                 rel="noopener noreferrer"
@@ -48,14 +40,27 @@ const DisclaimerSection = () => {
                     />
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
+                    <Localize
+                        translate_text="Deriv (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)."
+                        components={[
+                            <StaticAsset
+                                key={0}
+                                target="_blank"
+                                href="/regulatory/Deriv_(Europe)_Limited.pdf"
+                                rel="noopener noreferrer"
+                            />,
+                        ]}
+                    />
+                </DisclaimerParagraph>
+                <DisclaimerParagraph>
                     {localize(
-                        "This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
+                        'This website’s services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.',
                     )}
                 </DisclaimerParagraph>
                 <RiskWarning>
                     <Show.Desktop>
                         <DisclaimerParagraph no_margin>
-                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone." />
+                            <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
@@ -64,12 +69,31 @@ const DisclaimerSection = () => {
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                            <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                        </DisclaimerParagraph>
+                        <DisclaimerParagraph>
+                            <Localize
+                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                                components={[
+                                    <StaticAsset
+                                        key={0}
+                                        target="_blank"
+                                        href="https://deriv.com/responsible/"
+                                        rel="noopener noreferrer"
+                                    />,
+                                    <StaticAssetLink
+                                        key={1}
+                                        target="_blank"
+                                        to="https://www.begambleaware.org/"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
                         </DisclaimerParagraph>
                     </Show.Desktop>
                     <Show.Mobile>
                         <DisclaimerParagraph no_margin>
-                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone." />
+                            <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
@@ -78,7 +102,26 @@ const DisclaimerSection = () => {
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                            <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                        </DisclaimerParagraph>
+                        <DisclaimerParagraph>
+                            <Localize
+                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                                components={[
+                                    <StaticAsset
+                                        key={0}
+                                        target="_blank"
+                                        href="https://deriv.com/responsible/"
+                                        rel="noopener noreferrer"
+                                    />,
+                                    <StaticAssetLink
+                                        key={1}
+                                        target="_blank"
+                                        to="https://www.begambleaware.org/"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
                         </DisclaimerParagraph>
                     </Show.Mobile>
                 </RiskWarning>

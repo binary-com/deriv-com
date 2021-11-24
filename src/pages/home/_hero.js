@@ -185,7 +185,7 @@ const Hero = ({ is_ppc }) => {
                                     alt="platform devices mobile"
                                     width="100%"
                                     height="233"
-                                    is_eager
+                                    loading="eager"
                                 />
                             </Show.Mobile>
                         )}
@@ -195,7 +195,7 @@ const Hero = ({ is_ppc }) => {
                                 alt="platform devices"
                                 width="100%"
                                 height="346"
-                                is_eager
+                                loading="eager"
                             />
                         </Show.Desktop>
                     </ImageWrapper>

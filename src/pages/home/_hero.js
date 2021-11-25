@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
-import { Container, Box, Flex, Show } from 'components/containers'
+import { Container, Box, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
@@ -41,22 +41,7 @@ const HeroButton = styled(LinkButton)`
         margin: 0 auto;
     }
 `
-const FadeIn = keyframes`
-    0% {
-        opacity: 0;
-        margin-left: -75px;
-    }
-    100% {
-        opacity: 1;
-        margin-left: 0;
-    }
-`
 const StyledHeader = styled(Header)`
-    animation-name: ${FadeIn};
-    animation-duration: 0.5s;
-    animation-fill-mode: both;
-    animation-delay: ${(props) => props.ad};
-    will-change: opacity, margin-left;
     font-size: 8rem;
     line-height: 1.25;
 
@@ -113,58 +98,26 @@ const ImageWrapper = styled(Box)`
 `
 const Hero = ({ is_ppc }) => {
     const data = useStaticQuery(query)
-    const typewriter_text = !is_ppc
+    const text = !is_ppc
         ? localize('Trade forex, commodities, synthetic indices, stocks, and stock indices.')
         : localize('Trade forex, commodities, stocks, and stock indices')
-    const [type_writer, setTypeWriter] = React.useState('')
-    const [check_first_load, setFirstLoad] = React.useState(false)
-    let type_writer_timeout
-
-    const typeWriterAnimation = (i = 0) => {
-        if (i < typewriter_text.length) {
-            setTypeWriter(typewriter_text.substring(0, i + 1))
-            type_writer_timeout = setTimeout(() => typeWriterAnimation(i + 1), 13)
-        }
-    }
-
-    React.useEffect(() => {
-        let start_animations_timeout = setTimeout(() => {
-            typeWriterAnimation()
-        }, 1200)
-        setFirstLoad(true)
-        return () => {
-            clearTimeout(start_animations_timeout)
-            clearTimeout(type_writer_timeout)
-        }
-    }, [])
 
     return (
         <HeroWrapper>
             <StyledContainer fd="column" ai="flex-start">
                 <StyledHeroContainer>
                     <Details>
-                        <Show.Desktop>
-                            <Flex mb="1.6rem" direction="column">
-                                <StyledHeader color="white" ad="0.5s">
-                                    <Localize translate_text="Simple." />
-                                </StyledHeader>
-                                <StyledHeader color="white" ad="0.6s">
-                                    <Localize translate_text="Flexible." />
-                                </StyledHeader>
-                                <StyledHeader color="white" ad="0.7s">
-                                    <Localize translate_text="Reliable." />
-                                </StyledHeader>
-                            </Flex>
-                        </Show.Desktop>
-                        {check_first_load && (
-                            <Show.Mobile>
-                                <Flex>
-                                    <StyledHeader color="white" mb="2rem" as="h1">
-                                        <Localize translate_text="Simple. Flexible. Reliable." />
-                                    </StyledHeader>
-                                </Flex>
-                            </Show.Mobile>
-                        )}
+                        <Flex height="unset" mb="1.6rem" direction="column">
+                            <StyledHeader color="white">
+                                <Localize translate_text="Simple." />
+                            </StyledHeader>
+                            <StyledHeader color="white">
+                                <Localize translate_text="Flexible." />
+                            </StyledHeader>
+                            <StyledHeader color="white">
+                                <Localize translate_text="Reliable." />
+                            </StyledHeader>
+                        </Flex>
 
                         <TypeWriter
                             as="h2"
@@ -173,31 +126,18 @@ const Hero = ({ is_ppc }) => {
                             max_width="430px"
                             weight="normal"
                         >
-                            {localize(type_writer)}
+                            {text}
                         </TypeWriter>
                         <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                     </Details>
                     <ImageWrapper>
-                        {check_first_load && (
-                            <Show.Mobile>
-                                <QueryImage
-                                    data={data.background}
-                                    alt="platform devices mobile"
-                                    width="100%"
-                                    height="233"
-                                    loading="eager"
-                                />
-                            </Show.Mobile>
-                        )}
-                        <Show.Desktop>
-                            <QueryImage
-                                data={data.background}
-                                alt="platform devices"
-                                width="100%"
-                                height="346"
-                                loading="eager"
-                            />
-                        </Show.Desktop>
+                        <QueryImage
+                            data={data.background}
+                            alt="platform devices"
+                            width="100%"
+                            height="346"
+                            loading="eager"
+                        />
                     </ImageWrapper>
                 </StyledHeroContainer>
                 <ButtonWrapper>

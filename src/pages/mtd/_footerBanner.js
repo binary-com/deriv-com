@@ -27,7 +27,7 @@ const BannerWrapper = styled(Flex)`
         background-image: url(${(props) => props.background_pattern});
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: top right -54rem;
+        background-position: top right -65rem;
     }
 `
 const ParentWrapper = styled(Flex)`

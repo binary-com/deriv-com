@@ -70,7 +70,7 @@ const DisclaimerSection = () => {
                     </DisclaimerParagraph>
                     <DisclaimerParagraph>
                         <Localize
-                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, licensed and regulated by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the UK Gambling Commission for clients in the UK (<1>account no. 39172</1>)."
+                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated in the United Kingdom by the UK Gambling Commission (<1>account no. 39172</1>)."
                             components={[
                                 <StaticAsset
                                     key={0}

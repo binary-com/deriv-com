@@ -25,7 +25,6 @@ const ImageWrapper = styled.div`
 `
 
 const WrapContainer = styled(Flex)`
-    justify-content: center;
     align-items: center;
 
     @media ${device.laptopM} {

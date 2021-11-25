@@ -21,7 +21,6 @@ const StyledContainer = styled(Container)`
 const StyledHeader = styled(Header)`
     margin-bottom: 1.6rem;
     line-height: 8rem;
-    font-size: 6.4rem;
 
     @media ${device.tablet} {
         font-size: 40px;
@@ -30,7 +29,6 @@ const StyledHeader = styled(Header)`
 `
 
 const Subheadline = styled(Header)`
-    font-size: 2.4rem;
     font-weight: normal;
     line-height: 36px;
 
@@ -54,11 +52,11 @@ const HeroComponent = ({ background_data, background_height, background_dark }) 
             dark={background_dark}
         >
             <StyledContainer>
-                <StyledHeader as="h1" color="white" align="center">
+                <StyledHeader as="h1" color="white" align="center" type="heading-1">
                     {localize('Bug bounty program')}
                 </StyledHeader>
 
-                <Subheadline as="h3" color="white" align="center">
+                <Subheadline as="h3" color="white" align="center" type="subtitle-1">
                     {localize('Security is a collaboration. Report bugs and be rewarded.')}
                 </Subheadline>
             </StyledContainer>

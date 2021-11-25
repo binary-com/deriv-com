@@ -31,17 +31,16 @@ const ContentWrapper = styled(Flex)`
     margin-bottom: 24px;
 
     :nth-child(odd) {
-        margin-right: 24px;
+        margin-left: 24px;
     }
 
     @media ${device.laptop} {
         max-width: 58.8rem;
         width: 100%;
         padding: 0 16px;
-        margin-bottom: 34px;
 
         :nth-child(odd) {
-            margin-right: 0;
+            margin-left: 0;
         }
     }
 `
@@ -55,6 +54,12 @@ const BtnWrapper = styled(Flex)`
 `
 const StyledLinkButton = styled(LinkButton)`
     padding: 10px 16px;
+`
+const StyledHeader = styled(Header)`
+    @media (min-width: 1440px) {
+        font-size: 32px;
+        line-height: 40px;
+    }
 `
 
 const benefitsItems = [
@@ -100,9 +105,14 @@ const Benefits = () => {
     return (
         <ParentWrapper>
             <Flex laptop={{ p: '0 16px' }}>
-                <Header type="heading-3" align="center" mb="40px">
+                <StyledHeader
+                    type="heading-3"
+                    align="center"
+                    mb="40px"
+                    laptop={{ max_width: '58.8rem', mb: '24px' }}
+                >
                     Deriv is everything you love about Binary.com, plus more
-                </Header>
+                </StyledHeader>
             </Flex>
             {benefitsItems.map((items, index) => {
                 return (

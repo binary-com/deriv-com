@@ -27,6 +27,10 @@ const ContentWrapper = styled(Flex)`
 const ParentWrapper = styled(Flex)`
     max-width: 100%;
 
+    @media ${device.desktopS} {
+        max-width: 1200px;
+    }
+
     @media ${device.laptopM} {
         flex-wrap: wrap;
         max-width: 84rem;
@@ -80,6 +84,12 @@ const ItemsWrapper = styled(Flex)`
 `
 const StyledHeader = styled(Header)`
     margin: 0 0 8px;
+
+    @media ${device.desktopS} {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
     @media ${device.tabletL} {
         font-size: 24px;
         line-height: 36px;
@@ -88,6 +98,11 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledSmallHeader = styled(Header)`
+    @media ${device.desktopS} {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
     @media ${device.tabletL} {
         font-size: 16px;
         line-height: 24px;

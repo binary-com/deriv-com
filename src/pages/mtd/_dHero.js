@@ -56,9 +56,6 @@ const LeftWrapper = styled(Flex)`
     max-height: 312px;
     margin-right: 24px;
 
-    @media ${device.desktopL} {
-        max-height: 100%;
-    }
     @media (max-width: 1222px) {
         max-height: unset;
         padding-bottom: 80px;
@@ -212,7 +209,7 @@ const DHero = () => {
                             </MobileWrapper>
                         </LeftWrapper>
                         <RightWrapper>
-                            <Carousel has_autoplay autoplay_interval={3500} {...settings}>
+                            <Carousel has_autoplay autoplay_interval={4500} {...settings}>
                                 {heroDetails.map((items, index) => {
                                     return (
                                         <Flex key={index}>

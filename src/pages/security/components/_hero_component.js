@@ -20,22 +20,10 @@ const StyledContainer = styled(Container)`
 
 const StyledHeader = styled(Header)`
     margin-bottom: 1.6rem;
-    line-height: 8rem;
-
-    @media ${device.tablet} {
-        font-size: 40px;
-        line-height: 50px;
-    }
 `
 
 const Subheadline = styled(Header)`
     font-weight: normal;
-    line-height: 36px;
-
-    @media ${device.tablet} {
-        font-size: 18px;
-        line-height: 26px;
-    }
 `
 
 const HeroComponent = ({ background_data, background_height, background_dark }) => {

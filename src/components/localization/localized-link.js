@@ -164,7 +164,7 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
             type.replace(/_/g, '-') + '/'
         }`
     } else if (only_en_new_tab_no_modal.includes(type)) {
-        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-') + '/'}`
+        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-')}`
     } else {
         return to
     }

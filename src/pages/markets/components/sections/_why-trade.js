@@ -7,6 +7,25 @@ import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
+const Item = styled(Flex)`
+    max-width: 18rem;
+    width: 100%;
+
+    img {
+        width: 48px;
+        height: 48px;
+    }
+
+    @media ${device.tabletL} {
+        max-width: 27rem;
+        margin-top: 24px;
+
+        ${Text} {
+            font-size: 2rem;
+        }
+    }
+`
+
 const ItemContainer = styled(Box)`
     display: flex;
     margin: 4rem 0;
@@ -59,7 +78,21 @@ export const WhyTrade = ({ children, header, text }) => {
                     <StyledText align="center">{text}</StyledText>
                 </div>
                 <ItemContainer max_width="48.6rem" width="100%">
-                    {children}
+                    {children.map((child, idx) => {
+                        {
+                            const { text, icon } = child.props
+                            return (
+                                <Item key={idx} ai="center" direction="column">
+                                    {icon}
+                                    {
+                                        <Text align="center" mt="1.6rem">
+                                            {text}
+                                        </Text>
+                                    }
+                                </Item>
+                            )
+                        }
+                    })}
                 </ItemContainer>
                 <StyledButton id="dm-why-trade-signup" to="/signup/" secondary="true">
                     {localize('Create free demo account')}

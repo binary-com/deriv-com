@@ -195,7 +195,7 @@ const StartTrader = () => {
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding="21px 12px"
+                    mobile_padding={is_eu_country ? '21px 12px' : '10px'}
                     active={tab === 'Real'}
                     onClick={() => onTabClick('Real')}
                 >

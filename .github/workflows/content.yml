@@ -13,11 +13,13 @@ jobs:
         environment: production
         
         steps:
+            
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
             - name: Set the value
               id: step_one
               run: |
+                   git fetch -t
                    echo "GIT_TAG_NAME=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
             - name: Use the value
               id: step_two

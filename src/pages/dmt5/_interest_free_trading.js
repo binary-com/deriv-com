@@ -171,7 +171,7 @@ const InterestFreeTrading = () => {
                 <StyledRightText>
                     <Localize translate_text="Enjoy interest-free trading with no swap charges on overnight positions for forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices." />
                 </StyledRightText>
-                <StyledLinkButton secondary="true" to="" external="true" target="_blank">
+                <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
                     <Localize translate_text="Choose swap-free trading now" />
                 </StyledLinkButton>
             </StyledFlex>

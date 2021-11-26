@@ -12,6 +12,8 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { DerivStore } from 'store'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { isUK } from 'common/country-base'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -160,6 +162,9 @@ const query = graphql`
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
     const { is_eu_country } = React.useContext(DerivStore)
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country || ''
+
     return (
         <>
             <StyledSectionContainerHead padding="8rem 0 4rem">
@@ -383,12 +388,22 @@ const WhatAreOptions = () => {
                     )}
                 </SmallContainer>
             </StyledSectionContainer>
-            <AvailableTrades
-                display_title={localize('Instruments available to trade on Multipliers')}
-                Forex={CFDs}
-                SyntheticIndices={SyntheticIndices}
-                Cryptocurrencies={Cryptocurrencies}
-            />
+
+            {isUK(current_client_country) ? (
+                <AvailableTrades
+                    display_title={localize('Instruments available to trade on Multipliers')}
+                    Forex={CFDs}
+                    SyntheticIndices={SyntheticIndices}
+                />
+            ) : (
+                <AvailableTrades
+                    display_title={localize('Instruments available to trade on Multipliers')}
+                    Forex={CFDs}
+                    SyntheticIndices={SyntheticIndices}
+                    Cryptocurrencies={Cryptocurrencies}
+                />
+            )}
+
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" size="3.2rem" mb="4rem">

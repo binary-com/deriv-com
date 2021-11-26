@@ -52,7 +52,7 @@ export const OffCanvasMenuWrapperCareer = (props) => {
                 <LocalizedLinkText to="/careers/locations/" p="10px">
                     <Header type="main-paragraph">Location</Header>
                 </LocalizedLinkText>
-                <LocalizedLinkText to="/besquare/" p="10px">
+                <LocalizedLinkText to="/careers/besquare/" p="10px">
                     <Header type="main-paragraph">BeSquare</Header>
                 </LocalizedLinkText>
             </OffCanvasMenuContainer>

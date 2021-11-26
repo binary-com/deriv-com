@@ -24,4 +24,4 @@ jobs:
             - name: Use the value
               id: step_two
               run: |
-                   echo "${{ env.GIT_TAG_NAME }}"
+                   echo "$GIT_TAG_NAME"

@@ -13,6 +13,8 @@ jobs:
         environment: production
         
         steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
             - name: Set the value
               id: step_one
               run: |

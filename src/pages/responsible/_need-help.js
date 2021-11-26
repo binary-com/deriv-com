@@ -1,64 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text, LocalizedLinkText } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
-import GamStop from 'images/svg/layout/gamstop.svg'
-import BeGambleAware from 'images/svg/responsible/begambleaware.svg'
 import Underage from 'images/svg/responsible/underage.svg'
 import UnderageMobile from 'images/svg/responsible/underage-mobile.svg'
 import Filtering from 'images/svg/responsible/filtering-controls.svg'
 import FilteringMobile from 'images/svg/responsible/filtering-controls-mobile.svg'
 
 const help_content = [
-    {
-        header: <Localize translate_text="GAMSTOP" />,
-        text: (
-            <Text width="99%" pb="1rem">
-                <Localize translate_text="If you are considering self-exclusion, you may wish to register with GAMSTOP." />
-            </Text>
-        ),
-        text2: (
-            <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />
-        ),
-        icon: <img src={GamStop} alt="gamstop" width="160" height="64" />,
-        icon_mobile: <img src={GamStop} alt="gamstop" width="113" height="34" />,
-        link: (
-            <LocalizedLinkText
-                mt="1rem"
-                to="https://www.gamstop.co.uk/"
-                color="red"
-                external="true"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Localize translate_text="Click here to find out more" />
-            </LocalizedLinkText>
-        ),
-    },
-    {
-        header: <Localize translate_text="BeGambleAware" />,
-        text: (
-            <Text pb="1rem">
-                <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
-            </Text>
-        ),
-        icon: <img src={BeGambleAware} alt="begambleaware" width="160" height="64" />,
-        icon_mobile: <img src={BeGambleAware} alt="begambleaware" width="80" height="21" />,
-        link: (
-            <LocalizedLinkText
-                mt="1rem"
-                to="https://www.begambleaware.org/"
-                color="red"
-                external="true"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Localize translate_text="Click here to find out more" />
-            </LocalizedLinkText>
-        ),
-    },
     {
         header: <Localize translate_text="Underage gambling" />,
         text: (

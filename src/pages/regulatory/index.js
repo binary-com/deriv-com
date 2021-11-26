@@ -26,7 +26,7 @@ import Labuan from 'images/common/regulatory/labuan.png'
 import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import MGA from 'images/common/regulatory/mga.png'
-import UKGC from 'images/common/regulatory/ukgc.svg'
+import UKGC from 'images/common/regulatory/ukgc.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
 

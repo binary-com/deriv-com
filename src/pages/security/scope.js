@@ -88,6 +88,7 @@ const Scope = () => {
                                                                 key={0}
                                                                 as="span"
                                                                 color="blue-9"
+                                                                size="14px"
                                                             />,
                                                             <LocalizedLinkText
                                                                 key={1}

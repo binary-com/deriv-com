@@ -9,14 +9,14 @@ import XIcon from 'images/svg/security/x_icon.svg'
 import device from 'themes/device'
 
 const Subheadline = styled(Text)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: auto;
         font-size: 14px;
     }
 `
 
 const CardWrap = styled(Flex)`
-    @media ${device.laptopM} {
+    @media ${device.tabletL} {
         flex-direction: column;
         margin-top: 0;
     }
@@ -34,7 +34,7 @@ const Card = styled.div`
         margin-left: 0;
     }
 
-    @media ${device.laptopM} {
+    @media ${device.tabletL} {
         margin-left: 0;
         margin-top: 2.4rem;
     }

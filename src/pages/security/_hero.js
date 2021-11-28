@@ -22,16 +22,12 @@ const Hero = () => {
     return (
         <>
             <Show.Desktop>
-                <HeroComponent
-                    background_data={data['hero_background_desktop']}
-                    background_height="70vh"
-                />
+                <HeroComponent background_data={data['hero_background_desktop']} />
             </Show.Desktop>
 
             <Show.Mobile>
                 <HeroComponent
                     background_data={data['hero_background_mobile']}
-                    background_height="60vh"
                     background_dark="0.3"
                 />
             </Show.Mobile>

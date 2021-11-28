@@ -16,16 +16,16 @@ const query = graphql`
             ...homePageHeroFadeIn
         }
         hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
-            ...homePageHeroFadeIn
+            ...fadeIn
         }
         hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
-            ...homePageHeroFadeIn
+            ...fadeIn
         }
         hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
-            ...homePageHeroFadeIn
+            ...fadeIn
         }
         hero_platform4: file(relativePath: { eq: "home/hero_platform4.png" }) {
-            ...homePageHeroFadeIn
+            ...fadeIn
         }
     }
 `
@@ -157,7 +157,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                     hero_platform3,
                                     hero_platform4,
                                 ]}
-                                interval={0.5}
+                                interval={4}
                             />
                         </ImageWrapper>
                     </StyledHeroContainer>

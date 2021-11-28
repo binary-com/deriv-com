@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import QueryImage from 'components/elements/query-image'
 
@@ -8,28 +8,15 @@ type HeroSlideshowProps = {
 }
 
 const StyledImage = styled(QueryImage)`
-    animation: fadeIn 5s;
-
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
+    transition: all ease-in-out 1s;
 `
 
 const HeroSlideshow = ({ images, interval }: HeroSlideshowProps): ReactElement => {
     const [active_index, setActiveIndex] = useState<number>(0)
 
-    const setNextImage = () => {
-        if (active_index >= images.length) {
-            setActiveIndex(0)
-            return
-        }
-        setActiveIndex(active_index + 1)
-    }
+    const setNextImage = useCallback(() => {
+        setActiveIndex((prevTime) => (prevTime >= images.length - 1 ? 0 : prevTime + 1))
+    }, [images])
 
     useEffect(() => {
         const slideshow_timer = setInterval(() => {

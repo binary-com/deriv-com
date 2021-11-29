@@ -23,6 +23,19 @@ const getMinMaxLimit = (minValue, maxValue) => {
     if (minValue.includes('|') && maxValue.includes('|')) {
         let min_array = minValue.split('|')
         let max_array = maxValue.split('|')
+
+        if (
+            min_array.every((val, i, arr) => val === arr[0]) &&
+            max_array.every((val, i, arr) => val === arr[0])
+        ) {
+            return (
+                <Localize
+                    translate_text="{{minValue}}-{{maxValue}}"
+                    values={{ minValue: min_array[0], maxValue: max_array[0] }}
+                />
+            )
+        }
+
         const min_max_value = min_array
             .map((amount, i) => amount + '-' + max_array[i])
             .join('<0></0>')

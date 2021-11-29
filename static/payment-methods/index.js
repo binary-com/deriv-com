@@ -12,12 +12,13 @@ import Maestro from './maestro-payment-method.pdf'
 import Mastercard from './mastercard-payment-method.pdf'
 import Neteller from './neteller-payment-method.pdf'
 import Paylivre from './paylivre-payment-method.pdf'
-import Perfectmoney from './perfect-money-payment-method.pdf'
+import PerfectMoney from './perfect-money-payment-method.pdf'
 import Skrill from './skrill-payment-method.pdf'
 import Visa from './visa-payment-method.pdf'
 import Webmoney from './webmoney-payment-method.pdf'
 import Zingpay from './zingpay-payment-method.pdf'
-
+import Sticpay from './sticpay-payment-method.pdf'
+import Diners from './diners-payment-method.pdf'
 export default {
     NganLuong_vi,
     NganLuong,
@@ -33,9 +34,11 @@ export default {
     Mastercard,
     Neteller,
     Paylivre,
-    Perfectmoney,
+    PerfectMoney,
     Skrill,
     Visa,
     Webmoney,
-    Zingpay
+    Zingpay,
+    Sticpay,
+    Diners
 }

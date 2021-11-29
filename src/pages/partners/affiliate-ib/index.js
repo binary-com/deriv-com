@@ -29,6 +29,7 @@ const meta_attributes = {
 }
 
 const StyledHeader = styled(Header)`
+    white-space: pre-line;
     width: 100%;
     max-width: 70rem;
     @media ${device.tabletS} {
@@ -162,10 +163,7 @@ const AffiliateIb = () => {
             </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('Partner with a trusted')}
-                </StyledHeader>
-                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('online trading provider')}
+                    {localize('Partner with a trusted \n online trading provider')}
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"

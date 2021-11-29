@@ -151,9 +151,9 @@ const AffiliateIb = () => {
     return (
         <Layout type="partners" margin_top={10}>
             <SEO
-                title={localize('Affiliate and IB programme | Deriv')}
+                title={localize('Affiliate partnership and IB programme | Deriv')}
                 description={localize(
-                    'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
+                    'Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms.',
                 )}
                 meta_attributes={meta_attributes}
             />
@@ -189,7 +189,7 @@ const AffiliateIb = () => {
                         <StyledContainer justify="space-around">
                             {items.map((item, index) => (
                                 <NumberWrapper key={index}>
-                                    <Header as="h2" type="page-title" align="center">
+                                    <Header as="p" type="page-title" align="center">
                                         {item.title}
                                     </Header>
                                     <StyledText align="center">{item.subtitle}</StyledText>

@@ -2,16 +2,20 @@ import React, { ReactElement, useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import QueryImage from 'components/elements/query-image'
 
-type HeroSlideshowProps = {
-    images: any[]
+type SlideshowProps = {
+    images: Record<string, unknown>[]
     interval: number
 }
 
 const StyledImage = styled(QueryImage)`
-    transition: all ease-in-out 1s;
+    .gatsby-image-wrapper {
+        div {
+            transition: opacity ease-in-out 2s;
+        }
+    }
 `
 
-const HeroSlideshow = ({ images, interval }: HeroSlideshowProps): ReactElement => {
+const Slideshow = ({ images, interval }: SlideshowProps): ReactElement => {
     const [active_index, setActiveIndex] = useState<number>(0)
 
     const setNextImage = useCallback(() => {
@@ -39,4 +43,4 @@ const HeroSlideshow = ({ images, interval }: HeroSlideshowProps): ReactElement =
     )
 }
 
-export default HeroSlideshow
+export default Slideshow

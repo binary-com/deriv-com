@@ -1,6 +1,7 @@
 import React from 'react'
 import { Signup, WhatOurClientsSay } from './home/_lazy-load'
 import Hero from './home/_hero'
+import MarketsFold from './home/_markets_fold'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -23,6 +24,7 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
+            <MarketsFold />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
         </Layout>

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel.js'
-import HeroSlideshow from './_hero-slideshow'
+import Slideshow from 'components/elements/slideshow'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
@@ -77,10 +77,11 @@ const contents_ppc = [
     <Localize key={3} translate_text="Tight spreads" />,
 ]
 
-const TypeWriter = styled(Header)`
+const HeroText = styled(Header)`
     min-height: 7.2rem;
 `
 const StyledHeroContainer = styled(Flex)`
+    min-height: 50rem;
     @media ${device.tabletL} {
         flex-direction: column;
     }
@@ -138,7 +139,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                     <Localize translate_text="Reliable." />
                                 </StyledHeader>
                             </Flex>
-                            <TypeWriter
+                            <HeroText
                                 as="h2"
                                 type="sub-section-title"
                                 color="white"
@@ -146,11 +147,11 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                 weight="normal"
                             >
                                 {text}
-                            </TypeWriter>
+                            </HeroText>
                             <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                         </Details>
                         <ImageWrapper>
-                            <HeroSlideshow
+                            <Slideshow
                                 images={[
                                     hero_platform1,
                                     hero_platform2,

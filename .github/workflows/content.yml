@@ -1,8 +1,8 @@
-name: Release Production
+name: Release Academy Content
 
 on:
    repository_dispatch:
-     types: [publish_blog]
+     types: [publish_academy]
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production

@@ -359,7 +359,7 @@ export const LocationLayout = ({ location, images }) => {
                     <StyledImageWrapper>
                         <QueryImage
                             data={images[location.first_img]}
-                            alt={display_name}
+                            alt={location.first_img_alt}
                             width="100%"
                             height="100%"
                         />
@@ -377,14 +377,14 @@ export const LocationLayout = ({ location, images }) => {
                                 <First>
                                     <QueryImage
                                         data={images[location.grid_images[0]]}
-                                        alt={location.display_name + ' Worklife'}
+                                        alt={location.grid_img_alt[0]}
                                         width="100%"
                                     />
                                 </First>
                                 <Second>
                                     <QueryImage
                                         data={images[location.grid_images[1]]}
-                                        alt={location.display_name + ' Worklife 2'}
+                                        alt={location.grid_img_alt[1]}
                                         width="100%"
                                     />
                                 </Second>
@@ -392,7 +392,7 @@ export const LocationLayout = ({ location, images }) => {
                             <Third>
                                 <QueryImage
                                     data={images[location.grid_images[2]]}
-                                    alt={location.display_name + ' Worklife 3'}
+                                    alt={location.grid_img_alt[2]}
                                     width="100%"
                                 />
                             </Third>
@@ -401,7 +401,7 @@ export const LocationLayout = ({ location, images }) => {
                             <Fourth>
                                 <QueryImage
                                     data={images[location.grid_images[3]]}
-                                    alt={location.display_name + ' Worklife 4'}
+                                    alt={location.grid_img_alt[3]}
                                     width="100%"
                                 />
                             </Fourth>

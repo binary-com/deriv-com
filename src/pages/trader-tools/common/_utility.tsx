@@ -255,12 +255,12 @@ export const resetValidationMargin = (values) => {
     return errors
 }
 
-export const resetSignupAffiliateDetails = (values) => {
+export const resetSignupAffiliateDetails = (values, is_input_country) => {
     const errors = {}
     const firstName_error = validation.firstName(values.firstName)
     const lastName_error = validation.lastName(values.lastName)
     const date_error = validation.date(values.date)
-    const country_error = validation.country(values.country)
+    const country_error = validation.country(values.country, is_input_country)
     const address_error = validation.address(values.address)
     const mobileNumber_error = validation.mobileNumber(values.mobileNumber)
     const password_error = validation.password(values.password)
@@ -275,10 +275,10 @@ export const resetSignupAffiliateDetails = (values) => {
         errors.date = date_error
     }
     if (country_error) {
-        errors.countryError = country_error
+        errors.country = country_error
     }
     if (address_error) {
-        errors.addressError = address_error
+        errors.address = address_error
     }
     if (mobileNumber_error) {
         errors.mobileNumber = mobileNumber_error

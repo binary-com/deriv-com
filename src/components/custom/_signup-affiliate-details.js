@@ -131,6 +131,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     const [is_revenue, setRevenue] = useState(false)
     const [is_turnover, setTurnover] = useState(false)
     const residence_list = useResidenceList()
+    const [is_input_country, setCountryInput] = useState()
+    const countries = residence_list.map((el) => el.name)
 
     const handlePepChange = (event) => {
         setPepChecked(event.currentTarget.checked)
@@ -141,6 +143,10 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     }
 
     const checksSelected = () => is_pep_checked && is_terms_checked && (is_revenue || is_turnover)
+
+    const checkCountryInput = (value) => {
+        setCountryInput(countries.includes(value))
+    }
 
     return (
         <SignupContent>
@@ -163,7 +169,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     password: '',
                     plan: '',
                 }}
-                validate={resetSignupAffiliateDetails}
+                validate={(values) => resetSignupAffiliateDetails(values, is_input_country)}
                 onSubmit={(values, { setFieldValue }) => {
                     setFieldValue('firstName', getSignupAffiliateValue(values.firstName))
                     setFieldValue('lastName', getSignupAffiliateValue(values.lastName))
@@ -226,9 +232,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             name: 'country',
                             type: 'select',
                             error: errors.country,
-                            value: values.country,
+                            touch: touched.selected_dropdown,
                             list: values.residenceList,
-                            touch: touched.country,
                             label: localize('Country of residence'),
                             placeholder: 'Country of residence',
                             required: true,
@@ -276,14 +281,16 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                         <DropdownSearch
                                             id={item.id}
                                             key={item.id}
-                                            selected_item={item.country}
+                                            selected_item={values.country}
                                             default_item={''}
                                             error={item.touch && item.error}
                                             items={item.list}
                                             label={localize('Country of residence')}
                                             onChange={(value) => {
+                                                checkCountryInput(value.name)
                                                 setFieldValue('country', value)
                                             }}
+                                            checkCountryInput={checkCountryInput}
                                             onBlur={handleBlur}
                                         />
                                     ) : (
@@ -406,7 +413,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
 }
 
 SignupAffiliateDetails.propTypes = {
-    address: PropTypes.bool,
+    address: PropTypes.string,
     autofocus: PropTypes.bool,
     clearEmail: PropTypes.func,
     country: PropTypes.string,

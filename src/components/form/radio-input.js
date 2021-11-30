@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 
 const Container = styled.div`
     display: flex;
-    height: 10rem;
+    height: 12rem;
     flex-direction: column;
     width: 48%;
     border-radius: 0.4rem;
@@ -30,16 +30,13 @@ const Label = styled.div`
     font-size: 14px;
     font-weight: bold;
 `
-
 const Description = styled.p`
     padding: 1rem 0;
     font-size: 12px;
 `
 
 const RadioInput = ({ label, checked, onChange, description }) => {
-    const onClickContainer = (e) => {
-        e.stopPropagation()
-        e.preventDefault()
+    const onClickContainer = () => {
         onChange({
             target: {
                 value: !checked,
@@ -51,7 +48,12 @@ const RadioInput = ({ label, checked, onChange, description }) => {
         <Container onClick={onClickContainer}>
             <Radio>
                 <Label>{localize(label)}</Label>
-                <input type="radio" checked={checked} onChange={onClickContainer} />
+                <input
+                    type="radio"
+                    style={{ cursor: 'pointer' }}
+                    checked={checked}
+                    onChange={onClickContainer}
+                />
             </Radio>
             <Description>{localize(description)}</Description>
         </Container>

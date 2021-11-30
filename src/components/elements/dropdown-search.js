@@ -44,6 +44,8 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
+    checkCountryInput,
+    id,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
@@ -53,6 +55,12 @@ const DropdownSearch = ({
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
+
+        if (id === 'dm-country-select') {
+            console.log('country!')
+            checkCountryInput(e.target.value)
+        }
+
         toggleListVisibility(e)
     }
 
@@ -125,10 +133,12 @@ const DropdownSearch = ({
 }
 
 DropdownSearch.propTypes = {
+    checkCountryInput: PropTypes.func,
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
+    id: PropTypes.string,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

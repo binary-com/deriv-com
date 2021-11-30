@@ -32,13 +32,10 @@ const StyledHeader = styled(Header)`
     white-space: pre-line;
     width: 100%;
     max-width: 70rem;
+    margin-bottom: 4rem;
     @media ${device.tabletS} {
         font-size: 40px;
         text-align: left;
-    }
-
-    &:nth-child(2) {
-        margin-bottom: 4rem;
     }
 `
 

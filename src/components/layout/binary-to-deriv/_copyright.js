@@ -6,7 +6,6 @@ import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 //EU icons
-import Gamstop from 'images/svg/layout/gamstop.svg'
 import MgaLogo from 'images/svg/layout/mga-logo.svg'
 import Over18 from 'images/svg/layout/over-18.svg'
 
@@ -39,10 +38,6 @@ const LeftLogo = styled(LocalizedLink)`
     display: flex;
     align-items: center;
 `
-const StyledGamStop = styled.img`
-    width: 96px;
-    margin-right: 16px;
-`
 const StyledMgaLogo = styled.img`
     margin-right: 2.4rem;
 `
@@ -67,13 +62,6 @@ const CopyrightSection = () => {
             </CopyrightWrapper>
             <Flex jc="flex-end" tabletL={{ jc: 'center', mt: '34px', mb: '34px' }}>
                 <LogoWrapper>
-                    <LeftLogo
-                        to="https://www.gamstop.co.uk/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <StyledGamStop src={Gamstop} alt="mga logo desktop" />
-                    </LeftLogo>
                     <LeftLogo
                         to="https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1"
                         target="_blank"

@@ -3,7 +3,6 @@ import {
     DisclaimerWrapper,
     DisclaimerParagraph,
     StaticAsset,
-    StaticAssetLink,
     RiskWarning,
 } from '../footer/common/style.js'
 import { Show } from 'components/containers'
@@ -28,20 +27,7 @@ const DisclaimerSection = () => {
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     <Localize
-                        translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated in the United Kingdom by the UK Gambling Commission (<0>account no. 39172</0>)."
-                        components={[
-                            <StaticAssetLink
-                                key={0}
-                                target="_blank"
-                                to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39172"
-                                rel="noopener noreferrer"
-                            />,
-                        ]}
-                    />
-                </DisclaimerParagraph>
-                <DisclaimerParagraph>
-                    <Localize
-                        translate_text="Deriv (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)."
+                        translate_text="Deriv (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                         components={[
                             <StaticAsset
                                 key={0}
@@ -73,18 +59,12 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> for more information."
                                 components={[
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
                                         href="https://deriv.com/responsible/"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <StaticAssetLink
-                                        key={1}
-                                        target="_blank"
-                                        to="https://www.begambleaware.org/"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -106,18 +86,12 @@ const DisclaimerSection = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> if you need further information."
                                 components={[
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
                                         href="https://deriv.com/responsible/"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <StaticAssetLink
-                                        key={1}
-                                        target="_blank"
-                                        to="https://www.begambleaware.org/"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

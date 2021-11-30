@@ -201,7 +201,6 @@ const DHero = () => {
                                         to="https://deriv.com/"
                                         rel="noopener noreferrer"
                                         secondary="true"
-                                        external="true"
                                     >
                                         Take me to Deriv
                                     </StyledLinkButton>

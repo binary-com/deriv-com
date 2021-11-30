@@ -67,7 +67,7 @@ const ArticlesTemplate = (props) => {
         return () => {
             window.removeEventListener('scroll', scrollFunc)
         }
-    })
+    }, [])
 
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners

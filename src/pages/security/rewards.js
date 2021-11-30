@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header } from 'components/elements/typography'
+import { Header, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import LowIcon from 'images/svg/security/low.svg'
 import MediumIcon from 'images/svg/security/medium.svg'
 import HighIcon from 'images/svg/security/high.svg'
 import CriticalIcon from 'images/svg/security/critical.svg'
 import device from 'themes/device'
+import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
 const Card = styled(Flex)`
     border: 1px solid #d6d6d6;
@@ -145,6 +146,21 @@ const Rewards = () => {
                     </ItemsWrapper>
                 </CardWrapper>
             </Container>
+
+            <Flex ai="center" mt="16px">
+                <Localize
+                    translate_text="<0>See a list of the vulnerability examples</0>"
+                    components={[
+                        <LocalizedLinkText
+                            mr="8px"
+                            key={0}
+                            to="/security/vulnerabilities-types/"
+                            color="red"
+                        />,
+                    ]}
+                />
+                <img src={Arrow} alt="arrow" width="16" height="16" />
+            </Flex>
         </SectionContainer>
     )
 }

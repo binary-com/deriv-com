@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
@@ -12,6 +12,7 @@ const FoldWrapper = styled.div`
 const FoldContainer = styled.div`
     width: 80%;
     margin: 0 auto;
+    overflow-x: hidden;
 `
 
 const Carousel = styled.div`
@@ -21,10 +22,15 @@ const Carousel = styled.div`
     overflow: hidden;
 `
 
-const CarouselItem = styled(Flex)`
+const ItemWrapper = styled.div`
+    z-index: 4;
+`
+
+const CarouselItemContainer = styled(Flex)`
     display: flex;
     position: relative;
     flex-direction: column;
+    justify-content: flex-start;
     width: 282px;
     padding: 32px 32px 0;
     border-radius: 8px;
@@ -35,6 +41,21 @@ const CarouselItem = styled(Flex)`
         ${(props) => props.gradient_start} 2.4%,
         ${(props) => props.gradient_end} 81.78%
     );
+    z-index: 1;
+`
+
+const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
+    position: absolute;
+    width: 220px;
+    top: ${(props) => (props.$hovered ? '220px' : '92px')};
+    right: 31px;
+    transition: ease-in 0.3s;
+    z-index: 3;
+`
+
+const CarouselBody = styled(Text)<{ $hovered: boolean }>`
+    visibility: ${(props) => (props.hovered ? 'visible' : 'hidden')};
+    z-index: 2;
 `
 
 const market_data = [
@@ -105,12 +126,49 @@ const query = graphql`
     }
 `
 
+type CarouselItemProps = {
+    header: string
+    description: any
+    image: any
+    gradient_start: string
+    gradient_end: string
+}
+
+const CarouselItem = ({
+    header,
+    description,
+    image,
+    gradient_start,
+    gradient_end,
+}: CarouselItemProps) => {
+    const [is_hovered, setHovered] = useState<boolean>(false)
+
+    return (
+        <ItemWrapper onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+            <CarouselItemContainer gradient_start={gradient_start} gradient_end={gradient_end}>
+                <Text color="white" size="var(--text-size-m)" weight="bold">
+                    {header}
+                </Text>
+                <CarouselBody color="white" size="var(--text-size-s)" hovered={is_hovered}>
+                    {description}
+                </CarouselBody>
+                <CarouselItemImage data={image} alt={header} $hovered={is_hovered} />
+            </CarouselItemContainer>
+        </ItemWrapper>
+    )
+}
+
 const MarketsFold = (): ReactElement => {
     const data = useStaticQuery(query)
 
     return (
         <FoldWrapper>
             <FoldContainer>
+                <Flex width="100%" jc="center" mb="40px">
+                    <Text size="var(--text-size-xl)" weight="bold">
+                        Markets
+                    </Text>
+                </Flex>
                 <Carousel>
                     {market_data.map((market) => {
                         const { header, description, img_name, gradient_start, gradient_end } =
@@ -118,16 +176,13 @@ const MarketsFold = (): ReactElement => {
 
                         return (
                             <CarouselItem
+                                key={header}
+                                header={header}
+                                description={description}
+                                image={data[img_name]}
                                 gradient_start={gradient_start}
                                 gradient_end={gradient_end}
-                                key={img_name}
-                            >
-                                <Text color="white" size="var(--text-size-m)">
-                                    {header}
-                                </Text>
-                                {description}
-                                <QueryImage data={data[img_name]} alt={header} />
-                            </CarouselItem>
+                            />
                         )
                     })}
                 </Carousel>

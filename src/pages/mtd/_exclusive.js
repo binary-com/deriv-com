@@ -23,6 +23,10 @@ const query = graphql`
 `
 const ContentWrapper = styled(Flex)`
     position: relative;
+
+    @media ${device.tabletS} {
+        display: none;
+    }
 `
 const ParentWrapper = styled(Flex)`
     max-width: 100%;

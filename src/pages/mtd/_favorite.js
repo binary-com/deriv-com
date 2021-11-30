@@ -17,6 +17,11 @@ const query = graphql`
         }
     }
 `
+const StyledContainer = styled(Container)`
+    @media ${device.tabletS} {
+        display: none;
+    }
+`
 const ImageWrapper = styled(Flex)`
     max-width: 384px;
     position: relative;
@@ -66,7 +71,7 @@ const ArrowImg = styled.img`
 const Favorite = () => {
     const data = useStaticQuery(query)
     return (
-        <Container>
+        <StyledContainer>
             <Flex fd="column" mb="120px" tabletL={{ mb: '60px' }}>
                 <Header type="heading-2" align="center" mb="40px" tabletL={{ mb: '24px' }}>
                     Access your favourite platforms in one place
@@ -96,7 +101,7 @@ const Favorite = () => {
                     </ImageWrapper>
                 </Flex>
             </Flex>
-        </Container>
+        </StyledContainer>
     )
 }
 

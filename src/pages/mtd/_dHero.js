@@ -220,13 +220,13 @@ const DHero = () => {
                                                     width="100%"
                                                 />
                                             </DesktopWrapper>
-                                            <MobileWrapper>
+                                            {/* <MobileWrapper>
                                                 <QueryImage
                                                     data={data[items.img_mobile]}
                                                     alt={items.img_alt_mobile}
                                                     width="100%"
                                                 />
-                                            </MobileWrapper>
+                                            </MobileWrapper> */}
                                         </Flex>
                                     )
                                 })}

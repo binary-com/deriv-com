@@ -184,7 +184,7 @@ const Regulatory = (locale) => {
                         mobile_row_gap="2rem"
                     >
                         <CssGridColumn>
-                            <Europe src={EU} alt="europe" />
+                            <Europe src={EU} alt="Europe map" />
                         </CssGridColumn>
                         <CssGridColumn padding="0.8rem 0 0">
                             <EUgrid />
@@ -306,7 +306,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={Labuan} alt="Labuan" />
+                            <Img src={Labuan} alt="Labuan Financial Services Authority " />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -341,7 +341,10 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={FSC} alt="FSC" />
+                            <Img
+                                src={FSC}
+                                alt="British Virgin Islands Financial Services Commission"
+                            />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -376,7 +379,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (V) Ltd')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={Vanuatu} alt="Vanuatu" />
+                            <Img src={Vanuatu} alt="Vanuata Financial Services Commission" />
                             <Img
                                 src={VanuatuFMA}
                                 alt="Vanuatu Financial Markets Association"
@@ -423,7 +426,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
                             </Mobile>
-                            <img src={SVG} alt="svg" />
+                            <img src={SVG} alt="Deriv SVG" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -449,7 +452,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={Deriv} alt="Deriv" />
+                            <Img src={Deriv} alt="Deriv Limited" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>

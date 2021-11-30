@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Formik, Field } from 'formik'
+import {
+    getSignupAffiliateValue,
+    resetSignupAffiliateDetails,
+} from '../../pages/trader-tools/common/_utility'
 import { DropdownSearch } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
+import Info from '../../images/svg/signup-affiliate-details/info.svg'
+import RadioInput from '../form/radio-input'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, Text, LinkText } from 'components/elements'
@@ -46,6 +53,9 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
@@ -66,8 +76,8 @@ const InputGroup = styled.div`
         margin: 25px 0 16px 0;
     }
 `
-const EmailButton = styled(Button)`
-    width: 100%;
+const SignupButton = styled(Button)`
+    width: 120px;
     font-size: 1.4rem;
     margin-bottom: 0.4rem;
     margin-top: 3.2rem;
@@ -80,7 +90,7 @@ const EmailButton = styled(Button)`
         font-size: 1.75rem;
     }
 `
-const SignupWithContainer = styled.div`
+const ChoosePlanContainer = styled.div`
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -91,6 +101,13 @@ const SignupWithContainer = styled.div`
         margin-top: 4rem;
     }
 `
+const ChoosePlanOptions = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 0;
+`
+
 const LoginText = styled(Text)`
     text-align: center;
     align-self: center;
@@ -108,109 +125,22 @@ const LoginText = styled(Text)`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
-const SignupAffiliateDetails = ({
-    autofocus,
-    clearEmail,
-    email,
-    first_name,
-    last_name,
-    date,
-    country,
-    address,
-    mobile_number,
-    password,
-    email_error_msg,
-    handleInputChange,
-    handleLogin,
-    handleValidation,
-    is_submitting,
-}) => {
-    const [is_checked, setChecked] = useState(false)
+const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
+    const [is_pep_checked, setPepChecked] = useState(false)
+    const [is_terms_checked, setTermsChecked] = useState(false)
+    const [is_revenue, setRevenue] = useState(false)
+    const [is_turnover, setTurnover] = useState(false)
     const residence_list = useResidenceList()
 
-    const handleChange = (event) => {
-        setChecked(event.currentTarget.checked)
+    const handlePepChange = (event) => {
+        setPepChecked(event.currentTarget.checked)
     }
 
-    const form_inputs = [
-        {
-            id: 'dm-first-name-input',
-            name: 'first_name',
-            type: 'text',
-            error: null,
-            value: first_name,
-            label: 'First Name',
-            placeholder: 'First Name',
-            handleError: clearEmail,
-            required: true,
-        },
-        {
-            id: 'dm-last-name-input',
-            name: 'last_name',
-            type: 'text',
-            error: null,
-            value: last_name,
-            label: 'Last Name',
-            placeholder: 'Last Name',
-            handleError: () => true,
-            required: true,
-        },
-        {
-            id: 'dm-date-input',
-            name: 'date',
-            type: 'date',
-            error: null,
-            value: date,
-            label: 'Date of Birth',
-            placeholder: 'Date of Birth',
-            handleError: () => true,
-            required: true,
-        },
-        {
-            id: 'dm-country-select',
-            name: 'country',
-            type: 'select',
-            error: null,
-            value: country,
-            label: 'Country of residence',
-            placeholder: 'Country of residence',
-            handleError: () => true,
-            required: true,
-        },
-        {
-            id: 'dm-address',
-            name: 'address',
-            type: 'text',
-            error: null,
-            value: address,
-            label: 'Address',
-            placeholder: 'Address',
-            handleError: () => true,
-            required: true,
-        },
-        {
-            id: 'dm-mobile-number',
-            name: 'mobile-number',
-            type: 'tel',
-            error: null,
-            value: mobile_number,
-            label: 'Mobile number',
-            placeholder: 'Mobile number',
-            handleError: () => true,
-            required: true,
-        },
-        {
-            id: 'dm-password',
-            name: 'password',
-            type: 'password',
-            error: null,
-            value: password,
-            label: 'Password',
-            placeholder: 'Password',
-            handleError: () => true,
-            required: true,
-        },
-    ]
+    const handleTermsChange = (event) => {
+        setTermsChecked(event.currentTarget.checked)
+    }
+
+    const checksSelected = () => is_pep_checked && is_terms_checked && (is_revenue || is_turnover)
 
     return (
         <SignupContent>
@@ -220,71 +150,245 @@ const SignupAffiliateDetails = ({
             <SubTitle>
                 {localize('Complete this form to sign up for our partnership programme.')}
             </SubTitle>
-            <InputGroup>
-                {form_inputs.map((item) => {
-                    return item.name === 'country' ? (
-                        <DropdownSearch
-                            id={item.id}
-                            key={item.id}
-                            // contractSize={values.contractSize}
-                            default_item={''}
-                            // error={item.error}
-                            items={residence_list}
-                            label={localize('Country of residence')}
-                            onChange={(value) => {
-                                console.log(value)
-                            }}
-                            // selected_item={values.symbol}
-                            // onBlur={handleBlur}
-                            // bottomLabel
-                        />
-                    ) : (
-                        <Input
-                            key={item.id}
-                            id={item.id}
-                            name={item.name}
-                            type={item.type}
-                            border="solid 1px var(--color-grey-7)"
-                            labelColor="grey-5"
-                            labelHoverColor="grey-5"
-                            background="white"
-                            error={item.error}
-                            value={item.value}
-                            label={localize(item.label)}
-                            placeholder={item.placeholder}
-                            handleError={item.handleError}
-                            onChange={handleInputChange}
-                            onBlur={handleValidation}
-                            autoFocus={autofocus}
-                            autoComplete="off"
-                            required={item.required}
-                        />
-                    )
-                })}
-            </InputGroup>
-            <SignupWithContainer>
-                <Line />
-                <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                    {localize('Choose a plan')}
-                </StyledText>
-                <Line />
-            </SignupWithContainer>
-            {/*handle Change for two types of checkbox*/}
-            <AgreementLabel
-                pepLabel={localize('I declare that I am not a politically exposed person.')}
-                isChecked={is_checked}
-                handleChangeCheckbox={handleChange}
-            />
-            <AgreementLabel isChecked={is_checked} handleChangeCheckbox={handleChange} />
-            <EmailButton
-                isChecked={is_checked}
-                type="submit"
-                secondary="true"
-                disabled={is_submitting || !is_checked || email_error_msg || !email}
-                id="dm-new-signup"
+            <Formik
+                enableReinitialize
+                initialValues={{
+                    firstName: '',
+                    lastName: '',
+                    date: '',
+                    country: '',
+                    residenceList: residence_list,
+                    address: '',
+                    mobileNumber: '',
+                    password: '',
+                    plan: '',
+                }}
+                validate={resetSignupAffiliateDetails}
+                onSubmit={(values, { setFieldValue }) => {
+                    setFieldValue('firstName', getSignupAffiliateValue(values.firstName))
+                    setFieldValue('lastName', getSignupAffiliateValue(values.lastName))
+                    setFieldValue('date', getSignupAffiliateValue(values.date))
+                    setFieldValue('country', residence_list)
+                    setFieldValue('address', getSignupAffiliateValue(values.address))
+                    setFieldValue('mobileNumber', getSignupAffiliateValue(values.mobileNumber))
+                    setFieldValue('password', getSignupAffiliateValue(values.password))
+                }}
             >
-                {localize('Signup')}
-            </EmailButton>
+                {({
+                    values,
+                    setFieldValue,
+                    setFieldError,
+                    setFieldTouched,
+                    handleBlur,
+                    errors,
+                    touched,
+                    // setErrors,
+                    // resetForm,
+                    isValid,
+                    dirty,
+                }) => {
+                    const form_inputs = [
+                        {
+                            id: 'dm-first-name-input',
+                            name: 'firstName',
+                            type: 'text',
+                            error: errors.firstName,
+                            value: values.firstName,
+                            touch: touched.firstName,
+                            label: localize('First Name'),
+                            placeholder: 'First Name',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-last-name-input',
+                            name: 'lastName',
+                            type: 'text',
+                            error: errors.lastName,
+                            value: values.lastName,
+                            touch: touched.lastName,
+                            label: localize('Last Name'),
+                            placeholder: 'Last Name',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-date-input',
+                            name: 'date',
+                            type: 'date',
+                            error: errors.date,
+                            value: values.date,
+                            touch: touched.date,
+                            label: localize('Date of Birth'),
+                            placeholder: 'Date of Birth',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-country-select',
+                            name: 'country',
+                            type: 'select',
+                            error: errors.country,
+                            value: values.country,
+                            list: values.residenceList,
+                            touch: touched.country,
+                            label: localize('Country of residence'),
+                            placeholder: 'Country of residence',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-address',
+                            name: 'address',
+                            type: 'text',
+                            error: errors.address,
+                            value: values.address,
+                            touch: touched.address,
+                            label: localize('Address'),
+                            placeholder: 'Address',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-mobile-number',
+                            name: 'mobileNumber',
+                            type: 'tel',
+                            error: errors.mobileNumber,
+                            value: values.mobileNumber,
+                            touch: touched.mobileNumber,
+                            label: localize('Mobile number'),
+                            placeholder: 'Mobile number',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-password',
+                            name: 'password',
+                            type: 'password',
+                            error: errors.password,
+                            value: values.password,
+                            touch: values.password,
+                            label: localize('Password'),
+                            placeholder: 'Password',
+                            required: true,
+                        },
+                    ]
+
+                    return (
+                        <>
+                            <InputGroup>
+                                {form_inputs.map((item) => {
+                                    return item.name === 'country' ? (
+                                        <DropdownSearch
+                                            id={item.id}
+                                            key={item.id}
+                                            selected_item={item.country}
+                                            default_item={''}
+                                            error={item.touch && item.error}
+                                            items={item.list}
+                                            label={localize('Country of residence')}
+                                            onChange={(value) => {
+                                                setFieldValue('country', value)
+                                            }}
+                                            onBlur={handleBlur}
+                                        />
+                                    ) : (
+                                        <Field
+                                            name={item.name}
+                                            key={item.id}
+                                            onChange={(value) => {
+                                                setFieldValue(item.name, value)
+                                            }}
+                                        >
+                                            {({ field }) => (
+                                                <Input
+                                                    {...field}
+                                                    id={item.id}
+                                                    type={item.type}
+                                                    border="solid 1px var(--color-grey-7)"
+                                                    labelColor="grey-5"
+                                                    labelHoverColor="grey-5"
+                                                    background="white"
+                                                    error={item.touch && item.error}
+                                                    label={localize(item.label)}
+                                                    placeholder={item.placeholder}
+                                                    handleError={(current_input) => {
+                                                        setFieldValue(item.name, '', false)
+                                                        setFieldError(item.name, '')
+                                                        setFieldTouched(item.name, false, false)
+                                                        current_input.focus()
+                                                    }}
+                                                    onBlur={handleBlur}
+                                                    autoFocus={autofocus}
+                                                    autoComplete="off"
+                                                    required={item.required}
+                                                />
+                                            )}
+                                        </Field>
+                                    )
+                                })}
+                            </InputGroup>
+                            <ChoosePlanContainer>
+                                <Line />
+                                <StyledText color="grey-5" align="center" tabletFontSize="12px">
+                                    {localize('Choose a plan ')}
+                                    <img src={Info} alt="info" />
+                                </StyledText>
+                                <Line />
+                            </ChoosePlanContainer>
+                            <ChoosePlanOptions>
+                                <Field name="revenue">
+                                    {({ field }) => (
+                                        <RadioInput
+                                            {...field}
+                                            onChange={(e) => {
+                                                setRevenue(e.target.value)
+                                                setTurnover(false)
+                                                setFieldValue('plan', 'Revenue share')
+                                            }}
+                                            checked={is_revenue}
+                                            label={'Revenue share'}
+                                            description={
+                                                'Earn based on the monthly net revenue generated by your clients.'
+                                            }
+                                        />
+                                    )}
+                                </Field>
+                                <Field name="turnover">
+                                    {({ field }) => (
+                                        <RadioInput
+                                            {...field}
+                                            onChange={(e) => {
+                                                setTurnover(e.target.value)
+                                                setRevenue(false)
+                                                setFieldValue('plan', 'Turnover')
+                                            }}
+                                            checked={is_turnover}
+                                            label={'Turnover'}
+                                            description={
+                                                'Earn based on each contract’s payout probability.'
+                                            }
+                                        />
+                                    )}
+                                </Field>
+                            </ChoosePlanOptions>
+                            <AgreementLabel
+                                pepLabel={localize(
+                                    'I declare that I am not a politically exposed person.',
+                                )}
+                                isChecked={is_pep_checked}
+                                handleChangeCheckbox={handlePepChange}
+                            />
+                            <AgreementLabel
+                                isChecked={is_terms_checked}
+                                handleChangeCheckbox={handleTermsChange}
+                            />
+                            <SignupButton
+                                id="dm-new-signup"
+                                secondary
+                                type="submit"
+                                disabled={!isValid || !dirty || !checksSelected()}
+                            >
+                                {localize('Signup')}
+                            </SignupButton>
+                        </>
+                    )
+                }}
+            </Formik>
             <LoginText>
                 {localize('Already have an account?')}
                 <StyledLinkText

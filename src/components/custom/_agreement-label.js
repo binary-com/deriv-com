@@ -69,7 +69,7 @@ AgreementLabel.propTypes = {
     handleChangeCheckbox: PropTypes.func,
     isChecked: PropTypes.bool,
     link_text: PropTypes.string,
-    pepLabel: PropTypes.bool,
+    pepLabel: PropTypes.string,
 }
 
 export default AgreementLabel

@@ -6,6 +6,14 @@ const validation_regex_number = (maxDigit) =>
 
 const validation_regex_number_with_negative = (maxDigit) =>
     new RegExp(`^-?\\d{0,${maxDigit}}\\.{0,1}\\d{0,${maxDigit}}$`)
+const validation_regex = {
+    number: /^\d*\.?\d+$/,
+    numberWithNegative: /^-?\d*\.{0,1}\d+$/,
+    integer: /^\d+$/,
+    alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
+    phone: /^\+?((-|\s)*[0-9])*$/,
+    password: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/,
+}
 
 const validation_is_exceed_number = (input, maxDigit) => {
     const max_digit = maxDigit || 15
@@ -17,6 +25,8 @@ const validation_is_exceed_number = (input, maxDigit) => {
     }
     return true
 }
+
+const validation_is_lack_number = (input, minDigit) => input.length > minDigit
 
 const validation_is_not_zero = (input) => {
     if (input == 0) {
@@ -34,6 +44,61 @@ const numberValidation = (input, fieldName, maxDigit) => {
         return localize('Reached maximum number of digits')
     } else if (!validation_is_not_zero(input)) {
         return localize('Input must be greater than 0')
+    }
+
+    return null
+}
+
+const nameValition = (input, fieldName, minDigit, maxDigit) => {
+    if (!input) {
+        return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
+    } else if (
+        !validation_is_exceed_number(input, maxDigit) ||
+        !validation_is_lack_number(input, minDigit)
+    ) {
+        return localize(`You should enter ${minDigit}-${maxDigit} characters.`)
+    } else if (validation_regex.alphabet.test(input)) {
+        return localize('Only alphabet is allowed')
+    }
+    return null
+}
+
+const phoneValidation = (input, fieldName, minDigit, maxDigit) => {
+    if (!input) {
+        return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
+    } else if (
+        !validation_is_exceed_number(input, maxDigit) ||
+        !validation_is_lack_number(input, minDigit)
+    ) {
+        return localize(`You should enter ${minDigit}-${maxDigit} numbers.`)
+    } else if (!validation_regex.phone.test(input)) {
+        return localize(`Please enter a valid phone number (e.g. +15417541234)`)
+    }
+    return null
+}
+
+const passwordValidation = (input, fieldName, minDigit, maxDigit) => {
+    if (!input) {
+        return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
+    } else if (
+        !validation_is_exceed_number(input, maxDigit) ||
+        !validation_is_lack_number(input, minDigit)
+    ) {
+        return localize(`You should enter ${minDigit}-${maxDigit} characters.`)
+    } else if (!validation_regex.password.test(input)) {
+        return localize(`Password should have lower and uppercase English letters with numbers.`)
+    }
+    return null
+}
+
+const textValidation = (input, fieldName, minDigit, maxDigit) => {
+    const length_error = localize(`You should enter ${minDigit}-${maxDigit} characters.`)
+    if (!input) {
+        return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
+    } else if (!validation_is_exceed_number(input, maxDigit)) {
+        return length_error
+    } else if (!validation_is_lack_number(input, minDigit)) {
+        return length_error
     }
 
     return null
@@ -98,6 +163,30 @@ const validation = {
     },
     multiplier: (input) => {
         return numberValidation(input, localize('Multiplier'), 4)
+    },
+    firstName: (input) => {
+        return nameValition(input, localize('First Name'), 2, 50)
+    },
+    lastName: (input) => {
+        return nameValition(input, localize('Last Name'), 2, 50)
+    },
+    date: (input) => {
+        return textValidation(input, localize('Date'), 2, 50)
+    },
+    country: (input) => {
+        if (!input || input.name === 'default') {
+            return localize('Country is required')
+        }
+        return null
+    },
+    address: (input) => {
+        return textValidation(input, localize('Address'), 2, 50)
+    },
+    mobileNumber: (input) => {
+        return phoneValidation(input, localize('Mobile number'), 9, 35)
+    },
+    password: (input) => {
+        return passwordValidation(input, localize('Password'), 2, 50)
     },
 }
 export default validation

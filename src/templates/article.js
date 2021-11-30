@@ -60,10 +60,7 @@ const ArticlesTemplate = (props) => {
     }
 
     useEffect(() => {
-        const windowScroll = () => {
-            window.addEventListener('scroll', scrollFunc)
-        }
-        windowScroll()
+        window.addEventListener('scroll', scrollFunc)
         return () => {
             window.removeEventListener('scroll', scrollFunc)
         }

@@ -430,7 +430,7 @@ export const Scrollbar = styled.div`
     top: 72px;
     width: 100%;
     background: var(--color-grey-8);
-    z-index: 10000;
+    z-index: 100;
     @media ${device.laptop} {
         top: 67px;
     }

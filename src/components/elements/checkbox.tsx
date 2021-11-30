@@ -1,14 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import device from 'themes/device.js'
+
+type CheckboxProps = {
+    checked?: boolean
+    secondary?: boolean
+    id?: string
+    bg?: string
+}
+
+type StyledCheckboxProps = {
+    secondary?: boolean
+    checked?: boolean
+    background?: string
+}
+
+type IconProps = {
+    secondary?: boolean
+    checked?: boolean
+}
 
 const CheckboxContainer = styled.div`
     display: inline-block;
     vertical-align: text-bottom;
 `
 
-const Icon = styled.svg`
+const Icon = styled.svg<IconProps>`
     fill: none;
     stroke: ${(props) => {
         if (props.secondary) return 'var(--color-white)'
@@ -25,7 +42,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
     position: absolute;
 `
 
-const StyledCheckbox = styled.div`
+const StyledCheckbox = styled.div<StyledCheckboxProps>`
     display: inline-block;
     width: 1.6rem;
     height: 1.6rem;
@@ -46,7 +63,7 @@ const StyledCheckbox = styled.div`
     }
 `
 
-const Checkbox = ({ checked, secondary, id, bg, ...props }) => (
+const Checkbox = ({ checked, secondary, id, bg, ...props }: CheckboxProps): React.ReactNode => (
     <CheckboxContainer id={id}>
         <HiddenCheckbox checked={checked} {...props} />
         <StyledCheckbox checked={checked} secondary={secondary} background={bg}>
@@ -56,12 +73,5 @@ const Checkbox = ({ checked, secondary, id, bg, ...props }) => (
         </StyledCheckbox>
     </CheckboxContainer>
 )
-
-Checkbox.propTypes = {
-    bg: PropTypes.string,
-    checked: PropTypes.bool,
-    id: PropTypes.string,
-    secondary: PropTypes.bool,
-}
 
 export default Checkbox

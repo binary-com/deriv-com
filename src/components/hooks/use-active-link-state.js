@@ -27,6 +27,7 @@ const getNavigationMap = (type) => {
             return {
                 home: ['careers'],
                 locations: ['locations'],
+                besquare: ['besquare'],
             }
         case 'partners':
             return {

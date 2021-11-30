@@ -57,6 +57,11 @@ const ArticlesPage = ({ data }) => {
         ? data.directus.blog.filter((item) => item.hide_for_eu == false)
         : data.directus.blog
 
+    const meta_attributes = {
+        og_title: 'Trading tips, guides, and more.',
+        og_description:
+            'Educational content at your fingertips – everything you need to know to start trading or upgrade your trading skills.',
+    }
     return (
         <Layout type="academy">
             <SEO
@@ -64,6 +69,7 @@ const ArticlesPage = ({ data }) => {
                 description={localize(
                     "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero jc="center" ai="center">
                 <SmallContainer>
@@ -93,7 +99,10 @@ export default WithIntl()(ArticlesPage)
 export const query = graphql`
     query AllArticlesQuery {
         directus {
-            blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
+            blog(
+                filter: { status: { _eq: "published" }, test_data: { _eq: false } }
+                sort: "-published_date"
+            ) {
                 id
                 main_image {
                     id

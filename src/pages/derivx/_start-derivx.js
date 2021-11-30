@@ -23,7 +23,7 @@ const query = graphql`
         demo_step2_mobile: file(relativePath: { eq: "deriv-x/mobile-demo-2.png" }) {
             ...fadeIn
         }
-        demo_step3: file(relativePath: { eq: "deriv-x/start-trading.png" }) {
+        demo_step3: file(relativePath: { eq: "deriv-x/demo-3.png" }) {
             ...fadeIn
         }
         demo_step3_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {
@@ -47,7 +47,7 @@ const query = graphql`
         real_step3_mobile: file(relativePath: { eq: "deriv-x/mobile-real-3.png" }) {
             ...fadeIn
         }
-        real_step4: file(relativePath: { eq: "deriv-x/start-trading.png" }) {
+        real_step4: file(relativePath: { eq: "deriv-x/real-4.png" }) {
             ...fadeIn
         }
         real_step4_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {
@@ -229,8 +229,7 @@ const StartDerivX = () => {
                         {localize('Demo account')}
                     </StyledText>
                 </TabItem>
-                {/* TODO: enable this once deriv x real account is ready */}
-                {/* <TabItem
+                <TabItem
                     mobile_padding="12px 24px"
                     active={tab === 'real'}
                     onClick={() => onTabClick('real')}
@@ -238,7 +237,7 @@ const StartDerivX = () => {
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
                     </StyledText>
-                </TabItem> */}
+                </TabItem>
             </Flex>
 
             <Flex max_width="1200px">

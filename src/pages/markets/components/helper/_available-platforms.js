@@ -39,8 +39,6 @@ const StyledText = styled(Text)`
 
     @media ${device.tabletL} {
         font-size: 16px;
-        margin-bottom: 10px;
-        width: 100%;
         text-align: center;
     }
     @media ${device.mobileL} {

@@ -176,7 +176,7 @@ module.exports = {
             resolve: 'gatsby-plugin-eslint',
             options: {
                 stages: ['develop'],
-                extensions: ['js'],
+                extensions: ['js', 'ts', 'jsx', 'tsx'],
                 exclude: ['node_modules', '.cache', 'public'],
             },
         },
@@ -233,5 +233,6 @@ module.exports = {
                 },
             },
         },
+        'gatsby-plugin-use-query-params',
     ],
 }

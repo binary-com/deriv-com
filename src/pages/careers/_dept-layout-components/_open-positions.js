@@ -21,11 +21,23 @@ const PositionLink = styled(LocalizedLink)`
 const JobWrapper = styled.div`
     border-bottom: 1px solid #f2f3f4;
     display: grid;
-    grid-template-columns: 2fr 5fr auto;
+    grid-template-columns: 3fr 5fr auto;
     padding: 24px 35px 24px 18px;
 
     @media ${device.tablet} {
         grid-template-columns: 6fr 5fr auto;
+    }
+`
+const StyledVacancies = styled(Flex)`
+    @media ${device.tablet} {
+        max-width: 144px;
+        word-break: break-word;
+    }
+`
+
+const StyledHeader = styled(Header)`
+    @media (max-width: 340px) {
+        font-size: 16px;
     }
 `
 
@@ -42,11 +54,11 @@ const OpenPositions = (data) => {
                         return (
                             <PositionLink key={idx} external to={getLink(item.id)} target="_blank">
                                 <JobWrapper>
-                                    <Flex ai="center">
-                                        <Header type="subtitle-1" as="h">
+                                    <StyledVacancies ai="center">
+                                        <StyledHeader type="subtitle-1" as="h1">
                                             {item.title}
-                                        </Header>
-                                    </Flex>
+                                        </StyledHeader>
+                                    </StyledVacancies>
                                     <Flex ai="center">
                                         <Header
                                             p="15px"

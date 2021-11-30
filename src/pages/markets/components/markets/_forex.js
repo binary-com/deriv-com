@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
-import forex_content from '../../static/content/_forex'
+import { forex_content, forex_content_eu } from '../../static/content/_forex'
 import { forex_cfds } from '../../static/content/_cfds'
 import { forex_multiplier } from '../../static/content/_multipliers'
 import { forex_options } from '../../static/content/_digital-options'
@@ -11,11 +11,13 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
+import { DerivStore } from 'store'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Forex = ({ simple_step_content }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
     return (
         <>
             <WhyTrade
@@ -24,7 +26,7 @@ const Forex = ({ simple_step_content }) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {forex_content.map((content, index) => (
+                {(!is_eu_country ? forex_content : forex_content_eu).map((content, index) => (
                     <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
                 ))}
             </WhyTrade>

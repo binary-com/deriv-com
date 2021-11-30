@@ -108,9 +108,11 @@ export const NavCareers = () => {
                                 LOCATIONS
                             </CareerLink>
                             <CareerLink
+                                active={current_page === 'besquare'}
                                 activeClassName="active"
-                                to="/besquare/"
+                                to="/careers/besquare/"
                                 aria-label={'BeSquare'}
+                                partiallyActive={true}
                             >
                                 BESQUARE
                             </CareerLink>

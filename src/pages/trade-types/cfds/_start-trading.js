@@ -43,7 +43,7 @@ const StartTrading = () => {
                                       'Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital.',
                                   )
                                 : localize(
-                                      'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
+                                      'Trade with a real Deriv MT5 (DMT5) or real Deriv X account and get access to high leverage to trade positions larger than your existing capital.',
                                   )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Withdraw" />}>

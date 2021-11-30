@@ -50,7 +50,6 @@ const ArticlesTemplate = (props) => {
     }, [isMounted])
 
     const barElement = useRef(null)
-    const scrollElement = useRef(null)
 
     const scrollFunc = () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop
@@ -142,7 +141,7 @@ const ArticlesTemplate = (props) => {
                                     </Flex>
                                 </MobileBreadcrumbsWrapper>
                             </BreadcrumbsWrapper>
-                            <Scrollbar ref={scrollElement}>
+                            <Scrollbar>
                                 <ProgressContainer>
                                     <ProgressBar ref={barElement}></ProgressBar>
                                 </ProgressContainer>

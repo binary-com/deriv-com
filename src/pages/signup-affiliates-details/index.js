@@ -23,12 +23,12 @@ const Wrapper = styled.section`
 `
 
 const StyledDiv = styled.div`
-    padding: 10rem 0;
+    padding-top: 30rem;
     height: 80vh;
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
-        padding: 0;
+        padding: 60rem;
     }
 `
 

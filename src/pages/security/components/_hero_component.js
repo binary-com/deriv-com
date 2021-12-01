@@ -17,22 +17,9 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const StyledHeader = styled(Header)`
-    margin-bottom: 1.6rem;
-
-    @media ${device.tabletL} {
-        font-size: 40px;
-        line-height: 50px;
-    }
-`
-
 const Subheadline = styled(Header)`
     font-weight: normal;
-
-    @media ${device.tabletL} {
-        font-size: 18px;
-        line-height: 26px;
-    }
+    margin-top: 16px;
 `
 
 const HeroComponent = ({ background_data, background_dark }) => {
@@ -47,9 +34,9 @@ const HeroComponent = ({ background_data, background_dark }) => {
             dark={background_dark}
         >
             <StyledContainer direction="column">
-                <StyledHeader as="h1" color="white" align="center" type="heading-1">
+                <Header as="h1" color="white" align="center" type="heading-1">
                     {localize('Bug bounty program')}
-                </StyledHeader>
+                </Header>
 
                 <Subheadline as="h3" color="white" align="center" type="subtitle-1">
                     {localize('Security is a collaboration. Report bugs and be rewarded.')}

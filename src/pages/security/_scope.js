@@ -53,7 +53,7 @@ const IconWrap = styled.img`
 
 const Scope = () => {
     return (
-        <SectionContainer background="grey-30" padding="8rem 0">
+        <SectionContainer background="grey-30">
             <Container direction="column">
                 <Header as="h2" type="heading-2" align="center" mb="0.8rem">
                     {localize('Scope')}

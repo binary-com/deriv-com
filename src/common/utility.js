@@ -331,3 +331,14 @@ export const calculateReadTime = (text) => {
     const time = Math.ceil(words / wpm)
     return time
 }
+
+export const slugify = (text) =>
+    text
+        .toString()
+        .normalize('NFD') // The normalize() method returns the Unicode Normalization Form of a given string.
+        .replace(/[\u0300-\u036f]/g, '') // Remove all previously split accents
+        .toLowerCase()
+        .trim() // Remove whitespace from both sides of a string
+        .replace(/\s+/g, '-') // Replace spaces with -
+        .replace(/[^\w-]+/g, '') // Remove all non-word chars
+        .replace(/--+/g, '-') // Replace multiple - with single -

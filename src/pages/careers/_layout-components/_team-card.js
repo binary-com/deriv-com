@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { QueryImage, Text, Header } from 'components/elements'
-import { LocalizedLink, localize } from 'components/localization'
+import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 export const StyledCard = styled(LocalizedLink)`
@@ -63,15 +63,10 @@ const StyledText = styled(Text)`
     }
 `
 
-const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
+const TeamCard = ({ to, img_data, img_alt, display_team_name, tagline }) => (
     <StyledCard height="144px" to={to}>
         <ImageWrapper>
-            <QueryImage
-                data={img_data}
-                height="144px"
-                width="100%"
-                alt={localize('Team ') + display_team_name}
-            />
+            <QueryImage data={img_data} height="144px" width="100%" alt={img_alt} />
         </ImageWrapper>
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
@@ -82,6 +77,7 @@ const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
 
 TeamCard.propTypes = {
     display_team_name: PropTypes.string,
+    img_alt: PropTypes.string,
     img_data: PropTypes.object,
     tagline: PropTypes.string,
     team_name: PropTypes.string,

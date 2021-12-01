@@ -29,6 +29,7 @@ import {
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
+import LogoSecurity from 'images/svg/layout/logo-security.svg'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
@@ -870,6 +871,15 @@ const StyledNavRight = styled(NavRight)`
     }
 `
 
+const SecurityNavRight = styled(StyledNavRight)`
+    transform: unset;
+
+    > a:last-child {
+        opacity: 1;
+        color: var(--color-white);
+    }
+`
+
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
@@ -1114,6 +1124,138 @@ export const NavPartners = ({ no_login_signup }) => {
     )
 }
 
+// Note: When using layout component for security page, please add type='security' and padding_top='10rem'
+export const NavSecurity = ({ no_login_signup }) => {
+    const nav_ref = useRef(null)
+    const button_ref = useRef(null)
+    const [show_button, showButton, hideButton] = moveButton()
+    const [mounted, setMounted] = useState(false)
+    const [has_scrolled, setHasScrolled] = useState(false)
+
+    const buttonHandleScroll = () => {
+        setHasScrolled(true)
+        handleScroll(showButton, hideButton)
+    }
+    useEffect(() => {
+        setMounted(true)
+        if (!no_login_signup) {
+            document.addEventListener('scroll', buttonHandleScroll, {
+                passive: true,
+            })
+            return () => {
+                document.removeEventListener('scroll', buttonHandleScroll)
+            }
+        }
+    }, [])
+
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    return (
+        <>
+            <NavWrapperPartners ref={nav_ref}>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Go to Deriv.com')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/story/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('About us')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/contact_us/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Contact us')}
+                                </Text>
+                            </HomeLink>
+                        </StyledContainer>
+                        <DesktopLS>
+                            <LSContainer>
+                                <LanguageSwitcher short_name="true" />
+                            </LSContainer>
+                        </DesktopLS>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+                <StyledNavPartners>
+                    <StyledNavWrapper no_login_signup>
+                        <NavLeftPartners>
+                            <NavLogoLink to="/security/" aria-label={localize('Security')}>
+                                <img src={LogoSecurity} alt="logo security" />
+                            </NavLogoLink>
+                        </NavLeftPartners>
+                        <SecurityNavRight
+                            move={show_button}
+                            button_ref={button_ref}
+                            mounted={mounted}
+                            has_scrolled={has_scrolled}
+                        >
+                            <LinkButton
+                                to={affiliate_signin_url}
+                                external="true"
+                                type="affiliate_sign_in"
+                                target="_blank"
+                                tertiary
+                                style={{ width: '16rem' }}
+                            >
+                                <span>{localize('Submit a report')}</span>
+                            </LinkButton>
+                        </SecurityNavRight>
+                        {is_canvas_menu_open ? (
+                            <CloseMenuPartners
+                                src={Close}
+                                alt="close menu 2"
+                                onClick={closeOffCanvasMenu}
+                                width="16px"
+                            />
+                        ) : (
+                            <HamburgerMenuPartners
+                                src={Hamburger}
+                                alt="hamburger menu2"
+                                onClick={openOffCanvasMenu}
+                                width="16px"
+                            />
+                        )}
+
+                        <Mobile>
+                            <Flex ai="center">
+                                <LogoLinkMobile to="/partners/" aria-label={localize('Home')}>
+                                    <ResLogo src={LogoOnly} alt="reslogo" />
+                                </LogoLinkMobile>
+                                <Flex ml="auto" ai="center" width="auto">
+                                    <LanguageSwitcher short_name="true" is_high_nav />
+                                </Flex>
+                                {!no_login_signup && (
+                                    <LinkMobileLogin
+                                        to={affiliate_signin_url}
+                                        type="affiliate_sign_in"
+                                        external="true"
+                                        target="_blank"
+                                        primary
+                                    >
+                                        <Show.Desktop>
+                                            <span>{localize('Affiliate & IB log in')}</span>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <span>{localize('Log in')}</span>
+                                        </Show.Mobile>
+                                    </LinkMobileLogin>
+                                )}
+                            </Flex>
+                        </Mobile>
+                        <OffCanvasMenuPartner
+                            is_canvas_menu_open={is_canvas_menu_open}
+                            closeOffCanvasMenu={closeOffCanvasMenu}
+                        />
+                    </StyledNavWrapper>
+                </StyledNavPartners>
+            </NavWrapperPartners>
+            <CFDWarning />
+        </>
+    )
+}
+
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)
     const showButton = () => setShowButton(!show_button)
@@ -1127,6 +1269,10 @@ NavStatic.propTypes = {
 }
 
 NavPartners.propTypes = {
+    no_login_signup: PropTypes.bool,
+}
+
+NavSecurity.propTypes = {
     no_login_signup: PropTypes.bool,
 }
 

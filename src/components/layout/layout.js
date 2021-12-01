@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
 import Copyright from './copyright'
-import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
+import { Nav, NavStatic, NavPartners, NavInterim, NavSecurity } from './nav'
 import BeSquareNav from './besquare/nav'
 import BeSquareFooter from './besquare/footer'
 import JumpIndicesNav from './jump-indices/nav'
@@ -183,6 +183,10 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'security':
+            Navigation = <NavSecurity no_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
         case 'ebook':

@@ -13,6 +13,7 @@ import {
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
+import { DerivStore } from 'store'
 
 export const SharedLinkStyle = css`
     color: var(--color-white);
@@ -154,6 +155,8 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
         return getDerivAppLocalizedURL(localized_link_url[type], locale, to)
     } else if (affiliate_links.includes(type)) {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
+    } else if (deriv_social_platforms.includes(type) && type === 'smart_trader') {
+        return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_other_products.includes(type)) {
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {
@@ -187,7 +190,9 @@ const ExternalLink = ({
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = getURLFormat(type, replaceLocale(locale), to, affiliate_lang)
+    const { is_eu_country } = useContext(DerivStore)
     const show_modal =
+        is_eu_country &&
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&

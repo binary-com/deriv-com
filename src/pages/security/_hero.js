@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import HeroComponent from './components/_hero_component'
-import { Show } from 'components/containers'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const query = graphql`
     query {
@@ -18,21 +18,10 @@ const query = graphql`
 
 const Hero = () => {
     const data = useStaticQuery(query)
+    const [is_mobile] = useBrowserResize()
+    const background = is_mobile ? data['hero_background_mobile'] : data['hero_background_desktop']
 
-    return (
-        <>
-            <Show.Desktop>
-                <HeroComponent background_data={data['hero_background_desktop']} />
-            </Show.Desktop>
-
-            <Show.Mobile>
-                <HeroComponent
-                    background_data={data['hero_background_mobile']}
-                    background_dark="0.3"
-                />
-            </Show.Mobile>
-        </>
-    )
+    return <HeroComponent background_data={background} background_dark={is_mobile && '0.3'} />
 }
 
 export default Hero

@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
@@ -68,35 +69,34 @@ const StyledSection = styled(SectionContainer)`
     max-width: 100%;
     padding: 4rem 2rem 6rem;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         padding: 40px 20px 80px;
     }
 `
 const DesktopWrapper = styled(Flex)`
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         display: none;
     }
 `
 const MobileWrapper = styled(Flex)`
     display: none;
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         display: flex;
     }
 `
 const ParentWrapper = styled(Flex)`
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         max-width: 58.8rem;
         margin: 0 auto;
     }
 `
 const ItemsWrapper = styled(Flex)`
     box-shadow: ${(props) =>
-        props.visibility === 'true'
+        props.visibility
             ? '0px 0px 24px rgba(0, 0, 0, 0.08), 0px 24px 24px rgba(0, 0, 0, 0.08)'
             : 'unset'};
-    transition: opacity 0.5s ease-in;
-    padding: ${(props) => (props.visibility === 'true' ? '24px 12px 50px' : '24px 12px 32px')};
-    height: ${(props) => (props.visibility === 'true' ? '524px' : '440px')};
+    padding: ${(props) => (props.visibility ? '24px 12px 50px' : '24px 12px 32px')};
+    height: ${(props) => (props.visibility ? '524px' : '440px')};
     background: var(--color-white);
     border: 1px solid var(--color-grey-17);
     position: relative;
@@ -104,9 +104,9 @@ const ItemsWrapper = styled(Flex)`
     margin: 0 auto;
     border-radius: 8px;
     max-width: 100%;
-    transition: opacity 0.4s ease-in;
+    transition: all 0.4s 0s ease-in-out;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         max-width: 328px;
         padding: 24px 32px 68px;
         margin-bottom: 36px;
@@ -117,22 +117,23 @@ const ImageWrapper = styled(Flex)`
     height: 332px;
     margin-bottom: 24px;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         width: 264px;
         height: auto;
     }
 `
 const ContentWrapper = styled(Flex)`
     flex-direction: column;
-    display: ${(props) => (props.visibility === 'true' ? 'flex' : 'none')};
-    transition: opacity 0.4s ease-in;
-    @media ${device.tabletL} {
+    display: ${(props) => (props.visibility ? 'flex' : 'none')};
+    transition: all 0.4s 0s ease-in-out;
+
+    @media ${device.tablet} {
         display: flex;
     }
 `
 const LearnMore = styled(LocalizedLink)`
-    opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
-    transition: opacity 0.4s ease-in;
+    opacity: ${(props) => (props.visibility ? '1' : '0')};
+    transition: all 0.4s 0s ease-in-out;
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
@@ -152,7 +153,8 @@ const LearnMore = styled(LocalizedLink)`
         color: var(--color-red);
     }
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
+        opacity: 1;
         ${Text} {
             font-size: 14px;
             line-height: 20px;
@@ -163,32 +165,33 @@ const LearnMore = styled(LocalizedLink)`
 
 const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
     const data = useStaticQuery(query)
-    const [details_visible, setDetailsVisibility] = React.useState('false')
+    const [is_mobile] = useBrowserResize()
+    const [details_visible, setDetailsVisibility] = React.useState(false)
 
     return (
         <ItemsWrapper
-            onMouseEnter={() => setDetailsVisibility('true')}
-            onMouseLeave={() => setDetailsVisibility('false')}
-            visibility={details_visible}
+            onMouseEnter={() => setDetailsVisibility(true)}
+            onMouseLeave={() => setDetailsVisibility(false)}
+            visibility={details_visible && !is_mobile}
         >
             <ImageWrapper>
                 <QueryImage
                     data={data[items_details.image_url]}
                     alt={items_details.image_alt}
                     width="100%"
-                    onMouseEnter={() => setDetailsVisibility('true')}
-                    onMouseLeave={() => setDetailsVisibility('false')}
+                    onMouseEnter={() => setDetailsVisibility(true)}
+                    onMouseLeave={() => setDetailsVisibility(false)}
                 />
             </ImageWrapper>
             <Header type="subtitle-1" align="center">
                 {items_details.header}
             </Header>
-            <ContentWrapper visibility={details_visible}>
+            <ContentWrapper visibility={details_visible && !is_mobile}>
                 <Header type="paragraph-1" weight="normal" align="center">
                     {items_details.desc}
                 </Header>
             </ContentWrapper>
-            <LearnMore to={items_details.link} visibility={details_visible}>
+            <LearnMore to={items_details.link} visibility={details_visible && !is_mobile}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
@@ -201,7 +204,6 @@ const TradeTypes = (): React.ReactNode => {
         options: {
             loop: false,
             align: 'start',
-            draggable: false,
         },
         view_port: {
             height: '620px',
@@ -232,7 +234,7 @@ const TradeTypes = (): React.ReactNode => {
                 mt="8px"
                 align="center"
                 mb="40px"
-                tabletL={{ mb: '16px' }}
+                tablet={{ mb: '16px' }}
             >
                 {localize('Trade the way you want with 4 exciting trade types')}
             </Header>
@@ -251,7 +253,7 @@ const TradeTypes = (): React.ReactNode => {
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
-                <ParentWrapper tabletL={{ fd: 'column' }}>
+                <ParentWrapper tablet={{ fd: 'column' }}>
                     {ItemsDetails.map((item, index) => {
                         return (
                             <Flex key={index}>

@@ -1,29 +1,29 @@
 import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
+import { Flex, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
-import { QueryImage, Text } from 'components/elements'
+import { Carousel, QueryImage, Text } from 'components/elements'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import device from 'themes/device.js'
 
-const FoldWrapper = styled.div`
-    padding: 120px 0;
+const FoldWrapper = styled(SectionContainer)`
+    max-width: 100%;
+    padding: 120px 20px;
+
+    @media ${device.tablet} {
+        padding: 40px 16px 32px;
+    }
 `
 
-const FoldContainer = styled.div`
-    width: 80%;
+const FoldContainer = styled(Flex)`
+    flex-direction: column;
     margin: 0 auto;
-    overflow-x: hidden;
-`
-
-const Carousel = styled.div`
-    display: inline-flex;
-    gap: 24px;
-    height: 320px;
-    overflow: hidden;
 `
 
 const ItemWrapper = styled.div`
     z-index: 4;
+    height: 320px;
 `
 
 const CarouselItemContainer = styled(Flex)`
@@ -152,7 +152,13 @@ const CarouselItem = ({
                 <CarouselBody color="white" size="var(--text-size-s)" hovered={is_hovered}>
                     {description}
                 </CarouselBody>
-                <CarouselItemImage data={image} alt={header} $hovered={is_hovered} />
+                <CarouselItemImage
+                    data={image}
+                    alt={header}
+                    $hovered={is_hovered}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                />
             </CarouselItemContainer>
         </ItemWrapper>
     )
@@ -160,6 +166,32 @@ const CarouselItem = ({
 
 const MarketsFold = (): ReactElement => {
     const data = useStaticQuery(query)
+    const [is_mobile] = useBrowserResize()
+
+    const settings = {
+        options: {
+            loop: false,
+            align: 'start',
+            background: 'red',
+        },
+        view_port: {
+            padding: is_mobile ? '0 16px' : '0 120px',
+        },
+        container_style: {
+            maxWidth: '100%',
+            margin: '0 auto',
+        },
+        slide_style: {
+            width: '282px',
+            height: 'auto',
+            marginRight: is_mobile ? '16px' : '24px',
+            position: 'relative',
+        },
+        navigation_style: {
+            bottom_offset: '-10px',
+            nav_color: '--color-red',
+        },
+    }
 
     return (
         <FoldWrapper>
@@ -169,7 +201,7 @@ const MarketsFold = (): ReactElement => {
                         Markets
                     </Text>
                 </Flex>
-                <Carousel>
+                <Carousel {...settings}>
                     {market_data.map((market) => {
                         const { header, description, img_name, gradient_start, gradient_end } =
                             market

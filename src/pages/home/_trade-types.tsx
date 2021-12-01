@@ -67,7 +67,7 @@ const ItemsDetails: TradeTypesProps[] = [
 
 const StyledSection = styled(SectionContainer)`
     max-width: 100%;
-    padding: 4rem 2rem 6rem;
+    padding: 60px 20px;
 
     @media ${device.tablet} {
         padding: 40px 20px 80px;
@@ -98,7 +98,8 @@ const ItemsWrapper = styled(Flex)`
     padding: ${(props) => (props.visibility ? '24px 12px 50px' : '24px 12px 32px')};
     height: ${(props) => (props.visibility ? '524px' : '440px')};
     background: var(--color-white);
-    border: 1px solid var(--color-grey-17);
+    border: ${(props) =>
+        props.visibility ? '0px solid var(--color-grey-17)' : `1px solid var(--color-grey-17)`};
     position: relative;
     flex-direction: column;
     margin: 0 auto;

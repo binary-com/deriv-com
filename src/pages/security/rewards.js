@@ -18,6 +18,7 @@ const Card = styled(Flex)`
     height: 362px;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     padding: 24px;
     background-color: var(--color-white);
     margin: 0 12px;

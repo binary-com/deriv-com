@@ -7,7 +7,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import {
     OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -394,6 +394,21 @@ const LogoDescription = styled(Flex)`
     }
 `
 
+const DesktopWrapper = styled.div`
+    display: block;
+
+    @media (max-width: 1060px) {
+        display: none;
+    }
+`
+
+const MobileWrapper = styled.div`
+    display: none;
+
+    @media (max-width: 1060px) {
+        display: block;
+    }
+`
 const handleLogin = () => {
     redirectToTradingPlatform()
     Login.redirectToLogin()
@@ -501,7 +516,7 @@ const NavDesktop = ({
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    })
+    }, [])
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
@@ -650,7 +665,7 @@ export const Nav = ({
         <>
             <NavWrapperMain>
                 <StyledNavMain>
-                    <Show.Desktop max_width="bp1060">
+                    <DesktopWrapper>
                         <NavDesktop
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -660,8 +675,8 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Desktop>
-                    <Show.Mobile min_width="bp1060">
+                    </DesktopWrapper>
+                    <MobileWrapper>
                         <NavMobile
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -669,7 +684,7 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </StyledNavMain>
             </NavWrapperMain>
             <CFDWarning />
@@ -741,7 +756,7 @@ export const NavInterim = ({ interim_type }) => (
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <Show.Desktop>
+                    <DesktopWrapper>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
@@ -753,8 +768,8 @@ export const NavInterim = ({ interim_type }) => (
                                 />
                             </Flex>
                         </StyledLogo>
-                    </Show.Desktop>
-                    <Show.Mobile>
+                    </DesktopWrapper>
+                    <MobileWrapper>
                         <LogoLinkMobile
                             to={`/interim/${interim_type}`}
                             aria-label={localize('Home')}
@@ -772,7 +787,7 @@ export const NavInterim = ({ interim_type }) => (
                                 </LogoDescription>
                             </Flex>
                         </LogoLinkMobile>
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </Flex>
                 <Auto jc="flex-end" ai="center">
                     <LanguageSwitcher short_name="true" />
@@ -882,7 +897,7 @@ const StyledNavWrapper = styled(Wrapper)`
     }
 `
 
-const Mobile = styled(Show.Mobile)`
+const Mobile = styled(MobileWrapper)`
     width: 100%;
 `
 
@@ -922,7 +937,7 @@ const LSContainer = styled(Container)`
     margin-left: 200px;
 `
 
-const DesktopLS = styled(Show.Desktop)`
+const DesktopLS = styled(DesktopWrapper)`
     z-index: 2;
 `
 
@@ -1092,12 +1107,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <Show.Desktop>
+                                        <DesktopWrapper>
                                             <span>{localize('Affiliate & IB log in')}</span>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </DesktopWrapper>
+                                        <MobileWrapper>
                                             <span>{localize('Log in')}</span>
-                                        </Show.Mobile>
+                                        </MobileWrapper>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>

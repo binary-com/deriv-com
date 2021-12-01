@@ -1,5 +1,6 @@
 import React from 'react'
 import { Signup, WhatOurClientsSay } from './home/_lazy-load'
+import TradeTypes from './home/_trade-types'
 import Hero from './home/_hero'
 import MarketsFold from './home/_markets_fold'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
@@ -25,6 +26,7 @@ const Home = () => {
             />
             <Hero />
             <MarketsFold />
+            <TradeTypes />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
         </Layout>

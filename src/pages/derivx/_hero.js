@@ -4,7 +4,7 @@ import DHero from 'components/custom/_dhero-2'
 import { size } from 'themes/device'
 import DerivXBG from 'images/svg/deriv-x/triangle-up.svg'
 import DerivXBG2 from 'images/svg/deriv-x/triangle-down.svg'
-import deriv_x_logo from 'images/svg/deriv-x/derivx-logo-light.svg'
+import DerivXlogoL from 'images/svg/deriv-x/derivx-logo-light.svg'
 import { isBrowser } from 'common/utility'
 
 const Hero = () => {
@@ -28,7 +28,7 @@ const Hero = () => {
             title={<Localize translate_text="Deriv X" />}
             content={<Localize translate_text="The trading platform to fit your style" />}
             join_us_for_free
-            Logo={deriv_x_logo}
+            Logo={DerivXlogoL}
             image_name="deriv_x"
             is_mobile={is_mobile}
             background_svg={DerivXBG2}

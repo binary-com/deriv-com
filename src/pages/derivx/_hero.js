@@ -4,7 +4,7 @@ import DHero from 'components/custom/_dhero-2'
 import { size } from 'themes/device'
 import DerivXBG from 'images/svg/deriv-x/triangle-up.svg'
 import DerivXBG2 from 'images/svg/deriv-x/triangle-down.svg'
-import deriv_x_logo from 'images/svg/deriv-x/derivx-logo.svg'
+import deriv_x_logo from 'images/svg/deriv-x/derivx-logo-light.svg'
 import { isBrowser } from 'common/utility'
 
 const Hero = () => {

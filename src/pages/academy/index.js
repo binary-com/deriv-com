@@ -43,6 +43,58 @@ export const query = graphql`
                     description
                 }
             }
+            homepage_banners_eu: homepage_banners(
+                filter: {
+                    status: { _eq: "published" }
+                    _or: [
+                        { visibility: { _eq: "hide_for_uk" } }
+                        { visibility: { _eq: "show_for_all" } }
+                    ]
+                }
+            ) {
+                order
+                id
+                link
+                heading
+                sub_heading
+                desktop_hero: image {
+                    imageFile {
+                        childImageSharp {
+                            fluid(quality: 100) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                    }
+                    id
+                    description
+                }
+            }
+            homepage_banners_uk: homepage_banners(
+                filter: {
+                    status: { _eq: "published" }
+                    _or: [
+                        { visibility: { _eq: "hide_for_eu" } }
+                        { visibility: { _eq: "show_for_all" } }
+                    ]
+                }
+            ) {
+                order
+                id
+                link
+                heading
+                sub_heading
+                desktop_hero: image {
+                    imageFile {
+                        childImageSharp {
+                            fluid(quality: 100) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                    }
+                    id
+                    description
+                }
+            }
             market_news: blog(
                 filter: {
                     tags: { tags_id: { tag_name: { _contains: "Market report" } } }
@@ -464,28 +516,27 @@ const DerivBlog = ({ data }) => {
 
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 
-    const homepage_banner_data = data.directus.homepage_banners
-
-    //arranges homepage banners in ascendingly on order value
-    homepage_banner_data.sort((a, b) => parseInt(a.order) - parseInt(b.order))
-
-    let market_news_data,
-     recent_data,
-     featured_data
+    let market_news_data, recent_data, featured_data, homepage_banner_data
 
     if (is_eu_country) {
         market_news_data = data.directus.market_news_eu
         recent_data = data.directus.recent_eu
         featured_data = data.directus.featured_eu
+        homepage_banner_data = data.directus.homepage_banners_eu
     } else if (is_uk_country) {
         market_news_data = data.directus.market_news_uk
         recent_data = data.directus.recent_uk
         featured_data = data.directus.featured_uk
+        homepage_banner_data = data.directus.homepage_banners_uk
     } else {
         market_news_data = data.directus.market_news
         recent_data = data.directus.recent
         featured_data = data.directus.featured
+        homepage_banner_data = data.directus.homepage_banners
     }
+
+    //arranges homepage banners in ascendingly on order value
+    homepage_banner_data.sort((a, b) => parseInt(a.order) - parseInt(b.order))
 
     const non_featured_video_list_data = is_eu_country
         ? data.directus.videos_eu

@@ -48,6 +48,7 @@ export const getMargin = (values) => {
 }
 
 export const getSignupAffiliateValue = (input) => {
+    // TODO Implement future form data transfering
     return input
 }
 

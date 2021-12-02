@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Formik, Field } from 'formik'
+import { Formik, Field, Form } from 'formik'
 import {
     getSignupAffiliateValue,
     resetSignupAffiliateDetails,
@@ -16,8 +16,11 @@ import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
+const AffiliateForm = styled(Form)`
+    display: block;
+`
 const SignupContent = styled.div`
-    width: 48.4rem;
+    width: 48rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -25,7 +28,7 @@ const SignupContent = styled.div`
     background-color: var(--color-white);
     border-radius: 0.6rem;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
-
+    z-index: 1;
     @media ${device.tablet} {
         width: 53rem;
     }
@@ -40,7 +43,6 @@ const StyledHeader = styled(Header)`
         margin-bottom: 3rem;
     }
 `
-
 const SubTitle = styled(Text)`
     @media ${device.tabletL} {
         font-size: 2rem;
@@ -66,12 +68,10 @@ const StyledText = styled(Text)`
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
-
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
     margin: 2.5rem 0 0.6rem;
-
     @media ${device.mobileL} {
         margin: 25px 0 16px 0;
     }
@@ -81,7 +81,6 @@ const SignupButton = styled(Button)`
     font-size: 1.4rem;
     margin-bottom: 0.4rem;
     margin-top: 3.2rem;
-
     @media ${device.tabletL} {
         margin-top: 24px;
     }
@@ -96,7 +95,6 @@ const ChoosePlanContainer = styled.div`
     flex-direction: row;
     align-items: center;
     margin-top: 2.4rem;
-
     @media ${device.tabletL} {
         margin-top: 4rem;
     }
@@ -107,12 +105,10 @@ const ChoosePlanOptions = styled.div`
     justify-content: space-between;
     margin: 2rem 0;
 `
-
 const LoginText = styled(Text)`
-    text-align: center;
-    align-self: center;
+    text-align: left;
+    align-self: left;
     margin-top: 1.6rem;
-
     @media ${device.tabletL} {
         margin-bottom: 0;
         margin-top: 3.75rem;
@@ -121,7 +117,10 @@ const LoginText = styled(Text)`
         font-size: 2rem;
     }
 `
-
+const Agreements = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
@@ -130,8 +129,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     const [is_terms_checked, setTermsChecked] = useState(false)
     const [is_revenue, setRevenue] = useState(false)
     const [is_turnover, setTurnover] = useState(false)
+    const [is_input_country, setCountryInput] = useState(true)
     const residence_list = useResidenceList()
-    const [is_input_country, setCountryInput] = useState()
     const countries = residence_list.map((el) => el.name)
 
     const handlePepChange = (event) => {
@@ -148,14 +147,14 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
         setCountryInput(countries.includes(value))
     }
 
+    const submitValues = (values, callback) => {
+        Object.keys(values).forEach((el) => {
+            callback(el, getSignupAffiliateValue(values[el]))
+        })
+    }
+
     return (
         <SignupContent>
-            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
-                {localize('We’re glad you’re here')}
-            </StyledHeader>
-            <SubTitle>
-                {localize('Complete this form to sign up for our partnership programme.')}
-            </SubTitle>
             <Formik
                 enableReinitialize
                 initialValues={{
@@ -170,15 +169,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     plan: '',
                 }}
                 validate={(values) => resetSignupAffiliateDetails(values, is_input_country)}
-                onSubmit={(values, { setFieldValue }) => {
-                    setFieldValue('firstName', getSignupAffiliateValue(values.firstName))
-                    setFieldValue('lastName', getSignupAffiliateValue(values.lastName))
-                    setFieldValue('date', getSignupAffiliateValue(values.date))
-                    setFieldValue('country', residence_list)
-                    setFieldValue('address', getSignupAffiliateValue(values.address))
-                    setFieldValue('mobileNumber', getSignupAffiliateValue(values.mobileNumber))
-                    setFieldValue('password', getSignupAffiliateValue(values.password))
-                }}
+                onSubmit={(values, { setFieldValue }) => submitValues(values, setFieldValue)}
             >
                 {({
                     values,
@@ -188,8 +179,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     handleBlur,
                     errors,
                     touched,
-                    // setErrors,
-                    // resetForm,
                     isValid,
                     dirty,
                 }) => {
@@ -274,7 +263,15 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     ]
 
                     return (
-                        <>
+                        <AffiliateForm>
+                            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
+                                {localize('We’re glad you’re here')}
+                            </StyledHeader>
+                            <SubTitle>
+                                {localize(
+                                    'Complete this form to sign up for our partnership programme.',
+                                )}
+                            </SubTitle>
                             <InputGroup>
                                 {form_inputs.map((item) => {
                                     return item.name === 'country' ? (
@@ -373,17 +370,19 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                     )}
                                 </Field>
                             </ChoosePlanOptions>
-                            <AgreementLabel
-                                pepLabel={localize(
-                                    'I declare that I am not a politically exposed person.',
-                                )}
-                                isChecked={is_pep_checked}
-                                handleChangeCheckbox={handlePepChange}
-                            />
-                            <AgreementLabel
-                                isChecked={is_terms_checked}
-                                handleChangeCheckbox={handleTermsChange}
-                            />
+                            <Agreements>
+                                <AgreementLabel
+                                    pepLabel={localize(
+                                        'I declare that I am not a politically exposed person.',
+                                    )}
+                                    isChecked={is_pep_checked}
+                                    handleChangeCheckbox={handlePepChange}
+                                />
+                                <AgreementLabel
+                                    isChecked={is_terms_checked}
+                                    handleChangeCheckbox={handleTermsChange}
+                                />
+                            </Agreements>
                             <SignupButton
                                 id="dm-new-signup"
                                 secondary
@@ -392,7 +391,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             >
                                 {localize('Signup')}
                             </SignupButton>
-                        </>
+                        </AffiliateForm>
                     )
                 }}
             </Formik>

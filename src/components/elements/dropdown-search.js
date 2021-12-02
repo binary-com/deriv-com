@@ -57,7 +57,6 @@ const DropdownSearch = ({
         setInputValue(e.target.value)
 
         if (id === 'dm-country-select') {
-            console.log('country!')
             checkCountryInput(e.target.value)
         }
 

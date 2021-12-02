@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import SignupAffiliateDetails from '../../components/custom/_signup-affiliate-details'
 import Benefits from './_benefits'
-import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
@@ -18,38 +18,25 @@ const Wrapper = styled.section`
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
-        padding: 0;
+        padding-top: 40px;
     }
 `
-
 const StyledDiv = styled.div`
-    padding-top: 30rem;
-    height: 80vh;
+    padding-top: 20rem;
     background-color: rgba(200, 214, 215, 0.22);
-
     @media ${device.mobileL} {
-        padding: 60rem;
+        padding-top: 40rem;
     }
 `
-
 const StyledMap = styled.img`
     width: 100%;
     overflow: initial;
-
     @media ${device.laptop} {
-        width: auto;
+        width: 100%;
     }
 `
 
 const affiliateSignupDetails = () => {
-    const [submit_state, setSubmitState] = useState('')
-    const [email, setEmail] = useState('')
-
-    const updateSubmitState = (status_arg, email_arg) => {
-        setSubmitState(status_arg)
-        setEmail(email_arg)
-    }
-
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
@@ -59,18 +46,12 @@ const affiliateSignupDetails = () => {
                 )}
             />
             <Wrapper>
-                {submit_state !== 'success' && <Benefits />}
-
-                <Signup
-                    appearance={Appearances.affiliateSignupDetails}
-                    bgColor="grey-14"
-                    onSubmit={updateSubmitState}
-                    submit_state={submit_state}
-                    email={email}
-                    autofocus={true}
-                />
+                <Benefits />
+                <SignupAffiliateDetails />
             </Wrapper>
-            <StyledDiv>{submit_state !== 'success' && <StyledMap src={Map} alt="map" />}</StyledDiv>
+            <StyledDiv>
+                <StyledMap src={Map} alt="map" />
+            </StyledDiv>
         </Layout>
     )
 }

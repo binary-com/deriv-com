@@ -1,12 +1,8 @@
-name: Release Production
+name: Release Academy Content
 
 on:
-    push:
-        tags:
-            - 'production*'
-        paths-ignore:
-            - '**.md'
-
+   repository_dispatch:
+     types: [publish_academy]
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
@@ -91,15 +87,12 @@ jobs:
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "production(.*)"
-            - name: Building docker image 🐳
-              run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
-
-            - name: Pushing Image to docker hub 🐳
+              
+            - name: Fetching latest tag
               run: |
-                  echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
-
+                  git fetch --prune --unshallow --tags
+                  echo "GIT_TAG_NAME=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
+                  
             - name: Deploy 🚀
               run: |
                   export NAMESPACE="deriv-com-production"

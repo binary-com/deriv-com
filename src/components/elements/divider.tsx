@@ -1,7 +1,16 @@
 import styled from 'styled-components'
 import { Margins } from 'themes/function'
+import type { MarginsProps } from 'themes/function'
 
-const Divider = styled.hr`
+type DividerSpecificProps = {
+    width?: string
+    height?: string
+    color?: string
+}
+
+type DividerProps = DividerSpecificProps & MarginsProps & React.HTMLProps<HTMLHRElement>
+
+const Divider = styled.hr<DividerProps>`
     border: none;
     width: ${(props) => (props.width ? props.width : '100%')};
     height: ${(props) => (props.height ? props.height : '1px')};

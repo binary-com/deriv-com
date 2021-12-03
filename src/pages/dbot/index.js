@@ -70,7 +70,7 @@ const trading = [
         image_alt: <Localize translate_text="Tools" />,
     },
     {
-        title: <Localize translate_text="Track your performance" />,
+        title: <Localize translate_text="Image can be here" />,
         subtitle: (
             <Localize translate_text="See how your bot is performing as it executes each trade and receive notifications via Telegram." />
         ),

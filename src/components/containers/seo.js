@@ -83,7 +83,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     return (
         <Helmet
             htmlAttributes={{
-                formatted_lang,
+                lang: formatted_lang,
             }}
             title={title}
             defer={false}

@@ -54,7 +54,7 @@ const TrustPilotWidget = styled(Flex)`
     }
 `
 
-const QuoteIcon = styled.img`
+const QuoteIcon = styled.span`
     position: absolute;
     width: 160px;
     height: 128px;

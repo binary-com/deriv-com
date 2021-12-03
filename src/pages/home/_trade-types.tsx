@@ -225,7 +225,7 @@ const TradeTypes = (): React.ReactNode => {
         },
     }
     return (
-        <StyledSection padding="4rem 2rem 8rem">
+        <StyledSection>
             <Header as="h2" type="heading-2" align="center">
                 {localize('Trade types')}
             </Header>

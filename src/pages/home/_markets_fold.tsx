@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
-import { Carousel, QueryImage, Text } from 'components/elements'
+import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
 
@@ -12,7 +12,7 @@ const FoldWrapper = styled(SectionContainer)`
     padding: 120px 20px;
 
     @media ${device.tablet} {
-        padding: 40px 16px 32px;
+        padding: 40px 16px 12px;
     }
 `
 
@@ -53,9 +53,21 @@ const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
     z-index: 3;
 `
 
-const CarouselBody = styled(Text)<{ $hovered: boolean }>`
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: 24px;
+        line-height: 36px;
+    }
+`
+
+const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     visibility: ${(props) => (props.hovered ? 'visible' : 'hidden')};
     z-index: 2;
+
+    @media ${device.tablet} {
+        font-size: 16px;
+        line-height: 24px;
+    }
 `
 
 const market_data = [
@@ -144,14 +156,18 @@ const CarouselItem = ({
     const [is_hovered, setHovered] = useState<boolean>(false)
 
     return (
-        <ItemWrapper onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <ItemWrapper
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={() => setHovered(!is_hovered)}
+        >
             <CarouselItemContainer gradient_start={gradient_start} gradient_end={gradient_end}>
-                <Text color="white" size="var(--text-size-m)" weight="bold">
+                <StyledHeader color="white" type="subtitle-1" mb="8px">
                     {header}
-                </Text>
-                <CarouselBody color="white" size="var(--text-size-s)" hovered={is_hovered}>
+                </StyledHeader>
+                <StyledDescription color="white" type="paragraph-1" hovered={is_hovered}>
                     {description}
-                </CarouselBody>
+                </StyledDescription>
                 <CarouselItemImage
                     data={image}
                     alt={header}
@@ -196,10 +212,10 @@ const MarketsFold = (): ReactElement => {
     return (
         <FoldWrapper>
             <FoldContainer>
-                <Flex width="100%" jc="center" mb="40px">
-                    <Text size="var(--text-size-xl)" weight="bold">
+                <Flex width="100%" jc="center">
+                    <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
                         Markets
-                    </Text>
+                    </Header>
                 </Flex>
                 <Carousel {...settings}>
                     {market_data.map((market) => {

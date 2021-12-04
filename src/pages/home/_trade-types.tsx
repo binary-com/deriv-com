@@ -14,6 +14,7 @@ type TradeTypesProps = {
     header: any
     desc: any
     link: string
+    aria_label: string
 }
 
 type ItemsDetails = {
@@ -48,6 +49,7 @@ const ItemsDetails: TradeTypesProps[] = [
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
         ),
         link: '/trade-types/cfds/',
+        aria_label: 'CFD Details',
     },
     {
         image_url: 'trade_type_multipliers',
@@ -55,6 +57,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Multipliers" />,
         desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
         link: '/trade-types/multiplier/',
+        aria_label: 'Multiplier Details',
     },
     {
         image_url: 'trade_type_digitaloptions',
@@ -62,6 +65,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Options" />,
         desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
         link: '/trade-types/options/',
+        aria_label: 'Options Details',
     },
 ]
 
@@ -192,7 +196,11 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
                     {items_details.desc}
                 </Header>
             </ContentWrapper>
-            <LearnMore to={items_details.link} visibility={details_visible && !is_mobile}>
+            <LearnMore
+                to={items_details.link}
+                visibility={details_visible && !is_mobile}
+                aria_label={items_details.aria_label}
+            >
                 <Text mr="1rem">{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>

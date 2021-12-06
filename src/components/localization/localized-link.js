@@ -143,8 +143,8 @@ InternalLink.propTypes = {
 
 const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
 const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
-const deriv_other_products = ['binary']
-const deriv_social_platforms = ['blog', 'community', 'api', 'zoho', 'smart_trader']
+const deriv_other_products = ['binary', 'smart_trader']
+const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
 // add item to this array if you need to make an internal link open on a new tab without modal window
 // !only for  paths without localisation: add item to this array if you need to make an internal link open on a new tab without modal window
 const only_en_new_tab_no_modal = ['tnc/security-and-privacy.pdf']
@@ -155,8 +155,6 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
         return getDerivAppLocalizedURL(localized_link_url[type], locale, to)
     } else if (affiliate_links.includes(type)) {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
-    } else if (deriv_social_platforms.includes(type) && type === 'smart_trader') {
-        return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_other_products.includes(type)) {
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {
@@ -196,6 +194,7 @@ const ExternalLink = ({
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&
+        !deriv_other_products.includes(type) &&
         !deriv_social_platforms.includes(type) &&
         !new_tab_no_modal.includes(type) &&
         !only_en_new_tab_no_modal.includes(type)

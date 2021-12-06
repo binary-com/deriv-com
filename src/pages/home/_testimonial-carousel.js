@@ -101,8 +101,16 @@ const renderNavigations = (count, active, setActive, animate) => {
                     mt: '24px',
                 }}
             >
-                <Arrows src={has_prev ? ArrowLeft : ArrowLeftFade} onClick={previous} />
-                <Arrows src={has_next ? ArrowRight : ArrowRightFade} onClick={next} />
+                <Arrows
+                    src={has_prev ? ArrowLeft : ArrowLeftFade}
+                    onClick={previous}
+                    alt="previous arrow"
+                />
+                <Arrows
+                    src={has_next ? ArrowRight : ArrowRightFade}
+                    onClick={next}
+                    alt="next arrow"
+                />
             </Navigation>
         )
     }

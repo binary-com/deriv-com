@@ -335,6 +335,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="SmartTrader" />}
                     to="trading"
+                    rel="noopener noreferrer"
                     type="smart_trader"
                     external="true"
                     target="_blank"
@@ -351,6 +352,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         title={<Localize translate_text="BinaryBot" />}
                         to="https://bot.deriv.com/"
                         external="true"
+                        rel="noopener noreferrer"
                         target="_blank"
                         onClick={onClick}
                         otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -388,6 +390,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         }
                         title={<Localize translate_text="BinaryBot" />}
                         to="https://bot.deriv.com/"
+                        rel="noopener noreferrer"
                         external="true"
                         target="_blank"
                         onClick={onClick}

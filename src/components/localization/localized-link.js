@@ -97,7 +97,6 @@ const non_localized_links = ['careers']
 
 const InternalLink = ({
     aria_label,
-    aria_labelledby,
     children,
     mounted,
     has_no_end_slash,
@@ -126,13 +125,7 @@ const InternalLink = ({
         )
     }
     return (
-        <StyledGatsbyLink
-            aria-label={aria_label}
-            aria-labelledby={aria_labelledby}
-            to={internal_to}
-            disabled={!mounted}
-            {...props}
-        >
+        <StyledGatsbyLink aria-label={aria_label} to={internal_to} disabled={!mounted} {...props}>
             {children}
         </StyledGatsbyLink>
     )
@@ -140,7 +133,6 @@ const InternalLink = ({
 
 InternalLink.propTypes = {
     aria_label: PropTypes.string,
-    aria_labelledby: PropTypes.string,
     children: PropTypes.node,
     has_no_end_slash: PropTypes.bool,
     is_anchor: PropTypes.bool,

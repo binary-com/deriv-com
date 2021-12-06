@@ -69,7 +69,7 @@ const Tablebtn = ({ btnlabel, text }) => {
                     rel="noopener noreferrer nofollow"
                     type="submit"
                     secondary="true"
-                    to={'https://deriv.com/signup/'}
+                    to={'/signup/'}
                 >
                     {btnlabel}
                 </TryButton>

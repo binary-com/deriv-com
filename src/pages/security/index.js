@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from './_hero'
-import { Rewards, AboutDeriv, Scope, SubmitABugReport } from './_lazy-load'
+import { Rewards, Scope, SubmitABugReport } from './_lazy-load'
+import AboutDeriv from './_about-deriv'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'

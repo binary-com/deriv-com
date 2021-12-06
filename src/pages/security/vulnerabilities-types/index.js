@@ -34,36 +34,6 @@ const CardItem = styled.div`
     flex-direction: column;
 `
 
-const CardText = styled(Text)`
-    margin-top: 4px;
-
-    @media ${device.tablet} {
-        font-size: 12px;
-        line-height: 18px;
-    }
-`
-
-const CardSmallText = styled(Text)`
-    @media ${device.tablet} {
-        font-size: 10px;
-        line-height: 14px;
-    }
-`
-
-const MediumText = styled(Text)`
-    @media ${device.tablet} {
-        font-size: 14px;
-        line-height: 20px;
-    }
-`
-
-const SmallText = styled(Text)`
-    @media ${device.tablet} {
-        font-size: 12px;
-        line-height: 18px;
-    }
-`
-
 const IconWrap = styled.img`
     width: 32px;
     height: 32px;
@@ -83,6 +53,22 @@ const StyledLi = styled.li`
     @media ${device.tablet} {
         font-size: 14px;
         line-height: 20px;
+    }
+`
+
+const CardText = styled(Text)`
+    margin-top: 4px;
+
+    @media ${device.tablet} {
+        font-size: 12px;
+        line-height: 18px;
+    }
+`
+
+const CardSmallText = styled(Text)`
+    @media ${device.tablet} {
+        font-size: 10px;
+        line-height: 14px;
     }
 `
 
@@ -110,12 +96,12 @@ const VulnerabilitiesTypes = () => {
                                 <CardWrap>
                                     {item.profit ? (
                                         <CardItem>
-                                            <MediumText>
+                                            <Header as="p" type="paragraph-1" weight="normal">
                                                 <Localize
                                                     translate_text={item.profit}
                                                     components={[<strong key={0} />]}
                                                 />
-                                            </MediumText>
+                                            </Header>
                                         </CardItem>
                                     ) : (
                                         item.profit_table.map((item, idx) => {
@@ -144,19 +130,20 @@ const VulnerabilitiesTypes = () => {
                                 </CardWrap>
 
                                 {item.profit_condition && (
-                                    <SmallText size="14px" mt="8px">
+                                    <Header as="p" type="paragraph-2" mt="8px" weight="normal">
                                         <Localize
                                             translate_text={item.profit_condition}
                                             components={[
                                                 <Text as="span" color="red" size="16px" key={0} />,
                                             ]}
                                         />
-                                    </SmallText>
+                                    </Header>
                                 )}
 
-                                <MediumText mt="16px">
+                                <Header as="p" type="paragraph-1" mt="16px" weight="normal">
                                     <Localize translate_text={item.description} />
-                                </MediumText>
+                                </Header>
+
                                 <StyledUl>
                                     {item.examples.map((item, idx) => {
                                         return <StyledLi key={idx}>{localize(item)}</StyledLi>

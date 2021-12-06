@@ -14,7 +14,7 @@ type TradeTypesProps = {
     header: any
     desc: any
     link: string
-    aria_label: string
+    learn_more: any
 }
 
 type ItemsDetails = {
@@ -49,7 +49,7 @@ const ItemsDetails: TradeTypesProps[] = [
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
         ),
         link: '/trade-types/cfds/',
-        aria_label: 'CFD Details',
+        learn_more: <Localize translate_text="CFD details" />,
     },
     {
         image_url: 'trade_type_multipliers',
@@ -57,7 +57,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Multipliers" />,
         desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
         link: '/trade-types/multiplier/',
-        aria_label: 'Multiplier Details',
+        learn_more: <Localize translate_text="Multiplier details" />,
     },
     {
         image_url: 'trade_type_digitaloptions',
@@ -65,7 +65,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Options" />,
         desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
         link: '/trade-types/options/',
-        aria_label: 'Options Details',
+        learn_more: <Localize translate_text="Options details" />,
     },
 ]
 
@@ -196,12 +196,8 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
                     {items_details.desc}
                 </Header>
             </ContentWrapper>
-            <LearnMore
-                to={items_details.link}
-                aria_labelledby={items_details.aria_label}
-                $visibility={details_visible && !is_mobile}
-            >
-                <Text mr="1rem">{localize('Learn more')}</Text>
+            <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
+                <Text mr="1rem">{items_details.learn_more}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
         </ItemsWrapper>

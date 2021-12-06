@@ -49,7 +49,7 @@ const numberValidation = (input, fieldName, maxDigit) => {
     return null
 }
 
-const nameValition = (input, fieldName, minDigit, maxDigit) => {
+const nameValidation = (input, fieldName, minDigit, maxDigit) => {
     if (!input) {
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (
@@ -165,10 +165,10 @@ const validation = {
         return numberValidation(input, localize('Multiplier'), 4)
     },
     firstName: (input) => {
-        return nameValition(input, localize('First Name'), 2, 50)
+        return nameValidation(input, localize('First Name'), 2, 50)
     },
     lastName: (input) => {
-        return nameValition(input, localize('Last Name'), 2, 50)
+        return nameValidation(input, localize('Last Name'), 2, 50)
     },
     date: (input) => {
         return textValidation(input, localize('Date'), 2, 50)

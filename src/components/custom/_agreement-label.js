@@ -16,8 +16,8 @@ const AgreementLabel = ({
     handleChangeCheckbox,
     isChecked,
     color,
-    pepLabel,
-    link_text = localize(pepLabel || 'I agree to the <0>terms and conditions</0>'),
+    pep_label,
+    link_text = localize(pep_label || 'I agree to the <0>terms and conditions</0>'),
 }) => {
     const handleChange = (event) => {
         handleChangeCheckbox(event)
@@ -69,7 +69,7 @@ AgreementLabel.propTypes = {
     handleChangeCheckbox: PropTypes.func,
     isChecked: PropTypes.bool,
     link_text: PropTypes.string,
-    pepLabel: PropTypes.string,
+    pep_label: PropTypes.string,
 }
 
 export default AgreementLabel

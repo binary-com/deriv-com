@@ -25,7 +25,7 @@ export const smarttrader_url = `https://smarttrader.${domain_url}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = domain_url
 export const login_url = `https://login.${domain_url}`
-// remove accessing this page
+// TODO remove accessing this page
 export const affiliate_signup_url = `https://login.${domain_url}/signup.php`
 export const affiliate_signin_url = `https://login.${domain_url}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`

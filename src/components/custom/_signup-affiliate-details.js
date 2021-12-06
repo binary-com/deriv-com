@@ -372,7 +372,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             </ChoosePlanOptions>
                             <Agreements>
                                 <AgreementLabel
-                                    pepLabel={localize(
+                                    pep_label={localize(
                                         'I declare that I am not a politically exposed person.',
                                     )}
                                     isChecked={is_pep_checked}

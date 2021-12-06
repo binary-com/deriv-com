@@ -12,7 +12,7 @@ const validation_regex = {
     integer: /^\d+$/,
     alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
     phone: /^\+?((-|\s)*[0-9])*$/,
-    password: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/,
+    password: /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]*$/,
 }
 
 const validation_is_exceed_number = (input, maxDigit) => {

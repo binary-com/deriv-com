@@ -843,7 +843,7 @@ const payment_data = [
         data: [
             {
                 method: <StyledIcon src={Dp2p} alt="DP2P" />,
-                currencies: 'Your local currency',
+                currencies: <Localize translate_text="Your local currency" />,
                 min_max_deposit: <Localize translate_text="Deriv USD account" />,
                 min_max_withdrawal: <Localize translate_text="500 USD" />,
                 deposit_time: <Localize translate_text="500 USD" />,

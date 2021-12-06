@@ -17,7 +17,6 @@ const Li = styled(Flex).attrs({ as: 'li' })`
     max-width: 38.4rem;
     display: flex;
     margin: 24px;
-    height: 96px;
 
     @media ${device.laptopM} {
         max-width: 34rem;
@@ -61,7 +60,7 @@ const SecureAccount = () => {
                 >
                     {localize('Securing your account')}
                 </StyledHeader>
-                <Ul jc="center" ai="center">
+                <Ul jc="center" ai="flex-start">
                     <Li>
                         <div>
                             <img src={DifferentPassword} alt="" width="64" height="64" />

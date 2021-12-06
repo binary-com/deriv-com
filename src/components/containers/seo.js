@@ -37,9 +37,11 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const metaDescription = description || queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
+    const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
     const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
     const default_og_description = localize('Trading platforms designed with you in mind.')
+
     let is_ach_page = false
     let current_page = ''
     let organization_schema = {}
@@ -81,7 +83,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     return (
         <Helmet
             htmlAttributes={{
-                lang,
+                lang: formatted_lang,
             }}
             title={title}
             defer={false}

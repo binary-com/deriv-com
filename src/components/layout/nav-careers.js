@@ -84,7 +84,7 @@ export const NavCareers = ({ is_besquare }) => {
             rel="noopener noreferrer"
             ml="2.4rem"
         >
-            Apply Now
+            Apply now
         </CareerButton>
     ) : (
         <CareerButton

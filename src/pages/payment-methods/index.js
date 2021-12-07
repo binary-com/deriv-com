@@ -65,11 +65,6 @@ const SectionContentContainer = styled(SectionContainer)`
         padding: 24px 0 40px;
     }
 `
-const TopContainer = styled(Container)`
-    @media ${device.tabletL} {
-        width: 100%;
-    }
-`
 const StyledTable = styled.table`
     table-layout: fixed;
     border-collapse: collapse;
@@ -372,7 +367,7 @@ const PaymentMethods = (locale) => {
                 meta_attributes={meta_attributes}
             />
             <SectionTopContainer>
-                <TopContainer direction="column" width="100%">
+                <Container direction="column" width="100%" tabletL={{ width: '100%' }}>
                     <Header as="h1" type="hero" align="center" mb="1.6rem">
                         {localize('Payment methods')}
                     </Header>
@@ -394,7 +389,7 @@ const PaymentMethods = (locale) => {
                     >
                         {localize('Learn more about our payment methods and how to use them.')}
                     </Header>
-                </TopContainer>
+                </Container>
             </SectionTopContainer>
             <Divider height="2px" />
             <SectionContentContainer>

@@ -29,7 +29,7 @@ const Container = styled(Box)`
         max-width: 1600px;
     }
     @media ${device.tabletL} {
-        width: 90%;
+        width: ${(props) => props.width || '90%'};
         padding-left: 0;
         padding-right: 0;
         flex-direction: ${(props) => props.tablet_direction};

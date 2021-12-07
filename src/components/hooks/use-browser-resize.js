@@ -5,7 +5,7 @@ import { size } from 'themes/device'
 export const useBrowserResize = (maxSize) => {
     const [is_mobile, setMobile] = useState(false)
     const [width, setWidth] = useState(isBrowser() ? window.innerWidth : 0)
-    const breakpoint = maxSize ? maxSize : size.tablet
+    const breakpoint = maxSize || size.tablet
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? width <= breakpoint : false)

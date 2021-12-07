@@ -56,22 +56,6 @@ const StyledLi = styled.li`
     }
 `
 
-const CardText = styled(Text)`
-    margin-top: 4px;
-
-    @media ${device.tablet} {
-        font-size: 12px;
-        line-height: 18px;
-    }
-`
-
-const CardSmallText = styled(Text)`
-    @media ${device.tablet} {
-        font-size: 10px;
-        line-height: 14px;
-    }
-`
-
 const VulnerabilitiesTypes = () => {
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
@@ -107,22 +91,23 @@ const VulnerabilitiesTypes = () => {
                                         item.profit_table.map((item, idx) => {
                                             return (
                                                 <CardItem second_item={idx === 1} key={idx}>
-                                                    <CardSmallText size="14px">
+                                                    <Header type="small" weight="normal">
                                                         <Localize translate_text={item.title} />
-                                                    </CardSmallText>
-                                                    <CardText weight="bold">
+                                                    </Header>
+
+                                                    <Header type="paragraph-1" mt="4px">
                                                         <Localize
                                                             translate_text={item.content}
                                                             components={[
                                                                 <Text
                                                                     as="span"
                                                                     color="red"
-                                                                    size="16px"
+                                                                    size="14px"
                                                                     key={0}
                                                                 />,
                                                             ]}
                                                         />
-                                                    </CardText>
+                                                    </Header>
                                                 </CardItem>
                                             )
                                         })

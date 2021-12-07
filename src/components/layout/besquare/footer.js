@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     ButtonWrapper,
@@ -27,7 +28,7 @@ const query = graphql`
     }
 `
 
-const BeSquareFooter = () => {
+const BeSquareFooter = ({ has_besquare_banner }) => {
     const social_media_content = [
         {
             src: Linkedin,
@@ -50,11 +51,12 @@ const BeSquareFooter = () => {
             link_to: 'https://twitter.com/besquarebyderiv',
         },
     ]
-    const hasBesquareBanner = false
+
     const data = useStaticQuery(query)
+
     return (
         <React.Fragment>
-            {hasBesquareBanner && (
+            {has_besquare_banner && (
                 <Section color="black">
                     <ContentContainer>
                         <ImageWrapper
@@ -62,11 +64,12 @@ const BeSquareFooter = () => {
                             alt="Fresh graduates discussing with their laptops"
                         />
                         <TextContainer>
-                            <Title as="h3">Next intake: August 2021</Title>
+                            <Title as="h3">Next intake: 4 April 2022</Title>
                             <TextWrapper
                                 max_width={['510px', '328px']}
                                 font_size={['20px', '16px']}
                                 line_height={['30px', '24px']}
+                                margin={['-24px 49px 0 0']}
                             >
                                 <Localize
                                     translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
@@ -143,4 +146,9 @@ const BeSquareFooter = () => {
         </React.Fragment>
     )
 }
+
+BeSquareFooter.propTypes = {
+    has_besquare_banner: PropTypes.boolean,
+}
+
 export default BeSquareFooter

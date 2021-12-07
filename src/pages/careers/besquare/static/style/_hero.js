@@ -35,7 +35,7 @@ export const ImageWrapper = styled.img`
     top: 90px;
 
     @media ${device.tablet} {
-        max-width: 298px;
+        max-width: 328px;
         margin: 0 auto;
         overflow: unset;
         top: 24px;

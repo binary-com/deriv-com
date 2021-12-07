@@ -5,10 +5,10 @@ import { TextWrapper, Title } from '../../static/style/_common'
 
 const query = graphql`
     query {
-        why_deriv: file(relativePath: { eq: "be-square/why-deriv.png" }) {
+        participant_img1: file(relativePath: { eq: "be-square/participant1.png" }) {
             ...fadeIn
         }
-        bpo_team: file(relativePath: { eq: "be-square/bpo-team.png" }) {
+        participant_img2: file(relativePath: { eq: "be-square/participant2.png" }) {
             ...fadeIn
         }
     }
@@ -25,8 +25,8 @@ const WhyDeriv = () => {
         <Section>
             <ContentContainer>
                 <ImageWrapper
-                    data={data['why_deriv']}
-                    alt="Tech students discussing about BeSquare programme"
+                    data={data['participant_img1']}
+                    alt="BeSquare programme participants working on code"
                     grid_area="employee-image"
                 />
                 <div>
@@ -58,8 +58,8 @@ const WhyDeriv = () => {
                     environment.
                 </TextWrapper>
                 <ImageWrapper
-                    data={data['bpo_team']}
-                    alt="diverse and talented teams"
+                    data={data['participant_img2']}
+                    alt="BeSquare participant guided by experienced developer"
                     grid_area="bpo-image"
                 />
             </ContentContainer>

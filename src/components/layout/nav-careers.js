@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     StyledNavPartners as StyledNav,
@@ -70,10 +71,34 @@ const CareerNavLeft = styled(NavLeft)`
     }
 `
 
-export const NavCareers = () => {
+export const NavCareers = ({ is_besquare }) => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
+    const button_component = is_besquare ? (
+        <CareerButton
+            external="true"
+            secondary
+            to="https://deriv.zohorecruit.com/jobs/Careers/590522000040116003/BeSquare-Graduate-Trainee-2-0?source=CareerSite"
+            target="_blank"
+            rel="noopener noreferrer"
+            ml="2.4rem"
+        >
+            Apply Now
+        </CareerButton>
+    ) : (
+        <CareerButton
+            external="true"
+            secondary
+            type="zoho"
+            to="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ml="2.4rem"
+        >
+            Explore jobs
+        </CareerButton>
+    )
 
     return (
         <>
@@ -118,19 +143,7 @@ export const NavCareers = () => {
                             </CareerLink>
                         </CareerNavLeft>
                         <CareerRight jc="flex-end" ai="center">
-                            {has_mounted && (
-                                <CareerButton
-                                    external="true"
-                                    secondary
-                                    type="zoho"
-                                    to="/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    ml="2.4rem"
-                                >
-                                    Explore jobs
-                                </CareerButton>
-                            )}
+                            {has_mounted && button_component}
                         </CareerRight>
                     </Wrapper>
                 </StyledNav>
@@ -138,6 +151,10 @@ export const NavCareers = () => {
             <CFDWarning />
         </>
     )
+}
+
+NavCareers.propTypes = {
+    is_besquare: PropTypes.boolean,
 }
 
 export default { NavCareers }

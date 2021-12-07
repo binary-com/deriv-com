@@ -1,10 +1,11 @@
 import React from 'react'
 import Hero from './_hero'
-import { Rewards, Scope, SubmitABugReport } from './_lazy-load'
+import { Rewards, SubmitABugReport } from './_lazy-load'
 import AboutDeriv from './_about-deriv'
-import { localize, WithIntl } from 'components/localization'
+import Scope from './_scope'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+import { localize, WithIntl } from 'components/localization'
 
 const Security = () => {
     return (

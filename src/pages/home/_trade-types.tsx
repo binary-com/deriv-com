@@ -109,7 +109,7 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
     margin: 0 auto;
     border-radius: 8px;
     max-width: 100%;
-    transition: all 0.4s 0s ease-in-out;
+    transition: all 0.3s 0s ease-in-out;
 
     @media ${device.tablet} {
         max-width: 328px;
@@ -134,7 +134,7 @@ const ImageWrapper = styled(Flex)`
 const ContentWrapper = styled(Flex)<{ $visibility }>`
     flex-direction: column;
     display: ${(props) => (props.$visibility ? 'flex' : 'none')};
-    transition: all 0.4s 0s ease-in-out;
+    transition: all 0.3s 0s ease-in-out;
 
     @media ${device.tablet} {
         display: flex;
@@ -142,7 +142,8 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 `
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     opacity: ${(props) => (props.$visibility ? '1' : '0')};
-    transition: all 0.4s 0s ease-in-out;
+    width: fit-content;
+    transition: all 0.3s 0s ease-in-out;
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
@@ -164,7 +165,6 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
 
     @media ${device.tabletL} {
         opacity: 1;
-        width: fit-content;
         ${Text} {
             font-size: 14px;
             line-height: 20px;
@@ -180,8 +180,8 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
 
     return (
         <ItemsWrapper
-            onMouseEnter={() => setDetailsVisibility(true)}
-            onMouseLeave={() => setDetailsVisibility(false)}
+            onMouseOver={() => setDetailsVisibility(true)}
+            onMouseOut={() => setDetailsVisibility(false)}
             $visibility={details_visible && !is_mobile}
         >
             <ImageWrapper>
@@ -189,8 +189,8 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
                     data={data[items_details.image_url]}
                     alt={items_details.image_alt}
                     width="100%"
-                    onMouseEnter={() => setDetailsVisibility(true)}
-                    onMouseLeave={() => setDetailsVisibility(false)}
+                    onMouseOver={() => setDetailsVisibility(true)}
+                    onMouseOut={() => setDetailsVisibility(false)}
                 />
             </ImageWrapper>
             <Header type="subtitle-1" align="center">
@@ -214,6 +214,7 @@ const TradeTypes = (): React.ReactNode => {
         options: {
             loop: false,
             align: 'start',
+            containScroll: 'trimSnaps',
         },
         view_port: {
             height: '620px',

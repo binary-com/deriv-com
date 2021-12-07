@@ -54,20 +54,15 @@ const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
 `
 
 const StyledHeader = styled(Header)`
-    @media ${device.tablet} {
-        font-size: 24px;
-        line-height: 36px;
-    }
+    font-size: 24px;
+    line-height: 36px;
 `
 
 const StyledDescription = styled(Text)<{ $hovered: boolean }>`
-    visibility: ${(props) => (props.hovered ? 'visible' : 'hidden')};
+    visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
     z-index: 2;
-
-    @media ${device.tablet} {
-        font-size: 16px;
-        line-height: 24px;
-    }
+    font-size: 16px;
+    line-height: 24px;
 `
 
 const market_data = [
@@ -154,26 +149,28 @@ const CarouselItem = ({
     gradient_end,
 }: CarouselItemProps) => {
     const [is_hovered, setHovered] = useState<boolean>(false)
+    const [is_mobile] = useBrowserResize()
 
     return (
         <ItemWrapper
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onClick={() => setHovered(!is_hovered)}
+            onMouseOver={() => !is_mobile && setHovered(true)}
+            onMouseOut={() => !is_mobile && setHovered(false)}
+            onClick={() => is_mobile && setHovered(!is_hovered)}
         >
             <CarouselItemContainer gradient_start={gradient_start} gradient_end={gradient_end}>
                 <StyledHeader color="white" type="subtitle-1" mb="8px">
                     {header}
                 </StyledHeader>
-                <StyledDescription color="white" type="paragraph-1" hovered={is_hovered}>
+                <StyledDescription color="white" type="paragraph-1" $hovered={is_hovered}>
                     {description}
                 </StyledDescription>
                 <CarouselItemImage
                     data={image}
                     alt={header}
                     $hovered={is_hovered}
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
+                    onMouseOver={() => !is_mobile && setHovered(true)}
+                    onMouseOut={() => !is_mobile && setHovered(false)}
+                    onClick={() => is_mobile && setHovered(!is_hovered)}
                 />
             </CarouselItemContainer>
         </ItemWrapper>
@@ -188,7 +185,7 @@ const MarketsFold = (): ReactElement => {
         options: {
             loop: false,
             align: 'start',
-            background: 'red',
+            containScroll: 'trimSnaps',
         },
         view_port: {
             padding: is_mobile ? '0 16px' : '0 120px',

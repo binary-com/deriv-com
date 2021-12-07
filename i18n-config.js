@@ -56,7 +56,7 @@ module.exports = {
         affiliate_lang: 3,
     },
     zh_cn: {
-        path: 'zh-cn',
+        path: 'zh/cn',
         display_name: '简体中文',
         short_name: '简体',
         affiliate_lang: 10,
@@ -68,7 +68,7 @@ module.exports = {
         affiliate_lang: 5,
     },
     zh_tw: {
-        path: 'zh-tw',
+        path: 'zh/tw',
         display_name: '繁體中文',
         short_name: '繁體',
         affiliate_lang: 11,

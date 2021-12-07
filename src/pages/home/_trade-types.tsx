@@ -112,6 +112,10 @@ const ItemsWrapper = styled(Flex)`
         padding: 24px 32px 68px;
         margin-bottom: 36px;
     }
+    @media ${device.mobileS} {
+        padding: 12px;
+        height: 424px;
+    }
 `
 const ImageWrapper = styled(Flex)`
     width: 360px;
@@ -121,6 +125,9 @@ const ImageWrapper = styled(Flex)`
     @media ${device.tablet} {
         width: 264px;
         height: auto;
+    }
+    @media ${device.mobileS} {
+        width: 100%;
     }
 `
 const ContentWrapper = styled(Flex)`

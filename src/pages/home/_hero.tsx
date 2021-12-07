@@ -29,91 +29,126 @@ const query = graphql`
         }
     }
 `
+type HeroProps = {
+    is_ppc: boolean
+}
+
+const contents = [
+    <Localize key={0} translate_text="Tight spreads" />,
+    <Localize key={1} translate_text="Sharp prices" />,
+    <Localize key={2} translate_text="24x7 trading" />,
+    <Localize key={3} translate_text="100+ tradeable assets" />,
+    <Localize key={4} translate_text="20+ years of experience" />,
+]
+
+const contents_ppc = [
+    <Localize key={3} translate_text="Tight spreads" />,
+    <Localize key={2} translate_text="Sharp prices" />,
+    <Localize key={1} translate_text="100+ tradeable assets" />,
+    <Localize key={0} translate_text="20+ years of experience" />,
+]
 
 const StyledContainer = styled(Container)`
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 12rem;
+
+    @media ${device.laptopM} {
+        padding: 0 8rem;
+    }
+
     @media ${device.tabletL} {
         align-items: center;
+        max-width: 588px;
+        padding: 0 16px;
+    }
+`
+const StyledHeroContainer = styled(Flex)`
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        max-width: 100%;
+    }
+`
+const StyledHeaderWrapper = styled(Flex)`
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 `
 const HeroWrapper = styled.section`
     width: 100%;
-    padding: 8rem 0;
+    padding: 80px 0;
     background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
     position: relative;
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 40px 0 46px;
+    }
 `
 
 const HeroButton = styled(LinkButton)`
-    height: 40px;
+    padding: 17px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 205px;
     width: fit-content;
 
     @media ${device.tabletL} {
         margin: 0 auto;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    @media ${device.mobileS} {
+        font-size: 18px;
+        padding: 12px 20px;
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: 8rem;
-    line-height: 1.25;
+    font-size: 80px;
+    line-height: 100px;
 
     @media ${device.tabletL} {
         font-size: 40px;
+        line-height: 50px;
+        margin-right: 8px;
+        width: unset;
     }
 `
-const contents = [
-    <Localize key={0} translate_text="20+ years of experience" />,
-    <Localize key={1} translate_text="100+ tradeable assets" />,
-    <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="Sharp prices" />,
-    <Localize key={4} translate_text="Tight spreads" />,
-]
-
-const contents_ppc = [
-    <Localize key={0} translate_text="20+ years of experience" />,
-    <Localize key={1} translate_text="100+ tradeable assets" />,
-    <Localize key={2} translate_text="Sharp prices" />,
-    <Localize key={3} translate_text="Tight spreads" />,
-]
-
 const HeroText = styled(Header)`
-    min-height: 7.2rem;
+    min-height: auto;
 `
-const StyledHeroContainer = styled(Flex)`
-    min-height: 50rem;
-    @media ${device.tabletL} {
-        flex-direction: column;
-    }
-`
-const Details = styled(Box)`
-    width: 57%;
-    max-height: 58.7rem;
+
+const Details = styled(Flex)`
+    max-width: 486px;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 52px;
     @media ${device.bp1060} {
         max-height: unset;
     }
     @media ${device.tabletL} {
         width: unset;
+        max-width: 100%;
+        margin-right: unset;
+        margin-bottom: 40px;
     }
 `
-const ButtonWrapper = styled(Box)`
-    @media ${device.tabletL} {
-        margin-top: 3rem;
-    }
-`
-const ImageWrapper = styled(Box)`
-    width: 50.8%;
-    margin-top: 4rem;
+const ImageWrapper = styled(Flex)`
+    max-width: 662px;
+    margin: 0 auto;
+    align-items: center;
 
     @media ${device.tabletL} {
         margin-top: 0;
         width: unset;
+        padding: 0 39px;
     }
 `
-
-type HeroProps = {
-    is_ppc: boolean
-}
 
 const Hero = ({ is_ppc }: HeroProps): ReactNode => {
     const { hero_background, hero_platform1, hero_platform2, hero_platform3, hero_platform4 } =
@@ -128,7 +163,12 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                 <StyledContainer fd="column" ai="flex-start">
                     <StyledHeroContainer>
                         <Details>
-                            <Flex height="unset" mb="1.6rem" direction="column">
+                            <StyledHeaderWrapper
+                                height="unset"
+                                mb="16px"
+                                direction="column"
+                                tabletL={{ fd: 'row', mb: '8px', max_width: '100%' }}
+                            >
                                 <StyledHeader color="white">
                                     <Localize translate_text="Simple." />
                                 </StyledHeader>
@@ -138,7 +178,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                 <StyledHeader color="white">
                                     <Localize translate_text="Reliable." />
                                 </StyledHeader>
-                            </Flex>
+                            </StyledHeaderWrapper>
                             <HeroText
                                 as="h2"
                                 type="sub-section-title"
@@ -149,6 +189,17 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                 {text}
                             </HeroText>
                             <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
+                            <Box tabletL={{ mt: '-8px' }}>
+                                <HeroButton
+                                    id="dm-hero-signup"
+                                    secondary="true"
+                                    to="/signup/"
+                                    p="17px 24px"
+                                    height="64px"
+                                >
+                                    <Localize translate_text="Create free demo account" />
+                                </HeroButton>
+                            </Box>
                         </Details>
                         <ImageWrapper>
                             <Slideshow
@@ -158,15 +209,10 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                     hero_platform3,
                                     hero_platform4,
                                 ]}
-                                interval={4}
+                                interval={6}
                             />
                         </ImageWrapper>
                     </StyledHeroContainer>
-                    <ButtonWrapper>
-                        <HeroButton id="dm-hero-signup" secondary="true" to="/signup/">
-                            <Localize translate_text="Create free demo account" />
-                        </HeroButton>
-                    </ButtonWrapper>
                 </StyledContainer>
             </BackgroundImage>
         </HeroWrapper>

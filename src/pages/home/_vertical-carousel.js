@@ -5,7 +5,7 @@ import { Carousel, Header } from 'components/elements'
 
 const StyledHeader = styled(Header)`
     height: 36px;
-    margin: 10px 0;
+    line-height: 36px;
 `
 
 const VerticalCarousel = ({ contents }) => {
@@ -18,14 +18,15 @@ const VerticalCarousel = ({ contents }) => {
         },
         container_style: {
             maxWidth: 'auto',
-            margin: '2.4rem 0 3.2rem',
+            margin: '24px 0 32px',
         },
         slide_style: {
             position: 'relative',
+            height: '36px',
         },
         vertical_container: {
             flexDirection: 'column',
-            height: '43px',
+            height: '36px',
         },
     }
     return (

@@ -14,7 +14,7 @@ type TradeTypesProps = {
     header: any
     desc: any
     link: string
-    learn_more: any
+    link_text: any
 }
 
 type ItemsDetails = {
@@ -49,7 +49,7 @@ const ItemsDetails: TradeTypesProps[] = [
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
         ),
         link: '/trade-types/cfds/',
-        learn_more: <Localize translate_text="CFD details" />,
+        link_text: <Localize translate_text="More on CFDs" />,
     },
     {
         image_url: 'trade_type_multipliers',
@@ -57,7 +57,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Multipliers" />,
         desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
         link: '/trade-types/multiplier/',
-        learn_more: <Localize translate_text="Multiplier details" />,
+        link_text: <Localize translate_text="More on multipliers" />,
     },
     {
         image_url: 'trade_type_digitaloptions',
@@ -65,7 +65,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Options" />,
         desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
         link: '/trade-types/options/',
-        learn_more: <Localize translate_text="Options details" />,
+        link_text: <Localize translate_text="More on options" />,
     },
 ]
 
@@ -202,7 +202,7 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
                 </Header>
             </ContentWrapper>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
-                <Text mr="1rem">{items_details.learn_more}</Text>
+                <Text mr="1rem">{items_details.link_text}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
         </ItemsWrapper>

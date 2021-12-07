@@ -34,12 +34,11 @@ const TitleWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     max-width: 1200px;
     margin: 0 auto 24px;
-    text-align: center;
+    text-align: left;
 
     @media ${device.mobileL} {
         max-width: unset;
         margin: 0 auto 16px;
-        text-align: left;
     }
 `
 const ExampleWrapper = styled(Flex)`

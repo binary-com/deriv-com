@@ -198,7 +198,7 @@ const Layout = ({
             break
         case 'besquare':
             Navigation = <NavCareers is_besquare={true} />
-            FooterNav = <BeSquareFooter has_besquare_banner={true} />
+            FooterNav = <BeSquareFooter />
             break
         case 'careers':
             Navigation = <NavCareers />

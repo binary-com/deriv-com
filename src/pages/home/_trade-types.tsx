@@ -14,6 +14,7 @@ type TradeTypesProps = {
     header: any
     desc: any
     link: string
+    learn_more: any
 }
 
 type ItemsDetails = {
@@ -48,6 +49,7 @@ const ItemsDetails: TradeTypesProps[] = [
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
         ),
         link: '/trade-types/cfds/',
+        learn_more: <Localize translate_text="CFD details" />,
     },
     {
         image_url: 'trade_type_multipliers',
@@ -55,6 +57,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Multipliers" />,
         desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
         link: '/trade-types/multiplier/',
+        learn_more: <Localize translate_text="Multiplier details" />,
     },
     {
         image_url: 'trade_type_digitaloptions',
@@ -62,6 +65,7 @@ const ItemsDetails: TradeTypesProps[] = [
         header: <Localize translate_text="Options" />,
         desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
         link: '/trade-types/options/',
+        learn_more: <Localize translate_text="Options details" />,
     },
 ]
 
@@ -90,16 +94,16 @@ const ParentWrapper = styled(Flex)`
         margin: 0 auto;
     }
 `
-const ItemsWrapper = styled(Flex)`
+const ItemsWrapper = styled(Flex)<{ $visibility }>`
     box-shadow: ${(props) =>
-        props.visibility
+        props.$visibility
             ? '0px 0px 24px rgba(0, 0, 0, 0.08), 0px 24px 24px rgba(0, 0, 0, 0.08)'
             : 'unset'};
-    padding: ${(props) => (props.visibility ? '24px 12px 50px' : '24px 12px 32px')};
-    height: ${(props) => (props.visibility ? '524px' : '440px')};
+    padding: ${(props) => (props.$visibility ? '24px 12px 50px' : '24px 12px 32px')};
+    height: ${(props) => (props.$visibility ? '524px' : '440px')};
     background: var(--color-white);
     border: ${(props) =>
-        props.visibility ? '0px solid var(--color-grey-17)' : `1px solid var(--color-grey-17)`};
+        props.$visibility ? '0px solid var(--color-grey-17)' : `1px solid var(--color-grey-17)`};
     position: relative;
     flex-direction: column;
     margin: 0 auto;
@@ -130,17 +134,17 @@ const ImageWrapper = styled(Flex)`
         width: 100%;
     }
 `
-const ContentWrapper = styled(Flex)`
+const ContentWrapper = styled(Flex)<{ $visibility }>`
     flex-direction: column;
-    display: ${(props) => (props.visibility ? 'flex' : 'none')};
+    display: ${(props) => (props.$visibility ? 'flex' : 'none')};
     transition: all 0.4s 0s ease-in-out;
 
     @media ${device.tablet} {
         display: flex;
     }
 `
-const LearnMore = styled(LocalizedLink)`
-    opacity: ${(props) => (props.visibility ? '1' : '0')};
+const LearnMore = styled(LocalizedLink)<{ $visibility }>`
+    opacity: ${(props) => (props.$visibility ? '1' : '0')};
     transition: all 0.4s 0s ease-in-out;
     padding: 10px 16px;
     border-radius: 100px;
@@ -180,7 +184,7 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
         <ItemsWrapper
             onMouseEnter={() => setDetailsVisibility(true)}
             onMouseLeave={() => setDetailsVisibility(false)}
-            visibility={details_visible && !is_mobile}
+            $visibility={details_visible && !is_mobile}
         >
             <ImageWrapper>
                 <QueryImage
@@ -194,13 +198,13 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
             <Header type="subtitle-1" align="center">
                 {items_details.header}
             </Header>
-            <ContentWrapper visibility={details_visible && !is_mobile}>
+            <ContentWrapper $visibility={details_visible && !is_mobile}>
                 <Header type="paragraph-1" weight="normal" align="center">
                     {items_details.desc}
                 </Header>
             </ContentWrapper>
-            <LearnMore to={items_details.link} visibility={details_visible && !is_mobile}>
-                <Text mr="1rem">{localize('Learn more')}</Text>
+            <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
+                <Text mr="1rem">{items_details.learn_more}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
         </ItemsWrapper>

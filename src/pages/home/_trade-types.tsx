@@ -127,11 +127,8 @@ const ImageWrapper = styled(Flex)`
     margin-bottom: 24px;
 
     @media ${device.tablet} {
-        width: 264px;
-        height: auto;
-    }
-    @media ${device.mobileS} {
         width: 100%;
+        height: auto;
     }
 `
 const ContentWrapper = styled(Flex)<{ $visibility }>`
@@ -165,8 +162,9 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
         color: var(--color-red);
     }
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         opacity: 1;
+        width: fit-content;
         ${Text} {
             font-size: 14px;
             line-height: 20px;

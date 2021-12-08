@@ -10,7 +10,7 @@ const Container = styled.div`
     flex-direction: column;
     width: 48%;
     border-radius: 0.4rem;
-    border: 1px solid #d6dadb;
+    border: 1px solid var(--color-grey-7);
     padding: 1.6rem;
     cursor: pointer;
 

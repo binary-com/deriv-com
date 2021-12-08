@@ -72,7 +72,7 @@ const benefits_content = [
 ]
 
 const Content = styled.div`
-    width: 43.8rem;
+    width: 48.4rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

@@ -5,7 +5,7 @@ import { Formik, Field, Form } from 'formik'
 import {
     getSignupAffiliateValue,
     resetSignupAffiliateDetails,
-} from '../../pages/trader-tools/common/_utility'
+} from '../../pages/signup-affiliates-details/common/_utility'
 import { DropdownSearch } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
 import Info from '../../images/svg/signup-affiliate-details/info.svg'
@@ -37,12 +37,6 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 3rem;
-        margin-bottom: 3rem;
-    }
-`
 const SubTitle = styled(Text)`
     @media ${device.tabletL} {
         font-size: 2rem;
@@ -58,14 +52,14 @@ const StyledText = styled(Text)`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media ${(props) => device.tabletL && props.notedBox} {
-        width: 13rem;
-    }
-    @media (max-width: 340px) {
-        width: 17rem;
-    }
+    margin: 0 2px;
+
     @media ${device.tabletL} {
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
+    }
+
+    @media ${device.mobileL} {
+        font-size: 12px;
     }
 `
 const InputGroup = styled.div`
@@ -107,7 +101,6 @@ const ChoosePlanOptions = styled.div`
 `
 const LoginText = styled(Text)`
     text-align: left;
-    align-self: left;
     margin-top: 1.6rem;
     @media ${device.tabletL} {
         margin-bottom: 0;
@@ -264,9 +257,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
 
                     return (
                         <AffiliateForm>
-                            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
+                            <Header as="h4" type="sub-section-title" mb="0.8rem">
                                 {localize('We’re glad you’re here')}
-                            </StyledHeader>
+                            </Header>
                             <SubTitle>
                                 {localize(
                                     'Complete this form to sign up for our partnership programme.',
@@ -329,7 +322,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             <ChoosePlanContainer>
                                 <Line />
                                 <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                                    {localize('Choose a plan ')}
+                                    {localize('Choose a plan')}
                                     <img src={Info} alt="info" />
                                 </StyledText>
                                 <Line />

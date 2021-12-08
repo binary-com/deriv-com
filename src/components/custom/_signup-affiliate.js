@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { navigate } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, Text, LinkText } from 'components/elements'
+import { Header, Text, LinkText, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
@@ -26,28 +25,11 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 3rem;
-        margin-bottom: 3rem;
-    }
-`
 
 const SubTitle = styled(Text)`
     @media ${device.tabletL} {
         font-size: 2rem;
         margin-bottom: 1rem;
-    }
-`
-const StyledText = styled(Text)`
-    @media ${(props) => device.tabletL && props.notedBox} {
-        width: 13rem;
-    }
-    @media (max-width: 340px) {
-        width: 17rem;
-    }
-    @media ${device.tabletL} {
-        font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
 const NoteBox = styled.div`
@@ -77,33 +59,35 @@ const InputGroup = styled.div`
 const EmailButton = styled(Button)`
     width: 100%;
     font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-    margin-top: 3.2rem;
+    margin: 3.2rem auto 0.4rem;
 
     @media ${device.tabletL} {
         margin-top: 24px;
     }
 
     @media ${device.mobileL} {
-        font-size: 1.75rem;
+        width: 184px;
+        font-size: 12px;
     }
 `
 const LoginText = styled(Text)`
     text-align: center;
     align-self: center;
     margin-top: 1.6rem;
-    font-size: 15px;
+    font-size: 14px;
 
     @media ${device.tabletL} {
         margin-bottom: 0;
         margin-top: 3.75rem;
     }
     @media ${device.tabletL} {
-        font-size: 2rem;
+        font-size: 12px;
     }
 `
 const StyledLinkText = styled(LinkText)`
-    font-size: ${(props) => props.size || '14px'};
+    @media ${device.tabletL} {
+        font-size: 12px;
+    }
 `
 const SignupAffiliate = ({
     autofocus,
@@ -124,32 +108,32 @@ const SignupAffiliate = ({
 
     return (
         <SignupContent>
-            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
+            <Header as="h4" type="sub-section-title" mb="0.8rem">
                 {localize('Sign up')}
-            </StyledHeader>
+            </Header>
             <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
-
             {!is_ppc && (
                 <NoteBox>
                     <div>
-                        <StyledText
-                            mb="0.4rem"
+                        <Text
+                            mb="0.2rem"
                             notedBox
                             color="grey-16"
                             size="var(--text-size-xs)"
                             tabletFontSize="12px"
                         >
                             {localize('Want to sign up as a trader?')}
-                            <StyledLinkText
-                                id="dm-new-login-button"
-                                ml="0.5rem"
-                                size="14px"
-                                color="grey"
-                                onClick={() => navigate('/signup')}
-                            >
-                                {localize('Create a Deriv account')}
-                            </StyledLinkText>
-                        </StyledText>
+                            <LocalizedLinkText to="/signup">
+                                <StyledLinkText
+                                    id="dm-new-login-button"
+                                    ml="0.5rem"
+                                    size="14px"
+                                    color="grey"
+                                >
+                                    Create a Deriv account
+                                </StyledLinkText>
+                            </LocalizedLinkText>
+                        </Text>
                     </div>
                 </NoteBox>
             )}

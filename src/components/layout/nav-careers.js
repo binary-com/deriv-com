@@ -17,6 +17,7 @@ import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { CFDWarning } from 'components/layout'
+import { besquare_signup_url } from 'common/constants'
 
 const query = graphql`
     query {
@@ -79,7 +80,7 @@ export const NavCareers = ({ is_besquare }) => {
         <CareerButton
             external="true"
             secondary
-            to="https://deriv.zohorecruit.com/jobs/Careers/590522000040116003/BeSquare-Graduate-Trainee-2-0?source=CareerSite"
+            to={besquare_signup_url}
             target="_blank"
             rel="noopener noreferrer"
             ml="2.4rem"

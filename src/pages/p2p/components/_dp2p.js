@@ -146,7 +146,7 @@ const DP2P = ({ P2P, reverse, two_title }) => {
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader>{item.title}</StyledHeader>
+                                <StyledHeader as="h2">{item.title}</StyledHeader>
                                 <Show.Desktop>
                                     <Text>{item.subtitle}</Text>
                                 </Show.Desktop>
@@ -155,7 +155,9 @@ const DP2P = ({ P2P, reverse, two_title }) => {
                                 </Show.Mobile>
                                 {two_title && (
                                     <>
-                                        <StyledHeader mt="2.4rem">{item.second_title}</StyledHeader>
+                                        <StyledHeader as="h2" mt="2.4rem">
+                                            {item.second_title}
+                                        </StyledHeader>
                                         <Text>{item.second_subtitle}</Text>
                                     </>
                                 )}

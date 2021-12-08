@@ -4,7 +4,6 @@ import device from 'themes/device'
 
 export const ContentContainer = styled(Flex)`
     margin: 0 auto;
-    max-width: 1440px;
     flex-direction: column;
     padding-bottom: 80px;
     padding-left: 10px;
@@ -72,6 +71,9 @@ export const LineWrapper = styled.img`
 
     @media ${device.laptop} {
         bottom: 16%;
+    }
+    @media ${device.tablet} {
+        display: none;
     }
 `
 

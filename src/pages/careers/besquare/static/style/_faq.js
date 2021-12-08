@@ -37,7 +37,6 @@ export const QuestionAnswerContainer = styled.div`
 `
 
 export const Section = styled(SectionContainer)`
-    max-width: 1440px;
     background-color: var(--color-white);
     box-shadow: inset 0 1px 0 #e7e7e7;
     padding-bottom: 228px;

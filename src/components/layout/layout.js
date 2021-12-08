@@ -197,11 +197,11 @@ const Layout = ({
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         case 'besquare':
-            Navigation = <NavCareers is_besquare={true} />
+            Navigation = <NavCareers is_besquare />
             FooterNav = <BeSquareFooter />
             break
         case 'careers':
-            Navigation = <NavCareers />
+            Navigation = <NavCareers is_besquare={false} />
             FooterNav = <Footer no_language={true} type={type} />
             break
         default:

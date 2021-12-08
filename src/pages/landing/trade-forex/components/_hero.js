@@ -91,7 +91,7 @@ const HeroComponent = ({ title, content, background_data }) => {
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">
                 <InformationWrapper height="unset" direction="column">
-                    <StyledHeader type="hero" color="white">
+                    <StyledHeader mt="4rem" type="hero" color="white">
                         {title}
                     </StyledHeader>
                     <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
@@ -105,7 +105,7 @@ const HeroComponent = ({ title, content, background_data }) => {
                         rel="noopener noreferrer nofollow"
                         type="submit"
                         secondary="true"
-                        to={'https://deriv.com/signup/'}
+                        to={'/signup/'}
                     >
                         {localize('Start trading')}
                     </TryButton>

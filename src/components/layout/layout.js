@@ -201,7 +201,7 @@ const Layout = ({
             FooterNav = <BeSquareFooter />
             break
         case 'careers':
-            Navigation = <NavCareers is_besquare={false} />
+            Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} type={type} />
             break
         default:

@@ -14,6 +14,7 @@ import {
     Title,
 } from './style/footer'
 import { besquare_signup_url } from 'common/constants'
+import { Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
@@ -70,6 +71,9 @@ const BeSquareFooter = () => {
                             line_height={['30px', '24px']}
                             margin={['-24px 49px 0 0']}
                         >
+                            <Text color="white" size="2rem">
+                                Submit your application before 18 March 2022
+                            </Text>
                             <Localize
                                 translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
                                 components={[

@@ -154,7 +154,7 @@ export const NavCareers = ({ is_besquare }) => {
 }
 
 NavCareers.propTypes = {
-    is_besquare: PropTypes.boolean,
+    is_besquare: PropTypes.bool,
 }
 
 export default { NavCareers }

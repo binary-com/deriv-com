@@ -29,7 +29,7 @@ export const HeaderContainer = styled(Container)`
 `
 
 export const ImageWrapper = styled.img`
-    max-width: 722px;
+    max-width: 670px;
     width: 100%;
     position: relative;
     top: 90px;

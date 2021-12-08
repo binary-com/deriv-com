@@ -50,7 +50,7 @@ const WhyDeriv = () => {
                 <TextWrapper
                     {...text_wrapper}
                     grid_area={['unset', 'text-2']}
-                    margin={['auto 0', '40px 0 24px']}
+                    margin={['-172px 0 0', '40px 0 24px']}
                 >
                     At Deriv, you can learn from talented IT teams and receive international
                     exposure by collaborating with our overseas offices. You&apos;ll get the chance

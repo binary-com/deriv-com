@@ -30,7 +30,7 @@ const query = graphql`
 const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps): React.ReactNode => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection padding="5rem 2rem">
+        <StyledSection tabletL={{ p: '5rem 2rem' }}>
             <Header as="h3" type="section-title" align="center">
                 {localize('Trade the way you like')}
             </Header>

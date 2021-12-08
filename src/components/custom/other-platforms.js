@@ -208,7 +208,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => (
-    <SectionContainer padding="0">
+    <SectionContainer tabletL={{ p: '0' }} padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
                 <Header type="section-title" align="center">

@@ -45,6 +45,7 @@ export const Section = styled(SectionContainer)`
 
     @media ${device.tablet} {
         box-shadow: unset;
+        padding-bottom: 41px;
     }
 `
 

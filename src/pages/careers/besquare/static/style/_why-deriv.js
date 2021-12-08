@@ -39,6 +39,6 @@ export const ImageWrapper = styled(QueryImage)`
 
     @media ${device.tablet} {
         max-width: 320px;
-        width: inherit;
+        width: 98%;
     }
 `

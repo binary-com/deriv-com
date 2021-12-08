@@ -11,7 +11,7 @@ export const ContentContainer = styled(Flex)`
     justify-content: center;
 
     @media ${device.tabletL} {
-        padding-bottom: 80px;
+        padding-bottom: unset;
     }
 `
 

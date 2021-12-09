@@ -22,10 +22,10 @@ const FlexiItem = styled(Flex)`
     */
 
     .flexi-item {
-        margin-bottom: 0;
+        margin-bottom: 40px;
 
-        @media ${device.tablet} {
-            margin-bottom: 20px;
+        @media ${device.tabletL} {
+            margin-bottom: 24px;
         }
     }
 `
@@ -97,8 +97,8 @@ const renderNavigations = (count, active, setActive, animate) => {
                 position="absolute"
                 height="fit-content"
                 tablet_jc="center"
-                tablet={{
-                    mt: '24px',
+                tabletL={{
+                    mt: '50px',
                 }}
             >
                 <Arrows
@@ -118,7 +118,7 @@ const renderNavigations = (count, active, setActive, animate) => {
     return <React.Fragment />
 }
 
-const TestimonialCarousel = ({ children, default_active = 0, height = '295px' }) => {
+const TestimonialCarousel = ({ children, default_active = 0, height = 'fit-content' }) => {
     const [active, setActive] = useState(default_active)
     const children_array = Children.toArray(children)
     const container_ref = useRef(null)
@@ -144,15 +144,13 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
         if (molder_ref) {
             const molder_element = molder_ref.current
             const flex_height = molder_element.offsetHeight
-            let final_height = flex_height + 'px'
 
             // Safari browser issue fallback - offset height is undetectable
             if (flex_height == 0) {
-                final_height = 'fit-content'
                 container_ref.current.querySelector('.flexi-item').style.marginBottom = '40px'
             }
 
-            container_ref.current.style.height = final_height
+            container_ref.current.style.height = 'fit-content'
             container_ref.current.style.opacity = 1
         }
     }, [active])

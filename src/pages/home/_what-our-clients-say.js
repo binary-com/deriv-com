@@ -13,13 +13,26 @@ const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
     width: 100%;
     height: fit-content;
+
+    @media ${device.tabletL} {
+        background: linear-gradient(76.48deg, #8aadc5 3.41%, #d3e0e9 64.21%);
+    }
 `
 
 const ClientContainer = styled(Container)`
     display: flex;
     align-items: center;
-    min-height: 455px;
+    width: 100%;
+    padding: 80px 48px 65px 120px;
+    max-width: 100%;
     margin: 0 auto 80px;
+
+    @media ${device.laptopM} {
+        padding: 80px 48px;
+    }
+    @media ${device.tabletL} {
+        padding: 40px 16px;
+    }
 `
 
 const ClientFlex = styled(Flex)`
@@ -27,7 +40,6 @@ const ClientFlex = styled(Flex)`
     min-height: 100px;
 
     @media ${device.tabletS} {
-        padding: 40px 0;
         max-width: 100%;
     }
 `
@@ -35,6 +47,10 @@ const ClientFlex = styled(Flex)`
 const ClientCard = styled(Flex)`
     .trustpilot-container {
         margin-top: 54px;
+    }
+
+    @media ${device.tabletL} {
+        max-width: 588px;
     }
 
     @media ${device.tabletS} {
@@ -54,21 +70,24 @@ const TrustPilotWidget = styled(Flex)`
     }
 `
 
-const QuoteIcon = styled.span`
+const QuoteIcon = styled.img`
     position: absolute;
     width: 160px;
     height: 128px;
     top: -36px;
 
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
         top: 0;
+        width: 120px;
+        height: 96px;
     }
 `
 
-const ClientTestimonial = styled(Text)`
+const ClientTestimonial = styled(Header)`
     margin-bottom: 40px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
+        margin-bottom: 24px;
         font-size: 18px;
     }
 `
@@ -77,17 +96,16 @@ const ClientName = styled(Text)`
     color: var(--color-black-3);
     margin-bottom: 5px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         font-size: 14px;
     }
 `
 
 const Date = styled(Text)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         font-size: 10px;
     }
 `
-
 const testimonial_slides = [
     {
         id: 'angeh',
@@ -244,8 +262,8 @@ const testimonial_slides = [
 ]
 
 const ClientSlide = ({ quote, name, date }) => (
-    <Flex direction="column" height="100%" jc="space-between">
-        <ClientTestimonial size={'24px'} weight={400} lh={'36px'} className="flexi-item">
+    <Flex direction="column" height="100%" jc="space-between" max_width="588px">
+        <ClientTestimonial type="subtitle-1" weight="normal" lh={'36px'} className="flexi-item">
             {quote}
         </ClientTestimonial>
         <Flex direction="column" height="fit-content">
@@ -281,15 +299,15 @@ const WhatOurClientsSay = () => {
                     ai="center"
                     height="fit-content"
                     width="100%"
-                    tablet_direction="column"
+                    tabletL={{ fd: 'column' }}
                 >
                     <ClientCard
                         direction="column"
                         mr="36px"
                         max_width="384px"
-                        tablet={{
+                        tabletL={{
                             max_width: '588px',
-                            mb: '20px',
+                            mb: '24px',
                             mr: '0px',
                         }}
                     >
@@ -297,11 +315,12 @@ const WhatOurClientsSay = () => {
                             {localize('What our clients say about Deriv')}
                         </Header>
                         <TrustPilotWidget
-                            m="25px 0 0 0"
+                            m="40px 0 0"
                             width="240px"
                             height="100px"
-                            tablet={{
-                                heigth: '80px',
+                            tabletL={{
+                                heigth: '64px',
+                                m: '24px 0 0',
                             }}
                         >
                             <div
@@ -326,13 +345,15 @@ const WhatOurClientsSay = () => {
                     <ClientCard position="relative" direction="column">
                         <QuoteIcon src={Quote} />
                         <Flex
-                            ml="auto"
-                            pl="40px"
-                            max_width="690px"
-                            tablet={{
-                                pt: '85px',
+                            pl="18%"
+                            laptopM={{
+                                pl: '8%',
+                            }}
+                            tabletL={{
+                                pt: '68px',
                                 pl: '0',
-                                max_width: '100%',
+                                max_width: '588px',
+                                m: '0 auto',
                             }}
                         >
                             <Carousel>

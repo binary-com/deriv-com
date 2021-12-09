@@ -142,11 +142,11 @@ const SignupWithContainer = styled.div`
 const Line = styled.div`
     width: 130px;
     height: 1px;
-    background-color: var(--color-grey-6);
+    background-color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
 `
 
 const StyledText = styled(Text)`
-    color: var(--color-grey-6);
+    color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
 
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
@@ -182,7 +182,7 @@ const EmailImage = styled.img`
     width: 20rem;
 `
 
-const GetEbook = ({ onSubmit, ebook_utm_code }) => {
+const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -329,7 +329,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                     <AgreementLabel
                         isChecked={is_checked}
                         handleChangeCheckbox={handleChange}
-                        color="white"
+                        color={color}
                     />
                     <EmailButton
                         isChecked={is_checked}
@@ -342,11 +342,11 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                     </EmailButton>
                 </InputGroupForm>
                 <SignupWithContainer>
-                    <Line />
-                    <StyledText color="grey-5" align="center" tabletFontSize="12px">
+                    <Line color={color} />
+                    <StyledText color={color} align="center" tabletFontSize="12px">
                         {localize('Or sign up with')}
                     </StyledText>
-                    <Line />
+                    <Line color={color} />
                 </SignupWithContainer>
                 <SocialWrapper jc="unset" ai="center">
                     <SocialButton
@@ -395,6 +395,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
 }
 
 GetEbook.propTypes = {
+    color: PropTypes.string,
     ebook_utm_code: PropTypes.string,
     onSubmit: PropTypes.func,
 }

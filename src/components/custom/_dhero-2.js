@@ -46,7 +46,7 @@ const HeroContent = styled(Flex)`
     ${Header} {
         color: var(--color-white);
         display: flex;
-        margin-top: 1.6rem;
+        margin-top: 10px;
         line-height: 1.25;
     }
 
@@ -229,6 +229,10 @@ const DHero = ({
         width: 32px !important;
         height: 32px !important;
         margin-right: 1.6rem;
+        margin-bottom: 6px;
+        @media ${device.tabletS} {
+            margin-right: 1rem;
+        }
     `
     const HeroBackground = css`
         @media ${device.laptopM} {

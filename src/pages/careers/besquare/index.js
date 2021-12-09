@@ -4,6 +4,7 @@ import ApplicationProcess from './components/sections/_application-process'
 import Description from './components/sections/_description'
 import FAQ from './components/sections/_faq'
 import Hero from './components/sections/_hero'
+import HighLights from './components/sections/_highlights'
 import JoinUs from './components/sections/_join-us'
 import WhatIsBeSquare from './components/sections/_what-is_besquare'
 import WhatLiesAhead from './components/sections/_what-lies-ahead'
@@ -23,7 +24,7 @@ const meta_attributes = {
 }
 
 const BeSquare = () => (
-    <Layout type="careers">
+    <Layout type="besquare">
         <SEO
             title={'IT graduate programme for Malaysians | BeSquare by Deriv'}
             description={
@@ -33,6 +34,7 @@ const BeSquare = () => (
         />
         <Hero />
         <Description />
+        <HighLights />
         <WhatIsBeSquare />
         <JoinUs />
         <WhyDeriv />

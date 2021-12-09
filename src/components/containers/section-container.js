@@ -4,15 +4,10 @@ import { size } from 'themes/device'
 
 const hasResponsivePadding = (props) => {
     let has_padding = false
+    const possibleOptions = ['p', 'pt', 'pr', 'pb', 'pl']
 
     Object.keys(size).forEach((device) => {
-        if (
-            props[device]?.p ||
-            props[device]?.pt ||
-            props[device]?.pr ||
-            props[device]?.pb ||
-            props[device]?.pl
-        ) {
+        if (props[device] && possibleOptions.includes(Object.keys(props[device])[0])) {
             has_padding = true
         }
     })

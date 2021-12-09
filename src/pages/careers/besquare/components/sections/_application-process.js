@@ -15,9 +15,7 @@ import { Show } from 'components/containers'
 const ApplicationProcess = () => (
     <ContentContainer>
         <Title as="h2">{application_process.title}</Title>
-        <Show.Desktop max_width="laptopM">
-            <LineWrapper src={Line01} alt="Dotted line" />
-        </Show.Desktop>
+        <LineWrapper src={Line01} alt="Dotted line" />
         <GridContainer>
             {application_process.content.map((card, index) => (
                 <ItemContainer key={index}>

@@ -10,7 +10,7 @@ const Description = () => (
                 font_size={['24px', '18px']}
                 line_height={['36px', '22px']}
                 text_align={['center']}
-                padding={['173px 0 80px', '80px 3% 40px']}
+                padding={['173px 0 80px', '80px 0 40px']}
                 width={'100%'}
             >
                 Deriv’s 6-month graduate programme gives you a holistic learning experience with

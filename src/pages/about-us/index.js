@@ -13,11 +13,11 @@ const AboutUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Articles, trading guide and resources | Deriv')}
+                // title and description from story page, needs new?
+                title={localize('About Us | An Online Trading Platform | Deriv.com')}
                 description={localize(
-                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+                    'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
-                // meta_attributes={meta_attributes}
             />
             <StyledDiv>About Us new page</StyledDiv>{' '}
         </Layout>

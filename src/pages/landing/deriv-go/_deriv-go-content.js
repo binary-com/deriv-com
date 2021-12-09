@@ -76,7 +76,7 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
         <SectionContainer
             p="8.9rem 0 8rem 0"
             background="rgba(243, 246, 250, 1)"
-            tabletL={{ p: '40px 0 0 0' }}
+            tabletL={{ pt: '40px' }}
         >
             <StyledContainer>
                 {P2P.map((item, index) => {

@@ -6,7 +6,13 @@ const hasResponsivePadding = (props) => {
     let has_padding = false
 
     Object.keys(size).forEach((device) => {
-        if (props[device]?.p) {
+        if (
+            props[device]?.p ||
+            props[device]?.pt ||
+            props[device]?.pr ||
+            props[device]?.pb ||
+            props[device]?.pl
+        ) {
             has_padding = true
         }
     })

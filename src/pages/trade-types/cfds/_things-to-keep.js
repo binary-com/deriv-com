@@ -46,7 +46,7 @@ const MindWhenTrading = () => {
                 </Text>
                 <Text mb="3.2rem">
                     {localize(
-                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure. ',
+                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.',
                     )}
                 </Text>
             </SmallContainer>

@@ -37,15 +37,15 @@ export const QuestionAnswerContainer = styled.div`
 `
 
 export const Section = styled(SectionContainer)`
-    max-width: 1440px;
     background-color: var(--color-white);
     box-shadow: inset 0 1px 0 #e7e7e7;
-    padding-bottom: 130px;
+    padding-bottom: 228px;
     padding-top: 0;
     margin: 0 auto;
 
     @media ${device.tablet} {
         box-shadow: unset;
+        padding-bottom: 41px;
     }
 `
 

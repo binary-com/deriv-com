@@ -93,6 +93,9 @@ jobs:
                   git fetch --prune --unshallow --tags
                   echo "GIT_TAG_NAME=`echo $(git describe --tags --abbrev=0)`" >> $GITHUB_ENV
                   
+            - name: git tag used for deployment
+              run: |
+                   echo "$GIT_TAG_NAME"
             - name: Deploy 🚀
               run: |
                   export NAMESPACE="deriv-com-production"

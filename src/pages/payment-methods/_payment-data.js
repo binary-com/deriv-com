@@ -6,8 +6,7 @@ import PaymentLogos from 'images/svg/payment-methods'
 import { Localize } from 'components/localization'
 
 const StyledIcon = styled.img`
-    width: 72px;
-    height: 72px;
+    width: 100%;
 `
 const NoIconText = styled.div`
     color: var(--color-red);
@@ -15,6 +14,12 @@ const NoIconText = styled.div`
     font-weight: bold;
     text-align: center;
 `
+// const StyledRefLink = styled(LocalizedLink)`
+
+//     font-size: 16px;
+//     line-height: 24px;
+//     color: var(--color-blue-9);
+// `
 
 const getMinMaxLimit = (minValue, maxValue) => {
     if (maxValue === 'No maximum' || maxValue === 'Not Available')

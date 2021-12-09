@@ -65,6 +65,11 @@ const SectionContentContainer = styled(SectionContainer)`
         padding: 24px 0 40px;
     }
 `
+// const TopContainer = styled(Container)`
+//     @media ${device.tabletL} {
+//         width: 100%;
+//     }
+// `
 const StyledTable = styled.table`
     table-layout: fixed;
     border-collapse: collapse;
@@ -270,12 +275,14 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th colSpan={pd.is_fiat_onramp && '3'}>
+                                <Th colSpan={pd.is_fiat_onramp && '2'}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
-                                <Th style={pd.is_fiat_onramp && { width: '135px' }}>
+                                <Th style={pd.is_fiat_onramp && { width: '180px' }}>
                                     {pd.is_crypto || pd.is_fiat_onramp ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
+                                    ) : pd.is_dp2p ? (
+                                        <BoldText>{localize('Supported Deriv accounts')}</BoldText>
                                     ) : (
                                         <React.Fragment>
                                             <BoldText>{localize('Min-max')}</BoldText>
@@ -289,6 +296,8 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                             <>
                                                 <BoldText>{localize('Min withdrawal')}</BoldText>
                                             </>
+                                        ) : pd.is_dp2p ? (
+                                            <BoldText>{localize('Daily deposit limits')}</BoldText>
                                         ) : (
                                             <React.Fragment>
                                                 <BoldText>{localize('Min-max')}</BoldText>
@@ -301,6 +310,10 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                     <Th colSpan="2">
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
+                                ) : pd.is_dp2p ? (
+                                    <Th>
+                                        <BoldText>{localize('Daily withdrawal limits')}</BoldText>
+                                    </Th>
                                 ) : (
                                     <Th>
                                         <BoldText>{localize('Deposit')}</BoldText>
@@ -308,10 +321,15 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                     </Th>
                                 )}
 
-                                {!pd.is_fiat_onramp && (
+                                {!pd.is_fiat_onramp && !pd.is_dp2p && (
                                     <Th>
                                         <BoldText>{localize('Withdrawal')}</BoldText>
                                         <BoldText>{localize('processing time')}</BoldText>
+                                    </Th>
+                                )}
+                                {pd.is_dp2p && (
+                                    <Th>
+                                        <BoldText>{localize('Processing time')}</BoldText>
                                     </Th>
                                 )}
 
@@ -367,7 +385,7 @@ const PaymentMethods = (locale) => {
                 meta_attributes={meta_attributes}
             />
             <SectionTopContainer>
-                <Container direction="column" width="100%" tabletL={{ width: '100%' }}>
+                <Container direction="column" width="100%" tabletL={{ tabletLwidth: '100%' }}>
                     <Header as="h1" type="hero" align="center" mb="1.6rem">
                         {localize('Payment methods')}
                     </Header>

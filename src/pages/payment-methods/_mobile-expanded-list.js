@@ -88,7 +88,9 @@ const StyledRefLink = styled(Flex)`
 
 const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, payment_data }) => {
     const [is_expanded, setExpanded] = React.useState(false)
-    const toggleExpand = () => setExpanded(!is_expanded)
+    const toggleExpand = () => {
+        setExpanded(!is_expanded)
+    }
     const deposit_row_headings = () => {
         if (is_crypto || is_fiat_onramp)
             return <Header type="subtitle-2">{localize('Min deposit')}</Header>
@@ -150,6 +152,14 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
             </ValueText>
         )
     }
+    const formatted_currencies = payment_data.currencies.map((d) => d.join(' '))
+    const splitCurrencies = (currencies) => (
+        <ValueText type="subtitle-2" weight="normal">
+            {' '}
+            {currencies.join('\r\n')}
+        </ValueText>
+    )
+
     return (
         <>
             <StyledItemWrapper
@@ -171,11 +181,14 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                             <Header type="subtitle-2">{localize('Currencies')}</Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            {payment_data.currencies.map((cur, index) => (
-                                <ValueText key={index} type="subtitle-2" weight="normal">
-                                    {cur.join(' ')}
+                            {payment_data.currencies.length === 1 && (
+                                <ValueText type="subtitle-2" weight="normal">
+                                    {formatted_currencies}
+                                    <br />
                                 </ValueText>
-                            ))}
+                            )}
+                            {payment_data.currencies.length > 1 &&
+                                splitCurrencies(formatted_currencies)}
                         </StyledKeyDiv>
                     </StyledRow>
                     {/* second row */}

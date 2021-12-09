@@ -8,6 +8,7 @@ import General from 'images/svg/terms/business-general-tc.svg'
 import Partners from 'images/svg/terms/business-partners-tc.svg'
 import PA from 'images/svg/terms/business-pa-tc.svg'
 import API from 'images/svg/terms/business-api-tc.svg'
+import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
 const Col = ({ Icon, content, link_title, title, url }) => (
@@ -74,6 +75,13 @@ const IconGrid = () => (
                 content={localize('Additional terms for our API users')}
                 url="/tnc/business-partners-api-user.pdf"
                 link_title={localize('API users')}
+            />
+            <Col
+                Icon={BugBounty}
+                title={localize('Bug Bounty Program')}
+                content={localize('Additional terms for participants in our Bug Bounty Program')}
+                url="/tnc/business-partners-bug-bounty.pdf"
+                link_title={localize('Bug Bounty Program')}
             />
         </StyledGrid>
     </StyledContainer>

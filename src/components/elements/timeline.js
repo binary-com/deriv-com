@@ -30,7 +30,7 @@ const Checkmark = styled.span`
 
 const ContentWrapper = styled.div`
     margin-top: 0;
-    margin-left: 2rem;
+    margin-left: ${(props) => (props.marginL ? props.marginL : '2rem')};
 `
 const OvalWrapper = styled.div`
     width: 24px;
@@ -51,6 +51,17 @@ const FlexWrapper = styled.div`
     position: relative;
     padding-bottom: ${(props) => (props.pb ? props.pb : '4rem')};
 `
+
+const StyledNumber = styled.span`
+    color: ${(props) => (props.color ? props.color : 'var(--color-white)')};
+`
+
+const OvalWrapperNum = styled(OvalWrapper)`
+    margin-right: unset;
+    position: relative;
+    left: unset;
+`
+
 const Oval = () => {
     return (
         <OvalWrapper>
@@ -97,9 +108,29 @@ export const TimelineTick = ({ pb, color, children, ...props }) => {
     )
 }
 
+export const TimelineNum = ({ pb, bg_color, color, children, ...props }) => {
+    return (
+        <div {...props}>
+            {children.map((child, idx) => (
+                <>
+                    {child && (
+                        <FlexWrapper key={idx} is_border={false} pb={pb}>
+                            <OvalWrapperNum color={bg_color}>
+                                <StyledNumber color={color}>{idx + 1}</StyledNumber>
+                            </OvalWrapperNum>
+                            <ContentWrapper marginL="1rem">{child}</ContentWrapper>
+                        </FlexWrapper>
+                    )}
+                </>
+            ))}
+        </div>
+    )
+}
+
 const Item = ({ children, ...props }) => <div {...props}>{children}</div>
 Timeline.Item = Item
 TimelineTick.Item = Item
+TimelineNum.Item = Item
 
 Timeline.propTypes = {
     children: PropTypes.node,
@@ -107,6 +138,14 @@ Timeline.propTypes = {
 }
 
 TimelineTick.propTypes = {
+    children: PropTypes.node,
+    color: PropTypes.string,
+    pb: PropTypes.string,
+    props: PropTypes.any,
+}
+
+TimelineNum.propTypes = {
+    bg_color: PropTypes.string,
     children: PropTypes.node,
     color: PropTypes.string,
     pb: PropTypes.string,

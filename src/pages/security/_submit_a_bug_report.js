@@ -1,14 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Formik, Form } from 'formik'
 import { DragDrop, useDragDropFiles } from './components/_drag_drop_component.js'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Input, Button } from 'components/form'
-import { TimelineTick } from 'components/elements/timeline'
-import { Header, Text } from 'components/elements'
+import { TimelineNum } from 'components/elements/timeline'
+import { Header, Text, BackgroundImage } from 'components/elements'
 import { localize } from 'components/localization'
+
+const query = graphql`
+    query {
+        image: file(relativePath: { eq: "security/security_form_submission.jpg" }) {
+            ...bannerImage
+        }
+    }
+`
 
 const formValidation = (values) => {
     let errors = {}
@@ -72,6 +81,8 @@ const StyledInput = styled(Input)`
 `
 
 const SubmitABugReport = () => {
+    const data = useStaticQuery(query)
+
     const [file, setFile] = useDragDropFiles()
     React.useEffect(() => {
         console.log(file)
@@ -89,39 +100,41 @@ const SubmitABugReport = () => {
                     )}
                 </Text>
                 <FormCard>
-                    <SideForm>
-                        <Flex height="auto" m="100px 60px auto" fd="column">
-                            <Header color="white" type="subtitle-2">
-                                {localize('Our response times:')}
-                            </Header>
-                            <TimelineTick>
-                                <TimelineTick.Item>
-                                    <Header color="white" type="paragraph-1">
-                                        {localize('First response')}
-                                    </Header>
-                                    <Header color="white" type="paragraph-2" weight="400">
-                                        {localize('1 business day from report submission')}
-                                    </Header>
-                                </TimelineTick.Item>
-                                <TimelineTick.Item>
-                                    <Header color="white" type="paragraph-1">
-                                        {localize('Triage')}
-                                    </Header>
-                                    <Header color="white" type="paragraph-2" weight="400">
-                                        {localize('3 business days from report submission')}
-                                    </Header>
-                                </TimelineTick.Item>
-                                <TimelineTick.Item>
-                                    <Header color="white" type="paragraph-1">
-                                        {localize('Payout')}
-                                    </Header>
-                                    <Header color="white" type="paragraph-2" weight="400">
-                                        {localize('7 business days from report submission')}
-                                    </Header>
-                                </TimelineTick.Item>
-                            </TimelineTick>
-                        </Flex>
-                    </SideForm>
+                    <BackgroundImage data={data.image}>
+                        <SideForm>
+                            <Flex height="auto" m="100px 60px auto" fd="column">
+                                <Header pb="24px" color="white" type="subtitle-2">
+                                    {localize('Our response times:')}
+                                </Header>
+                                <TimelineNum pb="2rem" bg_color="var(--color-green)">
+                                    <TimelineNum.Item>
+                                        <Header color="white" type="paragraph-1">
+                                            {localize('First response')}
+                                        </Header>
+                                        <Header color="white" type="paragraph-2" weight="400">
+                                            {localize('1 business day from report submission')}
+                                        </Header>
+                                    </TimelineNum.Item>
+                                    <TimelineNum.Item>
+                                        <Header color="white" type="paragraph-1">
+                                            {localize('Triage')}
+                                        </Header>
+                                        <Header color="white" type="paragraph-2" weight="400">
+                                            {localize('3 business days from report submission')}
+                                        </Header>
+                                    </TimelineNum.Item>
+                                    <TimelineNum.Item>
+                                        <Header color="white" type="paragraph-1">
+                                            {localize('Payout')}
+                                        </Header>
+                                        <Header color="white" type="paragraph-2" weight="400">
+                                            {localize('7 business days from report submission')}
+                                        </Header>
+                                    </TimelineNum.Item>
+                                </TimelineNum>
+                            </Flex>
+                        </SideForm>
+                    </BackgroundImage>
                     <Formik
                         initialValues={{ first_name: '', last_name: '', email: '' }}
                         onSubmit={async (values) => {

@@ -44,10 +44,10 @@ const StyledHeader = styled(Header)`
     display: flex;
 
     @media ${device.tabletL} {
-        margin-top: 1.3rem;
+        margin-top: 1.5rem;
     }
     @media ${device.mobileS} {
-        margin-top: 15px;
+        margin-top: 18px;
     }
 `
 
@@ -92,7 +92,7 @@ const HeroComponent = ({ title, content, background_data }) => {
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">
                 <InformationWrapper height="unset" direction="column">
-                    <StyledHeader type="hero" color="white">
+                    <StyledHeader mt="6.2rem" type="hero" color="white">
                         {title}
                     </StyledHeader>
                     <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
@@ -101,12 +101,12 @@ const HeroComponent = ({ title, content, background_data }) => {
                         </Header>
                     </HeroContent>
                     <TryButton
-                        m="4.2rem 0 80px"
+                        m="3rem 0 80px"
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                         type="submit"
                         secondary="true"
-                        to={'https://deriv.com/signup/'}
+                        to={'/signup/'}
                     >
                         {localize('Start trading')}
                     </TryButton>

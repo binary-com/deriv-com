@@ -121,7 +121,7 @@ const MobileWrapper = styled.div`
     }
 `
 const DisplayAccordion = (locale) => {
-    const { is_eu_country, crypto_config } = React.useContext(DerivStore)
+    const { is_eu_country, crypto_config, is_p2p_allowed_country } = React.useContext(DerivStore)
     const [is_mobile] = useBrowserResize(992)
 
     const content_style = is_mobile
@@ -164,6 +164,8 @@ const DisplayAccordion = (locale) => {
                       }
 
                 if (pd.is_crypto && is_eu_country) {
+                    return []
+                } else if (pd.is_dp2p && !is_p2p_allowed_country && is_eu_country) {
                     return []
                 } else
                     return (

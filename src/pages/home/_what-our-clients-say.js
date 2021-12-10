@@ -94,7 +94,7 @@ const testimonial_slides = [
         name: 'Angeh',
         date: '8 September 2021',
         quote: (
-            <Localize translate_text="Weekend trades, fast deposits &amp; withdrawals, plus synthetics trading – what’s better than this?" />
+            <Localize translate_text="Weekend trades, fast deposits & withdrawals, plus synthetics trading – what’s better than this?" />
         ),
     },
     {

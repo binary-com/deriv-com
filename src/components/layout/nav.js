@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
+import { debounce } from '../../common/utility'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
@@ -515,7 +516,7 @@ const NavDesktop = ({
 
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
-        handleScroll(showButton, hideButton)
+        debounce(handleScroll(showButton, hideButton), 100)
     }, [])
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
@@ -954,16 +955,18 @@ export const NavPartners = ({ no_login_signup }) => {
     const [has_scrolled, setHasScrolled] = useState(false)
     const current_page = useActiveLinkState('partners')
 
-    const buttonHandleScroll = () => {
+    const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
-        handleScroll(showButton, hideButton)
-    }
+        debounce(handleScroll(showButton, hideButton), 100)
+    }, [])
+
     useEffect(() => {
         setMounted(true)
         if (!no_login_signup) {
             document.addEventListener('scroll', buttonHandleScroll, {
                 passive: true,
             })
+
             return () => {
                 document.removeEventListener('scroll', buttonHandleScroll)
             }

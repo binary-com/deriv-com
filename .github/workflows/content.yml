@@ -104,7 +104,7 @@ jobs:
                   
             - name: git tag used for deployment
               run: |
-                   echo "$GIT_TAG_NAME"
+                   echo "git tag used for deployment is: ${{ steps.get_tag_name.outputs.VERSION }} "
             - name: Deploy 🚀
               run: |
                   export NAMESPACE="deriv-com-production"

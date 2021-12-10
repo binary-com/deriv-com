@@ -1,8 +1,10 @@
+//This form is a WIP and can be used in case it is needed/added to the design
+
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Formik, Form } from 'formik'
-import { DragDrop, useDragDropFiles } from './components/_drag_drop_component.js'
+import { DragDrop, useDragDropFiles } from 'components/elements/drag-drop-component.js'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import { Container, SectionContainer, Flex } from 'components/containers'

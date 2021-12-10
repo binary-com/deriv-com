@@ -566,6 +566,7 @@ const NavDesktop = ({
                             max_width="16.4rem"
                             width="100%"
                             height="auto"
+                            loading="eager"
                         />
                     </LogoLink>
                     <Line />

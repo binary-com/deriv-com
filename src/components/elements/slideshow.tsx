@@ -5,6 +5,7 @@ import QueryImage from 'components/elements/query-image'
 type SlideshowProps = {
     images: Record<string, unknown>[]
     interval: number
+    is_eager?: boolean
 }
 
 const StyledImage = styled(QueryImage)`
@@ -15,7 +16,7 @@ const StyledImage = styled(QueryImage)`
     }
 `
 
-const Slideshow = ({ images, interval }: SlideshowProps): ReactElement => {
+const Slideshow = ({ images, interval, is_eager = true }: SlideshowProps): ReactElement => {
     const [active_index, setActiveIndex] = useState<number>(0)
 
     const setNextImage = useCallback(() => {
@@ -37,7 +38,7 @@ const Slideshow = ({ images, interval }: SlideshowProps): ReactElement => {
                 alt="platform devices"
                 width="100%"
                 height="346"
-                loading="eager"
+                loading={is_eager ? 'eager' : 'lazy'}
             />
         </div>
     )

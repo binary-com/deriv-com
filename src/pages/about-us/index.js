@@ -3,31 +3,8 @@ import styled from 'styled-components'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import device from 'themes/device'
-
-const StyledFirstSectionText = styled.p`
-    max-width: 792px;
-    padding: 0 0 24px 0;
-    background-color: white;
-    font-size: 24px;
-    line-height: 36px;
-    font-weight: 400;
-    width: auto;
-    @media ${device.tablet} {
-        padding: 0 0 24px 0;
-    }
-`
-
-const StartSeparator = styled.div`
-    width: 0;
-    height: 0;
-    border-top: 120px solid transparent;
-    border-right: 100vw solid var(--color-grey-30);
-    @media ${device.tablet} {
-        border-top: 40px solid transparent;
-    }
-`
 
 const FirstSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -46,6 +23,28 @@ const FirstSectionContainer = styled(SectionContainer)`
         }
     }
 `
+
+const StyledFirstSectionText = styled(Text)`
+    max-width: 792px;
+    padding: 0 0 24px 0;
+    background-color: white;
+    line-height: 36px;
+    font-weight: 400;
+    @media ${device.tablet} {
+        padding: 0 0 24px 0;
+    }
+`
+
+const StartSeparator = styled.div`
+    width: 0;
+    height: 0;
+    border-top: 120px solid transparent;
+    border-right: 100vw solid var(--color-grey-30);
+    @media ${device.tablet} {
+        border-top: 40px solid transparent;
+    }
+`
+
 const first_section_texts = [
     localize(
         'Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities and synthetics to millions of registered users across the globe.',
@@ -70,13 +69,14 @@ const AboutUs = () => {
             />
             <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
                 {first_section_texts.map((text, index) => (
-                    <StyledFirstSectionText key={index}>{text}</StyledFirstSectionText>
+                    <StyledFirstSectionText key={index} size="24px">
+                        {text}
+                    </StyledFirstSectionText>
                 ))}
                 <Header as="h2" size="48px" align="center" type="page-title">
                     {localize('Make trading accessible to anyone, anywhere')}
                 </Header>
             </FirstSectionContainer>
-            {/* <SeparatorDiv></SeparatorDiv> */}
             <StartSeparator></StartSeparator>
         </Layout>
     )

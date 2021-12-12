@@ -8,6 +8,7 @@ import CssGrid, { CssGridColumn } from './css-grid'
 import SEO from './seo'
 import Show from './show'
 import Box from './box'
+import { Desktop, Mobile } from './visibility'
 
 export {
     Container,
@@ -21,4 +22,6 @@ export {
     Box,
     CssGrid,
     CssGridColumn,
+    Desktop,
+    Mobile,
 }

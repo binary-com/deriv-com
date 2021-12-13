@@ -57,7 +57,6 @@ const RedirectLink = styled(LocalizedLink)`
 
 const ArticleCard = ({ item }) => {
     const blog_post_words = stripHTML(item?.blog_post)
-    console.log(blog_post_words)
 
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>

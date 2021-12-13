@@ -44,6 +44,7 @@ const StartSeparator = styled.div`
         border-top: 40px solid transparent;
     }
 `
+
 const EndSeparator = styled.div`
     width: 0;
     height: 0;

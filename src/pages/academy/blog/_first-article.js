@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LocalizedLink, localize } from 'components/localization'
-import { calculateReadTime, stripHTML } from 'common/utility'
+import { LocalizedLink } from 'components/localization'
+import { calculateReadTime } from 'common/utility'
 
 const StyledFlex = styled(Flex)`
     border-radius: 8px;
@@ -58,8 +58,6 @@ const RedirectLink = styled(LocalizedLink)`
 `
 
 const FirstArticle = ({ item }) => {
-    const blog_post_words = stripHTML(item?.blog_post)
-
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
@@ -91,7 +89,7 @@ const FirstArticle = ({ item }) => {
                             type="paragraph-2"
                             width="auto"
                         >
-                            {`• ${calculateReadTime(blog_post_words)}` + ' ' + localize('min read')}
+                            {`• ${calculateReadTime(item?.blog_post)}`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="heading-3">

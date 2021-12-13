@@ -9,6 +9,7 @@ import {
     live_chat_key,
 } from './constants'
 import { isUK } from 'common/country-base'
+import { localize } from 'components/localization'
 
 export const trimSpaces = (value) => value?.trim()
 
@@ -329,8 +330,9 @@ export const stripHTML = (str) => str?.replace(/<[^>]*>?/gm, '')
 
 export const calculateReadTime = (text) => {
     const wpm = 275 // average adult words per minute
-    const words = text?.trim().split(/\s+/).length
-    return Math.ceil(words / wpm)
+    const content_without_HTML = stripHTML(text)
+    const words = content_without_HTML?.trim().split(/\s+/).length
+    return Math.ceil(words / wpm).toString() + ' ' + localize('min read')
 }
 
 export const slugify = (text) =>

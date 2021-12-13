@@ -61,8 +61,6 @@ const StyledContainer = styled(Container)`
 // }
 
 const MarketNews = ({ data }) => {
-    const blog_post_words = stripHTML(data?.blog_post)
-
     return (
         <StyledContainer>
             <Flex fd="column">
@@ -71,6 +69,8 @@ const MarketNews = ({ data }) => {
                 </Header>
                 <MarketsNewsWrapper>
                     {data.map((data) => {
+                        const blog_post_words = stripHTML(data?.blog_post)
+
                         return (
                             <StyledLocalizedLink
                                 key={data.id}

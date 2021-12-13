@@ -15,6 +15,7 @@ import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 // icons
+import BasketIndices from 'images/svg/custom/basket-indices-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
@@ -448,6 +449,16 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             title={<Localize translate_text="Cryptocurrencies" />}
             onClick={onClick}
             to="/markets/cryptocurrencies/"
+        />
+        <NavCard
+            aria_label="Basket"
+            icon={() => <img src={BasketIndices} alt="" width="32" height="32" />}
+            content={
+                <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies.." />
+            }
+            title={<Localize translate_text="Basket indices" />}
+            onClick={onClick}
+            to="/markets/basket/"
         />
         <NavCard
             aria_label="Commodities"

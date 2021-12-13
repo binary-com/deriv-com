@@ -34,7 +34,7 @@ import ArticleEmailBanner from '../../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
-import { convertDate, isBrowser, calculateReadTime } from 'common/utility'
+import { convertDate, isBrowser, calculateReadTime, stripHTML } from 'common/utility'
 import { cms_assets_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
@@ -79,6 +79,7 @@ const BlogPreview = () => {
     const article_title = post_data?.blog_title
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
+    const blog_post_words = stripHTML(post_data?.blog_post)
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -138,7 +139,7 @@ const BlogPreview = () => {
                                         {post_data?.blog_title}
                                     </ArticleTitle>
                                     <InfoText size="14px" mt="16px">
-                                        {calculateReadTime(post_data?.blog_post) +
+                                        {calculateReadTime(blog_post_words) +
                                             ' ' +
                                             localize('min read')}
                                     </InfoText>

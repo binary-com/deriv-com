@@ -25,7 +25,7 @@ import {
     DotIcon,
 } from './components/recent-featured-posts/_style'
 import { StandardImgWrapper } from './common/_styles'
-import { convertDate, getAssetUrl, calculateReadTime } from 'common/utility'
+import { convertDate, getAssetUrl, calculateReadTime, stripHTML } from 'common/utility'
 import { QueryImage, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
@@ -81,7 +81,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         {headline_recent?.published_date &&
                                             convertDate(headline_recent?.published_date)}
                                         <ClockIcon src={Clock} />
-                                        {calculateReadTime(headline_recent?.blog_post) +
+                                        {calculateReadTime(stripHTML(headline_recent?.blog_post)) +
                                             ' ' +
                                             localize('min read')}
                                     </BottomDescription>
@@ -120,7 +120,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     {article?.published_date &&
                                                         convertDate(article?.published_date)}
                                                     <DotIcon src={Dot} />
-                                                    {calculateReadTime(article?.blog_post) +
+                                                    {calculateReadTime(
+                                                        stripHTML(article?.blog_post),
+                                                    ) +
                                                         ' ' +
                                                         localize('min read')}
                                                 </SmallArticleDateTimeDesktop>
@@ -165,7 +167,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         {headline_featured.published_date &&
                                             convertDate(headline_featured?.published_date)}
                                         <ClockIcon src={Clock} />
-                                        {calculateReadTime(headline_featured?.blog_post) +
+                                        {calculateReadTime(
+                                            stripHTML(headline_featured?.blog_post),
+                                        ) +
                                             ' ' +
                                             localize('min read')}
                                     </BottomDescription>
@@ -204,7 +208,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     {article?.published_date &&
                                                         convertDate(article?.published_date)}
                                                     <DotIcon src={Dot} />
-                                                    {calculateReadTime(article?.blog_post) +
+                                                    {calculateReadTime(
+                                                        stripHTML(article?.blog_post),
+                                                    ) +
                                                         ' ' +
                                                         localize('min read')}
                                                 </SmallArticleDateTimeDesktop>

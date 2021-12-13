@@ -36,7 +36,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import { convertDate, calculateReadTime } from 'common/utility'
+import { convertDate, calculateReadTime, stripHTML } from 'common/utility'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
@@ -56,6 +56,7 @@ const ArticlesTemplate = (props) => {
     const og_title = post_data?.og_title
     const og_description = post_data?.og_description
     const test_data = post_data?.test_data
+    const blog_post_words = stripHTML(post_data?.blog_post)
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -132,7 +133,7 @@ const ArticlesTemplate = (props) => {
                                         {post_data?.blog_title}
                                     </ArticleTitle>
                                     <InfoText size="14px" mt="16px">
-                                        {calculateReadTime(post_data?.blog_post) +
+                                        {calculateReadTime(blog_post_words) +
                                             ' ' +
                                             localize('min read')}
                                     </InfoText>

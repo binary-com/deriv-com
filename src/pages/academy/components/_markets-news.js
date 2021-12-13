@@ -5,7 +5,7 @@ import { StandardImgWrapper } from '../common/_styles'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink, localize } from 'components/localization'
-import { calculateReadTime } from 'common/utility'
+import { calculateReadTime, stripHTML } from 'common/utility'
 import EyeIcon from 'images/svg/eye.svg'
 import device from 'themes/device'
 
@@ -61,6 +61,8 @@ const StyledContainer = styled(Container)`
 // }
 
 const MarketNews = ({ data }) => {
+    const blog_post_words = stripHTML(data?.blog_post)
+
     return (
         <StyledContainer>
             <Flex fd="column">
@@ -108,7 +110,7 @@ const MarketNews = ({ data }) => {
                                                 weight="normal"
                                                 color="grey-5"
                                             >
-                                                {calculateReadTime(data?.blog_post) +
+                                                {calculateReadTime(blog_post_words) +
                                                     ' ' +
                                                     localize('min read')}
                                             </Header>

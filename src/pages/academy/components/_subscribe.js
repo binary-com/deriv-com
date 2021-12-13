@@ -186,7 +186,6 @@ const Subscribe = () => {
             .catch(() => {
                 setSubmitStatus(false)
             })
-        user_country && console.log(user_country)
     }, [])
 
     const addScriptForCIO = () => {

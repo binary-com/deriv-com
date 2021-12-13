@@ -325,7 +325,7 @@ export const replaceLocale = (locale) => {
     return checked_locale
 }
 
-export const stripHTML = (str) => str.replace(/<[^>]*>?/gm, '')
+export const stripHTML = (str) => str?.replace(/<[^>]*>?/gm, '')
 
 export const calculateReadTime = (text) => {
     const wpm = 225 // average adult words per minute

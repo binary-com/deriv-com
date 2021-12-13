@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import OurValues from './_OurValues'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer } from 'components/containers'
@@ -27,7 +28,6 @@ const FirstSectionContainer = styled(SectionContainer)`
 const StyledFirstSectionText = styled(Text)`
     max-width: 792px;
     padding: 0 0 24px 0;
-    background-color: white;
     line-height: 36px;
     font-weight: 400;
     @media ${device.tablet} {
@@ -42,6 +42,15 @@ const StartSeparator = styled.div`
     border-right: 100vw solid var(--color-grey-30);
     @media ${device.tablet} {
         border-top: 40px solid transparent;
+    }
+`
+const EndSeparator = styled.div`
+    width: 0;
+    height: 0;
+    border-left: 100vw solid var(--color-grey-30);
+    border-bottom: 120px solid transparent;
+    @media ${device.tablet} {
+        border-bottom: 40px solid transparent;
     }
 `
 
@@ -77,7 +86,9 @@ const AboutUs = () => {
                     {localize('Make trading accessible to anyone, anywhere')}
                 </Header>
             </FirstSectionContainer>
-            <StartSeparator></StartSeparator>
+            <StartSeparator />
+            <OurValues />
+            <EndSeparator />
         </Layout>
     )
 }

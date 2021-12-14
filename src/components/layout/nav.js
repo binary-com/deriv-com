@@ -1140,14 +1140,14 @@ const Section = styled(SectionContainer)`
     position: fixed;
     z-index: 5;
     top: 0;
-    padding: 16px 1%;
+    padding: 4px 1%;
     height: 72px;
     @media ${device.tabletL} {
-        padding: 16px;
+        padding: 4px;
         height: 64px;
     }
     @media ${device.mobileL} {
-        padding: 16px 0;
+        padding: 4px 0;
     }
 `
 

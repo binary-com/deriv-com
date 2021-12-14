@@ -1,5 +1,5 @@
 import React from 'react'
-import { Signup, WhatOurClientsSay } from './home/_lazy-load'
+import { Signup, WhatOurClientsSay, OurPlatforms } from './home/_lazy-load'
 import TradeTypes from './home/_trade-types'
 import Hero from './home/_hero'
 import MarketsFold from './home/_markets_fold'
@@ -27,6 +27,7 @@ const Home = () => {
             <Hero />
             <MarketsFold />
             <TradeTypes />
+            <OurPlatforms />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
         </Layout>

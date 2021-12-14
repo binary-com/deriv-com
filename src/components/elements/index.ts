@@ -22,6 +22,7 @@ import Timeline from './timeline'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
 import VideoPlayer from './video-player'
+import NavigationDots from './NavigationDots'
 
 export {
     Accordion,
@@ -46,6 +47,7 @@ export {
     LocalizedLinkText,
     moveOffCanvasMenu,
     NavCard,
+    NavigationDots,
     OffCanvasMenu,
     OffCanvasMenuPartner,
     QueryImage,

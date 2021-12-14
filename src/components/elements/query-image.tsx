@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 
@@ -32,7 +32,7 @@ const QueryImage = ({
     loading,
     width,
     ...props
-}: QueryImageProps): JSX.Element => {
+}: QueryImageProps): ReactElement => {
     const image = getImage(data)
     if (data) {
         return (

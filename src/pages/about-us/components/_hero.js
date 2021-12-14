@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Show } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header , QueryImage } from 'components/elements'
 import { Background } from 'components/elements/background-image'
 import device from 'themes/device.js'
 
 const BackgroundWrapper = styled(Background)`
-    padding-top: 80px;
+    padding-top: 240px;
     background-size: cover;
     background-position: bottom right;
 `
@@ -40,6 +40,7 @@ const InformationWrapper = styled(Flex)`
 
 const StyledHeader = styled(Header)`
     display: flex;
+    position: relative;
     justify-content: center;
     font-size: 17rem;
     align-items: center;
@@ -53,34 +54,15 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const HeroContent = styled(Flex)`
-    height: unset;
-
-    ${Header} {
-        display: flex;
-        margin-top: 1rem;
-    }
-
-    @media ${device.mobileL} {
-        ${Header} {
-            margin: 10px 0 0;
-        }
-    }
-`
-
-const HeroComponent = ({ title, content, background_data }) => {
+const HeroComponent = ({ title, background_data, image }) => {
     return (
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-around" height="63rem">
                 <InformationWrapper height="unset" direction="column">
+                    <QueryImage data={image} alt="example" width="100%" />
                     <StyledHeader mt="4rem" type="hero" color="white">
                         {title}
                     </StyledHeader>
-                    <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
-                        <Header color="white" type="subtitle-1" weight="normal">
-                            {content}
-                        </Header>
-                    </HeroContent>
                 </InformationWrapper>
             </Wrapper>
         </BackgroundWrapper>
@@ -89,18 +71,22 @@ const HeroComponent = ({ title, content, background_data }) => {
 
 const query = graphql`
     query {
-        about_us_hero_background: file(relativePath: { eq: "about/about_us_hero.png" }) {
+        about_us_hero_background: file(relativePath: { eq: "about/bg-desktop.png" }) {
             ...fadeIn
         }
-        about_us_hero_background_mobile: file(
-            relativePath: { eq: "about/about_us_hero_mobile.png" }
-        ) {
+        about_us_hero_background_mobile: file(relativePath: { eq: "about/bg-mobile.png" }) {
+            ...fadeIn
+        }
+        about_us_hero_image: file(relativePath: { eq: "about/img-desktop.png" }) {
+            ...fadeIn
+        }
+        about_us_hero_image_mobile: file(relativePath: { eq: "about/img-mobile.png" }) {
             ...fadeIn
         }
     }
 `
 
-const Hero = ({ title, content }) => {
+const Hero = ({ title }) => {
     const data = useStaticQuery(query)
 
     return (
@@ -108,14 +94,14 @@ const Hero = ({ title, content }) => {
             <Show.Desktop max_width="tabletL">
                 <HeroComponent
                     title={title}
-                    content={content}
+                    image={data['about_us_hero_image']}
                     background_data={data['about_us_hero_background']}
                 />
             </Show.Desktop>
             <Show.Mobile min_width="tabletL">
                 <HeroComponent
                     title={title}
-                    content={content}
+                    image={data['about_us_hero_image_mobile']}
                     background_data={data['about_us_hero_background_mobile']}
                 />
             </Show.Mobile>
@@ -125,12 +111,13 @@ const Hero = ({ title, content }) => {
 
 HeroComponent.propTypes = {
     background_data: PropTypes.any,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.string,
 }
 
 Hero.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.string,
 }
 

@@ -52,7 +52,7 @@ const Wrapper = styled(Flex)`
     @media ${device.laptopM} {
         padding: 88px 40px;
     }
-    @media ${device.tablet} {
+    @media ${device.tabletS} {
         padding: 88px 16px 64px;
     }
 `

@@ -7,7 +7,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Show, Flex, SectionContainer } from 'components/containers'
 import {
     OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -1132,4 +1132,92 @@ NavPartners.propTypes = {
 
 NavInterim.propTypes = {
     interim_type: PropTypes.string,
+}
+
+const Section = styled(SectionContainer)`
+    background-color: ${(props) => (props.background ? 'transparent' : 'var(--color-black)')};
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    padding: 16px 1%;
+    height: 72px;
+    @media ${device.tabletL} {
+        padding: 16px;
+        height: 64px;
+    }
+    @media ${device.mobileL} {
+        padding: 16px 0;
+    }
+`
+const ContentContainer = styled(Container)`
+    justify-content: space-between;
+    @media ${device.tabletL} {
+        justify-content: center;
+    }
+`
+const LogoWrapper = styled(Flex)`
+    align-items: center;
+    width: 138px;
+`
+const BtnWrapper = styled(Flex)`
+    justify-content: flex-end;
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+const StyledLinkRightButton = styled(LinkButton)`
+    padding: 10px 16px;
+    background: var(--color-green-3);
+    border: 2px solid var(--color-green-3);
+`
+export const NavAboutUs = () => {
+    const data = useStaticQuery(query)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
+    const handleScroll = useCallback(() => {
+        const currentScrollPos = window.pageYOffset
+        setVisible(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [prevScrollPos, visible, handleScroll])
+    return (
+        <>
+            <Section background={visible}>
+                <ContentContainer>
+                    <LogoWrapper>
+                        <LogoLink to="https://deriv.com/" aria-label={localize('Home')}>
+                            <QueryImage
+                                data={data['deriv']}
+                                alt={localize('deriv')}
+                                max_width="16.4rem"
+                                width="100%"
+                                height="auto"
+                            />
+                        </LogoLink>
+                    </LogoWrapper>
+                    <BtnWrapper>
+                        <StyledLinkRightButton
+                            to="https://deriv.com/signup/"
+                            rel="noopener noreferrer"
+                            secondary="true"
+                        >
+                            {localize('Take me to Deriv')}
+                        </StyledLinkRightButton>
+                    </BtnWrapper>
+                </ContentContainer>
+            </Section>
+            <CFDWarning no_eu_banner={true} />
+        </>
+    )
+}
+
+NavAboutUs.propTypes = {
+    is_ppc: PropTypes.bool,
 }

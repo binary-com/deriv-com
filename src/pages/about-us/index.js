@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Hero from './components/_hero'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -11,7 +12,7 @@ const StyledDiv = styled.div`
 
 const AboutUs = () => {
     return (
-        <Layout>
+        <Layout type="about-us" margin_top="0">
             <SEO
                 // title and description from story page, needs new?
                 title={localize('About Us | An Online Trading Platform | Deriv.com')}
@@ -19,6 +20,7 @@ const AboutUs = () => {
                     'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
             />
+            <Hero title={localize('About us')} />
             <StyledDiv>About Us new page</StyledDiv>{' '}
         </Layout>
     )

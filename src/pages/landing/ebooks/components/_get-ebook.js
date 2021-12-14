@@ -333,7 +333,7 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                     <AgreementLabel
                         isChecked={is_checked}
                         handleChangeCheckbox={handleChange}
-                        color={color ? color : 'var(--white)'}
+                        color={color ? color : 'var(--color-white)'}
                     />
                     <EmailButton
                         isChecked={is_checked}

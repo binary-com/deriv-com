@@ -15,6 +15,7 @@ const Item = styled(Flex)`
         width: 48px;
         height: 48px;
     }
+
     @media ${device.tabletL} {
         max-width: 27rem;
         margin-top: 24px;
@@ -24,6 +25,7 @@ const Item = styled(Flex)`
         }
     }
 `
+
 const ItemContainer = styled(Box)`
     display: flex;
     margin: 4rem 0;

@@ -6,10 +6,8 @@ import { StandardImgWrapper } from '../../common/_styles'
 import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { LinkButton } from 'components/form'
 import { convertDate, getVideoObject } from 'common/utility'
 import device from 'themes/device'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
 const SmallDetailsWrapper = styled(Flex)`
@@ -75,22 +73,9 @@ const PlayerIcon = styled.img`
     }
 `
 
-const SeeMoreBtnMobile = styled(LinkButton)`
-    width: 100%;
-    max-width: 360px;
-    border: 1px solid var(--color-grey-5);
-    border-radius: 4px;
-    background-color: transparent;
-    padding: 6px 0;
-    margin: 24px auto 0;
-    height: auto;
-    align-items: center;
-`
-
 const VideoCarousel = ({ carousel_items }) => {
     const [show, setShow] = useState(false)
     const [video_src, setVideoSrc] = useState('')
-    const [is_mobile] = useBrowserResize()
 
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = (event, url) => {
@@ -207,13 +192,6 @@ const VideoCarousel = ({ carousel_items }) => {
                         })}
                     </CustomCarousel>
                 </Flex>
-                {is_mobile && (
-                    <SeeMoreBtnMobile to="/academy/videos/">
-                        <Header type="paragraph-2" color="white" align="center">
-                            See all videos
-                        </Header>
-                    </SeeMoreBtnMobile>
-                )}
             </Flex>
             {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
         </>

@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Show } from 'components/containers'
-import { Header , QueryImage } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { Background } from 'components/elements/background-image'
 import device from 'themes/device.js'
 
 const BackgroundWrapper = styled(Background)`
-    padding-top: 240px;
+    padding-top: 100px;
     background-size: cover;
     background-position: bottom right;
 `
@@ -40,7 +40,8 @@ const InformationWrapper = styled(Flex)`
 
 const StyledHeader = styled(Header)`
     display: flex;
-    position: relative;
+    position: absolute;
+    width: 800px;
     justify-content: center;
     font-size: 17rem;
     align-items: center;
@@ -59,8 +60,8 @@ const HeroComponent = ({ title, background_data, image }) => {
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-around" height="63rem">
                 <InformationWrapper height="unset" direction="column">
-                    <QueryImage data={image} alt="example" width="100%" />
-                    <StyledHeader mt="4rem" type="hero" color="white">
+                    <QueryImage data={image} alt="example" width="596px" />
+                    <StyledHeader type="hero" color="white">
                         {title}
                     </StyledHeader>
                 </InformationWrapper>

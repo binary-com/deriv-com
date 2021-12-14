@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import our_values_data from './_our_values_data'
+import { our_values } from './_data'
 import { localize } from 'components/localization'
-import { SectionContainer , Box } from 'components/containers'
+import { SectionContainer, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
@@ -80,7 +80,7 @@ const OurValues = () => {
                 {localize('Our values are the fabric of our culture')}
             </Header>
             <StyledBox>
-                {our_values_data.map((card, index) => (
+                {our_values.map((card, index) => (
                     <Card key={card.title} index={index}>
                         <img src={card.icon} alt="" />
                         <Header as="h4" size="32px" align="left">

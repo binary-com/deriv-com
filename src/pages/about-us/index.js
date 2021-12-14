@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import OurValues from './_OurValues'
+import OurPrinciples from './_OurPrinciples'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer } from 'components/containers'
@@ -90,6 +91,7 @@ const AboutUs = () => {
             <StartSeparator />
             <OurValues />
             <EndSeparator />
+            <OurPrinciples />
         </Layout>
     )
 }

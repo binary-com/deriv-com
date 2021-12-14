@@ -146,22 +146,22 @@ const Rewards = () => {
                         })}
                     </ItemsWrapper>
                 </CardWrapper>
-            </Container>
 
-            <Flex ai="center" mt="16px">
-                <Localize
-                    translate_text="<0>See a list of the vulnerability examples</0>"
-                    components={[
-                        <LocalizedLinkText
-                            mr="8px"
-                            key={0}
-                            to="/security/vulnerabilities-types/"
-                            color="red"
-                        />,
-                    ]}
-                />
-                <img src={Arrow} alt="arrow" width="16" height="16" />
-            </Flex>
+                <Flex ai="center" mt="16px">
+                    <Localize
+                        translate_text="<0>See a list of the vulnerability examples</0>"
+                        components={[
+                            <LocalizedLinkText
+                                mr="8px"
+                                key={0}
+                                to="/security/vulnerabilities-types/"
+                                color="red"
+                            />,
+                        ]}
+                    />
+                    <img src={Arrow} alt="arrow" width="16" height="16" />
+                </Flex>
+            </Container>
         </SectionContainer>
     )
 }

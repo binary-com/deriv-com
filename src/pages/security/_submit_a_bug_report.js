@@ -12,6 +12,7 @@ const Wrapper = styled(Flex)`
     border-radius: 10px;
     width: 100%;
     padding: 0 32px 0 100px;
+    align-items: flex-end;
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -61,6 +62,7 @@ const SubmitABugReport = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const bug_report_image = is_mobile ? data['bug_report_mobile'] : data['bug_report_desktop']
+    const image_width = is_mobile ? '200px' : '305px'
 
     return (
         <SectionContainer>
@@ -79,7 +81,11 @@ const SubmitABugReport = () => {
                     </TextWrap>
 
                     <ImageWrap>
-                        <QueryImage data={bug_report_image} alt="bug_report_image" width="305px" />
+                        <QueryImage
+                            data={bug_report_image}
+                            alt="bug_report_image"
+                            width={image_width}
+                        />
                     </ImageWrap>
                 </Wrapper>
             </Container>

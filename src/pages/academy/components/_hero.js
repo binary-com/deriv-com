@@ -49,7 +49,10 @@ const Wrapper = styled(Flex)`
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
     }
-    @media screen and (max-width: 556px) {
+    @media ${device.laptopM} {
+        padding: 88px 40px;
+    }
+    @media ${device.tablet} {
         padding: 88px 16px 64px;
     }
 `

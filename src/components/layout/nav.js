@@ -1150,29 +1150,15 @@ const Section = styled(SectionContainer)`
         padding: 16px 0;
     }
 `
-const ContentContainer = styled(Container)`
-    justify-content: space-between;
-    @media ${device.tabletL} {
-        justify-content: center;
-    }
-`
-const LogoWrapper = styled(Flex)`
-    align-items: center;
-    width: 138px;
-`
-const BtnWrapper = styled(Flex)`
-    justify-content: flex-end;
-    @media ${device.tabletL} {
-        display: none;
-    }
-`
-const StyledLinkRightButton = styled(LinkButton)`
-    padding: 10px 16px;
-    background: var(--color-green-3);
-    border: 2px solid var(--color-green-3);
-`
-export const NavAboutUs = () => {
-    const data = useStaticQuery(query)
+
+export const NavAboutUs = ({
+    base,
+    is_ppc_redirect,
+    is_ppc,
+    hide_signup_login,
+    academy_logo,
+    no_language,
+}) => {
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const handleScroll = useCallback(() => {
@@ -1187,31 +1173,40 @@ export const NavAboutUs = () => {
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [prevScrollPos, visible, handleScroll])
+
+    const [is_logged_in, setLoggedIn] = useState(false)
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+
+        let checkCookieChange = setInterval(() => {
+            setLoggedIn(isLoggedIn())
+        }, 800)
+        return () => clearInterval(checkCookieChange)
+    }, [])
     return (
         <>
             <Section background={visible}>
-                <ContentContainer>
-                    <LogoWrapper>
-                        <LogoLink to="https://deriv.com/" aria-label={localize('Home')}>
-                            <QueryImage
-                                data={data['deriv']}
-                                alt={localize('deriv')}
-                                max_width="16.4rem"
-                                width="100%"
-                                height="auto"
-                            />
-                        </LogoLink>
-                    </LogoWrapper>
-                    <BtnWrapper>
-                        <StyledLinkRightButton
-                            to="https://deriv.com/signup/"
-                            rel="noopener noreferrer"
-                            secondary="true"
-                        >
-                            {localize('Take me to Deriv')}
-                        </StyledLinkRightButton>
-                    </BtnWrapper>
-                </ContentContainer>
+                <Show.Desktop max_width="bp1060">
+                    <NavDesktop
+                        no_language={no_language}
+                        academy_logo={academy_logo}
+                        base={base}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </Show.Desktop>
+                <Show.Mobile min_width="bp1060">
+                    <NavMobile
+                        no_language={no_language}
+                        academy_logo={academy_logo}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </Show.Mobile>
             </Section>
             <CFDWarning no_eu_banner={true} />
         </>
@@ -1219,5 +1214,10 @@ export const NavAboutUs = () => {
 }
 
 NavAboutUs.propTypes = {
+    academy_logo: PropTypes.bool,
+    base: PropTypes.string,
+    hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }

@@ -877,6 +877,8 @@ const SecurityNavRight = styled(StyledNavRight)`
     > a:last-child {
         opacity: 1;
         color: var(--color-white);
+        pointer-events: visible;
+        cursor: pointer;
     }
 `
 
@@ -1125,30 +1127,10 @@ export const NavPartners = ({ no_login_signup }) => {
 }
 
 // Note: When using layout component for security page, please add type='security' and padding_top='10rem'
-export const NavSecurity = ({ no_login_signup }) => {
+export const NavSecurity = () => {
     const nav_ref = useRef(null)
     const button_ref = useRef(null)
-    const [show_button, showButton, hideButton] = moveButton()
-    const [mounted, setMounted] = useState(false)
-    const [has_scrolled, setHasScrolled] = useState(false)
 
-    const buttonHandleScroll = () => {
-        setHasScrolled(true)
-        handleScroll(showButton, hideButton)
-    }
-    useEffect(() => {
-        setMounted(true)
-        if (!no_login_signup) {
-            document.addEventListener('scroll', buttonHandleScroll, {
-                passive: true,
-            })
-            return () => {
-                document.removeEventListener('scroll', buttonHandleScroll)
-            }
-        }
-    }, [])
-
-    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     return (
         <>
             <NavWrapperPartners ref={nav_ref}>
@@ -1179,22 +1161,16 @@ export const NavSecurity = ({ no_login_signup }) => {
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNavPartners>
-                    <StyledNavWrapper no_login_signup>
+                    <StyledNavWrapper>
                         <NavLeftPartners>
                             <NavLogoLink to="/security/" aria-label={localize('Security')}>
                                 <img src={LogoSecurity} alt="logo security" />
                             </NavLogoLink>
                         </NavLeftPartners>
-                        <SecurityNavRight
-                            move={show_button}
-                            button_ref={button_ref}
-                            mounted={mounted}
-                            has_scrolled={has_scrolled}
-                        >
+                        <SecurityNavRight button_ref={button_ref} mounted={true}>
                             <LinkButton
-                                to={affiliate_signin_url}
+                                to={'mailto:security@deriv.com'}
                                 external="true"
-                                type="affiliate_sign_in"
                                 target="_blank"
                                 tertiary
                                 style={{ width: '16rem' }}
@@ -1202,52 +1178,21 @@ export const NavSecurity = ({ no_login_signup }) => {
                                 <span>{localize('Submit a report')}</span>
                             </LinkButton>
                         </SecurityNavRight>
-                        {is_canvas_menu_open ? (
-                            <CloseMenuPartners
-                                src={Close}
-                                alt="close menu 2"
-                                onClick={closeOffCanvasMenu}
-                                width="16px"
-                            />
-                        ) : (
-                            <HamburgerMenuPartners
-                                src={Hamburger}
-                                alt="hamburger menu2"
-                                onClick={openOffCanvasMenu}
-                                width="16px"
-                            />
-                        )}
 
                         <Mobile>
                             <Flex ai="center">
-                                <LogoLinkMobile to="/partners/" aria-label={localize('Home')}>
+                                <LogoLinkMobile
+                                    style={{ margin: 'unset' }}
+                                    to="/security/"
+                                    aria-label={localize('Security')}
+                                >
                                     <ResLogo src={LogoOnly} alt="reslogo" />
                                 </LogoLinkMobile>
                                 <Flex ml="auto" ai="center" width="auto">
                                     <LanguageSwitcher short_name="true" is_high_nav />
                                 </Flex>
-                                {!no_login_signup && (
-                                    <LinkMobileLogin
-                                        to={affiliate_signin_url}
-                                        type="affiliate_sign_in"
-                                        external="true"
-                                        target="_blank"
-                                        primary
-                                    >
-                                        <Show.Desktop>
-                                            <span>{localize('Affiliate & IB log in')}</span>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
-                                            <span>{localize('Log in')}</span>
-                                        </Show.Mobile>
-                                    </LinkMobileLogin>
-                                )}
                             </Flex>
                         </Mobile>
-                        <OffCanvasMenuPartner
-                            is_canvas_menu_open={is_canvas_menu_open}
-                            closeOffCanvasMenu={closeOffCanvasMenu}
-                        />
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>
@@ -1269,10 +1214,6 @@ NavStatic.propTypes = {
 }
 
 NavPartners.propTypes = {
-    no_login_signup: PropTypes.bool,
-}
-
-NavSecurity.propTypes = {
     no_login_signup: PropTypes.bool,
 }
 

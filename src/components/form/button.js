@@ -98,9 +98,9 @@ export const SharedButtonStyle = css`
                 }
 
                 @media ${device.tabletL} {
-                    padding: 20px 24px;
-                    font-size: 16px;
-                    line-height: 24px;
+                    padding: 20px 24px !important;
+                    font-size: 16px !important;
+                    line-height: 24px !important;
                 }
             `
     }}

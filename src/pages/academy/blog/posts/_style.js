@@ -427,7 +427,7 @@ export const StyledBreadcrumbsTitle = styled(Text)`
 
 export const Scrollbar = styled.div`
     position: fixed;
-    top: 72px;
+    top: 7.2rem;
     width: 100%;
     background: var(--color-grey-8);
     z-index: 100;

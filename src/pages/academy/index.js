@@ -18,9 +18,6 @@ const MainWrapper = styled(Flex)`
     flex-direction: column;
     overflow: hidden;
 `
-const StyledLink = styled.a`
-    text-decoration: none;
-`
 
 export const query = graphql`
     query HomepageQuery {
@@ -378,22 +375,18 @@ const DerivBlog = ({ data }) => {
                 meta_attributes={meta_attributes}
             />
             <MainWrapper>
-                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
+                <Carousel {...settings}>
                     {homepage_banner_data.map((page_data) => {
                         return (
-                            <StyledLink
-                                key={page_data.id}
-                                href={page_data.link}
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
+                            <Flex key={page_data.id}>
                                 <Hero
                                     imageData={page_data.desktop_hero.imageFile}
                                     imageAlt={page_data?.desktop_hero?.description}
                                     title={page_data.heading}
                                     description={page_data.sub_heading}
+                                    href={page_data.link}
                                 />
-                            </StyledLink>
+                            </Flex>
                         )
                     })}
                 </Carousel>

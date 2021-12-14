@@ -375,7 +375,7 @@ const DerivBlog = ({ data }) => {
                 meta_attributes={meta_attributes}
             />
             <MainWrapper>
-                <Carousel {...settings}>
+                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                     {homepage_banner_data.map((page_data) => {
                         return (
                             <Flex key={page_data.id}>

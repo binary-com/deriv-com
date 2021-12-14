@@ -7,7 +7,7 @@ import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const TabsContainer = styled(Flex)`
-    background-color: var(--color-grey-23);
+    background-color: rgba(249, 251, 255, 1);
 `
 const TabList = styled.div`
     display: flex;

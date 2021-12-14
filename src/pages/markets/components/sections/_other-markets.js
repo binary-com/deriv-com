@@ -122,7 +122,7 @@ const MobileCardWrapper = styled(Flex)`
 `
 const StyledFlex = styled(Flex)`
     height: auto;
-    border-radius: 1.6rem;
+    border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
     top: 0;
@@ -225,7 +225,7 @@ const OtherMarkets = ({ except }) => {
         'cryptocurrencies',
     ]
     return (
-        <SectionContainer margin="auto" background="white">
+        <SectionContainer margin="auto" background="rgba(249, 251, 255, 1)">
             <Show.Desktop max_width="laptopM">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">

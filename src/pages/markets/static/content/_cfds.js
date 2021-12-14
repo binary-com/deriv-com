@@ -18,6 +18,7 @@ import {
     AsianIndices,
     EuropeanIndices,
     JumpIndices,
+    BasketIndices,
 } from '../../instruments/_submarkets'
 import {
     CrashBoomDetails,
@@ -31,6 +32,7 @@ import {
     AsianIndicesDetails,
     EuropeanIndicesDetails,
     JumpIndicesDetails,
+    BasketIndicesDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -192,6 +194,17 @@ export const crypto_cfds = {
         {
             title: <Localize translate_text="Cryptocurrencies" />,
             component: <CryptocurrenciesCFDs />,
+        },
+    ],
+}
+
+export const basket_cfds = {
+    has_global_accordion: true,
+    content: [
+        {
+            title: <Localize translate_text="Basket<0></0>indices" components={[<br key={0} />]} />,
+            component: <BasketIndices />,
+            details: BasketIndicesDetails,
         },
     ],
 }

@@ -24,6 +24,7 @@ import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
 import SwapFreePairs from './_swap-free-pairs'
+import BasketIndices from './_basket-indices'
 
 export {
     Americas,
@@ -52,4 +53,5 @@ export {
     AsianIndices,
     EuropeanIndices,
     SwapFreePairs,
+    BasketIndices,
 }

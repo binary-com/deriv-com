@@ -69,7 +69,7 @@ const StyledButton = styled(LinkButton)`
 `
 export const WhyTrade = ({ children, header, text }) => {
     return (
-        <StyledSection background="color-grey-23">
+        <StyledSection background="rgba(249, 251, 255, 1)">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
                     <StyledHeader as="h3" type="section-title" align="center" mb="1.6rem" lh="1.25">

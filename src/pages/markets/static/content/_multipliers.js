@@ -8,6 +8,7 @@ import {
     CryptocurrenciesMultipliers,
     VolatilityIndicesEU,
     SmartFX,
+    BasketIndices,
 } from '../../instruments/_submarkets'
 import {
     ContinuousIndicesDetails,
@@ -17,6 +18,7 @@ import {
     CryptocurrenciesDetails,
     VolatilityIndicesDetailsEU,
     SmartFXDetails,
+    BasketIndicesDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -101,6 +103,17 @@ export const crypto_multiplier = {
             title: <Localize translate_text="Cryptocurrencies" />,
             component: <CryptocurrenciesMultipliers />,
             details: CryptocurrenciesDetails,
+        },
+    ],
+}
+
+export const basket_multiplier = {
+    has_global_accordion: true,
+    content: [
+        {
+            title: <Localize translate_text="Basket<0></0>indices" components={[<br key={0} />]} />,
+            component: <BasketIndices />,
+            details: BasketIndicesDetails,
         },
     ],
 }

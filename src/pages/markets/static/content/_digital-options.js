@@ -10,6 +10,7 @@ import {
     Metals,
     MinorPairs,
     SmartFX,
+    BasketIndices,
 } from '../../instruments/_submarkets.js'
 import {
     AmericasDetails,
@@ -18,6 +19,7 @@ import {
     DailyResetIndicesDetails,
     EuropeDetails,
     SmartFXDetails,
+    BasketIndicesDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 import Asians from 'images/svg/options/asians.svg'
@@ -329,4 +331,20 @@ export const synthetic_options = {
             translate_text="Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average."
         />,
     ],
+}
+
+export const basket_options = {
+    market_instruments: {
+        has_global_accordion: true,
+        content: [
+            {
+                title: (
+                    <Localize translate_text="Basket<0></0>indices" components={[<br key={0} />]} />
+                ),
+                component: <BasketIndices />,
+                details: BasketIndicesDetails,
+            },
+        ],
+    },
+    options: getOptions(false),
 }

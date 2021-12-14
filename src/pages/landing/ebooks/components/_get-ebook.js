@@ -71,6 +71,10 @@ const SocialWrapper = styled(Flex)`
     flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
+
+    @media ${device.tabletS} {
+        flex-direction: column;
+    }
 `
 const SocialButton = styled(Button)`
     width: 12.5rem;
@@ -93,7 +97,7 @@ const SocialButton = styled(Button)`
         position: relative;
     }
 
-    @media (max-width: 500px) {
+    @media ${device.tabletS} {
         width: 100%;
         height: 43px;
         padding: 0;
@@ -329,7 +333,7 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                     <AgreementLabel
                         isChecked={is_checked}
                         handleChangeCheckbox={handleChange}
-                        color={color}
+                        color={color ? color : 'var(--white)'}
                     />
                     <EmailButton
                         isChecked={is_checked}

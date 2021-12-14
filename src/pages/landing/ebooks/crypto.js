@@ -46,8 +46,8 @@ const StocksEbook = () => {
                     ) + ' '
                 }
                 authorName={localize('Vince Stanzione.')}
-                bg="linear-gradient(90deg, #E4CCA5, #EABE75)"
-                bgMobile="linear-gradient(90deg, #E4CCA5, #EABE75)"
+                bg="linear-gradient(90deg, #EBCA93, #EBC17A)"
+                bgMobile="linear-gradient(180deg, #EBCA93, #EBC17A)"
                 color="black"
                 ebook_utm_code="cryptocurrencies-ebook"
                 introSub=""

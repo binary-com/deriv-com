@@ -2,37 +2,26 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import GetEbook from './_get-ebook'
-import { Flex } from 'components/containers'
+import { Flex , Box } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
-const MainWrapper = styled(Flex)`
-    width: 100%;
-    padding: 4% 3%;
-    background-image: ${(props) =>
-        props.bg1 ? props.bg1 : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
+const MainWrapper = styled(Box)`
+    background-image: ${(props) => props.bg};
 
     @media ${device.tablet} {
-        background-image: ${(props) =>
-            props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
+        background-image: ${(props) => props.bgMobile};
     }
 `
 const HeaderBody = styled(Flex)`
-    max-width: 1440px;
-    margin: 0;
     @media ${device.tablet} {
         flex-direction: column;
-        height: auto;
     }
 `
 
 const TopHeaderImgWrapper = styled(Flex)`
-    justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-
     @media ${device.tablet} {
         order: 2;
     }
@@ -42,43 +31,20 @@ const HeaderImage = styled(QueryImage)`
     padding: 15px;
 `
 
-const ContentWrapper = styled.div`
-    width: 100%;
+const ContentWrapper = styled(Flex)`
     float: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
     @media ${device.tablet} {
         float: none;
     }
 `
 
-const Content = styled.div`
-    width: 100%;
-    margin: 0;
-    padding: 10px 30px 0 45px;
-
-    @media ${device.laptopL} {
-        padding-left: 45px;
-        margin-right: 30px;
-    }
-
-    @media ${device.laptop} {
-        padding: 10px 60px 0 25px;
-        max-width: 600px;
-    }
-
+const Content = styled(Box)`
     @media ${device.tablet} {
         float: none;
-        max-width: 360px;
-        padding: 10px 0;
-        margin: 0 auto;
-        justify-content: center;
     }
 `
 const SubTitle = styled(Header)`
-    color: ${(props) => (props.color ? `${props.color}` : 'white')};
     @media screen and (min-width: 1200px) {
         max-width: 600px;
     }
@@ -91,16 +57,11 @@ const SubTitle = styled(Header)`
 `
 
 const AuthorText = styled(Text)`
-    color: ${(props) => (props.color ? `${props.color}` : 'white')};
     font-style: italic;
 `
 
 const AuthorNameText = styled(Text).attrs({ as: 'span' })`
     color: ${(props) => (props.color ? `${props.color}` : 'white')};
-`
-
-const SignupWrapper = styled.div`
-    margin: 10px;
 `
 
 const Hero = ({
@@ -116,10 +77,18 @@ const Hero = ({
 }) => {
     const [is_mobile] = useBrowserResize()
     return (
-        <MainWrapper bg1={bg} bgMobile={bgMobile}>
-            <HeaderBody>
-                <ContentWrapper>
-                    <Content>
+        <MainWrapper width="100%" p="4%" bg={bg} tablet={{ bg: { bgMobile } }}>
+            <HeaderBody max_width="1440px" m="0" tablet={{ height: 'auto' }}>
+                <ContentWrapper width="100%" direction="column">
+                    <Content
+                        width="100%"
+                        m="0"
+                        p="10px 30px 0 45px"
+                        laptopL={{ pl: '45px', mr: '30px' }}
+                        laptop={{ p: '10px 30px 0 25px', mr: '5px', max_width: '600px' }}
+                        tabletL={{ pl: '20px' }}
+                        tablet={{ max_width: '360px', p: '10px 0', m: '0 auto', jc: 'center' }}
+                    >
                         <SubTitle
                             as="h2"
                             type="sub-section-title"
@@ -169,19 +138,20 @@ const Hero = ({
                             lh="16px"
                             weight={200}
                             max_width="586px"
+                            styled="italic"
                         >
                             {authorDesc}
                             <AuthorNameText size="14px" color={color} weight="bold">
                                 {authorName}
                             </AuthorNameText>
                         </AuthorText>
-                        <SignupWrapper>
+                        <Box m="10px">
                             <GetEbook ebook_utm_code={ebook_utm_code} color="black" />
-                        </SignupWrapper>
+                        </Box>
                     </Content>
                 </ContentWrapper>
                 {!is_mobile && (
-                    <TopHeaderImgWrapper>
+                    <TopHeaderImgWrapper m="0" p="0" jc="flex-start">
                         <HeaderImage data={mainHeaderImage} alt="ebook" />
                     </TopHeaderImgWrapper>
                 )}
@@ -195,10 +165,10 @@ Hero.propTypes = {
     authorName: PropTypes.string,
     bg: PropTypes.any,
     bgMobile: PropTypes.any,
-    color: PropTypes.any,
+    color: PropTypes.string,
     ebook_utm_code: PropTypes.string,
-    introMain: PropTypes.any,
-    introSub: PropTypes.any,
+    introMain: PropTypes.string,
+    introSub: PropTypes.string,
     mainHeaderImage: PropTypes.any,
 }
 

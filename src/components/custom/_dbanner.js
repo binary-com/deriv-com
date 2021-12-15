@@ -112,12 +112,12 @@ const StyledHeader = styled(Header)`
         max-width: 329px;
     }
 `
-const DBanner = ({ title, data, background_pattern, image_alt }) => {
+const DBanner = ({ title, data, background_pattern }) => {
     return (
         <Wrapper>
             <ImageContainer>
                 <ImageWrapper ai="center">
-                    <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
+                    <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper
@@ -142,7 +142,6 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
 DBanner.propTypes = {
     background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     data: PropTypes.object.isRequired,
-    image_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 

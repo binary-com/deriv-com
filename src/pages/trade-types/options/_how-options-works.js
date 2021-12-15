@@ -141,10 +141,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Choose from the four markets offered on Deriv – forex, stocks & indices, commodities, synthetic indices." />
                         }
                     >
-                        <QueryImage
-                            data={data['option_market']}
-                            alt="Select from different market options"
-                        />
+                        <QueryImage data={data['option_market']} alt="Trade types option market" />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="2. Trade type" />}
@@ -152,7 +149,10 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Select your desired trade type – Up and Down, High and Lows, Digits, etc." />
                         }
                     >
-                        <QueryImage data={data['option_trade_type']} alt="Select trade type" />
+                        <QueryImage
+                            data={data['option_trade_type']}
+                            alt="Trade types option trade type open"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="3. Duration" />}
@@ -160,7 +160,10 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Set the duration of your trade. Depending on whether you have a short-term or long-term view of the markets, you can set your preferred duration, starting from 1 to 10 ticks or 15 seconds to 365 days." />
                         }
                     >
-                        <QueryImage data={data['option_duration']} alt="Select trade duration" />
+                        <QueryImage
+                            data={data['option_duration']}
+                            alt="Trade types option duration"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="4. Stake" />}
@@ -168,10 +171,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Enter your stake amount to receive a payout quote instantly. Alternatively, you can set your preferred payout to receive a price quote for a corresponding stake amount." />
                         }
                     >
-                        <QueryImage
-                            data={data['option_stake']}
-                            alt="Add stake amount to receive payout quote"
-                        />
+                        <QueryImage data={data['option_stake']} alt="Trade types option stake" />
                     </SideTab.Panel>
                 </SideTab>
                 <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
@@ -184,10 +184,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Based on the position you’ve defined, you’ll instantly receive a payout quote or a quote of the stake required to open your position." />
                         }
                     >
-                        <QueryImage
-                            data={data['option_quote']}
-                            alt="Check stake and payout quote"
-                        />
+                        <QueryImage data={data['option_quote']} alt="Trade types option quote" />
                     </SideTab.Panel>
                 </SideTab>
                 <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
@@ -200,7 +197,10 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Place your order immediately if you are satisfied with the quote that you’ve received.  Otherwise, continue to customise the parameters and purchase your contract when you are comfortable with the quote." />
                         }
                     >
-                        <QueryImage data={data['option_purchase']} alt="Buy the contract" />
+                        <QueryImage
+                            data={data['option_purchase']}
+                            alt="Trade types option purchase"
+                        />
                     </SideTab.Panel>
                 </SideTab>
             </SmallContainer>

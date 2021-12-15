@@ -98,16 +98,10 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
                 <Show.Desktop>
-                    <ExampleImage
-                        data={data['example']}
-                        alt="Example for stop loss with crash/boom indices"
-                    />
+                    <ExampleImage data={data['example']} />
                 </Show.Desktop>
                 <Show.Mobile width="100%">
-                    <ExampleImage
-                        data={data['example_mobile']}
-                        alt="Example for stop loss with crash/boom indices"
-                    />
+                    <ExampleImage data={data['example_mobile']} />
                 </Show.Mobile>
 
                 <Header mt="3.2rem" as="h5" type="main-paragraph" mb="0.8rem">

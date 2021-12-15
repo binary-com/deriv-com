@@ -65,6 +65,13 @@ const EmailButton = styled(Button)`
     }
 `
 
+const SocialWrapper = styled(Flex)`
+    width: 100%;
+    margin-top: 1.6rem;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+`
 const SocialButton = styled(Button)`
     width: 12.5rem;
     min-width: 116px;
@@ -86,7 +93,7 @@ const SocialButton = styled(Button)`
         position: relative;
     }
 
-    @media ${device.tabletS} {
+    @media (max-width: 500px) {
         width: 100%;
         height: 43px;
         padding: 0;
@@ -135,11 +142,11 @@ const SignupWithContainer = styled.div`
 const Line = styled.div`
     width: 130px;
     height: 1px;
-    background-color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
+    background-color: var(--color-grey-6);
 `
 
 const StyledText = styled(Text)`
-    color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
+    color: var(--color-grey-6);
 
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
@@ -175,7 +182,7 @@ const EmailImage = styled.img`
     width: 20rem;
 `
 
-const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
+const GetEbook = ({ onSubmit, ebook_utm_code }) => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -322,7 +329,7 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                     <AgreementLabel
                         isChecked={is_checked}
                         handleChangeCheckbox={handleChange}
-                        color={color ? color : 'var(--color-white)'}
+                        color="white"
                     />
                     <EmailButton
                         isChecked={is_checked}
@@ -335,20 +342,13 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                     </EmailButton>
                 </InputGroupForm>
                 <SignupWithContainer>
-                    <Line color={color} />
-                    <StyledText color={color} align="center" tabletFontSize="12px">
+                    <Line />
+                    <StyledText color="grey-5" align="center" tabletFontSize="12px">
                         {localize('Or sign up with')}
                     </StyledText>
-                    <Line color={color} />
+                    <Line />
                 </SignupWithContainer>
-                <Flex
-                    width="100%"
-                    mt="1.6rem"
-                    wrap="wrap"
-                    jc="space-between"
-                    ai="center"
-                    tabletS={{ fd: 'column' }}
-                >
+                <SocialWrapper jc="unset" ai="center">
                     <SocialButton
                         onClick={handleSocialSignup}
                         provider="google"
@@ -388,14 +388,13 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                             <span>Apple</span>
                         </SocialButtonText>
                     </SocialButton>
-                </Flex>
+                </SocialWrapper>
             </div>
         </SignupFormWrapper>
     )
 }
 
 GetEbook.propTypes = {
-    color: PropTypes.string,
     ebook_utm_code: PropTypes.string,
     onSubmit: PropTypes.func,
 }

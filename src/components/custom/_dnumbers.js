@@ -34,7 +34,7 @@ const DNumbers = ({ items, justify }) => {
             <StyledContainer justify={justify || 'space-between'}>
                 {items.map((item, index) => (
                     <NumberWrapper key={index}>
-                        <Header as="h2" type="page-title" align="center">
+                        <Header as="p" type="page-title" align="center">
                             {item.title}
                         </Header>
                         <StyledText align="center">{item.subtitle}</StyledText>

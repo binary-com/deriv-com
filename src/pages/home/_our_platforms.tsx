@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { PlatformSelector, Platform, PlatformDetails } from './_platform_selector'
 import { localize } from 'components/localization'
-import { Header, NavigationDots, QueryImage, StyledLink, Text } from 'components/elements'
+import { Carousel, Header, NavigationDots, QueryImage, StyledLink, Text } from 'components/elements'
 import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
 //SVG
@@ -189,11 +189,14 @@ const SelectorContainer = styled.div`
 const PlatformImageWrapper = styled.div`
     grid-column: 2;
     grid-row: 2 / 5;
-    width: 60vw;
+    width: 45vw;
     display: flex;
     align-items: flex-end;
     margin-right: 3rem;
 
+    @media ${device.tablet} {
+        width: 50vw;
+    }
     @media ${device.tablet} {
         width: 90vw;
         margin-right: 0;
@@ -226,7 +229,22 @@ const PlatformDetailsWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     margin-top: 2rem;
-    width: 100vw;
+    @media ${device.tablet} {
+        width: 100%;
+    }
+`
+
+const DesktopContainer = styled.div`
+    height: 100%;
+    width: 100%;
+    padding: 5rem;
+    padding-right: 0;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 35vw 1fr;
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 
 const MobileContainer = styled.div`
@@ -241,9 +259,15 @@ const MobileContainer = styled.div`
     }
 `
 
+const CarouselItemWrapper = styled.div`
+    width: 100%;
+    padding: 1.8rem;
+`
+
 const DownloadLinks = styled.div`
     grid-column: 2;
     grid-row: 5 / 6;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -277,6 +301,31 @@ const OurPlatforms = (): React.ReactElement => {
     const [selectedIndex, setSelectedIndex] = React.useState(3)
 
     const images = useStaticQuery(query)
+
+    const settings = {
+        options: {
+            loop: false,
+            align: 'start',
+            containScroll: 'trimSnaps',
+        },
+        container_style: {
+            width: '100%',
+            margin: '0 auto',
+        },
+        slide_style: {
+            width: '100vw',
+            height: 'auto',
+            paddingRight: '1.6rem',
+            position: 'relative',
+        },
+        navigation_style: {
+            bottom_offset: '-10px',
+            nav_color: '--color-red',
+        },
+        // vertical_container: {
+        //     width: '100%',
+        // },
+    }
     return (
         <StyledSection>
             <ContentWrapper direction="column">
@@ -289,50 +338,79 @@ const OurPlatforms = (): React.ReactElement => {
                     )}
                 </SubTitle>
                 <MainContent>
-                    <SelectorContainer>
-                        <PlatformSelector
-                            platforms={platforms}
-                            selected_index={selectedIndex}
-                            selectIndex={setSelectedIndex}
-                        />
-                    </SelectorContainer>
-                    <PlatformImageWrapper>
-                        <QueryImage
-                            data={images[Object.keys(images)[selectedIndex]]}
-                            alt={Object.keys(images)[selectedIndex]}
-                        />
-                    </PlatformImageWrapper>
+                    <DesktopContainer>
+                        <SelectorContainer>
+                            <PlatformSelector
+                                platforms={platforms}
+                                selected_index={selectedIndex}
+                                selectIndex={setSelectedIndex}
+                            />
+                        </SelectorContainer>
+                        <PlatformImageWrapper>
+                            <QueryImage
+                                data={images[Object.keys(images)[selectedIndex]]}
+                                alt={Object.keys(images)[selectedIndex]}
+                            />
+                        </PlatformImageWrapper>
+                        <DownloadLinks>
+                            {Object.keys(platforms[selectedIndex].download_links).map(
+                                (platformType, index) => (
+                                    <DownloadLink
+                                        key={index}
+                                        to={platforms[selectedIndex].download_links[platformType]}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img src={getIcon(platformType)} alt={platformType} />
+                                    </DownloadLink>
+                                ),
+                            )}
+                        </DownloadLinks>
+                    </DesktopContainer>
                     <MobileContainer>
-                        <NavigationDots
+                        {/* <NavigationDots
                             count={platforms.length}
                             selected_index={selectedIndex}
                             selected_color="--color-red-1"
                             unselected_color="--color-grey-34"
                             onNavigate={setSelectedIndex}
-                        />
-                        <PlatformDetailsWrapper>
-                            <PlatformDetails
-                                title={platforms[selectedIndex].title}
-                                icon={platforms[selectedIndex].icon}
-                                description={platforms[selectedIndex].description}
-                                learn_more_link={platforms[selectedIndex].learn_more_link}
-                            />
-                        </PlatformDetailsWrapper>
+                        /> */}
+                        <Carousel {...settings}>
+                            {platforms.map((platform, index) => (
+                                <CarouselItemWrapper key={index}>
+                                    <QueryImage
+                                        data={images[Object.keys(images)[index]]}
+                                        alt={Object.keys(images)[index]}
+                                    />
+                                    <PlatformDetailsWrapper>
+                                        <PlatformDetails
+                                            title={platform.title}
+                                            icon={platform.icon}
+                                            description={platform.description}
+                                            learn_more_link={platform.learn_more_link}
+                                        />
+                                    </PlatformDetailsWrapper>
+                                    <DownloadLinks>
+                                        {Object.keys(platform.download_links).map(
+                                            (platformType, index) => (
+                                                <DownloadLink
+                                                    key={index}
+                                                    to={platform.download_links[platformType]}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <img
+                                                        src={getIcon(platformType)}
+                                                        alt={platformType}
+                                                    />
+                                                </DownloadLink>
+                                            ),
+                                        )}
+                                    </DownloadLinks>
+                                </CarouselItemWrapper>
+                            ))}
+                        </Carousel>
                     </MobileContainer>
-                    <DownloadLinks>
-                        {Object.keys(platforms[selectedIndex].download_links).map(
-                            (platformType, index) => (
-                                <DownloadLink
-                                    key={index}
-                                    to={platforms[selectedIndex].download_links[platformType]}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img src={getIcon(platformType)} alt={platformType} />
-                                </DownloadLink>
-                            ),
-                        )}
-                    </DownloadLinks>
                 </MainContent>
             </ContentWrapper>
         </StyledSection>

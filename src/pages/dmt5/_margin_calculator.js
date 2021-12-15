@@ -151,7 +151,9 @@ const CalculatorCard = ({ button_text, image_alt_name, image_name, link, name, t
     const data = useStaticQuery(query)
     return (
         <StyledCardContainer>
-            <SubHeader align="center">{name}</SubHeader>
+            <SubHeader as="h3" align="center">
+                {name}
+            </SubHeader>
             <CardText align="center">{text}</CardText>
             <ImageWrapper>
                 <Show.Desktop>
@@ -236,7 +238,7 @@ const MarginCalculator = () => {
                     has_color={true}
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader type="page-title" lh="1.25" align="left">
+                        <MainHeader as="h2" type="page-title" lh="1.25" align="left">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>

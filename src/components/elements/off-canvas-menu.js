@@ -253,7 +253,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 type="smart_trader"
                                 external="true"
                                 target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
                         <Flex mb="2rem">
@@ -281,7 +280,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 rel="noopener noreferrer"
                                 external="true"
                                 target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
                     </AccordionItem>

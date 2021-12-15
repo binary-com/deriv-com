@@ -1,11 +1,11 @@
 import React, { MouseEventHandler, ReactElement } from 'react'
 import styled from 'styled-components'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 
 export type QueryImageProps = {
     alt: string
     className?: string
-    data: Record<string, unknown>
+    data: ImageDataLike
     height?: string
     width?: string
     loading?: 'eager' | 'lazy'

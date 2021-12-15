@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
+import { Flex } from 'components/containers'
 
 type NavigationDotSProps = {
     count: number
@@ -21,20 +22,13 @@ const Dot = styled.div`
     background-color: var(${(props) => props.color ?? '--color-grey-21'});
 `
 
-const DotsContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem;
-`
-
 const NavigationDots = ({
     count,
     selected_index,
     selected_color,
     unselected_color,
     onNavigate,
-}: NavigationDotSProps): React.ReactElement => {
+}: NavigationDotSProps): ReactElement => {
     const dotsList: Array<ReactElement> = []
     for (let i = 0; i < count; i++) {
         dotsList.push(
@@ -45,7 +39,11 @@ const NavigationDots = ({
             />,
         )
     }
-    return <DotsContainer>{dotsList}</DotsContainer>
+    return (
+        <Flex ai="center" m="2rem">
+            {dotsList}
+        </Flex>
+    )
 }
 
 export default NavigationDots

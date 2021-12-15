@@ -340,7 +340,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     external="true"
                     target="_blank"
                     onClick={onClick}
-                    otherLinkProps={{ rel: 'noopener noreferrer' }}
                 />
                 {is_eu_country && (
                     <NavCard
@@ -355,7 +354,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         rel="noopener noreferrer"
                         target="_blank"
                         onClick={onClick}
-                        otherLinkProps={{ rel: 'noopener noreferrer' }}
                     />
                 )}
             </Flex>
@@ -394,7 +392,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         external="true"
                         target="_blank"
                         onClick={onClick}
-                        otherLinkProps={{ rel: 'noopener noreferrer' }}
                     />
                 )}
             </Flex>

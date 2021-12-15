@@ -64,21 +64,7 @@ const StyledContainer = styled(Container)`
         padding: 0 16px;
     }
 `
-const StyledHeroContainer = styled(Flex)`
-    max-width: 1200px;
-    margin: 0 auto;
 
-    @media ${device.tabletL} {
-        flex-direction: column;
-        max-width: 100%;
-    }
-`
-const StyledHeaderWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-`
 const HeroWrapper = styled.section`
     width: 100%;
     padding: 80px 0;
@@ -161,13 +147,26 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
         <HeroWrapper>
             <BackgroundImage is_unstyled data={hero_background}>
                 <StyledContainer fd="column" ai="flex-start">
-                    <StyledHeroContainer>
+                    <Flex
+                        max_width="1200px"
+                        m="0 auto"
+                        tabletL={{
+                            fd: 'column',
+                            max_width: '100%',
+                        }}
+                    >
                         <Details>
-                            <StyledHeaderWrapper
+                            <Flex
                                 height="unset"
                                 mb="16px"
                                 direction="column"
-                                tabletL={{ fd: 'row', mb: '8px', max_width: '100%' }}
+                                tabletL={{
+                                    fd: 'row',
+                                    fw: 'wrap',
+                                    jc: 'flex-start',
+                                    mb: '8px',
+                                    max_width: '100%',
+                                }}
                             >
                                 <StyledHeader color="white">
                                     <Localize translate_text="Simple." />
@@ -178,7 +177,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                 <StyledHeader color="white">
                                     <Localize translate_text="Reliable." />
                                 </StyledHeader>
-                            </StyledHeaderWrapper>
+                            </Flex>
                             <HeroText
                                 as="h2"
                                 type="sub-section-title"
@@ -212,7 +211,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                 interval={6}
                             />
                         </ImageWrapper>
-                    </StyledHeroContainer>
+                    </Flex>
                 </StyledContainer>
             </BackgroundImage>
         </HeroWrapper>

@@ -1,9 +1,10 @@
 import React, { ReactElement, useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import QueryImage from 'components/elements/query-image'
 
 type SlideshowProps = {
-    images: Record<string, unknown>[]
+    images: ImageDataLike[]
     interval: number
     is_eager?: boolean
 }

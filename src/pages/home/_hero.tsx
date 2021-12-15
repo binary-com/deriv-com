@@ -29,6 +29,7 @@ const query = graphql`
         }
     }
 `
+
 type HeroProps = {
     is_ppc: boolean
 }
@@ -48,23 +49,6 @@ const contents_ppc = [
     <Localize key={0} translate_text="20+ years of experience" />,
 ]
 
-const StyledContainer = styled(Container)`
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 12rem;
-
-    @media ${device.laptopM} {
-        padding: 0 8rem;
-    }
-
-    @media ${device.tabletL} {
-        align-items: center;
-        max-width: 588px;
-        padding: 0 16px;
-    }
-`
-
 const HeroWrapper = styled.section`
     width: 100%;
     padding: 80px 0;
@@ -76,7 +60,6 @@ const HeroWrapper = styled.section`
         padding: 40px 0 46px;
     }
 `
-
 const HeroButton = styled(LinkButton)`
     padding: 17px 24px;
     display: flex;
@@ -95,44 +78,9 @@ const HeroButton = styled(LinkButton)`
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: 80px;
-    line-height: 100px;
-
     @media ${device.tabletL} {
-        font-size: 40px;
-        line-height: 50px;
         margin-right: 8px;
         width: unset;
-    }
-`
-const HeroText = styled(Header)`
-    min-height: auto;
-`
-
-const Details = styled(Flex)`
-    max-width: 486px;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-right: 52px;
-    @media ${device.bp1060} {
-        max-height: unset;
-    }
-    @media ${device.tabletL} {
-        width: unset;
-        max-width: 100%;
-        margin-right: unset;
-        margin-bottom: 40px;
-    }
-`
-const ImageWrapper = styled(Flex)`
-    max-width: 662px;
-    margin: 0 auto;
-    align-items: center;
-
-    @media ${device.tabletL} {
-        margin-top: 0;
-        width: unset;
-        padding: 0 39px;
     }
 `
 
@@ -146,7 +94,16 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
     return (
         <HeroWrapper>
             <BackgroundImage is_unstyled data={hero_background}>
-                <StyledContainer fd="column" ai="flex-start">
+                <Container
+                    width="100%"
+                    max_width="100%"
+                    m="0 auto"
+                    p="0 12rem"
+                    fd="column"
+                    ai="flex-start"
+                    laptopM={{ p: '0 8rem' }}
+                    tabletL={{ ai: 'center', max_width: '588px', p: '0 16px' }}
+                >
                     <Flex
                         max_width="1200px"
                         m="0 auto"
@@ -155,7 +112,19 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                             max_width: '100%',
                         }}
                     >
-                        <Details>
+                        <Flex
+                            max_width="486px"
+                            fd="column"
+                            jc="flex-start"
+                            mr="52px"
+                            bp1060={{ max_height: 'unset' }}
+                            tabletL={{
+                                width: 'unset',
+                                max_width: '100%',
+                                mr: 'unset',
+                                mb: '40px',
+                            }}
+                        >
                             <Flex
                                 height="unset"
                                 mb="16px"
@@ -168,25 +137,26 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                     max_width: '100%',
                                 }}
                             >
-                                <StyledHeader color="white">
+                                <StyledHeader type="main-landing-title" color="white">
                                     <Localize translate_text="Simple." />
                                 </StyledHeader>
-                                <StyledHeader color="white">
+                                <StyledHeader type="main-landing-title" color="white">
                                     <Localize translate_text="Flexible." />
                                 </StyledHeader>
-                                <StyledHeader color="white">
+                                <StyledHeader type="main-landing-title" color="white">
                                     <Localize translate_text="Reliable." />
                                 </StyledHeader>
                             </Flex>
-                            <HeroText
+                            <Header
                                 as="h2"
                                 type="sub-section-title"
                                 color="white"
                                 max_width="430px"
+                                min_height="auto"
                                 weight="normal"
                             >
                                 {text}
-                            </HeroText>
+                            </Header>
                             <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                             <Box tabletL={{ mt: '-8px' }}>
                                 <HeroButton
@@ -199,8 +169,12 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                     <Localize translate_text="Create free demo account" />
                                 </HeroButton>
                             </Box>
-                        </Details>
-                        <ImageWrapper>
+                        </Flex>
+                        <Flex
+                            max_width="662px"
+                            m="0 auto"
+                            tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}
+                        >
                             <Slideshow
                                 images={[
                                     hero_platform1,
@@ -210,9 +184,9 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                                 ]}
                                 interval={6}
                             />
-                        </ImageWrapper>
+                        </Flex>
                     </Flex>
-                </StyledContainer>
+                </Container>
             </BackgroundImage>
         </HeroWrapper>
     )

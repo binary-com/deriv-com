@@ -244,7 +244,6 @@ const MobileContainer = styled.div`
 const DownloadLinks = styled.div`
     grid-column: 2;
     grid-row: 5 / 6;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;

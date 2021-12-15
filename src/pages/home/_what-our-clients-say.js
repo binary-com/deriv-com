@@ -343,7 +343,7 @@ const WhatOurClientsSay = () => {
                         </TrustPilotWidget>
                     </ClientCard>
                     <ClientCard position="relative" direction="column">
-                        <QuoteIcon src={Quote} alt="quote icons" />
+                        <QuoteIcon src={Quote} alt="" />
                         <Flex
                             pl="18%"
                             laptopM={{

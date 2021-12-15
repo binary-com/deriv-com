@@ -182,7 +182,7 @@ const Hero = ({ is_ppc }) => {
                             <Show.Mobile>
                                 <QueryImage
                                     data={data.background}
-                                    alt="Deriv's trading platform"
+                                    alt="platform devices mobile"
                                     width="100%"
                                     height="233"
                                     is_eager
@@ -192,7 +192,7 @@ const Hero = ({ is_ppc }) => {
                         <Show.Desktop>
                             <QueryImage
                                 data={data.background}
-                                alt="Deriv's trading platform"
+                                alt="platform devices"
                                 width="100%"
                                 height="346"
                                 is_eager

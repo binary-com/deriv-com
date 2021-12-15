@@ -32,6 +32,7 @@ const contactways = [
         header: <Localize translate_text="Ask everyone" />,
         text: <Localize translate_text="Our Deriv support community can help you find answers." />,
         image: 'community',
+        img_alt: "Deriv's support community",
         button: (
             <StyledLinkButton
                 secondary="true"
@@ -52,6 +53,7 @@ const contactways = [
             <Localize translate_text="See frequently asked questions on popular topics to get quick answers." />
         ),
         image: 'help',
+        img_alt: "Deriv's help centre",
         button: (
             <StyledLinkButton secondary="true" to="/help-centre/">
                 <Localize translate_text="Visit our Help centre" />
@@ -119,7 +121,7 @@ const ContactWays = () => {
                                 <ImgWrapper>
                                     <QueryImage
                                         data={data[item.image]}
-                                        alt={item.header.props.translate_text}
+                                        alt={item.img_alt}
                                         width="100%"
                                     />
                                 </ImgWrapper>

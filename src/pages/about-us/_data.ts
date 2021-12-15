@@ -4,15 +4,25 @@ import Star from 'images/svg/about-us/star.svg'
 import People from 'images/svg/about-us/people.svg'
 import Hands from 'images/svg/about-us/hands.svg'
 
+export const first_section_texts: string[] = [
+    localize(
+        'Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities and synthetics to millions of registered users across the globe.',
+    ),
+    localize(
+        'From inception, our goal was to break free of the high commissions and clunky products offered by traditional brokers. And to deliver a first-class experience to digitally inclined traders, regardless of the size of their accounts.',
+    ),
+    localize(
+        'In a journey spanning more than 22 years, we have grown to over 2.5 million customers worldwide. But the mission has remained the same.',
+    ),
+]
+
 type ValueType = {
     title: string
     text: string
     icon: string
 }
 
-type OurValuesType = ValueType[]
-
-export const our_values: OurValuesType = [
+export const our_values: ValueType[] = [
     {
         title: localize('Integrity'),
         text: localize(
@@ -48,9 +58,8 @@ type PrincipleType = {
     text: string
     color: string
 }
-type OurPrinciplesType = PrincipleType[]
 
-export const our_principles: OurPrinciplesType = [
+export const our_principles: PrincipleType[] = [
     {
         title: localize('Be reliable'),
         text: localize(

@@ -85,7 +85,7 @@ const ColoredBox = styled(Box)`
     }
 `
 
-const OurPrinciples = (): React.ReactNode => {
+const OurPrinciples = () => {
     return (
         <StyledSection>
             <StyledHeader as="h2" size="48px" align="center" type="page-title">

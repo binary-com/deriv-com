@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { isBrowser } from 'common/utility'
@@ -39,7 +39,7 @@ const ButtonWrapper = styled.div`
     margin-top: 2.6rem;
 `
 
-const PageNotFound = () => {
+const PageNotFound = (): ReactNode => {
     const data = useStaticQuery(query)
     return (
         isBrowser() && (

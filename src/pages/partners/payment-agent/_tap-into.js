@@ -54,7 +54,7 @@ const TapInto = () => {
                 <Wrapper>
                     <QueryImage
                         data={data['payment_agent']}
-                        alt={localize('Girl talking to a group of people')}
+                        alt={localize('Payment agent')}
                         width="100%"
                     />
                 </Wrapper>

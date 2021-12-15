@@ -58,7 +58,7 @@ const StyledLi = styled.li`
 
 const VulnerabilitiesTypes = () => {
     return (
-        <Layout type="partners" margin_top={10} no_login_signup>
+        <Layout type="security" margin_top={10}>
             <SEO title={localize('Some title')} description={localize('Some description')} />
             <Hero />
 

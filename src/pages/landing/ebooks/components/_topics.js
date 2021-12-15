@@ -24,14 +24,11 @@ const Wrapper = styled.div`
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 100px;
+    padding: 0 50px;
 
     @media ${device.tabletL} {
         width: 100%;
         flex-direction: column;
-        padding: 0 50px;
-    }
-    @media ${device.mobileL} {
         padding: 0 15px;
     }
 `
@@ -79,7 +76,7 @@ const TopicImgWrapper = styled.div`
     }
 `
 
-const Topics = ({ title, topicsImage, topicsList }) => {
+const Topics = ({ topicsImage, topicsList }) => {
     return (
         <FullWidth>
             <Wrapper>
@@ -94,7 +91,7 @@ const Topics = ({ title, topicsImage, topicsList }) => {
                         color="var(--color-black-3)"
                         mb="20px"
                     >
-                        {title ? localize(title) : localize('Topics covered')}
+                        {localize('Topics covered')}
                     </Header>
                     {topicsList?.map((topic, index) => {
                         return (
@@ -114,7 +111,6 @@ const Topics = ({ title, topicsImage, topicsList }) => {
 }
 
 Topics.propTypes = {
-    title: PropTypes.string,
     topicsImage: PropTypes.any,
     topicsList: PropTypes.array,
 }

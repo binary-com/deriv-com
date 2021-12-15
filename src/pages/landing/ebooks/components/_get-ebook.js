@@ -175,7 +175,7 @@ const EmailImage = styled.img`
     width: 20rem;
 `
 
-const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
+const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }) => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -322,7 +322,7 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                     <AgreementLabel
                         isChecked={is_checked}
                         handleChangeCheckbox={handleChange}
-                        color={color ? color : 'var(--color-white)'}
+                        color={color}
                     />
                     <EmailButton
                         isChecked={is_checked}

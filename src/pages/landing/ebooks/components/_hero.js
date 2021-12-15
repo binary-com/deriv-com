@@ -36,7 +36,7 @@ const AuthorText = styled(Text)`
 `
 
 const AuthorNameText = styled(Text).attrs({ as: 'span' })`
-    color: ${(props) => (props.color ? `${props.color}` : 'white')};
+    color: ${(props) => props.color};
 `
 
 const Hero = ({
@@ -44,7 +44,7 @@ const Hero = ({
     authorName,
     bg,
     bgMobile,
-    color,
+    color = 'var(--color-white)',
     ebook_utm_code,
     introMain,
     introSub,

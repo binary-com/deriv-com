@@ -34,7 +34,7 @@ const AboutDeriv = () => {
             </Header>
             <WrapContainer mb="8rem">
                 <ImageWrapper>
-                    <QueryImage data={data.deriv_platform} alt={'Deriv platform'} />
+                    <QueryImage data={data.deriv_platform} alt={'Deriv.com on laptop and mobile'} />
                 </ImageWrapper>
 
                 <Flex direction="column" ml="2.4rem" max_width="69rem">

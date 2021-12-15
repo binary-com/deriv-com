@@ -182,12 +182,12 @@ const HowOptionsWorks = () => {
                         {is_eu_country ? (
                             <QueryImage
                                 data={data['multiplier_market_eu']}
-                                alt="Trade types option market"
+                                alt="Select market to trade"
                             />
                         ) : (
                             <QueryImage
                                 data={data['multiplier_market']}
-                                alt="Trade types option market"
+                                alt="Select market to trade"
                             />
                         )}
                     </SideTab.Panel>
@@ -200,12 +200,12 @@ const HowOptionsWorks = () => {
                         {is_eu_country ? (
                             <QueryImage
                                 data={data['multiplier_trade_type_eu']}
-                                alt="Trade types option trade type open"
+                                alt="Selecting multiplier"
                             />
                         ) : (
                             <QueryImage
                                 data={data['multiplier_trade_type']}
-                                alt="Trade types option trade type open"
+                                alt="Selecting multiplier"
                             />
                         )}
                     </SideTab.Panel>
@@ -215,10 +215,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Enter the amount you wish to trade with." />
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_stake']}
-                            alt="Trade types multiplier stake"
-                        />
+                        <QueryImage data={data['multiplier_stake']} alt="Enter stake amount" />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="4. Multiplier value" />}
@@ -233,12 +230,12 @@ const HowOptionsWorks = () => {
                         {is_eu_country ? (
                             <QueryImage
                                 data={data['multiplier_value_eu']}
-                                alt="Trade types multiplier value"
+                                alt="Enter multiplier value"
                             />
                         ) : (
                             <QueryImage
                                 data={data['multiplier_value']}
-                                alt="Trade types multiplier value"
+                                alt="Enter multiplier value"
                             />
                         )}
                     </SideTab.Panel>
@@ -253,10 +250,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_take_profit']}
-                            alt="Trade types multiplier take profit"
-                        />
+                        <QueryImage data={data['multiplier_take_profit']} alt="Set profit level" />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="6. Stop loss" />}
@@ -264,10 +258,7 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically." />
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_stop_loss']}
-                            alt="Trade types multiplier stop loss"
-                        />
+                        <QueryImage data={data['multiplier_stop_loss']} alt="Set stop loss" />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="7. Deal cancellation" />}
@@ -277,7 +268,7 @@ const HowOptionsWorks = () => {
                     >
                         <QueryImage
                             data={data['multiplier_deal_cancellation']}
-                            alt="Trade types multiplier deal cancellation"
+                            alt="Set deal cancellation time"
                         />
                     </SideTab.Panel>
                 </SideTab>
@@ -293,7 +284,7 @@ const HowOptionsWorks = () => {
                     >
                         <QueryImage
                             data={data['multiplier_purchase']}
-                            alt="Trade types multiplier purchase"
+                            alt="Purchase the contract"
                         />
                     </SideTab.Panel>
                 </SideTab>

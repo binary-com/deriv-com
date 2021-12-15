@@ -4,7 +4,15 @@ import Star from 'images/svg/about-us/star.svg'
 import People from 'images/svg/about-us/people.svg'
 import Hands from 'images/svg/about-us/hands.svg'
 
-export const our_values = [
+type ValueType = {
+    title: string
+    text: string
+    icon: string
+}
+
+type OurValuesType = ValueType[]
+
+export const our_values: OurValuesType = [
     {
         title: localize('Integrity'),
         text: localize(
@@ -35,7 +43,14 @@ export const our_values = [
     },
 ]
 
-export const our_principles = [
+type PrincipleType = {
+    title: string
+    text: string
+    color: string
+}
+type OurPrinciplesType = PrincipleType[]
+
+export const our_principles: OurPrinciplesType = [
     {
         title: localize('Be reliable'),
         text: localize(
@@ -46,7 +61,7 @@ export const our_principles = [
     {
         title: localize('Be fair'),
         text: localize(
-            'We treat all customers equitably, handle complaints with integrity, and offer competitive prices with no hidden costs and no artificial barriers on  customer withdrawals.',
+            'We treat all customers equitably, handle complaints with integrity, and offer competitive prices on all our products with no hidden costs and no artificial barriers on  customer withdrawals.',
         ),
         color: 'rgba(255, 195, 89, 0.25)',
     },

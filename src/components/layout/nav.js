@@ -29,6 +29,7 @@ import {
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
+import LogoSecurity from 'images/svg/layout/logo-security.svg'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
@@ -870,6 +871,17 @@ const StyledNavRight = styled(NavRight)`
     }
 `
 
+const SecurityNavRight = styled(StyledNavRight)`
+    transform: unset;
+
+    > a:last-child {
+        opacity: 1;
+        color: var(--color-white);
+        pointer-events: visible;
+        cursor: pointer;
+    }
+`
+
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
@@ -1111,6 +1123,81 @@ export const NavPartners = ({ no_login_signup }) => {
                             is_canvas_menu_open={is_canvas_menu_open}
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
+                    </StyledNavWrapper>
+                </StyledNavPartners>
+            </NavWrapperPartners>
+            <CFDWarning />
+        </>
+    )
+}
+
+// Note: When using layout component for security page, please add type='security' and padding_top='10rem'
+export const NavSecurity = () => {
+    const nav_ref = useRef(null)
+    const button_ref = useRef(null)
+
+    return (
+        <>
+            <NavWrapperPartners ref={nav_ref}>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Go to Deriv.com')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/story/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('About us')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/contact_us/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Contact us')}
+                                </Text>
+                            </HomeLink>
+                        </StyledContainer>
+                        <DesktopLS>
+                            <LSContainer>
+                                <LanguageSwitcher short_name="true" />
+                            </LSContainer>
+                        </DesktopLS>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+                <StyledNavPartners>
+                    <StyledNavWrapper>
+                        <NavLeftPartners>
+                            <NavLogoLink to="/security/" aria-label={localize('Security')}>
+                                <img src={LogoSecurity} alt="logo security" />
+                            </NavLogoLink>
+                        </NavLeftPartners>
+                        <SecurityNavRight button_ref={button_ref} mounted={true}>
+                            <LinkButton
+                                to={'mailto:security@deriv.com'}
+                                external="true"
+                                target="_blank"
+                                tertiary
+                                style={{ width: '16rem' }}
+                            >
+                                <span>{localize('Submit a report')}</span>
+                            </LinkButton>
+                        </SecurityNavRight>
+
+                        <Mobile>
+                            <Flex ai="center">
+                                <LogoLinkMobile
+                                    style={{ margin: 'unset' }}
+                                    to="/security/"
+                                    aria-label={localize('Security')}
+                                >
+                                    <ResLogo src={LogoOnly} alt="reslogo" />
+                                </LogoLinkMobile>
+                                <Flex ml="auto" ai="center" width="auto">
+                                    <LanguageSwitcher short_name="true" is_high_nav />
+                                </Flex>
+                            </Flex>
+                        </Mobile>
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>

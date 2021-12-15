@@ -380,12 +380,12 @@ const handleScroll = (show, hide) => {
 }
 
 const MobileRightMain = styled.div`
-    margin-left: auto;
     display: none;
-    align-items: center;
 
     @media (max-width: 1060px) {
         display: flex;
+        margin-left: auto;
+        align-items: center;
     }
 `
 const LogoDescription = styled(Flex)`
@@ -406,7 +406,8 @@ const MobileWrapper = styled.div`
     display: none;
 
     @media (max-width: 1060px) {
-        display: block;
+        display: flex;
+        width: 100%;
     }
 `
 const handleLogin = () => {

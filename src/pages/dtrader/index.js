@@ -47,7 +47,7 @@ const trading = [
         ),
 
         image_name: 'make_smarter',
-        image_alt: localize('Customise your chart types'),
+        image_alt: localize('Charts'),
     },
     {
         title: <Localize translate_text="Trade what you want, when you want..." />,
@@ -56,7 +56,7 @@ const trading = [
         ),
 
         image_name: 'trade_what_you_want',
-        image_alt: localize('Trade world or synthetic markets'),
+        image_alt: localize('Trading Market'),
     },
     {
         title: <Localize translate_text="...And how you want" />,
@@ -65,7 +65,7 @@ const trading = [
         ),
 
         image_name: 'how_you_want',
-        image_alt: localize('Customise your trade types'),
+        image_alt: localize('Trade Types'),
     },
 ]
 const PlatformContainer = styled.div`
@@ -106,7 +106,7 @@ const Dtrader = () => {
                 image_name="dtrader"
                 is_mobile={is_mobile}
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
-                background_alt={localize('Trade volatility indices with DTrader at Deriv')}
+                background_alt={localize('DTrader Board')}
             />
             <Show.Desktop>
                 <DNumber items={items} justify="space-around" />

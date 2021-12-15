@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Box, Flex, SectionContainer, Show } from 'components/containers'
 import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -186,7 +186,6 @@ const calculators = [
             <Localize translate_text="Calculate the margin you need to open and hold your positions with our margin calculator." />
         ),
         image_name: 'margin_calculator',
-        image_alt: localize('DMT5 margin trading calculator'),
         button_text: <Localize translate_text="Try our margin calculator" />,
         link: '/trader-tools/margin-calculator/',
     },
@@ -197,7 +196,6 @@ const calculators = [
             <Localize translate_text="Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract." />
         ),
         image_name: 'swap_calculator',
-        image_alt: localize('DMT5 swap trading calculator'),
         button_text: <Localize translate_text="Try our swap calculator" />,
         link: '/trader-tools/swap-calculator/',
     },
@@ -288,7 +286,7 @@ const MarginCalculator = () => {
                                     key={idx}
                                     name={calculator.name}
                                     image_name={calculator.image_name}
-                                    image_alt_name={calculator.image_alt}
+                                    image_alt_name={calculator.name}
                                     text={calculator.text}
                                     link={calculator.link}
                                     button_text={calculator.button_text}

@@ -82,7 +82,7 @@ const DMT5 = () => {
                 is_mobile={is_mobile}
                 background_svg={DMT5BG}
                 background_svg2={DMT5BG2}
-                background_alt={localize('DMT5 trading dashboard')}
+                background_alt={localize('DMT5')}
                 d_height="60.2rem"
                 laptopM_height="52.7rem"
                 laptop_height="56.8rem"
@@ -108,7 +108,6 @@ const DMT5 = () => {
                         }
                         title={<Localize translate_text="Get into the Deriv MT5 experience" />}
                         data={data}
-                        image_alt="DMT5 trading platform"
                     />
                 )}
             />

@@ -192,7 +192,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['stake_amount']}
-                                            alt="Stake amount to start trade"
+                                            alt="stake amount"
                                         />
                                     </ImgWrapper>
                                 </RowColumn>
@@ -202,7 +202,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_win_eu']}
-                                            alt="Profit with x500 multiplier"
+                                            alt="multiplier no multi win"
                                         />
                                     </ImgWrapper>
                                     <TextWrapper>
@@ -221,7 +221,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_win_eu']}
-                                            alt="Profit without Deriv's multiplier"
+                                            alt="multiplier multi win"
                                         />
                                     </ImgWrapper>
 
@@ -244,7 +244,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_loss_eu']}
-                                            alt="Loss without Deriv's multiplier"
+                                            alt="multiplier no multi loss"
                                         />
                                     </ImgWrapper>
 
@@ -264,7 +264,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_loss_eu']}
-                                            alt="Loss with Deriv's multiplier"
+                                            alt="multiplier multi loss"
                                         />
                                     </ImgWrapper>
 
@@ -295,7 +295,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['stake_amount']}
-                                            alt="Stake amount to start trade"
+                                            alt="stake amount"
                                         />
                                     </ImgWrapper>
                                 </RowColumn>
@@ -305,7 +305,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_win']}
-                                            alt="Profit with x500 multiplier"
+                                            alt="multiplier no multi win"
                                         />
                                     </ImgWrapper>
                                     <TextWrapper>
@@ -324,7 +324,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_win']}
-                                            alt="Profit without Deriv's multiplier"
+                                            alt="multiplier multi win"
                                         />
                                     </ImgWrapper>
 
@@ -347,7 +347,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_no_multi_loss']}
-                                            alt="Loss without Deriv's multiplier"
+                                            alt="multiplier no multi loss"
                                         />
                                     </ImgWrapper>
 
@@ -367,7 +367,7 @@ const WhatAreOptions = () => {
                                     <ImgWrapper>
                                         <QueryImage
                                             data={data['multiplier_with_multi_loss']}
-                                            alt="Loss with Deriv's multiplier"
+                                            alt="multiplier with multi loss"
                                         />
                                     </ImgWrapper>
 

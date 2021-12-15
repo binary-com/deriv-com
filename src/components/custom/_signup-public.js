@@ -463,7 +463,7 @@ const SignupPublic = ({
                         <BackgroundWrapper direction="row" ai="center">
                             <QueryImage
                                 data={data['deriv_platform']}
-                                alt="DTrader platform black theme"
+                                alt="deriv platform"
                                 width="225px"
                             />
                             <LinkFlex
@@ -497,7 +497,7 @@ const SignupPublic = ({
                             <MobilePlatform>
                                 <QueryImage
                                     data={data['deriv_platform']}
-                                    alt="DTrader platform black theme"
+                                    alt="deriv platform"
                                     width="100%"
                                 />
                             </MobilePlatform>

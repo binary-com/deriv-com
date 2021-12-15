@@ -65,17 +65,6 @@ const EmailButton = styled(Button)`
     }
 `
 
-const SocialWrapper = styled(Flex)`
-    width: 100%;
-    margin-top: 1.6rem;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: space-between;
-
-    @media ${device.tabletS} {
-        flex-direction: column;
-    }
-`
 const SocialButton = styled(Button)`
     width: 12.5rem;
     min-width: 116px;
@@ -352,7 +341,14 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                     </StyledText>
                     <Line color={color} />
                 </SignupWithContainer>
-                <SocialWrapper jc="unset" ai="center">
+                <Flex
+                    width="100%"
+                    mt="1.6rem"
+                    wrap="wrap"
+                    jc="space-between"
+                    ai="center"
+                    tabletS={{ fd: 'column' }}
+                >
                     <SocialButton
                         onClick={handleSocialSignup}
                         provider="google"
@@ -392,7 +388,7 @@ const GetEbook = ({ color, ebook_utm_code, onSubmit }) => {
                             <span>Apple</span>
                         </SocialButtonText>
                     </SocialButton>
-                </SocialWrapper>
+                </Flex>
             </div>
         </SignupFormWrapper>
     )

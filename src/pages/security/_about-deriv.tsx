@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
@@ -44,7 +44,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const AboutDeriv = () => {
+const AboutDeriv = (): ReactElement => {
     const data = useStaticQuery(query)
 
     return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, LocalizedLinkText } from 'components/elements'
@@ -100,7 +100,7 @@ const card_content = [
     },
 ]
 
-const Rewards = () => {
+const Rewards = (): ReactElement => {
     return (
         <SectionContainer>
             <Container fd="column">

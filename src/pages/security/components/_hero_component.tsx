@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { BackgroundImage, Header } from 'components/elements'
 import { Container } from 'components/containers'
@@ -26,7 +26,7 @@ const Subheadline = styled(Header)`
     margin-top: 16px;
 `
 
-const HeroComponent = ({ background_data, background_dark }: HeroComponentProps) => {
+const HeroComponent = ({ background_data, background_dark }: HeroComponentProps): ReactElement => {
     return (
         <BackgroundImage
             data={background_data}

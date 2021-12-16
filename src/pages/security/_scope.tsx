@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { scope_content } from './static/_scope_content'
 import { Container, Flex, SectionContainer } from 'components/containers'
@@ -52,7 +52,7 @@ const IconWrap = styled.img`
     margin-top: 0.5rem;
 `
 
-const Scope = () => {
+const Scope = (): ReactElement => {
     return (
         <SectionContainer background="grey-30">
             <Container direction="column">

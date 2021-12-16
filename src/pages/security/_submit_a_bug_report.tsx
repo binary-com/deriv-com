@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -58,7 +58,7 @@ const query = graphql`
     }
 `
 
-const SubmitABugReport = () => {
+const SubmitABugReport = (): ReactElement => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const bug_report_image = is_mobile ? data['bug_report_mobile'] : data['bug_report_desktop']

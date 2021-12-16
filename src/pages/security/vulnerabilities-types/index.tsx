@@ -8,6 +8,10 @@ import { Container, Flex, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
+interface CardItemProps {
+    second_item?: boolean
+}
+
 const StyledContainer = styled(Container)`
     width: 79.2rem;
     padding: 80px 16px;
@@ -25,7 +29,7 @@ const CardWrap = styled.div`
     display: inline-flex;
 `
 
-const CardItem = styled.div`
+const CardItem = styled.div<CardItemProps>`
     border-left: ${({ second_item }) => (second_item ? 'solid 1px var(--color-grey-6)' : 0)};
     border-right: ${({ second_item }) => (second_item ? 'solid 1px var(--color-grey-6)' : 0)};
     padding: 0 24px;

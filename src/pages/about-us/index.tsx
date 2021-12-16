@@ -47,8 +47,4 @@ const AboutUs = (): React.ReactNode => {
     )
 }
 
-AboutUs.propTypes = {
-    // data: PropTypes.object,
-}
-
 export default WithIntl()(AboutUs)

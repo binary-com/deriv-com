@@ -10,7 +10,10 @@ import { localize, WithIntl } from 'components/localization'
 const Security = () => {
     return (
         <Layout type="security" margin_top={10}>
-            <SEO title={localize('Some title')} description={localize('Some description')} />
+            <SEO
+                title={localize('Bug bounty program')}
+                description={localize('Security is a collaboration. Report bugs and be rewarded.')}
+            />
             <Hero />
             <AboutDeriv />
             <Scope />

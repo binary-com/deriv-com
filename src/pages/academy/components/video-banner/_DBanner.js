@@ -23,7 +23,7 @@ const ParentWrapper = styled(Flex)`
     position: relative;
     background-size: cover;
     height: auto;
-    padding: 160px 0 80px;
+    padding: 160px 0 40px;
 
     @media ${device.tabletL} {
         /* prettier-ignore */
@@ -70,9 +70,7 @@ const StyledDot = styled.img`
     margin: 0 10px 4px;
 `
 const AllVideosButton = styled(LinkButton)`
-    margin: 50px auto -40px;
-    width: fit-content;
-    padding: 12px 48px;
+    margin: 50px auto auto;
 
     &:hover {
         cursor: pointer;

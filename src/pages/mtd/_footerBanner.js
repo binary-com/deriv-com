@@ -215,7 +215,7 @@ const FooterBanner = () => {
                         </Header>
                         <BtnWrapper jc="flex-start" tablet={{ jc: 'center' }}>
                             <StyledLinkButton
-                                to="https://deriv.com/signup/"
+                                to="https://oauth.deriv.com/oauth2/authorize?app_id=16929&l=en&brand=deriv"
                                 rel="noopener noreferrer"
                                 secondary="true"
                             >
@@ -257,7 +257,7 @@ const FooterBanner = () => {
                             </StyledHeaderBottom>
                             <BtnWrapper height="auto">
                                 <StyledLinkRightButton
-                                    to="https://deriv.com/signup/"
+                                    to="https://oauth.deriv.com/oauth2/authorize?app_id=16929&l=en&brand=deriv"
                                     rel="noopener noreferrer"
                                     secondary="true"
                                 >

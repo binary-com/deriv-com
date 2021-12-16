@@ -44,6 +44,7 @@
         "react-i18next": "^11.11.0",
         "react-is": "^17.0.2",
         "react-perfect-scrollbar": "^1.5.8",
+        "react-socks": "^2.2.0",
         "use-query-params": "^1.2.3",
         "web-push-notifications": "^3.22.0",
         "webpack": "^5.39.0"

@@ -126,7 +126,7 @@ const ArticleEmailBanner = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
 
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country, user_country } = React.useContext(DerivStore)
 
     useEffect(() => {
         addScriptForCIO()
@@ -248,6 +248,7 @@ const ArticleEmailBanner = () => {
             created_at: Math.round(Date.now() / 1000),
             name,
             type: 'Academy',
+            country: user_country,
         })
     }
 

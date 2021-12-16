@@ -133,7 +133,7 @@ const DBanner = ({ background_pattern, data, is_ppc, title }) => {
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
-                    <StyledHeader color="white" size="5.6rem" mb="4rem" max_width="52rem">
+                    <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="52rem">
                         {title}
                     </StyledHeader>
                     <StyledLinkButton

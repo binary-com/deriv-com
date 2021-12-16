@@ -29,15 +29,13 @@ const meta_attributes = {
 }
 
 const StyledHeader = styled(Header)`
+    white-space: pre-line;
     width: 100%;
     max-width: 70rem;
+    margin-bottom: 4rem;
     @media ${device.tabletS} {
         font-size: 40px;
         text-align: left;
-    }
-
-    &:nth-child(2) {
-        margin-bottom: 4rem;
     }
 `
 
@@ -151,9 +149,9 @@ const AffiliateIb = () => {
     return (
         <Layout type="partners" margin_top={10}>
             <SEO
-                title={localize('Affiliate and IB programme | Deriv')}
+                title={localize('Affiliate partnership and IB programme | Deriv')}
                 description={localize(
-                    'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
+                    'Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms.',
                 )}
                 meta_attributes={meta_attributes}
             />
@@ -162,10 +160,7 @@ const AffiliateIb = () => {
             </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('Partner with a trusted')}
-                </StyledHeader>
-                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('online trading provider')}
+                    {localize('Partner with a trusted \n online trading provider')}
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
@@ -189,7 +184,7 @@ const AffiliateIb = () => {
                         <StyledContainer justify="space-around">
                             {items.map((item, index) => (
                                 <NumberWrapper key={index}>
-                                    <Header as="h2" type="page-title" align="center">
+                                    <Header as="p" type="page-title" align="center">
                                         {item.title}
                                     </Header>
                                     <StyledText align="center">{item.subtitle}</StyledText>

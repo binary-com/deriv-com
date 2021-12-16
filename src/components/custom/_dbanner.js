@@ -126,7 +126,7 @@ const DBanner = ({ title, data, background_pattern }) => {
                 ai="center"
             ></BackgroundWrapper>
             <TextWrapper>
-                <StyledHeader align="center" color="white" size="5.6rem" mb="3.2rem">
+                <StyledHeader as="h4" align="center" color="white" size="5.6rem" mb="3.2rem">
                     {title}
                 </StyledHeader>
                 <DemoButton>

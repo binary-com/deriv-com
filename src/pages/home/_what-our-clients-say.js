@@ -345,12 +345,10 @@ const WhatOurClientsSay = () => {
                     <ClientCard position="relative" direction="column">
                         <QuoteIcon src={Quote} alt="" />
                         <Flex
-                            pl="18%"
-                            laptopM={{
-                                pl: '8%',
-                            }}
-                            tabletL={{
-                                pt: '68px',
+                            ml="auto"
+                            pl="40px"
+                            max_width="690px"
+                            tablet={{
                                 pl: '0',
                                 max_width: '588px',
                                 m: '0 auto',

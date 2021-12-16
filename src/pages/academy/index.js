@@ -25,6 +25,7 @@ export const query = graphql`
             homepage_banners(filter: { status: { _eq: "published" } }) {
                 order
                 id
+                button_text
                 link
                 heading
                 sub_heading
@@ -385,6 +386,7 @@ const DerivBlog = ({ data }) => {
                                     title={page_data.heading}
                                     description={page_data.sub_heading}
                                     href={page_data.link}
+                                    cta_text={page_data.button_text}
                                 />
                             </Flex>
                         )

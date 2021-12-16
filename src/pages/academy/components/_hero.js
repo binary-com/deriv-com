@@ -57,13 +57,14 @@ const Wrapper = styled(Flex)`
     }
 `
 
-const Hero = ({ href, imageAlt, imageData, title, description }) => {
+const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
     const [is_mobile] = useBrowserResize()
     const linear_bg_value = is_mobile
         ? `linear-gradient(76.78deg, #000000 30.72%, rgba(0, 0, 0, 0) 97.58%)`
         : `linear-gradient(66.11deg, #000000 24.94%, rgba(0, 0, 0, 0) 83.1%)`
 
     const backgroundFluidImageStack = [imageData.childImageSharp.fluid, linear_bg_value].reverse()
+    const cta_link = cta_text ? cta_text : 'Learn more 1'
 
     return (
         <>
@@ -89,7 +90,7 @@ const Hero = ({ href, imageAlt, imageData, title, description }) => {
                     </TextWrapper>
                     <Flex jc="flex-start" height="unset" mt="24px" tabletL={{ mt: '16px' }}>
                         <LinkButton id="hero-article" to={href} width="auto" height="64px" hero>
-                            Learn more
+                            {cta_link}
                         </LinkButton>
                     </Flex>
                 </Wrapper>
@@ -99,6 +100,7 @@ const Hero = ({ href, imageAlt, imageData, title, description }) => {
 }
 
 Hero.propTypes = {
+    cta_text: PropTypes.string,
     description: PropTypes.any,
     heroImage: PropTypes.any,
     href: PropTypes.string,

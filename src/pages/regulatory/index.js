@@ -15,7 +15,7 @@ import {
     SmallContainer,
     Show,
 } from 'components/containers'
-import { localize, WithIntl, Localize, LocalizedLink } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 // Icons
 import EU from 'images/svg/regulatory/europe-map.svg'
@@ -26,7 +26,6 @@ import Labuan from 'images/common/regulatory/labuan.png'
 import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import MGA from 'images/common/regulatory/mga.png'
-import IOM from 'images/common/regulatory/iom.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
 
@@ -92,17 +91,6 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
-const ExternalBoldLink = styled(LocalizedLink)`
-    font-weight: bold;
-    color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
-    text-decoration: none;
-
-    &:hover {
-        color: var(--color-red);
-        text-decoration: underline;
-    }
-`
-
 const Content = styled.div`
     display: contents;
 `
@@ -163,7 +151,7 @@ const Regulatory = (locale) => {
                         </Text>
                         <Text mt="2rem">
                             {localize(
-                                'It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request.',
+                                'Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request.',
                             )}
                         </Text>
                         <Text mt="2rem">
@@ -236,7 +224,7 @@ const Regulatory = (locale) => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)."
                                             components={[
                                                 <LinkText
                                                     key={0}
@@ -251,49 +239,6 @@ const Regulatory = (locale) => {
                                     <Text max_width="58.8rem">
                                         {localize(
                                             'Clients in the European Union who wish to trade gambling products can have accounts under Deriv (Europe) Limited.',
-                                        )}
-                                    </Text>
-                                </CssGridColumn>
-                                <ResponsiveGrid align="flex-start">
-                                    <Mobile>
-                                        <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
-                                            {localize('Deriv (MX) Ltd')}
-                                        </StyledHeader>
-                                    </Mobile>
-                                    <Img src={IOM} alt="Isle Of Man" />
-                                </ResponsiveGrid>
-                                <CssGridColumn>
-                                    <Desktop>
-                                        <StyledHeader as="h4" type="sub-section-title">
-                                            {localize('Deriv (MX) Ltd')}
-                                        </StyledHeader>
-                                    </Desktop>
-                                    <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                        <Localize
-                                            translate_text="Deriv (MX) Ltd - Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man - is licensed and regulated in Great Britain by the Gambling Commission under <1>account no. 39172</1> and by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>)."
-                                            components={[
-                                                <LinkText
-                                                    key={0}
-                                                    weight="bold"
-                                                    target="_blank"
-                                                    href="/regulatory/Deriv_(MX)_Ltd.pdf"
-                                                    rel="noopener noreferrer"
-                                                />,
-                                                <ExternalBoldLink
-                                                    external="true"
-                                                    key={1}
-                                                    weight="bold"
-                                                    color="black-3"
-                                                    target="_blank"
-                                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39172"
-                                                    rel="noopener noreferrer"
-                                                />,
-                                            ]}
-                                        />
-                                    </Text>
-                                    <Text max_width="58.8rem">
-                                        {localize(
-                                            'Clients in the Isle of Man and the UK who wish to trade gambling products can have accounts under Deriv (MX) Ltd.',
                                         )}
                                     </Text>
                                 </CssGridColumn>

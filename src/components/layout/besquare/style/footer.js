@@ -46,7 +46,7 @@ export const ImageWrapper = styled(QueryImage)`
     bottom: 60px;
 
     @media ${device.tablet} {
-        max-width: 250px;
+        max-width: 316px;
         max-height: 224px;
         margin: 0 auto;
         bottom: 40px;
@@ -58,7 +58,7 @@ export const TextContainer = styled.div`
     justify-content: start;
     padding: 80px 0 72px;
     grid-row-gap: 24px;
-    margin-right: 104px;
+    margin-right: 49px;
 
     @media ${device.laptop} {
         padding: 0 0 28px;
@@ -68,7 +68,7 @@ export const TextContainer = styled.div`
 `
 
 export const Title = styled(Header)`
-    max-width: 400px;
+    max-width: 563px;
     width: fit-content;
     font-size: 48px;
     font-weight: 700;
@@ -76,7 +76,7 @@ export const Title = styled(Header)`
     color: var(--color-white);
 
     @media ${device.tablet} {
-        max-width: 250px;
+        max-width: 328px;
         font-size: 28px;
         line-height: 34px;
     }

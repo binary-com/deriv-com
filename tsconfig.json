@@ -1,7 +1,7 @@
 {
-    "include": ["./src/**/*", "./svg.d.ts"],
-    "jsx": "react",
-    "compilerOptions": {
+    "include": ["./src/**/*", "./svg.d.ts", "./src/custom.d.ts"],
+      "jsx": "react",
+      "compilerOptions": {
         "baseUrl": "src",
         "jsx": "preserve",
         "esModuleInterop": true,

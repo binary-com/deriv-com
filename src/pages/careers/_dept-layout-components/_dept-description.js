@@ -81,7 +81,10 @@ const DeptDescription = (dept_data) => {
             <Container>
                 <Flex fd="row" ai="center" max_width="990px" tablet_direction="column">
                     <Flex max_width="384px">
-                        <StyledQueryImage data={data[dept_data.data.image]} />
+                        <StyledQueryImage
+                            data={data[dept_data.data.image]}
+                            alt={dept_data.data.img_alt}
+                        />
                     </Flex>
                     <Description fd="column" jc="right" tablet_jc="center">
                         {dept_data.data.paragraph.map((item, idx) => {

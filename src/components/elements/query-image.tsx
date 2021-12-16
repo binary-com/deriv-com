@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 type QueryImageProps = {
     alt: string
     className?: string
-    data: any
+    data: Record<string, unknown>
     height?: string
     width?: string
     loading?: 'eager' | 'lazy'

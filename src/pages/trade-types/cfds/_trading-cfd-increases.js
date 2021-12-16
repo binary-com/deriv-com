@@ -43,14 +43,20 @@ const ExampleImage = styled(QueryImage)`
 `
 export const StyledLinkButton = styled(LinkButton)`
     @media ${device.tabletL} {
-        margin: 4rem auto;
+        margin: 32px auto;
+    }
+`
+
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding-top: 0;
     }
 `
 
 const TradingCFDIncreases = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer background="white" padding="4rem 0 0">
+        <StyledSectionContainer background="white" padding="4rem 0 0">
             <SmallContainer direction="column" ai="flex-start">
                 <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
                     {localize('Trading CFDs increases both potential profit and loss')}
@@ -144,7 +150,7 @@ const TradingCFDIncreases = () => {
                     {localize('Swap calculator')}
                 </StyledLinkButton>
             </SmallContainer>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

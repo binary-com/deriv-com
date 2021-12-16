@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import device from 'themes/device'
@@ -58,7 +58,7 @@ const Container = styled.div`
     }
 `
 
-const Col = ({ Icon, content, title }) => (
+const Col = ({ Icon, content, title }): ReactElement => (
     <GridCol>
         <img src={Icon} />
         <Container>
@@ -96,7 +96,7 @@ const GridWrapper = styled(CssGrid)`
     }
 `
 
-export const IconGrid = () => (
+export const IconGrid = (): ReactElement => (
     <GridContainer>
         <GridWrapper columns="repeat(3, 1fr)" column_gap="13rem" row_gap="10rem">
             <Col

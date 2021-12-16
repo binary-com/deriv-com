@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { useAcademyData } from 'components/hooks/use-academy-data'
 import { isEuCountry, isP2PAllowedCountry } from 'common/country-base'
 
 type DerivProviderProps = {
@@ -10,6 +11,7 @@ export const DerivStore = React.createContext()
 
 export const DerivProvider = ({ children }: DerivProviderProps): React.ReactNode => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
+    const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
@@ -36,6 +38,7 @@ export const DerivProvider = ({ children }: DerivProviderProps): React.ReactNode
                 website_status_loading,
                 setWebsiteStatus,
                 user_country,
+                academy_data,
             }}
         >
             {children}

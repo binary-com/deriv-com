@@ -32,7 +32,7 @@ const QueryImage = ({
     loading,
     width,
     ...props
-}: QueryImageProps): React.ReactNode => {
+}: QueryImageProps): React.ReactElement => {
     const image = getImage(data)
     if (data) {
         return (

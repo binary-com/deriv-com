@@ -4,9 +4,10 @@ import { scope_content } from './static/_scope_content'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
+// icons
 import TickIcon from 'images/svg/security/tick.svg'
 import XIcon from 'images/svg/security/x_icon.svg'
-import device from 'themes/device'
 
 const Subheadline = styled(Text)`
     @media ${device.tabletL} {

@@ -1,5 +1,5 @@
 {
-    "include": ["./src/**/*", "./src/custom.d.ts"],
+    "include": ["./src/**/*", "./svg.d.ts", "./src/custom.d.ts"],
       "jsx": "react",
       "compilerOptions": {
         "baseUrl": "src",
@@ -10,5 +10,5 @@
         "noEmit": true,
         "skipLibCheck": true,
         "moduleResolution": "node"
-      }
+    }
 }

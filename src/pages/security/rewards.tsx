@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
+// icons
 import LowIcon from 'images/svg/security/low.svg'
 import MediumIcon from 'images/svg/security/medium.svg'
 import HighIcon from 'images/svg/security/high.svg'
 import CriticalIcon from 'images/svg/security/critical.svg'
-import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
 const Card = styled(Flex)`

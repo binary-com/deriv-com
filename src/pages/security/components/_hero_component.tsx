@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { BackgroundImage, Header } from 'components/elements'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 import { localize } from 'components/localization'
+
+interface HeroComponentProps {
+    background_data: string
+    background_dark: string
+}
 
 const StyledContainer = styled(Container)`
     height: 100%;
@@ -22,7 +26,7 @@ const Subheadline = styled(Header)`
     margin-top: 16px;
 `
 
-const HeroComponent = ({ background_data, background_dark }) => {
+const HeroComponent = ({ background_data, background_dark }: HeroComponentProps) => {
     return (
         <BackgroundImage
             data={background_data}
@@ -44,11 +48,6 @@ const HeroComponent = ({ background_data, background_dark }) => {
             </StyledContainer>
         </BackgroundImage>
     )
-}
-
-HeroComponent.propTypes = {
-    background_dark: PropTypes.string,
-    background_data: PropTypes.any,
 }
 
 export default HeroComponent

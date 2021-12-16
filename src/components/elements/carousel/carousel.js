@@ -76,6 +76,7 @@ export const Carousel = ({
     navigation_style,
     options,
     slide_style,
+    slide_inner_width,
     vertical_container,
     view_port,
 }) => {
@@ -148,7 +149,7 @@ export const Carousel = ({
                     <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
-                                <EmblaSlideInner>{child}</EmblaSlideInner>
+                                <EmblaSlideInner width={slide_inner_width}>{child}</EmblaSlideInner>
                             </div>
                         ))}
                     </EmblaContainer>
@@ -196,6 +197,7 @@ Carousel.propTypes = {
     has_autoplay: PropTypes.bool,
     navigation_style: PropTypes.object,
     options: PropTypes.object,
+    slide_inner_width: PropTypes.string,
     slide_style: PropTypes.object,
     vertical_container: PropTypes.object,
     view_port: PropTypes.object,

@@ -138,6 +138,9 @@ const StyledSection = styled(SectionContainer)`
     background: #f9fbff;
     height: 1065px;
     @media ${device.tabletL} {
+        height: 960px;
+    }
+    @media ${device.tabletS} {
         height: 840px;
     }
 `
@@ -168,7 +171,7 @@ const MainContent = styled(Container)`
 
     @media ${device.tablet} {
         padding: 1rem;
-        padding-top: 3rem;
+        padding-top: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -195,14 +198,10 @@ const PlatformImageWrapper = styled.div`
     margin-right: 3rem;
 
     @media ${device.tablet} {
-        width: 50vw;
-    }
-    @media ${device.tablet} {
-        width: 90vw;
-        margin-right: 0;
-        height: 300px;
+        width: 100%;
         align-self: center;
         justify-content: center;
+        align-items: center;
         img {
             max-height: 300px;
         }
@@ -221,7 +220,9 @@ const PlatformImageWrapper = styled.div`
     }
     @media ${device.mobileM} {
         height: 160px;
-    }
+        img {
+            max-height: 160px;
+        }
 `
 
 const PlatformDetailsWrapper = styled.div`
@@ -322,6 +323,7 @@ const OurPlatforms = (): React.ReactElement => {
             bottom_offset: '-10px',
             nav_color: '--color-red',
         },
+        slide_inner_width: '100vw',
         // vertical_container: {
         //     width: '100%',
         // },
@@ -378,10 +380,12 @@ const OurPlatforms = (): React.ReactElement => {
                         <Carousel {...settings}>
                             {platforms.map((platform, index) => (
                                 <CarouselItemWrapper key={index}>
-                                    <QueryImage
-                                        data={images[Object.keys(images)[index]]}
-                                        alt={Object.keys(images)[index]}
-                                    />
+                                    <PlatformImageWrapper>
+                                        <QueryImage
+                                            data={images[Object.keys(images)[index]]}
+                                            alt={Object.keys(images)[index]}
+                                        />
+                                    </PlatformImageWrapper>
                                     <PlatformDetailsWrapper>
                                         <PlatformDetails
                                             title={platform.title}

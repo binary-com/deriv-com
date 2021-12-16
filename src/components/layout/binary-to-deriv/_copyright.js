@@ -25,6 +25,11 @@ const CopyrightWrapper = styled(Flex)`
     align-items: center;
     justify-content: flex-start;
 
+    p {
+        font-size: var(--text-size-xs);
+        line-height: 1.14;
+    }
+
     @media ${device.tabletL} {
         justify-content: center;
     }

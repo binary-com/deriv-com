@@ -1,125 +1,81 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container, Show } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { Background } from 'components/elements/background-image'
 import device from 'themes/device.js'
-
-const BackgroundWrapper = styled(Background)`
-    padding-top: 100px;
-    background-size: cover;
-    background-position: bottom right;
-`
-
-const Wrapper = styled(Container)`
-    @media ${device.tabletS} {
-        margin-left: 0;
-        padding: 2rem 16px 0;
-        flex-direction: column-reverse;
-        justify-content: center;
-    }
-`
-
-const InformationWrapper = styled(Flex)`
-    width: 100%;
-    max-width: 75rem;
-    z-index: 1;
-
-    @media ${device.tabletL} {
-        max-width: 55rem;
-        top: 280px;
-        padding: 0 16px;
-    }
-    @media ${device.mobileL} {
-        max-width: 328px;
-        padding: 0;
-    }
-`
-
-const StyledHeader = styled(Header)`
-    display: flex;
-    position: absolute;
-    width: 800px;
-    justify-content: center;
-    font-size: 17rem;
-    align-items: center;
-
-    @media ${device.tabletL} {
-        margin-top: 1.3rem;
-        font-size: 8rem;
-    }
-    @media ${device.mobileS} {
-        margin-top: 0;
-    }
-`
-
-const HeroComponent = ({ title, background_data, image }) => {
-    return (
-        <BackgroundWrapper data={background_data}>
-            <Wrapper p="0" justify="space-around" height="63rem">
-                <InformationWrapper height="unset" direction="column">
-                    <QueryImage data={image} alt="example" width="596px" />
-                    <StyledHeader type="hero" color="white">
-                        {title}
-                    </StyledHeader>
-                </InformationWrapper>
-            </Wrapper>
-        </BackgroundWrapper>
-    )
-}
+import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
+import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
 
 const query = graphql`
     query {
-        about_us_hero_background: file(relativePath: { eq: "about/bg-desktop.png" }) {
+        about_us_content_desktop: file(relativePath: { eq: "about/about_us_content.png" }) {
             ...fadeIn
         }
-        about_us_hero_background_mobile: file(relativePath: { eq: "about/bg-mobile.png" }) {
-            ...fadeIn
-        }
-        about_us_hero_image: file(relativePath: { eq: "about/img-desktop.png" }) {
-            ...fadeIn
-        }
-        about_us_hero_image_mobile: file(relativePath: { eq: "about/img-mobile.png" }) {
+        about_us_logo_mobile: file(relativePath: { eq: "about/about_us_logo.png" }) {
             ...fadeIn
         }
     }
 `
 
-const Hero = ({ title }) => {
+const ParentWrapper = styled(Flex)`
+    background-image: url(${(props) => props.bg_image_desktop});
+    background-position: center;
+    background-size: cover;
+
+    @media ${device.tabletL} {
+        background-image: url(${(props) => props.bg_image_mobile});
+    }
+`
+const ContentWrapper = styled(Container)`
+    height: auto;
+    margin: 120px 0;
+
+    @media ${device.tabletL} {
+        margin: 145px 0;
+    }
+`
+const DesktopWrapper = styled(Flex)`
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+const MobileWrapper = styled.div`
+    display: none;
+
+    @media ${device.tabletL} {
+        display: flex;
+    }
+`
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 72px;
+        line-height: 94px;
+    }
+`
+
+const Hero = () => {
     const data = useStaticQuery(query)
 
     return (
-        <div>
-            <Show.Desktop max_width="tabletL">
-                <HeroComponent
-                    title={title}
-                    image={data['about_us_hero_image']}
-                    background_data={data['about_us_hero_background']}
-                />
-            </Show.Desktop>
-            <Show.Mobile min_width="tabletL">
-                <HeroComponent
-                    title={title}
-                    image={data['about_us_hero_image_mobile']}
-                    background_data={data['about_us_hero_background_mobile']}
-                />
-            </Show.Mobile>
-        </div>
+        <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
+            <ContentWrapper>
+                <DesktopWrapper>
+                    <Flex>
+                        <QueryImage data={data['about_us_content_desktop']} alt="example" />
+                    </Flex>
+                </DesktopWrapper>
+                <MobileWrapper>
+                    <Flex fd="column">
+                        <QueryImage data={data['about_us_logo_mobile']} alt="example" />
+                        <StyledHeader color="white" align="center" mt="40px">
+                            About us
+                        </StyledHeader>
+                    </Flex>
+                </MobileWrapper>
+            </ContentWrapper>
+        </ParentWrapper>
     )
-}
-
-HeroComponent.propTypes = {
-    background_data: PropTypes.any,
-    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
-}
-
-Hero.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
 }
 
 export default Hero

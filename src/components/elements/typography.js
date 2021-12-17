@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types'
 import { generateResponsiveStyles } from '../containers/box'
 import { Margins, Paddings } from 'themes/function'
 import device from 'themes/device'
@@ -187,3 +188,9 @@ export const LinkText = styled(Text).attrs({ as: 'a' })`
 export const SpanLinkText = styled(Text).attrs({ as: 'span' })`
     ${BaseLink}
 `
+
+Header.propTypes = {
+    as: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    type: PropTypes.string.isRequired,
+}

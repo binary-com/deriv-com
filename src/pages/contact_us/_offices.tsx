@@ -15,6 +15,12 @@ import Cyprus from 'images/svg/contact/cyprus.svg'
 import Rwanda from 'images/svg/contact/rwanda.svg'
 import Belarus from 'images/svg/contact/belarus.svg'
 
+type GridLayoutProps = {
+    children?: React.ReactNode | React.ReactChild
+    row_gap?: string
+    mt?: string
+}
+
 const query = graphql`
     query {
         map_paraguay: file(relativePath: { eq: "maps/map-paraguay.png" }) {
@@ -55,7 +61,7 @@ const Content = styled.div`
     width: 100%;
 `
 
-const GridLayout = styled.div`
+const GridLayout = styled.div<GridLayoutProps>`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.4rem;
@@ -182,7 +188,7 @@ const StyledMobileAddress = styled.div`
     }
 `
 
-export const Offices = () => {
+export const Offices: React.FC<GridLayoutProps> = () => {
     const data = useStaticQuery(query)
 
     return (

@@ -29,10 +29,10 @@ const ParentWrapper = styled(Flex)`
 `
 const ContentWrapper = styled(Container)`
     height: auto;
-    margin: 120px 0;
+    margin: 192px 0 120px;
 
     @media ${device.tabletL} {
-        margin: 145px 0;
+        margin: 168px 0 145px;
     }
 `
 const DesktopWrapper = styled(Flex)`

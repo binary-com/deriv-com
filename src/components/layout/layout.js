@@ -200,7 +200,7 @@ const Layout = ({
             FooterNav = <Footer no_language={true} type={type} />
             break
         case 'about-us':
-            Navigation = <NavAboutUs s_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = <NavAboutUs is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:

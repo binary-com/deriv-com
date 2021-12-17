@@ -73,6 +73,7 @@ export const Carousel = ({
     children,
     container_style,
     has_autoplay,
+    navigation_css,
     navigation_style,
     options,
     slide_style,
@@ -173,7 +174,10 @@ export const Carousel = ({
                     />
                 )}
                 {nav_color && (
-                    <NavigationContainer bottom_offset={bottom_offset}>
+                    <NavigationContainer
+                        bottom_offset={bottom_offset}
+                        navigation_css={navigation_css}
+                    >
                         {children.map((child, idx) => (
                             <NavigationButton
                                 key={idx}
@@ -195,6 +199,7 @@ Carousel.propTypes = {
     children: PropTypes.array,
     container_style: PropTypes.object,
     has_autoplay: PropTypes.bool,
+    navigation_css: PropTypes.object,
     navigation_style: PropTypes.object,
     options: PropTypes.object,
     slide_inner_width: PropTypes.string,

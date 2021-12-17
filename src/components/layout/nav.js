@@ -108,7 +108,7 @@ export const StyledNavMain = styled.nav`
     width: 100%;
     position: relative;
     z-index: 1;
-    @media (max-width: 1060px) {
+    @media ${device.bp1060} {
         height: auto;
     }
 `
@@ -397,7 +397,7 @@ const LogoDescription = styled(Flex)`
 const DesktopWrapper = styled.div`
     display: block;
 
-    @media (max-width: 1060px) {
+    @media ${device.bp1060} {
         display: none;
     }
 `
@@ -405,7 +405,7 @@ const DesktopWrapper = styled.div`
 const MobileWrapper = styled.div`
     display: none;
 
-    @media (max-width: 1060px) {
+    @media ${device.bp1060} {
         display: flex;
         width: 100%;
     }

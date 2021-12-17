@@ -1,9 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { PlatformSelector, Platform, PlatformDetails } from './_platform_selector'
 import { localize } from 'components/localization'
-import { Carousel, Header, NavigationDots, QueryImage, StyledLink, Text } from 'components/elements'
+import { Carousel, Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
 //SVG
@@ -223,13 +223,14 @@ const PlatformImageWrapper = styled.div`
         img {
             max-height: 160px;
         }
+    }
 `
 
 const PlatformDetailsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 50px;
     @media ${device.tablet} {
         width: 100%;
     }
@@ -249,12 +250,10 @@ const DesktopContainer = styled.div`
 `
 
 const MobileContainer = styled.div`
-    max-width: 100vw;
-    @media ${device.desktop} {
-        display: none;
-    }
+    display: none;
     @media ${device.tablet} {
         display: flex;
+        max-width: 100vw;
         flex-direction: column;
         margin-top: 2rem;
     }
@@ -288,17 +287,6 @@ const getIcon = (platformType: string): string => {
 }
 
 const OurPlatforms = (): React.ReactElement => {
-    // const {
-    //     platforms_dtrader,
-    //     platforms_mt5,
-    //     platforms_smarttrader,
-    //     platforms_dbot,
-    //     platforms_binary_bot,
-    //     platforms_deriv_go,
-    //     platforms_derivx,
-    //     platforms_api,
-    // }
-
     const [selectedIndex, setSelectedIndex] = React.useState(3)
 
     const images = useStaticQuery(query)
@@ -306,7 +294,7 @@ const OurPlatforms = (): React.ReactElement => {
     const settings = {
         options: {
             loop: false,
-            align: 'start',
+            align: 'center',
             containScroll: 'trimSnaps',
         },
         container_style: {
@@ -320,13 +308,27 @@ const OurPlatforms = (): React.ReactElement => {
             position: 'relative',
         },
         navigation_style: {
-            bottom_offset: '-10px',
+            bottom_offset: '420px',
             nav_color: '--color-red',
         },
         slide_inner_width: '100vw',
-        // vertical_container: {
-        //     width: '100%',
-        // },
+        navigation_css: css`
+            position: relative;
+            width: 100%;
+            height: 8px;
+            @media ${device.tablet} {
+                bottom: 270px;
+            }
+            @media (max-width: 660px) {
+                bottom: 320px;
+            }
+            @media (max-width: 378px) {
+                bottom: 365px;
+            }
+            @media (max-width: 367px) {
+                bottom: 415px;
+            }
+        `,
     }
     return (
         <StyledSection>
@@ -370,13 +372,6 @@ const OurPlatforms = (): React.ReactElement => {
                         </DownloadLinks>
                     </DesktopContainer>
                     <MobileContainer>
-                        {/* <NavigationDots
-                            count={platforms.length}
-                            selected_index={selectedIndex}
-                            selected_color="--color-red-1"
-                            unselected_color="--color-grey-34"
-                            onNavigate={setSelectedIndex}
-                        /> */}
                         <Carousel {...settings}>
                             {platforms.map((platform, index) => (
                                 <CarouselItemWrapper key={index}>

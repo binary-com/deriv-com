@@ -294,7 +294,7 @@ const OurPlatforms = (): React.ReactElement => {
     const settings = {
         options: {
             loop: false,
-            align: 'start',
+            align: 'center',
             containScroll: 'trimSnaps',
         },
         container_style: {

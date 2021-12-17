@@ -38,7 +38,6 @@ export const EmblaSlideInner = styled.div`
                 width: ${props.width};
             `
     }}
-    width: 100vw;
 `
 
 export const StyledButtonWrapper = styled.div`

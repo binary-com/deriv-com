@@ -25,7 +25,7 @@ const DP2P_CONTENT = [
         ),
 
         image_name: 'buy_sell',
-        image_alt: localize('Buy and sell'),
+        image_alt: localize('Deriv’s P2P app buy and sell'),
     },
     {
         title: <Localize translate_text="Works with your local currency" />,
@@ -35,7 +35,7 @@ const DP2P_CONTENT = [
         ),
 
         image_name: 'local_currency',
-        image_alt: localize('Local currency'),
+        image_alt: localize('Deriv’s P2P app sending and receiving money'),
     },
     {
         title: <Localize translate_text="Available as web and mobile apps" />,
@@ -47,7 +47,7 @@ const DP2P_CONTENT = [
         ),
 
         image_name: 'web_and_mobile',
-        image_alt: localize('Web and mobile apps'),
+        image_alt: localize('“Deriv’s P2P web and mobile app'),
     },
 ]
 
@@ -56,8 +56,10 @@ const DP2PHome = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Deriv P2P')}
-                description={localize('Hassle-free deposits and withdrawals')}
+                title={localize('Deriv P2P – peer-to-peer deposit and withdrawal service')}
+                description={localize(
+                    'With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.',
+                )}
             />
 
             {is_mounted && (

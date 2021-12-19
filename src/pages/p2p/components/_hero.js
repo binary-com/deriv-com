@@ -181,7 +181,7 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                 <ImgWrapper>
                     <QueryImage
                         data={img_data}
-                        alt={'p2p background'}
+                        alt={'Deriv’s P2P mobile app'}
                         height={'700px'}
                         width={'576px'}
                     />

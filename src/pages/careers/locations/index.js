@@ -97,10 +97,10 @@ const StyledDiv = styled.div`
     padding: 24px 24px 24px 25px;
 `
 
-const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
+const CountryCard = ({ country_name, city_name, link, img_alt, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
-            <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
+            <QueryImage data={img_data} alt={img_alt} width="100%" />
             <StyledDiv>
                 <Header as="h5" size="var(--text-size-sm)">
                     {city_name}
@@ -121,6 +121,7 @@ CountryCard.propTypes = {
     city_name: PropTypes.string,
     country_name: PropTypes.string,
     Icon: PropTypes.string,
+    img_alt: PropTypes.string,
     img_data: PropTypes.object,
     link: PropTypes.string,
     open_positions: PropTypes.number,
@@ -212,6 +213,7 @@ const Locations = () => {
                             country_name={office.country}
                             city_name={office.display_name}
                             link={office.link}
+                            img_alt={office.img_alt}
                         />
                     ))}
                 </CssGrid>

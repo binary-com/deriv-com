@@ -21,6 +21,7 @@ import LocalizedLinkText from './localized-link-text'
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
+import VideoPlayer from './video-player'
 
 export {
     Accordion,
@@ -55,4 +56,5 @@ export {
     Text,
     Timeline,
     Ul,
+    VideoPlayer,
 }

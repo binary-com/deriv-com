@@ -33,11 +33,12 @@ const MobileWrapper = styled.div`
 `
 
 const Banner = ({ detailsObj, detailsPreviewObj }) => {
+    console.log(detailsObj)
     return detailsObj ? (
         <ParentWrapper max_w={detailsObj.max_w_value} max_w_tablet={detailsObj.max_w_tablet}>
             <LocalizedLink
                 external={detailsObj.isExternal}
-                to={detailsObj.redirectLink}
+                to={detailsObj.redirectLink || '/academy'}
                 rel="noopener noreferrer"
                 target="_blank"
             >

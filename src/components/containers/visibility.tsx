@@ -29,16 +29,13 @@ const deviceRenderer = (): boolean => {
 
 export const Desktop: ReactNode = ({ children }) => {
     const is_loaded = deviceRenderer()
-
-    return is_loaded ? (
-        isTablet ? (
-            <TabletView>{children}</TabletView>
-        ) : (
-            <BrowserView>{children}</BrowserView>
-        )
+    const desktop_view = isTablet ? (
+        <TabletView>{children}</TabletView>
     ) : (
-        <DesktopLayer>{children}</DesktopLayer>
+        <BrowserView>{children}</BrowserView>
     )
+
+    return is_loaded ? desktop_view : <DesktopLayer>{children}</DesktopLayer>
 }
 
 export const Mobile: ReactNode = ({ children }) => {

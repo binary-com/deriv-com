@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-/* TODO: Remove the above once fully typed the whole codebae */
+// TODO: Remove the above once fully typed the whole codebase
 
 import React, { ReactNode, useEffect, useState } from 'react'
 import { BrowserView, MobileView, TabletView, isTablet } from 'react-device-detect'

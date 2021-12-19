@@ -67,9 +67,9 @@ const DMT5 = () => {
     return (
         <Layout>
             <SEO
-                title={localize('DMT5 | MetaTrader 5 | Deriv')}
+                title={localize('Deriv MT5 | MetaTrader 5 trading platform | Deriv')}
                 description={localize(
-                    'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
+                    'Deriv MT5 is an all-in-one CFD trading platform where you can trade on the biggest financial markets and Deriv’s synthetic indices.',
                 )}
                 meta_attributes={meta_attributes}
             />

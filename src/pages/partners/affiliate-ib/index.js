@@ -29,15 +29,13 @@ const meta_attributes = {
 }
 
 const StyledHeader = styled(Header)`
+    white-space: pre-line;
     width: 100%;
     max-width: 70rem;
+    margin-bottom: 4rem;
     @media ${device.tabletS} {
         font-size: 40px;
         text-align: left;
-    }
-
-    &:nth-child(2) {
-        margin-bottom: 4rem;
     }
 `
 
@@ -126,7 +124,7 @@ const why_partner_with_us_items = [
             <Localize translate_text="Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading." />
         ),
         image_name: 'multiple_income_opportunities',
-        image_alt: <Localize translate_text="Multiple income opportunities" />,
+        image_alt: <Localize translate_text="DMT5 and Dtrader trading platform at Deriv" />,
     },
     {
         title: <Localize translate_text="Zero charges with prompt monthly and daily payouts" />,
@@ -134,7 +132,7 @@ const why_partner_with_us_items = [
             <Localize translate_text="All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily." />
         ),
         image_name: 'daily_ib_commission',
-        image_alt: <Localize translate_text="Daily IB commission" />,
+        image_alt: <Localize translate_text="Check your daily IB commission" />,
     },
     {
         title: (
@@ -144,16 +142,16 @@ const why_partner_with_us_items = [
             <Localize translate_text="We’ve designed a customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with the tools and creative materials you need to drive traffic to Deriv." />
         ),
         image_name: 'marketing_material',
-        image_alt: <Localize translate_text="Marketing material" />,
+        image_alt: <Localize translate_text="Marketing creative material" />,
     },
 ]
 const AffiliateIb = () => {
     return (
         <Layout type="partners" margin_top={10}>
             <SEO
-                title={localize('Affiliate and IB programme | Deriv')}
+                title={localize('Affiliate partnership and IB programme | Deriv')}
                 description={localize(
-                    'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
+                    'Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms.',
                 )}
                 meta_attributes={meta_attributes}
             />
@@ -162,10 +160,7 @@ const AffiliateIb = () => {
             </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('Partner with a trusted')}
-                </StyledHeader>
-                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('online trading provider')}
+                    {localize('Partner with a trusted \n online trading provider')}
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
@@ -189,7 +184,7 @@ const AffiliateIb = () => {
                         <StyledContainer justify="space-around">
                             {items.map((item, index) => (
                                 <NumberWrapper key={index}>
-                                    <Header as="h2" type="page-title" align="center">
+                                    <Header as="p" type="page-title" align="center">
                                         {item.title}
                                     </Header>
                                     <StyledText align="center">{item.subtitle}</StyledText>

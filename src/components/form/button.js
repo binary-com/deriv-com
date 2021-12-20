@@ -82,6 +82,16 @@ export const SharedButtonStyle = css`
                     color: var(--color-red);
                 }
             `
+        if (props.light)
+            return css`
+                border: 2px solid var(--color-white);
+                color: var(--color-white);
+                background: transparent;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.08);
+                }
+            `
     }}
 
     &:focus,

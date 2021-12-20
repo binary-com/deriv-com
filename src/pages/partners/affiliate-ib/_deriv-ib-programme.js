@@ -114,7 +114,7 @@ const DerivIBProgramme = () => {
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <StyledTitleHeader mb="1.2rem" type="page-title" align="center">
+                    <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">
                         {localize('Deriv IB Programme')}
                     </StyledTitleHeader>
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">

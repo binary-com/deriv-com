@@ -46,7 +46,7 @@ const MindWhenTrading = () => {
                 </Text>
                 <Text mb="3.2rem">
                     {localize(
-                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure. ',
+                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.',
                     )}
                 </Text>
             </SmallContainer>
@@ -55,7 +55,7 @@ const MindWhenTrading = () => {
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_relationship_piechart']}
-                            alt="Trade types margin market"
+                            alt="Pie chart explaining relation between margin and leverage"
                         />
                     </ImageWrapper>
                 </SmallContainer>

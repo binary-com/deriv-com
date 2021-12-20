@@ -31,7 +31,7 @@ const EndSeparator = styled.div`
 
 const AboutUs = (): React.ReactNode => {
     return (
-        <Layout>
+        <Layout type="about-us" margin_top="0">
             <SEO
                 // title and description from story page, needs new?
                 title={localize('About Us | An Online Trading Platform | Deriv.com')}

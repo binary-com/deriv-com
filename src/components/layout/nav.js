@@ -43,6 +43,10 @@ const query = graphql`
         }
     }
 `
+
+const LanguageSwitcherNavDesktop = ({ no_language }) =>
+    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
+
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
     width: 100%;
@@ -481,7 +485,6 @@ const NavDesktop = ({
     is_ppc,
     is_ppc_redirect,
     is_logged_in,
-    is_about_us,
     hide_signup_login,
     academy_logo,
     no_language,
@@ -511,9 +514,6 @@ const NavDesktop = ({
         if (!target) return
         setActiveLinkRef(target)
     }
-
-    const LanguageSwitcherNavDesktop = () =>
-        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
 
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
@@ -595,11 +595,8 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        {is_about_us ? (
-                            <LanguageSwitcher short_name="true" />
-                        ) : (
-                            <LanguageSwitcherNavDesktop />
-                        )}
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -612,11 +609,8 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        {is_about_us ? (
-                            <LanguageSwitcher short_name="true" />
-                        ) : (
-                            <LanguageSwitcherNavDesktop />
-                        )}
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -699,10 +693,13 @@ NavDesktop.propTypes = {
     academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
-    is_about_us: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
+}
+
+LanguageSwitcherNavDesktop.propTypes = {
     no_language: PropTypes.bool,
 }
 
@@ -1195,7 +1192,6 @@ export const NavAboutUs = ({ is_ppc, hide_signup_login, no_language }) => {
                 <Show.Desktop max_width="bp1060">
                     <NavDesktop
                         no_language={no_language}
-                        is_about_us={true}
                         is_ppc={is_ppc}
                         is_logged_in={is_logged_in}
                         hide_signup_login={hide_signup_login}

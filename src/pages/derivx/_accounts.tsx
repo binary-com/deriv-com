@@ -13,6 +13,12 @@ type StyledHeaderProps = {
     margin: string
 }
 
+type ContentType = {
+    header: ReactElement
+    text: ReactElement | string
+    icon: ReactElement | string
+}
+
 const StyledIcon = styled.img`
     width: 48px;
     height: 48px;
@@ -23,7 +29,7 @@ const StyledIcon = styled.img`
     }
 `
 
-const content: { header: JSX.Element; text: JSX.Element | string; icon: JSX.Element | string }[] = [
+const content: ContentType[] = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (

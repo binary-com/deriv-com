@@ -9,6 +9,13 @@ import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
 import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
 
+type TradingType = {
+    title: ReactElement
+    subtitle: ReactElement
+    image_name: string
+    image_alt: string
+}
+
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 24px;
@@ -40,12 +47,7 @@ const Card = styled(Flex)`
     }
 `
 
-const trading: {
-    title: JSX.Element
-    subtitle: JSX.Element
-    image_name: string
-    image_alt: string
-}[] = [
+const trading: TradingType[] = [
     {
         title: <Localize translate_text="Bespoke trading experience" />,
         subtitle: (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
@@ -13,6 +13,17 @@ interface StartDerivXType {
     children?: React.ReactNode
     active?: boolean
     mobile_padding?: string
+}
+
+type RealOrDemoShowType = {
+    description: ReactElement
+    image_data: string
+    image_alt: string
+}
+
+type DownloadLinkType = {
+    android: string
+    ios: string
 }
 
 const query = graphql`
@@ -62,7 +73,7 @@ const query = graphql`
     }
 `
 
-const demo: { description: JSX.Element; image_data: string; image_alt: string }[] = [
+const demo: RealOrDemoShowType[] = [
     {
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
@@ -84,7 +95,7 @@ const demo: { description: JSX.Element; image_data: string; image_alt: string }[
     },
 ]
 
-const real: { description: JSX.Element; image_data: string; image_alt: string }[] = [
+const real: RealOrDemoShowType[] = [
     {
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
@@ -111,7 +122,7 @@ const real: { description: JSX.Element; image_data: string; image_alt: string }[
     },
 ]
 
-const download_links: { android: string; ios: string } = {
+const download_links: DownloadLinkType = {
     android: derivx_android_url,
     ios: derivx_ios_url,
 }
@@ -153,6 +164,19 @@ const ImageWrapper = styled.div`
         }
     }
 `
+const demoActive = css`
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    border: unset;
+    ${Text} {
+        font-weight: bold;
+    }
+`
+const realActive = css`
+    box-shadow: unset;
+    ${Text} {
+        font-weight: unset;
+    }
+`
 
 const TabItem = styled.div<StartDerivXType>`
     padding: 2.4rem 4rem;
@@ -161,21 +185,7 @@ const TabItem = styled.div<StartDerivXType>`
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     cursor: pointer;
-    ${(props) =>
-        props.active
-            ? css`
-                  box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-                  border: unset;
-                  ${Text} {
-                      font-weight: bold;
-                  }
-              `
-            : css`
-                  box-shadow: unset;
-                  ${Text} {
-                      font-weight: unset;
-                  }
-              `}
+    ${(props) => (props.active ? demoActive : realActive)}
 
     @media ${device.tabletS} {
         padding: 17px 20px;
@@ -249,12 +259,12 @@ const StartDerivX: React.FC<StartDerivXType> = () => {
 
             <Flex max_width="1200px">
                 <SideTab parent_tab={tab} has_download_button download_links={download_links}>
-                    {(tab === 'demo' ? demo : real).map((tab, index) => {
+                    {(tab === 'demo' ? demo : real).map((currentTab, index) => {
                         return (
                             <SideTab.Panel
                                 key={index}
                                 label=""
-                                description={tab.description}
+                                description={currentTab.description}
                                 mobile_item_width="35rem"
                             >
                                 <ImageWrapper>
@@ -262,11 +272,11 @@ const StartDerivX: React.FC<StartDerivXType> = () => {
                                         data={
                                             data[
                                                 is_mobile
-                                                    ? `${tab.image_data}_mobile`
-                                                    : tab.image_data
+                                                    ? `${currentTab.image_data}_mobile`
+                                                    : currentTab.image_data
                                             ]
                                         }
-                                        alt={tab.image_alt}
+                                        alt={currentTab.image_alt}
                                     />
                                 </ImageWrapper>
                             </SideTab.Panel>

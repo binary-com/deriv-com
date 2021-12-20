@@ -5,6 +5,11 @@ import { Text } from 'components/elements/typography'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import device from 'themes/device'
 
+type SellingPointsType = {
+    title: string | ReactElement
+    subtitle: ReactElement
+}
+
 const HeadingText = styled(Text)`
     font-weight: bold;
     font-size: 48px;
@@ -38,7 +43,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const selling_points: { title: string | JSX.Element; subtitle: JSX.Element }[] = [
+const selling_points: SellingPointsType[] = [
     {
         title: '100+',
         subtitle: <Localize translate_text="tradable assets" />,

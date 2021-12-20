@@ -332,8 +332,10 @@ export const calculateReadTime = (text) => {
     const wpm = 275 // average adult words per minute
     const content_without_HTML = stripHTML(text)
     const words = content_without_HTML?.trim().split(/\s+/).length
-    return Math.ceil(words / wpm).toString() + ' ' + localize('min read')
+    return Math.ceil(words / wpm)
 }
+
+export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
 
 export const slugify = (text) =>
     text

@@ -34,7 +34,7 @@ import ArticleEmailBanner from '../../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
-import { convertDate, isBrowser, calculateReadTime } from 'common/utility'
+import { convertDate, isBrowser, getMinRead } from 'common/utility'
 import { cms_assets_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
@@ -138,7 +138,7 @@ const BlogPreview = () => {
                                         {post_data?.blog_title}
                                     </ArticleTitle>
                                     <InfoText size="14px" mt="16px">
-                                        {calculateReadTime(post_data?.blog_post)}
+                                        {getMinRead(post_data?.blog_post)}
                                     </InfoText>
                                     <Show.Mobile min_width="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">

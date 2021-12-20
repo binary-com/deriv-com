@@ -19,8 +19,8 @@ type card_wrapper = {
 }
 
 type icon_wrapper = {
-    width?: string[]
-    height?: string[]
+    width?: string | number
+    height?: string | number
     margin?: string[]
     grid_area?: string[]
 }

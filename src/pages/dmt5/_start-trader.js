@@ -228,7 +228,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
-                                    alt="demo_step1"
+                                    alt="Demo DMT5 account- step 2"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -255,7 +255,7 @@ const StartTrader = () => {
                                 ) : (
                                     <QueryImage
                                         data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
-                                        alt="demo_step2"
+                                        alt="Demo DMT5 account- step 2"
                                     />
                                 )}
                             </ImageWrapper>
@@ -270,7 +270,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
-                                    alt="demo_step3"
+                                    alt="Demo DMT5 account- step 3"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -296,7 +296,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
-                                    alt="real_step1"
+                                    alt="Real DMT5 account- step 1"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -313,7 +313,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
-                                    alt="real_step2"
+                                    alt="Real DMT5 account- step 2"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -335,12 +335,12 @@ const StartTrader = () => {
                                                 is_mobile ? 'real_step3_mobile_eu' : 'real_step3_eu'
                                             ]
                                         }
-                                        alt="real_step3"
+                                        alt="Real DMT5 account- step 3"
                                     />
                                 ) : (
                                     <QueryImage
                                         data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
-                                        alt="real_step3"
+                                        alt="Real DMT5 account- step 3"
                                     />
                                 )}
                             </ImageWrapper>
@@ -354,7 +354,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
-                                    alt="real_step4"
+                                    alt="Real DMT5 account- step 4"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>

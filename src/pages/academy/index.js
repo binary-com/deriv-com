@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import styled from 'styled-components'
+import { matchSorter } from 'match-sorter'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
 import DVideoBanner from './_video-banner'
 import Hero from './components/_hero'
 import MarketNews from './components/_markets-news'
+import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -326,6 +328,40 @@ export const query = graphql`
 `
 
 const DerivBlog = ({ data }) => {
+    const { is_eu_country, academy_data } = React.useContext(DerivStore)
+    const [search_input, setSearchInput] = React.useState('')
+    // We need a second state for tracking the debounced search input
+    const [search_query, setSearchQuery] = React.useState('')
+
+    const combined_data = [...academy_data.blog, ...academy_data.videos]
+
+    let data_to_render
+
+    const handleFilterSearch = (e) => {
+        setSearchInput(e.target.value.toLowerCase().trim())
+    }
+
+    useDebouncedEffect(
+        () => {
+            if (search_input !== '') {
+                setSearchQuery(search_input)
+            } else setSearchQuery('')
+        },
+        [search_input],
+        300,
+    )
+
+    if (search_query !== '') {
+        data_to_render = matchSorter(combined_data, search_query, {
+            keys: ['blog_title', 'video_title'],
+        })
+    } else data_to_render = null
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (search_input) navigate(`/academy/search?q=${encodeURI(search_input)}`)
+    }
+
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
         og_description: 'Your one-stop online trading learning hub.',
@@ -347,8 +383,6 @@ const DerivBlog = ({ data }) => {
             nav_color: '--color-white',
         },
     }
-
-    const { is_eu_country } = React.useContext(DerivStore)
 
     const homepage_banner_data = data.directus.homepage_banners
 
@@ -398,6 +432,28 @@ const DerivBlog = ({ data }) => {
                     })}
                 </Carousel>
             </MainWrapper>
+            <Flex>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        style={{ width: '480px' }}
+                        placeholder="What would you like to search?"
+                        onChange={handleFilterSearch}
+                    ></input>
+                </form>
+            </Flex>
+            <Flex fd="column">
+                {data_to_render &&
+                    data_to_render.map((post) => {
+                        return (
+                            <Flex
+                                key={post.blog_title || post.video_title}
+                                style={{ fontSize: '16px', marginTop: '4px' }}
+                            >
+                                {post.blog_title || post.video_title}
+                            </Flex>
+                        )
+                    })}
+            </Flex>
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
             <DVideoBanner
                 featured_video_list_data={featured_video_list_data}

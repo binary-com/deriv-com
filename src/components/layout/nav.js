@@ -481,6 +481,7 @@ const NavDesktop = ({
     is_ppc,
     is_ppc_redirect,
     is_logged_in,
+    is_about_us,
     hide_signup_login,
     academy_logo,
     no_language,
@@ -594,7 +595,11 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        <LanguageSwitcherNavDesktop />
+                        {is_about_us ? (
+                            <LanguageSwitcher short_name="true" />
+                        ) : (
+                            <LanguageSwitcherNavDesktop />
+                        )}
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -607,7 +612,11 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcherNavDesktop />
+                        {is_about_us ? (
+                            <LanguageSwitcher short_name="true" />
+                        ) : (
+                            <LanguageSwitcherNavDesktop />
+                        )}
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -690,6 +699,7 @@ NavDesktop.propTypes = {
     academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
+    is_about_us: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
@@ -1151,17 +1161,12 @@ const Section = styled(SectionContainer)`
     }
 `
 
-export const NavAboutUs = ({
-    base,
-    is_ppc_redirect,
-    is_ppc,
-    hide_signup_login,
-    academy_logo,
-    no_language,
-}) => {
+export const NavAboutUs = ({ is_ppc, hide_signup_login, no_language }) => {
+    const [is_logged_in, setLoggedIn] = useState(true)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
-    const handleScroll = useCallback(() => {
+
+    const handleScrollBG = useCallback(() => {
         const currentScrollPos = window.pageYOffset
         setVisible(
             (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
@@ -1169,31 +1174,29 @@ export const NavAboutUs = ({
         )
         setPrevScrollPos(currentScrollPos)
     }, [])
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [prevScrollPos, visible, handleScroll])
-
-    const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleScrollBG)
 
         let checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
         }, 800)
-        return () => clearInterval(checkCookieChange)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleScrollBG)
+        }
     }, [])
+
     return (
         <>
             <Section background={visible}>
                 <Show.Desktop max_width="bp1060">
                     <NavDesktop
                         no_language={no_language}
-                        academy_logo={academy_logo}
-                        base={base}
+                        is_about_us={true}
                         is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
                         is_logged_in={is_logged_in}
                         hide_signup_login={hide_signup_login}
                     />
@@ -1201,7 +1204,6 @@ export const NavAboutUs = ({
                 <Show.Mobile min_width="bp1060">
                     <NavMobile
                         no_language={no_language}
-                        academy_logo={academy_logo}
                         is_ppc={is_ppc}
                         is_logged_in={is_logged_in}
                         hide_signup_login={hide_signup_login}

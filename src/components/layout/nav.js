@@ -1175,6 +1175,7 @@ export const NavSecurity = () => {
                         <SecurityNavRight button_ref={button_ref} mounted={true}>
                             <LinkButton
                                 to={'mailto:security@deriv.com'}
+                                is_mail_link
                                 external="true"
                                 target="_blank"
                                 tertiary

@@ -18,6 +18,7 @@ const StyledContainer = styled(Container)`
 
     @media ${device.tablet} {
         width: auto;
+        padding: 40px 16px;
     }
 `
 
@@ -36,6 +37,10 @@ const CardItem = styled.div<CardItemProps>`
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @media ${device.tablet} {
+        padding: 0 8px;
+    }
 `
 
 const IconWrap = styled.img`
@@ -99,7 +104,7 @@ const VulnerabilitiesTypes = () => {
                                                         <Localize translate_text={item.title} />
                                                     </Header>
 
-                                                    <Header type="paragraph-1" mt="4px">
+                                                    <Header type="paragraph-2" mt="4px">
                                                         <Localize
                                                             translate_text={item.content}
                                                             components={[

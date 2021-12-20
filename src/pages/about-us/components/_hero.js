@@ -9,10 +9,10 @@ import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
 
 const query = graphql`
     query {
-        about_us_content_desktop: file(relativePath: { eq: "about/about_us_content.png" }) {
+        about_us_logo_desktop: file(relativePath: { eq: "about/about_us_logo_desktop.png" }) {
             ...fadeIn
         }
-        about_us_logo_mobile: file(relativePath: { eq: "about/about_us_logo.png" }) {
+        about_us_logo: file(relativePath: { eq: "about/about_us_logo.png" }) {
             ...fadeIn
         }
     }
@@ -29,7 +29,7 @@ const ParentWrapper = styled(Flex)`
 `
 const ContentWrapper = styled(Container)`
     height: auto;
-    margin: 192px 0 120px;
+    margin: 180px;
 
     @media ${device.tabletL} {
         margin: 168px 0 145px;
@@ -54,6 +54,20 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledHeaderDesktop = styled(Header)`
+    position: absolute;
+    width: 1200px;
+    height: 195.52px;
+    top: 260px;
+    font-size: 210px;
+    letter-spacing: 8px;
+`
+
+const StyledFlex = styled(Flex)`
+    height: 400px;
+    width: 1000px;
+`
+
 const Hero = () => {
     const data = useStaticQuery(query)
 
@@ -61,13 +75,20 @@ const Hero = () => {
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
             <ContentWrapper>
                 <DesktopWrapper>
-                    <Flex>
-                        <QueryImage data={data['about_us_content_desktop']} alt="example" />
-                    </Flex>
+                    <StyledFlex>
+                        <QueryImage
+                            data={data['about_us_logo_desktop']}
+                            alt="example"
+                            width="100#"
+                        />
+                        <StyledHeaderDesktop color="white" align="center">
+                            About us
+                        </StyledHeaderDesktop>
+                    </StyledFlex>
                 </DesktopWrapper>
                 <MobileWrapper>
                     <Flex fd="column">
-                        <QueryImage data={data['about_us_logo_mobile']} alt="example" />
+                        <QueryImage data={data['about_us_logo']} alt="example" />
                         <StyledHeader color="white" align="center" mt="40px">
                             About us
                         </StyledHeader>

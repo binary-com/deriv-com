@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import {
@@ -28,6 +28,9 @@ import {
     StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
+    Scrollbar,
+    ProgressContainer,
+    ProgressBar,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/academy/components/_banner'
 import ArticleEmailBanner from '../pages/academy/components/_side-subscription-banner.js'
@@ -65,6 +68,22 @@ const ArticlesTemplate = (props) => {
     //             src: '/hyvor.js',
     //         })
     //     }, [document])
+
+    const barElement = useRef(null)
+
+    const scrollFunc = () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+        const scrolled = (winScroll / height) * 130
+        barElement.current.style.width = scrolled + '%'
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollFunc)
+        return () => {
+            window.removeEventListener('scroll', scrollFunc)
+        }
+    }, [])
 
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
@@ -142,6 +161,11 @@ const ArticlesTemplate = (props) => {
                                     </Flex>
                                 </MobileBreadcrumbsWrapper>
                             </BreadcrumbsWrapper>
+                            <Scrollbar>
+                                <ProgressContainer>
+                                    <ProgressBar ref={barElement}></ProgressBar>
+                                </ProgressContainer>
+                            </Scrollbar>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">

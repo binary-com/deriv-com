@@ -116,7 +116,7 @@ const Leadership = () => {
                                 <Box max_width="28.2rem" mr="2.4rem">
                                     <QueryImage
                                         data={data['jean_yves']}
-                                        alt={localize('Jean Yves')}
+                                        alt={localize("Jean-Yves Sireau - Deriv's CEO")}
                                         width="28.2rem"
                                     />
                                 </Box>
@@ -136,7 +136,7 @@ const Leadership = () => {
                                     </LeadershipPosition>
                                     <StyledText color="white">
                                         {localize(
-                                            'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
+                                            'Jean-Yves has been an entrepreneur since the age of 20 when he started working on algorithms that developed into one of the world’s first trading platforms. He has been granted patents for his options trading system and financial market speculation methods. In over two decades, he has led Deriv from a startup to a team of 700+ with offices in 13 countries and a rapidly growing client base in Asia, Europe, Africa, and South America.',
                                         )}
                                     </StyledText>
                                 </div>
@@ -169,7 +169,7 @@ const Leadership = () => {
                                     </LeadershipPosition>
                                     <StyledText color="white">
                                         {localize(
-                                            'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
+                                            'Jean-Yves has been an entrepreneur since the age of 20 when he started working on algorithms that developed into one of the world’s first trading platforms. He has been granted patents for his options trading system and financial market speculation methods. In over two decades, he has led Deriv from a startup to a team of 700+ with offices in 13 countries and a rapidly growing client base in Asia, Europe, Africa, and South America.',
                                         )}
                                     </StyledText>
                                 </div>

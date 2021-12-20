@@ -100,6 +100,7 @@ const StyledFlex = styled(Flex)`
 
     @media ${device.mobileS} {
         border-radius: 1rem;
+        max-height: 20rem;
     }
 `
 const StyledHeader = styled(Header)`

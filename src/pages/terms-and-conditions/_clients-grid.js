@@ -138,10 +138,6 @@ const IconGrid = () => {
                     url: '/tnc/deriv-(europe)-limited.pdf',
                     title: localize('Deriv (Europe) Limited'),
                 },
-                {
-                    url: '/tnc/deriv-(mx)-ltd.pdf',
-                    title: localize('Deriv (MX) Ltd'),
-                },
             ],
         },
     ]

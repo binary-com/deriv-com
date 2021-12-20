@@ -112,12 +112,12 @@ const StyledHeader = styled(Header)`
         max-width: 329px;
     }
 `
-const DBanner = ({ title, data, background_pattern }) => {
+const DBanner = ({ title, data, background_pattern, image_alt }) => {
     return (
         <Wrapper>
             <ImageContainer>
                 <ImageWrapper ai="center">
-                    <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
+                    <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper
@@ -126,7 +126,7 @@ const DBanner = ({ title, data, background_pattern }) => {
                 ai="center"
             ></BackgroundWrapper>
             <TextWrapper>
-                <StyledHeader align="center" color="white" size="5.6rem" mb="3.2rem">
+                <StyledHeader as="h4" align="center" color="white" size="5.6rem" mb="3.2rem">
                     {title}
                 </StyledHeader>
                 <DemoButton>
@@ -142,6 +142,7 @@ const DBanner = ({ title, data, background_pattern }) => {
 DBanner.propTypes = {
     background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     data: PropTypes.object.isRequired,
+    image_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 

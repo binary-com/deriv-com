@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     StyledNavPartners as StyledNav,
@@ -16,6 +17,7 @@ import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { CFDWarning } from 'components/layout'
+import { besquare_signup_url } from 'common/constants'
 
 const query = graphql`
     query {
@@ -70,10 +72,34 @@ const CareerNavLeft = styled(NavLeft)`
     }
 `
 
-export const NavCareers = () => {
+export const NavCareers = ({ is_besquare }) => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
+    const button_component = is_besquare ? (
+        <CareerButton
+            external="true"
+            secondary
+            to={besquare_signup_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            ml="2.4rem"
+        >
+            Apply now
+        </CareerButton>
+    ) : (
+        <CareerButton
+            external="true"
+            secondary
+            type="zoho"
+            to="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ml="2.4rem"
+        >
+            Explore jobs
+        </CareerButton>
+    )
 
     return (
         <>
@@ -118,19 +144,7 @@ export const NavCareers = () => {
                             </CareerLink>
                         </CareerNavLeft>
                         <CareerRight jc="flex-end" ai="center">
-                            {has_mounted && (
-                                <CareerButton
-                                    external="true"
-                                    secondary
-                                    type="zoho"
-                                    to="/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    ml="2.4rem"
-                                >
-                                    Explore jobs
-                                </CareerButton>
-                            )}
+                            {has_mounted && button_component}
                         </CareerRight>
                     </Wrapper>
                 </StyledNav>
@@ -138,6 +152,10 @@ export const NavCareers = () => {
             <CFDWarning />
         </>
     )
+}
+
+NavCareers.propTypes = {
+    is_besquare: PropTypes.bool,
 }
 
 export default { NavCareers }

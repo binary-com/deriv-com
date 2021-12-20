@@ -15,19 +15,19 @@ const ParentWrapper = styled(Flex)`
         width: 100%;
     }
 
-    @media ${device.tabletS} {
+    @media ${device.laptop} {
         max-width: ${(props) => (props.max_w_tablet ? props.max_w_tablet : '100%')};
     }
 `
 const DesktopWrapper = styled(Flex)`
-    @media ${device.tabletS} {
+    @media ${device.laptop} {
         display: none;
     }
 `
 const MobileWrapper = styled.div`
     display: none;
 
-    @media ${device.tabletS} {
+    @media ${device.laptop} {
         display: flex;
     }
 `
@@ -55,16 +55,12 @@ const Banner = ({ detailsObj, detailsPreviewObj }) => {
                             <QueryImage
                                 data={detailsObj.imgSrcDesktop}
                                 alt={detailsObj.imgAltDesktop || ''}
-                                width="282px"
-                                height="444px"
                             />
                         </DesktopWrapper>
                         <MobileWrapper>
                             <QueryImage
                                 data={detailsObj.imgSrcMobile}
                                 alt={detailsObj.imgAltMobile}
-                                width="328px"
-                                height="460px"
                             />
                         </MobileWrapper>
                     </>

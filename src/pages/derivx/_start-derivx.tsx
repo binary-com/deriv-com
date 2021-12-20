@@ -227,8 +227,8 @@ const StartDerivX: React.FC<StartDerivXType> = () => {
     const data = useStaticQuery(query)
     const [tab, setTab] = useState('demo')
 
-    const onTabClick = (tab: string) => {
-        setTab(tab)
+    const onTabClick = (chosenTab: string) => {
+        setTab(chosenTab)
     }
 
     return (

@@ -329,7 +329,7 @@ export const replaceLocale = (locale) => {
 export const stripHTML = (str) => str?.replace(/<[^>]*>?/gm, '')
 
 export const calculateReadTime = (text) => {
-    const wpm = 275 // average adult words per minute
+    const wpm = 275 // adjusted to fit the average reading speed of a person
     const content_without_HTML = stripHTML(text)
     const words = content_without_HTML?.trim().split(/\s+/).length
     return Math.ceil(words / wpm)

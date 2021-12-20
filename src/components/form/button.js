@@ -43,6 +43,16 @@ export const SharedButtonStyle = css`
                     background-color: rgba(0, 0, 0, 0.08);
                 }
             `
+        if (props.tertiary_light)
+            return css`
+                border: 2px solid var(--color-white);
+                color: var(--color-white);
+                background: transparent;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.08);
+                }
+            `
         if (props.flat)
             return css`
                 background: transparent;
@@ -80,16 +90,6 @@ export const SharedButtonStyle = css`
                 &:hover {
                     background: var(--color-white);
                     color: var(--color-red);
-                }
-            `
-        if (props.light)
-            return css`
-                border: 2px solid var(--color-white);
-                color: var(--color-white);
-                background: transparent;
-
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.08);
                 }
             `
     }}

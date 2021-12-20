@@ -176,7 +176,7 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
                         </Flex>
                     </Flex>
                     <VideoCarousel carousel_items={non_featured_video_list} />
-                    <AllVideosButton light="true" to="/academy/videos/">
+                    <AllVideosButton tertiary_light="true" to="/academy/videos/">
                         See all videos
                     </AllVideosButton>
                 </Container>

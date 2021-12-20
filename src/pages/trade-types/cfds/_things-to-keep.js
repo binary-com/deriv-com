@@ -55,7 +55,7 @@ const MindWhenTrading = () => {
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_relationship_piechart']}
-                            alt="Trade types margin market"
+                            alt="Pie chart explaining relation between margin and leverage"
                         />
                     </ImageWrapper>
                 </SmallContainer>

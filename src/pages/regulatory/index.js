@@ -20,7 +20,6 @@ import { DerivStore } from 'store'
 // Icons
 import EU from 'images/svg/regulatory/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
-import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.png'
 import FSC from 'images/common/regulatory/bvi.png'
 import Labuan from 'images/common/regulatory/labuan.png'
 import Deriv from 'images/common/regulatory/deriv.png'
@@ -322,11 +321,6 @@ const Regulatory = (locale) => {
                                 </StyledHeader>
                             </Mobile>
                             <Img src={Vanuatu} alt="Vanuatu" />
-                            <Img
-                                src={VanuatuFMA}
-                                alt="Vanuatu Financial Markets Association"
-                                style={{ marginTop: '8px' }}
-                            />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -336,7 +330,7 @@ const Regulatory = (locale) => {
                             </Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) - 1276, Kumul Highway, Port Vila, Vanuatu - is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
+                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) - 1276, Kumul Highway, Port Vila, Vanuatu - is licensed by Vanuatu Financial Services Commission."
                                     components={[
                                         <LinkText
                                             key={0}

@@ -60,7 +60,6 @@ const StyledSectionContainer = styled(SectionContainer)`
     flex-direction: column;
     align-items: center;
     margin: 0: 
-    padding: 0 16px 120px;
     @media ${device.tablet} {
         padding: 0 16px 40px;
     }
@@ -68,13 +67,13 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const StyledCssGrid = styled(CssGrid)`
-    margin: 0 40px 40px;
+    margin: 0 40px;
     max-width: 996px;
     @media (max-width: 1050px) {
         max-width: 100%;
     }
     @media ${device.laptop} {
-        margin: 0 0 40px;
+        margin: 0;
     }
 `
 
@@ -124,7 +123,7 @@ const OurLeadership = () => {
         leaders_data.jennice,
     ]
     return (
-        <StyledSectionContainer padding="0 16px 80px" background="var(--color-white)">
+        <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
                 {localize('Our leadership')}
             </StyledHeader>
@@ -140,13 +139,13 @@ const OurLeadership = () => {
                 mobile_column_gap="24px"
                 mobile_row_gap="24px"
             >
-                {leaders.map((im: ImageDataLike) => (
-                    <StyledImageWrapper width="120px" height="120px">
+                {leaders.map((im: ImageDataLike, index: number) => (
+                    <StyledImageWrapper key={index} width="120px" height="120px">
                         <StyledQueryImage
                             width="100%"
                             height="100%"
                             data={im}
-                            alt="leaders"
+                            alt="leader"
                             loading="lazy"
                         />
                     </StyledImageWrapper>

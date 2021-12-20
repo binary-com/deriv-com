@@ -75,7 +75,13 @@ const SubmitABugReport = (): ReactElement => {
                         <Header type="subtitle-2" color="white" mt="8px" as="p" weight="normal">
                             <Localize
                                 translate_text="Send your report by email to <0>security@deriv.com</0> and attach all relevant videos, system diagnosis reports, and crash logs. You can use Dropbox or Google Drive for sharing large files with us."
-                                components={[<LinkText key={0} href="mailto:security@deriv.com" />]}
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        href="mailto:security@deriv.com"
+                                        target="_blank"
+                                    />,
+                                ]}
                             />
                         </Header>
                     </TextWrap>

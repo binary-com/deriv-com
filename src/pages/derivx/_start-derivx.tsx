@@ -9,6 +9,12 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { derivx_android_url, derivx_ios_url } from 'common/constants'
 
+interface StartDerivXType {
+    children?: React.ReactNode
+    active?: boolean
+    mobile_padding?: string
+}
+
 const query = graphql`
     query {
         demo_step1: file(relativePath: { eq: "deriv-x/demo-1.png" }) {
@@ -56,7 +62,7 @@ const query = graphql`
     }
 `
 
-const demo = [
+const demo: { description: JSX.Element; image_data: string; image_alt: string }[] = [
     {
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
@@ -78,7 +84,7 @@ const demo = [
     },
 ]
 
-const real = [
+const real: { description: JSX.Element; image_data: string; image_alt: string }[] = [
     {
         description: (
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
@@ -105,7 +111,7 @@ const real = [
     },
 ]
 
-const download_links = {
+const download_links: { android: string; ios: string } = {
     android: derivx_android_url,
     ios: derivx_ios_url,
 }
@@ -147,7 +153,8 @@ const ImageWrapper = styled.div`
         }
     }
 `
-const TabItem = styled.div`
+
+const TabItem = styled.div<StartDerivXType>`
     padding: 2.4rem 4rem;
     width: fit-content;
     height: 8.4rem;
@@ -192,7 +199,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const StartDerivX = () => {
+const StartDerivX: React.FC<StartDerivXType> = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
@@ -210,7 +217,7 @@ const StartDerivX = () => {
     const data = useStaticQuery(query)
     const [tab, setTab] = useState('demo')
 
-    const onTabClick = (tab) => {
+    const onTabClick = (tab: string) => {
         setTab(tab)
     }
 
@@ -242,12 +249,12 @@ const StartDerivX = () => {
 
             <Flex max_width="1200px">
                 <SideTab parent_tab={tab} has_download_button download_links={download_links}>
-                    {(tab === 'demo' ? demo : real).map((index) => {
+                    {(tab === 'demo' ? demo : real).map((tab, index) => {
                         return (
                             <SideTab.Panel
                                 key={index}
                                 label=""
-                                description={index.description}
+                                description={tab.description}
                                 mobile_item_width="35rem"
                             >
                                 <ImageWrapper>
@@ -255,11 +262,11 @@ const StartDerivX = () => {
                                         data={
                                             data[
                                                 is_mobile
-                                                    ? `${index.image_data}_mobile`
-                                                    : index.image_data
+                                                    ? `${tab.image_data}_mobile`
+                                                    : tab.image_data
                                             ]
                                         }
-                                        alt={index.image_alt}
+                                        alt={tab.image_alt}
                                     />
                                 </ImageWrapper>
                             </SideTab.Panel>

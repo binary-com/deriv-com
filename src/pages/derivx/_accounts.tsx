@@ -9,8 +9,8 @@ import DxFinancialIcon from 'images/svg/deriv-x/dxfinancial.svg'
 import device from 'themes/device'
 
 type StyledHeaderProps = {
-    'font-size': string
-    margin: string
+    mobile_font_size: string
+    mobile_margin: string
 }
 
 type ContentType = {

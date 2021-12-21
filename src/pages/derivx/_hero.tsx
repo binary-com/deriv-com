@@ -8,7 +8,7 @@ import deriv_x_logo from 'images/svg/deriv-x/derivx-logo.svg'
 import { isBrowser } from 'common/utility'
 
 const Hero = (): ReactElement => {
-    const [is_mobile, setMobile] = useState<boolean>(false)
+    const [is_mobile, setMobile] = useState(false)
 
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)

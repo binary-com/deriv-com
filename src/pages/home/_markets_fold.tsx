@@ -18,7 +18,6 @@ const FoldWrapper = styled(SectionContainer)`
 `
 
 const FoldContainer = styled(Flex)`
-    flex-direction: column;
     margin: 0 auto;
 `
 
@@ -28,11 +27,7 @@ const ItemWrapper = styled.div`
 `
 
 const CarouselItemContainer = styled(Flex)`
-    display: flex;
     position: relative;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 282px;
     padding: 32px 32px 0;
     border-radius: 8px;
     color: white;
@@ -54,16 +49,9 @@ const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
     z-index: 3;
 `
 
-const StyledHeader = styled(Header)`
-    font-size: 24px;
-    line-height: 36px;
-`
-
 const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
     z-index: 2;
-    font-size: 16px;
-    line-height: 24px;
 `
 
 const market_data = [
@@ -149,7 +137,7 @@ const CarouselItem = ({
     gradient_start,
     gradient_end,
 }: CarouselItemProps) => {
-    const [is_hovered, setHovered] = useState<boolean>(false)
+    const [is_hovered, setHovered] = useState(false)
     const [is_mobile] = useBrowserResize()
 
     return (
@@ -158,11 +146,17 @@ const CarouselItem = ({
             onMouseOut={() => !is_mobile && setHovered(false)}
             onClick={() => is_mobile && setHovered(!is_hovered)}
         >
-            <CarouselItemContainer gradient_start={gradient_start} gradient_end={gradient_end}>
-                <StyledHeader color="white" type="subtitle-1" mb="8px">
+            <CarouselItemContainer
+                direction="column"
+                jc="flex-start"
+                width="282px"
+                gradient_start={gradient_start}
+                gradient_end={gradient_end}
+            >
+                <Header color="white" type="subtitle-1" mb="8px">
                     {header}
-                </StyledHeader>
-                <StyledDescription color="white" type="paragraph-1" $hovered={is_hovered}>
+                </Header>
+                <StyledDescription lh="24px" color="white" type="paragraph-1" $hovered={is_hovered}>
                     {description}
                 </StyledDescription>
                 <CarouselItemImage
@@ -209,7 +203,7 @@ const MarketsFold = (): ReactElement => {
 
     return (
         <FoldWrapper>
-            <FoldContainer>
+            <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
                         Markets

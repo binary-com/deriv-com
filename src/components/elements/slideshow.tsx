@@ -18,7 +18,7 @@ const StyledImage = styled(QueryImage)`
 `
 
 const Slideshow = ({ images, interval, is_eager = true }: SlideshowProps): ReactElement => {
-    const [active_index, setActiveIndex] = useState<number>(0)
+    const [active_index, setActiveIndex] = useState(0)
 
     const setNextImage = useCallback(() => {
         setActiveIndex((prevTime) => (prevTime >= images.length - 1 ? 0 : prevTime + 1))

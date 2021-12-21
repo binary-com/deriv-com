@@ -26,9 +26,6 @@ type PlatformSelectorProps = {
 const ContentContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 3fr 1fr 1fr 1fr 1fr;
-    @media ${device.tabletL} {
-        transform: scale(0.8);
-    }
 `
 
 const UnselectedPlatform = styled.div`
@@ -40,44 +37,22 @@ const UnselectedPlatform = styled.div`
     margin-left: 0;
     cursor: pointer;
     img {
-        width: 32px;
-        height: 32px;
+        width: 3rem;
+        height: 3rem;
         margin-right: 1rem;
         opacity: 0.3;
     }
 
     @media ${device.laptopM} {
-        transform: scale(0.9);
         margin-left: 0;
     }
 `
 
-const SelectedPlatform = styled.div`
-    grid-row: 4;
-    display: flex;
-    align-items: flex-start;
-    width: 384px;
-    height: 200px;
-    padding-top: 1.6rem;
-    margin: 2rem 0;
-    background: #ffffff;
-    box-shadow: 0px 16px 20px rgba(131, 131, 131, 0.15), 0px 0px 20px rgba(131, 131, 131, 0.15);
-    border-radius: 6px;
-    @media ${device.laptopM} {
-        width: 345px;
-        height: 180px;
-        ${Text} {
-            font-size: 1.6rem;
-            line-height: 2.2rem;
-        }
-        margin: 0.5rem;
-        align-self: center;
-    }
-
-    @media ${device.tabletL} {
-        width: 300px;
-        height: 140px;
-    }
+const UnselectedTitle = styled.span`
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: 0.4rem;
+    opacity: 0.3;
 `
 
 const PlatformIcon = styled.img`
@@ -85,6 +60,41 @@ const PlatformIcon = styled.img`
     height: 4rem;
     margin-right: 2.4rem;
     margin-left: 1.6rem;
+
+    @media ${device.laptopM} {
+        width: 3.6rem;
+        height: 3.6rem;
+    }
+    @media ${device.tablest} {
+        width: 4rem;
+        height: 4rem;
+        margin-left: 0.6rem;
+    }
+`
+
+const SelectedPlatform = styled.div`
+    grid-row: 4;
+    display: flex;
+    align-items: flex-start;
+    width: 350px;
+    height: 181px;
+    padding-top: 1.6rem;
+    margin: 2rem 0;
+    background: #ffffff;
+    box-shadow: 0px 16px 20px rgba(131, 131, 131, 0.15), 0px 0px 20px rgba(131, 131, 131, 0.15);
+    border-radius: 6px;
+
+    @media ${device.laptopM} {
+        width: 320px;
+        height: 165px;
+        margin: 0.5rem;
+        align-self: center;
+    }
+
+    @media ${device.tabletL} {
+        width: 274px;
+        height: 142px;
+    }
 `
 
 const CardDetails = styled.div`
@@ -92,6 +102,11 @@ const CardDetails = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding-top: 1rem;
+    margin-right: 2rem;
+
+    @media ${device.laptopM} {
+        padding-top: 0.9rem;
+    }
 
     @media ${device.tablet} {
         width: 230px;
@@ -101,35 +116,32 @@ const CardDetails = styled.div`
 
 const SelectedTitle = styled.span`
     font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 
     @media ${device.tablet} {
-        font-size: 2rem;
+        margin-bottom: 1rem;
     }
 `
 
-const UnselectedTitle = styled.span`
-    font-weight: 700;
-    font-size: 2rem;
-    opacity: 0.3;
-`
-
 const Description = styled(Text)`
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
     font-weight: 400;
     max-width: 290px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.6rem;
 
-    @media ${device.mobileL} {
-        font-size: 1.6rem;
+    @media ${device.laptopM} {
+        margin-bottom: 1.3rem;
     }
 `
 
 const LinkWrapper = styled(StyledLink)`
+    a {
+        font-size: 1.6rem;
+    }
     @media ${device.tablet} {
-        width: calc(100% - 8rem);
+        width: calc(100% - 7rem);
         text-align: center;
     }
 `

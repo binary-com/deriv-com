@@ -163,7 +163,6 @@ const SubTitle = styled(Text)`
 const MainContent = styled(Container)`
     height: 100%;
     width: 100%;
-    /* padding: 5rem; */
     padding-right: 0;
 
     @media ${device.tablet} {
@@ -191,9 +190,13 @@ const PlatformImageWrapper = styled.div`
     grid-row: 2 / 5;
     justify-content: end;
     display: flex;
-    margin: 0 3rem;
+    margin: auto 3rem;
 
+    @media ${device.laptop} {
+        padding: 2rem;
+    }
     @media ${device.tablet} {
+        margin: auto;
         width: 100%;
         align-self: center;
         justify-content: center;
@@ -267,10 +270,15 @@ const DownloadLinks = styled.div`
     grid-column: 2;
     grid-row: 5 / 6;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 3.2rem 3.8rem;
+    margin: 0 3.8rem;
+    padding: 0 2rem;
+    @media ${device.tablet} {
+        margin: 3.2rem 3.8rem;
+        padding: auto;
+    }
 `
 
 const DownloadLink = styled(StyledLink)`
@@ -318,14 +326,14 @@ const OurPlatforms = (): React.ReactElement => {
             @media ${device.tablet} {
                 bottom: 270px;
             }
-            @media (max-width: 660px) {
-                bottom: 320px;
+            @media (max-width: 692px) {
+                bottom: 300px;
             }
-            @media (max-width: 378px) {
-                bottom: 365px;
+            @media (max-width: 410px) {
+                bottom: 350px;
             }
-            @media (max-width: 367px) {
-                bottom: 415px;
+            @media (max-width: 399px) {
+                bottom: 400px;
             }
         `,
     }

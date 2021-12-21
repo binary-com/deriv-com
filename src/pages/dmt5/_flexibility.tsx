@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -9,6 +9,14 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+
+type ContactType = {
+    header?: ReactElement
+    text?: ReactElement
+    icon?: ReactElement
+    show_eu?: boolean
+    show_always?: string
+}
 
 const BaseIconStyle = css`
     @media ${device.mobileL} {
@@ -26,7 +34,7 @@ const StyledSyntheticIcon = styled.img`
     ${BaseIconStyle}
 `
 
-const content = [
+const content: ContactType[] = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (
@@ -50,7 +58,7 @@ const content = [
     },
 ]
 
-const eucontent = [
+const eucontent: ContactType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
@@ -124,8 +132,8 @@ const StyledText = styled(Text)`
     }
 `
 
-const Flexibility = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+const Flexibility = (): ReactElement => {
+    const is_eu_country = React.useContext(DerivStore)
 
     const chosen_content = is_eu_country ? eucontent : content
 

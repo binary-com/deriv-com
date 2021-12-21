@@ -5,6 +5,11 @@ import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 
+type StepType = {
+    image_name: string
+    current_step: string
+    no_margin: string
+}
 const query = graphql`
     query {
         step_1: file(relativePath: { eq: "dmt5-video/dmt-5-step-1.png" }) {
@@ -56,7 +61,7 @@ const VideoWrapper = styled.div`
         width: 100%;
     }
 `
-const Step = styled(Header)`
+const Step = styled(Header)<StepType>`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;

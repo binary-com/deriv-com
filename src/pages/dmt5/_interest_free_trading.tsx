@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Proptypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
@@ -8,6 +8,10 @@ import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
+
+type TextCheckerType = {
+    children?: string
+}
 
 const ImageWrapper = styled.div`
     width: 124px;
@@ -129,7 +133,7 @@ const StyledImg = styled.img`
     }
 `
 
-const CheckedText = ({ children }) => (
+const CheckedText: React.FC<TextCheckerType> = ({ children }) => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
@@ -145,7 +149,7 @@ CheckedText.propTypes = {
     children: Proptypes.string,
 }
 
-const InterestFreeTrading = () => {
+const InterestFreeTrading = (): ReactElement => {
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
@@ -178,5 +182,7 @@ const InterestFreeTrading = () => {
         </StyledContainer>
     )
 }
+
+InterestFreeTrading.propTypes = {}
 
 export default InterestFreeTrading

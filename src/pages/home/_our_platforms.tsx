@@ -37,7 +37,7 @@ const platforms: Array<Platform> = [
         description: 'The all-in-one FX & CFD trading platform.',
         learn_more_link: '/dmt5/',
         download_links: {
-            Browser: 'https://app.deriv.com/dmt5',
+            Browser: 'https://app.deriv.com/mt5',
             AppStore:
                 'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg',
             GooglePlay:

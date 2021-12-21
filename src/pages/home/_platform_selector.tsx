@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StyledLink, Text } from 'components/elements'
+import { Header, StyledLink } from 'components/elements'
 import device from 'themes/device.js'
 
 export type Platform = {
@@ -127,9 +127,7 @@ const SelectedTitle = styled.span`
     }
 `
 
-const Description = styled(Text)`
-    font-size: 16px;
-    line-height: 24px;
+const Description = styled(Header)`
     font-weight: 400;
     max-width: 290px;
     margin-bottom: 16px;
@@ -150,8 +148,9 @@ const LinkWrapper = styled(StyledLink)`
     }
     @media ${device.tabletL} {
         a {
-        font-size: 14px;
-        line-height: 20px;
+            font-size: 14px;
+            line-height: 20px;
+        }
     }
     @media ${device.tablet} {
         width: calc(100% - 70px);
@@ -170,7 +169,9 @@ export const PlatformDetails = ({
             <PlatformIcon src={icon} alt="platform" />
             <CardDetails>
                 <SelectedTitle>{title}</SelectedTitle>
-                <Description>{description}</Description>
+                <Description as="p" type="paragraph-1">
+                    {description}
+                </Description>
                 <LinkWrapper>
                     <StyledLink to={learn_more_link} weight="350">
                         Learn more {'>'}

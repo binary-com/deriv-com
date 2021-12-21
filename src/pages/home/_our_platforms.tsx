@@ -163,11 +163,8 @@ const SubTitle = styled(Text)`
 const MainContent = styled(Container)`
     height: 100%;
     width: 100%;
-    padding: 5rem;
+    /* padding: 5rem; */
     padding-right: 0;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 35vw 1fr;
 
     @media ${device.tablet} {
         padding: 1rem;
@@ -182,7 +179,7 @@ const SelectorContainer = styled.div`
     grid-column: 1;
     grid-row: 1 / 7;
     align-self: start;
-    padding-right: 3rem;
+    padding: 0 3rem;
 
     @media ${device.tablet} {
         display: none;
@@ -192,10 +189,9 @@ const SelectorContainer = styled.div`
 const PlatformImageWrapper = styled.div`
     grid-column: 2;
     grid-row: 2 / 5;
-    width: 45vw;
+    justify-content: end;
     display: flex;
-    align-items: flex-end;
-    margin-right: 3rem;
+    margin: 0 3rem;
 
     @media ${device.tablet} {
         width: 100%;
@@ -239,11 +235,14 @@ const PlatformDetailsWrapper = styled.div`
 const DesktopContainer = styled.div`
     height: 100%;
     width: 100%;
-    padding: 5rem;
     padding-right: 0;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 35vw 1fr;
+    grid-template-columns: 440px 1fr;
+    justify-items: stretch;
+    @media ${device.laptopM} {
+        grid-template-columns: 35vw 1fr;
+    }
     @media ${device.tablet} {
         display: none;
     }

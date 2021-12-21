@@ -25,6 +25,7 @@ const device = Object.freeze({
     tabletL: `(max-width: ${size.tabletL}px)`,
     laptopS: `(min-width: ${size.tabletL}px)`,
     laptop: `(max-width: ${size.laptop}px)`,
+    bp1060: `(max-width: ${size.bp1060}px)`,
     laptopM: `(max-width: ${size.laptopM}px)`,
     laptopL: `(max-width: ${size.laptopL}px)`,
     desktopS: `(min-width: ${size.desktopS}px)`,

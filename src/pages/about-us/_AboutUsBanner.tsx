@@ -61,7 +61,7 @@ const StyledFlex = styled(Flex)`
 `
 
 const PictureFlex = styled(Flex)`
-    width: 332px;
+    width: 373px;
     margin: 32px 0 0 100px;
     flex-direction: 'column';
     @media ${device.laptop} {

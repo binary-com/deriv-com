@@ -8,6 +8,7 @@ import MakeTrading from './_MakeTrading'
 import OurValues from './_OurValues'
 import OurPrinciples from './_OurPrinciples'
 import Hero from './components/_hero'
+import OurLeadership from './_OurLeadership'
 
 const StartSeparator = styled.div`
     width: 0;
@@ -45,6 +46,7 @@ const AboutUs = (): React.ReactNode => {
             <OurValues />
             <EndSeparator />
             <OurPrinciples />
+            <OurLeadership />
         </Layout>
     )
 }

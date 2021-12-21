@@ -6,7 +6,7 @@ import Hands from 'images/svg/about-us/hands.svg'
 
 export const first_section_texts: string[] = [
     localize(
-        'Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities and synthetics to millions of registered users across the globe.',
+        'Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities, and synthetics to millions of registered users across the globe.',
     ),
     localize(
         'From inception, our goal was to break free of the high commissions and clunky products offered by traditional brokers. And to deliver a first-class experience to digitally inclined traders, regardless of the size of their accounts.',

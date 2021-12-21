@@ -199,7 +199,7 @@ Carousel.propTypes = {
     children: PropTypes.array,
     container_style: PropTypes.object,
     has_autoplay: PropTypes.bool,
-    navigation_css: PropTypes.object,
+    navigation_css: PropTypes.array,
     navigation_style: PropTypes.object,
     options: PropTypes.object,
     slide_inner_width: PropTypes.string,

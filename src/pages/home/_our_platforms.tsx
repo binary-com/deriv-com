@@ -137,6 +137,7 @@ const query = graphql`
 const StyledSection = styled(SectionContainer)`
     background: #f9fbff;
     height: 1065px;
+    max-height: 1065px;
     @media ${device.tabletL} {
         height: 960px;
     }
@@ -163,11 +164,7 @@ const SubTitle = styled(Text)`
 const MainContent = styled(Container)`
     height: 100%;
     width: 100%;
-    padding: 5rem;
     padding-right: 0;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 35vw 1fr;
 
     @media ${device.tablet} {
         padding: 1rem;
@@ -182,7 +179,7 @@ const SelectorContainer = styled.div`
     grid-column: 1;
     grid-row: 1 / 7;
     align-self: start;
-    padding-right: 3rem;
+    padding: 0 3rem;
 
     @media ${device.tablet} {
         display: none;
@@ -192,12 +189,15 @@ const SelectorContainer = styled.div`
 const PlatformImageWrapper = styled.div`
     grid-column: 2;
     grid-row: 2 / 5;
-    width: 45vw;
+    justify-content: end;
     display: flex;
-    align-items: flex-end;
-    margin-right: 3rem;
+    margin: auto 3rem;
 
+    @media ${device.laptop} {
+        padding: 2rem;
+    }
     @media ${device.tablet} {
+        margin: auto;
         width: 100%;
         align-self: center;
         justify-content: center;
@@ -239,11 +239,14 @@ const PlatformDetailsWrapper = styled.div`
 const DesktopContainer = styled.div`
     height: 100%;
     width: 100%;
-    padding: 5rem;
     padding-right: 0;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 35vw 1fr;
+    grid-template-columns: 440px 1fr;
+    justify-items: stretch;
+    @media ${device.laptopM} {
+        grid-template-columns: 35vw 1fr;
+    }
     @media ${device.tablet} {
         display: none;
     }
@@ -268,10 +271,15 @@ const DownloadLinks = styled.div`
     grid-column: 2;
     grid-row: 5 / 6;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 3.2rem 3.8rem;
+    margin: 0 3.8rem;
+    padding: 0 2rem;
+    @media ${device.tablet} {
+        margin: 3.2rem 3.8rem;
+        padding: auto;
+    }
 `
 
 const DownloadLink = styled(StyledLink)`
@@ -319,13 +327,13 @@ const OurPlatforms = (): React.ReactElement => {
             @media ${device.tablet} {
                 bottom: 270px;
             }
-            @media (max-width: 660px) {
-                bottom: 320px;
+            @media (max-width: 692px) {
+                bottom: 315px;
             }
-            @media (max-width: 378px) {
-                bottom: 365px;
+            @media (max-width: 410px) {
+                bottom: 370px;
             }
-            @media (max-width: 367px) {
+            @media (max-width: 399px) {
                 bottom: 415px;
             }
         `,

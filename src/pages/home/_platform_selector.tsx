@@ -26,9 +26,6 @@ type PlatformSelectorProps = {
 const ContentContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 3fr 1fr 1fr 1fr 1fr;
-    @media ${device.tabletL} {
-        transform: scale(0.8);
-    }
 `
 
 const UnselectedPlatform = styled.div`
@@ -36,19 +33,42 @@ const UnselectedPlatform = styled.div`
     display: flex;
     align-items: center;
     width: 160px;
-    margin: 2rem;
-    margin-left: 0;
+    margin: 20px;
+    margin-left: 5px;
     cursor: pointer;
     img {
-        width: 32px;
-        height: 32px;
-        margin-right: 1rem;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
         opacity: 0.3;
     }
 
     @media ${device.laptopM} {
-        transform: scale(0.9);
         margin-left: 0;
+    }
+`
+
+const UnselectedTitle = styled.span`
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 4px;
+    opacity: 0.3;
+`
+
+const PlatformIcon = styled.img`
+    width: 40px;
+    height: 40px;
+    margin-right: 24px;
+    margin-left: 16px;
+
+    @media ${device.laptopM} {
+        width: 36px;
+        height: 36px;
+    }
+    @media ${device.tablet} {
+        width: 40px;
+        height: 40px;
+        margin-left: 6px;
     }
 `
 
@@ -56,80 +76,85 @@ const SelectedPlatform = styled.div`
     grid-row: 4;
     display: flex;
     align-items: flex-start;
-    width: 384px;
-    height: 200px;
-    padding-top: 1.6rem;
-    margin: 2rem 0;
+    width: 350px;
+    height: 181px;
+    padding-top: 16px;
+    margin: 20px 0;
     background: #ffffff;
     box-shadow: 0px 16px 20px rgba(131, 131, 131, 0.15), 0px 0px 20px rgba(131, 131, 131, 0.15);
     border-radius: 6px;
+
     @media ${device.laptopM} {
-        width: 345px;
-        height: 180px;
-        ${Text} {
-            font-size: 1.6rem;
-            line-height: 2.2rem;
-        }
-        margin: 0.5rem;
+        width: 320px;
+        height: 165px;
+        margin: 5px;
         align-self: center;
     }
 
     @media ${device.tabletL} {
-        width: 300px;
-        height: 140px;
+        width: 274px;
+        height: 142px;
     }
-`
-
-const PlatformIcon = styled.img`
-    width: 4rem;
-    height: 4rem;
-    margin-right: 2.4rem;
-    margin-left: 1.6rem;
 `
 
 const CardDetails = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 1rem;
+    padding-top: 10px;
+    margin-right: 20px;
+
+    @media ${device.laptopM} {
+        padding-top: 9px;
+    }
 
     @media ${device.tablet} {
         width: 230px;
-        padding-top: 0.5rem;
+        padding-top: 5px;
     }
 `
 
 const SelectedTitle = styled.span`
     font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 20px;
+    margin-bottom: 15px;
 
+    @media ${device.tabletL} {
+        margin-bottom: 12px;
+    }
     @media ${device.tablet} {
-        font-size: 2rem;
+        margin-bottom: 10px;
     }
 `
 
-const UnselectedTitle = styled.span`
-    font-weight: 700;
-    font-size: 2rem;
-    opacity: 0.3;
-`
-
 const Description = styled(Text)`
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 16px;
+    line-height: 24px;
     font-weight: 400;
     max-width: 290px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 16px;
 
-    @media ${device.mobileL} {
-        font-size: 1.6rem;
+    @media ${device.laptopM} {
+        margin-bottom: 13px;
+    }
+    @media ${device.tabletL} {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 12px;
     }
 `
 
 const LinkWrapper = styled(StyledLink)`
+    a {
+        font-size: 16px;
+    }
+    @media ${device.tabletL} {
+        a {
+        font-size: 14px;
+        line-height: 20px;
+    }
     @media ${device.tablet} {
-        width: calc(100% - 8rem);
+        width: calc(100% - 70px);
         text-align: center;
     }
 `

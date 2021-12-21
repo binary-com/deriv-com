@@ -137,6 +137,7 @@ const query = graphql`
 const StyledSection = styled(SectionContainer)`
     background: #f9fbff;
     height: 1065px;
+    max-height: 1065px;
     @media ${device.tabletL} {
         height: 960px;
     }
@@ -327,13 +328,13 @@ const OurPlatforms = (): React.ReactElement => {
                 bottom: 270px;
             }
             @media (max-width: 692px) {
-                bottom: 300px;
+                bottom: 315px;
             }
             @media (max-width: 410px) {
-                bottom: 350px;
+                bottom: 370px;
             }
             @media (max-width: 399px) {
-                bottom: 400px;
+                bottom: 415px;
             }
         `,
     }

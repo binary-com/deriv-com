@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
@@ -188,7 +188,7 @@ const StyledMobileAddress = styled.div`
     }
 `
 
-export const Offices: React.FC<GridLayoutProps> = () => {
+export const Offices = (): ReactElement => {
     const data = useStaticQuery(query)
 
     return (

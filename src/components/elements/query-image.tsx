@@ -39,7 +39,7 @@ const QueryImage = ({
     onMouseLeave,
     ...props
 }: QueryImageProps): ReactElement => {
-    const image = getImage(data as any)
+    const image = getImage(data)
     if (data) {
         return (
             <ImageWrapper

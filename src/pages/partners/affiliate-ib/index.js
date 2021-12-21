@@ -124,7 +124,7 @@ const why_partner_with_us_items = [
             <Localize translate_text="Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading." />
         ),
         image_name: 'multiple_income_opportunities',
-        image_alt: <Localize translate_text="Multiple income opportunities" />,
+        image_alt: <Localize translate_text="DMT5 and Dtrader trading platform at Deriv" />,
     },
     {
         title: <Localize translate_text="Zero charges with prompt monthly and daily payouts" />,
@@ -132,7 +132,7 @@ const why_partner_with_us_items = [
             <Localize translate_text="All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily." />
         ),
         image_name: 'daily_ib_commission',
-        image_alt: <Localize translate_text="Daily IB commission" />,
+        image_alt: <Localize translate_text="Check your daily IB commission" />,
     },
     {
         title: (
@@ -142,7 +142,7 @@ const why_partner_with_us_items = [
             <Localize translate_text="We’ve designed a customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with the tools and creative materials you need to drive traffic to Deriv." />
         ),
         image_name: 'marketing_material',
-        image_alt: <Localize translate_text="Marketing material" />,
+        image_alt: <Localize translate_text="Marketing creative material" />,
     },
 ]
 const AffiliateIb = () => {

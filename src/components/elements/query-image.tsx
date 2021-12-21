@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { ImageDataLike, GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 type QueryImageProps = {
     alt: string
     className?: string
-    data: Record<string, unknown>
+    data: ImageDataLike
     height?: string
     width?: string
     loading?: 'eager' | 'lazy'
@@ -32,7 +32,7 @@ const QueryImage = ({
     loading,
     width,
     ...props
-}: QueryImageProps): React.ReactNode => {
+}: QueryImageProps) => {
     const image = getImage(data)
     if (data) {
         return (

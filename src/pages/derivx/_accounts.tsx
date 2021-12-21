@@ -15,8 +15,8 @@ type StyledHeaderProps = {
 
 type ContentType = {
     header: ReactElement
-    text: ReactElement | string
-    icon: ReactElement | string
+    text: ReactElement
+    icon: ReactElement
 }
 
 const StyledIcon = styled.img`

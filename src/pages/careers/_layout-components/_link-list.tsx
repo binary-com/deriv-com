@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Container from './_container'
+import Container from './CareerContainer'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'

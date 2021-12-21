@@ -48,8 +48,8 @@ const FAQ = (): ReactElement => {
                                 plus
                             >
                                 <TextContainer>
-                                    {topic.content.map((question, index) => (
-                                        <QuestionAnswerContainer key={index}>
+                                    {topic.content.map((question, idx) => (
+                                        <QuestionAnswerContainer key={idx}>
                                             <TextWrapper
                                                 max_width={['948px', '500px', '290px']}
                                                 weight={'bold'}

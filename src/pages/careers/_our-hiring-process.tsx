@@ -62,6 +62,9 @@ const ProcessContainer = styled.div`
     flex-direction: column;
 `
 
+const right = 'right: -1.2rem;'
+const left = 'right: -1.2rem;'
+
 const StyledTipsCard = styled(Flex)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
@@ -82,10 +85,10 @@ const StyledTipsCard = styled(Flex)`
         ${(props) =>
             props.right
                 ? css`
-                      right: -1.2rem;
+                      ${right}
                   `
                 : css`
-                      left: -1.2rem;
+                      ${left}
                   `}
 
         @media ${device.tablet} {

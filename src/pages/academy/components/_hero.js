@@ -64,7 +64,7 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
         : `linear-gradient(66.11deg, #000000 24.94%, rgba(0, 0, 0, 0) 83.1%)`
 
     const backgroundFluidImageStack = [imageData.childImageSharp.fluid, linear_bg_value].reverse()
-    const cta_link = cta_text ? cta_text : 'Learn more'
+    const button_text = cta_text ? cta_text : 'Learn more'
 
     return (
         <>
@@ -90,7 +90,7 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
                     </TextWrapper>
                     <Flex jc="flex-start" height="unset" mt="24px" tabletL={{ mt: '16px' }}>
                         <LinkButton id="hero-article" to={href} width="auto" hero>
-                            {cta_link}
+                            {button_text}
                         </LinkButton>
                     </Flex>
                 </Wrapper>

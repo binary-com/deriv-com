@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
 
 const query = graphql`
@@ -50,22 +50,21 @@ const AboutDeriv = (): ReactElement => {
     return (
         <Container>
             <WrapContainer p="8.2rem 0">
-                <WrapText direction="column" max_width="38.4rem">
+                <WrapText direction="column" max_width="38.4rem" tablet={{ max_width: '100%' }}>
                     <StyledHeader mb="0.8rem" as="h2" type="heading-2">
                         {localize('About Deriv')}
                     </StyledHeader>
-
-                    <Text>
+                    <Header type="paragraph-1" weight="normal">
                         {localize(
                             'We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms.',
                         )}
-                    </Text>
+                    </Header>
 
-                    <Text mt="2.4rem">
+                    <Header type="paragraph-1" weight="normal" mt="2.4rem">
                         {localize(
                             'Security is important to us. We continuously improve our products and services by collaborating with independent security researchers worldwide.',
                         )}
-                    </Text>
+                    </Header>
                 </WrapText>
 
                 <ImageWrapper>

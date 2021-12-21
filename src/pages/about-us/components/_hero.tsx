@@ -18,7 +18,12 @@ const query = graphql`
     }
 `
 
-const ParentWrapper = styled(Flex)`
+type ParentWrapperProps = {
+    bg_image_desktop: string
+    bg_image_mobile: string
+}
+
+const ParentWrapper = styled(Flex)<ParentWrapperProps>`
     background-image: url(${(props) => props.bg_image_desktop});
     background-position: center;
     background-size: cover;

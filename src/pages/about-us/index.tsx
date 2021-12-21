@@ -40,7 +40,7 @@ const AboutUs = (): React.ReactNode => {
                     'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
             />
-            <Hero title={localize('About us')} />
+            <Hero />
             <MakeTrading />
             <StartSeparator />
             <OurValues />

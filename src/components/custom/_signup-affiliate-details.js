@@ -295,6 +295,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                                 <Input
                                                     {...field}
                                                     id={item.id}
+                                                    isDate={item.name === 'date'}
                                                     type={item.type}
                                                     border="solid 1px var(--color-grey-7)"
                                                     labelColor="grey-5"

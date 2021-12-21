@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
+import AffiliateDatePicker from '../elements/affiliate-date-picker'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
@@ -147,7 +148,7 @@ const ErrorMessages = styled(Text)`
     min-height: 16px;
 `
 
-const StyledLabel = styled.label`
+export const StyledLabel = styled.label`
     /* prettier-ignore */
     color: var(--color-${(props) => props.labelColor || 'grey'});
     font-size: var(--text-size-xs);
@@ -170,6 +171,7 @@ const Input = ({
     labelColor,
     disabled,
     id,
+    isDate,
     error,
     background,
     tabletBackground,
@@ -189,18 +191,35 @@ const Input = ({
                 error={error}
                 className="input-wrapper"
             >
-                <StyledInput
-                    id={id}
-                    background={background}
-                    maxLength={maxLength}
-                    error={error}
-                    disabled={disabled}
-                    height={height}
-                    showLabel={label}
-                    {...props}
-                    ref={(ip) => (current_input = ip)}
-                />
-                {label && (
+                {' '}
+                {isDate ? (
+                    <AffiliateDatePicker
+                        id={id}
+                        background={background}
+                        maxLength={maxLength}
+                        error={error}
+                        disabled={disabled}
+                        height={height}
+                        label={label}
+                        tabletBackground={tabletBackground}
+                        htmlFor={id}
+                        labelColor={labelColor}
+                        {...props}
+                    />
+                ) : (
+                    <StyledInput
+                        id={id}
+                        background={background}
+                        maxLength={maxLength}
+                        error={error}
+                        disabled={disabled}
+                        height={height}
+                        showLabel={label}
+                        {...props}
+                        ref={(ip) => (current_input = ip)}
+                    />
+                )}
+                {label && !isDate && (
                     <StyledLabel
                         tabletBackground={tabletBackground}
                         error={error}
@@ -237,6 +256,7 @@ Input.propTypes = {
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
+    isDate: PropTypes.bool,
     label: PropTypes.string,
     labelColor: PropTypes.string,
     labelHoverColor: PropTypes.string,

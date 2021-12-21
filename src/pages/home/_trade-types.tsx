@@ -10,11 +10,11 @@ import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
 type TradeTypesProps = {
     image_url: string
-    image_alt: string
-    header: any
-    desc: any
+    image_alt: ReactElement
+    header: ReactElement
+    desc: ReactElement
     link: string
-    link_text: any
+    link_text: ReactElement
 }
 
 type ItemsDetails = {
@@ -43,7 +43,7 @@ const query = graphql`
 const ItemsDetails: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
-        image_alt: 'CFDs',
+        image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
         desc: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -53,7 +53,7 @@ const ItemsDetails: TradeTypesProps[] = [
     },
     {
         image_url: 'trade_type_multipliers',
-        image_alt: 'Multipliers',
+        image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
         link: '/trade-types/multiplier/',
@@ -61,7 +61,7 @@ const ItemsDetails: TradeTypesProps[] = [
     },
     {
         image_url: 'trade_type_digitaloptions',
-        image_alt: 'Options',
+        image_alt: <Localize translate_text="Options" />,
         header: <Localize translate_text="Options" />,
         desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
         link: '/trade-types/options/',

@@ -88,7 +88,6 @@ const ClientTestimonial = styled(Header)`
 
     @media ${device.tabletL} {
         margin-bottom: 24px;
-        font-size: 18px;
     }
 `
 

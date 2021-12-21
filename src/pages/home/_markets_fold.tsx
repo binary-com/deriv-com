@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
@@ -67,7 +68,7 @@ const StyledDescription = styled(Text)<{ $hovered: boolean }>`
 
 const market_data = [
     {
-        header: 'Forex',
+        header: <Localize translate_text="Forex" />,
         description: (
             <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
         ),
@@ -76,7 +77,7 @@ const market_data = [
         gradient_end: '#190708',
     },
     {
-        header: 'Synthetic indices',
+        header: <Localize translate_text="Synthetic indices" />,
         description: (
             <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
         ),
@@ -85,7 +86,7 @@ const market_data = [
         gradient_end: '#08100E',
     },
     {
-        header: 'Stocks & indices',
+        header: <Localize translate_text="Stocks & indices" />,
         description: (
             <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
         ),
@@ -94,7 +95,7 @@ const market_data = [
         gradient_end: '#0A0810',
     },
     {
-        header: 'Cryptocurrencies',
+        header: <Localize translate_text="Cryptocurrencies" />,
         description: (
             <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
         ),
@@ -103,7 +104,7 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: 'Commodities',
+        header: <Localize translate_text="Commodities" />,
         description: (
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
         ),
@@ -134,9 +135,9 @@ const query = graphql`
 `
 
 type CarouselItemProps = {
-    header: string
-    description: any
-    image: any
+    header: ReactElement
+    description: ReactElement
+    image: ImageDataLike
     gradient_start: string
     gradient_end: string
 }
@@ -215,13 +216,13 @@ const MarketsFold = (): ReactElement => {
                     </Header>
                 </Flex>
                 <Carousel {...settings}>
-                    {market_data.map((market) => {
+                    {market_data.map((market, index) => {
                         const { header, description, img_name, gradient_start, gradient_end } =
                             market
 
                         return (
                             <CarouselItem
-                                key={header}
+                                key={index}
                                 header={header}
                                 description={description}
                                 image={data[img_name]}

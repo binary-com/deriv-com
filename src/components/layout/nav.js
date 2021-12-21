@@ -1148,7 +1148,7 @@ const Section = styled(SectionContainer)`
     z-index: 5;
     top: 0;
     padding: 4px 1%;
-    height: 72px;
+    height: 7.2rem;
     @media ${device.tabletL} {
         padding: 4px;
         height: 64px;

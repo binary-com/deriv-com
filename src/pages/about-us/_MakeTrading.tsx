@@ -10,7 +10,7 @@ const FirstSectionContainer = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 120px 16px 80px;
+    padding: 120px 16px 24px;
     @media ${device.tablet} {
         padding: 40px 16px;
     }
@@ -25,9 +25,12 @@ const StyledHeader = styled(Header)`
 
 const StyledFirstSectionText = styled(Header)`
     max-width: 792px;
-    padding: 0 0 24px 0;
+    padding: 0 0 40px 0;
     line-height: 36px;
     font-weight: 400;
+    @media ${device.laptop} {
+        padding: 0 0 24px 0;
+    }
 `
 
 const MakeTrading = () => {

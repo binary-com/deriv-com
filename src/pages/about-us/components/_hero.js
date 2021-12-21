@@ -54,18 +54,40 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledHeaderDesktop = styled(Header)`
+const StyledHeaderDesktopAbout = styled(Header)`
     position: absolute;
-    width: 1200px;
     height: 195.52px;
-    top: 260px;
+    top: 90px;
+    margin-right: 320px;
     font-size: 210px;
     letter-spacing: 8px;
+    z-index: 3;
+`
+
+const StyledHeaderDesktopUs = styled(Header)`
+    position: absolute;
+    height: 195.52px;
+    top: 90px;
+    font-size: 210px;
+    letter-spacing: 8px;
+    z-index: 1;
+    margin-right: -770px;
 `
 
 const StyledFlex = styled(Flex)`
     height: 400px;
     width: 1000px;
+`
+
+const FlexHeader = styled(Flex)`
+    position: absolute;
+    height: 195.52px;
+    font-size: 210px;
+    letter-spacing: 8px;
+`
+
+const StyledQueryImage = styled(QueryImage)`
+    z-index: 2;
 `
 
 const Hero = () => {
@@ -76,14 +98,19 @@ const Hero = () => {
             <ContentWrapper>
                 <DesktopWrapper>
                     <StyledFlex>
-                        <QueryImage
+                        <StyledQueryImage
                             data={data['about_us_logo_desktop']}
                             alt="example"
-                            width="100#"
+                            width="100%"
                         />
-                        <StyledHeaderDesktop color="white" align="center">
-                            About us
-                        </StyledHeaderDesktop>
+                        <FlexHeader>
+                            <StyledHeaderDesktopAbout color="white" align="center">
+                                About
+                            </StyledHeaderDesktopAbout>
+                            <StyledHeaderDesktopUs color="white" align="center">
+                                us
+                            </StyledHeaderDesktopUs>
+                        </FlexHeader>
                     </StyledFlex>
                 </DesktopWrapper>
                 <MobileWrapper>

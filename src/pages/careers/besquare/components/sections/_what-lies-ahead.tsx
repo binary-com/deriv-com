@@ -25,8 +25,8 @@ const WhatLiesAhead = (): ReactElement => {
             has_last_child_props: true,
         },
         icon_wrapper: {
-            width: ['48px', '32px'],
-            height: ['48px', '32px'],
+            width: '48px 32px',
+            height: '48px 32px',
             grid_area: ['dep-icon'],
         },
         text_wrapper: {

@@ -113,8 +113,8 @@ export const DropdownWrapper = styled.img`
     }
 `
 type icon_wrapper = {
-    width?: string | number
-    height?: string | number
+    width?: number | string
+    height?: number | string
     margin?: string[]
     grid_area?: string[]
 }

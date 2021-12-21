@@ -20,8 +20,8 @@ const WhatIsBeSquare = (): ReactElement => {
             margin: ['0 0 24px'],
         },
         icon_wrapper: {
-            width: ['16px'],
-            height: ['16px'],
+            width: '16px',
+            height: '16px',
             margin: ['12px 0 0 16px', '14px 0 0 12px'],
         },
         text_wrapper: {

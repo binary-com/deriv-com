@@ -160,6 +160,9 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 {localize('API')}
                             </Link>
                         </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/security">{localize('Security')}</Link>
+                        </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>

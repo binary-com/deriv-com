@@ -30,6 +30,7 @@ import Options from 'images/svg/custom/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
+import Security from 'images/svg/menu/security.svg'
 import Regulatory from 'images/svg/menu/regulatory.svg'
 import SecureTrading from 'images/svg/menu/secure-trading.svg'
 import Smarttrader from 'images/svg/custom/smarttrader.svg'
@@ -530,6 +531,12 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={API} alt="" width="32" height="32" />
                             </div>
                             <span>{localize('API')}</span>
+                        </StyledLink>
+                        <StyledLink to="/security" onClick={handleArrowClick}>
+                            <div>
+                                <img src={Security} alt="" width="32" height="32" />
+                            </div>
+                            <span>{localize('Security')}</span>
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>

@@ -112,14 +112,14 @@ export const DropdownWrapper = styled.img`
         height: 24px;
     }
 `
-type icon_wrapper = {
+type IconWrapperProps = {
     width?: number | string
     height?: number | string
     margin?: string[]
     grid_area?: string[]
 }
 
-export const IconWrapper = styled.img<icon_wrapper>`
+export const IconWrapper = styled.img<IconWrapperProps>`
     width: ${({ width }) => responsiveFallback(width, 0)};
     height: ${({ height }) => responsiveFallback(height, 0)};
     margin: ${({ margin }) => responsiveFallback(margin, 0) ?? 0};

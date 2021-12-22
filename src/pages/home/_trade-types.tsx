@@ -77,23 +77,20 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 20px 80px;
     }
 `
+
 const DesktopWrapper = styled(Flex)`
     @media ${device.tablet} {
         display: none;
     }
 `
+
 const MobileWrapper = styled(Flex)`
     display: none;
     @media ${device.tablet} {
         display: flex;
     }
 `
-const ParentWrapper = styled(Flex)`
-    @media ${device.tablet} {
-        max-width: 58.8rem;
-        margin: 0 auto;
-    }
-`
+
 const ItemsWrapper = styled(Flex)<{ $visibility }>`
     box-shadow: ${(props) =>
         props.$visibility
@@ -121,16 +118,7 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         height: 424px;
     }
 `
-const ImageWrapper = styled(Flex)`
-    width: 360px;
-    height: 332px;
-    margin-bottom: 24px;
 
-    @media ${device.tablet} {
-        width: 100%;
-        height: auto;
-    }
-`
 const ContentWrapper = styled(Flex)<{ $visibility }>`
     flex-direction: column;
     display: ${(props) => (props.$visibility ? 'flex' : 'none')};
@@ -140,6 +128,7 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
         display: flex;
     }
 `
+
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     opacity: ${(props) => (props.$visibility ? '1' : '0')};
     width: fit-content;
@@ -184,7 +173,7 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
             onMouseOut={() => setDetailsVisibility(false)}
             $visibility={details_visible && !is_mobile}
         >
-            <ImageWrapper>
+            <Flex mb="24px">
                 <QueryImage
                     data={data[items_details.image_url]}
                     alt={items_details.image_alt}
@@ -192,7 +181,7 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
                     onMouseOver={() => setDetailsVisibility(true)}
                     onMouseOut={() => setDetailsVisibility(false)}
                 />
-            </ImageWrapper>
+            </Flex>
             <Header type="subtitle-1" align="center">
                 {items_details.header}
             </Header>
@@ -264,7 +253,7 @@ const TradeTypes = (): React.ReactNode => {
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
-                <ParentWrapper tablet={{ fd: 'column' }}>
+                <Flex tablet={{ fd: 'column', max_width: '58.8rem', m: '0 auto' }}>
                     {ItemsDetails.map((item, index) => {
                         return (
                             <Flex key={index}>
@@ -272,7 +261,7 @@ const TradeTypes = (): React.ReactNode => {
                             </Flex>
                         )
                     })}
-                </ParentWrapper>
+                </Flex>
             </MobileWrapper>
         </StyledSection>
     )

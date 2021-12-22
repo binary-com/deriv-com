@@ -21,7 +21,7 @@ import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
 
-const platforms: Array<Platform> = [
+const platforms: Platform[] = [
     {
         title: 'DTrader',
         icon: DTraderIcon,
@@ -150,13 +150,6 @@ const ContentWrapper = styled(Container)`
     width: 100%;
 
     h2 {
-        text-align: center;
-    }
-`
-
-const SubTitle = styled(Text)`
-    @media ${device.tablet} {
-        margin: 1.6rem;
         text-align: center;
     }
 `
@@ -344,11 +337,11 @@ const OurPlatforms = (): React.ReactElement => {
                 <Header as="h2" size="4.8rem" type="heading-1" weight="700">
                     {localize('Our platforms')}
                 </Header>
-                <SubTitle size="2.4rem">
+                <Text size="2.4rem" tablet={{ m: '1.6rem', align: 'center' }}>
                     {localize(
                         'Choose from 8 powerful platforms — each designed with your needs in mind',
                     )}
-                </SubTitle>
+                </Text>
                 <MainContent>
                     <DesktopContainer>
                         <SelectorContainer>

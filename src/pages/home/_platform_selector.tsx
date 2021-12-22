@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Flex } from 'components/containers'
 import { Header, StyledLink } from 'components/elements'
 import device from 'themes/device.js'
 
@@ -97,23 +98,6 @@ const SelectedPlatform = styled.div`
     }
 `
 
-const CardDetails = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 10px;
-    margin-right: 20px;
-
-    @media ${device.laptopM} {
-        padding-top: 9px;
-    }
-
-    @media ${device.tablet} {
-        width: 230px;
-        padding-top: 5px;
-    }
-`
-
 const SelectedTitle = styled.span`
     font-weight: 700;
     font-size: 20px;
@@ -167,7 +151,15 @@ export const PlatformDetails = ({
     return (
         <>
             <PlatformIcon src={icon} alt="platform" />
-            <CardDetails>
+            <Flex
+                fd="column"
+                ai="flex-start"
+                height="unset"
+                pt="10px"
+                mr="20px"
+                laptopM={{ pt: '9px' }}
+                tablet={{ width: '230px', pt: '0.5rem' }}
+            >
                 <SelectedTitle>{title}</SelectedTitle>
                 <Description as="p" type="paragraph-1">
                     {description}
@@ -177,7 +169,7 @@ export const PlatformDetails = ({
                         Learn more {'>'}
                     </StyledLink>
                 </LinkWrapper>
-            </CardDetails>
+            </Flex>
         </>
     )
 }

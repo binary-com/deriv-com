@@ -28,7 +28,6 @@ const ItemWrapper = styled.div`
 
 const CarouselItemContainer = styled(Flex)`
     position: relative;
-    padding: 32px 32px 0;
     border-radius: 8px;
     color: white;
     overflow: hidden;
@@ -152,6 +151,7 @@ const CarouselItem = ({
                 width="282px"
                 gradient_start={gradient_start}
                 gradient_end={gradient_end}
+                p="32px 32px 0"
             >
                 <Header color="white" type="subtitle-1" mb="8px">
                     {header}

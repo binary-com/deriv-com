@@ -85,12 +85,7 @@ const Scope = (): ReactElement => {
                                                         translate_text={item.content}
                                                         size="14px"
                                                         components={[
-                                                            <Text
-                                                                key={0}
-                                                                as="span"
-                                                                color="blue-9"
-                                                                size="14px"
-                                                            />,
+                                                            <Text key={0} as="p" size="14px" />,
                                                             <LocalizedLinkText
                                                                 key={1}
                                                                 to={item.link}

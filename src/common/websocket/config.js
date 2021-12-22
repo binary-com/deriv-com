@@ -19,6 +19,10 @@ export const domain_config = {
             hostname: 'deriv.me',
             app_id: 1411,
         },
+        {
+            hostname: 'deriv.be',
+            app_id: 30767,
+        },
     ],
     staging: {
         hostname: 'staging.deriv.com',

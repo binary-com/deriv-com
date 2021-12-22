@@ -45,6 +45,7 @@ const query = graphql`
 `
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
+    background-color: ${(props) => (props.is_transparent ? 'transparent' : 'var(--color-black)')};
     width: 100%;
     position: fixed;
     top: 0;
@@ -103,7 +104,6 @@ export const Line = styled.div`
 `
 
 export const StyledNavMain = styled.nav`
-    background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
@@ -415,6 +415,9 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
+const showLanguageSwitcher = (no_language) =>
+    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
+
 const handleGetTrading = () => {
     const sub_url = redirectToTradingPlatform()
 
@@ -527,9 +530,6 @@ const NavDesktop = ({
         setActiveLinkRef(target)
     }
 
-    const LanguageSwitcherNavDesktop = () =>
-        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
-
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
     useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
@@ -611,7 +611,7 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        <LanguageSwitcherNavDesktop />
+                        {showLanguageSwitcher(no_language)}
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -624,7 +624,7 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcherNavDesktop />
+                        {showLanguageSwitcher(no_language)}
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -646,6 +646,7 @@ const NavDesktop = ({
 
 export const Nav = ({
     base,
+    is_nav_transparent,
     is_ppc_redirect,
     is_ppc,
     hide_signup_login,
@@ -653,19 +654,35 @@ export const Nav = ({
     no_language,
 }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [is_transparent, setTransparent] = useState(is_nav_transparent)
+
+    const handleScroll = useCallback(() => {
+        const currentScrollPos = window.pageYOffset
+        setTransparent(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleScroll, { passive: true })
 
         let checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
         }, 800)
-        return () => clearInterval(checkCookieChange)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleScroll)
+        }
     }, [])
 
     return (
         <>
-            <NavWrapperMain>
+            <NavWrapperMain is_transparent={is_transparent}>
                 <StyledNavMain>
                     <DesktopWrapper>
                         <NavDesktop
@@ -698,6 +715,7 @@ Nav.propTypes = {
     academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
+    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     no_language: PropTypes.bool,

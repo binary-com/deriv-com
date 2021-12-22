@@ -51,7 +51,7 @@ const contents_ppc = [
 
 const HeroWrapper = styled.section`
     width: 100%;
-    padding: 80px 0;
+    padding: calc(7rem + 80px) 0;
     background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
     position: relative;
     @media ${device.tabletL} {

@@ -7,6 +7,7 @@ import device from 'themes/device'
 import MakeTrading from './_MakeTrading'
 import OurValues from './_OurValues'
 import OurPrinciples from './_OurPrinciples'
+import Hero from './components/_hero'
 import OurLeadership from './_OurLeadership'
 
 const StartSeparator = styled.div`
@@ -31,7 +32,7 @@ const EndSeparator = styled.div`
 
 const AboutUs = (): React.ReactNode => {
     return (
-        <Layout>
+        <Layout type="about-us" margin_top="0">
             <SEO
                 // title and description from story page, needs new?
                 title={localize('About Us | An Online Trading Platform | Deriv.com')}
@@ -39,6 +40,7 @@ const AboutUs = (): React.ReactNode => {
                     'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
             />
+            <Hero />
             <MakeTrading />
             <StartSeparator />
             <OurValues />

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
 import Copyright from './copyright'
-import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
+import { Nav, NavStatic, NavPartners, NavInterim, NavAboutUs } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
@@ -203,6 +203,10 @@ const Layout = ({
         case 'careers':
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} type={type} />
+            break
+        case 'about-us':
+            Navigation = <NavAboutUs is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
             Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />

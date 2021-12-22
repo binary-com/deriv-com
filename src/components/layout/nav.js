@@ -7,7 +7,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Show, Flex, SectionContainer } from 'components/containers'
 import {
     OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -43,6 +43,10 @@ const query = graphql`
         }
     }
 `
+
+const LanguageSwitcherNavDesktop = ({ no_language }) =>
+    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
+
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
     width: 100%;
@@ -511,9 +515,6 @@ const NavDesktop = ({
         setActiveLinkRef(target)
     }
 
-    const LanguageSwitcherNavDesktop = () =>
-        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
-
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
     useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
@@ -594,7 +595,8 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        <LanguageSwitcherNavDesktop />
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -607,7 +609,8 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcherNavDesktop />
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -693,6 +696,10 @@ NavDesktop.propTypes = {
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
+}
+
+LanguageSwitcherNavDesktop.propTypes = {
     no_language: PropTypes.bool,
 }
 
@@ -1132,4 +1139,83 @@ NavPartners.propTypes = {
 
 NavInterim.propTypes = {
     interim_type: PropTypes.string,
+}
+
+const Section = styled(SectionContainer)`
+    background-color: ${(props) => (props.background ? 'transparent' : 'var(--color-black)')};
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    padding: 4px 1%;
+    height: 7.2rem;
+    @media ${device.tabletL} {
+        padding: 4px;
+        height: 64px;
+    }
+    @media ${device.mobileL} {
+        padding: 4px 0;
+    }
+`
+
+export const NavAboutUs = ({ is_ppc, hide_signup_login, no_language }) => {
+    const [is_logged_in, setLoggedIn] = useState(true)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
+
+    const handleScrollBG = useCallback(() => {
+        const currentScrollPos = window.pageYOffset
+        setVisible(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleScrollBG)
+
+        let checkCookieChange = setInterval(() => {
+            setLoggedIn(isLoggedIn())
+        }, 800)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleScrollBG)
+        }
+    }, [])
+
+    return (
+        <>
+            <Section background={visible}>
+                <Show.Desktop max_width="bp1060">
+                    <NavDesktop
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </Show.Desktop>
+                <Show.Mobile min_width="bp1060">
+                    <NavMobile
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </Show.Mobile>
+            </Section>
+            <CFDWarning no_eu_banner={true} />
+        </>
+    )
+}
+
+NavAboutUs.propTypes = {
+    academy_logo: PropTypes.bool,
+    base: PropTypes.string,
+    hide_signup_login: PropTypes.bool,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }

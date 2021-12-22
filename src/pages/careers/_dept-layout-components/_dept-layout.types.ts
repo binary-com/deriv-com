@@ -1,43 +1,43 @@
-export type header = {
+export type HeaderProps = {
     background: string
     title: string
     subtitle: string
 }
 
-export type open_position = {
+export type OpenPositionsProps = {
     title: string
     location: string
     id: string
 }
 
-type testimony_headline = {
+type TestimonyHeadlineProps = {
     text: string
 }
 
-export type testimony_section = {
+export type TestimonySectionProps = {
     image: string
     image_mobile: string
     img_alt: string
-    testimony_headline: testimony_headline[]
+    testimony_headline: TestimonyHeadlineProps[]
 }
 
-type paragraph = {
+type ParagraphProps = {
     text: string
 }
 
-export type intro_section = {
+export type IntroSectionProps = {
     image: string
     img_alt: string
-    paragraph: paragraph[]
+    paragraph: ParagraphProps[]
 }
 
-export type data = {
-    header: header
-    intro_section: intro_section
-    open_position?: open_position[]
-    testimony_section: testimony_section
+export type DataProps = {
+    header: HeaderProps
+    intro_section: IntroSectionProps
+    open_position?: OpenPositionsProps[]
+    testimony_section: TestimonySectionProps
 }
 
-export type firstData = {
-    data: data
+export type FirstDataProps = {
+    data: DataProps
 }

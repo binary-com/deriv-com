@@ -66,18 +66,18 @@ const MiddleText = styled(Text)`
     margin-right: auto;
     font-size: var(--text-size-sm);
 `
-type list_items = {
+type ListItemsProps = {
     to: string
     text: string
     middle_text: string
     number: number
 }
 
-type props = {
-    list_items: list_items[]
+type Props = {
+    list_items: ListItemsProps[]
 }
 
-export const LinkList = ({ list_items }: props): ReactElement => (
+export const LinkList = ({ list_items }: Props): ReactElement => (
     <Container>
         <List>
             {list_items &&

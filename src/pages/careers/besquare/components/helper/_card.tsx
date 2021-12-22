@@ -10,7 +10,7 @@ import {
 import { TextWrapper } from '../../static/style/_common'
 import { Minimize, Maximize } from '../../static/images/_what-lies-ahead'
 
-type card_wrapper = {
+type CardWrapperProps = {
     grid_template_columns?: string[]
     grid_column_gap?: string[]
     border?: string
@@ -18,29 +18,29 @@ type card_wrapper = {
     padding?: string[]
 }
 
-type icon_wrapper = {
+type IconWrapperProps = {
     width?: number | string
     height?: number | string
     margin?: string[]
     grid_area?: string[]
 }
 
-type text_wrapper = {
+type TextWrapperProps = {
     max_width: string[]
 }
 
-type style = {
-    text_wrapper: text_wrapper
-    icon_wrapper: icon_wrapper
-    card_wrapper: card_wrapper
+type StyleProps = {
+    text_wrapper: TextWrapperProps
+    icon_wrapper: IconWrapperProps
+    card_wrapper: CardWrapperProps
 }
 
-type custom_icon = {
+type CustomIconProps = {
     src?: string
     alt?: string
 }
 
-type card_content = {
+type CardContentProps = {
     title?: string
     subtitle?: string
     text?: string | JSX.Element
@@ -51,9 +51,9 @@ type card_content = {
 type CardProps = {
     title_component?: React.ReactNode
     has_list?: boolean
-    custom_icon?: custom_icon
-    card_content?: card_content
-    style?: style
+    custom_icon?: CustomIconProps
+    card_content?: CardContentProps
+    style?: StyleProps
 }
 
 const Card = ({

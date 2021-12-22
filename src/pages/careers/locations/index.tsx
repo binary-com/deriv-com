@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
 import { all_offices } from '../_model/_locations/_locations'
 import device from 'themes/device'
@@ -102,7 +103,7 @@ type CountryCardProps = {
     city_name: string
     link: string
     img_alt: string
-    img_data: Record<string, unknown>
+    img_data: ImageDataLike
     Icon: string
 }
 

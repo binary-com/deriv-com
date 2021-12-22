@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -70,7 +71,7 @@ const StyledText = styled(Text)`
 type TeamCardProps = {
     display_team_name: string
     to: string
-    img_data: Record<string, unknown>
+    img_data: ImageDataLike
     img_alt: string
     tagline: string
 }

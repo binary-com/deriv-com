@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect, ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { testimony_section } from './_dept-layout.types'
+import { TestimonySectionProps } from './_dept-layout.types'
 import { QueryImage, Header } from 'components/elements'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import device, { size } from 'themes/device'
@@ -149,11 +149,11 @@ const StyledQueryImage = styled(QueryImage)`
     }
 `
 
-type review_data = {
-    data: testimony_section
+type ReviewDataProps = {
+    data: TestimonySectionProps
 }
 
-const StaffReview = (review_data: review_data): ReactElement => {
+const StaffReview = (review_data: ReviewDataProps): ReactElement => {
     const [is_mobile, setMobile] = useState(false)
 
     const handleResizeWindow = useCallback(() => {

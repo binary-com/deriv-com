@@ -79,7 +79,7 @@ const QuoteWrapper = styled(Flex)`
         top: 16px;
     }
 `
-const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
+const EmployeeSlide = ({ quote, img_path, img_alt, name }): ReactElement => {
     return (
         <Flex ai="center" height="unset">
             <EmployeeCard>

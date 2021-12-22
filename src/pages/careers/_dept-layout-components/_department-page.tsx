@@ -3,10 +3,10 @@ import Hero from './_hero'
 import DeptDescription from './_dept-description'
 import OpenPositions from './_open-positions'
 import StaffReview from './_staff-review'
-import { firstData } from './_dept-layout.types'
+import { FirstDataProps } from './_dept-layout.types'
 import Layout from 'components/layout/layout'
 
-const DepartmentPage = (data: firstData): ReactElement => {
+const DepartmentPage = (data: FirstDataProps): ReactElement => {
     return (
         <Layout type="careers">
             <Hero data={data.data.header} />

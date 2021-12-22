@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { zoho_career_url } from '../../../common/constants'
-import { open_position } from './_dept-layout.types'
+import { OpenPositionsProps } from './_dept-layout.types'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -42,11 +42,11 @@ const StyledHeader = styled(Header)`
     }
 `
 
-type data = {
-    data: open_position[]
+type DataProps = {
+    data: OpenPositionsProps[]
 }
 
-const OpenPositions = (data: data): ReactElement => {
+const OpenPositions = (data: DataProps): ReactElement => {
     const hidden = data.data == undefined
     return (
         <SectionContainer padding="0">

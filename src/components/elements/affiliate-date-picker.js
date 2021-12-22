@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import 'react-datepicker/dist/react-datepicker.css'
 import styled, { css } from 'styled-components'
 import 'antd/dist/antd.css'
 import { DatePicker, Space } from 'antd'

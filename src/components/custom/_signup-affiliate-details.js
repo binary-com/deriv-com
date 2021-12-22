@@ -274,10 +274,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             <InputGroup>
                                 {form_inputs.map((item) => {
                                     return item.name === 'country' ? (
-                                        <DropdownSearchWrapper>
+                                        <DropdownSearchWrapper key={item.id}>
                                             <DropdownSearch
                                                 id={item.id}
-                                                key={item.id}
                                                 selected_item={values.country}
                                                 default_item={''}
                                                 error={item.touch && item.error}

@@ -208,7 +208,6 @@ const Input = ({
                         htmlFor={id}
                         labelColor={labelColor}
                         {...props}
-                        ref={(ip) => (current_input = ip)}
                     />
                 ) : (
                     <StyledInput

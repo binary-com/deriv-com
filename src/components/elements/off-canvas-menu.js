@@ -532,7 +532,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('API')}</span>
                         </StyledLink>
-                        <StyledLink to="/security" onClick={handleArrowClick}>
+                        <StyledLink to="/security/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Security} alt="" width="32" height="32" />
                             </div>

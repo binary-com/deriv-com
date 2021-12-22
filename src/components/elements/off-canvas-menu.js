@@ -603,6 +603,12 @@ export const OffCanvasMenuPartner = (props) => {
                     </div>
                     <span>{localize('API')}</span>
                 </StyledLink>
+                <StyledLink to="/security/" onClick={handleArrowClick}>
+                    <div>
+                        <img src={Security} alt="" width="32" height="32" />
+                    </div>
+                    <span>{localize('Security')}</span>
+                </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>
     )

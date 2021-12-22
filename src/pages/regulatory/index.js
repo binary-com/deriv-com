@@ -342,13 +342,6 @@ const Regulatory = (locale) => {
                                             href="/regulatory/Deriv_(V)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
-                                        <LinkText
-                                            key={1}
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/regulatory/Financial_Markets_Association_Cert.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
                                     ]}
                                 />
                             </Text>

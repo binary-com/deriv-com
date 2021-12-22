@@ -23,9 +23,14 @@ const ClientContainer = styled(Container)`
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 80px 48px 65px 120px;
     max-width: 100%;
     margin: 0 auto 80px;
+`
+
+const ClientFlex = styled(Flex)`
+    max-width: 1440px;
+    min-height: 100px;
+    padding: 80px 48px 65px 120px;
 
     @media ${device.laptopM} {
         padding: 80px 48px;
@@ -33,24 +38,21 @@ const ClientContainer = styled(Container)`
     @media ${device.tabletL} {
         padding: 40px 16px;
     }
-`
-
-const ClientFlex = styled(Flex)`
-    max-width: 1440px;
-    min-height: 100px;
-
     @media ${device.tabletS} {
         max-width: 100%;
     }
 `
 
 const ClientCard = styled(Flex)`
+    min-height: 231px;
+
     .trustpilot-container {
         margin-top: 54px;
     }
 
     @media ${device.tabletL} {
         max-width: 588px;
+        min-height: auto;
     }
 
     @media ${device.tabletS} {
@@ -74,7 +76,7 @@ const QuoteIcon = styled.img`
     position: absolute;
     width: 160px;
     height: 128px;
-    top: -36px;
+    top: -60px;
 
     @media ${device.tabletL} {
         top: 0;
@@ -351,6 +353,7 @@ const WhatOurClientsSay = () => {
                                 pl: '0',
                                 max_width: '588px',
                                 m: '0 auto',
+                                pt: '68px',
                             }}
                         >
                             <Carousel>

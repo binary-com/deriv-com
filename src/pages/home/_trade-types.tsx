@@ -106,7 +106,7 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
     margin: 0 auto;
     border-radius: 8px;
     max-width: 100%;
-    transition: all 0.3s 0s ease-in-out;
+    transition: transform 0.5s ease-out;
 
     @media ${device.tablet} {
         max-width: 328px;
@@ -118,11 +118,20 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         height: 424px;
     }
 `
+const ImageWrapper = styled(Flex)`
+    width: 360px;
+    height: 332px;
+    margin-bottom: 24px;
+    @media ${device.tablet} {
+        width: 100%;
+        height: auto;
+    }
+`
 
 const ContentWrapper = styled(Flex)<{ $visibility }>`
     flex-direction: column;
     display: ${(props) => (props.$visibility ? 'flex' : 'none')};
-    transition: all 0.3s 0s ease-in-out;
+    transition: transform 0.5s ease-out;
 
     @media ${device.tablet} {
         display: flex;
@@ -132,7 +141,7 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     opacity: ${(props) => (props.$visibility ? '1' : '0')};
     width: fit-content;
-    transition: all 0.3s 0s ease-in-out;
+    transition: transform 0.5s ease-out;
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
@@ -152,7 +161,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
         color: var(--color-red);
     }
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         opacity: 1;
         ${Text} {
             font-size: 14px;
@@ -173,7 +182,7 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
             onMouseOut={() => setDetailsVisibility(false)}
             $visibility={details_visible && !is_mobile}
         >
-            <Flex mb="24px">
+            <ImageWrapper mb="24px">
                 <QueryImage
                     data={data[items_details.image_url]}
                     alt={items_details.image_alt}
@@ -181,7 +190,7 @@ const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
                     onMouseOver={() => setDetailsVisibility(true)}
                     onMouseOut={() => setDetailsVisibility(false)}
                 />
-            </Flex>
+            </ImageWrapper>
             <Header type="subtitle-1" align="center">
                 {items_details.header}
             </Header>
@@ -253,7 +262,7 @@ const TradeTypes = (): React.ReactNode => {
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
-                <Flex tablet={{ fd: 'column', max_width: '58.8rem', m: '0 auto' }}>
+                <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
                     {ItemsDetails.map((item, index) => {
                         return (
                             <Flex key={index}>

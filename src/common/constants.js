@@ -104,3 +104,102 @@ export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
 export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
 export const cms_assets_end_point = 'https://cms.deriv.cloud/assets/'
+
+// academy topic
+export const market_type = [
+    {
+        type: 'Market',
+        items: [
+            {
+                title: 'Forex',
+                short_title: 'forex',
+            },
+            {
+                title: 'Synthetic indices',
+                short_title: 'synthetic_indices',
+            },
+            {
+                title: 'Stocks & stocks indices',
+                short_title: 'stocks',
+            },
+            {
+                title: 'Cryptocurrencies',
+                short_title: 'cryptocurrencies',
+            },
+            {
+                title: 'Commodities',
+                short_title: 'commodities',
+            },
+        ],
+    },
+]
+
+export const platforms = [
+    {
+        type: 'Platform',
+        items: [
+            {
+                title: 'Deriv MT5',
+                short_title: 'deriv_mt5',
+            },
+            {
+                title: 'Deriv X',
+                short_title: 'deriv_x',
+            },
+            {
+                title: 'DTrader',
+                short_title: 'dtrader',
+            },
+            {
+                title: 'DBot',
+                short_title: 'dbot',
+            },
+            {
+                title: 'Deriv Go',
+                short_title: 'deriv_go',
+            },
+        ],
+    },
+]
+
+export const trade_types = [
+    {
+        type: 'Trade types',
+        items: [
+            {
+                title: 'Multipliers',
+                short_title: 'multipliers',
+            },
+            {
+                title: 'CFD',
+                short_title: 'cfd',
+            },
+            {
+                title: 'Options',
+                short_title: 'options',
+            },
+        ],
+    },
+]
+
+export const resources = [
+    {
+        type: 'Resources',
+        items: [
+            {
+                title: 'Market reports',
+                short_title: 'market_reports',
+            },
+            {
+                title: 'Strategies and tips',
+                short_title: 'strategies',
+            },
+            {
+                title: 'Payment methods',
+                short_title: 'payment_method',
+            },
+        ],
+    },
+]
+
+export const combined_filter_type = [...market_type, ...platforms, ...trade_types, ...resources]

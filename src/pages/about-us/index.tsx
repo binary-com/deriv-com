@@ -10,7 +10,6 @@ import OurPrinciples from './_OurPrinciples'
 import OurLeadership from './_OurLeadership'
 import AboutUsBanner from './_AboutUsBanner'
 
-
 const StartSeparator = styled.div`
     width: 0;
     height: 0;
@@ -48,7 +47,6 @@ const AboutUs = (): React.ReactNode => {
             <OurPrinciples />
             <OurLeadership />
             <AboutUsBanner />
-
         </Layout>
     )
 }

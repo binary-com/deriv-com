@@ -154,6 +154,7 @@ export const PlatformDetails = ({
             <Flex
                 fd="column"
                 ai="flex-start"
+                width="unset"
                 height="unset"
                 pt="10px"
                 mr="20px"

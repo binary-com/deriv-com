@@ -6,7 +6,10 @@ export const useClientInformation = () => {
     const [current_client_information, setCurrentClientInformation] = useState(false)
 
     useEffect(() => {
-        setCurrentClientInformation(getClientInformation(getDomain()))
+        const cookie_interval = setInterval(() => {
+            setCurrentClientInformation(getClientInformation(getDomain()))
+        }, 5000)
+        return () => clearInterval(cookie_interval)
     }, [])
 
     useEffect(() => {

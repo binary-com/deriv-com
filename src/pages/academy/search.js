@@ -22,6 +22,7 @@ const SearchPage = ({ location }) => {
             setCategoryTitle(category_arr)
             // const category_title = category_arr.title
             /* eslint-disable */
+            console.log(params)
             console.log(JSON.stringify(category_arr, null, 2))
             /* eslint-enable */
         })

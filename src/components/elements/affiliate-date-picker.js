@@ -87,6 +87,7 @@ const AffiliateDatePicker = (props) => {
                     onBlur={onBlur}
                     defaultPickerValue={minorAge}
                     disabledDate={disabledDate}
+                    showToday={false}
                 />
             </Space>
             <StyledLabel

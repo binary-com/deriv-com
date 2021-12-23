@@ -9,6 +9,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'back_end_desc',
+                img_alt: 'Back-end developer working on a laptop',
                 paragraph: [
                     {
                         text: 'We encourage cooperation and collaboration when it comes to improving, implementing, and delivering solutions. You’ll often find yourself working with various teams across the company to fulfil organisational and team goals. Everyone is supportive of any ideas and contributions that you bring to the team so that we all have a chance to spark positive change through effective and efficient solutions.',
@@ -40,6 +41,7 @@ const career_data = {
             testimony_section: {
                 image: 'back_end_review',
                 image_mobile: 'back_end_review_mobile',
+                img_alt: 'Felipe Martinez  - Senior back-end developer ',
                 testimony_headline: [
                     {
                         text: '“Being a part of so many amazing projects has been a learning experience from the start. Not a day goes by that I don’t learn something — not only on a technical level but also from a broader human perspective. This company has great culture and structure that enable its employees to grow. Working at Deriv offers a prime opportunity to build an incredible career, and I look forward to evolving and advancing further.”',
@@ -59,6 +61,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'marketing_desc',
+                img_alt: 'Two girls working on a laptop',
                 paragraph: [
                     {
                         text: 'Our department provides a fast-paced environment. A normal day could mean distributing a full-scope marketing campaign to clients after our morning coffee, working on a webinar for affiliates after lunch, and finishing the day onboarding a new affiliate. There are so many opportunities to get involved in. With so many different aspects of marketing to learn, the career opportunities are endless.',
@@ -90,6 +93,7 @@ const career_data = {
             testimony_section: {
                 image: 'marketing_review',
                 image_mobile: 'marketing_review_mobile',
+                img_alt: 'Chloe Glen-Jones - Head of content',
                 testimony_headline: [
                     {
                         text: '“The best thing about working at Deriv is that colleagues are more like friends. We’re honest and open with one another, and we bounce off each other’s strengths and weaknesses. Everyone helps each other out no matter what team they’re on, and we have a fast-paced and fun work culture. I’m proud to say that we face our challenges together, building each other up to create something incredible.”',
@@ -109,6 +113,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'security_desc',
+                img_alt: 'Man talking to a phone',
                 paragraph: [
                     {
                         text: "Our department supports all the teams in our organisation so that we can remove anything that gets in the way of us working at our highest capacity. We make everyday successes possible by being thorough and proactive. We ensure that our IT infrastructure remains robust, eliminate operational inefficiencies, and plan for the unexpected. We're keen to know how each team works so we can help them achieve their goals without technical roadblocks.",
@@ -140,6 +145,7 @@ const career_data = {
             testimony_section: {
                 image: 'security_review',
                 image_mobile: 'security_review_mobile',
+                img_alt: 'Raji Simon - Security researcher',
                 testimony_headline: [
                     {
                         text: '“For me, one of the best things about working here is the importance that is placed on learning and growth. There is always some sort of training or course organised to help us do better in our roles and advance in our career.”',
@@ -159,6 +165,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'cs_desc',
+                img_alt: 'Customer support executives on call',
                 paragraph: [
                     {
                         text: "Our department spans across the globe and supports our clients in multiple time zones and languages. We're a friendly bunch committed to providing exceptional quality service. With a clear focus on product and service knowledge, we offer immediate help via live chat and relay the feedback we get to the development teams so that our products remain a favourite among our clients. We're Deriv's voice and represent the respect Deriv has for its clients.",
@@ -190,6 +197,7 @@ const career_data = {
             testimony_section: {
                 image: 'cs_review',
                 image_mobile: 'cs_review_mobile',
+                img_alt: 'Carolina Cantero Pineda - Customer support executive',
                 testimony_headline: [
                     {
                         text: `“We have an amazing work culture at the office, which makes working here an exciting and interesting experience. Our people's positive spirit inspires you to stay. The Customer Support department has demonstrated the meaning of the word "teamwork" for me. We all support one another. In our department, there is no "I did this" or "I achieved this" —  there is only "we, we, we".”`,
@@ -209,6 +217,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'people_management_desc',
+                img_alt: 'Group of people discussing',
                 paragraph: [
                     {
                         text: `We're the ones who build a creative, diverse, and thriving workforce. Our goals are to foster a great employer-employee relationship, advocate for the employees' emotional and physical wellbeing, and provide a safe and productive work environment. We offer training programmes, knowledge courses, and team-building activities. We support employees throughout their career  at Deriv and work hard to help people enjoy coming to work.`,
@@ -240,6 +249,7 @@ const career_data = {
             testimony_section: {
                 image: 'people_management_review',
                 image_mobile: 'people_management_review_mobile',
+                img_alt: 'Syfia Mohd  - Talent acquistion executive',
                 testimony_headline: [
                     {
                         text: '“Coming from a non-tech background, I knew the job would be a challenge at first. But my team has been a big help. Everyone is eager to help, share their knowledge, and help each other succeed. I love the work culture here and I’m proud to be part of such an amazing company.”',
@@ -259,6 +269,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'product_desc',
+                img_alt: 'Product designers discussing',
                 paragraph: [
                     {
                         text: "We learn about our clients, observe their interactions, and decipher complex flows to design a seamless and intuitive user experience for our traders. We're constantly on the lookout to make improvements and make trading on our platforms an enjoyable experience.  We exchange ideas with passionate teammates, hold each other to the highest standards, and support one another to succeed, always putting clients first.",
@@ -290,6 +301,7 @@ const career_data = {
             testimony_section: {
                 image: 'product_review',
                 image_mobile: 'product_review_mobile',
+                img_alt: 'Sheryl Lemuel Winata - Product design team lead',
                 testimony_headline: [
                     {
                         text: '“I’ve been working here for about 5 years as a UI/UX designer. Our team’s goal is to create enjoyable and meaningful user experiences. When we add products and platforms to our portfolio, it’s important that we take into account branding, design, usability, and function.',
@@ -312,6 +324,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'compliance_desc',
+                img_alt: 'Compliance executive working',
                 paragraph: [
                     {
                         text: 'Our responsibility is managing regulatory compliance within the company. We perform a wide range of tasks, such as ensuring operational compliance with regulations, assisting with regulatory audits and annual statutory audits, conducting anti-fraud checks on clients, and analysing trade and payment activities for abuse. Our work is essential to the company’s sustainability and ambition.',
@@ -343,6 +356,7 @@ const career_data = {
             testimony_section: {
                 image: 'compliance_review',
                 image_mobile: 'compliance_review_mobile',
+                img_alt: "Jolene D'Anastasi - Senior compliance executive",
                 testimony_headline: [
                     {
                         text: `“I started as an HR Operations Executive and recently moved to the Compliance department. I've never worked in Compliance before, so I'm grateful for the opportunity to learn and be in a new field. This job has taught me to look at things from different perspectives, and I aspire to continue learning and gain more knowledge as I go along.”`,
@@ -362,6 +376,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'finance_desc',
+                img_alt: 'Girl giving presentation',
                 paragraph: [
                     {
                         text: 'We ensure everything is accounted for accurately and in compliance with regulatory requirements. We deal with clients on payments-related queries daily and prepare reports for all relevant regulatory bodies. Each team member also handles regular reconciliations of balances and transactions that take place through third-party service providers and financial institutions with our internal data.',
@@ -393,6 +408,7 @@ const career_data = {
             testimony_section: {
                 image: 'finance_review',
                 image_mobile: 'finance_review_mobile',
+                img_alt: 'Jennice Lourdsamy - Head of accounts',
                 testimony_headline: [
                     {
                         text: '“As a team, we rely on teamwork. Everyone has a task to accomplish, and the team works well with excellent communication and constant discussions on improving and achieving our goal.',
@@ -415,6 +431,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'payments_desc',
+                img_alt: 'Girls seeing on lapop',
                 paragraph: [
                     {
                         text: "Our main focus is to onboard the payment systems that our clients want to use from across the globe and make sure they're working as expected. We work with many different payment solutions and people of various background. We also reach out to various other teams to assist in any payment queries and educate them on how to use the payment systems. In turn, this helps other teams to be able to efficiently assist clients in their trading journey.",
@@ -424,6 +441,7 @@ const career_data = {
             testimony_section: {
                 image: 'payments_review',
                 image_mobile: 'payments_review_mobile',
+                img_alt: 'Fehmeed Ali Kazmi - Senior payops executive',
                 testimony_headline: [
                     {
                         text: `“The best thing about working at Deriv is that the company is open to hiring younger people and turning them to leaders. In my case, I got promoted to senior executive after a year. Now my Head of Department is helping me get ready for a team lead position. There's always room for growth at Deriv.”`,
@@ -443,6 +461,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'front_end_desc',
+                img_alt: 'Front-end developer working on a laptop',
                 paragraph: [
                     {
                         text: 'Advocating for our clients’ needs requires collaboration with other teams to implement an engaging user interface for our trading platforms. As part of our department, you’ll be expected to understand our audience as well as our company vision to code creative and user-friendly web pages and platforms. We continuously push to offer a more fluid user experience for all our clients.',
@@ -474,6 +493,7 @@ const career_data = {
             testimony_section: {
                 image: 'fe_review',
                 image_mobile: 'fe_review_mobile',
+                img_alt: 'Sean Ho - Front-end developer',
                 testimony_headline: [
                     {
                         text: `“I have been working at Deriv since October 2020. My team plans, builds, and maintains the front-end codebase of all the different projects the company is working on. There are a lot of ongoing projects, each with its own set of responsibilities and challenges. Together, we help each other out where we can and know that each and every person has contributed to the team's success.”`,
@@ -493,6 +513,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'trading_operations_desc',
+                img_alt: 'Trading analyst working on a laptop',
                 paragraph: [
                     {
                         text: "We manage our trading platforms and recommend product offerings based on market and client data. We interpret large amounts of data to track the company's performance, mitigate risk, and provide useful, actionable insights that help us develop solid business strategies. We develop new generations of trading products. Our efforts keep Deriv innovative and forward-thinking within our industry.",
@@ -524,6 +545,7 @@ const career_data = {
             testimony_section: {
                 image: 'trading_operations_review',
                 image_mobile: 'trading_operations_review_mobile',
+                img_alt: 'Aiden Grech - Trading team lead',
                 testimony_headline: [
                     {
                         text: `“I belong to a small team with lots of responsibilities, but I'm proud that everyone understands that, and we're all pulling in the same direction to reach our targets.`,
@@ -546,6 +568,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'software_testing_desc',
+                img_alt: 'Software testers working on laptop',
                 paragraph: [
                     {
                         text: 'From initial design to post release, we assess risks on projects and make sure the production team achieves their delivery on time and with high quality through automation. We refine our wide range of products and services by meticulous testing. Working closely with other teams, we mitigate any problems within our offerings and recommend improvements to keep our platforms running smoothly.',
@@ -577,6 +600,7 @@ const career_data = {
             testimony_section: {
                 image: 'software_testing_review',
                 image_mobile: 'software_testing_review_mobile',
+                img_alt: 'Mohammad Fahad Islam - Senior QA engineer',
                 testimony_headline: [
                     {
                         text: `“I joined Deriv as a fresh graduate. The work culture here is great. Since I began, I have worked on a variety of projects with people with different skills, experience, and backgrounds. In addition to sharpening my skills over time, I also built strong relationships with my coworkers. My teammates are more than just colleagues; they're wonderful people who have helped me grow as a person and as a professional.”`,
@@ -596,6 +620,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'business_excellence_desc',
+                img_alt: 'Business analysts working on laptop',
                 paragraph: [
                     {
                         text: 'Our department’s role is pivotal in driving a culture of continuous improvement, which is a crucial habit for staying ahead of the competition, disruptive events, and industry developments. We work with every team in the company to understand the nitty-gritty of their work so that we can come up with practical strategies together. We help the company stay efficient, consistent, and optimised in the face of change.',
@@ -617,6 +642,7 @@ const career_data = {
             testimony_section: {
                 image: 'business_excellence_review',
                 image_mobile: 'business_excellence_review_mobile',
+                img_alt: 'Cynthia Shamini - Process architect',
                 testimony_headline: [
                     {
                         text: '“The team I am currently working with consists of a bunch of highly motivated individuals working towards common goals. When things do not go as planned, you can always count on them to be helpful and supportive. The best thing about my team is our unity and teamwork. We work on improvements and celebrate successes together.”',
@@ -636,6 +662,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'internal_audit_desc',
+                img_alt: 'Internal auditor working on a laptop',
                 paragraph: [
                     {
                         text: 'We deep-dive into our business dealings and processes, convert the information into meaningful data, and make recommendations for improvement. Our department boasts high ethical standards, independence, and reliability — we’re always ready to invest our time and energy into critical audit assignments. We play a significant role in our company’s growth by ensuring that the company is moving in the right direction.',
@@ -667,6 +694,7 @@ const career_data = {
             testimony_section: {
                 image: 'internal_audit_review',
                 image_mobile: 'internal_audit_review_mobile',
+                img_alt: 'Mohammad Fariz Shafiq - Internal audit executive',
                 testimony_headline: [
                     {
                         text: '“I love the company culture and enjoy working with my team – they’re so easy to get along with. Whenever we’re stuck with a problem, the team is ready to get involved and work together to find solutions. We have a positive working environment, and I can be sure that I will be challenged and learn something new every day.”',
@@ -686,6 +714,7 @@ const career_data = {
             },
             intro_section: {
                 image: 'pm_desc',
+                img_alt: 'Project management team on online call',
                 paragraph: [
                     {
                         text: 'We see projects through to deliver expected results, control project risks, and support organisational collaboration and communication. We ensure that everyone involved with a project has the materials, time, and information they need to complete their particular tasks. By listening, learning, and communicating, we put all the pieces together to create something everyone can be proud of.',
@@ -707,6 +736,7 @@ const career_data = {
             testimony_section: {
                 image: 'pm_review',
                 image_mobile: 'pm_review_mobile',
+                img_alt: 'Islam Eizayyadi - Project management team lead',
                 testimony_headline: [
                     {
                         text: `“It's in Deriv's DNA to react quickly and reprioritise based on threats and market trends, so our core responsibility is to adjust plans and communicate priorities across teams. My favourite thing about working at Deriv is that we have access to everyone in the company and can learn from them regardless of their location. There's a significant focus on leadership development too that I also enjoy.”`,

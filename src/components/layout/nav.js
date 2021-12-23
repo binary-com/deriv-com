@@ -396,6 +396,11 @@ const LogoDescription = styled(Flex)`
     }
 `
 
+const SecurityLogoInMobile = styled.img`
+    width: 170px;
+    margin-right: 10px;
+`
+
 const handleLogin = () => {
     redirectToTradingPlatform()
     Login.redirectToLogin()
@@ -1131,11 +1136,6 @@ export const NavPartners = ({ no_login_signup }) => {
         </>
     )
 }
-
-const SecurityLogoInMobile = styled.img`
-    width: 170px;
-    margin-right: 10px;
-`
 
 // Note: When using layout component for security page, please add type='security' and padding_top='10rem'
 export const NavSecurity = () => {

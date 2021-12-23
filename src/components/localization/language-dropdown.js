@@ -7,6 +7,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const Container = styled.div`
     position: relative;
@@ -171,9 +172,11 @@ const query = graphql`
     }
 `
 
-const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
+const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security }) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
+    const [is_mobile] = useBrowserResize()
+    const iconSize = security && is_mobile ? '20px' : '24px'
 
     const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
@@ -196,8 +199,8 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
                     <QueryImage
-                        width="24px"
-                        height="24px"
+                        width={iconSize}
+                        height={iconSize}
                         data={data[default_abbreviation]}
                         alt=""
                     />
@@ -247,6 +250,7 @@ Dropdown.propTypes = {
     is_high_nav: PropTypes.bool,
     onChange: PropTypes.func,
     option_list: PropTypes.array,
+    security: PropTypes.bool,
 }
 
 export default Dropdown

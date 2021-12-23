@@ -811,7 +811,7 @@ export const NavStatic = ({ is_ppc }) => (
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px 0;
+    height: 3.6rem;
 `
 
 const HomeLink = styled(LocalizedLink)`
@@ -1161,7 +1161,7 @@ export const NavSecurity = () => {
                         </StyledContainer>
 
                         <Flex ml="auto" ai="center" width="auto">
-                            <LanguageSwitcher short_name="true" is_high_nav />
+                            <LanguageSwitcher short_name="true" security />
                         </Flex>
                     </HomeContainer>
                 </DerivHomeWrapper>
@@ -1185,6 +1185,33 @@ export const NavSecurity = () => {
                                 <span>{localize('Submit a report')}</span>
                             </LinkButton>
                         </SecurityNavRight>
+
+                        <Mobile>
+                            <Flex ai="center" jc="space-between">
+                                <LogoLinkMobile
+                                    style={{ margin: 'unset' }}
+                                    to="/security/"
+                                    aria-label={localize('Security')}
+                                >
+                                    <ResLogo src={LogoOnly} alt="reslogo" />
+                                </LogoLinkMobile>
+
+                                <LinkButton
+                                    to={'mailto:security@deriv.com'}
+                                    is_mail_link
+                                    external="true"
+                                    target="_blank"
+                                    tertiary
+                                    style={{
+                                        color: 'var(--color-white)',
+                                        fontSize: '12px',
+                                        padding: '8px 16px 7px',
+                                    }}
+                                >
+                                    <span>{localize('Submit a report')}</span>
+                                </LinkButton>
+                            </Flex>
+                        </Mobile>
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>

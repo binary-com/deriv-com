@@ -13,7 +13,7 @@ const languages = Object.keys(language_config)
 
 const disabled_lang = ['ach']
 
-const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
+const LanguageSwitch = ({ i18n, is_high_nav, short_name, security }) => {
     const [language, setLanguage] = React.useState(i18n.language)
     const client_information = useClientInformation()
 
@@ -88,6 +88,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
             default_option={getCurrentLanguage()}
             has_short_name={!!short_name}
             is_high_nav={!!is_high_nav}
+            security={security}
         />
     )
 }
@@ -97,6 +98,7 @@ LanguageSwitch.propTypes = {
         language: PropTypes.string,
     }),
     is_high_nav: PropTypes.bool,
+    security: PropTypes.bool,
     short_name: PropTypes.string,
 }
 

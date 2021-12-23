@@ -41,7 +41,7 @@ const QueryImage = ({
     if (data) {
         return (
             <ImageWrapper width={width} height={height} className={className} onClick={onClick}>
-                <GatsbyImage image={image} alt={alt.toString()} loading={loading} {...props} />
+                <GatsbyImage image={image} alt={alt as string} loading={loading} {...props} />
             </ImageWrapper>
         )
     }

@@ -49,11 +49,11 @@ const platforms: Platform[] = [
         title: 'Deriv GO',
         icon: DerivGOIcon,
         description: 'Our best trading experience on your mobile.',
-        learn_more_link: '#',
+        learn_more_link: 'http://localhost:8000/landing/deriv-go/',
         download_links: {
             GooglePlay: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
             AppStore: 'https://apps.apple.com/ug/app/deriv-go/id1550561298',
-            APK: '#',
+            APK: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
         },
     },
     {
@@ -98,7 +98,7 @@ const platforms: Platform[] = [
         title: 'API',
         icon: APIIcon,
         description: 'Build your own apps with our API.',
-        learn_more_link: '#',
+        learn_more_link: 'https://api.deriv.com/',
         download_links: {
             Browser: 'https://api.deriv.com/',
         },

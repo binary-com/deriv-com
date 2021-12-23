@@ -9,7 +9,7 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { derivx_android_url, derivx_ios_url } from 'common/constants'
 
-interface StartDerivXType {
+interface StartDerivXProps {
     children?: React.ReactNode
     active?: boolean
     mobile_padding?: string
@@ -178,7 +178,7 @@ const realActive = css`
     }
 `
 
-const TabItem = styled.div<StartDerivXType>`
+const TabItem = styled.div<StartDerivXProps>`
     padding: 2.4rem 4rem;
     width: fit-content;
     height: 8.4rem;
@@ -209,7 +209,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const StartDerivX: React.FC<StartDerivXType> = () => {
+const StartDerivX = (): ReactElement => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)

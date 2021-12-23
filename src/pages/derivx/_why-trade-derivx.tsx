@@ -10,10 +10,16 @@ import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
 
 type TradingType = {
-    title: ReactElement
-    subtitle: ReactElement
-    image_name: string
-    image_alt: string
+    title?: ReactElement
+    subtitle?: ReactElement
+    image_name?: string
+    image_alt?: string
+}
+
+type CardType = {
+    icon?: string
+    title?: JSX.Element
+    subtitle?: JSX.Element
 }
 
 const StyledHeader = styled(Header)`
@@ -82,7 +88,7 @@ const trading: TradingType[] = [
     },
 ]
 
-const card_data: { icon: string; title: JSX.Element; subtitle: JSX.Element }[] = [
+const card_data: CardType[] = [
     {
         icon: IconNewPromising,
         title: <Localize translate_text="New and promising" />,

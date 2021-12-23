@@ -163,10 +163,6 @@ export const exotic_pairs = [
         text: <Localize translate_text="AUD/SGD" />,
     },
     {
-        src: icons.CHFJPY,
-        text: <Localize translate_text="CHF/JPY" />,
-    },
-    {
         src: icons.EURHKD,
         text: <Localize translate_text="EUR/HKD" />,
     },
@@ -423,6 +419,10 @@ export const minor_pairs = [
     {
         src: icons.NZDJPY,
         text: <Localize translate_text="NZD/JPY" />,
+    },
+    {
+        src: icons.CHFJPY,
+        text: <Localize translate_text="CHF/JPY" />,
     },
     {
         src: icons.NZDUSD,

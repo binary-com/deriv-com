@@ -17,6 +17,7 @@ import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { Container } from 'components/containers'
+import { Delayed } from 'components/hooks/use-delayed'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -228,7 +229,11 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
-            {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
+            {!no_live_chat && (
+                <Delayed delay={500}>
+                    <LiveChat is_banner_shown={show_cookie_banner} />
+                </Delayed>
+            )}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

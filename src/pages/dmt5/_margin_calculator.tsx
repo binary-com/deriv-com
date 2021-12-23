@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
@@ -8,6 +8,18 @@ import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+
+interface CalculatorTypes {
+    children?: React.ReactNode
+    key?: number
+    index?: number
+    name: ReactElement
+    text: ReactElement
+    image_name: string
+    image_alt_name: string
+    button_text: ReactElement
+    link: string
+}
 
 const query = graphql`
     query {
@@ -147,7 +159,14 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const CalculatorCard = ({ button_text, image_alt_name, image_name, link, name, text }) => {
+const CalculatorCard = ({
+    button_text,
+    image_alt_name,
+    image_name,
+    link,
+    name,
+    text,
+}: CalculatorTypes) => {
     const data = useStaticQuery(query)
     return (
         <StyledCardContainer>
@@ -180,7 +199,7 @@ CalculatorCard.propTypes = {
     text: Proptypes.string,
 }
 
-const calculators = [
+const calculators: CalculatorTypes[] = [
     {
         index: 0,
         name: <Localize translate_text="Margin calculator" />,
@@ -188,7 +207,7 @@ const calculators = [
             <Localize translate_text="Calculate the margin you need to open and hold your positions with our margin calculator." />
         ),
         image_name: 'margin_calculator',
-        image_alt: localize('DMT5 margin trading calculator'),
+        image_alt_name: localize('DMT5 margin trading calculator'),
         button_text: <Localize translate_text="Try our margin calculator" />,
         link: '/trader-tools/margin-calculator/',
     },
@@ -199,13 +218,13 @@ const calculators = [
             <Localize translate_text="Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract." />
         ),
         image_name: 'swap_calculator',
-        image_alt: localize('DMT5 swap trading calculator'),
+        image_alt_name: localize('DMT5 swap trading calculator'),
         button_text: <Localize translate_text="Try our swap calculator" />,
         link: '/trader-tools/swap-calculator/',
     },
 ]
 
-const MarginCalculator = () => {
+const MarginCalculator = (): ReactElement => {
     const settings = {
         container_style: {
             maxWidth: '100%',
@@ -224,7 +243,7 @@ const MarginCalculator = () => {
         },
     }
 
-    const { is_eu_country } = React.useContext(DerivStore)
+    const is_eu_country = React.useContext(DerivStore)
 
     return (
         <SectionContainer>
@@ -290,7 +309,7 @@ const MarginCalculator = () => {
                                     key={idx}
                                     name={calculator.name}
                                     image_name={calculator.image_name}
-                                    image_alt_name={calculator.image_alt}
+                                    image_alt_name={calculator.image_alt_name}
                                     text={calculator.text}
                                     link={calculator.link}
                                     button_text={calculator.button_text}

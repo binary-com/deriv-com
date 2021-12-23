@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { SectionContainer } from 'components/containers'
@@ -30,7 +30,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const WhatIsTrader = () => {
+const WhatIsTrader = (): ReactElement => {
     return (
         <Section>
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">

@@ -20,6 +20,10 @@ import {
     dmt5_ios_url,
 } from 'common/constants'
 
+type ImageWrapperProps = {
+    mt?: string
+}
+
 const query = graphql`
     query {
         mobile_phone: file(relativePath: { eq: "dmt5/mobile-phone.png" }) {
@@ -62,7 +66,8 @@ const Separator = styled.div`
         margin-top: 40px;
     }
 `
-const ImageWrapper = styled.div`
+
+const ImageWrapper = styled.div<ImageWrapperProps>`
     margin-top: 4rem;
     width: 38.4rem;
     position: relative;

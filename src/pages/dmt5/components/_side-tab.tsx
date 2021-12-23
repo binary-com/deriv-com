@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactElement, ReactNode } from 'react'
+import PropTypes, { ReactElementLike } from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Flex, Show, Box } from 'components/containers'
 import { Text } from 'components/elements'
@@ -7,6 +7,12 @@ import device from 'themes/device'
 import AppStore from 'images/svg/dmt5/app-store.svg'
 import GooglePlay from 'images/svg/dmt5/google-play.svg'
 import { LocalizedLink } from 'components/localization'
+
+type ContentType = {
+    children?: ReactNode
+    selected?: boolean
+    is_reverse?: boolean | string
+}
 
 const DownloadFlex = styled(Flex)`
     @media ${device.tabletS} {
@@ -33,12 +39,12 @@ const StyledText = styled(Text)`
 const TabContent = styled.div`
     width: 100%;
 `
-const Content = styled.div`
+const Content = styled.div<ContentType>`
     flex: 1;
     opacity: ${(props) => (props.selected ? '1' : '0')};
     transition: opacity 1s ease-in;
 `
-const TabButton = styled.div`
+const TabButton = styled.div<ContentType>`
     position: relative;
     z-index: 2;
     display: flex;
@@ -69,7 +75,7 @@ const TabButton = styled.div`
     }
 `
 
-const TabList = styled.div`
+const TabList = styled.div<ContentType>`
     max-width: 38rem;
     display: flex;
     flex-direction: column;
@@ -110,16 +116,38 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children }) => (
-    <TabContent role="tabpanel" tabindex="0">
-        {children}
-    </TabContent>
-)
+const TabPanel = ({ children }): ReactElement => <TabContent role="tabpanel">{children}</TabContent>
 
 TabPanel.propTypes = {
     children: PropTypes.node,
+    description: PropTypes.elementType,
+    item_width: PropTypes.string,
+    label: PropTypes.string,
+    mobile_item_width: PropTypes.string,
 }
-const Tabs = ({ children, is_reverse, parent_tab, has_download_button, download_links }) => {
+
+interface TabType {
+    children?: ReactNode
+    is_reverse?: string
+    parent_tab?: ObjectConstructor | string
+    has_download_button?: boolean
+    download_links?: { ios: string; android: string }
+    description?: ReactElementLike
+    props?: {
+        label?: string
+        description?: ReactElementLike
+        item_width?: string
+        mobile_item_width?: string
+    }
+}
+
+const Tabs = ({
+    children = '',
+    is_reverse = '',
+    parent_tab = '',
+    has_download_button = false,
+    download_links = { ios: '', android: '' },
+}: TabType): ReactElement => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
     const prevParentRef = React.useRef()
@@ -146,7 +174,7 @@ const Tabs = ({ children, is_reverse, parent_tab, has_download_button, download_
             </Desktop>
             <div>
                 <TabList role="tablist" is_reverse={is_reverse}>
-                    {React.Children.map(children, (child, index) => {
+                    {React.Children.map(children, (child: TabType, index) => {
                         const {
                             props: { label, description, item_width, mobile_item_width },
                         } = child

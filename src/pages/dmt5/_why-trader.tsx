@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
@@ -9,7 +9,14 @@ import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
-const card_content = [
+type CardContentType = {
+    header: ReactElement
+    text: ReactElement
+    image: any // Sean declared contant as any
+    key: number
+}
+
+const card_content: CardContentType[] = [
     {
         header: <Localize translate_text="Quick demo account sign-up" />,
         text: (
@@ -110,7 +117,7 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
-const WhyTrader = () => {
+const WhyTrader = (): ReactElement => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">

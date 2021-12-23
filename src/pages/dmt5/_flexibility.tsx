@@ -10,12 +10,12 @@ import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
-type ContactType = {
+type ContentType = {
     header?: ReactElement
     text?: ReactElement
     icon?: ReactElement
     show_eu?: boolean
-    show_always?: string
+    show_always?: boolean
 }
 
 const BaseIconStyle = css`
@@ -34,7 +34,7 @@ const StyledSyntheticIcon = styled.img`
     ${BaseIconStyle}
 `
 
-const content: ContactType[] = [
+const content: ContentType[] = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (
@@ -58,7 +58,7 @@ const content: ContactType[] = [
     },
 ]
 
-const eucontent: ContactType[] = [
+const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (

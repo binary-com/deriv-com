@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import {
     WhyTrader,
@@ -23,7 +23,12 @@ import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 
-const meta_attributes = {
+type MetaAttributesType = {
+    og_title: string
+    og_description: string
+}
+
+const meta_attributes: MetaAttributesType = {
     og_title: localize('DMT5 | MetaTrader 5 | Deriv'),
     og_description: localize(
         'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
@@ -38,22 +43,7 @@ const query = graphql`
     }
 `
 
-const numbers_content = [
-    {
-        title: <Localize translate_text="330K+" />,
-        subtitle: <Localize translate_text="clients on Deriv MT5" />,
-    },
-    {
-        title: <Localize translate_text="100+" />,
-        subtitle: <Localize translate_text="tradable assets" />,
-    },
-    {
-        title: <Localize translate_text="24/7" />,
-        subtitle: <Localize translate_text="trading" />,
-    },
-]
-
-const DMT5 = () => {
+const DMT5 = (): ReactElement => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -88,7 +78,7 @@ const DMT5 = () => {
                 laptop_height="56.8rem"
                 tabletL_height="53rem"
             />
-            <Numbers numbers_content={numbers_content} />
+            <Numbers />
             <WhatIsTrader />
             <WhyTrader />
             <StartTrader />

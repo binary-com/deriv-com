@@ -162,6 +162,8 @@ const LoginText = styled(Text)`
     margin-top: 1.6rem;
 
     @media ${device.tabletL} {
+        margin-top: ${(props) => props.mt};
+        margin-bottom: ${(props) => props.mb};
         font-size: 2rem;
     }
 `
@@ -324,12 +326,7 @@ const SignupNew = ({
                     <SocialText>Apple</SocialText>
                 </SocialButton>
             </SocialWrapper>
-            <LoginText
-                tabletL={{
-                    mb: is_eu_country ? '100px' : '0',
-                    mt: '3.75rem !important',
-                }}
-            >
+            <LoginText mt="3.75rem" mb={is_eu_country ? '100px' : '0'}>
                 {localize('Already have an account?')}
                 <StyledLinkText
                     id="dm-new-login-button"

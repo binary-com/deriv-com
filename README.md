@@ -68,13 +68,22 @@ Moreover, having these extensions will help you to speed up the development proc
     npm ci
     ```
 
-5.  **To start developing:**
+5.  **Add env variables:**
+
+    ```sh
+    DIRECTUS_AUTH_TOKEN=iNIsMacInflatACk
+    GATSBY_DIRECTUS_AUTH_TOKEN=ErtICisAlDRIonSh
+    ```
+
+    Create two files `.env.development` and `.env.production` inside your project root directory and add the above keys inside both files.
+
+6.  **To start developing:**
 
     ```sh
     npm start
     ```
 
-6.  **Open the source code and start editing!**
+7.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 

@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
-import Hero from './_hero.js'
 import { faq_schema } from './_faq-schema.js'
+import Hero from './_hero.js'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
@@ -36,9 +36,7 @@ const StyledHeader = styled(Header)`
         text-align: left;
     }
 
-    &:nth-child(2) {
-        margin-bottom: 4rem;
-    }
+    margin-bottom: 4rem;
 `
 
 const StyledLinkButton = styled(LinkButton)`
@@ -162,10 +160,7 @@ const AffiliateIb = () => {
             </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('Partner with a trusted')}
-                </StyledHeader>
-                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('online trading provider')}
+                    {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"

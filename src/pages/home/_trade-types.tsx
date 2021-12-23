@@ -245,7 +245,7 @@ const TradeTypes = (): React.ReactNode => {
                 mb="40px"
                 tablet={{ mb: '16px' }}
             >
-                {localize('Trade the way you want with 4 exciting trade types')}
+                {localize('Trade the way you want with 3 exciting trade types')}
             </Header>
 
             <DesktopWrapper>

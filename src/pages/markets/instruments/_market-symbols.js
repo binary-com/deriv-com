@@ -397,6 +397,10 @@ export const minor_pairs = [
         text: <Localize translate_text="AUD/NZD" />,
     },
     {
+        src: icons.CHFJPY,
+        text: <Localize translate_text="CHF/JPY" />,
+    },
+    {
         src: icons.EURNZD,
         text: <Localize translate_text="EUR/NZD" />,
     },
@@ -419,10 +423,6 @@ export const minor_pairs = [
     {
         src: icons.NZDJPY,
         text: <Localize translate_text="NZD/JPY" />,
-    },
-    {
-        src: icons.CHFJPY,
-        text: <Localize translate_text="CHF/JPY" />,
     },
     {
         src: icons.NZDUSD,

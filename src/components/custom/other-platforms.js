@@ -27,6 +27,7 @@ import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
@@ -368,6 +369,16 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     title={<Localize translate_text="DTrader" />}
                     onClick={onClick}
                     to="/dtrader/"
+                />
+                <NavCard
+                    aria_label="DerivGo"
+                    icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                    }
+                    title={<Localize translate_text="DerivGo" />}
+                    onClick={onClick}
+                    to={'/landing/deriv-go/'}
                 />
                 <NavCard
                     aria_label="DBot"

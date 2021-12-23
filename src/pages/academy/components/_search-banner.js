@@ -48,6 +48,14 @@ const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     margin: 8px 0;
 `
+const SearchSuggestionWrapper = styled(Flex)`
+    display: ${(props) => (props.opened ? 'flex' : 'none')};
+    background: white;
+    border: 1px solid var(--color-grey-3);
+    position: absolute;
+    top: 8px;
+    height: auto;
+`
 
 const SearchBanner = () => {
     const { academy_data } = useContext(DerivStore)
@@ -55,6 +63,7 @@ const SearchBanner = () => {
     // We need a second state for tracking the debounced search input
     const [search_query, setSearchQuery] = useState('')
     const [modal_opened, setModal] = useState(false)
+    const [suggestion_box_opened, setSuggestionBoxOpened] = useState(false)
 
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
@@ -64,6 +73,7 @@ const SearchBanner = () => {
 
     const handleFilterSearch = (e) => {
         setSearchInput(e.target.value.toLowerCase().trim())
+        setSuggestionBoxOpened(!suggestion_box_opened)
     }
 
     useDebouncedEffect(
@@ -98,15 +108,47 @@ const SearchBanner = () => {
                     <Flex ai="center" jc="space-between">
                         <LogoWrapper src={AcademyLogo} />
                         <Flex ai="center" max_width="400px">
-                            <form onSubmit={handleSubmit}>
-                                <input
-                                    style={{ width: '480px' }}
-                                    placeholder="What would you like to search?"
-                                    onChange={handleFilterSearch}
-                                ></input>
-                            </form>
+                            <Flex width="fill-available" fd="column" ai="flex-start">
+                                <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+                                    <input
+                                        style={{ width: '100%' }}
+                                        placeholder="What would you like to search?"
+                                        onChange={handleFilterSearch}
+                                    ></input>
+                                </form>
+                                <Flex height="0" style={{ position: 'relative' }}>
+                                    <SearchSuggestionWrapper
+                                        opened={suggestion_box_opened}
+                                        max_width="100%"
+                                        fd="column"
+                                    >
+                                        {data_to_render &&
+                                            data_to_render.map((post, idx) => {
+                                                if (idx < 6) {
+                                                    return (
+                                                        <Flex
+                                                            key={
+                                                                post.blog_title || post.video_title
+                                                            }
+                                                            jc="flex-start"
+                                                            style={{
+                                                                fontSize: '16px',
+                                                                marginTop: '4px',
+                                                                height: '40px',
+                                                            }}
+                                                        >
+                                                            {post.blog_title || post.video_title}
+                                                        </Flex>
+                                                    )
+                                                }
+                                            })}
+                                    </SearchSuggestionWrapper>
+                                </Flex>
+                            </Flex>
+
                             <TopicSectionWrapper
                                 ml="8px"
+                                width="70px"
                                 max_width="auto"
                                 ai="center"
                                 onClick={openModal}
@@ -114,21 +156,6 @@ const SearchBanner = () => {
                                 Topic
                             </TopicSectionWrapper>
                         </Flex>
-                    </Flex>
-                </Container>
-                <Container>
-                    <Flex max_width="100%" fd="column">
-                        {data_to_render &&
-                            data_to_render.map((post) => {
-                                return (
-                                    <Flex
-                                        key={post.blog_title || post.video_title}
-                                        style={{ fontSize: '16px', marginTop: '4px' }}
-                                    >
-                                        {post.blog_title || post.video_title}
-                                    </Flex>
-                                )
-                            })}
                     </Flex>
                 </Container>
             </MainWrapper>

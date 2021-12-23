@@ -110,6 +110,21 @@ const ImageWrapper = styled.div`
         }
     }
 `
+const demoActive = css`
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    border: unset;
+    ${Text} {
+        font-weight: bold;
+    }
+`
+
+const realActive = css`
+    box-shadow: unset;
+    ${Text} {
+        font-weight: unset;
+    }
+`
+
 const TabItem = styled.div<TabProps>`
     padding: 2.4rem 4rem;
     width: fit-content;
@@ -117,21 +132,7 @@ const TabItem = styled.div<TabProps>`
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     cursor: pointer;
-    ${(props) =>
-        props.active
-            ? css`
-                  box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-                  border: unset;
-                  ${Text} {
-                      font-weight: bold;
-                  }
-              `
-            : css`
-                  box-shadow: unset;
-                  ${Text} {
-                      font-weight: unset;
-                  }
-              `}
+    ${(props) => (props.active ? demoActive : realActive)}
 
     @media ${device.tabletS} {
         padding: 17px 20px;
@@ -175,8 +176,8 @@ const StartTrader = (): ReactElement => {
     const data = useStaticQuery(query)
     const [tab, setTab] = useState('Demo')
 
-    const onTabClick = (tab) => {
-        setTab(tab)
+    const onTabClick = (chosenTab: string) => {
+        setTab(chosenTab)
     }
     const handleLogin = () => {
         return Login.loginUrl()

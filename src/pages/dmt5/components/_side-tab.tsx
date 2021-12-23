@@ -89,18 +89,18 @@ const TabButton = styled.div<ContentProps>`
     }
 `
 
+const left = css`
+    margin-left: 2.4rem;
+`
+const right = css`
+    margin-right: 2.4rem;
+`
+
 const TabList = styled.div<ContentProps>`
     max-width: 38rem;
     display: flex;
     flex-direction: column;
-    ${(props) =>
-        props.is_reverse
-            ? css`
-                  margin-left: 2.4rem;
-              `
-            : css`
-                  margin-right: 2.4rem;
-              `}
+    ${(props) => (props.is_reverse ? left : right)}
     @media ${device.tablet} {
         max-width: 50rem;
         margin-right: unset;

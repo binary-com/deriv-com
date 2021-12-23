@@ -1132,6 +1132,11 @@ export const NavPartners = ({ no_login_signup }) => {
     )
 }
 
+const SecurityLogoInMobile = styled.img`
+    width: 170px;
+    margin-right: 10px;
+`
+
 // Note: When using layout component for security page, please add type='security' and padding_top='10rem'
 export const NavSecurity = () => {
     const nav_ref = useRef(null)
@@ -1193,7 +1198,7 @@ export const NavSecurity = () => {
                                     to="/security/"
                                     aria-label={localize('Security')}
                                 >
-                                    <ResLogo src={LogoOnly} alt="reslogo" />
+                                    <SecurityLogoInMobile src={LogoSecurity} alt="logo security" />
                                 </LogoLinkMobile>
 
                                 <LinkButton

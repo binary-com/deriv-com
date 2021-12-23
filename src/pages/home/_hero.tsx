@@ -88,7 +88,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
     const { hero_background, hero_platform1, hero_platform2, hero_platform3, hero_platform4 } =
         useStaticQuery(query)
     const text = !is_ppc
-        ? localize('Trade forex, commodities, synthetic indices, stocks, and stock indices.')
+        ? localize('Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.')
         : localize('Trade forex, commodities, stocks, and stock indices')
 
     return (

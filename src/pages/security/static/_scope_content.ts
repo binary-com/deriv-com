@@ -25,18 +25,18 @@ export const scope_content = [
                 content:
                     'Deriv P2P: Our peer-to-peer payments app (<1>Android app</1>, <2>iOS app</2>)',
                 link: 'https://play.google.com/store/apps/details?id=com.deriv.dp2p',
-                link_2: 'https://apps.apple.com/ug/app/deriv-go/id1550561298',
+                link_2: 'https://apps.apple.com/jm/app/deriv-dp2p/id1506901451',
             },
             {
                 content: 'Deriv GO: Our options trading app (<1>Android app</1>, <2>iOS app</2>)',
-                link: 'https://play.google.com/store/apps/details?id=com.deriv.dp2p',
+                link: 'https://play.google.com/store/apps/details?id=com.deriv.app',
                 link_2: 'https://apps.apple.com/ug/app/deriv-go/id1550561298',
             },
             {
                 content:
                     'Deriv X: Our CFD trading app by DevExperts (<1>Android app</1>, <2>iOS app</2>)',
-                link: 'https://play.google.com/store/apps/details?id=com.deriv.dp2p',
-                link_2: 'https://apps.apple.com/ug/app/deriv-go/id1550561298',
+                link: 'https://play.google.com/store/apps/details?id=com.deriv.dx',
+                link_2: 'https://apps.apple.com/by/app/deriv-x/id1563337503',
             },
             { content: 'Our site for marketing campaigns: trade.deriv.com (third-party)' },
         ],

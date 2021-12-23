@@ -23,15 +23,6 @@ import APK from 'images/svg/app-download/apk.svg'
 
 const platforms: Platform[] = [
     {
-        title: 'DTrader',
-        icon: DTraderIcon,
-        description: 'Our flagship app for trading options, multipliers & spreads.',
-        learn_more_link: '/dtrader/',
-        download_links: {
-            Browser: 'https://app.deriv.com/',
-        },
-    },
-    {
         title: 'DMT5',
         icon: DMT5Icon,
         description: 'The all-in-one FX & CFD trading platform.',
@@ -46,14 +37,12 @@ const platforms: Platform[] = [
         },
     },
     {
-        title: 'Deriv GO',
-        icon: DerivGOIcon,
-        description: 'Our best trading experience on your mobile.',
-        learn_more_link: 'http://localhost:8000/landing/deriv-go/',
+        title: 'DTrader',
+        icon: DTraderIcon,
+        description: 'Our flagship app for trading options, multipliers & spreads.',
+        learn_more_link: '/dtrader/',
         download_links: {
-            GooglePlay: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
-            AppStore: 'https://apps.apple.com/ug/app/deriv-go/id1550561298',
-            APK: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
+            Browser: 'https://app.deriv.com/',
         },
     },
     {
@@ -77,12 +66,14 @@ const platforms: Platform[] = [
         },
     },
     {
-        title: 'Binary Bot',
-        icon: BinaryBotIcon,
-        description: 'Our legacy automated trading platform.',
-        learn_more_link: 'https://bot.deriv.com/',
+        title: 'Deriv GO',
+        icon: DerivGOIcon,
+        description: 'Our best trading experience on your mobile.',
+        learn_more_link: 'http://localhost:8000/landing/deriv-go/',
         download_links: {
-            Browser: 'https://bot.binary.com/',
+            GooglePlay: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
+            AppStore: 'https://apps.apple.com/ug/app/deriv-go/id1550561298',
+            APK: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
         },
     },
     {
@@ -92,6 +83,15 @@ const platforms: Platform[] = [
         learn_more_link: 'https://smarttrader.deriv.com/en/trading.html',
         download_links: {
             Browser: 'https://smarttrader.deriv.com/',
+        },
+    },
+    {
+        title: 'Binary Bot',
+        icon: BinaryBotIcon,
+        description: 'Our legacy automated trading platform.',
+        learn_more_link: 'https://bot.deriv.com/',
+        download_links: {
+            Browser: 'https://bot.binary.com/',
         },
     },
     {

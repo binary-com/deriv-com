@@ -5,10 +5,10 @@ import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 
-type StepType = {
-    image_name: string
-    current_step: string
-    no_margin: string
+type StepProps = {
+    image_name?: string
+    current_step?: string
+    no_margin?: string
 }
 const query = graphql`
     query {
@@ -61,7 +61,7 @@ const VideoWrapper = styled.div`
         width: 100%;
     }
 `
-const Step = styled(Header)<StepType>`
+const Step = styled(Header)<StepProps>`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;

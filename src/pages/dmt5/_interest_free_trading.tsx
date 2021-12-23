@@ -9,10 +9,6 @@ import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
 
-type TextCheckerType = {
-    children?: string
-}
-
 const ImageWrapper = styled.div`
     width: 124px;
     height: 84px;
@@ -133,7 +129,7 @@ const StyledImg = styled.img`
     }
 `
 
-const CheckedText: React.FC<TextCheckerType> = ({ children }) => (
+const CheckedText = ({ children }): ReactElement => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
@@ -182,7 +178,5 @@ const InterestFreeTrading = (): ReactElement => {
         </StyledContainer>
     )
 }
-
-InterestFreeTrading.propTypes = {}
 
 export default InterestFreeTrading

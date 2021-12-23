@@ -7,7 +7,7 @@ import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
-type PropsType = {
+type DBannerProps = {
     background_pattern?: string
     data?: string
     is_ppc?: boolean
@@ -111,12 +111,12 @@ const StyledHeader = styled(Header)`
 `
 
 const DBanner = ({
-    background_pattern,
-    data,
-    is_ppc,
-    title,
-    image_alt,
-}: PropsType): ReactElement => {
+    background_pattern = '',
+    data = '',
+    is_ppc = false,
+    title = '',
+    image_alt = '',
+}: DBannerProps): ReactElement => {
     const BackgroundPattern = styled.img`
         position: absolute;
         top: 0;

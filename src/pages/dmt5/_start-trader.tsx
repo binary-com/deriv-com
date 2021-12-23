@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
@@ -9,6 +9,11 @@ import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+
+type TabProps = {
+    active?: boolean
+    mobile_padding?: string
+}
 
 const query = graphql`
     query {
@@ -105,7 +110,7 @@ const ImageWrapper = styled.div`
         }
     }
 `
-const TabItem = styled.div`
+const TabItem = styled.div<TabProps>`
     padding: 2.4rem 4rem;
     width: fit-content;
     height: 8.4rem;
@@ -157,7 +162,7 @@ const StyledLocalizedLink = styled(LocalizedLink)`
         text-decoration: underline;
     }
 `
-const StartTrader = () => {
+const StartTrader = (): ReactElement => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
@@ -177,7 +182,7 @@ const StartTrader = () => {
         return Login.loginUrl()
     }
 
-    const { is_eu_country } = React.useContext(DerivStore)
+    const is_eu_country = React.useContext(DerivStore)
 
     return (
         <Section>

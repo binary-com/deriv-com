@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react'
-import PropTypes, { ReactElementLike } from 'prop-types'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Flex, Show, Box } from 'components/containers'
 import { Text } from 'components/elements'
@@ -8,10 +8,24 @@ import AppStore from 'images/svg/dmt5/app-store.svg'
 import GooglePlay from 'images/svg/dmt5/google-play.svg'
 import { LocalizedLink } from 'components/localization'
 
-type ContentType = {
+type ContentProps = {
     children?: ReactNode
     selected?: boolean
     is_reverse?: boolean | string
+}
+
+interface TabProps {
+    children?: ReactNode
+    is_reverse?: string
+    parent_tab?: ObjectConstructor | string
+    has_download_button?: boolean
+    download_links?: { ios: string; android: string }
+    props?: {
+        label?: string
+        description?: ReactElement
+        item_width?: string
+        mobile_item_width?: string
+    }
 }
 
 const DownloadFlex = styled(Flex)`
@@ -36,15 +50,15 @@ const StyledText = styled(Text)`
     }
 `
 
-const TabContent = styled.div`
+const TabContent = styled.div<TabProps>`
     width: 100%;
 `
-const Content = styled.div<ContentType>`
+const Content = styled.div<ContentProps>`
     flex: 1;
     opacity: ${(props) => (props.selected ? '1' : '0')};
     transition: opacity 1s ease-in;
 `
-const TabButton = styled.div<ContentType>`
+const TabButton = styled.div<ContentProps>`
     position: relative;
     z-index: 2;
     display: flex;
@@ -75,7 +89,7 @@ const TabButton = styled.div<ContentType>`
     }
 `
 
-const TabList = styled.div<ContentType>`
+const TabList = styled.div<ContentProps>`
     max-width: 38rem;
     display: flex;
     flex-direction: column;
@@ -116,29 +130,14 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children }): ReactElement => <TabContent role="tabpanel">{children}</TabContent>
+const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
 
 TabPanel.propTypes = {
     children: PropTypes.node,
-    description: PropTypes.elementType,
+    description: PropTypes.element,
     item_width: PropTypes.string,
     label: PropTypes.string,
     mobile_item_width: PropTypes.string,
-}
-
-interface TabType {
-    children?: ReactNode
-    is_reverse?: string
-    parent_tab?: ObjectConstructor | string
-    has_download_button?: boolean
-    download_links?: { ios: string; android: string }
-    description?: ReactElementLike
-    props?: {
-        label?: string
-        description?: ReactElementLike
-        item_width?: string
-        mobile_item_width?: string
-    }
 }
 
 const Tabs = ({
@@ -147,7 +146,7 @@ const Tabs = ({
     parent_tab = '',
     has_download_button = false,
     download_links = { ios: '', android: '' },
-}: TabType): ReactElement => {
+}: TabProps): ReactElement => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
     const prevParentRef = React.useRef()
@@ -174,7 +173,7 @@ const Tabs = ({
             </Desktop>
             <div>
                 <TabList role="tablist" is_reverse={is_reverse}>
-                    {React.Children.map(children, (child: TabType, index) => {
+                    {React.Children.map(children, (child: TabProps, index) => {
                         const {
                             props: { label, description, item_width, mobile_item_width },
                         } = child

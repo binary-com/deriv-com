@@ -9,7 +9,7 @@ import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
-interface CalculatorTypes {
+interface CalculatorProps {
     children?: React.ReactNode
     key?: number
     index?: number
@@ -161,12 +161,12 @@ const StyledFlex = styled(Flex)`
 
 const CalculatorCard = ({
     button_text,
-    image_alt_name,
-    image_name,
-    link,
+    image_alt_name = '',
+    image_name = '',
+    link = '',
     name,
     text,
-}: CalculatorTypes) => {
+}: CalculatorProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledCardContainer>
@@ -199,7 +199,7 @@ CalculatorCard.propTypes = {
     text: Proptypes.string,
 }
 
-const calculators: CalculatorTypes[] = [
+const calculators: CalculatorProps[] = [
     {
         index: 0,
         name: <Localize translate_text="Margin calculator" />,

@@ -12,7 +12,7 @@ import device from 'themes/device'
 type CardContentType = {
     header: ReactElement
     text: ReactElement
-    image: any // Sean declared contant as any
+    image: any // Sean declared content as any
     key: number
 }
 

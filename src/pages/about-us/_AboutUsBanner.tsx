@@ -8,7 +8,6 @@ import { zoho_url } from 'common/constants'
 import Bg from 'images/common/about-us/about-us-banner.jpg'
 import BgMobile from 'images/common/about-us/about-us-banner-mobile.jpg'
 import { LinkButton } from 'components/form'
-import Linkedin from 'images/svg/about-us/linkedin.svg'
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -57,7 +56,6 @@ const StyledFlex = styled(Flex)`
     }
     @media (max-width: 359px) {
         background-position-x: -40px;
-        height: 546px;
     }
 `
 

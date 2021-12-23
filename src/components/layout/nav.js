@@ -13,6 +13,7 @@ import {
     OffCanvasMenuPartner,
     moveOffCanvasMenu,
     Text,
+    Header,
     QueryImage,
 } from 'components/elements'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
@@ -810,7 +811,7 @@ export const NavStatic = ({ is_ppc }) => (
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    height: 3rem;
+    padding: 10px 0;
 `
 
 const HomeLink = styled(LocalizedLink)`
@@ -1143,28 +1144,28 @@ export const NavSecurity = () => {
                     <HomeContainer justify="space-between">
                         <StyledContainer justify="flex-start">
                             <HomeLink to="/">
-                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
                                     {localize('Go to Deriv.com')}
-                                </Text>
+                                </Header>
                             </HomeLink>
                             <HomeLink to="/story/">
-                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
                                     {localize('About us')}
-                                </Text>
+                                </Header>
                             </HomeLink>
                             <HomeLink to="/contact_us/">
-                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
                                     {localize('Contact us')}
-                                </Text>
+                                </Header>
                             </HomeLink>
                         </StyledContainer>
-                        <DesktopLS>
-                            <LSContainer>
-                                <LanguageSwitcher short_name="true" />
-                            </LSContainer>
-                        </DesktopLS>
+
+                        <Flex ml="auto" ai="center" width="auto">
+                            <LanguageSwitcher short_name="true" is_high_nav />
+                        </Flex>
                     </HomeContainer>
                 </DerivHomeWrapper>
+
                 <StyledNavPartners>
                     <StyledNavWrapper>
                         <NavLeftPartners>
@@ -1184,21 +1185,6 @@ export const NavSecurity = () => {
                                 <span>{localize('Submit a report')}</span>
                             </LinkButton>
                         </SecurityNavRight>
-
-                        <Mobile>
-                            <Flex ai="center">
-                                <LogoLinkMobile
-                                    style={{ margin: 'unset' }}
-                                    to="/security/"
-                                    aria-label={localize('Security')}
-                                >
-                                    <ResLogo src={LogoOnly} alt="reslogo" />
-                                </LogoLinkMobile>
-                                <Flex ml="auto" ai="center" width="auto">
-                                    <LanguageSwitcher short_name="true" is_high_nav />
-                                </Flex>
-                            </Flex>
-                        </Mobile>
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>

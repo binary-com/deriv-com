@@ -198,7 +198,7 @@ const DHero = () => {
                             <MobileWrapper>
                                 <BtnWrapper>
                                     <StyledLinkButton
-                                        to="https://deriv.com/"
+                                        to="https://oauth.deriv.com/oauth2/authorize?app_id=16929&l=en&brand=deriv"
                                         rel="noopener noreferrer"
                                         secondary="true"
                                     >

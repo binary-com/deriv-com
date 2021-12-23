@@ -284,34 +284,32 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 
 // TODO: To be updated to the new shape of the API of the new endpoint
 exports.createPages = async ({ reporter, actions, graphql }) => {
-    const { createPage } = actions
-    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
-
-    // Query our published articles
-    const result = await graphql(`
-        query MyQuery {
-            directus {
-                blog(filter: { status: { _eq: "published" } }) {
-                    id
-                    slug
-                }
-            }
-        }
-    `)
-
-    if (result.errors) {
-        reporter.panic(result.errors)
-    }
-    const blog = result.data.directus.blog
-    blog.forEach((blog_post) => {
-        createPage({
-            path: `/academy/blog/posts/${blog_post.slug}/`,
-            component: articleTemplate,
-            context: {
-                locale: 'en',
-                pathname: `/academy/blog/posts/${blog_post.slug}/`,
-                slug: blog_post.slug,
-            },
-        })
-    })
+    // const { createPage } = actions
+    // const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
+    // // Query our published articles
+    // const result = await graphql(`
+    //     query MyQuery {
+    //         directus {
+    //             blog(filter: { status: { _eq: "published" } }) {
+    //                 id
+    //                 slug
+    //             }
+    //         }
+    //     }
+    // `)
+    // if (result.errors) {
+    //     reporter.panic(result.errors)
+    // }
+    // const blog = result.data.directus.blog
+    // blog.forEach((blog_post) => {
+    //     createPage({
+    //         path: `/academy/blog/posts/${blog_post.slug}/`,
+    //         component: articleTemplate,
+    //         context: {
+    //             locale: 'en',
+    //             pathname: `/academy/blog/posts/${blog_post.slug}/`,
+    //             slug: blog_post.slug,
+    //         },
+    //     })
+    // })
 }

@@ -68,6 +68,7 @@ export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
 NextButton.propTypes = PrevButton.propTypes
 
 export const Carousel = ({
+    autoplay_delay,
     autoplay_interval,
     chevron_style,
     children,
@@ -97,7 +98,7 @@ export const Carousel = ({
         }
     }, [embla])
 
-    const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval)
+    const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval, autoplay_delay)
 
     const scrollPrev = useCallback(() => {
         if (!embla) return
@@ -194,6 +195,7 @@ export const Carousel = ({
 }
 
 Carousel.propTypes = {
+    autoplay_delay: PropTypes.number,
     autoplay_interval: PropTypes.number,
     chevron_style: PropTypes.object,
     children: PropTypes.array,

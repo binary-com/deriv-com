@@ -30,7 +30,7 @@ const VerticalCarousel = ({ contents }) => {
         },
     }
     return (
-        <Carousel has_autoplay autoplay_interval={2500} {...settings}>
+        <Carousel has_autoplay autoplay_delay={6000} autoplay_interval={2500} {...settings}>
             {contents.map((content, index) => (
                 <StyledHeader
                     as="h3"

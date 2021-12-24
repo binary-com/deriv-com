@@ -185,11 +185,56 @@ const StartTrader = (): ReactElement => {
 
     const is_eu_country = React.useContext(DerivStore)
 
-    const getImage = (is_mobile: boolean, step: string[]) => {
-        return is_mobile ? data[step[0]] : data[step[1]]
+    const getImage = (is_mob: boolean, step: string[]) => {
+        return is_mob ? data[step[0]] : data[step[1]]
     }
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
+
+    const account = is_eu_country ? localize('Real account') : localize('Real money account')
+
+    const text_1 = is_eu_country ? (
+        <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+    ) : (
+        <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
+    )
+
+    const text_2 = is_eu_country ? (
+        <Localize translate_text="Create a Deriv real account." />
+    ) : (
+        <Localize translate_text="Create a Deriv real money account." />
+    )
+
+    const text_3 = is_eu_country ? (
+        <Localize translate_text="Create a CFDs real account based on your trade preference." />
+    ) : (
+        <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
+    )
+
+    const step_2_image = is_eu_country ? (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step2_mobile_eu', 'demo_step2_eu'])}
+            alt="demo_step2_eu"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step2_mobile', 'demo_step2'])}
+            alt="Demo DMT5 account- step 2"
+        />
+    )
+
+    const step_3_image = is_eu_country ? (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step3_mobile_eu', 'real_step3_eu'])}
+            alt="Real DMT5 account- step 3"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step3_mobile', 'real_step3'])}
+            alt="Real DMT5 account- step 3"
+        />
+    )
+
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
@@ -211,7 +256,7 @@ const StartTrader = (): ReactElement => {
                     onClick={() => onTabClick('Real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {is_eu_country ? localize('Real account') : localize('Real money account')}
+                        {account}
                     </StyledText>
                 </TabItem>
             </Flex>
@@ -243,35 +288,8 @@ const StartTrader = (): ReactElement => {
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
-                                ) : (
-                                    <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
-                                )
-                            }
-                        >
-                            <ImageWrapper>
-                                {is_eu_country ? (
-                                    <QueryImage
-                                        data={getImage(is_mobile, [
-                                            'demo_step2_mobile_eu',
-                                            'demo_step2_eu',
-                                        ])}
-                                        alt="demo_step2_eu"
-                                    />
-                                ) : (
-                                    <QueryImage
-                                        data={getImage(is_mobile, [
-                                            'demo_step2_mobile',
-                                            'demo_step2',
-                                        ])}
-                                        alt="Demo DMT5 account- step 2"
-                                    />
-                                )}
-                            </ImageWrapper>
+                        <SideTab.Panel label="" description={text_1}>
+                            <ImageWrapper>{step_2_image}</ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -313,16 +331,7 @@ const StartTrader = (): ReactElement => {
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Create a Deriv real account." />
-                                ) : (
-                                    <Localize translate_text="Create a Deriv real money account." />
-                                )
-                            }
-                        >
+                        <SideTab.Panel label="" description={text_2}>
                             <ImageWrapper>
                                 <QueryImage
                                     data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
@@ -330,35 +339,8 @@ const StartTrader = (): ReactElement => {
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Create a CFDs real account based on your trade preference." />
-                                ) : (
-                                    <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
-                                )
-                            }
-                        >
-                            <ImageWrapper>
-                                {is_eu_country ? (
-                                    <QueryImage
-                                        data={getImage(is_mobile, [
-                                            'real_step3_mobile_eu',
-                                            'real_step3_eu',
-                                        ])}
-                                        alt="Real DMT5 account- step 3"
-                                    />
-                                ) : (
-                                    <QueryImage
-                                        data={getImage(is_mobile, [
-                                            'real_step3_mobile',
-                                            'real_step3',
-                                        ])}
-                                        alt="Real DMT5 account- step 3"
-                                    />
-                                )}
-                            </ImageWrapper>
+                        <SideTab.Panel label="" description={text_3}>
+                            <ImageWrapper>{step_3_image}</ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""

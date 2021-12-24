@@ -20,9 +20,9 @@ const Partner = () => {
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
             <SEO
-                title={localize('Partnership Programme | Deriv')}
+                title={localize('Be our partner | Partnership programmes | Deriv')}
                 description={localize(
-                    'Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees.',
+                    'Explore Deriv’s partnership programmes and team up with a trusted online trading broker to earn extra income.',
                 )}
                 meta_attributes={meta_attributes}
             />

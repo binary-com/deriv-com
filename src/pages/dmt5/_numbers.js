@@ -75,7 +75,7 @@ const Numbers = ({ numbers_content }) => {
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">
                 {numbers_content.map((content, index) => (
                     <Number key={index}>
-                        <StyledHeader as="h2" type="page-title">
+                        <StyledHeader as="p" type="page-title">
                             {content.title}
                         </StyledHeader>
                         <Splitter />

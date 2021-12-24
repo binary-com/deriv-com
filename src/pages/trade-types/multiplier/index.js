@@ -32,7 +32,7 @@ const Multipliers = () => {
             <SEO
                 title={localize('Multipliers trading | Trade types | Deriv')}
                 description={localize(
-                    'Learn about multipliers trading on Deriv. Enjoy a new way to trade with leverage without risking more than your stake — more profit potential, no swap charges.',
+                    'Learn about Deriv multipliers. Maximise potential profit without risking more than your stake. Available on forex, synthetic indices, and cryptocurrencies.',
                 )}
                 meta_attributes={meta_attributes}
             />

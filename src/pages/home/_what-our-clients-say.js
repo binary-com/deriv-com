@@ -330,7 +330,6 @@ const WhatOurClientsSay = () => {
                             pl="40px"
                             max_width="690px"
                             tablet={{
-                                pt: '85px',
                                 pl: '0',
                                 max_width: '100%',
                             }}

@@ -27,7 +27,6 @@ const eu_countries = [
     'se',
     'ie',
     'im',
-    'gb',
     'mt',
 ]
 

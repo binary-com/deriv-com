@@ -107,14 +107,11 @@ const platforms: Platform[] = [
 
 const query = graphql`
     query {
-        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
-            ...homePageHeroFadeIn
-        }
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
             ...fadeIn
         }
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
-            ...fadeIn
+        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
+            ...homePageHeroFadeIn
         }
         platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
             ...fadeIn
@@ -122,10 +119,13 @@ const query = graphql`
         platforms_dbot: file(relativePath: { eq: "home/platforms_dbot.png" }) {
             ...fadeIn
         }
-        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
+        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
         }
         platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader.png" }) {
+            ...fadeIn
+        }
+        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
             ...fadeIn
         }
         platforms_api: file(relativePath: { eq: "home/platforms_api.png" }) {

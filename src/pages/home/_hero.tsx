@@ -16,16 +16,16 @@ const query = graphql`
             ...homePageHeroFadeIn
         }
         hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
-            ...fadeIn
+            ...homePageHeroFadeIn
         }
         hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
-            ...fadeIn
+            ...homePageHeroFadeIn
         }
         hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
-            ...fadeIn
+            ...homePageHeroFadeIn
         }
         hero_platform4: file(relativePath: { eq: "home/hero_platform4.png" }) {
-            ...fadeIn
+            ...homePageHeroFadeIn
         }
     }
 `
@@ -57,7 +57,7 @@ const HeroWrapper = styled.section`
     @media ${device.tabletL} {
         flex-wrap: wrap;
         justify-content: flex-start;
-        padding: 40px 0 46px;
+        padding: calc(7rem + 40px) 0 46px;
     }
 `
 const HeroButton = styled(LinkButton)`

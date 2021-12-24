@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 
 type QueryImageProps = {
     alt: string
     className?: string
-    data: IGatsbyImageData
+    data: ImageDataLike
     height?: string
     width?: string
     loading?: 'eager' | 'lazy'

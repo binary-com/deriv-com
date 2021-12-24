@@ -102,7 +102,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const DBanner = ({ background_pattern, data, is_ppc, title }) => {
+const DBanner = ({ background_pattern, data, is_ppc, title, image_alt }) => {
     const BackgroundPattern = styled.img`
         position: absolute;
         top: 0;
@@ -129,11 +129,11 @@ const DBanner = ({ background_pattern, data, is_ppc, title }) => {
     return (
         <Flex position="relative">
             <ImageWrapper ai="center">
-                <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
+                <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
-                    <StyledHeader color="white" size="5.6rem" mb="4rem" max_width="52rem">
+                    <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="52rem">
                         {title}
                     </StyledHeader>
                     <StyledLinkButton
@@ -154,6 +154,7 @@ const DBanner = ({ background_pattern, data, is_ppc, title }) => {
 DBanner.propTypes = {
     background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     data: PropTypes.object.isRequired,
+    image_alt: PropTypes.string,
     is_ppc: PropTypes.bool,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }

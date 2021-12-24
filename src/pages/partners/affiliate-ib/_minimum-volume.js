@@ -34,11 +34,11 @@ const TitleWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     max-width: 1200px;
     margin: 0 auto 24px;
+    text-align: left;
 
     @media ${device.mobileL} {
         max-width: unset;
         margin: 0 auto 16px;
-        text-align: left !important;
     }
 `
 const ExampleWrapper = styled(Flex)`
@@ -98,7 +98,7 @@ const MinimumVolume = () => {
         <StyledSection>
             <Container direction="column">
                 <TitleWrapper direction="column">
-                    <Header type="page-title" align="center" mb="0.8rem">
+                    <Header as="h2" type="page-title" align="center" mb="0.8rem">
                         {localize('Minimum volume requirement')}
                     </Header>
                     <Text size="16px" align="center">
@@ -106,7 +106,7 @@ const MinimumVolume = () => {
                     </Text>
                 </TitleWrapper>
                 <ExampleWrapper>
-                    <StyledHeader type="main-paragraph" mb="2.4rem">
+                    <StyledHeader as="h4" type="main-paragraph" mb="2.4rem">
                         {localize('Example:')}
                     </StyledHeader>
                     <CalculationWrapper ai="center" mb="24px">

@@ -6,6 +6,7 @@ import { StyledLinkButton } from './_trading-cfd-increases'
 import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -24,11 +25,18 @@ const query = graphql`
 const ImageWrapper = styled.div`
     width: 100%;
 `
+
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding-bottom: 0;
+    }
+`
+
 const MindWhenTrading = () => {
     const data = useStaticQuery(query)
 
     return (
-        <SectionContainer background="white" padding="0 0 4rem">
+        <StyledSectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" type="section-title" mb="2rem">
                     {localize('Things to keep in mind when trading CFDs')}
@@ -38,7 +46,7 @@ const MindWhenTrading = () => {
                 </Text>
                 <Text mb="3.2rem">
                     {localize(
-                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure. ',
+                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.',
                     )}
                 </Text>
             </SmallContainer>
@@ -47,7 +55,7 @@ const MindWhenTrading = () => {
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_relationship_piechart']}
-                            alt="Trade types margin market"
+                            alt="Pie chart explaining relation between margin and leverage"
                         />
                     </ImageWrapper>
                 </SmallContainer>
@@ -71,7 +79,7 @@ const MindWhenTrading = () => {
                     {localize('Margin calculator')}
                 </StyledLinkButton>
             </SmallContainer>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

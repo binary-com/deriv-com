@@ -218,7 +218,7 @@ export const Offices = (): ReactElement => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Malta"
+                                            alt="Deriv's office location map in Malta"
                                             data={data['map_malta']}
                                             height="100%"
                                         />
@@ -264,7 +264,7 @@ export const Offices = (): ReactElement => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Dubai"
+                                            alt="Deriv's office location map in Dubai"
                                             data={data['map_dubai']}
                                             height="100%"
                                         />
@@ -311,7 +311,7 @@ export const Offices = (): ReactElement => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Cyberjaya"
+                                                alt="Deriv's office location map in Cyberjaya"
                                                 data={data['map_cyberjaya']}
                                                 height="100%"
                                             />
@@ -348,7 +348,7 @@ export const Offices = (): ReactElement => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Labuan"
+                                                alt="Deriv's office location map in Labuan"
                                                 data={data['map_labuan']}
                                                 height="100%"
                                             />
@@ -383,7 +383,7 @@ export const Offices = (): ReactElement => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Ipoh"
+                                                alt="Deriv's office location map in Ipoh"
                                                 data={data['map_ipoh']}
                                                 height="100%"
                                             />
@@ -420,7 +420,7 @@ export const Offices = (): ReactElement => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Melaka"
+                                                alt="Deriv's office location map in Melaka"
                                                 data={data['map_melaka']}
                                                 height="100%"
                                             />
@@ -468,7 +468,7 @@ export const Offices = (): ReactElement => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Paraguay"
+                                            alt="Deriv's office location map in Paraguay"
                                             data={data['map_paraguay']}
                                             height="100%"
                                         />
@@ -515,7 +515,7 @@ export const Offices = (): ReactElement => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Cyprus"
+                                            alt="Deriv's office location map in Cyprus"
                                             data={data['map_cyprus']}
                                             height="100%"
                                         />
@@ -552,7 +552,7 @@ export const Offices = (): ReactElement => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Rwanda"
+                                            alt="Deriv's office location map in Rwanda"
                                             data={data['map_rwanda']}
                                             height="100%"
                                         />
@@ -589,7 +589,7 @@ export const Offices = (): ReactElement => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Belarus"
+                                            alt="Deriv's office location map in Belarus"
                                             data={data['map_belarus_contact']}
                                             height="100%"
                                         />

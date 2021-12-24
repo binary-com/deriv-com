@@ -9,6 +9,7 @@
         "@livechat/customer-sdk": "^3.0.0",
         "@loadable/component": "^5.15.0",
         "@svgr/webpack": "^5.5.0",
+        "@u-wave/react-vimeo": "^0.9.5",
         "commander": "^7.2.0",
         "crc-32": "^1.2.0",
         "embla-carousel": "^4.5.3",

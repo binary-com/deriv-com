@@ -11,7 +11,7 @@ import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
-    const [play_video_id, setPlayVideoId] = useState('')
+    // const [play_video_id, setPlayVideoId] = useState('')
     const [title_params, setTitleParams] = useQueryParam('t', StringParam)
 
     // opens the video player based on the valid video title passed to url params
@@ -25,17 +25,18 @@ const AllVideos = ({ video_data }) => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
     }, [show])
 
-    const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
+    // const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
+    const play_video_src = video_data?.vimeo_id
 
     const openVideo = (track_id, video_title) => {
-        setPlayVideoId(track_id)
+        // setPlayVideoId(track_id)
         setTitleParams(video_title)
         setShow(true)
     }
 
     const closeVideo = () => {
         setShow(false)
-        setPlayVideoId('')
+        // setPlayVideoId('')
         setTitleParams()
     }
     return (
@@ -60,7 +61,9 @@ const AllVideos = ({ video_data }) => {
                     )
                 })}
             </VideoGrid>
-            {show && <VideoPlayer video_src={play_video_src} closeVideo={closeVideo} />}
+            {show && (
+                <VideoPlayer video_src={play_video_src || 659540808} closeVideo={closeVideo} />
+            )}
         </Container>
     )
 }

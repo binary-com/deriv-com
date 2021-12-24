@@ -5,6 +5,21 @@ import { PlatformSelector, Platform, PlatformDetails } from './_platform_selecto
 import { localize } from 'components/localization'
 import { Carousel, Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { Container, SectionContainer } from 'components/containers'
+import {
+    deriv_api_url,
+    deriv_app_url,
+    deriv_bot_app_url,
+    deriv_mt5_app_url,
+    deriv_go_ios_url,
+    deriv_go_playstore_url,
+    derivx_android_url,
+    derivx_app_url,
+    derivx_ios_url,
+    dmt5_android_url,
+    dmt5_linux_url,
+    dmt5_macos_url,
+    smarttrader_url,
+} from 'common/constants'
 import device from 'themes/device.js'
 //SVG
 import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
@@ -28,12 +43,10 @@ const platforms: Platform[] = [
         description: 'The all-in-one FX & CFD trading platform.',
         learn_more_link: '/dmt5/',
         download_links: {
-            Browser: 'https://app.deriv.com/mt5',
-            AppStore:
-                'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg',
-            GooglePlay:
-                'https://download.mql5.com/cdn/mobile/mt5/android?server=Deriv-Demo,Deriv-Server',
-            Linux: 'https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux',
+            Browser: deriv_mt5_app_url,
+            AppStore: dmt5_macos_url,
+            GooglePlay: dmt5_android_url,
+            Linux: dmt5_linux_url,
         },
     },
     {
@@ -42,7 +55,7 @@ const platforms: Platform[] = [
         description: 'Our flagship app for trading options, multipliers & spreads.',
         learn_more_link: '/dtrader/',
         download_links: {
-            Browser: 'https://app.deriv.com/',
+            Browser: deriv_app_url,
         },
     },
     {
@@ -51,9 +64,9 @@ const platforms: Platform[] = [
         description: 'The multi-asset trading platform to fit your style.',
         learn_more_link: '/derivx/',
         download_links: {
-            GooglePlay: 'https://play.google.com/store/apps/details?id=com.deriv.dx&hl=en&gl=US',
-            AppStore: 'https://apps.apple.com/cg/app/deriv-x/id1563337503',
-            Browser: 'https://app.deriv.com/derivx',
+            GooglePlay: derivx_android_url,
+            AppStore: derivx_ios_url,
+            Browser: derivx_app_url,
         },
     },
     {
@@ -62,34 +75,34 @@ const platforms: Platform[] = [
         description: 'Automate your trading. No coding required.',
         learn_more_link: '/dbot/',
         download_links: {
-            Browser: 'https://app.deriv.com/bot',
+            Browser: deriv_bot_app_url,
         },
     },
     {
         title: 'Deriv GO',
         icon: DerivGOIcon,
         description: 'Our best trading experience on your mobile.',
-        learn_more_link: 'http://localhost:8000/landing/deriv-go/',
+        learn_more_link: '/landing/deriv-go/',
         download_links: {
-            GooglePlay: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
-            AppStore: 'https://apps.apple.com/ug/app/deriv-go/id1550561298',
-            APK: 'https://play.google.com/store/apps/details?id=com.deriv.app&hl=en&gl=US',
+            GooglePlay: deriv_go_playstore_url,
+            AppStore: deriv_go_ios_url,
+            APK: deriv_go_playstore_url,
         },
     },
     {
         title: 'SmartTrader',
         icon: SmartTraderIcon,
         description: 'Our legacy options trading platform.',
-        learn_more_link: 'https://smarttrader.deriv.com/en/trading.html',
+        learn_more_link: smarttrader_url,
         download_links: {
-            Browser: 'https://smarttrader.deriv.com/',
+            Browser: smarttrader_url,
         },
     },
     {
         title: 'Binary Bot',
         icon: BinaryBotIcon,
         description: 'Our legacy automated trading platform.',
-        learn_more_link: 'https://bot.deriv.com/',
+        learn_more_link: 'https://bot.binary.com/',
         download_links: {
             Browser: 'https://bot.binary.com/',
         },
@@ -98,23 +111,20 @@ const platforms: Platform[] = [
         title: 'API',
         icon: APIIcon,
         description: 'Build your own apps with our API.',
-        learn_more_link: 'https://api.deriv.com/',
+        learn_more_link: deriv_api_url,
         download_links: {
-            Browser: 'https://api.deriv.com/',
+            Browser: deriv_api_url,
         },
     },
 ]
 
 const query = graphql`
     query {
-        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
-            ...homePageHeroFadeIn
-        }
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
             ...fadeIn
         }
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
-            ...fadeIn
+        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
+            ...homePageHeroFadeIn
         }
         platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
             ...fadeIn
@@ -122,10 +132,13 @@ const query = graphql`
         platforms_dbot: file(relativePath: { eq: "home/platforms_dbot.png" }) {
             ...fadeIn
         }
-        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
+        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
         }
         platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader.png" }) {
+            ...fadeIn
+        }
+        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
             ...fadeIn
         }
         platforms_api: file(relativePath: { eq: "home/platforms_api.png" }) {
@@ -273,6 +286,10 @@ const DownloadLinks = styled.div`
         margin: 3.2rem 3.8rem;
         padding: auto;
     }
+    @media ${device.mobileL} {
+        padding: 0;
+        margin: 3rem 0;
+    }
 `
 
 const DownloadLink = styled(StyledLink)`
@@ -324,10 +341,7 @@ const OurPlatforms = (): React.ReactElement => {
                 bottom: 315px;
             }
             @media (max-width: 410px) {
-                bottom: 370px;
-            }
-            @media (max-width: 399px) {
-                bottom: 415px;
+                bottom: 315px;
             }
         `,
     }

@@ -273,6 +273,10 @@ const DownloadLinks = styled.div`
         margin: 3.2rem 3.8rem;
         padding: auto;
     }
+    @media ${device.mobileL} {
+        padding: 0;
+        margin: 3rem 0;
+    }
 `
 
 const DownloadLink = styled(StyledLink)`
@@ -324,10 +328,7 @@ const OurPlatforms = (): React.ReactElement => {
                 bottom: 315px;
             }
             @media (max-width: 410px) {
-                bottom: 370px;
-            }
-            @media (max-width: 399px) {
-                bottom: 415px;
+                bottom: 315px;
             }
         `,
     }

@@ -86,7 +86,7 @@ const platforms: Platform[] = [
         download_links: {
             GooglePlay: deriv_go_playstore_url,
             AppStore: deriv_go_ios_url,
-            APK: deriv_go_playstore_url,
+            // APK: deriv_go_playstore_url,
         },
     },
     {

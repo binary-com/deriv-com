@@ -1,6 +1,7 @@
 import React from 'react'
-import { MarketsFold, OurPlatforms, Signup, WhatOurClientsSay } from './home/_lazy-load'
+import { OurPlatforms, Signup, WhatOurClientsSay } from './home/_lazy-load'
 import TradeTypes from './home/_trade-types'
+import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'

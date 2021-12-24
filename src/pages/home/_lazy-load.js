@@ -1,6 +1,5 @@
 import Loadable from '@loadable/component'
 
-export const MarketsFold = Loadable(() => import('./_markets_fold'))
 export const Markets = Loadable(() => import('./_markets'))
 export const OurPlatforms = Loadable(() => import('./_our_platforms'))
 export const WhatOurClientsSay = Loadable(() => import('./_what-our-clients-say'))

@@ -28,7 +28,7 @@ export const academyQuery = graphql`
                     status: { _eq: "published" }
                     _or: [
                         { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
             ) {
@@ -54,7 +54,7 @@ export const academyQuery = graphql`
                     status: { _eq: "published" }
                     _or: [
                         { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
             ) {
@@ -109,7 +109,7 @@ export const academyQuery = graphql`
                     test_data: { _eq: false }
                     _or: [
                         { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
                 limit: 6
@@ -118,7 +118,6 @@ export const academyQuery = graphql`
                 id
                 blog_title
                 slug
-                hide_for_eu
                 tags {
                     tags_id {
                         tag_name
@@ -141,7 +140,7 @@ export const academyQuery = graphql`
                     test_data: { _eq: false }
                     _or: [
                         { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
                 limit: 6
@@ -150,7 +149,6 @@ export const academyQuery = graphql`
                 id
                 blog_title
                 slug
-                hide_for_eu
                 tags {
                     tags_id {
                         tag_name
@@ -187,7 +185,13 @@ export const academyQuery = graphql`
             }
             videos_eu: videos(
                 limit: 6
-                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                filter: {
+                    status: { _eq: "published" }
+                    _or: [
+                        { visibility: { _eq: "hide_for_uk" } }
+                        { visibility: { _eq: "visible_to_all" } }
+                    ]
+                }
                 sort: "-published_date"
             ) {
                 video_title
@@ -195,7 +199,35 @@ export const academyQuery = graphql`
                 video_description
                 video_duration
                 featured
-                hide_for_eu
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
+            videos_uk: videos(
+                limit: 6
+                filter: {
+                    status: { _eq: "published" }
+                    _or: [
+                        { visibility: { _eq: "hide_for_eu" } }
+                        { visibility: { _eq: "visible_to_all" } }
+                    ]
+                }
+                sort: "-published_date"
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
                 video_thumbnail {
                     id
                     title
@@ -219,7 +251,6 @@ export const academyQuery = graphql`
                 video_description
                 video_duration
                 featured
-                hide_for_eu
                 video_thumbnail {
                     id
                     title
@@ -237,7 +268,10 @@ export const academyQuery = graphql`
                 filter: {
                     status: { _eq: "published" }
                     featured: { _eq: true }
-                    hide_for_eu: { _eq: false }
+                    _or: [
+                        { visibility: { _eq: "hide_for_uk" } }
+                        { visibility: { _eq: "visible_to_all" } }
+                    ]
                 }
                 sort: "-published_date"
                 limit: 1
@@ -247,7 +281,36 @@ export const academyQuery = graphql`
                 video_description
                 video_duration
                 featured
-                hide_for_eu
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
+            featured_video_uk: videos(
+                filter: {
+                    status: { _eq: "published" }
+                    featured: { _eq: true }
+                    _or: [
+                        { visibility: { _eq: "hide_for_eu" } }
+                        { visibility: { _eq: "visible_to_all" } }
+                    ]
+                }
+                sort: "-published_date"
+                limit: 1
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
                 video_thumbnail {
                     id
                     title
@@ -295,7 +358,7 @@ export const academyQuery = graphql`
                     test_data: { _eq: false }
                     _or: [
                         { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
                 sort: "-published_date"
@@ -314,7 +377,6 @@ export const academyQuery = graphql`
                 slug
                 published_date
                 featured
-                hide_for_eu
                 tags {
                     id
                     tags_id {
@@ -331,7 +393,7 @@ export const academyQuery = graphql`
                     test_data: { _eq: false }
                     _or: [
                         { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
                 sort: "-published_date"
@@ -350,7 +412,6 @@ export const academyQuery = graphql`
                 slug
                 published_date
                 featured
-                hide_for_eu
                 tags {
                     id
                     tags_id {
@@ -400,7 +461,7 @@ export const academyQuery = graphql`
                     test_data: { _eq: false }
                     _or: [
                         { visibility: { _eq: "hide_for_uk" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
                 sort: "-published_date"
@@ -419,7 +480,6 @@ export const academyQuery = graphql`
                 slug
                 published_date
                 featured
-                hide_for_eu
                 tags {
                     id
                     tags_id {
@@ -437,7 +497,7 @@ export const academyQuery = graphql`
                     test_data: { _eq: false }
                     _or: [
                         { visibility: { _eq: "hide_for_eu" } }
-                        { visibility: { _eq: "show_for_all" } }
+                        { visibility: { _eq: "visible_to_all" } }
                     ]
                 }
                 sort: "-published_date"
@@ -456,7 +516,6 @@ export const academyQuery = graphql`
                 slug
                 published_date
                 featured
-                hide_for_eu
                 tags {
                     id
                     tags_id {

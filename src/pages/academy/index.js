@@ -54,34 +54,38 @@ const DerivBlog = ({ data }) => {
 
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 
-    let market_news_data, recent_data, featured_data, homepage_banner_data
+    let market_news_data,
+        recent_data,
+        featured_data,
+        homepage_banner_data,
+        non_featured_video_list_data,
+        featured_video_list_data
 
     if (is_eu_country) {
         market_news_data = data.directus.market_news_eu
         recent_data = data.directus.recent_eu
         featured_data = data.directus.featured_eu
         homepage_banner_data = data.directus.homepage_banners_eu
+        non_featured_video_list_data = data.directus.videos_eu
+        featured_video_list_data = data.directus.featured_video_eu
     } else if (is_uk_country) {
         market_news_data = data.directus.market_news_uk
         recent_data = data.directus.recent_uk
         featured_data = data.directus.featured_uk
         homepage_banner_data = data.directus.homepage_banners_uk
+        non_featured_video_list_data = data.directus.videos_uk
+        featured_video_list_data = data.directus.featured_video_uk
     } else {
         market_news_data = data.directus.market_news
         recent_data = data.directus.recent
         featured_data = data.directus.featured
         homepage_banner_data = data.directus.homepage_banners
+        non_featured_video_list_data = data.directus.videos
+        featured_video_list_data = data.directus.featured_video
     }
 
     //arranges homepage banners in ascendingly on order value
     homepage_banner_data.sort((a, b) => parseInt(a.order) - parseInt(b.order))
-
-    const non_featured_video_list_data = is_eu_country
-        ? data.directus.videos_eu
-        : data.directus.videos
-    const featured_video_list_data = is_eu_country
-        ? data.directus.featured_video_eu
-        : data.directus.featured_video
 
     return (
         <Layout type="academy">

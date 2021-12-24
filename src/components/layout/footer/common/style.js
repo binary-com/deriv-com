@@ -190,7 +190,7 @@ export const CopyrightWrapper = styled(Flex)`
     grid-area: copyright;
     background: var(--color-grey-25);
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 
     p {
         font-size: var(--text-size-xs);
@@ -201,6 +201,7 @@ export const CopyrightWrapper = styled(Flex)`
         width: 90%;
         margin: 0 auto;
         padding: 2rem 0;
+        justify-content: center;
 
         p {
             font-size: 1.75rem;

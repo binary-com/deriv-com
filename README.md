@@ -70,12 +70,7 @@ Moreover, having these extensions will help you to speed up the development proc
 
 5.  **Add env variables:**
 
-    ```sh
-    DIRECTUS_AUTH_TOKEN=iNIsMacInflatACk
-    GATSBY_DIRECTUS_AUTH_TOKEN=ErtICisAlDRIonSh
-    ```
-
-    Create two files `.env.development` and `.env.production` inside your project root directory and add the above keys inside both files.
+    Create two files `.env.development` and `.env.production` inside your project root directory and add the env keys from your **lastpass** into the both files.
 
 6.  **To start developing:**
 

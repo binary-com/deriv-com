@@ -240,18 +240,20 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DerivGo"
-                                icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
-                                }
-                                title={<Localize translate_text="DerivGo" />}
-                                onClick={handleArrowClick}
-                                to="/landing/deriv-go/"
-                            />
-                        </Flex>
+                        {!is_eu_country && (
+                            <Flex mb="2rem">
+                                <NavCard
+                                    aria_label="DerivGo"
+                                    icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                    }
+                                    title={<Localize translate_text="DerivGo" />}
+                                    onClick={handleArrowClick}
+                                    to="/landing/deriv-go/"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="SmartTrader"

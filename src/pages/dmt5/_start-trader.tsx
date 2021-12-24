@@ -185,6 +185,11 @@ const StartTrader = (): ReactElement => {
 
     const is_eu_country = React.useContext(DerivStore)
 
+    const getImage = (is_mobile: boolean, step: string[]) => {
+        return is_mobile ? data[step[0]] : data[step[1]]
+    }
+    const isDemo = tab === 'Demo'
+    const isReal = tab === 'Real'
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
@@ -193,7 +198,7 @@ const StartTrader = (): ReactElement => {
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem
                     mobile_padding="21px 12px"
-                    active={tab === 'Demo'}
+                    active={isDemo}
                     onClick={() => onTabClick('Demo')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
@@ -202,7 +207,7 @@ const StartTrader = (): ReactElement => {
                 </TabItem>
                 <TabItem
                     mobile_padding={is_eu_country ? '21px 12px' : '10px'}
-                    active={tab === 'Real'}
+                    active={isReal}
                     onClick={() => onTabClick('Real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
@@ -212,7 +217,7 @@ const StartTrader = (): ReactElement => {
             </Flex>
 
             <Flex max_width="1200px">
-                {tab === 'Demo' ? (
+                {isDemo ? (
                     <SideTab parent_tab={tab}>
                         <SideTab.Panel
                             label=""
@@ -233,7 +238,7 @@ const StartTrader = (): ReactElement => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
+                                    data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
                                     alt="Demo DMT5 account- step 2"
                                 />
                             </ImageWrapper>
@@ -251,16 +256,18 @@ const StartTrader = (): ReactElement => {
                             <ImageWrapper>
                                 {is_eu_country ? (
                                     <QueryImage
-                                        data={
-                                            data[
-                                                is_mobile ? 'demo_step2_mobile_eu' : 'demo_step2_eu'
-                                            ]
-                                        }
+                                        data={getImage(is_mobile, [
+                                            'demo_step2_mobile_eu',
+                                            'demo_step2_eu',
+                                        ])}
                                         alt="demo_step2_eu"
                                     />
                                 ) : (
                                     <QueryImage
-                                        data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
+                                        data={getImage(is_mobile, [
+                                            'demo_step2_mobile',
+                                            'demo_step2',
+                                        ])}
                                         alt="Demo DMT5 account- step 2"
                                     />
                                 )}
@@ -275,7 +282,7 @@ const StartTrader = (): ReactElement => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
+                                    data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3'])}
                                     alt="Demo DMT5 account- step 3"
                                 />
                             </ImageWrapper>
@@ -301,7 +308,7 @@ const StartTrader = (): ReactElement => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
+                                    data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
                                     alt="Real DMT5 account- step 1"
                                 />
                             </ImageWrapper>
@@ -318,7 +325,7 @@ const StartTrader = (): ReactElement => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
+                                    data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
                                     alt="Real DMT5 account- step 2"
                                 />
                             </ImageWrapper>
@@ -336,16 +343,18 @@ const StartTrader = (): ReactElement => {
                             <ImageWrapper>
                                 {is_eu_country ? (
                                     <QueryImage
-                                        data={
-                                            data[
-                                                is_mobile ? 'real_step3_mobile_eu' : 'real_step3_eu'
-                                            ]
-                                        }
+                                        data={getImage(is_mobile, [
+                                            'real_step3_mobile_eu',
+                                            'real_step3_eu',
+                                        ])}
                                         alt="Real DMT5 account- step 3"
                                     />
                                 ) : (
                                     <QueryImage
-                                        data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
+                                        data={getImage(is_mobile, [
+                                            'real_step3_mobile',
+                                            'real_step3',
+                                        ])}
                                         alt="Real DMT5 account- step 3"
                                     />
                                 )}
@@ -359,7 +368,7 @@ const StartTrader = (): ReactElement => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
+                                    data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])}
                                     alt="Real DMT5 account- step 4"
                                 />
                             </ImageWrapper>

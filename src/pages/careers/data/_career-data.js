@@ -455,7 +455,7 @@ const career_data = {
         {
             header: {
                 background: 'front_end_bg',
-                title: 'Front-end Development',
+                title: 'Front-end',
                 subtitle:
                     'We’re tasked with building the client side of our web applications. We translate UI/UX design wireframes into a user-centric web experience, combining creativity and practicality to provide users with the best experience.',
             },

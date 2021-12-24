@@ -41,7 +41,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const OpenPositions = (data) => {
+const OpenPositions = (showJob, data) => {
     const hidden = data.data == undefined
     return (
         <SectionContainer padding="0">
@@ -49,6 +49,15 @@ const OpenPositions = (data) => {
                 <Header mb="40px" align="center" type="heading-3" as="h3">
                     Open positions
                 </Header>
+                {showJob && (
+                    <div className="embed_jobs_head embed_jobs_with_style_3 embed_jobs_with_style">
+                        <div className="embed_jobs_head2">
+                            <div className="embed_jobs_head3">
+                                <div id="rec_job_listing_div"> </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 {!hidden &&
                     data.data?.map((item, idx) => {
                         return (

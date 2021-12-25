@@ -23,25 +23,6 @@ const StyledSectionContainer = styled(SectionContainer)`
     }
 `
 
-const StartSeparator = styled.div`
-    width: 0;
-    height: 0;
-    border-top: 120px solid transparent;
-    border-right: 100vw solid var(--color-grey-30);
-    @media ${device.tablet} {
-        border-top: 40px solid transparent;
-    }
-`
-
-const EndSeparator = styled.div`
-    width: 0;
-    height: 0;
-    border-left: 100vw solid var(--color-grey-30);
-    border-bottom: 120px solid transparent;
-    @media ${device.tablet} {
-        border-bottom: 40px solid transparent;
-    }
-`
 const StyledFlex = styled(Flex)`
     background-image: url(${Bg});
     background-position: center;

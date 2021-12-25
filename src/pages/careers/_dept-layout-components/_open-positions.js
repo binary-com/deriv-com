@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { zoho_career_url } from '../../../common/constants'
+import ZohoJob from './_zoho-job'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -19,9 +20,9 @@ const PositionLink = styled(LocalizedLink)`
 `
 
 const JobWrapper = styled.div`
+    width: 100%;
     border-bottom: 1px solid #f2f3f4;
     display: grid;
-    grid-template-columns: 3fr 5fr auto;
     padding: 24px 35px 24px 18px;
 
     @media ${device.tablet} {
@@ -41,7 +42,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const OpenPositions = (showJob, data) => {
+const OpenPositions = (data) => {
     const hidden = data.data == undefined
     return (
         <SectionContainer padding="0">
@@ -49,15 +50,9 @@ const OpenPositions = (showJob, data) => {
                 <Header mb="40px" align="center" type="heading-3" as="h3">
                     Open positions
                 </Header>
-                {showJob && (
-                    <div className="embed_jobs_head embed_jobs_with_style_3 embed_jobs_with_style">
-                        <div className="embed_jobs_head2">
-                            <div className="embed_jobs_head3">
-                                <div id="rec_job_listing_div"> </div>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                <JobWrapper>
+                    <ZohoJob />
+                </JobWrapper>
                 {!hidden &&
                     data.data?.map((item, idx) => {
                         return (

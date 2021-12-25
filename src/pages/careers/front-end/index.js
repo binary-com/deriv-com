@@ -13,6 +13,7 @@ const Career2 = () => {
                     'See job vacancies in Deriv’s Front-end development team. Join and grow with us.'
                 }
             />
+
             <DepartmentPage data={career_data.front_end[0]} />
         </>
     )

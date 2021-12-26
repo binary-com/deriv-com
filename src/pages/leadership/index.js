@@ -116,7 +116,7 @@ const Leadership = () => {
                                 <Box max_width="28.2rem" mr="2.4rem">
                                     <QueryImage
                                         data={data['jean_yves']}
-                                        alt={localize('Jean Yves')}
+                                        alt={localize("Jean-Yves Sireau - Deriv's CEO")}
                                         width="28.2rem"
                                     />
                                 </Box>

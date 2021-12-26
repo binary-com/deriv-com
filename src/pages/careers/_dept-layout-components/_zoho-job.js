@@ -36,10 +36,19 @@ const ZohoJob = () => {
         width: 100%;
 
         ul.rec-job-info {
+            margin-bottom: 0 !important;
             padding: 24px 35px 24px 18px;
             width: 100%;
             display: flex;
             border-bottom: 1px solid #f2f3f4 !important;
+
+            &::after {
+                position: absolute;
+                content: '>';
+                top: 50%;
+                font-size: 16px;
+                transform: translateY(-50%);
+            }
         }
         .embed_jobs_with_style .rec-group li.rec-job-title {
             max-width: 450px;

@@ -112,7 +112,7 @@ const card_data: CardType[] = [
     },
 ]
 
-const WhyTradeDerivX = (): ReactElement => {
+const WhyTradeDerivX = () => {
     return (
         <div>
             <SectionContainer>

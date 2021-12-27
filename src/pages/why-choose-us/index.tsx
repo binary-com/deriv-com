@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { IconGrid } from './_icon-grid'
 import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
@@ -54,7 +54,7 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
-const WhyChooseUs = (): ReactNode => {
+const WhyChooseUs = () => {
     return (
         <Layout>
             <SEO

@@ -62,7 +62,7 @@ type ColProps = {
     title: string
 }
 
-const Col = ({ Icon, content, title }: ColProps): ReactElement => (
+const Col = ({ Icon, content, title }: ColProps) => (
     <GridCol>
         <img src={Icon} />
         <Container>
@@ -95,7 +95,7 @@ const GridWrapper = styled(CssGrid)`
     }
 `
 
-export const IconGrid = (): ReactElement => (
+export const IconGrid = () => (
     <GridContainer>
         <GridWrapper columns="repeat(3, 1fr)" column_gap="13rem" row_gap="10rem">
             <Col

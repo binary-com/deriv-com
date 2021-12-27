@@ -60,11 +60,10 @@ const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0: 
+    margin: 0;
     @media ${device.tablet} {
         padding: 0 16px 40px;
     }
-    
 `
 
 const StyledCssGrid = styled(CssGrid)`
@@ -115,7 +114,7 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding:0 0 20px;
+    padding-bottom: 20px;
     @media ${device.tabletS} {
         width: 104px;
         height: 124px;
@@ -142,13 +141,6 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
     
    
 }
-`
-const StyledQueryImage = styled(QueryImage)`
-    border: unset;
-    @media ${device.mobileL} {
-        width: 88px;
-        height: 88px;
-    }
 `
 
 const ModalHeader = styled(Header)`
@@ -219,12 +211,11 @@ const Leader: React.FC<LeaderPopsType> = ({ leader }) => {
         <StyledImageWrapper
             onMouseOver={showModal}
             onMouseLeave={dontShowModal}
-            // onClick={ShowModal}
             width="120px"
             height="120px"
             tabindex="1"
         >
-            <StyledQueryImage
+            <QueryImage
                 width="100%"
                 height="100%"
                 data={leader.image}
@@ -334,7 +325,7 @@ const OurLeadership = () => {
             <StyledCssGrid
                 columns="repeat(auto-fill, 120px)"
                 column_gap="99px"
-                row_gap="80px"
+                row_gap="60px"
                 laptop_columns="repeat(auto-fill, 120px)"
                 tablet_columns="repeat(3, 120px)"
                 tablet_column_gap="99px"

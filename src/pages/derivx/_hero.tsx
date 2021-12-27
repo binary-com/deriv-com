@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, ReactElement } from 'react'
 import { Localize, localize } from 'components/localization'
 import DHero from 'components/custom/_dhero-2'
 import { size } from 'themes/device'
@@ -7,7 +7,7 @@ import DerivXBG2 from 'images/svg/deriv-x/triangle-down.svg'
 import DerivXlogoL from 'images/svg/deriv-x/derivx-logo-light.svg'
 import { isBrowser } from 'common/utility'
 
-const Hero = () => {
+const Hero = (): ReactElement => {
     const [is_mobile, setMobile] = useState(false)
 
     const handleResizeWindow = useCallback(() => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import DTrading from 'components/custom/_dtrading'
 import { SectionContainer, Container, Flex } from 'components/containers'
@@ -8,6 +8,19 @@ import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
 import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
+
+type TradingType = {
+    title?: ReactElement
+    subtitle?: ReactElement
+    image_name?: string
+    image_alt?: string
+}
+
+type CardType = {
+    icon?: string
+    title?: JSX.Element
+    subtitle?: JSX.Element
+}
 
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
@@ -40,7 +53,7 @@ const Card = styled(Flex)`
     }
 `
 
-const trading = [
+const trading: TradingType[] = [
     {
         title: <Localize translate_text="Bespoke trading experience" />,
         subtitle: (
@@ -75,7 +88,7 @@ const trading = [
     },
 ]
 
-const card_data = [
+const card_data: CardType[] = [
     {
         icon: IconNewPromising,
         title: <Localize translate_text="New and promising" />,
@@ -99,7 +112,7 @@ const card_data = [
     },
 ]
 
-const WhyTradeDerivX = () => {
+const WhyTradeDerivX = (): ReactElement => {
     return (
         <div>
             <SectionContainer>
@@ -108,11 +121,11 @@ const WhyTradeDerivX = () => {
                         {localize('Why trade with Deriv X')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
-                        {card_data.map((index) => {
+                        {card_data.map((card, index) => {
                             return (
-                                <Card key={index.title}>
+                                <Card key={index}>
                                     <div>
-                                        <img src={index.icon} alt="" />
+                                        <img src={card.icon} alt="" />
                                     </div>
                                     <Header
                                         width="240px"
@@ -121,9 +134,9 @@ const WhyTradeDerivX = () => {
                                         mb="8px"
                                         as="h3"
                                     >
-                                        {index.title}
+                                        {card.title}
                                     </Header>
-                                    <Text>{index.subtitle}</Text>
+                                    <Text>{card.subtitle}</Text>
                                 </Card>
                             )
                         })}

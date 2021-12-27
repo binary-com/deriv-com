@@ -59,7 +59,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 return (
                                                     <TagWrapper key={article?.id}>
                                                         <StyledCategories>
-                                                            {article.tags_id.tag_name}
+                                                            {article.tags_id?.tag_name}
                                                         </StyledCategories>
                                                     </TagWrapper>
                                                 )
@@ -139,7 +139,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 return (
                                                     <TagWrapper key={article.id}>
                                                         <StyledCategories>
-                                                            {article.tags_id.tag_name}
+                                                            {article.tags_id?.tag_name}
                                                         </StyledCategories>
                                                     </TagWrapper>
                                                 )

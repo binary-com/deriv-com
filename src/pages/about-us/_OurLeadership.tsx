@@ -1,12 +1,12 @@
 import React, { FocusEvent } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import { localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { ImageWrapperProps } from 'components/elements/query-image'
 import device from 'themes/device'
-import { ImageDataLike } from 'gatsby-plugin-image'
 import Linkedin from 'images/svg/about-us/linkedin.svg'
 
 const query = graphql`

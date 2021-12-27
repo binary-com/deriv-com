@@ -1,14 +1,18 @@
 {
-    "include": ["./src/**/*"],
-      "jsx": "react",
-      "compilerOptions": {
-        "baseUrl": "src",
-        "jsx": "preserve",
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "noEmit": true,
-        "skipLibCheck": true,
-        "moduleResolution": "node"
-      }
+  "include": [
+    "./src/**/*",
+    "./src/custom.d.ts"
+  ],
+  "jsx": "react",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "typeRoots" : ["node_modules/@types", "src/types"],
+  }
 }

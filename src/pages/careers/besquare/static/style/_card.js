@@ -113,7 +113,7 @@ export const ListContainer = styled.div`
     grid-column-gap: 8px;
     grid-area: content;
     grid-row-gap: 8px;
-    margin: 22px auto;
+    margin: 22px auto 0;
     align-items: baseline;
 
     @media ${device.tabletL} {

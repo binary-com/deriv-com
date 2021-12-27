@@ -19,6 +19,7 @@ import device from 'themes/device'
 import { Container } from 'components/containers'
 
 const Footer = Loadable(() => import('./footer'))
+const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
 
 const has_dataLayer = isBrowser() && window.dataLayer
@@ -194,6 +195,10 @@ const Layout = ({
         case 'jump-indices':
             Navigation = <JumpIndicesNav />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+            break
+        case 'besquare':
+            Navigation = <NavCareers is_besquare />
+            FooterNav = <BeSquareFooter />
             break
         case 'careers':
             Navigation = <NavCareers />

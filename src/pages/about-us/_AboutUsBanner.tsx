@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import BgMobile from 'images/common/about-us/about-us-banner-mobile.jpg'
+import Bg from 'images/common/about-us/about-us-banner.jpg'
 import { localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
 import { zoho_url } from 'common/constants'
-import Bg from 'images/common/about-us/about-us-banner.jpg'
-import BgMobile from 'images/common/about-us/about-us-banner-mobile.jpg'
 import { LinkButton } from 'components/form'
 
 const StyledSectionContainer = styled(SectionContainer)`

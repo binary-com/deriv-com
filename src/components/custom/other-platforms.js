@@ -210,7 +210,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
     <SectionContainer padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
-                <Header type="section-title" align="center">
+                <Header as="h3" type="section-title" align="center">
                     {header ? header : localize('Check out our other platforms')}
                 </Header>
                 {subHeader && (
@@ -471,6 +471,12 @@ export const NavCompany = ({ onClick }) => (
         <CardLink
             icon={() => <img src={Story} alt="" width="24" height="24" />}
             title={localize('About us')}
+            onClick={onClick}
+            to="/about-us/"
+        />
+        <CardLink
+            icon={() => <img src={Story} alt="" width="24" height="24" />}
+            title={localize('Our story')}
             onClick={onClick}
             to="/about-us/"
         />

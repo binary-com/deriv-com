@@ -20,6 +20,9 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                         <LinkWrapper first_child="true">
                             <Link to="/story/">{localize('Our story')}</Link>
                         </LinkWrapper>
+                        <LinkWrapper first_child="true">
+                            <Link to="/story/">{localize('Our story')}</Link>
+                        </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/why-choose-us/">{localize('Why choose us?')}</Link>
                         </LinkWrapper>

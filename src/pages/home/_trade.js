@@ -71,14 +71,20 @@ const Trade = ({ is_ppc_redirect }) => {
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <QueryImage
                                     data={data['dtrader_trade']}
-                                    alt={localize('DTrader')}
+                                    alt={localize('Dtrader trading platform at Deriv')}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
-                                <QueryImage data={data['dbot_trade']} alt={localize('DBot')} />
+                                <QueryImage
+                                    data={data['dbot_trade']}
+                                    alt={localize('Dbot trading platform at Deriv')}
+                                />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <QueryImage data={data['dmt5_trade']} alt={localize('DMT5')} />
+                                <QueryImage
+                                    data={data['dmt5_trade']}
+                                    alt={localize('DMT5 trading platform at Deriv')}
+                                />
                             </ImageWrapper>
                         </ImageContainer>
                     </div>

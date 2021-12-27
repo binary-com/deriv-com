@@ -20,10 +20,10 @@ const queryCarouselData = graphql`
         media4: file(relativePath: { eq: "about-us-carousel/media-4.jpg" }) {
             ...fadeIn
         }
-        media5: file(relativePath: { eq: "about-us-carousel/media-6.jpg" }) {
+        media5: file(relativePath: { eq: "about-us-carousel/media-5.jpg" }) {
             ...fadeIn
         }
-        media6: file(relativePath: { eq: "about-us-carousel/media-5.jpg" }) {
+        media6: file(relativePath: { eq: "about-us-carousel/media-6.jpg" }) {
             ...fadeIn
         }
     }

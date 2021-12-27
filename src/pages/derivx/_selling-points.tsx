@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements/typography'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import device from 'themes/device'
+
+type SellingPointsType = {
+    title: string | ReactElement
+    subtitle: ReactElement
+}
 
 const HeadingText = styled(Text)`
     font-weight: bold;
@@ -38,7 +43,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const selling_points = [
+const selling_points: SellingPointsType[] = [
     {
         title: '100+',
         subtitle: <Localize translate_text="tradable assets" />,
@@ -58,11 +63,11 @@ const SellingPoints = () => {
         <SectionContainer padding="40px 0" background="grey-25">
             <Container>
                 <Flex tablet_direction="column">
-                    {selling_points.map((index) => {
+                    {selling_points.map((selling_point, index) => {
                         return (
                             <StyledFlex tablet_direction="column" key={index}>
-                                <HeadingText>{index.title}</HeadingText>
-                                <SubText>{index.subtitle}</SubText>
+                                <HeadingText>{selling_point.title}</HeadingText>
+                                <SubText>{selling_point.subtitle}</SubText>
                             </StyledFlex>
                         )
                     })}

@@ -99,7 +99,7 @@ const ModalFlex = styled(Flex)`
         top: 124px;
     }
     @media ${device.tabletS} {
-        top: 118px;
+        top: 108px;
     }
     @media ${device.mobileL} {
         top: 98px;

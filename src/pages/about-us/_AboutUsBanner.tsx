@@ -29,7 +29,7 @@ const StyledFlex = styled(Flex)`
     @media ${device.laptopM} {
         width: 100%;
     }
-    @media (max-width: 710px) {
+    @media (max-width: 610px) {
         background-image: url(${BgMobile});
         background-position-x: unset;
         background-position: left;

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Paddings, Margins } from 'themes/function'
+import device from 'themes/device.js'
 
 export const SharedButtonStyle = css`
     border-radius: 6px;
@@ -90,6 +91,26 @@ export const SharedButtonStyle = css`
                 &:hover {
                     background: var(--color-white);
                     color: var(--color-red);
+                }
+            `
+        if (props.hero)
+            return css`
+                box-shadow: inset 0 var(--color-red);
+                color: var(--color-white);
+                background: var(--color-red);
+                padding: 17px 24px;
+                font-size: 20px;
+                line-height: 30px;
+
+                &:hover {
+                    background-color: var(--color-red-3);
+                    border-color: var(--color-red-3);
+                }
+
+                @media ${device.tabletL} {
+                    padding: 20px 24px !important;
+                    font-size: 16px !important;
+                    line-height: 24px !important;
                 }
             `
     }}

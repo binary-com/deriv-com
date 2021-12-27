@@ -185,8 +185,8 @@ const StartTrader = (): ReactElement => {
 
     const is_eu_country = React.useContext(DerivStore)
 
-    const getImage = (is_mob: boolean, step: string[]) => {
-        return is_mob ? data[step[0]] : data[step[1]]
+    const getImage = (is_mob: boolean, options: string[]) => {
+        return is_mob ? data[options[0]] : data[options[1]]
     }
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'

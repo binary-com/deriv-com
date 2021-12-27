@@ -257,13 +257,12 @@ interface HelpCenterProps {
 }
 
 interface HelpCenterState {
-    all_articles?: string[] | any[]
-    all_categories?: Record<string, any>
+    all_articles?: string[]
+    all_categories?: number
     search?: string
-    search_has_transition: boolean
-    toggle_search: boolean
+    search_has_transition?: boolean
+    toggle_search?: boolean
     setState?: string
-    prevState?: { [x: number]: string }
 }
 
 // Since useContext can only be used in functional components
@@ -288,7 +287,8 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
 
     handleInputChange = (e) => {
         e.preventDefault()
-        const { name, value }: { name: number; value: string } = e.target
+        const { name, value } = e.target
+
         this.setState({ [name]: `${sanitize(value)}` })
     }
 
@@ -426,7 +426,7 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
                                     wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'}
                                     key={id}
                                 >
-                                    {article.map((item, idx) => {
+                                    {articles.map((item, idx) => {
                                         if (
                                             this.props.is_eu_country &&
                                             item.category.props.translate_text === 'Deriv X'

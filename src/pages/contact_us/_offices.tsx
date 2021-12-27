@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
@@ -188,7 +188,7 @@ const StyledMobileAddress = styled.div`
     }
 `
 
-export const Offices = (): ReactElement => {
+export const Offices = () => {
     const data = useStaticQuery(query)
 
     return (

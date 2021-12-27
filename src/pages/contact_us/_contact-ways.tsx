@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Header, QueryImage } from 'components/elements'
@@ -109,7 +109,7 @@ const ContactWrapper = styled.article`
     }
 `
 
-const ContactWays = (): ReactElement => {
+const ContactWays = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer padding="4rem 0" background="var(--color-grey-25)">

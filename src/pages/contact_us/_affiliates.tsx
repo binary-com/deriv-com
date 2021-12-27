@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text, LinkText } from 'components/elements'
@@ -85,7 +85,7 @@ const AbsoluteDivider = styled.div`
     }
 `
 
-export const Affiliates = (): ReactElement => {
+export const Affiliates = () => {
     return (
         <Wrapper padding="40px 0">
             <CardContainer>

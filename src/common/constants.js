@@ -119,12 +119,16 @@ export const market_type = [
                 short_title: 'synthetic_indices',
             },
             {
-                title: 'Stocks & stocks indices',
+                title: 'Synthetic',
+                short_title: 'synthetic',
+            },
+            {
+                title: 'Stocks',
                 short_title: 'stocks',
             },
             {
-                title: 'Cryptocurrencies',
-                short_title: 'cryptocurrencies',
+                title: 'Crypto',
+                short_title: 'crypto',
             },
             {
                 title: 'Commodities',
@@ -178,6 +182,14 @@ export const trade_types = [
                 title: 'Options',
                 short_title: 'options',
             },
+            {
+                title: 'P2P',
+                short_title: 'p2p',
+            },
+            {
+                title: 'Gold',
+                short_title: 'gold',
+            },
         ],
     },
 ]
@@ -187,16 +199,24 @@ export const resources = [
         type: 'Resources',
         items: [
             {
-                title: 'Market reports',
-                short_title: 'market_reports',
+                title: 'Market report',
+                short_title: 'market_report',
             },
             {
-                title: 'Strategies and tips',
-                short_title: 'strategies',
+                title: 'Market news',
+                short_title: 'market_news',
+            },
+            {
+                title: 'Trading tips',
+                short_title: 'trading_tips',
             },
             {
                 title: 'Payment methods',
                 short_title: 'payment_method',
+            },
+            {
+                title: 'Ebooks',
+                short_title: 'ebooks',
             },
         ],
     },

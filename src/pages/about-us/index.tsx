@@ -10,6 +10,7 @@ import OurPrinciples from './_OurPrinciples'
 import Hero from './components/_hero'
 import OurLeadership from './_OurLeadership'
 import DerivNumbers from './_DerivNumbers'
+import EmblaCarousel from './carousel/_Carousel'
 
 const StartSeparator = styled.div`
     width: 0;
@@ -41,7 +42,7 @@ const AboutUs = (): React.ReactNode => {
                     'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
             />
-            <Hero />
+            {/* <Hero /> */}
             <MakeTrading />
             <StartSeparator />
             <OurValues />
@@ -49,6 +50,7 @@ const AboutUs = (): React.ReactNode => {
             <OurPrinciples />
             <OurLeadership />
             <DerivNumbers />
+            <EmblaCarousel />
         </Layout>
     )
 }

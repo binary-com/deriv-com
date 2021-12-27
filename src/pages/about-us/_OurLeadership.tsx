@@ -81,8 +81,12 @@ const StyledCssGrid = styled(CssGrid)`
 `
 
 const StyledHeader = styled(Header)`
+    padding-bottom: 40px;
     @media ${device.laptop} {
         font-size: 28px;
+    }
+    @media ${device.tablet} {
+        padding-bottom: 24px;
     }
 `
 const ModalFlex = styled(Flex)`

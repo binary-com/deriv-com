@@ -1,6 +1,5 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import FinancialCommission from './_financial_commission'
@@ -56,7 +55,7 @@ const Box = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: ${(props) => props.padding || '4rem 0 0'};
+    padding: ${(props: { padding?: string }) => props.padding || '4rem 0 0'};
 
     ${Text} {
         @media ${device.tabletS} {
@@ -94,7 +93,8 @@ const ResponsiveHeader = styled(StyledHeader)`
 const Content = styled.div`
     display: contents;
 `
-const Regulatory = (locale) => {
+
+const Regulatory = (locale: { language: string }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
@@ -460,10 +460,6 @@ const Regulatory = (locale) => {
             </SectionContainer>
         </Layout>
     )
-}
-
-Regulatory.propTypes = {
-    locale: PropTypes.object,
 }
 
 export default WithIntl()(Regulatory)

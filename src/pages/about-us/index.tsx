@@ -1,9 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize, WithIntl } from 'components/localization'
-import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
-import device from 'themes/device'
 import MakeTrading from './_MakeTrading'
 import OurValues from './_OurValues'
 import OurPrinciples from './_OurPrinciples'
@@ -12,6 +8,10 @@ import OurLeadership from './_OurLeadership'
 import AboutUsBanner from './_AboutUsBanner'
 import DerivNumbers from './_DerivNumbers'
 import EmblaCarousel from './carousel/_Carousel'
+import device from 'themes/device'
+import { SEO } from 'components/containers'
+import Layout from 'components/layout/layout'
+import { localize, WithIntl } from 'components/localization'
 
 const StartSeparator = styled.div`
     width: 0;

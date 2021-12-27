@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useEmblaCarousel } from 'embla-carousel/react'
-import { QueryImage } from 'components/elements'
 import { ImageDataLike } from 'gatsby-plugin-image'
+import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 
 const queryCarouselData = graphql`

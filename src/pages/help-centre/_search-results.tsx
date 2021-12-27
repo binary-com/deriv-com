@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { convertToHash } from './_utility'
@@ -8,7 +8,7 @@ import device from 'themes/device'
 
 type SearchSuccessProps = {
     children?: ReactNode
-    suggested_topics?: { category: string; label: string; title: string }
+    suggested_topics?: any
     max_length?: number
     search?: string
     title?: string
@@ -81,10 +81,7 @@ const StyledLink = styled(LocalizedLinkText)`
         text-decoration: underline;
     }
 `
-export const SearchSuccess = ({
-    suggested_topics,
-    max_length,
-}: SearchSuccessProps): ReactElement => (
+export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessProps) => (
     <>
         <Header as="h3" type="section-title" color="black">
             {localize('Topic suggestions')}
@@ -109,7 +106,7 @@ SearchSuccess.propTypes = {
     suggested_topics: PropTypes.array,
 }
 
-export const SearchError = ({ search }: SearchSuccessProps): ReactElement => (
+export const SearchError = ({ search }: SearchSuccessProps) => (
     <>
         <ErrorHeader
             as="h5"

@@ -1,7 +1,7 @@
 type UtilityType = {
     category?: string
     label?: string
-    articles?: string | any
+    articles?: string[] | number[]
     array?: number | any
     length?: number | any
 }
@@ -14,7 +14,7 @@ export const getAllArticles = ({ articles }: UtilityType): string[] =>
     articles
         .map((category) => category.articles)
         // flatten the array, gatsby build does not support .flat() yet
-        .reduce((arr, article_arr) => arr.concat(article_arr), [])
+        .reduce((arr: string, article_arr: string) => arr.concat(article_arr), [])
 
 export const splitArticles = ({ array, length }: UtilityType): number[] =>
     array.reduce((result, item, index) => {

@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
@@ -34,13 +34,7 @@ const TabWrapper = styled.div`
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
-export const Article = ({
-    children,
-    header,
-    title,
-    description,
-    is_mounted,
-}: ArticleProps): ReactElement => {
+export const Article = ({ children, header, title, description, is_mounted }: ArticleProps) => {
     return (
         <Layout>
             <SEO title={title} description={description} />

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
@@ -245,7 +245,7 @@ const WithdrawDerivX: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DerivXArticle = (): ReactElement => {
+const DerivXArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (

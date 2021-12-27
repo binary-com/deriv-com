@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
@@ -23,6 +23,15 @@ import CrossIcon from 'images/svg/help/cross.svg'
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
 
+type StyledProps = {
+    should_show_item?: boolean
+    wrap?: string
+    show?: boolean
+    has_transition?: boolean
+    align?: string
+    direction?: string
+}
+
 const Backdrop = styled.div`
     padding: 8rem 0;
     background-color: var(--color-white);
@@ -32,12 +41,12 @@ const Backdrop = styled.div`
         padding: 8rem 0 4rem;
     }
 `
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<StyledProps>`
     @media ${device.tabletL} {
         padding: 2rem 0 2rem 0;
     }
 `
-const SearchSection = styled.section`
+const SearchSection = styled.section<StyledProps>`
     ${Backdrop} {
         max-height: ${(props) => (props.show ? '100rem' : '0')};
         transition: ${(props) => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
@@ -190,7 +199,7 @@ const StyledView = styled.div`
     }
 `
 
-const RowDiv = styled.div`
+const RowDiv = styled.div<StyledProps>`
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -236,20 +245,37 @@ const HeaderPlatforms = styled.div`
     }
 `
 
-const ShowItem = styled.li`
+const ShowItem = styled.li<StyledProps>`
     display: ${(props) => (props.should_show_item ? 'block' : 'none')};
 `
+
+interface HelpCenterProps {
+    children?: ReactNode
+    is_eu_country?: boolean | unknown
+    prevState?: { toggle_search?: boolean }
+    align?: string
+}
+
+interface HelpCenterState {
+    all_articles?: string[] | any[]
+    all_categories?: Record<string, any>
+    search?: string
+    search_has_transition: boolean
+    toggle_search: boolean
+    setState?: string
+    prevState?: { [x: number]: string }
+}
 
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
 // TODO - Refactor Help Center to function component and move this inside
 const HelpCenter = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const is_eu_country = React.useContext(DerivStore)
     return <HelpCentreClass is_eu_country={is_eu_country} />
 }
 
-class HelpCentreClass extends Component {
-    constructor(props) {
+class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
+    constructor(props: HelpCenterProps) {
         super(props)
         this.state = {
             all_articles: [],
@@ -262,7 +288,7 @@ class HelpCentreClass extends Component {
 
     handleInputChange = (e) => {
         e.preventDefault()
-        const { name, value } = e.target
+        const { name, value }: { name: number; value: string } = e.target
         this.setState({ [name]: `${sanitize(value)}` })
     }
 
@@ -289,10 +315,10 @@ class HelpCentreClass extends Component {
         const deepClone = (arr) => {
             const out = []
             for (let i = 0, len = arr.length; i < len; i++) {
-                const item = arr[i]
+                const items = arr[i]
                 const obj = {}
-                for (var k in item) {
-                    obj[k] = item[k]
+                for (const item in items) {
+                    obj[item] = items[item]
                 }
                 out.push(obj)
             }
@@ -334,8 +360,8 @@ class HelpCentreClass extends Component {
         })
 
         const splitted_articles = this.props.is_eu_country
-            ? euArticles(splitArticles(articles, 3))
-            : splitArticles(articles, 3)
+            ? euArticles(splitArticles({ array: articles, length: 3 }))
+            : splitArticles({ array: articles, length: 3 })
 
         const has_results = !!filtered_articles.length
 
@@ -452,11 +478,13 @@ class HelpCentreClass extends Component {
                                                                     }
                                                                 >
                                                                     <StyledLink
-                                                                        to={convertToHash(
-                                                                            item.category.props
-                                                                                .translate_text,
-                                                                            label_type,
-                                                                        )}
+                                                                        to={convertToHash({
+                                                                            category:
+                                                                                item.category.props
+                                                                                    .translate_text,
+
+                                                                            label: label_type,
+                                                                        })}
                                                                     >
                                                                         {title_type}
                                                                     </StyledLink>

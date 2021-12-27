@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -44,7 +44,7 @@ const DocumentsDeclined: React.FC<SecurityProps> = () => (
     </ArticleWrapper>
 )
 
-const SecurityArticle = (): ReactElement => {
+const SecurityArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (

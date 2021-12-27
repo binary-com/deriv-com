@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Text, Header, QueryImage } from 'components/elements'
@@ -39,7 +39,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-export const Community = (): ReactElement => {
+export const Community = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer padding="4rem" background="var(--color-grey-25)">

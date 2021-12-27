@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { Text } from 'components/elements'
@@ -145,7 +145,7 @@ const DifferentAccountBalance: React.FC<DerivP2PArticleProps> = () => (
     </ArticleWrapper>
 )
 
-const DerivP2PArticle = (): ReactElement => {
+const DerivP2PArticle = () => {
     const [is_mounted] = usePageLoaded(false)
 
     return (

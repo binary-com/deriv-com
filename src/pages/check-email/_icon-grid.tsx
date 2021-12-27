@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { Text } from 'components/elements'
@@ -70,7 +70,7 @@ const GridContent = [
     },
 ]
 
-export const IconGrid = (): ReactElement => (
+export const IconGrid = () => (
     <Grid>
         {GridContent.map((item, index) => (
             <GridCol key={`key-${index}`}>

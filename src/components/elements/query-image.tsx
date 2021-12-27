@@ -36,7 +36,7 @@ const QueryImage = ({
     width,
     onClick,
     ...props
-}: QueryImageProps): ReactElement => {
+}: QueryImageProps) => {
     const image = getImage(data)
     if (data) {
         return (

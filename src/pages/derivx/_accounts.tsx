@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import DxFinancialIcon from 'images/svg/deriv-x/dxfinancial.svg'
 import DxSyntheticIcon from 'images/svg//deriv-x/dxsynthetic.svg'
+import DxFinancialIcon from 'images/svg/deriv-x/dxfinancial.svg'
 import device from 'themes/device'
+
+type StyledHeaderProps = {
+    mobile_font_size: string
+    mobile_margin: string
+}
+
+type ContentType = {
+    header: ReactElement
+    text: ReactElement
+    icon: ReactElement
+}
 
 const StyledIcon = styled.img`
     width: 48px;
@@ -18,7 +29,7 @@ const StyledIcon = styled.img`
     }
 `
 
-const content = [
+const content: ContentType[] = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (
@@ -80,7 +91,7 @@ const StyledLinkButton = styled(LinkButton)`
     width: auto;
     margin: auto;
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<StyledHeaderProps>`
     @media ${device.mobileL} {
         font-size: ${(props) => props.mobile_font_size};
         margin: ${(props) => props.mobile_margin};

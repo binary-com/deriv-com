@@ -5,6 +5,7 @@ import { TextWrapper, Title } from './_common'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { BackgroundImage } from 'components/elements'
+import { LinkButton } from 'components/form'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const StyledBackground = styled(BackgroundImage)`
@@ -21,7 +22,7 @@ const StyledBackground = styled(BackgroundImage)`
     }
 
     @media ${device.tablet} {
-        height: 400px;
+        height: auto;
         object-fit: cover;
         background-position: center right 15% !important;
 
@@ -48,18 +49,22 @@ const Wrapper = styled(Flex)`
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
     }
-    @media screen and (max-width: 556px) {
-        padding: 2rem 4rem;
+    @media ${device.laptopM} {
+        padding: 88px 40px;
+    }
+    @media ${device.tabletS} {
+        padding: 88px 16px 64px;
     }
 `
 
-const Hero = ({ imageAlt, imageData, title, description }) => {
+const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
     const [is_mobile] = useBrowserResize()
     const linear_bg_value = is_mobile
         ? `linear-gradient(76.78deg, #000000 30.72%, rgba(0, 0, 0, 0) 97.58%)`
         : `linear-gradient(66.11deg, #000000 24.94%, rgba(0, 0, 0, 0) 83.1%)`
 
     const backgroundFluidImageStack = [imageData.childImageSharp.fluid, linear_bg_value].reverse()
+    const button_text = cta_text ? cta_text : 'Learn more'
 
     return (
         <>
@@ -71,7 +76,7 @@ const Hero = ({ imageAlt, imageData, title, description }) => {
                         text_align={'left'}
                         font_size={['64px', '32px']}
                         line_height={['80px', '40px']}
-                        max_width={['785px', '237px']}
+                        max_width={['636px', '328px']}
                     >
                         {title}
                     </Title>
@@ -79,10 +84,15 @@ const Hero = ({ imageAlt, imageData, title, description }) => {
                         color={'white'}
                         font_size={['20px', '14px']}
                         line_height={['30px', '24px']}
-                        max_width={['684px', '328px']}
+                        max_width={['636px', '328px']}
                     >
                         {description}
                     </TextWrapper>
+                    <Flex jc="flex-start" height="unset" mt="24px" tabletL={{ mt: '16px' }}>
+                        <LinkButton id="hero-article" to={href} width="auto" hero>
+                            {button_text}
+                        </LinkButton>
+                    </Flex>
                 </Wrapper>
             </StyledBackground>
         </>
@@ -90,8 +100,10 @@ const Hero = ({ imageAlt, imageData, title, description }) => {
 }
 
 Hero.propTypes = {
+    cta_text: PropTypes.string,
     description: PropTypes.any,
     heroImage: PropTypes.any,
+    href: PropTypes.string,
     imageAlt: PropTypes.string,
     imageData: PropTypes.any,
     title: PropTypes.any,

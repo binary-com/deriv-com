@@ -39,7 +39,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import { convertDate } from 'common/utility'
+import { convertDate, getMinRead } from 'common/utility'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
@@ -157,8 +157,7 @@ const ArticlesTemplate = (props) => {
                                         {post_data?.blog_title}
                                     </ArticleTitle>
                                     <InfoText size="14px" mt="16px">
-                                        {post_data?.read_time_in_minutes &&
-                                            localize(post_data?.read_time_in_minutes + ' min read')}
+                                        {getMinRead(post_data?.blog_post)}
                                     </InfoText>
                                     <Show.Mobile min_width="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">
@@ -341,7 +340,6 @@ export const query = graphql`
                 og_description
                 test_data
                 published_date
-                read_time_in_minutes
                 blog_post
                 author {
                     id

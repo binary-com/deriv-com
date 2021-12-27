@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import Proptypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
@@ -129,7 +129,7 @@ const StyledImg = styled.img`
     }
 `
 
-const CheckedText = ({ children }): ReactElement => (
+const CheckedText = ({ children }) => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
@@ -145,7 +145,7 @@ CheckedText.propTypes = {
     children: Proptypes.string,
 }
 
-const InterestFreeTrading = (): ReactElement => {
+const InterestFreeTrading = () => {
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">

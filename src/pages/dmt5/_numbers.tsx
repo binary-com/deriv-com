@@ -91,7 +91,7 @@ const numbers_content: NumbersContentType[] = [
     },
 ]
 
-const Numbers = (): ReactElement => {
+const Numbers = () => {
     return (
         <NumberSection>
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">

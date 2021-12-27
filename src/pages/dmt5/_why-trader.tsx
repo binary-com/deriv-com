@@ -117,7 +117,7 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
-const WhyTrader = (): ReactElement => {
+const WhyTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">

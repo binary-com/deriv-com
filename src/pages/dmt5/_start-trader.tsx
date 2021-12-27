@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
@@ -163,7 +163,7 @@ const StyledLocalizedLink = styled(LocalizedLink)`
         text-decoration: underline;
     }
 `
-const StartTrader = (): ReactElement => {
+const StartTrader = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)

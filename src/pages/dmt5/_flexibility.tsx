@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -11,9 +11,9 @@ import device from 'themes/device'
 import { DerivStore } from 'store'
 
 type ContentType = {
-    header?: ReactElement
-    text?: ReactElement
-    icon?: ReactElement
+    header?
+    text?
+    icon?
     show_eu?: boolean
     show_always?: boolean
 }
@@ -132,7 +132,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const Flexibility = (): ReactElement => {
+const Flexibility = () => {
     const is_eu_country = React.useContext(DerivStore)
 
     const chosen_content = is_eu_country ? eucontent : content

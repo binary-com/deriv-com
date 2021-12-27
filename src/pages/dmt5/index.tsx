@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import {
     WhyTrader,
@@ -43,7 +43,7 @@ const query = graphql`
     }
 `
 
-const DMT5 = (): ReactElement => {
+const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)

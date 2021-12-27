@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
@@ -116,7 +116,7 @@ const DBanner = ({
     is_ppc = false,
     title = '',
     image_alt = '',
-}: DBannerProps): ReactElement => {
+}: DBannerProps) => {
     const BackgroundPattern = styled.img`
         position: absolute;
         top: 0;

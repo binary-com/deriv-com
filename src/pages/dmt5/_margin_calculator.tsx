@@ -224,7 +224,7 @@ const calculators: CalculatorProps[] = [
     },
 ]
 
-const MarginCalculator = (): ReactElement => {
+const MarginCalculator = () => {
     const settings = {
         container_style: {
             maxWidth: '100%',

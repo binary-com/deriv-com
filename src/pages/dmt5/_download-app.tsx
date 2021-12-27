@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, SectionContainer, Box, Show } from 'components/containers'
@@ -85,7 +85,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const DownloadApp = (): ReactElement => {
+const DownloadApp = () => {
     const data = useStaticQuery(query)
 
     return (

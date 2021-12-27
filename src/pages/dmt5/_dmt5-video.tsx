@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
@@ -77,7 +77,7 @@ const Step = styled(Header)<StepProps>`
     }
 `
 
-const DtraderTabs = (): ReactElement => {
+const DtraderTabs = () => {
     const data = useStaticQuery(query)
     const [current_step, setStep] = React.useState('step_1')
     const clickHandler = (incoming_step) => {

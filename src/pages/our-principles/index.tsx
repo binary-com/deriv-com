@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { principles } from './_data'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { SEO, Container, Flex, SectionContainer } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
-import { principles } from './_data'
 
 type SeparatorInterface = {
     background: string

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { first_section_texts } from './_data'
 import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { first_section_texts } from './_data'
 
 const FirstSectionContainer = styled(SectionContainer)`
     display: flex;

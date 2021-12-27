@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
@@ -19,7 +19,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     }
 `
 
-const WhatIsDeriv = (): ReactElement => {
+const WhatIsDeriv = () => {
     return (
         <StyledSectionContainer>
             <Container>

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 
@@ -29,12 +29,7 @@ type VideoPlayerProps = {
     src: string
 }
 
-const VideoPlayer = ({
-    controls,
-    mobile_max_width,
-    max_width,
-    src,
-}: VideoPlayerProps): ReactElement => {
+const VideoPlayer = ({ controls, mobile_max_width, max_width, src }: VideoPlayerProps) => {
     return (
         <PlayerWrapper max_width={max_width} mobile_max_width={mobile_max_width}>
             <Video controls={controls}>

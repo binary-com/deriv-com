@@ -106,7 +106,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const Accounts = (): ReactElement => {
+const Accounts = () => {
     return (
         <Section>
             <StyledHeader

@@ -107,10 +107,10 @@ const DerivNumbers = () => {
         <StyledSection>
             <StyledFlex>
                 <TitleSection>
-                    <TitleHeader as="h6" color="black-2" align="left">
+                    <TitleHeader as="h6" type="unset" color="black-2" align="left">
                         {localize('Deriv in numbers')}
                     </TitleHeader>
-                    <StyledHeader as="h6" size="24px" align="left" weight="400">
+                    <StyledHeader as="h6" type="unset" size="24px" align="left" weight="400">
                         {localize(
                             'We aim to deliver market-leading products that are trusted around the world. ',
                         )}
@@ -118,25 +118,33 @@ const DerivNumbers = () => {
                 </TitleSection>
                 <NumberSection columns="1fr 1fr" rows="1fr 1fr" column_gap="40px" row_gap="4rem">
                     <Flex fd="column">
-                        <NumberHeader size="48px">{localize('2.5M+')}</NumberHeader>
+                        <NumberHeader size="48px" type="unset">
+                            {localize('2.5M+')}
+                        </NumberHeader>
                         <NumberText size="20px" align="left">
                             {localize('traders worldwide')}
                         </NumberText>
                     </Flex>
                     <Flex fd="column">
-                        <NumberHeader size="48px">{localize('USD 26M+')}</NumberHeader>
+                        <NumberHeader size="48px" type="unset">
+                            {localize('USD 26M+')}
+                        </NumberHeader>
                         <NumberText size="20px" align="left">
                             {localize('withdrawals last month')}
                         </NumberText>
                     </Flex>
                     <Flex fd="column">
-                        <NumberHeader size="48px">{localize('114M+')}</NumberHeader>
+                        <NumberHeader size="48px" type="unset">
+                            {localize('114M+')}{' '}
+                        </NumberHeader>
                         <NumberText size="20px" align="left">
                             {localize('trades last month')}
                         </NumberText>
                     </Flex>
                     <Flex fd="column">
-                        <NumberHeader size="48px">{localize('USD 10B+')}</NumberHeader>
+                        <NumberHeader size="48px" type="unset">
+                            {localize('USD 10B+')}
+                        </NumberHeader>
                         <NumberText size="20px" align="left">
                             {localize('total trade turnover')}
                         </NumberText>

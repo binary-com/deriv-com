@@ -69,15 +69,15 @@ const StyledHeaderDesktopAbout = styled(Header)`
     z-index: 3;
 `
 
-const StyledHeaderDesktopUs = styled(Header)`
-    position: absolute;
-    height: 195.52px;
-    top: 90px;
-    font-size: 210px;
-    letter-spacing: 8px;
-    z-index: 1;
-    margin-right: -770px;
-`
+// const StyledHeaderDesktopUs = styled(Header)`
+//     position: absolute;
+//     height: 195.52px;
+//     top: 90px;
+//     font-size: 210px;
+//     letter-spacing: 8px;
+//     z-index: 1;
+//     margin-right: -770px;
+// `
 
 const StyledFlex = styled(Flex)`
     height: 400px;
@@ -109,7 +109,7 @@ const Hero = () => {
                             width="100%"
                         />
                         <FlexHeader>
-                            <StyledHeaderDesktopAbout color="white" align="center">
+                            <StyledHeaderDesktopAbout type="unset" color="white" align="center">
                                 {localize('About us')}
                             </StyledHeaderDesktopAbout>
                         </FlexHeader>
@@ -118,7 +118,7 @@ const Hero = () => {
                 <MobileWrapper>
                     <Flex fd="column">
                         <QueryImage data={data['about_us_logo']} alt="example" />
-                        <StyledHeader color="white" align="center" mt="40px">
+                        <StyledHeader type="unset" color="white" align="center" mt="40px">
                             {localize('About us')}
                         </StyledHeader>
                     </Flex>

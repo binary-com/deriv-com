@@ -174,7 +174,7 @@ const StyledLogo = styled.img`
 const Modal = ({ name, position, link }: ModalPropsType) => {
     return (
         <ModalFlex ai="center" direction="column" width="unset" height="unset">
-            <ModalHeader as="h4" padding="5px 5px 0" align="center">
+            <ModalHeader as="h4" padding="5px 5px 0" align="center" type="unset">
                 {name}
             </ModalHeader>
             <Header

@@ -144,6 +144,7 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
 }
 `
 const StyledQueryImage = styled(QueryImage)`
+    border: unset;
     @media ${device.mobileL} {
         width: 88px;
         height: 88px;

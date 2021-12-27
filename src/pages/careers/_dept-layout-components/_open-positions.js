@@ -1,49 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
-import { zoho_career_url } from '../../../common/constants'
 import ZohoJob from './_zoho-job'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
-import RightArrow from 'images/svg/career-right-arrow.svg'
 import device from 'themes/device'
-
-const getLink = (id) => {
-    return `https://deriv.zohorecruit.com/jobs/Careers/${id}`
-}
-
-const PositionLink = styled(LocalizedLink)`
-    text-decoration: none;
-    width: 100%;
-    max-width: 996px;
-`
 
 const JobWrapper = styled.div`
     width: 100%;
-    border-bottom: 1px solid #f2f3f4;
     display: grid;
     padding: 24px 35px 24px 18px;
 
     @media ${device.tablet} {
-        grid-template-columns: 6fr 5fr auto;
+        display: grid;
     }
-`
-const StyledVacancies = styled(Flex)`
-    @media ${device.tablet} {
-        max-width: 144px;
-        word-break: break-word;
-    }
-`
 
-const StyledHeader = styled(Header)`
-    @media (max-width: 340px) {
-        font-size: 16px;
+    @media (max-width: 600px) {
+        padding: 24px 0 18px;
     }
 `
 
 const OpenPositions = (data) => {
-    const hidden = data.data == undefined
     return (
         <SectionContainer padding="0">
             <Container fd="column">
@@ -51,49 +28,12 @@ const OpenPositions = (data) => {
                     Open positions
                 </Header>
                 <JobWrapper>
-                    <ZohoJob />
+                    <ZohoJob title={data.data.title} />
                 </JobWrapper>
-                {!hidden &&
-                    data.data?.map((item, idx) => {
-                        return (
-                            <PositionLink key={idx} external to={getLink(item.id)} target="_blank">
-                                <JobWrapper>
-                                    <StyledVacancies ai="center">
-                                        <StyledHeader type="subtitle-1" as="h1">
-                                            {item.title}
-                                        </StyledHeader>
-                                    </StyledVacancies>
-                                    <Flex ai="center">
-                                        <Header
-                                            p="15px"
-                                            max_width="274px"
-                                            align="left"
-                                            type="paragraph-1"
-                                            as="p"
-                                            weight="400"
-                                        >
-                                            {item.location}
-                                        </Header>
-                                    </Flex>
-                                    <Flex ai="center">
-                                        <img src={RightArrow}></img>
-                                    </Flex>
-                                </JobWrapper>
-                            </PositionLink>
-                        )
-                    })}
 
-                {!hidden && (
-                    <LinkButton external mt="35px" to={zoho_career_url} secondary target="_blank">
-                        See all
-                    </LinkButton>
-                )}
-
-                {hidden && (
-                    <Header type="subtitle-1" align="center" color="grey-5">
-                        Sorry, there are currently no open positions.
-                    </Header>
-                )}
+                <LinkButton external mt="35px" to={data.data.url} secondary target="_blank">
+                    See all
+                </LinkButton>
             </Container>
         </SectionContainer>
     )

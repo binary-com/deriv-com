@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
+import RightArrow from 'images/svg/career-right-arrow.svg'
 
-const ZohoJob = () => {
+const ZohoJob = (data) => {
     useEffect(() => {
         addScriptForZoho()
     }, [])
@@ -23,10 +24,10 @@ const ZohoJob = () => {
             text: `
             window.rec_embed_js && window.rec_embed_js.load({
 				widget_id:"rec_job_listing_div",
-				page_name: "Front-end",
+				page_name: "${data.title}",
 				source:"CareerSite",
 				site:"https://deriv.zohorecruit.com",
-				empty_job_msg:"No current Openings"
+				empty_job_msg:"Sorry, there are currently no open positions."
 			});`,
         })
     }
@@ -35,7 +36,11 @@ const ZohoJob = () => {
         font-family: 'IBM Plex Sans', sans-serif !important;
         width: 100%;
 
+        .rec-group .rec-job-info:nth-child(n + 5) {
+            display: none !important;
+        }
         ul.rec-job-info {
+            position: relative;
             margin-bottom: 0 !important;
             padding: 24px 35px 24px 18px;
             width: 100%;
@@ -44,8 +49,9 @@ const ZohoJob = () => {
 
             &::after {
                 position: absolute;
-                content: '>';
+                content: url(${RightArrow});
                 top: 50%;
+                right: 0;
                 font-size: 16px;
                 transform: translateY(-50%);
             }
@@ -53,6 +59,10 @@ const ZohoJob = () => {
         .embed_jobs_with_style .rec-group li.rec-job-title {
             max-width: 450px;
             width: 100%;
+
+            @media (max-width: 767px) {
+                max-width: 50%;
+            }
         }
         div#rec_job_listing_div > div:first-child,
         .zrsite_Industry,

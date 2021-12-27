@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FocusEvent } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 
@@ -11,7 +11,7 @@ type QueryImageProps = {
     loading?: 'eager' | 'lazy'
 }
 
-type ImageWrapperProps = {
+export type ImageWrapperProps = {
     width: string
     height: string
     className?: string

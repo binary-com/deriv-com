@@ -83,7 +83,7 @@ const DisclaimerSection = () => {
                 </Show.Eu>
                 <DisclaimerParagraph>
                     {localize(
-                        'Deriv Limited — 13 Castle Street, St. Helier, JE2 3BT, Jersey — is the holding company for the above subsidiaries.',
+                        'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
                     )}
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>

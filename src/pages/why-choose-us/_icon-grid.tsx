@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
@@ -57,8 +56,13 @@ const Container = styled.div`
         }
     }
 `
+type ColProps = {
+    Icon: string
+    content: string | ReactElement
+    title: string
+}
 
-const Col = ({ Icon, content, title }) => (
+const Col = ({ Icon, content, title }: ColProps): ReactElement => (
     <GridCol>
         <img src={Icon} />
         <Container>
@@ -71,11 +75,6 @@ const Col = ({ Icon, content, title }) => (
         </Container>
     </GridCol>
 )
-Col.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    Icon: PropTypes.elementType,
-    title: PropTypes.string,
-}
 const GridWrapper = styled(CssGrid)`
     @media (max-width: 1400px) {
         grid-column-gap: 5rem;
@@ -96,7 +95,7 @@ const GridWrapper = styled(CssGrid)`
     }
 `
 
-export const IconGrid = () => (
+export const IconGrid = (): ReactElement => (
     <GridContainer>
         <GridWrapper columns="repeat(3, 1fr)" column_gap="13rem" row_gap="10rem">
             <Col

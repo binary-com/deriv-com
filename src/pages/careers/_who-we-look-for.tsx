@@ -66,17 +66,14 @@ const DescContainer = styled(Flex)`
         flex-direction: column;
     }
 `
-const marginRight = 'margin-right: 2.4rem;'
-const marginLeft = ' margin-left: 2.4rem'
+const marginRight = css`
+    margin-right: 2.4rem;
+`
+const marginLeft = css`
+    margin-left: 2.4rem;
+`
 const ImageDescription = styled.div<ImageDescriptionProps>`
-    ${(props) =>
-        props.left
-            ? css`
-                  ${marginRight}
-              `
-            : css`
-                  ${marginLeft}
-              `}
+    ${(props) => (props.left ? marginRight : marginLeft)}
     @media ${device.tablet} {
         margin: 3.2rem 0;
     }

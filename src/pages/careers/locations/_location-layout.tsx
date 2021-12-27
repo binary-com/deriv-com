@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import CareerContainer from '../_layout-components/CareerContainer'
@@ -62,7 +62,7 @@ type HeroProps = {
     img_data: string
 }
 
-const Hero = ({ display_name, img_data }: HeroProps): ReactElement => {
+const Hero = ({ display_name, img_data }: HeroProps) => {
     return (
         <StyledBackground data={img_data} alt={display_name}>
             <StyledContainer>
@@ -349,7 +349,7 @@ type LocationLayoutProps = {
     images: locationsTypes
 }
 
-export const LocationLayout = ({ location, images }: LocationLayoutProps): ReactElement => {
+export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
     const { display_name, map_office_name } = location
     if (!display_name) return null
 

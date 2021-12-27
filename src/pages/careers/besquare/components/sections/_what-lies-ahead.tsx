@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import {
     CardContainer,
     ContentContainer,
@@ -9,7 +9,7 @@ import { TextWrapper, Title } from '../../static/style/_common'
 import what_lies_ahead from '../../static/content/_what-lies-ahead'
 import Card from '../helper/_card'
 
-const WhatLiesAhead = (): ReactElement => {
+const WhatLiesAhead = () => {
     const style = {
         card_wrapper: {
             width: ['800px', '500px', 'auto'],

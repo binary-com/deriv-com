@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Carousel, Header, Text } from 'components/elements'
@@ -79,7 +79,7 @@ const QuoteWrapper = styled(Flex)`
         top: 16px;
     }
 `
-const EmployeeSlide = ({ quote, img_path, img_alt, name }): ReactElement => {
+const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
     return (
         <Flex ai="center" height="unset">
             <EmployeeCard>
@@ -145,7 +145,7 @@ const gary = {
 
 const employee_testimonials = [ahmad, aditya, mei_theng, gary]
 
-const EmployeeTestimonialCarousel = (): ReactElement => {
+const EmployeeTestimonialCarousel = () => {
     const settings = {
         options: {
             loop: true,

@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, ReactElement } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { TestimonySectionProps } from './_dept-layout.types'
@@ -153,7 +153,7 @@ type ReviewDataProps = {
     data: TestimonySectionProps
 }
 
-const StaffReview = (review_data: ReviewDataProps): ReactElement => {
+const StaffReview = (review_data: ReviewDataProps) => {
     const [is_mobile, setMobile] = useState(false)
 
     const handleResizeWindow = useCallback(() => {

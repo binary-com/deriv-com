@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import {
     Bullet,
@@ -56,13 +56,7 @@ type CardProps = {
     style?: StyleProps
 }
 
-const Card = ({
-    card_content,
-    custom_icon,
-    has_list,
-    style,
-    title_component,
-}: CardProps): ReactElement => {
+const Card = ({ card_content, custom_icon, has_list, style, title_component }: CardProps) => {
     const [is_list_open, setIsListOpen] = useState(false)
 
     const getCurrentDropdownComponent = () => {

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { dubai } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
@@ -32,7 +32,7 @@ const query = graphql`
     }
 `
 
-const Dubai = (): ReactElement => {
+const Dubai = () => {
     const images = useStaticQuery(query)
 
     return (

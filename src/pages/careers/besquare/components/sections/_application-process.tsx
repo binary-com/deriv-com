@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import application_process from '../../static/content/_application-process'
 import {
     ContentContainer,
@@ -12,7 +12,7 @@ import { TextWrapper, Title } from '../../static/style/_common'
 import { Line01, Line02 } from '../../static/images/_application-process'
 import { Show } from 'components/containers'
 
-const ApplicationProcess = (): ReactElement => (
+const ApplicationProcess = () => (
     <ContentContainer>
         <Title as="h2">{application_process.title}</Title>
         <LineWrapper src={Line01} alt="Dotted line" />

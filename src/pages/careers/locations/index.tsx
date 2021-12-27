@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -114,7 +114,7 @@ const CountryCard = ({
     img_alt,
     img_data,
     Icon,
-}: CountryCardProps): ReactElement => {
+}: CountryCardProps) => {
     return (
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={img_alt} width="100%" />
@@ -188,7 +188,7 @@ const query = graphql`
     }
 `
 
-const Locations = (): ReactElement => {
+const Locations = () => {
     const images = useStaticQuery(query)
 
     return (

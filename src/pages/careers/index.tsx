@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import Hero from './_hero'
 import {
     WhoWeLookFor,
@@ -17,7 +17,7 @@ const meta_attributes = {
     og_description: 'Join our incredible team where your growth is just as important as ours.',
 }
 
-const Careers = (): ReactElement => (
+const Careers = () => (
     <Layout type="careers">
         <SEO
             title={'Deriv Careers | Join and grow with us'}

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_career-container'
@@ -97,7 +97,7 @@ type HeaderDataProps = {
     data: HeaderProps
 }
 
-const Hero = (header_data: HeaderDataProps): ReactElement => {
+const Hero = (header_data: HeaderDataProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledBackGroundImage

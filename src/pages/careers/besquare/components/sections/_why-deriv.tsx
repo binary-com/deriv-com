@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Section, ContentContainer, ImageWrapper } from '../../static/style/_why-deriv'
 import { TextWrapper, Title } from '../../static/style/_common'
@@ -14,7 +14,7 @@ const query = graphql`
     }
 `
 
-const WhyDeriv = (): ReactElement => {
+const WhyDeriv = () => {
     const text_wrapper = {
         max_width: ['486px', '328px'],
         font_size: ['20px', '14px'],

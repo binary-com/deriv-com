@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { zoho_url } from 'common/constants'
@@ -62,8 +62,12 @@ const ProcessContainer = styled.div`
     flex-direction: column;
 `
 
-const right = 'right: -1.2rem;'
-const left = 'right: -1.2rem;'
+const rightStyle = css`
+    right: -1.2rem;
+`
+const leftStyle = css`
+    left: -1.2rem;
+`
 
 const StyledTipsCard = styled(Flex)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -82,14 +86,7 @@ const StyledTipsCard = styled(Flex)`
         width: 2.4rem;
         height: 2.4rem;
         transform: rotate(45deg);
-        ${(props) =>
-            props.right
-                ? css`
-                      ${right}
-                  `
-                : css`
-                      ${left}
-                  `}
+        ${(props) => (props.right ? rightStyle : leftStyle)}
 
         @media ${device.tablet} {
             left: 48%;
@@ -295,7 +292,7 @@ const StyledLinkText = styled(LinkText)`
     margin: 0.5rem;
 `
 
-const OurHiringProcess = (): ReactElement => (
+const OurHiringProcess = () => (
     <StyledSectionContainer>
         <Container direction="column">
             <StyledHeader as="h3" type="section-title" align="center">

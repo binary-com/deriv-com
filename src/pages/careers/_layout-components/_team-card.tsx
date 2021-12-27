@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { ImageDataLike } from 'gatsby-plugin-image'
@@ -76,13 +76,7 @@ type TeamCardProps = {
     tagline: string
 }
 
-const TeamCard = ({
-    to,
-    img_data,
-    img_alt,
-    display_team_name,
-    tagline,
-}: TeamCardProps): ReactElement => (
+const TeamCard = ({ to, img_data, img_alt, display_team_name, tagline }: TeamCardProps) => (
     <StyledCard height="144px" to={to}>
         <ImageWrapper>
             <QueryImage data={img_data} height="144px" width="100%" alt={img_alt} />

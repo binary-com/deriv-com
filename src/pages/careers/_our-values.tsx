@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Container, CssGrid, SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -70,7 +70,7 @@ const ThirdColumn = styled.div`
     }
 `
 
-const OurValues = (): ReactElement => (
+const OurValues = () => (
     <StyledSectionContainer>
         <Container direction="column" style={{ display: 'grid' }}>
             <CssGrid

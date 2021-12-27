@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import faq_content from '../../static/content/_faq'
 import { TextWrapper, Title } from '../../static/style/_common'
 import {
@@ -13,7 +13,7 @@ import { Accordion, AccordionItem } from 'components/elements'
 import { Show } from 'components/containers'
 import Vector from 'images/svg/be-square/vector.svg'
 
-const FAQ = (): ReactElement => {
+const FAQ = () => {
     const parent_style = {
         marginBottom: '32px',
     }

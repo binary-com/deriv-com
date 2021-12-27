@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { CardContainer } from '../../static/style/_advantages'
 import { Title } from '../../static/style/_common'
 import advantages from '../../static/content/_advantages'
 import Card from '../helper/_card'
 import { Container } from 'components/containers'
 
-const Advantages = (): ReactElement => {
+const Advantages = () => {
     const style = {
         card_wrapper: {
             width: ['auto'],
@@ -17,15 +17,15 @@ const Advantages = (): ReactElement => {
             border: '1px solid var(--color-grey-2)',
         },
         icon_wrapper: {
-            width: ['64px', '48px'],
-            height: ['64px', '48px'],
+            width: '64px 48px',
+            height: '64px 48px',
         },
         text_wrapper: {
             max_width: ['320px', '280px'],
         },
     }
 
-    const getTitle = (title: React.ReactNode): ReactElement => (
+    const getTitle = (title: React.ReactNode) => (
         <Title
             as="h3"
             font_size={['24px', '16px']}

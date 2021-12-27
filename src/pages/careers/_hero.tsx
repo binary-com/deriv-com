@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_layout-components/CareerContainer'
@@ -80,7 +80,7 @@ const query = graphql`
     }
 `
 
-const Hero = (): ReactElement => {
+const Hero = () => {
     const data = useStaticQuery(query)
 
     const { has_mounted } = React.useContext(LocationContext)

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header } from 'components/elements'
@@ -10,10 +10,7 @@ type NoOpenPositionsHeaderProps = {
     children: React.ReactNode
     mb: string
 }
-export const NoOpenPositionsHeader = ({
-    children,
-    mb,
-}: NoOpenPositionsHeaderProps): ReactElement => (
+export const NoOpenPositionsHeader = ({ children, mb }: NoOpenPositionsHeaderProps) => (
     <StyledHeader align="center" size="var(--text-size-l)" as="h4" mb={mb}>
         {children}
     </StyledHeader>

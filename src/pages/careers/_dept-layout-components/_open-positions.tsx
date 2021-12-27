@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { zoho_career_url } from '../../../common/constants'
 import { OpenPositionsProps } from './_dept-layout.types'
@@ -46,7 +46,7 @@ type DataProps = {
     data: OpenPositionsProps[]
 }
 
-const OpenPositions = (data: DataProps): ReactElement => {
+const OpenPositions = (data: DataProps) => {
     const hidden = data.data == undefined
     return (
         <SectionContainer padding="0">

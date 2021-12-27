@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -120,7 +120,7 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 
-const BeSquareBanner = (): ReactElement => {
+const BeSquareBanner = () => {
     return (
         <StyledSection>
             <MainWrapper>

@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { TextWrapper } from '../../static/style/_common'
 import { Container, SectionContainer } from 'components/containers'
 
-const Description = (): ReactElement => (
+const Description = () => (
     <SectionContainer color={'white'} padding={'0'}>
         <Container>
             <TextWrapper

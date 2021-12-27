@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { IntroSectionProps } from './_dept-layout.types'
@@ -79,7 +79,7 @@ type DeptDataProps = {
     data: IntroSectionProps
 }
 
-const DeptDescription = (dept_data: DeptDataProps): ReactElement => {
+const DeptDescription = (dept_data: DeptDataProps) => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer>

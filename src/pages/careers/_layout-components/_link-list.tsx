@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Container from './CareerContainer'
@@ -77,7 +77,7 @@ type Props = {
     list_items: ListItemsProps[]
 }
 
-export const LinkList = ({ list_items }: Props): ReactElement => (
+export const LinkList = ({ list_items }: Props) => (
     <Container>
         <List>
             {list_items &&

@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { CardContainer, ContentContainer } from '../../static/style/_join-us'
 import { Title } from '../../static/style/_common'
 import join_us from '../../static/content/_join-us'
 import Card from '../helper/_card'
 
-const JoinUs = (): ReactElement => {
+const JoinUs = () => {
     const style = {
         card_wrapper: {
             grid_template_columns: ['64px 296px', '64px 296px', '48px auto'],

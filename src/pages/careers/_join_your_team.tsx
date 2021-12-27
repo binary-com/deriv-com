@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import TeamCard from './_layout-components/_team-card'
@@ -74,7 +74,7 @@ const query = graphql`
     }
 `
 
-const JoinYourTeam = (): ReactElement => {
+const JoinYourTeam = () => {
     const data = useStaticQuery(query)
 
     const join_your_team_data = [

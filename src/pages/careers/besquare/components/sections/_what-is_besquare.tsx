@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { ContentContainer, ContentWrapper, Section } from '../../static/style/_what-is-besquare'
 import { TextWrapper, Title } from '../../static/style/_common'
 import { GreenMarkIcon } from '../../static/images/_common'
 import what_is_be_square from '../../static/content/_what-is-besquare'
 import Card from '../helper/_card'
 
-const WhatIsBeSquare = (): ReactElement => {
+const WhatIsBeSquare = () => {
     const style = {
         card_wrapper: {
             max_width: ['486px', '328px'],

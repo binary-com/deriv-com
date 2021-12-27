@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header } from 'components/elements'
@@ -133,7 +133,7 @@ ImageSlide.propTypes = {
     img_path: PropTypes.string,
 }
 
-const LifeAtDerivCarousel = (): ReactElement => {
+const LifeAtDerivCarousel = () => {
     return (
         <>
             <StyledSection>

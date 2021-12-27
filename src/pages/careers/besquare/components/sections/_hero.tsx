@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { ImageWrapper } from '../../static/style/_hero'
 import HeroImage from 'images/common/be-square/hero.png'
@@ -13,7 +13,7 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const Hero = (): ReactElement => (
+const Hero = () => (
     <Flex bg="black">
         <StyledContainer jc="space-between">
             <Flex fd="column" max_width="384px" pt="100px" tablet={{ pt: 'unset' }}>

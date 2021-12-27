@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import {
     CardContainer,
     ContentContainer,
@@ -10,7 +10,7 @@ import who_can_apply from '../../static/content/_who-can-apply'
 import { RedMarkIcon } from '../../static/images/_common'
 import Card from '../helper/_card'
 
-const WhoCanApply = (): ReactElement => {
+const WhoCanApply = () => {
     const style = {
         card_wrapper: {
             grid_template_columns: ['24px auto', '24px auto', '16px auto'],

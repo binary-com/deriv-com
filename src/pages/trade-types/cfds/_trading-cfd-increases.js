@@ -76,7 +76,7 @@ const TradingCFDIncreases = () => {
                 </Text>
                 <Text mb="1.6rem">
                     {localize(
-                        'With stop loss, you minimise potential losses by setting the price at which you want the position to close in case the market moves against you. When the current market price surpasses this level, your trade will be closed automatically. ',
+                        'With stop loss, you minimise potential losses by setting the price at which you want the position to close in case the market moves against you. When the current market price surpasses this level, your trade will be closed automatically.',
                     )}
                 </Text>
                 <Text weight="bold" mb="0.8rem">
@@ -98,10 +98,16 @@ const TradingCFDIncreases = () => {
                     )}
                 </Text>
                 <Show.Desktop>
-                    <ExampleImage data={data['example']} />
+                    <ExampleImage
+                        data={data['example']}
+                        alt="Example for stop loss with crash/boom indices"
+                    />
                 </Show.Desktop>
                 <Show.Mobile width="100%">
-                    <ExampleImage data={data['example_mobile']} />
+                    <ExampleImage
+                        data={data['example_mobile']}
+                        alt="Example for stop loss with crash/boom indices"
+                    />
                 </Show.Mobile>
 
                 <Header mt="3.2rem" as="h5" type="main-paragraph" mb="0.8rem">
@@ -128,7 +134,7 @@ const TradingCFDIncreases = () => {
                 </Text>
                 <Text mb="2.4rem">
                     {localize(
-                        'If your margin level drops below Deriv’s margin call level, you’ll get a margin call, which is a warning that your account is approaching the stop out level. ',
+                        'If your margin level drops below Deriv’s margin call level, you’ll get a margin call, which is a warning that your account is approaching the stop out level.',
                     )}
                 </Text>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">

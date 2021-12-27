@@ -19,9 +19,6 @@ const MainWrapper = styled(Flex)`
     flex-direction: column;
     overflow: hidden;
 `
-const StyledLink = styled.a`
-    text-decoration: none;
-`
 
 export const query = graphql`
     query HomepageQuery {
@@ -29,6 +26,7 @@ export const query = graphql`
             homepage_banners(filter: { status: { _eq: "published" } }) {
                 order
                 id
+                button_text
                 link
                 heading
                 sub_heading
@@ -61,7 +59,7 @@ export const query = graphql`
                         tag_name
                     }
                 }
-                read_time_in_minutes
+                blog_post
                 main_image {
                     imageFile {
                         childImageSharp {
@@ -90,7 +88,7 @@ export const query = graphql`
                         tag_name
                     }
                 }
-                read_time_in_minutes
+                blog_post
                 main_image {
                     imageFile {
                         childImageSharp {
@@ -221,7 +219,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             recent_eu: blog(
                 filter: {
@@ -254,7 +252,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             featured: blog(
                 filter: {
@@ -286,7 +284,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             featured_eu: blog(
                 filter: {
@@ -320,7 +318,7 @@ export const query = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
         }
     }
@@ -383,19 +381,16 @@ const DerivBlog = ({ data }) => {
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                     {homepage_banner_data.map((page_data) => {
                         return (
-                            <StyledLink
-                                key={page_data.id}
-                                href={page_data.link}
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
+                            <Flex key={page_data.id}>
                                 <Hero
                                     imageData={page_data.desktop_hero.imageFile}
                                     imageAlt={page_data?.desktop_hero?.description}
                                     title={page_data.heading}
                                     description={page_data.sub_heading}
+                                    href={page_data.link}
+                                    cta_text={page_data.button_text}
                                 />
-                            </StyledLink>
+                            </Flex>
                         )
                     })}
                 </Carousel>

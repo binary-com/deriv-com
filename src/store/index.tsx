@@ -9,7 +9,7 @@ type DerivProviderProps = {
 
 export const DerivStore = React.createContext()
 
-export const DerivProvider = ({ children }: DerivProviderProps): React.ReactNode => {
+export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
     const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)

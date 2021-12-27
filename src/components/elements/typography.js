@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types'
 import { generateResponsiveStyles } from '../containers/box'
 import { Margins, Paddings } from 'themes/function'
 import device from 'themes/device'
@@ -66,6 +67,10 @@ export const BaseElement = css`
         max-width: ${(props) => props.mobile_max_width || ''};
     }
 `
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////// TEXT IS DEPRICATED. PLEASE USE HEADER. ///////////////////
+//////////////////////////////////////////////////////////////////////////////
 export const Text = styled.p`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
@@ -78,6 +83,9 @@ export const Text = styled.p`
 
     ${responsiveStyles}
 `
+//////////////////////////////////////////////////////////////////////////////
+/////////////////// TEXT IS DEPRICATED. PLEASE USE HEADER. ///////////////////
+//////////////////////////////////////////////////////////////////////////////
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>
     createElement(as, props, children),
@@ -180,3 +188,9 @@ export const LinkText = styled(Text).attrs({ as: 'a' })`
 export const SpanLinkText = styled(Text).attrs({ as: 'span' })`
     ${BaseLink}
 `
+
+Header.propTypes = {
+    as: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    type: PropTypes.string.isRequired,
+}

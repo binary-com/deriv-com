@@ -9,7 +9,7 @@ import { ImageWrapperProps } from 'components/elements/query-image'
 import device from 'themes/device'
 import Linkedin from 'images/svg/about-us/linkedin.svg'
 
-const query = graphql`
+const leaders_query = graphql`
     query {
         antony: file(relativePath: { eq: "about-us/antony.jpg" }) {
             ...fadeIn
@@ -235,7 +235,7 @@ const Leader: React.FC<LeaderPopsType> = ({ leader }) => {
 }
 
 const OurLeadership = () => {
-    const leaders_data = useStaticQuery(query)
+    const leaders_data = useStaticQuery(leaders_query)
     const leaders: LeaderType[] = [
         {
             name: 'Jean-Yves Sireau',
@@ -339,9 +339,10 @@ const OurLeadership = () => {
                 mobile_column_gap="24px"
                 mobile_row_gap="4px"
             >
-                {leaders.map((leader: LeaderType, index: number) => (
-                    <Leader leader={leader} key={index} />
-                ))}
+                {leaders &&
+                    leaders.map((leader: LeaderType, index: number) => (
+                        <Leader leader={leader} key={index} />
+                    ))}
             </StyledCssGrid>
         </StyledSectionContainer>
     )

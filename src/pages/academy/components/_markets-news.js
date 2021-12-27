@@ -5,6 +5,7 @@ import { StandardImgWrapper } from '../common/_styles'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
+import { getMinRead } from 'common/utility'
 import EyeIcon from 'images/svg/eye.svg'
 import device from 'themes/device'
 
@@ -107,7 +108,7 @@ const MarketNews = ({ data }) => {
                                                 weight="normal"
                                                 color="grey-5"
                                             >
-                                                {data.read_time_in_minutes} min read
+                                                {getMinRead(data?.blog_post)}
                                             </Header>
                                         </Flex>
                                     </ContentWrapper>

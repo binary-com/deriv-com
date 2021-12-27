@@ -24,11 +24,12 @@ type ImageWrapperProps = {
     left?: string
 }
 
+const leftCalc = `calc(${getWindowWidth()}px - ${getWindowWidth() - 1440}px)`
+
 export const ImageWrapper = styled.img<ImageWrapperProps>`
     position: absolute;
     bottom: ${({ bottom }) => bottom ?? 'unset'};
-    left: ${({ left }) =>
-        left ? `calc(${getWindowWidth()}px - ${getWindowWidth() - 1440}px)` : 'unset'};
+    left: ${({ left }) => (left ? leftCalc : 'unset')};
 
     @media ${device.desktop} {
         left: ${({ left }) => left ?? 'unset'};

@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { PrevButton, NextButton } from './EmblaCarouselButtons'
 import { useEmblaCarousel } from 'embla-carousel/react'
-import { QueryImage, ImageWrapper } from 'components/elements'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { QueryImage } from 'components/elements'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import device from 'themes/device'
 
 const queryCarouselData = graphql`
@@ -34,6 +33,7 @@ const Carousel = styled.div`
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 50px;
 `
 
 type CarouselViewportType = {
@@ -128,7 +128,6 @@ const StyledQueryImage = styled(QueryImage)`
     min-width: 100%;
     height: 480px;
     transform: translate(-50%, -50%);
-    width: ${(props) => props.width};
 
     @media ${device.tablet} {
         height: 240px;
@@ -145,7 +144,7 @@ const StyledQueryImage = styled(QueryImage)`
 
 const EmblaCarousel = () => {
     const carousel_data = useStaticQuery(queryCarouselData)
-    const carousel_images = [
+    const carousel_images: ImageDataLike[] = [
         carousel_data.media1,
         carousel_data.media2,
         carousel_data.media3,
@@ -160,8 +159,8 @@ const EmblaCarousel = () => {
         draggable: true,
     })
 
-    const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
-    const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
+    const [, setPrevBtnEnabled] = useState(false)
+    const [, setNextBtnEnabled] = useState(false)
 
     const onSelect = useCallback(() => {
         if (!embla) return

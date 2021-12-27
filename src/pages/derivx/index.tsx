@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, ReactElement } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import { DBanner } from '../dmt5/_lazy-load'
 import Hero from './_hero'
@@ -23,7 +23,7 @@ const query = graphql`
     }
 `
 
-const DerivX = (): ReactElement => {
+const DerivX = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)

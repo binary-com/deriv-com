@@ -58,7 +58,7 @@ const selling_points: SellingPointsType[] = [
     },
 ]
 
-const SellingPoints = (): ReactElement => {
+const SellingPoints = () => {
     return (
         <SectionContainer padding="40px 0" background="grey-25">
             <Container>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, ReactElement } from 'react'
+import React, { useState, useEffect, useCallback, ReactElement, ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
@@ -10,7 +10,7 @@ import { isBrowser } from 'common/utility'
 import { derivx_android_url, derivx_ios_url } from 'common/constants'
 
 interface StartDerivXProps {
-    children?: React.ReactNode
+    children?: ReactNode
     active?: boolean
     mobile_padding?: string
 }
@@ -209,7 +209,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const StartDerivX = (): ReactElement => {
+const StartDerivX = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)

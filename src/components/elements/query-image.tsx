@@ -1,4 +1,4 @@
-import React, { FocusEvent } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 

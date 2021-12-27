@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
-export const articles = [
+
+type ArcticlesType = {
+    category?: ReactElement
+    articles?: (
+        | { title?: ReactElement; category?: string; sub_category?: ReactElement; label?: string }
+        | {
+              title?: ReactElement
+              category?: string
+              sub_category?: ReactElement
+              label?: string
+              title_eu?: ReactElement
+              label_eu?: string
+          }
+    )[]
+}[]
+
+export const article: ArcticlesType = [
     {
         category: <Localize translate_text="Account" />,
         articles: [

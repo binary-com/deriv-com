@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
@@ -36,6 +36,14 @@ import UpdateCurrentPlImage from 'images/common/help-centre/dbot-update-currentP
 import SummaryTabImage from 'images/common/help-centre/dbot-summary-tab.png'
 import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
 import ChartImage from 'images/common/help-centre/dbot-chart.png'
+
+type StyledTableProps = { has_note?: string }
+
+type DBotArticleProps = {
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
 
 const ImageWrapper = styled.div`
     padding: 2.4rem 10.2rem;
@@ -94,13 +102,13 @@ const Td = styled.td`
 const Tr = styled.tr`
     border: 1px solid var(--color-grey-7);
 `
-const StyledTable = styled.table`
+const StyledTable = styled.table<StyledTableProps>`
     border-collapse: collapse;
     width: 100%;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
 
-const WhatIsDBot = () => (
+const WhatIsDBot: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is DBot?')}</StyledHeader>
         <Text>
@@ -111,7 +119,7 @@ const WhatIsDBot = () => (
     </ArticleWrapper>
 )
 
-const FindBlocks = () => (
+const FindBlocks: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I find the blocks I need?')}</StyledHeader>
         <Text>
@@ -148,7 +156,7 @@ const FindBlocks = () => (
     </ArticleWrapper>
 )
 
-const RemoveBlocks = () => (
+const RemoveBlocks: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
             {localize('How do I remove blocks from the workspace?')}
@@ -170,7 +178,7 @@ const RemoveBlocks = () => (
     </ArticleWrapper>
 )
 
-const CreateVariables = () => (
+const CreateVariables: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I create variables?')}</StyledHeader>
         <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
@@ -224,7 +232,7 @@ const CreateVariables = () => (
     </ArticleWrapper>
 )
 
-const QuickStrategy = () => (
+const QuickStrategy: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
             {localize('What is a quick strategy and how do I use it?')}
@@ -314,7 +322,7 @@ const QuickStrategy = () => (
     </ArticleWrapper>
 )
 
-const MartingaleStrategy = () => (
+const MartingaleStrategy: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is the Martingale strategy?')}</StyledHeader>
         <Text>
@@ -325,7 +333,7 @@ const MartingaleStrategy = () => (
     </ArticleWrapper>
 )
 
-const AlembertStrategy = () => (
+const AlembertStrategy: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is the D’Alembert strategy?')}</StyledHeader>
         <Text>
@@ -336,7 +344,7 @@ const AlembertStrategy = () => (
     </ArticleWrapper>
 )
 
-const OskarStrategy = () => (
+const OskarStrategy: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize("What is the Oscar's Grind strategy?")}</StyledHeader>
         <Text>
@@ -347,7 +355,7 @@ const OskarStrategy = () => (
     </ArticleWrapper>
 )
 
-const SaveStrategy = () => (
+const SaveStrategy: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I save my strategy?')}</StyledHeader>
         <Text>
@@ -438,7 +446,7 @@ const SaveStrategy = () => (
     </ArticleWrapper>
 )
 
-const ImportStrategy = () => (
+const ImportStrategy: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I import my strategies into DBot?')}</StyledHeader>
         <Text>
@@ -494,7 +502,7 @@ const ImportStrategy = () => (
     </ArticleWrapper>
 )
 
-const ResetWorkspace = () => (
+const ResetWorkspace: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I reset the workspace?')}</StyledHeader>
         <Text>
@@ -514,7 +522,7 @@ const ResetWorkspace = () => (
     </ArticleWrapper>
 )
 
-const TransactionLog = () => (
+const TransactionLog: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I clear my transaction log?')}</StyledHeader>
         <Text>
@@ -542,7 +550,7 @@ const TransactionLog = () => (
     </ArticleWrapper>
 )
 
-const ControlLosses = () => (
+const ControlLosses: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I control my losses with DBot?')}</StyledHeader>
         <Text>
@@ -655,7 +663,7 @@ const ControlLosses = () => (
     </ArticleWrapper>
 )
 
-const TradeStatus = () => (
+const TradeStatus: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
             {localize('Where can I see the status of my trades in DBot?')}
@@ -693,7 +701,7 @@ const TradeStatus = () => (
     </ArticleWrapper>
 )
 
-const ViewChart = () => (
+const ViewChart: React.FC<DBotArticleProps> = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I view the chart in DBot?')}</StyledHeader>
         <Text>
@@ -714,7 +722,7 @@ const ViewChart = () => (
     </ArticleWrapper>
 )
 
-const DBotArticle = () => {
+const DBotArticle = (): ReactElement => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (

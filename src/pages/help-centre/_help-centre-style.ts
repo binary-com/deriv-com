@@ -1,9 +1,18 @@
+import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
-export const ArticleWrapper = styled.div`
+type ArticleWrapperProps = {
+    children: ReactNode
+    margin_left?: string
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
+
+export const ArticleWrapper = styled.div<ArticleWrapperProps>`
     max-width: 71.2rem;
     display: flex;
     flex-direction: column;

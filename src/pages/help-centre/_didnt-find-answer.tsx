@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { Button } from 'components/form'
@@ -41,7 +41,7 @@ const MiddleText = styled(Text)`
     }
 `
 
-export const DidntFindYourAnswerBanner = () => {
+export const DidntFindYourAnswerBanner = (): ReactElement => {
     const [is_livechat_interactive, LC_API] = useLivechat()
     return (
         <DFYAWrapper>

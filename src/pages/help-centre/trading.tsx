@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -6,7 +6,13 @@ import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
-const Forex = () => (
+type TradingProps = {
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
+
+const Forex: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is forex?')}</StyledHeader>
         <Text>
@@ -17,7 +23,7 @@ const Forex = () => (
     </ArticleWrapper>
 )
 
-const Commodities = () => (
+const Commodities: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are commodities?')}</StyledHeader>
         <Text>
@@ -28,7 +34,7 @@ const Commodities = () => (
     </ArticleWrapper>
 )
 
-const StockIndices = () => (
+const StockIndices: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are stock indices?')}</StyledHeader>
         <Text>
@@ -39,7 +45,7 @@ const StockIndices = () => (
     </ArticleWrapper>
 )
 
-const SyntheticIndices = () => (
+const SyntheticIndices: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are synthetic indices?')}</StyledHeader>
         <Text>
@@ -50,7 +56,7 @@ const SyntheticIndices = () => (
     </ArticleWrapper>
 )
 
-const CFD = () => (
+const CFD: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are contracts for difference (CFDs)?')}</StyledHeader>
         <Text>
@@ -61,7 +67,7 @@ const CFD = () => (
     </ArticleWrapper>
 )
 
-const DigitalOptions = () => (
+const DigitalOptions: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
         <Text>
@@ -72,7 +78,7 @@ const DigitalOptions = () => (
     </ArticleWrapper>
 )
 
-const TradingPlatforms = () => (
+const TradingPlatforms: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How many trading platforms do you offer?')}</StyledHeader>
         <Text>
@@ -83,7 +89,7 @@ const TradingPlatforms = () => (
     </ArticleWrapper>
 )
 
-const AutomateTradingStrategy = () => (
+const AutomateTradingStrategy: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I automate my trading strategy?')}</StyledHeader>
         <Text>
@@ -94,7 +100,7 @@ const AutomateTradingStrategy = () => (
     </ArticleWrapper>
 )
 
-const TradingLimits = () => (
+const TradingLimits: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are my trading limits?')}</StyledHeader>
         <Text>
@@ -115,7 +121,7 @@ const TradingLimits = () => (
     </ArticleWrapper>
 )
 
-const WeekendContracts = () => (
+const WeekendContracts: React.FC<TradingProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What contracts are available for trading on weekends?')}
@@ -124,7 +130,7 @@ const WeekendContracts = () => (
     </ArticleWrapper>
 )
 
-const TradingArticle = () => {
+const TradingArticle = (): ReactElement => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
     return (
         <div>

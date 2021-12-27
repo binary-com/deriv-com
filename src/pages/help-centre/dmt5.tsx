@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -7,7 +7,13 @@ import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { DerivStore } from 'store'
 
-const WhatIsDMT5 = () => (
+type DMT5Props = {
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
+
+const WhatIsDMT5: React.FC<DMT5Props> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is DMT5?')}</StyledHeader>
         <Text>
@@ -18,7 +24,7 @@ const WhatIsDMT5 = () => (
     </ArticleWrapper>
 )
 
-const DifferenceDMT5DTrader = () => (
+const DifferenceDMT5DTrader: React.FC<DMT5Props> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What are the major differences between DTrader and DMT5?')}
@@ -36,7 +42,7 @@ const DifferenceDMT5DTrader = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts = () => {
+const DifferentAccounts: React.FC<DMT5Props> = () => {
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">
@@ -65,7 +71,7 @@ const DifferentAccounts = () => {
     )
 }
 
-const WhatIsCFDsAccount = () => {
+const WhatIsCFDsAccount: React.FC<DMT5Props> = () => {
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">{localize('What is the CFDs account?')}</StyledHeader>
@@ -80,7 +86,7 @@ const WhatIsCFDsAccount = () => {
     )
 }
 
-const DepositDMT5 = () => (
+const DepositDMT5: React.FC<DMT5Props> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How can I deposit funds into my DMT5 real money account?')}
@@ -108,7 +114,7 @@ const DepositDMT5 = () => (
     </ArticleWrapper>
 )
 
-const WithdrawDMT5 = () => (
+const WithdrawDMT5: React.FC<DMT5Props> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How can I withdraw funds from my DMT5 real money account?')}
@@ -136,7 +142,7 @@ const WithdrawDMT5 = () => (
     </ArticleWrapper>
 )
 
-const LoginCredentials = () => (
+const LoginCredentials: React.FC<DMT5Props> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('Why are my DMT5 login details different from my Deriv login details?')}
@@ -149,7 +155,7 @@ const LoginCredentials = () => (
     </ArticleWrapper>
 )
 
-const ResetDMT5Password = () => (
+const ResetDMT5Password: React.FC<DMT5Props> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I reset my DMT5 account password?')}</StyledHeader>
         <Text>
@@ -170,9 +176,9 @@ const ResetDMT5Password = () => (
     </ArticleWrapper>
 )
 
-const DMT5Article = () => {
+const DMT5Article = (): ReactElement => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
-    const { is_eu_country } = React.useContext(DerivStore)
+    const is_eu_country = React.useContext(DerivStore)
 
     return (
         <div>

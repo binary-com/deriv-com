@@ -1,6 +1,33 @@
 import { localize } from 'components/localization'
 
-export const faq_schema = {
+type FaqSchemaType = {
+    '@context'?: string
+    '@type'?: string
+    mainEntity?: (
+        | {
+              '@type'?: string
+              name?: string
+              acceptedAnswer?: {
+                  '@type'?: string
+                  text?: string
+              }
+          }
+        | {
+              '@type': string
+              name: string
+              acceptedAnswer?: {
+                  '@type'?: string
+                  text?: string
+              }
+              acceptedAnswerEU?: {
+                  '@type'?: string
+                  text?: string
+              }
+          }
+    )[]
+}
+
+export const faq_schema: FaqSchemaType = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
@@ -8,6 +8,11 @@ import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device.js'
 
+type AccountProps = {
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
 const StyledList = styled.ul`
     list-style: unset;
     padding-left: 2rem;
@@ -22,7 +27,7 @@ const StyledLink = styled(ExternalLink)`
     }
 `
 
-const WhoCanOpenAnAccount = () => (
+const WhoCanOpenAnAccount: React.FC<AccountProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>
         <Text>
@@ -43,7 +48,7 @@ const WhoCanOpenAnAccount = () => (
     </ArticleWrapper>
 )
 
-const ChangingPersonalDetails = () => (
+const ChangingPersonalDetails: React.FC<AccountProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
         <Text>
@@ -70,7 +75,7 @@ const ChangingPersonalDetails = () => (
     </ArticleWrapper>
 )
 
-const ChangeAccountCurrency = () => (
+const ChangeAccountCurrency: React.FC<AccountProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize("How can I change my account's currency?")}</StyledHeader>
         <Text>
@@ -81,7 +86,7 @@ const ChangeAccountCurrency = () => (
     </ArticleWrapper>
 )
 
-const RecoveringPassword = () => (
+const RecoveringPassword: React.FC<AccountProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
@@ -106,7 +111,7 @@ const RecoveringPassword = () => (
     </ArticleWrapper>
 )
 
-const CloseAccount = () => (
+const CloseAccount: React.FC<AccountProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
         <Text>
@@ -132,7 +137,7 @@ const CloseAccount = () => (
     </ArticleWrapper>
 )
 
-const UnsubscribeEmail = () => (
+const UnsubscribeEmail: React.FC<AccountProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How do I unsubscribe from marketing emails?')}
@@ -156,7 +161,7 @@ const UnsubscribeEmail = () => (
     </ArticleWrapper>
 )
 
-const DormantFee = () => (
+const DormantFee: React.FC<AccountProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>
         <Text>
@@ -172,7 +177,7 @@ const DormantFee = () => (
     </ArticleWrapper>
 )
 
-const AccountArticle = () => {
+const AccountArticle = (): ReactElement => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (

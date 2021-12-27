@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { convertToHash } from './_utility'
 import { Text, Header, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+
+type SearchSuccessProps = {
+    children?: ReactNode
+    suggested_topics?: { category: string; label: string; title: string }
+    max_length?: number
+    search?: string
+    title?: string
+}
 
 export const Li = styled(Text).attrs({
     as: 'li',
@@ -73,7 +81,10 @@ const StyledLink = styled(LocalizedLinkText)`
         text-decoration: underline;
     }
 `
-export const SearchSuccess = ({ suggested_topics, max_length }) => (
+export const SearchSuccess = ({
+    suggested_topics,
+    max_length,
+}: SearchSuccessProps): ReactElement => (
     <>
         <Header as="h3" type="section-title" color="black">
             {localize('Topic suggestions')}
@@ -82,8 +93,10 @@ export const SearchSuccess = ({ suggested_topics, max_length }) => (
         {suggested_topics.slice(0, max_length).map((article, idx) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
-                    <StyledLink to={convertToHash(article.category, article.label)}>
-                        {localize(article.title)}
+                    <StyledLink
+                        to={convertToHash({ category: article.category, label: article.label })}
+                    >
+                        {localize({ title: article.title })}
                     </StyledLink>
                 </ListNoBullets>
             </ListWrapper>
@@ -96,7 +109,7 @@ SearchSuccess.propTypes = {
     suggested_topics: PropTypes.array,
 }
 
-export const SearchError = ({ search }) => (
+export const SearchError = ({ search }: SearchSuccessProps): ReactElement => (
     <>
         <ErrorHeader
             as="h5"

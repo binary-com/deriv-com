@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const WhatIsDMT5 = () => (
+type DTraderProps = {
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
+
+const WhatIsDMT5: React.FC<DTraderProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is DTrader?')}</StyledHeader>
         <Text>
@@ -16,7 +22,7 @@ const WhatIsDMT5 = () => (
     </ArticleWrapper>
 )
 
-const DTraderMarkets = () => (
+const DTraderMarkets: React.FC<DTraderProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on DTrader?')}</StyledHeader>
         <Text>
@@ -27,7 +33,7 @@ const DTraderMarkets = () => (
     </ArticleWrapper>
 )
 
-const DTraderContracts = () => (
+const DTraderContracts: React.FC<DTraderProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What contract types can I use on DTrader?')}</StyledHeader>
         <Text>
@@ -38,7 +44,7 @@ const DTraderContracts = () => (
     </ArticleWrapper>
 )
 
-const DTraderArticle = () => {
+const DTraderArticle = (): ReactElement => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (

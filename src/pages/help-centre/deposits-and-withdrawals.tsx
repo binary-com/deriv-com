@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -6,7 +6,13 @@ import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { Localize, localize, WithIntl } from 'components/localization'
 
-const PaymentMethods = () => (
+type DepositsAndWithdrawalProps = {
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
+
+const PaymentMethods: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What payment methods do you support?')}</StyledHeader>
         <Text>
@@ -30,7 +36,7 @@ const PaymentMethods = () => (
     </ArticleWrapper>
 )
 
-const WithdrawalProcessingTime = () => (
+const WithdrawalProcessingTime: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How long does it take to process deposits and withdrawals?')}
@@ -43,7 +49,7 @@ const WithdrawalProcessingTime = () => (
     </ArticleWrapper>
 )
 
-const MinimumDepositWithdrawal = () => (
+const MinimumDepositWithdrawal: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What is the minimum deposit or withdrawal amount?')}
@@ -59,7 +65,7 @@ const MinimumDepositWithdrawal = () => (
     </ArticleWrapper>
 )
 
-const ExpiredVerificationLink = () => (
+const ExpiredVerificationLink: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('My withdrawal verification link expired. What should I do?')}
@@ -72,7 +78,7 @@ const ExpiredVerificationLink = () => (
     </ArticleWrapper>
 )
 
-const LiftWithdrawalLimits = () => (
+const LiftWithdrawalLimits: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I lift my withdrawal limits?')}</StyledHeader>
         <Text>
@@ -93,7 +99,7 @@ const LiftWithdrawalLimits = () => (
     </ArticleWrapper>
 )
 
-const CreditCardDepositDeclined = () => (
+const CreditCardDepositDeclined: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('Why does my credit card deposit keep getting declined?')}
@@ -106,7 +112,7 @@ const CreditCardDepositDeclined = () => (
     </ArticleWrapper>
 )
 
-const WithdrawDepositBonus = () => (
+const WithdrawDepositBonus: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Can I withdraw my deposit bonus?')}</StyledHeader>
         <Text>
@@ -117,7 +123,7 @@ const WithdrawDepositBonus = () => (
     </ArticleWrapper>
 )
 
-const WithdrawMaestroMastercard = () => (
+const WithdrawMaestroMastercard: React.FC<DepositsAndWithdrawalProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize("Why can't I withdraw funds to my Maestro/Mastercard?")}
@@ -130,7 +136,7 @@ const WithdrawMaestroMastercard = () => (
     </ArticleWrapper>
 )
 
-const DepositsAndWithdrawalArticle = () => {
+const DepositsAndWithdrawalArticle = (): ReactElement => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (

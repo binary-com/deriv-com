@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const VerifyAccount = () => (
+type SecurityProps = {
+    text?: string
+    label?: string
+    is_mounted?: boolean
+}
+
+const VerifyAccount: React.FC<SecurityProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Do I need to verify my Deriv account?')}</StyledHeader>
         <Text>
@@ -16,7 +22,7 @@ const VerifyAccount = () => (
     </ArticleWrapper>
 )
 
-const VerificationDuration = () => (
+const VerificationDuration: React.FC<SecurityProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How long does verification take?')}</StyledHeader>
         <Text>
@@ -27,7 +33,7 @@ const VerificationDuration = () => (
     </ArticleWrapper>
 )
 
-const DocumentsDeclined = () => (
+const DocumentsDeclined: React.FC<SecurityProps> = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Why were my documents declined?')}</StyledHeader>
         <Text>
@@ -38,7 +44,7 @@ const DocumentsDeclined = () => (
     </ArticleWrapper>
 )
 
-const SecurityArticle = () => {
+const SecurityArticle = (): ReactElement => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (

@@ -9,6 +9,7 @@ import OurValues from './_OurValues'
 import OurPrinciples from './_OurPrinciples'
 import Hero from './components/_hero'
 import OurLeadership from './_OurLeadership'
+import AboutUsBanner from './_AboutUsBanner'
 import DerivNumbers from './_DerivNumbers'
 import EmblaCarousel from './carousel/_Carousel'
 
@@ -49,6 +50,7 @@ const AboutUs = (): React.ReactNode => {
             <EndSeparator />
             <OurPrinciples />
             <OurLeadership />
+            <AboutUsBanner />
             <DerivNumbers />
             <EmblaCarousel />
         </Layout>

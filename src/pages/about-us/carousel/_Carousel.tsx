@@ -6,7 +6,6 @@ import { useEmblaCarousel } from 'embla-carousel/react'
 import { QueryImage, ImageWrapper } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import device from 'themes/device'
-import { getWindowWidth } from 'common/utility'
 
 const queryCarouselData = graphql`
     query {
@@ -44,12 +43,6 @@ type CarouselViewportType = {
 const CarouselViewport = styled.div<CarouselViewportType>`
     overflow: hidden;
     width: 100%;
-    cursor: ${(props) => (props.isDragging ? 'grabbing' : 'auto')};
-    /* -ms-overflow-style: none; 
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-    display: none; */
 }
 `
 const CarouselContainer = styled.div`
@@ -63,45 +56,58 @@ const CarouselContainer = styled.div`
 
 const CarouselSlide = styled.div`
     position: relative;
-    padding-left: 10px;
+    padding-left: 20px;
 
-    @media ${device.tabletL} {
-        min-width: 384px;
-        height: 240px;
+    @media ${device.tablet} {
+        padding-left: 10px;
     }
 
     &:nth-child(1) {
-    min-width: 384px;
-}
+        min-width: 384px;
+
+        @media ${device.tablet} {
+            min-width: 328px;
+        }
+    }
 
     &:nth-child(2) {
-    min-width: 792px;
-    
-}
+        min-width: 792px;
+
+        @media ${device.tablet} {
+            min-width: 328px;
+        }
+    }
 
     &:nth-child(3) {
-    min-width: 384px;
-}
+        min-width: 384px;
+
+        @media ${device.tablet} {
+            min-width: 328px;
+        }
+    }
 
     &:nth-child(4) {
-    min-width: 792px;
-}
+        min-width: 792px;
+        @media ${device.tablet} {
+            min-width: 328px;
+        }
+    }
 
     &:nth-child(5) {
-    min-width: 384px;
-}
+        min-width: 384px;
+
+        @media ${device.tablet} {
+            min-width: 192px;
+        }
+    }
 
     &:nth-child(6) {
-    min-width: 384px;
-    
-}
+        min-width: 384px;
 
-    /* &:nth-child(n) {
-    @media ${device.tabletL} {
-        min-width: 192px;
-    } */
-}
-
+        @media ${device.tablet} {
+            min-width: 192px;
+        }
+    }
 `
 const StyledImageWrapper = styled.div`
     position: relative;
@@ -109,7 +115,7 @@ const StyledImageWrapper = styled.div`
     border-radius: 8px;
     height: 480px;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         height: 240px;
     }
 `
@@ -118,24 +124,21 @@ const StyledQueryImage = styled(QueryImage)`
     display: block;
     top: 50%;
     left: 50%;
-    /* width: auto; */
     min-height: 100%;
     min-width: 100%;
-    /* width: 792px; */
+    height: 480px;
     transform: translate(-50%, -50%);
+    width: ${(props) => props.width};
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         height: 240px;
-        width: 384px;
     }
-    & .gatsby-image-wrapper img {
-        /* width: 792px; */
-        width: ${(props) => props.width};
-        height: ${(props) => props.height};
 
-        @media ${device.tabletL} {
+    & .gatsby-image-wrapper img {
+        height: 480px;
+
+        @media ${device.tablet} {
             height: 240px;
-            width: 384px;
         }
     }
 `
@@ -143,30 +146,12 @@ const StyledQueryImage = styled(QueryImage)`
 const EmblaCarousel = () => {
     const carousel_data = useStaticQuery(queryCarouselData)
     const carousel_images = [
-        {
-            image: carousel_data.media1,
-            width: '384px',
-        },
-        {
-            image: carousel_data.media2,
-            width: '792px',
-        },
-        {
-            image: carousel_data.media3,
-            width: '384px',
-        },
-        {
-            image: carousel_data.media4,
-            width: '792px',
-        },
-        {
-            image: carousel_data.media5,
-            width: '384px',
-        },
-        {
-            image: carousel_data.media6,
-            width: '384px',
-        },
+        carousel_data.media1,
+        carousel_data.media2,
+        carousel_data.media3,
+        carousel_data.media4,
+        carousel_data.media5,
+        carousel_data.media6,
     ]
 
     const [viewportRef, embla] = useEmblaCarousel({
@@ -175,14 +160,9 @@ const EmblaCarousel = () => {
         draggable: true,
     })
 
-    // getWindowWidth()
-    // console.log(getWindowWidth());
-
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
 
-    // const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
-    // const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
     const onSelect = useCallback(() => {
         if (!embla) return
         setPrevBtnEnabled(embla.canScrollPrev())
@@ -202,20 +182,12 @@ const EmblaCarousel = () => {
                     {carousel_images.map((carouselItem, index) => (
                         <CarouselSlide key={index}>
                             <StyledImageWrapper>
-                                <StyledQueryImage
-                                    data={carouselItem.image}
-                                    alt=""
-                                    loading="lazy"
-                                    height="480px"
-                                    width={carouselItem.width}
-                                />
+                                <StyledQueryImage data={carouselItem} alt="" loading="lazy" />
                             </StyledImageWrapper>
                         </CarouselSlide>
                     ))}
                 </CarouselContainer>
             </CarouselViewport>
-            {/* <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-            <NextButton onClick={scrollNext} enabled={nextBtnEnabled} /> */}
         </Carousel>
     )
 }

@@ -6,6 +6,7 @@ import OurPrinciples from './_OurPrinciples'
 import Hero from './components/_hero'
 import OurLeadership from './_OurLeadership'
 import DerivNumbers from './_DerivNumbers'
+import OurOffices from './_OurOffices'
 import EmblaCarousel from './carousel/_Carousel'
 import AboutUsBanner from './_AboutUsBanner'
 import device from 'themes/device'
@@ -53,6 +54,7 @@ const AboutUs = (): React.ReactNode => {
             <AboutUsBanner />
             <DerivNumbers />
             <EmblaCarousel />
+            <OurOffices />
         </Layout>
     )
 }

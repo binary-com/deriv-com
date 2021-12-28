@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import CloseIcon from 'images/svg/close.svg'
 import device from 'themes/device'
+
+type VideoPlayer = {
+    closeVideo: () => void
+    video_src: string
+}
 
 const VideoWrapper = styled.div`
     position: fixed;
@@ -12,7 +16,7 @@ const VideoWrapper = styled.div`
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.9);
-    display: ${(props) => (props.show ? 'flex' : 'none')};
+    display: ${(props: { show: boolean }) => (props.show ? 'flex' : 'none')};
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -61,7 +65,7 @@ const VidPlayer = styled.video`
     }
 `
 
-const VideoPlayer = ({ video_src, closeVideo }) => {
+const VideoPlayer = ({ video_src, closeVideo }: VideoPlayer) => {
     const vidRef = useRef()
     const [is_show, setIsShow] = useState(true)
     const [scroll, setScroll] = useState(true)
@@ -96,7 +100,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
         return () => document.removeEventListener('keydown', handleKeyboardEvent, false)
     }, [])
 
-    const handleKeyboardEvent = (e) => {
+    const handleKeyboardEvent = (e: { key: string }) => {
         if (e.key === 'Escape') {
             closeVideo()
         }
@@ -132,11 +136,6 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
             </VidPlayerWrapper>
         </VideoWrapper>
     )
-}
-
-VideoPlayer.propTypes = {
-    closeVideo: PropTypes.func,
-    video_src: PropTypes.string,
 }
 
 export default VideoPlayer

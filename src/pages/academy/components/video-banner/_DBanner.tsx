@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
 import VideoCarousel from './_VideoCarousel'
 import { convertDate, getVideoObject } from 'common/utility'
@@ -9,6 +8,11 @@ import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
+
+type Dbanner = {
+    featured_video_list: any[]
+    non_featured_video_list: any
+}
 
 const ParentWrapper = styled(Flex)`
     /* prettier-ignore */
@@ -81,12 +85,12 @@ const AllVideosButton = styled(LinkButton)`
     }
 `
 
-const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
+const Dbanner = ({ featured_video_list, non_featured_video_list }: Dbanner) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = () => setShow(true)
 
-    let featured_video
+    let featured_video: undefined
     if (featured_video_list && featured_video_list.length) {
         featured_video = featured_video_list[0]
     } else {
@@ -184,11 +188,6 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
             {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
         </>
     )
-}
-
-Dbanner.propTypes = {
-    featured_video_list: PropTypes.array,
-    non_featured_video_list: PropTypes.array,
 }
 
 export default Dbanner

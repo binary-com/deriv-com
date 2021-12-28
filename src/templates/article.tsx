@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import {
     ArticleTitle,
@@ -33,7 +32,7 @@ import {
     ProgressBar,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/academy/components/_banner'
-import ArticleEmailBanner from '../pages/academy/components/_side-subscription-banner.js'
+import ArticleEmailBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -42,7 +41,7 @@ import { QueryImage } from 'components/elements'
 import { convertDate, getMinRead } from 'common/utility'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
-const ArticlesTemplate = (props) => {
+const ArticlesTemplate = (props: { data: { directus: { blog: any[] } } }) => {
     const [isMounted, setMounted] = useState(false)
     useEffect(() => {
         setMounted(true)
@@ -317,11 +316,6 @@ const ArticlesTemplate = (props) => {
             </>
         </Layout>
     )
-}
-
-ArticlesTemplate.propTypes = {
-    data: PropTypes.object,
-    pageContext: PropTypes.object,
 }
 
 export default WithIntl()(ArticlesTemplate)

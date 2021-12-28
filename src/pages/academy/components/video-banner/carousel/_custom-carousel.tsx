@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useEmblaCarousel } from 'embla-carousel/react'
-import PropTypes from 'prop-types'
 import {
     Embla,
     EmblaContainer,
@@ -24,7 +23,37 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 import { Header } from 'components/elements'
 
-export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
+type Button = {
+    color: string
+    enabled: boolean
+    is_reviews: boolean
+    style: any
+    onClick?: () => void
+}
+
+type CustomCarousel = {
+    autoplay_interval: number
+    chevron_style: any
+    children: []
+    container_style: any
+    custom_blog_video_nav: boolean
+    custom_blog_video_nav_style: any
+    has_autoplay: boolean
+    navigation_style: any
+    options: any
+    slide_mobile_style: any
+    slide_style: any
+    vertical_container: any
+    view_port: any
+}
+
+type NavigationButton = {
+    color: string
+    is_enabled: boolean
+    onClick: () => void
+}
+
+export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: Button) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -44,24 +73,12 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
     </StyledButtonWrapper>
 )
 
-PrevButton.propTypes = {
-    chevron_style: PropTypes.object,
-    enabled: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
 // TODO: will remove later,not using this for now
-export const NavigationButton = ({ color, is_enabled, onClick }) => (
+export const NavigationButton = ({ color, is_enabled, onClick }: NavigationButton) => (
     <StyledDot onClick={onClick} color={is_enabled ? color : null} />
 )
 
-NavigationButton.propTypes = {
-    color: PropTypes.string,
-    is_enabled: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
-export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
+export const NextButton = ({ color, enabled, is_reviews, onClick, style }: Button) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -80,8 +97,6 @@ export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
     </StyledButtonWrapper>
 )
 
-NextButton.propTypes = PrevButton.propTypes
-
 export const CustomCarousel = ({
     autoplay_interval,
     chevron_style,
@@ -96,7 +111,7 @@ export const CustomCarousel = ({
     view_port,
     custom_blog_video_nav,
     custom_blog_video_nav_style,
-}) => {
+}: CustomCarousel) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -261,20 +276,4 @@ export const CustomCarousel = ({
             </Embla>
         </div>
     )
-}
-
-CustomCarousel.propTypes = {
-    autoplay_interval: PropTypes.number,
-    chevron_style: PropTypes.object,
-    children: PropTypes.array,
-    container_style: PropTypes.object,
-    custom_blog_video_nav: PropTypes.bool,
-    custom_blog_video_nav_style: PropTypes.object,
-    has_autoplay: PropTypes.bool,
-    navigation_style: PropTypes.object,
-    options: PropTypes.object,
-    slide_mobile_style: PropTypes.object,
-    slide_style: PropTypes.object,
-    vertical_container: PropTypes.object,
-    view_port: PropTypes.object,
 }

@@ -4,6 +4,20 @@ import device from 'themes/device'
 import { LocalizedLinkText } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
+type StyledSchevron = {
+    red: string
+    custom: string
+    black: boolean
+}
+
+type StyledButtonWrapper = {
+    disabled: boolean
+    is_reviews: boolean
+    left: string
+}
+
+type IconWrapper = { disabled: string }
+
 export const Embla = styled.div`
     position: relative;
     overflow: hidden;
@@ -35,7 +49,7 @@ export const EmblaSlideInner = styled.div`
     height: 100%;
 `
 
-export const StyledButtonWrapper = styled.div`
+export const StyledButtonWrapper = styled.div<StyledButtonWrapper>`
     position: absolute;
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.92' : '1')};
@@ -65,7 +79,7 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled(Chevron)`
+export const StyledChevron = styled(Chevron)<StyledSchevron>`
     height: 24px;
     width: 24px;
     ${(props) => {
@@ -136,7 +150,8 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div`
+
+export const IconWrapper = styled.div<IconWrapper>`
     width: 32px;
     height: 32px;
     border-radius: 50%;

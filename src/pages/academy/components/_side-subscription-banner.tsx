@@ -121,7 +121,7 @@ const ArticleEmailBanner = () => {
     const [email, setEmail] = React.useState('')
     const [name, setName] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
-    const [submit_status, setSubmitStatus] = React.useState('')
+    const [submit_status, setSubmitStatus] = React.useState<boolean | string>('')
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
@@ -132,7 +132,7 @@ const ArticleEmailBanner = () => {
         addScriptForCIO()
         const options = {
             headers: new Headers({ 'content-type': 'application/json' }),
-            mode: 'no-cors',
+            mode: 'no-cors' as RequestMode,
         }
         const url = 'https://assets.customer.io/assets/track.js'
         fetch(url, options)
@@ -296,7 +296,7 @@ const ArticleEmailBanner = () => {
                             type="text"
                             value={name}
                             error={name_error_msg}
-                            maxLength="70"
+                            maxLength={70}
                             required
                             onChange={handleInputNameChange}
                         />
@@ -325,7 +325,7 @@ const ArticleEmailBanner = () => {
                             id="email"
                             name="email"
                             type="text"
-                            maxLength="254"
+                            maxLength={254}
                             value={email}
                             required
                             onChange={handleInputChange}

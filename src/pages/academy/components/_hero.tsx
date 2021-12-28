@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { TextWrapper, Title } from './_common'
 import device from 'themes/device.js'
@@ -7,6 +6,16 @@ import { Flex } from 'components/containers'
 import { BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+
+type Hero = {
+    cta_text: string
+    description: any
+    heroImage: any
+    href: string
+    imageAlt: string
+    imageData: any
+    title: any
+}
 
 const StyledBackground = styled(BackgroundImage)`
     width: 100%;
@@ -57,7 +66,7 @@ const Wrapper = styled(Flex)`
     }
 `
 
-const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
+const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: Hero) => {
     const [is_mobile] = useBrowserResize()
     const linear_bg_value = is_mobile
         ? `linear-gradient(76.78deg, #000000 30.72%, rgba(0, 0, 0, 0) 97.58%)`
@@ -97,16 +106,6 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
             </StyledBackground>
         </>
     )
-}
-
-Hero.propTypes = {
-    cta_text: PropTypes.string,
-    description: PropTypes.any,
-    heroImage: PropTypes.any,
-    href: PropTypes.string,
-    imageAlt: PropTypes.string,
-    imageData: PropTypes.any,
-    title: PropTypes.any,
 }
 
 export default Hero

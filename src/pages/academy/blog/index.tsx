@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
@@ -51,7 +50,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const ArticlesPage = ({ data }) => {
+const ArticlesPage = ({ data }: { data: any }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const article_data = is_eu_country
         ? data.directus.blog.filter((item) => item.hide_for_eu == false)
@@ -91,9 +90,6 @@ const ArticlesPage = ({ data }) => {
     )
 }
 
-ArticlesPage.propTypes = {
-    data: PropTypes.object,
-}
 export default WithIntl()(ArticlesPage)
 
 export const query = graphql`

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import {
     ArticleTitle,
     Background,
@@ -296,10 +295,6 @@ const BlogPreview = () => {
             </>
         </Layout>
     )
-}
-
-BlogPreview.propTypes = {
-    pageContext: PropTypes.object,
 }
 
 export default WithIntl()(BlogPreview)

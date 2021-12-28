@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Title, TextWrapper } from './_common'
 import paperPlane from 'images/common/blog/paperplanes.png'
@@ -11,6 +10,11 @@ import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
 import { DerivStore } from 'store'
+
+type Subscribe = {
+    ebook_utm_code: string
+    onSubmit: () => void
+}
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -165,7 +169,7 @@ const Subscribe = () => {
     const [email, setEmail] = React.useState('')
     const [name, setName] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
-    const [submit_status, setSubmitStatus] = React.useState('')
+    const [submit_status, setSubmitStatus] = React.useState<boolean | string>('')
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
@@ -176,16 +180,12 @@ const Subscribe = () => {
         addScriptForCIO()
         const options = {
             headers: new Headers({ 'content-type': 'application/json' }),
-            mode: 'no-cors',
+            mode: 'no-cors' as RequestMode,
         }
         const url = 'https://assets.customer.io/assets/track.js'
         fetch(url, options)
-            .then(() => {
-                setSubmitStatus(true)
-            })
-            .catch(() => {
-                setSubmitStatus(false)
-            })
+            .then(() => setSubmitStatus(true))
+            .catch(() => setSubmitStatus(false))
     }, [])
 
     const addScriptForCIO = () => {
@@ -445,11 +445,6 @@ const Subscribe = () => {
             </StyledFormContent>
         </SignupFormWrapper>
     )
-}
-
-Subscribe.propTypes = {
-    ebook_utm_code: PropTypes.string,
-    onSubmit: PropTypes.func,
 }
 
 export default Subscribe

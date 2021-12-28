@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { useQueryParam, StringParam } from 'use-query-params'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import VideoPlayer from '../components/_video-player'
@@ -9,7 +8,7 @@ import { slugify } from 'common/utility'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
-const AllVideos = ({ video_data }) => {
+const AllVideos = ({ video_data }: { video_data: [any] }) => {
     const [show, setShow] = useState(false)
     const [play_video_id, setPlayVideoId] = useState('')
     const [title_params, setTitleParams] = useQueryParam('t', StringParam)
@@ -36,7 +35,7 @@ const AllVideos = ({ video_data }) => {
     const closeVideo = () => {
         setShow(false)
         setPlayVideoId('')
-        setTitleParams()
+        setTitleParams('')
     }
     return (
         <Container m="0 auto" fd="column">
@@ -63,10 +62,6 @@ const AllVideos = ({ video_data }) => {
             {show && <VideoPlayer video_src={play_video_src} closeVideo={closeVideo} />}
         </Container>
     )
-}
-
-AllVideos.propTypes = {
-    video_data: PropTypes.arrayOf(Object),
 }
 
 export default AllVideos

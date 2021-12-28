@@ -16,8 +16,8 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_story = /story/g.test(page.path)
     const is_market = /markets/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
-    const is_landing_ebooks =/landing\/ebooks/g.test(page.path)
-    
+    const is_landing_ebooks = /landing\/ebooks/g.test(page.path)
+
     if (is_landing_ebooks) {
         createRedirect({
             fromPath: `/landing/ebooks/`,
@@ -32,7 +32,7 @@ exports.onCreatePage = ({ page, actions }) => {
             isPermanent: true,
         })
     }
-    
+
     if (is_responsible_trading) {
         createRedirect({
             fromPath: `/responsible-trading/`,
@@ -315,7 +315,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 // TODO: To be updated to the new shape of the API of the new endpoint
 exports.createPages = async ({ reporter, actions, graphql }) => {
     const { createPage } = actions
-    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
+    const articleTemplate = path.resolve(__dirname, 'src/templates/article.tsx')
 
     // Query our published articles
     const result = await graphql(`

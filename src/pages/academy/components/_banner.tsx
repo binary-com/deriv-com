@@ -1,11 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { cms_assets_end_point } from 'common/constants'
 import device from 'themes/device'
+
+type BannerObjects = {
+    max_w_value?: string
+    max_w_tablet?: string
+    isExternal?: boolean
+    redirectLink?: string
+    imgSrcDesktop?: any
+    imgAltDesktop?: string
+    imgSrcMobile?: any
+    imgAltMobile?: string
+}
 
 const ParentWrapper = styled(Flex)`
     max-width: ${(props) => (props.max_w ? props.max_w : '792px')};
@@ -32,7 +42,13 @@ const MobileWrapper = styled.div`
     }
 `
 
-const Banner = ({ detailsObj, detailsPreviewObj }) => {
+const Banner = ({
+    detailsObj,
+    detailsPreviewObj,
+}: {
+    detailsObj?: BannerObjects
+    detailsPreviewObj?: BannerObjects
+}) => {
     return detailsObj ? (
         <ParentWrapper max_w={detailsObj.max_w_value} max_w_tablet={detailsObj.max_w_tablet}>
             <LocalizedLink
@@ -105,11 +121,6 @@ const Banner = ({ detailsObj, detailsPreviewObj }) => {
             </LocalizedLink>
         </ParentWrapper>
     )
-}
-
-Banner.propTypes = {
-    detailsObj: PropTypes.object,
-    detailsPreviewObj: PropTypes.object,
 }
 
 export default Banner

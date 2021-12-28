@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Subscribe from './components/_subscribe'
@@ -323,7 +322,7 @@ export const query = graphql`
     }
 `
 
-const DerivBlog = ({ data }) => {
+const DerivBlog = ({ data }: { data: any }) => {
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
         og_description: 'Your one-stop online trading learning hub.',
@@ -412,10 +411,6 @@ const DerivBlog = ({ data }) => {
             </Container>
         </Layout>
     )
-}
-
-DerivBlog.propTypes = {
-    data: PropTypes.object,
 }
 
 export default WithIntl()(DerivBlog)

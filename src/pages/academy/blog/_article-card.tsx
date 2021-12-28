@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
@@ -7,33 +6,30 @@ import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import { getMinRead } from 'common/utility'
+import device from 'themes/device'
 
-const StyledFlex = styled(Flex)`
+const ArticleCardWrapper = styled(Flex)`
+    box-sizing: border-box;
+    max-width: 384px;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-decoration: none;
+    position: relative;
+    min-height: 400px;
+    height: 100%;
     border-radius: 8px;
-    height: 300px;
     border: 1px solid var(--color-grey-8);
+    background: var(--color-white);
     overflow: hidden;
     transition: transform 0.3s;
     cursor: pointer;
-    width: 100vw;
-    max-width: 1200px;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
     }
 
-    @media (max-width: 1333px) {
-        width: 100%;
-        min-width: 800px;
-    }
-
-    @media (max-width: 823px) {
-        flex-direction: column;
-        height: auto;
-        width: 90vw;
-        max-width: 384px;
-        min-width: unset;
-        margin-top: 40px;
+    @media ${device.mobileL} {
+        min-height: unset;
     }
 `
 
@@ -42,70 +38,67 @@ const StyledCategories = styled(Header)`
     border-radius: 8px;
     background-color: var(--color-blue-10);
     color: var(--color-blue-9);
-    padding: 1px 8px;
+    padding: 2px 8px 0;
     margin: 0 8px 8px 0;
 `
 
-const FirstContentWrapper = styled(Flex)`
-    @media (max-width: 823px) {
-        width: 100%;
-        padding: 24px 16px;
+const ContentWrapper = styled.div`
+    height: auto;
+    padding: 16px 24px;
+
+    @media ${device.mobileL} {
+        padding: 16px;
     }
 `
-
 const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 
-const FirstArticle = ({ item }) => {
+const ArticleCard = ({ item }: { item: any }) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
-            <StyledFlex jc="flex-start" mt="96px">
-                <StandardImgWrapper width="592px" br="6px 0 0 6px" tabletL_br="6px 6px 0 0">
+            <ArticleCardWrapper>
+                <StandardImgWrapper width="384px" height="auto" br="unset" tabletL_br="unset">
                     <QueryImage
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
-                        width="100%"
                         className="standard-query-img"
                     />
                 </StandardImgWrapper>
-                <FirstContentWrapper fd="column" p="35px 40px" width="45%">
+
+                <ContentWrapper>
                     <Flex jc="flex-start" height="auto" fw="wrap">
-                        {item?.tags &&
+                        {item.tags &&
                             item.tags.slice(0, 2).map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag?.id}>
+                                <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
                                     {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}
-                        {item?.tags.length > 2 && (
+                        {item.tags.length > 2 && (
                             <StyledCategories as="h4" type="paragraph-2">
                                 {`+${item.tags.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
                         <Header
-                            color="grey-5"
                             as="h5"
-                            weight="normal"
                             type="paragraph-2"
+                            weight="normal"
+                            color="grey-5"
                             width="auto"
                         >
                             {`• ${getMinRead(item?.blog_post)}`}
                         </Header>
                     </Flex>
-                    <Header as="h3" type="heading-3">
+                    <Header as="h3" type="subtitle-2">
                         {item.blog_title}
                     </Header>
-                    <Header as="p" type="paragraph-1" weight="normal" mt="8px" color="grey-5">
+                    <Header as="p" type="paragraph-2" weight="normal" mt="8px" color="grey-5">
                         {item.blog_description}
                     </Header>
-                </FirstContentWrapper>
-            </StyledFlex>
+                </ContentWrapper>
+            </ArticleCardWrapper>
         </RedirectLink>
     )
 }
 
-FirstArticle.propTypes = {
-    item: PropTypes.object,
-}
-
-export default FirstArticle
+export default ArticleCard

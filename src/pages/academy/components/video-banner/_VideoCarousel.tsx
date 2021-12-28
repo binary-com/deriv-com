@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
 import { StandardImgWrapper } from '../../common/_styles'
 import { CustomCarousel } from './carousel/_custom-carousel'
@@ -73,7 +72,7 @@ const PlayerIcon = styled.img`
     }
 `
 
-const VideoCarousel = ({ carousel_items }) => {
+const VideoCarousel = ({ carousel_items }: { carousel_items: [] }) => {
     const [show, setShow] = useState(false)
     const [video_src, setVideoSrc] = useState('')
 
@@ -198,7 +197,4 @@ const VideoCarousel = ({ carousel_items }) => {
     )
 }
 
-VideoCarousel.propTypes = {
-    carousel_items: PropTypes.array,
-}
 export default VideoCarousel

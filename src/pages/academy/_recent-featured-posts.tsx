@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Clock from './components/recent-featured-posts/images/clock.svg'
 import Dot from './components/recent-featured-posts/images/dot.svg'
 import {
@@ -29,7 +28,12 @@ import { convertDate, getAssetUrl, getMinRead } from 'common/utility'
 import { QueryImage, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
+type RecentFeaturedPosts = {
+    recent_data: any[]
+    featured_data: any[]
+}
+
+const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts) => {
     const recents = recent_data.slice(1)
     const headline_recent = recent_data[0]
     const featureds = featured_data.slice(1)
@@ -214,11 +218,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
             </AllArticleButton>
         </StyledContainer>
     )
-}
-
-RecentFeaturedPosts.propTypes = {
-    featured_data: PropTypes.array,
-    recent_data: PropTypes.array,
 }
 
 export default WithIntl()(RecentFeaturedPosts)

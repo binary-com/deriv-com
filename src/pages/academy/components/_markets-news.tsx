@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { StandardImgWrapper } from '../common/_styles'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
@@ -60,7 +59,7 @@ const StyledContainer = styled(Container)`
 //     return 'Market News'
 // }
 
-const MarketNews = ({ data }) => {
+const MarketNews = ({ data }: { data: [any] }) => {
     return (
         <StyledContainer>
             <Flex fd="column">
@@ -123,7 +122,3 @@ const MarketNews = ({ data }) => {
 }
 
 export default MarketNews
-
-MarketNews.propTypes = {
-    data: PropTypes.array,
-}

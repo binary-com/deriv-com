@@ -2,6 +2,23 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
+type StandardImgWrapper = {
+    width?: string
+    height?: string
+    br?: string
+    tabletL_width?: string
+    tabletL_height?: string
+    tabletL_br?: string
+    mobileL_width?: string
+    mobileL_height?: string
+    mobileL_br?: string
+}
+
+type VideoGrid = {
+    m?: string
+    margin?: string
+}
+
 export const ContainedImg = styled.img`
     object-fit: contain;
 `
@@ -22,7 +39,7 @@ export const Container = styled(Flex)`
     }
 `
 
-export const VideoGrid = styled.div`
+export const VideoGrid = styled.div<VideoGrid>`
     display: grid;
     width: 100%;
     height: 100%;
@@ -34,7 +51,7 @@ export const VideoGrid = styled.div`
     justify-content: center;
 `
 
-export const StandardImgWrapper = styled.div`
+export const StandardImgWrapper = styled.div<StandardImgWrapper>`
     width: ${(props) => (props.width ? props.width : '100%')};
     height: ${(props) => (props.height ? props.height : '100%')};
     border-radius: ${(props) => (props.br ? props.br : '4px')};

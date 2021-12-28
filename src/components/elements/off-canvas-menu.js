@@ -23,7 +23,6 @@ import DerivX from 'images/svg/custom/deriv-x.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
 import CFD from 'images/svg/custom/margin-trading-nav.svg'
 import Multipliers from 'images/svg/custom/multipliers-nav.svg'
 import Options from 'images/svg/custom/options-nav.svg'
@@ -373,12 +372,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Story} alt="" width="24" height="24" />
                             </div>
                             <span>{localize('Our story')}</span>
-                        </StyledLink>
-                        <StyledLink to="/leadership/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Leadership} alt="" width="24" height="24" />
-                            </div>
-                            <span>{localize('Our leadership')}</span>
                         </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
                             <div>

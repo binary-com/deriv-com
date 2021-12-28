@@ -4,7 +4,7 @@ import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
-import { articles } from './_help-articles'
+import { articles, ArcticlesType } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { convertToHash, euArticles, getAllArticles, splitArticles } from './_utility'
@@ -256,7 +256,7 @@ interface HelpCenterProps {
 }
 
 interface HelpCenterState {
-    all_articles?: string[]
+    all_articles?: ArcticlesType
     all_categories?: Record<number, any>
     search?: string
     search_has_transition?: boolean

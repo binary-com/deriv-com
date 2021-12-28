@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 
-type ArcticlesType = {
-    category?: ReactElement
-    articles?: {
+export type ArcticlesType = {
+    readonly category?: ReactElement
+    readonly articles?: {
         title?: ReactElement
         category?: string
         sub_category?: ReactElement

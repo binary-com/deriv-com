@@ -116,8 +116,14 @@ const DerivNumbers = () => {
                         )}
                     </StyledHeader>
                 </TitleSection>
-                <NumberSection columns="1fr 1fr" rows="1fr 1fr" column_gap="40px" row_gap="4rem">
-                    <Flex fd="column">
+                <NumberSection
+                    columns="1fr 1fr"
+                    rows="1fr 1fr"
+                    column_gap="40px"
+                    row_gap="4rem"
+                    height="unset"
+                >
+                    <Flex fd="column" height="unset">
                         <NumberHeader size="48px" type="unset">
                             {localize('2.5M+')}
                         </NumberHeader>
@@ -125,7 +131,7 @@ const DerivNumbers = () => {
                             {localize('traders worldwide')}
                         </NumberText>
                     </Flex>
-                    <Flex fd="column">
+                    <Flex fd="column" height="unset">
                         <NumberHeader size="48px" type="unset">
                             {localize('USD 26M+')}
                         </NumberHeader>
@@ -133,7 +139,7 @@ const DerivNumbers = () => {
                             {localize('withdrawals last month')}
                         </NumberText>
                     </Flex>
-                    <Flex fd="column">
+                    <Flex fd="column" height="unset">
                         <NumberHeader size="48px" type="unset">
                             {localize('114M+')}
                         </NumberHeader>
@@ -141,7 +147,7 @@ const DerivNumbers = () => {
                             {localize('trades last month')}
                         </NumberText>
                     </Flex>
-                    <Flex fd="column">
+                    <Flex fd="column" height="unset">
                         <NumberHeader size="48px" type="unset">
                             {localize('USD 10B+')}
                         </NumberHeader>

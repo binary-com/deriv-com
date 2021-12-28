@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { Container, Flex } from 'components/containers'
@@ -9,9 +10,18 @@ import { LocalizedLink } from 'components/localization'
 import AcademyLogo from 'images/svg/blog/academy-logo.svg'
 import { combined_filter_type } from 'common/constants'
 import { DerivStore } from 'store'
+import Chevron from 'images/svg/custom/chevron-thick.svg'
+import SearchIcon from 'images/svg/blog/search_icon.svg'
+import CloseIcon from 'images/svg/blog/close-icon.svg'
 
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
+    box-shadow: 0 5px 10px rgba(14, 14, 14, 0.1);
+    position: fixed;
+    z-index: 70;
+    height: 7.2rem;
+    top: ${(props) => (props.background ? '0' : '72px')};
+    transition: opacity 3s ease-in;
 `
 const LogoWrapper = styled.img`
     width: 168px;
@@ -56,13 +66,80 @@ const SearchSuggestionWrapper = styled(Flex)`
     top: 8px;
     height: auto;
 `
+const StyledChevron = styled.img`
+    height: 16px;
+    width: 16px;
+    margin: 26px 0 32px;
+    transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
+    transition: transform 0.25s ease-out;
+`
+const HoverChevron = styled.div`
+    transition: background 0.25s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+const FormContainer = styled.form`
+    width: ${(props) => (props.maximise ? '640px' : '400px')};
+    display: block;
+    margin: 0 auto;
+    position: relative;
+`
+const InputWrapper = styled.input`
+    margin: 0 auto;
+    padding: 8px 48px;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    background: rgba(236, 241, 247, 0.5);
 
-const SearchBanner = () => {
+    &:focus {
+        border: 2px solid #ecf1f7;
+        background: var(--color-white);
+        transition: 0.25s ease;
+
+        &::-webkit-input-placeholder {
+            transition: opacity 0.25s ease;
+            opacity: 0;
+        }
+        &::-moz-placeholder {
+            transition: opacity 0.25s ease;
+            opacity: 0;
+        }
+        &:-ms-placeholder {
+            transition: opacity 0.25s ease;
+            opacity: 0;
+        }
+    }
+`
+const SearchIconWrapper = styled.img`
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 24px;
+    transform: translateY(-50%);
+`
+const CloseIconWrapper = styled.img`
+    display: ${(props) => (props.maximise ? 'block' : 'none')};
+    cursor: pointer;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+`
+
+const SearchBanner = ({ hidden }) => {
     const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
-    // We need a second state for tracking the debounced search input
     const [search_query, setSearchQuery] = useState('')
     const [modal_opened, setModal] = useState(false)
+    const [search_input_touched, setSearchInputTouched] = useState(false)
     const [suggestion_box_opened, setSuggestionBoxOpened] = useState(false)
 
     const combined_data = [...academy_data.blog, ...academy_data.videos]
@@ -72,22 +149,25 @@ const SearchBanner = () => {
     let data_to_render
 
     const handleFilterSearch = (e) => {
-        setSearchInput(e.target.value.toLowerCase().trim())
-        setSuggestionBoxOpened(!suggestion_box_opened)
+        setSearchInput(e.target.value.toLowerCase())
     }
 
     useDebouncedEffect(
         () => {
             if (search_input !== '') {
                 setSearchQuery(search_input)
-            } else setSearchQuery('')
+                setSuggestionBoxOpened(true)
+            } else {
+                setSearchQuery('')
+                setSuggestionBoxOpened(false)
+            }
         },
         [search_input],
         300,
     )
 
     if (search_query !== '') {
-        data_to_render = matchSorter(combined_data, search_query, {
+        data_to_render = matchSorter(combined_data, search_query.trim(), {
             keys: ['blog_title', 'video_title'],
         })
     } else data_to_render = null
@@ -101,21 +181,46 @@ const SearchBanner = () => {
         setModal(!modal_opened)
     }
 
+    const maximiseSearchInput = () => {
+        setSearchQuery('')
+        setSearchInput('')
+        setSearchInputTouched(!search_input_touched)
+    }
+
     return (
         <>
-            <MainWrapper fd="column">
+            <MainWrapper fd="column" background={hidden}>
                 <Container height="7.2rem">
                     <Flex ai="center" jc="space-between">
                         <LogoWrapper src={AcademyLogo} />
-                        <Flex ai="center" max_width="400px">
-                            <Flex width="fill-available" fd="column" ai="flex-start">
-                                <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-                                    <input
-                                        style={{ width: '100%' }}
-                                        placeholder="What would you like to search?"
-                                        onChange={handleFilterSearch}
-                                    ></input>
-                                </form>
+                        <Flex ai="center" max_width="auto">
+                            <Flex fd="column" ai="flex-start">
+                                <FormContainer
+                                    onSubmit={handleSubmit}
+                                    maximise={search_input_touched}
+                                >
+                                    <Flex jc="flex-start" ai="center">
+                                        <SearchIconWrapper
+                                            src={SearchIcon}
+                                            alt="search_icon"
+                                            onSubmit={handleSubmit}
+                                        ></SearchIconWrapper>
+                                        <InputWrapper
+                                            style={{ width: '100%' }}
+                                            placeholder="What would you like to search?"
+                                            onChange={handleFilterSearch}
+                                            onFocus={maximiseSearchInput}
+                                            onBlur={maximiseSearchInput}
+                                            value={search_input}
+                                        ></InputWrapper>
+                                        <CloseIconWrapper
+                                            maximise={search_input_touched}
+                                            src={CloseIcon}
+                                            alt="close icon"
+                                            onClick={maximiseSearchInput}
+                                        />
+                                    </Flex>
+                                </FormContainer>
                                 <Flex height="0" style={{ position: 'relative' }}>
                                     <SearchSuggestionWrapper
                                         opened={suggestion_box_opened}
@@ -147,43 +252,63 @@ const SearchBanner = () => {
                             </Flex>
 
                             <TopicSectionWrapper
-                                ml="8px"
-                                width="70px"
+                                ml="40px"
+                                width="auto"
                                 max_width="auto"
                                 ai="center"
                                 onClick={openModal}
                             >
-                                Topic
+                                <Header
+                                    type="paragraph-1"
+                                    weight="normal"
+                                    mr="10px"
+                                    color="--color-black-3"
+                                >
+                                    Topics
+                                </Header>
+                                <HoverChevron>
+                                    <StyledChevron
+                                        src={Chevron}
+                                        alt="chevron"
+                                        expanded={modal_opened}
+                                    />
+                                </HoverChevron>
                             </TopicSectionWrapper>
                         </Flex>
                     </Flex>
                 </Container>
+                <Flex style={{ position: 'relative' }} height="0">
+                    <TopicParent modal={modal_opened}>
+                        <TopicWrapper jc="space-evenly" fd="row">
+                            {filter_type.map((filter, index) => {
+                                return (
+                                    <TopicItemWrapper key={index} fd="column">
+                                        <Header type="paragraph-2" align="left">
+                                            {filter.type}
+                                        </Header>
+                                        {filter.items.map((item, idx) => {
+                                            return (
+                                                <StyledLink
+                                                    key={idx}
+                                                    to={`/academy/search?category=${item.short_title}`}
+                                                >
+                                                    {item.title}
+                                                </StyledLink>
+                                            )
+                                        })}
+                                    </TopicItemWrapper>
+                                )
+                            })}
+                        </TopicWrapper>
+                    </TopicParent>
+                </Flex>
             </MainWrapper>
-            <TopicParent modal={modal_opened}>
-                <TopicWrapper jc="space-evenly" fd="row">
-                    {filter_type.map((filter, index) => {
-                        return (
-                            <TopicItemWrapper key={index} fd="column">
-                                <Header type="paragraph-2" align="left">
-                                    {filter.type}
-                                </Header>
-                                {filter.items.map((item, idx) => {
-                                    return (
-                                        <StyledLink
-                                            key={idx}
-                                            to={`/academy/search?category=${item.short_title}`}
-                                        >
-                                            {item.title}
-                                        </StyledLink>
-                                    )
-                                })}
-                            </TopicItemWrapper>
-                        )
-                    })}
-                </TopicWrapper>
-            </TopicParent>
         </>
     )
+}
+
+SearchBanner.propTypes = {
+    hidden: PropTypes.bool,
 }
 
 export default SearchBanner

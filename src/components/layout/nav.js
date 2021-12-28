@@ -409,7 +409,7 @@ const handleGetTrading = () => {
     window.location.href = trading_url_localized
 }
 
-const NavMobile = ({
+export const NavMobile = ({
     is_ppc,
     is_ppc_redirect,
     is_logged_in,
@@ -476,7 +476,7 @@ const NavMobile = ({
     )
 }
 
-const NavDesktop = ({
+export const NavDesktop = ({
     base,
     is_ppc,
     is_ppc_redirect,

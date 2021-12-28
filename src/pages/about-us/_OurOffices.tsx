@@ -234,68 +234,68 @@ const OurOffices = () => {
                 <Show.Mobile min_width="tablet">
                     <MapImage data={data['earth_mobile']}>
                         <MapPin
-                            left="30%"
-                            top="75%"
+                            left="28.5%"
+                            top="71%"
                             title="Paraguay"
                             link="/careers/locations/asuncion"
                         />
                         <MapPin
-                            left="50%"
-                            top="39.5%"
+                            left="48.5%"
+                            top="35.5%"
                             title={localize('Malta')}
                             link="/careers/locations/malta"
                         />
                         <MapPin
-                            left="55%"
-                            top="40%"
+                            left="53.5%"
+                            top="36%"
                             title={localize('Cyprus')}
                             link="/careers/locations/cyprus"
                         />
                         <MapPin
-                            left="54%"
-                            top="61.5%"
+                            left="52.5%"
+                            top="57.5%"
                             title={localize('Rwanda')}
                             link="/careers/locations/rwanda"
                         />
                         <MapPin
-                            left="54%"
-                            top="27.5%"
+                            left="52.5%"
+                            top="23.5%"
                             title={localize('Belarus')}
                             link="/careers/locations/minsk"
                         />
                         <MapPin
-                            left="61.5%"
-                            top="45.9%"
+                            left="60%"
+                            top="41.9%"
                             title={localize('Dubai')}
                             link="/careers/locations/dubai"
                         />
                         <MapPin
-                            left="73.8%"
-                            top="58.5%"
+                            left="72.3%"
+                            top="54.5%"
                             title={localize('Ipoh')}
                             link="/careers/locations/ipoh"
                         />
                         <MapPin
-                            left="74%"
-                            top="59%"
+                            left="72.5%"
+                            top="55%"
                             title={localize('Cyberjaya')}
                             link="/careers/locations/cyberjaya"
                         />
                         <MapPin
-                            left="74.2%"
-                            top="60%"
+                            left="72.7%"
+                            top="56%"
                             title={localize('Melaka')}
                             link="/careers/locations/melaka"
                         />
                         <MapPin
-                            left="77.2%"
-                            top="58.7%"
+                            left="76%"
+                            top="54.7%"
                             title={localize('Labuan')}
                             link="/careers/locations/labuan"
                         />
-                        <MapPin left="45.8%" top="28%" title={localize('London')} link="" />
-                        <MapPin left="47.4%" top="30.9%" title={localize('Paris')} link="" />
-                        <MapPin left="44.5%" top="30.9%" title={localize('Guernsey')} link="" />
+                        <MapPin left="44.3%" top="24%" title={localize('London')} link="" />
+                        <MapPin left="45.9%" top="26.9%" title={localize('Paris')} link="" />
+                        <MapPin left="43%" top="26.9%" title={localize('Guernsey')} link="" />
                     </MapImage>
                 </Show.Mobile>
             </Flex>

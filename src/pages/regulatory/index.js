@@ -172,7 +172,7 @@ const Regulatory = (locale) => {
                         mobile_row_gap="2rem"
                     >
                         <CssGridColumn>
-                            <Europe src={EU} alt="europe" />
+                            <Europe src={EU} alt="Europe map" />
                         </CssGridColumn>
                         <CssGridColumn padding="0.8rem 0 0">
                             <EUgrid />
@@ -224,7 +224,7 @@ const Regulatory = (locale) => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)."
                                             components={[
                                                 <LinkText
                                                     key={0}
@@ -251,7 +251,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={Labuan} alt="Labuan" />
+                            <Img src={Labuan} alt="Labuan Financial Services Authority " />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -286,7 +286,10 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={FSC} alt="FSC" />
+                            <Img
+                                src={FSC}
+                                alt="British Virgin Islands Financial Services Commission"
+                            />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -321,7 +324,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (V) Ltd')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={Vanuatu} alt="Vanuatu" />
+                            <Img src={Vanuatu} alt="Vanuata Financial Services Commission" />
                             <Img
                                 src={VanuatuFMA}
                                 alt="Vanuatu Financial Markets Association"
@@ -368,7 +371,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
                             </Mobile>
-                            <img src={SVG} alt="svg" />
+                            <img src={SVG} alt="Deriv SVG" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -394,7 +397,7 @@ const Regulatory = (locale) => {
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
                             </Mobile>
-                            <Img src={Deriv} alt="Deriv" />
+                            <Img src={Deriv} alt="Deriv Limited" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>

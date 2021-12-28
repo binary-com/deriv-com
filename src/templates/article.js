@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import {
@@ -28,6 +28,9 @@ import {
     StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
+    Scrollbar,
+    ProgressContainer,
+    ProgressBar,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/academy/components/_banner'
 import ArticleEmailBanner from '../pages/academy/components/_side-subscription-banner.js'
@@ -36,7 +39,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import { convertDate } from 'common/utility'
+import { convertDate, getMinRead } from 'common/utility'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
@@ -45,6 +48,22 @@ const ArticlesTemplate = (props) => {
         setMounted(true)
         isMounted && window.scrollTo(0, 0)
     }, [isMounted])
+
+    const barElement = useRef(null)
+
+    const scrollFunc = () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+        const scrolled = (winScroll / height) * 130
+        barElement.current.style.width = scrolled + '%'
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollFunc)
+        return () => {
+            window.removeEventListener('scroll', scrollFunc)
+        }
+    }, [])
 
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
@@ -122,6 +141,11 @@ const ArticlesTemplate = (props) => {
                                     </Flex>
                                 </MobileBreadcrumbsWrapper>
                             </BreadcrumbsWrapper>
+                            <Scrollbar>
+                                <ProgressContainer>
+                                    <ProgressBar ref={barElement}></ProgressBar>
+                                </ProgressContainer>
+                            </Scrollbar>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">
@@ -132,8 +156,7 @@ const ArticlesTemplate = (props) => {
                                         {post_data?.blog_title}
                                     </ArticleTitle>
                                     <InfoText size="14px" mt="16px">
-                                        {post_data?.read_time_in_minutes &&
-                                            localize(post_data?.read_time_in_minutes + ' min read')}
+                                        {getMinRead(post_data?.blog_post)}
                                     </InfoText>
                                     <Show.Mobile min_width="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">
@@ -316,7 +339,6 @@ export const query = graphql`
                 og_description
                 test_data
                 published_date
-                read_time_in_minutes
                 blog_post
                 author {
                     id

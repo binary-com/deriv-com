@@ -233,7 +233,7 @@ const DownloadApp = () => {
                 </Text>
             </Flex>
             <ImageWrapper mt="4rem">
-                <QueryImage data={data['mobile_phone']} alt="mobile phone" />
+                <QueryImage data={data['mobile_phone']} alt="DMT5 mobile app" />
             </ImageWrapper>
         </Section>
     )

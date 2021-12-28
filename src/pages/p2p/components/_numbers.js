@@ -116,7 +116,7 @@ const Numbers = () => {
                                     mobile_margin="unset"
                                     mobile_font_size="20px"
                                     mb="0.8rem"
-                                    as="h4"
+                                    as="p"
                                 >
                                     {item.header}
                                 </StyledHeader>

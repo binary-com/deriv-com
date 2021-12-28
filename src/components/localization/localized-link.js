@@ -93,7 +93,7 @@ LocalizedLink.propTypes = {
     external: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 }
 
-const non_localized_links = ['careers']
+const non_localized_links = ['/careers', '/academy']
 
 const InternalLink = ({
     aria_label,
@@ -110,7 +110,7 @@ const InternalLink = ({
     // However, if the homepage/index page is linked don't add the "to"
     // Because otherwise this would add a trailing slash
     const { is_default, path } = language_config[locale]
-    const is_non_localized = non_localized_links.includes(to.replace(/\/$/, ''))
+    const is_non_localized = non_localized_links.includes(to?.replace(/\/$/, ''))
     const is_index = to === `/`
     const localized_url = getLocalizedUrl(path, is_index, to)
     const path_to = is_default || is_non_localized ? to : localized_url
@@ -164,7 +164,7 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
             type.replace(/_/g, '-') + '/'
         }`
     } else if (only_en_new_tab_no_modal.includes(type)) {
-        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-') + '/'}`
+        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-')}`
     } else {
         return to
     }

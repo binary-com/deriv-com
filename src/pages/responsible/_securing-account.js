@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, Box } from 'components/containers'
-import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Header, LocalizedLinkText, Text } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import InstallAntivirus from 'images/svg/responsible/install-latest-antivirus.svg'
 import DifferentPassword from 'images/svg/responsible/diff-password.svg'
@@ -16,28 +16,30 @@ const Ul = styled(Flex).attrs({ as: 'ul' })`
 const Li = styled(Flex).attrs({ as: 'li' })`
     max-width: 38.4rem;
     display: flex;
-    margin: 2rem 1.2rem;
-    height: 180px;
+    margin: 24px;
 
-    @media ${device.mobileL} {
+    @media ${device.laptopM} {
+        max-width: 34rem;
+    }
+    @media ${device.tabletL} {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: auto;
+        margin: 0 0 16px;
+        max-width: 58.8rem;
+
+        :last-child {
+            margin: 0;
+        }
     }
 `
 const ResponsiveBox = styled(Box)`
-    ${Text} {
-        max-width: 28.8rem;
-        margin: auto;
-    }
-    @media ${device.mobileL} {
+    width: 100%;
+
+    @media ${device.tabletL} {
         margin-left: 0;
         margin-top: 1.6rem;
-
-        ${Text} {
-            max-width: 97%;
-        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -48,20 +50,25 @@ const StyledHeader = styled(Header)`
 
 const SecureAccount = () => {
     return (
-        <Box pt="8rem" pb="15rem" bg="rgba(245, 247, 250, 0.32)">
-            <Container fd="column" ai="center">
-                <StyledHeader size="var(--text-size-xl)" align="center" mb="2rem">
+        <Box pt="8rem" pb="15rem" bg="rgba(245, 247, 250, 0.32)" tablet={{ pt: '40px' }}>
+            <Container fd="column" ai="center" tablet={{ width: '100%', p: '0 16px' }}>
+                <StyledHeader
+                    size="var(--text-size-xl)"
+                    align="center"
+                    mb="2rem"
+                    tablet={{ mb: '24px' }}
+                >
                     {localize('Securing your account')}
                 </StyledHeader>
-                <Ul jc="center" ai="center">
+                <Ul jc="center" ai="flex-start">
                     <Li>
                         <div>
                             <img src={DifferentPassword} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text>
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
-                                    'Use strong and varied passwords for your Deriv.com account, email, online banking, e-wallets, etc. Make it as difficult as possible for anyone to guess your passwords.',
+                                    'Use strong and varied passwords. Make them as difficult as possible for anyone to guess.',
                                 )}
                             </Text>
                         </ResponsiveBox>
@@ -71,9 +78,9 @@ const SecureAccount = () => {
                             <img src={SecureBrowser} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text>
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
-                                    'Use a secure web browser such as Google Chrome and always ensure it’s up-to-date. Security patches are included in the software updates of your browser.',
+                                    'Use a secure web browser such as Google Chrome. Always install the latest software updates because they include security patches.',
                                 )}
                             </Text>
                         </ResponsiveBox>
@@ -83,10 +90,19 @@ const SecureAccount = () => {
                             <img src={PaymentMethod} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text>
-                                {localize(
-                                    'To prevent unauthorised usage of your account, don’t share your login details with anyone. Keep your username, passwords, and PINs secure.',
-                                )}
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
+                                <Localize
+                                    translate_text="Keep your login details secure and <0>enable two-factor authentication</0> to prevent unauthorised usage of your account."
+                                    components={[
+                                        <LocalizedLinkText
+                                            key={0}
+                                            to="https://app.deriv.com/account/two-factor-authentication"
+                                            color="red"
+                                            size={14}
+                                            has_no_end_slash={true}
+                                        />,
+                                    ]}
+                                />
                             </Text>
                         </ResponsiveBox>
                     </Li>
@@ -95,9 +111,9 @@ const SecureAccount = () => {
                             <img src={InstallAntivirus} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Text>
+                            <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
                                 {localize(
-                                    'Install security apps such as antivirus and firewalls on your devices. Leading security apps are available in desktop and mobile versions.',
+                                    'Use antivirus and firewalls to further secure your devices.',
                                 )}
                             </Text>
                         </ResponsiveBox>

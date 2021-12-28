@@ -252,7 +252,6 @@ const ShowItem = styled.li<StyledProps>`
 interface HelpCenterProps {
     children?: ReactNode
     is_eu_country?: boolean | unknown
-    prevState?: { toggle_search?: boolean }
     align?: string
 }
 
@@ -262,7 +261,6 @@ interface HelpCenterState {
     search?: string
     search_has_transition?: boolean
     toggle_search?: boolean
-    setState?: string
 }
 
 // Since useContext can only be used in functional components
@@ -426,7 +424,7 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
                                     wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'}
                                     key={id}
                                 >
-                                    {articles.map((item, idx) => {
+                                    {article.map((item, idx) => {
                                         if (
                                             this.props.is_eu_country &&
                                             item.category.props.translate_text === 'Deriv X'
@@ -541,10 +539,6 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
             </Layout>
         )
     }
-}
-
-HelpCentreClass.propTypes = {
-    is_eu_country: PropTypes.bool,
 }
 
 export default WithIntl()(HelpCenter)

@@ -7,7 +7,7 @@ import {
     NavResources,
     NavMarket,
 } from 'components/custom/other-platforms.js'
-import { Container, Show } from 'components/containers'
+import { Container, Show, Flex } from 'components/containers'
 
 const FadeInDown = keyframes`
     from {
@@ -19,12 +19,6 @@ const FadeInDown = keyframes`
         transform: translateY(7.2rem) rotateY(0);
     }
 `
-
-const NavDropdownWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-`
-
 const NavDropdown = styled.div`
     display: flex;
     width: ${(props) => (props.is_trade ? '90%' : 'auto')};
@@ -111,7 +105,7 @@ const PlatformsDropdown = ({
 
     return (
         <Show.Desktop>
-            <NavDropdownWrapper>
+            <Flex>
                 <NavDropdown
                     ref={dropdownContainerRef}
                     offset={left_offset}
@@ -122,7 +116,7 @@ const PlatformsDropdown = ({
                         {getNavigationContents(parent, is_ppc, is_ppc_redirect)}
                     </StyledContainer>
                 </NavDropdown>
-            </NavDropdownWrapper>
+            </Flex>
         </Show.Desktop>
     )
 }

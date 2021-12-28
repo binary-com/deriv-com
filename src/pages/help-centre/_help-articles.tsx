@@ -3,20 +3,17 @@ import { Localize } from 'components/localization'
 
 type ArcticlesType = {
     category?: ReactElement
-    articles?: (
-        | { title?: ReactElement; category?: string; sub_category?: ReactElement; label?: string }
-        | {
-              title?: ReactElement
-              category?: string
-              sub_category?: ReactElement
-              label?: string
-              title_eu?: ReactElement
-              label_eu?: string
-          }
-    )[]
+    articles?: {
+        title?: ReactElement
+        category?: string
+        sub_category?: ReactElement
+        label?: string
+        title_eu?: ReactElement
+        label_eu?: string
+    }[]
 }[]
 
-export const article: ArcticlesType = [
+export const articles: ArcticlesType = [
     {
         category: <Localize translate_text="Account" />,
         articles: [

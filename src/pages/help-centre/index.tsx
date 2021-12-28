@@ -258,7 +258,7 @@ interface HelpCenterProps {
 
 interface HelpCenterState {
     all_articles?: string[]
-    all_categories?: number
+    all_categories?: Record<number, any>
     search?: string
     search_has_transition?: boolean
     toggle_search?: boolean

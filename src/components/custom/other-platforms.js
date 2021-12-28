@@ -29,7 +29,6 @@ import BinaryBot from 'images/svg/binarybot-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
 import CFD from 'images/svg/custom/margin-trading-nav.svg'
 import Multipliers from 'images/svg/custom/multipliers-nav.svg'
 import Options from 'images/svg/custom/options-nav.svg'
@@ -480,12 +479,6 @@ export const NavCompany = ({ onClick }) => (
             title={localize('Our story')}
             onClick={onClick}
             to="/story/"
-        />
-        <CardLink
-            icon={() => <img src={Leadership} alt="" width="24" height="24" />}
-            title={localize('Our leadership')}
-            onClick={onClick}
-            to="/leadership/"
         />
         <CardLink
             icon={() => <img src={RegulatoryInfo} alt="" width="24" height="24" />}

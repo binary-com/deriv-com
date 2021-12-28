@@ -21,9 +21,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                             <Link to="/story/">{localize('Our story')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/leadership/">{localize('Our leadership')}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
                             <Link to="/why-choose-us/">{localize('Why choose us?')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>

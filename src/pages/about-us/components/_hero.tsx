@@ -109,7 +109,12 @@ const Hero = () => {
                             width="100%"
                         />
                         <FlexHeader>
-                            <StyledHeaderDesktopAbout color="white" align="center">
+                            <StyledHeaderDesktopAbout
+                                as="h1"
+                                color="white"
+                                align="center"
+                                type="unset"
+                            >
                                 {localize('About us')}
                             </StyledHeaderDesktopAbout>
                         </FlexHeader>
@@ -118,7 +123,7 @@ const Hero = () => {
                 <MobileWrapper>
                     <Flex fd="column">
                         <QueryImage data={data['about_us_logo']} alt="example" />
-                        <StyledHeader color="white" align="center" mt="40px">
+                        <StyledHeader as="h1" color="white" align="center" mt="40px" type="unset">
                             {localize('About us')}
                         </StyledHeader>
                     </Flex>

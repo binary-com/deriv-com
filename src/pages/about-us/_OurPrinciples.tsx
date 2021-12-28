@@ -93,7 +93,7 @@ const OurPrinciples = () => {
             </StyledHeader>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles.map((principle) => (
-                    <React.Fragment key={principle.title}>
+                    <div key={principle.title}>
                         <StyledDivider
                             align="center"
                             height="2px"
@@ -116,7 +116,7 @@ const OurPrinciples = () => {
                                 {principle.text}
                             </StyledText>
                         </InsideFlex>
-                    </React.Fragment>
+                    </div>
                 ))}
                 <StyledDivider
                     align="center"

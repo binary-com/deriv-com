@@ -37,7 +37,7 @@ const MakeTrading = () => {
     return (
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
             {first_section_texts.map((text, index) => (
-                <StyledFirstSectionText key={index} size="24px">
+                <StyledFirstSectionText as="p" type="unset" key={index} size="24px">
                     {text}
                 </StyledFirstSectionText>
             ))}

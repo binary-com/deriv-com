@@ -1,10 +1,9 @@
-import React, { Component, ReactNode } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component, ReactElement, ReactNode } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
-import { articles, ArcticlesType } from './_help-articles'
+import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { convertToHash, euArticles, getAllArticles, splitArticles } from './_utility'
@@ -251,12 +250,12 @@ const ShowItem = styled.li<StyledProps>`
 
 interface HelpCenterProps {
     children?: ReactNode
-    is_eu_country?: boolean | unknown
+    is_eu_country?: unknown
     align?: string
 }
 
 interface HelpCenterState {
-    all_articles?: ArcticlesType
+    all_articles?: unknown[]
     all_categories?: Record<number, any>
     search?: string
     search_has_transition?: boolean
@@ -272,7 +271,7 @@ const HelpCenter = () => {
 }
 
 class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
-    constructor(props: HelpCenterProps) {
+    constructor(props) {
         super(props)
         this.state = {
             all_articles: [],
@@ -286,7 +285,6 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
     handleInputChange = (e) => {
         e.preventDefault()
         const { name, value } = e.target
-
         this.setState({ [name]: `${sanitize(value)}` })
     }
 
@@ -313,10 +311,10 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
         const deepClone = (arr) => {
             const out = []
             for (let i = 0, len = arr.length; i < len; i++) {
-                const items = arr[i]
+                const item = arr[i]
                 const obj = {}
-                for (const item in items) {
-                    obj[item] = items[item]
+                for (const k in item) {
+                    obj[k] = item[k]
                 }
                 out.push(obj)
             }
@@ -358,8 +356,8 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
         })
 
         const splitted_articles = this.props.is_eu_country
-            ? euArticles(splitArticles({ array: articles, length: 3 }))
-            : splitArticles({ array: articles, length: 3 })
+            ? euArticles(splitArticles(articles, 3))
+            : splitArticles(articles, 3)
 
         const has_results = !!filtered_articles.length
 
@@ -476,13 +474,11 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
                                                                     }
                                                                 >
                                                                     <StyledLink
-                                                                        to={convertToHash({
-                                                                            category:
-                                                                                item.category.props
-                                                                                    .translate_text,
-
-                                                                            label: label_type,
-                                                                        })}
+                                                                        to={convertToHash(
+                                                                            item.category.props
+                                                                                .translate_text,
+                                                                            label_type,
+                                                                        )}
                                                                     >
                                                                         {title_type}
                                                                     </StyledLink>

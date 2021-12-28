@@ -1,11 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
+
+interface DP2PProps {
+    P2P: P2PProps[]
+    reverse: boolean
+}
+
+type P2PProps = {
+    title: string | React.ReactElement
+    subtitle: string | React.ReactElement
+    subtitle_mobile: string | React.ReactElement
+    image_name: string
+    image_alt: string
+}
+
+type StyledProps = {
+    margin_right?: string
+    flex_direction?: string
+}
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -22,7 +39,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div`
+const Content = styled.div<StyledProps>`
     width: 100%;
     max-width: 58.8rem;
     display: flex;
@@ -45,7 +62,7 @@ const Content = styled.div`
     }
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<StyledProps>`
     max-width: 47.1rem;
     width: 100%;
     max-height: 30rem;
@@ -86,7 +103,7 @@ const VideoText = styled(Text)`
         font-size: 14px;
     }
 `
-const Row = styled.div`
+const Row = styled.div<StyledProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -121,7 +138,7 @@ const query = graphql`
         }
     }
 `
-const DP2P = ({ P2P, reverse, two_title }) => {
+const DP2P = ({ P2P, reverse }: DP2PProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
@@ -153,14 +170,6 @@ const DP2P = ({ P2P, reverse, two_title }) => {
                                 <Show.Mobile>
                                     <Text>{item.subtitle_mobile}</Text>
                                 </Show.Mobile>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader as="h2" mt="2.4rem">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <Text>{item.second_subtitle}</Text>
-                                    </>
-                                )}
                             </Content>
                             <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
                                 <QueryImage
@@ -175,12 +184,6 @@ const DP2P = ({ P2P, reverse, two_title }) => {
             </StyledContainer>
         </StyledSection>
     )
-}
-
-DP2P.propTypes = {
-    P2P: PropTypes.array,
-    reverse: PropTypes.bool,
-    two_title: PropTypes.bool,
 }
 
 export default DP2P

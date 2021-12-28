@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Show } from 'components/containers'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
@@ -8,6 +7,10 @@ import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 import { Background } from 'components/elements/background-image'
+
+interface P2PBannerProps {
+    title: string
+}
 
 const Wrapper = styled(Container)`
     padding-left: 8rem;
@@ -115,7 +118,7 @@ const query = graphql`
     }
 `
 
-const P2PBanner = ({ title }) => {
+const P2PBanner = ({ title }: P2PBannerProps) => {
     const data = useStaticQuery(query)
 
     return (
@@ -184,11 +187,6 @@ const P2PBanner = ({ title }) => {
             </Show.Mobile>
         </div>
     )
-}
-
-P2PBanner.propTypes = {
-    image_name: PropTypes.string,
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default P2PBanner

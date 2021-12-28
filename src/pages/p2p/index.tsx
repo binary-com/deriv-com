@@ -64,20 +64,13 @@ const DP2PHome = () => {
 
             {is_mounted && (
                 <>
-                    <Hero
-                        title={localize('Hassle-free deposits and withdrawals')}
-                        content={
-                            <Localize translate_text="Use your local currency to make deposits into and withdrawals from your Deriv account." />
-                        }
-                        image_name="DP2P"
-                    />
+                    <Hero />
                     <DP2P reverse P2P={DP2P_CONTENT} />
                     <Numbers />
                     <ExchangeSteps />
                     <Availability />
                     <P2PBanner
                         title={localize('Make hassle-free deposits and withdrawals today')}
-                        image_name="DP2P"
                     />
                 </>
             )}

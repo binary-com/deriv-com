@@ -24,6 +24,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const StyledFlex = styled(Flex)`
+    border-radius: 10px;
     background-image: url(${Bg});
     background-position: center;
     @media ${device.laptopM} {

@@ -64,7 +64,7 @@ const OurValues = () => {
                 {our_values.map((card, index) => (
                     <Card key={card.title} index={index} direction="column" ai="start" jc="start">
                         <img src={card.icon} alt="" />
-                        <Header as="h4" padding="24px 0 8px" size="32px" align="left">
+                        <Header as="h4" padding="24px 0 8px" size="32px" align="left" type="unset">
                             {card.title}
                         </Header>
                         <Text size="16px">{card.text} </Text>

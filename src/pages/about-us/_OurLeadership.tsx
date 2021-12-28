@@ -173,7 +173,7 @@ const StyledLogo = styled.img`
 const Modal = ({ name, position, link }: ModalPropsType) => {
     return (
         <ModalFlex ai="center" direction="column" width="unset" height="unset">
-            <ModalHeader as="h4" padding="5px 5px 0" align="center">
+            <ModalHeader type="unset" as="h4" padding="5px 5px 0" align="center">
                 {name}
             </ModalHeader>
             <Header
@@ -202,6 +202,7 @@ type LeaderType = {
 
 type LeaderPopsType = {
     leader: LeaderType
+    key: number
 }
 const Leader: React.FC<LeaderPopsType> = ({ leader }) => {
     const [isPopupShown, setIsPopupShown] = React.useState<boolean>(false)
@@ -327,6 +328,7 @@ const OurLeadership = () => {
                 {localize('Our leadership')}
             </StyledHeader>
             <StyledCssGrid
+                height="unset"
                 columns="repeat(auto-fill, 120px)"
                 column_gap="99px"
                 row_gap="60px"

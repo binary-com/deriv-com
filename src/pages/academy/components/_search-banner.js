@@ -6,7 +6,7 @@ import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { LocalizedLink } from 'components/localization'
-import AcademyLogo from 'images/svg/academy-logo.svg'
+import AcademyLogo from 'images/svg/blog/academy-logo.svg'
 import { combined_filter_type } from 'common/constants'
 import { DerivStore } from 'store'
 

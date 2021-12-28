@@ -7,7 +7,6 @@ const ZohoJob = (data) => {
     useEffect(() => {
         addScriptForZoho()
     }, [])
-
     const addScriptForZoho = () => {
         const addScript = (settings) => {
             const script = document.createElement('script')
@@ -39,6 +38,18 @@ const ZohoJob = (data) => {
         .rec-group .rec-job-info:nth-child(n + 5) {
             display: none !important;
         }
+        #rec_job_listing_div:not(#rec_job_listing_div *) {
+            text-align: center;
+            color: var(--color-grey-5);
+            font-weight: bold;
+            font-size: 2.4rem;
+            line-height: 3.6rem;
+            width: 100%;
+            display: block;
+        }
+        .rec_job_listing_div_jobs {
+            text-align: left;
+        }
         ul.rec-job-info {
             position: relative;
             margin-bottom: 0 !important;
@@ -46,6 +57,7 @@ const ZohoJob = (data) => {
             width: 100%;
             display: flex;
             border-bottom: 1px solid #f2f3f4 !important;
+            align-items: center;
 
             &::after {
                 position: absolute;
@@ -59,6 +71,7 @@ const ZohoJob = (data) => {
         .embed_jobs_with_style .rec-group li.rec-job-title {
             max-width: 450px;
             width: 100%;
+            margin-bottom: 0;
 
             @media (max-width: 767px) {
                 max-width: 50%;

@@ -30,7 +30,6 @@ const OpenPositions = (data) => {
                 <JobWrapper>
                     <ZohoJob title={data.data.title} />
                 </JobWrapper>
-
                 <LinkButton external mt="35px" to={data.data.url} secondary target="_blank">
                     See all
                 </LinkButton>

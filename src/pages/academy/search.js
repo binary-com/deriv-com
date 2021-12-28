@@ -1,27 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
+import { useQueryParams, StringParam } from 'use-query-params'
 import { SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { combined_filter_type } from 'common/constants'
 import { DerivStore } from 'store'
 
-const SearchPage = ({ location }) => {
-    const [is_mounted] = usePageLoaded()
+const SearchPage = () => {
     const { academy_data } = useContext(DerivStore)
     const [search_result, setSearchResult] = useState([])
+
+    const [query] = useQueryParams({
+        q: StringParam,
+        type: StringParam,
+        category: StringParam,
+    })
+    const { q: search_query, type: items_type, category: category_type } = query
 
     const filter_types = combined_filter_type
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
     useEffect(() => {
-        if (is_mounted) {
-            const params = new URLSearchParams(location.search)
-
-            // there are 3 params type
-            /* 1) q is for query - optional
+        // there are 3 params type
+        /* 1) q is for query - optional
                2) type (either article or video) - optional
                3) category (category to be filtered) - optional
 
@@ -45,41 +48,37 @@ const SearchPage = ({ location }) => {
 
             */
 
-            /* eslint-disable */
-            // console.log(JSON.stringify(search_result, null, 2))
-            /* eslint-enable */
+        // const search_query = params.get('q')
+        // const items_type = params.get('type')
+        // const category_type = params.get('category')
 
-            const search_query = params.get('q')
-            const items_type = params.get('type')
-            const category_type = params.get('category')
+        if (search_query && !items_type) {
+            const result_arr = getSearchResult(search_query)
+            setSearchResult(result_arr)
+        }
 
-            if (search_query && !items_type) {
+        if (items_type) {
+            if (search_query) {
                 const result_arr = getSearchResult(search_query)
-                setSearchResult(result_arr)
-            }
-
-            if (items_type) {
-                if (search_query) {
-                    const result_arr = getSearchResult(search_query)
-                    const filter_result = getSearchResultBasedOnType(result_arr, items_type)
-                    setSearchResult(filter_result)
-                } else if (category_type) {
-                    const category_result = getFilterResult(category_type)
-                    const filtered_category_result = getSearchResultBasedOnType(
-                        category_result,
-                        items_type,
-                    )
-
-                    setSearchResult(filtered_category_result)
-                }
-            }
-
-            if (category_type && !items_type) {
+                const filter_result = getSearchResultBasedOnType(result_arr, items_type)
+                setSearchResult(filter_result)
+            } else if (category_type) {
                 const category_result = getFilterResult(category_type)
-                setSearchResult(category_result)
+                const filtered_category_result = getSearchResultBasedOnType(
+                    category_result,
+                    items_type,
+                )
+
+                setSearchResult(filtered_category_result)
             }
         }
-    }, [is_mounted, location])
+
+        if (category_type && !items_type) {
+            const category_result = getFilterResult(category_type)
+            setSearchResult(category_result)
+        }
+        // }
+    }, [query])
 
     const getSearchResult = (q) => {
         let result

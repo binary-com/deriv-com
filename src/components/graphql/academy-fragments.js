@@ -8,6 +8,7 @@ export const academyQuery = graphql`
             homepage_banners(filter: { status: { _eq: "published" } }) {
                 order
                 id
+                button_text
                 link
                 heading
                 sub_heading
@@ -34,6 +35,7 @@ export const academyQuery = graphql`
             ) {
                 order
                 id
+                button_text
                 link
                 heading
                 sub_heading
@@ -60,6 +62,7 @@ export const academyQuery = graphql`
             ) {
                 order
                 id
+                button_text
                 link
                 heading
                 sub_heading
@@ -92,7 +95,7 @@ export const academyQuery = graphql`
                         tag_name
                     }
                 }
-                read_time_in_minutes
+                blog_post
                 main_image {
                     imageFile {
                         childImageSharp {
@@ -123,7 +126,7 @@ export const academyQuery = graphql`
                         tag_name
                     }
                 }
-                read_time_in_minutes
+                blog_post
                 main_image {
                     imageFile {
                         childImageSharp {
@@ -154,7 +157,7 @@ export const academyQuery = graphql`
                         tag_name
                     }
                 }
-                read_time_in_minutes
+                blog_post
                 main_image {
                     imageFile {
                         childImageSharp {
@@ -350,7 +353,7 @@ export const academyQuery = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             recent_eu: blog(
                 filter: {
@@ -385,7 +388,7 @@ export const academyQuery = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             recent_uk: blog(
                 filter: {
@@ -420,7 +423,7 @@ export const academyQuery = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             featured: blog(
                 filter: {
@@ -452,7 +455,7 @@ export const academyQuery = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             featured_eu: blog(
                 filter: {
@@ -488,7 +491,7 @@ export const academyQuery = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
             featured_uk: blog(
                 filter: {
@@ -524,7 +527,7 @@ export const academyQuery = graphql`
                 }
                 blog_title
                 blog_description
-                read_time_in_minutes
+                blog_post
             }
         }
     }

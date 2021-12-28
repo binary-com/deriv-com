@@ -6,6 +6,7 @@ import { StandardImgWrapper } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
+import { getMinRead } from 'common/utility'
 import device from 'themes/device'
 
 const ArticleCardWrapper = styled(Flex)`
@@ -86,7 +87,7 @@ const ArticleCard = ({ item }) => {
                             color="grey-5"
                             width="auto"
                         >
-                            {item.read_time_in_minutes && `• ${item.read_time_in_minutes} min read`}
+                            {`• ${getMinRead(item?.blog_post)}`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="subtitle-2">

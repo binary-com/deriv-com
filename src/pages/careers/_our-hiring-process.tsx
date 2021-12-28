@@ -62,6 +62,13 @@ const ProcessContainer = styled.div`
     flex-direction: column;
 `
 
+const rightStyle = css`
+    right: -1.2rem;
+`
+const leftStyle = css`
+    left: -1.2rem;
+`
+
 const StyledTipsCard = styled(Flex)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
@@ -79,14 +86,7 @@ const StyledTipsCard = styled(Flex)`
         width: 2.4rem;
         height: 2.4rem;
         transform: rotate(45deg);
-        ${(props) =>
-            props.right
-                ? css`
-                      right: -1.2rem;
-                  `
-                : css`
-                      left: -1.2rem;
-                  `}
+        ${(props) => (props.right ? rightStyle : leftStyle)}
 
         @media ${device.tablet} {
             left: 48%;

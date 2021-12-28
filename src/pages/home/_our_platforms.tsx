@@ -59,7 +59,7 @@ const platforms: Platform[] = [
         },
     },
     {
-        title: 'DerivX',
+        title: 'Deriv X',
         icon: DerivXIcon,
         description: 'The multi-asset trading platform to fit your style.',
         learn_more_link: '/derivx/',

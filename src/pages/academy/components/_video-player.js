@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Vimeo from '@u-wave/react-vimeo'
 import { Flex } from 'components/containers'
 import CloseIcon from 'images/svg/close.svg'
 import device from 'themes/device'
@@ -34,6 +35,7 @@ const VidPlayerWrapper = styled.div`
 `
 const VidDivWrapper = styled.div`
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -42,6 +44,7 @@ const VidDivWrapper = styled.div`
 
 const StyledFlex = styled(Flex)`
     margin-left: 20px;
+
     @media ${device.tabletS} {
         margin-left: 0;
     }
@@ -50,49 +53,59 @@ const StyledFlex = styled(Flex)`
 const CloseButton = styled.img`
     cursor: pointer;
 `
-const VidPlayer = styled.video`
+const StyledVimeo = styled(Vimeo)`
     width: 100%;
-    max-height: 558px;
-    background-color: var(--color-black);
-    outline: none;
+    height: 100%;
 
-    @media ${device.desktopS} {
-        max-height: 900px;
+    > iframe {
+        width: 100%;
+        height: 100%;
     }
 `
 
+// const VidPlayer = styled.video`
+//     width: 100%;
+//     max-height: 558px;
+//     background-color: var(--color-black);
+//     outline: none;
+
+//     @media ${device.desktopS} {
+//         max-height: 900px;
+//     }
+// `
+
 const VideoPlayer = ({ video_src, closeVideo }) => {
     const vidRef = useRef()
-    const [is_show, setIsShow] = useState(true)
-    const [scroll, setScroll] = useState(true)
-    let vidElement
+    const [is_show] = useState(true)
+    // const [scroll, setScroll] = useState(true)
+    // let vidElement
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyboardEvent, false)
 
-        vidElement = vidRef.current
-        vidElement.addEventListener('enterpictureinpicture', () => {
-            setIsShow(!is_show)
-            setScroll(!scroll)
-            document.body.style.overflow = 'unset'
-        })
+        // vidElement = vidRef?.current
+        // vidElement.addEventListener('enterpictureinpicture', () => {
+        //     setIsShow(!is_show)
+        //     setScroll(!scroll)
+        //     document.body.style.overflow = 'unset'
+        // })
 
-        vidElement.onleavepictureinpicture = () => {
-            document.body.style.overflow = 'hidden'
-            const was_playing = !vidElement.paused
-            if (!vidElement.paused) {
-                setIsShow(is_show)
-            } else if (was_playing) {
-                closeVideo()
-            } else if (vidElement.paused) {
-                setIsShow(is_show)
-            } else if (!was_playing) {
-                setIsShow(is_show)
-            } else {
-                setIsShow(!is_show)
-            }
-        }
-        vidElement.focus()
+        // vidElement.onleavepictureinpicture = () => {
+        //     document.body.style.overflow = 'hidden'
+        //     const was_playing = !vidElement.paused
+        //     if (!vidElement.paused) {
+        //         setIsShow(is_show)
+        //     } else if (was_playing) {
+        //         closeVideo()
+        //     } else if (vidElement.paused) {
+        //         setIsShow(is_show)
+        //     } else if (!was_playing) {
+        //         setIsShow(is_show)
+        //     } else {
+        //         setIsShow(!is_show)
+        //     }
+        // }
+        // vidElement.focus()
         return () => document.removeEventListener('keydown', handleKeyboardEvent, false)
     }, [])
 
@@ -116,7 +129,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                                 onClick={() => closeVideo()}
                             />
                         </StyledFlex>
-                        <VidPlayer
+                        {/* <VidPlayer
                             controls
                             disablePictureInPicture
                             controlsList="nodownload"
@@ -126,7 +139,14 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                         >
                             <source src={video_src} type="video/mp4" />
                             Your browser does not support the video tag.
-                        </VidPlayer>
+                        </VidPlayer> */}
+                        <StyledVimeo
+                            video={video_src}
+                            height="100%"
+                            width="100%"
+                            autoplay={true}
+                            ref={vidRef}
+                        />
                     </Flex>
                 </VidDivWrapper>
             </VidPlayerWrapper>

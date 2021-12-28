@@ -105,6 +105,7 @@ export const query = graphql`
                 video_description
                 video_duration
                 hide_for_eu
+                vimeo_id
                 tags {
                     tags_id {
                         tag_name

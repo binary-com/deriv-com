@@ -52,10 +52,21 @@ const StyledHeader = styled(Header)`
 `
 
 const ArticlesPage = ({ data }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-    const article_data = is_eu_country
-        ? data.directus.blog.filter((item) => item.hide_for_eu == false)
-        : data.directus.blog
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+
+    let article_data
+
+    if (is_eu_country && !is_uk_country) {
+        article_data = data.directus.blog.filter(
+            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
+        )
+    } else if (is_uk_country) {
+        article_data = data.directus.blog.filter(
+            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
+        )
+    } else {
+        article_data = data.directus.blog
+    }
 
     const meta_attributes = {
         og_title: 'Trading tips, guides, and more.',
@@ -115,7 +126,7 @@ export const query = graphql`
                 }
                 slug
                 featured
-                hide_for_eu
+                visibility
                 tags {
                     id
                     tags_id {

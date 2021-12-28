@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
-import SearchBanner from './components/_search-banner'
 import { SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -142,7 +141,6 @@ const SearchPage = ({ location }) => {
                     "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
                 )}
             />
-            <SearchBanner />
             <Flex fd="column">
                 <Flex>Search Result:</Flex>
                 {search_result &&

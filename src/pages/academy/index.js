@@ -7,7 +7,6 @@ import RecentFeaturedPosts from './_recent-featured-posts'
 import DVideoBanner from './_video-banner'
 import Hero from './components/_hero'
 import MarketNews from './components/_markets-news'
-import SearchBanner from './components/_search-banner'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -368,7 +367,7 @@ const DerivBlog = ({ data }) => {
         : data.directus.featured_video
 
     return (
-        <Layout type="academy">
+        <Layout type="academy" margin_top={'14.4'}>
             <SEO
                 title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(
@@ -377,7 +376,6 @@ const DerivBlog = ({ data }) => {
                 meta_attributes={meta_attributes}
             />
             <MainWrapper>
-                <SearchBanner />
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                     {homepage_banner_data.map((page_data) => {
                         return (

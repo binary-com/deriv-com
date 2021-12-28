@@ -10,7 +10,53 @@ import {
 import { TextWrapper } from '../../static/style/_common'
 import { Minimize, Maximize } from '../../static/images/_what-lies-ahead'
 
-const Card = ({ card_content, custom_icon, has_list, style, title_component }) => {
+type CardWrapperProps = {
+    grid_template_columns?: string[]
+    grid_column_gap?: string[]
+    border?: string
+    border_radius?: string
+    padding?: string[]
+}
+
+type IconWrapperProps = {
+    width?: number | string
+    height?: number | string
+    margin?: string[]
+    grid_area?: string[]
+}
+
+type TextWrapperProps = {
+    max_width: string[]
+}
+
+type StyleProps = {
+    text_wrapper: TextWrapperProps
+    icon_wrapper: IconWrapperProps
+    card_wrapper: CardWrapperProps
+}
+
+type CustomIconProps = {
+    src?: string
+    alt?: string
+}
+
+type CardContentProps = {
+    title?: string
+    subtitle?: string
+    text?: string | JSX.Element
+    src?: string
+    content?: string[]
+}
+
+type CardProps = {
+    title_component?: React.ReactNode
+    has_list?: boolean
+    custom_icon?: CustomIconProps
+    card_content?: CardContentProps
+    style?: StyleProps
+}
+
+const Card = ({ card_content, custom_icon, has_list, style, title_component }: CardProps) => {
     const [is_list_open, setIsListOpen] = useState(false)
 
     const getCurrentDropdownComponent = () => {

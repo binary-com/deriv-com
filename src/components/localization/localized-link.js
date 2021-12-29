@@ -116,7 +116,9 @@ const InternalLink = ({
 
     if (is_anchor) {
         return (
-            <StyledAnchorLink title={aria_label} to={internal_to} disabled={!mounted} {...props} />
+            <StyledAnchorLink title={aria_label} to={internal_to} disabled={!mounted} {...props}>
+                {children}
+            </StyledAnchorLink>
         )
     }
     return (

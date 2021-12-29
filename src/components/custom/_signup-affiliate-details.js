@@ -342,8 +342,11 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                                     'Choose which plan you would like to subscribe to.',
                                                 )}{' '}
                                                 <LocalizedLinkText
-                                                    to="/partners/affiliate-ib/"
+                                                    to="/partners/affiliate-ib#deriv-ap"
+                                                    external="true"
                                                     color="red"
+                                                    target="_blank"
+                                                    is_anchor
                                                     style={{ fontSize: '14px' }}
                                                 >
                                                     {localize('Learn more')}

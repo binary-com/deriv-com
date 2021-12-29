@@ -93,7 +93,7 @@ LocalizedLink.propTypes = {
     external: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 }
 
-const non_localized_links = ['careers']
+const non_localized_links = ['/careers', '/academy']
 
 const InternalLink = ({
     aria_label,

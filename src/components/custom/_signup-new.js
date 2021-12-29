@@ -6,6 +6,7 @@ import { Input, Button } from 'components/form'
 import { Header, Text, LinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
+import { DerivStore } from 'store'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
@@ -161,10 +162,8 @@ const LoginText = styled(Text)`
     margin-top: 1.6rem;
 
     @media ${device.tabletL} {
-        margin-bottom: 0;
-        margin-top: 3.75rem;
-    }
-    @media ${device.tabletL} {
+        margin-top: ${(props) => props.mt};
+        margin-bottom: ${(props) => props.mb};
         font-size: 2rem;
     }
 `
@@ -208,6 +207,7 @@ const SignupNew = ({
     is_submitting,
 }) => {
     const [is_checked, setChecked] = useState(false)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -326,7 +326,7 @@ const SignupNew = ({
                     <SocialText>Apple</SocialText>
                 </SocialButton>
             </SocialWrapper>
-            <LoginText>
+            <LoginText mt="3.75rem" mb={is_eu_country ? '100px' : '0'}>
                 {localize('Already have an account?')}
                 <StyledLinkText
                     id="dm-new-login-button"

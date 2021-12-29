@@ -1,17 +1,3 @@
-import { ReactElement } from 'react'
-
-export type ArcticlesType = {
-    category?: ReactElement
-    articles?: {
-        title?: ReactElement
-        category?: string
-        sub_category?: ReactElement
-        label?: string
-        title_eu?: ReactElement
-        label_eu?: string
-    }[]
-}[]
-
 export const convertToHash = ({ category: category }, { label: label }): string => {
     return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '/#' + label
 }

@@ -17,6 +17,7 @@ module.exports = {
         siteUrl: 'https://deriv.com',
     },
     plugins: [
+        'gatsby-plugin-minify-html',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
         {

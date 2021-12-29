@@ -21,6 +21,7 @@
         "gatsby-plugin-google-tagmanager": "^3.7.1",
         "gatsby-plugin-image": "^1.7.1",
         "gatsby-plugin-manifest": "^3.7.1",
+        "gatsby-plugin-minify-html": "^1.0.4",
         "gatsby-plugin-nprogress": "^3.7.1",
         "gatsby-plugin-page-progress": "^2.2.1",
         "gatsby-plugin-react-helmet": "^4.7.1",

@@ -54,7 +54,7 @@ const StyledHeader = styled(Header)`
 const VideosPage = ({ data }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const video_data = is_eu_country
-        ? data.directus.videos.filter((item) => item.hide_for_eu == false)
+        ? data.directus.videos.filter((item) => !item.hide_for_eu)
         : data.directus.videos
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',

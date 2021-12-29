@@ -54,7 +54,7 @@ const StyledHeader = styled(Header)`
 const ArticlesPage = ({ data }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const article_data = is_eu_country
-        ? data.directus.blog.filter((item) => item.hide_for_eu == false)
+        ? data.directus.blog.filter((item) => !item.hide_for_eu)
         : data.directus.blog
 
     const meta_attributes = {

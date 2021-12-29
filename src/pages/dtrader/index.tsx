@@ -72,7 +72,7 @@ const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
 const Dtrader = () => {
-    const [is_mobile, setMobile] = useState('')
+    const [is_mobile, setMobile] = useState<boolean | string>('')
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)

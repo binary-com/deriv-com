@@ -57,6 +57,10 @@ const StyledHeader = styled(Header)`
     color: var(--color-white);
     margin-bottom: 16px;
     line-height: 40px;
+
+    @media ${device.tablet} {
+        line-height: 34px;
+    }
 `
 const Styledtext = styled(Text)`
     color: var(--color-white);

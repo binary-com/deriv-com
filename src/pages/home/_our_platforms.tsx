@@ -225,9 +225,9 @@ const PlatformImageWrapper = styled.div`
         }
     }
     @media ${device.mobileM} {
-        height: 200px;
+        height: 180px;
         img {
-            max-height: 200px;
+            max-height: 180px;
         }
     }
 `
@@ -335,13 +335,13 @@ const OurPlatforms = (): React.ReactElement => {
             width: 100%;
             height: 8px;
             @media ${device.tablet} {
-                bottom: 270px;
+                bottom: 290px;
             }
             @media (max-width: 692px) {
-                bottom: 315px;
+                bottom: 300px;
             }
             @media (max-width: 410px) {
-                bottom: 315px;
+                bottom: 300px;
             }
         `,
     }

@@ -1,3 +1,5 @@
+// THESE ARE FRAGMENTS TO BE USED IN IMAGES
+
 import { graphql } from 'gatsby'
 
 export const heroImage = graphql`
@@ -32,6 +34,7 @@ export const fadeIn = graphql`
         }
     }
 `
+
 export const homePageHeroFadeIn = graphql`
     fragment homePageHeroFadeIn on File {
         childImageSharp {

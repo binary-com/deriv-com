@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
@@ -9,7 +9,6 @@ import { LinkButton } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const query = graphql`
     query {
@@ -26,18 +25,6 @@ const query = graphql`
             ...homePageHeroFadeIn
         }
         hero_platform4: file(relativePath: { eq: "home/hero_platform4.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform1_m: file(relativePath: { eq: "home/hero_platform1_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform2_m: file(relativePath: { eq: "home/hero_platform2_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform3_m: file(relativePath: { eq: "home/hero_platform3_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform4_m: file(relativePath: { eq: "home/hero_platform4_m.png" }) {
             ...homePageHeroFadeIn
         }
     }
@@ -97,23 +84,15 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const Hero = ({ is_ppc }: HeroProps): ReactNode => {
+const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const [is_mobile] = useBrowserResize()
 
-    const slide_images = is_mobile
-        ? [
-              { key: 'hero1', image: data.hero_platform1_m },
-              { key: 'hero2', image: data.hero_platform2_m },
-              { key: 'hero3', image: data.hero_platform3_m },
-              { key: 'hero4', image: data.hero_platform4_m },
-          ]
-        : [
-              { key: 'hero1', image: data.hero_platform1 },
-              { key: 'hero2', image: data.hero_platform2 },
-              { key: 'hero3', image: data.hero_platform3 },
-              { key: 'hero4', image: data.hero_platform4 },
-          ]
+    const slide_images = [
+        { key: 'hero1', image: data.hero_platform1 },
+        { key: 'hero2', image: data.hero_platform2 },
+        { key: 'hero3', image: data.hero_platform3 },
+        { key: 'hero4', image: data.hero_platform4 },
+    ]
 
     const text = !is_ppc
         ? localize('Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.')
@@ -203,7 +182,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                             m="0 auto"
                             tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}
                         >
-                            <Slideshow slides={slide_images} interval={6} />
+                            <Slideshow slides={slide_images} interval={4} />
                         </Flex>
                     </Flex>
                 </Container>

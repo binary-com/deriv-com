@@ -67,7 +67,7 @@ const VideosPage = ({ data }) => {
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )
     } else {
-        video_data = data.directus.blog
+        video_data = data.directus.videos
     }
 
     const meta_attributes = {

@@ -41,7 +41,8 @@ export const homePageHeroFadeIn = graphql`
             gatsbyImageData(
                 formats: [AUTO, AVIF, WEBP]
                 layout: CONSTRAINED
-                placeholder: DOMINANT_COLOR
+                placeholder: NONE
+                quality: 30
             )
         }
     }

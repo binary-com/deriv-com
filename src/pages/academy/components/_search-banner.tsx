@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { Container, Flex } from 'components/containers'
@@ -9,6 +8,7 @@ import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { LocalizedLink } from 'components/localization'
 import AcademyLogo from 'images/svg/blog/academy-logo.svg'
 import { combined_filter_type } from 'common/constants'
+import { slugify } from 'common/utility'
 import { DerivStore } from 'store'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import SearchIcon from 'images/svg/blog/search_icon.svg'
@@ -58,6 +58,13 @@ const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     margin: 8px 0;
 `
+const SearchResultRows = styled(Flex)`
+    cursor: pointer;
+
+    :hover {
+        background-color: var(--color-grey-31);
+    }
+`
 const SearchSuggestionWrapper = styled(Flex)`
     display: ${(props) => (props.opened ? 'flex' : 'none')};
     background: white;
@@ -66,7 +73,7 @@ const SearchSuggestionWrapper = styled(Flex)`
     top: 8px;
     height: auto;
 `
-const StyledChevron = styled.img`
+const StyledChevron = styled.img<StyledChevronProp>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
@@ -80,7 +87,7 @@ const HoverChevron = styled.div`
     justify-content: center;
     align-items: center;
 `
-const FormContainer = styled.form`
+const FormContainer = styled.form<ElementWithMaximiseProp>`
     width: ${(props) => (props.maximise ? '640px' : '400px')};
     display: block;
     margin: 0 auto;
@@ -123,7 +130,7 @@ const SearchIconWrapper = styled.img`
     left: 24px;
     transform: translateY(-50%);
 `
-const CloseIconWrapper = styled.img`
+const CloseIconWrapper = styled.img<ElementWithMaximiseProp>`
     display: ${(props) => (props.maximise ? 'block' : 'none')};
     cursor: pointer;
     position: absolute;
@@ -134,7 +141,19 @@ const CloseIconWrapper = styled.img`
     transform: translateY(-50%);
 `
 
-const SearchBanner = ({ hidden }) => {
+type SearchBannerProps = {
+    hidden?: boolean
+}
+
+type ElementWithMaximiseProp = {
+    maximise?: boolean
+}
+
+type StyledChevronProp = {
+    expanded?: boolean
+}
+
+const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
@@ -168,11 +187,11 @@ const SearchBanner = ({ hidden }) => {
 
     if (search_query !== '') {
         data_to_render = matchSorter(combined_data, search_query.trim(), {
-            keys: ['blog_title', 'video_title'],
+            keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
         })
     } else data_to_render = null
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (search_input) navigate(`/academy/search?q=${encodeURI(search_input)}`)
     }
@@ -230,8 +249,18 @@ const SearchBanner = ({ hidden }) => {
                                         {data_to_render &&
                                             data_to_render.map((post, idx) => {
                                                 if (idx < 6) {
+                                                    const redirect_link = post.slug
+                                                        ? `/academy/blog/posts/${post.slug}/`
+                                                        : `/academy/videos/?t=${slugify(
+                                                              post.video_title,
+                                                          )}`
+                                                    const handleMouseDown = (e) => {
+                                                        e.preventDefault()
+                                                        navigate(redirect_link)
+                                                    }
+
                                                     return (
-                                                        <Flex
+                                                        <SearchResultRows
                                                             key={
                                                                 post.blog_title || post.video_title
                                                             }
@@ -241,9 +270,13 @@ const SearchBanner = ({ hidden }) => {
                                                                 marginTop: '4px',
                                                                 height: '40px',
                                                             }}
+                                                            onMouseDown={handleMouseDown}
                                                         >
-                                                            {post.blog_title || post.video_title}
-                                                        </Flex>
+                                                            {(post.blog_title &&
+                                                                `Blog Icon - ${post.blog_title}`) ||
+                                                                (post.video_title &&
+                                                                    `Video Icon - ${post.video_title}`)}
+                                                        </SearchResultRows>
                                                     )
                                                 }
                                             })}
@@ -305,10 +338,6 @@ const SearchBanner = ({ hidden }) => {
             </MainWrapper>
         </>
     )
-}
-
-SearchBanner.propTypes = {
-    hidden: PropTypes.bool,
 }
 
 export default SearchBanner

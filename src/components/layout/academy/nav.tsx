@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { NavWrapperMain, StyledNavMain, NavDesktop, NavMobile } from '../nav'
 import SearchBanner from '../../../pages/academy/components/_search-banner'
 import { Show } from 'components/containers'
 import { CFDWarning } from 'components/layout'
 import { isLoggedIn } from 'common/utility'
+
+type NavAcademyProps = {
+    base: string
+    is_ppc_redirect: boolean
+    is_ppc: boolean
+    hide_signup_login: boolean
+    academy_logo: boolean
+    no_language: boolean
+}
 
 const MainWrapper = styled(NavWrapperMain)`
     display: ${(props) => (props.background ? 'none' : 'block')};
@@ -19,7 +27,7 @@ const NavAcademy = ({
     hide_signup_login,
     academy_logo,
     no_language,
-}) => {
+}: NavAcademyProps) => {
     const [is_logged_in, setLoggedIn] = useState(false)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
@@ -33,7 +41,7 @@ const NavAcademy = ({
     useEffect(() => {
         setLoggedIn(isLoggedIn())
 
-        let checkCookieChange = setInterval(() => {
+        const checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
         }, 800)
         return () => clearInterval(checkCookieChange)
@@ -75,15 +83,6 @@ const NavAcademy = ({
             <CFDWarning />
         </>
     )
-}
-
-NavAcademy.propTypes = {
-    academy_logo: PropTypes.bool,
-    base: PropTypes.string,
-    hide_signup_login: PropTypes.bool,
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    no_language: PropTypes.bool,
 }
 
 export default NavAcademy

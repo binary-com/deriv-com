@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
 import { useQueryParams, StringParam } from 'use-query-params'
 import { SEO, Flex } from 'components/containers'
@@ -80,7 +79,7 @@ const SearchPage = () => {
         // }
     }, [query])
 
-    const getSearchResult = (q) => {
+    const getSearchResult = (q: string) => {
         let result
         if (q !== '') {
             result = matchSorter(combined_data, q, {
@@ -91,9 +90,9 @@ const SearchPage = () => {
         return result
     }
 
-    const getSearchResultBasedOnType = (obj, params) => {
+    const getSearchResultBasedOnType = (obj, params: string) => {
         const result = []
-        let key_to_find
+        let key_to_find: string
 
         if (params == 'article') {
             key_to_find = 'blog_title'
@@ -123,7 +122,7 @@ const SearchPage = () => {
 
         if (filter_title !== '') {
             result = matchSorter(combined_data, type, {
-                keys: ['tags.0.tags_id.tag_name'],
+                keys: ['tags.*.tags_id.tag_name'],
             })
         } else {
             result = null
@@ -155,10 +154,6 @@ const SearchPage = () => {
             </Flex>
         </Layout>
     )
-}
-
-SearchPage.propTypes = {
-    location: PropTypes.object,
 }
 
 export default WithIntl()(SearchPage)

@@ -56,6 +56,8 @@ const ArticlesPage = ({ data }) => {
 
     let article_data
 
+    // We need to include the !is_uk_country check together with is_eu_country because 'gb'
+    // is a valid country code for both EU and UK in our country base.
     if (is_eu_country && !is_uk_country) {
         article_data = data.directus.blog.filter(
             (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',

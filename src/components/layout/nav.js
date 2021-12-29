@@ -660,7 +660,7 @@ export const Nav = ({
     const handleScroll = useCallback(() => {
         const currentScrollPos = window.pageYOffset
         setTransparent(
-            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 20) ||
                 currentScrollPos < 10,
         )
         setPrevScrollPos(currentScrollPos)

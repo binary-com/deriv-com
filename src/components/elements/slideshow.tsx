@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { ImageDataLike } from 'gatsby-plugin-image'
 import QueryImage from 'components/elements/query-image'
@@ -17,7 +17,7 @@ const StyledImage = styled(QueryImage)`
     }
 `
 
-const Slideshow = ({ slides, interval, is_eager = true }: SlideshowProps): ReactElement => {
+const Slideshow = ({ slides = [], interval, is_eager = true }: SlideshowProps) => {
     const [active_index, setActiveIndex] = useState(0)
 
     const setNextImage = useCallback(() => {

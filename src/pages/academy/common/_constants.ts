@@ -3,13 +3,13 @@ type ItemType = {
     short_title: string
 }
 
-type MarketTypeType = {
+type TopicType = {
     type: string
     items: ItemType[]
 }
 
 // academy topic
-export const market_type: MarketTypeType[] = [
+export const market_type: TopicType[] = [
     {
         type: 'Market',
         items: [
@@ -41,7 +41,7 @@ export const market_type: MarketTypeType[] = [
     },
 ]
 
-export const platforms = [
+export const platforms: TopicType[] = [
     {
         type: 'Platform',
         items: [
@@ -69,7 +69,7 @@ export const platforms = [
     },
 ]
 
-export const trade_types = [
+export const trade_types: TopicType[] = [
     {
         type: 'Trade types',
         items: [
@@ -97,7 +97,7 @@ export const trade_types = [
     },
 ]
 
-export const resources = [
+export const resources: TopicType[] = [
     {
         type: 'Resources',
         items: [

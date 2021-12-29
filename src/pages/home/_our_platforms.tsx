@@ -225,7 +225,7 @@ const PlatformImageWrapper = styled.div`
         }
     }
     @media ${device.mobileM} {
-        height: 160px;
+        height: 180px;
         img {
             max-height: 160px;
         }

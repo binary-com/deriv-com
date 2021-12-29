@@ -28,6 +28,14 @@ import MGA from 'images/common/regulatory/mga.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
 
+type BoxProps = {
+    padding?: string
+}
+
+type RegulatoryProp = {
+    language: string
+}
+
 const Img = styled.img`
     display: flex;
     width: 16rem;
@@ -55,7 +63,7 @@ const Box = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: ${(props: { padding?: string }) => props.padding || '4rem 0 0'};
+    padding: ${(props: BoxProps) => props.padding || '4rem 0 0'};
 
     ${Text} {
         @media ${device.tabletS} {
@@ -94,7 +102,7 @@ const Content = styled.div`
     display: contents;
 `
 
-const Regulatory = (locale: { language: string }) => {
+const Regulatory = (locale: RegulatoryProp) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (

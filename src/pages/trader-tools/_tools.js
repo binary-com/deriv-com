@@ -133,15 +133,17 @@ const TradingTools = ({ tools }) => {
                                     <Show.Desktop>
                                         <QueryImage
                                             data={data[item.image_name]}
-                                            alt=""
+                                            alt={item.image_alt}
                                             height="100%"
+                                            loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                     </Show.Desktop>
                                     <Show.Mobile>
                                         <QueryImage
                                             data={data[item.image_name + '_mobile']}
-                                            alt=""
+                                            alt={item.image_alt}
                                             height="100%"
+                                            loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}

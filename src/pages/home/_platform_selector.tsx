@@ -166,8 +166,9 @@ export const PlatformDetails = ({
                     {description}
                 </Description>
                 <LinkWrapper>
-                    <StyledLink to={learn_more_link} weight="350">
-                        Learn more {'>'}
+                    <StyledLink to={learn_more_link} weight="350" margin="0 8px 0 0">
+                        <span style={{ marginRight: '0.4rem' }}>Learn more </span>
+                        {`>`}
                     </StyledLink>
                 </LinkWrapper>
             </Flex>

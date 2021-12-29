@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Container from './_container'
+import Container from './CareerContainer'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
@@ -66,8 +66,18 @@ const MiddleText = styled(Text)`
     margin-right: auto;
     font-size: var(--text-size-sm);
 `
+type ListItemsProps = {
+    to: string
+    text: string
+    middle_text: string
+    number: number
+}
 
-export const LinkList = ({ list_items }) => (
+type Props = {
+    list_items: ListItemsProps[]
+}
+
+export const LinkList = ({ list_items }: Props) => (
     <Container>
         <List>
             {list_items &&

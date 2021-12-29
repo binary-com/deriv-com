@@ -52,10 +52,24 @@ const StyledHeader = styled(Header)`
 `
 
 const VideosPage = ({ data }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-    const video_data = is_eu_country
-        ? data.directus.videos.filter((item) => item.hide_for_eu == false)
-        : data.directus.videos
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+
+    let video_data
+
+    // We need to include the !is_uk_country check together with is_eu_country because 'gb'
+    // is a valid country code for both EU and UK in our country base.
+    if (is_eu_country && !is_uk_country) {
+        video_data = data.directus.videos.filter(
+            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
+        )
+    } else if (is_uk_country) {
+        video_data = data.directus.videos.filter(
+            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
+        )
+    } else {
+        video_data = data.directus.videos
+    }
+
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',
         og_description: 'Our products and services explained in detail.',
@@ -104,7 +118,7 @@ export const query = graphql`
                 published_date
                 video_description
                 video_duration
-                hide_for_eu
+                visibility
                 tags {
                     tags_id {
                         tag_name

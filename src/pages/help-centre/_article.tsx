@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
@@ -9,11 +9,13 @@ import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
 
-interface ArticleProps {
-    children?: ReactNode
+export interface ArticleProps {
+    children?: React.ReactNode
     header?: string
     title?: string
     description?: string
+    text?: string
+    label?: string
     is_mounted?: boolean
 }
 
@@ -34,10 +36,24 @@ const TabWrapper = styled.div`
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
-export const Article = ({ children, header, title, description, is_mounted }: ArticleProps) => {
+export const Article = ({
+    children,
+    header = '',
+    title = '',
+    description = '',
+    text = '',
+    label = '',
+    is_mounted = false,
+}: ArticleProps) => {
     return (
         <Layout>
-            <SEO title={title} description={description} />
+            <SEO
+                title={title}
+                description={description}
+                text={text}
+                label={label}
+                is_mounted={is_mounted}
+            />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to="/help-centre/"
@@ -76,6 +92,5 @@ Article.propTypes = {
     children: PropTypes.node,
     description: PropTypes.string,
     header: PropTypes.string,
-    is_mounted: PropTypes.string,
     title: PropTypes.string,
 }

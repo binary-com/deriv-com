@@ -7,12 +7,6 @@ import { derivx_app_url, deriv_app_url } from 'common/constants'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
-type DerivXProps = {
-    text?: string
-    label?: string
-    is_mounted?: boolean
-}
-
 const ExternalLink = styled.a`
     text-decoration: none;
     color: var(--color-red);
@@ -22,7 +16,7 @@ const ExternalLink = styled.a`
     }
 `
 
-const WhatisDerivX: React.FC<DerivXProps> = () => (
+const WhatisDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is Deriv X?')}</StyledHeader>
         <Text>
@@ -33,7 +27,7 @@ const WhatisDerivX: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DepositDerivX: React.FC<DerivXProps> = () => (
+const DepositDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -51,7 +45,7 @@ const DepositDerivX: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DerivXMarkets: React.FC<DerivXProps> = () => (
+const DerivXMarkets = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on Deriv X?')}</StyledHeader>
         <Text>
@@ -62,7 +56,7 @@ const DerivXMarkets: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DerivXTrade: React.FC<DerivXProps> = () => (
+const DerivXTrade = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What is the minimum and maximum amount to trade on Deriv X?')}
@@ -75,7 +69,7 @@ const DerivXTrade: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DifferenceDMT5DTraderDerivX: React.FC<DerivXProps> = () => (
+const DifferenceDMT5DTraderDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
@@ -95,7 +89,7 @@ const DifferenceDMT5DTraderDerivX: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DerivXAccount: React.FC<DerivXProps> = () => (
+const DerivXAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>
         <Text>
@@ -114,7 +108,7 @@ const DerivXAccount: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts: React.FC<DerivXProps> = () => (
+const DifferentAccounts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What are the differences between Synthetics and Financial accounts?')}
@@ -132,7 +126,7 @@ const DifferentAccounts: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const TradingPassword: React.FC<DerivXProps> = () => (
+const TradingPassword = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is a Deriv X password?')}</StyledHeader>
         <Text>
@@ -141,7 +135,7 @@ const TradingPassword: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const DifferentPassword: React.FC<DerivXProps> = () => (
+const DifferentPassword = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How is my Deriv X password different from my Deriv password?')}
@@ -154,7 +148,7 @@ const DifferentPassword: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const ResetDerivXPassowrd: React.FC<DerivXProps> = () => (
+const ResetDerivXPassowrd = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I reset my Deriv X password?')}</StyledHeader>
         <Text>
@@ -174,7 +168,7 @@ const ResetDerivXPassowrd: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const AccountInformation: React.FC<DerivXProps> = () => (
+const AccountInformation = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('Where can I find my Deriv X account information?')}
@@ -195,7 +189,7 @@ const AccountInformation: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 // TOOD: uncomment once deriv x real is ready
-const DerivXRealMoneyAccount: React.FC<DerivXProps> = () => (
+const DerivXRealMoneyAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How can I deposit funds into my Deriv X real money account?')}
@@ -221,7 +215,7 @@ const DerivXRealMoneyAccount: React.FC<DerivXProps> = () => (
     </ArticleWrapper>
 )
 
-const WithdrawDerivX: React.FC<DerivXProps> = () => (
+const WithdrawDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How do I withdraw funds from my Deriv X real money account?')}

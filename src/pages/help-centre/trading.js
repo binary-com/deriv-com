@@ -6,13 +6,7 @@ import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
-type TradingProps = {
-    text?: string
-    label?: string
-    is_mounted?: boolean
-}
-
-const Forex: React.FC<TradingProps> = () => (
+const Forex = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is forex?')}</StyledHeader>
         <Text>
@@ -23,7 +17,7 @@ const Forex: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const Commodities: React.FC<TradingProps> = () => (
+const Commodities = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are commodities?')}</StyledHeader>
         <Text>
@@ -34,7 +28,7 @@ const Commodities: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const StockIndices: React.FC<TradingProps> = () => (
+const StockIndices = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are stock indices?')}</StyledHeader>
         <Text>
@@ -45,7 +39,7 @@ const StockIndices: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const SyntheticIndices: React.FC<TradingProps> = () => (
+const SyntheticIndices = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are synthetic indices?')}</StyledHeader>
         <Text>
@@ -56,7 +50,7 @@ const SyntheticIndices: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const CFD: React.FC<TradingProps> = () => (
+const CFD = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are contracts for difference (CFDs)?')}</StyledHeader>
         <Text>
@@ -67,7 +61,7 @@ const CFD: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const DigitalOptions: React.FC<TradingProps> = () => (
+const DigitalOptions = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
         <Text>
@@ -78,7 +72,7 @@ const DigitalOptions: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const TradingPlatforms: React.FC<TradingProps> = () => (
+const TradingPlatforms = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How many trading platforms do you offer?')}</StyledHeader>
         <Text>
@@ -89,7 +83,7 @@ const TradingPlatforms: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const AutomateTradingStrategy: React.FC<TradingProps> = () => (
+const AutomateTradingStrategy = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I automate my trading strategy?')}</StyledHeader>
         <Text>
@@ -100,7 +94,7 @@ const AutomateTradingStrategy: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const TradingLimits: React.FC<TradingProps> = () => (
+const TradingLimits = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are my trading limits?')}</StyledHeader>
         <Text>
@@ -121,7 +115,7 @@ const TradingLimits: React.FC<TradingProps> = () => (
     </ArticleWrapper>
 )
 
-const WeekendContracts: React.FC<TradingProps> = () => (
+const WeekendContracts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What contracts are available for trading on weekends?')}

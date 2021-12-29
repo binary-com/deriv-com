@@ -1,21 +1,28 @@
-import { ArcticlesType } from './_help-articles'
+import { ReactElement } from 'react'
 
-export const convertToHash = (category: string, label: string): string => {
-    console.log(typeof category)
-    console.log(typeof label)
-    console.log({ category })
-    console.log({ label })
+export type ArcticlesType = {
+    category?: ReactElement
+    articles?: {
+        title?: ReactElement
+        category?: string
+        sub_category?: ReactElement
+        label?: string
+        title_eu?: ReactElement
+        label_eu?: string
+    }[]
+}[]
 
+export const convertToHash = ({ category: category }, { label: label }): string => {
     return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '/#' + label
 }
 
-export const getAllArticles = (articles: ArcticlesType): unknown[] =>
+export const getAllArticles = ({ articles: articles }): [] =>
     articles
         .map((category) => category.articles)
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
-export const splitArticles = (array: ArcticlesType, length: number): number[] =>
+export const splitArticles = ({ array: array }, { length: length }): number[] =>
     array.reduce((result, item, index) => {
         if (index % length === 0) result.push([])
         result[Math.floor(index / length)].push(item)

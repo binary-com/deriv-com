@@ -1,14 +1,14 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Localize } from 'components/localization'
 
 export type ArcticlesType = {
-    category?: ReactElement
-    articles?: {
-        title?: ReactElement
+    category: React.ReactElement
+    articles: {
+        title?: React.ReactElement
         category?: string
-        sub_category?: ReactElement
+        sub_category?: React.ReactElement
         label?: string
-        title_eu?: ReactElement
+        title_eu?: React.ReactElement
         label_eu?: string
     }[]
 }[]
@@ -193,7 +193,6 @@ export const articles: ArcticlesType = [
             },
         ],
     },
-
     {
         category: <Localize translate_text="DMT5" />,
         articles: [

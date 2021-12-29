@@ -1,15 +1,10 @@
-import { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 type ArticleWrapperProps = {
-    children: ReactNode
     margin_left?: string
-    text?: string
-    label?: string
-    is_mounted?: boolean
 }
 
 export const ArticleWrapper = styled.div<ArticleWrapperProps>`

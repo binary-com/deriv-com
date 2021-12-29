@@ -1,4 +1,4 @@
-import React, { Component, ReactElement, ReactNode } from 'react'
+import React from 'react'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
@@ -249,14 +249,14 @@ const ShowItem = styled.li<StyledProps>`
 `
 
 interface HelpCenterProps {
-    children?: ReactNode
+    children?: React.ReactNode
     is_eu_country?: unknown
     align?: string
 }
 
 interface HelpCenterState {
-    all_articles?: unknown[]
-    all_categories?: Record<number, any>
+    all_articles?: string[]
+    all_categories?: Record<number, { is_expanded: boolean }>
     search?: string
     search_has_transition?: boolean
     toggle_search?: boolean
@@ -270,7 +270,7 @@ const HelpCenter = () => {
     return <HelpCentreClass is_eu_country={is_eu_country} />
 }
 
-class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
+class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> {
     constructor(props) {
         super(props)
         this.state = {
@@ -327,7 +327,7 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
                 search_has_transition: false,
             })
         }
-        const all_articles = getAllArticles(articles)
+        const all_articles = getAllArticles({ articles: articles })
 
         const duplicate_articles = deepClone(all_articles)
         const translated_articles = duplicate_articles.map((article) => {
@@ -356,8 +356,8 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
         })
 
         const splitted_articles = this.props.is_eu_country
-            ? euArticles(splitArticles(articles, 3))
-            : splitArticles(articles, 3)
+            ? euArticles(splitArticles({ array: articles }, { length: 3 }))
+            : splitArticles({ array: articles }, { length: 3 })
 
         const has_results = !!filtered_articles.length
 
@@ -475,9 +475,13 @@ class HelpCentreClass extends Component<HelpCenterProps, HelpCenterState> {
                                                                 >
                                                                     <StyledLink
                                                                         to={convertToHash(
-                                                                            item.category.props
-                                                                                .translate_text,
-                                                                            label_type,
+                                                                            {
+                                                                                category:
+                                                                                    item.category
+                                                                                        .props
+                                                                                        .translate_text,
+                                                                            },
+                                                                            { label: label_type },
                                                                         )}
                                                                     >
                                                                         {title_type}

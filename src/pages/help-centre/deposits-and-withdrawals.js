@@ -6,13 +6,7 @@ import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { Localize, localize, WithIntl } from 'components/localization'
 
-type DepositsAndWithdrawalProps = {
-    text?: string
-    label?: string
-    is_mounted?: boolean
-}
-
-const PaymentMethods: React.FC<DepositsAndWithdrawalProps> = () => (
+const PaymentMethods = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What payment methods do you support?')}</StyledHeader>
         <Text>
@@ -36,7 +30,7 @@ const PaymentMethods: React.FC<DepositsAndWithdrawalProps> = () => (
     </ArticleWrapper>
 )
 
-const WithdrawalProcessingTime: React.FC<DepositsAndWithdrawalProps> = () => (
+const WithdrawalProcessingTime = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How long does it take to process deposits and withdrawals?')}
@@ -49,7 +43,7 @@ const WithdrawalProcessingTime: React.FC<DepositsAndWithdrawalProps> = () => (
     </ArticleWrapper>
 )
 
-const MinimumDepositWithdrawal: React.FC<DepositsAndWithdrawalProps> = () => (
+const MinimumDepositWithdrawal = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What is the minimum deposit or withdrawal amount?')}
@@ -65,7 +59,7 @@ const MinimumDepositWithdrawal: React.FC<DepositsAndWithdrawalProps> = () => (
     </ArticleWrapper>
 )
 
-const ExpiredVerificationLink: React.FC<DepositsAndWithdrawalProps> = () => (
+const ExpiredVerificationLink = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('My withdrawal verification link expired. What should I do?')}
@@ -78,7 +72,7 @@ const ExpiredVerificationLink: React.FC<DepositsAndWithdrawalProps> = () => (
     </ArticleWrapper>
 )
 
-const LiftWithdrawalLimits: React.FC<DepositsAndWithdrawalProps> = () => (
+const LiftWithdrawalLimits = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I lift my withdrawal limits?')}</StyledHeader>
         <Text>
@@ -99,7 +93,7 @@ const LiftWithdrawalLimits: React.FC<DepositsAndWithdrawalProps> = () => (
     </ArticleWrapper>
 )
 
-const CreditCardDepositDeclined: React.FC<DepositsAndWithdrawalProps> = () => (
+const CreditCardDepositDeclined = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('Why does my credit card deposit keep getting declined?')}
@@ -112,7 +106,7 @@ const CreditCardDepositDeclined: React.FC<DepositsAndWithdrawalProps> = () => (
     </ArticleWrapper>
 )
 
-const WithdrawDepositBonus: React.FC<DepositsAndWithdrawalProps> = () => (
+const WithdrawDepositBonus = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Can I withdraw my deposit bonus?')}</StyledHeader>
         <Text>
@@ -123,7 +117,7 @@ const WithdrawDepositBonus: React.FC<DepositsAndWithdrawalProps> = () => (
     </ArticleWrapper>
 )
 
-const WithdrawMaestroMastercard: React.FC<DepositsAndWithdrawalProps> = () => (
+const WithdrawMaestroMastercard = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize("Why can't I withdraw funds to my Maestro/Mastercard?")}

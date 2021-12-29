@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { convertToHash } from './_utility'
@@ -7,11 +7,11 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 
 type SearchSuccessProps = {
-    children?: ReactNode
-    suggested_topics?: any
+    suggested_topics?:
+        | { category: string; label: string; title: string | React.ReactElement }[]
+        | string[]
     max_length?: number
     search?: string
-    title?: string
 }
 
 export const Li = styled(Text).attrs({
@@ -91,9 +91,9 @@ export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessPro
             <ListWrapper key={idx}>
                 <ListNoBullets>
                     <StyledLink
-                        to={convertToHash({ category: article.category, label: article.label })}
+                        to={convertToHash({ category: article.category }, { label: article.label })}
                     >
-                        {localize({ title: article.title })}
+                        {localize(article.title)}
                     </StyledLink>
                 </ListNoBullets>
             </ListWrapper>

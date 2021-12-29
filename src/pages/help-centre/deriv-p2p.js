@@ -5,13 +5,7 @@ import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
-type DerivP2PArticleProps = {
-    text?: string
-    label?: string
-    is_mounted?: boolean
-}
-
-const WhatisDerivP2P: React.FC<DerivP2PArticleProps> = () => (
+const WhatisDerivP2P = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is Deriv P2P?')}</StyledHeader>
         <Text>
@@ -32,7 +26,7 @@ const WhatisDerivP2P: React.FC<DerivP2PArticleProps> = () => (
     </ArticleWrapper>
 )
 
-const HowSecureDerivP2P: React.FC<DerivP2PArticleProps> = () => (
+const HowSecureDerivP2P = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {<Localize translate_text="How secure is Deriv P2P?" components={[<br key={0} />]} />}
@@ -50,7 +44,7 @@ const HowSecureDerivP2P: React.FC<DerivP2PArticleProps> = () => (
     </ArticleWrapper>
 )
 
-const BuyOrSellLimit: React.FC<DerivP2PArticleProps> = () => (
+const BuyOrSellLimit = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -68,7 +62,7 @@ const BuyOrSellLimit: React.FC<DerivP2PArticleProps> = () => (
     </ArticleWrapper>
 )
 
-const PaymentMethods: React.FC<DerivP2PArticleProps> = () => (
+const PaymentMethods = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -91,7 +85,7 @@ const PaymentMethods: React.FC<DerivP2PArticleProps> = () => (
     </ArticleWrapper>
 )
 
-const DisputeWithTheTrader: React.FC<DerivP2PArticleProps> = () => (
+const DisputeWithTheTrader = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -109,7 +103,7 @@ const DisputeWithTheTrader: React.FC<DerivP2PArticleProps> = () => (
     </ArticleWrapper>
 )
 
-const InTouchWithTheCounterparty: React.FC<DerivP2PArticleProps> = () => (
+const InTouchWithTheCounterparty = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -127,7 +121,7 @@ const InTouchWithTheCounterparty: React.FC<DerivP2PArticleProps> = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccountBalance: React.FC<DerivP2PArticleProps> = () => (
+const DifferentAccountBalance = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {

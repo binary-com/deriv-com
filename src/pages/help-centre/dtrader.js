@@ -5,13 +5,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-type DTraderProps = {
-    text?: string
-    label?: string
-    is_mounted?: boolean
-}
-
-const WhatIsDMT5: React.FC<DTraderProps> = () => (
+const WhatIsDMT5 = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is DTrader?')}</StyledHeader>
         <Text>
@@ -22,7 +16,7 @@ const WhatIsDMT5: React.FC<DTraderProps> = () => (
     </ArticleWrapper>
 )
 
-const DTraderMarkets: React.FC<DTraderProps> = () => (
+const DTraderMarkets = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on DTrader?')}</StyledHeader>
         <Text>
@@ -33,7 +27,7 @@ const DTraderMarkets: React.FC<DTraderProps> = () => (
     </ArticleWrapper>
 )
 
-const DTraderContracts: React.FC<DTraderProps> = () => (
+const DTraderContracts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What contract types can I use on DTrader?')}</StyledHeader>
         <Text>

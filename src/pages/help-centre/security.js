@@ -5,13 +5,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-type SecurityProps = {
-    text?: string
-    label?: string
-    is_mounted?: boolean
-}
-
-const VerifyAccount: React.FC<SecurityProps> = () => (
+const VerifyAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Do I need to verify my Deriv account?')}</StyledHeader>
         <Text>
@@ -22,7 +16,7 @@ const VerifyAccount: React.FC<SecurityProps> = () => (
     </ArticleWrapper>
 )
 
-const VerificationDuration: React.FC<SecurityProps> = () => (
+const VerificationDuration = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How long does verification take?')}</StyledHeader>
         <Text>
@@ -33,7 +27,7 @@ const VerificationDuration: React.FC<SecurityProps> = () => (
     </ArticleWrapper>
 )
 
-const DocumentsDeclined: React.FC<SecurityProps> = () => (
+const DocumentsDeclined = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Why were my documents declined?')}</StyledHeader>
         <Text>

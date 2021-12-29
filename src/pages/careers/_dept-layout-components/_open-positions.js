@@ -21,6 +21,7 @@ const JobWrapper = styled.div`
 `
 
 const OpenPositions = (data) => {
+    console.log(data)
     return (
         <SectionContainer padding="0">
             <Container fd="column">

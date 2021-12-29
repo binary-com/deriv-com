@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
@@ -13,11 +13,11 @@ interface CalculatorProps {
     children?: React.ReactNode
     key?: number
     index?: number
-    name: ReactElement
-    text: ReactElement
+    name: React.ReactElement
+    text: React.ReactElement
     image_name: string
     image_alt_name: string
-    button_text: ReactElement
+    button_text: React.ReactElement
     link: string
 }
 

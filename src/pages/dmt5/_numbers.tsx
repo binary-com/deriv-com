@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
@@ -7,8 +7,8 @@ import { Localize } from 'components/localization'
 import device from 'themes/device.js'
 
 type NumbersContentType = {
-    title: ReactElement
-    subtitle: ReactElement
+    title: React.ReactElement
+    subtitle: React.ReactElement
 }
 
 const NumberSection = styled(SectionContainer)`

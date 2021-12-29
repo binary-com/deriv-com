@@ -11,9 +11,9 @@ import device from 'themes/device'
 import { DerivStore } from 'store'
 
 type ContentType = {
-    header?
-    text?
-    icon?
+    header?: React.ReactElement
+    text?: React.ReactElement
+    icon?: React.ReactElement
     show_eu?: boolean
     show_always?: boolean
 }

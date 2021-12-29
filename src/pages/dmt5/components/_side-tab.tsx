@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Flex, Show, Box } from 'components/containers'
@@ -9,20 +9,20 @@ import GooglePlay from 'images/svg/dmt5/google-play.svg'
 import { LocalizedLink } from 'components/localization'
 
 type ContentProps = {
-    children?: ReactNode
+    children?: React.ReactNode
     selected?: boolean
     is_reverse?: boolean | string
 }
 
 interface TabProps {
-    children?: ReactNode
+    children?: React.ReactNode
     is_reverse?: string
     parent_tab?: ObjectConstructor | string
     has_download_button?: boolean
     download_links?: { ios: string; android: string }
     props?: {
         label?: string
-        description?: ReactElement
+        description?: React.ReactElement
         item_width?: string
         mobile_item_width?: string
     }

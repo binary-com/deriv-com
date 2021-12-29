@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
@@ -10,8 +10,8 @@ import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
 type CardContentType = {
-    header: ReactElement
-    text: ReactElement
+    header: React.ReactElement
+    text: React.ReactElement
     image: any // Sean declared content as any
     key: number
 }

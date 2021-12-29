@@ -209,25 +209,25 @@ const PlatformImageWrapper = styled.div`
         justify-content: center;
         align-items: center;
         img {
-            max-height: 300px;
+            max-height: 380px;
         }
     }
     @media ${device.tabletS} {
-        height: 250px;
+        height: 280px;
         img {
-            max-height: 250px;
+            max-height: 280px;
         }
     }
     @media ${device.mobileL} {
-        height: 200px;
+        height: 240px;
         img {
-            max-height: 200px;
+            max-height: 240px;
         }
     }
     @media ${device.mobileM} {
-        height: 180px;
+        height: 200px;
         img {
-            max-height: 160px;
+            max-height: 200px;
         }
     }
 `

@@ -182,7 +182,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             m="0 auto"
                             tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}
                         >
-                            <Slideshow slides={slide_images} interval={4} />
+                            <Slideshow slides={slide_images} interval={6} />
                         </Flex>
                     </Flex>
                 </Container>

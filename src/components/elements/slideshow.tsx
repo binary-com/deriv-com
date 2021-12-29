@@ -19,7 +19,6 @@ const StyledImage = styled(QueryImage)`
 
 const Slideshow = ({ slides = [], interval, is_eager = true }: SlideshowProps) => {
     const [active_index, setActiveIndex] = useState(0)
-    const [is_first_load, setFirstLoad] = useState(true)
 
     const setNextImage = useCallback(() => {
         setActiveIndex((prevTime) => (prevTime >= slides.length - 1 ? 0 : prevTime + 1))
@@ -27,13 +26,7 @@ const Slideshow = ({ slides = [], interval, is_eager = true }: SlideshowProps) =
 
     useEffect(() => {
         const slideshow_timer = setInterval(() => {
-            setTimeout(
-                () => {
-                    setNextImage()
-                    setFirstLoad(false)
-                },
-                is_first_load ? 4000 : 0,
-            )
+            setNextImage()
         }, interval * 1000)
 
         return () => clearInterval(slideshow_timer)

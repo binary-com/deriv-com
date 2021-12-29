@@ -87,6 +87,14 @@ const StyledHeader = styled(Header)`
 const Hero = ({ is_ppc }: HeroProps): ReactNode => {
     const { hero_background, hero_platform1, hero_platform2, hero_platform3, hero_platform4 } =
         useStaticQuery(query)
+
+    const slide_images = [
+        { key: 'hero1', image: hero_platform1 },
+        { key: 'hero2', image: hero_platform2 },
+        { key: 'hero3', image: hero_platform3 },
+        { key: 'hero4', image: hero_platform4 },
+    ]
+
     const text = !is_ppc
         ? localize('Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.')
         : localize('Trade forex, commodities, stocks, and stock indices')
@@ -175,15 +183,7 @@ const Hero = ({ is_ppc }: HeroProps): ReactNode => {
                             m="0 auto"
                             tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}
                         >
-                            <Slideshow
-                                images={[
-                                    hero_platform1,
-                                    hero_platform2,
-                                    hero_platform3,
-                                    hero_platform4,
-                                ]}
-                                interval={6}
-                            />
+                            <Slideshow slides={slide_images} interval={6} />
                         </Flex>
                     </Flex>
                 </Container>

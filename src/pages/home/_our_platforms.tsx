@@ -38,7 +38,7 @@ import APK from 'images/svg/app-download/apk.svg'
 
 const platforms: Platform[] = [
     {
-        title: 'DMT5',
+        title: 'Deriv MT5',
         icon: DMT5Icon,
         description: 'The all-in-one FX & CFD trading platform.',
         learn_more_link: '/dmt5/',

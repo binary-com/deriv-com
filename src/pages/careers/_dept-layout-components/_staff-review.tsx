@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { TestimonySectionProps } from './_dept-layout.types'
 import { QueryImage, Header } from 'components/elements'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import device, { size } from 'themes/device'
@@ -148,7 +149,11 @@ const StyledQueryImage = styled(QueryImage)`
     }
 `
 
-const StaffReview = (review_data) => {
+type ReviewDataProps = {
+    data: TestimonySectionProps
+}
+
+const StaffReview = (review_data: ReviewDataProps) => {
     const [is_mobile, setMobile] = useState(false)
 
     const handleResizeWindow = useCallback(() => {
@@ -176,7 +181,6 @@ const StaffReview = (review_data) => {
                 >
                     <Flex max_width="432px" jc="left" tablet_direction="column" tablet_ai="center">
                         <StyledQueryImage
-                            b_radius="8px 0 0 8px"
                             data={
                                 is_mobile
                                     ? data[review_data.data.image_mobile]

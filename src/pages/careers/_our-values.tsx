@@ -84,12 +84,12 @@ const OurValues = () => (
                 tablet_columns="100%"
                 mobile_columns="100%"
             >
-                <FirstColumn direction="column">
+                <FirstColumn>
                     <StyledHeader as="h3" type="section-title">
                         Everything is built around <br /> <span>our values</span>
                     </StyledHeader>
                 </FirstColumn>
-                <div direction="column">
+                <div>
                     <GridItem direction="column">
                         <img src={Integrity} alt="" />
                         <MiddleText as="h4" type="sub-section-title">
@@ -126,7 +126,7 @@ const OurValues = () => (
                         </Show.Mobile>
                     </GridItem>
                 </div>
-                <ThirdColumn direction="column">
+                <ThirdColumn>
                     <GridItem direction="column">
                         <Show.Desktop>
                             <img src={Customer} alt="" />

@@ -6,8 +6,11 @@ import { Header } from 'components/elements'
 const StyledHeader = styled(Header)`
     color: rgba(51, 51, 51, 0.32);
 `
-
-export const NoOpenPositionsHeader = ({ children, mb }) => (
+type NoOpenPositionsHeaderProps = {
+    children: React.ReactNode
+    mb: string
+}
+export const NoOpenPositionsHeader = ({ children, mb }: NoOpenPositionsHeaderProps) => (
     <StyledHeader align="center" size="var(--text-size-l)" as="h4" mb={mb}>
         {children}
     </StyledHeader>

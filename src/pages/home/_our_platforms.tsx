@@ -45,8 +45,8 @@ const platforms: Platform[] = [
         download_links: {
             Browser: deriv_mt5_app_url,
             AppStore: dmt5_macos_url,
-            GooglePlay: dmt5_android_url,
             Linux: dmt5_linux_url,
+            GooglePlay: dmt5_android_url,
         },
     },
     {
@@ -64,9 +64,9 @@ const platforms: Platform[] = [
         description: 'The multi-asset trading platform to fit your style.',
         learn_more_link: '/derivx/',
         download_links: {
-            GooglePlay: derivx_android_url,
-            AppStore: derivx_ios_url,
             Browser: derivx_app_url,
+            AppStore: derivx_ios_url,
+            GooglePlay: derivx_android_url,
         },
     },
     {
@@ -84,8 +84,8 @@ const platforms: Platform[] = [
         description: 'Our best trading experience on your mobile.',
         learn_more_link: '/landing/deriv-go/',
         download_links: {
-            GooglePlay: deriv_go_playstore_url,
             AppStore: deriv_go_ios_url,
+            GooglePlay: deriv_go_playstore_url,
             // APK: deriv_go_playstore_url,
         },
     },

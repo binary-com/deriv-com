@@ -9,7 +9,7 @@ export const first_section_texts: string[] = [
         'Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities, and synthetics to millions of registered users across the globe.',
     ),
     localize(
-        'From inception, our goal was to break free of the high commissions and clunky products offered by traditional brokers. And to deliver a first-class experience to digitally inclined traders, regardless of the size of their accounts.',
+        'From inception, our goal was to break free of the high commissions and clunky products offered by traditional brokers. Also, we aim to deliver a first-class experience to digitally inclined traders, regardless of the size of their accounts.',
     ),
     localize(
         'In a journey spanning more than 22 years, we have grown to over 2.5 million customers worldwide. But the mission has remained the same.',

@@ -132,6 +132,10 @@ const MapImage = styled(BackgroundImage)`
     }
 `
 
+const StyledFlex = styled(Flex)`
+    height: unset;
+`
+
 const MapPin = ({ top, left, title, link }) => {
     const [is_pin_show, setPinShow] = React.useState(false)
     return (
@@ -301,30 +305,30 @@ const OurOffices = () => {
             </Flex>
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
-                <Flex fd="column">
+                <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('750+')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('employees')}
                     </NumberText>
-                </Flex>
-                <Flex fd="column">
+                </StyledFlex>
+                <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('50+')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('nationalities')}
                     </NumberText>
-                </Flex>
-                <Flex fd="column">
+                </StyledFlex>
+                <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('13')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('offices')}
                     </NumberText>
-                </Flex>
-                <Flex fd="column">
+                </StyledFlex>
+                <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('10')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('countries')}
                     </NumberText>
-                </Flex>
+                </StyledFlex>
             </NumberSection>
         </StyledSectionContainer>
     )

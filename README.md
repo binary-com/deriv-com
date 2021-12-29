@@ -68,13 +68,26 @@ Moreover, having these extensions will help you to speed up the development proc
     npm ci
     ```
 
-5.  **To start developing:**
+5.  **Add env variables:**
+
+    Create two files `.env.development` and `.env.production` inside your project root directory.
+
+    Then check your **lastpass** you'll see a shared item named **Deriv-com Env Variables** copy the variables, they look like this:
+    
+    ```sh
+    DIRECTUS_AUTH_TOKEN=********************************
+    GATSBY_DIRECTUS_AUTH_TOKEN=********************************
+    ```
+
+    And paste them into the files.
+
+6.  **To start developing:**
 
     ```sh
     npm start
     ```
 
-6.  **Open the source code and start editing!**
+7.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 

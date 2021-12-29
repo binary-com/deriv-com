@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-// eslint-disable-next-line import/no-unresolved
 import ZohoJob from './_zoho-job'
+import { OpenPositionsProps } from './_dept-layout.types'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -23,8 +23,8 @@ const JobWrapper = styled.div`
 
 type DataProps = {
     data: {
-        title: string
-        url: string
+        title: OpenPositionsProps[]
+        url: OpenPositionsProps[]
     }
 }
 

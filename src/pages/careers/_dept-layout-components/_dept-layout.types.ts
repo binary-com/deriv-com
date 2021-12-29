@@ -6,8 +6,7 @@ export type HeaderProps = {
 
 export type OpenPositionsProps = {
     title: string
-    location: string
-    id: string
+    url: string
 }
 
 type TestimonyHeadlineProps = {

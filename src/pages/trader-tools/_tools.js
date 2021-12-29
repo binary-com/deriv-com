@@ -127,11 +127,8 @@ const TradingTools = ({ tools }) => {
                 {tools.map((item, index) => {
                     let is_even = isIndexEven(index)
                     return (
-                        <>
-                            <ToolWrapper
-                                flex_direction={is_even ? 'row-reverse' : 'row'}
-                                key={index}
-                            >
+                        <React.Fragment key={item.image_alt}>
+                            <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
                                 <Column>
                                     <Show.Desktop>
                                         <QueryImage
@@ -169,7 +166,7 @@ const TradingTools = ({ tools }) => {
                                 </Content>
                             </ToolWrapper>
                             <Divider />
-                        </>
+                        </React.Fragment>
                     )
                 })}
             </Container>

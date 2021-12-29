@@ -1,18 +1,19 @@
-/* eslint-disable react/prop-types */
-// TODO: Remove the above once fully typed the whole codebase
-
-import React, { ReactNode, useEffect, useState } from 'react'
-import { BrowserView, MobileView, TabletView, isTablet } from 'react-device-detect'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import device, { size } from 'themes/device'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
+
+type ResponsiveContainerProps = {
+    children: ReactElement
+}
 
 const DesktopLayer = styled.div`
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
         display: none;
     }
 `
 const MobileLayer = styled.div`
-    @media (min-width: ${size.tablet}px) {
+    @media ${device.mobile} {
         display: none;
     }
 `
@@ -22,28 +23,25 @@ const deviceRenderer = (): boolean => {
 
     useEffect(() => {
         setIsLoaded(true)
-    }, [BrowserView, MobileView])
+    }, [useBrowserResize])
 
     return is_loaded
 }
 
-export const Desktop: ReactNode = ({ children }) => {
+export const Desktop = ({ children }: ResponsiveContainerProps) => {
+    const [is_mobile] = useBrowserResize(size.tablet)
     const is_loaded = deviceRenderer()
-    const desktop_view = isTablet ? (
-        <TabletView>{children}</TabletView>
-    ) : (
-        <BrowserView>{children}</BrowserView>
-    )
+
+    const desktop_view = is_mobile ? <></> : <>{children}</>
 
     return is_loaded ? desktop_view : <DesktopLayer>{children}</DesktopLayer>
 }
 
-export const Mobile: ReactNode = ({ children }) => {
+export const Mobile = ({ children }: ResponsiveContainerProps) => {
+    const [is_mobile] = useBrowserResize(size.tablet)
     const is_loaded = deviceRenderer()
 
-    return is_loaded && !isTablet ? (
-        <MobileView>{children}</MobileView>
-    ) : (
-        <MobileLayer>{children}</MobileLayer>
-    )
+    const mobile_view = is_mobile ? <>{children}</> : <></>
+
+    return is_loaded ? mobile_view : <MobileLayer>{children}</MobileLayer>
 }

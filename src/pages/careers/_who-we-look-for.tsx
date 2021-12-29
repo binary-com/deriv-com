@@ -6,6 +6,10 @@ import { Container, Flex } from 'components/containers'
 import { Text, Header, Divider, QueryImage } from 'components/elements'
 import device from 'themes/device'
 
+type ImageDescriptionProps = {
+    left?: boolean
+}
+
 const StyledContainer = styled(Flex)`
     max-width: 79.2rem;
     margin: 10rem auto;
@@ -62,16 +66,14 @@ const DescContainer = styled(Flex)`
         flex-direction: column;
     }
 `
-
-const ImageDescription = styled.div`
-    ${(props) =>
-        props.left
-            ? css`
-                  margin-right: 2.4rem;
-              `
-            : css`
-                  margin-left: 2.4rem;
-              `}
+const marginRight = css`
+    margin-right: 2.4rem;
+`
+const marginLeft = css`
+    margin-left: 2.4rem;
+`
+const ImageDescription = styled.div<ImageDescriptionProps>`
+    ${(props) => (props.left ? marginRight : marginLeft)}
     @media ${device.tablet} {
         margin: 3.2rem 0;
     }
@@ -123,7 +125,7 @@ const query = graphql`
     }
 `
 
-const WhoWeLookFor = () => {
+const WhoWeLookFor = (): React.ReactNode => {
     const data = useStaticQuery(query)
 
     return (

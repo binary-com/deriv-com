@@ -280,7 +280,7 @@ export const getVideoObject = (video_data) => {
         video_url: getAssetUrl(video_id),
         video_duration,
         featured,
-        types: tags.map((t) => t.tags_id.tag_name),
+        types: tags.map((t) => t.tags_id?.tag_name),
     }
 }
 

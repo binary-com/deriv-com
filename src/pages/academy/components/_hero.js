@@ -89,7 +89,14 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
                         {description}
                     </TextWrapper>
                     <Flex jc="flex-start" height="unset" mt="24px" tabletL={{ mt: '16px' }}>
-                        <LinkButton id="hero-article" to={href} width="auto" hero>
+                        <LinkButton
+                            id="hero-article"
+                            to={href}
+                            width="auto"
+                            hero
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             {button_text}
                         </LinkButton>
                     </Flex>

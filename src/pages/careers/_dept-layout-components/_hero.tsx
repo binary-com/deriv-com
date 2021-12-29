@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_career-container'
+import { HeaderProps } from './_dept-layout.types'
 import { Header, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
 
@@ -92,7 +93,11 @@ const query = graphql`
     }
 `
 
-const Hero = (header_data) => {
+type HeaderDataProps = {
+    data: HeaderProps
+}
+
+const Hero = (header_data: HeaderDataProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledBackGroundImage

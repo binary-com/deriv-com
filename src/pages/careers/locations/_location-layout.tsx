@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import CareerContainer from '../_layout-components/_container'
+import CareerContainer from '../_layout-components/CareerContainer'
+import { locationsTypes } from '../_model/_locations/_locations.types'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
@@ -56,8 +57,12 @@ const StyledLinkButton = styled(LinkButton)`
         font-size: 15px;
     }
 `
+type HeroProps = {
+    display_name: string
+    img_data: string
+}
 
-const Hero = ({ display_name, img_data }) => {
+const Hero = ({ display_name, img_data }: HeroProps) => {
     return (
         <StyledBackground data={img_data} alt={display_name}>
             <StyledContainer>
@@ -339,7 +344,12 @@ const MapQueryImage = styled(QueryImage)`
     }
 `
 
-export const LocationLayout = ({ location, images }) => {
+type LocationLayoutProps = {
+    location: locationsTypes
+    images: locationsTypes
+}
+
+export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
     const { display_name, map_office_name } = location
     if (!display_name) return null
 

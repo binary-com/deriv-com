@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import { useQueryParams, StringParam } from 'use-query-params'
+import { combined_filter_type } from './common/_constants'
 import { SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { combined_filter_type } from 'common/constants'
 import { DerivStore } from 'store'
 
 const SearchPage = () => {

@@ -29,8 +29,10 @@ export const ContentContainer = styled(Container)`
         gap: 0;
     }
 `
-
-export const ImageWrapper = styled(QueryImage)`
+type ImageWrapperProps = {
+    grid_area: string
+}
+export const ImageWrapper = styled(QueryImage)<ImageWrapperProps>`
     max-width: 486px;
 
     @media ${device.tabletL} {

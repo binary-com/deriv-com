@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { IntroSectionProps } from './_dept-layout.types'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { QueryImage, Header } from 'components/elements'
 import device from 'themes/device'
@@ -74,7 +75,11 @@ const StyledQueryImage = styled(QueryImage)`
     max-width: 384px;
 `
 
-const DeptDescription = (dept_data) => {
+type DeptDataProps = {
+    data: IntroSectionProps
+}
+
+const DeptDescription = (dept_data: DeptDataProps) => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer>

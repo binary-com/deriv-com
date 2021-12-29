@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
 import { all_offices } from '../_model/_locations/_locations'
 import device from 'themes/device'
@@ -97,7 +98,23 @@ const StyledDiv = styled.div`
     padding: 24px 24px 24px 25px;
 `
 
-const CountryCard = ({ country_name, city_name, link, img_alt, img_data, Icon }) => {
+type CountryCardProps = {
+    country_name: string
+    city_name: string
+    link: string
+    img_alt: string
+    img_data: ImageDataLike
+    Icon: string
+}
+
+const CountryCard = ({
+    country_name,
+    city_name,
+    link,
+    img_alt,
+    img_data,
+    Icon,
+}: CountryCardProps) => {
     return (
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={img_alt} width="100%" />

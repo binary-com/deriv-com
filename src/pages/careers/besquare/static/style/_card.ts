@@ -6,8 +6,63 @@ import device from 'themes/device'
 export const Bullet = styled(Text)`
     font-size: 20px;
 `
+type CardWrapperProps = {
+    width?: string[]
+    height?: string[]
+    max_width?: string[]
+    grid_template_columns?: string[]
+    grid_template_rows?: string[]
+    grid_template_areas?: string[]
+    grid_column_gap?: string[]
+    grid_row_gap?: string[]
+    align_items?: string
+    justify_content?: string
+    box_shadow?: string
+    border_radius?: string
+    border?: string
+    background_color?: string[]
+    padding?: string[]
+    margin?: string[]
+    grid_area?: string[]
+    has_last_child_props?: boolean
+}
 
-export const CardWrapper = styled.div`
+const InnerStyle = css<CardWrapperProps>`
+    @media ${device.tabletL} {
+        width: ${({ width }) => responsiveFallback(width, 1)};
+        grid-template-columns: ${({ grid_template_columns }) =>
+            responsiveFallback(grid_template_columns, 1)};
+    }
+    @media ${device.tablet} {
+        width: ${({ width }) => responsiveFallback(width)};
+        height: ${({ height }) => responsiveFallback(height)};
+        max-width: ${({ max_width }) => responsiveFallback(max_width)};
+        background-color: ${({ background_color }) => responsiveFallback(background_color)};
+        grid-template-columns: ${({ grid_template_columns }) =>
+            responsiveFallback(grid_template_columns)};
+        grid-template-rows: ${({ grid_template_rows }) => responsiveFallback(grid_template_rows)};
+        grid-column-gap: ${({ grid_column_gap }) => responsiveFallback(grid_column_gap)};
+        grid-row-gap: ${({ grid_row_gap }) => responsiveFallback(grid_row_gap, 1)};
+        padding: ${({ padding }) => responsiveFallback(padding, 1, 0)};
+
+        :last-child {
+            margin: ${({ has_last_child_props, margin }) =>
+                has_last_child_props && responsiveFallback(margin, 1, 0)};
+        }
+    }
+
+    @media ${device.mobileS} {
+        max-width: ${({ max_width }) => responsiveFallback(max_width, 1, 'auto')};
+    }
+`
+
+const lastChild = css<CardWrapperProps>`
+    :last-child {
+        margin: ${({ margin }) => responsiveFallback(margin, 0, 0)};
+    }
+`
+
+export const CardWrapper = styled.div<CardWrapperProps>`
     display: grid;
     width: ${({ width }) => responsiveFallback(width, 0)};
     height: ${({ height }) => responsiveFallback(height, 0)};
@@ -37,44 +92,12 @@ export const CardWrapper = styled.div`
         !has_last_child_props && responsiveFallback(margin, 0, 0)};
     ${({ has_last_child_props }) => {
         if (has_last_child_props) {
-            return css`
-                :last-child {
-                    margin: ${({ margin }) => responsiveFallback(margin, 0, 0)};
-                }
-            `
+            return lastChild
         }
     }}
 
     ${() => {
-        return css`
-            @media ${device.tabletL} {
-                width: ${({ width }) => responsiveFallback(width, 1)};
-                grid-template-columns: ${({ grid_template_columns }) =>
-                    responsiveFallback(grid_template_columns, 1)};
-            }
-            @media ${device.tablet} {
-                width: ${({ width }) => responsiveFallback(width)};
-                height: ${({ height }) => responsiveFallback(height)};
-                max-width: ${({ max_width }) => responsiveFallback(max_width)};
-                background-color: ${({ background_color }) => responsiveFallback(background_color)};
-                grid-template-columns: ${({ grid_template_columns }) =>
-                    responsiveFallback(grid_template_columns)};
-                grid-template-rows: ${({ grid_template_rows }) =>
-                    responsiveFallback(grid_template_rows)};
-                grid-column-gap: ${({ grid_column_gap }) => responsiveFallback(grid_column_gap)};
-                grid-row-gap: ${({ grid_row_gap }) => responsiveFallback(grid_row_gap, 1)};
-                padding: ${({ padding }) => responsiveFallback(padding, 1, 0)};
-
-                :last-child {
-                    margin: ${({ has_last_child_props, margin }) =>
-                        has_last_child_props && responsiveFallback(margin, 1, 0)};
-                }
-            }
-
-            @media ${device.mobileS} {
-                max-width: ${({ max_width }) => responsiveFallback(max_width, 1, 'auto')};
-            }
-        `
+        return InnerStyle
     }}
 `
 
@@ -92,8 +115,14 @@ export const DropdownWrapper = styled.img`
         height: 24px;
     }
 `
+type IconWrapperProps = {
+    width?: number | string
+    height?: number | string
+    margin?: string[]
+    grid_area?: string[]
+}
 
-export const IconWrapper = styled.img`
+export const IconWrapper = styled.img<IconWrapperProps>`
     width: ${({ width }) => responsiveFallback(width, 0)};
     height: ${({ height }) => responsiveFallback(height, 0)};
     margin: ${({ margin }) => responsiveFallback(margin, 0) ?? 0};

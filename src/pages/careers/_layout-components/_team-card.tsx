@@ -1,9 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
+
+type NormalCardProps = {
+    height?: string
+}
 
 export const StyledCard = styled(LocalizedLink)`
     text-decoration: none;
@@ -25,7 +30,7 @@ export const StyledCard = styled(LocalizedLink)`
     }
 `
 
-export const NormalCard = styled.article`
+export const NormalCard = styled.article<NormalCardProps>`
     position: relative;
     height: ${(props) => (props.height ? props.height : 'auto')};
     width: 100%;
@@ -63,7 +68,15 @@ const StyledText = styled(Text)`
     }
 `
 
-const TeamCard = ({ to, img_data, img_alt, display_team_name, tagline }) => (
+type TeamCardProps = {
+    display_team_name: string
+    to: string
+    img_data: ImageDataLike
+    img_alt: string
+    tagline: string
+}
+
+const TeamCard = ({ to, img_data, img_alt, display_team_name, tagline }: TeamCardProps) => (
     <StyledCard height="144px" to={to}>
         <ImageWrapper>
             <QueryImage data={img_data} height="144px" width="100%" alt={img_alt} />

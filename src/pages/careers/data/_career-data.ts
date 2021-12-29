@@ -16,28 +16,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Back-end Developer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000000366102',
-                },
-                {
-                    title: 'C++ Developer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000010928298',
-                },
-                {
-                    title: 'C++ Developer',
-                    location: 'Minsk, Belarus',
-                    id: '590522000010931352',
-                },
-                {
-                    title: 'Cryptocurrency/Blockchain Developer',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000002158468',
-                },
-            ],
+            open_position: {
+                title: 'Back-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Back-end',
+            },
             testimony_section: {
                 image: 'back_end_review',
                 image_mobile: 'back_end_review_mobile',
@@ -68,28 +50,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Digital PR Manager',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000033642096',
-                },
-                {
-                    title: 'Business Development Executive',
-                    location: 'Kigali, Rwanda',
-                    id: '590522000004649139',
-                },
-                {
-                    title: 'Performance Marketing Executive',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000002067162',
-                },
-                {
-                    title: 'IT Product Manager',
-                    location: 'Limassol, Cyprus',
-                    id: '590522000016498026',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'marketing_review',
                 image_mobile: 'marketing_review_mobile',
@@ -120,28 +84,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'DevOps Engineer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000000366151',
-                },
-                {
-                    title: 'DevOps (Windows) Engineer',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000008127253',
-                },
-                {
-                    title: 'Security Engineer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000000554001',
-                },
-                {
-                    title: 'Database Administrator',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000002685375',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'security_review',
                 image_mobile: 'security_review_mobile',
@@ -172,28 +118,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Client Support Executive',
-                    location: 'Asunción, Paraguay',
-                    id: '590522000002708128',
-                },
-                {
-                    title: 'Client Support Executive',
-                    location: 'Kigali, Rwanda',
-                    id: '590522000003910182',
-                },
-                {
-                    title: 'Client Support Executive',
-                    location: 'Birkirkara, Malta',
-                    id: '590522000000468342',
-                },
-                {
-                    title: 'Client Support Executive',
-                    location: 'Ipoh, Malaysia',
-                    id: '590522000001477084',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'cs_review',
                 image_mobile: 'cs_review_mobile',
@@ -224,28 +152,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Talent Acquisition Specialist',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000002075011',
-                },
-                {
-                    title: 'IT Recruiter',
-                    location: 'Minsk, Belarus',
-                    id: '590522000013730417',
-                },
-                {
-                    title: 'Talent Acquisition Specialist',
-                    location: 'Birkirkara, Malta',
-                    id: '590522000002165394',
-                },
-                {
-                    title: 'Talent Acquisition Executive',
-                    location: 'Kigali, Rwanda',
-                    id: '590522000003910120',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'people_management_review',
                 image_mobile: 'people_management_review_mobile',
@@ -276,28 +186,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'UI/UX Designer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000002693001',
-                },
-                {
-                    title: 'Motion Designer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000002693017',
-                },
-                {
-                    title: 'Graphics Designer',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000000846613',
-                },
-                {
-                    title: 'UX Researcher',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000013900070',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'product_review',
                 image_mobile: 'product_review_mobile',
@@ -331,28 +223,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Compliance Executive',
-                    location: 'Birkirkara, Malta',
-                    id: '590522000002051238',
-                },
-                {
-                    title: 'Corporate Governance Administrator',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000022641278',
-                },
-                {
-                    title: 'Compliance Operations Executive',
-                    location: 'Birkirkara, Malta',
-                    id: '590522000020130003',
-                },
-                {
-                    title: 'Senior Compliance Officer',
-                    location: 'Guernsey',
-                    id: '590522000037212155',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'compliance_review',
                 image_mobile: 'compliance_review_mobile',
@@ -383,28 +257,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'E-Payments Executive',
-                    location: 'Kigali, Rwanda',
-                    id: '590522000037223025',
-                },
-                {
-                    title: 'Payments Executive',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000038463764',
-                },
-                {
-                    title: 'Payments Executive',
-                    location: 'Asunción, Paraguay',
-                    id: '590522000025380388',
-                },
-                {
-                    title: 'Payments and Reconciliation Executive',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000022443181',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'finance_review',
                 image_mobile: 'finance_review_mobile',
@@ -468,28 +324,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Senior Front-end Developer',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000005764197',
-                },
-                {
-                    title: 'Front-end Developer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000000384042',
-                },
-                {
-                    title: 'Flutter Developer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000000384027',
-                },
-                {
-                    title: 'Flutter Developer',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000005605178',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'fe_review',
                 image_mobile: 'fe_review_mobile',
@@ -520,28 +358,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Quantitative Analyst',
-                    location: 'Minsk, Belarus',
-                    id: '590522000005991768',
-                },
-                {
-                    title: 'Quantitative Analyst',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000000670134',
-                },
-                {
-                    title: 'Quantitative Analyst',
-                    location: 'Birkirkara, Malta',
-                    id: '590522000002158426',
-                },
-                {
-                    title: 'Trading Analyst',
-                    location: 'Limassol, Cyprus',
-                    id: '590522000001540056',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'trading_operations_review',
                 image_mobile: 'trading_operations_review_mobile',
@@ -575,28 +395,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Software Tester',
-                    location: 'Asunción, Paraguay',
-                    id: '590522000022996207',
-                },
-                {
-                    title: 'Automation Tester',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000022344044',
-                },
-                {
-                    title: 'Software Tester',
-                    location: 'Kigali, Rwanda',
-                    id: '590522000006365298',
-                },
-                {
-                    title: 'Software Tester',
-                    location: 'Minsk, Belarus',
-                    id: '590522000016474003',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'software_testing_review',
                 image_mobile: 'software_testing_review_mobile',
@@ -627,18 +429,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Business Analyst',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000033805388',
-                },
-                {
-                    title: 'Business Process Management',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000004000041',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'business_excellence_review',
                 image_mobile: 'business_excellence_review_mobile',
@@ -669,28 +463,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Internal Auditor',
-                    location: 'Birkirkara, Malta',
-                    id: '590522000037933833',
-                },
-                {
-                    title: 'Internal Auditor',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000037933852',
-                },
-                {
-                    title: 'Internal Auditor',
-                    location: 'Asunción, Paraguay',
-                    id: '590522000037933936',
-                },
-                {
-                    title: 'Head of Internal Audit',
-                    location: 'London, United Kingdom',
-                    id: '590522000037962151',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'internal_audit_review',
                 image_mobile: 'internal_audit_review_mobile',
@@ -721,18 +497,10 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'Project Manager',
-                    location: 'Limassol, Cyprus',
-                    id: '590522000033674411',
-                },
-                {
-                    title: 'Project Manager',
-                    location: 'Minsk, Belarus',
-                    id: '590522000006340297',
-                },
-            ],
+            open_position: {
+                title: 'Front-end',
+                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+            },
             testimony_section: {
                 image: 'pm_review',
                 image_mobile: 'pm_review_mobile',

@@ -475,12 +475,6 @@ export const NavCompany = ({ onClick }) => (
             to="/about-us/"
         />
         <CardLink
-            icon={() => <img src={Story} alt="" width="24" height="24" />}
-            title={localize('Our story')}
-            onClick={onClick}
-            to="/story/"
-        />
-        <CardLink
             icon={() => <img src={RegulatoryInfo} alt="" width="24" height="24" />}
             title={localize('Regulatory information')}
             onClick={onClick}

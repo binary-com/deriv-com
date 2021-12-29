@@ -281,7 +281,7 @@ const OurLeadership = () => {
         },
         {
             name: 'Seema Hallon',
-            position: 'Head of People Managment',
+            position: 'Head of People Management',
             link: 'https://www.linkedin.com/in/seema-hallon-6919073/',
             image: leaders_data.seema,
         },
@@ -310,7 +310,7 @@ const OurLeadership = () => {
             image: leaders_data.jeya,
         },
         {
-            name: 'Antony Pradeep',
+            name: 'Antony Pradeep Charles',
             position: 'Head of Strategy & Project Management',
             link: 'https://www.linkedin.com/in/antonypradeep/',
             image: leaders_data.antony,

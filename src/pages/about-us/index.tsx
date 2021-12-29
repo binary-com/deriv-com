@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import Loadable from '@loadable/component'
 import MakeTrading from './_MakeTrading'
-import OurValues from './_OurValues'
-import OurPrinciples from './_OurPrinciples'
 import Hero from './components/_hero'
-import OurLeadership from './_OurLeadership'
-import DerivNumbers from './_DerivNumbers'
-import OurOffices from './_OurOffices'
-import EmblaCarousel from './carousel/_Carousel'
-import AboutUsBanner from './_AboutUsBanner'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+
+const OurValues = Loadable(() => import('./_OurValues'))
+const OurPrinciples = Loadable(() => import('./_OurPrinciples'))
+const OurLeadership = Loadable(() => import('./_OurLeadership'))
+const AboutUsBanner = Loadable(() => import('./_AboutUsBanner'))
+const DerivNumbers = Loadable(() => import('./_DerivNumbers'))
+const EmblaCarousel = Loadable(() => import('./carousel/_Carousel'))
+const OurOffices = Loadable(() => import('./_OurOffices'))
 
 const StartSeparator = styled.div`
     width: 0;

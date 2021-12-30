@@ -159,14 +159,16 @@ type ModalPropsType = {
     position: string
     link?: string
 }
-
-const StyledLogo = styled.img`
+type StyledLogoType = {
+    link: string
+}
+const StyledLogo = styled.img<StyledLogoType>`
     width: 32px;
     height: 32px;
     filter: grayscale(100%);
     margin-bottom: 5px;
     &:hover {
-        filter: unset;
+        filter: ${(props) => (props.link ? 'unset' : 'grayscale(100%)')};
     }
 `
 
@@ -186,10 +188,12 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
                 {position}
             </Header>
             {/* Tom doesn't have linkedin page so we don't use linkedin icon */}
-            {link && (
+            {link ? (
                 <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
-                    <StyledLogo src={Linkedin} alt="" />
+                    <StyledLogo src={Linkedin} alt="" link={link} />
                 </LocalizedLink>
+            ) : (
+                <StyledLogo src={Linkedin} alt="" link={link} />
             )}
         </ModalFlex>
     )

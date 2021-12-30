@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, createRef } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
@@ -95,6 +95,7 @@ const FormContainer = styled.form<ElementWithMaximiseProp>`
     position: relative;
 `
 const InputWrapper = styled.input`
+    width: 100%;
     margin: 0 auto;
     padding: 8px 48px;
     font-size: 16px;
@@ -163,6 +164,8 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [search_input_touched, setSearchInputTouched] = useState(false)
     const [suggestion_box_opened, setSuggestionBoxOpened] = useState(false)
 
+    const input_ref = createRef<HTMLInputElement>()
+
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
     const filter_type = combined_filter_type
@@ -196,7 +199,9 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (search_input) navigate(`/academy/search?q=${encodeURI(search_input)}`)
+        setSearchInput('')
         setSuggestionBoxOpened(false)
+        input_ref.current.blur()
     }
 
     const openModal = () => {
@@ -228,12 +233,12 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                             onSubmit={handleSubmit}
                                         ></SearchIconWrapper>
                                         <InputWrapper
-                                            style={{ width: '100%' }}
                                             placeholder="What would you like to search?"
                                             onChange={handleFilterSearch}
                                             onFocus={maximiseSearchInput}
                                             onBlur={maximiseSearchInput}
                                             value={search_input}
+                                            ref={input_ref}
                                         ></InputWrapper>
                                         <CloseIconWrapper
                                             maximise={search_input_touched}

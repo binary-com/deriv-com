@@ -67,6 +67,7 @@ const SearchResultRows = styled(Flex)`
 `
 const SearchSuggestionWrapper = styled(Flex)`
     display: ${(props) => (props.opened ? 'flex' : 'none')};
+    width: 640px;
     background: white;
     border: 1px solid var(--color-grey-3);
     position: absolute;
@@ -212,7 +213,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                 <Container height="7.2rem">
                     <Flex ai="center" jc="space-between">
                         <LogoWrapper src={AcademyLogo} />
-                        <Flex ai="center" max_width="auto">
+                        <Flex ai="center" max_width="751px">
                             <Flex fd="column" ai="flex-start">
                                 <FormContainer
                                     onSubmit={handleSubmit}
@@ -323,7 +324,9 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                             return (
                                                 <StyledLink
                                                     key={idx}
-                                                    to={`/academy/search?category=${item.short_title}`}
+                                                    to={`/academy/search?category=${slugify(
+                                                        item.title,
+                                                    )}`}
                                                 >
                                                     {item.title}
                                                 </StyledLink>

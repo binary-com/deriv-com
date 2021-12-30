@@ -110,18 +110,10 @@ const SearchPage = () => {
     }
 
     const getFilterResult = (type) => {
-        let filter_title, result
+        let result
 
-        filter_types.forEach((arr) => {
-            arr.items.forEach((element) => {
-                if (element.short_title === type) {
-                    filter_title = element.title
-                }
-            })
-        })
-
-        if (filter_title !== '') {
-            result = matchSorter(combined_data, type, {
+        if (type !== '') {
+            result = matchSorter(combined_data, unSlugify(type), {
                 keys: ['tags.*.tags_id.tag_name'],
             })
         } else {
@@ -130,6 +122,8 @@ const SearchPage = () => {
 
         return result
     }
+
+    const unSlugify = (text) => text.replace(/-/g, ' ').toUpperCase()
 
     return (
         <Layout type="academy">

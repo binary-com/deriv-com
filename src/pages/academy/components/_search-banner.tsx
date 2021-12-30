@@ -195,6 +195,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if (search_input) navigate(`/academy/search?q=${encodeURI(search_input)}`)
+        setSuggestionBoxOpened(false)
     }
 
     const openModal = () => {
@@ -327,6 +328,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                     to={`/academy/search?category=${slugify(
                                                         item.title,
                                                     )}`}
+                                                    onClick={() => setModal(false)}
                                                 >
                                                     {item.title}
                                                 </StyledLink>

@@ -3,6 +3,8 @@ import { matchSorter } from 'match-sorter'
 import { useQueryParams, StringParam } from 'use-query-params'
 import { combined_filter_type } from './common/_constants'
 import { SEO, Flex } from 'components/containers'
+import { Header } from 'components/elements'
+import { unslugify } from 'common/utility'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { DerivStore } from 'store'
@@ -134,7 +136,11 @@ const SearchPage = () => {
                 )}
             />
             <Flex fd="column">
-                <Flex>Search Result:</Flex>
+                <Header type="heading-3" mt="4rem" align="center">
+                    {category_type
+                        ? `Search Results for: ${unslugify(category_type)}`
+                        : `Search Results for: ${unslugify(search_query)}`}
+                </Header>
                 {search_result &&
                     search_result.map((items, index) => {
                         return (

@@ -43,6 +43,11 @@ type CarouselViewportType = {
 const CarouselViewport = styled.div<CarouselViewportType>`
     overflow: hidden;
     width: 100%;
+
+    @media(min-width: 3107px) {
+        display: flex;
+        justify-content: center;
+    }
 }
 `
 const CarouselContainer = styled.div`

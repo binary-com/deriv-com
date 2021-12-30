@@ -51,8 +51,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Marketing',
+                url: 'https://deriv.zohorecruit.com/jobs/Marketing',
             },
             testimony_section: {
                 image: 'marketing_review',
@@ -85,8 +85,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Security',
+                url: 'https://deriv.zohorecruit.com/jobs/Security',
             },
             testimony_section: {
                 image: 'security_review',
@@ -119,8 +119,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Customer Support',
+                url: 'https://deriv.zohorecruit.com/jobs/Customer-Support',
             },
             testimony_section: {
                 image: 'cs_review',
@@ -153,8 +153,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'People Management',
+                url: 'https://deriv.zohorecruit.com/jobs/People-Management',
             },
             testimony_section: {
                 image: 'people_management_review',
@@ -187,8 +187,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Product Design and UX',
+                url: 'https://deriv.zohorecruit.com/jobs/Product-Design-and-UX ',
             },
             testimony_section: {
                 image: 'product_review',
@@ -224,8 +224,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Compliance',
+                url: 'https://deriv.zohorecruit.com/jobs/Compliance',
             },
             testimony_section: {
                 image: 'compliance_review',
@@ -258,8 +258,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Finance',
+                url: 'https://deriv.zohorecruit.com/jobs/Finance',
             },
             testimony_section: {
                 image: 'finance_review',

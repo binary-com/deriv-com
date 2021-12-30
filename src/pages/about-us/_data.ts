@@ -12,7 +12,7 @@ export const first_section_texts: string[] = [
         'From inception, our goal was to break free of the high commissions and clunky products offered by traditional brokers. Also, we aim to deliver a first-class experience to digitally inclined traders, regardless of the size of their accounts.',
     ),
     localize(
-        'In a journey spanning more than 22 years, we have grown to over 2.5 million customers worldwide. But the mission has remained the same.',
+        'In a journey spanning more than 22 years, we have grown to over 2.5 million customers worldwide. But our mission has remained the same.',
     ),
 ]
 

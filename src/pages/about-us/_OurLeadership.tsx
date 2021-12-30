@@ -159,14 +159,16 @@ type ModalPropsType = {
     position: string
     link?: string
 }
-
-const StyledLogo = styled.img`
+type StyledLogoType = {
+    link: string
+}
+const StyledLogo = styled.img<StyledLogoType>`
     width: 32px;
     height: 32px;
     filter: grayscale(100%);
     margin-bottom: 5px;
     &:hover {
-        filter: unset;
+        filter: ${(props) => (props.link ? 'unset' : 'grayscale(100%)')};
     }
 `
 
@@ -185,10 +187,13 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
             >
                 {position}
             </Header>
-            {link && (
+            {/* Tom doesn't have linkedin page so we don't use LocalizedLink */}
+            {link ? (
                 <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
-                    <StyledLogo src={Linkedin} alt="" />
+                    <StyledLogo src={Linkedin} alt="" link={link} />
                 </LocalizedLink>
+            ) : (
+                <StyledLogo src={Linkedin} alt="" link={link} />
             )}
         </ModalFlex>
     )
@@ -200,12 +205,12 @@ type LeaderType = {
     image: ImageDataLike
 }
 
-type LeaderPopsType = {
+type LeaderProps = {
     leader: LeaderType
     key: number
 }
-const Leader: React.FC<LeaderPopsType> = ({ leader }) => {
-    const [isPopupShown, setIsPopupShown] = React.useState<boolean>(false)
+const Leader = ({ leader }: LeaderProps) => {
+    const [isPopupShown, setIsPopupShown] = React.useState(false)
     const showModal = (event: FocusEvent<any>) => {
         setIsPopupShown(true)
     }
@@ -252,7 +257,7 @@ const OurLeadership = () => {
         {
             name: 'Tom Molesworth',
             position: 'Chief Technology Officer',
-            link: 'https://www.linkedin.com/company/derivdotcom/life/0171ced9-e623-47fa-970b-39f7ef77962e/',
+            link: '',
             image: leaders_data.tom,
         },
         {

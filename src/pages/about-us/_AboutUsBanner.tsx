@@ -59,6 +59,7 @@ const StyledHeader = styled(Header)`
     line-height: 40px;
 
     @media ${device.tablet} {
+        font-size: 28px;
         line-height: 34px;
     }
 `
@@ -72,7 +73,7 @@ const AboutUsBanner = () => {
         <StyledSectionContainer>
             <StyledFlex direction="column" height="288px" width="1200px">
                 <PictureFlex jc="start" ai="start" direction="column">
-                    <StyledHeader width="100%" type="section-title" as="h2" size="32px">
+                    <StyledHeader width="100%" type="unset" as="h2" size="32px">
                         {localize('We have a huge mission, an incredible team, and rapid growth.')}
                     </StyledHeader>
                     <Styledtext width="100%" type="paragraph-2" as="p">

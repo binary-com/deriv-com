@@ -187,7 +187,7 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
             >
                 {position}
             </Header>
-            {/* Tom doesn't have linkedin page so we don't use linkedin icon */}
+            {/* Tom doesn't have linkedin page so we don't use LocalizedLink */}
             {link ? (
                 <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
                     <StyledLogo src={Linkedin} alt="" link={link} />

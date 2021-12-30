@@ -59,6 +59,7 @@ const StyledHeader = styled(Header)`
     line-height: 40px;
 
     @media ${device.tablet} {
+        font-size: 28px;
         line-height: 34px;
     }
 `

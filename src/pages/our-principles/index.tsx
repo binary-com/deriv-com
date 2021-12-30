@@ -25,7 +25,7 @@ const ColorHeader = styled(Header)`
     font-size: 48px;
     color: ${(props) => (props.color ? props.color : '')};
 
-    @media ${device.mobileM} {
+    @media ${device.tablet} {
         padding-top: 24px;
         padding-bottom: 16px;
         font-size: 28px;

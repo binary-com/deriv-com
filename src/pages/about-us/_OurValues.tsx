@@ -25,11 +25,11 @@ const StyledHeader = styled(Header)`
     padding: 0;
     @media ${device.laptop} {
         font-size: 48px;
+        line-height: 60px;
     }
     @media (max-width: 1255px) {
         margin: 0 0 40px 0;
         width: unset;
-        text-align: center;
         max-width: 602px;
     }
 `

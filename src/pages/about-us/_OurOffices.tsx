@@ -207,20 +207,20 @@ const OurOffices = () => {
                             link="/careers/locations/dubai"
                         />
                         <MapPin
-                            left="73.8%"
+                            left="73.5%"
                             top="58.5%"
                             title={localize('Ipoh')}
                             link="/careers/locations/ipoh"
                         />
                         <MapPin
                             left="74%"
-                            top="59%"
+                            top="59.2%"
                             title={localize('Cyberjaya')}
                             link="/careers/locations/cyberjaya"
                         />
                         <MapPin
                             left="74.2%"
-                            top="60%"
+                            top="60.4%"
                             title={localize('Melaka')}
                             link="/careers/locations/melaka"
                         />
@@ -274,20 +274,20 @@ const OurOffices = () => {
                             link="/careers/locations/dubai"
                         />
                         <MapPin
-                            left="72.3%"
-                            top="54.5%"
+                            left="72%"
+                            top="53.2%"
                             title={localize('Ipoh')}
                             link="/careers/locations/ipoh"
                         />
                         <MapPin
-                            left="72.5%"
+                            left="72%"
                             top="55%"
                             title={localize('Cyberjaya')}
                             link="/careers/locations/cyberjaya"
                         />
                         <MapPin
-                            left="72.7%"
-                            top="56%"
+                            left="73%"
+                            top="56.2%"
                             title={localize('Melaka')}
                             link="/careers/locations/melaka"
                         />

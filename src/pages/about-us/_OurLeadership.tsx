@@ -185,6 +185,7 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
             >
                 {position}
             </Header>
+            {/* Tom doesn't have linkedin page so we don't use linkedin icon */}
             {link && (
                 <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
                     <StyledLogo src={Linkedin} alt="" />
@@ -252,7 +253,7 @@ const OurLeadership = () => {
         {
             name: 'Tom Molesworth',
             position: 'Chief Technology Officer',
-            link: 'https://www.linkedin.com/company/derivdotcom/life/0171ced9-e623-47fa-970b-39f7ef77962e/',
+            link: '',
             image: leaders_data.tom,
         },
         {

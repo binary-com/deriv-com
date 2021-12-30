@@ -125,6 +125,7 @@ const InputWrapper = styled.input`
 `
 const SearchIconWrapper = styled.img`
     position: absolute;
+    cursor: pointer;
     width: 16px;
     height: 16px;
     top: 50%;

@@ -367,12 +367,6 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('About us')}</span>
                         </StyledLink>
-                        <StyledLink to="/story/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Story} alt="" width="24" height="24" />
-                            </div>
-                            <span>{localize('Our story')}</span>
-                        </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Partner} alt="" width="24" height="24" />

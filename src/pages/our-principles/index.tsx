@@ -110,7 +110,7 @@ const StyledCardContainer = styled(Flex)`
 `
 
 const StyledImg = styled.img`
-    @media ${device.mobileM} {
+    @media ${device.tablet} {
         width: 104px;
     }
 `
@@ -118,7 +118,7 @@ const StyledImg = styled.img`
 const StyledFlex = styled(Flex)`
     align-self: baseline;
 
-    @media ${device.mobileM} {
+    @media ${device.tablet} {
             width: 104px;
     }
 

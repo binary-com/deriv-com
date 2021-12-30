@@ -1,5 +1,5 @@
 import React, { useContext, useState, createRef } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { combined_filter_type } from '../common/_constants'
@@ -65,15 +65,6 @@ const SearchResultRows = styled(Flex)`
         background-color: var(--color-grey-31);
     }
 `
-const SearchSuggestionWrapper = styled(Flex)`
-    display: ${(props) => (props.opened ? 'flex' : 'none')};
-    width: 640px;
-    background: white;
-    border: 1px solid var(--color-grey-3);
-    position: absolute;
-    top: 8px;
-    height: auto;
-`
 const StyledChevron = styled.img<StyledChevronProp>`
     height: 16px;
     width: 16px;
@@ -88,27 +79,43 @@ const HoverChevron = styled.div`
     justify-content: center;
     align-items: center;
 `
-const FormContainer = styled.form<ElementWithMaximiseProp>`
+const FormWrapper = styled(Flex)<ElementWithMaximiseProp>`
     width: ${(props) => (props.maximise ? '640px' : '400px')};
+    background: ${(props) => (props.maximise ? 'white' : 'rgba(236, 241, 247, 0.5)')};
+    border: ${(props) => (props.maximise ? '2px solid #ecf1f7;' : 'none')};
+    border-radius: ${(props) => (props.result_opened ? '20px' : '40px')};
+    overflow: hidden;
+
+    ${(props) =>
+        props.result_opened &&
+        css`
+            position: absolute;
+            top: -24px;
+            padding: 8px 24px 24px;
+        `}
+`
+const FormContainer = styled.form`
+    width: 100%;
     display: block;
     margin: 0 auto;
     position: relative;
+    border: none;
 `
-const InputWrapper = styled.input`
-    width: 100%;
+const InputWrapper = styled.input<ElementWithMaximiseProp>`
     margin: 0 auto;
+    width: 100%;
     padding: 8px 48px;
+    padding: ${(props) => (props.result_opened ? '10px 24px 8px !important' : '8px 48px')};
     font-size: 16px;
     line-height: 24px;
     border: none;
     outline: none;
-    border-radius: 40px;
-    background: rgba(236, 241, 247, 0.5);
+    background: transparent;
 
     &:focus {
-        border: 2px solid #ecf1f7;
         background: var(--color-white);
         transition: 0.25s ease;
+        padding: 10px 48px 8px;
 
         &::-webkit-input-placeholder {
             transition: opacity 0.25s ease;
@@ -123,14 +130,20 @@ const InputWrapper = styled.input`
             opacity: 0;
         }
     }
+
+    ${(props) =>
+        props.result_opened &&
+        css`
+            border-bottom: 1px solid var(--color-black);
+        `}
 `
-const SearchIconWrapper = styled.img`
+const SearchIconWrapper = styled.img<ElementWithMaximiseProp>`
     position: absolute;
     cursor: pointer;
     width: 16px;
     height: 16px;
     top: 50%;
-    left: 24px;
+    left: ${(props) => (props.result_opened ? '0' : '24px')};
     transform: translateY(-50%);
 `
 const CloseIconWrapper = styled.img<ElementWithMaximiseProp>`
@@ -140,8 +153,16 @@ const CloseIconWrapper = styled.img<ElementWithMaximiseProp>`
     width: 10px;
     height: 10px;
     top: 50%;
-    right: 24px;
+    right: ${(props) => (props.result_opened ? '0' : '24px')};
     transform: translateY(-50%);
+`
+
+const SearchSuggestionWrapper = styled(Flex)`
+    padding: 24px 0 0;
+    display: ${(props) => (props.opened ? 'flex' : 'none')};
+    width: 640px;
+    background: white;
+    height: auto;
 `
 
 type SearchBannerProps = {
@@ -150,6 +171,7 @@ type SearchBannerProps = {
 
 type ElementWithMaximiseProp = {
     maximise?: boolean
+    result_opened?: boolean
 }
 
 type StyledChevronProp = {
@@ -220,35 +242,42 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                 <Container height="7.2rem">
                     <Flex ai="center" jc="space-between">
                         <LogoWrapper src={AcademyLogo} />
-                        <Flex ai="center" max_width="751px">
-                            <Flex fd="column" ai="flex-start">
-                                <FormContainer
-                                    onSubmit={handleSubmit}
+                        <Flex ai="center" max_width="751px" jc="flex-end">
+                            <Flex height="auto" jc="flex-end" style={{ position: 'relative' }}>
+                                <FormWrapper
+                                    fd="column"
                                     maximise={search_input_touched}
+                                    result_opened={suggestion_box_opened}
+                                    ai="flex-start"
+                                    height="auto"
                                 >
-                                    <Flex jc="flex-start" ai="center">
-                                        <SearchIconWrapper
-                                            src={SearchIcon}
-                                            alt="search_icon"
-                                            onSubmit={handleSubmit}
-                                        ></SearchIconWrapper>
-                                        <InputWrapper
-                                            placeholder="What would you like to search?"
-                                            onChange={handleFilterSearch}
-                                            onFocus={maximiseSearchInput}
-                                            onBlur={maximiseSearchInput}
-                                            value={search_input}
-                                            ref={input_ref}
-                                        ></InputWrapper>
-                                        <CloseIconWrapper
-                                            maximise={search_input_touched}
-                                            src={CloseIcon}
-                                            alt="close icon"
-                                            onClick={maximiseSearchInput}
-                                        />
-                                    </Flex>
-                                </FormContainer>
-                                <Flex height="0" style={{ position: 'relative' }}>
+                                    <FormContainer onSubmit={handleSubmit}>
+                                        <Flex jc="flex-start" ai="center">
+                                            <SearchIconWrapper
+                                                src={SearchIcon}
+                                                alt="search_icon"
+                                                onSubmit={handleSubmit}
+                                                result_opened={suggestion_box_opened}
+                                            ></SearchIconWrapper>
+                                            <InputWrapper
+                                                placeholder="What would you like to search?"
+                                                onChange={handleFilterSearch}
+                                                onFocus={maximiseSearchInput}
+                                                onBlur={maximiseSearchInput}
+                                                value={search_input}
+                                                result_opened={suggestion_box_opened}
+                                                ref={input_ref}
+                                            ></InputWrapper>
+                                            <CloseIconWrapper
+                                                maximise={search_input_touched}
+                                                src={CloseIcon}
+                                                alt="close icon"
+                                                onClick={maximiseSearchInput}
+                                                result_opened={suggestion_box_opened}
+                                            />
+                                        </Flex>
+                                    </FormContainer>
+
                                     <SearchSuggestionWrapper
                                         opened={suggestion_box_opened}
                                         max_width="100%"
@@ -289,7 +318,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                 }
                                             })}
                                     </SearchSuggestionWrapper>
-                                </Flex>
+                                </FormWrapper>
                             </Flex>
 
                             <TopicSectionWrapper

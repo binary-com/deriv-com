@@ -6,7 +6,7 @@ import { Container, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
-interface DP2PProps {
+type DP2PProps = {
     P2P: P2PProps[]
     reverse: boolean
 }

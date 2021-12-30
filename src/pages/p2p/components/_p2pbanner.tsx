@@ -8,7 +8,7 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 import { Background } from 'components/elements/background-image'
 
-interface P2PBannerProps {
+type P2PBannerProps = {
     title: string
 }
 

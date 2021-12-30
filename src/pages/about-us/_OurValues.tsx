@@ -25,6 +25,8 @@ const StyledHeader = styled(Header)`
     padding: 0;
     @media ${device.laptop} {
         font-size: 48px;
+        line-height: 60px;
+        text-align: center;
     }
     @media (max-width: 1255px) {
         margin: 0 0 40px 0;
@@ -35,6 +37,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledFlex = styled(Flex)`
+    flex-direction: row;
     @media (max-width: 930px) {
         flex-direction: column;
         align-items: center;

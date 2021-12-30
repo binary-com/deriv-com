@@ -20,6 +20,8 @@ const StyledHeader = styled(Header)`
     padding: 0;
     @media ${device.laptop} {
         font-size: 48px;
+        line-height: 60px;
+        text-align: center;
     }
 `
 

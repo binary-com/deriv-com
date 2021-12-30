@@ -40,7 +40,7 @@ export const our_values: ValueType[] = [
     {
         title: localize('Competence'),
         text: localize(
-            'We value smart colleagues with an aptitude to learn, use good judgement, grow and succeed.',
+            'We value colleagues with an aptitude to learn and grow and the ability to use good judgement.',
         ),
         icon: Star,
     },

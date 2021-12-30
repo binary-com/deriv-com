@@ -1,11 +1,11 @@
 import React from 'react'
-import { Article } from './_article'
+import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const VerifyAccount = () => (
+const VerifyAccount = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Do I need to verify my Deriv account?')}</StyledHeader>
         <Text>
@@ -16,7 +16,7 @@ const VerifyAccount = () => (
     </ArticleWrapper>
 )
 
-const VerificationDuration = () => (
+const VerificationDuration = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How long does verification take?')}</StyledHeader>
         <Text>
@@ -27,7 +27,7 @@ const VerificationDuration = () => (
     </ArticleWrapper>
 )
 
-const DocumentsDeclined = () => (
+const DocumentsDeclined = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Why were my documents declined?')}</StyledHeader>
         <Text>

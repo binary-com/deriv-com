@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Article } from './_article'
+import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { derivx_app_url, deriv_app_url } from 'common/constants'
@@ -16,7 +16,7 @@ const ExternalLink = styled.a`
     }
 `
 
-const WhatisDerivX = () => (
+const WhatisDerivX = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is Deriv X?')}</StyledHeader>
         <Text>
@@ -27,7 +27,7 @@ const WhatisDerivX = () => (
     </ArticleWrapper>
 )
 
-const DepositDerivX = () => (
+const DepositDerivX = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -45,7 +45,7 @@ const DepositDerivX = () => (
     </ArticleWrapper>
 )
 
-const DerivXMarkets = () => (
+const DerivXMarkets = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on Deriv X?')}</StyledHeader>
         <Text>
@@ -56,7 +56,7 @@ const DerivXMarkets = () => (
     </ArticleWrapper>
 )
 
-const DerivXTrade = () => (
+const DerivXTrade = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What is the minimum and maximum amount to trade on Deriv X?')}
@@ -69,7 +69,7 @@ const DerivXTrade = () => (
     </ArticleWrapper>
 )
 
-const DifferenceDMT5DTraderDerivX = () => (
+const DifferenceDMT5DTraderDerivX = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
@@ -89,7 +89,7 @@ const DifferenceDMT5DTraderDerivX = () => (
     </ArticleWrapper>
 )
 
-const DerivXAccount = () => (
+const DerivXAccount = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>
         <Text>
@@ -108,7 +108,7 @@ const DerivXAccount = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts = () => (
+const DifferentAccounts = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What are the differences between Synthetics and Financial accounts?')}
@@ -126,7 +126,7 @@ const DifferentAccounts = () => (
     </ArticleWrapper>
 )
 
-const TradingPassword = () => (
+const TradingPassword = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is a Deriv X password?')}</StyledHeader>
         <Text>
@@ -135,7 +135,7 @@ const TradingPassword = () => (
     </ArticleWrapper>
 )
 
-const DifferentPassword = () => (
+const DifferentPassword = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How is my Deriv X password different from my Deriv password?')}
@@ -148,7 +148,7 @@ const DifferentPassword = () => (
     </ArticleWrapper>
 )
 
-const ResetDerivXPassowrd = () => (
+const ResetDerivXPassowrd = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I reset my Deriv X password?')}</StyledHeader>
         <Text>
@@ -168,7 +168,7 @@ const ResetDerivXPassowrd = () => (
     </ArticleWrapper>
 )
 
-const AccountInformation = () => (
+const AccountInformation = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('Where can I find my Deriv X account information?')}
@@ -189,7 +189,7 @@ const AccountInformation = () => (
     </ArticleWrapper>
 )
 // TOOD: uncomment once deriv x real is ready
-const DerivXRealMoneyAccount = () => (
+const DerivXRealMoneyAccount = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How can I deposit funds into my Deriv X real money account?')}
@@ -215,7 +215,7 @@ const DerivXRealMoneyAccount = () => (
     </ArticleWrapper>
 )
 
-const WithdrawDerivX = () => (
+const WithdrawDerivX = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How do I withdraw funds from my Deriv X real money account?')}

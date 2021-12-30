@@ -205,12 +205,12 @@ type LeaderType = {
     image: ImageDataLike
 }
 
-type LeaderPopsType = {
+type LeaderProps = {
     leader: LeaderType
     key: number
 }
-const Leader: React.FC<LeaderPopsType> = ({ leader }) => {
-    const [isPopupShown, setIsPopupShown] = React.useState<boolean>(false)
+const Leader = ({ leader }: LeaderProps) => {
+    const [isPopupShown, setIsPopupShown] = React.useState(false)
     const showModal = (event: FocusEvent<any>) => {
         setIsPopupShown(true)
     }

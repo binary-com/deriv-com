@@ -1,16 +1,18 @@
 import React from 'react'
 import { Localize } from 'components/localization'
 
+type ArticlesByCategoryType = {
+    title?: React.ReactElement
+    category?: string
+    sub_category?: React.ReactElement
+    label?: string
+    title_eu?: React.ReactElement
+    label_eu?: string
+}
+
 export type ArcticlesType = {
     category: React.ReactElement
-    articles: {
-        title?: React.ReactElement
-        category?: string
-        sub_category?: React.ReactElement
-        label?: string
-        title_eu?: React.ReactElement
-        label_eu?: string
-    }[]
+    articles: ArticlesByCategoryType[]
 }[]
 
 export const articles: ArcticlesType = [

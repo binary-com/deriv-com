@@ -1,20 +1,21 @@
 import { localize } from 'components/localization'
 
+type AcceptedAnswerType = {
+    '@type': string
+    text: string
+}
+
+type MainEntityType = {
+    '@type': string
+    name: string
+    acceptedAnswer: AcceptedAnswerType
+    acceptedAnswerEU?: AcceptedAnswerType
+}
+
 type FaqSchemaType = {
     '@context': string
     '@type': string
-    mainEntity: {
-        '@type': string
-        name: string
-        acceptedAnswer: {
-            '@type': string
-            text: string
-        }
-        acceptedAnswerEU?: {
-            '@type': string
-            text: string
-        }
-    }[]
+    mainEntity: MainEntityType[]
 }
 
 export const faq_schema: FaqSchemaType = {

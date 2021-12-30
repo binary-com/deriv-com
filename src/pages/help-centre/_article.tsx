@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import { Community } from './_community'
 import Layout from 'components/layout/layout'
@@ -86,11 +85,4 @@ export const Article = ({
             </ContactContainer>
         </Layout>
     )
-}
-
-Article.propTypes = {
-    children: PropTypes.node,
-    description: PropTypes.string,
-    header: PropTypes.string,
-    title: PropTypes.string,
 }

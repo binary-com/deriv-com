@@ -6,10 +6,14 @@ import { Text, Header, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
+type TopicsType = {
+    category: string
+    label: string
+    title: string | React.ReactElement
+}[]
+
 type SearchSuccessProps = {
-    suggested_topics?:
-        | { category: string; label: string; title: string | React.ReactElement }[]
-        | string[]
+    suggested_topics?: TopicsType | string[]
     max_length?: number
     search?: string
 }
@@ -100,11 +104,6 @@ export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessPro
         ))}
     </>
 )
-SearchSuccess.propTypes = {
-    max_length: PropTypes.number,
-    onClick: PropTypes.func,
-    suggested_topics: PropTypes.array,
-}
 
 export const SearchError = ({ search }: SearchSuccessProps) => (
     <>

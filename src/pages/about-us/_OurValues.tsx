@@ -35,7 +35,6 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledFlex = styled(Flex)`
-    flex-direction: row;
     @media (max-width: 930px) {
         flex-direction: column;
         align-items: center;

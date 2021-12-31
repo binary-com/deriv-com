@@ -61,38 +61,30 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledHeaderDesktopAbout = styled(Header)`
-    position: absolute;
-    height: 195.52px;
-    top: 90px;
+    min-height: 195.52px;
+    height: 100%;
+    margin: 140px auto 70px;
     font-size: 210px;
     letter-spacing: 8px;
     z-index: 3;
-`
-
-const StyledHeaderDesktopUs = styled(Header)`
-    position: absolute;
-    height: 195.52px;
-    top: 90px;
-    font-size: 210px;
-    letter-spacing: 8px;
-    z-index: 1;
-    margin-right: -770px;
+    line-height: inherit;
 `
 
 const StyledFlex = styled(Flex)`
-    height: 400px;
-    width: 1000px;
+    min-height: 400px;
+    min-width: 1000px;
 `
 
 const FlexHeader = styled(Flex)`
-    position: absolute;
-    height: 195.52px;
+    min-height: 195.52px;
+    height: 100%;
     font-size: 210px;
     letter-spacing: 8px;
 `
 
 const StyledQueryImage = styled(QueryImage)`
     z-index: 2;
+    position: absolute;
 `
 
 const Hero = () => {

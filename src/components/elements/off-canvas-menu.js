@@ -249,10 +249,10 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={<Localize translate_text="SmartTrader" />}
                                 onClick={handleArrowClick}
                                 to="trading"
+                                rel="noopener noreferrer"
                                 type="smart_trader"
                                 external="true"
                                 target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
                         <Flex mb="2rem">
@@ -277,9 +277,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={<Localize translate_text="BinaryBot" />}
                                 onClick={handleArrowClick}
                                 to="https://bot.deriv.com/"
+                                rel="noopener noreferrer"
                                 external="true"
                                 target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
                     </AccordionItem>

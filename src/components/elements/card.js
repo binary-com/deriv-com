@@ -324,8 +324,8 @@ const FlexHover = styled(Flex)`
 const SvgWrapper = styled.div`
     & > svg,
     img {
-        width: 33px;
-        height: 33px;
+        width: 32px;
+        height: 32px;
         margin-right: 1.6rem;
 
         @media ${device.mobileL} {

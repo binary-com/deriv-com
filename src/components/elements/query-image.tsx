@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { MouseEventHandler, ReactElement } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 
-type QueryImageProps = {
-    alt: string
+export type QueryImageProps = {
+    alt: ReactElement | string
     className?: string
     data: ImageDataLike
     height?: string
     width?: string
     loading?: 'eager' | 'lazy'
+    onMouseOver?: MouseEventHandler<HTMLDivElement>
+    onMouseOut?: MouseEventHandler<HTMLDivElement>
+    onClick?: MouseEventHandler<HTMLDivElement>
 }
 
 type ImageWrapperProps = {
@@ -31,13 +34,14 @@ const QueryImage = ({
     height,
     loading,
     width,
+    onClick,
     ...props
 }: QueryImageProps) => {
     const image = getImage(data)
     if (data) {
         return (
-            <ImageWrapper width={width} height={height} className={className}>
-                <GatsbyImage image={image} alt={alt} loading={loading} {...props} />
+            <ImageWrapper width={width} height={height} className={className} onClick={onClick}>
+                <GatsbyImage image={image} alt={alt as string} loading={loading} {...props} />
             </ImageWrapper>
         )
     }

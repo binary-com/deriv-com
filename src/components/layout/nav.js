@@ -7,7 +7,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import {
     OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -15,6 +15,7 @@ import {
     Text,
     QueryImage,
 } from 'components/elements'
+import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -45,6 +46,7 @@ const query = graphql`
 `
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
+    background-color: ${(props) => (props.is_transparent ? 'transparent' : 'var(--color-black)')};
     width: 100%;
     position: fixed;
     top: 0;
@@ -103,12 +105,11 @@ export const Line = styled.div`
 `
 
 export const StyledNavMain = styled.nav`
-    background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
     z-index: 1;
-    @media (max-width: 1060px) {
+    @media ${device.bp1060} {
         height: auto;
     }
 `
@@ -380,12 +381,12 @@ const handleScroll = (show, hide) => {
 }
 
 const MobileRightMain = styled.div`
-    margin-left: auto;
     display: none;
-    align-items: center;
 
     @media (max-width: 1060px) {
         display: flex;
+        margin-left: auto;
+        align-items: center;
     }
 `
 const LogoDescription = styled(Flex)`
@@ -398,6 +399,9 @@ const handleLogin = () => {
     redirectToTradingPlatform()
     Login.redirectToLogin()
 }
+
+const showLanguageSwitcher = (no_language) =>
+    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
 
 const handleGetTrading = () => {
     const sub_url = redirectToTradingPlatform()
@@ -501,7 +505,7 @@ const NavDesktop = ({
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    })
+    }, [])
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
@@ -510,9 +514,6 @@ const NavDesktop = ({
         if (!target) return
         setActiveLinkRef(target)
     }
-
-    const LanguageSwitcherNavDesktop = () =>
-        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
 
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
@@ -551,6 +552,7 @@ const NavDesktop = ({
                             max_width="16.4rem"
                             width="100%"
                             height="auto"
+                            loading="eager"
                         />
                     </LogoLink>
                     <Line />
@@ -594,7 +596,7 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        <LanguageSwitcherNavDesktop />
+                        {showLanguageSwitcher(no_language)}
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -607,7 +609,7 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcherNavDesktop />
+                        {showLanguageSwitcher(no_language)}
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -629,6 +631,7 @@ const NavDesktop = ({
 
 export const Nav = ({
     base,
+    is_nav_transparent,
     is_ppc_redirect,
     is_ppc,
     hide_signup_login,
@@ -636,21 +639,37 @@ export const Nav = ({
     no_language,
 }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [is_transparent, setTransparent] = useState(is_nav_transparent)
+
+    const handleScroll = useCallback(() => {
+        const currentScrollPos = window.pageYOffset
+        setTransparent(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 20) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleScroll, { passive: true })
 
         let checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
         }, 800)
-        return () => clearInterval(checkCookieChange)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleScroll)
+        }
     }, [])
 
     return (
         <>
-            <NavWrapperMain>
+            <NavWrapperMain is_transparent={is_transparent}>
                 <StyledNavMain>
-                    <Show.Desktop max_width="bp1060">
+                    <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -660,8 +679,8 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Desktop>
-                    <Show.Mobile min_width="bp1060">
+                    </DesktopWrapper>
+                    <MobileWrapper media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -669,7 +688,7 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </StyledNavMain>
             </NavWrapperMain>
             <CFDWarning />
@@ -681,6 +700,7 @@ Nav.propTypes = {
     academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
+    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     no_language: PropTypes.bool,
@@ -741,7 +761,7 @@ export const NavInterim = ({ interim_type }) => (
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <Show.Desktop>
+                    <DesktopWrapper media={device.bp1060}>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
@@ -753,8 +773,8 @@ export const NavInterim = ({ interim_type }) => (
                                 />
                             </Flex>
                         </StyledLogo>
-                    </Show.Desktop>
-                    <Show.Mobile>
+                    </DesktopWrapper>
+                    <MobileWrapper media={device.bp1060}>
                         <LogoLinkMobile
                             to={`/interim/${interim_type}`}
                             aria-label={localize('Home')}
@@ -772,7 +792,7 @@ export const NavInterim = ({ interim_type }) => (
                                 </LogoDescription>
                             </Flex>
                         </LogoLinkMobile>
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </Flex>
                 <Auto jc="flex-end" ai="center">
                     <LanguageSwitcher short_name="true" />
@@ -882,7 +902,7 @@ const StyledNavWrapper = styled(Wrapper)`
     }
 `
 
-const Mobile = styled(Show.Mobile)`
+const Mobile = styled(MobileWrapper)`
     width: 100%;
 `
 
@@ -922,7 +942,7 @@ const LSContainer = styled(Container)`
     margin-left: 200px;
 `
 
-const DesktopLS = styled(Show.Desktop)`
+const DesktopLS = styled(DesktopWrapper)`
     z-index: 2;
 `
 
@@ -939,16 +959,18 @@ export const NavPartners = ({ no_login_signup }) => {
     const [has_scrolled, setHasScrolled] = useState(false)
     const current_page = useActiveLinkState('partners')
 
-    const buttonHandleScroll = () => {
+    const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    }
+    }, [])
+
     useEffect(() => {
         setMounted(true)
         if (!no_login_signup) {
             document.addEventListener('scroll', buttonHandleScroll, {
                 passive: true,
             })
+
             return () => {
                 document.removeEventListener('scroll', buttonHandleScroll)
             }
@@ -1092,12 +1114,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <Show.Desktop>
+                                        <DesktopWrapper media={device.bp1060}>
                                             <span>{localize('Affiliate & IB log in')}</span>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </DesktopWrapper>
+                                        <MobileWrapper media={device.bp1060}>
                                             <span>{localize('Log in')}</span>
-                                        </Show.Mobile>
+                                        </MobileWrapper>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>

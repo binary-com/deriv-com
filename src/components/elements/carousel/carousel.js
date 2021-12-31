@@ -68,14 +68,17 @@ export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
 NextButton.propTypes = PrevButton.propTypes
 
 export const Carousel = ({
+    autoplay_delay,
     autoplay_interval,
     chevron_style,
     children,
     container_style,
     has_autoplay,
+    navigation_css,
     navigation_style,
     options,
     slide_style,
+    slide_inner_width,
     vertical_container,
     view_port,
 }) => {
@@ -95,7 +98,7 @@ export const Carousel = ({
         }
     }, [embla])
 
-    const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval)
+    const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval, autoplay_delay)
 
     const scrollPrev = useCallback(() => {
         if (!embla) return
@@ -148,7 +151,7 @@ export const Carousel = ({
                     <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
-                                <EmblaSlideInner>{child}</EmblaSlideInner>
+                                <EmblaSlideInner width={slide_inner_width}>{child}</EmblaSlideInner>
                             </div>
                         ))}
                     </EmblaContainer>
@@ -172,7 +175,10 @@ export const Carousel = ({
                     />
                 )}
                 {nav_color && (
-                    <NavigationContainer bottom_offset={bottom_offset}>
+                    <NavigationContainer
+                        bottom_offset={bottom_offset}
+                        navigation_css={navigation_css}
+                    >
                         {children.map((child, idx) => (
                             <NavigationButton
                                 key={idx}
@@ -189,13 +195,16 @@ export const Carousel = ({
 }
 
 Carousel.propTypes = {
+    autoplay_delay: PropTypes.number,
     autoplay_interval: PropTypes.number,
     chevron_style: PropTypes.object,
     children: PropTypes.array,
     container_style: PropTypes.object,
     has_autoplay: PropTypes.bool,
+    navigation_css: PropTypes.array,
     navigation_style: PropTypes.object,
     options: PropTypes.object,
+    slide_inner_width: PropTypes.string,
     slide_style: PropTypes.object,
     vertical_container: PropTypes.object,
     view_port: PropTypes.object,

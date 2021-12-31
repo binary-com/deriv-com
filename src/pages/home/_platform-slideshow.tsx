@@ -79,7 +79,7 @@ const PlatformSlideshow = () => {
         }
         setTimeout(() => {
             setMounted(true)
-        }, 6000)
+        }, 12000)
 
         return () => clearInterval(slideshow_timer)
     }, [is_mounted])

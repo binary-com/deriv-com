@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
+import { Flex } from 'components/containers'
 import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
@@ -35,13 +36,13 @@ const query = graphql`
     }
 `
 
-const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
+const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; $is_mounted: boolean }>`
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
 
     .gatsby-image-wrapper {
         div {
-            transition: opacity ease-in-out 2s;
+            transition: ${({ $is_mounted }) => ($is_mounted ? 'opacity ease-in-out 2s' : 'none')};
         }
     }
 `
@@ -74,9 +75,11 @@ const PlatformSlideshow = () => {
         if (is_mounted) {
             slideshow_timer = setInterval(() => {
                 setNextImage()
-            }, 6000)
+            }, 5000)
         }
-        setMounted(true)
+        setTimeout(() => {
+            setMounted(true)
+        }, 6000)
 
         return () => clearInterval(slideshow_timer)
     }, [is_mounted])
@@ -84,10 +87,16 @@ const PlatformSlideshow = () => {
     return (
         <div>
             <DesktopWrapper media={device.tablet}>
-                <Slides images={slide_images} active_index={active_index} />
+                <Slides images={slide_images} active_index={active_index} is_mounted={is_mounted} />
             </DesktopWrapper>
             <MobileWrapper media={device.tablet}>
-                <Slides images={mobile_slide_images} active_index={active_index} />
+                <Flex min_height="210px">
+                    <Slides
+                        images={mobile_slide_images}
+                        active_index={active_index}
+                        is_mounted={is_mounted}
+                    />
+                </Flex>
             </MobileWrapper>
         </div>
     )
@@ -96,9 +105,10 @@ const PlatformSlideshow = () => {
 type SlidesProps = {
     images: Array<{ key: string; image: ImageDataLike }>
     active_index: number
+    is_mounted: boolean
 }
 
-const Slides = ({ images, active_index }: SlidesProps) => {
+const Slides = ({ images, active_index, is_mounted }: SlidesProps) => {
     return (
         <>
             {images.map((slide, index) => {
@@ -112,6 +122,7 @@ const Slides = ({ images, active_index }: SlidesProps) => {
                         height="346"
                         loading={active_index === index ? 'eager' : 'lazy'}
                         $is_hidden={active_index !== index}
+                        $is_mounted={is_mounted}
                     />
                 )
             })}

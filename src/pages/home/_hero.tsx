@@ -72,6 +72,12 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledContainer = styled(Container)`
+    @media ${device.desktop} {
+        max-width: 1280px;
+    }
+`
+
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
 
@@ -82,7 +88,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
     return (
         <HeroWrapper>
             <BackgroundImage is_unstyled data={data.hero_background} loading="eager">
-                <Container
+                <StyledContainer
                     width="100%"
                     max_width="100%"
                     m="0 auto"
@@ -160,7 +166,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             <PlatformSlideshow />
                         </Flex>
                     </Flex>
-                </Container>
+                </StyledContainer>
             </BackgroundImage>
         </HeroWrapper>
     )

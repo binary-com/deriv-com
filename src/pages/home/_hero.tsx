@@ -93,7 +93,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
                     tabletL={{ ai: 'center', max_width: '588px', p: '0 16px' }}
                 >
                     <Flex
-                        max_width="1200px"
                         m="0 auto"
                         tabletL={{
                             fd: 'column',
@@ -104,7 +103,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             max_width="486px"
                             fd="column"
                             jc="flex-start"
-                            mr="52px"
                             bp1060={{ max_height: 'unset' }}
                             tabletL={{
                                 width: 'unset',
@@ -158,11 +156,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 </HeroButton>
                             </Box>
                         </Flex>
-                        <Flex
-                            max_width="662px"
-                            m="0 auto"
-                            tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}
-                        >
+                        <Flex m="0 auto" tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}>
                             <PlatformSlideshow />
                         </Flex>
                     </Flex>

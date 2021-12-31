@@ -119,7 +119,6 @@ const Slides = ({ images, active_index, is_mounted }: SlidesProps) => {
                         data={image}
                         alt="platform devices"
                         width="100%"
-                        height="346"
                         loading={active_index === index ? 'eager' : 'lazy'}
                         $is_hidden={active_index !== index}
                         $is_mounted={is_mounted}

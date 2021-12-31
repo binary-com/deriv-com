@@ -5,8 +5,6 @@ import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements
 import { SectionContainer, Container, Flex, Box, Show } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-// import { map_api_key } from 'common/utility'
-// SVG
 import Malta from 'images/svg/contact/malta.svg'
 import Dubai from 'images/svg/contact/dubai.svg'
 import Paraguay from 'images/svg/contact/paraguay.svg'

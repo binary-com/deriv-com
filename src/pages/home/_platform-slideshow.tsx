@@ -90,7 +90,7 @@ const PlatformSlideshow = () => {
                 <Slides images={slide_images} active_index={active_index} is_mounted={is_mounted} />
             </DesktopWrapper>
             <MobileWrapper media={device.tablet}>
-                <Flex min_height="210px">
+                <Flex min_height="280px" ai="center">
                     <Slides
                         images={mobile_slide_images}
                         active_index={active_index}

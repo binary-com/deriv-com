@@ -48,6 +48,7 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
+    const [is_mounted, setMounted] = useState(false)
     const data = useStaticQuery(query)
 
     const slide_images = [
@@ -69,12 +70,16 @@ const PlatformSlideshow = () => {
     }, [slide_images])
 
     useEffect(() => {
-        const slideshow_timer = setInterval(() => {
-            setNextImage()
-        }, 6000)
+        let slideshow_timer
+        if (is_mounted) {
+            slideshow_timer = setInterval(() => {
+                setNextImage()
+            }, 6000)
+        }
+        setMounted(true)
 
         return () => clearInterval(slideshow_timer)
-    }, [])
+    }, [is_mounted])
 
     return (
         <div>
@@ -105,7 +110,7 @@ const Slides = ({ images, active_index }: SlidesProps) => {
                         alt="platform devices"
                         width="100%"
                         height="346"
-                        loading="eager"
+                        loading={active_index === index ? 'eager' : 'lazy'}
                         $is_hidden={active_index !== index}
                     />
                 )

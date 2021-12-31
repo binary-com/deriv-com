@@ -51,6 +51,7 @@ export const NavWrapperMain = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
+    transition: background-color 400ms linear;
 `
 export const NavWrapperPartners = styled.div`
     width: 100%;

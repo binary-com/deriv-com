@@ -63,7 +63,7 @@ const StyledHeader = styled(Header)`
 const StyledHeaderDesktopAbout = styled(Header)`
     min-height: 195.52px;
     height: 100%;
-    margin-top: 140px;
+    margin: 140px auto;
     font-size: 210px;
     letter-spacing: 8px;
     z-index: 3;

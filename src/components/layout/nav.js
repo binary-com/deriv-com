@@ -15,6 +15,7 @@ import {
     Text,
     QueryImage,
 } from 'components/elements'
+import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -394,22 +395,6 @@ const LogoDescription = styled(Flex)`
     }
 `
 
-const DesktopWrapper = styled.div`
-    display: block;
-
-    @media ${device.bp1060} {
-        display: none;
-    }
-`
-
-const MobileWrapper = styled.div`
-    display: none;
-
-    @media ${device.bp1060} {
-        display: flex;
-        width: 100%;
-    }
-`
 const handleLogin = () => {
     redirectToTradingPlatform()
     Login.redirectToLogin()
@@ -684,7 +669,7 @@ export const Nav = ({
         <>
             <NavWrapperMain is_transparent={is_transparent}>
                 <StyledNavMain>
-                    <DesktopWrapper>
+                    <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -695,7 +680,7 @@ export const Nav = ({
                             hide_signup_login={hide_signup_login}
                         />
                     </DesktopWrapper>
-                    <MobileWrapper>
+                    <MobileWrapper media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -776,7 +761,7 @@ export const NavInterim = ({ interim_type }) => (
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <DesktopWrapper>
+                    <DesktopWrapper media={device.bp1060}>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
@@ -789,7 +774,7 @@ export const NavInterim = ({ interim_type }) => (
                             </Flex>
                         </StyledLogo>
                     </DesktopWrapper>
-                    <MobileWrapper>
+                    <MobileWrapper media={device.bp1060}>
                         <LogoLinkMobile
                             to={`/interim/${interim_type}`}
                             aria-label={localize('Home')}
@@ -1129,10 +1114,10 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <DesktopWrapper>
+                                        <DesktopWrapper media={device.bp1060}>
                                             <span>{localize('Affiliate & IB log in')}</span>
                                         </DesktopWrapper>
-                                        <MobileWrapper>
+                                        <MobileWrapper media={device.bp1060}>
                                             <span>{localize('Log in')}</span>
                                         </MobileWrapper>
                                     </LinkMobileLogin>

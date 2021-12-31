@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel.js'
-import Slideshow from 'components/elements/slideshow'
+import PlatformSlideshow from './_platform-slideshow'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
@@ -13,18 +13,6 @@ import { Localize, localize } from 'components/localization'
 const query = graphql`
     query {
         hero_background: file(relativePath: { eq: "home/hero_bg.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform4: file(relativePath: { eq: "home/hero_platform4.png" }) {
             ...homePageHeroFadeIn
         }
     }
@@ -86,13 +74,6 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-
-    const slide_images = [
-        { key: 'hero1', image: data.hero_platform1 },
-        { key: 'hero2', image: data.hero_platform2 },
-        { key: 'hero3', image: data.hero_platform3 },
-        { key: 'hero4', image: data.hero_platform4 },
-    ]
 
     const text = !is_ppc
         ? localize('Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.')
@@ -182,7 +163,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             m="0 auto"
                             tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}
                         >
-                            <Slideshow slides={slide_images} interval={6} />
+                            <PlatformSlideshow />
                         </Flex>
                     </Flex>
                 </Container>

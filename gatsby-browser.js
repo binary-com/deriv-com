@@ -130,7 +130,6 @@ export const onClientEntry = () => {
         addScript({
             src: 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH',
             id: 'gtm-test-container',
-            rel: 'preconnect',
         })
         addScript({
             text: `
@@ -145,7 +144,6 @@ export const onClientEntry = () => {
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',
         async: true,
-        rel: 'preconnect',
     })
 
     checkLiveChatRedirection()

@@ -335,13 +335,16 @@ const OurPlatforms = (): React.ReactElement => {
             width: 100%;
             height: 8px;
             @media ${device.tablet} {
-                bottom: 290px;
+                bottom: 270px;
             }
             @media (max-width: 692px) {
                 bottom: 300px;
             }
             @media (max-width: 410px) {
-                bottom: 300px;
+                bottom: 310px;
+            }
+            @media (max-width: 320px) {
+                bottom: 360px;
             }
         `,
     }

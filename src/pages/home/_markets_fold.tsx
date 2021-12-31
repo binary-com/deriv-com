@@ -162,6 +162,7 @@ const CarouselItem = ({
                 <CarouselItemImage
                     data={image}
                     alt={header}
+                    loading="eager"
                     $hovered={is_hovered}
                     onMouseOver={() => !is_mobile && setHovered(true)}
                     onMouseOut={() => !is_mobile && setHovered(false)}

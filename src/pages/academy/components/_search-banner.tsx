@@ -67,6 +67,9 @@ const StyledLink = styled(LocalizedLink)`
 `
 const SearchResultRows = styled(Flex)`
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 4px;
+    height: 40px;
     background-color: ${(props) => (props.active ? 'var(--color-grey-31)' : 'unset')};
 
     :hover {
@@ -193,7 +196,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [modal_opened, setModal] = useState(false)
     const [search_input_touched, setSearchInputTouched] = useState(false)
     const [suggestion_box_opened, setSuggestionBoxOpened] = useState(false)
-    const [focus_index, updateFocusIndex] = useState(0)
+    const [focus_index, updateFocusIndex] = useState(-1)
     const redirect_link_arr = []
 
     const input_ref = createRef<HTMLInputElement>()
@@ -230,8 +233,10 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (search_input) navigate(`/academy/search?q=${encodeURI(search_input)}`)
+        if (search_input && focus_index === -1)
+            navigate(`/academy/search?q=${encodeURI(search_input)}`)
         setSearchInput('')
+        updateFocusIndex(-1)
         setSuggestionBoxOpened(false)
         input_ref.current.blur()
     }
@@ -251,6 +256,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         setSearchQuery('')
         setSearchInput('')
         setSearchInputTouched(!search_input_touched)
+        updateFocusIndex(-1)
     }
 
     const handleGreyed = (category) => {
@@ -276,26 +282,30 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     }
 
     const handleNavigation = (e) => {
-        switch (e.key) {
-            case 'Enter':
-                if (focus_index !== -1) {
-                    navigate(redirect_link_arr[focus_index])
-                }
+        if (suggestion_box_opened) {
+            switch (e.key) {
+                case 'Enter':
+                    if (focus_index !== -1) {
+                        navigate(redirect_link_arr[focus_index])
+                    }
 
-                break
-            case 'ArrowUp':
-                if (focus_index == 0) {
                     break
-                }
-                if (focus_index > -1) {
-                    updateFocusIndex(focus_index - 1)
-                }
-                break
-            case 'ArrowDown':
-                if (focus_index < 6 - 1) {
-                    updateFocusIndex(focus_index + 1)
-                }
-                break
+                case 'ArrowUp':
+                    e.preventDefault()
+                    if (focus_index == -1) {
+                        break
+                    }
+                    if (focus_index > -1) {
+                        updateFocusIndex(focus_index - 1)
+                    }
+                    break
+                case 'ArrowDown':
+                    e.preventDefault()
+                    if (focus_index < 6 - 1) {
+                        updateFocusIndex(focus_index + 1)
+                    }
+                    break
+            }
         }
     }
 
@@ -347,6 +357,15 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                         max_width="100%"
                                         fd="column"
                                     >
+                                        {search_query && (
+                                            <SearchResultRows
+                                                jc="flex-start"
+                                                ai="center"
+                                                // onMouseDown={handleMouseDown}
+                                                active={focus_index === -1}
+                                                style={{ color: 'var(--color-blue-3)' }}
+                                            >{`Search for: ${search_query}`}</SearchResultRows>
+                                        )}
                                         {data_to_render &&
                                             data_to_render.map((post, idx) => {
                                                 if (idx < 6) {
@@ -367,11 +386,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                                 post.blog_title || post.video_title
                                                             }
                                                             jc="flex-start"
-                                                            style={{
-                                                                fontSize: '16px',
-                                                                marginTop: '4px',
-                                                                height: '40px',
-                                                            }}
+                                                            ai="center"
                                                             onMouseDown={handleMouseDown}
                                                             active={focus_index === idx}
                                                         >

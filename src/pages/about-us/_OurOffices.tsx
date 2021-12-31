@@ -148,7 +148,7 @@ const MapPin = ({ top, left, title, link }) => {
         >
             <Pin />
             {is_pin_show && (
-                <PinContent to={link} anchor>
+                <PinContent locale="en" to={link} anchor>
                     <Text color="black" mr="8px">
                         {title}
                     </Text>

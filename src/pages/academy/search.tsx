@@ -144,6 +144,7 @@ const SearchPage = () => {
                             </Flex>
                         )
                     })}
+                {search_result.length === 0 && <Flex m="2rem">No results found</Flex>}
             </Flex>
         </Layout>
     )

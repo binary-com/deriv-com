@@ -81,7 +81,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
 
     return (
         <HeroWrapper>
-            <BackgroundImage is_unstyled data={data.hero_background}>
+            <BackgroundImage is_unstyled data={data.hero_background} loading="eager">
                 <Container
                     width="100%"
                     max_width="100%"

@@ -33,7 +33,7 @@ const NavAcademy = ({
     const [visible, setVisible] = useState(true)
 
     const handleScroll = () => {
-        const currentScrollPos = window.pageYOffset
+        const currentScrollPos = window.scrollY
         setPrevScrollPos(currentScrollPos)
         setVisible(currentScrollPos > 72)
     }

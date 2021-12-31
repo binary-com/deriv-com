@@ -51,6 +51,10 @@ const TopicItemWrapper = styled(Flex)`
     max-width: 250px;
     height: auto;
 `
+const styled_link_greyed_css = css`
+    pointer-events: none;
+    opacity: 0.32;
+`
 const StyledLink = styled(LocalizedLink)`
     font-weight: normal;
     font-size: 14px;
@@ -59,15 +63,11 @@ const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     margin: 8px 0;
 
-    ${(props) =>
-        props.greyed &&
-        css`
-            pointer-events: none;
-            opacity: 0.32;
-        `}
+    ${(props) => props.greyed && styled_link_greyed_css}
 `
 const SearchResultRows = styled(Flex)`
     cursor: pointer;
+    background-color: ${(props) => (props.active ? 'var(--color-grey-31)' : 'unset')};
 
     :hover {
         background-color: var(--color-grey-31);
@@ -87,6 +87,11 @@ const HoverChevron = styled.div`
     justify-content: center;
     align-items: center;
 `
+const form_wrapper_opened_css = css`
+    position: absolute;
+    top: -24px;
+    padding: 8px 24px 24px;
+`
 const FormWrapper = styled(Flex)<ElementWithMaximiseProp>`
     width: ${(props) => (props.maximise ? '640px' : '400px')};
     background: ${(props) => (props.maximise ? 'white' : 'rgba(236, 241, 247, 0.5)')};
@@ -94,13 +99,7 @@ const FormWrapper = styled(Flex)<ElementWithMaximiseProp>`
     border-radius: ${(props) => (props.result_opened ? '20px' : '40px')};
     overflow: hidden;
 
-    ${(props) =>
-        props.result_opened &&
-        css`
-            position: absolute;
-            top: -24px;
-            padding: 8px 24px 24px;
-        `}
+    ${(props) => props.result_opened && form_wrapper_opened_css}
 `
 const FormContainer = styled.form`
     width: 100%;
@@ -108,6 +107,9 @@ const FormContainer = styled.form`
     margin: 0 auto;
     position: relative;
     border: none;
+`
+const input_wrapper_opened_css = css`
+    border-bottom: 1px solid var(--color-black);
 `
 const InputWrapper = styled.input<ElementWithMaximiseProp>`
     margin: 0 auto;
@@ -139,12 +141,9 @@ const InputWrapper = styled.input<ElementWithMaximiseProp>`
         }
     }
 
-    ${(props) =>
-        props.result_opened &&
-        css`
-            border-bottom: 1px solid var(--color-black);
-        `}
+    ${(props) => props.result_opened && input_wrapper_opened_css}
 `
+
 const SearchIconWrapper = styled.img<ElementWithMaximiseProp>`
     position: absolute;
     cursor: pointer;
@@ -194,6 +193,8 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [modal_opened, setModal] = useState(false)
     const [search_input_touched, setSearchInputTouched] = useState(false)
     const [suggestion_box_opened, setSuggestionBoxOpened] = useState(false)
+    const [focus_index, updateFocusIndex] = useState(0)
+    const redirect_link_arr = []
 
     const input_ref = createRef<HTMLInputElement>()
 
@@ -239,6 +240,13 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         setModal(!modal_opened)
     }
 
+    const handleFocus = () => {
+        setSearchQuery('')
+        setSearchInput('')
+        setSearchInputTouched(!search_input_touched)
+        setModal(false)
+    }
+
     const maximiseSearchInput = () => {
         setSearchQuery('')
         setSearchInput('')
@@ -267,6 +275,30 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         return `/academy/search?category=${slugify(category)}`
     }
 
+    const handleNavigation = (e) => {
+        switch (e.key) {
+            case 'Enter':
+                if (focus_index !== -1) {
+                    navigate(redirect_link_arr[focus_index])
+                }
+
+                break
+            case 'ArrowUp':
+                if (focus_index == 0) {
+                    break
+                }
+                if (focus_index > -1) {
+                    updateFocusIndex(focus_index - 1)
+                }
+                break
+            case 'ArrowDown':
+                if (focus_index < 6 - 1) {
+                    updateFocusIndex(focus_index + 1)
+                }
+                break
+        }
+    }
+
     return (
         <>
             <MainWrapper fd="column" background={hidden}>
@@ -293,11 +325,12 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                             <InputWrapper
                                                 placeholder="What would you like to search?"
                                                 onChange={handleFilterSearch}
-                                                onFocus={maximiseSearchInput}
+                                                onFocus={handleFocus}
                                                 onBlur={maximiseSearchInput}
                                                 value={search_input}
                                                 result_opened={suggestion_box_opened}
                                                 ref={input_ref}
+                                                onKeyDown={handleNavigation}
                                             ></InputWrapper>
                                             <CloseIconWrapper
                                                 maximise={search_input_touched}
@@ -322,6 +355,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                         : `/academy/videos/?t=${slugify(
                                                               post.video_title,
                                                           )}`
+                                                    redirect_link_arr.push(redirect_link)
                                                     const handleMouseDown = (e) => {
                                                         e.preventDefault()
                                                         navigate(redirect_link)
@@ -339,6 +373,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                                 height: '40px',
                                                             }}
                                                             onMouseDown={handleMouseDown}
+                                                            active={focus_index === idx}
                                                         >
                                                             {(post.blog_title &&
                                                                 `Blog Icon - ${post.blog_title}`) ||

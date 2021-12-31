@@ -19,7 +19,6 @@ const SearchPage = () => {
     })
     const { q: search_query, type: items_type, category: category_type } = query
 
-    const filter_types = combined_filter_type
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
     useEffect(() => {
@@ -47,10 +46,6 @@ const SearchPage = () => {
                     - category & type = video
 
             */
-
-        // const search_query = params.get('q')
-        // const items_type = params.get('type')
-        // const category_type = params.get('category')
 
         if (search_query && !items_type) {
             const result_arr = getSearchResult(search_query)

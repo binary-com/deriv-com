@@ -164,7 +164,7 @@ const OurOffices = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our international offices')}
+                {localize('Our global offices')}
             </StyledHeader>
 
             <Flex>
@@ -230,9 +230,15 @@ const OurOffices = () => {
                             title={localize('Labuan')}
                             link="/careers/locations/labuan"
                         />
-                        <MapPin left="45.8%" top="28%" title={localize('London')} link="" />
-                        <MapPin left="47.4%" top="30.9%" title={localize('Paris')} link="" />
-                        <MapPin left="44.5%" top="30.9%" title={localize('Guernsey')} link="" />
+                        {/*  Uncomment after new offices will be shown and add links!  */}
+                        {/* <MapPin left="45.8%" top="28%" title={localize('London')} link="" />
+                        <MapPin left="47.4%" top="30.9%" title={localize('Paris')} link="" /> */}
+                        <MapPin
+                            left="44.5%"
+                            top="30.9%"
+                            title={localize('Guernsey')}
+                            link="/careers/locations/guernsey"
+                        />
                     </MapImage>
                 </Show.Desktop>
                 <Show.Mobile min_width="tablet">
@@ -297,9 +303,15 @@ const OurOffices = () => {
                             title={localize('Labuan')}
                             link="/careers/locations/labuan"
                         />
-                        <MapPin left="44.3%" top="24%" title={localize('London')} link="" />
-                        <MapPin left="45.9%" top="26.9%" title={localize('Paris')} link="" />
-                        <MapPin left="43%" top="26.9%" title={localize('Guernsey')} link="" />
+                        {/*  Uncomment after new offices will be shown and add links!  */}
+                        {/* <MapPin left="44.3%" top="24%" title={localize('London')} link="" />
+                        <MapPin left="45.9%" top="26.9%" title={localize('Paris')} link="" /> */}
+                        <MapPin
+                            left="43%"
+                            top="26.9%"
+                            title={localize('Guernsey')}
+                            link="/careers/locations/guernsey"
+                        />
                     </MapImage>
                 </Show.Mobile>
             </Flex>
@@ -318,7 +330,7 @@ const OurOffices = () => {
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('13')}</NumberHeader>
+                    <NumberHeader size="32px">{localize('11')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('offices')}
                     </NumberText>

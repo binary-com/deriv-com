@@ -23,6 +23,7 @@ import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import UKFlagIcon from 'images/svg/careers/flag_uk.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import { locationsTypes } from './_locations.types'
 
 export const cyberjaya = {
     name: 'cyberjaya',
@@ -347,6 +348,7 @@ export const guernsey = {
     name: 'guernsey',
     link: '/careers/locations/guernsey/',
     display_name: 'Guernsey',
+    img_alt: 'Guernsey alt img',
     map_office_name: '(Guernsey)',
     country: 'Channel Islands',
     flagIcon: ChannelIslandsFlagIcon,
@@ -354,7 +356,9 @@ export const guernsey = {
     first_p:
         'Our office at Guernsey focuses on compliance. A team of dedicated experts provide oversight so that Deriv offices across the world comply with legislative and regulatory requirements. With their vast knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',
     first_img: 'living_in_guernsey',
+    first_img_alt: 'living_in_guernsey alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
     map: 'M8p55z3Wu4EKhQ3A7',
     map_text:
         'At Deriv (Guernsey), we study regulatory landscapes in different Deriv jurisdictions to ensure the right thing is done at all times. We seek self-motivation, attention to detail, and a strong interest in law. Deriv (Guernsey) gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
@@ -363,13 +367,13 @@ export const guernsey = {
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
     has_iframe: false,
 }
-export const all_offices = [
+export const all_offices: locationsTypes[] = [
     // london,
     dubai,
     // paris,
     malta,
     cyprus,
-    // guernsey,
+    guernsey,
     cyberjaya,
     labuan,
     ipoh,
@@ -378,6 +382,7 @@ export const all_offices = [
     rwanda,
     minsk,
 ]
+
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
@@ -391,5 +396,5 @@ export const locations = {
     belarus: `${minsk.display_name}, ${minsk.country}`,
     // france: `${paris.display_name}, ${paris.country}`,
     // uk: `${london.display_name}, ${london.country}`,
-    // guernsey: `${guernsey.display_name}, ${guernsey.country}`,
+    guernsey: `${guernsey.display_name}, ${guernsey.country}`,
 }

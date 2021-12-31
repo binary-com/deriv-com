@@ -6,9 +6,10 @@ import { combined_filter_type } from '../common/_constants'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
+import { useAcademyTags } from 'components/hooks/use-academy-tags'
 import { LocalizedLink } from 'components/localization'
 import AcademyLogo from 'images/svg/blog/academy-logo.svg'
-import { slugify } from 'common/utility'
+import { slugify, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import SearchIcon from 'images/svg/blog/search_icon.svg'
@@ -57,6 +58,13 @@ const StyledLink = styled(LocalizedLink)`
     color: var(--color-black-3);
     text-decoration: none;
     margin: 8px 0;
+
+    ${(props) =>
+        props.greyed &&
+        css`
+            pointer-events: none;
+            opacity: 0.32;
+        `}
 `
 const SearchResultRows = styled(Flex)`
     cursor: pointer;
@@ -180,6 +188,7 @@ type StyledChevronProp = {
 
 const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const { academy_data } = useContext(DerivStore)
+    const [video_tags, blog_tags] = useAcademyTags()
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
     const [modal_opened, setModal] = useState(false)
@@ -234,6 +243,28 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         setSearchQuery('')
         setSearchInput('')
         setSearchInputTouched(!search_input_touched)
+    }
+
+    const handleGreyed = (category) => {
+        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
+            if (video_tags.includes(category)) return false
+            return true
+        }
+        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
+            if (blog_tags.includes(category)) return false
+            return true
+        }
+        return false
+    }
+
+    const handleHref = (category) => {
+        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
+            return `/academy/search?type=video&category=${slugify(category)}`
+        }
+        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
+            return `/academy/search?type=article&category=${slugify(category)}`
+        }
+        return `/academy/search?category=${slugify(category)}`
     }
 
     return (
@@ -360,10 +391,9 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                             return (
                                                 <StyledLink
                                                     key={idx}
-                                                    to={`/academy/search?category=${slugify(
-                                                        item.title,
-                                                    )}`}
+                                                    to={handleHref(item.title)}
                                                     onClick={() => setModal(false)}
+                                                    greyed={handleGreyed(item.title)}
                                                 >
                                                     {item.title}
                                                 </StyledLink>

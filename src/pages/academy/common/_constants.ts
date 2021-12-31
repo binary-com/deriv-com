@@ -62,7 +62,7 @@ export const trade_types: TopicType[] = [
                 title: 'Multipliers',
             },
             {
-                title: 'CFD',
+                title: 'CFDs',
             },
             {
                 title: 'Options',

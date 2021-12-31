@@ -1,7 +1,6 @@
 import React from 'react'
 import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
-import Hero from './home/_hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -23,7 +22,7 @@ const Home = () => {
                 )}
                 has_organization_schema
             />
-            <Hero />
+            {/* <Hero /> */}
             <MarketsFold />
             <TradeTypes />
             <OurPlatforms />

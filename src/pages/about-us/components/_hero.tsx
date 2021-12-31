@@ -63,7 +63,7 @@ const StyledHeader = styled(Header)`
 const StyledHeaderDesktopAbout = styled(Header)`
     min-height: 195.52px;
     height: 100%;
-    margin: 140px auto;
+    margin: 140px auto 70px;
     font-size: 210px;
     letter-spacing: 8px;
     z-index: 3;
@@ -72,7 +72,7 @@ const StyledHeaderDesktopAbout = styled(Header)`
 
 const StyledFlex = styled(Flex)`
     min-height: 400px;
-    width: 1000px;
+    min-width: 1000px;
 `
 
 const FlexHeader = styled(Flex)`

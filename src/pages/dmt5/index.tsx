@@ -83,11 +83,8 @@ const DMT5 = () => {
             <WhyTrader />
             <StartTrader />
             <DownloadApp />
-            {/* TODO: add this section when trade tools are ready */}
-            {/* <TradeControl /> */}
             <MarginCalculator />
             <Flexibility />
-            {/* TODO: add/revise this section when swap free trading design is ready */}
             <SwapFreeTrading />
             <StaticQuery
                 query={query}

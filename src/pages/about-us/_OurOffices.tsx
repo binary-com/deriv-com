@@ -336,7 +336,7 @@ const OurOffices = () => {
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('10')}</NumberHeader>
+                    <NumberHeader size="32px">{localize('8')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('countries')}
                     </NumberText>

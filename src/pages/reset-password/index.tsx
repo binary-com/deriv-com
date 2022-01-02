@@ -135,10 +135,10 @@ const ResetPassword: React.ReactNode = () => {
                                 />
                             </InputGroup>
                             <Text align="center" color="red">
-                                {status.error && status.error}
+                                {status.error}
                             </Text>
                             <Text align="center" color="green">
-                                {status.success && status.success}
+                                {status.success}
                             </Text>
                             <ButtonContainer>
                                 <StyledButton

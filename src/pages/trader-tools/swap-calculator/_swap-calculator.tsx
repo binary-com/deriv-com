@@ -409,7 +409,7 @@ const SwapCalculator = () => {
                                                 alt={localize('swap synthetic formula mobile')}
                                             />
                                         </Show.Mobile>
-                                        <FormulaText size="14px">
+                                        <FormulaText>
                                             <StyledOl>
                                                 <li>
                                                     <span>
@@ -683,7 +683,7 @@ const SwapCalculator = () => {
                                 </Formik>
                             </SwapFormWrapper>
 
-                            <RightContent direction="column" max_width="69rem">
+                            <RightContent>
                                 <Header as="h3" type="section-title" mb="8px">
                                     {localize('How to calculate swap charges')}
                                 </Header>
@@ -735,7 +735,7 @@ const SwapCalculator = () => {
                                                 alt={localize('Swap forex formula mobile')}
                                             />
                                         </Show.Mobile>
-                                        <FormulaText size="14px">
+                                        <FormulaText>
                                             <StyledOl>
                                                 <li>
                                                     <span>

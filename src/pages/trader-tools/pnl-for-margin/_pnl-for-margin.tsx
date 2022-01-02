@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import * as React from 'react'
+import { useState, useRef } from 'react'
 import { Field, Formik } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -101,26 +102,29 @@ const PnlMarginCalculator = () => {
             }
         }
     `
+
     const data = useStaticQuery(query)
-    const formik_ref = useRef()
+    const formik_ref = useRef(null)
     const form = formik_ref.current
 
     const [tab, setTab] = useState('Buy')
     const [sub_tab, setSubTab] = useState('Synthetic')
     // These additional states have been created to track the first output (levels)
     // from the calculator in order to rerender the second output (pips)
-    const [stop_loss_output, setStopLossOutput] = useState(0)
-    const [take_profit_output, setTakeProfitOutput] = useState(0)
+    const [stop_loss_output, setStopLossOutput] = useState('0')
+    const [take_profit_output, setTakeProfitOutput] = useState('0')
 
     const onTabClick = (tab) => {
         setTab(tab)
-        form?.resetForm({})
-        form?.setErrors({})
-        form?.setFieldValue('accountType', sub_tab === 'Synthetic' ? 'Synthetic' : 'Financial')
-        form?.setFieldValue(
-            'optionList',
-            sub_tab === 'Synthetic' ? syntheticItemLists : financialItemLists,
-        )
+        if (form) {
+            form.resetForm({})
+            form.setErrors({})
+            form.setFieldValue('accountType', sub_tab === 'Synthetic' ? 'Synthetic' : 'Financial')
+            form.setFieldValue(
+                'optionList',
+                sub_tab === 'Synthetic' ? syntheticItemLists : financialItemLists,
+            )
+        }
     }
     const onSubTabClick = (tab) => setSubTab(tab)
 
@@ -138,8 +142,8 @@ const PnlMarginCalculator = () => {
             )
             // The 2 calls below is to reset the output state in order
             // prevent the pip output from displaying NAN
-            setStopLossOutput(0)
-            setTakeProfitOutput(0)
+            setStopLossOutput('0')
+            setTakeProfitOutput('0')
         }
     }, [stop_loss_output, take_profit_output])
 
@@ -348,7 +352,7 @@ const PnlMarginCalculator = () => {
                                                         active={sub_tab === 'Synthetic'}
                                                         onClick={() => {
                                                             onSubTabClick('Synthetic')
-                                                            setErrors()
+                                                            setErrors({})
                                                             resetForm()
                                                         }}
                                                     >
@@ -361,7 +365,7 @@ const PnlMarginCalculator = () => {
                                                         disabled={sub_tab === 'Financial'}
                                                         onClick={() => {
                                                             onSubTabClick('Financial')
-                                                            setErrors()
+                                                            setErrors({})
                                                             resetForm()
                                                             setFieldValue(
                                                                 'accountType',
@@ -781,7 +785,7 @@ const PnlMarginCalculator = () => {
                                                         active={sub_tab === 'Synthetic'}
                                                         onClick={() => {
                                                             onSubTabClick('Synthetic')
-                                                            setErrors()
+                                                            setErrors({})
                                                             resetForm()
                                                         }}
                                                     >
@@ -794,7 +798,7 @@ const PnlMarginCalculator = () => {
                                                         disabled={sub_tab === 'Financial'}
                                                         onClick={() => {
                                                             onSubTabClick('Financial')
-                                                            setErrors()
+                                                            setErrors({})
                                                             resetForm()
                                                             setFieldValue(
                                                                 'accountType',
@@ -1154,7 +1158,7 @@ const PnlMarginCalculator = () => {
                                             alt={localize('stop loss level formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>
@@ -1182,7 +1186,7 @@ const PnlMarginCalculator = () => {
                                             alt={localize('stop loss pip formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>
@@ -1289,7 +1293,7 @@ const PnlMarginCalculator = () => {
                                             alt={localize('take profit level formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>
@@ -1317,7 +1321,7 @@ const PnlMarginCalculator = () => {
                                             alt={localize('take profit pip formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>

@@ -8,6 +8,11 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+type ColumnType = {
+    margin_left?: string
+    margin_right?: string
+}
+
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 0;
@@ -26,7 +31,8 @@ const ToolWrapper = styled(Flex)`
         max-width: 500px;
     }
 `
-const Column = styled.div`
+
+const Column = styled.div<ColumnType>`
     width: 100%;
     height: 100%;
     margin-right: ${(props) => props.margin_right};
@@ -125,7 +131,7 @@ const TradingTools = ({ tools }) => {
         <StyledSection background="white">
             <Container fd="column">
                 {tools.map((item, index) => {
-                    let is_even = isIndexEven(index)
+                    const is_even = isIndexEven(index)
                     return (
                         <>
                             <ToolWrapper

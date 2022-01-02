@@ -1084,7 +1084,7 @@ const PnlMultipliersCalculator = () => {
                                             alt={localize('stop loss level up formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>
@@ -1125,7 +1125,7 @@ const PnlMultipliersCalculator = () => {
                                             alt={localize('take profit level down formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>
@@ -2107,7 +2107,7 @@ const PnlMultipliersCalculator = () => {
                                             alt={localize('take profit amount up formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>
@@ -2148,7 +2148,7 @@ const PnlMultipliersCalculator = () => {
                                             alt={localize('stop loss amount down formula')}
                                         />
                                     </Show.Mobile>
-                                    <FormulaText size="14px">
+                                    <FormulaText>
                                         <StyledOl>
                                             <li>
                                                 <span>

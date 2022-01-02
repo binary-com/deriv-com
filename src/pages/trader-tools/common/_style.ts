@@ -6,6 +6,16 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
 
+type CalculatorTabItemType = {
+    active?: React.ReactNode
+    disabled?: React.ReactNode
+}
+
+type PnlCalculatorTabItemType = {
+    active?: React.ReactNode
+    disabled?: React.ReactNode
+}
+
 export const Hero = styled(Flex)`
     height: 40rem;
     background: var(--color-black);
@@ -310,7 +320,7 @@ const CalculatorTabItemStyles = css`
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
-    ${(props) =>
+    ${(props: { active: string }) =>
         props.active
             ? css`
                   pointer-events: none;
@@ -333,7 +343,7 @@ const CalculatorTabItemStyles = css`
     }
 `
 
-export const CalculatorTabItem = styled.div`
+export const CalculatorTabItem = styled.div<CalculatorTabItemType>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {
@@ -341,7 +351,7 @@ export const CalculatorTabItem = styled.div`
     }
 `
 
-export const PnlCalculatorTabItem = styled.div`
+export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemType>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {

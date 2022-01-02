@@ -1,7 +1,7 @@
 {
     "include": ["./src/**/*", "./src/custom.d.ts"],
-      "jsx": "react",
-      "compilerOptions": {
+    "jsx": "react",
+    "compilerOptions": {
         "baseUrl": "src",
         "jsx": "preserve",
         "esModuleInterop": true,
@@ -9,6 +9,7 @@
         "emitDecoratorMetadata": true,
         "noEmit": true,
         "skipLibCheck": true,
-        "moduleResolution": "node"
-      }
+        "moduleResolution": "node",
+        "lib": ["dom", "dom.iterable", "ES2021.String"]
+    }
 }

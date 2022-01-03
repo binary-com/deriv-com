@@ -1,4 +1,4 @@
-import React, { FocusEvent } from 'react'
+import React, { MouseEventHandler } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { ImageDataLike } from 'gatsby-plugin-image'
@@ -108,10 +108,14 @@ const ModalFlex = styled(Flex)`
         top: 98px;
     }
 `
+type MouseEvent = React.MouseEventHandler<HTMLDivElement> &
+    ((event: MouseEventHandler<HTMLDivElement>) => void)
 type StyledImageWrapperPropsType = ImageWrapperProps & {
-    onMouseOver: (event: FocusEvent<any>) => void
-    onMouseLeave: (event: FocusEvent<any>) => void
+    onMouseOver: MouseEvent
+    onMouseLeave: MouseEvent
     tabindex: string
+    width: string
+    height: string
 }
 const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
     display: flex;
@@ -141,9 +145,7 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
     @media ${device.mobileL} {
         width: 88px;
         height: 108px;
-    }
-    
-   
+    }  
 }
 `
 
@@ -187,13 +189,10 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
             >
                 {position}
             </Header>
-            {/* Tom doesn't have linkedin page so we don't use LocalizedLink */}
-            {link ? (
+            {link && (
                 <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
                     <StyledLogo src={Linkedin} alt="" link={link} />
                 </LocalizedLink>
-            ) : (
-                <StyledLogo src={Linkedin} alt="" link={link} />
             )}
         </ModalFlex>
     )
@@ -211,10 +210,10 @@ type LeaderProps = {
 }
 const Leader = ({ leader }: LeaderProps) => {
     const [isPopupShown, setIsPopupShown] = React.useState(false)
-    const showModal = (event: FocusEvent<any>) => {
+    const showModal: MouseEvent = () => {
         setIsPopupShown(true)
     }
-    const dontShowModal = (event: FocusEvent<any>) => {
+    const dontShowModal: MouseEvent = () => {
         setIsPopupShown(false)
     }
     return (

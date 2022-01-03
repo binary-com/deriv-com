@@ -1,11 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import BackgroundPattern from 'images/svg/landing/ebook-intro-bg.svg'
 import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
+
+type ImageTextProps = {
+    imageWidth: number
+    introImage: string
+    introList?: string[]
+    introPara: string
+    subPara: string
+}
 
 const BackgroundWrapper = styled.div`
     width: 100%;
@@ -91,7 +98,7 @@ const MediaItemList = styled.ul`
     font-size: 20px;
 `
 
-const ImageText = ({ introImage, imageWidth, introPara, subPara, introList }) => {
+const ImageText = ({ introImage, imageWidth, introPara, subPara, introList }: ImageTextProps) => {
     return (
         <BackgroundWrapper>
             <MediaWrapper>
@@ -138,14 +145,6 @@ const ImageText = ({ introImage, imageWidth, introPara, subPara, introList }) =>
             </MediaWrapper>
         </BackgroundWrapper>
     )
-}
-
-ImageText.propTypes = {
-    imageWidth: PropTypes.number,
-    introImage: PropTypes.any,
-    introList: PropTypes.array,
-    introPara: PropTypes.string,
-    subPara: PropTypes.string,
 }
 
 export default ImageText

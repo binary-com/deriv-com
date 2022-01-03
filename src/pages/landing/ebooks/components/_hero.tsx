@@ -1,12 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import GetEbook from './_get-ebook'
 import { Flex, Box } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+
+type HeroProps = {
+    authorDesc: string
+    authorName: string
+    bg: string
+    bgMobile: string
+    color: string
+    ebook_utm_code: string
+    introMain: string
+    introSub: string
+    mainHeaderImage: any
+}
 
 const MainWrapper = styled(Box)`
     background-image: ${(props) => props.bg};
@@ -49,7 +60,7 @@ const Hero = ({
     introMain,
     introSub,
     mainHeaderImage,
-}) => {
+}: HeroProps) => {
     const [is_mobile] = useBrowserResize()
     return (
         <MainWrapper width="100%" p="4%" bg={bg} tablet={{ bg: { bgMobile } }}>
@@ -134,18 +145,6 @@ const Hero = ({
             </HeaderBody>
         </MainWrapper>
     )
-}
-
-Hero.propTypes = {
-    authorDesc: PropTypes.string,
-    authorName: PropTypes.string,
-    bg: PropTypes.any,
-    bgMobile: PropTypes.any,
-    color: PropTypes.string,
-    ebook_utm_code: PropTypes.string,
-    introMain: PropTypes.string,
-    introSub: PropTypes.string,
-    mainHeaderImage: PropTypes.any,
 }
 
 export default Hero

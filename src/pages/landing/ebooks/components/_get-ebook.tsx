@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import Login from 'common/login'
@@ -16,6 +15,12 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
+
+type GetEbbokProps = {
+    color?: string
+    ebook_utm_code: string
+    onSubmit?: (submit_status: string, email: string) => void
+}
 
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
@@ -175,7 +180,7 @@ const EmailImage = styled.img`
     width: 20rem;
 `
 
-const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }) => {
+const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbbokProps) => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -392,12 +397,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }) =>
             </div>
         </SignupFormWrapper>
     )
-}
-
-GetEbook.propTypes = {
-    color: PropTypes.string,
-    ebook_utm_code: PropTypes.string,
-    onSubmit: PropTypes.func,
 }
 
 export default GetEbook

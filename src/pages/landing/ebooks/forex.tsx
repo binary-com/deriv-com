@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import Introduction from './components/_introduction'
 import HeaderSection from './components/_header'
@@ -8,6 +7,10 @@ import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
+
+type ForexEbookProps = {
+    language: string
+}
 
 const introPoints = [
     localize('The basics of forex trading'),
@@ -46,7 +49,7 @@ const query = graphql`
     }
 `
 
-const ForexEbook = (props) => {
+const ForexEbook = (props: ForexEbookProps) => {
     const { language } = props
     let lng = language
     if (lng != 'es') {
@@ -87,10 +90,6 @@ const ForexEbook = (props) => {
             <Topics topicsImage={data[`forex_ebook_inside_${lng}`]} topicsList={topicsCovered} />
         </Layout>
     )
-}
-
-ForexEbook.propTypes = {
-    language: PropTypes.string,
 }
 
 export default WithIntl()(ForexEbook)

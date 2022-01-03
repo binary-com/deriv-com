@@ -1,11 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import GetEbook from './_get-ebook'
 import { Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
+
+type HeaderImageProps = {
+    imgWidth: number
+    imgHeight: number
+}
+
+type HeaderSectionProps = {
+    authorDesc: string
+    authorName: string
+    bg?: string
+    bgMobile?: string
+    ebook_utm_code: string
+    imgHeight: number
+    imgWidth: number
+    introMain: string
+    introSub: string
+    mainHeaderImage: any
+}
 
 const MainWrapper = styled(Flex)`
     width: 100%;
@@ -48,7 +65,8 @@ const TopHeaderImgWrapper = styled(Flex)`
         margin-top: -70px;
     }
 `
-const HeaderImage = styled(QueryImage)`
+
+const HeaderImage = styled(QueryImage)<HeaderImageProps>`
     width: ${(props) => (props.imgWidth ? `${props.imgWidth}px` : '557px')};
     height: ${(props) => (props.imgHeight ? `${props.imgHeight}px` : '703px')};
     position: relative;
@@ -149,7 +167,7 @@ const HeaderSection = ({
     bg,
     bgMobile,
     ebook_utm_code,
-}) => {
+}: HeaderSectionProps) => {
     return (
         <MainWrapper bg={bg} bgMobile={bgMobile}>
             <HeaderBody>
@@ -226,19 +244,6 @@ const HeaderSection = ({
             </HeaderBody>
         </MainWrapper>
     )
-}
-
-HeaderSection.propTypes = {
-    authorDesc: PropTypes.string,
-    authorName: PropTypes.string,
-    bg: PropTypes.any,
-    bgMobile: PropTypes.any,
-    ebook_utm_code: PropTypes.string,
-    imgHeight: PropTypes.number,
-    imgWidth: PropTypes.number,
-    introMain: PropTypes.any,
-    introSub: PropTypes.any,
-    mainHeaderImage: PropTypes.any,
 }
 
 export default HeaderSection

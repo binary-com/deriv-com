@@ -78,7 +78,7 @@ const resetSubmission = (values, actions) => {
 const ResetPassword: React.ReactNode = () => {
     const initialValues: EmailType = { email: '' }
     return (
-        <Layout type="static" margin_top={'0'}>
+        <Layout type="static" margin_top="0">
             <SEO
                 title={localize('Reset password | Deriv')}
                 description={localize(

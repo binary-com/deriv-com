@@ -164,7 +164,7 @@ const OurOffices = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our international offices')}
+                {localize('Our global offices')}
             </StyledHeader>
 
             <Flex>
@@ -207,20 +207,20 @@ const OurOffices = () => {
                             link="/careers/locations/dubai"
                         />
                         <MapPin
-                            left="73.5%"
-                            top="58.5%"
+                            left="73.3%"
+                            top="57.5%"
                             title={localize('Ipoh')}
                             link="/careers/locations/ipoh"
                         />
                         <MapPin
-                            left="74%"
-                            top="59.2%"
+                            left="74.2%"
+                            top="58.5%"
                             title={localize('Cyberjaya')}
                             link="/careers/locations/cyberjaya"
                         />
                         <MapPin
                             left="74.2%"
-                            top="60.4%"
+                            top="60.6%"
                             title={localize('Melaka')}
                             link="/careers/locations/melaka"
                         />
@@ -230,9 +230,15 @@ const OurOffices = () => {
                             title={localize('Labuan')}
                             link="/careers/locations/labuan"
                         />
-                        <MapPin left="45.8%" top="28%" title={localize('London')} link="" />
-                        <MapPin left="47.4%" top="30.9%" title={localize('Paris')} link="" />
-                        <MapPin left="44.5%" top="30.9%" title={localize('Guernsey')} link="" />
+                        {/*  Uncomment after new offices will be shown and add links!  */}
+                        {/* <MapPin left="45.8%" top="28%" title={localize('London')} link="" />
+                        <MapPin left="47.4%" top="30.9%" title={localize('Paris')} link="" /> */}
+                        <MapPin
+                            left="44.5%"
+                            top="30.9%"
+                            title={localize('Guernsey')}
+                            link="/careers/locations/guernsey"
+                        />
                     </MapImage>
                 </Show.Desktop>
                 <Show.Mobile min_width="tablet">
@@ -274,20 +280,20 @@ const OurOffices = () => {
                             link="/careers/locations/dubai"
                         />
                         <MapPin
-                            left="72%"
-                            top="53.2%"
+                            left="72.3%"
+                            top="51.2%"
                             title={localize('Ipoh')}
                             link="/careers/locations/ipoh"
                         />
                         <MapPin
-                            left="72%"
+                            left="71%"
                             top="55%"
                             title={localize('Cyberjaya')}
                             link="/careers/locations/cyberjaya"
                         />
                         <MapPin
                             left="73%"
-                            top="56.2%"
+                            top="56.7%"
                             title={localize('Melaka')}
                             link="/careers/locations/melaka"
                         />
@@ -297,9 +303,15 @@ const OurOffices = () => {
                             title={localize('Labuan')}
                             link="/careers/locations/labuan"
                         />
-                        <MapPin left="44.3%" top="24%" title={localize('London')} link="" />
-                        <MapPin left="45.9%" top="26.9%" title={localize('Paris')} link="" />
-                        <MapPin left="43%" top="26.9%" title={localize('Guernsey')} link="" />
+                        {/*  Uncomment after new offices will be shown and add links!  */}
+                        {/* <MapPin left="44.3%" top="24%" title={localize('London')} link="" />
+                        <MapPin left="45.9%" top="26.9%" title={localize('Paris')} link="" /> */}
+                        <MapPin
+                            left="43%"
+                            top="26.9%"
+                            title={localize('Guernsey')}
+                            link="/careers/locations/guernsey"
+                        />
                     </MapImage>
                 </Show.Mobile>
             </Flex>
@@ -318,13 +330,13 @@ const OurOffices = () => {
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('13')}</NumberHeader>
+                    <NumberHeader size="32px">{localize('11')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('offices')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('10')}</NumberHeader>
+                    <NumberHeader size="32px">{localize('8')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('countries')}
                     </NumberText>

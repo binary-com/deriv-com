@@ -355,13 +355,14 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
 
     return (
         <>
-            <Hero
-                display_name={display_name}
-                name={location.name}
-                img_data={images[location.name]}
-            />
+            <Hero display_name={display_name} img_data={images[location.name]} />
             <FirstSection>
-                <SecondStyledHeader align="center" as="h2" size="var(--text-size-header-5)">
+                <SecondStyledHeader
+                    type="unset"
+                    align="center"
+                    as="h2"
+                    size="var(--text-size-header-5)"
+                >
                     Deriv in {display_name}
                 </SecondStyledHeader>
                 <Flex tablet_direction="column">
@@ -378,7 +379,13 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
             </FirstSection>
             <SecondSection padding="0px 16px">
                 <SectionContainer padding="0">
-                    <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
+                    <Header
+                        type="unset"
+                        align="center"
+                        as="h2"
+                        size="var(--text-size-header-5)"
+                        mb="4rem"
+                    >
                         Our office
                     </Header>
                     <StyledFlex>

@@ -20,13 +20,17 @@ const Wrapper = styled(Flex)`
     }
 `
 
-const LinkText = styled.a`
+type LinkTextProps = {
+    sm?: boolean
+}
+
+const LinkText = styled.a<LinkTextProps>`
     color: var(--color-red);
     text-decoration: none;
-    font-size: 20px;
+    font-size: ${({ sm }) => (sm ? '14px' : '20px')};
 
     @media ${device.tabletL} {
-        font-size: 16px;
+        font-size: ${({ sm }) => (sm ? '12px' : '16px')};
     }
 `
 
@@ -45,6 +49,10 @@ const ImageWrap = styled.div`
         padding: 24px 0 0;
         margin: 0 auto;
     }
+`
+
+const StyledHeader = styled(Header)`
+    text-align: center;
 `
 
 const query = graphql`
@@ -66,7 +74,7 @@ const SubmitABugReport = (): ReactElement => {
 
     return (
         <SectionContainer>
-            <Container>
+            <Container direction="column">
                 <Wrapper>
                     <TextWrap>
                         <Header type="heading-2" as="h2" color="white">
@@ -94,6 +102,13 @@ const SubmitABugReport = (): ReactElement => {
                         />
                     </ImageWrap>
                 </Wrapper>
+
+                <StyledHeader type="paragraph-2" mt="8px" as="p" weight="normal">
+                    <Localize
+                        translate_text="Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program."
+                        components={[<LinkText key={0} href="/terms-and-conditions/" sm />]}
+                    />
+                </StyledHeader>
             </Container>
         </SectionContainer>
     )

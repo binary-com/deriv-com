@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Carousel, Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -10,6 +9,14 @@ import OptionsLogo from 'images/svg/trade-types/options.svg'
 import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { DerivStore } from 'store'
+
+type TradeTypeSlideProps = {
+    description: React.ReactNode
+    icon: React.ReactNode
+    link: string
+    linkTitle: string
+    title: React.ReactNode
+}
 
 const StyledSection = styled(SectionContainer)`
     display: flex;
@@ -46,7 +53,7 @@ const CustomLinkWrap = styled.div`
     align-items: center;
 `
 
-const TradeTypeSlide = ({ description, icon, link, linkTitle, title }) => {
+const TradeTypeSlide = ({ description, icon, link, linkTitle, title }: TradeTypeSlideProps) => {
     return (
         <Flex ai="center">
             <StyledLink aria_label={linkTitle} to={link}>
@@ -76,14 +83,6 @@ const TradeTypeSlide = ({ description, icon, link, linkTitle, title }) => {
             </StyledLink>
         </Flex>
     )
-}
-
-TradeTypeSlide.propTypes = {
-    description: PropTypes.any,
-    icon: PropTypes.any,
-    link: PropTypes.any,
-    linkTitle: PropTypes.any,
-    title: PropTypes.any,
 }
 
 const TradeTypesMobile = () => {

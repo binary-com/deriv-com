@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -10,6 +9,11 @@ import CommoditiesIcon from 'images/svg/markets/commodities.svg'
 import ForexIcon from 'images/svg/markets/forex.svg'
 import StockIcon from 'images/svg/markets/stock.svg'
 import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
+
+type MarketsProps = {
+    is_ppc: boolean
+}
+
 // Images
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
@@ -28,7 +32,11 @@ const MarketWrapper = styled(Flex)`
         }
     }
 `
-const MarketCard = styled.article`
+type MarketCardProps = {
+    mb?: string
+    mr?: string
+}
+const MarketCard = styled.article<MarketCardProps>`
     display: flex;
     margin-bottom: ${(props) => props.mb || ''};
     margin-right: ${(props) => props.mr || ''};
@@ -73,7 +81,7 @@ const MarketLink = styled(LocalizedLinkText)`
     margin-top: 0.8rem;
 `
 
-const Markets = ({ is_ppc }) => (
+const Markets = ({ is_ppc }: MarketsProps) => (
     <StyledSection>
         <Container direction="column">
             <Header align="center" as="h3" type="section-title">
@@ -158,9 +166,5 @@ const Markets = ({ is_ppc }) => (
         </Container>
     </StyledSection>
 )
-
-Markets.propTypes = {
-    is_ppc: PropTypes.bool,
-}
 
 export default Markets

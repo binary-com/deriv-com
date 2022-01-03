@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Carousel from './_testimonial-carousel'
 import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -9,6 +8,12 @@ import device from 'themes/device'
 import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
 
+type ClientSlideProps = {
+    date: string
+    key: string
+    name: string
+    quote: React.ReactNode
+}
 const StyledContainer = styled.div`
     background-color: var(--color-grey-25);
     width: 100%;
@@ -243,7 +248,7 @@ const testimonial_slides = [
     },
 ]
 
-const ClientSlide = ({ quote, name, date }) => (
+const ClientSlide = ({ quote, name, date }: ClientSlideProps) => (
     <Flex direction="column" height="100%" jc="space-between">
         <ClientTestimonial size={'24px'} weight={400} lh={'36px'} className="flexi-item">
             {quote}
@@ -256,13 +261,6 @@ const ClientSlide = ({ quote, name, date }) => (
         </Flex>
     </Flex>
 )
-
-ClientSlide.propTypes = {
-    date: PropTypes.string,
-    id: PropTypes.string,
-    name: PropTypes.string,
-    quote: PropTypes.node,
-}
 
 const WhatOurClientsSay = () => {
     useEffect(() => {

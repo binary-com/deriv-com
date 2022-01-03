@@ -1,13 +1,16 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
-import PropTypes from 'prop-types'
-import VerticalCarousel from './_vertical-carousel.js'
+import VerticalCarousel from './_vertical-carousel'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, Box, Flex, Show } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
+
+type HeroProps = {
+    is_ppc: boolean
+}
 
 const query = graphql`
     query {
@@ -111,7 +114,7 @@ const ImageWrapper = styled(Box)`
         width: unset;
     }
 `
-const Hero = ({ is_ppc }) => {
+const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
         ? localize('Trade forex, commodities, synthetic indices, stocks, and stock indices.')
@@ -128,7 +131,7 @@ const Hero = ({ is_ppc }) => {
     }
 
     React.useEffect(() => {
-        let start_animations_timeout = setTimeout(() => {
+        const start_animations_timeout = setTimeout(() => {
             typeWriterAnimation()
         }, 1200)
         setFirstLoad(true)
@@ -208,10 +211,6 @@ const Hero = ({ is_ppc }) => {
             </StyledContainer>
         </HeroWrapper>
     )
-}
-
-Hero.propTypes = {
-    is_ppc: PropTypes.bool,
 }
 
 export default Hero

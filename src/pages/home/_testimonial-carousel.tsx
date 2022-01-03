@@ -1,5 +1,4 @@
 import React, { Children, useState, useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import ArrowLeft from 'images/svg/testimonials/arrow-left.svg'
@@ -7,6 +6,12 @@ import ArrowRight from 'images/svg/testimonials/arrow-right.svg'
 import ArrowLeftFade from 'images/svg/testimonials/arrow-left-fade.svg'
 import ArrowRightFade from 'images/svg/testimonials/arrow-right-fade.svg'
 import device from 'themes/device'
+
+type TestimonialCarouselProps = {
+    children?: React.ReactNode
+    default_active?: number
+    height?: string
+}
 
 const CarouselItem = styled(Flex)`
     overflow: hidden;
@@ -110,7 +115,11 @@ const renderNavigations = (count, active, setActive, animate) => {
     return <React.Fragment />
 }
 
-const TestimonialCarousel = ({ children, default_active = 0, height = '295px' }) => {
+const TestimonialCarousel = ({
+    children,
+    default_active = 0,
+    height = '295px',
+}: TestimonialCarouselProps) => {
     const [active, setActive] = useState(default_active)
     const children_array = Children.toArray(children)
     const container_ref = useRef(null)
@@ -192,12 +201,6 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
             {navigations}
         </Flex>
     )
-}
-
-TestimonialCarousel.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    default_active: PropTypes.number,
-    height: PropTypes.string,
 }
 
 export default TestimonialCarousel

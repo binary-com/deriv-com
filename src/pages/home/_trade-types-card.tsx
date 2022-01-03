@@ -1,9 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+
+type TradeTypesCardProps = {
+    description: React.ReactNode
+    icon: React.ReactNode
+    link: string
+    linkTitle: string
+    title: React.ReactNode
+}
 
 const CustomLinkWrap = styled.div`
     display: flex;
@@ -67,7 +74,7 @@ const StyledCard = styled(LocalizedLink)`
     }
 `
 
-const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
+const TradeTypesCard = ({ icon, title, description, link, linkTitle }: TradeTypesCardProps) => {
     return (
         <StyledCard aria_label={linkTitle} to={link}>
             <CustomWrap>
@@ -83,14 +90,6 @@ const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
             </CustomLinkWrap>
         </StyledCard>
     )
-}
-
-TradeTypesCard.propTypes = {
-    description: PropTypes.any,
-    icon: PropTypes.any,
-    link: PropTypes.any,
-    linkTitle: PropTypes.any,
-    title: PropTypes.any,
 }
 
 export default TradeTypesCard

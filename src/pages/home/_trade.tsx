@@ -1,11 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
+
+type TradeProps = {
+    is_ppc_redirect: boolean
+}
+
+type ImageWraperProps = {
+    is_selected: boolean
+}
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -13,7 +20,7 @@ const platforms = Object.freeze({
     mt5: 'dmt5',
 })
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<ImageWraperProps>`
     height: 100%;
     width: 100%;
     max-width: 65.7rem;
@@ -46,7 +53,7 @@ const query = graphql`
     }
 `
 
-const Trade = ({ is_ppc_redirect }) => {
+const Trade = ({ is_ppc_redirect }: TradeProps) => {
     const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
@@ -114,10 +121,6 @@ const Trade = ({ is_ppc_redirect }) => {
             </Container>
         </StyledSection>
     )
-}
-
-Trade.propTypes = {
-    is_ppc_redirect: PropTypes.bool,
 }
 
 export default Trade

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
@@ -53,6 +53,10 @@ const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     z-index: 2;
 `
 
+const StyledLink = styled(LocalizedLink)`
+    text-decoration: none;
+`
+
 const market_data = [
     {
         header: localize('Forex'),
@@ -60,6 +64,7 @@ const market_data = [
             'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
         ),
         img_name: 'market_forex',
+        to: '/markets/forex/',
         gradient_start: '#661B20',
         gradient_end: '#190708',
     },
@@ -69,6 +74,7 @@ const market_data = [
             'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
         ),
         img_name: 'market_synthetic_indices',
+        to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
     },
@@ -78,6 +84,7 @@ const market_data = [
             'Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market.',
         ),
         img_name: 'market_stocks_indices',
+        to: '/markets/stock/',
         gradient_start: '#2A2040',
         gradient_end: '#0A0810',
     },
@@ -87,6 +94,7 @@ const market_data = [
             'Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet.',
         ),
         img_name: 'market_crypto',
+        to: '/markets/cryptocurrencies/',
         gradient_start: '#664407',
         gradient_end: '#191102',
     },
@@ -96,6 +104,7 @@ const market_data = [
             'Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action.',
         ),
         img_name: 'market_commodities',
+        to: '/markets/commodities/',
         gradient_start: '#183046',
         gradient_end: '#060C11',
     },
@@ -127,6 +136,7 @@ type CarouselItemProps = {
     image: ImageDataLike
     gradient_start: string
     gradient_end: string
+    url: string
 }
 
 const CarouselItem = ({
@@ -135,6 +145,7 @@ const CarouselItem = ({
     image,
     gradient_start,
     gradient_end,
+    url,
 }: CarouselItemProps) => {
     const [is_hovered, setHovered] = useState(false)
     const [is_mobile] = useBrowserResize()
@@ -145,30 +156,37 @@ const CarouselItem = ({
             onMouseOut={() => !is_mobile && setHovered(false)}
             onClick={() => is_mobile && setHovered(!is_hovered)}
         >
-            <CarouselItemContainer
-                direction="column"
-                jc="flex-start"
-                width="282px"
-                gradient_start={gradient_start}
-                gradient_end={gradient_end}
-                p="32px 32px 0"
-            >
-                <Header color="white" type="subtitle-1" mb="8px">
-                    {header}
-                </Header>
-                <StyledDescription lh="24px" color="white" type="paragraph-1" $hovered={is_hovered}>
-                    {description}
-                </StyledDescription>
-                <CarouselItemImage
-                    data={image}
-                    alt={header}
-                    loading="eager"
-                    $hovered={is_hovered}
-                    onMouseOver={() => !is_mobile && setHovered(true)}
-                    onMouseOut={() => !is_mobile && setHovered(false)}
-                    onClick={() => is_mobile && setHovered(!is_hovered)}
-                />
-            </CarouselItemContainer>
+            <StyledLink to={url}>
+                <CarouselItemContainer
+                    direction="column"
+                    jc="flex-start"
+                    width="282px"
+                    gradient_start={gradient_start}
+                    gradient_end={gradient_end}
+                    p="32px 32px 0"
+                >
+                    <Header color="white" type="subtitle-1" mb="8px">
+                        {header}
+                    </Header>
+                    <StyledDescription
+                        lh="24px"
+                        color="white"
+                        type="paragraph-1"
+                        $hovered={is_hovered}
+                    >
+                        {description}
+                    </StyledDescription>
+                    <CarouselItemImage
+                        data={image}
+                        alt={header}
+                        loading="eager"
+                        $hovered={is_hovered}
+                        onMouseOver={() => !is_mobile && setHovered(true)}
+                        onMouseOut={() => !is_mobile && setHovered(false)}
+                        onClick={() => is_mobile && setHovered(!is_hovered)}
+                    />
+                </CarouselItemContainer>
+            </StyledLink>
         </ItemWrapper>
     )
 }
@@ -212,7 +230,7 @@ const MarketsFold = (): ReactElement => {
                 </Flex>
                 <Carousel {...settings}>
                     {market_data.map((market, index) => {
-                        const { header, description, img_name, gradient_start, gradient_end } =
+                        const { header, description, img_name, gradient_start, gradient_end, to } =
                             market
 
                         return (
@@ -223,6 +241,7 @@ const MarketsFold = (): ReactElement => {
                                 image={data[img_name]}
                                 gradient_start={gradient_start}
                                 gradient_end={gradient_end}
+                                url={to}
                             />
                         )
                     })}

@@ -108,11 +108,11 @@ const ModalFlex = styled(Flex)`
         top: 98px;
     }
 `
-type MouseIvent = React.MouseEventHandler<HTMLDivElement> &
+type MouseEvent = React.MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)
 type StyledImageWrapperPropsType = ImageWrapperProps & {
-    onMouseOver: MouseIvent
-    onMouseLeave: MouseIvent
+    onMouseOver: MouseEvent
+    onMouseLeave: MouseEvent
     tabindex: string
     width: string
     height: string
@@ -210,10 +210,10 @@ type LeaderProps = {
 }
 const Leader = ({ leader }: LeaderProps) => {
     const [isPopupShown, setIsPopupShown] = React.useState(false)
-    const showModal: MouseIvent = () => {
+    const showModal: MouseEvent = () => {
         setIsPopupShown(true)
     }
-    const dontShowModal: MouseIvent = () => {
+    const dontShowModal: MouseEvent = () => {
         setIsPopupShown(false)
     }
     return (

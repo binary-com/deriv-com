@@ -102,9 +102,9 @@ const platforms: Platform[] = [
         title: 'Binary Bot',
         icon: BinaryBotIcon,
         description: 'Our legacy automated trading platform.',
-        learn_more_link: 'https://bot.binary.com/',
+        learn_more_link: 'https://bot.deriv.com/',
         download_links: {
-            Browser: 'https://bot.binary.com/',
+            Browser: 'https://bot.deriv.com/',
         },
     },
     {

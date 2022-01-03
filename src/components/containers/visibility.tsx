@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'

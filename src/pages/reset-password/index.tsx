@@ -13,7 +13,7 @@ import Login from 'common/login'
 
 type EmailType = { email: string }
 
-type ErrorType = { email?: string }
+type ErrorType = Partial<EmailType>
 
 const StyledContainer = styled(Container)`
     text-align: center;

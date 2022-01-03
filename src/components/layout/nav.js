@@ -1174,7 +1174,7 @@ export const NavSecurity = () => {
                 <StyledNavPartners>
                     <StyledNavWrapper>
                         <NavLeftPartners>
-                            <NavLogoLink to="/security/" aria-label={localize('Security')}>
+                            <NavLogoLink to="/" aria-label={localize('Security')}>
                                 <img src={LogoSecurity} alt="logo security" />
                             </NavLogoLink>
                         </NavLeftPartners>
@@ -1195,7 +1195,7 @@ export const NavSecurity = () => {
                             <Flex ai="center" jc="space-between">
                                 <LogoLinkMobile
                                     style={{ margin: 'unset' }}
-                                    to="/security/"
+                                    to="/"
                                     aria-label={localize('Security')}
                                 >
                                     <SecurityLogoInMobile src={LogoSecurity} alt="logo security" />

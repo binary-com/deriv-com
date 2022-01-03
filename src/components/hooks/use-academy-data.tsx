@@ -44,6 +44,12 @@ const query = graphql`
                 video_thumbnail {
                     id
                     title
+                    imageFile {
+                        id
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
                 }
                 video_file {
                     id

@@ -248,13 +248,13 @@ const ShowItem = styled.li<StyledProps>`
     display: ${(props) => (props.should_show_item ? 'block' : 'none')};
 `
 
-interface HelpCenterProps {
+type HelpCenterProps = {
     children?: React.ReactNode
     is_eu_country?: unknown
     align?: string
 }
 
-interface HelpCenterState {
+type HelpCenterState = {
     all_articles?: string[]
     all_categories?: Record<number, { is_expanded: boolean }>
     search?: string

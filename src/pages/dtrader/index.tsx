@@ -14,7 +14,7 @@ import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
-const DtraderVideo = Loadable(() => import('./_dtrader-video'))
+const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
@@ -72,7 +72,7 @@ const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
 const Dtrader = () => {
-    const [is_mobile, setMobile] = useState<boolean>(false)
+    const [is_mobile, setMobile] = useState(false)
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)

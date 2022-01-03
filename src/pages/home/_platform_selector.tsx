@@ -69,7 +69,7 @@ const PlatformIcon = styled.img`
     @media ${device.tablet} {
         width: 40px;
         height: 40px;
-        margin-left: 6px;
+        margin: 0 16px 0 0;
     }
 `
 
@@ -122,7 +122,7 @@ const Description = styled(Header)`
     @media ${device.tabletL} {
         font-size: 14px;
         line-height: 20px;
-        margin-bottom: 12px;
+        margin-bottom: 36px;
     }
 `
 

@@ -152,10 +152,8 @@ const StyledSection = styled(SectionContainer)`
     height: 1065px;
     max-height: 1065px;
     @media ${device.tabletL} {
-        height: 960px;
-    }
-    @media ${device.tabletS} {
-        height: 840px;
+        height: fit-content;
+        padding-bottom: unset;
     }
 `
 
@@ -173,7 +171,6 @@ const MainContent = styled(Container)`
     padding-right: 0;
 
     @media ${device.tablet} {
-        padding: 1rem;
         padding-top: 0;
         display: flex;
         flex-direction: column;
@@ -270,7 +267,7 @@ const MobileContainer = styled.div`
 
 const CarouselItemWrapper = styled.div`
     width: 100%;
-    padding: 1.8rem;
+    padding: 1.8rem 1.8rem 0;
 `
 
 const DownloadLinks = styled.div`
@@ -288,7 +285,7 @@ const DownloadLinks = styled.div`
     }
     @media ${device.mobileL} {
         padding: 0;
-        margin: 3rem 0;
+        margin: 32px 0 40px;
     }
 `
 
@@ -335,16 +332,16 @@ const OurPlatforms = (): React.ReactElement => {
             width: 100%;
             height: 8px;
             @media ${device.tablet} {
-                bottom: 270px;
+                bottom: 250px;
             }
             @media (max-width: 692px) {
-                bottom: 300px;
+                bottom: 290px;
             }
-            @media (max-width: 410px) {
-                bottom: 310px;
+            @media (max-width: 554px) {
+                bottom: 320px;
             }
-            @media (max-width: 320px) {
-                bottom: 360px;
+            @media (max-width: 425px) {
+                bottom: 340px;
             }
         `,
     }

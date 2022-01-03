@@ -41,7 +41,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
-                excludes: [
+                exclude: [
                     '/404',
                     '/**/404.html',
                     '/**/404',
@@ -200,6 +200,14 @@ module.exports = {
             },
         },
         'gatsby-plugin-anchor-links',
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                color: `#85ACB0`,
+                showSpinner: false,
+                minimum: 0.4,
+            },
+        },
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {

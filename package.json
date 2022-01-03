@@ -5,7 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^1.7.0",
-        "@directus/gatsby-source-directus": "^9.0.0-rc.83",
+        "@directus/gatsby-source-directus": "^9.0.1",
         "@livechat/customer-sdk": "^3.0.0",
         "@loadable/component": "^5.15.2",
         "@svgr/webpack": "^5.5.0",

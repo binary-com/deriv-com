@@ -9,12 +9,12 @@ import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
 
-type StyledProps = {
+type SectionProps = {
     image: string
     mobile_image: string
 }
 
-const Section = styled(Box)<StyledProps>`
+const Section = styled(Box)<SectionProps>`
     width: 100%;
     height: 350px;
     background-image: url(${(props) => props.image || Platform});
@@ -177,14 +177,14 @@ export const LoveTradingComponent = ({
     return (
         <Section p="3.2rem 0" image={bg_image} mobile_image={bg_image_mobile}>
             <AbsoluteWrapper>
-                <QueryImage data={data[image]} width="54rem" alt="love-trading-img-in-desktop" />
+                <QueryImage data={data[image]} width="54rem" alt="Love trading" />
             </AbsoluteWrapper>
             <Responsive jc="space-between" position="relative">
                 <StyledLeftContainer fd="column" ai="center" max_width="28.2rem">
                     {left.custom_content || <LeftCTASection {...left} />}
                 </StyledLeftContainer>
                 <MobileWrapper>
-                    <QueryImage data={data[image]} width="30rem" alt="love-trading-img-in-mobile" />
+                    <QueryImage data={data[image]} width="30rem" alt="Love trading" />
                 </MobileWrapper>
                 {right.custom_content || <RightCTASection {...right} />}
             </Responsive>

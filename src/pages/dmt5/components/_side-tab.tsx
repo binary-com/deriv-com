@@ -14,7 +14,7 @@ type ContentProps = {
     is_reverse?: boolean | string
 }
 
-interface TabProps {
+type TabProps = {
     children?: React.ReactNode
     is_reverse?: string
     parent_tab?: ObjectConstructor | string

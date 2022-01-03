@@ -9,7 +9,7 @@ import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
-interface CalculatorProps {
+type CalculatorProps = {
     children?: React.ReactNode
     key?: number
     index?: number

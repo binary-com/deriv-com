@@ -11,7 +11,7 @@ const TestPage = (): ReactElement => {
                 <SectionContainer direction="row">
                     <Flex>
                         <Header type="heading-3" width="fit-content">
-                            Mobile
+                            Mobile (Default: 768px)
                         </Header>
                     </Flex>
                 </SectionContainer>
@@ -20,7 +20,45 @@ const TestPage = (): ReactElement => {
                 <SectionContainer direction="row">
                     <Flex>
                         <Header type="heading-3" width="fit-content">
-                            Desktop
+                            Desktop (Default: 768px)
+                        </Header>
+                    </Flex>
+                </SectionContainer>
+            </Desktop>
+
+            <Mobile breakpoint={512}>
+                <SectionContainer direction="row">
+                    <Flex>
+                        <Header type="heading-3" width="fit-content">
+                            Mobile (Breakpoint 512px)
+                        </Header>
+                    </Flex>
+                </SectionContainer>
+            </Mobile>
+            <Desktop breakpoint={512}>
+                <SectionContainer direction="row">
+                    <Flex>
+                        <Header type="heading-3" width="fit-content">
+                            Desktop (Breakpoint 512px)
+                        </Header>
+                    </Flex>
+                </SectionContainer>
+            </Desktop>
+
+            <Mobile breakpoint={1024}>
+                <SectionContainer direction="row">
+                    <Flex>
+                        <Header type="heading-3" width="fit-content">
+                            Mobile (Breakpoint 1024px)
+                        </Header>
+                    </Flex>
+                </SectionContainer>
+            </Mobile>
+            <Desktop breakpoint={1024}>
+                <SectionContainer direction="row">
+                    <Flex>
+                        <Header type="heading-3" width="fit-content">
+                            Desktop (Breakpoint 1024px)
                         </Header>
                     </Flex>
                 </SectionContainer>

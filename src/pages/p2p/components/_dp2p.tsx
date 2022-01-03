@@ -12,9 +12,9 @@ type DP2PProps = {
 }
 
 type P2PProps = {
-    title: string | React.ReactElement
-    subtitle: string | React.ReactElement
-    subtitle_mobile: string | React.ReactElement
+    title: React.ReactElement
+    subtitle: React.ReactElement
+    subtitle_mobile: React.ReactElement
     image_name: string
     image_alt: string
 }

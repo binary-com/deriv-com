@@ -35,7 +35,7 @@ const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
 
-const resetValidation = (values: { email: EmailType }) => {
+const resetValidation = (values: EmailType) => {
     const errors: ErrorType = {}
     const email = trimSpaces(values.email)
     const email_error = validation.required(email) || validation.email(email)
@@ -47,7 +47,7 @@ const resetValidation = (values: { email: EmailType }) => {
     return errors
 }
 
-const resetSubmission = (values, actions) => {
+const resetSubmission = (values: EmailType, actions) => {
     const binary_socket = BinarySocketBase.init()
 
     binary_socket.onopen = () => {
@@ -75,7 +75,7 @@ const resetSubmission = (values, actions) => {
     }
 }
 
-const ResetPassword: React.ReactNode = () => {
+const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
     return (
         <Layout type="static" margin_top="0">

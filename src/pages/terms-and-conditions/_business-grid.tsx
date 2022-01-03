@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
@@ -10,7 +9,14 @@ import PA from 'images/svg/terms/business-pa-tc.svg'
 import API from 'images/svg/terms/business-api-tc.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
-const Col = ({ Icon, content, link_title, title, url }) => (
+type ColProps = {
+    Icon: string
+    content: string
+    title: string
+    link_title: string
+    url: string
+}
+const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     <GridCol>
         <IconWrapper>
             <img src={Icon} />
@@ -27,13 +33,6 @@ const Col = ({ Icon, content, link_title, title, url }) => (
         </Cta>
     </GridCol>
 )
-Col.propTypes = {
-    content: PropTypes.string,
-    Icon: PropTypes.elementType,
-    link_title: PropTypes.string,
-    title: PropTypes.string,
-    url: PropTypes.string,
-}
 
 const IconGrid = () => (
     <StyledContainer>

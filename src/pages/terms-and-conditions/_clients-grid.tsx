@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -13,7 +12,20 @@ import Risk from 'images/svg/terms/risk-tc.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import BFX from 'images/svg/terms/bfx-tc.svg'
 
-const Col = ({ Icon, content, title, eu_links, non_eu_links }) => (
+type ColProps = {
+    Icon: string
+    content: string
+    title: string
+    non_eu_links: Link[]
+    eu_links?: Link[]
+}
+
+type Link = {
+    url: string
+    title: string
+}
+
+const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
     <GridCol>
         <IconWrapper>
             <img src={Icon} />
@@ -44,13 +56,6 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }) => (
         </Show.Eu>
     </GridCol>
 )
-Col.propTypes = {
-    content: PropTypes.string,
-    eu_links: PropTypes.array,
-    Icon: PropTypes.elementType,
-    non_eu_links: PropTypes.array,
-    title: PropTypes.string,
-}
 
 const IconGrid = () => {
     const columns = [

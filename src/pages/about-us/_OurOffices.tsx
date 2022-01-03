@@ -105,8 +105,6 @@ const PinWrapper = styled.div<PinWrapperProps>`
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
     cursor: pointer;
-    /* outline: none;
-    border: none;   */
 `
 
 const MapImage = styled(BackgroundImage)`

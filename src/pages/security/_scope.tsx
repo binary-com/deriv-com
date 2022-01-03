@@ -41,6 +41,14 @@ const Card = styled.div`
     }
 `
 
+const LinkText = styled(LocalizedLinkText)`
+    font-size: 14px;
+
+    @media ${device.tabletL} {
+        font-size: 12px;
+    }
+`
+
 const ListWrap = styled.div`
     display: flex;
     margin-top: 1.6rem;
@@ -73,51 +81,57 @@ const Scope = (): ReactElement => {
                                 <Header as="h3" type="subtitle-2" color="black-3">
                                     {localize(list.title)}
                                 </Header>
-                                <Text color="black-3">{localize(list.description)}</Text>
+                                <Header type="paragraph-1" color="black-3" weight="normal" as="p">
+                                    {localize(list.description)}
+                                </Header>
 
                                 {list.check_list.map((item, idx) => {
                                     return (
                                         <ListWrap key={idx}>
                                             <IconWrap src={tick_icon ? TickIcon : XIcon} />
                                             <div>
-                                                <Text size="14px">
+                                                <Header as="p" type="paragraph-2" weight="normal">
                                                     <Localize
                                                         translate_text={item.content}
-                                                        size="14px"
                                                         components={[
                                                             <Text key={0} as="p" size="14px" />,
-                                                            <LocalizedLinkText
+                                                            <LinkText
                                                                 key={1}
                                                                 to={item.link}
                                                                 target="_blank"
                                                                 color="blue-9"
-                                                                size="14px"
                                                             />,
-                                                            <LocalizedLinkText
+                                                            <LinkText
                                                                 key={2}
                                                                 to={item.link_2}
                                                                 target="_blank"
                                                                 color="blue-9"
+                                                            />,
+                                                            <Text
+                                                                key={3}
+                                                                as="span"
+                                                                color="red"
                                                                 size="14px"
                                                             />,
-                                                            <Text key={3} as="span" color="red" />,
                                                         ]}
                                                     />
-                                                </Text>
+                                                </Header>
 
                                                 {item.description && (
-                                                    <Text size="12px">
+                                                    <Header as="p" type="small" weight="normal">
                                                         <Localize
                                                             translate_text={item.description}
                                                             components={[
-                                                                <Text
+                                                                <Header
                                                                     as="span"
                                                                     color="red"
+                                                                    type="small"
+                                                                    weight="normal"
                                                                     key={0}
                                                                 />,
                                                             ]}
                                                         />
-                                                    </Text>
+                                                    </Header>
                                                 )}
                                             </div>
                                         </ListWrap>

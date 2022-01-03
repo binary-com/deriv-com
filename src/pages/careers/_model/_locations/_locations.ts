@@ -354,14 +354,14 @@ export const guernsey = {
     flagIcon: ChannelIslandsFlagIcon,
     thumbnail: 'thumbnail_guernsey',
     first_p:
-        'Our office at Guernsey focuses on compliance. A team of dedicated experts provide oversight so that Deriv offices across the world comply with legislative and regulatory requirements. With their vast knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',
+        'Our office at Guernsey shall focus on compliance. We’re to form a team of experts in legislative and regulatory requirements to provide Deriv offices worldwide with Compliance oversight. With their knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',
     first_img: 'living_in_guernsey',
     first_img_alt: 'living_in_guernsey alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
     map: 'M8p55z3Wu4EKhQ3A7',
     map_text:
-        'At Deriv (Guernsey), we study regulatory landscapes in different Deriv jurisdictions to ensure the right thing is done at all times. We seek self-motivation, attention to detail, and a strong interest in law. Deriv (Guernsey) gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
+        'Deriv (Guernsey) can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at this office gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
     address: address_guernsey,
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',

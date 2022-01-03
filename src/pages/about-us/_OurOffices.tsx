@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, CssGrid, Show, Flex } from 'components/containers'
-import { Header, ImageWrapper, Text, BackgroundImage } from 'components/elements'
+import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
-
 import { ReactComponent as Pin } from 'images/svg/about-us/pin.svg'
 
 const query = graphql`
@@ -36,17 +35,6 @@ const StyledHeader = styled(Header)`
     @media ${device.laptop} {
         font-size: 28px;
         margin-bottom: 40px;
-    }
-`
-
-const StyledImageWrapper = styled(ImageWrapper)`
-    @media ${device.tablet} {
-        width: 104px;
-        height: 104px;
-    }
-    @media ${device.mobileL} {
-        width: 88px;
-        height: 88px;
     }
 `
 
@@ -136,6 +124,7 @@ const StyledFlex = styled(Flex)`
     height: unset;
 `
 
+// eslint-disable-next-line react/prop-types
 const MapPin = ({ top, left, title, link }) => {
     const [is_pin_show, setPinShow] = React.useState(false)
     return (

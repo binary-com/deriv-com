@@ -46,7 +46,7 @@ const Arrow = styled(Chevron)`
 const Absolute = styled.div`
     position: absolute;
     z-index: -1;
-    top: ${(props) => (props.is_high_nav ? '4.8rem' : '5.5rem')};
+    top: ${(props) => (props.is_high_nav ? '4.8rem' : props.security ? '10.5rem' : '5.5rem')};
     left: -22rem;
     height: auto;
     background-color: var(--color-white);
@@ -177,7 +177,6 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
     const dropdown_ref = React.useRef(null)
     const [is_mobile] = useBrowserResize()
     const iconSize = security && is_mobile ? '20px' : '24px'
-
     const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
@@ -210,7 +209,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                     <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
                 </Display>
 
-                <Absolute is_high_nav={is_high_nav} is_open={is_open}>
+                <Absolute is_high_nav={is_high_nav} is_open={is_open} security={security}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null

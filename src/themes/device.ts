@@ -1,4 +1,25 @@
-export const size = {
+type DevicesType =
+    | 'mobileS'
+    | 'mobileM'
+    | 'mobileL'
+    | 'tabletS'
+    | 'bp680'
+    | 'bp749'
+    | 'tablet'
+    | 'bp769'
+    | 'tabletL'
+    | 'laptop'
+    | 'bp1060'
+    | 'laptopM'
+    | 'laptopL'
+    | 'desktopS'
+    | 'desktop'
+    | 'laptopS'
+    | 'desktopL'
+
+type DeviceObjectType<T> = Record<DevicesType, T>
+
+export const size: Partial<DeviceObjectType<number>> = {
     mobileS: 320,
     mobileM: 375,
     mobileL: 425,
@@ -16,8 +37,7 @@ export const size = {
     desktop: 1980,
 }
 
-const device = {
-    mobile: `(min-width: ${size.tablet}px)`,
+const device: Partial<DeviceObjectType<string>> = {
     mobileS: `(max-width: ${size.mobileS}px)`,
     mobileM: `(max-width: ${size.mobileM}px)`,
     mobileL: `(max-width: ${size.mobileL}px)`,

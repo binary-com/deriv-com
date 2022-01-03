@@ -12,7 +12,7 @@ type LayerProps = {
     breakpoint?: number
 }
 
-const DEFAULT_BREAKPOINT = size.tablet
+const DEFAULT_BREAKPOINT = size.tabletL
 
 const DesktopLayer = styled.div<LayerProps>`
     @media (max-width: ${({ breakpoint }) => breakpoint}px) {

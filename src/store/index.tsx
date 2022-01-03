@@ -2,22 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
-type ProviderType = {
-    is_eu_country?: string
-    is_p2p_allowed_country?: string
-    crypto_config?: string
-    website_status?: string
-    website_status_loading?: string
-    setWebsiteStatus?: string
-    user_country?: string
-}
-
 type DerivProviderProps = {
-    value?: ProviderType
     children?: React.ReactNode
 }
 
-export const DerivStore = React.createContext(null)
+export const DerivStore = React.createContext<any>()
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()

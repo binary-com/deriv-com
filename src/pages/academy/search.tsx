@@ -1,12 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { matchSorter } from 'match-sorter'
 import { useQueryParams, StringParam } from 'use-query-params'
-import { SEO, Flex } from 'components/containers'
+import { Container, SEO, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
+import { convertDate, sentenceCase } from 'common/utility'
 import { DerivStore } from 'store'
+import ArticleIcon from 'images/svg/blog/article-icon.svg'
+import VideoIcon from 'images/svg/blog/video-icon.svg'
+import StarIcon from 'images/svg/blog/star-icon.svg'
 
+const StyledHeaderWrapper = styled(Flex)`
+    box-shadow: inset 0px -1px 0px #f2f3f4;
+`
+const IconWrapper = styled.img`
+    width: 24px;
+    height: 24px;
+`
+const StarIconWrapper = styled.img`
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    padding-top: 2px;
+`
+const StyledCategories = styled(Header)`
+    width: fit-content;
+    border-radius: 8px;
+    background-color: var(--color-blue-10);
+    color: var(--color-blue-9);
+    padding: 2px 8px 0;
+    margin: 0 8px 8px 0;
+`
 const SearchPage = () => {
     const { academy_data } = useContext(DerivStore)
     const [search_result, setSearchResult] = useState([])
@@ -121,30 +147,112 @@ const SearchPage = () => {
     const unSlugify = (text) => text.replace(/-/g, ' ').toUpperCase()
 
     return (
-        <Layout type="academy">
+        <Layout type="academy" margin_top={'14.4'}>
             <SEO
                 title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(
                     "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
                 )}
             />
-            <Flex fd="column">
-                <Header type="heading-3" mt="4rem" align="center">
-                    {category_type
-                        ? `Search Results for: ${category_type}`
-                        : `Search Results for: ${search_query}`}
-                </Header>
-                {search_result &&
-                    search_result.map((items, index) => {
-                        return (
-                            <Flex m="2rem" key={index}>
-                                {items.blog_title
-                                    ? 'Article -' + items.blog_title
-                                    : 'Video - ' + items.video_title}
-                            </Flex>
-                        )
-                    })}
-                {search_result.length === 0 && <Flex m="2rem">No results found</Flex>}
+            <Flex>
+                <Container fd="column" style={{ maxWidth: '792px' }}>
+                    <Flex fd="column">
+                        <Header type="subtitle-2" mt="4rem" color="grey-5">
+                            Selection for
+                        </Header>
+                        <Header type="heading-2" as="h2" color="black-3" weight="normal">
+                            {category_type
+                                ? sentenceCase(category_type)
+                                : sentenceCase(search_query)}
+                        </Header>
+                    </Flex>
+                    <Flex m="40px 0" fd="column">
+                        <StyledHeaderWrapper jc="space-between">
+                            <Header type="subtitle-2">Articles</Header>
+                            <Header type="paragraph-2" align="right">
+                                1-5 of 15 results
+                            </Header>
+                        </StyledHeaderWrapper>
+                        <Flex fd="column" mt="24px">
+                            {search_result &&
+                                search_result.map((items, index) => {
+                                    return (
+                                        items.blog_title && (
+                                            <Flex mb="40px" key={index} jc="flex-start">
+                                                <IconWrapper src={ArticleIcon} alt="article icon" />
+                                                <Flex
+                                                    max-width="auto"
+                                                    width="auto"
+                                                    ml="14px"
+                                                    fd="column"
+                                                >
+                                                    <Flex jc="space-between">
+                                                        <Header type="paragraph-1">
+                                                            {items.blog_title}
+                                                            {items.featured && (
+                                                                <StarIconWrapper
+                                                                    src={StarIcon}
+                                                                    alt="featured post icon"
+                                                                />
+                                                            )}
+                                                        </Header>
+                                                        <Header
+                                                            type="paragraph-2"
+                                                            color="grey-5"
+                                                            weight="normal"
+                                                            align="right"
+                                                        >
+                                                            {convertDate(items.published_date)}
+                                                        </Header>
+                                                    </Flex>
+
+                                                    <Header type="paragraph-1" weight="normal">
+                                                        {items.blog_description}
+                                                    </Header>
+                                                    <Flex
+                                                        jc="flex-start"
+                                                        height="auto"
+                                                        fw="wrap"
+                                                        mt="8px"
+                                                    >
+                                                        {items.tags &&
+                                                            items.tags.slice(0, 4).map((tag) => (
+                                                                <StyledCategories
+                                                                    as="h4"
+                                                                    type="paragraph-2"
+                                                                    key={tag.id}
+                                                                >
+                                                                    {tag?.tags_id?.tag_name}
+                                                                </StyledCategories>
+                                                            ))}
+                                                        {items.tags.length > 4 && (
+                                                            <StyledCategories
+                                                                as="h4"
+                                                                type="paragraph-2"
+                                                            >
+                                                                {`+${items.tags
+                                                                    .slice(4)
+                                                                    .length.toString()}`}
+                                                            </StyledCategories>
+                                                        )}
+                                                    </Flex>
+                                                </Flex>
+                                            </Flex>
+                                        )
+                                    )
+                                })}
+                            {search_result.length === 0 && <Flex m="2rem">No results found</Flex>}
+                        </Flex>
+                    </Flex>
+                    {/* <Flex m="40px 0">
+                        <StyledHeaderWrapper jc="space-between">
+                            <Header type="subtitle-2">Videos</Header>
+                            <Header type="paragraph-2" align="right">
+                                1-2 of 6 results
+                            </Header>
+                        </StyledHeaderWrapper>
+                    </Flex> */}
+                </Container>
             </Flex>
         </Layout>
     )

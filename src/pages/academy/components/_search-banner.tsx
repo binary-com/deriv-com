@@ -14,7 +14,26 @@ import { DerivStore } from 'store'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import SearchIcon from 'images/svg/blog/search_icon.svg'
 import CloseIcon from 'images/svg/blog/close-icon.svg'
+import ArticleIcon from 'images/svg/blog/article-icon.svg'
+import VideoIcon from 'images/svg/blog/video-icon.svg'
 
+const overlay_css = css`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(14, 14, 14, 0.8);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 12;
+    width: 100%;
+    height: 100vh;
+`
+const ParentWrapper = styled(Flex)`
+    ${(props) => props.overlay && overlay_css}
+`
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
     box-shadow: 0 5px 10px rgba(14, 14, 14, 0.1);
@@ -22,7 +41,6 @@ const MainWrapper = styled(Flex)`
     z-index: 70;
     height: 7.2rem;
     top: ${(props) => (props.background ? '0' : '72px')};
-    transition: opacity 3s ease-in;
 `
 const LogoWrapper = styled.img`
     width: 168px;
@@ -61,17 +79,21 @@ const StyledLink = styled(LocalizedLink)`
     line-height: 20px;
     color: var(--color-black-3);
     text-decoration: none;
-    margin: 8px 0;
+    padding: 8px;
 
     ${(props) => props.greyed && styled_link_greyed_css}
+
+    :hover {
+        background-color: var(--color-grey-31);
+    }
 `
 const SearchResultRows = styled(Flex)`
     cursor: pointer;
     font-size: 16px;
     margin-top: 4px;
+    padding: 8px 16px;
     height: 40px;
     background-color: ${(props) => (props.active ? 'var(--color-grey-31)' : 'unset')};
-
     :hover {
         background-color: var(--color-grey-31);
     }
@@ -173,6 +195,10 @@ const SearchSuggestionWrapper = styled(Flex)`
     width: 640px;
     background: white;
     height: auto;
+`
+const IconWrapper = styled.img`
+    width: 16px;
+    height: 20px;
 `
 
 type SearchBannerProps = {
@@ -310,7 +336,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     }
 
     return (
-        <>
+        <ParentWrapper overlay={modal_opened}>
             <MainWrapper fd="column" background={hidden}>
                 <Container height="7.2rem">
                     <Flex ai="center" jc="space-between">
@@ -369,6 +395,12 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                         {data_to_render &&
                                             data_to_render.map((post, idx) => {
                                                 if (idx < 6) {
+                                                    const icon = post.blog_title
+                                                        ? ArticleIcon
+                                                        : VideoIcon
+                                                    const icon_alt = post.blog_title
+                                                        ? 'article icon'
+                                                        : 'video icon'
                                                     const redirect_link = post.slug
                                                         ? `/academy/blog/posts/${post.slug}/`
                                                         : `/academy/videos/?t=${slugify(
@@ -390,10 +422,24 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                             onMouseDown={handleMouseDown}
                                                             active={focus_index === idx}
                                                         >
-                                                            {(post.blog_title &&
-                                                                `Blog Icon - ${post.blog_title}`) ||
-                                                                (post.video_title &&
-                                                                    `Video Icon - ${post.video_title}`)}
+                                                            {
+                                                                <>
+                                                                    <IconWrapper
+                                                                        src={icon}
+                                                                        alt={icon_alt}
+                                                                    />
+                                                                    <Header
+                                                                        type="paragraph-1"
+                                                                        weight="normal"
+                                                                        ml="8px"
+                                                                        pt="4px"
+                                                                    >
+                                                                        {post.blog_title
+                                                                            ? post.blog_title
+                                                                            : post.video_title}
+                                                                    </Header>
+                                                                </>
+                                                            }
                                                         </SearchResultRows>
                                                     )
                                                 }
@@ -434,8 +480,15 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                             {filter_type.map((filter, index) => {
                                 return (
                                     <TopicItemWrapper key={index} fd="column">
-                                        <Header type="paragraph-2" align="left">
-                                            {filter.type}
+                                        <Header
+                                            type="paragraph-2"
+                                            align="left"
+                                            color="grey-5"
+                                            p="8px"
+                                            mb="8px"
+                                            style={{ boxShadow: 'inset 0px -1px 0px #D6DADB' }}
+                                        >
+                                            {filter.type.toUpperCase()}
                                         </Header>
                                         {filter.items.map((item, idx) => {
                                             return (
@@ -456,7 +509,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                     </TopicParent>
                 </Flex>
             </MainWrapper>
-        </>
+        </ParentWrapper>
     )
 }
 

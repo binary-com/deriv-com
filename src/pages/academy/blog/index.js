@@ -76,7 +76,7 @@ const ArticlesPage = ({ data }) => {
             'Educational content at your fingertips – everything you need to know to start trading or upgrade your trading skills.',
     }
     return (
-        <Layout type="academy">
+        <Layout type="academy" margin_top={'14.4'}>
             <SEO
                 title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(

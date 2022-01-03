@@ -16,7 +16,6 @@ import {
     Show,
 } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import { DerivStore } from 'store'
 // Icons
 import EU from 'images/svg/regulatory/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
@@ -25,7 +24,6 @@ import FSC from 'images/common/regulatory/bvi.png'
 import Labuan from 'images/common/regulatory/labuan.png'
 import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
-import MGA from 'images/common/regulatory/mga.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
 
@@ -91,12 +89,7 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
-const Content = styled.div`
-    display: contents;
-`
 const Regulatory = (locale) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-
     return (
         <Layout>
             <SEO
@@ -206,45 +199,6 @@ const Regulatory = (locale) => {
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr"
                     >
-                        {is_eu_country && (
-                            <Content>
-                                <ResponsiveGrid align="flex-start">
-                                    <Mobile>
-                                        <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
-                                            {localize('Deriv (Europe) Limited')}
-                                        </StyledHeader>
-                                    </Mobile>
-                                    <Img src={MGA} alt="MGA" />
-                                </ResponsiveGrid>
-                                <CssGridColumn>
-                                    <Desktop>
-                                        <StyledHeader as="h4" type="sub-section-title">
-                                            {localize('Deriv (Europe) Limited')}
-                                        </StyledHeader>
-                                    </Desktop>
-                                    <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                        <Localize
-                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)."
-                                            components={[
-                                                <LinkText
-                                                    key={0}
-                                                    weight="bold"
-                                                    target="_blank"
-                                                    href="/regulatory/Deriv_(Europe)_Limited.pdf"
-                                                    rel="noopener noreferrer"
-                                                />,
-                                            ]}
-                                        />
-                                    </Text>
-                                    <Text max_width="58.8rem">
-                                        {localize(
-                                            'Clients in the European Union who wish to trade gambling products can have accounts under Deriv (Europe) Limited.',
-                                        )}
-                                    </Text>
-                                </CssGridColumn>
-                            </Content>
-                        )}
-
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
                                 <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">

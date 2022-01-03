@@ -16,6 +16,7 @@ type ColProps = {
     link_title: string
     url: string
 }
+
 const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     <GridCol>
         <IconWrapper>

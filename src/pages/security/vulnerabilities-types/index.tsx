@@ -68,7 +68,10 @@ const StyledLi = styled.li`
 const VulnerabilitiesTypes = () => {
     return (
         <Layout type="security" margin_top={10}>
-            <SEO title={localize('Some title')} description={localize('Some description')} />
+            <SEO
+                title={localize('Types of vulnerabilities')}
+                description={localize('Types of vulnerabilities')}
+            />
             <Hero />
 
             <StyledContainer direction="column" align="left">

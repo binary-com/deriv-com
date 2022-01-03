@@ -183,7 +183,7 @@ const StartTrader = () => {
         return Login.loginUrl()
     }
 
-    const is_eu_country = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     const getImage = (is_mob: boolean, options: string[]) => {
         return is_mob ? data[options[0]] : data[options[1]]

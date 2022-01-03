@@ -129,7 +129,7 @@ const ResetPassword: React.ReactNode = () => {
                                     type="text"
                                     label={localize('Email')}
                                     background="white"
-                                    placeholder={'example@email.com'}
+                                    placeholder="example@email.com"
                                     data-lpignore="true"
                                     required
                                 />

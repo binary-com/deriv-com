@@ -123,6 +123,7 @@ const ContactWays = () => {
                                         data={data[item.image]}
                                         alt={item.img_alt}
                                         width="100%"
+                                        loading="eager"
                                     />
                                 </ImgWrapper>
 

@@ -127,24 +127,23 @@ const TradingTools = ({ tools }) => {
                 {tools.map((item, index) => {
                     let is_even = isIndexEven(index)
                     return (
-                        <>
-                            <ToolWrapper
-                                flex_direction={is_even ? 'row-reverse' : 'row'}
-                                key={index}
-                            >
+                        <React.Fragment key={item.image_alt}>
+                            <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
                                 <Column>
                                     <Show.Desktop>
                                         <QueryImage
                                             data={data[item.image_name]}
-                                            alt=""
+                                            alt={item.image_alt}
                                             height="100%"
+                                            loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                     </Show.Desktop>
                                     <Show.Mobile>
                                         <QueryImage
                                             data={data[item.image_name + '_mobile']}
-                                            alt=""
+                                            alt={item.image_alt}
                                             height="100%"
+                                            loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}
@@ -169,7 +168,7 @@ const TradingTools = ({ tools }) => {
                                 </Content>
                             </ToolWrapper>
                             <Divider />
-                        </>
+                        </React.Fragment>
                     )
                 })}
             </Container>

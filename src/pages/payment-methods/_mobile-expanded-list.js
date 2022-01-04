@@ -192,22 +192,27 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                         </StyledKeyDiv>
                     </StyledRow>
                     {/* second row */}
+
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>{deposit_row_headings()}</StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText type="subtitle-2" weight="normal">
-                                {payment_data.min_max_deposit}
+                                {!is_dp2p ? payment_data.min_max_deposit : 'Deriv USD account'}
                             </ValueText>
                         </StyledKeyDiv>
                     </StyledRow>
-
                     {/* third row */}
                     {!is_fiat_onramp && (
                         <>
                             <StyledRow jc="space-between" ai="center">
                                 <StyledItemDiv>{withdrawal_row_headings()}</StyledItemDiv>
                                 <StyledKeyDiv>
-                                    {Array.isArray(payment_data.min_max_withdrawal) ? (
+                                    {is_dp2p ? (
+                                        <ValueText type="subtitle-2" weight="normal">
+                                            {' '}
+                                            {payment_data.min_max_deposit}
+                                        </ValueText>
+                                    ) : Array.isArray(payment_data.min_max_withdrawal) ? (
                                         payment_data.min_max_withdrawal.map((md, idx) => (
                                             <ValueText type="subtitle-2" weight="normal" key={idx}>
                                                 {md}
@@ -228,7 +233,9 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                         <StyledItemDiv>{deposit_processing_row_headings()}</StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText type="subtitle-2" weight="normal">
-                                {payment_data.deposit_time}
+                                {!is_dp2p
+                                    ? payment_data.deposit_time
+                                    : payment_data.min_max_withdrawal}
                             </ValueText>
                         </StyledKeyDiv>
                     </StyledRow>

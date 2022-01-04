@@ -110,7 +110,7 @@ const Withdrawal = styled(Td)`
 //     return str.toString().replace(/\n/g, '</br>')
 // }
 
-const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => {
+const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, is_dp2p, locale }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
@@ -123,25 +123,35 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
     // const getCryptoConfig = (name) => {
     //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
     // }
-
+    console.log(is_dp2p)
     return (
         <>
             <Tr is_expanded={is_expanded}>
+                {/* first column data*/}
                 <Td>{data.method}</Td>
+
+                {/* second column data */}
                 <Td colSpan={is_fiat_onramp && '2'}>
                     {data.currencies.length === 1 && (
                         <StyleCurrencyText>{formatted_currencies}</StyleCurrencyText>
                     )}
                     {data.currencies.length > 1 && splitCurrencies(formatted_currencies)}
                 </Td>
-                <Td>
-                    {Array.isArray(data.min_max_deposit) ? (
-                        data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
-                    ) : (
-                        <Text>{data.min_max_deposit}</Text>
-                    )}
-                </Td>
-                {!is_fiat_onramp && (
+
+                {/* third column data */}
+                {!is_dp2p && (
+                    <Td>
+                        {Array.isArray(data.min_max_deposit) ? (
+                            data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
+                        ) : (
+                            <Text>{data.min_max_deposit}</Text>
+                        )}
+                    </Td>
+                )}
+                {is_dp2p && <Text>Deriv USD account</Text>}
+
+                {/* fourth column data */}
+                {!is_fiat_onramp && !is_dp2p && (
                     <Td>
                         <>
                             {Array.isArray(data.min_max_withdrawal) ? (
@@ -157,16 +167,33 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                         </>
                     </Td>
                 )}
-                <Deposit colSpan={is_fiat_onramp && '2'} is_fiat_onramp={is_fiat_onramp}>
-                    <Text>{data.deposit_time}</Text>
-                </Deposit>
+                {is_dp2p && (
+                    <Td>
+                        {' '}
+                        <Text>{data.min_max_deposit}</Text>
+                    </Td>
+                )}
 
+                {/* fifth column data */}
+                {!is_dp2p && (
+                    <Deposit colSpan={is_fiat_onramp && '2'} is_fiat_onramp={is_fiat_onramp}>
+                        <Text>{data.deposit_time}</Text>
+                    </Deposit>
+                )}
+                {is_dp2p && (
+                    <Td>
+                        <Text>{data.min_max_withdrawal}</Text>{' '}
+                    </Td>
+                )}
+
+                {/* sixth column data */}
                 {!is_fiat_onramp && (
                     <Withdrawal>
                         <Text>{data.withdrawal_time}</Text>
                     </Withdrawal>
                 )}
 
+                {/* seventh column data */}
                 <Td>
                     <>
                         {data.reference ? (
@@ -188,6 +215,8 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                         )}
                     </>
                 </Td>
+
+                {/* description on expand */}
                 {data.description && (
                     <HoverTd onClick={toggleExpand}>
                         <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
@@ -219,6 +248,7 @@ ExpandList.propTypes = {
     // config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
+    is_dp2p: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,
     locale: PropTypes.object,
 }

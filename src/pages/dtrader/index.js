@@ -47,7 +47,7 @@ const trading = [
         ),
 
         image_name: 'make_smarter',
-        image_alt: localize('Charts'),
+        image_alt: localize('Customise your chart types'),
     },
     {
         title: <Localize translate_text="Trade what you want, when you want..." />,
@@ -56,7 +56,7 @@ const trading = [
         ),
 
         image_name: 'trade_what_you_want',
-        image_alt: localize('Trading Market'),
+        image_alt: localize('Trade world or synthetic markets'),
     },
     {
         title: <Localize translate_text="...And how you want" />,
@@ -65,7 +65,7 @@ const trading = [
         ),
 
         image_name: 'how_you_want',
-        image_alt: localize('Trade Types'),
+        image_alt: localize('Customise your trade types'),
     },
 ]
 const PlatformContainer = styled.div`
@@ -86,9 +86,9 @@ const Dtrader = () => {
     return (
         <Layout>
             <SEO
-                title={localize('DTrader | Online Trading Platform | Deriv.com')}
+                title={localize('DTrader | Online trading platform | Deriv')}
                 description={localize(
-                    'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices.',
+                    'DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices.',
                 )}
                 meta_attributes={meta_attributes}
             />
@@ -106,7 +106,7 @@ const Dtrader = () => {
                 image_name="dtrader"
                 is_mobile={is_mobile}
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
-                background_alt={localize('DTrader Board')}
+                background_alt={localize('Trade volatility indices with DTrader at Deriv')}
             />
             <Show.Desktop>
                 <DNumber items={items} justify="space-around" />

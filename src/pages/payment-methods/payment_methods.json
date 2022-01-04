@@ -32,8 +32,9 @@
                 "SY"
             ]
         },
-        "reference": "Visa",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Visa"
     },
     {
@@ -69,8 +70,9 @@
                 "SY"
             ]
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "VisaElectron"
     },
     {
@@ -106,8 +108,9 @@
                 "SY"
             ]
         },
-        "reference": "Mastercard",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Mastercard"
     },
     {
@@ -143,8 +146,9 @@
                 "SY"
             ]
         },
-        "reference": "Maestro",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Maestro"
     },
     {
@@ -180,8 +184,9 @@
                 "SY"
             ]
         },
-        "reference": "Diners",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Diners"
     },
     {
@@ -217,8 +222,9 @@
                 "SY"
             ]
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "Jcb"
     },
     {
@@ -254,8 +260,9 @@
                 "SY"
             ]
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "InternetBankTransfer"
     },
     {
@@ -275,8 +282,9 @@
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "Paytrust88"
     },
     {
@@ -296,8 +304,9 @@
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "Walaopay",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Walaopay"
     },
     {
@@ -317,8 +326,9 @@
             "included": ["VN"],
             "excluded": []
         },
-        "reference": "NganLuong",
+        "reference": "Yes",
         "locale": ["vi"],
+        "": "",
         "logo": "NganLuong"
     },
     {
@@ -338,8 +348,9 @@
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "Help2pay",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Help2pay"
     },
     {
@@ -359,8 +370,9 @@
             "included": ["SA"],
             "excluded": []
         },
-        "reference": "Zingpay",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Zingpay"
     },
     {
@@ -382,6 +394,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Trustly"
     },
     {
@@ -403,6 +416,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Pix"
     },
     {
@@ -424,7 +438,52 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Payretailers"
+    },
+    {
+        "name": "SPEI",
+        "category": "Online Banking",
+        "key": "spei",
+        "description": "Make large funds transfer easy, cheap and fast with SPEI for yourself or your customers.",
+        "deposit_proccessing_time": "Instant",
+        "min_deposit": "20",
+        "max_deposit": "800",
+        "withdrawal_processing_time": "1 working day",
+        "min_withdrawal": "20",
+        "max_withdrawal": "800",
+        "link_deriv": "https://www.banxico.org.mx/services/spei_-transfers-banco-mexico.html",
+        "currencies": [["USD", "EUR", "AUD", "GBP"]],
+        "countries": {
+            "included": ["MX"],
+            "excluded": []
+        },
+        "reference": "",
+        "locale": [],
+        "": "Enabled",
+        "logo": "Spei"
+    },
+    {
+        "name": "OXXO",
+        "category": "Online Banking",
+        "key": "oxxo",
+        "description": "Quick, simple, and available everywhere and anytime.",
+        "deposit_proccessing_time": "1 working day",
+        "min_deposit": "10",
+        "max_deposit": "100",
+        "withdrawal_processing_time": "1-2 working day",
+        "min_withdrawal": "10",
+        "max_withdrawal": "100",
+        "link_deriv": "https://stripe.com/docs/payments/oxxo",
+        "currencies": [["USD"]],
+        "countries": {
+            "included": ["MX"],
+            "excluded": []
+        },
+        "reference": "",
+        "locale": [],
+        "": "Enabled",
+        "logo": "Oxxo"
     },
     {
         "name": "Fasapay",
@@ -459,8 +518,9 @@
                 "SY"
             ]
         },
-        "reference": "Fasapay",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Fasapay"
     },
     {
@@ -496,8 +556,9 @@
                 "SY"
             ]
         },
-        "reference": "PerfectMoney",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "PerfectMoney"
     },
     {
@@ -509,7 +570,7 @@
         "min_deposit": "10",
         "max_deposit": "10,000",
         "withdrawal_processing_time": "1 working day",
-        "min_withdrawal": "10",
+        "min_withdrawal": "5",
         "max_withdrawal": "10,000",
         "link_deriv": "https://account.skrill.com/wallet/account/sign-up?locale=en",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
@@ -663,8 +724,9 @@
                 "ZW"
             ]
         },
-        "reference": "Skrill",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Skrill"
     },
     {
@@ -830,8 +892,9 @@
                 "ZW"
             ]
         },
-        "reference": "Neteller",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Neteller"
     },
     {
@@ -881,8 +944,9 @@
                 "YE"
             ]
         },
-        "reference": "Webmoney",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Webmoney"
     },
     {
@@ -949,8 +1013,9 @@
             ],
             "excluded": []
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "Paysafecard"
     },
     {
@@ -970,8 +1035,9 @@
             "included": ["BR"],
             "excluded": []
         },
-        "reference": "Paylivre",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Paylivre"
     },
     {
@@ -1015,8 +1081,9 @@
                 "YE"
             ]
         },
-        "reference": "Jeton",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Jeton"
     },
     {
@@ -1052,8 +1119,9 @@
                 "SY"
             ]
         },
-        "reference": "Sticpay",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Sticpay"
     },
     {
@@ -1089,8 +1157,9 @@
                 "SY"
             ]
         },
-        "reference": "Airtm",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Airtm"
     },
     {
@@ -1112,6 +1181,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "BoletoBancario"
     },
     {
@@ -1133,6 +1203,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Onlinenaira"
     },
     {
@@ -1154,6 +1225,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Beyonic"
     },
     {
@@ -1175,6 +1247,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Astropay"
     },
     {
@@ -1184,7 +1257,7 @@
         "description": "Make deposits easily with cash voucher payment solution for South Africa.",
         "deposit_proccessing_time": "Instant",
         "min_deposit": "10",
-        "max_deposit": "1000",
+        "max_deposit": "150",
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
@@ -1196,6 +1269,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Oneforyou"
     },
     {
@@ -1246,6 +1320,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Advcash"
     },
     {
@@ -1283,8 +1358,9 @@
                 "SY"
             ]
         },
-        "reference": "Bitcoin",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Bitcoin"
     },
     {
@@ -1322,8 +1398,9 @@
                 "SY"
             ]
         },
-        "reference": "Ethereum",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Ethereum"
     },
     {
@@ -1361,8 +1438,9 @@
                 "SY"
             ]
         },
-        "reference": "Litecoin",
+        "reference": "Yes",
         "locale": [],
+        "": "",
         "logo": "Litecoin"
     },
     {
@@ -1400,8 +1478,9 @@
                 "SY"
             ]
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "Tether"
     },
     {
@@ -1439,8 +1518,9 @@
                 "SY"
             ]
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "Usdc"
     },
     {
@@ -1478,8 +1558,9 @@
                 "SY"
             ]
         },
-        "reference": "",
+        "reference": "No",
         "locale": [],
+        "": "",
         "logo": "Banxa"
     },
     {
@@ -1519,6 +1600,7 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Changelly"
     },
     {
@@ -1540,6 +1622,84 @@
         },
         "reference": "",
         "locale": [],
+        "": "",
         "logo": "Xanpool"
+    },
+    {
+        "name": "Deriv P2P",
+        "category": "P2P",
+        "key": "DP2P",
+        "description": "Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that allows you to get money in and out of your Deriv account easily through transactions with fellow traders.",
+        "deposit_proccessing_time": "Instant",
+        "min_deposit": "500 USD",
+        "max_deposit": "500 USD",
+        "withdrawal_processing_time": "Max 2 hours",
+        "min_withdrawal": "500 USD",
+        "max_withdrawal": "500 USD",
+        "link_deriv": "https://deriv.com/p2p/",
+        "currencies": [["USD"]],
+        "countries": {
+            "included": [
+                "ZM",
+                "BW",
+                "NA",
+                "GH",
+                "KE",
+                "ZW",
+                "TZ",
+                "ZA",
+                "NG",
+                "SO",
+                "PK",
+                "IN",
+                "BD",
+                "ES",
+                "GF",
+                "UY",
+                "BR",
+                "ID",
+                "AO",
+                "BJ",
+                "BF",
+                "BI",
+                "CM",
+                "CV",
+                "CF",
+                "TD",
+                "CG",
+                "CD",
+                "GQ",
+                "ER",
+                "ET",
+                "GA",
+                "GM",
+                "GN",
+                "GW",
+                "LS",
+                "LR",
+                "MG",
+                "MW",
+                "ML",
+                "MU",
+                "YT",
+                "MZ",
+                "RW",
+                "SH",
+                "ST",
+                "SN",
+                "SC",
+                "SL",
+                "SZ",
+                "TG",
+                "UG",
+                "EH",
+                "CI"
+            ],
+            "excluded": []
+        },
+        "reference": "https://staging.deriv.com/help-centre/deriv-p2p/#what-is-deriv-p2p",
+        "locale": [],
+        "": "",
+        "logo": "DP2P"
     }
 ]

@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReferencePDF from '../../../static/payment-methods/index'
 import payment_method_json from './payment_methods.json'
+import { Localize, LocalizedLink } from 'components/localization'
 import PaymentLogos from 'images/svg/payment-methods'
-import { Localize } from 'components/localization'
 
 const StyledIcon = styled.img`
     width: 100%;
@@ -14,18 +13,16 @@ const NoIconText = styled.div`
     font-weight: bold;
     text-align: center;
 `
-// const StyledRefLink = styled(LocalizedLink)`
-
-//     font-size: 16px;
-//     line-height: 24px;
-//     color: var(--color-blue-9);
-// `
+const StyledRefLink = styled(LocalizedLink)`
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-blue-9);
+`
 
 const getMinMaxLimit = (minValue, maxValue) => {
-    if (maxValue === 'No maximum' || maxValue === 'Not Available')
+    if (maxValue === 'No maximum' || maxValue === 'Not Available') {
         return <Localize translate_text="{{minValue}}" values={{ minValue }} />
-
-    if (minValue.includes('|') && maxValue.includes('|')) {
+    } else if (minValue.includes('|') && maxValue.includes('|')) {
         let min_array = minValue.split('|')
         let max_array = maxValue.split('|')
 
@@ -51,8 +48,15 @@ const getMinMaxLimit = (minValue, maxValue) => {
                 components={[<br key={0} />]}
             />
         )
-    }
-    return <Localize translate_text="{{minValue}} - {{maxValue}}" values={{ minValue, maxValue }} />
+    } else if (minValue === maxValue) {
+        return <Localize translate_text="{{minValue}}" values={{ minValue }} />
+    } else
+        return (
+            <Localize
+                translate_text="{{minValue}} - {{maxValue}}"
+                values={{ minValue, maxValue }}
+            />
+        )
 }
 
 const categorizePaymentMethod = (json) => {
@@ -71,7 +75,7 @@ const categorizePaymentMethod = (json) => {
 
 const getsortedCategories = (categories) => {
     const final_categories = []
-    const default_order = ['Banking', 'Credit', 'wallet', 'Crypto', 'Fiat']
+    const default_order = ['Banking', 'Credit', 'wallet', 'Crypto', 'Fiat', 'P2P']
 
     categories.map((category) => {
         default_order.forEach((order, index) => {
@@ -84,15 +88,26 @@ const getsortedCategories = (categories) => {
     return final_categories
 }
 const getReference = (key, reference, locale) => {
-    if (reference !== '') {
+    if (reference.toLowerCase() === 'yes') {
         if (locale.length) {
-            const availableLocalPdfs = locale.filter((lang) => ReferencePDF[`${reference}_${lang}`])
             return {
                 reference: `${key}-payment-method.pdf`,
-                locales: `${availableLocalPdfs}`,
+                locales: `${locale}`,
             }
         }
-        return ReferencePDF[reference] ? { reference: `${key}-payment-method.pdf` } : null
+        return { reference: `${key}-payment-method.pdf` }
+    } else if (key === 'DP2P') {
+        return {
+            reference_link: (
+                <StyledRefLink
+                    to="/help-centre/deriv-p2p/#what-is-deriv-p2p"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Deriv P2P FAQ{' '}
+                </StyledRefLink>
+            ),
+        }
     }
     return null
 }
@@ -163,6 +178,12 @@ const PaymentDataGenerator = () => {
                 is_fiat_onramp: true,
                 note: (
                     <Localize translate_text="These payment methods are available exclusively for our clients with crypto trading accounts." />
+                ),
+            }),
+            ...(category.includes('P2P') && {
+                is_dp2p: true,
+                note: (
+                    <Localize translate_text="Please contact our customer support if you wish to increase your daily deposit/withdrawal limits." />
                 ),
             }),
         }

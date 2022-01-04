@@ -27,7 +27,7 @@ const query = graphql`
     }
 `
 
-const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps): React.ReactNode => {
+const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection padding="5rem 2rem">

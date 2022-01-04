@@ -424,3 +424,29 @@ export const StyledBreadcrumbsTitle = styled(Text)`
     line-height: 20px;
     color: var(--color-black-3);
 `
+
+export const Scrollbar = styled.div`
+    position: fixed;
+    top: 7.2rem;
+    width: 100%;
+    background: var(--color-grey-8);
+    z-index: 100;
+    @media ${device.laptop} {
+        top: 67px;
+    }
+
+    @media ${device.tabletL} {
+        top: 58px;
+    }
+`
+
+export const ProgressContainer = styled.div`
+    height: 4px;
+    width: 100%;
+    background: var(--color-grey-2);
+`
+export const ProgressBar = styled.div`
+    height: 4px;
+    background: var(--color-red);
+    width: 0%;
+`

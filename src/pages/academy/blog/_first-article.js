@@ -6,6 +6,7 @@ import { StandardImgWrapper } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
+import { getMinRead } from 'common/utility'
 
 const StyledFlex = styled(Flex)`
     border-radius: 8px;
@@ -54,12 +55,13 @@ const FirstContentWrapper = styled(Flex)`
 
 const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
+    margin-top: 96px;
 `
 
 const FirstArticle = ({ item }) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
-            <StyledFlex jc="flex-start" mt="96px">
+            <StyledFlex jc="flex-start">
                 <StandardImgWrapper width="592px" br="6px 0 0 6px" tabletL_br="6px 6px 0 0">
                     <QueryImage
                         data={getImage(item.main_image.imageFile)}
@@ -88,7 +90,7 @@ const FirstArticle = ({ item }) => {
                             type="paragraph-2"
                             width="auto"
                         >
-                            {item.read_time_in_minutes && `• ${item.read_time_in_minutes} min read`}
+                            {`• ${getMinRead(item?.blog_post)}`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="heading-3">

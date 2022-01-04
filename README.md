@@ -28,6 +28,7 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 -   [File structures](documents/file-structures.md)
 -   [GTM workflow](documents/gtm-workflow.md) - Contains Google Tag Manager workflow and additional information
 -   [Translation workflow](documents/translation-workflow.md) - Contains general workflow and commands required for our translation process
+-   [Typescript guidelines](documents/typescript-guidelines.md) - Contains Typescript guide and convensions on this project
 
 ## Pre-installation
 
@@ -73,7 +74,7 @@ Moreover, having these extensions will help you to speed up the development proc
     Create two files `.env.development` and `.env.production` inside your project root directory.
 
     Then check your **lastpass** you'll see a shared item named **Deriv-com Env Variables** copy the variables, they look like this:
-    
+
     ```sh
     DIRECTUS_AUTH_TOKEN=********************************
     GATSBY_DIRECTUS_AUTH_TOKEN=********************************

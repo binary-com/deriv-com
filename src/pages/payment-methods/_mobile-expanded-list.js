@@ -129,7 +129,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
         )
     }
 
-    const getReference = () => {
+    const getReferenceData = () => {
         if (payment_data.reference)
             return (
                 <RefIcon
@@ -144,14 +144,17 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     <StyledPDF src={PDF} alt="PDF" />
                 </RefIcon>
             )
-        return payment_data.reference_link ? (
-            <StyledRefLink jc="flex-end">{payment_data.reference_link}</StyledRefLink>
-        ) : (
-            <ValueText type="subtitle-2" weight="normal">
-                -
-            </ValueText>
-        )
+        else if (payment_data.reference_link) {
+            return <StyledRefLink jc="flex-end">{payment_data.reference_link}</StyledRefLink>
+        } else
+            return (
+                <ValueText type="subtitle-2" weight="normal">
+                    {' '}
+                    -{' '}
+                </ValueText>
+            )
     }
+
     const formatted_currencies = payment_data.currencies.map((d) => d.join(' '))
     const splitCurrencies = (currencies) => (
         <ValueText type="subtitle-2" weight="normal">
@@ -207,20 +210,26 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                             <StyledRow jc="space-between" ai="center">
                                 <StyledItemDiv>{withdrawal_row_headings()}</StyledItemDiv>
                                 <StyledKeyDiv>
-                                    {is_dp2p ? (
+                                    {!is_dp2p &&
+                                        (Array.isArray(payment_data.min_max_withdrawal) ? (
+                                            payment_data.min_max_withdrawal.map((md, idx) => (
+                                                <ValueText
+                                                    type="subtitle-2"
+                                                    weight="normal"
+                                                    key={idx}
+                                                >
+                                                    {md}
+                                                </ValueText>
+                                            ))
+                                        ) : (
+                                            <ValueText type="subtitle-2" weight="normal">
+                                                {payment_data.min_max_withdrawal}
+                                            </ValueText>
+                                        ))}
+                                    {is_dp2p && (
                                         <ValueText type="subtitle-2" weight="normal">
                                             {' '}
                                             {payment_data.min_max_deposit}
-                                        </ValueText>
-                                    ) : Array.isArray(payment_data.min_max_withdrawal) ? (
-                                        payment_data.min_max_withdrawal.map((md, idx) => (
-                                            <ValueText type="subtitle-2" weight="normal" key={idx}>
-                                                {md}
-                                            </ValueText>
-                                        ))
-                                    ) : (
-                                        <ValueText type="subtitle-2" weight="normal">
-                                            {payment_data.min_max_withdrawal}
                                         </ValueText>
                                     )}
                                 </StyledKeyDiv>
@@ -272,7 +281,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                         <StyledItemDiv>
                             <Header type="subtitle-2">{localize('Reference')}</Header>
                         </StyledItemDiv>
-                        <StyledKeyDiv>{getReference()}</StyledKeyDiv>
+                        <StyledKeyDiv>{getReferenceData()}</StyledKeyDiv>
                     </StyledRow>
                     {payment_data.description && (
                         <Flex p="16px 0" fd="column">

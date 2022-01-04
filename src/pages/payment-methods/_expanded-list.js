@@ -110,7 +110,7 @@ const Withdrawal = styled(Td)`
 //     return str.toString().replace(/\n/g, '</br>')
 // }
 
-const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, is_dp2p, locale }) => {
+const ExpandList = ({ data, /*config,*/ is_fiat_onramp, is_dp2p, locale }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
@@ -123,7 +123,24 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, is_dp2p, loca
     // const getCryptoConfig = (name) => {
     //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
     // }
-    console.log(is_dp2p)
+    const referenceData = () => {
+        if (data.reference) {
+            return (
+                <CenterIcon
+                    href={`/payment-methods/${
+                        data.locales?.includes(locale.locale.language)
+                            ? locale.locale.language + '/' + data.reference
+                            : data.reference
+                    }`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <StyledPDF src={PDF} alt="PDF" />
+                </CenterIcon>
+            )
+        } else if (data.reference_link) return data.reference_link
+        else return <Text align="center">-</Text>
+    }
     return (
         <>
             <Tr is_expanded={is_expanded}>
@@ -158,9 +175,6 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, is_dp2p, loca
                                 data.min_max_withdrawal.map((md, idx) => (
                                     <Text key={idx}>{md}</Text>
                                 ))
-                            ) : is_crypto ? (
-                                // <Text>{getCryptoConfig(data.name)}</Text>
-                                <Text>{data.min_max_withdrawal}</Text>
                             ) : (
                                 <Text>{data.min_max_withdrawal}</Text>
                             )}
@@ -175,12 +189,11 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, is_dp2p, loca
                 )}
 
                 {/* fifth column data */}
-                {!is_dp2p && (
+                {!is_dp2p ? (
                     <Deposit colSpan={is_fiat_onramp && '2'} is_fiat_onramp={is_fiat_onramp}>
                         <Text>{data.deposit_time}</Text>
                     </Deposit>
-                )}
-                {is_dp2p && (
+                ) : (
                     <Td>
                         <Text>{data.min_max_withdrawal}</Text>{' '}
                     </Td>
@@ -194,27 +207,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, is_dp2p, loca
                 )}
 
                 {/* seventh column data */}
-                <Td>
-                    <>
-                        {data.reference ? (
-                            <CenterIcon
-                                href={`/payment-methods/${
-                                    data.locales?.includes(locale.locale.language)
-                                        ? locale.locale.language + '/' + data.reference
-                                        : data.reference
-                                }`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <StyledPDF src={PDF} alt="PDF" />
-                            </CenterIcon>
-                        ) : data.reference_link ? (
-                            data.reference_link
-                        ) : (
-                            <Text align="center">-</Text>
-                        )}
-                    </>
-                </Td>
+                <Td>{referenceData()}</Td>
 
                 {/* description on expand */}
                 {data.description && (
@@ -247,7 +240,6 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, is_dp2p, loca
 ExpandList.propTypes = {
     // config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
-    is_crypto: PropTypes.bool,
     is_dp2p: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,
     locale: PropTypes.object,

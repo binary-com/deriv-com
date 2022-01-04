@@ -218,6 +218,7 @@ const DisplayAccordion = (locale) => {
                               padding: '0 16px 0',
                               position: 'relative',
                               background: 'var(--color-white)',
+                              //   paddingBottom: pd.note ? '5rem' : '2.2rem',
                           }
                         : {
                               padding: '0 48px 24px',
@@ -344,7 +345,6 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                     <ExpandList
                                         key={data.key}
                                         data={data}
-                                        is_crypto={pd.is_crypto}
                                         config={crypto_config}
                                         is_fiat_onramp={pd.is_fiat_onramp}
                                         is_dp2p={pd.is_dp2p}

@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import ExpandList from './_expanded-list'
+import ExpandList, { ExpandListProps } from './_expanded-list'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
-import MobileAccordianItem from './_mobile-accordian-item'
+import MobileAccordianItem, { AccordianItemType } from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
@@ -12,6 +11,8 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+
+type StyledProps = { has_note: boolean }
 
 const meta_attributes = {
     og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
@@ -29,7 +30,7 @@ const AccordionContainer = styled.div`
     }
 `
 
-const Th = styled.th`
+const Th = styled.th<ExpandListProps>`
     vertical-align: middle;
     padding: 16px 0 16px 24px;
 
@@ -67,7 +68,7 @@ const TopContainer = styled(Container)`
         width: 100%;
     }
 `
-const StyledTable = styled.table`
+const StyledTable = styled.table<StyledProps>`
     table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
@@ -120,7 +121,31 @@ const MobileWrapper = styled.div`
         display: block;
     }
 `
-const DisplayAccordion = (locale) => {
+type LocalInsidesType = {
+    path?: string
+    uri?: string
+    location?: {
+        hash: string
+        pathname: string
+        search: string
+    }
+    navigate?: () => void
+    children?: React.ReactNode
+    params?: unknown
+    language?: string
+    locale?: { language?: string }
+    pageContext?: {
+        locale?: string
+        localeResources?: unknown
+        pathname?: string
+    }
+}
+
+export type LocaleType = {
+    locale: LocalInsidesType
+}
+
+const DisplayAccordion = (locale: LocaleType) => {
     const { is_eu_country, crypto_config, is_p2p_allowed_country } = React.useContext(DerivStore)
     const [is_mobile] = useBrowserResize(992)
 
@@ -198,11 +223,34 @@ const DisplayAccordion = (locale) => {
     )
 }
 
-DisplayAccordion.propTypes = {
-    locale: PropTypes.object,
-}
+const DisplayAccordianItem = ({ pd, crypto_config, locale }: AccordianItemType) => {
+    const accounts = pd.is_dp2p ? (
+        <BoldText>{localize('Supported Deriv accounts')}</BoldText>
+    ) : (
+        <React.Fragment>
+            <BoldText>{localize('Min-max')}</BoldText>
+            <BoldText>{localize('deposit')}</BoldText>
+        </React.Fragment>
+    )
+    const deposit_limits = pd.is_dp2p ? (
+        <BoldText>{localize('Daily deposit limits')}</BoldText>
+    ) : (
+        <React.Fragment>
+            <BoldText>{localize('Min-max')}</BoldText>
+            <BoldText>{localize('withdrawal')}</BoldText>
+        </React.Fragment>
+    )
 
-const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
+    const daily_withdrawal = pd.is_dp2p ? (
+        <Th>
+            <BoldText>{localize('Daily withdrawal limits')}</BoldText>
+        </Th>
+    ) : (
+        <Th>
+            <BoldText>{localize('Deposit')}</BoldText>
+            <BoldText>{localize('processing time')}</BoldText>
+        </Th>
+    )
     return (
         <>
             <OuterDiv>
@@ -219,13 +267,8 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                 <Th style={pd.is_fiat_onramp && { width: '180px' }}>
                                     {pd.is_crypto || pd.is_fiat_onramp ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
-                                    ) : pd.is_dp2p ? (
-                                        <BoldText>{localize('Supported Deriv accounts')}</BoldText>
                                     ) : (
-                                        <React.Fragment>
-                                            <BoldText>{localize('Min-max')}</BoldText>
-                                            <BoldText>{localize('deposit')}</BoldText>
-                                        </React.Fragment>
+                                        accounts
                                     )}
                                 </Th>
                                 {!pd.is_fiat_onramp && (
@@ -234,13 +277,8 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                             <>
                                                 <BoldText>{localize('Min withdrawal')}</BoldText>
                                             </>
-                                        ) : pd.is_dp2p ? (
-                                            <BoldText>{localize('Daily deposit limits')}</BoldText>
                                         ) : (
-                                            <React.Fragment>
-                                                <BoldText>{localize('Min-max')}</BoldText>
-                                                <BoldText>{localize('withdrawal')}</BoldText>
-                                            </React.Fragment>
+                                            deposit_limits
                                         )}
                                     </Th>
                                 )}
@@ -248,15 +286,8 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                     <Th colSpan="2">
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
-                                ) : pd.is_dp2p ? (
-                                    <Th>
-                                        <BoldText>{localize('Daily withdrawal limits')}</BoldText>
-                                    </Th>
                                 ) : (
-                                    <Th>
-                                        <BoldText>{localize('Deposit')}</BoldText>
-                                        <BoldText>{localize('processing time')}</BoldText>
-                                    </Th>
+                                    daily_withdrawal
                                 )}
 
                                 {!pd.is_fiat_onramp && !pd.is_dp2p && (
@@ -305,13 +336,7 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
     )
 }
 
-DisplayAccordianItem.propTypes = {
-    crypto_config: PropTypes.object,
-    locale: PropTypes.object,
-    pd: PropTypes.object,
-}
-
-const PaymentMethods = (locale) => {
+const PaymentMethods = (locale: LocaleType) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout>
@@ -373,10 +398,6 @@ const PaymentMethods = (locale) => {
             )}
         </Layout>
     )
-}
-
-PaymentMethods.propTypes = {
-    locale: PropTypes.object,
 }
 
 export default WithIntl()(PaymentMethods)

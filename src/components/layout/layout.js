@@ -210,8 +210,6 @@ const Layout = ({
             break
     }
 
-    const [openLivechat, setOpenLivechat] = React.useState(false)
-
     return (
         <LocationProvider
             has_mounted={has_mounted}
@@ -221,9 +219,6 @@ const Layout = ({
         >
             {Navigation}
             <Main margin_top={margin_top} is_static={is_static}>
-                {/* for testing live chat */}
-                <button onClick={() => setOpenLivechat(true)}>open livechat</button>
-
                 {children}
             </Main>
             {show_cookie_banner && (
@@ -233,7 +228,7 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
-            {!no_live_chat && openLivechat && <LiveChat is_banner_shown={show_cookie_banner} />}
+            {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

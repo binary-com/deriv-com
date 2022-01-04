@@ -68,6 +68,7 @@ const FirstArticle = ({ item }) => {
                         alt={item.main_image.description || ''}
                         width="100%"
                         className="standard-query-img"
+                        loading="eager"
                     />
                 </StandardImgWrapper>
                 <FirstContentWrapper fd="column" p="35px 40px" width="45%">

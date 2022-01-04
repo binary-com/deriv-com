@@ -43,7 +43,12 @@ const Hero = () => {
                         </ResponsiveHeader>
                     </ResponsiveFlex>
                     <RightWrapper>
-                        <QueryImage width="100%" data={data['deriv']} alt={`Deriv platforms`} />
+                        <QueryImage
+                            width="100%"
+                            data={data['deriv']}
+                            alt={`Deriv platforms`}
+                            loading="eager"
+                        />
                     </RightWrapper>
                 </Wrap>
             </Section>

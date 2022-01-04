@@ -273,6 +273,7 @@ const HeaderSection = () => {
                                     data={data['mainHeaderImage']}
                                     alt="deriv platform"
                                     width="100%"
+                                    loading="eager"
                                 />
                             </DesktopImageWrapper>
                             <MobileImageWrapper>

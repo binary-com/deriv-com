@@ -9,7 +9,6 @@ import DisclaimerSection from './footer/disclaimer'
 import DisclaimerSectionAcademy from './footer/disclaimer-academy'
 import CopyrightSection from './footer/copyright'
 import BottomSocialSection from './footer/bottom-social-wrapper'
-import AdditionalEUSection from './footer/additional-eu'
 import { DerivStore } from 'store'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
@@ -42,7 +41,6 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy }) => {
                     {academy ? <DisclaimerSectionAcademy /> : <DisclaimerSection />}
                     <CopyrightSection />
                     <BottomSocialSection type={type} />
-                    <AdditionalEUSection />
                 </FooterGrid>
             </Container>
         </DefaultFooter>

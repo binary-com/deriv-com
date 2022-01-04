@@ -67,19 +67,6 @@ const DisclaimerSectionAcademy = () => {
                             ]}
                         />
                     </DisclaimerParagraph>
-                    <DisclaimerParagraph>
-                        <Localize
-                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
-                            components={[
-                                <StaticAsset
-                                    key={0}
-                                    target="_blank"
-                                    href="/regulatory/Deriv_(Europe)_Limited.pdf"
-                                    rel="noopener noreferrer"
-                                />,
-                            ]}
-                        />
-                    </DisclaimerParagraph>
                 </Show.Eu>
                 <DisclaimerParagraph>
                     {localize(
@@ -88,7 +75,7 @@ const DisclaimerSectionAcademy = () => {
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     {localize(
-                        "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
+                        "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong.",
                     )}
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
@@ -124,14 +111,14 @@ const DisclaimerSectionAcademy = () => {
                             <DisclaimerParagraph>
                                 <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                             </DisclaimerParagraph>
-                            <DisclaimerParagraph>
+                            {/* <DisclaimerParagraph>
                                 <Localize
                                     translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> for more information."
                                     components={[
                                         <BoldLink key={0} target="_blank" to="/responsible/" />,
                                     ]}
                                 />
-                            </DisclaimerParagraph>
+                            </DisclaimerParagraph> */}
                         </Show.Eu>
                     </Show.Desktop>
                     <Show.Mobile>

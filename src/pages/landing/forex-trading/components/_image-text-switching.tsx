@@ -29,6 +29,10 @@ type ImageWrapperProps = {
     margin_right: string
 }
 
+type RowProps = {
+    flex_direction: string
+}
+
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 16px;
@@ -85,9 +89,6 @@ const StyledText = styled(Text)`
         line-height: 30px;
     }
 `
-type RowProps = {
-    flex_direction: string
-}
 const Row = styled.div<RowProps>`
     justify-content: space-around;
     flex-direction: ${(props) => props.flex_direction};

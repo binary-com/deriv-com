@@ -111,14 +111,6 @@ const DisclaimerSectionAcademy = () => {
                             <DisclaimerParagraph>
                                 <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                             </DisclaimerParagraph>
-                            {/* <DisclaimerParagraph>
-                                <Localize
-                                    translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> for more information."
-                                    components={[
-                                        <BoldLink key={0} target="_blank" to="/responsible/" />,
-                                    ]}
-                                />
-                            </DisclaimerParagraph> */}
                         </Show.Eu>
                     </Show.Desktop>
                     <Show.Mobile>

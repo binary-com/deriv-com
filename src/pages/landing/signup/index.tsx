@@ -12,10 +12,9 @@ const Wrapper = styled.section`
     padding: 8rem 0;
     width: 100%;
     height: 80vh;
+    justify-content: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
@@ -62,18 +61,21 @@ const NewSignup = () => {
     const [submit_state, setSubmitState] = useState('')
     const [email, setEmail] = useState('')
 
-    const updateSubmitState = (status_arg, email_arg) => {
-        setSubmitState(status_arg)
-        setEmail(email_arg)
+    function updateSubmitState(
+        submitStatus: React.SetStateAction<string>,
+        email: React.SetStateAction<string>,
+    ) {
+        setSubmitState(submitStatus)
+        setEmail(email)
     }
-
     return (
-        <Layout type="static" margin_top={'0'}>
+        <Layout type="static" margin_top={'0'} is_ppc={true}>
             <SEO
                 title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
                 description={localize(
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 )}
+                no_index
             />
             <Wrapper>
                 {submit_state !== 'success' && (
@@ -85,7 +87,7 @@ const NewSignup = () => {
                         <br />
                         <Text>
                             {localize(
-                                'Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years.',
+                                'Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years.',
                             )}
                         </Text>
                         <Line />
@@ -99,6 +101,7 @@ const NewSignup = () => {
                     submit_state={submit_state}
                     email={email}
                     autofocus={true}
+                    is_ppc={true}
                 />
             </Wrapper>
             <StyledDiv />

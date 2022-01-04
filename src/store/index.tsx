@@ -10,7 +10,8 @@ export const DerivStore = React.createContext<any>()
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
-    const [is_eu_country, setEuCountry] = useState<boolean | null>(null)
+    const [is_eu_country, setEuCountry] = useState(null)
+    const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)

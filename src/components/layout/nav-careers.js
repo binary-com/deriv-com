@@ -113,6 +113,7 @@ export const NavCareers = ({ is_besquare }) => {
                                     alt={'Deriv'}
                                     width="16.4rem"
                                     height="auto"
+                                    loading="eager"
                                 />
                             </CareerLogo>
                             <CareerLink

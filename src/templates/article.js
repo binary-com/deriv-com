@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { getImage } from 'gatsby-plugin-image'
 import {
     ArticleTitle,
     Background,
@@ -71,7 +72,7 @@ const ArticlesTemplate = (props) => {
     const article_title = post_data?.blog_title
     const meta_title = post_data?.meta_title
     const meta_description = post_data?.meta_description
-    const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
+    const og_image = getImage(post_data?.og_image)
     const og_title = post_data?.og_title
     const og_description = post_data?.og_description
     const test_data = post_data?.test_data
@@ -371,10 +372,7 @@ export const query = graphql`
                     id
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
-                            fixed(width: 600) {
-                                src
-                            }
+                            gatsbyImageData(layout: FIXED, width: 600)
                         }
                     }
                 }

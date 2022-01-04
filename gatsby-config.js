@@ -8,6 +8,7 @@ module.exports = {
     flags: {
         FAST_DEV: true,
         PRESERVE_WEBPACK_CACHE: true,
+        PARALLEL_QUERY_RUNNING: false,
     },
     siteMetadata: {
         title: 'Deriv',
@@ -38,92 +39,101 @@ module.exports = {
             },
         },
         `gatsby-plugin-image`,
-        {
-            resolve: 'gatsby-plugin-sitemap',
-            options: {
-                exclude: [
-                    '/404',
-                    '/**/404.html',
-                    '/**/404',
-                    '/check-email',
-                    '/**/check-email',
-                    '/reset-password',
-                    '/**/reset-password',
-                    '/ach',
-                    '/ach/**',
-                    '/amp',
-                    '/amp/**',
-                    '/**/amp',
-                    '/**/amp/**',
-                    '/interim',
-                    '/interim/**',
-                    '/**/interim',
-                    '/**/interim/**',
-                    '/homepage',
-                    '/homepage/**',
-                    '/**/homepage',
-                    '/**/homepage/**',
-                    '/offline-plugin-app-shell-fallback',
-                    '/**/offline-plugin-app-shell-fallback',
-                    '/landing',
-                    '/landing/**',
-                    '/**/landing',
-                    '/**/landing/**',
-                    '/endpoint',
-                    '/**/endpoint',
-                    '/signup-success',
-                    '/**/signup-success',
-                ],
-                serialize: ({ site, allSitePage }) =>
-                    allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers|besquare|livechat|academy/
-                        const path = edge.node.path
-                        let priority = 0.7
-                        const languages = Object.keys(language_config)
-                        if (path === '/') {
-                            priority = 1.0
-                        } else if (path.match(/dbot|dtrader|dmt5|story/)) {
-                            priority = 1.0
-                        } else {
-                            languages.forEach((lang) => {
-                                if (path === `/${lang}/`) {
-                                    priority = 1.0
-                                }
-                            })
-                        }
+        // {
+        //     resolve: 'gatsby-plugin-sitemap',
+        //     options: {
+        //         excludes: [
+        //             '/404',
+        //             '/**/404.html',
+        //             '/**/404',
+        //             '/check-email',
+        //             '/**/check-email',
+        //             '/reset-password',
+        //             '/**/reset-password',
+        //             '/ach',
+        //             '/ach/**',
+        //             '/amp',
+        //             '/amp/**',
+        //             '/**/amp',
+        //             '/**/amp/**',
+        //             '/interim',
+        //             '/interim/**',
+        //             '/**/interim',
+        //             '/**/interim/**',
+        //             '/homepage',
+        //             '/homepage/**',
+        //             '/**/homepage',
+        //             '/**/homepage/**',
+        //             '/offline-plugin-app-shell-fallback',
+        //             '/**/offline-plugin-app-shell-fallback',
+        //             '/landing',
+        //             '/landing/**',
+        //             '/**/landing',
+        //             '/**/landing/**',
+        //             '/endpoint',
+        //             '/**/endpoint',
+        //             '/signup-success',
+        //             '/**/signup-success',
+        //         ],
+        //         query: `
+        //             {
+        //             allSitePage {
+        //                 nodes {
+        //                 path
+        //                 }
+        //             }
+        //         `,
+        //         resolveSiteUrl: () => siteUrl,
+        //         serialize: ({ site, allSitePage }) =>
+        //             allSitePage.edges.map((edge) => {
+        //                 const ignore_localized_regex = /careers|besquare|livechat|academy/
+        //                 const path = edge.node.path
+        //                 let priority = 0.7
+        //                 const languages = Object.keys(language_config)
+        //                 if (path === '/') {
+        //                     priority = 1.0
+        //                 } else if (path.match(/dbot|dtrader|dmt5|story/)) {
+        //                     priority = 1.0
+        //                 } else {
+        //                     languages.forEach((lang) => {
+        //                         if (path === `/${lang}/`) {
+        //                             priority = 1.0
+        //                         }
+        //                     })
+        //                 }
 
-                        const path_array = path.split('/')
-                        const current_lang = path_array[1]
-                        const check_lang = current_lang.replace('-', '_')
-                        let current_page = path
+        //                 const path_array = path.split('/')
+        //                 const current_lang = path_array[1]
+        //                 const check_lang = current_lang.replace('-', '_')
+        //                 let current_page = path
 
-                        if (languages.includes(check_lang)) {
-                            path_array.splice(1, 1)
-                            current_page = path_array.join('/')
-                        }
+        //                 if (languages.includes(check_lang)) {
+        //                     path_array.splice(1, 1)
+        //                     current_page = path_array.join('/')
+        //                 }
 
-                        languages.push('x-default')
-                        languages.splice(languages.indexOf('ach'), 1)
-                        const ignore_localized = current_page.match(ignore_localized_regex)
-                        const links = languages.map((locale) => {
-                            if (locale !== 'ach' && locale) {
-                                const replaced_locale = locale.replace('_', '-')
-                                const is_default = locale === 'en' || locale === 'x-default'
-                                const href_locale = is_default ? '' : `/${replaced_locale}`
-                                const href = `${site.siteMetadata.siteUrl}${href_locale}${current_page}`
-                                return { lang: replaced_locale, url: href }
-                            }
-                        })
+        //                 languages.push('x-default')
+        //                 languages.splice(languages.indexOf('ach'), 1)
+        //                 const ignore_localized = current_page.match(ignore_localized_regex)
+        //                 const links = languages.map((locale) => {
+        //                     if (locale !== 'ach' && locale) {
+        //                         const replaced_locale = locale.replace('_', '-')
+        //                         const is_default = locale === 'en' || locale === 'x-default'
+        //                         const href_locale = is_default ? '' : `/${replaced_locale}`
+        //                         const href = `${site.siteMetadata.siteUrl}${href_locale}${current_page}`
+        //                         return { lang: replaced_locale, url: href }
+        //                     }
+        //                 })
 
-                        return {
-                            url: site.siteMetadata.siteUrl + edge.node.path,
-                            changefreq: `monthly`,
-                            priority,
-                            links: !ignore_localized ? links : null,
-                        }
-                    }),
-            },
-        },
+        //                 return {
+        //                     url: site.siteMetadata.siteUrl + edge.node.path,
+        //                     changefreq: `monthly`,
+        //                     priority,
+        //                     links: !ignore_localized ? links : null,
+        //                 }
+        //             }),
+        //     },
+        // },
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -149,8 +159,8 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
-                gcm_sender_id: '370236002280',
-                gcm_user_visible_only: true,
+                // gcm_sender_id: '370236002280',
+                // gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [

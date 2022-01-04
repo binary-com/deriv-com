@@ -35,6 +35,14 @@ export default {
     Desktop,
 }
 
+NonEU.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}
+
+Eu.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}
+
 Desktop.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     max_width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

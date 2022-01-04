@@ -47,30 +47,30 @@ const StyledLiveChat = styled.div`
 
 const LiveChat = ({ is_banner_shown }) => {
     const [is_livechat_hover, setLivechatHover] = useState(false)
-    const [runScripts, setRunScripts] = useState(false)
-    const [is_livechat_interactive, LC_API] = useLivechat(runScripts)
+    const [is_livechat_interactive, LC_API] = useLivechat()
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
         <>
-            <StyledLiveChat
-                className="gtm-deriv-livechat"
-                is_banner_shown={is_banner_shown}
-                is_eu_country={is_eu_country}
-                onClick={() => {
-                    setRunScripts(true)
-                    if (is_livechat_interactive) LC_API.open_chat_window()
-                }}
-                onMouseEnter={() => setLivechatHover(true)}
-                onMouseLeave={() => setLivechatHover(false)}
-            >
-                <img
-                    src={is_livechat_hover ? LiveChatHover : LiveChatIC}
-                    width="32"
-                    height="32"
-                    alt="livechat icon"
-                />
-            </StyledLiveChat>
+            {is_livechat_interactive && (
+                <StyledLiveChat
+                    className="gtm-deriv-livechat"
+                    is_banner_shown={is_banner_shown}
+                    is_eu_country={is_eu_country}
+                    onClick={() => {
+                        LC_API.open_chat_window()
+                    }}
+                    onMouseEnter={() => setLivechatHover(true)}
+                    onMouseLeave={() => setLivechatHover(false)}
+                >
+                    <img
+                        src={is_livechat_hover ? LiveChatHover : LiveChatIC}
+                        width="32"
+                        height="32"
+                        alt="livechat icon"
+                    />
+                </StyledLiveChat>
+            )}
         </>
     )
 }

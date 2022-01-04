@@ -1,7 +1,7 @@
 import React from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
-export const useLivechat = (runScripts) => {
+export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = React.useState(false)
@@ -23,7 +23,7 @@ export const useLivechat = (runScripts) => {
     React.useEffect(() => {
         let cookie_interval = null
         let script_timeout = null
-        if (isBrowser() && runScripts) {
+        if (isBrowser()) {
             const domain = getDomain()
 
             /* this function runs every second to determine logged in status*/
@@ -36,7 +36,6 @@ export const useLivechat = (runScripts) => {
             cookie_interval = setInterval(checkCookie, 1000)
 
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
-            console.log('livechat scripts')
             script_timeout = setTimeout(() => {
                 loadLiveChatScript(() => {
                     window.LiveChatWidget.on('ready', () => {
@@ -53,11 +52,10 @@ export const useLivechat = (runScripts) => {
             clearInterval(cookie_interval)
             clearTimeout(script_timeout)
         }
-    }, [runScripts])
+    }, [])
 
     React.useEffect(() => {
-        if (isBrowser() && runScripts) {
-            console.log('interactive true')
+        if (isBrowser()) {
             const domain = getDomain()
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {

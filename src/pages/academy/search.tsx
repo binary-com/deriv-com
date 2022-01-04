@@ -9,7 +9,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
-import { convertDate, sentenceCase } from 'common/utility'
+import { convertDate } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import ArticleIcon from 'images/svg/blog/article-icon.svg'
@@ -50,11 +50,15 @@ const AllArticleButton = styled(LinkButton)`
 `
 const SearchPage = () => {
     const { academy_data } = useContext(DerivStore)
-    const [search_result, setSearchResult] = useState([])
     const [show, setShow] = useState(false)
     const [video_src, setVideoSrc] = useState('')
     const [full_article_link, setFullArticleLink] = useState('')
     const [full_video_link, setFullVideoLink] = useState('')
+    const [total_article, setTotalArticle] = useState(0)
+    const [total_video, setTotalVideo] = useState(0)
+    // new
+    const [article_result, setArticleResult] = useState([])
+    const [video_result, setVideoResult] = useState([])
 
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = (event, url) => {
@@ -67,6 +71,10 @@ const SearchPage = () => {
         document.body.style.overflow = show ? 'hidden' : 'unset'
     }, [show])
 
+    useEffect(() => {
+        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+    }, [show])
+
     const [query] = useQueryParams({
         q: StringParam,
         type: StringParam,
@@ -76,9 +84,8 @@ const SearchPage = () => {
 
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
-    useEffect(() => {
-        // there are 3 params type
-        /*  1) q is for query - optional
+    // there are 3 params type
+    /*  1) q is for query - optional
             2) type (either article or video) - optional
             3) category (category to be filtered) - optional
 
@@ -101,45 +108,74 @@ const SearchPage = () => {
                 - category & type = video
         */
 
+    useEffect(() => {
         if (search_query && !items_type) {
-            const result_arr = getSearchResult(search_query)
+            getSearchResult(search_query)
             setFullArticleLink(`/academy/search?q=${search_query}&type=article`)
             setFullVideoLink(`/academy/search?q=${search_query}&type=video`)
-            setSearchResult(result_arr)
         }
 
         if (items_type) {
             if (search_query) {
                 const result_arr = getSearchResult(search_query)
-                const filter_result = getSearchResultBasedOnType(result_arr, items_type)
-                setSearchResult(filter_result)
+                getSearchResultBasedOnType(result_arr, items_type)
             } else if (category_type) {
                 const category_result = getFilterResult(category_type)
-                const filtered_category_result = getSearchResultBasedOnType(
-                    category_result,
-                    items_type,
-                )
-
-                setSearchResult(filtered_category_result)
+                getSearchResultBasedOnType(category_result, items_type)
             }
         }
 
         if (category_type && !items_type) {
-            const category_result = getFilterResult(category_type)
+            getFilterResult(category_type)
             setFullArticleLink(`/academy/search?category=${category_type}&type=article`)
             setFullVideoLink(`/academy/search?category=${category_type}&type=video`)
-            setSearchResult(category_result)
         }
-        // }
     }, [query])
+
+    const filteredBaseOnType = (obj) => {
+        const article_arr = []
+        const video_arr = []
+
+        obj.forEach((items) => {
+            if (items.blog_title) {
+                article_arr.push(items)
+            } else if (items.video_title) {
+                video_arr.push(items)
+            }
+        })
+
+        setArticleResult(article_arr)
+        setVideoResult(video_arr)
+        setTotalArticle(article_arr.length)
+        setTotalVideo(video_arr.length)
+    }
 
     const getSearchResult = (q: string) => {
         let result
+
         if (q !== '') {
             result = matchSorter(combined_data, q, {
                 keys: ['blog_title', 'video_title'],
             })
         } else result = null
+
+        filteredBaseOnType(result)
+
+        return result
+    }
+
+    const getFilterResult = (type: string) => {
+        let result
+
+        if (type !== '') {
+            result = matchSorter(combined_data, unSlugify(type), {
+                keys: ['tags.*.tags_id.tag_name'],
+            })
+        } else {
+            result = null
+        }
+
+        filteredBaseOnType(result)
 
         return result
     }
@@ -160,28 +196,22 @@ const SearchPage = () => {
             }
         })
 
+        filteredBaseOnType(result)
+
         return result
     }
 
-    const getFilterResult = (type) => {
-        let result
-
-        if (type !== '') {
-            result = matchSorter(combined_data, unSlugify(type), {
-                keys: ['tags.*.tags_id.tag_name'],
-            })
-        } else {
-            result = null
+    const unSlugify = (text) => {
+        if (text) {
+            return text.replace(/-/g, ' ').toUpperCase()
         }
-
-        return result
     }
 
-    const unSlugify = (text) => text.replace(/-/g, ' ').toUpperCase()
-
-    useEffect(() => {
-        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
-    }, [show])
+    const capitalFirstLetter = (text) => {
+        if (text) {
+            return text.charAt(0).toUpperCase() + text.slice(1)
+        }
+    }
 
     return (
         <Layout type="academy" margin_top={'14.4'}>
@@ -199,8 +229,8 @@ const SearchPage = () => {
                         </Header>
                         <Header type="heading-2" as="h2" color="black-3" weight="normal">
                             {category_type
-                                ? sentenceCase(category_type)
-                                : sentenceCase(search_query)}
+                                ? capitalFirstLetter(category_type)
+                                : capitalFirstLetter(search_query)}
                         </Header>
                     </Flex>
                     {((search_query && items_type == 'article') ||
@@ -211,83 +241,110 @@ const SearchPage = () => {
                             <StyledHeaderWrapper jc="space-between">
                                 <Header type="subtitle-2">Articles</Header>
                                 <Header type="paragraph-2" align="right">
-                                    1-5 of 15 results
+                                    <>
+                                        {total_article > 4
+                                            ? `1-5 of ${total_article} results`
+                                            : `${total_article} results`}
+                                    </>
                                 </Header>
                             </StyledHeaderWrapper>
-                            <Flex fd="column" mt="24px">
-                                {search_result &&
-                                    search_result.map((items, index) => {
-                                        return (
-                                            items.blog_title && (
-                                                <Flex mb="40px" key={index} jc="flex-start">
-                                                    <IconWrapper
-                                                        src={ArticleIcon}
-                                                        alt="article icon"
-                                                    />
-                                                    <Flex max-width="auto" ml="14px" fd="column">
-                                                        <Flex jc="space-between">
-                                                            <Header type="paragraph-1" width="auto">
-                                                                {items.blog_title}
-                                                                {items.featured && (
-                                                                    <StarIconWrapper
-                                                                        src={StarIcon}
-                                                                        alt="featured post icon"
-                                                                    />
-                                                                )}
-                                                            </Header>
-                                                            <Header
-                                                                type="paragraph-2"
-                                                                color="grey-5"
-                                                                weight="normal"
-                                                                align="right"
-                                                                width="auto"
-                                                            >
-                                                                {convertDate(items.published_date)}
-                                                            </Header>
-                                                        </Flex>
 
-                                                        <Header type="paragraph-1" weight="normal">
-                                                            {items.blog_description}
-                                                        </Header>
+                            {article_result.length !== 0 ? (
+                                <Flex fd="column" mt="24px">
+                                    {article_result &&
+                                        article_result.map((items, index) => {
+                                            return (
+                                                items.blog_title &&
+                                                index < 5 && (
+                                                    <Flex mb="40px" key={index} jc="flex-start">
+                                                        <IconWrapper
+                                                            src={ArticleIcon}
+                                                            alt="article icon"
+                                                        />
                                                         <Flex
-                                                            jc="flex-start"
-                                                            height="auto"
-                                                            fw="wrap"
-                                                            mt="8px"
+                                                            max-width="auto"
+                                                            ml="14px"
+                                                            fd="column"
                                                         >
-                                                            {items.tags &&
-                                                                items.tags
-                                                                    .slice(0, 4)
-                                                                    .map((tag) => (
-                                                                        <StyledCategories
-                                                                            as="h4"
-                                                                            type="paragraph-2"
-                                                                            key={tag.id}
-                                                                        >
-                                                                            {tag?.tags_id?.tag_name}
-                                                                        </StyledCategories>
-                                                                    ))}
-                                                            {items.tags.length > 4 && (
-                                                                <StyledCategories
-                                                                    as="h4"
-                                                                    type="paragraph-2"
+                                                            <Flex jc="space-between">
+                                                                <Header
+                                                                    type="paragraph-1"
+                                                                    width="auto"
                                                                 >
-                                                                    {`+${items.tags
-                                                                        .slice(4)
-                                                                        .length.toString()}`}
-                                                                </StyledCategories>
-                                                            )}
+                                                                    {items.blog_title}
+                                                                    {items.featured && (
+                                                                        <StarIconWrapper
+                                                                            src={StarIcon}
+                                                                            alt="featured post icon"
+                                                                        />
+                                                                    )}
+                                                                </Header>
+                                                                <Header
+                                                                    type="paragraph-2"
+                                                                    color="grey-5"
+                                                                    weight="normal"
+                                                                    align="right"
+                                                                    width="auto"
+                                                                >
+                                                                    {convertDate(
+                                                                        items.published_date,
+                                                                    )}
+                                                                </Header>
+                                                            </Flex>
+
+                                                            <Header
+                                                                type="paragraph-1"
+                                                                weight="normal"
+                                                            >
+                                                                {items.blog_description}
+                                                            </Header>
+                                                            <Flex
+                                                                jc="flex-start"
+                                                                height="auto"
+                                                                fw="wrap"
+                                                                mt="8px"
+                                                            >
+                                                                {items.tags &&
+                                                                    items.tags
+                                                                        .slice(0, 4)
+                                                                        .map((tag) => (
+                                                                            <StyledCategories
+                                                                                as="h4"
+                                                                                type="paragraph-2"
+                                                                                key={tag.id}
+                                                                            >
+                                                                                {
+                                                                                    tag?.tags_id
+                                                                                        ?.tag_name
+                                                                                }
+                                                                            </StyledCategories>
+                                                                        ))}
+                                                                {items.tags.length > 4 && (
+                                                                    <StyledCategories
+                                                                        as="h4"
+                                                                        type="paragraph-2"
+                                                                    >
+                                                                        {`+${items.tags
+                                                                            .slice(4)
+                                                                            .length.toString()}`}
+                                                                    </StyledCategories>
+                                                                )}
+                                                            </Flex>
                                                         </Flex>
                                                     </Flex>
-                                                </Flex>
+                                                )
                                             )
-                                        )
-                                    })}
-                                {search_result.length === 0 && (
-                                    <Flex m="2rem">No results found</Flex>
-                                )}
-                            </Flex>
-                            {full_article_link && !items_type && (
+                                        })}
+                                </Flex>
+                            ) : (
+                                <Flex m="16px 0">
+                                    <Header type="subtitle-2" weight="normal" color="grey-5">
+                                        No results found
+                                    </Header>
+                                </Flex>
+                            )}
+
+                            {full_article_link && !items_type && total_article > 4 && (
                                 <AllArticleButton tertiary="true" to={full_article_link}>
                                     Go to all results
                                 </AllArticleButton>
@@ -303,36 +360,51 @@ const SearchPage = () => {
                             <StyledHeaderWrapper jc="space-between">
                                 <Header type="subtitle-2">Videos</Header>
                                 <Header type="paragraph-2" align="right">
-                                    1-2 of 6 results
+                                    <>
+                                        {total_video > 1
+                                            ? `1-2 of ${total_video} results`
+                                            : `${total_video} results`}
+                                    </>
                                 </Header>
                             </StyledHeaderWrapper>
-                            <Flex mt="24px" mb="32px" jc="flex-start">
-                                {search_result &&
-                                    search_result.map((items) => {
-                                        return (
-                                            items.video_title && (
-                                                <Flex
-                                                    key={items.video_file.id}
-                                                    max_width="auto"
-                                                    width="auto"
-                                                    mr="24px"
-                                                    onClick={(e) =>
-                                                        handleOpenVideo(
-                                                            e,
-                                                            `https://cms.deriv.cloud/assets/${items.video_file.id}`,
-                                                        )
-                                                    }
-                                                >
-                                                    <VideoCard
+
+                            {video_result.length !== 0 ? (
+                                <Flex mt="24px" mb="32px" jc="flex-start">
+                                    {video_result &&
+                                        video_result.map((items, idx) => {
+                                            return (
+                                                items.video_title &&
+                                                idx < 2 && (
+                                                    <Flex
                                                         key={items.video_file.id}
-                                                        item={items}
-                                                    />
-                                                </Flex>
+                                                        max_width="auto"
+                                                        width="auto"
+                                                        mr="24px"
+                                                        onClick={(e) =>
+                                                            handleOpenVideo(
+                                                                e,
+                                                                `https://cms.deriv.cloud/assets/${items.video_file.id}`,
+                                                            )
+                                                        }
+                                                    >
+                                                        <VideoCard
+                                                            key={items.video_file.id}
+                                                            item={items}
+                                                        />
+                                                    </Flex>
+                                                )
                                             )
-                                        )
-                                    })}
-                            </Flex>
-                            {full_video_link && !items_type && (
+                                        })}
+                                </Flex>
+                            ) : (
+                                <Flex m="16px 0">
+                                    <Header type="subtitle-2" weight="normal" color="grey-5">
+                                        No results found
+                                    </Header>
+                                </Flex>
+                            )}
+
+                            {full_video_link && !items_type && total_video > 1 && (
                                 <AllArticleButton tertiary="true" to={full_video_link}>
                                     Go to all results
                                 </AllArticleButton>

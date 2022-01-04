@@ -1,12 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
+
+type ImageTextSwitchingProps = {
+    P2P: {
+        title: string
+        subtitle1: string
+        subtitle_mobile1: string
+        second_title: string
+        second_subtitle1: string
+        image_alt: string
+        image_name: string
+    }[]
+    reverse: boolean
+    two_title: boolean
+}
+
+type ContentProps = {
+    margin_right: string
+}
+
+type ImageWrapperProps = {
+    margin_right: string
+}
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -18,7 +39,8 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div`
+
+const Content = styled.div<ContentProps>`
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -41,8 +63,7 @@ const Content = styled.div`
         margin: 0 auto;
     }
 `
-
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<ImageWrapperProps>`
     width: 40%;
     margin-right: ${(props) => props.margin_right};
 
@@ -64,7 +85,10 @@ const StyledText = styled(Text)`
         line-height: 30px;
     }
 `
-const Row = styled.div`
+type RowProps = {
+    flex_direction: string
+}
+const Row = styled.div<RowProps>`
     justify-content: space-around;
     flex-direction: ${(props) => props.flex_direction};
     width: 85%;
@@ -94,7 +118,7 @@ const query = graphql`
         }
     }
 `
-const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
+const ImageTextSwitching = ({ P2P, reverse, two_title }: ImageTextSwitchingProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection background="var(--color-white)" padding="10rem 0">
@@ -110,7 +134,7 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                 </StyledText>
 
                 {P2P.map((item, index) => {
-                    let is_even = isIndexEven(index, reverse)
+                    const is_even = isIndexEven(index, reverse)
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={item.title}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
@@ -143,12 +167,6 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
             </StyledContainer>
         </StyledSection>
     )
-}
-
-ImageTextSwitching.propTypes = {
-    P2P: PropTypes.array,
-    reverse: PropTypes.bool,
-    two_title: PropTypes.bool,
 }
 
 export default ImageTextSwitching

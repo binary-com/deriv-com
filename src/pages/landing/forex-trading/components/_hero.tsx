@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Show } from 'components/containers'
 import { Header } from 'components/elements'
@@ -8,6 +7,17 @@ import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
+
+type HeroComponentProps = {
+    background_data: string
+    content: string
+    title: string
+}
+
+type HeroProps = {
+    content: string
+    title: string
+}
 
 const BackgroundWrapper = styled(Background)`
     background-size: cover;
@@ -87,7 +97,7 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const HeroComponent = ({ title, content, background_data }) => {
+const HeroComponent = ({ title, content, background_data }: HeroComponentProps) => {
     return (
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">
@@ -127,7 +137,7 @@ const query = graphql`
     }
 `
 
-const Hero = ({ title, content }) => {
+const Hero = ({ title, content }: HeroProps) => {
     const data = useStaticQuery(query)
 
     return (
@@ -148,17 +158,6 @@ const Hero = ({ title, content }) => {
             </Show.Mobile>
         </div>
     )
-}
-
-HeroComponent.propTypes = {
-    background_data: PropTypes.any,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
-}
-
-Hero.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
 }
 
 export default Hero

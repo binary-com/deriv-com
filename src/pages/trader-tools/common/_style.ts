@@ -6,12 +6,12 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
 
-type CalculatorTabItemType = {
+type CalculatorTabItemProps = {
     active?: React.ReactNode
     disabled?: React.ReactNode
 }
 
-type PnlCalculatorTabItemType = {
+type PnlCalculatorTabItemProps = {
     active?: React.ReactNode
     disabled?: React.ReactNode
 }

@@ -8,7 +8,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
-type ColumnType = {
+type ColumnProps = {
     margin_left?: string
     margin_right?: string
 }

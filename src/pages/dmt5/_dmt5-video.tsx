@@ -77,7 +77,7 @@ const Step = styled(Header)<StepProps>`
     }
 `
 
-const DtraderTabs = () => {
+const Dmt5Video = () => {
     const data = useStaticQuery(query)
     const [current_step, setStep] = React.useState('step_1')
     const clickHandler = (incoming_step) => {
@@ -137,4 +137,4 @@ const DtraderTabs = () => {
         </Container>
     )
 }
-export default DtraderTabs
+export default Dmt5Video

@@ -132,15 +132,7 @@ const Mobile = styled(Show.Mobile)`
 
 const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    description: PropTypes.element,
-    item_width: PropTypes.string,
-    label: PropTypes.string,
-    mobile_item_width: PropTypes.string,
-}
-
-const Tabs = ({
+const SideTabs = ({
     children = '',
     is_reverse = '',
     parent_tab = '',
@@ -232,14 +224,6 @@ const Tabs = ({
     )
 }
 
-Tabs.Panel = TabPanel
-Tabs.propTypes = {
-    children: PropTypes.node,
-    download_links: PropTypes.object,
-    has_download_button: PropTypes.bool,
-    is_reverse: PropTypes.bool,
-    parent_tab: PropTypes.string,
-    tab_break: PropTypes.string,
-}
+SideTabs.Panel = TabPanel
 
-export default Tabs
+export default SideTabs

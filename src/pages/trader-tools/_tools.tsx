@@ -32,7 +32,7 @@ const ToolWrapper = styled(Flex)`
     }
 `
 
-const Column = styled.div<ColumnType>`
+const Column = styled.div<ColumnProps>`
     width: 100%;
     height: 100%;
     margin-right: ${(props) => props.margin_right};

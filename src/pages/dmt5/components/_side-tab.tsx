@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Flex, Show, Box } from 'components/containers'
 import { Text } from 'components/elements'
@@ -130,9 +129,9 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
+const SideTabs = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
 
-const SideTabs = ({
+const Tabs = ({
     children = '',
     is_reverse = '',
     parent_tab = '',
@@ -224,6 +223,6 @@ const SideTabs = ({
     )
 }
 
-SideTabs.Panel = TabPanel
+Tabs.Panel = SideTabs
 
-export default SideTabs
+export default Tabs

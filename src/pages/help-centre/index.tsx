@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
-// TODO: active this line after having mail service
 import { convertToHash, euArticles, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
@@ -151,25 +150,25 @@ const ListNoBullets = styled.ul`
     }
 `
 
+const margin = ({ row, col }) => {
+    let margin_top = '4rem'
+    switch (row) {
+        case 0:
+            margin_top = '8rem'
+            break
+        case 1:
+            margin_top = col ? '7.2rem' : margin_top
+            break
+    }
+    return css`
+        margin-top: ${margin_top};
+    `
+}
+
 const StyledHeader = styled(Header)`
     font-size: 2.4rem;
     margin-bottom: 1.6rem;
-    ${({ row, col }) => {
-        let margin_top = '4rem'
-
-        switch (row) {
-            case 0:
-                margin_top = '8rem'
-                break
-            case 1:
-                margin_top = col ? '7.2rem' : margin_top
-                break
-        }
-
-        return css`
-            margin-top: ${margin_top};
-        `
-    }};
+    ${margin};
 
     @media ${device.mobileL} {
         margin-top: 40px;
@@ -264,7 +263,6 @@ type HelpCenterState = {
 
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
-// TODO - Refactor Help Center to function component and move this inside
 const HelpCenter = () => {
     const is_eu_country = React.useContext(DerivStore)
     return <HelpCentreClass is_eu_country={is_eu_country} />
@@ -361,6 +359,14 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
 
         const has_results = !!filtered_articles.length
 
+        const search_component = search.length > 0 && (
+            <SearchCrossIcon src={CrossIcon} alt="cross icon" onClick={this.clearSearch} />
+        )
+        const have_result = !!has_results && !!search.length && (
+            <SearchSuccess suggested_topics={filtered_articles} max_length={3} />
+        )
+        const no_result = !has_results && !!search.length && <SearchError search={search} />
+
         return (
             <Layout>
                 <SEO
@@ -390,24 +396,11 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                         data-lpignore="true"
                                         autoComplete="off"
                                     />
-                                    {search.length > 0 && (
-                                        <SearchCrossIcon
-                                            src={CrossIcon}
-                                            alt="cross icon"
-                                            onClick={this.clearSearch}
-                                        />
-                                    )}
+                                    {search_component}
                                 </SearchForm>
                                 <ResultWrapper>
-                                    {!!has_results && !!search.length && (
-                                        <SearchSuccess
-                                            suggested_topics={filtered_articles}
-                                            max_length={3}
-                                        />
-                                    )}
-                                    {!has_results && !!search.length && (
-                                        <SearchError search={search} />
-                                    )}
+                                    {have_result}
+                                    {no_result}
                                 </ResultWrapper>
                             </StyledContainer>
                         </Container>
@@ -465,6 +458,32 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                                             this.props.is_eu_country && ar.label_eu
                                                                 ? ar.label_eu
                                                                 : ar.label
+                                                        const show_expand = should_show_expand ? (
+                                                            <Localize
+                                                                translate_text="<0>View all questions</0>"
+                                                                components={[<p key={0} />]}
+                                                            />
+                                                        ) : (
+                                                            <Localize
+                                                                translate_text="<0>View fewer questions</0>"
+                                                                components={[<p key={0} />]}
+                                                            />
+                                                        )
+                                                        const show_expand_and_collapse =
+                                                            (should_show_expand ||
+                                                                should_show_collapse) && (
+                                                                <li>
+                                                                    <StyledView
+                                                                        onClick={() =>
+                                                                            this.toggleArticle(
+                                                                                ar.category,
+                                                                            )
+                                                                        }
+                                                                    >
+                                                                        {show_expand}
+                                                                    </StyledView>
+                                                                </li>
+                                                            )
 
                                                         return (
                                                             <ListNoBullets key={idxb}>
@@ -488,38 +507,7 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                                                     </StyledLink>
                                                                 </ShowItem>
 
-                                                                {(should_show_expand ||
-                                                                    should_show_collapse) && (
-                                                                    <li>
-                                                                        <StyledView
-                                                                            onClick={() =>
-                                                                                this.toggleArticle(
-                                                                                    ar.category,
-                                                                                )
-                                                                            }
-                                                                        >
-                                                                            {should_show_expand ? (
-                                                                                <Localize
-                                                                                    translate_text="<0>View all questions</0>"
-                                                                                    components={[
-                                                                                        <p
-                                                                                            key={0}
-                                                                                        />,
-                                                                                    ]}
-                                                                                />
-                                                                            ) : (
-                                                                                <Localize
-                                                                                    translate_text="<0>View fewer questions</0>"
-                                                                                    components={[
-                                                                                        <p
-                                                                                            key={0}
-                                                                                        />,
-                                                                                    ]}
-                                                                                />
-                                                                            )}
-                                                                        </StyledView>
-                                                                    </li>
-                                                                )}
+                                                                {show_expand_and_collapse}
                                                             </ListNoBullets>
                                                         )
                                                     })}

@@ -335,7 +335,6 @@ export const articles: ArcticlesType = [
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'deriv-x-account-information',
             },
-            // TODO: uncomment this once deriv x real is ready
             {
                 title: (
                     <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />

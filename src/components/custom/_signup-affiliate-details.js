@@ -277,6 +277,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                         <DropdownSearchWrapper key={item.id}>
                                             <DropdownSearch
                                                 id={item.id}
+                                                isAffiliate
                                                 selected_item={values.country}
                                                 default_item={''}
                                                 error={item.touch && item.error}
@@ -303,6 +304,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                                     {...field}
                                                     id={item.id}
                                                     isDate={item.name === 'date'}
+                                                    isAffiliate
                                                     type={item.type}
                                                     border="solid 1px var(--color-grey-7)"
                                                     labelColor="grey-5"

@@ -144,6 +144,11 @@ const StyledInput = styled.input`
 
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
+    ${(props) =>
+        props.isAffiliate &&
+        css`
+            padding-bottom: 0.8rem;
+        `}
     font-size: 1.2rem;
     min-height: 16px;
 `
@@ -171,6 +176,7 @@ const Input = ({
     labelColor,
     disabled,
     id,
+    isAffiliate,
     isDate,
     error,
     background,
@@ -182,7 +188,6 @@ const Input = ({
     ...props
 }) => {
     let current_input = useRef(null)
-
     return (
         <RelativeWrapper>
             <InputWrapper
@@ -196,6 +201,7 @@ const Input = ({
                 {isDate ? (
                     <AffiliateDatePicker
                         id={id}
+                        isAffiliate={isAffiliate}
                         background={background}
                         maxLength={maxLength}
                         error={error}
@@ -233,7 +239,7 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh="1.4" align="left" color="red-1" isAffiliate={isAffiliate}>
                 {error}
             </ErrorMessages>
             {error && (
@@ -259,6 +265,7 @@ Input.propTypes = {
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
+    isAffiliate: PropTypes.bool,
     isDate: PropTypes.bool,
     label: PropTypes.string,
     labelColor: PropTypes.string,

@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import 'antd/dist/antd.css'
 import { DatePicker, Space } from 'antd'
 import moment from 'moment'
+import device from 'themes/device'
 
 const DatePickerWrapper = styled.div`
     width: 100%;
@@ -49,11 +50,15 @@ const StyledLabel = styled.label`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.4rem;
+    top: ${(props) => (props.isAffiliate ? '1.6rem' : '1.4rem')};
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
     background: none;
+    @media ${device.tabletL} {
+        font-size: var(--text-size-s);
+        top: 1.8rem;
+    }
 `
 const minorAge = moment().subtract(18, 'years')
 moment.updateLocale('en', {
@@ -61,7 +66,16 @@ moment.updateLocale('en', {
 })
 
 const AffiliateDatePicker = (props) => {
-    const { id, error, setFieldValue, setFieldTouched, label, labelColor, tabletBackground } = props
+    const {
+        id,
+        error,
+        setFieldValue,
+        setFieldTouched,
+        label,
+        labelColor,
+        tabletBackground,
+        isAffiliate,
+    } = props
     const [birthDate, setBirthDate] = useState()
     const [isDateField, selectDateField] = useState(false)
 
@@ -95,6 +109,7 @@ const AffiliateDatePicker = (props) => {
                 error={error}
                 htmlFor={id}
                 labelColor={labelColor}
+                isAffiliate={isAffiliate}
             >
                 {label}
             </StyledLabel>
@@ -105,6 +120,7 @@ const AffiliateDatePicker = (props) => {
 AffiliateDatePicker.propTypes = {
     error: PropTypes.string,
     id: PropTypes.string,
+    isAffiliate: PropTypes.bool,
     label: PropTypes.string,
     labelColor: PropTypes.string,
     placeholder: PropTypes.string,

@@ -28,7 +28,8 @@ const DropdownInput = styled.input`
     }
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        ${(props) => console.log(props)}
+        font-size: ${(props) => (props.isAffiliate ? '1.6rem' : '1.75rem')};
     }
 
     @media ${device.mobileL} {
@@ -46,6 +47,7 @@ const DropdownSearch = ({
     selected_item,
     checkCountryInput,
     id,
+    isAffiliate,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
@@ -99,11 +101,15 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
-                    <StyledLabel active={is_open || (!is_open && selected_item)}>
+                    <StyledLabel
+                        isAffiliate={isAffiliate}
+                        active={is_open || input_value || (!is_open && selected_item)}
+                    >
                         {label}
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
+                        isAffiliate={isAffiliate}
                         tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
@@ -138,6 +144,7 @@ DropdownSearch.propTypes = {
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
     id: PropTypes.string,
+    isAffiliate: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

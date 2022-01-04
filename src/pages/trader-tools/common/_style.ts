@@ -343,7 +343,7 @@ const CalculatorTabItemStyles = css`
     }
 `
 
-export const CalculatorTabItem = styled.div<CalculatorTabItemType>`
+export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {
@@ -351,7 +351,7 @@ export const CalculatorTabItem = styled.div<CalculatorTabItemType>`
     }
 `
 
-export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemType>`
+export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {

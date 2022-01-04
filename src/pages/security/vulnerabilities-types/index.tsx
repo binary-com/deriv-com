@@ -23,11 +23,16 @@ const StyledContainer = styled(Container)`
 `
 
 const CardWrap = styled.div`
+    min-width: 446px;
     border-radius: 4px;
     background-color: var(--color-grey-30);
     margin-top: 16px;
     padding: 8px 0;
     display: inline-flex;
+
+    @media ${device.laptop} {
+        min-width: unset;
+    }
 `
 
 const CardItem = styled.div<CardItemProps>`

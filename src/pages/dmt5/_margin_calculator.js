@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { Box, Flex, SectionContainer, Show } from 'components/containers'
 import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -151,7 +151,9 @@ const CalculatorCard = ({ button_text, image_alt_name, image_name, link, name, t
     const data = useStaticQuery(query)
     return (
         <StyledCardContainer>
-            <SubHeader align="center">{name}</SubHeader>
+            <SubHeader as="h3" align="center">
+                {name}
+            </SubHeader>
             <CardText align="center">{text}</CardText>
             <ImageWrapper>
                 <Show.Desktop>
@@ -186,6 +188,7 @@ const calculators = [
             <Localize translate_text="Calculate the margin you need to open and hold your positions with our margin calculator." />
         ),
         image_name: 'margin_calculator',
+        image_alt: localize('DMT5 margin trading calculator'),
         button_text: <Localize translate_text="Try our margin calculator" />,
         link: '/trader-tools/margin-calculator/',
     },
@@ -196,6 +199,7 @@ const calculators = [
             <Localize translate_text="Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract." />
         ),
         image_name: 'swap_calculator',
+        image_alt: localize('DMT5 swap trading calculator'),
         button_text: <Localize translate_text="Try our swap calculator" />,
         link: '/trader-tools/swap-calculator/',
     },
@@ -234,7 +238,7 @@ const MarginCalculator = () => {
                     has_color={true}
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader type="page-title" lh="1.25" align="left">
+                        <MainHeader as="h2" type="page-title" lh="1.25" align="left">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
@@ -286,7 +290,7 @@ const MarginCalculator = () => {
                                     key={idx}
                                     name={calculator.name}
                                     image_name={calculator.image_name}
-                                    image_alt_name={calculator.name}
+                                    image_alt_name={calculator.image_alt}
                                     text={calculator.text}
                                     link={calculator.link}
                                     button_text={calculator.button_text}

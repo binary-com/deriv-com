@@ -107,7 +107,7 @@ const Faq = () => {
     }
     return (
         <RelativeContainer>
-            <FaqHeader size="4.8rem" align="center">
+            <FaqHeader as="h2" size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
             </FaqHeader>
             <FaqSubHeader

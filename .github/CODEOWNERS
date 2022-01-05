@@ -14,11 +14,11 @@
 #  General rules / philosophy
 # ================================================
 #
-#  - we trust that people do the right thing and not approve changes they don't feel confident reviewing
-#  - we use github teams so that we funnel code reviews to the most appropriate reviewer, this is why the team structure is fine-grained
-#  - we enforce that only approved PRs get merged to ensure that unreviewed code doesn't get accidentally merged
-#  - we delegate approval rights as much as possible so that we can scale better
-#  - each group must have at least one person, but several people are preferable to avoid a single point of failure issues
+#  - We trust that people do the right thing and not approve changes they don't feel confident reviewing
+#  - We use github teams so that we funnel code reviews to the most appropriate reviewer, this is why the team structure is fine-grained
+#  - We enforce that only approved PRs get merged to ensure that unreviewed code doesn't get accidentally merged
+#  - We delegate approval rights as much as possible so that we can scale better
+#  - Each group must have at least one person, but several people are preferable to avoid a single point of failure issues
 #
 #  Configuration nuances:
 #
@@ -35,11 +35,10 @@
 #  (just to make this file easier to understand)
 # ================================================
 
-#  ashkanx
 #  habib-binary
 #  kevinw-deriv
 #  njazuli-deriv
-#  reza-fs
+#  prince-deriv
 #  sean-binary
 #  suthesan-deriv
 #  yashim-deriv
@@ -62,7 +61,7 @@
 # (in case no pattern matches a path in a PR - this should be treated as a bug and result in adding the path to CODEOWNERS)
 # ==============================================================
 
-*                                                               @habib-binary @reza-fs @sean-binary @prince-deriv
+*                                                               @habib-binary @sean-binary @prince-deriv
 
 
 

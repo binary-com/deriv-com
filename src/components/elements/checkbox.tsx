@@ -63,7 +63,7 @@ const StyledCheckbox = styled.div<StyledCheckboxProps>`
     }
 `
 
-const Checkbox = ({ checked, secondary, id, bg, ...props }: CheckboxProps): React.ReactNode => (
+const Checkbox = ({ checked, secondary, id, bg, ...props }: CheckboxProps) => (
     <CheckboxContainer id={id}>
         <HiddenCheckbox checked={checked} {...props} />
         <StyledCheckbox checked={checked} secondary={secondary} background={bg}>

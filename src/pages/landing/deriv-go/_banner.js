@@ -173,6 +173,7 @@ const Banner = () => {
                         data={data[is_mobile ? 'hero_mobile' : 'hero']}
                         alt="hero phone image"
                         className="bannerimg-wrapper"
+                        loading="eager"
                     />
                 </BannerWrapper>
             </Container>

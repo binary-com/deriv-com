@@ -18,7 +18,7 @@ const CFD = () => {
             <SEO
                 title={localize('Margin trading | Trade types | Deriv')}
                 description={localize(
-                    'Learn about margin trading on Deriv MT5 (DMT5). Enjoy 24/7 trading, high leverage, and zero commissions on forex, synthetic indices, and other assets.',
+                    'Learn about CFD trading and margin on Deriv. Start trading with leverage in forex, synthetic indices, and other popular financial markets.',
                 )}
             />
             <Hero jc="cneter" ai="center">

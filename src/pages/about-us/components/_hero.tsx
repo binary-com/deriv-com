@@ -25,6 +25,7 @@ type ParentWrapperProps = {
 }
 
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`
+    width: 100%;
     background-image: url(${(props) => props.bg_image_desktop});
     background-position: center;
     background-size: cover;
@@ -35,7 +36,7 @@ const ParentWrapper = styled(Flex)<ParentWrapperProps>`
 `
 const ContentWrapper = styled(Container)`
     height: auto;
-    margin: 180px;
+    margin: 180px 0;
 
     @media ${device.tabletL} {
         margin: 168px 0 145px;
@@ -55,31 +56,29 @@ const MobileWrapper = styled.div`
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 72px;
+        font-size: 84px;
         line-height: 94px;
+    }
+    @media ${device.tabletS} {
+        white-space: pre;
     }
 `
 
 const StyledHeaderDesktopAbout = styled(Header)`
-    min-height: 195.52px;
     height: 100%;
-    margin: 140px auto 70px;
-    font-size: 210px;
-    letter-spacing: 8px;
+    margin: 170px auto 70px;
+    letter-spacing: 1px;
+    font-size: 200px;
     z-index: 3;
     line-height: inherit;
+    @media (max-width: 1330px) {
+        font-size: 170px;
+    }
 `
 
 const StyledFlex = styled(Flex)`
     min-height: 400px;
     min-width: 1000px;
-`
-
-const FlexHeader = styled(Flex)`
-    min-height: 195.52px;
-    height: 100%;
-    font-size: 210px;
-    letter-spacing: 8px;
 `
 
 const StyledQueryImage = styled(QueryImage)`
@@ -100,23 +99,23 @@ const Hero = () => {
                             alt="example"
                             width="100%"
                         />
-                        <FlexHeader>
-                            <StyledHeaderDesktopAbout
-                                as="h1"
-                                color="white"
-                                align="center"
-                                type="unset"
-                            >
-                                {localize('About us')}
-                            </StyledHeaderDesktopAbout>
-                        </FlexHeader>
+                        <StyledHeaderDesktopAbout
+                            as="h1"
+                            color="white"
+                            align="center"
+                            type="main-landing-title"
+                            width="100%"
+                            padding="0"
+                        >
+                            {localize('Who we are')}
+                        </StyledHeaderDesktopAbout>
                     </StyledFlex>
                 </DesktopWrapper>
                 <MobileWrapper>
                     <Flex fd="column">
                         <QueryImage data={data['about_us_logo']} alt="example" />
                         <StyledHeader as="h1" color="white" align="center" mt="40px" type="unset">
-                            {localize('About us')}
+                            {localize('Who \nwe are')}
                         </StyledHeader>
                     </Flex>
                 </MobileWrapper>

@@ -293,6 +293,12 @@ const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
 
+const MobileImage = styled(QueryImage)`
+    .gatsby-image-wrapper > picture > img {
+        object-fit: contain !important;
+    }
+`
+
 const getIcon = (platformType: string): string => {
     if (platformType === 'Browser') return Browser
     else if (platformType === 'AppStore') return AppStore
@@ -391,7 +397,7 @@ const OurPlatforms = (): React.ReactElement => {
                             {platforms.map((platform, index) => (
                                 <CarouselItemWrapper key={index}>
                                     <PlatformImageWrapper>
-                                        <QueryImage
+                                        <MobileImage
                                             data={images[Object.keys(images)[index]]}
                                             alt={Object.keys(images)[index]}
                                         />

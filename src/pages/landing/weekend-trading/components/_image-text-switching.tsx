@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
+
+type StylesProps = {
+    margin_right?: string
+    flex_direction?: string
+}
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -18,7 +22,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div`
+const Content = styled.div<StylesProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +42,7 @@ const Content = styled.div`
     }
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<StylesProps>`
     max-width: 47.1rem;
     width: 100%;
     max-height: 30rem;
@@ -60,7 +64,7 @@ const StyledText = styled(Text)`
         line-height: 30px;
     }
 `
-const Row = styled.div`
+const Row = styled.div<StylesProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;

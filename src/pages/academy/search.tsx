@@ -243,11 +243,11 @@ const SearchPage = () => {
         return result
     }
 
-    const unSlugify = (text) => {
-        if (text) {
-            return text.replace(/-/g, ' ').toUpperCase()
-        }
-    }
+    // const unSlugify = (text) => {
+    //     if (text) {
+    //         return text.replace(/-/g, ' ').toUpperCase()
+    //     }
+    // }
 
     // const capitalFirstLetter = (text) => {
     //     if (text) {

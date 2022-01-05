@@ -349,8 +349,10 @@ export const slugify = (text) =>
         .replace(/--+/g, '-') // Replace multiple - with single -
 
 export const unslugify = (slug) => {
-    const result = slug.replace(/-/g, ' ')
-    return result.replace(/\w\S*/g, function (txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    })
+    if (slug) {
+        const result = slug.replace(/-/g, ' ')
+        return result.replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        })
+    }
 }

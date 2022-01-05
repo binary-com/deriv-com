@@ -20,8 +20,8 @@ const FadeInDown = keyframes`
     }
 `
 const NavDropdown = styled.div`
-    display: flex;
     width: ${(props) => (props.is_trade ? '90%' : 'auto')};
+    max-width: 1200px;
     left: ${(props) => (props.offset && !props.is_trade ? props.offset + 'px !important' : 'none')};
     position: absolute;
     padding: 2.2rem 0.8rem;
@@ -75,23 +75,29 @@ const PlatformsDropdown = ({
     setActiveDropdown,
     active_dropdown,
 }) => {
-    const is_trade = active_dropdown === 'trade'
-    const setTradeArrowOffset = () =>
-        current_ref.offsetLeft - (window.innerWidth * 0.1) / 2 + current_ref.offsetWidth / 2 - 15
-    const [left_offset, setLeftOffset] = useState(current_ref.offsetLeft)
-    const [left_arrow_offset, setLeftArrowOffset] = useState(
-        is_trade ? setTradeArrowOffset() : current_ref.offsetWidth / 2 - 15,
-    )
     const dropdownContainerRef = useRef(null)
+    const is_trade = active_dropdown === 'trade'
+    const setTradeArrowOffset = (dropdownOffset) =>
+        current_ref.offsetLeft - dropdownOffset + current_ref.offsetWidth / 2 - 15
+    const [left_offset, setLeftOffset] = useState(current_ref.offsetLeft)
+    const [left_arrow_offset, setLeftArrowOffset] = useState()
 
     const updateOffsets = useCallback(() => {
         if (is_trade) {
-            setLeftArrowOffset(setTradeArrowOffset())
+            setLeftArrowOffset(setTradeArrowOffset(dropdownContainerRef.current.offsetLeft))
         } else if (current_ref && !is_trade) {
             setLeftOffset(current_ref.offsetLeft)
             setLeftArrowOffset(current_ref.offsetWidth / 2 - 15)
         }
     }, [current_ref])
+
+    useEffect(
+        () =>
+            is_trade
+                ? setLeftArrowOffset(setTradeArrowOffset(dropdownContainerRef.current.offsetLeft))
+                : setLeftArrowOffset(current_ref.offsetWidth / 2 - 15),
+        [],
+    )
 
     useEffect(() => {
         if (dropdownContainerRef) {

@@ -104,7 +104,7 @@ const Rewards = (): ReactElement => {
     return (
         <SectionContainer>
             <Container fd="column">
-                <Header type="heading-2" align="center">
+                <Header type="heading-2" align="center" mb="8px">
                     {localize('Rewards')}
                 </Header>
                 <Header type="paragraph-1" align="center" weight="400">

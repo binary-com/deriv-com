@@ -14,7 +14,7 @@ interface CardItemProps {
 
 const StyledContainer = styled(Container)`
     width: 79.2rem;
-    padding: 80px 16px;
+    padding: 80px 0;
 
     @media ${device.tablet} {
         width: auto;

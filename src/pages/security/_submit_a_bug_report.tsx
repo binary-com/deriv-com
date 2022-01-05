@@ -70,7 +70,8 @@ const SubmitABugReport = (): ReactElement => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const bug_report_image = is_mobile ? data['bug_report_mobile'] : data['bug_report_desktop']
-    const image_width = is_mobile ? '200px' : '305px'
+    const image_width = is_mobile ? '280px' : '328px'
+    const image_height = is_mobile ? '276px' : '258px'
 
     return (
         <SectionContainer>
@@ -99,6 +100,7 @@ const SubmitABugReport = (): ReactElement => {
                             data={bug_report_image}
                             alt="bug_report_image"
                             width={image_width}
+                            height={image_height}
                         />
                     </ImageWrap>
                 </Wrapper>

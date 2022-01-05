@@ -1,7 +1,1 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect opacity="0.4" x="2" y="1" width="9" height="12" rx="1" fill="#85ACB0"/>
-<g style="mix-blend-mode:multiply">
-<rect x="5" y="3" width="9" height="12" rx="1" fill="#85ACB0"/>
-</g>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10 6H7V7H10V6ZM12 8H7V9H12V8ZM7 10H12V11H7V10ZM12 12H7V13H12V12Z" fill="white"/>
-</svg>
+<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect opacity=".4" x="2" y="1" width="9" height="12" rx="1" fill="#85ACB0"/><rect x="5" y="3" width="9" height="12" rx="1" fill="#85ACB0"/><path fill-rule="evenodd" clip-rule="evenodd" d="M10 6H7v1h3V6zm2 2H7v1h5V8zm-5 2h5v1H7v-1zm5 2H7v1h5v-1z" fill="#fff"/></svg>

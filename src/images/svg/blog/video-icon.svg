@@ -1,7 +1,1 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.4" d="M1 3C1 2.44772 1.44772 2 2 2H12C12.5523 2 13 2.44772 13 3V9C13 9.55228 12.5523 10 12 10H2C1.44772 10 1 9.55228 1 9V3Z" fill="#85ACB0"/>
-<path d="M6 8V4L9 6L6 8Z" fill="white"/>
-<g style="mix-blend-mode:multiply">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M7 7C6.44772 7 6 7.44772 6 8V13C6 13.5523 6.44772 14 7 14H12C12.5523 14 13 13.5523 13 13V11.75L15 13V8L13 9.25V8C13 7.44772 12.5523 7 12 7H7Z" fill="#85ACB0"/>
-</g>
-</svg>
+<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity=".4" d="M1 3a1 1 0 011-1h10a1 1 0 011 1v6a1 1 0 01-1 1H2a1 1 0 01-1-1V3z" fill="#85ACB0"/><path d="M6 8V4l3 2-3 2z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7 7a1 1 0 00-1 1v5a1 1 0 001 1h5a1 1 0 001-1v-1.25L15 13V8l-2 1.25V8a1 1 0 00-1-1H7z" fill="#85ACB0"/></svg>

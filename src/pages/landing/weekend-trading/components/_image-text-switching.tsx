@@ -7,10 +7,15 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
 
-type StylesProps = {
-    margin_right?: string
-    flex_direction?: string
+type ImageWrapperProps = {
+    margin_right: string
 }
+
+type RowProps = {
+    flex_direction: string
+}
+
+type ContentProps = ImageWrapperProps & {}
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -22,7 +27,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div<StylesProps>`
+const Content = styled.div<ContentProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +47,7 @@ const Content = styled.div<StylesProps>`
     }
 `
 
-const ImageWrapper = styled.div<StylesProps>`
+const ImageWrapper = styled.div<ImageWrapperProps>`
     max-width: 47.1rem;
     width: 100%;
     max-height: 30rem;
@@ -64,7 +69,7 @@ const StyledText = styled(Text)`
         line-height: 30px;
     }
 `
-const Row = styled.div<StylesProps>`
+const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -90,7 +95,21 @@ const query = graphql`
         }
     }
 `
-const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
+
+type ImageTextSwitchingProps = {
+    P2P: {
+        title: React.ReactElement
+        subtitle1: React.ReactElement
+        subtitle2: React.ReactElement
+        subtitle_mobile1: React.ReactElement
+        subtitle_mobile2: React.ReactElement
+        image_name: string
+        image_alt: string
+    }[]
+    reverse: boolean
+}
+
+const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection background="var(--color-white)" padding="5rem 0 0 0">
@@ -109,11 +128,7 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                     let is_even = isIndexEven(index, reverse)
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content
-                                width="100%"
-                                max_width="58.8rem"
-                                margin_right={!is_even ? '12.6rem' : '0'}
-                            >
+                            <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader type="heading-3" mb="1rem">
                                     {item.title}
                                 </StyledHeader>
@@ -131,15 +146,6 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                                 <Show.Mobile>
                                     <Text>{item.subtitle_mobile2}</Text>
                                 </Show.Mobile>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader type="heading-3">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <Text>{item.second_subtitle1}</Text>
-                                        <Text>{item.second_subtitle2}</Text>
-                                    </>
-                                )}
                             </Content>
                             <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
                                 <QueryImage
@@ -154,12 +160,6 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
             </StyledContainer>
         </StyledSection>
     )
-}
-
-ImageTextSwitching.propTypes = {
-    P2P: PropTypes.array,
-    reverse: PropTypes.bool,
-    two_title: PropTypes.bool,
 }
 
 export default ImageTextSwitching

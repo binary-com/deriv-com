@@ -66,12 +66,7 @@ const WeekenLP = () => {
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}
             />
-            <Hero
-                title={localize('Ride the trends even on weekends')}
-                content={
-                    <Localize translate_text="Trade even when most financial markets are closed" />
-                }
-            />
+            <Hero />
             <IconTextRow />
             <ImageTextSwitching reverse P2P={DP2P_CONTENT} />
             <Titlebtn

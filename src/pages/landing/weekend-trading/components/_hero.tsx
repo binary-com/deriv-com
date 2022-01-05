@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container, Show } from 'components/containers'
+import { Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const BackgroundWrapper = styled(Background)`
     background-size: cover;
@@ -114,14 +114,35 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const HeroComponent = ({ title, content, background_data }) => {
+const query = graphql`
+    query {
+        p2p_hero_background: file(relativePath: { eq: "landing/weekend.png" }) {
+            ...fadeIn
+        }
+        p2p_hero_background_mobile: file(relativePath: { eq: "landing/weekend-m.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
+const Hero = () => {
+    const data = useStaticQuery(query)
+    const [is_mobile] = useBrowserResize()
+    const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
+
     return (
-        <BackgroundWrapper data={background_data}>
+        <BackgroundWrapper data={background}>
             <Wrapper p="4rem 0 0" justify="space-between" height="unset">
                 <InformationWrapper height="unset" direction="column">
-                    <StyledHeader type="hero">{title}</StyledHeader>
+                    <StyledHeader type="hero">
+                        {localize('Ride the trends even on weekends')}
+                    </StyledHeader>
                     <HeroContent direction="column" justify="flex-start">
-                        <Header type="subtitle-1">{content}</Header>
+                        <Header type="subtitle-1">
+                            {
+                                <Localize translate_text="Trade even when most financial markets are closed" />
+                            }
+                        </Header>
                     </HeroContent>
                     <TryButton
                         target="_blank"
@@ -136,51 +157,6 @@ const HeroComponent = ({ title, content, background_data }) => {
             </Wrapper>
         </BackgroundWrapper>
     )
-}
-
-const query = graphql`
-    query {
-        p2p_hero_background: file(relativePath: { eq: "landing/weekend.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_mobile: file(relativePath: { eq: "landing/weekend-m.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
-const Hero = ({ title, content }) => {
-    const data = useStaticQuery(query)
-
-    return (
-        <div>
-            <Show.Desktop min_width="800">
-                <HeroComponent
-                    title={title}
-                    content={content}
-                    background_data={data['p2p_hero_background']}
-                />
-            </Show.Desktop>
-            <Show.Mobile>
-                <HeroComponent
-                    title={title}
-                    content={content}
-                    background_data={data['p2p_hero_background_mobile']}
-                />
-            </Show.Mobile>
-        </div>
-    )
-}
-
-HeroComponent.propTypes = {
-    background_data: PropTypes.any,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
-}
-
-Hero.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
 }
 
 export default Hero

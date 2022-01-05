@@ -54,9 +54,6 @@ const ArticlePaginationWrapper = styled(Flex)`
     flex-direction: column;
 
     .paginationBttns {
-        font-size: 3.2rem;
-        font-weight: bold;
-        color: var(--color-orange);
         display: flex;
         justify-content: center;
         margin-top: 4rem;
@@ -64,8 +61,23 @@ const ArticlePaginationWrapper = styled(Flex)`
             font-size: 2.4rem;
         }
         li {
-            margin: 0 1.2rem;
-            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border: 1px solid #dfe3e8;
+            border-radius: 4px;
+            margin: 0 4px;
+            a {
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                font-size: 14px;
+                line-height: 20px;
+                color: var(--color-black-3);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
             @media (max-width: 768px) {
                 margin: 0 1rem;
             }
@@ -75,13 +87,20 @@ const ArticlePaginationWrapper = styled(Flex)`
         }
     }
     .paginationActive {
-        color: var(--color-blue);
+        border: 1px solid var(--color-black-3) !important;
+    }
+    .paginationDisabled {
+        background: #f2f3f4;
+        opacity: 0.5;
     }
 `
 const VideoWrapper = styled(Flex)`
     :nth-child(odd) {
         margin-right: 24px;
     }
+`
+const StyledTitle = styled.span`
+    color: var(--color-black-3);
 `
 
 const SearchPage = () => {
@@ -96,8 +115,8 @@ const SearchPage = () => {
     const [currentItems, setCurrentItems] = useState(null)
     const [pageCount, setPageCount] = useState(0)
     const [itemOffset, setItemOffset] = useState(0)
-    const itemsPerPage = 5
-    const defaultVideosPerPage = 2
+    const [endOffset, setEndOffSet] = useState(0)
+    const itemsPerPage = 10
 
     const [query] = useQueryParams({
         q: StringParam,
@@ -137,17 +156,20 @@ const SearchPage = () => {
     // paginate
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage
-
+        setEndOffSet(endOffset)
         items_type
             ? setCurrentItems(article_result.slice(itemOffset, endOffset))
-            : setCurrentItems(article_result.slice(itemOffset, itemsPerPage))
+            : setCurrentItems(article_result.slice(itemOffset, 5))
 
         setPageCount(Math.ceil(article_result.length / itemsPerPage))
+
+        // console.log(`endOffset ${endOffset} - itemOffset ${itemOffset} - endOffset ${endOffset}`)
     }, [itemOffset, itemsPerPage, article_result, items_type])
 
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % article_result.length
         setItemOffset(newOffset)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
     const filteredBaseOnType = (obj) => {
@@ -244,12 +266,37 @@ const SearchPage = () => {
             <Flex>
                 <Container fd="column" style={{ maxWidth: '792px' }}>
                     <Flex fd="column">
-                        <Header type="subtitle-2" mt="4rem" color="grey-5">
-                            Selection for
-                        </Header>
-                        <Header type="heading-2" as="h2" color="black-3" weight="normal">
-                            {category_type ? unslugify(category_type) : unslugify(search_query)}
-                        </Header>
+                        {items_type ? (
+                            <>
+                                <Header
+                                    type="heading-3"
+                                    as="h3"
+                                    mt="4rem"
+                                    color="grey-5"
+                                    weight="normal"
+                                >
+                                    {items_type == 'article' ? total_article : total_video} matching
+                                    results for “
+                                    <StyledTitle color="black-3">
+                                        {category_type
+                                            ? unslugify(category_type)
+                                            : unslugify(search_query)}
+                                    </StyledTitle>
+                                    ”
+                                </Header>
+                            </>
+                        ) : (
+                            <>
+                                <Header type="subtitle-2" mt="4rem" color="grey-5">
+                                    Selection for
+                                </Header>
+                                <Header type="heading-2" as="h2" color="black-3" weight="normal">
+                                    {category_type
+                                        ? unslugify(category_type)
+                                        : unslugify(search_query)}
+                                </Header>
+                            </>
+                        )}
                     </Flex>
                     {((search_query && items_type == 'article') ||
                         (search_query && !items_type) ||
@@ -258,13 +305,17 @@ const SearchPage = () => {
                         <Flex m="40px 0" fd="column">
                             <StyledHeaderWrapper jc="space-between">
                                 <Header type="subtitle-2">Articles</Header>
-                                <Header type="paragraph-2" align="right">
-                                    <>
+                                {items_type ? (
+                                    <Header type="paragraph-2" align="right">
+                                        {`${itemOffset} - ${endOffset} of ${total_article} results`}
+                                    </Header>
+                                ) : (
+                                    <Header type="paragraph-2" align="right">
                                         {total_article > 4
                                             ? `1-5 of ${total_article} results`
                                             : `${total_article} results`}
-                                    </>
-                                </Header>
+                                    </Header>
+                                )}
                             </StyledHeaderWrapper>
 
                             {article_result.length !== 0 ? (
@@ -317,7 +368,7 @@ const SearchPage = () => {
                                 <Header type="subtitle-2">Videos</Header>
                                 <Header type="paragraph-2" align="right">
                                     <>
-                                        {total_video > 1
+                                        {total_video > 1 && !items_type
                                             ? `1-2 of ${total_video} results`
                                             : `${total_video} results`}
                                     </>
@@ -452,11 +503,11 @@ export const ArticleCard = ({ items }) => {
 }
 
 VideoParentWrapper.propTypes = {
-    currentVideoItems: PropTypes.obj,
+    currentVideoItems: PropTypes.object,
 }
 
 ArticleWrapper.propTypes = {
-    currentItems: PropTypes.obj,
+    currentItems: PropTypes.object,
 }
 
 ArticleCard.propTypes = {

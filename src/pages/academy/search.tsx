@@ -11,7 +11,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
-import { convertDate } from 'common/utility'
+import { convertDate, unslugify } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import ArticleIcon from 'images/svg/blog/article-icon.svg'
@@ -227,11 +227,11 @@ const SearchPage = () => {
         }
     }
 
-    const capitalFirstLetter = (text) => {
-        if (text) {
-            return text.charAt(0).toUpperCase() + text.slice(1)
-        }
-    }
+    // const capitalFirstLetter = (text) => {
+    //     if (text) {
+    //         return text.charAt(0).toUpperCase() + text.slice(1)
+    //     }
+    // }
 
     return (
         <Layout type="academy" margin_top={'14.4'}>
@@ -248,9 +248,7 @@ const SearchPage = () => {
                             Selection for
                         </Header>
                         <Header type="heading-2" as="h2" color="black-3" weight="normal">
-                            {category_type
-                                ? capitalFirstLetter(category_type)
-                                : capitalFirstLetter(search_query)}
+                            {category_type ? unslugify(category_type) : unslugify(search_query)}
                         </Header>
                     </Flex>
                     {((search_query && items_type == 'article') ||

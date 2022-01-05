@@ -129,9 +129,9 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const SideTabs = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
+const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
 
-const Tabs = ({
+const SideTabs = ({
     children = '',
     is_reverse = '',
     parent_tab = '',
@@ -223,6 +223,6 @@ const Tabs = ({
     )
 }
 
-Tabs.Panel = SideTabs
+SideTabs.Panel = TabPanel
 
-export default Tabs
+export default SideTabs

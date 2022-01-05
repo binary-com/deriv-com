@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Text, Header } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
@@ -105,7 +104,15 @@ const StyledChecklist = styled(Checklist)`
     }
 `
 
-export const Signal = ({ content }) => {
+type SignalProps = {
+    content: {
+        header: React.ReactElement
+        text: React.ReactElement
+        list: React.ReactElement[]
+    }
+}
+
+export const Signal = ({ content }: SignalProps) => {
     return (
         <StyledSection background="var(--color-white)">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
@@ -126,13 +133,4 @@ export const Signal = ({ content }) => {
             </Flex>
         </StyledSection>
     )
-}
-Signal.propTypes = {
-    content: PropTypes.shape({
-        header: PropTypes.string,
-        list: PropTypes.shape({
-            map: PropTypes.func,
-        }),
-        text: PropTypes.string,
-    }),
 }

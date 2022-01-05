@@ -39,12 +39,6 @@ const query = graphql`
 const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; $is_mounted: boolean }>`
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
-
-    .gatsby-image-wrapper {
-        div {
-            transition: ${({ $is_mounted }) => ($is_mounted ? 'opacity ease-in-out 2s' : 'none')};
-        }
-    }
 `
 
 const PlatformSlideshow = () => {
@@ -79,7 +73,7 @@ const PlatformSlideshow = () => {
         }
         setTimeout(() => {
             setMounted(true)
-        }, 12000)
+        }, 5000)
 
         return () => clearInterval(slideshow_timer)
     }, [is_mounted])

@@ -6,6 +6,8 @@ on:
             - 'production*'
         paths-ignore:
             - '**.md'
+    repository_dispatch:
+        types: [publish_blog]
 
 env:
     GATSBY_CPU_COUNT: 2

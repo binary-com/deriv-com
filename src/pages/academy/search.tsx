@@ -137,9 +137,7 @@ const SearchPage = () => {
     // paginate
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage
-        console.log(
-            `endOffset ${endOffset} - itemOffset ${itemOffset} - itemsPerPage ${itemsPerPage}`,
-        )
+
         items_type
             ? setCurrentItems(article_result.slice(itemOffset, endOffset))
             : setCurrentItems(article_result.slice(itemOffset, itemsPerPage))
@@ -150,14 +148,11 @@ const SearchPage = () => {
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % article_result.length
         setItemOffset(newOffset)
-        console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`)
     }
 
     const filteredBaseOnType = (obj) => {
         const article_arr = []
         const video_arr = []
-
-        console.log('items_type' + items_type)
 
         obj.forEach((items) => {
             if (items.blog_title) {

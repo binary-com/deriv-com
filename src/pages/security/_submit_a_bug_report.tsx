@@ -106,7 +106,9 @@ const SubmitABugReport = (): ReactElement => {
                 <StyledHeader type="paragraph-2" mt="8px" as="p" weight="normal">
                     <Localize
                         translate_text="Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program."
-                        components={[<LinkText key={0} href="/terms-and-conditions/" sm />]}
+                        components={[
+                            <LinkText key={0} href="/terms-and-conditions/#business-partners" sm />,
+                        ]}
                     />
                 </StyledHeader>
             </Container>

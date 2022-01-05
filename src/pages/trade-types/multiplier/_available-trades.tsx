@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
@@ -143,7 +143,11 @@ const CardContainer = styled(Flex)`
         }
     }
 `
-const TabCFDIcon = styled.img`
+type StyledType = {
+    active_tab: string
+    name: string
+}
+const TabCFDIcon = styled.img<StyledType>`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -152,7 +156,7 @@ const TabCFDIcon = styled.img`
             `
     }}
 `
-const TabOptionIcon = styled.img`
+const TabOptionIcon = styled.img<StyledType>`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -213,57 +217,54 @@ Card.propTypes = {
     onTabChange: PropTypes.func,
 }
 
-class AvailableTrades extends React.Component {
-    state = {
-        active_tab: 'Forex',
+const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrencies }) => {
+    const [active_tab, setActiveTab] = useState('Forex')
+
+    const handleTabChange = (new_tab: string) => {
+        if (new_tab === active_tab) return
+        setActiveTab(new_tab)
     }
-    handleTabChange = (new_tab) => {
-        if (new_tab === this.state.active_tab) return
-        this.setState({ active_tab: new_tab })
-    }
-    render() {
-        const { display_title, Forex, SyntheticIndices, Cryptocurrencies } = this.props
-        return (
-            <StyledSection>
-                <StyledHeader size="var(--text-size-header-1)" align="center" as="h2">
-                    {display_title}
-                </StyledHeader>
-                <StyledContainer direction="column">
-                    <CardWrapper position="relative">
-                        {Forex && (
-                            <Card
-                                name="Forex"
-                                display_name={<Localize translate_text="Forex" />}
-                                onTabChange={() => this.handleTabChange('Forex')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
-                        {SyntheticIndices && (
-                            <Card
-                                name="Synthetic Indices"
-                                display_name={<Localize translate_text="Synthetic Indices" />}
-                                onTabChange={() => this.handleTabChange('Synthetic Indices')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
-                        {Cryptocurrencies && (
-                            <Card
-                                name="Cryptocurrencies"
-                                display_name={<Localize translate_text="Cryptocurrencies" />}
-                                onTabChange={() => this.handleTabChange('Cryptocurrencies')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
-                    </CardWrapper>
-                    <ContentWrapper>
-                        {this.state.active_tab === 'Forex' && <Forex />}
-                        {this.state.active_tab === 'Synthetic Indices' && <SyntheticIndices />}
-                        {this.state.active_tab === 'Cryptocurrencies' && <Cryptocurrencies />}
-                    </ContentWrapper>
-                </StyledContainer>
-            </StyledSection>
-        )
-    }
+
+    return (
+        <StyledSection>
+            <StyledHeader size="var(--text-size-header-1)" align="center" as="h2">
+                {display_title}
+            </StyledHeader>
+            <StyledContainer direction="column">
+                <CardWrapper position="relative">
+                    {Forex && (
+                        <Card
+                            name="Forex"
+                            display_name={<Localize translate_text="Forex" />}
+                            onTabChange={() => handleTabChange('Forex')}
+                            active_tab={active_tab}
+                        />
+                    )}
+                    {SyntheticIndices && (
+                        <Card
+                            name="Synthetic Indices"
+                            display_name={<Localize translate_text="Synthetic Indices" />}
+                            onTabChange={() => handleTabChange('Synthetic Indices')}
+                            active_tab={active_tab}
+                        />
+                    )}
+                    {Cryptocurrencies && (
+                        <Card
+                            name="Cryptocurrencies"
+                            display_name={<Localize translate_text="Cryptocurrencies" />}
+                            onTabChange={() => handleTabChange('Cryptocurrencies')}
+                            active_tab={active_tab}
+                        />
+                    )}
+                </CardWrapper>
+                <ContentWrapper>
+                    {active_tab === 'Forex' && <Forex />}
+                    {active_tab === 'Synthetic Indices' && <SyntheticIndices />}
+                    {active_tab === 'Cryptocurrencies' && <Cryptocurrencies />}
+                </ContentWrapper>
+            </StyledContainer>
+        </StyledSection>
+    )
 }
 
 AvailableTrades.propTypes = {

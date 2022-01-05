@@ -14,7 +14,11 @@ const TabContent = styled.div`
 
 // `
 
-const TabButton = styled.div`
+type TabButtonType = {
+    selected: boolean
+}
+
+const TabButton = styled.div<TabButtonType>`
     position: relative;
     z-index: 2;
     display: flex;
@@ -37,8 +41,11 @@ const TabButton = styled.div`
         margin-bottom: 0;
     }
 `
+type TabListType = {
+    is_reverse: boolean
+}
 
-const TabList = styled.div`
+const TabList = styled.div<TabListType>`
     max-width: 100%;
     ${(props) =>
         props.is_reverse
@@ -121,7 +128,7 @@ const StyledText = styled(Text)`
 `
 
 const TabPanel = ({ children, className }) => (
-    <TabContent className={className} role="tabpanel" tabindex="0">
+    <TabContent className={className} role="tabpanel" tabIndex={0}>
         {children}
     </TabContent>
 )
@@ -129,6 +136,8 @@ const TabPanel = ({ children, className }) => (
 TabPanel.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    description: PropTypes.node,
+    label: PropTypes.node,
 }
 
 const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_content }) => {

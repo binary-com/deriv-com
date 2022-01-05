@@ -10,7 +10,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
-import { DerivStore } from 'store'
+import { DerivStore, DerivStoreType } from 'store'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -38,7 +38,7 @@ const StyledText = styled(Text)`
 `
 
 const AvailableMarkets = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">

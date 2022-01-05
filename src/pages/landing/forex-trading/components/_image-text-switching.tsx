@@ -7,18 +7,20 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
 
+type P2PType = {
+    title: React.ReactNode
+    subtitle1: React.ReactNode
+    subtitle_mobile1: React.ReactNode
+    second_title?: string
+    second_subtitle1?: string
+    image_alt: string
+    image_name: string
+}[]
+
 type ImageTextSwitchingProps = {
-    P2P: {
-        title: string
-        subtitle1: string
-        subtitle_mobile1: string
-        second_title: string
-        second_subtitle1: string
-        image_alt: string
-        image_name: string
-    }[]
+    P2P: P2PType
     reverse: boolean
-    two_title: boolean
+    two_title?: string
 }
 
 type ContentProps = {
@@ -137,7 +139,7 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }: ImageTextSwitchingProps
                 {P2P.map((item, index) => {
                     const is_even = isIndexEven(index, reverse)
                     return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={item.title}>
+                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader type="heading-3" mb="1rem">
                                     {item.title}

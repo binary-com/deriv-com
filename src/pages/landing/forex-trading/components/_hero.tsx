@@ -10,12 +10,12 @@ import device from 'themes/device.js'
 
 type HeroComponentProps = {
     background_data: string
-    content: string
+    content: React.ReactNode
     title: string
 }
 
 type HeroProps = {
-    content: string
+    content: React.ReactNode
     title: string
 }
 

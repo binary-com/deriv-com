@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -191,7 +191,7 @@ const CarouselItem = ({
     )
 }
 
-const MarketsFold = (): ReactElement => {
+const MarketsFold = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
 
@@ -208,6 +208,9 @@ const MarketsFold = (): ReactElement => {
             maxWidth: '100%',
             margin: '0 auto',
         },
+        embla_style: {
+            minHeight: is_mobile ? '364px' : 'auto',
+        },
         slide_style: {
             width: '282px',
             height: 'auto',
@@ -215,7 +218,7 @@ const MarketsFold = (): ReactElement => {
             position: 'relative',
         },
         navigation_style: {
-            bottom_offset: '-10px',
+            bottom_offset: '-24px',
             nav_color: '--color-red',
         },
     }

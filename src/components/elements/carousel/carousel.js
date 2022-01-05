@@ -73,6 +73,7 @@ export const Carousel = ({
     chevron_style,
     children,
     container_style,
+    embla_style,
     has_autoplay,
     navigation_css,
     navigation_style,
@@ -146,7 +147,7 @@ export const Carousel = ({
 
     return (
         <div style={container_style}>
-            <Embla>
+            <Embla style={embla_style}>
                 <ViewPort style={view_port} ref={emblaRef}>
                     <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
@@ -200,6 +201,7 @@ Carousel.propTypes = {
     chevron_style: PropTypes.object,
     children: PropTypes.array,
     container_style: PropTypes.object,
+    embla_style: PropTypes.object,
     has_autoplay: PropTypes.bool,
     navigation_css: PropTypes.array,
     navigation_style: PropTypes.object,

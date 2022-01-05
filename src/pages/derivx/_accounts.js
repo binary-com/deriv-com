@@ -29,7 +29,7 @@ const content = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, commodities and cryptocurrencies at high leverage." />
+            <Localize translate_text="Trade forex, basket indices, commodities, and cryptocurrencies with high leverage." />
         ),
         icon: <StyledIcon src={DxFinancialIcon} alt="" />,
     },

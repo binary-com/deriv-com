@@ -243,18 +243,6 @@ const SearchPage = () => {
         return result
     }
 
-    // const unSlugify = (text) => {
-    //     if (text) {
-    //         return text.replace(/-/g, ' ').toUpperCase()
-    //     }
-    // }
-
-    // const capitalFirstLetter = (text) => {
-    //     if (text) {
-    //         return text.charAt(0).toUpperCase() + text.slice(1)
-    //     }
-    // }
-
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO

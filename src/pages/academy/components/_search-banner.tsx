@@ -1,6 +1,6 @@
 import React, { useContext, useState, createRef } from 'react'
 import styled, { css } from 'styled-components'
-import { navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { combined_filter_type } from '../common/_constants'
 import { Container, Flex } from 'components/containers'
@@ -340,7 +340,9 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
             <MainWrapper fd="column" background={hidden}>
                 <Container height="7.2rem">
                     <Flex ai="center" jc="space-between">
-                        <LogoWrapper src={AcademyLogo} />
+                        <Link to="/academy">
+                            <LogoWrapper src={AcademyLogo} />
+                        </Link>
                         <Flex ai="center" max_width="751px" jc="flex-end">
                             <Flex height="auto" jc="flex-end" style={{ position: 'relative' }}>
                                 <FormWrapper

@@ -160,6 +160,7 @@ const AdditionalFlex = styled.div`
         font-size: 1.75rem;
     }
 `
+
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
@@ -289,10 +290,14 @@ const Subscribe = () => {
         window._cio.identify({
             id: email,
             email,
+            country: user_country,
             created_at: Math.round(Date.now() / 1000),
             name,
             type: 'Academy',
-            country: user_country,
+            unsubscribed: true,
+        })
+        window._cio.track('academy_subscription', {
+            id: email,
         })
     }
 

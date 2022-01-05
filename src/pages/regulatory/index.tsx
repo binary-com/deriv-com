@@ -59,11 +59,11 @@ const Mobile = styled(Show.Mobile)`
 const Desktop = styled(Show.Desktop)`
     display: flex;
 `
-const Box = styled.div`
+const Box = styled.div<BoxProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: ${(props: BoxProps) => props.padding || '4rem 0 0'};
+    padding: ${(props) => props.padding || '4rem 0 0'};
 
     ${Text} {
         @media ${device.tabletS} {

@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
+import ReactPaginate from 'react-paginate'
 import { useQueryParams, StringParam } from 'use-query-params'
 import VideoCard from './videos/_video-card'
 import VideoPlayer from './components/_video-player'
@@ -48,32 +50,54 @@ const AllArticleButton = styled(LinkButton)`
         width: 100%;
     }
 `
+const ArticlePaginationWrapper = styled(Flex)`
+    flex-direction: column;
+
+    .paginationBttns {
+        font-size: 3.2rem;
+        font-weight: bold;
+        color: var(--color-orange);
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+        @media (max-width: 768px) {
+            font-size: 2.4rem;
+        }
+        li {
+            margin: 0 1.2rem;
+            cursor: pointer;
+            @media (max-width: 768px) {
+                margin: 0 1rem;
+            }
+        }
+        li:hover {
+            color: var(--color-blue);
+        }
+    }
+    .paginationActive {
+        color: var(--color-blue);
+    }
+`
+const VideoWrapper = styled(Flex)`
+    :nth-child(odd) {
+        margin-right: 24px;
+    }
+`
+
 const SearchPage = () => {
     const { academy_data } = useContext(DerivStore)
-    const [show, setShow] = useState(false)
-    const [video_src, setVideoSrc] = useState('')
     const [full_article_link, setFullArticleLink] = useState('')
     const [full_video_link, setFullVideoLink] = useState('')
     const [total_article, setTotalArticle] = useState(0)
     const [total_video, setTotalVideo] = useState(0)
-    // new
     const [article_result, setArticleResult] = useState([])
     const [video_result, setVideoResult] = useState([])
-
-    const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = (event, url) => {
-        if (event.defaultPrevented) return
-        setVideoSrc(url)
-        setShow(true)
-    }
-
-    useEffect(() => {
-        document.body.style.overflow = show ? 'hidden' : 'unset'
-    }, [show])
-
-    useEffect(() => {
-        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
-    }, [show])
+    // paginate
+    const [currentItems, setCurrentItems] = useState(null)
+    const [pageCount, setPageCount] = useState(0)
+    const [itemOffset, setItemOffset] = useState(0)
+    const itemsPerPage = 5
+    const defaultVideosPerPage = 2
 
     const [query] = useQueryParams({
         q: StringParam,
@@ -84,31 +108,9 @@ const SearchPage = () => {
 
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
-    // there are 3 params type
-    /*  1) q is for query - optional
-            2) type (either article or video) - optional
-            3) category (category to be filtered) - optional
-
-            if q
-                - q
-
-            if search from article page
-                - q & type = article
-
-            if search from video page
-                - q & type = video
-
-            if category from banner
-                - category
-
-            if category from article
-                - category & type = article
-
-            if category from video
-                - category & type = video
-        */
-
     useEffect(() => {
+        setItemOffset(0)
+
         if (search_query && !items_type) {
             getSearchResult(search_query)
             setFullArticleLink(`/academy/search?q=${search_query}&type=article`)
@@ -132,9 +134,30 @@ const SearchPage = () => {
         }
     }, [query])
 
+    // paginate
+    useEffect(() => {
+        const endOffset = itemOffset + itemsPerPage
+        console.log(
+            `endOffset ${endOffset} - itemOffset ${itemOffset} - itemsPerPage ${itemsPerPage}`,
+        )
+        items_type
+            ? setCurrentItems(article_result.slice(itemOffset, endOffset))
+            : setCurrentItems(article_result.slice(itemOffset, itemsPerPage))
+
+        setPageCount(Math.ceil(article_result.length / itemsPerPage))
+    }, [itemOffset, itemsPerPage, article_result, items_type])
+
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % article_result.length
+        setItemOffset(newOffset)
+        console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`)
+    }
+
     const filteredBaseOnType = (obj) => {
         const article_arr = []
         const video_arr = []
+
+        console.log('items_type' + items_type)
 
         obj.forEach((items) => {
             if (items.blog_title) {
@@ -144,8 +167,10 @@ const SearchPage = () => {
             }
         })
 
+        // slice video result to two as for default
+        items_type ? setVideoResult(video_arr) : setVideoResult(video_arr.slice(0, 2))
+
         setArticleResult(article_arr)
-        setVideoResult(video_arr)
         setTotalArticle(article_arr.length)
         setTotalVideo(video_arr.length)
     }
@@ -155,7 +180,7 @@ const SearchPage = () => {
 
         if (q !== '') {
             result = matchSorter(combined_data, q, {
-                keys: ['blog_title', 'video_title'],
+                keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
             })
         } else result = null
 
@@ -250,92 +275,30 @@ const SearchPage = () => {
                             </StyledHeaderWrapper>
 
                             {article_result.length !== 0 ? (
-                                <Flex fd="column" mt="24px">
-                                    {article_result &&
-                                        article_result.map((items, index) => {
-                                            return (
-                                                items.blog_title &&
-                                                index < 5 && (
-                                                    <Flex mb="40px" key={index} jc="flex-start">
-                                                        <IconWrapper
-                                                            src={ArticleIcon}
-                                                            alt="article icon"
-                                                        />
-                                                        <Flex
-                                                            max-width="auto"
-                                                            ml="14px"
-                                                            fd="column"
-                                                        >
-                                                            <Flex jc="space-between">
-                                                                <Header
-                                                                    type="paragraph-1"
-                                                                    width="auto"
-                                                                >
-                                                                    {items.blog_title}
-                                                                    {items.featured && (
-                                                                        <StarIconWrapper
-                                                                            src={StarIcon}
-                                                                            alt="featured post icon"
-                                                                        />
-                                                                    )}
-                                                                </Header>
-                                                                <Header
-                                                                    type="paragraph-2"
-                                                                    color="grey-5"
-                                                                    weight="normal"
-                                                                    align="right"
-                                                                    width="auto"
-                                                                >
-                                                                    {convertDate(
-                                                                        items.published_date,
-                                                                    )}
-                                                                </Header>
-                                                            </Flex>
-
-                                                            <Header
-                                                                type="paragraph-1"
-                                                                weight="normal"
-                                                            >
-                                                                {items.blog_description}
-                                                            </Header>
-                                                            <Flex
-                                                                jc="flex-start"
-                                                                height="auto"
-                                                                fw="wrap"
-                                                                mt="8px"
-                                                            >
-                                                                {items.tags &&
-                                                                    items.tags
-                                                                        .slice(0, 4)
-                                                                        .map((tag) => (
-                                                                            <StyledCategories
-                                                                                as="h4"
-                                                                                type="paragraph-2"
-                                                                                key={tag.id}
-                                                                            >
-                                                                                {
-                                                                                    tag?.tags_id
-                                                                                        ?.tag_name
-                                                                                }
-                                                                            </StyledCategories>
-                                                                        ))}
-                                                                {items.tags.length > 4 && (
-                                                                    <StyledCategories
-                                                                        as="h4"
-                                                                        type="paragraph-2"
-                                                                    >
-                                                                        {`+${items.tags
-                                                                            .slice(4)
-                                                                            .length.toString()}`}
-                                                                    </StyledCategories>
-                                                                )}
-                                                            </Flex>
-                                                        </Flex>
-                                                    </Flex>
-                                                )
-                                            )
-                                        })}
-                                </Flex>
+                                <>
+                                    {!items_type ? (
+                                        <ArticleWrapper currentItems={currentItems} />
+                                    ) : (
+                                        <>
+                                            <ArticlePaginationWrapper>
+                                                <ArticleWrapper currentItems={currentItems} />
+                                                <ReactPaginate
+                                                    previousLabel={'<'}
+                                                    breakLabel={'...'}
+                                                    nextLabel={'>'}
+                                                    pageCount={pageCount}
+                                                    onPageChange={handlePageClick}
+                                                    containerClassName={'paginationBttns'}
+                                                    previousLinkClassName={'previousBttn'}
+                                                    breakClassName={'breakBttn'}
+                                                    nextLinkClassName={'nextBttn'}
+                                                    disabledClassName={'paginationDisabled'}
+                                                    activeClassName={'paginationActive'}
+                                                />
+                                            </ArticlePaginationWrapper>
+                                        </>
+                                    )}
+                                </>
                             ) : (
                                 <Flex m="16px 0">
                                     <Header type="subtitle-2" weight="normal" color="grey-5">
@@ -368,34 +331,10 @@ const SearchPage = () => {
                                 </Header>
                             </StyledHeaderWrapper>
 
-                            {video_result.length !== 0 ? (
-                                <Flex mt="24px" mb="32px" jc="flex-start">
-                                    {video_result &&
-                                        video_result.map((items, idx) => {
-                                            return (
-                                                items.video_title &&
-                                                idx < 2 && (
-                                                    <Flex
-                                                        key={items.video_file.id}
-                                                        max_width="auto"
-                                                        width="auto"
-                                                        mr="24px"
-                                                        onClick={(e) =>
-                                                            handleOpenVideo(
-                                                                e,
-                                                                `https://cms.deriv.cloud/assets/${items.video_file.id}`,
-                                                            )
-                                                        }
-                                                    >
-                                                        <VideoCard
-                                                            key={items.video_file.id}
-                                                            item={items}
-                                                        />
-                                                    </Flex>
-                                                )
-                                            )
-                                        })}
-                                </Flex>
+                            {video_result.length != 0 ? (
+                                <>
+                                    <VideoParentWrapper currentVideoItems={video_result} />
+                                </>
                             ) : (
                                 <Flex m="16px 0">
                                     <Header type="subtitle-2" weight="normal" color="grey-5">
@@ -411,7 +350,6 @@ const SearchPage = () => {
                             )}
                         </Flex>
                     )}
-                    {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
                 </Container>
             </Flex>
         </Layout>
@@ -419,3 +357,115 @@ const SearchPage = () => {
 }
 
 export default WithIntl()(SearchPage)
+
+export const VideoParentWrapper = ({ currentVideoItems }) => {
+    const [show, setShow] = useState(false)
+    const [video_src, setVideoSrc] = useState('')
+    const handleCloseVideo = () => setShow(false)
+    const handleOpenVideo = (event, url) => {
+        if (event.defaultPrevented) return
+        setVideoSrc(url)
+        setShow(true)
+    }
+
+    useEffect(() => {
+        document.body.style.overflow = show ? 'hidden' : 'unset'
+    }, [show])
+
+    useEffect(() => {
+        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+    }, [show])
+
+    return (
+        <>
+            <Flex mt="24px" mb="32px" jc="flex-start" style={{ flexWrap: 'wrap' }}>
+                {currentVideoItems.map((items) => {
+                    return (
+                        <VideoWrapper
+                            key={items.video_file.id}
+                            max_width="auto"
+                            width="auto"
+                            height="auto"
+                            mb="32px"
+                            onClick={(e) =>
+                                handleOpenVideo(
+                                    e,
+                                    `https://cms.deriv.cloud/assets/${items.video_file.id}`,
+                                )
+                            }
+                        >
+                            <VideoCard key={items.video_file.id} item={items} />
+                        </VideoWrapper>
+                    )
+                })}
+            </Flex>
+            {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
+        </>
+    )
+}
+
+export const ArticleWrapper = ({ currentItems }) => {
+    return (
+        <Flex fd="column" mt="24px">
+            {currentItems.map((items, index) => {
+                return <ArticleCard key={index} items={items} />
+            })}
+        </Flex>
+    )
+}
+
+export const ArticleCard = ({ items }) => {
+    return (
+        <Flex mb="40px" jc="flex-start">
+            <IconWrapper src={ArticleIcon} alt="article icon" />
+            <Flex max-width="auto" ml="14px" fd="column">
+                <Flex jc="space-between">
+                    <Header type="paragraph-1" width="auto">
+                        {items.blog_title}
+                        {items.featured && (
+                            <StarIconWrapper src={StarIcon} alt="featured post icon" />
+                        )}
+                    </Header>
+                    <Header
+                        type="paragraph-2"
+                        color="grey-5"
+                        weight="normal"
+                        align="right"
+                        width="auto"
+                    >
+                        {convertDate(items.published_date)}
+                    </Header>
+                </Flex>
+
+                <Header type="paragraph-1" weight="normal">
+                    {items.blog_description}
+                </Header>
+                <Flex jc="flex-start" height="auto" fw="wrap" mt="8px">
+                    {items.tags &&
+                        items.tags.slice(0, 4).map((tag) => (
+                            <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
+                                {tag?.tags_id?.tag_name}
+                            </StyledCategories>
+                        ))}
+                    {items.tags.length > 4 && (
+                        <StyledCategories as="h4" type="paragraph-2">
+                            {`+${items.tags.slice(4).length.toString()}`}
+                        </StyledCategories>
+                    )}
+                </Flex>
+            </Flex>
+        </Flex>
+    )
+}
+
+VideoParentWrapper.propTypes = {
+    currentVideoItems: PropTypes.obj,
+}
+
+ArticleWrapper.propTypes = {
+    currentItems: PropTypes.obj,
+}
+
+ArticleCard.propTypes = {
+    items: PropTypes.bool,
+}

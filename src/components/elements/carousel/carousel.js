@@ -139,7 +139,7 @@ export const Carousel = ({
     const { chevron_color, chevron_left, chevron_right, is_displayed_on_mobile } =
         chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
-    const { nav_color, bottom_offset } = navigation_style || {}
+    const { nav_color, bottom_offset, height } = navigation_style || {}
 
     return (
         <div style={container_style}>
@@ -172,8 +172,8 @@ export const Carousel = ({
                     />
                 )}
                 {nav_color && (
-                    <NavigationContainer bottom_offset={bottom_offset}>
-                        {children.map((child, idx) => (
+                    <NavigationContainer bottom_offset={bottom_offset} height={height}>
+                        {children.map((idx) => (
                             <NavigationButton
                                 key={idx}
                                 color={nav_color}

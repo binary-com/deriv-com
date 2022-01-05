@@ -20,7 +20,6 @@ const StyledBackground = styled(BackgroundImage)`
     @media ${device.tabletL} {
         height: 650px;
     }
-
     @media ${device.tablet} {
         height: auto;
         object-fit: cover;
@@ -34,9 +33,10 @@ const StyledBackground = styled(BackgroundImage)`
 `
 const Wrapper = styled(Flex)`
     position: relative;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     min-height: ${(props) => props.d_height};
-    padding: 2rem 12rem;
+    padding: 10rem 12rem;
     z-index: 1;
     flex-direction: column;
     height: 100%;
@@ -73,10 +73,9 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
                     <Title
                         as="h1"
                         color={'white'}
-                        text_align={'left'}
                         font_size={['64px', '32px']}
                         line_height={['80px', '40px']}
-                        max_width={['636px', '328px']}
+                        max_width={['588px', '320px']}
                     >
                         {title}
                     </Title>
@@ -84,11 +83,11 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
                         color={'white'}
                         font_size={['20px', '14px']}
                         line_height={['30px', '24px']}
-                        max_width={['636px', '328px']}
+                        max_width={['588px', '320px']}
                     >
                         {description}
                     </TextWrapper>
-                    <Flex jc="flex-start" height="unset" mt="24px" tabletL={{ mt: '16px' }}>
+                    <Flex jc="center" height="unset" mt="24px" tabletL={{ mt: '16px' }}>
                         <LinkButton
                             id="hero-article"
                             to={href}

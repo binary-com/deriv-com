@@ -12,6 +12,7 @@ import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
 import { DerivStore } from 'store'
+import device from 'themes/device.js'
 
 export const query = graphql`
     query {
@@ -19,10 +20,19 @@ export const query = graphql`
     }
 `
 
-const MainWrapper = styled(Flex)`
+const MainWrapper = styled.div`
+    display: flex;
+    width: 90%;
     background-color: var(--color-white);
     flex-direction: column;
     overflow: hidden;
+    max-width: 1200px;
+    padding-top: 40px;
+    margin: 0 auto;
+
+    @media ${device.desktopL} {
+        max-width: 1600px;
+    }
 `
 
 const DerivBlog = ({ data }) => {
@@ -40,6 +50,8 @@ const DerivBlog = ({ data }) => {
         container_style: {
             maxWidth: '100%',
             margin: '0 auto',
+            borderRadius: '8px',
+            overflow: 'hidden',
         },
         slide_style: {
             minWidth: '100%',
@@ -47,6 +59,7 @@ const DerivBlog = ({ data }) => {
         },
         navigation_style: {
             nav_color: '--color-white',
+            height: '0',
         },
     }
 

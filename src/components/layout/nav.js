@@ -217,14 +217,14 @@ const NavRight = styled.div`
                 return 0
             } else if (props.move && !props.hide_signup_login) {
                 if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                    props.button_ref.current.base.style.opacity = 1
                 }
                 return 0
             } else {
                 if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                    props.button_ref.current.base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 2
+                    const calculation = props.button_ref.current.base.offsetWidth + 2
                     return `${calculation}px`
                 }
                 return '300px'
@@ -844,14 +844,14 @@ const StyledNavRight = styled(NavRight)`
         ${(props) => {
             if (props.move) {
                 if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                    props.button_ref.current.base.style.opacity = 1
                 }
                 return '50px'
             } else {
                 if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                    props.button_ref.current.base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 50
+                    const calculation = props.button_ref.current.base.offsetWidth + 50
                     return `${calculation}px`
                 }
                 return '225px'

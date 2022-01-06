@@ -59,6 +59,7 @@ const Hero = () => {
                             width="100%"
                             data={data['dbot']}
                             alt={localize('DBOT platforms')}
+                            loading="eager"
                         />
                     </ImgWrapper>
                     <Mobile mt="4rem" fd="column" ai="center">

@@ -38,9 +38,6 @@ const query = graphql`
         jeyavarthini_vairakanan: file(relativePath: { eq: "leaders/jeyavarthini-vairakanan.png" }) {
             ...fadeIn
         }
-        arun_venkataraman: file(relativePath: { eq: "leaders/arun-venkataraman.png" }) {
-            ...fadeIn
-        }
         rakshit_choudhary_mobile: file(
             relativePath: { eq: "leaders/rakshit-choudhary-mobile.png" }
         ) {
@@ -75,11 +72,6 @@ const query = graphql`
         ) {
             ...fadeIn
         }
-        arun_venkataraman_mobile: file(
-            relativePath: { eq: "leaders/arun-venkataraman-mobile.png" }
-        ) {
-            ...fadeIn
-        }
     }
 `
 
@@ -91,6 +83,7 @@ const leaders_data = [
             <Localize translate_text="Rakshit joined us in 2010, jointly architecting the system behind our trading platform with our Chief Executive Officer. Today, he oversees the design and implementation of our business operations. Rakshit holds a master’s degree in quantitative and computational finance from Georgia Institute of Technology in Atlanta and a bachelor’s degree in mechanical engineering from Delhi College of Engineering in India." />
         ),
         image: 'rakshit_choudhary',
+        image_alt: "Rakshit Choudhary - Deriv's COO",
     },
     {
         name: 'Tom Molesworth',
@@ -104,6 +97,7 @@ const leaders_data = [
             <Localize translate_text="Tom is responsible for our technology strategy and is actively involved in engineering leadership. With over 20 years of experience in software development, he has made extensive contributions to the design and maintenance of large-scale platforms in the IT industry." />
         ),
         image: 'tom_molesworth',
+        image_alt: "Tom Molesworth - Deriv's CTO",
     },
     {
         name: 'Anton Andreev',
@@ -112,6 +106,7 @@ const leaders_data = [
             <Localize translate_text="Anton is responsible for overseeing the end-to-end development of our products. He has more than 17 years of experience in the online trading and retail banking industry with several international brokers. Anton holds a master’s degree in economics and another in applied informatics." />
         ),
         image: 'anton_andreev',
+        image_alt: 'Anton Andreev - Head of project management at Deriv',
     },
     {
         name: 'Joanna Frendo',
@@ -120,6 +115,7 @@ const leaders_data = [
             <Localize translate_text="Joanna oversees the whole process of benchmarking the group’s performance against the regulations in every jurisdiction we serve. Her credentials include a diploma in financial services operations and compliance, a professional postgraduate diploma in financial crime compliance, and a fellow membership with the International Compliance Association." />
         ),
         image: 'joanna_frendo',
+        image_alt: 'Joanna Frendo - Head of Compliance at Deriv',
     },
     {
         name: 'Shyamala Siva',
@@ -128,6 +124,7 @@ const leaders_data = [
             <Localize translate_text="Shyamala has been with the group for over 15 years, ensuring smooth workplace and workforce operations. She is a Certified Public Accountant and holds a master’s degree in corporate governance from HELP University in Malaysia." />
         ),
         image: 'shyamala_siva',
+        image_alt: 'Shyamala Siva - Head of HR at Deriv at Deriv',
     },
     {
         name: 'Raunak Kathuria',
@@ -136,6 +133,7 @@ const leaders_data = [
             <Localize translate_text="Raunak has more than 10 years of experience in front-end and back-end engineering. He has worked for multinational companies like Amdocs, Aon Hewitt, and Oracle Financial Services, where he developed skills for a wide range of platforms and programming languages. Raunak holds a bachelor’s degree in computer science engineering." />
         ),
         image: 'raunak_kathuria',
+        image_alt: 'Raunak Kathuria - Back-end Manager at Deriv',
     },
     {
         name: 'Mun Sei Loke',
@@ -144,6 +142,7 @@ const leaders_data = [
             <Localize translate_text="With more than 11 years of experience in Quality Assurance (QA), Mun Sei is well versed in all stages of software development life cycle, as well as in all forms of QA testing. She holds a bachelor’s degree in computer science." />
         ),
         image: 'munsei_loke',
+        image_alt: 'Munsei Loke - Quality Assurance Manager at Deriv',
     },
     {
         name: 'Waqas Awan',
@@ -152,6 +151,7 @@ const leaders_data = [
             <Localize translate_text="Waqas heads our Product Design department. He has more than 20 years of experience as a product specialist, leading multi-disciplinary teams to ship compelling products and services in domains including healthcare, human resources, and FinTech. Waqas holds a PhD in bioinformatics from the University of Cambridge." />
         ),
         image: 'waqas_awan',
+        image_alt: 'Waqas Awan - Head of product design at Deriv',
     },
     {
         name: 'Derek Swift',
@@ -160,6 +160,7 @@ const leaders_data = [
             <Localize translate_text="Derek has been with us since 2006. His role is pivotal to the onboarding of our new payment systems and bank accounts. He holds a master’s degree in risk management from Birmingham City University." />
         ),
         image: 'derek_swift',
+        image_alt: 'Derek Swift - Compliance and Payments Manager at Deriv',
     },
     {
         name: 'Jeyavarthini Vairakanan',
@@ -168,14 +169,7 @@ const leaders_data = [
             <Localize translate_text="Jeyavarthini drives our customer support strategy and assists her team to establish a sustainable relationship with our clients. Before joining us in 2017, Jeyavarthini worked for Intel in Malaysia. She holds an honours degree in Information Technology with a speciality in Information System Security (ISS) from Asia Pacific University associated with Staffordshire University, UK." />
         ),
         image: 'jeyavarthini_vairakanan',
-    },
-    {
-        name: 'Arun Venkataraman',
-        position: <Localize translate_text="DevOps Manager" />,
-        description: (
-            <Localize translate_text="Arun coordinates our product development teams with our operations teams. He has over 12 years of experience in the information industry and has a comprehensive perspective into his field. Arun holds a master’s degree in bioinformatics from Bharathiar University in India." />
-        ),
-        image: 'arun_venkataraman',
+        image_alt: 'Jeyavarthini Vairakanan - CS Manager at Deriv',
     },
 ]
 const StyledSection = styled(SectionContainer)`
@@ -281,7 +275,7 @@ const Leaders = () => {
                         {leaders_data.map((leader, index) => (
                             <LeaderWrapper key={index} direction="column" ai="center">
                                 <Box margin={{ bottom: '0.8rem' }} width="100%" position="relative">
-                                    <QueryImage data={data[leader.image]} alt={leader.name} />
+                                    <QueryImage data={data[leader.image]} alt={leader.image_alt} />
                                     <DescriptionWrapper>
                                         <Text lh="1.71" size="var(--text-size-xxs)" color="white">
                                             {leader.description}

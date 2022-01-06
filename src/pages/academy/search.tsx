@@ -18,7 +18,7 @@ import ArticleIcon from 'images/svg/blog/article-icon.svg'
 import StarIcon from 'images/svg/blog/star-icon.svg'
 
 const StyledHeaderWrapper = styled(Flex)`
-    box-shadow: inset 0px -1px 0px #f2f3f4;
+    box-shadow: inset 0 -1px 0 #f2f3f4;
 `
 const IconWrapper = styled.img`
     width: 24px;
@@ -61,6 +61,7 @@ const ArticlePaginationWrapper = styled(Flex)`
         @media (max-width: 768px) {
             font-size: 2.4rem;
         }
+
         li {
             width: 32px;
             height: 32px;
@@ -98,6 +99,7 @@ const ArticlePaginationWrapper = styled(Flex)`
 `
 const VideoWrapper = styled(Flex)`
     width: auto;
+
     :nth-child(odd) {
         margin-right: 24px;
     }
@@ -256,7 +258,6 @@ const SearchPage = () => {
 
         return result
     }
-
     const getTotalSearchCount = () => (items_type == 'article' ? total_article : total_video)
 
     return (

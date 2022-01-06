@@ -349,6 +349,10 @@ const LogoLinkMobile = styled(LocalizedLink)`
     }
 `
 
+const LogoLinkMobileSecurity = styled(LogoLinkMobile)`
+    margin: unset;
+`
+
 const NowrapButton = styled(Button)`
     white-space: nowrap;
 `
@@ -894,7 +898,9 @@ const StyledNavWrapper = styled(Wrapper)`
     @media ${device.tabletL} {
         justify-content: ${(props) => (props.no_login_signup ? 'flex-start' : 'space-between')};
     }
+`
 
+const StyledNavWrapperPartner = styled(StyledNavWrapper)`
     ${LogoLinkMobile} {
         margin: 0 2.4rem;
     }
@@ -1004,7 +1010,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNavPartners>
-                    <StyledNavWrapper no_login_signup>
+                    <StyledNavWrapperPartner no_login_signup>
                         <NavLeftPartners>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <img src={LogoPartner} alt="logo partner" />
@@ -1129,7 +1135,7 @@ export const NavPartners = ({ no_login_signup }) => {
                             is_canvas_menu_open={is_canvas_menu_open}
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
-                    </StyledNavWrapper>
+                    </StyledNavWrapperPartner>
                 </StyledNavPartners>
             </NavWrapperPartners>
             <CFDWarning />
@@ -1139,12 +1145,11 @@ export const NavPartners = ({ no_login_signup }) => {
 
 // Note: When using layout component for security page, please add type='security' and padding_top='10rem'
 export const NavSecurity = () => {
-    const nav_ref = useRef(null)
     const button_ref = useRef(null)
 
     return (
         <>
-            <NavWrapperPartners ref={nav_ref}>
+            <NavWrapperPartners>
                 <DerivHomeWrapper>
                     <HomeContainer justify="space-between">
                         <StyledContainer justify="flex-start">
@@ -1193,13 +1198,9 @@ export const NavSecurity = () => {
 
                         <Mobile>
                             <Flex ai="center" jc="space-between">
-                                <LogoLinkMobile
-                                    style={{ margin: 'unset' }}
-                                    to="/"
-                                    aria-label={localize('Security')}
-                                >
+                                <LogoLinkMobileSecurity to="/" aria-label={localize('Security')}>
                                     <SecurityLogoInMobile src={LogoSecurity} alt="logo security" />
-                                </LogoLinkMobile>
+                                </LogoLinkMobileSecurity>
 
                                 <LinkButton
                                     to={'mailto:security@deriv.com'}

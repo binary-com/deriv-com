@@ -1,27 +1,13 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { scope_content } from './static/_scope_content'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text, LocalizedLinkText } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Header } from 'components/elements'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 // icons
 import TickIcon from 'images/svg/security/tick.svg'
 import XIcon from 'images/svg/security/x_icon.svg'
-
-const Subheadline = styled(Text)`
-    @media ${device.tabletL} {
-        width: auto;
-        font-size: 14px;
-    }
-`
-
-const CardWrap = styled(Flex)`
-    @media ${device.tabletL} {
-        flex-direction: column;
-        margin-top: 0;
-    }
-`
 
 const Card = styled.div`
     background-color: var(--color-white);
@@ -41,14 +27,6 @@ const Card = styled.div`
     }
 `
 
-const LinkText = styled(LocalizedLinkText)`
-    font-size: 14px;
-
-    @media ${device.tabletL} {
-        font-size: 12px;
-    }
-`
-
 const ListWrap = styled.div`
     display: flex;
     margin-top: 1.6rem;
@@ -60,20 +38,20 @@ const IconWrap = styled.img`
     margin-top: 0.5rem;
 `
 
-const Scope = (): ReactElement => {
+const Scope = () => {
     return (
         <SectionContainer background="grey-30">
             <Container direction="column">
                 <Header as="h2" type="heading-2" align="center" mb="0.8rem">
                     {localize('Scope')}
                 </Header>
-                <Subheadline width="79.2rem" align="center">
+                <Header weight="normal" type="paragraph-1" max_width="79.2rem" align="center">
                     {localize(
                         'Only Deriv assets are covered in this program. If you discover bugs on third-party apps, please report them to the respective owners. You may submit bug reports related to the following aspects of our business:',
                     )}
-                </Subheadline>
+                </Header>
 
-                <CardWrap mt="4rem">
+                <Flex tabletL={{ mt: '0', fd: 'column' }} mt="4rem">
                     {scope_content.map((list, idx) => {
                         const tick_icon = list.list_icon === 'tick'
                         return (
@@ -87,60 +65,32 @@ const Scope = (): ReactElement => {
 
                                 {list.check_list.map((item, idx) => {
                                     return (
-                                        <ListWrap key={idx}>
+                                        <Flex
+                                            height="auto"
+                                            mt="1.6rem"
+                                            ai="flex-start"
+                                            jc="flex-start"
+                                            key={idx}
+                                        >
                                             <IconWrap src={tick_icon ? TickIcon : XIcon} />
                                             <div>
                                                 <Header as="p" type="paragraph-2" weight="normal">
-                                                    <Localize
-                                                        translate_text={item.content}
-                                                        components={[
-                                                            <Text key={0} as="p" size="14px" />,
-                                                            <LinkText
-                                                                key={1}
-                                                                to={item.link}
-                                                                target="_blank"
-                                                                color="blue-9"
-                                                            />,
-                                                            <LinkText
-                                                                key={2}
-                                                                to={item.link_2}
-                                                                target="_blank"
-                                                                color="blue-9"
-                                                            />,
-                                                            <Text
-                                                                key={3}
-                                                                as="span"
-                                                                color="red"
-                                                                size="14px"
-                                                            />,
-                                                        ]}
-                                                    />
+                                                    {item.content}
                                                 </Header>
 
                                                 {item.description && (
                                                     <Header as="p" type="small" weight="normal">
-                                                        <Localize
-                                                            translate_text={item.description}
-                                                            components={[
-                                                                <Header
-                                                                    as="span"
-                                                                    color="red"
-                                                                    type="small"
-                                                                    weight="normal"
-                                                                    key={0}
-                                                                />,
-                                                            ]}
-                                                        />
+                                                        {item.description}
                                                     </Header>
                                                 )}
                                             </div>
-                                        </ListWrap>
+                                        </Flex>
                                     )
                                 })}
                             </Card>
                         )
                     })}
-                </CardWrap>
+                </Flex>
             </Container>
         </SectionContainer>
     )

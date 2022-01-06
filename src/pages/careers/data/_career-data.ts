@@ -119,7 +119,7 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Customer Support',
+                title: 'Customer-Support',
                 url: 'https://deriv.zohorecruit.com/jobs/Customer-Support',
             },
             testimony_section: {
@@ -153,7 +153,7 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'People Management',
+                title: 'People-Management',
                 url: 'https://deriv.zohorecruit.com/jobs/People-Management',
             },
             testimony_section: {
@@ -187,7 +187,7 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Product Design and UX',
+                title: 'Product-Design-and-UX',
                 url: 'https://deriv.zohorecruit.com/jobs/Product-Design-and-UX ',
             },
             testimony_section: {
@@ -363,8 +363,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Trading Operations',
-                url: 'https://deriv.zohorecruit.com/jobs/Trading Operations',
+                title: 'Trading-Operations',
+                url: 'https://deriv.zohorecruit.com/jobs/Trading-Operations',
             },
             testimony_section: {
                 image: 'trading_operations_review',
@@ -400,7 +400,7 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Software Testing',
+                title: 'Software-Testing',
                 url: 'https://deriv.zohorecruit.com/jobs/Software-Testing',
             },
             testimony_section: {
@@ -434,7 +434,7 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Business Excellence',
+                title: 'Business-Excellence',
                 url: 'https://deriv.zohorecruit.com/jobs/Business-Excellence',
             },
             testimony_section: {
@@ -468,7 +468,7 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Internal Audit',
+                title: 'Internal-Audit',
                 url: 'https://deriv.zohorecruit.com/jobs/Internal-Audit',
             },
             testimony_section: {

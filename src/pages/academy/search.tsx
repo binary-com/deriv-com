@@ -260,6 +260,33 @@ const SearchPage = () => {
     }
     const getTotalSearchCount = () => (items_type == 'article' ? total_article : total_video)
 
+    const getTotalArticleText = () =>
+        total_article > 4 ? `1-5 of ${total_article} results` : `${total_article} results`
+
+    const getPaginatedArticles = () =>
+        !items_type ? (
+            <ArticleWrapper currentItems={currentItems} />
+        ) : (
+            <>
+                <ArticlePaginationWrapper>
+                    <ArticleWrapper currentItems={currentItems} />
+                    <ReactPaginate
+                        previousLabel={'<'}
+                        breakLabel={'...'}
+                        nextLabel={'>'}
+                        pageCount={pageCount}
+                        onPageChange={handlePageClick}
+                        containerClassName={'pagination-buttons'}
+                        previousLinkClassName={'previous-button'}
+                        breakClassName={'break-button'}
+                        nextLinkClassName={'next-button'}
+                        disabledClassName={'pagination-disabled'}
+                        activeClassName={'pagination-active'}
+                    />
+                </ArticlePaginationWrapper>
+            </>
+        )
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -310,41 +337,21 @@ const SearchPage = () => {
                                     </Header>
                                 ) : (
                                     <Header as="span" type="paragraph-2" align="right">
-                                        {total_article > 4
-                                            ? `1-5 of ${total_article} results`
-                                            : `${total_article} results`}
+                                        {getTotalArticleText()}
                                     </Header>
                                 )}
                             </StyledHeaderWrapper>
 
                             {article_result.length !== 0 ? (
-                                <>
-                                    {!items_type ? (
-                                        <ArticleWrapper currentItems={currentItems} />
-                                    ) : (
-                                        <>
-                                            <ArticlePaginationWrapper>
-                                                <ArticleWrapper currentItems={currentItems} />
-                                                <ReactPaginate
-                                                    previousLabel={'<'}
-                                                    breakLabel={'...'}
-                                                    nextLabel={'>'}
-                                                    pageCount={pageCount}
-                                                    onPageChange={handlePageClick}
-                                                    containerClassName={'pagination-buttons'}
-                                                    previousLinkClassName={'previous-button'}
-                                                    breakClassName={'break-button'}
-                                                    nextLinkClassName={'next-button'}
-                                                    disabledClassName={'pagination-disabled'}
-                                                    activeClassName={'pagination-active'}
-                                                />
-                                            </ArticlePaginationWrapper>
-                                        </>
-                                    )}
-                                </>
+                                getPaginatedArticles()
                             ) : (
                                 <Flex m="16px 0">
-                                    <Header type="subtitle-2" weight="normal" color="grey-5">
+                                    <Header
+                                        as="h3"
+                                        type="subtitle-2"
+                                        weight="normal"
+                                        color="grey-5"
+                                    >
                                         No results found
                                     </Header>
                                 </Flex>
@@ -364,8 +371,10 @@ const SearchPage = () => {
                         (category_type && items_type == 'video')) && (
                         <Flex m="40px 0" fd="column">
                             <StyledHeaderWrapper jc="space-between">
-                                <Header type="subtitle-2">Videos</Header>
-                                <Header type="paragraph-2" align="right">
+                                <Header as="h3" type="subtitle-2">
+                                    Videos
+                                </Header>
+                                <Header as="span" type="paragraph-2" align="right">
                                     <>
                                         {total_video > 1 && !items_type
                                             ? `1-2 of ${total_video} results`
@@ -380,7 +389,12 @@ const SearchPage = () => {
                                 </>
                             ) : (
                                 <Flex m="16px 0">
-                                    <Header type="subtitle-2" weight="normal" color="grey-5">
+                                    <Header
+                                        as="h3"
+                                        type="subtitle-2"
+                                        weight="normal"
+                                        color="grey-5"
+                                    >
                                         No results found
                                     </Header>
                                 </Flex>

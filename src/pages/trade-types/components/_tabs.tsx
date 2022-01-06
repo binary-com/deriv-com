@@ -45,16 +45,16 @@ type TabListType = {
     is_reverse: boolean
 }
 
+const right = css`
+    margin-right: 2.4rem;
+`
+const left = css`
+    margin-left: 2.4rem;
+`
+
 const TabList = styled.div<TabListType>`
     max-width: 100%;
-    ${(props) =>
-        props.is_reverse
-            ? css`
-                  margin-left: 2.4rem;
-              `
-            : css`
-                  margin-right: 2.4rem;
-              `}
+    ${(props) => (props.is_reverse ? left : right)}
 `
 
 const TabListWrapper = styled.div`

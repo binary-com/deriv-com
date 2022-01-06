@@ -9,7 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 const WhyTradeCFD = Loadable(() => import('./_why-trade-cfd'))
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
-const ThingsToKeep = Loadable(() => import('./_things-to-keep'))
+const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
 const CFD = () => {

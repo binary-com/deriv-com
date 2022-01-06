@@ -31,7 +31,7 @@ const MiddleText = styled(Text)`
     }
 `
 
-const WhatAreOptions = () => {
+const OptionsToTrade = () => {
     return (
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
@@ -456,4 +456,4 @@ const LookbacksGrid = () => {
     )
 }
 
-export default WhatAreOptions
+export default OptionsToTrade

@@ -54,6 +54,11 @@ const CardWrapper = styled(Flex)`
         overflow: scroll;
     }
 `
+const backgroundAndShadow = css`
+    background-color: var(--color-white);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+`
+
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
@@ -118,11 +123,7 @@ const CardContainer = styled(Flex)`
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
-            if (props.active_tab === props.name)
-                return css`
-                    background-color: var(--color-white);
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
-                `
+            if (props.active_tab === props.name) return backgroundAndShadow
         }}
     }
     @media ${device.tabletL} {
@@ -147,22 +148,15 @@ type StyledType = {
     active_tab: string
     name: string
 }
-const TabCFDIcon = styled.img<StyledType>`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-            `
-    }}
+
+const marginLeft = css`
+    margin-left: 16px;
 `
-const TabOptionIcon = styled.img<StyledType>`
+
+const TabIcon = styled.img<StyledType>`
     min-width: 16px;
     ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-            `
+        if (props.active_tab === props.name) return marginLeft
     }}
 `
 
@@ -189,18 +183,13 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Forex' && (
-                    <TabCFDIcon src={ForexIcon} alt="" name={name} active_tab={active_tab} />
+                    <TabIcon src={ForexIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 {active_tab === 'Synthetic Indices' && (
-                    <TabOptionIcon src={SyntheticIcon} alt="" name={name} active_tab={active_tab} />
+                    <TabIcon src={SyntheticIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 {active_tab === 'Cryptocurrencies' && (
-                    <TabOptionIcon
-                        src={CryptocurrencyIcon}
-                        alt=""
-                        name={name}
-                        active_tab={active_tab}
-                    />
+                    <TabIcon src={CryptocurrencyIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}

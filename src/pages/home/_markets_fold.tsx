@@ -50,6 +50,7 @@ const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
 
 const StyledDescription = styled(Text)<{ $hovered: boolean }>`
     visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
     z-index: 2;
 `
 

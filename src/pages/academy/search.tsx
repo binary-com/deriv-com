@@ -46,8 +46,8 @@ const AllArticleButton = styled(LinkButton)`
         cursor: pointer;
     }
 
-    @media ${device.laptopM} {
-        width: 100%;
+    @media ${device.tablet} {
+        margin-top: 0;
     }
 `
 const ArticlePaginationWrapper = styled(Flex)`
@@ -95,8 +95,17 @@ const ArticlePaginationWrapper = styled(Flex)`
     }
 `
 const VideoWrapper = styled(Flex)`
+    width: auto;
     :nth-child(odd) {
         margin-right: 24px;
+    }
+
+    @media ${device.tablet} {
+        width: 100%;
+
+        :nth-child(odd) {
+            margin-right: 0;
+        }
     }
 `
 const StyledTitle = styled.span`
@@ -454,10 +463,10 @@ export const ArticleCard = ({ items }) => {
     const article_link = `/academy/blog/posts/${items.slug}/`
 
     return (
-        <Flex mb="40px" jc="flex-start">
+        <Flex mb="40px" jc="flex-start" tablet={{ mb: '24px' }}>
             <IconWrapper src={ArticleIcon} alt="article icon" />
             <Flex max-width="auto" ml="14px" fd="column">
-                <Flex jc="space-between">
+                <Flex jc="space-between" tablet={{ fd: 'column', jc: 'flex-start' }}>
                     <StyledLink to={article_link}>
                         <Header type="paragraph-1" width="auto">
                             {items.blog_title}
@@ -472,6 +481,7 @@ export const ArticleCard = ({ items }) => {
                         weight="normal"
                         align="right"
                         width="auto"
+                        tablet={{ align: 'left', mt: '4px' }}
                     >
                         {convertDate(items.published_date)}
                     </Header>

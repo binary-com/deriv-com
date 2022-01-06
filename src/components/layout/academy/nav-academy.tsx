@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { NavWrapperMain, StyledNavMain, NavDesktop, NavMobile } from '../nav'
 import SearchBanner from '../../../pages/academy/components/_search-banner'
 import { Show } from 'components/containers'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { CFDWarning } from 'components/layout'
 import { isLoggedIn } from 'common/utility'
 
@@ -31,6 +32,7 @@ const NavAcademy = ({
     const [is_logged_in, setLoggedIn] = useState(false)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
+    const [is_mounted] = usePageLoaded(false)
 
     const handleScroll = () => {
         const currentScrollPos = window.scrollY
@@ -39,6 +41,11 @@ const NavAcademy = ({
     }
 
     useEffect(() => {
+        is_mounted && handleScroll()
+    }, [is_mounted])
+
+    useEffect(() => {
+        is_mounted && handleScroll()
         setLoggedIn(isLoggedIn())
 
         const checkCookieChange = setInterval(() => {

@@ -8,7 +8,7 @@ import VideoCard from './videos/_video-card'
 import VideoPlayer from './components/_video-player'
 import { Container, SEO, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { localize, LocalizedLink, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
 import { convertDate, unslugify } from 'common/utility'
@@ -101,6 +101,10 @@ const VideoWrapper = styled(Flex)`
 `
 const StyledTitle = styled.span`
     color: var(--color-black-3);
+`
+const StyledLink = styled(LocalizedLink)`
+    color: var(--color-black-3);
+    text-decoration: none;
 `
 
 const SearchPage = () => {
@@ -210,7 +214,7 @@ const SearchPage = () => {
         let result
 
         if (type !== '') {
-            result = matchSorter(combined_data, unSlugify(type), {
+            result = matchSorter(combined_data, unslugify(type), {
                 keys: ['tags.*.tags_id.tag_name'],
             })
         } else {
@@ -447,17 +451,21 @@ export const ArticleWrapper = ({ currentItems }) => {
 }
 
 export const ArticleCard = ({ items }) => {
+    const article_link = `/academy/blog/posts/${items.slug}/`
+
     return (
         <Flex mb="40px" jc="flex-start">
             <IconWrapper src={ArticleIcon} alt="article icon" />
             <Flex max-width="auto" ml="14px" fd="column">
                 <Flex jc="space-between">
-                    <Header type="paragraph-1" width="auto">
-                        {items.blog_title}
-                        {items.featured && (
-                            <StarIconWrapper src={StarIcon} alt="featured post icon" />
-                        )}
-                    </Header>
+                    <StyledLink to={article_link}>
+                        <Header type="paragraph-1" width="auto">
+                            {items.blog_title}
+                            {items.featured && (
+                                <StarIconWrapper src={StarIcon} alt="featured post icon" />
+                            )}
+                        </Header>
+                    </StyledLink>
                     <Header
                         type="paragraph-2"
                         color="grey-5"

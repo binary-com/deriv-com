@@ -115,8 +115,7 @@ const trading: TradingType[] = [
         image_alt: localize('Save your bots'),
     },
 ]
-
-class Dbot extends Component {
+class Dbot extends React.Component<StateType> {
     state: StateType = { is_mobile: false }
 
     handleResizeWindow = () => {

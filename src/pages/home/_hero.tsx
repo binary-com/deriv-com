@@ -162,7 +162,11 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 </HeroButton>
                             </Box>
                         </Flex>
-                        <Flex m="0 auto" tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}>
+                        <Flex
+                            m="0 auto"
+                            min_height="500px"
+                            tabletL={{ mt: '0', width: 'unset', p: '0 39px' }}
+                        >
                             <PlatformSlideshow />
                         </Flex>
                     </Flex>

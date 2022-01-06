@@ -386,7 +386,11 @@ const OurPlatforms = (): React.ReactElement => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <img src={getIcon(platformType)} alt={platformType} />
+                                        <img
+                                            src={getIcon(platformType)}
+                                            alt={platformType}
+                                            loading="lazy"
+                                        />
                                     </DownloadLink>
                                 ),
                             )}

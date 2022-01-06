@@ -21,7 +21,7 @@ const query = graphql`
         hero_platform4: file(relativePath: { eq: "home/hero_platform4.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform5: file(relativePath: { eq: "home/hero_platform4.png" }) {
+        hero_platform5: file(relativePath: { eq: "home/hero_platform5.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform1_m: file(relativePath: { eq: "home/hero_platform1_m.png" }) {

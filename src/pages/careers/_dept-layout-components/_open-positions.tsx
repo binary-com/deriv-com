@@ -23,8 +23,8 @@ const JobWrapper = styled.div`
 
 type DataProps = {
     data: {
-        title: OpenPositionsProps[]
-        url: OpenPositionsProps[]
+        title: OpenPositionsProps['title']
+        url: OpenPositionsProps['url']
     }
 }
 

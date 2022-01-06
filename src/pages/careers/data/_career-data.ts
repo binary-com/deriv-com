@@ -294,6 +294,10 @@ const career_data = {
                     },
                 ],
             },
+            open_position: {
+                title: 'Payments',
+                url: 'https://deriv.zohorecruit.com/jobs/Payments',
+            },
             testimony_section: {
                 image: 'payments_review',
                 image_mobile: 'payments_review_mobile',
@@ -359,8 +363,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Trading Operations',
+                url: 'https://deriv.zohorecruit.com/jobs/Trading Operations',
             },
             testimony_section: {
                 image: 'trading_operations_review',
@@ -396,8 +400,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Software Testing',
+                url: 'https://deriv.zohorecruit.com/jobs/Software-Testing',
             },
             testimony_section: {
                 image: 'software_testing_review',
@@ -430,8 +434,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Business Excellence',
+                url: 'https://deriv.zohorecruit.com/jobs/Business-Excellence',
             },
             testimony_section: {
                 image: 'business_excellence_review',
@@ -464,8 +468,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Internal Audit',
+                url: 'https://deriv.zohorecruit.com/jobs/Internal-Audit',
             },
             testimony_section: {
                 image: 'internal_audit_review',

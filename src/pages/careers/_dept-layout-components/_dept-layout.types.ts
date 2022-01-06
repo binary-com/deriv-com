@@ -33,7 +33,7 @@ export type IntroSectionProps = {
 export type DataProps = {
     header: HeaderProps
     intro_section: IntroSectionProps
-    open_position?: OpenPositionsProps[]
+    open_position: OpenPositionsProps
     testimony_section: TestimonySectionProps
 }
 

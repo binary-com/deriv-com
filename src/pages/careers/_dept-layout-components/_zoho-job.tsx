@@ -5,7 +5,7 @@ import { OpenPositionsProps } from './_dept-layout.types'
 import RightArrow from 'images/svg/career-right-arrow.svg'
 
 type DataProps = {
-    title: OpenPositionsProps[]
+    title: OpenPositionsProps['title']
 }
 
 const ZohoJob = (data: DataProps) => {

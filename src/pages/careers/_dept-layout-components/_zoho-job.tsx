@@ -136,17 +136,6 @@ const ZohoJob = (data: DataProps) => {
 
     return (
         <ZohoWrapper>
-            <Helmet>
-                <link
-                    rel="stylesheet"
-                    href="https://css.zohostatic.com/recruit/embed_careers_site/css/v1.0/embed_jobs.css"
-                    type="text/css"
-                />
-                <script
-                    type="text/javascript"
-                    src="https://js.zohostatic.com/recruit/embed_careers_site/javascript/v1.0/embed_jobs.js"
-                />
-            </Helmet>
             <div className="embed_jobs_head embed_jobs_with_style_3 embed_jobs_with_style">
                 <div className="embed_jobs_head2">
                     <div className="embed_jobs_head3">

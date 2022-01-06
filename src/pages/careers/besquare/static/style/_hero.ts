@@ -34,6 +34,9 @@ export const ImageWrapper = styled.img`
     position: relative;
     top: 90px;
 
+    @media ${device.laptopM} {
+        max-width: 550px;
+    }
     @media ${device.tablet} {
         max-width: 328px;
         margin: 0 auto;

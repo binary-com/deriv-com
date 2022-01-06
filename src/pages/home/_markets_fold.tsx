@@ -42,7 +42,7 @@ const CarouselItemContainer = styled(Flex)`
 const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
     position: absolute;
     width: 220px;
-    top: ${(props) => (props.$hovered ? '220px' : '92px')};
+    top: ${(props) => (props.$hovered ? '220px' : '88px')};
     right: 31px;
     transition: ease-in 0.3s;
     z-index: 3;

@@ -4,6 +4,7 @@ import { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 
@@ -48,6 +49,7 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const [is_mounted, setMounted] = useState(false)
     const data = useStaticQuery(query)
+    const [is_mobile] = useBrowserResize()
 
     const slide_images = [
         { key: 'hero1', image: data.hero_platform1 },
@@ -58,14 +60,16 @@ const PlatformSlideshow = () => {
     ]
 
     const mobile_slide_images = [
-        { key: 'hero1', image: data.hero_platform1_m },
-        { key: 'hero2', image: data.hero_platform2_m },
-        { key: 'hero3', image: data.hero_platform3_m },
-        { key: 'hero4', image: data.hero_platform4_m },
+        { key: 'hero1_m', image: data.hero_platform1_m },
+        { key: 'hero2_m', image: data.hero_platform2_m },
+        { key: 'hero3_m', image: data.hero_platform3_m },
+        { key: 'hero4_m', image: data.hero_platform4_m },
     ]
 
+    const image_length = is_mobile ? mobile_slide_images.length : slide_images.length
+
     const setNextImage = useCallback(() => {
-        setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
+        setActiveIndex((prevIndex) => (prevIndex >= image_length - 1 ? 0 : prevIndex + 1))
     }, [slide_images])
 
     useEffect(() => {

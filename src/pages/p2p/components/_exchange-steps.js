@@ -101,6 +101,10 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
+const ImageTag = styled.img`
+    width: 100%;
+    height: 100%;
+`
 const ExchangeSteps = () => {
     return (
         <Section>
@@ -110,7 +114,7 @@ const ExchangeSteps = () => {
             <CardContainer>
                 <Card>
                     <Row>
-                        <img src={RightAd} alt="" width="100%" />
+                        <ImageTag src={RightAd} alt="Find or create an ad" />
                     </Row>
                     <Row>
                         <Column>
@@ -132,7 +136,7 @@ const ExchangeSteps = () => {
                 </Card>
                 <Card>
                     <Row>
-                        <img src={SettlePayment} alt="" width="100%" />
+                        <ImageTag src={SettlePayment} alt="Send or receive payment" />
                     </Row>
                     <Row>
                         <Column>
@@ -154,7 +158,7 @@ const ExchangeSteps = () => {
                 </Card>
                 <Card>
                     <Row>
-                        <img src={CompleteOrder} alt="" width="100%" />
+                        <ImageTag src={CompleteOrder} alt="Complete the transaction" />
                     </Row>
                     <Row>
                         <Column>

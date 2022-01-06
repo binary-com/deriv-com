@@ -3,10 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import QueryImage from 'components/elements/query-image'
-import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -25,18 +22,6 @@ const query = graphql`
         hero_platform5: file(relativePath: { eq: "home/hero_platform5.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform1_m: file(relativePath: { eq: "home/hero_platform1_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform2_m: file(relativePath: { eq: "home/hero_platform2_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform3_m: file(relativePath: { eq: "home/hero_platform3_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform4_m: file(relativePath: { eq: "home/hero_platform4_m.png" }) {
-            ...homePageHeroFadeIn
-        }
     }
 `
 
@@ -49,7 +34,6 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const [is_mounted, setMounted] = useState(false)
     const data = useStaticQuery(query)
-    const [is_mobile] = useBrowserResize()
 
     const slide_images = [
         { key: 'hero1', image: data.hero_platform1 },
@@ -59,17 +43,8 @@ const PlatformSlideshow = () => {
         { key: 'hero5', image: data.hero_platform5 },
     ]
 
-    const mobile_slide_images = [
-        { key: 'hero1_m', image: data.hero_platform1_m },
-        { key: 'hero2_m', image: data.hero_platform2_m },
-        { key: 'hero3_m', image: data.hero_platform3_m },
-        { key: 'hero4_m', image: data.hero_platform4_m },
-    ]
-
-    const image_length = is_mobile ? mobile_slide_images.length : slide_images.length
-
     const setNextImage = useCallback(() => {
-        setActiveIndex((prevIndex) => (prevIndex >= image_length - 1 ? 0 : prevIndex + 1))
+        setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
     }, [slide_images])
 
     useEffect(() => {
@@ -87,20 +62,9 @@ const PlatformSlideshow = () => {
     }, [is_mounted])
 
     return (
-        <div>
-            <DesktopWrapper media={device.tablet}>
-                <Slides images={slide_images} active_index={active_index} is_mounted={is_mounted} />
-            </DesktopWrapper>
-            <MobileWrapper media={device.tablet}>
-                <Flex min_height="280px" ai="center">
-                    <Slides
-                        images={mobile_slide_images}
-                        active_index={active_index}
-                        is_mounted={is_mounted}
-                    />
-                </Flex>
-            </MobileWrapper>
-        </div>
+        <Flex tablet={{ min_height: '280px', ai: 'center' }}>
+            <Slides images={slide_images} active_index={active_index} is_mounted={is_mounted} />
+        </Flex>
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { OpenPositionsProps } from './_dept-layout.types'
@@ -9,9 +9,21 @@ type DataProps = {
 }
 
 const ZohoJob = (data: DataProps) => {
+    const [scriptLoaded, setScriptLoaded] = useState(false)
+
     useEffect(() => {
-        addScriptForZoho()
+        const careerScript = document.createElement('script')
+        careerScript.src =
+            'https://js.zohostatic.com/recruit/embed_careers_site/javascript/v1.0/embed_jobs.js'
+        careerScript.addEventListener('load', () => setScriptLoaded(true))
+        document.body.appendChild(careerScript)
     }, [])
+
+    useEffect(() => {
+        if (!scriptLoaded) return
+        addScriptForZoho()
+    }, [scriptLoaded])
+
     const addScriptForZoho = () => {
         const addScript = (settings) => {
             const script = document.createElement('script')
@@ -136,6 +148,13 @@ const ZohoJob = (data: DataProps) => {
 
     return (
         <ZohoWrapper>
+            <Helmet>
+                <link
+                    rel="stylesheet"
+                    href="https://css.zohostatic.com/recruit/embed_careers_site/css/v1.0/embed_jobs.css"
+                    type="text/css"
+                />
+            </Helmet>
             <div className="embed_jobs_head embed_jobs_with_style_3 embed_jobs_with_style">
                 <div className="embed_jobs_head2">
                     <div className="embed_jobs_head3">

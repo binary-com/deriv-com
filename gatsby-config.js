@@ -26,6 +26,12 @@ module.exports = {
                 path: `${__dirname}/src/images/common`,
             },
         },
+        {
+            resolve: 'gatsby-plugin-load-script',
+            options: {
+              src: 'https://js.zohostatic.com/recruit/embed_careers_site/javascript/v1.0/embed_jobs.js',
+            },
+          },
         'gatsby-transformer-sharp',
         {
             resolve: `gatsby-plugin-sharp`,

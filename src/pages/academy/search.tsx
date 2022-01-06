@@ -53,10 +53,11 @@ const AllArticleButton = styled(LinkButton)`
 const ArticlePaginationWrapper = styled(Flex)`
     flex-direction: column;
 
-    .paginationBttns {
+    .pagination-buttons {
         display: flex;
         justify-content: center;
         margin-top: 4rem;
+
         @media (max-width: 768px) {
             font-size: 2.4rem;
         }
@@ -66,6 +67,7 @@ const ArticlePaginationWrapper = styled(Flex)`
             border: 1px solid #dfe3e8;
             border-radius: 4px;
             margin: 0 4px;
+
             a {
                 cursor: pointer;
                 width: 100%;
@@ -86,10 +88,10 @@ const ArticlePaginationWrapper = styled(Flex)`
             color: var(--color-blue);
         }
     }
-    .paginationActive {
+    .pagination-active {
         border: 1px solid var(--color-black-3) !important;
     }
-    .paginationDisabled {
+    .pagination-disabled {
         background: #f2f3f4;
         opacity: 0.5;
     }
@@ -168,8 +170,7 @@ const SearchPage = () => {
 
     // paginate
     useEffect(() => {
-        const endOffset = itemOffset + itemsPerPage
-        setEndOffSet(endOffset)
+        setEndOffSet(itemOffset + itemsPerPage)
         items_type
             ? setCurrentItems(article_result.slice(itemOffset, endOffset))
             : setCurrentItems(article_result.slice(itemOffset, 5))
@@ -206,7 +207,7 @@ const SearchPage = () => {
     }
 
     const getSearchResult = (q: string) => {
-        let result
+        let result = []
 
         if (q !== '') {
             result = matchSorter(combined_data, q, {
@@ -220,7 +221,7 @@ const SearchPage = () => {
     }
 
     const getFilterResult = (type: string) => {
-        let result
+        let result = []
 
         if (type !== '') {
             result = matchSorter(combined_data, unslugify(type), {
@@ -256,6 +257,8 @@ const SearchPage = () => {
         return result
     }
 
+    const getTotalSearchCount = () => (items_type == 'article' ? total_article : total_video)
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -267,34 +270,26 @@ const SearchPage = () => {
             <Flex>
                 <Container fd="column" style={{ maxWidth: '792px' }}>
                     <Flex fd="column">
-                        {items_type ? (
+                        {search_query ? (
                             <>
                                 <Header
                                     type="heading-3"
-                                    as="h3"
+                                    as="h1"
                                     mt="4rem"
                                     color="grey-5"
                                     weight="normal"
                                 >
-                                    {items_type == 'article' ? total_article : total_video} matching
-                                    results for “
-                                    <StyledTitle color="black-3">
-                                        {category_type
-                                            ? unslugify(category_type)
-                                            : unslugify(search_query)}
-                                    </StyledTitle>
-                                    ”
+                                    {getTotalSearchCount()} matching results for “
+                                    <StyledTitle>{unslugify(search_query)}</StyledTitle>”
                                 </Header>
                             </>
                         ) : (
                             <>
-                                <Header type="subtitle-2" mt="4rem" color="grey-5">
+                                <Header as="h1" type="subtitle-2" mt="4rem" color="grey-5">
                                     Selection for
                                 </Header>
-                                <Header type="heading-2" as="h2" color="black-3" weight="normal">
-                                    {category_type
-                                        ? unslugify(category_type)
-                                        : unslugify(search_query)}
+                                <Header type="heading-2" as="span" color="black-3" weight="normal">
+                                    {unslugify(category_type)}
                                 </Header>
                             </>
                         )}
@@ -305,13 +300,15 @@ const SearchPage = () => {
                         (category_type && items_type == 'article')) && (
                         <Flex m="40px 0" fd="column">
                             <StyledHeaderWrapper jc="space-between">
-                                <Header type="subtitle-2">Articles</Header>
+                                <Header as="h3" type="subtitle-2">
+                                    Articles
+                                </Header>
                                 {items_type ? (
-                                    <Header type="paragraph-2" align="right">
+                                    <Header as="span" type="paragraph-2" align="right">
                                         {`${itemOffset} - ${endOffset} of ${total_article} results`}
                                     </Header>
                                 ) : (
-                                    <Header type="paragraph-2" align="right">
+                                    <Header as="span" type="paragraph-2" align="right">
                                         {total_article > 4
                                             ? `1-5 of ${total_article} results`
                                             : `${total_article} results`}
@@ -333,12 +330,12 @@ const SearchPage = () => {
                                                     nextLabel={'>'}
                                                     pageCount={pageCount}
                                                     onPageChange={handlePageClick}
-                                                    containerClassName={'paginationBttns'}
-                                                    previousLinkClassName={'previousBttn'}
-                                                    breakClassName={'breakBttn'}
-                                                    nextLinkClassName={'nextBttn'}
-                                                    disabledClassName={'paginationDisabled'}
-                                                    activeClassName={'paginationActive'}
+                                                    containerClassName={'pagination-buttons'}
+                                                    previousLinkClassName={'previous-button'}
+                                                    breakClassName={'break-button'}
+                                                    nextLinkClassName={'next-button'}
+                                                    disabledClassName={'pagination-disabled'}
+                                                    activeClassName={'pagination-active'}
                                                 />
                                             </ArticlePaginationWrapper>
                                         </>
@@ -415,10 +412,6 @@ export const VideoParentWrapper = ({ currentVideoItems }) => {
 
     useEffect(() => {
         document.body.style.overflow = show ? 'hidden' : 'unset'
-    }, [show])
-
-    useEffect(() => {
-        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
     }, [show])
 
     return (

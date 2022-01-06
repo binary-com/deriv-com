@@ -22,11 +22,7 @@ import DMT5BG from 'images/svg/dmt5/dmt5-bg.svg'
 import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-
-type MetaAttributesType = {
-    og_title: string
-    og_description: string
-}
+import { MetaAttributesType } from 'types/page.types'
 
 const meta_attributes: MetaAttributesType = {
     og_title: localize('DMT5 | MetaTrader 5 | Deriv'),

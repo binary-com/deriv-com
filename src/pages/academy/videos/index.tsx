@@ -13,41 +13,36 @@ import device from 'themes/device'
 import { DerivStore } from 'store'
 
 const SmallContainer = styled(Container)`
-    width: 60%;
-    max-width: 62.5rem;
+    width: 62%;
+    max-width: 734px;
     flex-direction: column;
 
-    @media ${device.desktop} {
-        max-width: 800px;
-    }
-    @media ${device.laptopL} {
-        width: 60%;
-    }
     @media ${device.desktopL} {
         max-width: 1000px;
     }
-    @media ${device.tabletL} {
-        width: 90%;
-        padding-left: 0;
-        padding-right: 0;
+    @media ${device.tabletS} {
+        width: calc(100% - 32px);
     }
 `
 
 const Hero = styled(Flex)`
     height: 40rem;
-    background: var(--color-black);
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--color-white);
     background-image: url(${HeroImage});
     background-size: cover;
     background-position: center;
+    border-radius: 8px;
 
+    @media ${device.desktopL} {
+        max-width: 1600px;
+    }
     @media ${device.tabletL} {
         height: 348px;
-    }
-`
-
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        margin-top: 16px;
+        width: calc(100% - 32px);
+        border-radius: 4px;
     }
 `
 
@@ -85,12 +80,18 @@ const VideosPage = ({ data }) => {
             />
             <Hero jc="center" ai="center">
                 <SmallContainer>
-                    <Header as="h2" type="heading-3" color="white" weight="400" align="left">
+                    <Header as="h1" type="subtitle-1" color="white" weight="regular" align="left">
                         Video tutorials
                     </Header>
-                    <StyledHeader as="h2" type="heading-2" color="white" align="left">
+                    <Header
+                        as="h2"
+                        type="heading-2"
+                        color="white"
+                        align="left"
+                        tabletL={{ mt: '8px' }}
+                    >
                         Our latest videos and webinars
-                    </StyledHeader>
+                    </Header>
                 </SmallContainer>
             </Hero>
             {video_data && <AllVideos video_data={video_data} />}

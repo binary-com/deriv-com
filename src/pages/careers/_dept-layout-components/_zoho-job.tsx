@@ -85,8 +85,7 @@ const ZohoJob = (data: DataProps) => {
             }
         }
         .embed_jobs_with_style .rec-group li.rec-job-title {
-            min-width: 50%;
-            width: auto;
+            width: 50%;
             max-width: 800px;
             margin-bottom: 0;
             padding-right: 24px;

@@ -88,10 +88,6 @@ const ZohoJob = (data: DataProps) => {
             width: 50%;
             max-width: 450px;
             margin-bottom: 0;
-
-            @media (max-width: 767px) {
-                max-width: 50%;
-            }
         }
         div#rec_job_listing_div > div:first-child,
         .zrsite_Industry,
@@ -135,6 +131,10 @@ const ZohoJob = (data: DataProps) => {
 
             span:first-child {
                 display: none !important;
+            }
+
+            @media (max-width: 400px) {
+                max-width: 60px;
             }
         }
         li.zrsite_City {

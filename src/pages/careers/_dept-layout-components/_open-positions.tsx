@@ -9,7 +9,7 @@ import { LinkButton } from 'components/form'
 const JobWrapper = styled.div`
     width: 100%;
     display: grid;
-    padding: 24px 35px 24px 18px;
+    padding: 24px 35px 24px 0;
 
     @media (max-width: 600px) {
         padding: 24px 0 18px;

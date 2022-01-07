@@ -6,11 +6,13 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 const query = graphql`
     query {
         hero_background_desktop: file(
-            relativePath: { eq: "security/security-overlay-desktop.jpg" }
+            relativePath: { eq: "bug-bounty/security-overlay-desktop.jpg" }
         ) {
             ...heroImage
         }
-        hero_background_mobile: file(relativePath: { eq: "security/security-overlay-mobile.jpg" }) {
+        hero_background_mobile: file(
+            relativePath: { eq: "bug-bounty/security-overlay-mobile.jpg" }
+        ) {
             ...heroImage
         }
     }

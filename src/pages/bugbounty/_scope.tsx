@@ -6,8 +6,8 @@ import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
-import TickIcon from 'images/svg/security/tick.svg'
-import XIcon from 'images/svg/security/x_icon.svg'
+import TickIcon from 'images/svg/bug-bounty/tick.svg'
+import XIcon from 'images/svg/bug-bounty/x_icon.svg'
 
 const Subheadline = styled(Text)`
     @media ${device.tabletL} {

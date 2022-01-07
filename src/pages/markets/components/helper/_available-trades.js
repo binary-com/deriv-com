@@ -198,10 +198,6 @@ class AvailableTrades extends React.Component {
         active_tab: 'CFDs',
     }
 
-    constructor(props) {
-        super(props)
-    }
-
     handleTabChange = (new_tab) => {
         if (new_tab === this.state.active_tab) return
         this.setState({ active_tab: new_tab })

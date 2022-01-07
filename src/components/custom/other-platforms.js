@@ -315,48 +315,45 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
                 {!is_eu_country && (
-                    <NavCard
-                        aria_label="Derivx"
-                        icon={() => <img src={DerivX} alt="" width="32" height="32" />}
-                        content={
-                            <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
-                        }
-                        title={<Localize translate_text="Deriv X" />}
-                        onClick={onClick}
-                        to="/derivx/"
-                    />
-                )}
-
-                {!is_eu_country && (
-                    <NavCard
-                        aria_label="SmartTrader"
-                        icon={() => <img src={Smarttrader} alt="" width="32" height="32" />}
-                        content={
-                            <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                        }
-                        title={<Localize translate_text="SmartTrader" />}
-                        to="trading"
-                        type="smart_trader"
-                        external="true"
-                        target="_blank"
-                        onClick={onClick}
-                        otherLinkProps={{ rel: 'noopener noreferrer' }}
-                    />
-                )}
-                {!is_eu_country && (
-                    <NavCard
-                        aria_label="BinaryBot"
-                        icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
-                        content={
-                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
-                        }
-                        title={<Localize translate_text="BinaryBot" />}
-                        to="https://bot.deriv.com/"
-                        external="true"
-                        target="_blank"
-                        onClick={onClick}
-                        otherLinkProps={{ rel: 'noopener noreferrer' }}
-                    />
+                    <>
+                        <NavCard
+                            aria_label="Derivx"
+                            icon={() => <img src={DerivX} alt="" width="32" height="32" />}
+                            content={
+                                <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                            }
+                            title={<Localize translate_text="Deriv X" />}
+                            onClick={onClick}
+                            to="/derivx/"
+                        />
+                        <NavCard
+                            aria_label="SmartTrader"
+                            icon={() => <img src={Smarttrader} alt="" width="32" height="32" />}
+                            content={
+                                <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                            }
+                            title={<Localize translate_text="SmartTrader" />}
+                            to="trading"
+                            type="smart_trader"
+                            external="true"
+                            target="_blank"
+                            onClick={onClick}
+                            otherLinkProps={{ rel: 'noopener noreferrer' }}
+                        />
+                        <NavCard
+                            aria_label="BinaryBot"
+                            icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
+                            content={
+                                <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                            }
+                            title={<Localize translate_text="BinaryBot" />}
+                            to="https://bot.deriv.com/"
+                            external="true"
+                            target="_blank"
+                            onClick={onClick}
+                            otherLinkProps={{ rel: 'noopener noreferrer' }}
+                        />
+                    </>
                 )}
             </Flex>
             <Flex direction="column" wrap="wrap" jc="flex-start">

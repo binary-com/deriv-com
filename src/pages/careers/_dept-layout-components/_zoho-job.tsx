@@ -85,8 +85,8 @@ const ZohoJob = (data: DataProps) => {
             }
         }
         .embed_jobs_with_style .rec-group li.rec-job-title {
+            width: 50%;
             max-width: 450px;
-            width: 100%;
             margin-bottom: 0;
 
             @media (max-width: 767px) {
@@ -137,11 +137,14 @@ const ZohoJob = (data: DataProps) => {
                 display: none !important;
             }
         }
-        li.zrsite_Country {
-            span:last-child::before {
+        li.zrsite_City {
+            span:last-child::after {
                 position: relative;
                 content: ', ';
             }
+        }
+        li.zrsite_Country {
+            padding: 0 0 0 5px;
         }
     `
 

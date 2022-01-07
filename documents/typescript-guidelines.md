@@ -3,7 +3,6 @@
 Good reads:
 
 -   https://www.sitepoint.com/react-with-typescript-best-practices/
--   https://onesignal.com/blog/effective-typescript-for-react-applications/
 -   https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example
 
 ### When to use .tsx over .ts

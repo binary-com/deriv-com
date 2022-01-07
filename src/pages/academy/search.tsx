@@ -12,7 +12,7 @@ import { Header } from 'components/elements'
 import { localize, LocalizedLink, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
-import { convertDate, unslugify } from 'common/utility'
+import { convertDate, unslugify, slugify } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import ArticleIcon from 'images/svg/blog/article-icon.svg'
@@ -107,6 +107,7 @@ const StyledLink = styled(LocalizedLink)`
 `
 
 const SearchPage = () => {
+    // search result states
     const { academy_data } = useContext(DerivStore)
     const [full_article_link, setFullArticleLink] = useState('')
     const [full_video_link, setFullVideoLink] = useState('')
@@ -114,20 +115,48 @@ const SearchPage = () => {
     const [total_video, setTotalVideo] = useState(0)
     const [article_result, setArticleResult] = useState([])
     const [video_result, setVideoResult] = useState([])
-    // paginate
+
+    // pagination states
     const [currentItems, setCurrentItems] = useState(null)
     const [pageCount, setPageCount] = useState(0)
     const [itemOffset, setItemOffset] = useState(0)
     const [endOffset, setEndOffSet] = useState(0)
     const itemsPerPage = 10
 
-    const [query] = useQueryParams({
+    // query params
+    const [query, setQuery] = useQueryParams({
         q: StringParam,
         type: StringParam,
         category: StringParam,
+        t: StringParam,
     })
-    const { q: search_query, type: items_type, category: category_type } = query
+    const { q: search_query, type: items_type, category: category_type, t: title_params } = query
 
+    // video player states
+    const [show, setShow] = useState(false)
+    const [play_video_id, setPlayVideoId] = useState('')
+    const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
+
+    useEffect(() => {
+        const video_track = academy_data.videos.find(
+            (item) => slugify(item.video_title) == title_params,
+        )?.video_file.id
+        if (video_track) openVideo(video_track, title_params)
+    }, [])
+
+    const openVideo = (track_id, video_title) => {
+        setPlayVideoId(track_id)
+        setQuery({ ...query, t: video_title })
+        setShow(true)
+    }
+
+    const closeVideo = () => {
+        setShow(false)
+        setPlayVideoId('')
+        setQuery({ ...query, t: undefined })
+    }
+
+    // combined data
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
     useEffect(() => {
@@ -371,7 +400,13 @@ const SearchPage = () => {
 
                             {video_result.length != 0 ? (
                                 <>
-                                    <VideoParentWrapper currentVideoItems={video_result} />
+                                    <VideoParentWrapper
+                                        closeVideo={closeVideo}
+                                        currentVideoItems={video_result}
+                                        openVideo={openVideo}
+                                        show={show}
+                                        video_src={play_video_src}
+                                    />
                                 </>
                             ) : (
                                 <Flex m="16px 0">
@@ -401,16 +436,13 @@ const SearchPage = () => {
 
 export default WithIntl()(SearchPage)
 
-export const VideoParentWrapper = ({ currentVideoItems }) => {
-    const [show, setShow] = useState(false)
-    const [video_src, setVideoSrc] = useState('')
-    const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = (event, url) => {
-        if (event.defaultPrevented) return
-        setVideoSrc(url)
-        setShow(true)
-    }
-
+export const VideoParentWrapper = ({
+    closeVideo,
+    currentVideoItems,
+    openVideo,
+    show,
+    video_src,
+}) => {
     useEffect(() => {
         document.body.style.overflow = show ? 'hidden' : 'unset'
     }, [show])
@@ -418,22 +450,19 @@ export const VideoParentWrapper = ({ currentVideoItems }) => {
     return (
         <>
             <VideoGrid m="24px 0 32px 0">
-                {currentVideoItems.map((items) => {
+                {currentVideoItems.map((item) => {
                     return (
                         <VideoCard
-                            key={items.video_file.id}
-                            item={items}
-                            onClick={(e) =>
-                                handleOpenVideo(
-                                    e,
-                                    `https://cms.deriv.cloud/assets/${items.video_file.id}`,
-                                )
+                            key={item.video_file.id}
+                            item={item}
+                            openVideo={() =>
+                                openVideo(item.video_file.id, slugify(item.video_title))
                             }
                         />
                     )
                 })}
             </VideoGrid>
-            {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
+            {show && <VideoPlayer video_src={video_src} closeVideo={closeVideo} />}
         </>
     )
 }
@@ -498,7 +527,11 @@ export const ArticleCard = ({ items }) => {
 }
 
 VideoParentWrapper.propTypes = {
+    closeVideo: PropTypes.func,
     currentVideoItems: PropTypes.object,
+    openVideo: PropTypes.func,
+    show: PropTypes.bool,
+    video_src: PropTypes.string,
 }
 
 ArticleWrapper.propTypes = {

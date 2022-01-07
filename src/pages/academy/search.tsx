@@ -6,6 +6,7 @@ import ReactPaginate from 'react-paginate'
 import { useQueryParams, StringParam } from 'use-query-params'
 import VideoCard from './videos/_video-card'
 import VideoPlayer from './components/_video-player'
+import { VideoGrid } from './common/_styles'
 import { Container, SEO, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, LocalizedLink, WithIntl } from 'components/localization'
@@ -95,21 +96,6 @@ const ArticlePaginationWrapper = styled(Flex)`
     .pagination-disabled {
         background: #f2f3f4;
         opacity: 0.5;
-    }
-`
-const VideoWrapper = styled(Flex)`
-    width: auto;
-
-    :nth-child(odd) {
-        margin-right: 24px;
-    }
-
-    @media ${device.tablet} {
-        width: 100%;
-
-        :nth-child(odd) {
-            margin-right: 0;
-        }
     }
 `
 const StyledTitle = styled.span`
@@ -431,27 +417,22 @@ export const VideoParentWrapper = ({ currentVideoItems }) => {
 
     return (
         <>
-            <Flex mt="24px" mb="32px" jc="flex-start" style={{ flexWrap: 'wrap' }}>
+            <VideoGrid m="24px 0 32px 0">
                 {currentVideoItems.map((items) => {
                     return (
-                        <VideoWrapper
+                        <VideoCard
                             key={items.video_file.id}
-                            max_width="auto"
-                            width="auto"
-                            height="auto"
-                            mb="32px"
+                            item={items}
                             onClick={(e) =>
                                 handleOpenVideo(
                                     e,
                                     `https://cms.deriv.cloud/assets/${items.video_file.id}`,
                                 )
                             }
-                        >
-                            <VideoCard key={items.video_file.id} item={items} />
-                        </VideoWrapper>
+                        />
                     )
                 })}
-            </Flex>
+            </VideoGrid>
             {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
         </>
     )

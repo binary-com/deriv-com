@@ -57,7 +57,7 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
     const [is_mobile] = useBrowserResize()
     const linear_bg_value = is_mobile
         ? `linear-gradient(76.78deg, #000000 30.72%, rgba(0, 0, 0, 0) 97.58%)`
-        : `linear-gradient(66.11deg, #000000 24.94%, rgba(0, 0, 0, 0) 83.1%)`
+        : `linear-gradient(20.5deg, #000000 18.6%, rgba(0, 0, 0, 0) 101.26%)`
 
     const backgroundFluidImageStack = [imageData.childImageSharp.fluid, linear_bg_value].reverse()
     const button_text = cta_text ? cta_text : 'Learn more'

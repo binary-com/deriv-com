@@ -479,13 +479,13 @@ export const SearchBar = ({ setModal }: SearchBar) => {
     const combined_data = [...academy_data.blog, ...academy_data.videos]
     let data_to_render
     const handleFilterSearch = (e) => {
-        setSearchInput(e.target.value.toLowerCase())
+        setSearchInput(e.target.value)
     }
 
     useDebouncedEffect(
         () => {
             if (search_input !== '') {
-                setSearchQuery(search_input)
+                setSearchQuery(search_input.toLowerCase())
                 setSuggestionBoxOpened(true)
             } else {
                 setSearchQuery('')
@@ -498,7 +498,11 @@ export const SearchBar = ({ setModal }: SearchBar) => {
 
     if (search_query !== '') {
         data_to_render = matchSorter(combined_data, search_query.trim(), {
-            keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
+            keys: [
+                'blog_title',
+                'video_title',
+                { threshold: matchSorter.rankings.EQUAL, key: 'tags.*.tags_id.tag_name' },
+            ],
         })
     } else data_to_render = null
 
@@ -607,46 +611,44 @@ export const SearchBar = ({ setModal }: SearchBar) => {
                             >{`Search for: ${search_query}`}</SearchResultRows>
                         )}
                         {data_to_render &&
-                            data_to_render.map((post, idx) => {
-                                if (idx < 6) {
-                                    const icon = post.blog_title ? ArticleIcon : VideoIcon
-                                    const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                                    const redirect_link = post.slug
-                                        ? `/academy/blog/posts/${post.slug}/`
-                                        : `/academy/videos/?t=${slugify(post.video_title)}`
-                                    redirect_link_arr.push(redirect_link)
-                                    const handleMouseDown = (e) => {
-                                        e.preventDefault()
-                                        navigate(redirect_link)
-                                    }
-
-                                    return (
-                                        <SearchResultRows
-                                            key={post.blog_title || post.video_title}
-                                            jc="flex-start"
-                                            ai="center"
-                                            onMouseDown={handleMouseDown}
-                                            active={focus_index === idx}
-                                        >
-                                            {
-                                                <>
-                                                    <IconWrapper src={icon} alt={icon_alt} />
-                                                    <Header
-                                                        type="paragraph-1"
-                                                        weight="normal"
-                                                        ml="8px"
-                                                        pt="4px"
-                                                        tabletL={{ ml: '10px' }}
-                                                    >
-                                                        {post.blog_title
-                                                            ? post.blog_title
-                                                            : post.video_title}
-                                                    </Header>
-                                                </>
-                                            }
-                                        </SearchResultRows>
-                                    )
+                            data_to_render.splice(0, 6).map((post, idx) => {
+                                const icon = post.blog_title ? ArticleIcon : VideoIcon
+                                const icon_alt = post.blog_title ? 'article icon' : 'video icon'
+                                const redirect_link = post.slug
+                                    ? `/academy/blog/posts/${post.slug}/`
+                                    : `/academy/videos/?t=${slugify(post.video_title)}`
+                                redirect_link_arr.push(redirect_link)
+                                const handleMouseDown = (e) => {
+                                    e.preventDefault()
+                                    navigate(redirect_link)
                                 }
+
+                                return (
+                                    <SearchResultRows
+                                        key={post.blog_title || post.video_title}
+                                        jc="flex-start"
+                                        ai="center"
+                                        onMouseDown={handleMouseDown}
+                                        active={focus_index === idx}
+                                    >
+                                        {
+                                            <>
+                                                <IconWrapper src={icon} alt={icon_alt} />
+                                                <Header
+                                                    type="paragraph-1"
+                                                    weight="normal"
+                                                    ml="8px"
+                                                    pt="4px"
+                                                    tabletL={{ ml: '10px' }}
+                                                >
+                                                    {post.blog_title
+                                                        ? post.blog_title
+                                                        : post.video_title}
+                                                </Header>
+                                            </>
+                                        }
+                                    </SearchResultRows>
+                                )
                             })}
                     </SearchSuggestionWrapper>
                 </DesktopWrapper>

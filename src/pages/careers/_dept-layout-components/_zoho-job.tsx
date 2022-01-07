@@ -88,6 +88,7 @@ const ZohoJob = (data: DataProps) => {
             width: 50%;
             max-width: 500px;
             margin-bottom: 0;
+            padding-right: 5px;
         }
         div#rec_job_listing_div > div:first-child,
         .zrsite_Industry,

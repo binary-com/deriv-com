@@ -11,20 +11,17 @@ const MailSection = styled(SectionContainer)`
     height: 100vh;
 `
 
-const TextContainer = styled(SectionContainer)`
-    max-width: 996px;
+const TextAndEmailContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-width: 996px;
     margin: auto;
     padding: 32px 0;
 
     @media ${device.tabletL} {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         padding: 10px 16px;
     }
 `
@@ -33,10 +30,10 @@ const ConfirmEmail = () => {
     return (
         <MailSection>
             <AcademyNav />
-            <TextContainer>
+            <TextAndEmailContainer>
                 <ConfirmText />
                 <ConfirmMails />
-            </TextContainer>
+            </TextAndEmailContainer>
             <ToAcademyButton />
         </MailSection>
     )

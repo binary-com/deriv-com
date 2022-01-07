@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import AcademyLogo from 'images/svg/academy/academy-logo.svg'
 import { QueryImage } from 'components/elements'
-import { Container, Flex, SectionContainer } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import device from 'themes/device.js'
 
-const Section = styled(SectionContainer)`
+const Nav = styled.nav`
     background-color: var(--color-black);
     width: 100%;
     position: fixed;
@@ -48,6 +48,7 @@ const ImgWrapper = styled.img`
         width: 84px;
     }
 `
+
 const Line = styled.div`
     width: 1px;
     height: 28px;
@@ -59,6 +60,7 @@ const Line = styled.div`
         height: 16px;
     }
 `
+
 export const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
     width: 100%;
@@ -71,30 +73,29 @@ const query = graphql`
         }
     }
 `
+
 const AcademyNav = () => {
     const data = useStaticQuery(query)
     return (
-        <>
-            <Section>
-                <ContentContainer>
-                    <LogoWrapper>
-                        <LogoLink to="/academy" aria-label={localize('Academy')}>
-                            <QueryImage
-                                data={data['deriv']}
-                                alt={localize('Deriv')}
-                                max_width="16.4rem"
-                                width="100%"
-                                height="auto"
-                            />
-                        </LogoLink>
-                        <Line />
-                        <LogoLink to="/academy" aria-label={localize('Academy')}>
-                            <ImgWrapper src={AcademyLogo} />
-                        </LogoLink>
-                    </LogoWrapper>
-                </ContentContainer>
-            </Section>
-        </>
+        <Nav>
+            <ContentContainer>
+                <LogoWrapper>
+                    <LogoLink to="/academy/" aria-label={localize('Academy')}>
+                        <QueryImage
+                            data={data['deriv']}
+                            alt={localize('Deriv')}
+                            max_width="16.4rem"
+                            width="100%"
+                            height="auto"
+                        />
+                    </LogoLink>
+                    <Line />
+                    <LogoLink to="/academy/" aria-label={localize('Academy')}>
+                        <ImgWrapper src={AcademyLogo} />
+                    </LogoLink>
+                </LogoWrapper>
+            </ContentContainer>
+        </Nav>
     )
 }
 

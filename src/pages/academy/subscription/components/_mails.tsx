@@ -8,9 +8,7 @@ import { localize } from 'components/localization'
 
 const MailContainer = styled.div`
     display: flex;
-
     margin: auto;
-
     max-width: 996px;
     width: 100%;
 

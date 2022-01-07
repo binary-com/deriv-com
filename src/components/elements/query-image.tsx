@@ -8,6 +8,7 @@ type QueryImageProps = {
     data: ImageDataLike
     height?: string
     width?: string
+    max_width?: string
     loading?: 'eager' | 'lazy'
 }
 

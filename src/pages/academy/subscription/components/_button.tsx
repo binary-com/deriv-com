@@ -11,7 +11,7 @@ const ButtonContainer = styled.div`
 const ToAcademyButton = () => {
     return (
         <ButtonContainer>
-            <LinkButton secondary="true" to="/academy">
+            <LinkButton secondary="true" to="/academy/">
                 {localize('Take me to Academy')}
             </LinkButton>
         </ButtonContainer>

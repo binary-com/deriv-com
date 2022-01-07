@@ -9,6 +9,7 @@ import device from 'themes/device'
 import CFDIcon from 'images/svg/trade-types/cfds.svg'
 import MultipliersIcon from 'images/svg/markets/multipliers.svg'
 import OptionsIcon from 'images/svg/markets/options.svg'
+import { DerivStore } from 'store'
 
 const StyledSection = styled(SectionContainer)`
     padding: 8rem 0;
@@ -191,15 +192,23 @@ Card.propTypes = {
 }
 
 class AvailableTrades extends React.Component {
+    static contextType = DerivStore
+
     state = {
         active_tab: 'CFDs',
     }
+
+    constructor(props) {
+        super(props)
+    }
+
     handleTabChange = (new_tab) => {
         if (new_tab === this.state.active_tab) return
         this.setState({ active_tab: new_tab })
     }
     render() {
         const { CFDs, DigitalOptions, Multipliers, display_title } = this.props
+        const { is_eu_country } = this.context
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center">
@@ -215,7 +224,7 @@ class AvailableTrades extends React.Component {
                                 active_tab={this.state.active_tab}
                             />
                         )}
-                        {DigitalOptions && (
+                        {!is_eu_country && DigitalOptions && (
                             <Card
                                 name="Options"
                                 display_name={<Localize translate_text="Options" />}

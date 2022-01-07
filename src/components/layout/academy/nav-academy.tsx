@@ -45,7 +45,6 @@ const NavAcademy = ({
     }, [is_mounted])
 
     useEffect(() => {
-        is_mounted && handleScroll()
         setLoggedIn(isLoggedIn())
 
         const checkCookieChange = setInterval(() => {
@@ -86,7 +85,7 @@ const NavAcademy = ({
                     </Show.Mobile>
                 </StyledNavMain>
             </MainWrapper>
-            <SearchBanner hidden={visible} />
+            {is_mounted && <SearchBanner hidden={visible} />}
             <CFDWarning />
         </>
     )

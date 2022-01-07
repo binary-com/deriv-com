@@ -19,14 +19,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 16px;
     }
 `
-const StyledHeader = styled(Header)`
-    margin: 0 0 40px 0;
-    padding: 0;
-    @media ${device.laptop} {
-        font-size: 28px;
-        margin-bottom: 24px;
-    }
-`
+
 const StyledDivider = styled(Divider)`
     margin: 0;
     @media (min-width: 824px) {
@@ -88,9 +81,9 @@ const ColoredBox = styled(Box)`
 const OurPrinciples = () => {
     return (
         <StyledSection>
-            <StyledHeader as="h2" size="48px" align="center" type="page-title">
+            <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
                 {localize('Our principles are the framework for our decisions')}
-            </StyledHeader>
+            </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
                 {our_principles.map((principle) => (
                     <div key={principle.title}>

@@ -106,7 +106,8 @@ const SearchResultRows = styled(Flex)`
     font-size: 16px;
     margin-top: 4px;
     padding: 8px 16px;
-    height: 40px;
+    min-height: 40px;
+    height: auto;
     background-color: ${(props) => (props.active ? 'var(--color-grey-31)' : 'unset')};
 
     &:hover {
@@ -542,7 +543,11 @@ export const SearchBar = ({ setModal }: SearchBar) => {
                 case 'ArrowUp':
                     e.preventDefault()
                     if (focus_index == -1) {
-                        break
+                        updateFocusIndex(5)
+
+                        if (data_to_render < 5) {
+                            updateFocusIndex(data_to_render.length)
+                        }
                     }
                     if (focus_index > -1) {
                         updateFocusIndex(focus_index - 1)
@@ -552,6 +557,14 @@ export const SearchBar = ({ setModal }: SearchBar) => {
                     e.preventDefault()
                     if (focus_index < 6 - 1) {
                         updateFocusIndex(focus_index + 1)
+                    }
+                    if (focus_index == 5) {
+                        updateFocusIndex(-1)
+                    }
+                    if (data_to_render < 5) {
+                        if (focus_index == data_to_render.length) {
+                            updateFocusIndex(-1)
+                        }
                     }
                     break
             }

@@ -1,10 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import MobileExpandedList from './_mobile-expanded-list'
+import { PaymentDataType } from './_payment-data'
+import { LocaleType } from './index'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
+
+export type CryptoType = {
+    BTC: { minimum_withdrawal: number }
+    BUSD: { minimum_withdrawal: number }
+    DAI: { minimum_withdrawal: number }
+    ETH: { minimum_withdrawal: number }
+    EURS: { minimum_withdrawal: number }
+    IDK: { minimum_withdrawal: number }
+    LTC: { minimum_withdrawal: number }
+    PAX: { minimum_withdrawal: number }
+    TUSD: { minimum_withdrawal: number }
+    USB: { minimum_withdrawal: number }
+    USDC: { minimum_withdrawal: number }
+    USDK: { minimum_withdrawal: number }
+    UST: { minimum_withdrawal: number }
+    eUSDT: { minimum_withdrawal: number }
+}
+
+export type AccordianItemType = {
+    crypto_config?: CryptoType
+    locale?: LocaleType
+    pd?: PaymentDataType
+}
 
 const ParentWrapper = styled(Flex)`
     flex-direction: column;
@@ -24,7 +48,7 @@ const Notes = styled.div`
     padding: 16px;
 `
 
-const MobileAccordianItem = ({ crypto_config, locale, pd }) => {
+const MobileAccordianItem = ({ crypto_config, locale, pd }: AccordianItemType) => {
     return (
         <>
             <ParentWrapper>
@@ -53,12 +77,6 @@ const MobileAccordianItem = ({ crypto_config, locale, pd }) => {
             )}
         </>
     )
-}
-
-MobileAccordianItem.propTypes = {
-    crypto_config: PropTypes.object,
-    locale: PropTypes.object,
-    pd: PropTypes.object,
 }
 
 export default MobileAccordianItem

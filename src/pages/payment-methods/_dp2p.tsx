@@ -11,6 +11,11 @@ import { isBrowser } from 'common/utility'
 import { mobileOSDetect } from 'common/os-detect'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 
+type ChecklistType = {
+    title: React.ReactElement
+    subtitle: React.ReactElement
+}
+
 const query = graphql`
     query {
         dp2p_platform: file(relativePath: { eq: "dp2p_platform.png" }) {
@@ -141,7 +146,7 @@ const Dp2p = () => {
     }
 
     const data = useStaticQuery(query)
-    const dp2p_checklist = [
+    const dp2p_checklist: ChecklistType[] = [
         {
             title: <Localize translate_text="Make speedy deposits and withdrawals" />,
             subtitle: (

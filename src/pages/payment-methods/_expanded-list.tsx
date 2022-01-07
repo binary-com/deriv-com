@@ -1,20 +1,46 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { CryptoType } from './_mobile-accordian-item'
+import { LocaleType } from './index'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-// import { getCryptoDecimals } from 'common/utility'
-// SVG
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+
+export type DataType = {
+    method?: string | React.ReactNode
+    currencies?: string | React.ReactElement
+    min_max_deposit?: React.ReactElement
+    min_max_withdrawal?: React.ReactElement
+    deposit_time?: React.ReactElement
+    withdrawal_time?: React.ReactElement
+    reference?: string
+    reference_link?: string | React.ReactElement
+    description?: React.ReactElement
+    name?: string
+    url?: string
+    locales?: string[]
+    is_fiat_onramp?: boolean
+}
+
+export type ExpandListProps = {
+    expanded?: boolean
+    is_expanded?: boolean
+    colSpan?: any
+    data?: DataType
+    is_crypto?: boolean
+    is_fiat_onramp?: boolean
+    locale?: LocaleType
+    config?: CryptoType
+}
 
 const StyledButton = styled(Button)`
     padding: 6px 16px;
     width: 112px;
 `
 
-const StyledChevron = styled.img`
+const StyledChevron = styled.img<ExpandListProps>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
@@ -25,13 +51,13 @@ const StyledPDF = styled.img`
     height: 32px;
     width: 32px;
 `
-const ExpandedContent = styled.td`
+const ExpandedContent = styled.td<ExpandListProps>`
     text-align: left;
 `
-const Tr = styled.tr`
+const Tr = styled.tr<ExpandListProps>`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
-const Td = styled.td`
+const Td = styled.td<ExpandListProps>`
     vertical-align: middle;
     padding: 16px 0 16px 24px;
     position: relative;
@@ -62,7 +88,13 @@ const HoverTd = styled(Td)`
     justify-content: center;
 `
 
-const Description = styled.div`
+const description = css`
+    max-height: 40rem;
+    padding: 2.4rem 3.2rem;
+    border-bottom: 1px solid var(--color-grey-8);
+`
+
+const Description = styled.div<ExpandListProps>`
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s, padding 0.3s;
@@ -72,13 +104,7 @@ const Description = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    ${(props) =>
-        props.is_expanded &&
-        css`
-            max-height: 40rem;
-            padding: 2.4rem 3.2rem;
-            border-bottom: 1px solid var(--color-grey-8);
-        `}
+    ${(props) => props.is_expanded && description}
 `
 
 const StyledText = styled(Text)`
@@ -87,7 +113,7 @@ const StyledText = styled(Text)`
 const StyleCurrencyText = styled(Text)`
     white-space: pre-line;
 `
-const Deposit = styled(Td)`
+const Deposit = styled(Td)<ExpandListProps>`
     & > p {
         max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
     }
@@ -103,19 +129,21 @@ const Withdrawal = styled(Td)`
         max-width: 14rem;
     }
 `
-// const replaceLineBreak = (str) => {
-//     return str.toString().replace(/\n/g, '</br>')
-// }
 
-const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => {
+const ExpandList = ({ data = {}, is_fiat_onramp = false, locale }: ExpandListProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
 
-    // const getCryptoConfig = (name) => {
-    //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
-    // }
+    const payment_method = `/payment-methods/${
+        data.locales?.includes(locale.locale.language)
+            ? locale.locale.language + '/' + data.reference
+            : data.reference
+    }`
+
+    const reference_link = data.reference_link ? data.reference_link : <Text align="center">-</Text>
+
     return (
         <>
             <Tr is_expanded={is_expanded}>
@@ -137,9 +165,6 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                                 data.min_max_withdrawal.map((md, idx) => (
                                     <Text key={idx}>{md}</Text>
                                 ))
-                            ) : is_crypto ? (
-                                // <Text>{getCryptoConfig(data.name)}</Text>
-                                <Text>{data.min_max_withdrawal}</Text>
                             ) : (
                                 <Text>{data.min_max_withdrawal}</Text>
                             )}
@@ -160,20 +185,14 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                     <>
                         {data.reference ? (
                             <CenterIcon
-                                href={`/payment-methods/${
-                                    data.locales?.includes(locale.locale.language)
-                                        ? locale.locale.language + '/' + data.reference
-                                        : data.reference
-                                }`}
+                                href={payment_method}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <StyledPDF src={PDF} alt="PDF" />
                             </CenterIcon>
-                        ) : data.reference_link ? (
-                            data.reference_link
                         ) : (
-                            <Text align="center">-</Text>
+                            reference_link
                         )}
                     </>
                 </Td>
@@ -202,14 +221,6 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
             )}
         </>
     )
-}
-
-ExpandList.propTypes = {
-    // config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-    data: PropTypes.object,
-    is_crypto: PropTypes.bool,
-    is_fiat_onramp: PropTypes.bool,
-    locale: PropTypes.object,
 }
 
 export default ExpandList

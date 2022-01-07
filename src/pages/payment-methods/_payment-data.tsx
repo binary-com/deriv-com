@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { DataType } from './_expanded-list'
 import { Localize, LocalizedLink } from 'components/localization'
-// SVG
-// import BankTransfer from 'images/svg/payment-methods/payment-bank-transfer.svg'
 import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
 import Visa from 'images/svg/payment-methods/payment-visa.svg'
 import VisaElectron from 'images/svg/payment-methods/payment-visa-electron.svg'
@@ -13,7 +12,6 @@ import PerfectMoney from 'images/svg/payment-methods/payment-perfect-money.svg'
 import Skrill from 'images/svg/payment-methods/payment-skrill.svg'
 import Neteller from 'images/svg/payment-methods/payment-neteller.svg'
 import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
-// import Qiwi from 'images/svg/payment-methods/payment-qiwi.svg'
 import PaysafeCard from 'images/svg/payment-methods/payment-paysafe.svg'
 import Jeton from 'images/svg/payment-methods/payment-jeton.svg'
 import Sticpay from 'images/svg/payment-methods/payment-sticpay.svg'
@@ -63,15 +61,17 @@ const StyledRefLink = styled(LocalizedLink)`
     line-height: 24px;
     color: var(--color-blue-9);
 `
-/* commented for now unless there is an item that has no icon */
-// const NoIconText = styled.div`
-//     color: var(--color-red);
-//     font-size: 16px;
-//     font-weight: bold;
-//     text-align: center;
-// `
 
-const payment_data = [
+export type PaymentDataType = {
+    data: DataType[]
+    name: React.ReactNode
+    note?: React.ReactElement
+    is_crypto?: boolean
+    is_fiat_onramp?: boolean
+    is_dp2p?: boolean
+}
+
+const payment_data: PaymentDataType[] = [
     {
         name: <Localize translate_text="Online banking" />,
         data: [

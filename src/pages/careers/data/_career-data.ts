@@ -502,8 +502,8 @@ const career_data = {
                 ],
             },
             open_position: {
-                title: 'Front-end',
-                url: 'https://deriv.zohorecruit.com/jobs/Front-end',
+                title: 'Project-Management',
+                url: 'https://deriv.zohorecruit.com/jobs/Project-Management',
             },
             testimony_section: {
                 image: 'pm_review',

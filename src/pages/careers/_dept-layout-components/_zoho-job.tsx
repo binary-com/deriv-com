@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
 import { OpenPositionsProps } from './_dept-layout.types'
 import RightArrow from 'images/svg/career-right-arrow.svg'
 
@@ -129,7 +128,7 @@ const ZohoJob = (data: DataProps) => {
             color: var(--color-black-3);
             line-height: 1.5;
             max-width: 274px;
-            padding: 15px;
+            padding: 0;
             font-weight: 400;
             font-size: 1.6rem;
             width: auto !important;
@@ -148,13 +147,6 @@ const ZohoJob = (data: DataProps) => {
 
     return (
         <ZohoWrapper>
-            <Helmet>
-                <link
-                    rel="stylesheet"
-                    href="https://css.zohostatic.com/recruit/embed_careers_site/css/v1.0/embed_jobs.css"
-                    type="text/css"
-                />
-            </Helmet>
             <div className="embed_jobs_head embed_jobs_with_style_3 embed_jobs_with_style">
                 <div className="embed_jobs_head2">
                     <div className="embed_jobs_head3">

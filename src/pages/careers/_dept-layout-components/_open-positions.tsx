@@ -5,16 +5,11 @@ import { OpenPositionsProps } from './_dept-layout.types'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
-import device from 'themes/device'
 
 const JobWrapper = styled.div`
     width: 100%;
     display: grid;
     padding: 24px 35px 24px 18px;
-
-    @media ${device.tablet} {
-        display: grid;
-    }
 
     @media (max-width: 600px) {
         padding: 24px 0 18px;

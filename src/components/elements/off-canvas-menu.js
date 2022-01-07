@@ -532,7 +532,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('API')}</span>
                         </StyledLink>
-                        <StyledLink to="/bugbounty/" onClick={handleArrowClick}>
+                        <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                             <div>
                                 <img src={BugBounty} alt="" width="32" height="32" />
                             </div>
@@ -603,7 +603,7 @@ export const OffCanvasMenuPartner = (props) => {
                     </div>
                     <span>{localize('API')}</span>
                 </StyledLink>
-                <StyledLink to="/bugbounty/" onClick={handleArrowClick}>
+                <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                     <div>
                         <img src={BugBounty} alt="" width="32" height="32" />
                     </div>

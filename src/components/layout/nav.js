@@ -1046,7 +1046,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledLink>
                             </NavLink>
                             <NavLink>
-                                <StyledLink to="/bugbounty/" aria-label={localize('Bug Bounty')}>
+                                <StyledLink to="/bug-bounty/" aria-label={localize('Bug Bounty')}>
                                     {localize('Bug Bounty')}
                                 </StyledLink>
                             </NavLink>

@@ -156,7 +156,7 @@ const Rewards = (): ReactElement => {
                             <LocalizedLinkText
                                 mr="8px"
                                 key={0}
-                                to="/bugbounty/vulnerabilities-types/"
+                                to="/bug-bounty/vulnerabilities-types/"
                                 color="red"
                             />,
                         ]}

@@ -1,13 +1,10 @@
 import React from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
-export const useLivechat = (runScript) => {
+export const useLivechat = (firstLoadOpen) => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = React.useState(false)
-
-    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
-    const is_livechat_query = url_params.get('is_livechat_open')
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
@@ -22,9 +19,7 @@ export const useLivechat = (runScript) => {
 
     React.useEffect(() => {
         let cookie_interval = null
-        let script_timeout = null
-        if (isBrowser() && runScript) {
-            console.log('livechat connection')
+        if (isBrowser() && firstLoadOpen) {
             const domain = getDomain()
 
             /* this function runs every second to determine logged in status*/
@@ -39,29 +34,21 @@ export const useLivechat = (runScript) => {
             loadLiveChatScript(() => {
                 window.LiveChatWidget.on('ready', () => {
                     setLiveChatInteractive(true)
-                    if (is_livechat_query?.toLowerCase() === 'true') {
-                        window.LC_API.open_chat_window()
-                    }
+                    window.LC_API.open_chat_window()
                 })
             })
         }
 
         return () => {
             clearInterval(cookie_interval)
-            clearTimeout(script_timeout)
         }
-    }, [runScript])
+    }, [firstLoadOpen])
 
     React.useEffect(() => {
-        if (isBrowser() && runScript) {
-            console.log('interactive')
+        if (isBrowser() && firstLoadOpen) {
             const domain = getDomain()
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
-                    // we open and close the window to trigger the widget to listen for new events
-                    window.LC_API.open_chat_window()
-                    window.LC_API.hide_chat_window()
-
                     const utm_data = getUTMData(domain)
                     const client_information = getClientInformation(domain)
                     const url_params = new URLSearchParams(window.location.search)

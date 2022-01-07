@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex, Container, Show } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
@@ -85,8 +85,27 @@ const TryButton = styled(LinkButton)`
         margin-top: 10px;
     }
 `
+const query = graphql`
+    query {
+        p2p_hero_background: file(relativePath: { eq: "landing/trade-fx.jpg" }) {
+            ...fadeIn
+        }
+        p2p_hero_background_mobile: file(relativePath: { eq: "landing/trade-fx-m.jpg" }) {
+            ...fadeIn
+        }
+    }
+`
+type HeroDataProps = {
+    title: string
+    content: ReactElement
+}
+type HeroComponentProps = {
+    title: string
+    content: ReactElement
+    background_data: ImageDataLike
+}
 
-const HeroComponent = ({ title, content, background_data }) => {
+const HeroComponent = ({ title, content, background_data }: HeroComponentProps) => {
     return (
         <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">
@@ -95,7 +114,7 @@ const HeroComponent = ({ title, content, background_data }) => {
                         {title}
                     </StyledHeader>
                     <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
-                        <Header color="white" type="subtitle-1" weight="normal">
+                        <Header as="h1" color="white" type="subtitle-1" weight="normal">
                             {content}
                         </Header>
                     </HeroContent>
@@ -115,18 +134,7 @@ const HeroComponent = ({ title, content, background_data }) => {
     )
 }
 
-const query = graphql`
-    query {
-        p2p_hero_background: file(relativePath: { eq: "landing/trade-fx.jpg" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_mobile: file(relativePath: { eq: "landing/trade-fx-m.jpg" }) {
-            ...fadeIn
-        }
-    }
-`
-
-const Hero = ({ title, content }) => {
+const Hero = ({ title, content }: HeroDataProps) => {
     const data = useStaticQuery(query)
 
     return (
@@ -147,17 +155,6 @@ const Hero = ({ title, content }) => {
             </Show.Mobile>
         </div>
     )
-}
-
-HeroComponent.propTypes = {
-    background_data: PropTypes.any,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
-}
-
-Hero.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
 }
 
 export default Hero

@@ -334,7 +334,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
                     }
                     title={<Localize translate_text="SmartTrader" />}
-                    to="trading"
+                    to="https://smarttrader.deriv.com/en/trading.html"
                     rel="noopener noreferrer"
                     type="smart_trader"
                     target="_blank"

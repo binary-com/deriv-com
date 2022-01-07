@@ -33,7 +33,7 @@ module.exports = {
                 failOnError: true,
                 base64Width: 20,
                 stripMetadata: true,
-                defaultQuality: 50,
+                defaultQuality: 45,
             },
         },
         `gatsby-plugin-image`,

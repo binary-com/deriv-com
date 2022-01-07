@@ -85,10 +85,11 @@ const ZohoJob = (data: DataProps) => {
             }
         }
         .embed_jobs_with_style .rec-group li.rec-job-title {
-            width: 50%;
-            max-width: 500px;
+            min-width: 50%;
+            width: auto;
+            max-width: 800px;
             margin-bottom: 0;
-            padding-right: 5px;
+            padding-right: 24px;
         }
         div#rec_job_listing_div > div:first-child,
         .zrsite_Industry,

@@ -6,6 +6,8 @@ import LiveChatIC from 'images/svg/layout/livechat.svg'
 import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+import { isBrowser } from 'common/utility'
+import InitialLoader from 'components/elements/dot-loader'
 
 const StyledLiveChat = styled.div`
     position: fixed;
@@ -46,10 +48,26 @@ const StyledLiveChat = styled.div`
 `
 
 const LiveChat = ({ is_banner_shown }) => {
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const is_livechat_query = url_params.get('is_livechat_open')
+    const [is_loading, setIsLoading] = useState(false)
     const [is_livechat_hover, setLivechatHover] = useState(false)
-    const [runLivechatScripts, setRunLivechatScripts] = useState(false)
-    const [is_livechat_interactive, LC_API] = useLivechat(runLivechatScripts)
+    const [firstLoadOpen, setFirstLoadOpen] = useState(false)
+    const [is_livechat_interactive, LC_API] = useLivechat(firstLoadOpen)
     const { is_eu_country } = React.useContext(DerivStore)
+
+    React.useEffect(() => {
+        if (is_livechat_interactive) {
+            setIsLoading(false)
+        }
+    }, [is_livechat_interactive])
+
+    React.useEffect(() => {
+        if (is_livechat_query?.toLowerCase() === 'true') {
+            if (is_livechat_interactive) LC_API.open_chat_window()
+            else setFirstLoadOpen(true)
+        }
+    }, [])
 
     return (
         <StyledLiveChat
@@ -58,17 +76,28 @@ const LiveChat = ({ is_banner_shown }) => {
             is_eu_country={is_eu_country}
             onClick={() => {
                 if (is_livechat_interactive) LC_API.open_chat_window()
-                else setRunLivechatScripts(true)
+                else {
+                    setFirstLoadOpen(true)
+                    setIsLoading(true)
+                }
             }}
             onMouseEnter={() => setLivechatHover(true)}
             onMouseLeave={() => setLivechatHover(false)}
         >
-            <img
-                src={is_livechat_hover ? LiveChatHover : LiveChatIC}
-                width="32"
-                height="32"
-                alt="livechat icon"
-            />
+            {!is_loading ? (
+                <img
+                    src={is_livechat_hover ? LiveChatHover : LiveChatIC}
+                    width="32"
+                    height="32"
+                    alt="livechat icon"
+                />
+            ) : (
+                <div style={{ width: '32px', height: '32px' }}>
+                    <InitialLoader
+                        style={{ position: 'absolute', marginTop: '-28px', marginLeft: '-5px' }}
+                    />
+                </div>
+            )}
         </StyledLiveChat>
     )
 }

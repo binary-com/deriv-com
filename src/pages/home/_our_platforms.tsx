@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { PlatformSelector, Platform, PlatformDetails } from './_platform_selector'
@@ -307,9 +307,8 @@ const getIcon = (platformType: string): string => {
     else if (platformType === 'APK') return APK
 }
 
-const OurPlatforms = (): React.ReactElement => {
-    const [selectedIndex, setSelectedIndex] = React.useState(3)
-
+const OurPlatforms = () => {
+    const [selectedIndex, setSelectedIndex] = useState(3)
     const images = useStaticQuery(query)
 
     const settings = {

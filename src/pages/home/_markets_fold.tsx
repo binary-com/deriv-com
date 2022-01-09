@@ -135,6 +135,7 @@ type CarouselItemProps = {
     header: string
     description: string
     image: ImageDataLike
+    is_mobile: boolean
     gradient_start: string
     gradient_end: string
     url: string
@@ -144,17 +145,18 @@ const CarouselItem = ({
     header,
     description,
     image,
+    is_mobile,
     gradient_start,
     gradient_end,
     url,
 }: CarouselItemProps) => {
     const [is_hovered, setHovered] = useState(false)
-    const [is_mobile] = useBrowserResize()
+    const handleHover = (is_hovered) => !is_mobile && setHovered(is_hovered)
 
     return (
         <ItemWrapper
-            onMouseOver={() => !is_mobile && setHovered(true)}
-            onMouseOut={() => !is_mobile && setHovered(false)}
+            onMouseOver={() => handleHover(true)}
+            onMouseOut={() => handleHover(false)}
             onClick={() => is_mobile && setHovered(!is_hovered)}
         >
             <StyledLink to={url}>
@@ -182,8 +184,8 @@ const CarouselItem = ({
                         alt={header}
                         loading="eager"
                         $hovered={is_hovered}
-                        onMouseOver={() => !is_mobile && setHovered(true)}
-                        onMouseOut={() => !is_mobile && setHovered(false)}
+                        onMouseOver={() => handleHover(true)}
+                        onMouseOut={() => handleHover(false)}
                         onClick={() => is_mobile && setHovered(!is_hovered)}
                     />
                 </CarouselItemContainer>
@@ -242,6 +244,7 @@ const MarketsFold = () => {
                                 key={index}
                                 header={header}
                                 description={description}
+                                is_mobile={is_mobile}
                                 image={data[img_name]}
                                 gradient_start={gradient_start}
                                 gradient_end={gradient_end}

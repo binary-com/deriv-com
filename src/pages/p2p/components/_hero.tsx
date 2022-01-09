@@ -8,6 +8,7 @@ import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { size } from 'themes/device'
 
 const BackgroundWrapper = styled(Background)`
     height: 100%;
@@ -174,8 +175,8 @@ const query = graphql`
 
 const Hero = () => {
     const data = useStaticQuery(query)
-    const [is_mobile] = useBrowserResize()
-    const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
+    const [is_tabletL] = useBrowserResize(size.tabletL)
+    const background = is_tabletL ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
     return (
         <BackgroundWrapper data={background}>

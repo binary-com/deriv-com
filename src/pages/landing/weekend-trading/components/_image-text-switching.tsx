@@ -15,8 +15,6 @@ type RowProps = {
     flex_direction: string
 }
 
-type ContentProps = ImageWrapperProps & {}
-
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 16px 0;
@@ -27,7 +25,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div<ContentProps>`
+const Content = styled.div<ImageWrapperProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -230,7 +230,7 @@ const Layout = ({
                 />
             )}
             {!no_live_chat && (
-                <Delayed delay={500}>
+                <Delayed delay={1}>
                     <LiveChat is_banner_shown={show_cookie_banner} />
                 </Delayed>
             )}

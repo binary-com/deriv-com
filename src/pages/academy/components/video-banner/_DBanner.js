@@ -6,6 +6,7 @@ import VideoCarousel from './_VideoCarousel'
 import { convertDate, getVideoObject } from 'common/utility'
 import { Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
@@ -22,7 +23,7 @@ const ParentWrapper = styled(Flex)`
     position: relative;
     background-size: cover;
     height: auto;
-    padding: 160px 0 80px;
+    padding: 160px 0 40px;
 
     @media ${device.tabletL} {
         /* prettier-ignore */
@@ -67,6 +68,17 @@ const StyledDot = styled.img`
     height: 4px;
     background: var(--color-grey-17);
     margin: 0 10px 4px;
+`
+const AllVideosButton = styled(LinkButton)`
+    margin: 50px auto auto;
+
+    &:hover {
+        cursor: pointer;
+    }
+    @media ${device.laptopM} {
+        width: 100%;
+        margin: 30px auto 0;
+    }
 `
 
 const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
@@ -164,6 +176,9 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
                         </Flex>
                     </Flex>
                     <VideoCarousel carousel_items={non_featured_video_list} />
+                    <AllVideosButton tertiary_light="true" to="/academy/videos/">
+                        See all videos
+                    </AllVideosButton>
                 </Container>
             </ParentWrapper>
             {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}

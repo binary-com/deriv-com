@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { isBrowser } from 'common/utility'
@@ -39,7 +39,7 @@ const ButtonWrapper = styled.div`
     margin-top: 2.6rem;
 `
 
-const PageNotFound = (): ReactNode => {
+const PageNotFound = () => {
     const data = useStaticQuery(query)
     return (
         isBrowser() && (
@@ -53,6 +53,7 @@ const PageNotFound = (): ReactNode => {
                         <QueryImage
                             data={data['page_not_found']}
                             alt={localize('Page not found')}
+                            loading="eager"
                         />
                     </ImageWrapper>
 

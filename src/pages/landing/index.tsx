@@ -35,6 +35,7 @@ const simple_step_content = [
         icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
     },
 ]
+
 const Home = () => {
     return (
         <Layout is_ppc_redirect={true} is_ppc={true}>

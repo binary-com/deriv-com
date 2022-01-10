@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Container, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 import { localize } from 'components/localization'
@@ -35,12 +35,12 @@ const ParentWrapper = styled(Flex)<ParentWrapperProps>`
         background-image: url(${(props) => props.bg_image_mobile});
     }
 `
-const ContentWrapper = styled(Container)`
+const ContentWrapper = styled(Flex)`
     height: auto;
     margin: 180px 0;
 
     @media ${device.tabletL} {
-        margin: 168px 0 145px;
+        margin: 180px 0 145px;
     }
 `
 const DesktopWrapper = styled(Flex)`
@@ -65,21 +65,28 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledHeaderDesktopAbout = styled(Header)`
+const StyledH1 = styled.h1`
     height: 100%;
-    margin: 168px auto 70px;
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    margin: 175px auto 70px;
+    display: flex;
+    justify-content: center;
     letter-spacing: 1px;
     font-size: 200px;
     z-index: 3;
     line-height: inherit;
-    @media (max-width: 1180px) {
+    @media (max-width: 1200px) {
+        margin: 188px auto 70px;
         font-size: 170px;
     }
 `
 
 const StyledFlex = styled(Flex)`
     min-height: 400px;
-    min-width: 1150px;
+    width: 1150px;
 `
 
 const StyledQueryImage = styled(QueryImage)`
@@ -102,7 +109,7 @@ const Hero = () => {
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
-            <ContentWrapper>
+            <ContentWrapper jc="center">
                 <DesktopWrapper>
                     <StyledFlex>
                         <StyledQueryImage
@@ -110,16 +117,7 @@ const Hero = () => {
                             alt="example"
                             width="100%"
                         />
-                        <StyledHeaderDesktopAbout
-                            as="h1"
-                            color="white"
-                            align="center"
-                            type="main-landing-title"
-                            width="100%"
-                            padding="0"
-                        >
-                            {title}
-                        </StyledHeaderDesktopAbout>
+                        <StyledH1>{title}</StyledH1>
                     </StyledFlex>
                 </DesktopWrapper>
                 <MobileWrapper>

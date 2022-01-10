@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import DERIVIBDMT5Cards from './_dmt5-cards'
+import DMT5Cards from './_dmt5-cards'
 import { CardWrapper } from './_partner-card'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements/typography'
@@ -169,9 +169,9 @@ const DerivIBProgramme = () => {
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
-                        <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financial} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
+                        <DMT5Cards data={ib_dmt5_synthetic} />
+                        <DMT5Cards data={ib_dmt5_financial} />
+                        <DMT5Cards data={ib_dmt5_financialSTP} />
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader

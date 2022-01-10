@@ -21,7 +21,7 @@ const DerivIBProgramme = Loadable(() => import('./_deriv-ib-programme'))
 const MinimumVolume = Loadable(() => import('./_minimum-volume'))
 const MoreReason = Loadable(() => import('./_more-reason'))
 const Faq = Loadable(() => import('./_faq'))
-const CTA = Loadable(() => import('./_partner-cta'))
+const PartnerCTA = Loadable(() => import('./_partner-cta'))
 
 type ItemsType = {
     title: string
@@ -208,7 +208,7 @@ const AffiliateIb = () => {
             <WhoCanAplly />
             <MoreReason />
             <Faq />
-            <CTA />
+            <PartnerCTA />
         </Layout>
     )
 }

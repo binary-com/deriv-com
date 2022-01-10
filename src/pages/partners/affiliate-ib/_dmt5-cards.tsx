@@ -172,7 +172,7 @@ const BackButton = styled(Button)`
     margin-right: 0.8rem;
 `
 
-const DERIVIBDMT5Cards = ({ data }: DMT5Props) => {
+const DMT5Cards = ({ data }: DMT5Props) => {
     const dataImages = useStaticQuery(query)
 
     const parent_style = {
@@ -331,4 +331,4 @@ const DERIVIBDMT5Cards = ({ data }: DMT5Props) => {
     )
 }
 
-export default DERIVIBDMT5Cards
+export default DMT5Cards

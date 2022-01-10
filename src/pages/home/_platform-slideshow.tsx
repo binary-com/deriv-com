@@ -23,21 +23,13 @@ const query = graphql`
     }
 `
 
-const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; $is_mounted: boolean }>`
+const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
-    visibility: ${({ $is_hidden }) => ($is_hidden ? 'unset' : 'visible')};
-    transform: ${({ $is_hidden }) => ($is_hidden ? 'scaleX(0)' : 'scaleX(1)')};
-    -webkit-animation: fade 1s;
-    animation: fade 1s;
-    -moz-animation: fade 1s;
-    -o-animation: fade 1s;
+    animation: fade 1s ease-in-out;
 
     @media ${device.tabletL} {
-        -webkit-animation: unset;
         animation: unset;
-        -moz-animation: unset;
-        -o-animation: unset;
     }
 
     .gatsby-image-wrapper {
@@ -45,30 +37,6 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; $is_mounted: boole
             @media ${device.tabletL} {
                 transition: none;
             }
-        }
-    }
-
-    @-webkit-keyframes fade {
-        0% {
-            opacity: 0.2;
-        }
-        40% {
-            opacity: 0.5;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @-moz-keyframes fade {
-        0% {
-            opacity: 0.2;
-        }
-        40% {
-            opacity: 0.5;
-        }
-        100% {
-            opacity: 1;
         }
     }
 
@@ -83,22 +51,10 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; $is_mounted: boole
             opacity: 1;
         }
     }
-    @-o-keyframes fade {
-        0% {
-            opacity: 0.2;
-        }
-        40% {
-            opacity: 0.5;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
 `
 
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
-    const [is_mounted, setMounted] = useState(false)
     const data = useStaticQuery(query)
 
     const slide_images = [
@@ -113,22 +69,16 @@ const PlatformSlideshow = () => {
     }, [slide_images])
 
     useEffect(() => {
-        let slideshow_timer
-        if (is_mounted) {
-            slideshow_timer = setInterval(() => {
-                setNextImage()
-            }, 5000)
-        }
-        setTimeout(() => {
-            setMounted(true)
+        const slideshow_timer = setInterval(() => {
+            setNextImage()
         }, 5000)
 
         return () => clearInterval(slideshow_timer)
-    }, [is_mounted])
+    }, [])
 
     return (
-        <Flex tablet={{ min_height: '280px', ai: 'center' }}>
-            <Slides images={slide_images} active_index={active_index} is_mounted={is_mounted} />
+        <Flex max_height="680px" tablet={{ min_height: '280px', ai: 'center' }}>
+            <Slides images={slide_images} active_index={active_index} />
         </Flex>
     )
 }
@@ -136,10 +86,9 @@ const PlatformSlideshow = () => {
 type SlidesProps = {
     images: Array<{ key: string; image: ImageDataLike }>
     active_index: number
-    is_mounted: boolean
 }
 
-const Slides = ({ images, active_index, is_mounted }: SlidesProps) => {
+const Slides = ({ images, active_index }: SlidesProps) => {
     return (
         <>
             {images.map((slide, index) => {
@@ -152,7 +101,6 @@ const Slides = ({ images, active_index, is_mounted }: SlidesProps) => {
                         width="100%"
                         loading="eager"
                         $is_hidden={active_index !== index}
-                        $is_mounted={is_mounted}
                         className="gatsby-image-wrapper"
                     />
                 )

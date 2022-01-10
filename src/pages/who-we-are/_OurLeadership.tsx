@@ -78,6 +78,11 @@ const StyledCssGrid = styled(CssGrid)`
         padding: 0;
         grid-template-columns: ;
     }
+    @media (max-width: 359px) {
+        grid-template-columns: repeat(3, 88px);
+        grid-column-gap: 12px;
+        grid-row-gap: 4px;
+    }
 `
 
 const StyledHeader = styled(Header)`

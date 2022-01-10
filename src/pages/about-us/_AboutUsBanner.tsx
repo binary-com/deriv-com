@@ -53,16 +53,6 @@ const PictureFlex = styled(Flex)`
         width: 250px;
     }
 `
-const StyledHeader = styled(Header)`
-    color: var(--color-white);
-    margin-bottom: 16px;
-    line-height: 40px;
-
-    @media ${device.tablet} {
-        font-size: 28px;
-        line-height: 34px;
-    }
-`
 const Styledtext = styled(Text)`
     color: var(--color-white);
     margin-bottom: 24px;
@@ -73,10 +63,10 @@ const AboutUsBanner = () => {
         <StyledSectionContainer>
             <StyledFlex direction="column" height="288px" width="1200px">
                 <PictureFlex jc="start" ai="start" direction="column">
-                    <StyledHeader width="100%" type="unset" as="h2" size="32px">
+                    <Header as="h3" width="100%" type="heading-3" color="white" mb="18px">
                         {localize('We have a huge mission, an incredible team, and rapid growth.')}
-                    </StyledHeader>
-                    <Styledtext width="100%" type="paragraph-2" as="p">
+                    </Header>
+                    <Styledtext width="100%" type="subtitle-1" as="p">
                         {localize('Join and grow with us.')}
                     </Styledtext>
                     <LinkButton

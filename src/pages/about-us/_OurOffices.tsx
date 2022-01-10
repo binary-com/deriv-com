@@ -102,6 +102,8 @@ const PinWrapper = styled.div<PinWrapperProps>`
     position: absolute;
     top: ${(props) => props.top};
     left: ${(props) => props.left};
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
     cursor: pointer;
 `
 

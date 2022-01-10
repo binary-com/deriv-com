@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
-import Hero from './_hero.js'
-import { faq_schema } from './_faq-schema.js'
+import Hero from './_hero'
+import { WhyUsType } from './_why-us'
+import { faq_schema } from './_faq-schema'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
@@ -11,17 +12,23 @@ import { SectionContainer, Container, SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
+import { MetaAttributesType } from 'types/page.type'
 
-const WhyUs = Loadable(() => import('./_why-us.js'))
-const WhoCanAplly = Loadable(() => import('./_who-can-apply.js'))
+const WhyUs = Loadable(() => import('./_why-us'))
+const WhoCanAplly = Loadable(() => import('./_who-can-apply'))
 const DerivAffiliateProgramme = Loadable(() => import('./_deriv-affiliate-programme'))
-const DerivIBProgramme = Loadable(() => import('./_deriv-ib-programme.js'))
-const MinimumVolume = Loadable(() => import('./_minimum-volume.js'))
-const MoreReason = Loadable(() => import('./_more-reason.js'))
+const DerivIBProgramme = Loadable(() => import('./_deriv-ib-programme'))
+const MinimumVolume = Loadable(() => import('./_minimum-volume'))
+const MoreReason = Loadable(() => import('./_more-reason'))
 const Faq = Loadable(() => import('./_faq'))
 const CTA = Loadable(() => import('./_partner-cta'))
 
-const meta_attributes = {
+type ItemsType = {
+    title: string
+    subtitle: React.ReactElement
+}[]
+
+const meta_attributes: MetaAttributesType = {
     og_title: localize('Affiliate and IB programme | Deriv'),
     og_description: localize(
         'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
@@ -110,14 +117,14 @@ const StyledText = styled(Text)`
     }
 `
 
-const items = [
+const items: ItemsType = [
     { title: '47K+', subtitle: <Localize translate_text="members" /> },
     { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
     { title: '150+', subtitle: <Localize translate_text="countries" /> },
     { title: '1M+', subtitle: <Localize translate_text="clients" /> },
 ]
 
-const why_partner_with_us_items = [
+const why_partner_with_us_items: WhyUsType = [
     {
         title: <Localize translate_text="Multiple income opportunities and generous commissions" />,
         subtitle: (

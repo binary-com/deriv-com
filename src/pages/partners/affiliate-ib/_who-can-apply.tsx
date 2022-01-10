@@ -14,6 +14,11 @@ import Apply from 'images/svg/partners/apply.svg'
 import Advertise from 'images/svg/partners/advertise.svg'
 import Earn from 'images/svg/partners/earn.svg'
 
+type ContentProps = {
+    max_width?: string
+    mt_mobile?: string
+}
+
 const StyledSection = styled(Container)`
     align-items: flex-start;
 
@@ -62,7 +67,7 @@ const Wrapper = styled.div`
     margin-top: 4rem;
 `
 
-const Content = styled.div`
+const Content = styled.div<ContentProps>`
     display: flex;
     flex-direction: column;
     max-width: ${(props) => props.max_width};

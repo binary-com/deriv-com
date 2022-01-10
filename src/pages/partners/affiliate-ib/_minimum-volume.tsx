@@ -7,6 +7,32 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
+type FormulaType = {
+    item: string
+    description: React.ReactElement
+    next_operator?: string
+}[]
+
+type ResultType = {
+    total: React.ReactElement
+    description?: React.ReactElement
+}
+
+type ListType = {
+    totalItem: number
+    formula: FormulaType
+    result: ResultType
+}[]
+
+export type CalculatedFormulaType = {
+    list?: ListType
+    name?: string
+    description?: string
+    type?: string[]
+}
+
+export type CalculatedFormulaProps = { data: CalculatedFormulaType }
+
 const StyledSection = styled(SectionContainer)`
     padding: 0 0 8rem;
     @media ${device.tabletL} {
@@ -135,7 +161,7 @@ const MinimumVolume = () => {
     )
 }
 
-const firstCalculatedFormula = {
+const firstCalculatedFormula: CalculatedFormulaType = {
     list: [
         {
             totalItem: 3,
@@ -190,7 +216,7 @@ const firstCalculatedFormula = {
     ],
 }
 
-const secondCalculatedFormula = {
+const secondCalculatedFormula: CalculatedFormulaType = {
     list: [
         {
             totalItem: 3,

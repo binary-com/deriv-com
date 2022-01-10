@@ -1,12 +1,50 @@
 import React from 'react'
 import styled from 'styled-components'
-import DERIVIBDMT5Cards from './_dmt5-cards.js'
-import { CardWrapper } from './_partner-card.js'
+import DERIVIBDMT5Cards from './_dmt5-cards'
+import { CardWrapper } from './_partner-card'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+
+type TypeForType = {
+    title: React.ReactElement
+    headerHeight: string
+    assets: {
+        title: React.ReactElement
+        list: React.ReactElement[]
+    }[]
+}[]
+
+type ListType = {
+    details?: React.ReactElement
+    icon?: string
+    iconAlt?: React.ReactElement
+}[]
+
+type NoteType = {
+    title: React.ReactElement
+    desc: {
+        firstText: React.ReactElement
+        secondText?: React.ReactElement
+    }
+}[]
+
+type CountDetailsType = {
+    title: React.ReactElement
+    list: ListType
+    notes: NoteType
+}[]
+
+type DMT5Type = {
+    name: React.ReactElement
+    description: React.ReactElement
+    type: TypeForType
+    countDetails: CountDetailsType
+}
+
+export type DMT5Props = { data: DMT5Type }
 
 const TitleWrapper = styled.div`
     max-width: 104.5rem;
@@ -163,7 +201,7 @@ const DerivIBProgramme = () => {
     )
 }
 
-const ib_dmt5_synthetic = {
+const ib_dmt5_synthetic: DMT5Type = {
     name: <Localize translate_text="Deriv MT5 Synthetics" />,
     description: (
         <Localize translate_text="Earn when your clients trade on an MT5 Synthetics account." />
@@ -296,7 +334,7 @@ const ib_dmt5_synthetic = {
     ],
 }
 
-const ib_dmt5_financial = {
+const ib_dmt5_financial: DMT5Type = {
     name: <Localize translate_text="Deriv MT5 Financial" />,
     description: (
         <Localize translate_text="Earn when your clients trade on an MT5 Financial account." />
@@ -433,7 +471,7 @@ const ib_dmt5_financial = {
     ],
 }
 
-const ib_dmt5_financialSTP = {
+const ib_dmt5_financialSTP: DMT5Type = {
     name: <Localize translate_text="Deriv MT5 Financial STP" />,
     description: (
         <Localize translate_text="Earn when your clients trade on an MT5 Financial STP account." />

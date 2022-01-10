@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Card } from './_partner-card.js'
-import { Table, TRAP, TRAPREVERSE, TC } from './_table.js'
+import { Card, CardProps } from './_partner-card'
+import { Table, TRAP, TRAPREVERSE, TC } from './_table'
+import { DMT5Props } from './_deriv-ib-programme'
 import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Accordion, AccordionItem, QueryImage } from 'components/elements'
@@ -110,7 +110,7 @@ const TableWrapper = styled(Table)`
     margin: 0 auto 1.6rem;
     grid-auto-rows: 1fr;
 `
-const StyledTrap = styled(TRAP)`
+const StyledTrap = styled(TRAP)<CardProps>`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
     background-color: var(--color-grey-39);
     padding: 1.1rem 0.8rem;
@@ -172,7 +172,7 @@ const BackButton = styled(Button)`
     margin-right: 0.8rem;
 `
 
-const DERIVIBDMT5Cards = ({ data }) => {
+const DERIVIBDMT5Cards = ({ data }: DMT5Props) => {
     const dataImages = useStaticQuery(query)
 
     const parent_style = {
@@ -242,13 +242,13 @@ const DERIVIBDMT5Cards = ({ data }) => {
                                                             {listedValue.title}
                                                         </StyledText>
                                                     </StyledTrap>
-                                                    {listedValue.list.map((data, indexData) => (
+                                                    {listedValue.list.map((info, indexData) => (
                                                         <TRAPREVERSE
                                                             even={indexData % 2 ? 'true' : ''}
                                                             key={indexData}
                                                         >
                                                             <StyledText size="14px">
-                                                                {data}
+                                                                {info}
                                                             </StyledText>
                                                         </TRAPREVERSE>
                                                     ))}
@@ -281,7 +281,7 @@ const DERIVIBDMT5Cards = ({ data }) => {
                                     <Flex mb="1.6rem">
                                         <QueryImage
                                             data={dataImages[valueDetails.icon]}
-                                            alt={valueCalc.iconAlt}
+                                            alt={valueDetails.iconAlt}
                                             width="100%"
                                         />
                                     </Flex>
@@ -329,10 +329,6 @@ const DERIVIBDMT5Cards = ({ data }) => {
             )}
         </StyledCard>
     )
-}
-
-DERIVIBDMT5Cards.propTypes = {
-    data: PropTypes.object,
 }
 
 export default DERIVIBDMT5Cards

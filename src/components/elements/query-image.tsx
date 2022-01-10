@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
 
 type QueryImageProps = {
-    alt: string
+    alt: string | React.ReactElement
     className?: string
     data: ImageDataLike
     height?: string

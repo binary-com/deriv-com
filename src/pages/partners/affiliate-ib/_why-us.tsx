@@ -1,11 +1,25 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+
+type TextType = {
+    props: { translate_text: string }
+}
+
+export type WhyUsType = {
+    title: string | React.ReactElement
+    subtitle: string | React.ReactElement
+    image_name: string
+    image_alt: TextType | React.ReactElement
+}[]
+
+type WhyUsProps = {
+    items: WhyUsType
+}
 
 const query = graphql`
     query {
@@ -80,13 +94,18 @@ const Content = styled.div`
     margin-top: 4rem;
 
     @media ${device.tabletL} {
-        ${(Text, Header)} {
+        ${Text} {
+            text-align: center;
+        }
+        ${Header} {
             text-align: center;
         }
     }
 `
-const WhyUs = ({ items }) => {
+
+const WhyUs = ({ items }: WhyUsProps) => {
     const data = useStaticQuery(query)
+
     return (
         <StyledContainer>
             <Container direction="column">
@@ -94,7 +113,7 @@ const WhyUs = ({ items }) => {
                     {localize('Why partner with us')}
                 </WhyUsHeader>
                 {items.map((item, index) => {
-                    let is_even = index % 2
+                    const is_even = index % 2
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
@@ -115,7 +134,5 @@ const WhyUs = ({ items }) => {
         </StyledContainer>
     )
 }
-WhyUs.propTypes = {
-    items: PropTypes.array,
-}
+
 export default WhyUs

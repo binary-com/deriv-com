@@ -1,9 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container } from 'components/containers'
 import { BackgroundImage } from 'components/elements'
+
+type HeroProps = {
+    children: React.ReactNode
+}
 
 const StyeldContainer = styled(Container)`
     height: 100%;
@@ -20,7 +23,7 @@ const query = graphql`
     }
 `
 
-const Hero = ({ children }) => {
+const Hero = ({ children }: HeroProps) => {
     const hero_img = useStaticQuery(query)
     return (
         <>
@@ -37,10 +40,6 @@ const Hero = ({ children }) => {
             </BackgroundImage>
         </>
     )
-}
-
-Hero.propTypes = {
-    children: PropTypes.node,
 }
 
 export default Hero

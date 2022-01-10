@@ -43,6 +43,15 @@ const MainWrapper = styled(Flex)`
     z-index: 70;
     height: 7.2rem;
     top: ${(props) => (props.background ? '0' : '72px')};
+
+    @media ${device.desktopL} {
+        top: ${(props) => (props.background ? '0' : '87px')};
+    }
+
+    @media ${device.tabletL} {
+        top: ${(props) => (props.background ? '0' : '56px')};
+        height: 60px;
+    }
 `
 const LogoWrapper = styled.img`
     width: 168px;
@@ -82,6 +91,10 @@ const TopicItemWrapper = styled(Flex)`
     @media ${device.laptopM} {
         max-width: 50%;
     }
+
+    @media ${device.tabletL} {
+        display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
+    }
 `
 export const styled_link_greyed_css = css`
     pointer-events: none;
@@ -106,7 +119,6 @@ const SearchResultRows = styled(Flex)`
     font-size: 16px;
     margin-top: 4px;
     padding: 8px 16px;
-    min-height: 40px;
     height: auto;
     background-color: ${(props) => (props.active ? 'var(--color-grey-31)' : 'unset')};
 
@@ -257,6 +269,7 @@ const SearchSuggestionWrapper = styled(Flex)`
     width: 640px;
     background: white;
     height: auto;
+    z-index: 120;
 
     @media ${device.tabletL} {
         width: 100%;
@@ -291,6 +304,9 @@ const MobileWrapper = styled.div`
 const DetailsWrapper = styled(Flex)`
     display: ${(props) => (props.is_expanded ? 'flex' : 'none')};
 `
+const TopicMobileParentWrapper = styled(Flex)`
+    display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
+`
 
 type SearchBannerProps = {
     hidden?: boolean
@@ -305,8 +321,9 @@ type StyledChevronProp = {
     expanded?: boolean
 }
 
-type SearchBar = {
+type SearchBarProp = {
     setModal?: React.Dispatch<React.SetStateAction<boolean>>
+    setHideMobileTopic?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type MobileAccordianProp = {
@@ -319,11 +336,8 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [video_tags, blog_tags] = useAcademyTags()
     const [modal_opened, setModal] = useState(false)
     const filter_type = combined_filter_type
-    const [is_expanded, setExpanded] = React.useState(false)
+    const [hide_mobile_topic, setHideMobileTopic] = useState(false)
 
-    const toggleExpand = () => {
-        setExpanded(!is_expanded)
-    }
     const openModal = () => {
         setModal(!modal_opened)
     }
@@ -406,11 +420,18 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                         p: '0 16px',
                                     }}
                                 >
-                                    <SearchBar setModal={setModal} />
+                                    <SearchBar
+                                        setModal={setModal}
+                                        setHideMobileTopic={setHideMobileTopic}
+                                    />
                                 </Flex>
                             </MobileWrapper>
                             {is_mobile ? (
-                                <Flex fd="column" m="0 16px">
+                                <TopicMobileParentWrapper
+                                    fd="column"
+                                    m="0 16px"
+                                    is_mobile_expanded={hide_mobile_topic}
+                                >
                                     {filter_type.map((filter, index) => {
                                         return (
                                             <>
@@ -422,12 +443,16 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                             </>
                                         )
                                     })}
-                                </Flex>
+                                </TopicMobileParentWrapper>
                             ) : (
                                 <TopicItemsParentWrapper jc="space-evenly" ai="flex-start">
                                     {filter_type.map((filter, index) => {
                                         return (
-                                            <TopicItemWrapper key={index} fd="column">
+                                            <TopicItemWrapper
+                                                key={index}
+                                                fd="column"
+                                                is_mobile_expanded={hide_mobile_topic}
+                                            >
                                                 <Header
                                                     type="paragraph-2"
                                                     align="left"
@@ -465,7 +490,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
 
 export default SearchBanner
 
-export const SearchBar = ({ setModal }: SearchBar) => {
+export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
     const [is_mobile_separator] = useBrowserResize(992)
     const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
@@ -481,6 +506,7 @@ export const SearchBar = ({ setModal }: SearchBar) => {
     let data_to_render
     const handleFilterSearch = (e) => {
         setSearchInput(e.target.value)
+        is_mobile_separator && setHideMobileTopic(true)
     }
 
     useDebouncedEffect(
@@ -529,6 +555,7 @@ export const SearchBar = ({ setModal }: SearchBar) => {
         setSearchInput('')
         setSearchInputTouched(!search_input_touched)
         updateFocusIndex(-1)
+        is_mobile_separator && setHideMobileTopic(false)
     }
 
     const handleNavigation = (e) => {
@@ -592,7 +619,7 @@ export const SearchBar = ({ setModal }: SearchBar) => {
                             placeholder="What would you like to search?"
                             onChange={handleFilterSearch}
                             onFocus={handleFocus}
-                            // onBlur={maximiseSearchInput}
+                            // onBlur={!is_mobile_separator && maximiseSearchInput}
                             value={search_input}
                             result_opened={suggestion_box_opened}
                             ref={input_ref}
@@ -652,7 +679,6 @@ export const SearchBar = ({ setModal }: SearchBar) => {
                                                     weight="normal"
                                                     ml="8px"
                                                     pt="4px"
-                                                    tabletL={{ ml: '10px' }}
                                                 >
                                                     {post.blog_title
                                                         ? post.blog_title
@@ -702,6 +728,7 @@ export const SearchBar = ({ setModal }: SearchBar) => {
                                         ai="center"
                                         onMouseDown={handleMouseDown}
                                         active={focus_index === idx}
+                                        tabletL={{ ai: 'flex-start' }}
                                     >
                                         {
                                             <>
@@ -711,6 +738,7 @@ export const SearchBar = ({ setModal }: SearchBar) => {
                                                     weight="normal"
                                                     ml="8px"
                                                     pt="4px"
+                                                    tabletL={{ ml: '10px', pt: '0' }}
                                                 >
                                                     {post.blog_title
                                                         ? post.blog_title
@@ -729,7 +757,7 @@ export const SearchBar = ({ setModal }: SearchBar) => {
 }
 
 export const TopicItemsAccordian = ({ items, setModal }: MobileAccordianProp) => {
-    const [is_expanded, setExpanded] = React.useState(false)
+    const [is_expanded, setExpanded] = useState(false)
     const [video_tags, blog_tags] = useAcademyTags()
 
     const toggleExpand = () => {

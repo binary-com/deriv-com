@@ -988,9 +988,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/about-us/">
+                            <HomeLink to="/who-we-are/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
-                                    {localize('About us')}
+                                    {localize('Who we are')}
                                 </Text>
                             </HomeLink>
                             <HomeLink to="/contact_us/">

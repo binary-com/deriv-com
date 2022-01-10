@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
-import Layout from 'components/layout/layout'
-import { Text } from 'components/elements'
-import { SectionContainer, SEO } from 'components/containers'
+import AcademyNav from './_nav'
+import Subscribe from './_subscribe'
+import { SectionContainer, SEO, Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+import { LinkButton } from 'components/form/'
 
 const Subscription = () => {
     const [email] = useQueryParam('email', StringParam)
@@ -68,18 +69,31 @@ const Subscription = () => {
     }
 
     return (
-        <Layout type="academy">
+        <>
             <SEO
-                title={localize('Check your email')}
+                title={localize('Thank you for subscribing')}
                 description={localize(
-                    "Didn't receive an email from us? Here's what could've happened.",
+                    'Thank you for confirming your email address, you will receive a confirmation email shortly.',
                 )}
                 no_index
             />
-            <SectionContainer>
-                <Text>You have successfully subscribed</Text>
+            <SectionContainer min_height="100vh">
+                <AcademyNav />
+                <Flex
+                    fd="column"
+                    max_width="90%"
+                    m=" 32px auto"
+                    tabletL={{ m: '10px auto', max_width: 'calc(100% - 32px)' }}
+                >
+                    <Subscribe />
+                </Flex>
+                <Flex>
+                    <LinkButton secondary="true" to="/academy/">
+                        {localize('Take me to Academy')}
+                    </LinkButton>
+                </Flex>
             </SectionContainer>
-        </Layout>
+        </>
     )
 }
 

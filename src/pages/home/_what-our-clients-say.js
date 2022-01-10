@@ -102,16 +102,10 @@ const ClientName = styled(Text)`
     }
 `
 
-const Date = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 10px;
-    }
-`
 const testimonial_slides = [
     {
         id: 'angeh',
         name: 'Angeh',
-        date: '8 September 2021',
         quote: (
             <Localize translate_text="Weekend trades, fast deposits &amp; withdrawals, plus synthetics trading – what’s better than this?" />
         ),
@@ -119,7 +113,6 @@ const testimonial_slides = [
     {
         id: 'osilva',
         name: 'O.Silva',
-        date: '9 January 2021',
         quote: (
             <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
         ),
@@ -127,7 +120,6 @@ const testimonial_slides = [
     {
         id: 'montana',
         name: 'Montana',
-        date: '16 January 2021',
         quote: (
             <Localize translate_text="Deriv P2P makes withdrawals and deposits simple, it’s the best user-friendly app." />
         ),
@@ -135,19 +127,16 @@ const testimonial_slides = [
     {
         id: 'sammy',
         name: 'Sammy',
-        date: '22 July 2021',
         quote: <Localize translate_text="Deriv P2P is a great app, I love it!" />,
     },
     {
         id: 'amina',
         name: 'Amina',
-        date: '24 June 2021',
         quote: <Localize translate_text="Deriv GO is amazingly easy to use." />,
     },
     {
         id: 'gladys',
         name: 'Gladys',
-        date: '9 June 2021',
         quote: (
             <Localize translate_text="My experience so far is just awesome! You can do instant buying and selling, and I hope to continue enjoying using Deriv P2P. Keep up the good work!" />
         ),
@@ -155,7 +144,6 @@ const testimonial_slides = [
     {
         id: 'john',
         name: 'John',
-        date: '15 September 2021',
         quote: (
             <Localize translate_text="I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!" />
         ),
@@ -163,13 +151,11 @@ const testimonial_slides = [
     {
         id: 'frank',
         name: 'Frank',
-        date: '14 September 2021',
         quote: <Localize translate_text="Excellent and reliable services; tested and trusted!" />,
     },
     {
         id: 'aaron',
         name: 'Aaron',
-        date: '12 September 2021',
         quote: (
             <Localize translate_text="Deriv has multiple withdrawal methods, including Deriv P2P, which is fast and convenient. Their support team is available any time and responds very quickly to any queries." />
         ),
@@ -177,7 +163,6 @@ const testimonial_slides = [
     {
         id: 'ovictor',
         name: 'O. Victor',
-        date: '2 April 2021',
         quote: (
             <Localize translate_text="Deriv GO is a very nice app – payments have been swift and easy. I would highly recommend it." />
         ),
@@ -185,7 +170,6 @@ const testimonial_slides = [
     {
         id: 'isaac',
         name: 'Isaac',
-        date: '23 May 2021',
         quote: (
             <Localize translate_text="Deriv is the most reliable broker - excellent customer support and fast payments. It’s a great platform for commodities, forex, and synthetics trading." />
         ),
@@ -193,7 +177,6 @@ const testimonial_slides = [
     {
         id: 'simon',
         name: 'Simon',
-        date: '10 September 2021',
         quote: (
             <Localize translate_text="Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!" />
         ),
@@ -201,7 +184,6 @@ const testimonial_slides = [
     {
         id: 'allan',
         name: 'Allan',
-        date: '14 January 2021',
         quote: (
             <Localize translate_text="Deriv P2P is good. It’s easy to deposit and withdraw for small traders." />
         ),
@@ -209,7 +191,6 @@ const testimonial_slides = [
     {
         id: 'francoise',
         name: 'Francoise',
-        date: '16 June 2021',
         quote: (
             <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
         ),
@@ -217,7 +198,6 @@ const testimonial_slides = [
     {
         id: 'katleho',
         name: 'Katleho',
-        date: '8 February 2021',
         quote: (
             <Localize translate_text="Wow! Deriv GO is so perfect, it's convenient and reliable. I highly recommend using the app." />
         ),
@@ -225,7 +205,6 @@ const testimonial_slides = [
     {
         id: 'jackline',
         name: 'Jackline',
-        date: '13 September 2021',
         quote: (
             <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
         ),
@@ -233,13 +212,11 @@ const testimonial_slides = [
     {
         id: 'freeman',
         name: 'Freeman',
-        date: '7 March 2021',
         quote: <Localize translate_text="Deriv P2P is a flawless innovation." />,
     },
     {
         id: 'vikas',
         name: 'Vikas',
-        date: '24 May 2021',
         quote: (
             <Localize translate_text="It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!" />
         ),
@@ -247,7 +224,6 @@ const testimonial_slides = [
     {
         id: 'moyz',
         name: 'Moyz',
-        date: '7 March 2021',
         quote: (
             <Localize translate_text="Deriv GO is really good! I've been looking for an app like this which is easy to use." />
         ),
@@ -255,14 +231,13 @@ const testimonial_slides = [
     {
         id: 'ls',
         name: 'LS',
-        date: '14 May 2021',
         quote: (
             <Localize translate_text="Deriv is the best forex broker I have ever come across!" />
         ),
     },
 ]
 
-const ClientSlide = ({ quote, name, date }) => (
+const ClientSlide = ({ quote, name }) => (
     <Flex direction="column" height="100%" jc="space-between" max_width="588px">
         <ClientTestimonial type="subtitle-1" weight="normal" lh={'36px'} className="flexi-item">
             {quote}
@@ -271,7 +246,6 @@ const ClientSlide = ({ quote, name, date }) => (
             <ClientName size={'16px'} weight={700}>
                 {name}
             </ClientName>
-            <Date size={'12px'}>{date}</Date>
         </Flex>
     </Flex>
 )
@@ -357,8 +331,8 @@ const WhatOurClientsSay = () => {
                             }}
                         >
                             <Carousel>
-                                {testimonial_slides.map(({ date, id, name, quote }) => (
-                                    <ClientSlide key={id} quote={quote} name={name} date={date} />
+                                {testimonial_slides.map(({ id, name, quote }) => (
+                                    <ClientSlide key={id} quote={quote} name={name} />
                                 ))}
                             </Carousel>
                         </Flex>

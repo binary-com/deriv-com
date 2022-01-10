@@ -133,6 +133,7 @@ const query = graphql`
 
 type CarouselItemProps = {
     header: string
+    setAutoplay: any
     description: string
     image: ImageDataLike
     is_mobile: boolean
@@ -143,6 +144,7 @@ type CarouselItemProps = {
 
 const CarouselItem = ({
     header,
+    setAutoplay,
     description,
     image,
     is_mobile,
@@ -151,7 +153,10 @@ const CarouselItem = ({
     url,
 }: CarouselItemProps) => {
     const [is_hovered, setHovered] = useState(false)
-    const handleHover = (is_hovered) => !is_mobile && setHovered(is_hovered)
+    const handleHover = (is_hovered) => {
+        setAutoplay(!is_hovered)
+        return !is_mobile && setHovered(is_hovered)
+    }
 
     return (
         <ItemWrapper
@@ -196,17 +201,15 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
+    const [is_autoplay, setAutoplay] = useState(true)
     const [is_mobile] = useBrowserResize()
 
     const settings = {
         options: {
-            loop: is_mobile,
-            dragFree: is_mobile,
+            loop: is_autoplay || is_mobile,
+            dragFree: is_autoplay || is_mobile,
             align: 'start',
             containScroll: 'trimSnaps',
-        },
-        view_port: {
-            padding: is_mobile ? '0 16px' : '0 120px',
         },
         container_style: {
             maxWidth: '100%',
@@ -235,7 +238,11 @@ const MarketsFold = () => {
                         Markets
                     </Header>
                 </Flex>
-                <Carousel has_autoplay={is_mobile} autoplay_interval={2000} {...settings}>
+                <Carousel
+                    has_autoplay={is_autoplay || is_mobile}
+                    autoplay_interval={2000}
+                    {...settings}
+                >
                     {market_data.map((market, index) => {
                         const { header, description, img_name, gradient_start, gradient_end, to } =
                             market
@@ -249,6 +256,7 @@ const MarketsFold = () => {
                                 image={data[img_name]}
                                 gradient_start={gradient_start}
                                 gradient_end={gradient_end}
+                                setAutoplay={setAutoplay}
                                 url={to}
                             />
                         )

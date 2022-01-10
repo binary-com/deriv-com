@@ -308,7 +308,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     content={
                         <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                     }
-                    title={<Localize translate_text="DMT5" />}
+                    title={<Localize translate_text="Deriv MT5" />}
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />

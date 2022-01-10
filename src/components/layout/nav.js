@@ -837,6 +837,9 @@ const StyledNavCenter = styled.ul`
         display: none;
     }
 `
+// in preact some of apis have been moved to 'base' api
+// for instance if you want to use ref.current.style from react in preact
+// you should use ref.current.base.style
 
 const StyledNavRight = styled(NavRight)`
     margin-left: auto;

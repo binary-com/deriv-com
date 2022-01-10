@@ -1,7 +1,7 @@
 import React from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
-export const useLivechat = (firstLoadOpen) => {
+export const useLivechat = (first_load_open) => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = React.useState(false)
@@ -19,7 +19,7 @@ export const useLivechat = (firstLoadOpen) => {
 
     React.useEffect(() => {
         let cookie_interval = null
-        if (isBrowser() && firstLoadOpen) {
+        if (isBrowser() && first_load_open) {
             const domain = getDomain()
 
             /* this function runs every second to determine logged in status*/
@@ -40,10 +40,10 @@ export const useLivechat = (firstLoadOpen) => {
         }
 
         return () => clearInterval(cookie_interval)
-    }, [firstLoadOpen])
+    }, [first_load_open])
 
     React.useEffect(() => {
-        if (isBrowser() && firstLoadOpen) {
+        if (isBrowser() && first_load_open) {
             const domain = getDomain()
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {

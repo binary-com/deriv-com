@@ -7,6 +7,7 @@ import device from 'themes/device.js'
 import { localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
+import { getWindowWidth } from 'common/utility'
 
 const query = graphql`
     query {
@@ -66,19 +67,19 @@ const StyledHeader = styled(Header)`
 
 const StyledHeaderDesktopAbout = styled(Header)`
     height: 100%;
-    margin: 170px auto 70px;
+    margin: 168px auto 70px;
     letter-spacing: 1px;
     font-size: 200px;
     z-index: 3;
     line-height: inherit;
-    @media (max-width: 1330px) {
+    @media (max-width: 1180px) {
         font-size: 170px;
     }
 `
 
 const StyledFlex = styled(Flex)`
     min-height: 400px;
-    min-width: 1000px;
+    min-width: 1150px;
 `
 
 const StyledQueryImage = styled(QueryImage)`
@@ -88,6 +89,16 @@ const StyledQueryImage = styled(QueryImage)`
 
 const Hero = () => {
     const data = useStaticQuery(query)
+    const title =
+        getWindowWidth() > 576 ? (
+            localize('Who we are')
+        ) : (
+            <>
+                {localize('Who')}
+                <br></br>
+                {localize('we are')}
+            </>
+        )
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
@@ -107,7 +118,7 @@ const Hero = () => {
                             width="100%"
                             padding="0"
                         >
-                            {localize('Who we are')}
+                            {title}
                         </StyledHeaderDesktopAbout>
                     </StyledFlex>
                 </DesktopWrapper>

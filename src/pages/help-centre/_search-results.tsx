@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { convertToHash } from './_utility'
 import { Text, Header, LocalizedLinkText } from 'components/elements'
@@ -13,9 +12,12 @@ type TopicsType = {
 }[]
 
 type SearchSuccessProps = {
-    suggested_topics?: TopicsType | string[]
-    max_length?: number
-    search?: string
+    suggested_topics: TopicsType | string[]
+    max_length: number
+}
+
+type SearchErrorProps = {
+    search: string
 }
 
 export const Li = styled(Text).attrs({
@@ -105,7 +107,7 @@ export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessPro
     </>
 )
 
-export const SearchError = ({ search }: SearchSuccessProps) => (
+export const SearchError = ({ search }: SearchErrorProps) => (
     <>
         <ErrorHeader
             as="h5"
@@ -128,6 +130,3 @@ export const SearchError = ({ search }: SearchSuccessProps) => (
         </Ul>
     </>
 )
-SearchError.propTypes = {
-    search: PropTypes.string,
-}

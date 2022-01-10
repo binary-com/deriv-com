@@ -8,7 +8,7 @@ import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
 
-export type ArticleProps = {
+type ArticleProps = {
     children?: React.ReactNode
     header?: string
     title?: string

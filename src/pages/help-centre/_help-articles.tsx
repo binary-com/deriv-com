@@ -10,7 +10,7 @@ type ArticlesByCategoryType = {
     label_eu?: string
 }
 
-export type ArcticlesType = {
+type ArcticlesType = {
     category: React.ReactElement
     articles: ArticlesByCategoryType[]
 }[]

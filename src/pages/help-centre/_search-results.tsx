@@ -96,9 +96,7 @@ export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessPro
         {suggested_topics.slice(0, max_length).map((article, idx) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
-                    <StyledLink
-                        to={convertToHash({ category: article.category }, { label: article.label })}
-                    >
+                    <StyledLink to={convertToHash(article.category, article.label)}>
                         {localize(article.title)}
                     </StyledLink>
                 </ListNoBullets>

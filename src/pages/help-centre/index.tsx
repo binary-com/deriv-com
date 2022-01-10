@@ -325,7 +325,7 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                 search_has_transition: false,
             })
         }
-        const all_articles = getAllArticles({ articles: articles })
+        const all_articles = getAllArticles(articles)
 
         const duplicate_articles = deepClone(all_articles)
         const translated_articles = duplicate_articles.map((article) => {
@@ -354,8 +354,8 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
         })
 
         const splitted_articles = this.props.is_eu_country
-            ? euArticles(splitArticles({ array: articles }, { length: 3 }))
-            : splitArticles({ array: articles }, { length: 3 })
+            ? euArticles(splitArticles(articles, 3))
+            : splitArticles(articles, 3)
 
         const has_results = !!filtered_articles.length
 
@@ -494,20 +494,16 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                                                 >
                                                                     <StyledLink
                                                                         to={convertToHash(
-                                                                            {
-                                                                                category:
-                                                                                    item.category
-                                                                                        .props
-                                                                                        .translate_text,
-                                                                            },
-                                                                            { label: label_type },
+                                                                            item.category.props
+                                                                                .translate_text,
+                                                                            label_type,
                                                                         )}
                                                                     >
                                                                         {title_type}
                                                                     </StyledLink>
                                                                 </ShowItem>
 
-                                                                {show_expand_and_collapse}
+                                                                {}
                                                             </ListNoBullets>
                                                         )
                                                     })}

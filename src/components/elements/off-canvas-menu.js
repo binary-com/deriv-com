@@ -205,9 +205,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                                 }
-                                title={<Localize translate_text="DMT5" />}
+                                title={<Localize translate_text="Deriv MT5" />}
                                 onClick={handleArrowClick}
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />

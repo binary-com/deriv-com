@@ -19,9 +19,6 @@ const query = graphql`
         hero_platform4: file(relativePath: { eq: "home/hero_platform4.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform5: file(relativePath: { eq: "home/hero_platform5.png" }) {
-            ...homePageHeroFadeIn
-        }
     }
 `
 
@@ -40,7 +37,6 @@ const PlatformSlideshow = () => {
         { key: 'hero2', image: data.hero_platform2 },
         { key: 'hero3', image: data.hero_platform3 },
         { key: 'hero4', image: data.hero_platform4 },
-        { key: 'hero5', image: data.hero_platform5 },
     ]
 
     const setNextImage = useCallback(() => {

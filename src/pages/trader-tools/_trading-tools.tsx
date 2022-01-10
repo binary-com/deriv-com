@@ -10,14 +10,9 @@ import device from 'themes/device'
 type TradingToolsProps = {
     reverse: boolean
     tools: {
-        image_alt: string
-        image_name: string
-        title: string
-        subtitle: string
-        link: {
-            route: string
-            text: string
-        }
+        title: JSX.Element
+        subtitle: JSX.Element
+        link: { text: JSX.Element; route: string }
     }[]
 }
 

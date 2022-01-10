@@ -97,8 +97,8 @@ const PnlMultipliersCalculator = () => {
     const [tab, setTab] = useState('Level')
     const [sub_tab, setSubTab] = useState('Up')
 
-    const onTabClick = (tab) => setTab(tab)
-    const onSubTabClick = (tab) => setSubTab(tab)
+    const onTabClick = (t) => setTab(t)
+    const onSubTabClick = (t) => setSubTab(t)
 
     return (
         <>

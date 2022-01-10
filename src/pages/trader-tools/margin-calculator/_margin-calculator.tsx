@@ -74,8 +74,8 @@ const MarginCalculator = () => {
 
     const [tab, setTab] = useState('Synthetic')
 
-    const onTabClick = (tab) => {
-        setTab(tab)
+    const onTabClick = (t) => {
+        setTab(t)
     }
 
     return (

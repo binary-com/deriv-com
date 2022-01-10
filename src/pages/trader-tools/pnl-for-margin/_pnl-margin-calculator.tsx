@@ -114,8 +114,8 @@ const PnlMarginCalculator = () => {
     const [stop_loss_output, setStopLossOutput] = useState('0')
     const [take_profit_output, setTakeProfitOutput] = useState('0')
 
-    const onTabClick = (tab) => {
-        setTab(tab)
+    const onTabClick = (t) => {
+        setTab(t)
         if (form) {
             form.resetForm({})
             form.setErrors({})
@@ -126,7 +126,7 @@ const PnlMarginCalculator = () => {
             )
         }
     }
-    const onSubTabClick = (tab) => setSubTab(tab)
+    const onSubTabClick = (t) => setSubTab(t)
 
     // Watch the state of the first output, and update the second output upon change
     // TODO: Find a cleaner solution for this

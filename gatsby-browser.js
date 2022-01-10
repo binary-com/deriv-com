@@ -147,6 +147,22 @@ export const onClientEntry = () => {
     })
 
     checkLiveChatRedirection()
+
+    // Redirection Simulation
+    if (window) {
+        const domain = getDomain()
+        const client_information = getClientInformation(domain)
+
+        console.log(client_information)
+
+        if (client_information || !client_information) {
+            const pathname = window.location.pathname
+
+            if (!pathname.includes('simulate-redirection')) {
+                window.location = '/simulate-redirection'
+            }
+        }
+    }
 }
 
 export const onPreRouteUpdate = () => {
@@ -162,7 +178,6 @@ export const onRouteUpdate = () => {
     const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
-    // wrap inside a timeout to ensure the title has properly been changed
     setTimeout(() => {
         const eventName = 'page_load'
 

@@ -23,8 +23,7 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
-    DesktopBreadcrumbsWrapper,
-    MobileBreadcrumbsWrapper,
+    StickyBreadCrumbsWrapper,
     StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
@@ -39,14 +38,18 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import { convertDate, getMinRead } from 'common/utility'
+import { convertDate, getMinRead, truncateString } from 'common/utility'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
+    const [is_mobile] = useBrowserResize(992)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
     const [isMounted, setMounted] = useState(false)
     useEffect(() => {
         setMounted(true)
-        isMounted && window.scrollTo(0, 0)
+        isMounted && window.scrollTo(0, 0) && handleScroll()
     }, [isMounted])
 
     const barElement = useRef(null)
@@ -58,12 +61,24 @@ const ArticlesTemplate = (props) => {
         barElement.current.style.width = scrolled + '%'
     }
 
+    const handleScroll = () => {
+        const currentScrollPos = window.scrollY
+        setPrevScrollPos(currentScrollPos)
+        setVisible(currentScrollPos > 72)
+    }
+
     useEffect(() => {
         window.addEventListener('scroll', scrollFunc, { passive: true })
         return () => {
             window.removeEventListener('scroll', scrollFunc)
         }
     }, [])
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [prevScrollPos, visible, handleScroll])
 
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
@@ -106,7 +121,7 @@ const ArticlesTemplate = (props) => {
     }
 
     return (
-        <Layout type="academy">
+        <Layout type="academy" margin_top={'14.4'}>
             <SEO
                 description={meta_description}
                 title={meta_title}
@@ -117,35 +132,26 @@ const ArticlesTemplate = (props) => {
                 {isMounted && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
-                            <BreadcrumbsWrapper>
-                                <Flex jc="flex-start" ai="center">
-                                    <StyledBreadcrumbsLink to="/academy/" color="grey-5">
-                                        Home
-                                    </StyledBreadcrumbsLink>
-                                    <StyledImg src={RightArrow} height="16" width="16" />
-                                    <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
-                                        All articles
-                                    </StyledBreadcrumbsLink>
-                                    <StyledImg src={RightArrow} height="16" width="16" />
-                                    <DesktopBreadcrumbsWrapper>
+                            <StickyBreadCrumbsWrapper scroll={visible}>
+                                <BreadcrumbsWrapper scroll={visible}>
+                                    <Flex jc="flex-start" ai="center">
+                                        <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
+                                            All articles
+                                        </StyledBreadcrumbsLink>
+                                        <StyledImg src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
-                                            {article_title}
-                                        </StyledBreadcrumbsTitle>
-                                    </DesktopBreadcrumbsWrapper>
-                                </Flex>
-                                <MobileBreadcrumbsWrapper>
-                                    <Flex width="auto" jc="flex-start" mt="10px">
-                                        <StyledBreadcrumbsTitle lh="20px">
-                                            {article_title}
+                                            {is_mobile
+                                                ? truncateString(article_title, 30)
+                                                : article_title}
                                         </StyledBreadcrumbsTitle>
                                     </Flex>
-                                </MobileBreadcrumbsWrapper>
-                            </BreadcrumbsWrapper>
-                            <Scrollbar>
-                                <ProgressContainer>
-                                    <ProgressBar ref={barElement}></ProgressBar>
-                                </ProgressContainer>
-                            </Scrollbar>
+                                </BreadcrumbsWrapper>
+                                <Scrollbar scroll={visible}>
+                                    <ProgressContainer>
+                                        <ProgressBar ref={barElement}></ProgressBar>
+                                    </ProgressContainer>
+                                </Scrollbar>
+                            </StickyBreadCrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">

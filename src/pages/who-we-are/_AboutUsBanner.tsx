@@ -52,10 +52,31 @@ const PictureFlex = styled(Flex)`
         margin: 40px 0 0 29px;
         width: 250px;
     }
+    @media (max-width: 359px) {
+        margin: 10px 10px 0 29px;
+    }
 `
-const Styledtext = styled(Text)`
+
+const StyledHeader = styled(Header)`
+    line-height: 40px;
+    @media ${device.laptop} {
+        line-height: 34px;
+    }
+    @media ${device.tabletL} {
+        font-size: 30px;
+    }
+    @media ${device.tablet} {
+        font-size: 28px;
+    }
+`
+
+const StyledHeader2 = styled(Header)`
     color: var(--color-white);
+    margin-top: 18px;
     margin-bottom: 24px;
+    @media ${device.tablet} {
+        margin: 8px 0 16px 0;
+    }
 `
 
 const AboutUsBanner = () => {
@@ -63,12 +84,18 @@ const AboutUsBanner = () => {
         <StyledSectionContainer>
             <StyledFlex direction="column" height="288px" width="1200px">
                 <PictureFlex jc="start" ai="start" direction="column">
-                    <Header as="h3" width="100%" type="heading-3" color="white" mb="18px">
+                    <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
                         {localize('We have a huge mission, an incredible team, and rapid growth.')}
-                    </Header>
-                    <Styledtext width="100%" type="subtitle-1" as="p">
+                    </StyledHeader>
+                    <StyledHeader2
+                        width="100%"
+                        type="sub-paragraph"
+                        as="p"
+                        size="16px"
+                        weight="400px"
+                    >
                         {localize('Join and grow with us.')}
-                    </Styledtext>
+                    </StyledHeader2>
                     <LinkButton
                         secondary="true"
                         to={zoho_url}

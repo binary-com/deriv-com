@@ -5,7 +5,7 @@ import { localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, CssGrid, Show, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
-import { ReactComponent as Pin } from 'images/svg/about-us/pin.svg'
+import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
 
 const query = graphql`
     query {

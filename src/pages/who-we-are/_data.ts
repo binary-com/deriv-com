@@ -1,8 +1,8 @@
 import { localize } from 'components/localization'
-import Shield from 'images/svg/about-us/shield.svg'
-import Star from 'images/svg/about-us/star.svg'
-import People from 'images/svg/about-us/people.svg'
-import Hands from 'images/svg/about-us/hands.svg'
+import Shield from 'images/svg/who-we-are/shield.svg'
+import Star from 'images/svg/who-we-are/star.svg'
+import People from 'images/svg/who-we-are/people.svg'
+import Hands from 'images/svg/who-we-are/hands.svg'
 
 export const first_section_texts: string[] = [
     localize(

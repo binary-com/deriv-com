@@ -7,7 +7,7 @@ import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { ImageWrapperProps } from 'components/elements/query-image'
 import device from 'themes/device'
-import Linkedin from 'images/svg/about-us/linkedin.svg'
+import Linkedin from 'images/svg/who-we-are/linkedin.svg'
 
 const query = graphql`
     query {

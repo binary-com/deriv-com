@@ -161,7 +161,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/bug-bounty/">{localize('Bug Bounty')}</Link>
+                            <Link to="/bug-bounty/">{localize('Bug bounty')}</Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>

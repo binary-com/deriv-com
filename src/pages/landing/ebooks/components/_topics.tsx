@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ImageDataLike } from 'gatsby-plugin-image'
 import { Header, Li, QueryImage } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
@@ -7,7 +8,7 @@ import { localize, Localize } from 'components/localization'
 
 type TopicsProps = {
     title?: string
-    topicsImage: any
+    topicsImage: ImageDataLike
     topicsList: string[]
 }
 

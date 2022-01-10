@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import GetEbook from './_get-ebook'
+import { HeaderAndHeroProps } from './_types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
@@ -11,17 +12,9 @@ type HeaderImageProps = {
     imgHeight: number
 }
 
-type HeaderSectionProps = {
-    authorDesc: string
-    authorName: string
-    bg?: string
-    bgMobile?: string
-    ebook_utm_code: string
+type HeaderSectionProps = HeaderAndHeroProps & {
     imgHeight: number
     imgWidth: number
-    introMain: string
-    introSub: string
-    mainHeaderImage: any
 }
 
 const MainWrapper = styled(Flex)`
@@ -66,9 +59,12 @@ const TopHeaderImgWrapper = styled(Flex)`
     }
 `
 
+const widthProps = (props) => (props.imgWidth ? `${props.imgWidth}px` : '557px')
+const heightProps = (props) => (props.imgHeight ? `${props.imgHeight}px` : '703px')
+
 const HeaderImage = styled(QueryImage)<HeaderImageProps>`
-    width: ${(props) => (props.imgWidth ? `${props.imgWidth}px` : '557px')};
-    height: ${(props) => (props.imgHeight ? `${props.imgHeight}px` : '703px')};
+    width: ${widthProps};
+    height: ${heightProps};
     position: relative;
     top: 75px;
     margin: 0;

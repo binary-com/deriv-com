@@ -205,8 +205,8 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
     }
 
-    const validateEmail = (email) => {
-        const error_message = validation.email(email) || submit_error_msg
+    const validateEmail = (enteredEmail) => {
+        const error_message = validation.email(enteredEmail) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -221,7 +221,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         setEmailErrorMsg('')
     }
 
-    const getVerifyEmailRequest = (email) => {
+    const getVerifyEmailRequest = (enteredEmail) => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()
@@ -229,7 +229,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
 
         return {
-            verify_email: email,
+            verify_email: enteredEmail,
             type: 'account_opening',
             url_parameters: {
                 ...(affiliate_token && { affiliate_token: affiliate_token }),

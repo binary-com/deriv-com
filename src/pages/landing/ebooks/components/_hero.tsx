@@ -1,22 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import GetEbook from './_get-ebook'
+import { HeaderAndHeroProps } from './_types'
 import { Flex, Box } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
-type HeroProps = {
-    authorDesc: string
-    authorName: string
-    bg: string
-    bgMobile: string
+type HeroProps = HeaderAndHeroProps & {
     color: string
-    ebook_utm_code: string
-    introMain: string
-    introSub: string
-    mainHeaderImage: any
 }
 
 const MainWrapper = styled(Box)`

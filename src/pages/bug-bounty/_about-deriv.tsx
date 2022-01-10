@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
@@ -24,53 +24,37 @@ const ImageWrapper = styled.div`
     }
 `
 
-const WrapContainer = styled(Flex)`
-    align-items: center;
-
-    @media ${device.laptopM} {
-        flex-direction: column;
-    }
-`
-
-const WrapText = styled(Flex)`
-    @media ${device.laptopM} {
-        margin-bottom: 2.5rem;
-    }
-`
-
-const StyledHeader = styled(Header)`
-    @media ${device.laptopM} {
-        text-align: center;
-    }
-`
-
-const AboutDeriv = (): ReactElement => {
+const AboutDeriv = () => {
     const data = useStaticQuery(query)
 
     return (
         <Container>
-            <WrapContainer p="8.2rem 0">
-                <WrapText direction="column" max_width="38.4rem" tablet={{ max_width: '100%' }}>
-                    <StyledHeader mb="0.8rem" as="h2" type="heading-2">
+            <Flex ai="center" p="8.2rem 0" laptopM={{ fd: 'column' }}>
+                <Flex
+                    direction="column"
+                    max_width="38.4rem"
+                    tablet={{ max_width: '100%' }}
+                    laptopM={{ mb: '2.5rem' }}
+                >
+                    <Header mb="0.8rem" as="h2" type="heading-2" laptopM={{ align: 'center' }}>
                         {localize('About Deriv')}
-                    </StyledHeader>
-                    <Header type="paragraph-1" weight="normal">
+                    </Header>
+                    <Header as="p" type="paragraph-1" weight="normal">
                         {localize(
                             'We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms.',
                         )}
                     </Header>
 
-                    <Header type="paragraph-1" weight="normal" mt="2.4rem">
+                    <Header as="p" type="paragraph-1" weight="normal" mt="2.4rem">
                         {localize(
                             'Security is important to us. We continuously improve our products and services by collaborating with independent security researchers worldwide.',
                         )}
                     </Header>
-                </WrapText>
-
+                </Flex>
                 <ImageWrapper>
                     <QueryImage data={data.deriv_platform} alt={'Deriv platform'} />
                 </ImageWrapper>
-            </WrapContainer>
+            </Flex>
         </Container>
     )
 }

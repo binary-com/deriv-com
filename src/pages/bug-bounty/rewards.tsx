@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, LocalizedLinkText } from 'components/elements'
@@ -41,11 +41,6 @@ const CardWrapper = styled(Flex)`
     }
 `
 
-const Title = styled(Header)`
-    font-weight: normal;
-    text-align: center;
-`
-
 const Subtitle = styled(Header)`
     margin-bottom: 16px;
 
@@ -53,92 +48,111 @@ const Subtitle = styled(Header)`
         margin-bottom: 0;
     }
 `
-const ItemsWrapper = styled(Flex)`
-    width: 100%;
-
-    @media ${device.laptopM} {
-        width: auto;
-    }
-`
 
 const card_content = [
     {
         icon: CriticalIcon,
-        header: 'Critical',
-        title_1: 'Important business',
-        sub_title_1: 'Up to $10,000',
-        title_2: 'General business',
-        sub_title_2: 'Up to $5,000',
-        title_3: 'Edge business',
-        sub_title_3: 'Up to $2,500',
+        header: localize('Critical'),
+        title_1: localize('Important business'),
+        sub_title_1: localize('Up to $10,000'),
+        title_2: localize('General business'),
+        sub_title_2: localize('Up to $5,000'),
+        title_3: localize('Edge business'),
+        sub_title_3: localize('Up to $2,500'),
     },
     {
         icon: HighIcon,
-        header: 'High',
-        title_1: 'Important business',
-        sub_title_1: 'Up to $5,000',
-        title_2: 'General business',
-        sub_title_2: 'Up to $2,500',
-        title_3: 'Edge business',
-        sub_title_3: 'Up to $1,000',
+        header: localize('High'),
+        title_1: localize('Important business'),
+        sub_title_1: localize('Up to $5,000'),
+        title_2: localize('General business'),
+        sub_title_2: localize('Up to $2,500'),
+        title_3: localize('Edge business'),
+        sub_title_3: localize('Up to $1,000'),
     },
     {
         icon: MediumIcon,
-        header: 'Medium',
-        title_1: 'Important business',
-        sub_title_1: 'Up to $500',
-        title_2: 'General business',
-        sub_title_2: 'Up to $250',
-        title_3: 'Edge business',
-        sub_title_3: 'Up to $100',
+        header: localize('Medium'),
+        title_1: localize('Important business'),
+        sub_title_1: localize('Up to $500'),
+        title_2: localize('General business'),
+        sub_title_2: localize('Up to $250'),
+        title_3: localize('Edge business'),
+        sub_title_3: localize('Up to $100'),
     },
     {
         icon: LowIcon,
-        header: 'Low',
-        title_1:
-            'We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis. ',
+        header: localize('Low'),
+        title_1: (
+            <Localize
+                translate_text="We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis. "
+                components={[<strong key={0} />]}
+            />
+        ),
         type: 'short',
     },
 ]
 
-const Rewards = (): ReactElement => {
+const Rewards = () => {
     return (
         <SectionContainer>
             <Container fd="column">
-                <Header type="heading-2" align="center">
+                <Header as="h2" type="heading-2" align="center">
                     {localize('Rewards')}
                 </Header>
-                <Header type="paragraph-1" align="center" weight="400">
+                <Header as="p" type="paragraph-1" align="center" weight="400">
                     {localize(
                         'Your bug reports are reviewed and rewarded based on impact and severity.',
                     )}
                 </Header>
                 <CardWrapper>
-                    <ItemsWrapper>
+                    <Flex laptopM={{ width: 'auto !important' }}>
                         {card_content.map((item, idx) => {
                             return (
                                 <Card key={idx}>
                                     <img src={item.icon} />
-                                    <Header mt="8px" mb="16px" align="center" type="subtitle-2">
+                                    <Header
+                                        as="h3"
+                                        mt="8px"
+                                        mb="16px"
+                                        align="center"
+                                        type="subtitle-2"
+                                    >
                                         {item.header}
                                     </Header>
-                                    <Title type="paragraph-1">
-                                        <Localize
-                                            translate_text={item.title_1}
-                                            components={[<strong key={0} />]}
-                                        />
-                                    </Title>
+                                    <Header
+                                        as="p"
+                                        align="center"
+                                        weight="normal"
+                                        type="paragraph-1"
+                                    >
+                                        {item.title_1}
+                                    </Header>
                                     {item.type !== 'short' && (
                                         <>
-                                            <Subtitle type="subtitle-1" align="center">
+                                            <Subtitle as="p" type="subtitle-1" align="center">
                                                 {item.sub_title_1}
                                             </Subtitle>
-                                            <Title type="paragraph-1">{item.title_2}</Title>
-                                            <Subtitle type="subtitle-1" align="center">
+                                            <Header
+                                                align="center"
+                                                weight="normal"
+                                                type="paragraph-1"
+                                                as="p"
+                                            >
+                                                {item.title_2}
+                                            </Header>
+                                            <Subtitle as="p" type="subtitle-1" align="center">
                                                 {item.sub_title_2}
                                             </Subtitle>
-                                            <Title type="paragraph-1">{item.title_3}</Title>
-                                            <Subtitle type="subtitle-1" align="center">
+                                            <Header
+                                                align="center"
+                                                weight="normal"
+                                                type="paragraph-1"
+                                                as="p"
+                                            >
+                                                {item.title_3}
+                                            </Header>
+                                            <Subtitle as="p" type="subtitle-1" align="center">
                                                 {item.sub_title_3}
                                             </Subtitle>
                                         </>
@@ -146,7 +160,7 @@ const Rewards = (): ReactElement => {
                                 </Card>
                             )
                         })}
-                    </ItemsWrapper>
+                    </Flex>
                 </CardWrapper>
 
                 <Flex ai="center" mt="16px">

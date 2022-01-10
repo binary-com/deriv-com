@@ -18,7 +18,7 @@ export const domain_config = {
     production: [
         {
             hostname: 'deriv.com',
-            app_id: deriv_com_app_id, // 11780,
+            app_id: deriv_com_app_id,
         },
         {
             hostname: 'deriv.me',

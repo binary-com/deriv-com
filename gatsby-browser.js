@@ -130,6 +130,8 @@ export const onClientEntry = () => {
         addScript({
             src: 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH',
             id: 'gtm-test-container',
+            async: true,
+            defer: true,
             rel: 'preconnect',
         })
         addScript({

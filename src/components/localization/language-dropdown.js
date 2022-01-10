@@ -176,7 +176,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
     const [is_mobile] = useBrowserResize()
-    const iconSize = security && is_mobile ? '20px' : '24px'
+    const icon_size = security && is_mobile ? '20px' : '24px'
     const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
@@ -198,8 +198,8 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
                     <QueryImage
-                        width={iconSize}
-                        height={iconSize}
+                        width={icon_size}
+                        height={icon_size}
                         data={data[default_abbreviation]}
                         alt=""
                     />

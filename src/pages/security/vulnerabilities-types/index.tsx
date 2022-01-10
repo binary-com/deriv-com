@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Hero from '../_hero'
-import { vulnerabilitiesTypesContent } from '../static/_vulnerabilities-types-content'
+import { vulnerability_types_content } from '../static/_vulnerabilities-types-content'
 import { localize, WithIntl, Localize } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, Flex, SEO } from 'components/containers'
@@ -84,7 +84,7 @@ const VulnerabilitiesTypes = () => {
                     {localize('Types of vulnerabilities')}
                 </Header>
                 <div>
-                    {vulnerabilitiesTypesContent.map((item, idx) => {
+                    {vulnerability_types_content.map((item, idx) => {
                         return (
                             <React.Fragment key={idx}>
                                 <Flex mt="40px" ai="center">
@@ -98,10 +98,7 @@ const VulnerabilitiesTypes = () => {
                                     {item.profit ? (
                                         <CardItem>
                                             <Header as="p" type="paragraph-1" weight="normal">
-                                                <Localize
-                                                    translate_text={item.profit}
-                                                    components={[<strong key={0} />]}
-                                                />
+                                                {item.profit}
                                             </Header>
                                         </CardItem>
                                     ) : (
@@ -113,17 +110,7 @@ const VulnerabilitiesTypes = () => {
                                                     </Header>
 
                                                     <Header type="paragraph-2" mt="4px">
-                                                        <Localize
-                                                            translate_text={item.content}
-                                                            components={[
-                                                                <Text
-                                                                    as="span"
-                                                                    color="red"
-                                                                    size="14px"
-                                                                    key={0}
-                                                                />,
-                                                            ]}
-                                                        />
+                                                        {item.content}
                                                     </Header>
                                                 </CardItem>
                                             )
@@ -133,12 +120,7 @@ const VulnerabilitiesTypes = () => {
 
                                 {item.profit_condition && (
                                     <Header as="p" type="paragraph-2" mt="8px" weight="normal">
-                                        <Localize
-                                            translate_text={item.profit_condition}
-                                            components={[
-                                                <Text as="span" color="red" size="16px" key={0} />,
-                                            ]}
-                                        />
+                                        {item.profit_condition}
                                     </Header>
                                 )}
 

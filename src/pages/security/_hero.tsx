@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import HeroComponent from './components/_hero_component'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -16,12 +16,12 @@ const query = graphql`
     }
 `
 
-const Hero = (): ReactElement => {
+const Hero = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const background = is_mobile ? data['hero_background_mobile'] : data['hero_background_desktop']
 
-    return <HeroComponent background_data={background} background_dark={'0.3'} />
+    return <HeroComponent background_data={background} background_dark="0.3" />
 }
 
 export default Hero

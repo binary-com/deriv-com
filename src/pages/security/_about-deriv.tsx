@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
@@ -52,7 +52,7 @@ const SeparatorLine = styled.div`
     }
 `
 
-const AboutDeriv = (): ReactElement => {
+const AboutDeriv = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const image_width = is_mobile ? '328px' : '384px'

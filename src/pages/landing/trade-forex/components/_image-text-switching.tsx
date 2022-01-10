@@ -110,7 +110,7 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                 </StyledText>
 
                 {P2P.map((item, index) => {
-                    let is_even = isIndexEven(index, reverse)
+                    const is_even = isIndexEven(index, reverse)
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={item.title}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>

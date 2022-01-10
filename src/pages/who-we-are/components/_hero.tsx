@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Container, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 import { localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
+import { getWindowWidth } from 'common/utility'
 
 const query = graphql`
     query {
@@ -25,6 +26,7 @@ type ParentWrapperProps = {
 }
 
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`
+    width: 100%;
     background-image: url(${(props) => props.bg_image_desktop});
     background-position: center;
     background-size: cover;
@@ -33,12 +35,12 @@ const ParentWrapper = styled(Flex)<ParentWrapperProps>`
         background-image: url(${(props) => props.bg_image_mobile});
     }
 `
-const ContentWrapper = styled(Container)`
+const ContentWrapper = styled(Flex)`
     height: auto;
-    margin: 180px;
+    margin: 180px 0;
 
     @media ${device.tabletL} {
-        margin: 168px 0 145px;
+        margin: 180px 0 145px;
     }
 `
 const DesktopWrapper = styled(Flex)`
@@ -55,31 +57,36 @@ const MobileWrapper = styled.div`
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 72px;
+        font-size: 84px;
         line-height: 94px;
+    }
+    @media ${device.tabletS} {
+        white-space: pre;
     }
 `
 
-const StyledHeaderDesktopAbout = styled(Header)`
-    min-height: 195.52px;
+const StyledH1 = styled.h1`
     height: 100%;
-    margin: 140px auto 70px;
-    font-size: 210px;
-    letter-spacing: 8px;
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    margin: 175px auto 70px;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 1px;
+    font-size: 200px;
     z-index: 3;
     line-height: inherit;
+    @media (max-width: 1200px) {
+        margin: 188px auto 70px;
+        font-size: 170px;
+    }
 `
 
 const StyledFlex = styled(Flex)`
     min-height: 400px;
-    min-width: 1000px;
-`
-
-const FlexHeader = styled(Flex)`
-    min-height: 195.52px;
-    height: 100%;
-    font-size: 210px;
-    letter-spacing: 8px;
+    width: 1150px;
 `
 
 const StyledQueryImage = styled(QueryImage)`
@@ -89,10 +96,20 @@ const StyledQueryImage = styled(QueryImage)`
 
 const Hero = () => {
     const data = useStaticQuery(query)
+    const title =
+        getWindowWidth() > 576 ? (
+            localize('Who we are')
+        ) : (
+            <>
+                {localize('Who')}
+                <br></br>
+                {localize('we are')}
+            </>
+        )
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
-            <ContentWrapper>
+            <ContentWrapper jc="center">
                 <DesktopWrapper>
                     <StyledFlex>
                         <StyledQueryImage
@@ -100,23 +117,14 @@ const Hero = () => {
                             alt="example"
                             width="100%"
                         />
-                        <FlexHeader>
-                            <StyledHeaderDesktopAbout
-                                as="h1"
-                                color="white"
-                                align="center"
-                                type="unset"
-                            >
-                                {localize('About us')}
-                            </StyledHeaderDesktopAbout>
-                        </FlexHeader>
+                        <StyledH1>{title}</StyledH1>
                     </StyledFlex>
                 </DesktopWrapper>
                 <MobileWrapper>
                     <Flex fd="column">
                         <QueryImage data={data['about_us_logo']} alt="example" />
                         <StyledHeader as="h1" color="white" align="center" mt="40px" type="unset">
-                            {localize('About us')}
+                            {localize('Who \nwe are')}
                         </StyledHeader>
                     </Flex>
                 </MobileWrapper>

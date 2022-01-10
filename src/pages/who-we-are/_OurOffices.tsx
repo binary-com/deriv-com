@@ -5,14 +5,14 @@ import { localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, CssGrid, Show, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
-import { ReactComponent as Pin } from 'images/svg/about-us/pin.svg'
+import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
 
 const query = graphql`
     query {
-        earth: file(relativePath: { eq: "about-us/earth.png" }) {
+        earth: file(relativePath: { eq: "who-we-are/earth.png" }) {
             ...fadeIn
         }
-        earth_mobile: file(relativePath: { eq: "about-us/earth-mobile.png" }) {
+        earth_mobile: file(relativePath: { eq: "who-we-are/earth-mobile.png" }) {
             ...fadeIn
         }
     }
@@ -20,6 +20,7 @@ const query = graphql`
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     align-items: center;
     margin: 0;

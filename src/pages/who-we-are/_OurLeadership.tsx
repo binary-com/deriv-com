@@ -7,50 +7,50 @@ import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { ImageWrapperProps } from 'components/elements/query-image'
 import device from 'themes/device'
-import Linkedin from 'images/svg/about-us/linkedin.svg'
+import Linkedin from 'images/svg/who-we-are/linkedin.svg'
 
 const query = graphql`
     query {
-        antony: file(relativePath: { eq: "about-us/antony.jpg" }) {
+        antony: file(relativePath: { eq: "who-we-are/antony.jpg" }) {
             ...fadeIn
         }
-        derek: file(relativePath: { eq: "about-us/derek.jpg" }) {
+        derek: file(relativePath: { eq: "who-we-are/derek.jpg" }) {
             ...fadeIn
         }
-        gary: file(relativePath: { eq: "about-us/gary.jpg" }) {
+        gary: file(relativePath: { eq: "who-we-are/gary.jpg" }) {
             ...fadeIn
         }
-        jennice: file(relativePath: { eq: "about-us/jennice.jpg" }) {
+        jennice: file(relativePath: { eq: "who-we-are/jennice.jpg" }) {
             ...fadeIn
         }
-        jeya: file(relativePath: { eq: "about-us/jeya.jpg" }) {
+        jeya: file(relativePath: { eq: "who-we-are/jeya.jpg" }) {
             ...fadeIn
         }
-        jy: file(relativePath: { eq: "about-us/jy.jpg" }) {
+        jy: file(relativePath: { eq: "who-we-are/jy.jpg" }) {
             ...fadeIn
         }
-        joanna: file(relativePath: { eq: "about-us/joanna.jpg" }) {
+        joanna: file(relativePath: { eq: "who-we-are/joanna.jpg" }) {
             ...fadeIn
         }
-        louise: file(relativePath: { eq: "about-us/louise.jpg" }) {
+        louise: file(relativePath: { eq: "who-we-are/louise.jpg" }) {
             ...fadeIn
         }
-        rakshit: file(relativePath: { eq: "about-us/rakshit.jpg" }) {
+        rakshit: file(relativePath: { eq: "who-we-are/rakshit.jpg" }) {
             ...fadeIn
         }
-        raunak: file(relativePath: { eq: "about-us/raunak.jpg" }) {
+        raunak: file(relativePath: { eq: "who-we-are/raunak.jpg" }) {
             ...fadeIn
         }
-        seema: file(relativePath: { eq: "about-us/seema.jpg" }) {
+        seema: file(relativePath: { eq: "who-we-are/seema.jpg" }) {
             ...fadeIn
         }
-        shyamala: file(relativePath: { eq: "about-us/shyamala.jpg" }) {
+        shyamala: file(relativePath: { eq: "who-we-are/shyamala.jpg" }) {
             ...fadeIn
         }
-        tom: file(relativePath: { eq: "about-us/tom.jpg" }) {
+        tom: file(relativePath: { eq: "who-we-are/tom.jpg" }) {
             ...fadeIn
         }
-        waqas: file(relativePath: { eq: "about-us/waqas.jpg" }) {
+        waqas: file(relativePath: { eq: "who-we-are/waqas.jpg" }) {
             ...fadeIn
         }
     }

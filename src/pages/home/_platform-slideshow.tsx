@@ -4,6 +4,7 @@ import { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -23,8 +24,17 @@ const query = graphql`
 `
 
 const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; $is_mounted: boolean }>`
-    display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
+
+    .gatsby-image-wrapper {
+        div {
+            transition: opacity ease-in-out 2s';
+
+            @media ${device.tabletL} {
+                transition: none;
+            }
+        }
+    }
 `
 
 const PlatformSlideshow = () => {

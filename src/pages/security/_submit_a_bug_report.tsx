@@ -51,10 +51,6 @@ const ImageWrap = styled.div`
     }
 `
 
-const StyledHeader = styled(Header)`
-    text-align: center;
-`
-
 const query = graphql`
     query {
         bug_report_desktop: file(relativePath: { eq: "security/bug-report-desktop.png" }) {
@@ -66,7 +62,7 @@ const query = graphql`
     }
 `
 
-const SubmitABugReport = (): ReactElement => {
+const SubmitABugReport = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const bug_report_image = is_mobile ? data['bug_report_mobile'] : data['bug_report_desktop']
@@ -103,14 +99,14 @@ const SubmitABugReport = (): ReactElement => {
                     </ImageWrap>
                 </Wrapper>
 
-                <StyledHeader type="paragraph-2" mt="8px" as="p" weight="normal">
+                <Header align="center" type="paragraph-2" mt="8px" as="p" weight="normal">
                     <Localize
                         translate_text="Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program."
                         components={[
                             <LinkText key={0} href="/terms-and-conditions/#business-partners" sm />,
                         ]}
                     />
-                </StyledHeader>
+                </Header>
             </Container>
         </SectionContainer>
     )

@@ -25,14 +25,73 @@ const query = graphql`
 
 const StyledImage = styled(QueryImage)<{ $is_hidden: boolean; $is_mounted: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
+    display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
+    visibility: ${({ $is_hidden }) => ($is_hidden ? 'unset' : 'visible')};
+    transform: ${({ $is_hidden }) => ($is_hidden ? 'scaleX(0)' : 'scaleX(1)')};
+    -webkit-animation: fade 1s;
+    animation: fade 1s;
+    -moz-animation: fade 1s;
+    -o-animation: fade 1s;
+
+    @media ${device.tabletL} {
+        -webkit-animation: unset;
+        animation: unset;
+        -moz-animation: unset;
+        -o-animation: unset;
+    }
 
     .gatsby-image-wrapper {
         div {
-            transition: opacity ease-in-out 2s';
-
             @media ${device.tabletL} {
                 transition: none;
             }
+        }
+    }
+
+    @-webkit-keyframes fade {
+        0% {
+            opacity: 0.2;
+        }
+        40% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @-moz-keyframes fade {
+        0% {
+            opacity: 0.2;
+        }
+        40% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade {
+        0% {
+            opacity: 0.2;
+        }
+        40% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @-o-keyframes fade {
+        0% {
+            opacity: 0.2;
+        }
+        40% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
         }
     }
 `
@@ -94,6 +153,7 @@ const Slides = ({ images, active_index, is_mounted }: SlidesProps) => {
                         loading="eager"
                         $is_hidden={active_index !== index}
                         $is_mounted={is_mounted}
+                        className="gatsby-image-wrapper"
                     />
                 )
             })}

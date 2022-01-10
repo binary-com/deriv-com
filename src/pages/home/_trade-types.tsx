@@ -95,18 +95,22 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
     box-shadow: ${(props) =>
         props.$visibility
             ? '0px 0px 24px rgba(0, 0, 0, 0.08), 0px 24px 24px rgba(0, 0, 0, 0.08)'
-            : 'unset'};
+            : 'inset 0 0 0 1px var(--color-grey-17)'};
     padding: ${(props) => (props.$visibility ? '24px 12px 50px' : '24px 12px 32px')};
-    height: ${(props) => (props.$visibility ? '524px' : '440px')};
+    height: auto;
     background: var(--color-white);
-    border: ${(props) =>
-        props.$visibility ? '0px solid var(--color-grey-17)' : `1px solid var(--color-grey-17)`};
     position: relative;
     flex-direction: column;
     margin: 0 auto;
     border-radius: 8px;
     max-width: 100%;
-    transition: transform 0.5s ease-out;
+    transition: all 0.4s ease-out;
+    align-items: flex-start;
+
+    :hover {
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0) scale(1, 1);
+    }
 
     @media ${device.tablet} {
         max-width: 328px;
@@ -131,7 +135,9 @@ const ImageWrapper = styled(Flex)`
 const ContentWrapper = styled(Flex)<{ $visibility }>`
     flex-direction: column;
     display: ${(props) => (props.$visibility ? 'flex' : 'none')};
-    transition: transform 0.5s ease-out;
+    visibility: ${(props) => (props.$visibility ? 'visible' : 'unset')};
+    opacity: ${(props) => (props.$visibility ? '1' : '0')};
+    transition: visibility 0s, opacity 0.4s linear;
 
     @media ${device.tablet} {
         display: flex;
@@ -141,7 +147,6 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     opacity: ${(props) => (props.$visibility ? '1' : '0')};
     width: fit-content;
-    transition: transform 0.5s ease-out;
     padding: 10px 16px;
     border-radius: 100px;
     background-color: var(--color-white);
@@ -253,7 +258,7 @@ const TradeTypes = (): React.ReactNode => {
                     <Carousel {...settings}>
                         {ItemsDetails.map((item, index) => {
                             return (
-                                <Flex key={index}>
+                                <Flex key={index} ai="flex-start">
                                     <TradeItems items_details={item} />
                                 </Flex>
                             )
@@ -265,7 +270,7 @@ const TradeTypes = (): React.ReactNode => {
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
                     {ItemsDetails.map((item, index) => {
                         return (
-                            <Flex key={index}>
+                            <Flex key={index} ai="flex-start">
                                 <TradeItems items_details={item} />
                             </Flex>
                         )

@@ -200,7 +200,8 @@ const MarketsFold = () => {
 
     const settings = {
         options: {
-            loop: false,
+            loop: is_mobile,
+            dragFree: is_mobile,
             align: 'start',
             containScroll: 'trimSnaps',
         },
@@ -234,7 +235,7 @@ const MarketsFold = () => {
                         Markets
                     </Header>
                 </Flex>
-                <Carousel {...settings}>
+                <Carousel has_autoplay={is_mobile} autoplay_interval={2000} {...settings}>
                     {market_data.map((market, index) => {
                         const { header, description, img_name, gradient_start, gradient_end, to } =
                             market

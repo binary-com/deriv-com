@@ -303,7 +303,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <StyledText>{localize('Trading platforms')}</StyledText>
                 <NavCard
-                    aria_label="DMT5"
+                    aria_label="Deriv MT5"
                     icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                     content={
                         <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Hero } from './common/_style'
-import TradingTools from './_tools'
+import TradingTools from './_trading-tools'
 import { Container, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'

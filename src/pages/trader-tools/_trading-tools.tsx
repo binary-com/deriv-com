@@ -8,11 +8,13 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 type TradingToolsProps = {
-    reverse: boolean
+    reverse?: boolean
     tools: {
         title: JSX.Element
         subtitle: JSX.Element
         link: { text: JSX.Element; route: string }
+        image_name: string
+        image_alt: string
     }[]
 }
 

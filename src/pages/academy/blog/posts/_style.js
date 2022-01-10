@@ -66,7 +66,7 @@ export const BreadcrumbsWrapper = styled(Container)`
 `
 export const Scrollbar = styled.div`
     position: fixed;
-    top: ${(props) => (props.scroll ? '14rem' : '14.4rem')};
+    top: ${(props) => (props.scroll ? '138px' : '14.4rem')};
     width: 100%;
     background: var(--color-grey-8);
 

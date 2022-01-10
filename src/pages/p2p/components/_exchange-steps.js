@@ -114,7 +114,7 @@ const ExchangeSteps = () => {
             <CardContainer>
                 <Card>
                     <Row>
-                        <ImageTag src={RightAd} alt="Find or create an ad" />
+                        <ImageTag src={RightAd} alt="" />
                     </Row>
                     <Row>
                         <Column>
@@ -136,7 +136,7 @@ const ExchangeSteps = () => {
                 </Card>
                 <Card>
                     <Row>
-                        <ImageTag src={SettlePayment} alt="Send or receive payment" />
+                        <ImageTag src={SettlePayment} alt="" />
                     </Row>
                     <Row>
                         <Column>
@@ -158,7 +158,7 @@ const ExchangeSteps = () => {
                 </Card>
                 <Card>
                     <Row>
-                        <ImageTag src={CompleteOrder} alt="Complete the transaction" />
+                        <ImageTag src={CompleteOrder} alt="" />
                     </Row>
                     <Row>
                         <Column>

@@ -6,6 +6,7 @@ import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
+import { DerivStore } from 'store'
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -31,6 +32,7 @@ const ImageContainer = styled.div`
 `
 const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-30), rgba(238, 238, 238, 0));
+    min-height: 69rem;
 `
 const query = graphql`
     query {
@@ -48,6 +50,7 @@ const query = graphql`
 
 const Trade = ({ is_ppc_redirect }) => {
     const data = useStaticQuery(query)
+    const { is_eu_country } = React.useContext(DerivStore)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
     return (
@@ -74,12 +77,14 @@ const Trade = ({ is_ppc_redirect }) => {
                                     alt={localize('Dtrader trading platform at Deriv')}
                                 />
                             </ImageWrapper>
+
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <QueryImage
                                     data={data['dbot_trade']}
                                     alt={localize('Dbot trading platform at Deriv')}
                                 />
                             </ImageWrapper>
+
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <QueryImage
                                     data={data['dmt5_trade']}
@@ -96,12 +101,15 @@ const Trade = ({ is_ppc_redirect }) => {
                             >
                                 <TraderCard />
                             </div>
-                            <div
-                                onMouseEnter={() => setSelected(platforms.bot)}
-                                onMouseLeave={() => setSelected('')}
-                            >
-                                <BotCard />
-                            </div>
+
+                            {!is_eu_country && (
+                                <div
+                                    onMouseEnter={() => setSelected(platforms.bot)}
+                                    onMouseLeave={() => setSelected('')}
+                                >
+                                    <BotCard />
+                                </div>
+                            )}
                             <div
                                 onMouseEnter={() => setSelected(platforms.mt5)}
                                 onMouseLeave={() => setSelected('')}

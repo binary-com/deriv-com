@@ -1,9 +1,8 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
+import DerivLogo from 'images/svg/layout/logo-deriv-only.svg'
 import AcademyLogo from 'images/svg/academy/academy-logo.svg'
-import { QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device.js'
 
@@ -24,37 +23,39 @@ const Nav = styled.nav`
     }
 `
 
+const DerivSVG = styled.img`
+    width: 150px;
+    height: 27px;
+
+    @media ${device.tabletL} {
+        width: 89px;
+        height: 16px;
+    }
+`
+
 const AcademySVG = styled.img`
     width: 140px;
     height: 20px;
 
     @media ${device.tabletL} {
         width: 84px;
+        height: 12px;
     }
 `
 
 const Line = styled.div`
     width: 1px;
     height: 28px;
-    margin-right: 8px;
-    margin-left: 8px;
+    margin: 0 16px;
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
         height: 16px;
-    }
-`
-
-const query = graphql`
-    query {
-        deriv: file(relativePath: { eq: "logo.png" }) {
-            ...fadeIn
-        }
+        margin: 0 8px;
     }
 `
 
 const AcademyNav = () => {
-    const data = useStaticQuery(query)
     return (
         <Nav>
             <Flex width="auto">
@@ -68,12 +69,7 @@ const AcademyNav = () => {
                         alignItems: 'center',
                     }}
                 >
-                    <QueryImage
-                        data={data['deriv']}
-                        alt={localize('Deriv')}
-                        width="164px"
-                        height="auto"
-                    />
+                    <DerivSVG src={DerivLogo} />
                     <Line />
                     <AcademySVG src={AcademyLogo} />
                 </LocalizedLink>

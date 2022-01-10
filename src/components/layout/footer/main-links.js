@@ -79,11 +79,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{localize('APP')}</Title>
+                            <Title>{localize('APPS')}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">
                             <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
-                                {localize('MT5')}
+                                {localize('Deriv MT5')}
                             </Link>
                         </LinkWrapper>
                         {!is_eu_country && (
@@ -115,7 +115,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('BinaryBot')}
+                                {localize('Binary Bot')}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>

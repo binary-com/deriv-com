@@ -40,7 +40,7 @@ const platforms: Platform[] = [
     {
         title: 'Deriv MT5',
         icon: DMT5Icon,
-        description: 'The all-in-one FX & CFD trading platform.',
+        description: 'The all-in-one CFD trading platform.',
         learn_more_link: '/dmt5/',
         download_links: {
             Browser: deriv_mt5_app_url,
@@ -52,7 +52,7 @@ const platforms: Platform[] = [
     {
         title: 'DTrader',
         icon: DTraderIcon,
-        description: 'Our flagship app for trading options, multipliers & spreads.',
+        description: 'Our flagship app for trading options and multipliers.',
         learn_more_link: '/dtrader/',
         download_links: {
             Browser: deriv_app_url,
@@ -101,7 +101,7 @@ const platforms: Platform[] = [
     {
         title: 'Binary Bot',
         icon: BinaryBotIcon,
-        description: 'Our legacy automated trading platform.',
+        description: 'Our classic bot builder and automated trading platform.',
         learn_more_link: 'https://bot.deriv.com/',
         download_links: {
             Browser: 'https://bot.deriv.com/',

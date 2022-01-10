@@ -143,9 +143,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
             cover_content={localize('Discover DMT5 now')}
             title={localize('DMT5')}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
-            content={[
-                localize('Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform.'),
-            ]}
+            content={[localize('Trade on Deriv MT5, the all-in-one CFD trading platform.')]}
             is_inline_icon
             min_height="12.4rem"
             is_selected={is_selected}
@@ -308,7 +306,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     aria_label="DMT5"
                     icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                     content={
-                        <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                        <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}
@@ -319,7 +317,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         aria_label="Derivx"
                         icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                         content={
-                            <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                            <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
                         }
                         title={<Localize translate_text="Deriv X" />}
                         onClick={onClick}
@@ -382,9 +380,11 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         aria_label="BinaryBot"
                         icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
                         content={
-                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                            <Localize
+                                translate_text={`Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.`}
+                            />
                         }
-                        title={<Localize translate_text="BinaryBot" />}
+                        title={<Localize translate_text="Binary Bot" />}
                         to="https://bot.deriv.com/"
                         rel="noopener noreferrer"
                         target="_blank"

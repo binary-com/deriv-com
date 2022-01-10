@@ -4,9 +4,9 @@ const deriv_com_url = 'deriv.com'
 const deriv_me_url = 'deriv.me'
 const deriv_be_url = 'deriv.be'
 
-const deriv_com_app_id = 16929
-const deriv_me_app_id = 1411
-const deriv_be_app_id = 30767
+export const deriv_com_app_id = 16929
+export const deriv_me_app_id = 1411
+export const deriv_be_app_id = 30767
 
 const supported_domains = [deriv_com_url, deriv_me_url, deriv_be_url]
 const domain_url =

@@ -77,8 +77,9 @@ const PlatformsDropdown = ({
 }) => {
     const dropdownContainerRef = useRef(null)
     const is_trade = active_dropdown === 'trade'
+    const current_offset = current_ref.offsetWidth / 2 - 15
     const setTradeArrowOffset = (dropdownOffset) =>
-        current_ref.offsetLeft - dropdownOffset + current_ref.offsetWidth / 2 - 15
+        current_ref.offsetLeft - dropdownOffset + current_offset
     const [left_offset, setLeftOffset] = useState(current_ref.offsetLeft)
     const [left_arrow_offset, setLeftArrowOffset] = useState()
 
@@ -87,17 +88,16 @@ const PlatformsDropdown = ({
             setLeftArrowOffset(setTradeArrowOffset(dropdownContainerRef.current.offsetLeft))
         } else if (current_ref && !is_trade) {
             setLeftOffset(current_ref.offsetLeft)
-            setLeftArrowOffset(current_ref.offsetWidth / 2 - 15)
+            setLeftArrowOffset(current_offset)
         }
     }, [current_ref])
 
-    useEffect(
-        () =>
-            is_trade
-                ? setLeftArrowOffset(setTradeArrowOffset(dropdownContainerRef.current.offsetLeft))
-                : setLeftArrowOffset(current_ref.offsetWidth / 2 - 15),
-        [],
-    )
+    const setInitArrowOffset = () => {
+        const dropdown_offset = dropdownContainerRef.current.offsetLeft
+        setLeftArrowOffset(is_trade ? setTradeArrowOffset(dropdown_offset) : current_offset)
+    }
+
+    useEffect(() => setInitArrowOffset(), [])
 
     useEffect(() => {
         if (dropdownContainerRef) {

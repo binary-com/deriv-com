@@ -11,7 +11,7 @@ import { getWindowWidth } from 'common/utility'
 
 const query = graphql`
     query {
-        about_us_logo: file(relativePath: { eq: "about/about_us_logo_desktop.png" }) {
+        about_us_logo: file(relativePath: { eq: "about/about_us_logo.png" }) {
             ...fadeIn
         }
     }

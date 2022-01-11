@@ -239,49 +239,59 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="SmartTrader"
-                                icon={() => <img src={Smarttrader} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                                }
-                                title={<Localize translate_text="SmartTrader" />}
-                                onClick={handleArrowClick}
-                                to="trading"
-                                type="smart_trader"
-                                external="true"
-                                target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
-                            />
-                        </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DBot"
-                                icon={() => <img src={DBot} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                                }
-                                title={<Localize translate_text="DBot" />}
-                                onClick={handleArrowClick}
-                                to="/dbot/"
-                            />
-                        </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="Binary Bot"
-                                icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
-                                }
-                                title={<Localize translate_text="Binary Bot" />}
-                                onClick={handleArrowClick}
-                                to="https://bot.deriv.com/"
-                                external="true"
-                                target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
-                            />
-                        </Flex>
+                        {!is_eu_country && (
+                            <>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="SmartTrader"
+                                        icon={() => (
+                                            <img src={Smarttrader} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                        }
+                                        title={<Localize translate_text="SmartTrader" />}
+                                        onClick={handleArrowClick}
+                                        to="trading"
+                                        type="smart_trader"
+                                        external="true"
+                                        target="_blank"
+                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                    />
+                                </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="DBot"
+                                        icon={() => (
+                                            <img src={DBot} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                        }
+                                        title={<Localize translate_text="DBot" />}
+                                        onClick={handleArrowClick}
+                                        to="/dbot/"
+                                    />
+                                </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="BinaryBot"
+                                        icon={() => (
+                                            <img src={BinaryBot} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                                        }
+                                        title={<Localize translate_text="BinaryBot" />}
+                                        onClick={handleArrowClick}
+                                        to="https://bot.deriv.com/"
+                                        external="true"
+                                        target="_blank"
+                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                    />
+                                </Flex>
+                            </>
+                        )}
                     </AccordionItem>
                     <AccordionItem
                         header="Markets"

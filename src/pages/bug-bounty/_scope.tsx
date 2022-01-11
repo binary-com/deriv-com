@@ -6,8 +6,8 @@ import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 // icons
-import TickIcon from 'images/svg/security/tick.svg'
-import XIcon from 'images/svg/security/x_icon.svg'
+import TickIcon from 'images/svg/bug-bounty/tick.svg'
+import XIcon from 'images/svg/bug-bounty/x_icon.svg'
 
 const Card = styled.div`
     background-color: var(--color-white);

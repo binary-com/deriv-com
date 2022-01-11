@@ -5,10 +5,10 @@ import { Header, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
-import LowIcon from 'images/svg/security/low.svg'
-import MediumIcon from 'images/svg/security/medium.svg'
-import HighIcon from 'images/svg/security/high.svg'
-import CriticalIcon from 'images/svg/security/critical.svg'
+import LowIcon from 'images/svg/bug-bounty/low.svg'
+import MediumIcon from 'images/svg/bug-bounty/medium.svg'
+import HighIcon from 'images/svg/bug-bounty/high.svg'
+import CriticalIcon from 'images/svg/bug-bounty/critical.svg'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
 const Card = styled(Flex)`
@@ -16,7 +16,7 @@ const Card = styled(Flex)`
     box-sizing: border-box;
     border-radius: 8px;
     width: 282px;
-    height: 362px;
+    height: auto;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -25,6 +25,7 @@ const Card = styled(Flex)`
     margin: 0 12px;
 
     @media ${device.laptopM} {
+        height: 362px;
         min-width: 282px;
     }
 `
@@ -169,7 +170,7 @@ const Rewards = () => {
                             <LocalizedLinkText
                                 mr="8px"
                                 key={0}
-                                to="/security/vulnerabilities-types/"
+                                to="/bug-bounty/vulnerabilities-types/"
                                 color="red"
                             />,
                         ]}

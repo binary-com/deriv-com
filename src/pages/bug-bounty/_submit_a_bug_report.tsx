@@ -53,10 +53,10 @@ const ImageWrap = styled.div`
 
 const query = graphql`
     query {
-        bug_report_desktop: file(relativePath: { eq: "security/bug-report-desktop.png" }) {
+        bug_report_desktop: file(relativePath: { eq: "bug-bounty/bug-report-desktop.png" }) {
             ...heroImage
         }
-        bug_report_mobile: file(relativePath: { eq: "security/bug-report-mobile.png" }) {
+        bug_report_mobile: file(relativePath: { eq: "bug-bounty/bug-report-mobile.png" }) {
             ...heroImage
         }
     }

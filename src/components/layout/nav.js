@@ -30,7 +30,7 @@ import {
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
-import LogoSecurity from 'images/svg/layout/logo-security.svg'
+import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
@@ -1052,8 +1052,8 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledLink>
                             </NavLink>
                             <NavLink>
-                                <StyledLink to="/security/" aria-label={localize('security')}>
-                                    {localize('Security')}
+                                <StyledLink to="/bug-bounty/" aria-label={localize('Bug bounty')}>
+                                    {localize('Bug bounty')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
@@ -1179,8 +1179,8 @@ export const NavSecurity = () => {
                 <StyledNavPartners>
                     <StyledNavWrapper>
                         <NavLeftPartners>
-                            <NavLogoLink to="/" aria-label={localize('Security')}>
-                                <img src={LogoSecurity} alt="logo security" />
+                            <NavLogoLink to="/" aria-label={localize('Bug bounty')}>
+                                <img src={LogoBugBounty} alt="reslogo" />
                             </NavLogoLink>
                         </NavLeftPartners>
                         <SecurityNavRight button_ref={button_ref} mounted={true}>
@@ -1198,8 +1198,11 @@ export const NavSecurity = () => {
 
                         <Mobile>
                             <Flex ai="center" jc="space-between">
-                                <LogoLinkMobileSecurity to="/" aria-label={localize('Security')}>
-                                    <SecurityLogoInMobile src={LogoSecurity} alt="logo security" />
+                                <LogoLinkMobileSecurity to="/" aria-label={localize('Bug bounty')}>
+                                    <SecurityLogoInMobile
+                                        src={LogoBugBounty}
+                                        alt="logo bug bounty"
+                                    />
                                 </LogoLinkMobileSecurity>
 
                                 <LinkButton

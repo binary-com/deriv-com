@@ -1,10 +1,10 @@
 import React from 'react'
 import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
-import LowIcon from 'images/svg/security/low.svg'
-import MediumIcon from 'images/svg/security/medium.svg'
-import HighIcon from 'images/svg/security/high.svg'
-import CriticalIcon from 'images/svg/security/critical.svg'
+import LowIcon from 'images/svg/bug-bounty/low.svg'
+import MediumIcon from 'images/svg/bug-bounty/medium.svg'
+import HighIcon from 'images/svg/bug-bounty/high.svg'
+import CriticalIcon from 'images/svg/bug-bounty/critical.svg'
 
 export const vulnerability_types_content = [
     {

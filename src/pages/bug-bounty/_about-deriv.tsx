@@ -9,7 +9,7 @@ import device from 'themes/device'
 
 const query = graphql`
     {
-        deriv_platform: file(relativePath: { eq: "security/devices.jpg" }) {
+        deriv_platform: file(relativePath: { eq: "bug-bounty/devices.jpg" }) {
             ...fadeIn
         }
     }

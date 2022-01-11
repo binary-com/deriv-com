@@ -156,7 +156,6 @@ const TradingLimits = () => {
                             {localize('How trading limits and self-exclusion work')}
                         </StyledHeader>
                         <div>
-                            {/* TODO: enable these self exclusion notes when new Backend API is ready */}
                             <Show.NonEU>
                                 <Text ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">

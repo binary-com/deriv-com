@@ -95,53 +95,48 @@ export const Mobile = ({ children, breakpoint = DEFAULT_BREAKPOINT }: Responsive
     )
 }
 
-export const EU = ({ children }) => {
+export const EU = ({ children }: ResponsiveContainerProps) => {
     const { is_eu_domain } = domainBasedCheck()
     const { is_eu_country } = React.useContext<StoreDataType>(DerivStore)
 
     const is_eu = is_eu_country || is_eu_domain
 
-    if (is_eu) return <>{children}</>
-    else return null
+    return is_eu ? <>{children}</> : null
 }
 
-export const NonEU = ({ children }) => {
+export const NonEU = ({ children }: ResponsiveContainerProps) => {
     const { is_eu_domain } = domainBasedCheck()
     const { is_eu_country } = React.useContext<StoreDataType>(DerivStore)
 
     const is_eu = is_eu_domain || is_eu_country
 
-    if (!is_eu) return <>{children}</>
-    else return null
+    return !is_eu ? <>{children}</> : null
 }
 
-export const UK = ({ children }) => {
+export const UK = ({ children }: ResponsiveContainerProps) => {
     const { is_uk_domain } = domainBasedCheck()
     const { is_uk_country } = React.useContext<StoreDataType>(DerivStore)
 
     const is_uk = is_uk_country || is_uk_domain
 
-    if (is_uk) return <>{children}</>
-    else return null
+    return is_uk ? <>{children}</> : null
 }
 
-export const NonUK = ({ children }) => {
+export const NonUK = ({ children }: ResponsiveContainerProps) => {
     const { is_uk_domain } = domainBasedCheck()
     const { is_uk_country } = React.useContext<StoreDataType>(DerivStore)
 
     const is_uk = is_uk_domain || is_uk_country
 
-    if (!is_uk) return <>{children}</>
-    else return null
+    return !is_uk ? <>{children}</> : null
 }
 
-export const ROW = ({ children }) => {
+export const ROW = ({ children }: ResponsiveContainerProps) => {
     const { is_uk_domain, is_eu_domain } = domainBasedCheck()
     const { is_uk_country, is_eu_country } = React.useContext<StoreDataType>(DerivStore)
 
     const is_uk = is_uk_country || is_uk_domain
     const is_eu = is_eu_domain || is_eu_country
 
-    if (!is_eu && !is_uk) return <>{children}</>
-    else return null
+    return !is_eu && !is_uk ? <>{children}</> : null
 }

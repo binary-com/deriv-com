@@ -97,7 +97,7 @@ const Rewards = () => {
     return (
         <SectionContainer>
             <Container fd="column">
-                <Header as="h2" type="heading-2" align="center">
+                <Header as="h2" type="heading-2" align="center" mb="8px">
                     {localize('Rewards')}
                 </Header>
                 <Header as="p" type="paragraph-1" align="center" weight="400">

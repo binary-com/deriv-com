@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useWebsiteStatus } from '../../components/hooks/use-website-status'
+import { isEuCountry, isUK } from '../../common/country-base'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -10,6 +12,11 @@ import ModernIcon from 'images/svg/binary-to-deriv/modern-icon.svg'
 import NoSignupIcon from 'images/svg/binary-to-deriv/no-signup-icon.svg'
 import Over100Icon from 'images/svg/binary-to-deriv/over-100-icon.svg'
 import SupportIcon from 'images/svg/binary-to-deriv/support-icon.svg'
+import {
+    move_to_explore_non_eu_url,
+    move_to_explore_is_eu_url,
+    move_to_explore_is_uk_url,
+} from 'common/constants'
 
 const ParentWrapper = styled(Container)`
     flex-direction: row;
@@ -102,6 +109,18 @@ const benefitsItems = [
 ]
 
 const Benefits = () => {
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country
+
+    const [explore_deriv_url, setExploreDerivUrl] = useState(move_to_explore_non_eu_url)
+
+    useEffect(() => {
+        const is_eu = isEuCountry(current_client_country)
+        const is_uk = isUK(current_client_country)
+
+        if (is_eu) setExploreDerivUrl(move_to_explore_is_eu_url)
+        if (is_uk) setExploreDerivUrl(move_to_explore_is_uk_url)
+    }, [website_status])
     return (
         <ParentWrapper>
             <Flex laptop={{ p: '0 16px' }}>
@@ -133,7 +152,7 @@ const Benefits = () => {
             })}
             <Flex>
                 <BtnWrapper>
-                    <StyledLinkButton to="https://deriv.com/" secondary="true">
+                    <StyledLinkButton to={explore_deriv_url} secondary="true">
                         Explore Deriv now
                     </StyledLinkButton>
                 </BtnWrapper>

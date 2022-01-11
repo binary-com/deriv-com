@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
+import PageNotFound from '../404'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -18,6 +19,7 @@ const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js')
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
+import { DerivStore } from 'store'
 
 const meta_attributes = {
     og_title: localize('DBot Trading | Auto Trading Robot | Deriv'),
@@ -95,6 +97,7 @@ const trading = [
     },
 ]
 class Dbot extends Component {
+    static contextType = DerivStore
     state = { is_mobile: false }
 
     handleResizeWindow = () => {
@@ -109,7 +112,8 @@ class Dbot extends Component {
         window.addEventListener('resize', this.handleResizeWindow)
     }
     render() {
-        return (
+        const { is_eu_country } = this.context
+        return !is_eu_country ? (
             <Layout>
                 <SEO
                     title={localize('DBot | Trading robot | Deriv')}
@@ -151,6 +155,8 @@ class Dbot extends Component {
                     )}
                 />
             </Layout>
+        ) : (
+            <PageNotFound />
         )
     }
 }

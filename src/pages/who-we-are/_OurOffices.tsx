@@ -223,9 +223,18 @@ const OurOffices = () => {
                             title={localize('Labuan')}
                             link="/careers/locations/labuan"
                         />
-                        {/*  Uncomment after new offices will be shown and add links!  */}
-                        {/* <MapPin left="45.8%" top="28%" title={localize('London')} link="" />
-                        <MapPin left="47.4%" top="30.9%" title={localize('Paris')} link="" /> */}
+                        <MapPin
+                            left="45.8%"
+                            top="28%"
+                            title={localize('London')}
+                            link="/careers/locations/london"
+                        />
+                        <MapPin
+                            left="47.4%"
+                            top="30.9%"
+                            title={localize('Paris')}
+                            link="/careers/locations/paris"
+                        />
                         <MapPin
                             left="44.5%"
                             top="30.9%"
@@ -296,9 +305,18 @@ const OurOffices = () => {
                             title={localize('Labuan')}
                             link="/careers/locations/labuan"
                         />
-                        {/*  Uncomment after new offices will be shown and add links!  */}
-                        {/* <MapPin left="44.3%" top="24%" title={localize('London')} link="" />
-                        <MapPin left="45.9%" top="26.9%" title={localize('Paris')} link="" /> */}
+                        <MapPin
+                            left="44.3%"
+                            top="24%"
+                            title={localize('London')}
+                            link="/careers/locations/london"
+                        />
+                        <MapPin
+                            left="45.9%"
+                            top="26.9%"
+                            title={localize('Paris')}
+                            link="/careers/locations/paris"
+                        />
                         <MapPin
                             left="43%"
                             top="26.9%"

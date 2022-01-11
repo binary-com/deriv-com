@@ -71,7 +71,8 @@ const AccountManagement = () => (
                         key={0}
                         color="red"
                         onClick={() => {
-                            // eslint-disable-next-line no-undef
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
                             LC_API.open_chat_window()
                         }}
                     />,

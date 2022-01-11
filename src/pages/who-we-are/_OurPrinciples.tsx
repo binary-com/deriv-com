@@ -49,6 +49,9 @@ const StyledText = styled(Header)`
     max-width: 551px;
     margin: 16px 0;
     font-size: 16px;
+    @media ${device.tablet} {
+        font-size: 14px;
+    }
 `
 
 const StyledLinkButton = styled(LinkButton)`
@@ -70,6 +73,7 @@ const ColoredBox = styled(Box)`
     background-color: ${(props) => props.bgcolor};
     border-radius: 8px;
     font-weight: bold;
+    color: #333333;
     font-size: 24px;
     line-height: 36px;
 

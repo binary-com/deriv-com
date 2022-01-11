@@ -61,9 +61,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     flex-direction: column;
     align-items: center;
     margin: 0;
-    @media ${device.tablet} {
-        padding: 0 16px 40px;
-    }
+    padding: 0 16px;
 `
 
 const StyledCssGrid = styled(CssGrid)`
@@ -77,6 +75,11 @@ const StyledCssGrid = styled(CssGrid)`
         max-width: unset;
         padding: 0;
         grid-template-columns: ;
+    }
+    @media (max-width: 359px) {
+        grid-template-columns: repeat(3, 88px);
+        grid-column-gap: 12px;
+        grid-row-gap: 4px;
     }
 `
 
@@ -93,6 +96,7 @@ const ModalFlex = styled(Flex)`
     position: absolute;
     top: 130px;
     background-color: white;
+    padding: 8px 16px 6px;
     z-index: 1;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 15px;
@@ -105,7 +109,7 @@ const ModalFlex = styled(Flex)`
         top: 108px;
     }
     @media ${device.mobileL} {
-        top: 98px;
+        top: 93px;
     }
 `
 type MouseEvent = React.MouseEventHandler<HTMLDivElement> &
@@ -125,7 +129,7 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
     padding-bottom: 20px;
     @media ${device.tabletS} {
         width: 104px;
-        height: 124px;
+        height: 114px;
     }
     
     @media ${device.tabletL} {
@@ -141,19 +145,14 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
             }
         }
     }
-
+    @media ${device.tabletS} {
+        padding-bottom: 10px;
+    }  
     @media ${device.mobileL} {
         width: 88px;
-        height: 108px;
+        height: 98px;
     }  
 }
-`
-
-const ModalHeader = styled(Header)`
-    font-size: 14px;
-    @media ${device.tabletL} {
-        font-size: 11px;
-    }
 `
 
 type ModalPropsType = {
@@ -168,7 +167,6 @@ const StyledLogo = styled.img<StyledLogoType>`
     width: 32px;
     height: 32px;
     filter: grayscale(100%);
-    margin-bottom: 5px;
     &:hover {
         filter: ${(props) => (props.link ? 'unset' : 'grayscale(100%)')};
     }
@@ -176,22 +174,22 @@ const StyledLogo = styled.img<StyledLogoType>`
 
 const Modal = ({ name, position, link }: ModalPropsType) => {
     return (
-        <ModalFlex ai="center" direction="column" width="unset" height="unset">
-            <ModalHeader type="unset" as="h4" padding="5px 5px 0" align="center">
+        <ModalFlex
+            ai="center"
+            direction="column"
+            width="unset"
+            height="unset"
+            padding="0px 16px 5px"
+        >
+            <Header type="unset" as="h4" padding="0" align="center" size="14px">
                 {name}
-            </ModalHeader>
-            <Header
-                as="h4"
-                padding="0px 10px 5px"
-                type="sub-paragraph"
-                weight="normal"
-                align="center"
-            >
+            </Header>
+            <Header as="h4" padding="0" type="sub-paragraph" weight="normal" align="center">
                 {position}
             </Header>
             {link && (
                 <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
-                    <StyledLogo src={Linkedin} alt="" link={link} />
+                    <StyledLogo width="32px" height="32px" src={Linkedin} alt="" link={link} />
                 </LocalizedLink>
             )}
         </ModalFlex>
@@ -342,7 +340,7 @@ const OurLeadership = () => {
                 tablet_row_gap="60px"
                 mobile_columns="repeat(3, 88px)"
                 mobile_column_gap="24px"
-                mobile_row_gap="4px"
+                mobile_row_gap="6px"
             >
                 {leaders.map((leader: LeaderType, index: number) => (
                     <Leader leader={leader} key={index} />

@@ -10,11 +10,11 @@ const StyledSection = styled(SectionContainer)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 200px 16px 120px;
+    padding: 180px 16px 200px;
     background-color: var(--color-white);
 
     @media ${device.tablet} {
-        padding: 40px 16px;
+        padding: 30px 16px 40px;
     }
 `
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import { localize, Localize } from 'components/localization'
 
-const validation_regex = {
-    number: /^\d*\.?\d+$/,
-    numberWithNegative: /^-?\d*\.{0,1}\d+$/,
-    integer: /^\d+$/,
-}
+const validation_regex_number = (maxDigit) =>
+    new RegExp(`^\\d{0,${maxDigit}}\\.?\\d{0,${maxDigit}}$`)
+
+const validation_regex_number_with_negative = (maxDigit) =>
+    new RegExp(`^-?\\d{0,${maxDigit}}\\.{0,1}\\d{0,${maxDigit}}$`)
 
 const validation_is_exceed_number = (input, maxDigit) => {
     const max_digit = maxDigit || 15
@@ -28,7 +28,7 @@ const validation_is_not_zero = (input) => {
 const numberValidation = (input, fieldName, maxDigit) => {
     if (!input) {
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
-    } else if (!validation_regex.number.test(input)) {
+    } else if (!validation_regex_number(maxDigit).test(input)) {
         return localize('Should be a valid number')
     } else if (!validation_is_exceed_number(input, maxDigit)) {
         return localize('Reached maximum number of digits')
@@ -42,7 +42,7 @@ const numberValidation = (input, fieldName, maxDigit) => {
 const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
     if (!input) {
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
-    } else if (!validation_regex.numberWithNegative.test(input)) {
+    } else if (!validation_regex_number_with_negative(maxDigit).test(input)) {
         return localize('Should be a valid number')
     } else if (!validation_is_exceed_number(input, maxDigit)) {
         return localize('Reached maximum number of digits')
@@ -52,7 +52,6 @@ const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
 
     return null
 }
-
 const validation = {
     symbol: (input) => {
         if (!input || input.name === 'default') {
@@ -101,5 +100,4 @@ const validation = {
         return numberValidation(input, localize('Multiplier'), 4)
     },
 }
-
 export default validation

@@ -72,13 +72,6 @@ const Hero = ({ display_name, img_data }: HeroProps) => {
     )
 }
 
-Hero.propTypes = {
-    description: PropTypes.string,
-    display_name: PropTypes.string,
-    img_data: PropTypes.object,
-    name: PropTypes.string,
-}
-
 const FirstSection = styled(SectionContainer)`
     max-width: 996px;
     width: 100%;

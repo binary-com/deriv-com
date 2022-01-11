@@ -160,7 +160,6 @@ const WorkingCard = styled.article`
 
 const CardText = styled(Text)`
     margin-top: 8px;
-    /* margin-bottom: 37px; */
     display: block;
 
     @media ${device.mobileL} {

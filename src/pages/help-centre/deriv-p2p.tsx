@@ -1,11 +1,11 @@
 import React from 'react'
-import { Article } from './_article'
+import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
-const WhatisDerivP2P = () => (
+const WhatisDerivP2P = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is Deriv P2P?')}</StyledHeader>
         <Text>
@@ -26,7 +26,7 @@ const WhatisDerivP2P = () => (
     </ArticleWrapper>
 )
 
-const HowSecureDerivP2P = () => (
+const HowSecureDerivP2P = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {<Localize translate_text="How secure is Deriv P2P?" components={[<br key={0} />]} />}
@@ -44,7 +44,7 @@ const HowSecureDerivP2P = () => (
     </ArticleWrapper>
 )
 
-const BuyOrSellLimit = () => (
+const BuyOrSellLimit = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -62,7 +62,7 @@ const BuyOrSellLimit = () => (
     </ArticleWrapper>
 )
 
-const PaymentMethods = () => (
+const PaymentMethods = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -85,7 +85,7 @@ const PaymentMethods = () => (
     </ArticleWrapper>
 )
 
-const DisputeWithTheTrader = () => (
+const DisputeWithTheTrader = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -103,7 +103,7 @@ const DisputeWithTheTrader = () => (
     </ArticleWrapper>
 )
 
-const InTouchWithTheCounterparty = () => (
+const InTouchWithTheCounterparty = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {
@@ -121,7 +121,7 @@ const InTouchWithTheCounterparty = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccountBalance = () => (
+const DifferentAccountBalance = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {

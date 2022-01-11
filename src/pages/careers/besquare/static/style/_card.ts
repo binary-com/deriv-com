@@ -123,6 +123,9 @@ type IconWrapperProps = {
 }
 
 export const IconWrapper = styled.img<IconWrapperProps>`
+    width: ${({ width }) => responsiveFallback(width, 0)};
+    height: ${({ height }) => responsiveFallback(height, 0)};
+    margin: ${({ margin }) => responsiveFallback(margin, 0) ?? 0};
     grid-area: ${({ grid_area }) => grid_area};
 
     @media ${device.tablet} {

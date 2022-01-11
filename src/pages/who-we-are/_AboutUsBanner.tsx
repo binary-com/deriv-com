@@ -72,10 +72,19 @@ const StyledHeader = styled(Header)`
 
 const StyledHeader2 = styled(Header)`
     color: var(--color-white);
-    margin-top: 18px;
-    margin-bottom: 24px;
+    margin: 18px 0 24px;
     @media ${device.tablet} {
-        margin: 8px 0 16px 0;
+        margin: 6px 0 10px;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0em;
+    }
+`
+
+const StyledLinkButton = styled(LinkButton)`
+    @media ${device.tablet} {
+        padding: 8px 16px;
     }
 `
 
@@ -96,7 +105,7 @@ const AboutUsBanner = () => {
                     >
                         {localize('Join and grow with us.')}
                     </StyledHeader2>
-                    <LinkButton
+                    <StyledLinkButton
                         secondary="true"
                         to={zoho_url}
                         external="true"
@@ -104,7 +113,7 @@ const AboutUsBanner = () => {
                         rel="noopener noreferrer"
                     >
                         {localize('See our open positions')}
-                    </LinkButton>
+                    </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>
         </StyledSectionContainer>

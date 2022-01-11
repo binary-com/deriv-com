@@ -70,6 +70,7 @@ const ColoredBox = styled(Box)`
     background-color: ${(props) => props.bgcolor};
     border-radius: 8px;
     font-weight: bold;
+    color: #333333;
     font-size: 24px;
     line-height: 36px;
 

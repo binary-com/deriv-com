@@ -23,7 +23,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     overflow: hidden;
     flex-direction: column;
     align-items: center;
-    margin: 0;
+    margin: 90px 0 0 0;
 
     @media ${device.tablet} {
         padding: 0 16px 40px;
@@ -32,10 +32,9 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const StyledHeader = styled(Header)`
     line-height: 4rem;
-    margin-bottom: 69px;
+    margin-bottom: 40px;
     @media ${device.laptop} {
         font-size: 28px;
-        margin-bottom: 40px;
     }
 `
 
@@ -156,7 +155,7 @@ const OurOffices = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
-                {localize('Our global offices')}
+                {localize('Our locations')}
             </StyledHeader>
 
             <Flex>
@@ -322,13 +321,13 @@ const OurOffices = () => {
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('11')}</NumberHeader>
+                    <NumberHeader size="32px">{localize('13')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('offices')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('8')}</NumberHeader>
+                    <NumberHeader size="32px">{localize('10')}</NumberHeader>
                     <NumberText size="20px" align="center">
                         {localize('countries')}
                     </NumberText>

@@ -33,7 +33,6 @@ const Carousel = styled.div`
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 50px;
 `
 
 type CarouselViewportType = {

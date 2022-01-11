@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import Hero from './_hero'
 import { SEO } from 'components/containers'
@@ -19,10 +18,6 @@ const Interim = () => {
             <LoveTrading />
         </Layout>
     )
-}
-
-Interim.propTypes = {
-    referrer: PropTypes.string,
 }
 
 export default WithIntl()(Interim)

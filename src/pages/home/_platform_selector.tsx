@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
+import { localize } from 'components/localization'
 import { Header, StyledLink } from 'components/elements'
 import device from 'themes/device.js'
 
@@ -63,8 +64,8 @@ const PlatformIcon = styled.img`
     margin-left: 16px;
 
     @media ${device.laptopM} {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
     }
     @media ${device.tablet} {
         width: 40px;
@@ -104,6 +105,7 @@ const SelectedTitle = styled.span`
     margin-bottom: 15px;
 
     @media ${device.tabletL} {
+        font-size: 18px;
         margin-bottom: 12px;
     }
     @media ${device.tablet} {
@@ -120,8 +122,10 @@ const Description = styled(Header)`
         margin-bottom: 13px;
     }
     @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 13px;
         line-height: 20px;
+    }
+    @media ${device.tablet} {
         margin-bottom: 36px;
     }
 `
@@ -167,7 +171,7 @@ export const PlatformDetails = ({
                 </Description>
                 <LinkWrapper>
                     <StyledLink to={learn_more_link} weight="350" margin="0 8px 0 0">
-                        <span style={{ marginRight: '0.4rem' }}>Learn more </span>
+                        <span style={{ marginRight: '0.4rem' }}>{localize('Learn more')} </span>
                         {`>`}
                     </StyledLink>
                 </LinkWrapper>

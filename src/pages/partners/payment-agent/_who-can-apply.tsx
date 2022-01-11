@@ -102,8 +102,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
             <ImageWrapper src={img_src} alt="" />
             <Content max_width="36.4rem">
                 <Header as="h4" type="sub-section-title">
-                    {' '}
-                    {header}{' '}
+                    {header}
                 </Header>
                 <Text>{text}</Text>
             </Content>

@@ -57,6 +57,7 @@ const StyledText = styled(Text)`
         margin: 16px 0 24px;
     }
 `
+
 type CardItemType = {
     img_src: string
     card_text: ReactElement

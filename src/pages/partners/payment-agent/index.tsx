@@ -1,7 +1,7 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
-import Hero from './_hero'
+import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import Layout from 'components/layout/layout'

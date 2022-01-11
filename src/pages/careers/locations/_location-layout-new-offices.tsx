@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import CareerContainer from '../_layout-components/CareerContainer'
 import { locationsTypes } from '../_model/_locations/_locations.types'
@@ -286,9 +285,4 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
             </WorkSection>
         </>
     )
-}
-
-NewLocationLayout.propTypes = {
-    images: PropTypes.object,
-    location: PropTypes.object,
 }

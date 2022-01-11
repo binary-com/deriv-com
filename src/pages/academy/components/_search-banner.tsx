@@ -1,4 +1,4 @@
-import React, { useContext, useState, createRef } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
@@ -119,11 +119,12 @@ const SearchResultRows = styled(Flex)`
     font-size: 16px;
     margin-top: 4px;
     padding: 8px 16px;
+    min-height: 44px;
     height: auto;
-    background-color: ${(props) => (props.active ? 'var(--color-grey-31)' : 'unset')};
+    background-color: ${(props) => (props.active ? 'var(--color-grey-30)' : 'unset')};
 
     &:hover {
-        background-color: var(--color-grey-31);
+        background-color: var(--color-grey-30);
     }
 
     @media ${device.tabletL} {
@@ -131,7 +132,6 @@ const SearchResultRows = styled(Flex)`
         margin-top: 0;
 
         &:hover {
-            background-color: var(--color-grey-31);
             border-radius: 4px;
         }
     }
@@ -149,23 +149,37 @@ const HoverChevron = styled.div`
     justify-content: center;
     align-items: center;
 `
-export const form_wrapper_opened_css = css`
-    position: absolute;
-    top: -24px;
-    padding: 8px 24px 24px;
+
+const FlexSearchBar = styled(Flex)`
+    width: 400px;
+    background-color: rgba(236, 241, 247, 0.5);
+    border: 2px solid #ecf1f7;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: width 500ms ease;
+    ${(props) =>
+        props.maximise &&
+        css`
+            width: 640px;
+            background-color: white;
+        `}
+    ${(props) =>
+        props.result_opened &&
+        css`
+            border-radius: 20px 20px 0 0;
+            border-bottom: unset;
+        `}
 
     @media ${device.tabletL} {
-        position: relative;
-        top: unset;
-        padding: unset;
+        width: 100%;
+        background-color: white;
     }
 `
+
 const FormWrapper = styled(Flex)<ElementWithMaximiseProp>`
-    width: ${(props) => (props.maximise ? '640px' : '400px')};
-    background: ${(props) => (props.maximise ? 'white' : 'rgba(236, 241, 247, 0.5)')};
-    border: ${(props) => (props.maximise ? '2px solid #ecf1f7;' : 'none')};
-    border-radius: ${(props) => (props.result_opened ? '20px' : '40px')};
-    overflow: hidden;
+    width: 640px;
+    position: relative;
 
     @media ${device.laptopM} {
         width: 400px;
@@ -174,64 +188,29 @@ const FormWrapper = styled(Flex)<ElementWithMaximiseProp>`
     @media ${device.tabletL} {
         width: 100%;
         max-width: 100%;
-        margin: 0 auto 24px;
-        border: none;
-        border-radius: none;
-        background: none;
     }
-
-    ${(props) => props.result_opened && form_wrapper_opened_css}
 `
 const FormContainer = styled.form`
     width: 100%;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    border: none;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
 `
-const input_wrapper_opened_css = css`
-    border-bottom: 1px solid var(--color-black);
-`
+
 const InputWrapper = styled.input<ElementWithMaximiseProp>`
     margin: 0 auto;
     width: 100%;
-    padding: ${(props) => (props.result_opened ? '10px 24px 8px !important' : '8px 48px')};
+    padding: 8px 48px;
     font-size: 16px;
     line-height: 24px;
     border: none;
     outline: none;
     background: transparent;
+    transition: background-color 0.25s ease-in;
 
     &:focus {
         background: var(--color-white);
-        transition: 0.25s ease;
-        padding: 10px 48px 8px;
-
-        &::-webkit-input-placeholder {
-            transition: opacity 0.25s ease;
-            opacity: 0;
-        }
-        &::-moz-placeholder {
-            transition: opacity 0.25s ease;
-            opacity: 0;
-        }
-        &:-ms-placeholder {
-            transition: opacity 0.25s ease;
-            opacity: 0;
-        }
-    }
-
-    ${(props) => props.result_opened && input_wrapper_opened_css}
-
-    @media ${device.tabletL} {
-        background: ${(props) => (props.maximise ? 'white' : 'rgba(236, 241, 247, 0.5)')};
-        border: ${(props) => (props.maximise ? '2px solid #ecf1f7;' : 'none')};
-        border-radius: ${(props) => (props.result_opened ? '20px' : '40px')};
-        padding: 8px 48px !important;
-
-        &:focus {
-            border: 2px solid #ecf1f7;
-        }
+        padding: 8px 48px;
     }
 `
 
@@ -241,12 +220,8 @@ const SearchIconWrapper = styled.img<ElementWithMaximiseProp>`
     width: 16px;
     height: 16px;
     top: 50%;
-    left: ${(props) => (props.result_opened ? '0' : '24px')};
+    left: 24px;
     transform: translateY(-50%);
-
-    @media ${device.tabletL} {
-        left: 24px;
-    }
 `
 const CloseIconWrapper = styled.img<ElementWithMaximiseProp>`
     display: ${(props) => (props.maximise ? 'block' : 'none')};
@@ -255,27 +230,37 @@ const CloseIconWrapper = styled.img<ElementWithMaximiseProp>`
     width: 10px;
     height: 10px;
     top: 50%;
-    right: ${(props) => (props.result_opened ? '0' : '24px')};
+    right: 24px;
     transform: translateY(-50%);
+`
 
-    @media ${device.tabletL} {
-        right: 24px;
-    }
+const Line = styled.div`
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid var(--color-grey-5);
+    margin-bottom: 16px;
 `
 
 const SearchSuggestionWrapper = styled(Flex)`
-    padding: 24px 0 0;
-    display: ${(props) => (props.opened ? 'flex' : 'none')};
     width: 640px;
     background: white;
     height: auto;
     z-index: 120;
+    position: absolute;
+    top: 34px;
+    padding: 8px 24px 12px;
+    border: 2px solid #ecf1f7;
+    border-top: unset;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 
     @media ${device.tabletL} {
+        position: relative;
+        top: unset;
+        padding: 0;
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
-        padding: 0;
         align-items: flex-start;
     }
 `
@@ -495,12 +480,13 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
     const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
+
     const [search_input_touched, setSearchInputTouched] = useState(false)
     const [suggestion_box_opened, setSuggestionBoxOpened] = useState(false)
     const [focus_index, updateFocusIndex] = useState(-1)
     const redirect_link_arr = []
 
-    const input_ref = createRef<HTMLInputElement>()
+    const input_ref = useRef<HTMLInputElement>()
 
     const combined_data = [...academy_data.blog, ...academy_data.videos]
     let data_to_render
@@ -544,16 +530,15 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
     }
 
     const handleFocus = () => {
-        setSearchQuery('')
-        setSearchInput('')
-        setSearchInputTouched(!search_input_touched)
+        setSearchInputTouched(true)
         !is_mobile_separator && setModal(false)
     }
 
-    const maximiseSearchInput = () => {
+    const handleBlur = () => {
+        setSuggestionBoxOpened(false)
+        setSearchInputTouched(false)
         setSearchQuery('')
         setSearchInput('')
-        setSearchInputTouched(!search_input_touched)
         updateFocusIndex(-1)
         is_mobile_separator && setHideMobileTopic(false)
     }
@@ -596,19 +581,27 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                     break
             }
         }
+        if (e.key === 'Escape') {
+            handleBlur()
+            input_ref.current.blur()
+        }
     }
 
     return (
         <>
             <FormWrapper
                 fd="column"
-                maximise={search_input_touched}
                 result_opened={suggestion_box_opened}
                 ai="flex-start"
                 height="auto"
             >
                 <FormContainer onSubmit={handleSubmit}>
-                    <Flex jc="flex-start" ai="center">
+                    <FlexSearchBar
+                        jc="flex-start"
+                        ai="center"
+                        maximise={search_input_touched}
+                        result_opened={suggestion_box_opened}
+                    >
                         <SearchIconWrapper
                             src={SearchIcon}
                             alt="search_icon"
@@ -619,7 +612,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                             placeholder="What would you like to search?"
                             onChange={handleFilterSearch}
                             onFocus={handleFocus}
-                            // onBlur={!is_mobile_separator && maximiseSearchInput}
+                            onBlur={!is_mobile_separator && handleBlur}
                             value={search_input}
                             result_opened={suggestion_box_opened}
                             ref={input_ref}
@@ -629,68 +622,68 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                             maximise={search_input_touched}
                             src={CloseIcon}
                             alt="close icon"
-                            onClick={maximiseSearchInput}
+                            onClick={handleBlur}
                             result_opened={suggestion_box_opened}
                         />
-                    </Flex>
+                    </FlexSearchBar>
                 </FormContainer>
-
-                <DesktopWrapper>
-                    <SearchSuggestionWrapper
-                        opened={suggestion_box_opened}
-                        max_width="100%"
-                        fd="column"
-                    >
-                        {search_query && (
+                {search_query && (
+                    <DesktopWrapper>
+                        <SearchSuggestionWrapper
+                            opened={suggestion_box_opened}
+                            max_width="100%"
+                            fd="column"
+                        >
+                            <Line />
                             <SearchResultRows
                                 jc="flex-start"
                                 ai="center"
-                                // onMouseDown={handleMouseDown}
                                 active={focus_index === -1}
                                 style={{ color: 'var(--color-blue-3)' }}
                             >{`Search for: ${search_query}`}</SearchResultRows>
-                        )}
-                        {data_to_render &&
-                            data_to_render.splice(0, 6).map((post, idx) => {
-                                const icon = post.blog_title ? ArticleIcon : VideoIcon
-                                const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                                const redirect_link = post.slug
-                                    ? `/academy/blog/posts/${post.slug}/`
-                                    : `/academy/videos/?t=${slugify(post.video_title)}`
-                                redirect_link_arr.push(redirect_link)
-                                const handleMouseDown = (e) => {
-                                    e.preventDefault()
-                                    navigate(redirect_link)
-                                }
 
-                                return (
-                                    <SearchResultRows
-                                        key={post.blog_title || post.video_title}
-                                        jc="flex-start"
-                                        ai="center"
-                                        onMouseDown={handleMouseDown}
-                                        active={focus_index === idx}
-                                    >
-                                        {
-                                            <>
-                                                <IconWrapper src={icon} alt={icon_alt} />
-                                                <Header
-                                                    type="paragraph-1"
-                                                    weight="normal"
-                                                    ml="8px"
-                                                    pt="4px"
-                                                >
-                                                    {post.blog_title
-                                                        ? post.blog_title
-                                                        : post.video_title}
-                                                </Header>
-                                            </>
-                                        }
-                                    </SearchResultRows>
-                                )
-                            })}
-                    </SearchSuggestionWrapper>
-                </DesktopWrapper>
+                            {data_to_render &&
+                                data_to_render.splice(0, 6).map((post, idx) => {
+                                    const icon = post.blog_title ? ArticleIcon : VideoIcon
+                                    const icon_alt = post.blog_title ? 'article icon' : 'video icon'
+                                    const redirect_link = post.slug
+                                        ? `/academy/blog/posts/${post.slug}/`
+                                        : `/academy/videos/?t=${slugify(post.video_title)}`
+                                    redirect_link_arr.push(redirect_link)
+                                    const handleMouseDown = (e) => {
+                                        e.preventDefault()
+                                        navigate(redirect_link)
+                                    }
+
+                                    return (
+                                        <SearchResultRows
+                                            key={post.blog_title || post.video_title}
+                                            jc="flex-start"
+                                            ai="center"
+                                            onMouseDown={handleMouseDown}
+                                            active={focus_index === idx}
+                                        >
+                                            {
+                                                <>
+                                                    <IconWrapper src={icon} alt={icon_alt} />
+                                                    <Header
+                                                        type="paragraph-1"
+                                                        weight="normal"
+                                                        ml="8px"
+                                                        pt="4px"
+                                                    >
+                                                        {post.blog_title
+                                                            ? post.blog_title
+                                                            : post.video_title}
+                                                    </Header>
+                                                </>
+                                            }
+                                        </SearchResultRows>
+                                    )
+                                })}
+                        </SearchSuggestionWrapper>
+                    </DesktopWrapper>
+                )}
             </FormWrapper>
             <MobileWrapper>
                 <SearchSuggestionWrapper
@@ -702,7 +695,6 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                         <SearchResultRows
                             jc="flex-start"
                             ai="center"
-                            // onMouseDown={handleMouseDown}
                             active={focus_index === -1}
                             style={{ color: 'var(--color-blue-3)' }}
                         >{`Search for: ${search_query}`}</SearchResultRows>

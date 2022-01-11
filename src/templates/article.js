@@ -40,17 +40,18 @@ import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { convertDate, getMinRead, truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
     const [is_mobile] = useBrowserResize(992)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
-    const [isMounted, setMounted] = useState(false)
+    const [is_mounted] = usePageLoaded(false)
+
     useEffect(() => {
-        setMounted(true)
-        isMounted && window.scrollTo(0, 0) && handleScroll()
-    }, [isMounted])
+        is_mounted && handleScroll() && window.scrollTo(0, 0)
+    }, [is_mounted])
 
     const barElement = useRef(null)
 
@@ -129,7 +130,7 @@ const ArticlesTemplate = (props) => {
                 no_index={test_data}
             />
             <>
-                {isMounted && (
+                {is_mounted && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
                             <StickyBreadCrumbsWrapper scroll={visible}>

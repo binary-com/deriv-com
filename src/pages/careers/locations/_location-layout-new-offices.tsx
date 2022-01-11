@@ -168,7 +168,7 @@ const WorkingCard = styled.article`
 
 const CardText = styled(Text)`
     margin-top: 8px;
-    margin-bottom: 37px;
+    /* margin-bottom: 37px; */
     display: block;
 
     @media ${device.mobileL} {
@@ -214,14 +214,20 @@ const StyledDiv = styled.div`
 const WorkingQueryImage = styled(QueryImage)`
     object-fit: cover;
     max-width: 552px;
+    max-height: 360px;
 
+    @media ${device.desktopS} {
+        max-height: unset;
+    }
     @media ${device.tabletL} {
         max-width: 60%;
         height: unset;
+        max-height: unset;
     }
     @media ${device.tablet} {
         max-width: 100%;
         height: unset;
+        max-height: unset;
     }
 `
 

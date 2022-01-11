@@ -45,6 +45,8 @@ const StyledItemDiv = styled.div`
 `
 const StyledKeyDiv = styled.div`
     width: 50%;
+    display: flex;
+    justify-content: flex-end;
 
     @media ${device.mobileL} {
         max-width: 120px;
@@ -83,6 +85,9 @@ const StyledButton = styled(Button)`
 const StyledRefLink = styled(Flex)`
     @media ${device.mobileL} {
         justify-content: flex-start;
+    }
+    @media ${device.tabletM} {
+        width: 65%;
     }
 `
 
@@ -236,8 +241,13 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {/* reference row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            <Header type="subtitle-2">{localize('Reference')}</Header>
+                            {is_dp2p ? (
+                                <Header type="subtitle-2">{localize('More info')}</Header>
+                            ) : (
+                                <Header type="subtitle-2">{localize('Reference')}</Header>
+                            )}
                         </StyledItemDiv>
+
                         <StyledKeyDiv>
                             <>
                                 {payment_data.reference ? (

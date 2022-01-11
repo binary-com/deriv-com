@@ -40,7 +40,7 @@ const platforms: Platform[] = [
     {
         title: 'Deriv MT5',
         icon: DMT5Icon,
-        description: 'The all-in-one CFD trading platform.',
+        description: localize('The all-in-one CFD trading platform.'),
         learn_more_link: '/dmt5/',
         download_links: {
             Browser: deriv_mt5_app_url,
@@ -52,7 +52,7 @@ const platforms: Platform[] = [
     {
         title: 'DTrader',
         icon: DTraderIcon,
-        description: 'Our flagship app for trading options and multipliers.',
+        description: localize('Our flagship app for trading options and multipliers.'),
         learn_more_link: '/dtrader/',
         download_links: {
             Browser: deriv_app_url,
@@ -61,7 +61,7 @@ const platforms: Platform[] = [
     {
         title: 'Deriv X',
         icon: DerivXIcon,
-        description: 'The multi-asset trading platform to fit your style.',
+        description: localize('The multi-asset trading platform to fit your style.'),
         learn_more_link: '/derivx/',
         download_links: {
             Browser: derivx_app_url,
@@ -72,7 +72,7 @@ const platforms: Platform[] = [
     {
         title: 'DBot',
         icon: DBotIcon,
-        description: 'Automate your trading. No coding required.',
+        description: localize('Automate your trading. No coding required.'),
         learn_more_link: '/dbot/',
         download_links: {
             Browser: deriv_bot_app_url,
@@ -81,18 +81,17 @@ const platforms: Platform[] = [
     {
         title: 'Deriv GO',
         icon: DerivGOIcon,
-        description: 'Our best trading experience on your mobile.',
+        description: localize('Our best trading experience on your mobile.'),
         learn_more_link: '/landing/deriv-go/',
         download_links: {
             AppStore: deriv_go_ios_url,
             GooglePlay: deriv_go_playstore_url,
-            // APK: deriv_go_playstore_url,
         },
     },
     {
         title: 'SmartTrader',
         icon: SmartTraderIcon,
-        description: 'Our legacy options trading platform.',
+        description: localize('Our legacy options trading platform.'),
         learn_more_link: smarttrader_url,
         download_links: {
             Browser: smarttrader_url,
@@ -101,7 +100,7 @@ const platforms: Platform[] = [
     {
         title: 'Binary Bot',
         icon: BinaryBotIcon,
-        description: 'Our classic bot builder and automated trading platform.',
+        description: localize('Our classic bot builder and automated trading platform.'),
         learn_more_link: 'https://bot.deriv.com/',
         download_links: {
             Browser: 'https://bot.deriv.com/',
@@ -110,7 +109,7 @@ const platforms: Platform[] = [
     {
         title: 'API',
         icon: APIIcon,
-        description: 'Build your own apps with our API.',
+        description: localize('Build your own apps with our API.'),
         learn_more_link: deriv_api_url,
         download_links: {
             Browser: deriv_api_url,
@@ -337,13 +336,10 @@ const OurPlatforms = () => {
             width: 100%;
             height: 8px;
             @media ${device.tablet} {
-                bottom: 250px;
-            }
-            @media (max-width: 692px) {
                 bottom: 290px;
             }
-            @media (max-width: 554px) {
-                bottom: 320px;
+            @media (max-width: 692px) {
+                bottom: 310px;
             }
             @media (max-width: 425px) {
                 bottom: 340px;

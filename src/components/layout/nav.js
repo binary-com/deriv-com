@@ -1052,8 +1052,8 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledLink>
                             </NavLink>
                             <NavLink>
-                                <StyledLink to="/bug-bounty/" aria-label={localize('Bug Bounty')}>
-                                    {localize('Bug Bounty')}
+                                <StyledLink to="/bug-bounty/" aria-label={localize('Bug bounty')}>
+                                    {localize('Bug bounty')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
@@ -1179,7 +1179,7 @@ export const NavSecurity = () => {
                 <StyledNavPartners>
                     <StyledNavWrapper>
                         <NavLeftPartners>
-                            <NavLogoLink to="/" aria-label={localize('Bug Bounty')}>
+                            <NavLogoLink to="/" aria-label={localize('Bug bounty')}>
                                 <img src={LogoBugBounty} alt="reslogo" />
                             </NavLogoLink>
                         </NavLeftPartners>
@@ -1198,7 +1198,7 @@ export const NavSecurity = () => {
 
                         <Mobile>
                             <Flex ai="center" jc="space-between">
-                                <LogoLinkMobileSecurity to="/" aria-label={localize('Bug Bounty')}>
+                                <LogoLinkMobileSecurity to="/" aria-label={localize('Bug bounty')}>
                                     <SecurityLogoInMobile
                                         src={LogoBugBounty}
                                         alt="logo bug bounty"

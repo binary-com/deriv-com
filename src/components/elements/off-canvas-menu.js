@@ -536,7 +536,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={BugBounty} alt="" width="32" height="32" />
                             </div>
-                            <span>{localize('Bug Bounty')}</span>
+                            <span>{localize('Bug bounty')}</span>
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>
@@ -607,7 +607,7 @@ export const OffCanvasMenuPartner = (props) => {
                     <div>
                         <img src={BugBounty} alt="" width="32" height="32" />
                     </div>
-                    <span>{localize('Bug Bounty')}</span>
+                    <span>{localize('Bug bounty')}</span>
                 </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

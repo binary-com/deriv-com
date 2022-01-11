@@ -94,26 +94,23 @@ const YourControl = () => {
                 <StyledText size="2.4rem" align="center" m="12px 0 40px">
                     {localize('As a payment agent, you are an independent exchanger. You can:')}
                 </StyledText>
-
-                <>
-                    <CssGrid
-                        columns="repeat(2, 38.4rem)"
-                        height="auto"
-                        column_gap="2.4rem"
-                        row_gap="2.4rem"
-                        tablet_columns="1fr"
-                        tablet_row_gap="16px"
-                        mobile_columns="1fr"
-                        mobile_row_gap="16px"
-                    >
-                        {cardItems.map((item, index) => (
-                            <Card key={`key-${index}`}>
-                                <img src={item.img_src} alt={''} />
-                                <CardText>{item.card_text}</CardText>
-                            </Card>
-                        ))}
-                    </CssGrid>
-                </>
+                <CssGrid
+                    columns="repeat(2, 38.4rem)"
+                    height="auto"
+                    column_gap="2.4rem"
+                    row_gap="2.4rem"
+                    tablet_columns="1fr"
+                    tablet_row_gap="16px"
+                    mobile_columns="1fr"
+                    mobile_row_gap="16px"
+                >
+                    {cardItems.map((item, index) => (
+                        <Card key={`key-${index}`}>
+                            <img src={item.img_src} alt={''} />
+                            <CardText>{item.card_text}</CardText>
+                        </Card>
+                    ))}
+                </CssGrid>
             </Container>
         </SectionContainer>
     )

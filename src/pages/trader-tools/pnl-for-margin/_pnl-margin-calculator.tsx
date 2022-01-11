@@ -276,7 +276,9 @@ const PnlMarginCalculator = () => {
                                 resetForm,
                             }) => {
                                 const pnl_calculator_synthetic = () => {
-                                    onSubTabClick('Synthetic'), setErrors({}), resetForm()
+                                    onSubTabClick('Synthetic')
+                                    setErrors({})
+                                    resetForm()
                                 }
 
                                 const pnl_calculator_financial = () => {

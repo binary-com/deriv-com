@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
     DisclaimerWrapper,
     DisclaimerParagraph,
@@ -9,7 +10,7 @@ import {
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 
-const DisclaimerSection = () => {
+const DisclaimerSection = ({ academy }) => {
     return (
         <>
             <DisclaimerWrapper>
@@ -69,7 +70,11 @@ const DisclaimerSection = () => {
                     </DisclaimerParagraph>
                     <DisclaimerParagraph>
                         <Localize
-                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)."
+                            translate_text={`Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)${
+                                academy
+                                    ? ' and by the Revenue Commissioners for clients in Ireland (licence no. 1010285).'
+                                    : '.'
+                            }`}
                             components={[
                                 <StaticAsset
                                     key={0}
@@ -91,6 +96,13 @@ const DisclaimerSection = () => {
                         "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
+                {academy && (
+                    <DisclaimerParagraph>
+                        {localize(
+                            'The information contained in this academy is for educational purposes only and is not intended as financial or investment advice.',
+                        )}
+                    </DisclaimerParagraph>
+                )}
                 <RiskWarning>
                     <Show.Desktop>
                         <Show.NonEU>
@@ -170,6 +182,10 @@ const DisclaimerSection = () => {
             </DisclaimerWrapper>
         </>
     )
+}
+
+DisclaimerSection.propTypes = {
+    academy: PropTypes.bool,
 }
 
 export default DisclaimerSection

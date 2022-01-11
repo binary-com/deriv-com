@@ -1167,7 +1167,7 @@ const PnlMarginCalculator = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {localize('Go to DMT5 dashboard')}
+                                        {localize('Go to Deriv MT5 dashboard')}
                                     </StyledLinkButton>
                                 }
                             </LinkWrapper>
@@ -1302,7 +1302,7 @@ const PnlMarginCalculator = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {localize('Go to DMT5 dashboard')}
+                                        {localize('Go to Deriv MT5 dashboard')}
                                     </StyledLinkButton>
                                 }
                             </LinkWrapper>

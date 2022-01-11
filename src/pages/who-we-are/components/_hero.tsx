@@ -90,6 +90,7 @@ const StyledFlex = styled(Flex)`
 `
 
 const StyledQueryImage = styled(QueryImage)`
+    max-width: 591px;
     z-index: 2;
     position: absolute;
 `
@@ -115,7 +116,7 @@ const Hero = () => {
                         <StyledQueryImage
                             data={data['about_us_logo_desktop']}
                             alt="example"
-                            width="100%"
+                            width="unset"
                         />
                         <StyledH1>{title}</StyledH1>
                     </StyledFlex>

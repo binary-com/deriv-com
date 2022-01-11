@@ -8,7 +8,6 @@ import {
 } from './common/style.js'
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import { loss_percent } from 'common/constants.js'
 
 const DisclaimerSectionAcademy = () => {
     return (
@@ -119,7 +118,7 @@ const DisclaimerSectionAcademy = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent }}
+                                    values={{ loss_percent: 66 }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
@@ -143,7 +142,7 @@ const DisclaimerSectionAcademy = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent }}
+                                    values={{ loss_percent: 66 }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>

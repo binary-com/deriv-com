@@ -49,6 +49,9 @@ const StyledText = styled(Header)`
     max-width: 551px;
     margin: 16px 0;
     font-size: 16px;
+    @media ${device.tablet} {
+        font-size: 14px;
+    }
 `
 
 const StyledLinkButton = styled(LinkButton)`

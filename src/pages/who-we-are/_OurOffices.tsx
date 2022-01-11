@@ -23,9 +23,10 @@ const StyledSectionContainer = styled(SectionContainer)`
     overflow: hidden;
     flex-direction: column;
     align-items: center;
-    margin: 90px 0 0 0;
+    margin-top: 120px;
 
     @media ${device.tablet} {
+        margin-top: 40px;
         padding: 0 16px 40px;
     }
 `
@@ -39,6 +40,7 @@ const StyledHeader = styled(Header)`
 `
 
 const NumberSection = styled(CssGrid)`
+    margin-top: 40px;
     max-width: 788px;
 
     @media ${device.tablet} {
@@ -310,25 +312,25 @@ const OurOffices = () => {
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
                 <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('750+')}</NumberHeader>
-                    <NumberText size="20px" align="center">
+                    <NumberText size="16px" align="center">
                         {localize('employees')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('50+')}</NumberHeader>
-                    <NumberText size="20px" align="center">
+                    <NumberText size="16px" align="center">
                         {localize('nationalities')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('13')}</NumberHeader>
-                    <NumberText size="20px" align="center">
+                    <NumberText size="16px" align="center">
                         {localize('offices')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('10')}</NumberHeader>
-                    <NumberText size="20px" align="center">
+                    <NumberText size="16px" align="center">
                         {localize('countries')}
                     </NumberText>
                 </StyledFlex>

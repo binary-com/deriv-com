@@ -61,9 +61,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     flex-direction: column;
     align-items: center;
     margin: 0;
-    @media ${device.tablet} {
-        padding: 0 16px 40px;
-    }
+    padding: 0 16px;
 `
 
 const StyledCssGrid = styled(CssGrid)`

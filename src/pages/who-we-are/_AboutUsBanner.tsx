@@ -5,7 +5,7 @@ import Bg from 'images/common/who-we-are/about-us-banner.jpg'
 import { localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { zoho_url } from 'common/constants'
 import { LinkButton } from 'components/form'
 
@@ -13,13 +13,13 @@ const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 40px 120px;
     flex-wrap: nowrap;
     @media ${device.tablet} {
-        padding: 0 40px;
+        padding: 0 40px 40px;
     }
     @media ${device.mobileL} {
-        padding: 0 16px;
+        padding: 0 16px 40px;
     }
 `
 

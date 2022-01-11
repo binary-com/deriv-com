@@ -215,7 +215,11 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             {is_nav ? null : (
                 <HeaderWrapper>
                     <Header as="h3" type="section-title" align="center">
-                        {header ? header : localize('Check out our other platforms')}
+                        {header
+                            ? header
+                            : is_eu_country
+                            ? localize('Check out our other platform')
+                            : localize('Check out our other platforms')}
                     </Header>
                     {subHeader && (
                         <Header

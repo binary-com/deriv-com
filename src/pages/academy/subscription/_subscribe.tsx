@@ -30,15 +30,11 @@ const Subscribe = () => {
                     )}
                 </Header>
             </Box>
-            <Flex
-                m="auto"
-                max_width="90%"
-                tabletL={{ fd: 'column', ai: 'center', width: 'calc(100% - 32px)' }}
-            >
+            <Flex ai="center" tabletL={{ fd: 'column', ai: 'center', width: 'calc(100% - 32px)' }}>
                 <Flex
-                    m="auto"
                     ai="center"
-                    max_width="492px"
+                    max_width="580px"
+                    desktop={{ max_width: '492px' }}
                     tabletL={{ m: '0 0 24px 0', max_width: '450px' }}
                 >
                     <Icon src={Email1} />
@@ -47,9 +43,9 @@ const Subscribe = () => {
                     </Header>
                 </Flex>
                 <Flex
-                    m="auto"
                     ai="center"
-                    max_width="492px"
+                    max_width="580px"
+                    desktop={{ max_width: '492px' }}
                     tabletL={{ m: '0 0 24px 0', max_width: '450px' }}
                 >
                     <Icon src={Email2} />

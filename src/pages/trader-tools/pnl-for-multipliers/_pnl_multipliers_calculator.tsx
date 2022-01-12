@@ -243,6 +243,13 @@ const PnlMultipliersCalculator = () => {
                                         current_input.focus()
                                     }
 
+                                    const stake_error_handler = (current_input) => {
+                                        setFieldValue('stake', '', false)
+                                        setFieldError('stake', '')
+                                        setFieldTouched('stake', false, false)
+                                        current_input.focus()
+                                    }
+
                                     return (
                                         <>
                                             <Show.Desktop max_width="mobileL">
@@ -428,25 +435,9 @@ const PnlMultipliersCalculator = () => {
                                                                                 }
                                                                                 onBlur={handleBlur}
                                                                                 data-lpignore="true"
-                                                                                handleError={(
-                                                                                    current_input,
-                                                                                ) => {
-                                                                                    setFieldValue(
-                                                                                        'stake',
-                                                                                        '',
-                                                                                        false,
-                                                                                    )
-                                                                                    setFieldError(
-                                                                                        'stake',
-                                                                                        '',
-                                                                                    )
-                                                                                    setFieldTouched(
-                                                                                        'stake',
-                                                                                        false,
-                                                                                        false,
-                                                                                    )
-                                                                                    current_input.focus()
-                                                                                }}
+                                                                                handleError={
+                                                                                    stake_error_handler
+                                                                                }
                                                                                 maxLength={getMaxLength(
                                                                                     values.stake,
                                                                                     15,
@@ -736,25 +727,9 @@ const PnlMultipliersCalculator = () => {
                                                                         }
                                                                         onBlur={handleBlur}
                                                                         data-lpignore="true"
-                                                                        handleError={(
-                                                                            current_input,
-                                                                        ) => {
-                                                                            setFieldValue(
-                                                                                'stake',
-                                                                                '',
-                                                                                false,
-                                                                            )
-                                                                            setFieldError(
-                                                                                'stake',
-                                                                                '',
-                                                                            )
-                                                                            setFieldTouched(
-                                                                                'stake',
-                                                                                false,
-                                                                                false,
-                                                                            )
-                                                                            current_input.focus()
-                                                                        }}
+                                                                        handleError={
+                                                                            stake_error_handler
+                                                                        }
                                                                         maxLength={getMaxLength(
                                                                             values.stake,
                                                                             15,

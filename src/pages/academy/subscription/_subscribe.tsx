@@ -32,26 +32,22 @@ const Subscribe = () => {
             </Box>
             <Flex
                 m="auto"
-                max_width="90%"
-                tabletL={{ fd: 'column', ai: 'center', width: 'calc(100% - 32px)' }}
+                max_width="1120px"
+                desktop={{ max_width: '996px' }}
+                tabletL={{
+                    fd: 'column',
+                    ai: 'center',
+                    width: 'calc(100% - 32px)',
+                    max_width: '90%',
+                }}
             >
-                <Flex
-                    m="auto"
-                    ai="center"
-                    max_width="492px"
-                    tabletL={{ m: '0 0 24px 0', max_width: '450px' }}
-                >
+                <Flex m="auto" ai="center" tabletL={{ m: '0 0 24px 0', max_width: '450px' }}>
                     <Icon src={Email1} />
                     <Header as="p" type="paragraph-1" weight="regular" m="0 16px">
                         {localize(`If you don't receive an email, please check your junk folder.`)}
                     </Header>
                 </Flex>
-                <Flex
-                    m="auto"
-                    ai="center"
-                    max_width="492px"
-                    tabletL={{ m: '0 0 24px 0', max_width: '450px' }}
-                >
+                <Flex m="auto" ai="center" tabletL={{ m: '0 0 24px 0', max_width: '450px' }}>
                     <Icon src={Email2} />
                     <Header as="p" type="paragraph-1" weight="regular" m="0 16px">
                         {localize(` If the email still hasn't arrived after a few minutes, please refresh this

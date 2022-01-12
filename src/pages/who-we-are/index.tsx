@@ -52,10 +52,10 @@ const AboutUs = () => {
             <EndSeparator />
             <OurPrinciples />
             <OurLeadership />
-            <AboutUsBanner />
             <DerivNumbers />
             <EmblaCarousel />
             <OurOffices />
+            <AboutUsBanner />
         </Layout>
     )
 }

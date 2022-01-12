@@ -11,9 +11,6 @@ import { getWindowWidth } from 'common/utility'
 
 const query = graphql`
     query {
-        about_us_logo_desktop: file(relativePath: { eq: "about/about_us_logo_desktop.png" }) {
-            ...fadeIn
-        }
         about_us_logo: file(relativePath: { eq: "about/about_us_logo.png" }) {
             ...fadeIn
         }
@@ -50,6 +47,7 @@ const DesktopWrapper = styled(Flex)`
 `
 const MobileWrapper = styled.div`
     display: none;
+    margin: 0 31px;
 
     @media ${device.tabletL} {
         display: flex;
@@ -90,10 +88,13 @@ const StyledFlex = styled(Flex)`
 `
 
 const StyledQueryImage = styled(QueryImage)`
+    max-width: 591px;
     z-index: 2;
     position: absolute;
 `
-
+const StyledMobileQueryImage = styled(QueryImage)`
+    max-width: 445px;
+`
 const Hero = () => {
     const data = useStaticQuery(query)
     const title =
@@ -113,16 +114,20 @@ const Hero = () => {
                 <DesktopWrapper>
                     <StyledFlex>
                         <StyledQueryImage
-                            data={data['about_us_logo_desktop']}
+                            data={data['about_us_logo']}
                             alt="example"
-                            width="100%"
+                            width="unset"
                         />
                         <StyledH1>{title}</StyledH1>
                     </StyledFlex>
                 </DesktopWrapper>
                 <MobileWrapper>
                     <Flex fd="column">
-                        <QueryImage data={data['about_us_logo']} alt="example" />
+                        <StyledMobileQueryImage
+                            data={data['about_us_logo']}
+                            alt="example"
+                            width="unset"
+                        />
                         <StyledHeader as="h1" color="white" align="center" mt="40px" type="unset">
                             {localize('Who \nwe are')}
                         </StyledHeader>

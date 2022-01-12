@@ -51,7 +51,7 @@ const DisclaimerSection = () => {
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                values={{ loss_percent: 62 }}
+                                values={{ loss_percent: 66 }}
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
@@ -78,7 +78,7 @@ const DisclaimerSection = () => {
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                values={{ loss_percent: 62 }}
+                                values={{ loss_percent: 66 }}
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>

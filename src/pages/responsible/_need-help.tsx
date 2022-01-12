@@ -9,7 +9,16 @@ import UnderageMobile from 'images/svg/responsible/underage-mobile.svg'
 import Filtering from 'images/svg/responsible/filtering-controls.svg'
 import FilteringMobile from 'images/svg/responsible/filtering-controls-mobile.svg'
 
-const help_content = [
+type HelpContentType = {
+    header: React.ReactElement
+    text: React.ReactElement
+    icon: React.ReactElement
+    icon_mobile: React.ReactElement
+    link?: string
+    text2?: string
+}[]
+
+const help_content: HelpContentType = [
     {
         header: <Localize translate_text="Underage gambling" />,
         text: (

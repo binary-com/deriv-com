@@ -24,23 +24,15 @@ const CoverMinimizeButton = styled.div`
 `
 
 const LiveChatPage = () => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
+    const [firstLoadOpen, setFirstLoadOpen] = useState(false)
+    const [is_livechat_interactive, LC_API] = useLivechat(firstLoadOpen)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        // The reason for this timeout is to help delay before calling LC_API.open_chat_window() function,
-        // so that it only call the function if Live Chat is fully loaded.
-        let script_timeout = null
         if (is_livechat_interactive) {
-            script_timeout = setTimeout(() => {
-                LC_API.open_chat_window()
-                setLoading(false)
-            }, 1000)
-        }
-
-        return () => {
-            clearTimeout(script_timeout)
-        }
+            LC_API.open_chat_window()
+            setLoading(false)
+        } else setFirstLoadOpen(true)
     }, [is_livechat_interactive])
 
     return (

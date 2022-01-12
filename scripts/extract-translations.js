@@ -15,7 +15,7 @@ program
 /** *********************************************
  * Common
  */
-const globs = ['**/*.js']
+const globs = ['**/*.js', '**/*.ts', '**/*.tsx']
 
 const getKeyHash = string => crc32(string)
 

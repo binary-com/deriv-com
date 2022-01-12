@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
-import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
+import { DerivStore } from 'store'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);
@@ -42,7 +42,7 @@ const MiddleText = styled(Text)`
 `
 
 export const DidntFindYourAnswerBanner = () => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
+    const { is_livechat_interactive, LC_API, setFirstLoadOpenLc } = useContext(DerivStore)
     return (
         <DFYAWrapper>
             <DFYASection>
@@ -50,18 +50,20 @@ export const DidntFindYourAnswerBanner = () => {
                 <MiddleText size="var(--text-size-l)" color="white" m="0 2.4rem">
                     {localize('Didn’t find your answer? We can help.')}
                 </MiddleText>
-                {is_livechat_interactive && (
-                    <Button
-                        secondary="true"
-                        onClick={() => {
+                <Button
+                    secondary="true"
+                    onClick={() => {
+                        if (is_livechat_interactive) {
                             LC_API.open_chat_window()
-                        }}
-                        weight="bold"
-                        color="black"
-                    >
-                        {localize('Chat')}
-                    </Button>
-                )}
+                        } else {
+                            setFirstLoadOpenLc(true)
+                        }
+                    }}
+                    weight="bold"
+                    color="black"
+                >
+                    {localize('Chat')}
+                </Button>
             </DFYASection>
         </DFYAWrapper>
     )

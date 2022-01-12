@@ -10,7 +10,7 @@ import {
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 
-const DisclaimerSection = ({ academy }) => {
+const DisclaimerSection = ({ is_academy }) => {
     return (
         <>
             <DisclaimerWrapper>
@@ -71,7 +71,7 @@ const DisclaimerSection = ({ academy }) => {
                     <DisclaimerParagraph>
                         <Localize
                             translate_text={`Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)${
-                                academy
+                                is_academy
                                     ? ' and by the Revenue Commissioners for clients in Ireland (licence no. 1010285).'
                                     : '.'
                             }`}
@@ -96,7 +96,7 @@ const DisclaimerSection = ({ academy }) => {
                         "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
-                {academy && (
+                {is_academy && (
                     <DisclaimerParagraph>
                         {localize(
                             'The information contained in this academy is for educational purposes only and is not intended as financial or investment advice.',
@@ -185,7 +185,7 @@ const DisclaimerSection = ({ academy }) => {
 }
 
 DisclaimerSection.propTypes = {
-    academy: PropTypes.bool,
+    is_academy: PropTypes.bool,
 }
 
 export default DisclaimerSection

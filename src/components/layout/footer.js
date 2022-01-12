@@ -38,7 +38,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy }) => {
                         is_ppc_redirect={is_ppc_redirect}
                         is_eu_country={is_eu_country}
                     />
-                    <DisclaimerSection academy={academy} />
+                    <DisclaimerSection is_academy={academy} />
                     <CopyrightSection />
                     <BottomSocialSection type={type} />
                     <AdditionalEUSection />

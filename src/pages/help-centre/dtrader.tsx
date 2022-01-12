@@ -1,11 +1,11 @@
 import React from 'react'
-import { Article } from './_article'
+import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const WhatIsDMT5 = () => (
+const WhatIsDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is DTrader?')}</StyledHeader>
         <Text>
@@ -16,7 +16,7 @@ const WhatIsDMT5 = () => (
     </ArticleWrapper>
 )
 
-const DTraderMarkets = () => (
+const DTraderMarkets = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on DTrader?')}</StyledHeader>
         <Text>
@@ -27,7 +27,7 @@ const DTraderMarkets = () => (
     </ArticleWrapper>
 )
 
-const DTraderContracts = () => (
+const DTraderContracts = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What contract types can I use on DTrader?')}</StyledHeader>
         <Text>

@@ -503,7 +503,7 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                                                     </StyledLink>
                                                                 </ShowItem>
 
-                                                                {}
+                                                                {show_expand_and_collapse}
                                                             </ListNoBullets>
                                                         )
                                                     })}

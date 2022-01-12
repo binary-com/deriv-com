@@ -8,7 +8,7 @@ import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
 
-type ArticleProps = {
+export type ArticleProps = {
     children?: React.ReactNode
     header?: string
     title?: string
@@ -16,6 +16,7 @@ type ArticleProps = {
     text?: string
     label?: string
     is_mounted?: boolean
+    has_note?: string
 }
 
 const Content = styled.div`

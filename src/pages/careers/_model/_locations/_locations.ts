@@ -13,6 +13,7 @@ import {
     address_uk,
     address_guernsey,
 } from './_contact-details'
+import { locationsTypes } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
@@ -23,7 +24,6 @@ import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import UKFlagIcon from 'images/svg/careers/flag_uk.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
-import { locationsTypes } from './_locations.types'
 
 export const cyberjaya = {
     name: 'cyberjaya',
@@ -312,12 +312,12 @@ export const paris = {
     flagIcon: FranceFlagIcon,
     thumbnail: 'thumbnail_paris',
     first_p:
-        "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
+        "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It is going to bring together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
     map: 'cnWCUN529qw38Yce6',
     map_text:
-        'There are always exciting projects to work on at Deriv (France). The bright team working at our R&D branch is the think tank that helps create our next generation of online trading products. If you’re driven with the same passion and are looking for new challenges to embrace, join our team in Paris.',
+        'Deriv (France) is going to be the heart of our research and development. We’re going to create an elite think tank in this centre that will help create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
     google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
@@ -333,12 +333,12 @@ export const london = {
     flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_london',
     first_p:
-        'Deriv (UK) is a core Senior Managers and Certification Regime (SMCR) firm. Experts in law, finance, and risk management work together in our London office as a senior team of strategists. This office has three crucial functions: ensuring regulatory and statutory compliance in all areas of company operations within the UK jurisdiction, making financial plans to support company growth, and mitigating risks.',
+        'We’re looking for experts in law, finance, and risk management to build our London team of senior strategists. Deriv (UK) will have three crucial functions: ensuring regulatory and statutory compliance in all areas of company operations within the UK jurisdiction, making financial plans to support company growth, and mitigating risks.',
     first_img: 'living_in_london',
     grid_images: ['london_grid_1', 'london_grid_2', 'london_grid_3', 'london_grid_4'],
     map: 'DJaQaFd9jqGiPB7e9',
     map_text:
-        'Working at Deriv (UK) means collaborating with talented professionals on exciting challenges. We value an analytical mindset, a can-do approach, and leadership skills. This is a chance to participate in devising road plans and shaping policies for a global company. A career in the fintech industry never gets boring. Join our London office if you are ready for a mighty adventure.',
+        'Working at Deriv (UK) will give you the chance to collaborate with talented professionals on exciting challenges. We value an analytical mindset, a can-do approach, and leadership skills. This is a chance to participate in devising road plans and shaping policies for a global company. A career in the fintech industry never gets boring. Join our London team if you are ready for a mighty adventure.',
     address: address_uk,
     map_img: 'london_map',
     google_map_link: 'https://goo.gl/maps/DJaQaFd9jqGiPB7e9',
@@ -354,23 +354,23 @@ export const guernsey = {
     flagIcon: ChannelIslandsFlagIcon,
     thumbnail: 'thumbnail_guernsey',
     first_p:
-        'Our office at Guernsey shall focus on compliance. We’re to form a team of experts in legislative and regulatory requirements to provide Deriv offices worldwide with Compliance oversight. With their knowledge in corporate law, anti-money laundering, and other related legislations, they will anticipate and mitigate regulatory risks.',
+        'Our focus at Guernsey shall be on compliance. We’re to form a team of experts in legislative and regulatory requirements to provide Deriv offices worldwide with compliance oversight. With their knowledge in corporate law, anti-money laundering, and other related legislations, the Guernsey team will anticipate and mitigate regulatory risks.',
     first_img: 'living_in_guernsey',
     first_img_alt: 'living_in_guernsey alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
     map: 'M8p55z3Wu4EKhQ3A7',
     map_text:
-        'Deriv (Guernsey) can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at this office gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
+        'Deriv (Guernsey) can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at Guernsey gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
     address: address_guernsey,
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
     has_iframe: false,
 }
 export const all_offices: locationsTypes[] = [
-    // london,
+    london,
     dubai,
-    // paris,
+    paris,
     malta,
     cyprus,
     guernsey,
@@ -394,7 +394,7 @@ export const locations = {
     cyprus: `${cyprus.display_name}, ${cyprus.country}`,
     rwanda: `${rwanda.display_name}, ${rwanda.country}`,
     belarus: `${minsk.display_name}, ${minsk.country}`,
-    // france: `${paris.display_name}, ${paris.country}`,
-    // uk: `${london.display_name}, ${london.country}`,
+    france: `${paris.display_name}, ${paris.country}`,
+    uk: `${london.display_name}, ${london.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
 }

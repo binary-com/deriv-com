@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { guernsey } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
+import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -43,7 +43,7 @@ const Guernsey = () => {
                     'Find your role with us by browsing Deriv job opportunities in Guernsey, Channel Islands.',
                 )}
             />
-            <LocationLayout location={guernsey} images={images} />
+            <NewLocationLayout location={guernsey} images={images} />
         </Layout>
     )
 }

@@ -11,6 +11,14 @@ const TextLink = styled(LinkText).attrs({ as: 'span' })``
 const FinancialCommission = () => {
     const { is_livechat_interactive, LC_API, setFirstLoadOpenLc } = useContext(DerivStore)
 
+    const handleLcOpen = () => {
+        if (is_livechat_interactive) {
+            LC_API.open_chat_window()
+        } else {
+            setFirstLoadOpenLc(true)
+        }
+    }
+
     return (
         <>
             <div>
@@ -24,11 +32,7 @@ const FinancialCommission = () => {
                                     color="red"
                                     className="gtm-deriv-livechat"
                                     onClick={() => {
-                                        if (is_livechat_interactive) {
-                                            LC_API.open_chat_window()
-                                        } else {
-                                            setFirstLoadOpenLc(true)
-                                        }
+                                        handleLcOpen()
                                     }}
                                 />,
                                 <LinkText
@@ -51,11 +55,7 @@ const FinancialCommission = () => {
                                     key={0}
                                     color="red"
                                     onClick={() => {
-                                        if (is_livechat_interactive) {
-                                            LC_API.open_chat_window()
-                                        } else {
-                                            setFirstLoadOpenLc(true)
-                                        }
+                                        handleLcOpen()
                                     }}
                                 />,
                             ]}

@@ -1,10 +1,12 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
-export const useLivechat = (first_load_open) => {
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
+export const useLivechat = () => {
+    const [is_loading_lc, setIsLoadingLc] = useState(false)
+    const [first_load_open_lc, setFirstLoadOpenLc] = useState(false)
+    const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_logged_in, setLoggedIn] = React.useState(false)
+    const [is_logged_in, setLoggedIn] = useState(false)
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
@@ -17,9 +19,10 @@ export const useLivechat = (first_load_open) => {
         if (callback) callback()
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         let cookie_interval = null
-        if (isBrowser() && first_load_open) {
+        if (isBrowser() && first_load_open_lc) {
+            setIsLoadingLc(true)
             const domain = getDomain()
 
             /* this function runs every second to determine logged in status*/
@@ -35,15 +38,16 @@ export const useLivechat = (first_load_open) => {
                 window.LiveChatWidget.on('ready', () => {
                     setLiveChatInteractive(true)
                     window.LC_API.open_chat_window()
+                    setIsLoadingLc(false)
                 })
             })
         }
 
         return () => clearInterval(cookie_interval)
-    }, [first_load_open])
+    }, [first_load_open_lc])
 
-    React.useEffect(() => {
-        if (isBrowser() && first_load_open) {
+    useEffect(() => {
+        if (isBrowser() && first_load_open_lc) {
             const domain = getDomain()
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
@@ -114,5 +118,5 @@ export const useLivechat = (first_load_open) => {
         }
     }, [is_logged_in, is_livechat_interactive])
 
-    return [is_livechat_interactive, LC_API]
+    return [is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc]
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { useLivechat } from 'components/hooks/use-livechat'
 import LiveChatIC from 'images/svg/layout/livechat.svg'
 import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
 import device from 'themes/device'
@@ -50,22 +49,14 @@ const StyledLiveChat = styled.div`
 const LiveChat = ({ is_banner_shown }) => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
-    const [is_loading, setIsLoading] = useState(false)
     const [is_livechat_hover, setLivechatHover] = useState(false)
-    const [first_load_open, setFirstLoadOpen] = useState(false)
-    const [is_livechat_interactive, LC_API] = useLivechat(first_load_open)
-    const { is_eu_country } = useContext(DerivStore)
-
-    useEffect(() => {
-        if (is_livechat_interactive) {
-            setIsLoading(false)
-        }
-    }, [is_livechat_interactive])
+    const { is_eu_country, is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc } =
+        useContext(DerivStore)
 
     useEffect(() => {
         if (is_livechat_query?.toLowerCase() === 'true') {
             if (is_livechat_interactive) LC_API.open_chat_window()
-            else setFirstLoadOpen(true)
+            else setFirstLoadOpenLc(true)
         }
     }, [])
 
@@ -77,14 +68,13 @@ const LiveChat = ({ is_banner_shown }) => {
             onClick={() => {
                 if (is_livechat_interactive) LC_API.open_chat_window()
                 else {
-                    setFirstLoadOpen(true)
-                    setIsLoading(true)
+                    setFirstLoadOpenLc(true)
                 }
             }}
             onMouseEnter={() => setLivechatHover(true)}
             onMouseLeave={() => setLivechatHover(false)}
         >
-            {!is_loading ? (
+            {!is_loading_lc ? (
                 <img
                     src={is_livechat_hover ? LiveChatHover : LiveChatIC}
                     width="32"

@@ -167,7 +167,7 @@ const AffiliateIb = () => {
             </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
-                    {localize('Partner with a trusted \n online trading provider')}
+                    {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"

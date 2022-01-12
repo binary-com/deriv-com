@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { combined_filter_type } from '../common/_constants'
+import type { TopicType } from '../common/_constants'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
@@ -62,7 +63,6 @@ const TopicSectionWrapper = styled(Flex)`
 `
 const TopicParent = styled(Flex)`
     display: ${(props) => (props.modal ? 'flex' : 'none')};
-    transition: transform 0.5s ease-in-out;
     position: relative;
 `
 const TopicWrapper = styled(Flex)`
@@ -84,7 +84,7 @@ const TopicItemsParentWrapper = styled(Container)`
     flex-wrap: wrap;
 `
 const TopicItemWrapper = styled(Flex)`
-    max-width: 282px;
+    max-width: 250px;
     padding: 16px;
     height: auto;
 
@@ -293,7 +293,14 @@ const MobileWrapper = styled.div`
     }
 `
 const DetailsWrapper = styled(Flex)`
-    display: ${(props) => (props.is_expanded ? 'flex' : 'none')};
+    height: auto;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    max-height: ${(props) => (props.is_expanded ? '180px' : '0')};
+
+    :nth-last-child(-n + 2) {
+        max-height: ${(props) => (props.is_expanded ? '110px' : '0')};
+    }
 `
 const TopicMobileParentWrapper = styled(Flex)`
     display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
@@ -326,7 +333,6 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [is_mobile] = useBrowserResize(768)
     const [video_tags, blog_tags] = useAcademyTags()
     const [modal_opened, setModal] = useState(false)
-    const filter_type = combined_filter_type
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
 
     const openModal = () => {
@@ -423,7 +429,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                     m="0 16px"
                                     is_mobile_expanded={hide_mobile_topic}
                                 >
-                                    {filter_type.map((filter, index) => {
+                                    {combined_filter_type.map((filter: TopicType, index) => {
                                         return (
                                             <>
                                                 <TopicItemsAccordian
@@ -437,7 +443,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                 </TopicMobileParentWrapper>
                             ) : (
                                 <TopicItemsParentWrapper jc="space-evenly" ai="flex-start">
-                                    {filter_type.map((filter, index) => {
+                                    {combined_filter_type.map((filter, index) => {
                                         return (
                                             <TopicItemWrapper
                                                 key={index}
@@ -445,6 +451,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                 is_mobile_expanded={hide_mobile_topic}
                                             >
                                                 <Header
+                                                    as="h3"
                                                     type="paragraph-2"
                                                     align="left"
                                                     color="grey-5"

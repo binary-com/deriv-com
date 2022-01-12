@@ -168,12 +168,17 @@ const FlexSearchBar = styled(Flex)`
         props.result_opened &&
         css`
             border-radius: 20px 20px 0 0;
-            border-bottom: unset;
+            border-bottom: none;
+
+            @media ${device.tabletL} {
+                border-radius: 20px;
+                border: 2px solid #ecf1f7;
+            }
         `}
 
     @media ${device.tabletL} {
         width: 100%;
-        background-color: white;
+        margin-bottom: 24px;
     }
 `
 
@@ -262,6 +267,7 @@ const SearchSuggestionWrapper = styled(Flex)`
         max-width: 100%;
         margin: 0 auto;
         align-items: flex-start;
+        border: none;
     }
 `
 const IconWrapper = styled.img`
@@ -493,6 +499,8 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
     const handleFilterSearch = (e) => {
         setSearchInput(e.target.value)
         is_mobile_separator && setHideMobileTopic(true)
+
+        if (is_mobile_separator && e.target.value === '') handleBlur()
     }
 
     useDebouncedEffect(
@@ -617,7 +625,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                             placeholder="What would you like to search?"
                             onChange={handleFilterSearch}
                             onFocus={handleFocus}
-                            onBlur={!is_mobile_separator && handleBlur}
+                            onBlur={handleBlur}
                             value={search_input}
                             result_opened={suggestion_box_opened}
                             ref={input_ref}
@@ -707,7 +715,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                     )}
                     {data_to_render &&
                         data_to_render.map((post, idx) => {
-                            if (idx < 6) {
+                            if (idx < 4) {
                                 const icon = post.blog_title ? ArticleIcon : VideoIcon
                                 const icon_alt = post.blog_title ? 'article icon' : 'video icon'
                                 const redirect_link = post.slug
@@ -754,7 +762,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
     )
 }
 
-export const TopicItemsAccordian = ({ items, setModal }: MobileAccordianProp) => {
+const TopicItemsAccordian = ({ items, setModal }: MobileAccordianProp) => {
     const [is_expanded, setExpanded] = useState(false)
     const [video_tags, blog_tags] = useAcademyTags()
 

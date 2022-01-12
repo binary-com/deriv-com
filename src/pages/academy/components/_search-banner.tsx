@@ -543,6 +543,11 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
         is_mobile_separator && setHideMobileTopic(false)
     }
 
+    const handleSearchClick = (e) => {
+        e.preventDefault()
+        navigate(`/academy/search?q=${encodeURI(search_input)}`)
+    }
+
     const handleNavigation = (e) => {
         if (suggestion_box_opened) {
             switch (e.key) {
@@ -640,6 +645,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                                 ai="center"
                                 active={focus_index === -1}
                                 style={{ color: 'var(--color-blue-3)' }}
+                                onMouseDown={handleSearchClick}
                             >{`Search for: ${search_query}`}</SearchResultRows>
 
                             {data_to_render &&

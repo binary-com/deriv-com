@@ -44,7 +44,7 @@ const AgreementLabel = ({
                 onChange={handleChange}
                 checked={isChecked}
             />
-            <CheckboxSpan color={color}>
+            <CheckboxSpan color={color} style={{ lineHeight: '14px' }}>
                 <Localize
                     fontSize="14px"
                     translate_text={link_text}

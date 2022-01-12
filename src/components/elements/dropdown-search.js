@@ -28,7 +28,6 @@ const DropdownInput = styled.input`
     }
 
     @media ${device.tabletL} {
-        ${(props) => console.log(props)}
         font-size: ${(props) => (props.isAffiliate ? '1.6rem' : '1.75rem')};
     }
 

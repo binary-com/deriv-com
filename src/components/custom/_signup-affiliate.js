@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Flex } from '../containers'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, Text, LinkText, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
-const SignupContent = styled.div`
-    width: 48.4rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 4rem;
+const StyledFlex = styled(Flex)`
     background-color: var(--color-white);
     border-radius: 0.6rem;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
@@ -25,20 +21,14 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
-
 const SubTitle = styled(Text)`
     @media ${device.tabletL} {
         font-size: 2rem;
         margin-bottom: 1rem;
     }
 `
-const NoteBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+const StyledNoteFlex = styled(Flex)`
     min-height: 1.7rem;
-    padding: 8px 14px;
-    margin-top: 1.6rem;
     border-radius: 0.4rem;
     background-color: rgba(242, 243, 244, 0.56);
 
@@ -107,13 +97,13 @@ const SignupAffiliate = ({
     }
 
     return (
-        <SignupContent>
+        <StyledFlex jc="flex-start" fd="column" p="4rem">
             <Header as="h4" type="sub-section-title" mb="0.8rem">
                 {localize('Sign up')}
             </Header>
             <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
             {!is_ppc && (
-                <NoteBox>
+                <StyledNoteFlex fd="row" width="100%" p="8px 14px" mt="1.6rem">
                     <div>
                         <Text
                             mb="0.2rem"
@@ -135,7 +125,7 @@ const SignupAffiliate = ({
                             </LocalizedLinkText>
                         </Text>
                     </div>
-                </NoteBox>
+                </StyledNoteFlex>
             )}
 
             <InputGroup>
@@ -181,7 +171,7 @@ const SignupAffiliate = ({
                     {localize('Log in')}
                 </StyledLinkText>
             </LoginText>
-        </SignupContent>
+        </StyledFlex>
     )
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Flex } from '../../components/containers'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -8,34 +9,20 @@ import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
 import Map from 'images/svg/landing/map.svg'
 
-const Wrapper = styled.section`
-    width: 100%;
-    height: 40vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
+const StyledFlexWrapper = styled(Flex)`
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
         padding: 0;
     }
 `
-const Content = styled.div`
-    width: 42rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin-right: 4.7rem;
-    margin-top: 9.4rem;
-
+const StyledFlex = styled(Flex)`
     @media ${device.tablet} {
         order: 2;
     }
 
     @media ${device.mobileL} {
-        padding: 15rem 2rem;
+        padding: 5rem 2rem;
     }
 `
 const StyledDiv = styled.div`
@@ -50,8 +37,8 @@ const StyledMap = styled.img`
         width: auto;
     }
     @media ${device.tablet} {
-        padding-top: 120rem;
         width: 100%;
+        padding-top: 20rem;
     }
 `
 
@@ -72,9 +59,9 @@ const affiliateSignup = () => {
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 )}
             />
-            <Wrapper>
+            <StyledFlexWrapper fd="row" fw="wrap" ai="flex-start" jc="center">
                 {submit_state !== 'success' && (
-                    <Content>
+                    <StyledFlex jc="flex-start" fd="column" mt="2.4rem" mr="4.7rem" width="42rem">
                         <Header mt="2.4rem" as="h3" type="section-title">
                             {localize('Deriv Affiliate')}
                         </Header>
@@ -91,7 +78,7 @@ const affiliateSignup = () => {
                                 'Our introducing broker programme is available to all Deriv affiliates. Earn commission from your clients’ trades on Deriv MT5.',
                             )}
                         </Text>
-                    </Content>
+                    </StyledFlex>
                 )}
                 <Signup
                     appearance={Appearances.affiliateSignup}
@@ -101,7 +88,7 @@ const affiliateSignup = () => {
                     email={email}
                     autofocus={true}
                 />
-            </Wrapper>
+            </StyledFlexWrapper>
             <StyledDiv>{submit_state !== 'success' && <StyledMap src={Map} alt="map" />}</StyledDiv>
         </Layout>
     )

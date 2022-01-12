@@ -3,6 +3,7 @@ import { Tooltip } from 'antd'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Formik, Field, Form } from 'formik'
+import { Flex } from '../containers'
 import {
     getSignupAffiliateValue,
     resetSignupAffiliateDetails,
@@ -20,12 +21,7 @@ import device from 'themes/device.js'
 const AffiliateForm = styled(Form)`
     display: block;
 `
-const SignupContent = styled.div`
-    width: 48rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 4rem;
+const StyledContentFlex = styled(Flex)`
     background-color: var(--color-white);
     border-radius: 0.6rem;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
@@ -50,15 +46,9 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 2px;
-
     @media ${device.tabletL} {
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
-
     @media ${device.mobileL} {
         font-size: 12px;
     }
@@ -84,41 +74,19 @@ const SignupButton = styled(Button)`
         font-size: 1.75rem;
     }
 `
-const ChoosePlanContainer = styled.div`
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 2.4rem;
-    @media ${device.tabletL} {
-        margin-top: 4rem;
-    }
-`
-const ChoosePlanOptions = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 2rem 0;
-`
 const LoginText = styled(Text)`
     text-align: left;
     margin-top: 1.6rem;
     @media ${device.tabletL} {
-        margin-bottom: 0;
         margin-top: 3.75rem;
     }
     @media ${device.tabletL} {
         font-size: 2rem;
     }
 `
-const Agreements = styled.div`
-    display: flex;
-    flex-direction: column;
-`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
-
 const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
 `
@@ -153,7 +121,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     }
 
     return (
-        <SignupContent>
+        <StyledContentFlex jc="flex-start" fd="column" p="4rem" width="48rem" height="auto">
             <Formik
                 enableReinitialize
                 initialValues={{
@@ -333,40 +301,40 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                     )
                                 })}
                             </InputGroup>
-                            <ChoosePlanContainer>
+                            <Flex fd="row" jc="space-between" ai="center" mt="2.4">
                                 <Line />
                                 <StyledText color="grey-5" align="center" tabletFontSize="12px">
                                     {localize('Choose a plan')}
-                                    <Tooltip
-                                        title={
-                                            <div style={{ color: 'black' }}>
-                                                {localize(
-                                                    'Choose which plan you would like to subscribe to.',
-                                                )}{' '}
-                                                <LocalizedLinkText
-                                                    to="/partners/affiliate-ib#deriv-ap"
-                                                    external="true"
-                                                    color="red"
-                                                    target="_blank"
-                                                    is_anchor
-                                                    style={{ fontSize: '14px' }}
-                                                >
-                                                    {localize('Learn more')}
-                                                </LocalizedLinkText>
-                                            </div>
-                                        }
-                                        color={'#d6dadb'}
-                                    >
-                                        <img
-                                            style={{ marginLeft: '5px', cursor: 'pointer' }}
-                                            src={Info}
-                                            alt="info"
-                                        />
-                                    </Tooltip>
                                 </StyledText>
+                                <Tooltip
+                                    title={
+                                        <div style={{ color: 'black' }}>
+                                            {localize(
+                                                'Choose which plan you would like to subscribe to.',
+                                            )}{' '}
+                                            <LocalizedLinkText
+                                                to="/partners/affiliate-ib#deriv-ap"
+                                                external="true"
+                                                color="red"
+                                                target="_blank"
+                                                is_anchor
+                                                style={{ fontSize: '14px' }}
+                                            >
+                                                {localize('Learn more')}
+                                            </LocalizedLinkText>
+                                        </div>
+                                    }
+                                    color={'#d6dadb'}
+                                >
+                                    <img
+                                        style={{ marginLeft: '5px', cursor: 'pointer' }}
+                                        src={Info}
+                                        alt="info"
+                                    />
+                                </Tooltip>
                                 <Line />
-                            </ChoosePlanContainer>
-                            <ChoosePlanOptions>
+                            </Flex>
+                            <Flex fd="row" jc="space-between" m="2rem 0">
                                 <Field name="revenue">
                                     {({ field }) => (
                                         <RadioInput
@@ -401,8 +369,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                         />
                                     )}
                                 </Field>
-                            </ChoosePlanOptions>
-                            <Agreements>
+                            </Flex>
+                            <Flex fd="column">
                                 <AgreementLabel
                                     pep_label={localize(
                                         'I declare that I am not a politically exposed person.',
@@ -414,7 +382,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                     isChecked={is_terms_checked}
                                     handleChangeCheckbox={handleTermsChange}
                                 />
-                            </Agreements>
+                            </Flex>
                             <SignupButton
                                 id="dm-new-signup"
                                 secondary
@@ -439,7 +407,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     {localize('Log in')}
                 </StyledLinkText>
             </LoginText>
-        </SignupContent>
+        </StyledContentFlex>
     )
 }
 

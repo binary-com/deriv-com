@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Flex } from '../../components/containers'
 import { Localize, localize } from 'components/localization'
 import Join from 'images/svg/signup-affiliate-details/join.svg'
 import Earn from 'images/svg/signup-affiliate-details/earn.svg'
@@ -8,9 +9,10 @@ import Support from 'images/svg/signup-affiliate-details/support.svg'
 import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
 
-const Benefit = styled.section`
-    display: flex;
-    align-items: center;
+const StyledFlex = styled(Flex)`
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 const Icon = styled.section`
     width: 48px;
@@ -19,7 +21,6 @@ const Icon = styled.section`
 const Description = styled.section`
     padding-left: 3rem;
 `
-
 const benefits_content = [
     {
         id: 'benefit_join',
@@ -71,24 +72,12 @@ const benefits_content = [
     },
 ]
 
-const Content = styled.div`
-    width: 48.4rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    margin-right: 4.7rem;
-    margin-top: 9.4rem;
-
-    @media ${device.tablet} {
-        display: none;
-    }
-`
 const Benefits = () => {
     return (
-        <Content>
+        <StyledFlex width="48.4rem" jc="flex-start" fd="column" m="9.4rem 4.7rem 0 0">
             {benefits_content.map((item) => {
                 return (
-                    <Benefit key={item.id}>
+                    <Flex ai="center" height="auto" key={item.id}>
                         <Icon>{item.icon}</Icon>
                         <Description>
                             <Header mt="2.4rem" as="h4" type="subtitle-2">
@@ -96,10 +85,10 @@ const Benefits = () => {
                             </Header>
                             {item.text}
                         </Description>
-                    </Benefit>
+                    </Flex>
                 )
             })}
-        </Content>
+        </StyledFlex>
     )
 }
 

@@ -122,7 +122,7 @@ const MapImage = styled(BackgroundImage)`
     background-color: transparent;
     background-size: cover;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 328px;
         height: 170px;
         overflow: hidden;
@@ -171,7 +171,7 @@ const OurOffices = () => {
             </StyledHeader>
 
             <Flex>
-                <Show.Desktop max_width="tablet">
+                <Show.Desktop max_width="tabletL">
                     <MapImage data={data['earth']}>
                         <MapPin
                             left="30%"
@@ -253,7 +253,7 @@ const OurOffices = () => {
                         />
                     </MapImage>
                 </Show.Desktop>
-                <Show.Mobile min_width="tablet">
+                <Show.Mobile min_width="tabletL">
                     <MapImage data={data['earth_mobile']}>
                         <MapPin
                             left="28.5%"

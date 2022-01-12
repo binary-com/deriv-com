@@ -117,11 +117,10 @@ const SearchPage = () => {
     const [video_result, setVideoResult] = useState([])
 
     // pagination states
-    const [currentItems, setCurrentItems] = useState(null)
-    const [pageCount, setPageCount] = useState(0)
-    const [itemOffset, setItemOffset] = useState(0)
-    const [endOffset, setEndOffSet] = useState(0)
-    const itemsPerPage = 10
+    const [page_number, setPageNumber] = useState(0)
+    const items_per_page = 10
+    const pages_visited = page_number * items_per_page
+    const page_count = Math.ceil(article_result.length / items_per_page)
 
     // query params
     const [query, setQuery] = useQueryParams({
@@ -144,6 +143,7 @@ const SearchPage = () => {
         if (video_track) openVideo(video_track, title_params)
     }, [])
 
+    // video player functions
     const openVideo = (track_id, video_title) => {
         setPlayVideoId(track_id)
         setQuery({ ...query, t: video_title })
@@ -160,8 +160,6 @@ const SearchPage = () => {
     const combined_data = [...academy_data.blog, ...academy_data.videos]
 
     useEffect(() => {
-        setItemOffset(0)
-
         if (search_query && !items_type) {
             getSearchResult(search_query)
             setFullArticleLink(`/academy/search?q=${search_query}&type=article`)
@@ -185,24 +183,50 @@ const SearchPage = () => {
         }
     }, [query])
 
-    // paginate
-    useEffect(() => {
-        setEndOffSet(itemOffset + itemsPerPage)
-        items_type
-            ? setCurrentItems(article_result.slice(itemOffset, endOffset))
-            : setCurrentItems(article_result.slice(itemOffset, 5))
-
-        setPageCount(Math.ceil(article_result.length / itemsPerPage))
-
-        // console.log(`endOffset ${endOffset} - itemOffset ${itemOffset} - endOffset ${endOffset}`)
-    }, [itemOffset, itemsPerPage, article_result, items_type])
-
-    const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % article_result.length
-        setItemOffset(newOffset)
+    // pagination functions
+    const handlePageChange = ({ selected }) => {
+        setPageNumber(selected)
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
+    const getPaginatedArticles = () =>
+        !items_type ? (
+            <Flex fd="column" mt="24px">
+                {article_result.slice(0, 5).map((items, index) => {
+                    return <ArticleCard key={index} items={items} />
+                })}
+            </Flex>
+        ) : (
+            <>
+                <ArticlePaginationWrapper>
+                    <Flex fd="column" mt="24px">
+                        {article_result
+                            .slice(pages_visited, pages_visited + items_per_page)
+                            .map((items, index) => {
+                                return <ArticleCard key={index} items={items} />
+                            })}
+                    </Flex>
+                    <ReactPaginate
+                        previousLabel={'<'}
+                        breakLabel={'...'}
+                        nextLabel={'>'}
+                        pageCount={page_count}
+                        onPageChange={handlePageChange}
+                        containerClassName={'pagination-buttons'}
+                        previousLinkClassName={'previous-button'}
+                        breakClassName={'break-button'}
+                        nextLinkClassName={'next-button'}
+                        disabledClassName={'pagination-disabled'}
+                        activeClassName={'pagination-active'}
+                    />
+                </ArticlePaginationWrapper>
+            </>
+        )
+
+    const getTotalArticleText = () =>
+        total_article > 4 ? `1-5 of ${total_article} results` : `${total_article} results`
+
+    // filter functions
     const filteredBaseOnType = (obj) => {
         const article_arr = []
         const video_arr = []
@@ -223,20 +247,6 @@ const SearchPage = () => {
         setTotalVideo(video_arr.length)
     }
 
-    const getSearchResult = (q: string) => {
-        let result = []
-
-        if (q !== '') {
-            result = matchSorter(combined_data, q, {
-                keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
-            })
-        } else result = null
-
-        filteredBaseOnType(result)
-
-        return result
-    }
-
     const getFilterResult = (type: string) => {
         let result = []
 
@@ -247,6 +257,21 @@ const SearchPage = () => {
         } else {
             result = null
         }
+
+        filteredBaseOnType(result)
+
+        return result
+    }
+
+    // search functions
+    const getSearchResult = (q: string) => {
+        let result = []
+
+        if (q !== '') {
+            result = matchSorter(combined_data, q, {
+                keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
+            })
+        } else result = null
 
         filteredBaseOnType(result)
 
@@ -273,34 +298,14 @@ const SearchPage = () => {
 
         return result
     }
-    const getTotalSearchCount = () => (items_type == 'article' ? total_article : total_video)
 
-    const getTotalArticleText = () =>
-        total_article > 4 ? `1-5 of ${total_article} results` : `${total_article} results`
-
-    const getPaginatedArticles = () =>
-        !items_type ? (
-            <ArticleWrapper currentItems={currentItems} />
-        ) : (
-            <>
-                <ArticlePaginationWrapper>
-                    <ArticleWrapper currentItems={currentItems} />
-                    <ReactPaginate
-                        previousLabel={'<'}
-                        breakLabel={'...'}
-                        nextLabel={'>'}
-                        pageCount={pageCount}
-                        onPageChange={handlePageClick}
-                        containerClassName={'pagination-buttons'}
-                        previousLinkClassName={'previous-button'}
-                        breakClassName={'break-button'}
-                        nextLinkClassName={'next-button'}
-                        disabledClassName={'pagination-disabled'}
-                        activeClassName={'pagination-active'}
-                    />
-                </ArticlePaginationWrapper>
-            </>
-        )
+    const getTotalSearchCount = () => {
+        if (!items_type) {
+            return total_article + total_video
+        } else if (items_type === 'article') {
+            return total_article
+        } else return total_video
+    }
 
     return (
         <Layout type="academy" margin_top={'14.4'}>
@@ -348,7 +353,11 @@ const SearchPage = () => {
                                 </Header>
                                 {items_type ? (
                                     <Header as="span" type="paragraph-2" align="right">
-                                        {`${itemOffset} - ${endOffset} of ${total_article} results`}
+                                        {`${pages_visited + 1} - ${
+                                            pages_visited + items_per_page < total_article
+                                                ? pages_visited + items_per_page
+                                                : total_article
+                                        } of ${total_article} results`}
                                     </Header>
                                 ) : (
                                     <Header as="span" type="paragraph-2" align="right">
@@ -436,13 +445,7 @@ const SearchPage = () => {
 
 export default WithIntl()(SearchPage)
 
-export const VideoParentWrapper = ({
-    closeVideo,
-    currentVideoItems,
-    openVideo,
-    show,
-    video_src,
-}) => {
+const VideoParentWrapper = ({ closeVideo, currentVideoItems, openVideo, show, video_src }) => {
     useEffect(() => {
         document.body.style.overflow = show ? 'hidden' : 'unset'
     }, [show])
@@ -467,17 +470,7 @@ export const VideoParentWrapper = ({
     )
 }
 
-export const ArticleWrapper = ({ currentItems }) => {
-    return (
-        <Flex fd="column" mt="24px">
-            {currentItems.map((items, index) => {
-                return <ArticleCard key={index} items={items} />
-            })}
-        </Flex>
-    )
-}
-
-export const ArticleCard = ({ items }) => {
+const ArticleCard = ({ items }) => {
     const article_link = `/academy/blog/posts/${items.slug}/`
 
     return (
@@ -534,10 +527,6 @@ VideoParentWrapper.propTypes = {
     video_src: PropTypes.string,
 }
 
-ArticleWrapper.propTypes = {
-    currentItems: PropTypes.object,
-}
-
 ArticleCard.propTypes = {
-    items: PropTypes.bool,
+    items: PropTypes.object,
 }

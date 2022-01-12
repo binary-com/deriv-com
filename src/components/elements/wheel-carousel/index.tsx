@@ -1,11 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { WHEEL_ITEM_RADIUS, getSlidesCss } from './wheel-utils'
 import { Flex } from 'components/containers'
 
-const WheelWrapper = styled.div`
+const WheelWrapper = styled.div<{ perspective: 'left' | 'right' }>`
     ${({ perspective }) => {
         if (perspective === 'left') {
             return css`
@@ -39,7 +38,7 @@ const WheelContainer = styled.div`
 `
 
 const Slider = styled.div`
-    position: ${({ is_ready }) => (is_ready ? 'absolute' : 'static')};
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -51,16 +50,9 @@ const Slider = styled.div`
     justify-content: center;
     backface-visibility: hidden;
     opacity: 0;
-    ${({ is_ready }) => {
-        if (is_ready) {
-            return css`
-                transform: none;
-            `
-        }
-    }}
 `
 
-const Label = styled.p`
+const Label = styled.p<{ perspective: 'left' | 'right' }>`
     ${({ perspective }) => {
         if (perspective === 'left') {
             return css`
@@ -74,19 +66,24 @@ const Label = styled.p`
     }}
 `
 
-const WheelSlider = ({ label, perspective, loop, slide_count }) => {
+type WheelSliderProps = {
+    label: string
+    perspective: 'right' | 'left'
+    loop: boolean
+    slide_count: number
+}
+
+const WheelSlider = ({ label, perspective, loop, slide_count }: WheelSliderProps) => {
     const [viewportRef, embla] = useEmblaCarousel({
         loop,
         axis: 'y',
         dragFree: true,
-        draggingClass: '',
-        selectedClass: '',
     })
     const [is_wheel_ready, setWheelReady] = useState(false)
     const [wheelRotation, setWheelRotation] = useState(0)
     const totalRadius = slide_count * WHEEL_ITEM_RADIUS
     const rotationOffset = loop ? 0 : WHEEL_ITEM_RADIUS
-    const slideStyles = getSlidesCss(embla, loop, slide_count, totalRadius, wheelRotation)
+    const slide_styles = getSlidesCss(embla, loop, slide_count, totalRadius, wheelRotation)
 
     const rotateWheel = useCallback(() => {
         if (!embla) return
@@ -97,12 +94,13 @@ const WheelSlider = ({ label, perspective, loop, slide_count }) => {
     useEffect(() => {
         if (!embla) return
 
-        embla.dangerouslyGetEngine().translate.toggleActive(false)
+        const engine = embla.internalEngine()
+
+        engine.translate.toggleActive(false)
         setWheelReady(true)
 
         embla.on('pointerUp', () => {
-            const { scrollTo, target, location } = embla.dangerouslyGetEngine()
-            scrollTo.distance((target.get() - location.get()) * 0.1, true)
+            engine.scrollTo.distance(engine.target.get() - engine.location.get() * 0.1, true)
         })
 
         embla.on('scroll', rotateWheel)
@@ -110,28 +108,32 @@ const WheelSlider = ({ label, perspective, loop, slide_count }) => {
     }, [embla, rotateWheel, setWheelReady])
 
     return (
-        <WheelWrapper perspective={perspective}>
-            <WheelScene>
-                <WheelViewport ref={viewportRef} height="100%" ai="center">
-                    <WheelContainer>
-                        {slideStyles.map((slideStyle, index) => (
-                            <Slider key={index} is_ready={is_wheel_ready}>
-                                {index}
-                            </Slider>
-                        ))}
-                    </WheelContainer>
-                </WheelViewport>
-            </WheelScene>
-            <Label>{label}</Label>
-        </WheelWrapper>
+        <div>
+            <WheelWrapper perspective={perspective}>
+                <WheelScene>
+                    <WheelViewport ref={viewportRef} height="100%" ai="center">
+                        <WheelContainer>
+                            {slide_styles.map((style, index) => {
+                                return (
+                                    <Slider
+                                        key={index}
+                                        style={
+                                            is_wheel_ready
+                                                ? style
+                                                : { transform: 'none', position: 'static' }
+                                        }
+                                    >
+                                        {index}
+                                    </Slider>
+                                )
+                            })}
+                        </WheelContainer>
+                    </WheelViewport>
+                </WheelScene>
+                <Label perspective={perspective}>{label}</Label>
+            </WheelWrapper>
+        </div>
     )
-}
-
-WheelSlider.propTypes = {
-    label: PropTypes.string,
-    loop: PropTypes.bool,
-    perspective: PropTypes.string,
-    slide_count: PropTypes.number,
 }
 
 export default WheelSlider

@@ -45,7 +45,7 @@ const getSlideCss = (embla, index, loop, slideCount, totalRadius, wheelRotation)
 
 export const getSlidesCss = (embla, loop, slideCount, totalRadius, wheelRotation) => {
     const styles = []
-    for (let index = 0; index < slideCount; index += 1) {
+    for (let index = 0; index < slideCount; index++) {
         const style = embla
             ? getSlideCss(embla, index, loop, slideCount, totalRadius, wheelRotation)
             : {}

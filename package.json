@@ -11,7 +11,7 @@
         "@svgr/webpack": "^5.5.0",
         "commander": "^7.2.0",
         "crc-32": "^1.2.0",
-        "embla-carousel": "^4.5.3",
+        "embla-carousel-react": "^6.0.2",
         "eslint-import-resolver-node": "^0.3.4",
         "extend": "^3.0.2",
         "formik": "^2.2.9",

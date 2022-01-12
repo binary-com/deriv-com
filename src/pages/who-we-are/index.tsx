@@ -40,7 +40,7 @@ const AboutUs = () => {
     return (
         <Layout type="about-us" margin_top="0">
             <SEO
-                title={localize('About Us | An Online Trading Platform | Deriv.com')}
+                title={localize('Who we are | An Online Trading Platform | Deriv.com')}
                 description={localize(
                     'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}

@@ -45,6 +45,11 @@ const NumberSection = styled(CssGrid)`
 
     @media ${device.tablet} {
         grid-column-gap: 3rem;
+        padding: 0 16px;
+    }
+
+    @media (max-width: 359px) {
+        grid-column-gap: 1rem;
     }
 `
 
@@ -117,9 +122,14 @@ const MapImage = styled(BackgroundImage)`
     background-color: transparent;
     background-size: cover;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 328px;
         height: 170px;
+        overflow: hidden;
+    }
+    @media (max-width: 359px) {
+        width: 298px;
+        height: 155px;
         overflow: hidden;
     }
 `
@@ -161,7 +171,7 @@ const OurOffices = () => {
             </StyledHeader>
 
             <Flex>
-                <Show.Desktop max_width="tablet">
+                <Show.Desktop max_width="tabletL">
                     <MapImage data={data['earth']}>
                         <MapPin
                             left="30%"
@@ -243,7 +253,7 @@ const OurOffices = () => {
                         />
                     </MapImage>
                 </Show.Desktop>
-                <Show.Mobile min_width="tablet">
+                <Show.Mobile min_width="tabletL">
                     <MapImage data={data['earth_mobile']}>
                         <MapPin
                             left="28.5%"
@@ -343,7 +353,7 @@ const OurOffices = () => {
                 <StyledFlex fd="column">
                     <NumberHeader size="32px">{localize('13')}</NumberHeader>
                     <NumberText size="16px" align="center">
-                        {localize('offices')}
+                        {localize('locations')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">

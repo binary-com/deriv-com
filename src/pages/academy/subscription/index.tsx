@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
-import AcademyNav from './_nav'
+import AcademyNav from './_academy-nav'
 import Subscribe from './_subscribe'
 import { SectionContainer, SEO, Flex } from 'components/containers'
 import { localize } from 'components/localization'

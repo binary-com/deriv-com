@@ -2,7 +2,7 @@ type ItemType = {
     title: string
 }
 
-type TopicType = {
+export type TopicType = {
     type: string
     items: ItemType[]
 }

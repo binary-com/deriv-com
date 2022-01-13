@@ -11,11 +11,14 @@ import {
     Line,
 } from './nav'
 import { Flex } from 'components/containers'
-import { QueryImage } from 'components/elements'
+import { QueryImage, moveOffCanvasMenu } from 'components/elements'
+import { OffCanvasMenuLocations } from 'components/elements/off-canvas-menu.js'
 import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
 // import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
+import Hamburger from 'images/svg/layout/hamburger_menu.svg'
+import Close from 'images/svg/layout/close-long.svg'
 import device from 'themes/device'
 import { CFDWarning } from 'components/layout'
 
@@ -52,7 +55,6 @@ const CareerLink = styled(StyledLink)`
 `
 
 const CareerLogo = styled(LogoLink)`
-    /* margin-right: 3.2rem; */
     @media ${device.tabletS} {
         margin-right: 0;
         max-width: 100px;
@@ -92,17 +94,29 @@ const NavCenter = styled.ul`
         display: none;
     }
 `
-// const Line = styled.div`
-//     width: 1px;
-//     height: 28px;
-//     margin-right: 8px;
-//     margin-left: 8px;
-//     background-color: var(--color-white);
-// `
 
+const HamburgerMenu = styled.img`
+    margin-left: 35px;
+    cursor: pointer;
+    display: none;
+    @media (max-width: 991px) {
+        display: block;
+        cursor: pointer;
+    }
+`
+const CloseMenu = styled.img`
+    cursor: pointer;
+    display: none;
+    @media (max-width: 1060px) {
+        display: block;
+        cursor: pointer;
+    }
+`
 export const NavLocations = () => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+
     // const current_page = useActiveLinkState('careers')
 
     return (
@@ -156,9 +170,29 @@ export const NavLocations = () => {
                                     rel="noopener noreferrer"
                                     ml="2.4rem"
                                 >
-                                    Apply now
+                                    Explore jobs
                                 </CareerButton>
                             )}
+                            {is_canvas_menu_open ? (
+                                <CloseMenu
+                                    src={Close}
+                                    alt="close menu"
+                                    onClick={closeOffCanvasMenu}
+                                    width="16px"
+                                />
+                            ) : (
+                                <HamburgerMenu
+                                    src={Hamburger}
+                                    alt="hamburger"
+                                    onClick={openOffCanvasMenu}
+                                    width="16px"
+                                />
+                            )}
+                            <CareerRight></CareerRight>
+                            <OffCanvasMenuLocations
+                                is_canvas_menu_open={is_canvas_menu_open}
+                                closeOffCanvasMenu={closeOffCanvasMenu}
+                            />
                         </CareerRight>
                     </Wrapper>
                 </StyledNav>

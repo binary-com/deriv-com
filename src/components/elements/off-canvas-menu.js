@@ -56,6 +56,12 @@ const OffCanvasMenu = styled.section`
     ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
 `
 
+const OffCanvasMenuLocationsWrapper = styled(OffCanvasMenu)`
+    left: unset;
+    right: -254px;
+    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(-254px)'};
+`
+
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
     top: 10rem;
 `
@@ -119,6 +125,31 @@ const content_style = {
     paddingBottom: '16px',
     flexDirection: 'column',
     display: 'flex',
+}
+
+export const OffCanvasMenuLocations = (props) => {
+    const canvas = useRef()
+    const handleArrowClick = () => {
+        props.closeOffCanvasMenu()
+    }
+
+    useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
+
+    return (
+        <OffCanvasMenuLocationsWrapper is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+            <OffCanvasMenuContainer>
+                <StyledLink to="/careers/" onClick={handleArrowClick}>
+                    <span>{localize('Home')}</span>
+                </StyledLink>
+                <StyledLink to="/careers/locations/" onClick={handleArrowClick}>
+                    <span>{localize('Locations')}</span>
+                </StyledLink>
+                <StyledLink to="/careers/besquare/" onClick={handleArrowClick}>
+                    <span>{localize('BeSquare')}</span>
+                </StyledLink>
+            </OffCanvasMenuContainer>
+        </OffCanvasMenuLocationsWrapper>
+    )
 }
 
 export const OffCanvasMenuWrapper = (props) => {
@@ -592,6 +623,11 @@ export const OffCanvasMenuPartner = (props) => {
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>
     )
+}
+
+OffCanvasMenuLocations.propTypes = {
+    closeOffCanvasMenu: PropTypes.func,
+    is_canvas_menu_open: PropTypes.bool,
 }
 
 OffCanvasMenuPartner.propTypes = {

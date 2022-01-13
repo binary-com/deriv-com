@@ -503,7 +503,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const [search_input_touched, setSearchInputTouched] = useState(false)
     const [result_opened, setSuggestionBoxOpened] = useState(false)
     const [focus_index, updateFocusIndex] = useState(-1)
-    // const redirect_link_arr = []
+    let redirect_link_arr: string[] = []
 
     const input_ref = useRef<HTMLInputElement>()
 
@@ -524,6 +524,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
             } else {
                 setSearchQuery('')
                 setSuggestionBoxOpened(false)
+                updateFocusIndex(-1)
             }
         },
         [search_input],
@@ -537,6 +538,12 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                 'video_title',
                 { threshold: matchSorter.rankings.EQUAL, key: 'tags.*.tags_id.tag_name' },
             ],
+        })
+        data_to_render.forEach((post) => {
+            const redirect_link = post.slug
+                ? `/academy/blog/posts/${post.slug}/`
+                : `/academy/videos/?t=${slugify(post.video_title)}`
+            redirect_link_arr.push(redirect_link)
         })
     } else data_to_render = null
 
@@ -561,52 +568,53 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         setSearchQuery('')
         setSearchInput('')
         updateFocusIndex(-1)
+        redirect_link_arr = []
         is_mobile_separator && setHideMobileTopic(false)
     }
 
-    // const handleSearchClick = (e) => {
-    //     e.preventDefault()
-    //     navigate(`/academy/search?q=${encodeURI(search_input)}`)
-    // }
+    const handleSearchClick = (e) => {
+        e.preventDefault()
+        navigate(`/academy/search?q=${encodeURI(search_input)}`)
+    }
 
     const handleNavigation = (e) => {
-        // if (result_opened) {
-        //     switch (e.key) {
-        //         case 'Enter':
-        //             if (focus_index !== -1) {
-        //                 navigate(redirect_link_arr[focus_index])
-        //             }
+        if (result_opened) {
+            switch (e.key) {
+                case 'Enter':
+                    if (focus_index !== -1) {
+                        navigate(redirect_link_arr[focus_index])
+                    }
 
-        //             break
-        //         case 'ArrowUp':
-        //             e.preventDefault()
-        //             if (focus_index == -1) {
-        //                 updateFocusIndex(5)
+                    break
+                case 'ArrowUp':
+                    e.preventDefault()
+                    if (focus_index == -1) {
+                        updateFocusIndex(5)
 
-        //                 if (data_to_render < 5) {
-        //                     updateFocusIndex(data_to_render.length)
-        //                 }
-        //             }
-        //             if (focus_index > -1) {
-        //                 updateFocusIndex(focus_index - 1)
-        //             }
-        //             break
-        //         case 'ArrowDown':
-        //             e.preventDefault()
-        //             if (focus_index < 6 - 1) {
-        //                 updateFocusIndex(focus_index + 1)
-        //             }
-        //             if (focus_index == 5) {
-        //                 updateFocusIndex(-1)
-        //             }
-        //             if (data_to_render < 5) {
-        //                 if (focus_index == data_to_render.length) {
-        //                     updateFocusIndex(-1)
-        //                 }
-        //             }
-        //             break
-        //     }
-        // }
+                        if (redirect_link_arr.length < 5) {
+                            updateFocusIndex(redirect_link_arr.length - 1)
+                        }
+                    }
+                    if (focus_index > -1) {
+                        updateFocusIndex(focus_index - 1)
+                    }
+                    break
+                case 'ArrowDown':
+                    e.preventDefault()
+                    if (focus_index < 6 - 1) {
+                        updateFocusIndex(focus_index + 1)
+                    }
+                    if (focus_index == 5) {
+                        updateFocusIndex(-1)
+                    }
+                    if (redirect_link_arr.length < 5) {
+                        if (focus_index == redirect_link_arr.length - 1) {
+                            updateFocusIndex(-1)
+                        }
+                    }
+                    break
+            }
+        }
         if (e.key === 'Escape') {
             handleBlur()
             input_ref.current.blur()
@@ -655,25 +663,21 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                     <DesktopWrapper>
                         <SearchSuggestionWrapper max_width="100%" fd="column">
                             <Line />
-                            {/* <SearchResultRows
+                            <SearchResultRows
                                 jc="flex-start"
                                 ai="center"
                                 active={focus_index === -1}
                                 style={{ color: 'var(--color-blue-3)' }}
                                 onMouseDown={handleSearchClick}
-                            >{`Search for: ${search_query}`}</SearchResultRows> */}
+                            >{`Search for: ${search_query}`}</SearchResultRows>
 
                             {data_to_render &&
                                 data_to_render.slice(0, 6).map((post, idx) => {
                                     const icon = post.blog_title ? ArticleIcon : VideoIcon
                                     const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                                    const redirect_link = post.slug
-                                        ? `/academy/blog/posts/${post.slug}/`
-                                        : `/academy/videos/?t=${slugify(post.video_title)}`
-                                    // redirect_link_arr.push(redirect_link)
                                     const handleMouseDown = (e) => {
                                         e.preventDefault()
-                                        navigate(redirect_link)
+                                        navigate(redirect_link_arr[idx])
                                     }
 
                                     return (
@@ -682,7 +686,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                                             jc="flex-start"
                                             ai="center"
                                             onMouseDown={handleMouseDown}
-                                            // active={focus_index === idx}
+                                            active={focus_index === idx}
                                         >
                                             {
                                                 <>
@@ -709,25 +713,21 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
             </FormWrapper>
             <MobileWrapper>
                 <SearchSuggestionWrapper max_width="100%" fd="column">
-                    {/* {search_query && (
+                    {search_query && (
                         <SearchResultRows
                             jc="flex-start"
                             ai="center"
                             active={focus_index === -1}
                             style={{ color: 'var(--color-blue-3)' }}
                         >{`Search for: ${search_query}`}</SearchResultRows>
-                    )} */}
+                    )}
                     {data_to_render &&
                         data_to_render.slice(0, 4).map((post, idx) => {
                             const icon = post.blog_title ? ArticleIcon : VideoIcon
                             const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                            const redirect_link = post.slug
-                                ? `/academy/blog/posts/${post.slug}/`
-                                : `/academy/videos/?t=${slugify(post.video_title)}`
-                            // redirect_link_arr.push(redirect_link)
                             const handleMouseDown = (e) => {
                                 e.preventDefault()
-                                navigate(redirect_link)
+                                navigate(redirect_link_arr[idx])
                             }
 
                             return (
@@ -736,7 +736,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                                     jc="flex-start"
                                     ai="center"
                                     onMouseDown={handleMouseDown}
-                                    // active={focus_index === idx}
+                                    active={focus_index === idx}
                                     tabletL={{ ai: 'flex-start' }}
                                 >
                                     {

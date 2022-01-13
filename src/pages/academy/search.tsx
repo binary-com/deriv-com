@@ -206,19 +206,21 @@ const SearchPage = () => {
                                 return <ArticleCard key={index} items={items} />
                             })}
                     </Flex>
-                    <ReactPaginate
-                        previousLabel={'<'}
-                        breakLabel={'...'}
-                        nextLabel={'>'}
-                        pageCount={page_count}
-                        onPageChange={handlePageChange}
-                        containerClassName={'pagination-buttons'}
-                        previousLinkClassName={'previous-button'}
-                        breakClassName={'break-button'}
-                        nextLinkClassName={'next-button'}
-                        disabledClassName={'pagination-disabled'}
-                        activeClassName={'pagination-active'}
-                    />
+                    {page_count > 1 && (
+                        <ReactPaginate
+                            previousLabel={'<'}
+                            breakLabel={'...'}
+                            nextLabel={'>'}
+                            pageCount={page_count}
+                            onPageChange={handlePageChange}
+                            containerClassName={'pagination-buttons'}
+                            previousLinkClassName={'previous-button'}
+                            breakClassName={'break-button'}
+                            nextLinkClassName={'next-button'}
+                            disabledClassName={'pagination-disabled'}
+                            activeClassName={'pagination-active'}
+                        />
+                    )}
                 </ArticlePaginationWrapper>
             </>
         )

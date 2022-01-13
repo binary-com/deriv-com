@@ -7,6 +7,7 @@ import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
 import { NavCareers } from './nav-careers'
+import { NavLocations } from './nav-locations'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
@@ -202,6 +203,10 @@ const Layout = ({
             break
         case 'careers':
             Navigation = <NavCareers />
+            FooterNav = <Footer no_language={true} type={type} />
+            break
+        case 'locations':
+            Navigation = <NavLocations />
             FooterNav = <Footer no_language={true} type={type} />
             break
         case 'about-us':

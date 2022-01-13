@@ -37,6 +37,8 @@ const SecondStyledHeader = styled(Header)`
     margin-bottom: 0 24px;
 `
 const StyledLinkButton = styled(LinkButton)`
+    padding: 15px 24px;
+    border-radius: 6px;
     font-size: 20px;
     line-height: 30px;
     @media ${device.tablet} {
@@ -240,11 +242,12 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                     align="center"
                     as="h2"
                     size="var(--text-size-header-5)"
+                    color="black-6"
                 >
                     Deriv in {display_name}
                 </SecondStyledHeader>
                 <Flex tablet_direction="column">
-                    <Text>{location.first_p}</Text>
+                    <Text color="black-6">{location.first_p}</Text>
                     <StyledImageWrapper>
                         <QueryImage
                             data={images[location.first_img]}
@@ -266,10 +269,10 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                         />
                         <WorkingInformation p="3.2rem 6rem" direction="column">
                             <StyledDiv>
-                                <Header as="h3" type="subtitle-1">
+                                <Header as="h3" type="subtitle-1" color="black-6">
                                     {`Working at Deriv ${map_office_name}`}
                                 </Header>
-                                <CardText>{location.map_text}</CardText>
+                                <CardText color="black-6">{location.map_text}</CardText>
                             </StyledDiv>
                         </WorkingInformation>
                     </WorkingFlex>

@@ -19,7 +19,7 @@ const query = graphql`
 `
 
 type HeroProps = {
-    is_ppc: boolean
+    is_ppc?: boolean
 }
 
 const contents = [

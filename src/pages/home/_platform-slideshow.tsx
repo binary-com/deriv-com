@@ -42,10 +42,7 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 
     @keyframes fade {
         0% {
-            opacity: 0.2;
-        }
-        40% {
-            opacity: 0.5;
+            opacity: 0;
         }
         100% {
             opacity: 1;

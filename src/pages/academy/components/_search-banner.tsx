@@ -10,10 +10,10 @@ import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { useAcademyTags } from 'components/hooks/use-academy-tags'
 import { LocalizedLink } from 'components/localization'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import AcademyLogo from 'images/svg/blog/academy-logo.svg'
 import { slugify, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+import AcademyLogo from 'images/svg/blog/academy-logo.svg'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import SearchIcon from 'images/svg/blog/search_icon.svg'
 import CloseIcon from 'images/svg/blog/close-icon.svg'
@@ -136,14 +136,13 @@ const SearchResultRows = styled(Flex)`
         }
     }
 `
-const StyledChevron = styled.img<StyledChevronProp>`
+const StyledChevron = styled.img<StyledChevronProps>`
     height: 16px;
     width: 16px;
     transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
 const HoverChevron = styled.div`
-    transition: background 0.25s;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -182,7 +181,7 @@ const FlexSearchBar = styled(Flex)`
     }
 `
 
-const FormWrapper = styled(Flex)<ElementWithMaximiseProp>`
+const FormWrapper = styled(Flex)`
     width: 640px;
     position: relative;
 
@@ -202,7 +201,7 @@ const FormContainer = styled.form`
     flex-direction: column;
 `
 
-const InputWrapper = styled.input<ElementWithMaximiseProp>`
+const InputWrapper = styled.input`
     margin: 0 auto;
     width: 100%;
     padding: 8px 48px;
@@ -219,7 +218,7 @@ const InputWrapper = styled.input<ElementWithMaximiseProp>`
     }
 `
 
-const SearchIconWrapper = styled.img<ElementWithMaximiseProp>`
+const SearchIconWrapper = styled.img`
     position: absolute;
     cursor: pointer;
     width: 16px;
@@ -228,7 +227,7 @@ const SearchIconWrapper = styled.img<ElementWithMaximiseProp>`
     left: 24px;
     transform: translateY(-50%);
 `
-const CloseIconWrapper = styled.img<ElementWithMaximiseProp>`
+const CloseIconWrapper = styled.img<ElementWithMaximiseProps>`
     display: ${(props) => (props.maximise ? 'block' : 'none')};
     cursor: pointer;
     position: absolute;
@@ -310,23 +309,25 @@ type SearchBannerProps = {
     hidden?: boolean
 }
 
-type ElementWithMaximiseProp = {
+type ElementWithMaximiseProps = {
     maximise?: boolean
     result_opened?: boolean
 }
 
-type StyledChevronProp = {
+type StyledChevronProps = {
     expanded?: boolean
 }
 
-type SearchBarProp = {
+type SearchBarProps = {
     setModal?: React.Dispatch<React.SetStateAction<boolean>>
     setHideMobileTopic?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-type MobileAccordianProp = {
-    items?: Record<string, unknown>
+type TopicItemsAccordionProps = {
+    items?: TopicType
     setModal?: React.Dispatch<React.SetStateAction<boolean>>
+    handleGreyed: (category: string) => void
+    handleHref: (category: string) => void
 }
 
 const SearchBanner = ({ hidden }: SearchBannerProps) => {
@@ -384,6 +385,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                 onClick={openModal}
                             >
                                 <Header
+                                    as="h3"
                                     type="paragraph-1"
                                     weight="normal"
                                     mr="10px"
@@ -429,13 +431,15 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                     m="0 16px"
                                     is_mobile_expanded={hide_mobile_topic}
                                 >
-                                    {combined_filter_type.map((filter: TopicType, index) => {
+                                    {combined_filter_type.map((filter, index) => {
                                         return (
                                             <>
-                                                <TopicItemsAccordian
+                                                <TopicItemsAccordion
                                                     key={index}
                                                     items={filter}
                                                     setModal={setModal}
+                                                    handleGreyed={handleGreyed}
+                                                    handleHref={handleHref}
                                                 />
                                             </>
                                         )
@@ -488,16 +492,16 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
 
 export default SearchBanner
 
-export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
+export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const [is_mobile_separator] = useBrowserResize(992)
     const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
 
     const [search_input_touched, setSearchInputTouched] = useState(false)
-    const [suggestion_box_opened, setSuggestionBoxOpened] = useState(false)
+    const [result_opened, setSuggestionBoxOpened] = useState(false)
     const [focus_index, updateFocusIndex] = useState(-1)
-    const redirect_link_arr = []
+    // const redirect_link_arr = []
 
     const input_ref = useRef<HTMLInputElement>()
 
@@ -564,7 +568,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
     // }
 
     const handleNavigation = (e) => {
-        // if (suggestion_box_opened) {
+        // if (result_opened) {
         //     switch (e.key) {
         //         case 'Enter':
         //             if (focus_index !== -1) {
@@ -609,24 +613,23 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
 
     return (
         <>
-            <FormWrapper
-                fd="column"
-                result_opened={suggestion_box_opened}
-                ai="flex-start"
-                height="auto"
-            >
-                <FormContainer role="search" aria-label="Academy" onSubmit={handleSubmit}>
+            <FormWrapper fd="column" ai="flex-start" height="auto">
+                <FormContainer
+                    role="search"
+                    aria-label="Academy"
+                    spellCheck={false}
+                    onSubmit={handleSubmit}
+                >
                     <FlexSearchBar
                         jc="flex-start"
                         ai="center"
                         maximise={search_input_touched}
-                        result_opened={suggestion_box_opened}
+                        result_opened={result_opened}
                     >
                         <SearchIconWrapper
                             src={SearchIcon}
                             alt="search_icon"
                             onSubmit={handleSubmit}
-                            result_opened={suggestion_box_opened}
                         ></SearchIconWrapper>
                         <InputWrapper
                             type="text"
@@ -635,7 +638,6 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                             onFocus={handleFocus}
                             onBlur={handleBlur}
                             value={search_input}
-                            result_opened={suggestion_box_opened}
                             ref={input_ref}
                             onKeyDown={handleNavigation}
                         ></InputWrapper>
@@ -644,17 +646,12 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                             src={CloseIcon}
                             alt="close icon"
                             onClick={handleBlur}
-                            result_opened={suggestion_box_opened}
                         />
                     </FlexSearchBar>
                 </FormContainer>
                 {search_query && (
                     <DesktopWrapper>
-                        <SearchSuggestionWrapper
-                            opened={suggestion_box_opened}
-                            max_width="100%"
-                            fd="column"
-                        >
+                        <SearchSuggestionWrapper max_width="100%" fd="column">
                             <Line />
                             {/* <SearchResultRows
                                 jc="flex-start"
@@ -671,7 +668,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                                     const redirect_link = post.slug
                                         ? `/academy/blog/posts/${post.slug}/`
                                         : `/academy/videos/?t=${slugify(post.video_title)}`
-                                    redirect_link_arr.push(redirect_link)
+                                    // redirect_link_arr.push(redirect_link)
                                     const handleMouseDown = (e) => {
                                         e.preventDefault()
                                         navigate(redirect_link)
@@ -689,6 +686,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                                                 <>
                                                     <IconWrapper src={icon} alt={icon_alt} />
                                                     <Header
+                                                        as="h3"
                                                         type="paragraph-1"
                                                         weight="normal"
                                                         ml="8px"
@@ -708,11 +706,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                 )}
             </FormWrapper>
             <MobileWrapper>
-                <SearchSuggestionWrapper
-                    opened={suggestion_box_opened}
-                    max_width="100%"
-                    fd="column"
-                >
+                <SearchSuggestionWrapper max_width="100%" fd="column">
                     {/* {search_query && (
                         <SearchResultRows
                             jc="flex-start"
@@ -728,7 +722,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                             const redirect_link = post.slug
                                 ? `/academy/blog/posts/${post.slug}/`
                                 : `/academy/videos/?t=${slugify(post.video_title)}`
-                            redirect_link_arr.push(redirect_link)
+                            // redirect_link_arr.push(redirect_link)
                             const handleMouseDown = (e) => {
                                 e.preventDefault()
                                 navigate(redirect_link)
@@ -747,6 +741,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
                                         <>
                                             <IconWrapper src={icon} alt={icon_alt} />
                                             <Header
+                                                as="h3"
                                                 type="paragraph-1"
                                                 weight="normal"
                                                 ml="8px"
@@ -768,34 +763,16 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProp) => {
     )
 }
 
-const TopicItemsAccordian = ({ items, setModal }: MobileAccordianProp) => {
+const TopicItemsAccordion = ({
+    items,
+    setModal,
+    handleGreyed,
+    handleHref,
+}: TopicItemsAccordionProps) => {
     const [is_expanded, setExpanded] = useState(false)
-    const [video_tags, blog_tags] = useAcademyTags()
 
     const toggleExpand = () => {
         setExpanded(!is_expanded)
-    }
-
-    const handleGreyed = (category) => {
-        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
-            if (video_tags.includes(category)) return false
-            return true
-        }
-        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
-            if (blog_tags.includes(category)) return false
-            return true
-        }
-        return false
-    }
-
-    const handleHref = (category) => {
-        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
-            return `/academy/search?type=video&category=${slugify(category)}`
-        }
-        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
-            return `/academy/search?type=article&category=${slugify(category)}`
-        }
-        return `/academy/search?category=${slugify(category)}`
     }
 
     const handleModal = () => {
@@ -814,7 +791,7 @@ const TopicItemsAccordian = ({ items, setModal }: MobileAccordianProp) => {
                 onClick={toggleExpand}
             >
                 <Flex jc="space-between" align="center" p="8px">
-                    <Header type="paragraph-2" color="grey-5" width="auto">
+                    <Header as="h3" type="paragraph-2" color="grey-5" width="auto">
                         {items.type.toUpperCase()}
                     </Header>
                     <HoverChevron>

@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
-import { WHEEL_ITEM_RADIUS, getSlidesCss } from './wheel-utils'
+import { WHEEL_ITEM_RADIUS, getSlideStyles } from './wheel-utils'
 import { Flex } from 'components/containers'
 
 const WheelWrapper = styled.div<{ perspective: 'left' | 'right' }>`
@@ -80,22 +80,21 @@ const WheelSlider = ({ label, perspective, loop, slide_count }: WheelSliderProps
         dragFree: true,
     })
     const [is_wheel_ready, setWheelReady] = useState(false)
-    const [wheelRotation, setWheelRotation] = useState(0)
-    const totalRadius = slide_count * WHEEL_ITEM_RADIUS
-    const rotationOffset = loop ? 0 : WHEEL_ITEM_RADIUS
-    const slide_styles = getSlidesCss(embla, loop, slide_count, totalRadius, wheelRotation)
+    const [wheel_rotation, setWheelRotation] = useState(0)
+    const total_radius = slide_count * WHEEL_ITEM_RADIUS
+    const rotation_offset = loop ? 0 : WHEEL_ITEM_RADIUS
+    const slide_styles = getSlideStyles(embla, loop, slide_count, total_radius, wheel_rotation)
 
     const rotateWheel = useCallback(() => {
         if (!embla) return
-        const rotation = slide_count * WHEEL_ITEM_RADIUS - rotationOffset
+        const rotation = slide_count * WHEEL_ITEM_RADIUS - rotation_offset
         setWheelRotation(rotation * embla.scrollProgress())
-    }, [setWheelRotation, slide_count, rotationOffset, embla])
+    }, [setWheelRotation, slide_count, rotation_offset, embla])
 
     useEffect(() => {
         if (!embla) return
 
         const engine = embla.internalEngine()
-
         engine.translate.toggleActive(false)
         setWheelReady(true)
 

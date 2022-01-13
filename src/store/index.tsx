@@ -6,7 +6,7 @@ type DerivProviderProps = {
     children?: React.ReactNode
 }
 
-export const DerivStore = React.createContext()
+export const DerivStore = React.createContext({})
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()

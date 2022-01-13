@@ -150,17 +150,18 @@ const HoverChevron = styled.div`
 `
 
 const FlexSearchBar = styled(Flex)`
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     background-color: rgba(236, 241, 247, 0.5);
     border: 2px solid #ecf1f7;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    transition: width 500ms ease;
+    transition: max-width 500ms ease;
     ${(props) =>
         props.maximise &&
         css`
-            width: 640px;
+            max-width: 640px;
             background-color: white;
         `}
     ${(props) =>
@@ -177,6 +178,7 @@ const FlexSearchBar = styled(Flex)`
 
     @media ${device.tabletL} {
         width: 100%;
+        max-width: 100%;
         margin-bottom: 24px;
     }
 `

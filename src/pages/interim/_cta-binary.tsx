@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -7,14 +6,18 @@ import { Localize } from 'components/localization'
 import BinaryWhite from 'images/svg/interim/binary-white.svg'
 import BinaryBlue from 'images/svg/interim/binary.svg'
 
-const BinaryLink = styled(LocalizedLinkText)`
+type CtaBinaryProps = {
+    is_white?: boolean
+}
+
+const BinaryLink = styled(LocalizedLinkText)<CtaBinaryProps>`
     &:hover {
         text-decoration: underline;
         color: ${(props) => (props.is_white ? 'var(--color-white)' : 'var(--color-red)')};
     }
 `
 
-const CtaBinary = ({ is_white }) => {
+const CtaBinary = ({ is_white }: CtaBinaryProps) => {
     const color = is_white ? 'white' : 'black'
     return (
         <Flex mt="1.6rem" ai="center">
@@ -44,10 +47,6 @@ const CtaBinary = ({ is_white }) => {
             </Text>
         </Flex>
     )
-}
-
-CtaBinary.propTypes = {
-    is_white: PropTypes.bool,
 }
 
 export default CtaBinary

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { useAcademyData } from 'components/hooks/use-academy-data'
+import { useLivechat } from 'components/hooks/use-livechat'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
@@ -17,6 +18,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)
+    const [is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc] = useLivechat()
 
     useEffect(() => {
         if (website_status) {
@@ -42,6 +44,10 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 setWebsiteStatus,
                 user_country,
                 academy_data,
+                is_livechat_interactive,
+                LC_API,
+                is_loading_lc,
+                setFirstLoadOpenLc,
             }}
         >
             {children}

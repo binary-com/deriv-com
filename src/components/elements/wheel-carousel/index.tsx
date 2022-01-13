@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
 import { WHEEL_ITEM_RADIUS, getSlideStyles } from './wheel-utils'
-import { Flex } from 'components/containers'
+import { Box, Flex } from 'components/containers'
 
 const WheelWrapper = styled.div<{ perspective: 'left' | 'right' }>`
     ${({ perspective }) => {
@@ -20,9 +20,7 @@ const WheelWrapper = styled.div<{ perspective: 'left' | 'right' }>`
     }}
 `
 
-const WheelScene = styled.div`
-    min-width: 100%;
-    height: 100%;
+const Scene = styled(Box)`
     overflow: hidden;
 `
 
@@ -94,12 +92,12 @@ const WheelSlider = ({ label, perspective, loop, slide_count }: WheelSliderProps
     useEffect(() => {
         if (!embla) return
 
-        const engine = embla.internalEngine()
-        engine.translate.toggleActive(false)
+        const { translate, scrollTo, target, location } = embla.internalEngine()
+        translate.toggleActive(false)
         setWheelReady(true)
 
         embla.on('pointerUp', () => {
-            engine.scrollTo.distance(engine.target.get() - engine.location.get() * 0.1, true)
+            scrollTo.distance(target.get() - location.get() * 0.1, true)
         })
 
         embla.on('scroll', rotateWheel)
@@ -109,7 +107,7 @@ const WheelSlider = ({ label, perspective, loop, slide_count }: WheelSliderProps
     return (
         <div>
             <WheelWrapper perspective={perspective}>
-                <WheelScene>
+                <Scene min_width="100%" height="100%">
                     <WheelViewport ref={viewportRef} height="100%" ai="center">
                         <WheelContainer>
                             {slide_styles.map((style, index) => {
@@ -128,7 +126,7 @@ const WheelSlider = ({ label, perspective, loop, slide_count }: WheelSliderProps
                             })}
                         </WheelContainer>
                     </WheelViewport>
-                </WheelScene>
+                </Scene>
                 <Label perspective={perspective}>{label}</Label>
             </WheelWrapper>
         </div>

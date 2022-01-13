@@ -95,7 +95,6 @@ const ZohoJob = (data: DataProps) => {
         .zrsite_Job_Type,
         .zrsite_Job_Description,
         .zrsite_Date_Opened,
-        .zrsite_Remote_Job,
         .zrsite_State,
         .zrsite_Work_Experience {
             display: none !important;
@@ -119,6 +118,16 @@ const ZohoJob = (data: DataProps) => {
             line-height: 3.6rem;
             width: 100%;
         }
+        li.zrsite_Remote_Job {
+            span:last-child {
+                font-size: 0;
+            }
+            span::after {
+                content: 'Remote';
+                font-size: 1.6rem;
+            }
+        }
+        li.zrsite_Remote_Job,
         li.zrsite_City,
         li.zrsite_Country {
             text-align: left;

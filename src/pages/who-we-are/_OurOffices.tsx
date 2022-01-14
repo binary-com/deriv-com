@@ -6,6 +6,7 @@ import { SectionContainer, CssGrid, Show, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
+import { desktop_pins, mobile_pins, MapPinType } from './_data'
 
 const query = graphql`
     query {
@@ -138,8 +139,7 @@ const StyledFlex = styled(Flex)`
     height: unset;
 `
 
-// eslint-disable-next-line react/prop-types
-const MapPin = ({ top, left, title, link }) => {
+const MapPin = ({ top, left, title, link }: MapPinType) => {
     const [is_pin_show, setPinShow] = React.useState(false)
     return (
         <PinWrapper
@@ -173,166 +173,28 @@ const OurOffices = () => {
             <Flex>
                 <Show.Desktop max_width="tabletL">
                     <MapImage data={data['earth']}>
-                        <MapPin
-                            left="30%"
-                            top="75%"
-                            title="Paraguay"
-                            link="/careers/locations/asuncion"
-                        />
-                        <MapPin
-                            left="50%"
-                            top="39.5%"
-                            title={localize('Malta')}
-                            link="/careers/locations/malta"
-                        />
-                        <MapPin
-                            left="55%"
-                            top="40%"
-                            title={localize('Cyprus')}
-                            link="/careers/locations/cyprus"
-                        />
-                        <MapPin
-                            left="54%"
-                            top="61.5%"
-                            title={localize('Rwanda')}
-                            link="/careers/locations/rwanda"
-                        />
-                        <MapPin
-                            left="54%"
-                            top="27.5%"
-                            title={localize('Belarus')}
-                            link="/careers/locations/minsk"
-                        />
-                        <MapPin
-                            left="61.5%"
-                            top="45.9%"
-                            title={localize('Dubai')}
-                            link="/careers/locations/dubai"
-                        />
-                        <MapPin
-                            left="73.3%"
-                            top="57.5%"
-                            title={localize('Ipoh')}
-                            link="/careers/locations/ipoh"
-                        />
-                        <MapPin
-                            left="74.2%"
-                            top="58.5%"
-                            title={localize('Cyberjaya')}
-                            link="/careers/locations/cyberjaya"
-                        />
-                        <MapPin
-                            left="74.2%"
-                            top="60.6%"
-                            title={localize('Melaka')}
-                            link="/careers/locations/melaka"
-                        />
-                        <MapPin
-                            left="77.2%"
-                            top="58.7%"
-                            title={localize('Labuan')}
-                            link="/careers/locations/labuan"
-                        />
-                        <MapPin
-                            left="45.8%"
-                            top="28%"
-                            title={localize('London')}
-                            link="/careers/locations/london"
-                        />
-                        <MapPin
-                            left="47.4%"
-                            top="30.9%"
-                            title={localize('Paris')}
-                            link="/careers/locations/paris"
-                        />
-                        <MapPin
-                            left="44.5%"
-                            top="30.9%"
-                            title={localize('Guernsey')}
-                            link="/careers/locations/guernsey"
-                        />
+                        {desktop_pins.map((pin) => (
+                            <MapPin
+                                key={pin.title}
+                                left={pin.left}
+                                top={pin.top}
+                                title={pin.title}
+                                link={pin.link}
+                            />
+                        ))}
                     </MapImage>
                 </Show.Desktop>
                 <Show.Mobile min_width="tabletL">
                     <MapImage data={data['earth_mobile']}>
-                        <MapPin
-                            left="28.5%"
-                            top="71%"
-                            title="Paraguay"
-                            link="/careers/locations/asuncion"
-                        />
-                        <MapPin
-                            left="48.5%"
-                            top="35.5%"
-                            title={localize('Malta')}
-                            link="/careers/locations/malta"
-                        />
-                        <MapPin
-                            left="53.5%"
-                            top="36%"
-                            title={localize('Cyprus')}
-                            link="/careers/locations/cyprus"
-                        />
-                        <MapPin
-                            left="52.5%"
-                            top="57.5%"
-                            title={localize('Rwanda')}
-                            link="/careers/locations/rwanda"
-                        />
-                        <MapPin
-                            left="52.5%"
-                            top="23.5%"
-                            title={localize('Belarus')}
-                            link="/careers/locations/minsk"
-                        />
-                        <MapPin
-                            left="60%"
-                            top="41.9%"
-                            title={localize('Dubai')}
-                            link="/careers/locations/dubai"
-                        />
-                        <MapPin
-                            left="72.3%"
-                            top="51.2%"
-                            title={localize('Ipoh')}
-                            link="/careers/locations/ipoh"
-                        />
-                        <MapPin
-                            left="71%"
-                            top="55%"
-                            title={localize('Cyberjaya')}
-                            link="/careers/locations/cyberjaya"
-                        />
-                        <MapPin
-                            left="73%"
-                            top="56.7%"
-                            title={localize('Melaka')}
-                            link="/careers/locations/melaka"
-                        />
-                        <MapPin
-                            left="76%"
-                            top="54.7%"
-                            title={localize('Labuan')}
-                            link="/careers/locations/labuan"
-                        />
-                        <MapPin
-                            left="44.3%"
-                            top="24%"
-                            title={localize('London')}
-                            link="/careers/locations/london"
-                        />
-                        <MapPin
-                            left="45.9%"
-                            top="26.9%"
-                            title={localize('Paris')}
-                            link="/careers/locations/paris"
-                        />
-                        <MapPin
-                            left="43%"
-                            top="26.9%"
-                            title={localize('Guernsey')}
-                            link="/careers/locations/guernsey"
-                        />
+                        {mobile_pins.map((pin) => (
+                            <MapPin
+                                key={pin.title}
+                                left={pin.left}
+                                top={pin.top}
+                                title={pin.title}
+                                link={pin.link}
+                            />
+                        ))}
                     </MapImage>
                 </Show.Mobile>
             </Flex>

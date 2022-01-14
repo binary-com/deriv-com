@@ -110,7 +110,7 @@ module.exports = {
                     const links = languages.map((locale) => {
                         if (locale !== 'ach' && locale) {
                             const replaced_locale = locale.replace('_', '-')
-                            const is_default = locale === 'en' || locale === 'x-default'
+                            const is_default = ['en', 'x-default'].includes(locale)
                             const href_locale = is_default ? '' : `/${replaced_locale}`
                             const href = `${site_url}/${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }

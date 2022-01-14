@@ -97,4 +97,4 @@ const Subscription = () => {
     )
 }
 
-export default Subscription
+export default WithIntl()(Subscription)

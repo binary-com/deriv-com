@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
@@ -39,9 +39,12 @@ const ParentWrapper = styled(Flex)`
 `
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
-    box-shadow: 0 5px 10px rgba(14, 14, 14, 0.1);
+    box-shadow: ${(props) =>
+        props.hide_box_shadow && props.background
+            ? 'inset 0 -1px 0 rgba(14, 14, 14, 0.1)'
+            : '0 5px 10px rgba(14, 14, 14, 0.1)'};
     position: fixed;
-    z-index: 70;
+    z-index: 4;
     height: 7.2rem;
     top: ${(props) => (props.background ? '0' : '72px')};
 
@@ -60,10 +63,24 @@ const LogoWrapper = styled.img`
 `
 const TopicSectionWrapper = styled(Flex)`
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+`
+export const fadeKeyframes = css`
+    animation: fade 0.4s ease-in-out;
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 `
 const TopicParent = styled(Flex)`
     display: ${(props) => (props.modal ? 'flex' : 'none')};
+    z-index: ${(props) => (props.modal ? '100' : 'unset')};
     position: relative;
+    ${(props) => props.modal && fadeKeyframes}
 `
 const TopicWrapper = styled(Flex)`
     position: absolute;
@@ -72,7 +89,7 @@ const TopicWrapper = styled(Flex)`
     flex-wrap: wrap;
     height: auto;
     align-items: flex-start;
-    z-index: 5;
+    z-index: 100;
     background: var(--color-white);
     padding: 32px 0;
 
@@ -337,6 +354,18 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [video_tags, blog_tags] = useAcademyTags()
     const [modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
+    const [blog_post_url, setBlogPostURL] = useState(false)
+
+    useEffect(() => {
+        const currentLocation = window.location.pathname.split('/').slice(0, 4).join('/') + '/'
+        if (currentLocation == '/academy/blog/posts/') {
+            setBlogPostURL(true)
+        }
+    }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = modal_opened ? 'hidden' : 'unset'
+    }, [modal_opened])
 
     const openModal = () => {
         setModal(!modal_opened)
@@ -366,7 +395,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
 
     return (
         <ParentWrapper overlay={modal_opened}>
-            <MainWrapper fd="column" background={hidden}>
+            <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
                 <Container height="7.2rem">
                     <Flex ai="center" jc="space-between">
                         <Link to="/academy">

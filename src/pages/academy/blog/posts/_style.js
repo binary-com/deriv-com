@@ -38,7 +38,7 @@ export const StickyBreadCrumbsWrapper = styled(Flex)`
     background: ${(props) => (props.scroll ? 'var(--color-white)' : 'var(--color-grey-8)')};
     position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
     top: ${(props) => (props.scroll ? '70px' : 'unset')};
-    z-index: 71;
+    z-index: ${(props) => (props.scroll ? '1' : 'unset')};
     height: auto;
     border-top: 1px solid var(--color-grey-8);
 

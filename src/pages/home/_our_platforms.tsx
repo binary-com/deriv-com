@@ -61,7 +61,7 @@ const platforms: Platform[] = [
     {
         title: 'Deriv X',
         icon: DerivXIcon,
-        description: localize('The multi-asset trading platform to fit your style.'),
+        description: localize('The CFD trading platform to fit your style.'),
         learn_more_link: '/derivx/',
         download_links: {
             Browser: derivx_app_url,
@@ -204,24 +204,28 @@ const PlatformImageWrapper = styled.div`
         align-self: center;
         justify-content: center;
         align-items: center;
+
         img {
             max-height: 380px;
         }
     }
     @media ${device.tabletS} {
         height: 280px;
+
         img {
             max-height: 280px;
         }
     }
     @media ${device.mobileL} {
         height: 240px;
+
         img {
             max-height: 240px;
         }
     }
     @media ${device.mobileM} {
         height: 180px;
+
         img {
             max-height: 180px;
         }

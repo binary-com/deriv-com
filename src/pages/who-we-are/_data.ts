@@ -96,6 +96,7 @@ export type MapPinType = {
     title: string
     link: string
 }
+
 export const desktop_pins: MapPinType[] = [
     { left: '30%', top: '75%', title: localize('Paraguay'), link: '/careers/locations/asuncion' },
     { left: '50%', top: '39.5%', title: localize('Malta'), link: '/careers/locations/malta' },

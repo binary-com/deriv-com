@@ -105,10 +105,10 @@ const query = graphql`
         how_you_want: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
             ...fadeIn
         }
-        stocks_zero_fees: file(relativePath: { eq: "stocks-zero-fees.png" }) {
+        stocks_zero_fees: file(relativePath: { eq: "stock-indices/stocks-zero-fees.png" }) {
             ...fadeIn
         }
-        stocks_blue_chip: file(relativePath: { eq: "stocks-blue-chip.png" }) {
+        stocks_blue_chip: file(relativePath: { eq: "stock-indices/stocks-blue-chip.png" }) {
             ...fadeIn
         }
         bespoke: file(relativePath: { eq: "deriv-x/bespoke.png" }) {

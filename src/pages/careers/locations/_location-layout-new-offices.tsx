@@ -38,7 +38,7 @@ const SecondStyledHeader = styled(Header)`
 `
 const StyledLinkButton = styled(LinkButton)`
     padding: 15px 24px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 20px;
     line-height: 30px;
     @media ${device.tablet} {

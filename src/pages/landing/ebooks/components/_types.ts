@@ -1,4 +1,4 @@
-import { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 
 export type HeaderAndHeroProps = {
     authorDesc: string

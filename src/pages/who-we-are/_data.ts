@@ -99,24 +99,9 @@ export type MapPinType = {
 export const desktop_pins: MapPinType[] = [
     { left: '30%', top: '75%', title: localize('Paraguay'), link: '/careers/locations/asuncion' },
     { left: '50%', top: '39.5%', title: localize('Malta'), link: '/careers/locations/malta' },
-    {
-        left: '55%',
-        top: '40%',
-        title: localize('Cyprus'),
-        link: '/careers/locations/cyprus',
-    },
-    {
-        left: '54%',
-        top: '61.5%',
-        title: localize('Rwanda'),
-        link: '/careers/locations/rwanda',
-    },
-    {
-        left: '54%',
-        top: '27.5%',
-        title: localize('Belarus'),
-        link: '/careers/locations/minsk',
-    },
+    { left: '55%', top: '40%', title: localize('Cyprus'), link: '/careers/locations/cyprus' },
+    { left: '54%', top: '61.5%', title: localize('Rwanda'), link: '/careers/locations/rwanda' },
+    { left: '54%', top: '27.5%', title: localize('Belarus'), link: '/careers/locations/minsk' },
     {
         left: '61.5%',
         top: '45.9%',

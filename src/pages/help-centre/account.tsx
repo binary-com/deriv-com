@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Article } from './_article'
+import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
@@ -22,7 +22,7 @@ const StyledLink = styled(ExternalLink)`
     }
 `
 
-const WhoCanOpenAnAccount = () => (
+const WhoCanOpenAnAccount = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>
         <Text>
@@ -43,7 +43,7 @@ const WhoCanOpenAnAccount = () => (
     </ArticleWrapper>
 )
 
-const ChangingPersonalDetails = () => (
+const ChangingPersonalDetails = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
         <Text>
@@ -70,7 +70,7 @@ const ChangingPersonalDetails = () => (
     </ArticleWrapper>
 )
 
-const ChangeAccountCurrency = () => (
+const ChangeAccountCurrency = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize("How can I change my account's currency?")}</StyledHeader>
         <Text>
@@ -81,7 +81,7 @@ const ChangeAccountCurrency = () => (
     </ArticleWrapper>
 )
 
-const RecoveringPassword = () => (
+const RecoveringPassword = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
@@ -106,7 +106,7 @@ const RecoveringPassword = () => (
     </ArticleWrapper>
 )
 
-const CloseAccount = () => (
+const CloseAccount = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
         <Text>
@@ -132,7 +132,7 @@ const CloseAccount = () => (
     </ArticleWrapper>
 )
 
-const UnsubscribeEmail = () => (
+const UnsubscribeEmail = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How do I unsubscribe from marketing emails?')}
@@ -156,7 +156,7 @@ const UnsubscribeEmail = () => (
     </ArticleWrapper>
 )
 
-const DormantFee = () => (
+const DormantFee = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>
         <Text>

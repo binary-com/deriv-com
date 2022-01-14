@@ -38,9 +38,6 @@ const query = graphql`
         jeyavarthini_vairakanan: file(relativePath: { eq: "leaders/jeyavarthini-vairakanan.png" }) {
             ...fadeIn
         }
-        arun_venkataraman: file(relativePath: { eq: "leaders/arun-venkataraman.png" }) {
-            ...fadeIn
-        }
         rakshit_choudhary_mobile: file(
             relativePath: { eq: "leaders/rakshit-choudhary-mobile.png" }
         ) {
@@ -72,11 +69,6 @@ const query = graphql`
         }
         jeyavarthini_vairakanan_mobile: file(
             relativePath: { eq: "leaders/jeyavarthini-vairakanan-mobile.png" }
-        ) {
-            ...fadeIn
-        }
-        arun_venkataraman_mobile: file(
-            relativePath: { eq: "leaders/arun-venkataraman-mobile.png" }
         ) {
             ...fadeIn
         }
@@ -178,15 +170,6 @@ const leaders_data = [
         ),
         image: 'jeyavarthini_vairakanan',
         image_alt: 'Jeyavarthini Vairakanan - CS Manager at Deriv',
-    },
-    {
-        name: 'Arun Venkataraman',
-        position: <Localize translate_text="DevOps Manager" />,
-        description: (
-            <Localize translate_text="Arun coordinates our product development teams with our operations teams. He has over 12 years of experience in the information industry and has a comprehensive perspective into his field. Arun holds a master’s degree in bioinformatics from Bharathiar University in India." />
-        ),
-        image: 'arun_venkataraman',
-        image_alt: 'Arun Venkataraman - DevOps Manager at Deriv',
     },
 ]
 const StyledSection = styled(SectionContainer)`

@@ -367,6 +367,13 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
         )
         const no_result = !has_results && !!search.length && <SearchError search={search} />
 
+        const platforms = (id, idx) => {
+            return id === 1 && idx == 0 && <Platforms>Platforms</Platforms>
+        }
+        const headerPlatforms = (id, idx) => {
+            return id === 1 && idx !== 0 && <HeaderPlatforms />
+        }
+
         return (
             <Layout>
                 <SEO
@@ -425,10 +432,8 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
 
                                         return (
                                             <ArticleDiv key={idx}>
-                                                {id === 1 && idx == 0 && (
-                                                    <Platforms>Platforms</Platforms>
-                                                )}
-                                                {id === 1 && idx !== 0 && <HeaderPlatforms />}
+                                                {platforms(id, idx)}
+                                                {headerPlatforms(id, idx)}
 
                                                 <ListWrapper>
                                                     <StyledHeader type="section-title">

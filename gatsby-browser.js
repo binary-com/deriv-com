@@ -180,7 +180,7 @@ export const onRouteUpdate = () => {
                 userId: client_information.user_id,
             }),
         })
-    }, 50)
+    }, 1500)
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

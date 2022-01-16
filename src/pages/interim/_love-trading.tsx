@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import CtaBinary from './_cta-binary'
 import { Container, Flex, Box } from 'components/containers'
@@ -10,7 +9,12 @@ import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
 
-const Section = styled(Box)`
+type SectionProps = {
+    image: string
+    mobile_image: string
+}
+
+const Section = styled(Box)<SectionProps>`
     width: 100%;
     height: 350px;
     background-image: url(${(props) => props.image || Platform});
@@ -104,7 +108,16 @@ const StyledLeftContainer = styled(Flex)`
     }
 `
 
-const LeftCTASection = ({ params }) => {
+type LeftCTASectionProps = {
+    header: React.ReactElement | string
+    button_url?: string
+    button_text?: React.ReactElement | string
+    hide_cta?: boolean
+    cta_props?: { is_white?: boolean }
+    custom_content?: React.ReactElement
+}
+
+const LeftCTASection = (params: LeftCTASectionProps) => {
     const { button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <>
@@ -119,11 +132,11 @@ const LeftCTASection = ({ params }) => {
     )
 }
 
-LeftCTASection.propTypes = {
-    params: PropTypes.object,
+type RightCTASectionProps = LeftCTASectionProps & {
+    button_props?: any
 }
 
-const RightCTASection = ({ params }) => {
+const RightCTASection = (params: RightCTASectionProps) => {
     const { button_props, button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <Flex width="auto" fd="column" ai="center" ml="0" max_width="38.4rem">
@@ -145,34 +158,36 @@ const RightCTASection = ({ params }) => {
     )
 }
 
-RightCTASection.propTypes = {
-    params: PropTypes.object,
+type LoveTradingComponentProps = {
+    left: LeftCTASectionProps
+    right: RightCTASectionProps
+    bg_image?: string
+    bg_image_mobile?: string
+    image: string
 }
 
-export const LoveTradingComponent = ({ bg_image, bg_image_mobile, image, left, right }) => {
+export const LoveTradingComponent = ({
+    bg_image,
+    bg_image_mobile,
+    image,
+    left,
+    right,
+}: LoveTradingComponentProps) => {
     const data = useStaticQuery(query)
     return (
         <Section p="3.2rem 0" image={bg_image} mobile_image={bg_image_mobile}>
             <AbsoluteWrapper>
-                <QueryImage data={data[image]} width="54rem" />
+                <QueryImage data={data[image]} width="54rem" alt="Love trading" />
             </AbsoluteWrapper>
             <Responsive jc="space-between" position="relative">
                 <StyledLeftContainer fd="column" ai="center" max_width="28.2rem">
-                    {left.custom_content || <LeftCTASection params={left} />}
+                    {left.custom_content || <LeftCTASection {...left} />}
                 </StyledLeftContainer>
                 <MobileWrapper>
-                    <QueryImage data={data[image]} width="30rem" />
+                    <QueryImage data={data[image]} width="30rem" alt="Love trading" />
                 </MobileWrapper>
-                {right.custom_content || <RightCTASection params={right} />}
+                {right.custom_content || <RightCTASection {...right} />}
             </Responsive>
         </Section>
     )
-}
-
-LoveTradingComponent.propTypes = {
-    bg_image: PropTypes.object,
-    bg_image_mobile: PropTypes.object,
-    image: PropTypes.string,
-    left: PropTypes.object,
-    right: PropTypes.object,
 }

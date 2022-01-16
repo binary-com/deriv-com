@@ -5,8 +5,6 @@ import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements
 import { SectionContainer, Container, Flex, Box, Show } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-// import { map_api_key } from 'common/utility'
-// SVG
 import Malta from 'images/svg/contact/malta.svg'
 import Dubai from 'images/svg/contact/dubai.svg'
 import Paraguay from 'images/svg/contact/paraguay.svg'
@@ -14,6 +12,12 @@ import Malaysia from 'images/svg/contact/malaysia.svg'
 import Cyprus from 'images/svg/contact/cyprus.svg'
 import Rwanda from 'images/svg/contact/rwanda.svg'
 import Belarus from 'images/svg/contact/belarus.svg'
+
+type GridLayoutProps = {
+    children?: React.ReactNode | React.ReactChild
+    row_gap?: string
+    mt?: string
+}
 
 const query = graphql`
     query {
@@ -55,7 +59,7 @@ const Content = styled.div`
     width: 100%;
 `
 
-const GridLayout = styled.div`
+const GridLayout = styled.div<GridLayoutProps>`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.4rem;

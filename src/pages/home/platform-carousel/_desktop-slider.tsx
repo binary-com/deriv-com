@@ -8,8 +8,12 @@ import { Header } from 'components/elements'
 
 const SliderViewport = styled(Flex)`
     overflow: hidden;
-    height: 100%;
+    max-height: 500px;
     user-select: none;
+
+    @media (min-width: 1440px) {
+        max-height: 90%;
+    }
 `
 
 const SelectedCard = styled(Flex)`
@@ -30,32 +34,30 @@ const UnSelectedCard = styled(Flex)`
 `
 
 type WheelSliderProps = {
-    selected_slide: number
-    onSelectSlide: Dispatch<SetStateAction<number>>
+    selected_slide: string
+    onSelectSlide: Dispatch<SetStateAction<string>>
 }
 
 const PlatformSlider = ({ selected_slide, onSelectSlide }: WheelSliderProps) => {
     const [viewportRef, embla] = useEmblaCarousel({
         loop: true,
         axis: 'y',
-        align: 'center',
-        draggable: true,
-        skipSnaps: false,
+        align: 'start',
     })
 
-    const clickHandler = (index: number) => {
-        embla.scrollTo(index + 1)
-        setTimeout(() => onSelectSlide(index), 500)
+    const clickHandler = (index: number, title: string) => {
+        embla.scrollTo(index - 2)
+        setTimeout(() => onSelectSlide(title), 500)
     }
 
     return (
         <Box position="relative" width="40%" m="0 2.4rem 0 12rem">
             <Flex position="relative" m="0 auto">
                 <SliderViewport ref={viewportRef} position="relative">
-                    <Flex fd="column">
+                    <Flex jc="start" fd="column">
                         {platform_details.map(
                             ({ title, icon, description, learn_more_link }, index) => {
-                                if (selected_slide === index) {
+                                if (selected_slide === title) {
                                     return (
                                         <SelectedCard
                                             key={index}
@@ -87,7 +89,7 @@ const PlatformSlider = ({ selected_slide, onSelectSlide }: WheelSliderProps) => 
                                             position="relative"
                                             height="fit-content"
                                             p="16px"
-                                            onClick={() => clickHandler(index)}
+                                            onClick={() => clickHandler(index, title)}
                                         >
                                             <PlatformIcon
                                                 width="40px"

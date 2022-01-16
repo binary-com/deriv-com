@@ -4,7 +4,7 @@ import Slider from './_desktop-slider'
 import { Flex } from 'components/containers'
 
 const DesktopPlatformCarousel = () => {
-    const [selected_slide, setSelectedSlide] = useState(3)
+    const [selected_slide, setSelectedSlide] = useState('Deriv X')
 
     return (
         <Flex ai="start" jc="center">

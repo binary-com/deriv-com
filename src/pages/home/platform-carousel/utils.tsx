@@ -114,6 +114,7 @@ export const platform_details = [
     {
         title: 'Deriv MT5',
         icon: DMT5Icon,
+        image_key: 'platforms_mt5',
         description: localize('The all-in-one CFD trading platform.'),
         learn_more_link: '/dmt5/',
         download_links: [
@@ -126,6 +127,7 @@ export const platform_details = [
     {
         title: 'DTrader',
         icon: DTraderIcon,
+        image_key: 'platforms_dtrader',
         description: localize('Our flagship app for trading options and multipliers.'),
         learn_more_link: '/dtrader/',
         download_links: [{ type: 'browser', url: deriv_app_url }],
@@ -133,6 +135,7 @@ export const platform_details = [
     {
         title: 'Deriv X',
         icon: DerivXIcon,
+        image_key: 'platforms_derivx',
         description: localize('The CFD trading platform to fit your style.'),
         learn_more_link: '/derivx/',
         download_links: [
@@ -144,6 +147,7 @@ export const platform_details = [
     {
         title: 'DBot',
         icon: DBotIcon,
+        image_key: 'platforms_dbot',
         description: localize('Automate your trading. No coding required.'),
         learn_more_link: '/dbot/',
         download_links: [
@@ -155,6 +159,7 @@ export const platform_details = [
     {
         title: 'Deriv GO',
         icon: DerivGOIcon,
+        image_key: 'platforms_deriv_go',
         description: localize('Our best trading experience on your mobile.'),
         learn_more_link: '/landing/deriv-go/',
         download_links: [
@@ -165,6 +170,7 @@ export const platform_details = [
     {
         title: 'SmartTrader',
         icon: SmartTraderIcon,
+        image_key: 'platforms_smarttrader',
         description: localize('Our legacy options trading platform.'),
         learn_more_link: smarttrader_url,
         download_links: [{ type: 'browser', url: smarttrader_url }],
@@ -172,6 +178,7 @@ export const platform_details = [
     {
         title: 'Binary Bot',
         icon: BinaryBotIcon,
+        image_key: 'platforms_binary_bot',
         description: localize('Our classic bot builder and automated trading platform.'),
         learn_more_link: 'https://bot.deriv.com/',
         download_links: [{ type: 'browser', url: 'https://bot.deriv.com/' }],
@@ -179,6 +186,7 @@ export const platform_details = [
     {
         title: 'API',
         icon: APIIcon,
+        image_key: 'platforms_api',
         description: localize('Build your own apps with our API.'),
         learn_more_link: deriv_api_url,
         download_links: [{ type: 'browser', url: deriv_api_url }],

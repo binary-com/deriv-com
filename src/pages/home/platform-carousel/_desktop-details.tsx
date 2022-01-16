@@ -10,7 +10,7 @@ const DownloadLink = styled(StyledLink)`
 `
 
 type DetailsProps = {
-    slide: number
+    slide: string
 }
 
 const image_query = graphql`
@@ -44,16 +44,15 @@ const image_query = graphql`
 
 const Details = ({ slide }: DetailsProps) => {
     const images = useStaticQuery(image_query)
-    const image_keys = Object.keys(images)
-    const selected_image = images[image_keys[slide]]
+    const selected_platform = platform_details.find((p) => p.title === slide)
 
     return (
         <Flex width="60%" fd="column" ai="center" jc="end">
             <Flex>
-                <QueryImage height="100%" data={selected_image} alt="test" />
+                <QueryImage height="100%" data={images[selected_platform.image_key]} alt="test" />
             </Flex>
             <Flex>
-                {platform_details[slide].download_links.map((link, index) => {
+                {selected_platform.download_links.map((link, index) => {
                     return (
                         <DownloadLink
                             key={index}

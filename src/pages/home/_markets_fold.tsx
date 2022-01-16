@@ -31,12 +31,17 @@ const CarouselItemContainer = styled(Flex)`
     border-radius: 8px;
     color: white;
     overflow: hidden;
+    padding: 32px 32px 0;
     background: linear-gradient(
         233.94deg,
         ${(props) => props.gradient_start} 2.4%,
         ${(props) => props.gradient_end} 81.78%
     );
     z-index: 1;
+
+    @media (min-width: 1440px) {
+        padding: 1.6rem 1.6rem 0;
+    }
 `
 
 const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
@@ -171,7 +176,6 @@ const CarouselItem = ({
                     width="282px"
                     gradient_start={gradient_start}
                     gradient_end={gradient_end}
-                    p="32px 32px 0"
                 >
                     <Header color="white" type="subtitle-1" mb="8px">
                         {header}

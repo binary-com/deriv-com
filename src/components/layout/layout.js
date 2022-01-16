@@ -147,7 +147,11 @@ const Layout = ({
                 (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
             if (allow_tracking) {
-                setGTMData({ event: 'allow_tracking' })
+                window.onload = () => {
+                    window.setTimeout(() => {
+                        setGTMData({ event: 'allow_tracking' })
+                    }, 2000)
+                }
             }
             setMounted(true)
         }

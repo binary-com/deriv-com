@@ -52,3 +52,11 @@ Mobile.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     min_width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
+
+Eu.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}
+
+NonEU.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}

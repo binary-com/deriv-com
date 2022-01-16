@@ -71,7 +71,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('BinaryBot')}
+                                {localize('Binary Bot')}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>

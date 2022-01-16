@@ -1,5 +1,5 @@
 import React from 'react'
-import { Article } from './_article'
+import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
@@ -7,7 +7,7 @@ import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { DerivStore } from 'store'
 
-const WhatIsDMT5 = () => (
+const WhatIsDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is DMT5?')}</StyledHeader>
         <Text>
@@ -18,7 +18,7 @@ const WhatIsDMT5 = () => (
     </ArticleWrapper>
 )
 
-const DifferenceDMT5DTrader = () => (
+const DifferenceDMT5DTrader = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('What are the major differences between DTrader and DMT5?')}
@@ -36,7 +36,7 @@ const DifferenceDMT5DTrader = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts = () => {
+const DifferentAccounts = ({ text, label, is_mounted }: ArticleProps) => {
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">
@@ -65,7 +65,7 @@ const DifferentAccounts = () => {
     )
 }
 
-const WhatIsCFDsAccount = () => {
+const WhatIsCFDsAccount = ({ text, label, is_mounted }: ArticleProps) => {
     return (
         <ArticleWrapper>
             <StyledHeader as="h4">{localize('What is the CFDs account?')}</StyledHeader>
@@ -80,7 +80,7 @@ const WhatIsCFDsAccount = () => {
     )
 }
 
-const DepositDMT5 = () => (
+const DepositDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How can I deposit funds into my DMT5 real money account?')}
@@ -108,7 +108,7 @@ const DepositDMT5 = () => (
     </ArticleWrapper>
 )
 
-const WithdrawDMT5 = () => (
+const WithdrawDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('How can I withdraw funds from my DMT5 real money account?')}
@@ -136,7 +136,7 @@ const WithdrawDMT5 = () => (
     </ArticleWrapper>
 )
 
-const LoginCredentials = () => (
+const LoginCredentials = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize('Why are my DMT5 login details different from my Deriv login details?')}
@@ -149,7 +149,7 @@ const LoginCredentials = () => (
     </ArticleWrapper>
 )
 
-const ResetDMT5Password = () => (
+const ResetDMT5Password = ({ text, label, is_mounted }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I reset my DMT5 account password?')}</StyledHeader>
         <Text>

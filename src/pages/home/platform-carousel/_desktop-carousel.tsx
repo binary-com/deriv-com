@@ -7,7 +7,7 @@ const DesktopPlatformCarousel = () => {
     const [selected_slide, setSelectedSlide] = useState(3)
 
     return (
-        <Flex ai="start" jc="center" min_height="658px">
+        <Flex ai="start" jc="center">
             <Slider selected_slide={selected_slide} onSelectSlide={setSelectedSlide} />
             <Details slide={selected_slide} />
         </Flex>

@@ -165,6 +165,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                         <Flex
                             m="0 auto"
                             min_height="500px"
+                            ai="center"
                             jc="center"
                             tabletL={{ mt: '0', width: 'unset', min_height: '340px', p: '0 39px' }}
                         >

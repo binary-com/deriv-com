@@ -1,6 +1,6 @@
 import React from 'react'
 import type { CSSProperties } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import type { EmblaCarouselType } from 'embla-carousel-react'
 import {
     deriv_api_url,
@@ -17,7 +17,6 @@ import {
     dmt5_macos_url,
     smarttrader_url,
 } from 'common/constants'
-import { Flex } from 'components/containers'
 import { Header, StyledLink } from 'components/elements'
 import { localize } from 'components/localization'
 // SVG Icons
@@ -213,7 +212,7 @@ export const PlatformContent = ({
                 type={is_from_slider ? 'subtitle-2' : 'paragraph-1'}
                 weight="normal"
                 mb="16px"
-                max_width={is_from_slider ? '288px' : ''}
+                laptopL={{ max_width: is_from_slider ? '288px' : '' }}
             >
                 {description}
             </Header>

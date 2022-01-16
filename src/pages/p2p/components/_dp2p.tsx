@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
@@ -7,14 +7,14 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
 type DP2PProps = {
-    P2P: P2PProps[]
+    P2P: P2PType[]
     reverse: boolean
 }
 
-type P2PProps = {
-    title: React.ReactElement
-    subtitle: React.ReactElement
-    subtitle_mobile: React.ReactElement
+type P2PType = {
+    title: ReactElement
+    subtitle: ReactElement
+    subtitle_mobile: ReactElement
     image_name: string
     image_alt: string
 }

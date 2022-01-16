@@ -138,7 +138,7 @@ const Hero = () => {
                         {localize('Ride the trends even on weekends')}
                     </StyledHeader>
                     <HeroContent direction="column" justify="flex-start">
-                        <Header type="subtitle-1">
+                        <Header as="h2" type="subtitle-1">
                             {
                                 <Localize translate_text="Trade even when most financial markets are closed" />
                             }

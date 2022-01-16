@@ -94,16 +94,18 @@ const query = graphql`
     }
 `
 
+type P2PType = {
+    title: React.ReactElement
+    subtitle1: React.ReactElement
+    subtitle2: React.ReactElement
+    subtitle_mobile1: React.ReactElement
+    subtitle_mobile2: React.ReactElement
+    image_name: string
+    image_alt: string
+}
+
 type ImageTextSwitchingProps = {
-    P2P: {
-        title: React.ReactElement
-        subtitle1: React.ReactElement
-        subtitle2: React.ReactElement
-        subtitle_mobile1: React.ReactElement
-        subtitle_mobile2: React.ReactElement
-        image_name: string
-        image_alt: string
-    }[]
+    P2P: P2PType[]
     reverse: boolean
 }
 

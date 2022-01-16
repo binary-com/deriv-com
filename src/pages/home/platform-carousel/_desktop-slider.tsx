@@ -60,7 +60,7 @@ const PlatformSlider = ({ selected_slide, onSelectSlide }: WheelSliderProps) => 
                                 if (selected_slide === title) {
                                     return (
                                         <SelectedCard
-                                            key={index}
+                                            key={`${title}${index}`}
                                             position="relative"
                                             width="fit-content"
                                             height="199px"
@@ -86,6 +86,7 @@ const PlatformSlider = ({ selected_slide, onSelectSlide }: WheelSliderProps) => 
                                 } else {
                                     return (
                                         <UnSelectedCard
+                                            key={`${title}${index}`}
                                             position="relative"
                                             height="fit-content"
                                             p="16px"

@@ -122,16 +122,18 @@ const MobilePlatformCarousel = () => {
                 const image_key = Object.keys(images)[index]
 
                 return (
-                    <CarouselItemWrapper key={index}>
+                    <CarouselItemWrapper key={platform.description}>
                         <Flex tabletL={{ mb: '56px' }}>
                             <MobileImage data={images[image_key]} alt={image_key} />
                         </Flex>
-                        <PlatformDetails
-                            title={platform.title}
-                            icon={platform.icon}
-                            description={platform.description}
-                            learn_more_link={platform.learn_more_link}
-                        />
+                        <Flex>
+                            <PlatformDetails
+                                title={platform.title}
+                                icon={platform.icon}
+                                description={platform.description}
+                                learn_more_link={platform.learn_more_link}
+                            />
+                        </Flex>
                         <Flex
                             ai="flex-start"
                             jc="center"
@@ -142,7 +144,7 @@ const MobilePlatformCarousel = () => {
                         >
                             {platform.download_links.map((link) => (
                                 <DownloadLink
-                                    key={index}
+                                    key={link.url}
                                     to={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"

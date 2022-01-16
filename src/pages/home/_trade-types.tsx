@@ -86,6 +86,7 @@ const DesktopWrapper = styled(Flex)`
 
 const MobileWrapper = styled(Flex)`
     display: none;
+
     @media ${device.tablet} {
         display: flex;
     }
@@ -94,7 +95,7 @@ const MobileWrapper = styled(Flex)`
 const ItemsWrapper = styled(Flex)<{ $visibility }>`
     box-shadow: ${(props) =>
         props.$visibility
-            ? '0px 0px 24px rgba(0, 0, 0, 0.08), 0px 24px 24px rgba(0, 0, 0, 0.08)'
+            ? '0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08)'
             : 'inset 0 0 0 1px var(--color-grey-17)'};
     padding: ${(props) => (props.$visibility ? '24px 12px 50px' : '24px 12px 32px')};
     height: auto;
@@ -108,8 +109,8 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
     align-items: flex-start;
 
     :hover {
-        -webkit-backface-visibility: hidden;
-        -webkit-transform: translateZ(0) scale(1, 1);
+        visibility: hidden;
+        transform: translateZ(0) scale(1, 1);
     }
 
     @media ${device.tablet} {
@@ -117,6 +118,7 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
         padding: 24px 32px 68px;
         margin-bottom: 36px;
     }
+
     @media ${device.mobileS} {
         padding: 12px;
         height: 424px;
@@ -126,6 +128,7 @@ const ImageWrapper = styled(Flex)`
     width: 360px;
     height: 332px;
     margin-bottom: 24px;
+
     @media ${device.tablet} {
         width: 100%;
         height: auto;
@@ -158,8 +161,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    filter: drop-shadow(0px 0px 24px rgba(0, 0, 0, 0.08))
-        drop-shadow(0px 24px 24px rgba(0, 0, 0, 0.08));
+    filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.08)) drop-shadow(0 24px 24px rgba(0, 0, 0, 0.08));
 
     ${Text} {
         font-weight: bold;
@@ -168,6 +170,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
 
     @media ${device.tablet} {
         opacity: 1;
+
         ${Text} {
             font-size: 14px;
             line-height: 20px;
@@ -256,9 +259,9 @@ const TradeTypes = (): React.ReactNode => {
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {ItemsDetails.map((item, index) => {
+                        {ItemsDetails.map((item) => {
                             return (
-                                <Flex key={index} ai="flex-start">
+                                <Flex key={item.image_url} ai="flex-start">
                                     <TradeItems items_details={item} />
                                 </Flex>
                             )
@@ -268,9 +271,9 @@ const TradeTypes = (): React.ReactNode => {
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {ItemsDetails.map((item, index) => {
+                    {ItemsDetails.map((item) => {
                         return (
-                            <Flex key={index} ai="flex-start">
+                            <Flex key={item.link} ai="flex-start">
                                 <TradeItems items_details={item} />
                             </Flex>
                         )

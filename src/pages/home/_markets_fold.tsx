@@ -247,13 +247,13 @@ const MarketsFold = () => {
                     autoplay_interval={2000}
                     {...settings}
                 >
-                    {market_data.map((market, index) => {
+                    {market_data.map((market) => {
                         const { header, description, img_name, gradient_start, gradient_end, to } =
                             market
 
                         return (
                             <CarouselItem
-                                key={index}
+                                key={description}
                                 header={header}
                                 description={description}
                                 is_mobile={is_mobile}

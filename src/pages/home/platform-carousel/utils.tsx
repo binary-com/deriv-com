@@ -226,6 +226,7 @@ export const PlatformContent = ({
             </Header>
             <StyledLink
                 to={learn_more_link}
+                is_external={learn_more_link.includes('https')}
                 type={is_from_slider ? 'subtitle-2' : 'paragraph-1'}
                 weight="normal"
                 mb={is_from_slider ? '16px' : '9px'}

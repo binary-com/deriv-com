@@ -270,16 +270,11 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                         <BoldText>{localize('Processing time')}</BoldText>
                                     </Th>
                                 )}
-
-                                {pd.is_dp2p ? (
-                                    <Th>
-                                        <BoldText>{localize('More info')}</BoldText>
-                                    </Th>
-                                ) : (
-                                    <Th>
-                                        <BoldText>{localize('Reference')}</BoldText>
-                                    </Th>
-                                )}
+                                <Th>
+                                    <BoldText>
+                                        {pd.is_dp2p ? localize('More info') : localize('Reference')}
+                                    </BoldText>
+                                </Th>
                                 <Th />
                             </Tr>
                         </Thead>

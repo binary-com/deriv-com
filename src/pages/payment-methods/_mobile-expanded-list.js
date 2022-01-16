@@ -86,6 +86,7 @@ const StyledRefLink = styled(Flex)`
     @media ${device.mobileL} {
         justify-content: flex-start;
     }
+
     @media ${device.tabletM} {
         width: 65%;
     }
@@ -241,11 +242,9 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {/* reference row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            {is_dp2p ? (
-                                <Header type="subtitle-2">{localize('More info')}</Header>
-                            ) : (
-                                <Header type="subtitle-2">{localize('Reference')}</Header>
-                            )}
+                            <Header type="subtitle-2">
+                                {is_dp2p ? localize('More info') : localize('Reference')}
+                            </Header>
                         </StyledItemDiv>
 
                         <StyledKeyDiv>

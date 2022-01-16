@@ -849,7 +849,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="500 USD" />,
                 withdrawal_time: <Localize translate_text="Max 2 hours" />,
                 reference_link: (
-                    <StyledRefLink to="/p2p" target="_blank" rel="noopener noreferrer">
+                    <StyledRefLink to="/p2p/" target="_blank" rel="noopener noreferrer">
                         Learn more about Deriv P2P
                     </StyledRefLink>
                 ),

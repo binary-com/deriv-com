@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
@@ -74,7 +74,7 @@ const PlatformSlideshow = () => {
     }, [])
 
     return (
-        <Flex max_height="680px" tablet={{ min_height: '280px', ai: 'center' }}>
+        <Flex max_height="680px" tablet={{ max_height: '360px', ai: 'center' }}>
             <Slides images={slide_images} active_index={active_index} />
         </Flex>
     )

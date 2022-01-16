@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
@@ -133,7 +133,7 @@ const query = graphql`
 
 type CarouselItemProps = {
     header: string
-    setAutoplay: any
+    setAutoplay: Dispatch<SetStateAction<boolean>>
     description: string
     image: ImageDataLike
     is_mobile: boolean

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Carousel, Header } from 'components/elements'
 
@@ -8,7 +7,11 @@ const StyledHeader = styled(Header)`
     line-height: 36px;
 `
 
-const VerticalCarousel = ({ contents }) => {
+type VerticalCarouselProps = {
+    contents: unknown[]
+}
+
+const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
     const settings = {
         options: {
             loop: true,
@@ -46,7 +49,4 @@ const VerticalCarousel = ({ contents }) => {
     )
 }
 
-VerticalCarousel.propTypes = {
-    contents: PropTypes.array,
-}
 export default VerticalCarousel

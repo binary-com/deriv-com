@@ -1,5 +1,5 @@
-import React, { Children, useState, useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
+import React, { Children, useState, useEffect, useRef, ReactNode } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import ArrowLeft from 'images/svg/testimonials/arrow-left.svg'
@@ -56,7 +56,12 @@ const Arrows = styled.img`
     }
 `
 
-const renderNavigations = (count, active, setActive, animate) => {
+const renderNavigations = (
+    count: number,
+    active: number,
+    setActive: Dispatch<SetStateAction<number>>,
+    animate: (action) => void,
+) => {
     const is_carousel = count > 1
     const has_prev = active !== 0
     const has_next = active < count - 1
@@ -118,7 +123,17 @@ const renderNavigations = (count, active, setActive, animate) => {
     return <React.Fragment />
 }
 
-const TestimonialCarousel = ({ children, default_active = 0, height = 'fit-content' }) => {
+type TestimonialCarouselProps = {
+    children?: ReactNode
+    default_active?: number
+    height?: string
+}
+
+const TestimonialCarousel = ({
+    children,
+    default_active = 0,
+    height = 'fit-content',
+}: TestimonialCarouselProps) => {
     const [active, setActive] = useState(default_active)
     const children_array = Children.toArray(children)
     const container_ref = useRef(null)
@@ -198,12 +213,6 @@ const TestimonialCarousel = ({ children, default_active = 0, height = 'fit-conte
             {navigations}
         </Flex>
     )
-}
-
-TestimonialCarousel.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    default_active: PropTypes.number,
-    height: PropTypes.string,
 }
 
 export default TestimonialCarousel

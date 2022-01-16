@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import VerticalCarousel from './_vertical-carousel.js'
+import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
@@ -165,6 +165,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                         <Flex
                             m="0 auto"
                             min_height="500px"
+                            jc="center"
                             tabletL={{ mt: '0', width: 'unset', min_height: '340px', p: '0 39px' }}
                         >
                             <PlatformSlideshow />

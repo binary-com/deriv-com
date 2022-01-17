@@ -9,7 +9,14 @@ import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
-const card_content = [
+type CardContentType = {
+    header: React.ReactElement
+    text: React.ReactElement
+    image: any // Sean declared content as any
+    key: number
+}
+
+const card_content: CardContentType[] = [
     {
         header: <Localize translate_text="Quick demo account sign-up" />,
         text: (

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Flex, Show, Box } from 'components/containers'
 import { Text } from 'components/elements'
@@ -7,6 +6,26 @@ import device from 'themes/device'
 import AppStore from 'images/svg/dmt5/app-store.svg'
 import GooglePlay from 'images/svg/dmt5/google-play.svg'
 import { LocalizedLink } from 'components/localization'
+
+type ContentProps = {
+    children?: React.ReactNode
+    selected?: boolean
+    is_reverse?: boolean | string
+}
+
+type TabProps = {
+    children?: React.ReactNode
+    is_reverse?: string
+    parent_tab?: ObjectConstructor | string
+    has_download_button?: boolean
+    download_links?: { ios: string; android: string }
+    props?: {
+        label?: string
+        description?: React.ReactElement
+        item_width?: string
+        mobile_item_width?: string
+    }
+}
 
 const DownloadFlex = styled(Flex)`
     @media ${device.tabletS} {
@@ -30,15 +49,15 @@ const StyledText = styled(Text)`
     }
 `
 
-const TabContent = styled.div`
+const TabContent = styled.div<TabProps>`
     width: 100%;
 `
-const Content = styled.div`
+const Content = styled.div<ContentProps>`
     flex: 1;
     opacity: ${(props) => (props.selected ? '1' : '0')};
     transition: opacity 1s ease-in;
 `
-const TabButton = styled.div`
+const TabButton = styled.div<ContentProps>`
     position: relative;
     z-index: 2;
     display: flex;
@@ -69,18 +88,18 @@ const TabButton = styled.div`
     }
 `
 
-const TabList = styled.div`
+const left = css`
+    margin-left: 2.4rem;
+`
+const right = css`
+    margin-right: 2.4rem;
+`
+
+const TabList = styled.div<ContentProps>`
     max-width: 38rem;
     display: flex;
     flex-direction: column;
-    ${(props) =>
-        props.is_reverse
-            ? css`
-                  margin-left: 2.4rem;
-              `
-            : css`
-                  margin-right: 2.4rem;
-              `}
+    ${(props) => (props.is_reverse ? left : right)}
     @media ${device.tablet} {
         max-width: 50rem;
         margin-right: unset;
@@ -110,16 +129,15 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children }) => (
-    <TabContent role="tabpanel" tabindex="0">
-        {children}
-    </TabContent>
-)
+const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-}
-const Tabs = ({ children, is_reverse, parent_tab, has_download_button, download_links }) => {
+const SideTab = ({
+    children = '',
+    is_reverse = '',
+    parent_tab = '',
+    has_download_button = false,
+    download_links = { ios: '', android: '' },
+}: TabProps) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
     const prevParentRef = React.useRef()
@@ -146,7 +164,7 @@ const Tabs = ({ children, is_reverse, parent_tab, has_download_button, download_
             </Desktop>
             <div>
                 <TabList role="tablist" is_reverse={is_reverse}>
-                    {React.Children.map(children, (child, index) => {
+                    {React.Children.map(children, (child: TabProps, index) => {
                         const {
                             props: { label, description, item_width, mobile_item_width },
                         } = child
@@ -205,14 +223,6 @@ const Tabs = ({ children, is_reverse, parent_tab, has_download_button, download_
     )
 }
 
-Tabs.Panel = TabPanel
-Tabs.propTypes = {
-    children: PropTypes.node,
-    download_links: PropTypes.object,
-    has_download_button: PropTypes.bool,
-    is_reverse: PropTypes.bool,
-    parent_tab: PropTypes.string,
-    tab_break: PropTypes.string,
-}
+SideTab.Panel = TabPanel
 
-export default Tabs
+export default SideTab

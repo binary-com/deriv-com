@@ -52,6 +52,10 @@ const Video = styled.video`
     width: 100%;
     height: 100%;
 
+    &::-webkit-media-controls {
+        display: none !important;
+    }
+
     @media ${device.tabletL} {
         transform: translate(-40%, -50%) scale(1.5);
     }

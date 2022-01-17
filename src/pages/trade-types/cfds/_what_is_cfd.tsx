@@ -3,10 +3,10 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { DerivStore } from 'store'
+import { DerivStore, DerivStoreType } from 'store'
 
 const WhatIsCFD = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
     return (
         <SectionContainer background="white" padding="8rem 0 1.2rem">
             <SmallContainer direction="column" ai="flex-start">

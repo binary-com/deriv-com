@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
-import CFDs from './_cfds.js'
-import SyntheticIndices from './_synthetic-indices.js'
-import Cryptocurrencies from './_cryptocurrencies.js'
+import CFDs from './_cfds'
+import SyntheticIndices from './_synthetic-indices'
+import Cryptocurrencies from './_cryptocurrencies'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -21,7 +21,7 @@ import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
-const AvailableTrades = Loadable(() => import('./_available-trades.js'))
+const AvailableTrades = Loadable(() => import('./_available-trades'))
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -65,7 +65,7 @@ const Row = styled(Flex)`
     }
 `
 
-const RowColumn = styled.div`
+const RowColumn = styled.div<{ isHeader?: boolean }>`
     width: 360px;
     margin-right: 40px;
 

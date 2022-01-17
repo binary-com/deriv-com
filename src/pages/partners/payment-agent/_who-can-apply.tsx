@@ -70,7 +70,13 @@ const ButtonWrapper = styled(CenteredSection)`
     display: flex;
     justify-content: center;
 `
-const section_content = [
+type SectionComponentProps = {
+    img_src: string
+    header: ReactElement
+    text: ReactElement
+}
+
+const section_content: SectionComponentProps[] = [
     {
         img_src: TradingExperts,
         header: <Localize translate_text="Currency exchangers" />,
@@ -91,11 +97,7 @@ const section_content = [
         ),
     },
 ]
-type SectionComponentProps = {
-    img_src: string
-    header: ReactElement
-    text: ReactElement
-}
+
 const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     return (
         <Wrapper>

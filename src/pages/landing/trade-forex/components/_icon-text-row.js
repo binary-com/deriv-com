@@ -109,7 +109,7 @@ const IconTextRow = () => {
             <CardContainer pr="4.7rem" pl="6.7rem">
                 <Card direction="column">
                     <Row>
-                        <img src={RightAd} alt="high leverage" width="98" />
+                        <img src={RightAd} alt="high leverage" width={98} />
                     </Row>
                     <Row>
                         <Column>
@@ -139,7 +139,7 @@ const IconTextRow = () => {
                 </Card>
                 <Card direction="column">
                     <Row>
-                        <img src={SettlePayment} alt="zero commission" width="80" />
+                        <img src={SettlePayment} alt="zero commission" width={80} />
                     </Row>
                     <Row>
                         <Column>
@@ -169,7 +169,7 @@ const IconTextRow = () => {
                 </Card>
                 <Card direction="column">
                     <Row>
-                        <img src={CompleteOrder} alt="swap free" width="109" />
+                        <img src={CompleteOrder} alt="swap free" width={109} />
                     </Row>
                     <Row>
                         <Column>

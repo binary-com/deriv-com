@@ -434,7 +434,7 @@ const NavMobile = ({
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115" />
+                    <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
                         {academy_logo ? (
@@ -792,13 +792,13 @@ export const NavStatic = ({ is_ppc }) => (
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
-                    <img src={LogoOnly} alt="logo only nav static" width="160" height="27" />
+                    <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
                     <Line />
                     <img
                         src={LogoCombinedShape}
                         alt="logo combined shape nav static"
-                        width="120"
-                        height="17"
+                        width={120}
+                        height={17}
                     />
                 </Flex>
             </LogoLink>

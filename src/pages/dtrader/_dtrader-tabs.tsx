@@ -7,6 +7,10 @@ import device from 'themes/device.js'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form'
 
+type StepCommonType = {
+    no_margin: boolean
+}
+
 const Container = styled.section`
     width: 100%;
     display: flex;
@@ -41,7 +45,8 @@ const TabsWrapper = styled.div`
         margin-top: 0;
     }
 `
-const StepCommon = css`
+
+const StepCommon = css<StepCommonType>`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
@@ -104,8 +109,9 @@ const GotoLiveWrapper = styled.div`
         margin: 4rem auto;
     }
 `
+
 class DtraderTabs extends React.Component {
-    my_ref = React.createRef()
+    my_ref = React.createRef<HTMLVideoElement>()
     interval_ref = undefined
     state = {
         current_time: 0,
@@ -143,7 +149,7 @@ class DtraderTabs extends React.Component {
         this.updatePlay()
         this.observer.observe(node)
 
-        const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+        const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window['MSStream']
 
         this.setState({ is_ios })
     }
@@ -153,7 +159,7 @@ class DtraderTabs extends React.Component {
     }
 
     updatePlay = async () => {
-        if (!this.my_ref.current.is_playing) {
+        if (!this.my_ref.current['is_playing']) {
             try {
                 await this.my_ref.current.play()
             } catch (err) {
@@ -262,7 +268,7 @@ class DtraderTabs extends React.Component {
                         controls={this.state.is_ios}
                         preload="metadata"
                         muted
-                        playsinline
+                        playsInline
                     >
                         <source src="/Dtrader_GIF.mp4" type="video/mp4" />
                         <source src="/Dtrader_GIF.webm" type="video/webm" />

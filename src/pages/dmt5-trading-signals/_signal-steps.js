@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import Tabs from '../trade-types/components/_side-tab'
+import Tabs from '../trade-types/components/_tabs'
 import { Show } from '../../components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'

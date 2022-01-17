@@ -42,6 +42,9 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <Show.NonEU>
                             <LinkWrapper>
+                                <Link to="/landing/deriv-go/">{localize('Deriv Go')}</Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
                                 <Link to="/dbot/">{localize('DBot')}</Link>
                             </LinkWrapper>
                         </Show.NonEU>

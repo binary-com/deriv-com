@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
     DisclaimerWrapper,
     DisclaimerParagraph,
@@ -8,8 +9,9 @@ import {
 } from './common/style.js'
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
+import { loss_percent } from 'common/constants.js'
 
-const DisclaimerSection = () => {
+const DisclaimerSection = ({ is_academy }) => {
     return (
         <>
             <DisclaimerWrapper>
@@ -78,6 +80,13 @@ const DisclaimerSection = () => {
                         "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong.",
                     )}
                 </DisclaimerParagraph>
+                {is_academy && (
+                    <DisclaimerParagraph>
+                        {localize(
+                            'The information contained in this academy is for educational purposes only and is not intended as financial or investment advice.',
+                        )}
+                    </DisclaimerParagraph>
+                )}
                 <RiskWarning>
                     <Show.Desktop>
                         <Show.NonEU>
@@ -100,7 +109,7 @@ const DisclaimerSection = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent: 66 }}
+                                    values={{ loss_percent }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
@@ -116,7 +125,7 @@ const DisclaimerSection = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent: 66 }}
+                                    values={{ loss_percent }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
@@ -141,6 +150,10 @@ const DisclaimerSection = () => {
             </DisclaimerWrapper>
         </>
     )
+}
+
+DisclaimerSection.propTypes = {
+    is_academy: PropTypes.bool,
 }
 
 export default DisclaimerSection

@@ -1,16 +1,16 @@
 import React from 'react'
 import { matchSorter } from 'match-sorter'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
-import { convertToHash, euArticles, getAllArticles, splitArticles } from './_utility'
+import { euArticles, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
@@ -20,14 +20,29 @@ import CrossIcon from 'images/svg/help/cross.svg'
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
+const ArticleComponent = Loadable(() => import('./_article-component'))
 
-type StyledProps = {
+export type StyledProps = {
     should_show_item?: boolean
     wrap?: string
     show?: boolean
     has_transition?: boolean
     align?: string
     direction?: string
+}
+
+type HelpCenterProps = {
+    children?: React.ReactNode
+    is_eu_country?: unknown
+    align?: string
+}
+
+type HelpCenterState = {
+    all_articles?: string[]
+    all_categories?: Record<number, { is_expanded: boolean }>
+    search?: string
+    search_has_transition?: boolean
+    toggle_search?: boolean
 }
 
 const Backdrop = styled.div`
@@ -111,21 +126,6 @@ const ResultWrapper = styled.div`
     }
 `
 
-const ListWrapper = styled.div`
-    margin-right: 2.4rem;
-    max-width: 38.4rem;
-    width: 38.4rem;
-    line-height: 1.5;
-
-    @media ${device.laptopL} {
-        max-width: auto;
-        width: auto;
-    }
-    @media ${device.tabletL} {
-        padding-top: 3.55rem;
-    }
-`
-
 const ArticleSection = styled.section`
     width: 100%;
     display: flex;
@@ -136,64 +136,6 @@ const ArticleSection = styled.section`
     @media ${device.tabletL} {
         flex-wrap: wrap;
         padding: 0 0 8rem;
-    }
-`
-const ListNoBullets = styled.ul`
-    margin-bottom: 1.6rem;
-    list-style: none;
-
-    li {
-        max-width: 38.4rem;
-    }
-    > *:not(:last-child) {
-        padding-bottom: 1.6rem;
-    }
-`
-
-const margin = ({ row, col }) => {
-    let margin_top = '4rem'
-    switch (row) {
-        case 0:
-            margin_top = '8rem'
-            break
-        case 1:
-            margin_top = col ? '7.2rem' : margin_top
-            break
-    }
-    return css`
-        margin-top: ${margin_top};
-    `
-}
-
-const StyledHeader = styled(Header)`
-    font-size: 2.4rem;
-    margin-bottom: 1.6rem;
-    ${margin};
-
-    @media ${device.mobileL} {
-        margin-top: 40px;
-    }
-`
-
-const StyledLink = styled(LocalizedLink)`
-    text-decoration: none;
-    color: var(--color-black-3);
-    font-size: 16px;
-
-    :hover {
-        color: red;
-        text-decoration: underline;
-    }
-`
-
-const StyledView = styled.div`
-    text-decoration: none;
-    color: var(--color-red);
-    font-size: 16px;
-    font-weight: normal;
-
-    :hover {
-        cursor: pointer;
     }
 `
 
@@ -208,12 +150,6 @@ const RowDiv = styled.div<StyledProps>`
     }
 `
 
-const ArticleDiv = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-`
-
 const ResponsiveHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
@@ -222,44 +158,6 @@ const ResponsiveHeader = styled(Header)`
         font-size: 4rem;
     }
 `
-
-const Platforms = styled(Text)`
-    font-size: var(--text-size-s);
-    color: var(--color-grey-5);
-    margin: 4rem 0 -3.2rem;
-
-    @media ${device.tablet} {
-        color: var(--color-black-3);
-        font-size: 24px;
-        font-weight: bold;
-        margin: 32px auto -32px;
-    }
-`
-const HeaderPlatforms = styled.div`
-    margin: 6.2rem 0 -3.2rem;
-
-    @media ${device.tablet} {
-        margin: 32px auto -32px;
-    }
-`
-
-const ShowItem = styled.li<StyledProps>`
-    display: ${(props) => (props.should_show_item ? 'block' : 'none')};
-`
-
-type HelpCenterProps = {
-    children?: React.ReactNode
-    is_eu_country?: unknown
-    align?: string
-}
-
-type HelpCenterState = {
-    all_articles?: string[]
-    all_categories?: Record<number, { is_expanded: boolean }>
-    search?: string
-    search_has_transition?: boolean
-    toggle_search?: boolean
-}
 
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
@@ -362,18 +260,6 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
         const search_component = search.length > 0 && (
             <SearchCrossIcon src={CrossIcon} alt="cross icon" onClick={this.clearSearch} />
         )
-        const have_result = !!has_results && !!search.length && (
-            <SearchSuccess suggested_topics={filtered_articles} max_length={3} />
-        )
-        const no_result = () => {
-            if (!filtered_articles.length && !!search.length) return <SearchError search={search} />
-        }
-
-        const platforms = (id, idx) => {
-            if (id === 1 && idx == 0) {
-                return <Platforms>Platforms</Platforms>
-            } else return <HeaderPlatforms />
-        }
 
         return (
             <Layout>
@@ -407,8 +293,15 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                     {search_component}
                                 </SearchForm>
                                 <ResultWrapper>
-                                    {have_result}
-                                    {no_result}
+                                    {!!has_results && !!search.length && (
+                                        <SearchSuccess
+                                            suggested_topics={filtered_articles}
+                                            max_length={3}
+                                        />
+                                    )}
+                                    {!has_results && !!search.length && (
+                                        <SearchError search={search} />
+                                    )}
                                 </ResultWrapper>
                             </StyledContainer>
                         </Container>
@@ -432,87 +325,15 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                         }
 
                                         return (
-                                            <ArticleDiv key={idx}>
-                                                {platforms(id, idx)}
-                                                <ListWrapper>
-                                                    <StyledHeader type="section-title">
-                                                        {item.category}
-                                                    </StyledHeader>
-                                                    {item.articles.map((ar, idxb) => {
-                                                        const category_is_expanded =
-                                                            ar.category in all_categories &&
-                                                            all_categories[ar.category].is_expanded
-                                                        const should_show_item =
-                                                            idxb < 3 || category_is_expanded
-                                                        const can_expand = item.articles.length > 3
-                                                        const should_show_expand =
-                                                            !category_is_expanded &&
-                                                            can_expand &&
-                                                            idxb === 3
-                                                        const should_show_collapse =
-                                                            category_is_expanded &&
-                                                            can_expand &&
-                                                            idxb === item.articles.length - 1
-                                                        const title_type =
-                                                            this.props.is_eu_country && ar.title_eu
-                                                                ? ar.title_eu
-                                                                : ar.title
-
-                                                        const label_type =
-                                                            this.props.is_eu_country && ar.label_eu
-                                                                ? ar.label_eu
-                                                                : ar.label
-                                                        const show_expand = should_show_expand ? (
-                                                            <Localize
-                                                                translate_text="<0>View all questions</0>"
-                                                                components={[<p key={0} />]}
-                                                            />
-                                                        ) : (
-                                                            <Localize
-                                                                translate_text="<0>View fewer questions</0>"
-                                                                components={[<p key={0} />]}
-                                                            />
-                                                        )
-                                                        const show_expand_and_collapse =
-                                                            (should_show_expand ||
-                                                                should_show_collapse) && (
-                                                                <li>
-                                                                    <StyledView
-                                                                        onClick={() =>
-                                                                            this.toggleArticle(
-                                                                                ar.category,
-                                                                            )
-                                                                        }
-                                                                    >
-                                                                        {show_expand}
-                                                                    </StyledView>
-                                                                </li>
-                                                            )
-
-                                                        return (
-                                                            <ListNoBullets key={idxb}>
-                                                                <ShowItem
-                                                                    should_show_item={
-                                                                        should_show_item
-                                                                    }
-                                                                >
-                                                                    <StyledLink
-                                                                        to={convertToHash(
-                                                                            item.category.props
-                                                                                .translate_text,
-                                                                            label_type,
-                                                                        )}
-                                                                    >
-                                                                        {title_type}
-                                                                    </StyledLink>
-                                                                </ShowItem>
-
-                                                                {show_expand_and_collapse}
-                                                            </ListNoBullets>
-                                                        )
-                                                    })}
-                                                </ListWrapper>
-                                            </ArticleDiv>
+                                            <ArticleComponent
+                                                key={idx}
+                                                idx={idx}
+                                                id={id}
+                                                item={item}
+                                                all_categories={all_categories}
+                                                is_eu_country={this.props.is_eu_country}
+                                                toggleArticle={this.toggleArticle}
+                                            />
                                         )
                                     })}
                                 </RowDiv>

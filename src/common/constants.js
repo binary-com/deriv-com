@@ -37,7 +37,7 @@ export const affiliate_signup_url = `https://login.${domain_url}/signup.php`
 export const affiliate_signin_url = `https://login.${domain_url}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${domain_url}`
-
+export const binary_bot_url = `https://bot.${domain_url}`
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000040116003/BeSquare-Graduate-Trainee-2-0?source=CareerSite'

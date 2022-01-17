@@ -57,7 +57,11 @@ Item.propTypes = {
     children: PropTypes.node,
 }
 
-const MarketsCarousel = ({ children }) => {
+type MarketsCarouselProps = {
+    children: React.ReactNode[]
+}
+
+const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     const carousel_props = {
         options: {
             align: 'start',

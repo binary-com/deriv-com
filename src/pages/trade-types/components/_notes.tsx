@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
@@ -20,7 +20,11 @@ const StyledNote = styled(Flex)`
     }
 `
 
-const Notes = ({ text }) => {
+type NotesProps = {
+    text: string | ReactNode
+}
+
+const Notes = ({ text }: NotesProps) => {
     return (
         <StyledNote ai="center" jc="flex-start">
             <div>

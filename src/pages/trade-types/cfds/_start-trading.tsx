@@ -4,11 +4,11 @@ import { SmallContainer, StartTradingBg } from '../components/_style'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
-import { DerivStore } from 'store'
+import { DerivStore, DerivStoreType } from 'store'
 import { Show } from 'components/containers'
 
 const StartTrading = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
     return (
         <>
             <StartTradingBg>

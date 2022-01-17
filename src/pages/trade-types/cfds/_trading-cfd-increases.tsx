@@ -20,8 +20,11 @@ const query = graphql`
         }
     }
 `
+type ExampleImageType = {
+    center?: string
+}
 
-const ExampleImage = styled(QueryImage)`
+const ExampleImage = styled(QueryImage)<ExampleImageType>`
     margin: ${(props) => (props.center ? '0 auto' : 'unset')};
     width: 792px;
     height: 453px;

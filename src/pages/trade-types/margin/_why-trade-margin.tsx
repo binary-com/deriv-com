@@ -9,10 +9,10 @@ import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-p
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { LinkButton } from 'components/form'
-import { DerivStore } from 'store'
+import { DerivStore, DerivStoreType } from 'store'
 
 const WhyTradeMargin = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
 
     return (
         <>

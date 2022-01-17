@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
@@ -37,8 +37,12 @@ const Link = styled(LocalizedLink)`
         text-decoration: underline;
     }
 `
+type LearnMoreProps = {
+    text: string | ReactNode
+    to: string
+}
 
-const LearnMore = ({ text, to }) => {
+const LearnMore = ({ text, to }: LearnMoreProps) => {
     return (
         <Wrapper className="learn-more">
             <Link to={to}>

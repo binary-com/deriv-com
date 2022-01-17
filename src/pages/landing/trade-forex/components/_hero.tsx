@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex, Container, Show } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'

@@ -270,7 +270,7 @@ export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.span`
-    ${SharedLinkStyle}
+    ${SharedLinkStyle};
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
@@ -531,6 +531,7 @@ const NavDesktop = ({
         <>
             {active_dropdown && (
                 <PlatformsDropdown
+                    active_dropdown={active_dropdown}
                     key={active_dropdown}
                     current_ref={active_link_ref}
                     parent={active_dropdown}

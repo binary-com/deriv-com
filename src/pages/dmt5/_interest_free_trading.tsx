@@ -20,6 +20,10 @@ const ImageWrapper = styled.div`
         width: 80px;
     }
 `
+const ImageTag = styled.img`
+    width: 100%;
+    height: 100%;
+`
 
 const InterestCardFlex = styled(Flex)`
     width: 340px;
@@ -150,7 +154,7 @@ const InterestFreeTrading = () => {
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
                 <ImageWrapper>
-                    <img src={ZeroPercent} alt="Zero percent interest" width="100%" height="100%" />
+                    <ImageTag src={ZeroPercent} alt="Zero percent interest" />
                 </ImageWrapper>
                 <InterestText size="32px">
                     <Localize translate_text="interest" />

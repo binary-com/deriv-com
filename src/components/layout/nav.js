@@ -270,7 +270,7 @@ export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.span`
-    ${SharedLinkStyle}
+    ${SharedLinkStyle};
     cursor: pointer;
     user-select: none;
     white-space: nowrap;

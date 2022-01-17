@@ -47,6 +47,205 @@ import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
+const CommissionField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    commission_error_handler,
+}: any) => (
+    <Field
+        name="commission"
+        value={values.commission}
+        onChange={(value) => {
+            setFieldValue('commission', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="commission"
+                type="text"
+                label={localize('Commission')}
+                autoComplete="off"
+                error={touched.commission && errors.commission}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={commission_error_handler}
+                maxLength={getMaxLength(values.commission, 8)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const StopLossAmountField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    stop_loss_amount_error_handler,
+}: any) => (
+    <Field
+        name="stopLossAmount"
+        value={values.stopLossAmount}
+        onChange={(value) => {
+            setFieldValue('stopLossAmount', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="stopLossAmount"
+                type="text"
+                value={values.stopLossAmount}
+                label={localize('Stop loss amount')}
+                autoComplete="off"
+                error={touched.stopLossAmount && errors.stopLossAmount}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={stop_loss_amount_error_handler}
+                maxLength={getMaxLength(values.stopLossAmount, 15)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const AssetPriceField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    asset_price_error_handler,
+}: any) => (
+    <Field
+        name="assetPrice"
+        value={values.assetPrice}
+        onChange={(value) => setFieldValue('assetPrice', value)}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="assetPrice"
+                type="text"
+                label={localize('Asset price')}
+                autoComplete="off"
+                error={touched.assetPrice && errors.assetPrice}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={asset_price_error_handler}
+                maxLength={getMaxLength(values.assetPrice, 8)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const MultiplierField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    multiplier_error_handler,
+}: any) => (
+    <Field
+        name="multiplier"
+        value={values.multiplier}
+        onChange={(value) => {
+            setFieldValue('multiplier', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="multiplier"
+                type="text"
+                value={values.multiplier}
+                label={localize('Multiplier')}
+                autoComplete="off"
+                error={touched.multiplier && errors.multiplier}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={multiplier_error_handler}
+                maxLength={getMaxLength(values.multiplier, 4)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const MultiplierFieldWithoutValue = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    multiplier_error_handler,
+}: any) => (
+    <Field
+        name="multiplier"
+        value={values.multiplier}
+        onChange={(value) => {
+            setFieldValue('multiplier', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="multiplier"
+                type="text"
+                label={localize('Multiplier')}
+                autoComplete="off"
+                error={touched.multiplier && errors.multiplier}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={multiplier_error_handler}
+                maxLength={getMaxLength(values.multiplier, 4)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const StopLossLevelField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    stop_loss_level_error_handler,
+}: any) => (
+    <Field
+        name="stopLossLevel"
+        value={values.stopLossLevel}
+        onChange={(value) => {
+            setFieldValue('stopLossLevel', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="stopLossLevel"
+                type="text"
+                value={values.stopLossLevel}
+                label={localize('Stop loss level')}
+                autoComplete="off"
+                error={touched.stopLossLevel && errors.stopLossLevel}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={stop_loss_level_error_handler}
+                maxLength={getMaxLength(values.stopLossLevel, 15)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
 const PnlMultipliersCalculator = () => {
     const query = graphql`
         query {
@@ -327,82 +526,34 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex jc="space-between" mb="17px">
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="assetPrice"
-                                                                        value={values.assetPrice}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'assetPrice',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="assetPrice"
-                                                                                type="text"
-                                                                                label={localize(
-                                                                                    'Asset price',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.assetPrice &&
-                                                                                    errors.assetPrice
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    asset_price_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.assetPrice,
-                                                                                    8,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <AssetPriceField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        asset_price_error_handler={
+                                                                            asset_price_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="commission"
-                                                                        value={values.commission}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'commission',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="commission"
-                                                                                type="text"
-                                                                                label={localize(
-                                                                                    'Commission',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.commission &&
-                                                                                    errors.commission
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    commission_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.commission,
-                                                                                    8,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <CommissionField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        commission_error_handler={
+                                                                            commission_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                         </Flex>
@@ -495,90 +646,34 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex jc="space-between">
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="multiplier"
-                                                                        value={values.multiplier}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'multiplier',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="multiplier"
-                                                                                type="text"
-                                                                                value={
-                                                                                    values.multiplier
-                                                                                }
-                                                                                label={localize(
-                                                                                    'Multiplier',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.multiplier &&
-                                                                                    errors.multiplier
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    multiplier_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.multiplier,
-                                                                                    4,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <MultiplierField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        multiplier_error_handler={
+                                                                            multiplier_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="stopLossAmount"
-                                                                        value={
-                                                                            values.stopLossAmount
+                                                                    <StopLossAmountField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
                                                                         }
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'stopLossAmount',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="stopLossAmount"
-                                                                                type="text"
-                                                                                value={
-                                                                                    values.stopLossAmount
-                                                                                }
-                                                                                label={localize(
-                                                                                    'Stop loss amount',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.stopLossAmount &&
-                                                                                    errors.stopLossAmount
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    stop_loss_amount_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.stopLossAmount,
-                                                                                    15,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        stop_loss_amount_error_handler={
+                                                                            stop_loss_amount_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                         </Flex>
@@ -668,42 +763,16 @@ const PnlMultipliersCalculator = () => {
                                                             </PnlCalculatorTabItem>
                                                         </Flex>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="assetPrice"
-                                                                value={values.assetPrice}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'assetPrice',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="assetPrice"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Asset Price',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.assetPrice &&
-                                                                            errors.assetPrice
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            asset_price_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.assetPrice,
-                                                                            8,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <AssetPriceField
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                asset_price_error_handler={
+                                                                    asset_price_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
                                                             <Field
@@ -740,80 +809,28 @@ const PnlMultipliersCalculator = () => {
                                                             </Field>
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="multiplier"
-                                                                value={values.multiplier}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'multiplier',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="multiplier"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Multiplier',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.multiplier &&
-                                                                            errors.multiplier
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            multiplier_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.multiplier,
-                                                                            4,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <MultiplierFieldWithoutValue
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                multiplier_error_handler={
+                                                                    multiplier_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="commission"
-                                                                value={values.commission}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'commission',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="commission"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Commission',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.commission &&
-                                                                            errors.commission
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            commission_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.commission,
-                                                                            8,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <CommissionField
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                commission_error_handler={
+                                                                    commission_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
                                                             <Field
@@ -857,45 +874,16 @@ const PnlMultipliersCalculator = () => {
                                                             </Field>
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="stopLossAmount"
-                                                                value={values.stopLossAmount}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'stopLossAmount',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="stopLossAmount"
-                                                                        type="text"
-                                                                        value={
-                                                                            values.stopLossAmount
-                                                                        }
-                                                                        label={localize(
-                                                                            'Stop loss amount',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.stopLossAmount &&
-                                                                            errors.stopLossAmount
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            stop_loss_amount_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.stopLossAmount,
-                                                                            15,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <StopLossAmountField
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                stop_loss_amount_error_handler={
+                                                                    stop_loss_amount_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
 
                                                         <Flex mt="1.5rem">
@@ -1233,82 +1221,34 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex jc="space-between" mb="17px">
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="assetPrice"
-                                                                        value={values.assetPrice}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'assetPrice',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="assetPrice"
-                                                                                type="text"
-                                                                                label={localize(
-                                                                                    'Asset price',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.assetPrice &&
-                                                                                    errors.assetPrice
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    asset_price_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.assetPrice,
-                                                                                    8,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <AssetPriceField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        asset_price_error_handler={
+                                                                            asset_price_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="commission"
-                                                                        value={values.commission}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'commission',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="commission"
-                                                                                type="text"
-                                                                                label={localize(
-                                                                                    'Commission',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.commission &&
-                                                                                    errors.commission
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    commission_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.commission,
-                                                                                    8,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <CommissionField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        commission_error_handler={
+                                                                            commission_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                         </Flex>
@@ -1417,88 +1357,34 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex jc="space-between">
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="multiplier"
-                                                                        value={values.multiplier}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'multiplier',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="multiplier"
-                                                                                type="text"
-                                                                                value={
-                                                                                    values.multiplier
-                                                                                }
-                                                                                label={localize(
-                                                                                    'Multiplier',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.multiplier &&
-                                                                                    errors.multiplier
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    multiplier_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.multiplier,
-                                                                                    4,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <MultiplierField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        multiplier_error_handler={
+                                                                            multiplier_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="stopLossLevel"
-                                                                        value={values.stopLossLevel}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'stopLossLevel',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="stopLossLevel"
-                                                                                type="text"
-                                                                                value={
-                                                                                    values.stopLossLevel
-                                                                                }
-                                                                                label={localize(
-                                                                                    'Stop loss level',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.stopLossLevel &&
-                                                                                    errors.stopLossLevel
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    stop_loss_level_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.stopLossLevel,
-                                                                                    15,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <StopLossLevelField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        stop_loss_level_error_handler={
+                                                                            stop_loss_level_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                         </Flex>
@@ -1590,42 +1476,16 @@ const PnlMultipliersCalculator = () => {
                                                             </PnlCalculatorTabItem>
                                                         </Flex>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="assetPrice"
-                                                                value={values.assetPrice}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'assetPrice',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="assetPrice"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Asset Price',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.assetPrice &&
-                                                                            errors.assetPrice
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            asset_price_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.assetPrice,
-                                                                            8,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <AssetPriceField
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                asset_price_error_handler={
+                                                                    asset_price_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
                                                             <Field
@@ -1678,80 +1538,28 @@ const PnlMultipliersCalculator = () => {
                                                             </Field>
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="multiplier"
-                                                                value={values.multiplier}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'multiplier',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="multiplier"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Multiplier',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.multiplier &&
-                                                                            errors.multiplier
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            multiplier_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.multiplier,
-                                                                            4,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <MultiplierFieldWithoutValue
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                multiplier_error_handler={
+                                                                    multiplier_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="commission"
-                                                                value={values.commission}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'commission',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="commission"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Commission',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.commission &&
-                                                                            errors.commission
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            commission_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.commission,
-                                                                            8,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <CommissionField
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                commission_error_handler={
+                                                                    commission_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
                                                             <Field
@@ -1795,43 +1603,16 @@ const PnlMultipliersCalculator = () => {
                                                             </Field>
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="stopLossLevel"
-                                                                value={values.stopLossLevel}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'stopLossLevel',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="stopLossLevel"
-                                                                        type="text"
-                                                                        value={values.stopLossLevel}
-                                                                        label={localize(
-                                                                            'Stop loss level',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.stopLossLevel &&
-                                                                            errors.stopLossLevel
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            stop_loss_level_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.stopLossLevel,
-                                                                            15,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <StopLossLevelField
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                stop_loss_level_error_handler={
+                                                                    stop_loss_level_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
 
                                                         <Flex mt="1.5rem">

@@ -434,7 +434,7 @@ const NavMobile = ({
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    <img src={LogoOnly} alt="logo only" width="115" />
                     <LogoDescription ai="center">
                         <Line />
                         {academy_logo ? (

@@ -294,6 +294,7 @@ const LinkSignupButton = styled(LinkButton)`
 const HamburgerMenu = styled.img`
     cursor: pointer;
     display: none;
+    width: 16px;
     @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
@@ -312,6 +313,8 @@ const HamburgerMenuPartners = styled.img`
 const CloseMenu = styled.img`
     cursor: pointer;
     display: none;
+    width: 16px;
+
     @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
@@ -422,14 +425,9 @@ const NavMobile = ({
     return (
         <Wrapper width="95%">
             {is_canvas_menu_open ? (
-                <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} width="16px" />
+                <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} />
             ) : (
-                <HamburgerMenu
-                    src={Hamburger}
-                    alt="hamburger"
-                    onClick={openOffCanvasMenu}
-                    width="16px"
-                />
+                <HamburgerMenu src={Hamburger} alt="hamburger" onClick={openOffCanvasMenu} />
             )}
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>

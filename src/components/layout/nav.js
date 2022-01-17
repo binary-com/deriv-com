@@ -270,7 +270,7 @@ export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.span`
-    ${SharedLinkStyle}
+    ${SharedLinkStyle};
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
@@ -434,7 +434,7 @@ const NavMobile = ({
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
                         {academy_logo ? (
@@ -531,6 +531,7 @@ const NavDesktop = ({
         <>
             {active_dropdown && (
                 <PlatformsDropdown
+                    active_dropdown={active_dropdown}
                     key={active_dropdown}
                     current_ref={active_link_ref}
                     parent={active_dropdown}
@@ -791,13 +792,13 @@ export const NavStatic = ({ is_ppc }) => (
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
-                    <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
+                    <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
                     <Line />
                     <img
                         src={LogoCombinedShape}
                         alt="logo combined shape nav static"
-                        width="120"
-                        height="17"
+                        width={120}
+                        height={17}
                     />
                 </Flex>
             </LogoLink>

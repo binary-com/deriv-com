@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { HeaderPrimary, TextPrimary, LocalizedLinkText } from '../affiliate-ib/_faq-data'
 import { Header, LinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import { DerivStore } from 'store'
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
@@ -58,53 +59,60 @@ const General = () => (
         </TextPrimary>
     </>
 )
-const AccountManagement = () => (
-    <>
-        <Header as="h5" type="main-paragraph">
-            {localize('How can I add, remove or change my accepted payment methods?')}
-        </Header>
-        <TextPrimary>
-            <Localize
-                translate_text="To change your payment method, please contact us via <0>livechat</0>."
-                components={[
-                    <TextLink
-                        key={0}
-                        color="red"
-                        onClick={() => {
-                            // eslint-disable-next-line no-undef
-                            LC_API.open_chat_window()
-                        }}
-                    />,
-                ]}
-            />
-        </TextPrimary>
-        <HeaderPrimary as="h5" type="main-paragraph">
-            {localize('As a payment agent, will I receive commissions from Deriv?')}
-        </HeaderPrimary>
-        <TextPrimary>
-            {localize(
-                'We do not pay commissions to payment agents. You set your own commission rate per transaction and our clients will bear the necessary fees.',
-            )}
-        </TextPrimary>
-        <HeaderPrimary as="h5" type="main-paragraph">
-            {localize('Can I advertise my services to Deriv clients?')}
-        </HeaderPrimary>
-        <TextPrimary>
-            <Localize
-                translate_text="Yes, provided that you follow all the relevant terms and conditions (see the tab entitled 'For business partners' on our <0>Terms and conditions</0> page)."
-                components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
-            />
-        </TextPrimary>
-        <HeaderPrimary as="h5" type="main-paragraph">
-            {localize(
-                'Will I still be able to trade with my account after registering as a payment agent?',
-            )}
-        </HeaderPrimary>
-        <TextPrimary>
-            {localize(
-                'Yes. As a payment agent, you will still be able to trade with your account.',
-            )}
-        </TextPrimary>
-    </>
-)
+const AccountManagement = () => {
+    const { is_livechat_interactive, LC_API, setFirstLoadOpenLc } = useContext(DerivStore)
+
+    return (
+        <>
+            <Header as="h5" type="main-paragraph">
+                {localize('How can I add, remove or change my accepted payment methods?')}
+            </Header>
+            <TextPrimary>
+                <Localize
+                    translate_text="To change your payment method, please contact us via <0>livechat</0>."
+                    components={[
+                        <TextLink
+                            key={0}
+                            color="red"
+                            onClick={() => {
+                                if (is_livechat_interactive) {
+                                    LC_API.open_chat_window()
+                                } else {
+                                    setFirstLoadOpenLc(true)
+                                }
+                            }}
+                        />,
+                    ]}
+                />
+            </TextPrimary>
+            <HeaderPrimary as="h5" type="main-paragraph">
+                {localize('As a payment agent, will I receive commissions from Deriv?')}
+            </HeaderPrimary>
+            <TextPrimary>
+                {localize(
+                    'We do not pay commissions to payment agents. You set your own commission rate per transaction and our clients will bear the necessary fees.',
+                )}
+            </TextPrimary>
+            <HeaderPrimary as="h5" type="main-paragraph">
+                {localize('Can I advertise my services to Deriv clients?')}
+            </HeaderPrimary>
+            <TextPrimary>
+                <Localize
+                    translate_text="Yes, provided that you follow all the relevant terms and conditions (see the tab entitled 'For business partners' on our <0>Terms and conditions</0> page)."
+                    components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
+                />
+            </TextPrimary>
+            <HeaderPrimary as="h5" type="main-paragraph">
+                {localize(
+                    'Will I still be able to trade with my account after registering as a payment agent?',
+                )}
+            </HeaderPrimary>
+            <TextPrimary>
+                {localize(
+                    'Yes. As a payment agent, you will still be able to trade with your account.',
+                )}
+            </TextPrimary>
+        </>
+    )
+}
 export { General, AccountManagement }

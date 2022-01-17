@@ -1,15 +1,25 @@
 {
-    "include": ["./src/**/*", "./src/custom.d.ts"],
-    "jsx": "react",
-    "compilerOptions": {
-        "baseUrl": "src",
-        "jsx": "preserve",
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "noEmit": true,
-        "skipLibCheck": true,
-        "moduleResolution": "node",
-        "lib": ["dom", "dom.iterable", "ES2021.String"]
-    }
+  "include": [
+    "./src/**/*",
+    "./src/custom.d.ts"
+  ],
+  "jsx": "react",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node"
+  },
+  "paths": {
+    "react": [
+      "node_modules/preact/compat/"
+    ],
+    "react-dom": [
+      "node_modules/preact/compat/"
+    ]
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
-import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
+import styled, { css } from 'styled-components'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 
 type QueryImageProps = {
     alt: string
@@ -15,12 +16,23 @@ type ImageWrapperProps = {
     width: string
     height: string
     className?: string
+    loading: 'eager' | 'lazy'
 }
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`
     & .gatsby-image-wrapper {
         width: ${(props) => props.width || '100%'};
         height: ${(props) => props.height};
+    }
+    .gatsby-image-wrapper [data-main-image] {
+        ${(props) => {
+            if (props.loading === 'eager') {
+                return css`
+                    transition: none;
+                    opacity: 1;
+                `
+            }
+        }}
     }
 `
 
@@ -29,14 +41,14 @@ const QueryImage = ({
     className,
     data,
     height,
-    loading,
+    loading = 'lazy',
     width,
     ...props
 }: QueryImageProps) => {
     const image = getImage(data)
     if (data) {
         return (
-            <ImageWrapper width={width} height={height} className={className}>
+            <ImageWrapper loading={loading} width={width} height={height} className={className}>
                 <GatsbyImage image={image} alt={alt} loading={loading} {...props} />
             </ImageWrapper>
         )

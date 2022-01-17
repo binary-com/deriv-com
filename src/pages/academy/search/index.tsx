@@ -1,43 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
 import ReactPaginate from 'react-paginate'
 import { useQueryParams, StringParam } from 'use-query-params'
-import VideoCard from './videos/_video-card'
-import VideoPlayer from './components/_video-player'
-import { VideoGrid } from './common/_styles'
+import VideoParentWrapper from './_video-parent-wrapper'
+import ArticleCard from './_article-card'
 import { Container, SEO, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize, LocalizedLink, WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
-import { convertDate, unslugify, slugify } from 'common/utility'
+import { unslugify, slugify } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
-import ArticleIcon from 'images/svg/blog/article-icon.svg'
-import StarIcon from 'images/svg/blog/star-icon.svg'
 
 const StyledHeaderWrapper = styled(Flex)`
     box-shadow: inset 0 -1px 0 #f2f3f4;
-`
-const IconWrapper = styled.img`
-    width: 24px;
-    height: 24px;
-`
-const StarIconWrapper = styled.img`
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    padding-top: 2px;
-`
-const StyledCategories = styled(Header)`
-    width: fit-content;
-    border-radius: 8px;
-    background-color: var(--color-blue-10);
-    color: var(--color-blue-9);
-    padding: 2px 8px 0;
-    margin: 0 8px 8px 0;
 `
 const AllArticleButton = styled(LinkButton)`
     margin-top: 10px;
@@ -100,10 +78,6 @@ const ArticlePaginationWrapper = styled(Flex)`
 `
 const StyledTitle = styled.span`
     color: var(--color-black-3);
-`
-const StyledLink = styled(LocalizedLink)`
-    color: var(--color-black-3);
-    text-decoration: none;
 `
 
 const SearchPage = () => {
@@ -449,89 +423,3 @@ const SearchPage = () => {
 }
 
 export default WithIntl()(SearchPage)
-
-const VideoParentWrapper = ({ closeVideo, currentVideoItems, openVideo, show, video_src }) => {
-    useEffect(() => {
-        document.body.style.overflow = show ? 'hidden' : 'unset'
-    }, [show])
-
-    return (
-        <>
-            <VideoGrid m="24px 0 32px 0">
-                {currentVideoItems.map((item) => {
-                    return (
-                        <VideoCard
-                            key={item.video_file.id}
-                            item={item}
-                            openVideo={() =>
-                                openVideo(item.video_file.id, slugify(item.video_title))
-                            }
-                        />
-                    )
-                })}
-            </VideoGrid>
-            {show && <VideoPlayer video_src={video_src} closeVideo={closeVideo} />}
-        </>
-    )
-}
-
-const ArticleCard = ({ items }) => {
-    const article_link = `/academy/blog/posts/${items.slug}/`
-
-    return (
-        <Flex mb="40px" jc="flex-start" tablet={{ mb: '24px' }}>
-            <IconWrapper src={ArticleIcon} alt="article icon" />
-            <Flex max-width="auto" ml="14px" fd="column">
-                <Flex jc="space-between" tablet={{ fd: 'column', jc: 'flex-start' }}>
-                    <StyledLink to={article_link}>
-                        <Header type="paragraph-1" width="auto">
-                            {items.blog_title}
-                            {items.featured && (
-                                <StarIconWrapper src={StarIcon} alt="featured post icon" />
-                            )}
-                        </Header>
-                    </StyledLink>
-                    <Header
-                        type="paragraph-2"
-                        color="grey-5"
-                        weight="normal"
-                        align="right"
-                        width="auto"
-                        tablet={{ align: 'left', mt: '4px' }}
-                    >
-                        {convertDate(items.published_date)}
-                    </Header>
-                </Flex>
-
-                <Header type="paragraph-1" weight="normal">
-                    {items.blog_description}
-                </Header>
-                <Flex jc="flex-start" height="auto" fw="wrap" mt="8px">
-                    {items.tags &&
-                        items.tags.slice(0, 4).map((tag) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
-                                {tag?.tags_id?.tag_name}
-                            </StyledCategories>
-                        ))}
-                    {items.tags.length > 4 && (
-                        <StyledCategories as="h4" type="paragraph-2">
-                            {`+${items.tags.slice(4).length.toString()}`}
-                        </StyledCategories>
-                    )}
-                </Flex>
-            </Flex>
-        </Flex>
-    )
-}
-
-VideoParentWrapper.propTypes = {
-    closeVideo: PropTypes.func,
-    currentVideoItems: PropTypes.object,
-    openVideo: PropTypes.func,
-    show: PropTypes.bool,
-    video_src: PropTypes.string,
-}
-
-ArticleCard.propTypes = {
-    items: PropTypes.object,
-}

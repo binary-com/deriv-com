@@ -13,20 +13,12 @@ const StyledBackground = styled(BackgroundImage)`
     background-size: cover;
     background-color: transparent;
     background-repeat: no-repeat, no-repeat;
-    background-position: center, center right;
 
     @media ${device.tabletL} {
         height: 440px;
     }
     @media ${device.tablet} {
         height: auto;
-        object-fit: cover;
-        background-position: center right 15% !important;
-
-        ::before,
-        ::after {
-            background-position: center right 15% !important;
-        }
     }
 `
 const Wrapper = styled(Flex)`

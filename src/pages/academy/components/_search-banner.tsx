@@ -687,7 +687,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         ></SearchIconWrapper>
                         <InputWrapper
                             type="text"
-                            placeholder="What would you like to search?"
+                            placeholder="I want to know about..."
                             onChange={handleFilterSearch}
                             onFocus={handleFocus}
                             onBlur={handleBlur}

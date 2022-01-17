@@ -113,6 +113,7 @@ const ImageWrapper = styled.div`
 const demoActive = css`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border: unset;
+
     ${Text} {
         font-weight: bold;
     }
@@ -120,6 +121,7 @@ const demoActive = css`
 
 const realActive = css`
     box-shadow: unset;
+
     ${Text} {
         font-weight: unset;
     }

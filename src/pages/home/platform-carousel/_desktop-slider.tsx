@@ -86,7 +86,8 @@ const PlatformSlider = ({ selected_slide, onSelectSlide }: WheelSliderProps) => 
                                         position="relative"
                                         height="fit-content"
                                         p="16px"
-                                        mb="30px"
+                                        mt="16px"
+                                        mb="16px"
                                         onClick={() => clickHandler(index, title)}
                                         active={selected_slide == title}
                                     >

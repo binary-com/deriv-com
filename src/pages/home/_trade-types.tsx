@@ -139,6 +139,7 @@ const ContentWrapper = styled(Flex)<{ $visibility }>`
 
     @media ${device.tablet} {
         display: flex;
+        opacity: 1;
     }
 `
 

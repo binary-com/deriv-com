@@ -14,6 +14,9 @@ const StyledBackground = styled(BackgroundImage)`
     background-color: transparent;
     background-repeat: no-repeat, no-repeat;
 
+    @media ${device.desktopL} {
+        height: auto;
+    }
     @media ${device.tabletL} {
         height: 440px;
     }

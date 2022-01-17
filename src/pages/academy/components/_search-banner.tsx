@@ -57,8 +57,23 @@ const MainWrapper = styled(Flex)`
         height: 60px;
     }
 `
+const NavWrapper = styled.div`
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 7.2rem;
+
+    @media ${device.desktopL} {
+        max-width: 1600px;
+    }
+    @media ${device.tabletL} {
+        width: calc(100% - 32px);
+    }
+`
+
 const LogoWrapper = styled.img`
-    width: 168px;
+    width: 186px;
     height: 24px;
 `
 const TopicSectionWrapper = styled(Flex)`
@@ -396,7 +411,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     return (
         <ParentWrapper overlay={modal_opened}>
             <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
-                <Container height="7.2rem">
+                <NavWrapper>
                     <Flex ai="center" jc="space-between">
                         <Link to="/academy">
                             <LogoWrapper src={AcademyLogo} />
@@ -434,7 +449,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                             </TopicSectionWrapper>
                         </Flex>
                     </Flex>
-                </Container>
+                </NavWrapper>
                 <Flex style={{ position: 'relative' }} height="0">
                     <TopicParent modal={modal_opened}>
                         <TopicWrapper jc="space-evenly" fd="row">

@@ -47,7 +47,7 @@ const Details = ({ slide }: DetailsProps) => {
     const selected_platform = platform_details.find((p) => p.title === slide)
 
     return (
-        <Flex width="60%" fd="column" ai="center" jc="end">
+        <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
             <Flex>
                 <QueryImage height="100%" data={images[selected_platform.image_key]} alt="test" />
             </Flex>

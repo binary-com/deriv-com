@@ -108,11 +108,6 @@ const ItemsWrapper = styled(Flex)<{ $visibility }>`
     transition: all 0.4s ease-out;
     align-items: flex-start;
 
-    :hover {
-        visibility: hidden;
-        transform: translateZ(0) scale(1, 1);
-    }
-
     @media ${device.tablet} {
         max-width: 328px;
         padding: 24px 32px 68px;

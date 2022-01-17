@@ -70,7 +70,7 @@ const VideosPage = ({ data }) => {
         og_description: 'Our products and services explained in detail.',
     }
     return (
-        <Layout type="academy">
+        <Layout type="academy" margin_top={'14.4'}>
             <SEO
                 title={localize('Latest videos, tutorials, webinars for trading | Deriv')}
                 description={localize(
@@ -78,22 +78,30 @@ const VideosPage = ({ data }) => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <Hero jc="center" ai="center">
-                <SmallContainer>
-                    <Header as="h1" type="subtitle-1" color="white" weight="regular" align="left">
-                        Video tutorials
-                    </Header>
-                    <Header
-                        as="h2"
-                        type="heading-2"
-                        color="white"
-                        align="left"
-                        tabletL={{ mt: '8px' }}
-                    >
-                        Our latest videos and webinars
-                    </Header>
-                </SmallContainer>
-            </Hero>
+            <Flex pt="40px">
+                <Hero jc="center" ai="center">
+                    <SmallContainer>
+                        <Header
+                            as="h1"
+                            type="subtitle-1"
+                            color="white"
+                            weight="regular"
+                            align="left"
+                        >
+                            Video tutorials
+                        </Header>
+                        <Header
+                            as="h2"
+                            type="heading-2"
+                            color="white"
+                            align="left"
+                            tabletL={{ mt: '8px' }}
+                        >
+                            Our latest videos and webinars
+                        </Header>
+                    </SmallContainer>
+                </Hero>
+            </Flex>
             {video_data && <AllVideos video_data={video_data} />}
             <Container pb="80px" tabletL={{ pb: '40px' }}>
                 <Flex direction="column" ai="flex-start" jc="space-between">

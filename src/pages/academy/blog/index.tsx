@@ -78,22 +78,30 @@ const ArticlesPage = ({ data }) => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <Hero jc="center" ai="center">
-                <SmallContainer>
-                    <Header as="h1" type="subtitle-1" color="white" weight="regular" align="left">
-                        {localize('Blog')}
-                    </Header>
-                    <Header
-                        as="h2"
-                        type="heading-2"
-                        color="white"
-                        align="left"
-                        tabletL={{ mt: '8px' }}
-                    >
-                        {localize('The latest articles and resources')}
-                    </Header>
-                </SmallContainer>
-            </Hero>
+            <Flex pt="40px">
+                <Hero jc="center" ai="center">
+                    <SmallContainer>
+                        <Header
+                            as="h1"
+                            type="subtitle-1"
+                            color="white"
+                            weight="regular"
+                            align="left"
+                        >
+                            {localize('Blog')}
+                        </Header>
+                        <Header
+                            as="h2"
+                            type="heading-2"
+                            color="white"
+                            align="left"
+                            tabletL={{ mt: '8px' }}
+                        >
+                            {localize('The latest articles and resources')}
+                        </Header>
+                    </SmallContainer>
+                </Hero>
+            </Flex>
             {article_data && <AllArticles article_data={article_data} />}
             <Container pb="80px" tabletL={{ pb: '40px' }}>
                 <Flex direction="column" ai="flex-start" jc="space-between">

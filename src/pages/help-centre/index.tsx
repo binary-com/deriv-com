@@ -365,13 +365,14 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
         const have_result = !!has_results && !!search.length && (
             <SearchSuccess suggested_topics={filtered_articles} max_length={3} />
         )
-        const no_result = !has_results && !!search.length && <SearchError search={search} />
+        const no_result = () => {
+            if (!filtered_articles.length && !!search.length) return <SearchError search={search} />
+        }
 
         const platforms = (id, idx) => {
-            return id === 1 && idx == 0 && <Platforms>Platforms</Platforms>
-        }
-        const headerPlatforms = (id, idx) => {
-            return id === 1 && idx !== 0 && <HeaderPlatforms />
+            if (id === 1 && idx == 0) {
+                return <Platforms>Platforms</Platforms>
+            } else return <HeaderPlatforms />
         }
 
         return (
@@ -433,8 +434,6 @@ class HelpCentreClass extends React.Component<HelpCenterProps, HelpCenterState> 
                                         return (
                                             <ArticleDiv key={idx}>
                                                 {platforms(id, idx)}
-                                                {headerPlatforms(id, idx)}
-
                                                 <ListWrapper>
                                                     <StyledHeader type="section-title">
                                                         {item.category}

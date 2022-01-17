@@ -792,7 +792,7 @@ export const NavStatic = ({ is_ppc }) => (
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
-                    <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
+                    <img src={LogoOnly} alt="logo only nav static" width="160" height="27" />
                     <Line />
                     <img
                         src={LogoCombinedShape}

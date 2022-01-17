@@ -22,8 +22,6 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
-    // DesktopBreadcrumbsWrapper,
-    // MobileBreadcrumbsWrapper,
     StickyBreadCrumbsWrapper,
     StyledImg,
     StyledBreadcrumbsLink,

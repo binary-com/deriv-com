@@ -372,12 +372,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                 />
                 {!is_eu_country && (
                     <NavCard
-                        aria_label="DerivGo"
+                        aria_label="Deriv GO"
                         icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
                         content={
                             <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
                         }
-                        title={<Localize translate_text="DerivGo" />}
+                        title={<Localize translate_text="Deriv GO" />}
                         onClick={onClick}
                         to="/landing/deriv-go/"
                     />

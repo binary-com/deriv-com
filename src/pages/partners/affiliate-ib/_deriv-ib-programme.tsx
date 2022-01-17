@@ -8,27 +8,31 @@ import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+type AssetsType = {
+    title: React.ReactElement
+    list: React.ReactElement[]
+}[]
+
+type DescType = {
+    firstText: React.ReactElement
+    secondText?: React.ReactElement
+}
+
 type TypeForType = {
     title: React.ReactElement
     headerHeight: string
-    assets: {
-        title: React.ReactElement
-        list: React.ReactElement[]
-    }[]
+    assets: AssetsType
+}[]
+
+type NoteType = {
+    title: React.ReactElement
+    desc: DescType
 }[]
 
 type ListType = {
     details?: React.ReactElement
     icon?: string
     iconAlt?: React.ReactElement
-}[]
-
-type NoteType = {
-    title: React.ReactElement
-    desc: {
-        firstText: React.ReactElement
-        secondText?: React.ReactElement
-    }
 }[]
 
 type CountDetailsType = {

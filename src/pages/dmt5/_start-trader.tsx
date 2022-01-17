@@ -10,6 +10,11 @@ import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 
+type TabProps = {
+    active?: boolean
+    mobile_padding?: string
+}
+
 const query = graphql`
     query {
         demo_step1: file(relativePath: { eq: "dmt5/dmt5-demo-step1.png" }) {
@@ -105,28 +110,29 @@ const ImageWrapper = styled.div`
         }
     }
 `
-const TabItem = styled.div`
+const demoActive = css`
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    border: unset;
+    ${Text} {
+        font-weight: bold;
+    }
+`
+
+const realActive = css`
+    box-shadow: unset;
+    ${Text} {
+        font-weight: unset;
+    }
+`
+
+const TabItem = styled.div<TabProps>`
     padding: 2.4rem 4rem;
     width: fit-content;
     height: 8.4rem;
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     cursor: pointer;
-    ${(props) =>
-        props.active
-            ? css`
-                  box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-                  border: unset;
-                  ${Text} {
-                      font-weight: bold;
-                  }
-              `
-            : css`
-                  box-shadow: unset;
-                  ${Text} {
-                      font-weight: unset;
-                  }
-              `}
+    ${(props) => (props.active ? demoActive : realActive)}
 
     @media ${device.tabletS} {
         padding: 17px 20px;
@@ -170,14 +176,64 @@ const StartTrader = () => {
     const data = useStaticQuery(query)
     const [tab, setTab] = useState('Demo')
 
-    const onTabClick = (tab) => {
-        setTab(tab)
+    const onTabClick = (chosenTab: string) => {
+        setTab(chosenTab)
     }
     const handleLogin = () => {
         return Login.loginUrl()
     }
 
     const { is_eu_country } = React.useContext(DerivStore)
+
+    const getImage = (is_mob: boolean, options: string[]) => {
+        return is_mob ? data[options[0]] : data[options[1]]
+    }
+    const isDemo = tab === 'Demo'
+    const isReal = tab === 'Real'
+
+    const account = is_eu_country ? localize('Real account') : localize('Real money account')
+
+    const text_1 = is_eu_country ? (
+        <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+    ) : (
+        <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
+    )
+
+    const text_2 = is_eu_country ? (
+        <Localize translate_text="Create a Deriv real account." />
+    ) : (
+        <Localize translate_text="Create a Deriv real money account." />
+    )
+
+    const text_3 = is_eu_country ? (
+        <Localize translate_text="Create a CFDs real account based on your trade preference." />
+    ) : (
+        <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
+    )
+
+    const step_2_image = is_eu_country ? (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step2_mobile_eu', 'demo_step2_eu'])}
+            alt="demo_step2_eu"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['demo_step2_mobile', 'demo_step2'])}
+            alt="Demo DMT5 account- step 2"
+        />
+    )
+
+    const step_3_image = is_eu_country ? (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step3_mobile_eu', 'real_step3_eu'])}
+            alt="Real DMT5 account- step 3"
+        />
+    ) : (
+        <QueryImage
+            data={getImage(is_mobile, ['real_step3_mobile', 'real_step3'])}
+            alt="Real DMT5 account- step 3"
+        />
+    )
 
     return (
         <Section>
@@ -187,7 +243,7 @@ const StartTrader = () => {
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem
                     mobile_padding="21px 12px"
-                    active={tab === 'Demo'}
+                    active={isDemo}
                     onClick={() => onTabClick('Demo')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
@@ -196,17 +252,17 @@ const StartTrader = () => {
                 </TabItem>
                 <TabItem
                     mobile_padding={is_eu_country ? '21px 12px' : '10px'}
-                    active={tab === 'Real'}
+                    active={isReal}
                     onClick={() => onTabClick('Real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {is_eu_country ? localize('Real account') : localize('Real money account')}
+                        {account}
                     </StyledText>
                 </TabItem>
             </Flex>
 
             <Flex max_width="1200px">
-                {tab === 'Demo' ? (
+                {isDemo ? (
                     <SideTab parent_tab={tab}>
                         <SideTab.Panel
                             label=""
@@ -227,38 +283,13 @@ const StartTrader = () => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
+                                    data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
                                     alt="Demo DMT5 account- step 2"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
-                                ) : (
-                                    <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
-                                )
-                            }
-                        >
-                            <ImageWrapper>
-                                {is_eu_country ? (
-                                    <QueryImage
-                                        data={
-                                            data[
-                                                is_mobile ? 'demo_step2_mobile_eu' : 'demo_step2_eu'
-                                            ]
-                                        }
-                                        alt="demo_step2_eu"
-                                    />
-                                ) : (
-                                    <QueryImage
-                                        data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
-                                        alt="Demo DMT5 account- step 2"
-                                    />
-                                )}
-                            </ImageWrapper>
+                        <SideTab.Panel label="" description={text_1}>
+                            <ImageWrapper>{step_2_image}</ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -269,7 +300,7 @@ const StartTrader = () => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
+                                    data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3'])}
                                     alt="Demo DMT5 account- step 3"
                                 />
                             </ImageWrapper>
@@ -295,55 +326,21 @@ const StartTrader = () => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
+                                    data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
                                     alt="Real DMT5 account- step 1"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Create a Deriv real account." />
-                                ) : (
-                                    <Localize translate_text="Create a Deriv real money account." />
-                                )
-                            }
-                        >
+                        <SideTab.Panel label="" description={text_2}>
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
+                                    data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
                                     alt="Real DMT5 account- step 2"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Create a CFDs real account based on your trade preference." />
-                                ) : (
-                                    <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
-                                )
-                            }
-                        >
-                            <ImageWrapper>
-                                {is_eu_country ? (
-                                    <QueryImage
-                                        data={
-                                            data[
-                                                is_mobile ? 'real_step3_mobile_eu' : 'real_step3_eu'
-                                            ]
-                                        }
-                                        alt="Real DMT5 account- step 3"
-                                    />
-                                ) : (
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
-                                        alt="Real DMT5 account- step 3"
-                                    />
-                                )}
-                            </ImageWrapper>
+                        <SideTab.Panel label="" description={text_3}>
+                            <ImageWrapper>{step_3_image}</ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -353,7 +350,7 @@ const StartTrader = () => {
                         >
                             <ImageWrapper>
                                 <QueryImage
-                                    data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
+                                    data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])}
                                     alt="Real DMT5 account- step 4"
                                 />
                             </ImageWrapper>

@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
+import { Localize } from 'components/localization'
 import device from 'themes/device.js'
+
+type NumbersContentType = {
+    title: React.ReactElement
+    subtitle: React.ReactElement
+}
 
 const NumberSection = styled(SectionContainer)`
     display: Flex;
@@ -69,7 +75,23 @@ const Number = styled(Flex)`
         margin-bottom: 16px;
     }
 `
-const Numbers = ({ numbers_content }) => {
+
+const numbers_content: NumbersContentType[] = [
+    {
+        title: <Localize translate_text="330K+" />,
+        subtitle: <Localize translate_text="clients on Deriv MT5" />,
+    },
+    {
+        title: <Localize translate_text="100+" />,
+        subtitle: <Localize translate_text="tradable assets" />,
+    },
+    {
+        title: <Localize translate_text="24/7" />,
+        subtitle: <Localize translate_text="trading" />,
+    },
+]
+
+const Numbers = () => {
     return (
         <NumberSection>
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">

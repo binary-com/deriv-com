@@ -10,6 +10,14 @@ import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
+type ContentType = {
+    header?: React.ReactElement
+    text?: React.ReactElement
+    icon?: React.ReactElement
+    show_eu?: boolean
+    show_always?: boolean
+}
+
 const BaseIconStyle = css`
     @media ${device.mobileL} {
         width: 24px;
@@ -26,7 +34,7 @@ const StyledSyntheticIcon = styled.img`
     ${BaseIconStyle}
 `
 
-const content = [
+const content: ContentType[] = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (
@@ -50,7 +58,7 @@ const content = [
     },
 ]
 
-const eucontent = [
+const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (

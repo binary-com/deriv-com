@@ -193,7 +193,9 @@ export const platform_details = [
     },
 ]
 
-export const PlatformIcon = styled.img`
+export const ImageTag = styled.img`
+    width: 40px;
+    height: 40px;
     margin-right: 16px;
 `
 

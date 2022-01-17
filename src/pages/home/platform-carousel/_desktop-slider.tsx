@@ -2,7 +2,7 @@ import React from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled from 'styled-components'
-import { platform_details, PlatformContent, PlatformIcon } from './utils'
+import { platform_details, PlatformContent, ImageTag } from './utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 
@@ -67,12 +67,7 @@ const PlatformSlider = ({ selected_slide, onSelectSlide }: WheelSliderProps) => 
                                             p="16px"
                                             m="40px 0"
                                         >
-                                            <PlatformIcon
-                                                width="40px"
-                                                height="40px"
-                                                src={icon}
-                                                alt="platform"
-                                            />
+                                            <ImageTag src={icon} alt={title} />
                                             <Flex fd="column" jc="start" ml="8px">
                                                 <PlatformContent
                                                     title={title}
@@ -92,12 +87,7 @@ const PlatformSlider = ({ selected_slide, onSelectSlide }: WheelSliderProps) => 
                                             p="16px"
                                             onClick={() => clickHandler(index, title)}
                                         >
-                                            <PlatformIcon
-                                                width="40px"
-                                                height="40px"
-                                                src={icon}
-                                                alt="platform"
-                                            />
+                                            <ImageTag src={icon} alt={title} />
                                             <Header type="subtitle-1">{title}</Header>
                                         </UnSelectedCard>
                                     )

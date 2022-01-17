@@ -173,7 +173,9 @@ export const Carousel = ({
                 )}
                 {nav_color && (
                     <NavigationContainer bottom_offset={bottom_offset} height={height}>
-                        {children.map((idx) => (
+                        {/* We need the `child` below as an argument for embla-carousel to
+                        correctly render the navigation buttons */}
+                        {children.map((child, idx) => (
                             <NavigationButton
                                 key={idx}
                                 color={nav_color}

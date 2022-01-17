@@ -309,6 +309,13 @@ const SearchPage = () => {
         } else return total_video
     }
 
+    const getPaginationItemCountText = () =>
+        `${pages_visited + 1} - ${
+            pages_visited + items_per_page < total_article
+                ? pages_visited + items_per_page
+                : total_article
+        } of ${total_article} results`
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -355,11 +362,7 @@ const SearchPage = () => {
                                 </Header>
                                 {items_type ? (
                                     <Header as="span" type="paragraph-2" align="right">
-                                        {`${pages_visited + 1} - ${
-                                            pages_visited + items_per_page < total_article
-                                                ? pages_visited + items_per_page
-                                                : total_article
-                                        } of ${total_article} results`}
+                                        {getPaginationItemCountText()}
                                     </Header>
                                 ) : (
                                     <Header as="span" type="paragraph-2" align="right">

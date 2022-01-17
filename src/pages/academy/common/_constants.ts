@@ -76,7 +76,7 @@ export const resources: TopicType[] = [
         type: 'Resources',
         items: [
             {
-                title: 'Market report',
+                title: 'Market reports',
             },
             {
                 title: 'Strategies and tips',

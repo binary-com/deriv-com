@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { NavWrapperMain, StyledNavMain, NavDesktop, NavMobile } from '../nav'
 import SearchBanner from '../../../pages/academy/components/_search-banner'
-import { Show } from 'components/containers'
+import { Desktop, Mobile } from 'components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { CFDWarning } from 'components/layout'
 import { isLoggedIn } from 'common/utility'
@@ -63,7 +63,7 @@ const NavAcademy = ({
         <>
             <MainWrapper background={visible}>
                 <StyledNavMain>
-                    <Show.Desktop max_width="bp1060">
+                    <Desktop breakpoint={1060}>
                         <NavDesktop
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -73,8 +73,8 @@ const NavAcademy = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Desktop>
-                    <Show.Mobile min_width="bp1060">
+                    </Desktop>
+                    <Mobile breakpoint={1060}>
                         <NavMobile
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -82,7 +82,7 @@ const NavAcademy = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Mobile>
+                    </Mobile>
                 </StyledNavMain>
             </MainWrapper>
             {is_mounted && <SearchBanner hidden={visible} />}

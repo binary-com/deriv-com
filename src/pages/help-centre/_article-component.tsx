@@ -5,27 +5,36 @@ import { Header, Text } from 'components/elements'
 import { LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 
-type PropsType = {
+interface Items {
     translate_text: string
     is_expanded: boolean
-    props: PropsType
+}
+
+interface Props {
+    props: Items
+    translate_text: string
+    is_expanded: boolean
+}
+
+type PropsType = Items & Props
+
+type ArticlesProps = {
+    category: string
+    label: string
+    title: PropsType
+    title_eu: boolean
+    label_eu: boolean
+}[]
+
+type ItemProps = {
+    category: PropsType
+    articles: ArticlesProps
 }
 
 type ArticleComponentProps = {
     idx: number
     id: number
-    item: {
-        category: {
-            props: PropsType
-        }
-        articles: {
-            category: string
-            label: string
-            title: PropsType
-            title_eu: boolean
-            label_eu: boolean
-        }[]
-    }
+    item: ItemProps
     all_categories: PropsType
     is_eu_country: boolean
     toggleArticle: (category: string) => void

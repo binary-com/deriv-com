@@ -1,5 +1,3 @@
-/* eslint-disable no-debugger */
-
 import React, { useState } from 'react'
 import { Tooltip } from 'antd'
 import styled from 'styled-components'

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+=======
+import React, { useEffect, useMemo, useState } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+>>>>>>> 38b76a8c19 (refactor: update dependencies)
 import DatePicker from 'react-date-picker'
 import moment from 'moment'
 import dayjs from 'dayjs'
@@ -12,13 +18,46 @@ const DayPickerWrapper = styled.div`
 
     .react-date-picker {
         display: block;
+<<<<<<< HEAD
         font-size: var(--text-size-xs);
+        padding: 1rem 1rem 1rem 0.8rem;
+        height: 40px;
+    }
+    .react-date-picker__wrapper {
+=======
+        font-size: var(--text-size-s);
         padding: 1rem 1rem 1rem 0.8rem;
         height: 40px;
     }
     .react-date-picker__wrapper {
         border: none;
     }
+    .react-date-picker__inputGroup__input {
+        outline: none;
+    }
+    .react-date-picker__inputGroup__input:invalid {
+        background: none;
+    }
+    .react-calendar {
+        margin-top: 5px;
+>>>>>>> 38b76a8c19 (refactor: update dependencies)
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
+            0 9px 28px 8px rgb(0 0 0 / 5%);
+    }
+    .react-date-picker__calendar {
+        width: 280px;
+    }
+    .react-calendar__month-view__weekdays__weekday {
+        font-size: 15px;
+        font-weight: initial;
+    }
+    abbr {
+        border-bottom: none !important;
+        text-decoration: none !important;
+    }
+<<<<<<< HEAD
     .react-date-picker__inputGroup__input {
         outline: none;
     }
@@ -50,6 +89,15 @@ const DayPickerWrapper = styled.div`
         font-size: 30px;
         font-weight: 100;
     }
+=======
+    .react-calendar__navigation {
+        border-bottom: 1px solid #f3f4f5;
+    }
+    .react-calendar__navigation__arrow {
+        font-size: 30px;
+        font-weight: 100;
+    }
+>>>>>>> 38b76a8c19 (refactor: update dependencies)
     .react-calendar__navigation__arrow:hover {
         background-color: none;
     }
@@ -91,7 +139,11 @@ const StyledLabel = styled.label`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
+<<<<<<< HEAD
     top: ${({ isAffiliate }) => (isAffiliate ? '1.8rem' : '1.2rem')};
+=======
+    top: ${({ isAffiliate }) => (isAffiliate ? '1.6rem' : '1.4rem')};
+>>>>>>> 38b76a8c19 (refactor: update dependencies)
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;

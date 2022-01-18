@@ -217,7 +217,7 @@ const NavRight = styled.div`
                 return '0'
             } else if (props.move && !props.hide_signup_login) {
                 if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                    props.button_ref.current.style.opacity = '1'
                 }
                 return '0'
             } else {
@@ -865,7 +865,7 @@ const StyledNavRight = styled(NavRight)`
     > a:last-child {
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
-        opacity: ${(props) => (props.move ? 1 : 0)};
+        opacity: ${(props) => (props.move ? '1' : '0')};
     }
 `
 

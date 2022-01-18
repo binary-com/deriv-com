@@ -56,6 +56,85 @@ import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
+const VolumeField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    setFieldError,
+    setFieldTouched,
+}: any) => (
+    <Field
+        name="volume"
+        value={values.volume}
+        onChange={(value) => {
+            setFieldValue('volume', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="volume"
+                type="text"
+                label={localize('Volume')}
+                autoComplete="off"
+                error={touched.volume && errors.volume}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={(current_input) => {
+                    setFieldValue('volume', '', false)
+                    setFieldError('volume', '')
+                    setFieldTouched('volume', false, false)
+                    current_input.focus()
+                }}
+                maxLength={getMaxLength(values.volume, 8)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const SwapRateField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    setFieldError,
+    setFieldTouched,
+}: any) => (
+    <Field
+        name="swapRate"
+        value={values.swapRate}
+        onChange={(value) => {
+            setFieldValue('swapRate', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="swapRate"
+                type="text"
+                value={values.swapRate}
+                label={localize('Swap rate')}
+                autoComplete="off"
+                error={touched.swapRate && errors.swapRate}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={(current_input) => {
+                    setFieldValue('swapRate', '', false)
+                    setFieldError('swapRate', '')
+                    setFieldTouched('swapRate', false, false)
+                    current_input.focus()
+                }}
+                maxLength={getMaxLength(values.swapRate, 15)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
 const StyledInputGroup = styled(InputGroup)`
     margin: 0;
 `
@@ -212,47 +291,15 @@ const SwapCalculator = () => {
                                                 />
 
                                                 <InputGroup>
-                                                    <Field
-                                                        name="volume"
-                                                        value={values.volume}
-                                                        onChange={(value) => {
-                                                            setFieldValue('volume', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="volume"
-                                                                type="text"
-                                                                label={localize('Volume')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.volume && errors.volume
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'volume',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('volume', '')
-                                                                    setFieldTouched(
-                                                                        'volume',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength={getMaxLength(
-                                                                    values.volume,
-                                                                    8,
-                                                                )}
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
+                                                    <VolumeField
+                                                        values={values}
+                                                        setFieldValue={setFieldValue}
+                                                        touched={touched}
+                                                        errors={errors}
+                                                        handleBlur={handleBlur}
+                                                        setFieldError={setFieldError}
+                                                        setFieldTouched={setFieldTouched}
+                                                    />
                                                 </InputGroup>
 
                                                 <InputGroup>
@@ -302,49 +349,15 @@ const SwapCalculator = () => {
                                                 </InputGroup>
 
                                                 <StyledInputGroup>
-                                                    <Field
-                                                        name="swapRate"
-                                                        value={values.swapRate}
-                                                        onChange={(value) => {
-                                                            setFieldValue('swapRate', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="swapRate"
-                                                                type="text"
-                                                                value={values.swapRate}
-                                                                label={localize('Swap rate')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.swapRate &&
-                                                                    errors.swapRate
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'swapRate',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('swapRate', '')
-                                                                    setFieldTouched(
-                                                                        'swapRate',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength={getMaxLength(
-                                                                    values.swapRate,
-                                                                    15,
-                                                                )}
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
+                                                    <SwapRateField
+                                                        values={values}
+                                                        setFieldValue={setFieldValue}
+                                                        touched={touched}
+                                                        errors={errors}
+                                                        handleBlur={handleBlur}
+                                                        setFieldError={setFieldError}
+                                                        setFieldTouched={setFieldTouched}
+                                                    />
                                                 </StyledInputGroup>
                                                 <Flex mt="1.5rem">
                                                     <CalculateButton
@@ -534,47 +547,15 @@ const SwapCalculator = () => {
                                                     onBlur={handleBlur}
                                                 />
                                                 <InputGroup>
-                                                    <Field
-                                                        name="volume"
-                                                        value={values.volume}
-                                                        onChange={(value) => {
-                                                            setFieldValue('volume', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="volume"
-                                                                type="text"
-                                                                label={localize('Volume')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.volume && errors.volume
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'volume',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('volume', '')
-                                                                    setFieldTouched(
-                                                                        'volume',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength={getMaxLength(
-                                                                    values.volume,
-                                                                    8,
-                                                                )}
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
+                                                    <VolumeField
+                                                        values={values}
+                                                        setFieldValue={setFieldValue}
+                                                        touched={touched}
+                                                        errors={errors}
+                                                        handleBlur={handleBlur}
+                                                        setFieldError={setFieldError}
+                                                        setFieldTouched={setFieldTouched}
+                                                    />
                                                 </InputGroup>
 
                                                 <InputGroup>
@@ -624,49 +605,15 @@ const SwapCalculator = () => {
                                                 </InputGroup>
 
                                                 <StyledInputGroup>
-                                                    <Field
-                                                        name="swapRate"
-                                                        value={values.swapRate}
-                                                        onChange={(value) => {
-                                                            setFieldValue('swapRate', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="swapRate"
-                                                                type="text"
-                                                                value={values.swapRate}
-                                                                label={localize('Swap rate')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.swapRate &&
-                                                                    errors.swapRate
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'swapRate',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('swapRate', '')
-                                                                    setFieldTouched(
-                                                                        'swapRate',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength={getMaxLength(
-                                                                    values.swapRate,
-                                                                    15,
-                                                                )}
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
+                                                    <SwapRateField
+                                                        values={values}
+                                                        setFieldValue={setFieldValue}
+                                                        touched={touched}
+                                                        errors={errors}
+                                                        handleBlur={handleBlur}
+                                                        setFieldError={setFieldError}
+                                                        setFieldTouched={setFieldTouched}
+                                                    />
                                                 </StyledInputGroup>
                                                 <Flex mt="1.5rem">
                                                     <CalculateButton

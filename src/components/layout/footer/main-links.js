@@ -42,7 +42,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                         </LinkWrapper>
                         {!is_eu_country && (
                             <LinkWrapper>
-                                <Link to="/landing/deriv-go/">{localize('Deriv Go')}</Link>
+                                <Link to="/landing/deriv-go/">{localize('Deriv GO')}</Link>
                             </LinkWrapper>
                         )}
                         <LinkWrapper>

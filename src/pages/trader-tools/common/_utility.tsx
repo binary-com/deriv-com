@@ -57,10 +57,8 @@ export const getPipValue = (values) => {
 
 export const getSwapChargeSynthetic = (values) => {
     const { volume, assetPrice, swapRate, contractSize } = values
-    let swap_formula_synthetic
-    const specialFormula = (swap_formula_synthetic =
-        (volume * contractSize * assetPrice * (swapRate / 100)) / 360)
-    swap_formula_synthetic = rawCalculation(values, specialFormula)
+    const specialFormula = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
+    const swap_formula_synthetic = rawCalculation(values, specialFormula)
 
     return toFixed(swap_formula_synthetic)
 }
@@ -74,12 +72,11 @@ export const getSwapChargeForex = (values) => {
 // PnL Margin Calculator
 export const getPnlMarginCommon = (values, action) => {
     const { volume, contractSize, pointValue } = values
-    let { assetPrice, stopLossAmount, takeProfitAmount, stopLossLevel, takeProfitLevel } = values
+    let { assetPrice, stopLossAmount, takeProfitAmount, stopLossAndtakeProfitLevel } = values
     assetPrice = Number(assetPrice)
     stopLossAmount = Number(stopLossAmount)
     takeProfitAmount = Number(takeProfitAmount)
-    stopLossLevel = Number(numberWithoutCommas(stopLossLevel))
-    takeProfitLevel = Number(numberWithoutCommas(stopLossLevel))
+    stopLossAndtakeProfitLevel = Number(numberWithoutCommas(stopLossAndtakeProfitLevel))
 
     switch (action) {
         case 'getStopLossLevelSell': {
@@ -101,11 +98,13 @@ export const getPnlMarginCommon = (values, action) => {
             return toFixed(take_profit_level_formula)
         }
         case 'getStopLossPip': {
-            const stop_loss_pip_formula = Math.abs(stopLossLevel - assetPrice) / pointValue
+            const stop_loss_pip_formula =
+                Math.abs(stopLossAndtakeProfitLevel - assetPrice) / pointValue
             return toFixed(stop_loss_pip_formula)
         }
         case 'getTakeProfitPip': {
-            const take_profit_pip_formula = Math.abs(takeProfitLevel - assetPrice) / pointValue
+            const take_profit_pip_formula =
+                Math.abs(stopLossAndtakeProfitLevel - assetPrice) / pointValue
             return toFixed(take_profit_pip_formula)
         }
     }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Tooltip } from 'antd'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Formik, Field, Form } from 'formik'
@@ -6,7 +7,7 @@ import {
     getSignupAffiliateValue,
     resetSignupAffiliateDetails,
 } from '../../pages/signup-affiliates-details/common/_utility'
-import { DropdownSearch } from '../elements'
+import { DropdownSearch, LocalizedLinkText } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
 import Info from '../../images/svg/signup-affiliate-details/info.svg'
 import RadioInput from '../form/radio-input'
@@ -117,6 +118,11 @@ const Agreements = styled.div`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
+
+const DropdownSearchWrapper = styled.div`
+    margin-bottom: -16px;
+`
+
 const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
@@ -201,7 +207,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                         {
                             id: 'dm-date-input',
                             name: 'date',
-                            type: 'date',
+                            type: 'text',
                             error: errors.date,
                             value: values.date,
                             touch: touched.date,
@@ -248,7 +254,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             type: 'password',
                             error: errors.password,
                             value: values.password,
-                            touch: values.password,
+                            touch: touched.password,
                             label: localize('Password'),
                             placeholder: 'Password',
                             required: true,
@@ -268,21 +274,23 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             <InputGroup>
                                 {form_inputs.map((item) => {
                                     return item.name === 'country' ? (
-                                        <DropdownSearch
-                                            id={item.id}
-                                            key={item.id}
-                                            selected_item={values.country}
-                                            default_item={''}
-                                            error={item.touch && item.error}
-                                            items={item.list}
-                                            label={localize('Country of residence')}
-                                            onChange={(value) => {
-                                                checkCountryInput(value.name)
-                                                setFieldValue('country', value)
-                                            }}
-                                            checkCountryInput={checkCountryInput}
-                                            onBlur={handleBlur}
-                                        />
+                                        <DropdownSearchWrapper>
+                                            <DropdownSearch
+                                                id={item.id}
+                                                key={item.id}
+                                                selected_item={values.country}
+                                                default_item={''}
+                                                error={item.touch && item.error}
+                                                items={item.list}
+                                                label={localize('Country of residence')}
+                                                onChange={(value) => {
+                                                    checkCountryInput(value.name)
+                                                    setFieldValue('country', value)
+                                                }}
+                                                checkCountryInput={checkCountryInput}
+                                                onBlur={handleBlur}
+                                            />
+                                        </DropdownSearchWrapper>
                                     ) : (
                                         <Field
                                             name={item.name}
@@ -308,9 +316,13 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                                         setFieldValue(item.name, '', false)
                                                         setFieldError(item.name, '')
                                                         setFieldTouched(item.name, false, false)
-                                                        current_input.focus()
+                                                        if (item.name !== 'date') {
+                                                            current_input.focus()
+                                                        }
                                                     }}
                                                     onBlur={handleBlur}
+                                                    setFieldValue={setFieldValue}
+                                                    setFieldTouched={setFieldTouched}
                                                     autoFocus={autofocus}
                                                     autoComplete="off"
                                                     required={item.required}
@@ -324,7 +336,29 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                 <Line />
                                 <StyledText color="grey-5" align="center" tabletFontSize="12px">
                                     {localize('Choose a plan')}
-                                    <img src={Info} alt="info" />
+                                    <Tooltip
+                                        title={
+                                            <div style={{ color: 'black' }}>
+                                                {localize(
+                                                    'Choose which plan you would like to subscribe to.',
+                                                )}{' '}
+                                                <LocalizedLinkText
+                                                    to="/partners/affiliate-ib/"
+                                                    color="red"
+                                                    style={{ fontSize: '14px' }}
+                                                >
+                                                    {localize('Learn more')}
+                                                </LocalizedLinkText>
+                                            </div>
+                                        }
+                                        color={'#d6dadb'}
+                                    >
+                                        <img
+                                            style={{ marginLeft: '5px', cursor: 'pointer' }}
+                                            src={Info}
+                                            alt="info"
+                                        />
+                                    </Tooltip>
                                 </StyledText>
                                 <Line />
                             </ChoosePlanContainer>

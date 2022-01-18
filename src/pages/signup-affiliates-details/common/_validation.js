@@ -47,6 +47,13 @@ const textValidation = (input, fieldName, minDigit, maxDigit) => {
     return null
 }
 
+const dateValidation = (input, fieldName) => {
+    if (!input) {
+        return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
+    }
+    return null
+}
+
 const phoneValidation = (input, fieldName, minDigit, maxDigit) => {
     if (!input) {
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
@@ -83,7 +90,7 @@ const validation = {
         return nameValidation(input, localize('Last Name'), 2, 50)
     },
     date: (input) => {
-        return textValidation(input, localize('Date'), 2, 50)
+        return dateValidation(input, localize('Date'))
     },
     country: (input, is_input_country) => {
         if (!input || input.display_name === '' || !is_input_country) {

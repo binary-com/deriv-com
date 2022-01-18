@@ -177,6 +177,8 @@ const Input = ({
     tabletBackground,
     handleError,
     maxLength,
+    setFieldValue,
+    setFieldTouched,
     ...props
 }) => {
     let current_input = useRef(null)
@@ -191,7 +193,6 @@ const Input = ({
                 error={error}
                 className="input-wrapper"
             >
-                {' '}
                 {isDate ? (
                     <AffiliateDatePicker
                         id={id}
@@ -201,10 +202,13 @@ const Input = ({
                         disabled={disabled}
                         height={height}
                         label={label}
+                        setFieldValue={setFieldValue}
+                        setFieldTouched={setFieldTouched}
                         tabletBackground={tabletBackground}
                         htmlFor={id}
                         labelColor={labelColor}
                         {...props}
+                        ref={(ip) => (current_input = ip)}
                     />
                 ) : (
                     <StyledInput
@@ -261,6 +265,8 @@ Input.propTypes = {
     labelColor: PropTypes.string,
     labelHoverColor: PropTypes.string,
     maxLength: PropTypes.string,
+    setFieldTouched: PropTypes.func,
+    setFieldValue: PropTypes.func,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

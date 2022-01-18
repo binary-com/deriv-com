@@ -362,7 +362,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         content={
                             <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
                         }
-                        title={<Localize translate_text="Deriv GO" />}
+                        title={<Localize translate_text="DerivGO" />}
                         onClick={onClick}
                         to="/landing/deriv-go/"
                     />

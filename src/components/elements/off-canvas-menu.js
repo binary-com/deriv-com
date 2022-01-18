@@ -248,7 +248,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     content={
                                         <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
                                     }
-                                    title={<Localize translate_text="Deriv GO" />}
+                                    title={<Localize translate_text="DerivGO" />}
                                     onClick={handleArrowClick}
                                     to="/landing/deriv-go/"
                                 />

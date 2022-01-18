@@ -442,10 +442,7 @@ const ib_dmt5_financial = {
 }
 
 const ib_dmt5_financial_non_eu = {
-    name: <Localize translate_text="Deriv MT5 Financial" />,
-    description: (
-        <Localize translate_text="Earn when your clients trade on an MT5 Financial account." />
-    ),
+    ...ib_dmt5_financial,
     type: [
         {
             title: <Localize translate_text="Forex and metals" />,
@@ -498,40 +495,6 @@ const ib_dmt5_financial_non_eu = {
                 {
                     title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
                     list: [<Localize key={1} translate_text="10" />],
-                },
-            ],
-        },
-    ],
-    countDetails: [
-        {
-            title: <Localize translate_text="How it’s calculated" />,
-            list: [
-                {
-                    details: (
-                        <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 5 in commission based on the following formula:" />
-                    ),
-                    icon: 'dmt5_financial_calculator_one',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated first" />,
-                },
-                {
-                    details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
-                    ),
-                    icon: 'dmt5_financial_calculator_two',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated second" />,
-                },
-            ],
-            notes: [
-                {
-                    title: <Localize translate_text="Please note:" />,
-                    desc: {
-                        firstText: (
-                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
-                        ),
-                        secondText: (
-                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
-                        ),
-                    },
                 },
             ],
         },
@@ -655,10 +618,7 @@ const ib_dmt5_financialSTP = {
 }
 
 const ib_dmt5_financialSTP_non_eu = {
-    name: <Localize translate_text="Deriv MT5 Financial STP" />,
-    description: (
-        <Localize translate_text="Earn when your clients trade on an MT5 Financial STP account." />
-    ),
+    ...ib_dmt5_financialSTP,
     type: [
         {
             title: <Localize translate_text="Forex" />,
@@ -690,40 +650,6 @@ const ib_dmt5_financialSTP_non_eu = {
                 {
                     title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
                     list: [<Localize key={1} translate_text="10" />],
-                },
-            ],
-        },
-    ],
-    countDetails: [
-        {
-            title: <Localize translate_text="How it’s calculated" />,
-            list: [
-                {
-                    details: (
-                        <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:" />
-                    ),
-                    icon: 'dmt5_financial_stp_calculator_one',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated first" />,
-                },
-                {
-                    details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
-                    ),
-                    icon: 'dmt5_financial_stp_calculator_two',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated second" />,
-                },
-            ],
-            notes: [
-                {
-                    title: <Localize translate_text="Please note:" />,
-                    desc: {
-                        firstText: (
-                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
-                        ),
-                        secondText: (
-                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
-                        ),
-                    },
                 },
             ],
         },

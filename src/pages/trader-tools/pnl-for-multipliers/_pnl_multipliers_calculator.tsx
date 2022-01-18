@@ -299,6 +299,30 @@ const PnlMultipliersCalculator = () => {
     const onTabClick = (t) => setTab(t)
     const onSubTabClick = (t) => setSubTab(t)
 
+    const main_asset_price_error_handler =
+        (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
+            setFieldValue('assetPrice', '', false)
+            setFieldError('assetPrice', '')
+            setFieldTouched('assetPrice', false, false)
+            current_input.focus()
+        }
+
+    const main_multiplier_error_handler =
+        (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
+            setFieldValue('multiplier', '', false)
+            setFieldError('multiplier', '')
+            setFieldTouched('multiplier', false, false)
+            current_input.focus()
+        }
+
+    const main_commission_error_handler =
+        (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
+            setFieldValue('commission', '', false)
+            setFieldError('commission', '')
+            setFieldTouched('commission', false, false)
+            current_input.focus()
+        }
+
     return (
         <>
             <BreadCrumbContainer>
@@ -407,26 +431,24 @@ const PnlMultipliersCalculator = () => {
                                     isValid,
                                     dirty,
                                 }) => {
-                                    const asset_price_error_handler = (current_input) => {
-                                        setFieldValue('assetPrice', '', false)
-                                        setFieldError('assetPrice', '')
-                                        setFieldTouched('assetPrice', false, false)
-                                        current_input.focus()
-                                    }
+                                    const asset_price_error_handler =
+                                        main_asset_price_error_handler(
+                                            setFieldValue,
+                                            setFieldError,
+                                            setFieldTouched,
+                                        )
 
-                                    const multiplier_error_handler = (current_input) => {
-                                        setFieldValue('multiplier', '', false)
-                                        setFieldError('multiplier', '')
-                                        setFieldTouched('multiplier', false, false)
-                                        current_input.focus()
-                                    }
+                                    const multiplier_error_handler = main_multiplier_error_handler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
 
-                                    const commission_error_handler = (current_input) => {
-                                        setFieldValue('commission', '', false)
-                                        setFieldError('commission', '')
-                                        setFieldTouched('commission', false, false)
-                                        current_input.focus()
-                                    }
+                                    const commission_error_handler = main_commission_error_handler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
 
                                     const take_profit_amount_error_handler = (current_input) => {
                                         setFieldValue('takeProfitAmount', '', false)
@@ -1107,26 +1129,24 @@ const PnlMultipliersCalculator = () => {
                                     isValid,
                                     dirty,
                                 }) => {
-                                    const asset_price_error_handler = (current_input) => {
-                                        setFieldValue('assetPrice', '', false)
-                                        setFieldError('assetPrice', '')
-                                        setFieldTouched('assetPrice', false, false)
-                                        current_input.focus()
-                                    }
+                                    const asset_price_error_handler =
+                                        main_asset_price_error_handler(
+                                            setFieldValue,
+                                            setFieldError,
+                                            setFieldTouched,
+                                        )
 
-                                    const multiplier_error_handler = (current_input) => {
-                                        setFieldValue('multiplier', '', false)
-                                        setFieldError('multiplier', '')
-                                        setFieldTouched('multiplier', false, false)
-                                        current_input.focus()
-                                    }
+                                    const multiplier_error_handler = main_multiplier_error_handler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
 
-                                    const commission_error_handler = (current_input) => {
-                                        setFieldValue('commission', '', false)
-                                        setFieldError('commission', '')
-                                        setFieldTouched('commission', false, false)
-                                        current_input.focus()
-                                    }
+                                    const commission_error_handler = main_commission_error_handler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
 
                                     const take_profit_level_error_handler = (current_input) => {
                                         setFieldValue('takeProfitLevel', '', false)

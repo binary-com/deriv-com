@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Formik, Field } from 'formik'
+import { Formik, Field, FormikTouched, FormikErrors } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import {
@@ -56,6 +56,26 @@ import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
+type FormikState<Values> = {
+    values: Values
+    setFieldValue: (field: string, value: string, shouldValidate?: boolean) => void
+    touched: FormikTouched<Values>
+    errors: FormikErrors<Values>
+    handleBlur: {
+        (e: React.FocusEvent<string>): void
+    }
+    setFieldError: (field: string, message: string | undefined) => void
+    setFieldTouched: (field: string, isTouched?: boolean, shouldValidate?: boolean) => void
+}
+
+type VolumeFieldProps = {
+    volume: string
+}
+
+type SwapRateFieldProps = {
+    swapRate: string
+}
+
 const VolumeField = ({
     values,
     setFieldValue,
@@ -64,7 +84,7 @@ const VolumeField = ({
     handleBlur,
     setFieldError,
     setFieldTouched,
-}: any) => (
+}: FormikState<VolumeFieldProps>) => (
     <Field
         name="volume"
         value={values.volume}
@@ -103,7 +123,7 @@ const SwapRateField = ({
     handleBlur,
     setFieldError,
     setFieldTouched,
-}: any) => (
+}: FormikState<SwapRateFieldProps>) => (
     <Field
         name="swapRate"
         value={values.swapRate}

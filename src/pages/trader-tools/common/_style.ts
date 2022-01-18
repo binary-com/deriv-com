@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { Form } from 'formik'
 import { Flex, SectionContainer, Container } from 'components/containers'
@@ -7,13 +8,13 @@ import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
 
 type CalculatorTabItemProps = {
-    active?: React.ReactNode
-    disabled?: React.ReactNode
+    active?: ReactNode
+    disabled?: ReactNode
 }
 
 type PnlCalculatorTabItemProps = {
-    active?: React.ReactNode
-    disabled?: React.ReactNode
+    active?: ReactNode
+    disabled?: ReactNode
 }
 
 export const Hero = styled(Flex)`
@@ -72,12 +73,14 @@ const swap_tab_selector_props = (props) =>
         ? css`
               box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
               border: unset;
+
               ${Text} {
                   font-weight: bold;
               }
           `
         : css`
               box-shadow: unset;
+
               ${Text} {
                   font-weight: unset;
               }
@@ -316,12 +319,14 @@ const calculator_tab_item_style_props = (props: { active: string }) =>
         ? css`
               pointer-events: none;
               border: 1.5px solid var(--color-blue-5);
+
               ${Text} {
                   font-weight: bold;
               }
           `
         : css`
               box-shadow: unset;
+
               ${Text} {
                   font-weight: unset;
               }

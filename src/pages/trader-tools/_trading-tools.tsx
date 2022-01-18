@@ -7,15 +7,17 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+type ToolsType = {
+    title: JSX.Element
+    subtitle: JSX.Element
+    link: { text: JSX.Element; route: string }
+    image_name: string
+    image_alt: string
+}[]
+
 type TradingToolsProps = {
     reverse?: boolean
-    tools: {
-        title: JSX.Element
-        subtitle: JSX.Element
-        link: { text: JSX.Element; route: string }
-        image_name: string
-        image_alt: string
-    }[]
+    tools: ToolsType
 }
 
 type ColumnProps = {
@@ -31,6 +33,7 @@ const StyledSection = styled(SectionContainer)`
 const ToolWrapper = styled(Flex)`
     flex-direction: ${(props) => props.flex_direction};
     align-items: space-between;
+
     .fresnel-container {
         display: flex;
     }
@@ -47,6 +50,7 @@ const Column = styled.div<ColumnProps>`
     @media ${device.tabletL} {
         margin: 24px 0 0;
     }
+
     .fresnel-container {
         flex-direction: column;
     }
@@ -63,6 +67,7 @@ const Content = styled(Flex)`
 const StyledLinkButton = styled(LinkButton)`
     margin-top: 16px;
     width: fit-content;
+
     &:hover {
         cursor: pointer;
     }

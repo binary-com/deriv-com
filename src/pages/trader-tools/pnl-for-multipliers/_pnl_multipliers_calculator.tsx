@@ -47,7 +47,16 @@ import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
-type ErrorHandlerFunctionType = (current_input: string) => void
+type ErrorHandlersKeyType =
+    | 'commission_error_handler'
+    | 'stop_loss_amount_error_handler'
+    | 'asset_price_error_handler'
+    | 'multiplier_error_handler'
+    | 'stop_loss_level_error_handler'
+
+type ErrorHandlersCallbackType = (current_input: string) => void
+
+type ErrorHandlersFunctionType = Partial<Record<ErrorHandlersKeyType, ErrorHandlersCallbackType>>
 
 type FormikState<Values> = {
     values: Values
@@ -57,12 +66,9 @@ type FormikState<Values> = {
     handleBlur: {
         (e: React.FocusEvent<string>): void
     }
-    commission_error_handler?: ErrorHandlerFunctionType
-    stop_loss_amount_error_handler?: ErrorHandlerFunctionType
-    asset_price_error_handler?: ErrorHandlerFunctionType
-    multiplier_error_handler?: ErrorHandlerFunctionType
-    stop_loss_level_error_handler?: ErrorHandlerFunctionType
 }
+
+type FieldsType<Values> = FormikState<Values> & ErrorHandlersFunctionType
 
 type CommissionFieldProps = {
     commission: string
@@ -91,7 +97,7 @@ const CommissionField = ({
     errors,
     handleBlur,
     commission_error_handler,
-}: FormikState<CommissionFieldProps>) => (
+}: FieldsType<CommissionFieldProps>) => (
     <Field
         name="commission"
         value={values.commission}
@@ -124,7 +130,7 @@ const StopLossAmountField = ({
     errors,
     handleBlur,
     stop_loss_amount_error_handler,
-}: FormikState<StopLossAmountFieldProps>) => (
+}: FieldsType<StopLossAmountFieldProps>) => (
     <Field
         name="stopLossAmount"
         value={values.stopLossAmount}
@@ -158,7 +164,7 @@ const AssetPriceField = ({
     errors,
     handleBlur,
     asset_price_error_handler,
-}: FormikState<AssetPriceFieldProps>) => (
+}: FieldsType<AssetPriceFieldProps>) => (
     <Field
         name="assetPrice"
         value={values.assetPrice}
@@ -189,7 +195,7 @@ const MultiplierField = ({
     errors,
     handleBlur,
     multiplier_error_handler,
-}: FormikState<MultiplierFieldProps>) => (
+}: FieldsType<MultiplierFieldProps>) => (
     <Field
         name="multiplier"
         value={values.multiplier}
@@ -223,7 +229,7 @@ const MultiplierFieldWithoutValue = ({
     errors,
     handleBlur,
     multiplier_error_handler,
-}: FormikState<MultiplierFieldProps>) => (
+}: FieldsType<MultiplierFieldProps>) => (
     <Field
         name="multiplier"
         value={values.multiplier}
@@ -256,7 +262,7 @@ const StopLossLevelField = ({
     errors,
     handleBlur,
     stop_loss_level_error_handler,
-}: FormikState<StopLossLevelFieldProps>) => (
+}: FieldsType<StopLossLevelFieldProps>) => (
     <Field
         name="stopLossLevel"
         value={values.stopLossLevel}

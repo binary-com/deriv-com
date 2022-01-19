@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Field, Formik, FormikErrors, FormikTouched } from 'formik'
+import { Field, Formik } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     getPnlMultiplierCommon,
@@ -47,12 +47,33 @@ import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
+type FormikErrors<Values> = {
+    [K in keyof Values]?: Values[K] extends string[]
+        ? Values[K][number] extends Record<string, unknown>
+            ? FormikErrors<Values[K][number]>[] | string | string[]
+            : string | string[]
+        : Values[K] extends Record<string, unknown>
+        ? FormikErrors<Values[K]>
+        : string
+}
+
+type FormikTouched<Values> = {
+    [K in keyof Values]?: Values[K] extends string[]
+        ? Values[K][number] extends Record<string, unknown>
+            ? FormikTouched<Values[K][number]>[]
+            : boolean
+        : Values[K] extends Record<string, unknown>
+        ? FormikTouched<Values[K]>
+        : boolean
+}
+
 type ErrorHandlersKeyType =
     | 'commission_error_handler'
     | 'stop_loss_amount_error_handler'
     | 'asset_price_error_handler'
     | 'multiplier_error_handler'
     | 'stop_loss_level_error_handler'
+    | 'stake_error_handler'
 
 type ErrorHandlersCallbackType = (current_input: string) => void
 
@@ -88,6 +109,10 @@ type MultiplierFieldProps = {
 
 type StopLossLevelFieldProps = {
     stopLossLevel: string
+}
+
+type StakeFieldProps = {
+    stake: string
 }
 
 const CommissionField = ({
@@ -289,6 +314,88 @@ const StopLossLevelField = ({
     </Field>
 )
 
+const StakeField = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    stake_error_handler,
+}: FieldsType<StakeFieldProps>) => (
+    <Field
+        name="stake"
+        value={values.stake}
+        onChange={set_field_value_stake_change_handler(setFieldValue)}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="stake"
+                type="text"
+                label={localize('Stake')}
+                autoComplete="off"
+                error={touched.stake && errors.stake}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={stake_error_handler}
+                maxLength={getMaxLength(values.stake, 15)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const StakeFieldWithValue = ({
+    values,
+    setFieldValue,
+    touched,
+    errors,
+    handleBlur,
+    stake_error_handler,
+}: FieldsType<StakeFieldProps>) => (
+    <Field
+        name="stake"
+        value={values.stake}
+        onChange={(value) => {
+            setFieldValue('stake', value)
+        }}
+    >
+        {({ field }) => (
+            <Input
+                {...field}
+                id="stake"
+                type="text"
+                value={values.stake}
+                label={localize('Stake')}
+                autoComplete="off"
+                error={touched.stake && errors.stake}
+                onBlur={handleBlur}
+                data-lpignore="true"
+                handleError={stake_error_handler}
+                maxLength={getMaxLength(values.stake, 15)}
+                background="white"
+            />
+        )}
+    </Field>
+)
+
+const direction_down_click_handler = (onSubTabClick, setFieldValue) => () => {
+    onSubTabClick('Down')
+    setFieldValue('direction', 'Down')
+}
+
+const take_profit_amount_click_handler = (setFieldValue) => (value) => {
+    setFieldValue('takeProfitAmount', value)
+}
+
+const set_field_value_stake_change_handler = (setFieldValue) => (value) => {
+    setFieldValue('stake', value)
+}
+
+const take_profit_level_change_handler = (setFieldValue) => (value) => {
+    setFieldValue('takeProfitLevel', value)
+}
+
 const PnlMultipliersCalculator = () => {
     const query = graphql`
         query {
@@ -363,6 +470,14 @@ const PnlMultipliersCalculator = () => {
             setFieldValue('commission', '', false)
             setFieldError('commission', '')
             setFieldTouched('commission', false, false)
+            current_input.focus()
+        }
+
+    const main_stake_error_handler =
+        (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
+            setFieldValue('stake', '', false)
+            setFieldError('stake', '')
+            setFieldTouched('stake', false, false)
             current_input.focus()
         }
 
@@ -507,12 +622,11 @@ const PnlMultipliersCalculator = () => {
                                         current_input.focus()
                                     }
 
-                                    const stake_error_handler = (current_input) => {
-                                        setFieldValue('stake', '', false)
-                                        setFieldError('stake', '')
-                                        setFieldTouched('stake', false, false)
-                                        current_input.focus()
-                                    }
+                                    const stake_error_handler = main_stake_error_handler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
 
                                     return (
                                         <>
@@ -575,13 +689,10 @@ const PnlMultipliersCalculator = () => {
                                                             <PnlCalculatorTabItem
                                                                 active={sub_tab === 'Down'}
                                                                 disabled={sub_tab === 'Down'}
-                                                                onClick={() => {
-                                                                    onSubTabClick('Down')
-                                                                    setFieldValue(
-                                                                        'direction',
-                                                                        'Down',
-                                                                    )
-                                                                }}
+                                                                onClick={direction_down_click_handler(
+                                                                    onSubTabClick,
+                                                                    setFieldValue,
+                                                                )}
                                                             >
                                                                 <Text align="center">
                                                                     {localize('Down')}
@@ -626,42 +737,18 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex jc="space-between" mb="17px">
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="stake"
-                                                                        value={values.stake}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'stake',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="stake"
-                                                                                type="text"
-                                                                                label={localize(
-                                                                                    'Stake',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.stake &&
-                                                                                    errors.stake
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={
-                                                                                    stake_error_handler
-                                                                                }
-                                                                                maxLength={getMaxLength(
-                                                                                    values.stake,
-                                                                                    15,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <StakeField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        stake_error_handler={
+                                                                            stake_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                             <Flex fd="column" width="23.4rem">
@@ -671,12 +758,9 @@ const PnlMultipliersCalculator = () => {
                                                                         value={
                                                                             values.takeProfitAmount
                                                                         }
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'takeProfitAmount',
-                                                                                value,
-                                                                            )
-                                                                        }}
+                                                                        onChange={take_profit_amount_click_handler(
+                                                                            setFieldValue,
+                                                                        )}
                                                                     >
                                                                         {({ field }) => (
                                                                             <Input
@@ -814,13 +898,10 @@ const PnlMultipliersCalculator = () => {
                                                             <PnlCalculatorTabItem
                                                                 active={sub_tab === 'Down'}
                                                                 disabled={sub_tab === 'Down'}
-                                                                onClick={() => {
-                                                                    onSubTabClick('Down')
-                                                                    setFieldValue(
-                                                                        'direction',
-                                                                        'Down',
-                                                                    )
-                                                                }}
+                                                                onClick={direction_down_click_handler(
+                                                                    onSubTabClick,
+                                                                    setFieldValue,
+                                                                )}
                                                             >
                                                                 <Text align="center">
                                                                     {localize('Down')}
@@ -840,38 +921,16 @@ const PnlMultipliersCalculator = () => {
                                                             />
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="stake"
-                                                                value={values.stake}
-                                                                onChange={(value) => {
-                                                                    setFieldValue('stake', value)
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="stake"
-                                                                        type="text"
-                                                                        value={values.stake}
-                                                                        label={localize('Stake')}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.stake &&
-                                                                            errors.stake
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={
-                                                                            stake_error_handler
-                                                                        }
-                                                                        maxLength={getMaxLength(
-                                                                            values.stake,
-                                                                            15,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <StakeFieldWithValue
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                stake_error_handler={
+                                                                    stake_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
                                                             <MultiplierFieldWithoutValue
@@ -901,12 +960,9 @@ const PnlMultipliersCalculator = () => {
                                                             <Field
                                                                 name="takeProfitAmount"
                                                                 value={values.takeProfitAmount}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'takeProfitAmount',
-                                                                        value,
-                                                                    )
-                                                                }}
+                                                                onChange={take_profit_amount_click_handler(
+                                                                    setFieldValue,
+                                                                )}
                                                             >
                                                                 {({ field }) => (
                                                                     <Input
@@ -1205,6 +1261,12 @@ const PnlMultipliersCalculator = () => {
                                         current_input.focus()
                                     }
 
+                                    const stake_error_handler = main_stake_error_handler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
+
                                     return (
                                         <>
                                             <Show.Desktop max_width="mobileL">
@@ -1268,13 +1330,10 @@ const PnlMultipliersCalculator = () => {
                                                             <PnlCalculatorTabItem
                                                                 active={sub_tab === 'Down'}
                                                                 disabled={sub_tab === 'Down'}
-                                                                onClick={() => {
-                                                                    onSubTabClick('Down')
-                                                                    setFieldValue(
-                                                                        'direction',
-                                                                        'Down',
-                                                                    )
-                                                                }}
+                                                                onClick={direction_down_click_handler(
+                                                                    onSubTabClick,
+                                                                    setFieldValue,
+                                                                )}
                                                             >
                                                                 <Text align="center">
                                                                     {localize('Down')}
@@ -1319,58 +1378,18 @@ const PnlMultipliersCalculator = () => {
                                                         <Flex jc="space-between" mb="17px">
                                                             <Flex fd="column" width="23.4rem">
                                                                 <PnLInputGroup>
-                                                                    <Field
-                                                                        name="stake"
-                                                                        value={values.stake}
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'stake',
-                                                                                value,
-                                                                            )
-                                                                        }}
-                                                                    >
-                                                                        {({ field }) => (
-                                                                            <Input
-                                                                                {...field}
-                                                                                id="stake"
-                                                                                type="text"
-                                                                                label={localize(
-                                                                                    'Stake',
-                                                                                )}
-                                                                                autoComplete="off"
-                                                                                error={
-                                                                                    touched.stake &&
-                                                                                    errors.stake
-                                                                                }
-                                                                                onBlur={handleBlur}
-                                                                                data-lpignore="true"
-                                                                                handleError={(
-                                                                                    current_input,
-                                                                                ) => {
-                                                                                    setFieldValue(
-                                                                                        'stake',
-                                                                                        '',
-                                                                                        false,
-                                                                                    )
-                                                                                    setFieldError(
-                                                                                        'stake',
-                                                                                        '',
-                                                                                    )
-                                                                                    setFieldTouched(
-                                                                                        'stake',
-                                                                                        false,
-                                                                                        false,
-                                                                                    )
-                                                                                    current_input.focus()
-                                                                                }}
-                                                                                maxLength={getMaxLength(
-                                                                                    values.stake,
-                                                                                    15,
-                                                                                )}
-                                                                                background="white"
-                                                                            />
-                                                                        )}
-                                                                    </Field>
+                                                                    <StakeField
+                                                                        values={values}
+                                                                        setFieldValue={
+                                                                            setFieldValue
+                                                                        }
+                                                                        touched={touched}
+                                                                        errors={errors}
+                                                                        handleBlur={handleBlur}
+                                                                        stake_error_handler={
+                                                                            stake_error_handler
+                                                                        }
+                                                                    />
                                                                 </PnLInputGroup>
                                                             </Flex>
                                                             <Flex fd="column" width="23.4rem">
@@ -1380,12 +1399,9 @@ const PnlMultipliersCalculator = () => {
                                                                         value={
                                                                             values.takeProfitLevel
                                                                         }
-                                                                        onChange={(value) => {
-                                                                            setFieldValue(
-                                                                                'takeProfitLevel',
-                                                                                value,
-                                                                            )
-                                                                        }}
+                                                                        onChange={take_profit_level_change_handler(
+                                                                            setFieldValue,
+                                                                        )}
                                                                     >
                                                                         {({ field }) => (
                                                                             <Input
@@ -1525,13 +1541,10 @@ const PnlMultipliersCalculator = () => {
                                                             <PnlCalculatorTabItem
                                                                 active={sub_tab === 'Down'}
                                                                 disabled={sub_tab === 'Down'}
-                                                                onClick={() => {
-                                                                    onSubTabClick('Down')
-                                                                    setFieldValue(
-                                                                        'direction',
-                                                                        'Down',
-                                                                    )
-                                                                }}
+                                                                onClick={direction_down_click_handler(
+                                                                    onSubTabClick,
+                                                                    setFieldValue,
+                                                                )}
                                                             >
                                                                 <Text align="center">
                                                                     {localize('Down')}
@@ -1551,54 +1564,16 @@ const PnlMultipliersCalculator = () => {
                                                             />
                                                         </InputGroup>
                                                         <InputGroup>
-                                                            <Field
-                                                                name="stake"
-                                                                value={values.stake}
-                                                                onChange={(value) => {
-                                                                    setFieldValue('stake', value)
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="stake"
-                                                                        type="text"
-                                                                        value={values.stake}
-                                                                        label={localize('Stake')}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.stake &&
-                                                                            errors.stake
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={(
-                                                                            current_input,
-                                                                        ) => {
-                                                                            setFieldValue(
-                                                                                'stake',
-                                                                                '',
-                                                                                false,
-                                                                            )
-                                                                            setFieldError(
-                                                                                'stake',
-                                                                                '',
-                                                                            )
-                                                                            setFieldTouched(
-                                                                                'stake',
-                                                                                false,
-                                                                                false,
-                                                                            )
-                                                                            current_input.focus()
-                                                                        }}
-                                                                        maxLength={getMaxLength(
-                                                                            values.stake,
-                                                                            15,
-                                                                        )}
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
+                                                            <StakeFieldWithValue
+                                                                values={values}
+                                                                setFieldValue={setFieldValue}
+                                                                touched={touched}
+                                                                errors={errors}
+                                                                handleBlur={handleBlur}
+                                                                stake_error_handler={
+                                                                    stake_error_handler
+                                                                }
+                                                            />
                                                         </InputGroup>
                                                         <InputGroup>
                                                             <MultiplierFieldWithoutValue
@@ -1628,12 +1603,9 @@ const PnlMultipliersCalculator = () => {
                                                             <Field
                                                                 name="takeProfitLevel"
                                                                 value={values.takeProfitLevel}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'takeProfitLevel',
-                                                                        value,
-                                                                    )
-                                                                }}
+                                                                onChange={take_profit_level_change_handler(
+                                                                    setFieldValue,
+                                                                )}
                                                             >
                                                                 {({ field }) => (
                                                                     <Input

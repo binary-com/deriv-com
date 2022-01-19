@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Formik, Field, FormikTouched, FormikErrors } from 'formik'
+import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import {
@@ -55,6 +55,26 @@ import {
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+
+type FormikErrors<Values> = {
+    [K in keyof Values]?: Values[K] extends string[]
+        ? Values[K][number] extends Record<string, unknown>
+            ? FormikErrors<Values[K][number]>[] | string | string[]
+            : string | string[]
+        : Values[K] extends Record<string, unknown>
+        ? FormikErrors<Values[K]>
+        : string
+}
+
+type FormikTouched<Values> = {
+    [K in keyof Values]?: Values[K] extends string[]
+        ? Values[K][number] extends Record<string, unknown>
+            ? FormikTouched<Values[K][number]>[]
+            : boolean
+        : Values[K] extends Record<string, unknown>
+        ? FormikTouched<Values[K]>
+        : boolean
+}
 
 type FormikState<Values> = {
     values: Values
@@ -154,6 +174,12 @@ const SwapRateField = ({
         )}
     </Field>
 )
+
+const swap_currency_change_handler = (setFieldValue) => (value) => {
+    setFieldValue('swapCurrency', getCurrency(value))
+    setFieldValue('contractSize', getContractSize(value))
+    setFieldValue('symbol', value)
+}
 
 const StyledInputGroup = styled(InputGroup)`
     margin: 0;
@@ -294,17 +320,9 @@ const SwapCalculator = () => {
                                                     default_option={optionItemDefault}
                                                     selected_option={values.symbol}
                                                     id="symbol"
-                                                    onChange={(value) => {
-                                                        setFieldValue(
-                                                            'swapCurrency',
-                                                            getCurrency(value),
-                                                        )
-                                                        setFieldValue(
-                                                            'contractSize',
-                                                            getContractSize(value),
-                                                        )
-                                                        setFieldValue('symbol', value)
-                                                    }}
+                                                    onChange={swap_currency_change_handler(
+                                                        setFieldValue,
+                                                    )}
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
@@ -551,17 +569,9 @@ const SwapCalculator = () => {
                                                     label={localize('Symbol')}
                                                     selected_option={values.symbol}
                                                     id="symbol"
-                                                    onChange={(value) => {
-                                                        setFieldValue(
-                                                            'swapCurrency',
-                                                            getCurrency(value),
-                                                        )
-                                                        setFieldValue(
-                                                            'contractSize',
-                                                            getContractSize(value),
-                                                        )
-                                                        setFieldValue('symbol', value)
-                                                    }}
+                                                    onChange={swap_currency_change_handler(
+                                                        setFieldValue,
+                                                    )}
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}

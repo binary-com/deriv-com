@@ -53,8 +53,7 @@ const MainWrapper = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        top: ${(props) => (props.background ? '0' : '56px')};
-        height: 60px;
+        top: ${(props) => (props.background ? '0' : '7.2rem')};
     }
 `
 const NavWrapper = styled.div`
@@ -376,6 +375,8 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         if (currentLocation == '/academy/blog/posts/') {
             setBlogPostURL(true)
         }
+
+        document.body.style.background = 'var(--color-white)'
     }, [])
 
     useEffect(() => {

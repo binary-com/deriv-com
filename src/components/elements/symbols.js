@@ -3,6 +3,7 @@ import AAPL from 'images/svg/symbols/aapl.svg'
 import ABNB from 'images/svg/symbols/abnb.svg'
 import ADS from 'images/svg/symbols/ads.svg'
 import AIG from 'images/svg/symbols/aig.svg'
+import ALGORAND from 'images/svg/symbols/algorand.svg'
 import ALUMINIUMUSD from 'images/svg/symbols/aluminium-usd.svg'
 import AMZN from 'images/svg/symbols/amzn.svg'
 import AUDCAD from 'images/svg/symbols/aud-cad.svg'
@@ -16,6 +17,7 @@ import AUS200 from 'images/svg/symbols/aus-200.svg'
 import BA from 'images/svg/symbols/ba.svg'
 import BABA from 'images/svg/symbols/baba.svg'
 import BAC from 'images/svg/symbols/bac.svg'
+import BAT from 'images/svg/symbols/bat.svg'
 import BAY from 'images/svg/symbols/bay.svg'
 import BCHUSD from 'images/svg/symbols/bch-usd.svg'
 import BIIB from 'images/svg/symbols/biib.svg'
@@ -28,6 +30,8 @@ import BTCUSD from 'images/svg/symbols/btc-usd.svg'
 import C from 'images/svg/symbols/c.svg'
 import CADCHF from 'images/svg/symbols/cad-chf.svg'
 import CADJPY from 'images/svg/symbols/cad-jpy.svg'
+import CARDANO from 'images/svg/symbols/cardano.svg'
+import CHAINLINK from 'images/svg/symbols/chainlink.svg'
 import CHFJPY from 'images/svg/symbols/chf-jpy.svg'
 import CLBRENT from 'images/svg/symbols/cl-brent.svg'
 import COPPERUSD from 'images/svg/symbols/copper-usd.svg'
@@ -39,6 +43,7 @@ import DAL from 'images/svg/symbols/dal.svg'
 import DAX30 from 'images/svg/symbols/dax-30.svg'
 import DBK from 'images/svg/symbols/dbk.svg'
 import DIS from 'images/svg/symbols/dis.svg'
+import DOGECOIN from 'images/svg/symbols/dogecoin.svg'
 import DSHUSD from 'images/svg/symbols/dsh-usd.svg'
 import EBAY from 'images/svg/symbols/ebay.svg'
 import EOSUSD from 'images/svg/symbols/eos-usd.svg'
@@ -60,6 +65,7 @@ import EURTRY from 'images/svg/symbols/eur-try.svg'
 import EURUSD from 'images/svg/symbols/eur-usd.svg'
 import EURZAR from 'images/svg/symbols/eur-zar.svg'
 import FB from 'images/svg/symbols/fb.svg'
+import FILECOIN from 'images/svg/symbols/filecoin.svg'
 import FDX from 'images/svg/symbols/fdx.svg'
 import FRA40 from 'images/svg/symbols/fra-40.svg'
 import GBPAUD from 'images/svg/symbols/gbp-aud.svg'
@@ -104,6 +110,7 @@ import KO from 'images/svg/symbols/ko.svg'
 import LEADUSD from 'images/svg/symbols/lead-usd.svg'
 import LTCUSD from 'images/svg/symbols/lct-usd.svg'
 import MA from 'images/svg/symbols/ma.svg'
+import MAKER from 'images/svg/symbols/maker.svg'
 import MARKETBEAR from 'images/svg/symbols/marketbear.svg'
 import MARKETBULL from 'images/svg/symbols/marketbull.svg'
 import MCD from 'images/svg/symbols/mcd.svg'
@@ -135,6 +142,8 @@ import OTCWALLSTREET from 'images/svg/symbols/otcwallstreet.svg'
 import PALLADIUMUSD from 'images/svg/symbols/palladium-usd.svg'
 import PFE from 'images/svg/symbols/pfe.svg'
 import PG from 'images/svg/symbols/pg.svg'
+import POLKADOT from 'images/svg/symbols/polkadot.svg'
+import POLYGON from 'images/svg/symbols/polygon.svg'
 import PLATINUMUSD from 'images/svg/symbols/platinum-usd.svg'
 import PYPL from 'images/svg/symbols/pypl.svg'
 import RANGEBREAK100 from 'images/svg/symbols/rb-100.svg'
@@ -147,6 +156,7 @@ import TSLA from 'images/svg/symbols/tsla.svg'
 import TWTR from 'images/svg/symbols/twtr.svg'
 import UBER from 'images/svg/symbols/uber.svg'
 import UK100 from 'images/svg/symbols/uk-100.svg'
+import UNISWAP from 'images/svg/symbols/uniswap.svg'
 import US100 from 'images/svg/symbols/us-100.svg'
 import US30 from 'images/svg/symbols/us-30.svg'
 import US500 from 'images/svg/symbols/us-500.svg'
@@ -169,8 +179,10 @@ import V from 'images/svg/symbols/v.svg'
 import VOLATILITY300EU from 'images/svg/symbols/volatility-eu-300.svg'
 import VOLATILITY200EU from 'images/svg/symbols/volatility-eu-200.svg'
 import WMT from 'images/svg/symbols/wmt.svg'
+import XTZ from 'images/svg/symbols/xtz.svg'
 import XRPUSD from 'images/svg/symbols/xrp-usd.svg'
 import SILVEREUR from 'images/svg/symbols/silver-eur.svg'
+import SOLANA from 'images/svg/symbols/solana.svg'
 import STOCKSUS500 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
 import STOCKSUSTECH100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import STOCKSWALLSTREET30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
@@ -239,15 +251,15 @@ import BCH from 'images/svg/symbols/btc_cash_flag.svg'
 import DASH from 'images/svg/symbols/dash_flag.svg'
 import EOS from 'images/svg/symbols/eos_flag.svg'
 import ETH from 'images/svg/symbols/eth_flag.svg'
-import IOTA from 'images/svg/symbols/iota_flag.png'
+import IOTA from 'images/svg/symbols/iota_flag.svg'
 import LTC from 'images/svg/symbols/ltc_flag.svg'
 import NEO from 'images/svg/symbols/neo_flag.svg'
-import OMG from 'images/svg/symbols/omg_flag.svg'
 import XRP from 'images/svg/symbols/ripple_flag.svg'
 import XLM from 'images/svg/symbols/stellar_flag.svg'
 import TRX from 'images/svg/symbols/tron_flag.svg'
 import ZEC from 'images/svg/symbols/z_cash_flag.svg'
 import MNR from 'images/svg/symbols/monero_flag.svg'
+import OMICEGO from 'images/svg/symbols/omise-go.svg'
 import VBOOMIC300 from 'images/svg/symbols/volatility-boom-ic-300.svg'
 import VCRASHIC300 from 'images/svg/symbols/volatility-crash-ic-300.svg'
 import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
@@ -259,6 +271,7 @@ export {
     ABNB,
     ADS,
     AIG,
+    ALGORAND,
     ALUMINIUMUSD,
     AMZN,
     AUDCAD,
@@ -272,6 +285,7 @@ export {
     BA,
     BABA,
     BAC,
+    BAT,
     BAY,
     BCHUSD,
     BIIB,
@@ -282,8 +296,10 @@ export {
     CRASH300EU,
     BTCUSD,
     C,
+    CARDANO,
     CADCHF,
     CADJPY,
+    CHAINLINK,
     CHFJPY,
     CLBRENT,
     COPPERUSD,
@@ -295,6 +311,7 @@ export {
     DAX30,
     DBK,
     DIS,
+    DOGECOIN,
     DSHUSD,
     EBAY,
     EOSUSD,
@@ -317,6 +334,7 @@ export {
     EURZAR,
     FB,
     FDX,
+    FILECOIN,
     FRA40,
     GBPAUD,
     GBPCAD,
@@ -360,6 +378,7 @@ export {
     LEADUSD,
     LTCUSD,
     MA,
+    MAKER,
     MARKETBEAR,
     MARKETBULL,
     MCD,
@@ -377,6 +396,7 @@ export {
     NZDSGD,
     NZDUSD,
     OILUSD,
+    OMICEGO,
     OTCAUSTRALIAN,
     OTCDUTCH,
     OTCFRENCH,
@@ -391,18 +411,22 @@ export {
     PALLADIUMUSD,
     PFE,
     PG,
+    POLKADOT,
+    POLYGON,
     PLATINUMUSD,
     PYPL,
     RANGEBREAK100,
     RANGEBREAK200,
     SGDJPY,
     SILVERUSD,
+    SOLANA,
     STEPINDICES,
     TEVA,
     TSLA,
     TWTR,
     UBER,
     UK100,
+    UNISWAP,
     US100,
     US30,
     US500,
@@ -425,6 +449,7 @@ export {
     VOLATILITY200EU,
     VOLATILITY300EU,
     WMT,
+    XTZ,
     XRPUSD,
     SILVEREUR,
     STOCKSUS500,
@@ -498,7 +523,6 @@ export {
     IOTA,
     LTC,
     NEO,
-    OMG,
     XRP,
     XLM,
     TRX,

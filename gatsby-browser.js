@@ -7,7 +7,7 @@ import { LocalStore } from './src/common/storage'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking.js'
-import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
+import { getClientInformation, getDomain, addScript } from 'common/utility'
 import { gtm_test_domain, pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 
@@ -157,27 +157,27 @@ export const onRouteUpdate = () => {
     NProgress.done()
     checkDomain()
 
-    const dataLayer = window.dataLayer
-    const domain = getDomain()
-    const client_information = getClientInformation(domain)
-    const is_logged_in = !!client_information
+    // const dataLayer = window.dataLayer
+    // const domain = getDomain()
+    // const client_information = getClientInformation(domain)
+    // const is_logged_in = !!client_information
 
     // wrap inside a timeout to ensure the title has properly been changed
-    setTimeout(() => {
-        const eventName = 'page_load'
+    // setTimeout(() => {
+    //     const eventName = 'page_load'
 
-        dataLayer?.push({
-            event: eventName,
-            loggedIn: is_logged_in,
-            language: getLanguage(),
-            ...(is_logged_in && {
-                visitorId: client_information.loginid,
-                currency: client_information.currency,
-                email: client_information.email,
-                userId: client_information.user_id,
-            }),
-        })
-    }, 1500)
+    //     dataLayer?.push({
+    //         event: eventName,
+    //         loggedIn: is_logged_in,
+    //         language: getLanguage(),
+    //         ...(is_logged_in && {
+    //             visitorId: client_information.loginid,
+    //             currency: client_information.currency,
+    //             email: client_information.email,
+    //             userId: client_information.user_id,
+    //         }),
+    //     })
+    // }, 1500)
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

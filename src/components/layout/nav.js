@@ -25,6 +25,7 @@ import {
     getLanguage,
     getDerivAppLocalizedURL,
     redirectToTradingPlatform,
+    getBaseRef,
 } from 'common/utility'
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
@@ -213,18 +214,20 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${(props) => {
+            const ref_base = getBaseRef(props.button_ref)
+
             if (props.hide_signup_login) {
                 return 0
             } else if (props.move && !props.hide_signup_login) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 1
                 }
                 return 0
             } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 2
+                    const calculation = ref_base.offsetWidth + 2
                     return `${calculation}px`
                 }
                 return '300px'
@@ -270,7 +273,7 @@ export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.span`
-    ${SharedLinkStyle}
+    ${SharedLinkStyle};
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
@@ -294,6 +297,7 @@ const LinkSignupButton = styled(LinkButton)`
 const HamburgerMenu = styled.img`
     cursor: pointer;
     display: none;
+    width: 16px;
     @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
@@ -312,6 +316,8 @@ const HamburgerMenuPartners = styled.img`
 const CloseMenu = styled.img`
     cursor: pointer;
     display: none;
+    width: 16px;
+
     @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
@@ -422,19 +428,14 @@ const NavMobile = ({
     return (
         <Wrapper width="95%">
             {is_canvas_menu_open ? (
-                <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} width="16px" />
+                <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} />
             ) : (
-                <HamburgerMenu
-                    src={Hamburger}
-                    alt="hamburger"
-                    onClick={openOffCanvasMenu}
-                    width="16px"
-                />
+                <HamburgerMenu src={Hamburger} alt="hamburger" onClick={openOffCanvasMenu} />
             )}
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
                         {academy_logo ? (
@@ -531,6 +532,7 @@ const NavDesktop = ({
         <>
             {active_dropdown && (
                 <PlatformsDropdown
+                    active_dropdown={active_dropdown}
                     key={active_dropdown}
                     current_ref={active_link_ref}
                     parent={active_dropdown}
@@ -791,13 +793,13 @@ export const NavStatic = ({ is_ppc }) => (
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
-                    <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
+                    <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
                     <Line />
                     <img
                         src={LogoCombinedShape}
                         alt="logo combined shape nav static"
-                        width="120"
-                        height="17"
+                        width={120}
+                        height={17}
                     />
                 </Flex>
             </LogoLink>
@@ -842,16 +844,17 @@ const StyledNavRight = styled(NavRight)`
     margin-left: auto;
     transform: translateX(
         ${(props) => {
+            const ref_base = getBaseRef(props.button_ref)
             if (props.move) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 1
                 }
                 return '50px'
             } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 50
+                    const calculation = ref_base.offsetWidth + 50
                     return `${calculation}px`
                 }
                 return '225px'

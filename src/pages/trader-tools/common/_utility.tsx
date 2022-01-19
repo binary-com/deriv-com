@@ -72,11 +72,12 @@ export const getSwapChargeForex = (values) => {
 // PnL Margin Calculator
 export const getPnlMarginCommon = (values, action) => {
     const { volume, contractSize, pointValue } = values
-    let { assetPrice, stopLossAmount, takeProfitAmount, stopLossAndtakeProfitLevel } = values
+    let { assetPrice, stopLossAmount, takeProfitAmount, stopLossLevel, takeProfitLevel } = values
     assetPrice = Number(assetPrice)
     stopLossAmount = Number(stopLossAmount)
     takeProfitAmount = Number(takeProfitAmount)
-    stopLossAndtakeProfitLevel = Number(numberWithoutCommas(stopLossAndtakeProfitLevel))
+    stopLossLevel = Number(numberWithoutCommas(stopLossLevel))
+    takeProfitLevel = Number(numberWithoutCommas(stopLossLevel))
 
     switch (action) {
         case 'getStopLossLevelSell': {
@@ -98,13 +99,11 @@ export const getPnlMarginCommon = (values, action) => {
             return toFixed(take_profit_level_formula)
         }
         case 'getStopLossPip': {
-            const stop_loss_pip_formula =
-                Math.abs(stopLossAndtakeProfitLevel - assetPrice) / pointValue
+            const stop_loss_pip_formula = Math.abs(stopLossLevel - assetPrice) / pointValue
             return toFixed(stop_loss_pip_formula)
         }
         case 'getTakeProfitPip': {
-            const take_profit_pip_formula =
-                Math.abs(stopLossAndtakeProfitLevel - assetPrice) / pointValue
+            const take_profit_pip_formula = Math.abs(takeProfitLevel - assetPrice) / pointValue
             return toFixed(take_profit_pip_formula)
         }
     }

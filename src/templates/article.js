@@ -41,13 +41,33 @@ import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { convertDate, getMinRead } from 'common/utility'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import Embed from 'common/hyvor-embed'
 
 const ArticlesTemplate = (props) => {
     const [isMounted, setMounted] = useState(false)
+
     useEffect(() => {
         setMounted(true)
-        isMounted && window.scrollTo(0, 0)
+        if (isMounted) {
+            window.scrollTo(0, 0)
+        }
     }, [isMounted])
+
+    // isBrowser() &&
+    //     useEffect(() => {
+    //         addScript({
+    //             text: `
+    //         var HYVOR_TALK_WEBSITE = 5731;
+    //         var HYVOR_TALK_CONFIG = {
+    //             url: false,
+    //             id: ${article_title}
+    //         };
+    //         `,
+    //         })
+    //         addScript({
+    //             src: '/hyvor.js',
+    //         })
+    //     }, [document])
 
     const barElement = useRef(null)
 
@@ -310,6 +330,8 @@ const ArticlesTemplate = (props) => {
                                     <MobileWrapper>
                                         <ArticleEmailBanner />
                                     </MobileWrapper>
+                                    <Embed websiteId={6091} id={article_title} />
+                                    {/* <div id="hyvor-talk-view"></div> */}
                                 </Flex>
                             </RightBodyContainerWrapper>
                         </BodyContainer>

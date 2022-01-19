@@ -55,18 +55,20 @@ const FirstContentWrapper = styled(Flex)`
 
 const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
+    margin-top: 96px;
 `
 
 const FirstArticle = ({ item }) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
-            <StyledFlex jc="flex-start" mt="96px">
+            <StyledFlex jc="flex-start">
                 <StandardImgWrapper width="592px" br="6px 0 0 6px" tabletL_br="6px 6px 0 0">
                     <QueryImage
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
                         width="100%"
                         className="standard-query-img"
+                        loading="eager"
                     />
                 </StandardImgWrapper>
                 <FirstContentWrapper fd="column" p="35px 40px" width="45%">

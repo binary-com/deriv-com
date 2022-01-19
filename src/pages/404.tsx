@@ -53,6 +53,7 @@ const PageNotFound = () => {
                         <QueryImage
                             data={data['page_not_found']}
                             alt={localize('Page not found')}
+                            loading="eager"
                         />
                     </ImageWrapper>
 

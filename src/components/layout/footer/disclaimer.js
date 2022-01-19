@@ -1,15 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
     DisclaimerWrapper,
     DisclaimerParagraph,
     StaticAsset,
     RiskWarning,
     BoldLink,
-} from './common/style.js'
+} from './common/style'
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
+import { loss_percent } from 'common/constants'
 
-const DisclaimerSection = () => {
+const DisclaimerSection = ({ is_academy }) => {
     return (
         <>
             <DisclaimerWrapper>
@@ -69,7 +71,11 @@ const DisclaimerSection = () => {
                     </DisclaimerParagraph>
                     <DisclaimerParagraph>
                         <Localize
-                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)."
+                            translate_text={`Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for digital options based on synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>)${
+                                is_academy
+                                    ? ' and by the Revenue Commissioners for clients in Ireland (licence no. 1010285).'
+                                    : '.'
+                            }`}
                             components={[
                                 <StaticAsset
                                     key={0}
@@ -91,6 +97,13 @@ const DisclaimerSection = () => {
                         "This website's services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
+                {is_academy && (
+                    <DisclaimerParagraph>
+                        {localize(
+                            'The information contained in this academy is for educational purposes only and is not intended as financial or investment advice.',
+                        )}
+                    </DisclaimerParagraph>
+                )}
                 <RiskWarning>
                     <Show.Desktop>
                         <Show.NonEU>
@@ -113,7 +126,7 @@ const DisclaimerSection = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent: 66 }}
+                                    values={{ loss_percent }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
@@ -137,7 +150,7 @@ const DisclaimerSection = () => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                                    values={{ loss_percent: 66 }}
+                                    values={{ loss_percent }}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
@@ -170,6 +183,10 @@ const DisclaimerSection = () => {
             </DisclaimerWrapper>
         </>
     )
+}
+
+DisclaimerSection.propTypes = {
+    is_academy: PropTypes.bool,
 }
 
 export default DisclaimerSection

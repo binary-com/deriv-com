@@ -356,3 +356,10 @@ export const unslugify = (slug) => {
         })
     }
 }
+
+export const getBaseRef = (ref) => {
+    // this is intended to solve a problem of preact that
+    // in some cases element api's are in the ref.current.base and
+    // in other cases they are in ref.current
+    return ref?.current?.base?.style ? ref?.current?.base : ref?.current
+}

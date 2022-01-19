@@ -16,7 +16,7 @@ import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
 
-type GetEbbokProps = {
+type GetEbookProps = {
     color?: string
     ebook_utm_code: string
     onSubmit?: (submit_status: string, email: string) => void
@@ -180,7 +180,7 @@ const EmailImage = styled.img`
     width: 20rem;
 `
 
-const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbbokProps) => {
+const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)

@@ -27,6 +27,7 @@ import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import CFD from 'images/svg/custom/margin-trading-nav.svg'
@@ -340,21 +341,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     otherLinkProps={{ rel: 'noopener noreferrer' }}
                 />
-                {is_eu_country && (
-                    <NavCard
-                        aria_label="BinaryBot"
-                        icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
-                        content={
-                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
-                        }
-                        title={<Localize translate_text="BinaryBot" />}
-                        to="https://bot.deriv.com/"
-                        external="true"
-                        target="_blank"
-                        onClick={onClick}
-                        otherLinkProps={{ rel: 'noopener noreferrer' }}
-                    />
-                )}
             </Flex>
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <EmptySpace />
@@ -368,6 +354,18 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to="/dtrader/"
                 />
+                {!is_eu_country && (
+                    <NavCard
+                        aria_label="Deriv GO"
+                        icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                        content={
+                            <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                        }
+                        title={<Localize translate_text="Deriv GO" />}
+                        onClick={onClick}
+                        to="/landing/deriv-go/"
+                    />
+                )}
                 <NavCard
                     aria_label="DBot"
                     icon={() => <img src={DBot} alt="" width="32" height="32" />}
@@ -378,21 +376,22 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to="/dbot/"
                 />
-                {!is_eu_country && (
-                    <NavCard
-                        aria_label="BinaryBot"
-                        icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
-                        content={
-                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
-                        }
-                        title={<Localize translate_text="BinaryBot" />}
-                        to="https://bot.deriv.com/"
-                        external="true"
-                        target="_blank"
-                        onClick={onClick}
-                        otherLinkProps={{ rel: 'noopener noreferrer' }}
-                    />
-                )}
+            </Flex>
+            <Flex direction="column" wrap="wrap" jc="flex-start">
+                <EmptySpace />
+                <NavCard
+                    aria_label="Binary Bot"
+                    icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                    }
+                    title={<Localize translate_text="Binary Bot" />}
+                    to="https://bot.deriv.com/"
+                    external="true"
+                    target="_blank"
+                    onClick={onClick}
+                    otherLinkProps={{ rel: 'noopener noreferrer' }}
+                />
             </Flex>
         </Flex>
     )

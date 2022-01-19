@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import {
     Bullet,
     CardWrapper,
@@ -18,20 +17,13 @@ type CardWrapperProps = {
     padding?: string[]
 }
 
-type IconWrapperProps = {
-    width?: number | string
-    height?: number | string
-    margin?: string[]
-    grid_area?: string[]
-}
-
 type TextWrapperProps = {
     max_width: string[]
 }
 
 type StyleProps = {
     text_wrapper: TextWrapperProps
-    icon_wrapper: IconWrapperProps
+    icon_wrapper: React.ReactNode
     card_wrapper: CardWrapperProps
 }
 
@@ -101,14 +93,6 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
             {has_list && getCurrentDropdownComponent()}
         </CardWrapper>
     )
-}
-
-Card.propTypes = {
-    card_content: PropTypes.object,
-    custom_icon: PropTypes.object,
-    has_list: PropTypes.bool,
-    style: PropTypes.object,
-    title_component: PropTypes.object,
 }
 
 export default Card

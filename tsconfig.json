@@ -12,7 +12,15 @@
     "emitDecoratorMetadata": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
-    "typeRoots" : ["node_modules/@types", "src/types"],
+
+    "moduleResolution": "node"
+  },
+  "paths": {
+    "react": [
+      "node_modules/preact/compat/"
+    ],
+    "react-dom": [
+      "node_modules/preact/compat/"
+    ]
   }
 }

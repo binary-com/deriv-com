@@ -347,3 +347,10 @@ export const slugify = (text) =>
         .replace(/\s+/g, '-') // Replace spaces with -
         .replace(/[^\w-]+/g, '') // Remove all non-word chars
         .replace(/--+/g, '-') // Replace multiple - with single -
+
+export const getBaseRef = (ref) => {
+    // this is intended to solve a problem of preact that
+    // in some cases element api's are in the ref.current.base and
+    // in other cases they are in ref.current
+    return ref?.current?.base?.style ? ref?.current?.base : ref?.current
+}

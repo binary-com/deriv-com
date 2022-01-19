@@ -16,7 +16,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_story = /story/g.test(page.path)
     const is_market = /markets/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
-    
+
     if (is_responsible_trading) {
         createRedirect({
             fromPath: `/responsible-trading/`,
@@ -277,6 +277,12 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
+          alias: {
+            'react': 'preact/compat',
+            'react-dom/test-utils': 'preact/test-utils',
+            'react-dom': 'preact/compat',
+            'react/jsx-runtime': 'preact/jsx-runtime',
+        },
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
     })

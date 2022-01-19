@@ -17,6 +17,7 @@ import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { Container } from 'components/containers'
+import { loss_percent } from 'common/constants'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -93,7 +94,7 @@ export const CFDWarning = ({ is_ppc }) => {
                     <CFDText>
                         <Localize
                             translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>{{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                            values={{ loss_percent: 66 }}
+                            values={{ loss_percent }}
                             components={[<strong key={0} />]}
                         />
                     </CFDText>
@@ -146,7 +147,11 @@ const Layout = ({
                 (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
             if (allow_tracking) {
-                setGTMData({ event: 'allow_tracking' })
+                window.onload = () => {
+                    window.setTimeout(() => {
+                        setGTMData({ event: 'allow_tracking' })
+                    }, 2000)
+                }
             }
             setMounted(true)
         }

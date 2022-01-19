@@ -21,6 +21,7 @@ import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
@@ -239,6 +240,20 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
+                        {!is_eu_country && (
+                            <Flex mb="2rem">
+                                <NavCard
+                                    aria_label="Deriv GO"
+                                    icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                    }
+                                    title={<Localize translate_text="Deriv GO" />}
+                                    onClick={handleArrowClick}
+                                    to="/landing/deriv-go/"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="SmartTrader"

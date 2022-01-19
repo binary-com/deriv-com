@@ -599,6 +599,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         setSearchInput('')
         updateFocusIndex(-1)
         setSuggestionBoxOpened(false)
+        is_mobile_separator && setModal(false)
         input_ref.current.blur()
     }
 

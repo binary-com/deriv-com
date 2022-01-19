@@ -5,14 +5,13 @@ import { Container } from '../../containers'
 import { FooterGrid } from '../footer/common/style.js'
 import LogoSection from '../footer/logo'
 import DisclaimerSection from './_disclaimer'
-import CopyrightSection from './_copyright'
-import { Flex } from 'components/containers'
 import device from 'themes/device'
 
 const DefaultFooter = styled.footer`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
+    padding-bottom: 2rem;
 
     ${Container} {
         @media ${device.tabletL} {
@@ -31,11 +30,6 @@ const Footer = ({ type }) => {
                     <LogoSection type={type} />
                     <DisclaimerSection />
                 </FooterGrid>
-            </Container>
-            <Container>
-                <Flex>
-                    <CopyrightSection />
-                </Flex>
             </Container>
         </DefaultFooter>
     )

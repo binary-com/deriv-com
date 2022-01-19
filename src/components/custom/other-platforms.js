@@ -346,7 +346,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         aria_label="Binary Bot"
                         icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
                         content={
-                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
                         }
                         title={<Localize translate_text="Binary Bot" />}
                         to="https://bot.deriv.com/"
@@ -384,7 +384,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         aria_label="Binary Bot"
                         icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
                         content={
-                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
                         }
                         title={<Localize translate_text="Binary Bot" />}
                         to="https://bot.deriv.com/"

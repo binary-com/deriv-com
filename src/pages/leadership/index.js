@@ -118,6 +118,7 @@ const Leadership = () => {
                                         data={data['jean_yves']}
                                         alt={localize("Jean-Yves Sireau - Deriv's CEO")}
                                         width="28.2rem"
+                                        loading="eager"
                                     />
                                 </Box>
 

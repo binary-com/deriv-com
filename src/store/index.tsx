@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { useLivechat } from 'components/hooks/use-livechat'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
     children?: React.ReactNode
 }
 
-export const DerivStore = React.createContext<any>()
+export type DerivStoreType = {
+    is_eu_country: boolean
+    is_uk_country: boolean
+    is_p2p_allowed_country: boolean
+    crypto_config: boolean
+    website_status_loading: boolean
+    website_status: string
+    setWebsiteStatus: string
+    user_country: boolean
+}
+
+export const DerivStore = React.createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
@@ -15,6 +27,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)
+    const [is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc] = useLivechat()
 
     useEffect(() => {
         if (website_status) {
@@ -39,6 +52,10 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 website_status_loading,
                 setWebsiteStatus,
                 user_country,
+                is_livechat_interactive,
+                LC_API,
+                is_loading_lc,
+                setFirstLoadOpenLc,
             }}
         >
             {children}

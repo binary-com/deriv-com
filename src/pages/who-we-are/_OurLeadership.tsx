@@ -1,11 +1,11 @@
 import React, { MouseEventHandler } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
-import { ImageWrapperProps } from 'components/elements/query-image'
+import type { ImageWrapperProps } from 'components/elements/query-image'
 import device from 'themes/device'
 import Linkedin from 'images/svg/who-we-are/linkedin.svg'
 
@@ -99,7 +99,7 @@ const ModalFlex = styled(Flex)`
     padding: 8px 16px 6px;
     z-index: 1;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 4px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 4px 15px;
     white-space: pre;
     width: fit-content;
     @media ${device.tablet} {
@@ -131,28 +131,27 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
         width: 104px;
         height: 114px;
     }
-    
+
     @media ${device.tabletL} {
-        &:nth-child(3n-2){
-            ${ModalFlex} { 
+        &:nth-child(3n-2) {
+            ${ModalFlex} {
                 left: 0;
             }
         }
-        &:nth-child(3n){
+        &:nth-child(3n) {
             ${ModalFlex} {
-                align-self:right;
+                align-self: right;
                 right: 0;
             }
         }
     }
     @media ${device.tabletS} {
         padding-bottom: 10px;
-    }  
+    }
     @media ${device.mobileL} {
         width: 88px;
         height: 98px;
-    }  
-}
+    }
 `
 
 type ModalPropsType = {
@@ -167,6 +166,7 @@ const StyledLogo = styled.img<StyledLogoType>`
     width: 32px;
     height: 32px;
     filter: grayscale(100%);
+
     &:hover {
         filter: ${(props) => (props.link ? 'unset' : 'grayscale(100%)')};
     }
@@ -221,6 +221,7 @@ const Leader = ({ leader }: LeaderProps) => {
             width="120px"
             height="120px"
             tabindex="1"
+            loading="lazy"
         >
             <QueryImage
                 width="100%"

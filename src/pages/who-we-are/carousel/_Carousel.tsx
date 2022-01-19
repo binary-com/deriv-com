@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { useEmblaCarousel } from 'embla-carousel/react'
-import { ImageDataLike } from 'gatsby-plugin-image'
+import useEmblaCarousel from 'embla-carousel-react'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 
@@ -43,18 +43,19 @@ const CarouselViewport = styled.div<CarouselViewportType>`
     overflow: hidden;
     width: 100%;
 
-    @media(min-width: 3107px) {
+    @media (min-width: 3107px) {
         display: flex;
         justify-content: center;
     }
-}
 `
 const CarouselContainer = styled.div`
     display: flex;
     user-select: none;
     -webkit-touch-callout: none;
+    /* stylelint-disable */
     -khtml-user-select: none;
     -webkit-tap-highlight-color: transparent;
+    /* stylelint-enable */
     margin-left: -10px;
 `
 
@@ -73,7 +74,6 @@ const CarouselSlide = styled.div`
             min-width: 328px;
         }
     }
-
     &:nth-child(2) {
         min-width: 792px;
 
@@ -81,7 +81,6 @@ const CarouselSlide = styled.div`
             min-width: 328px;
         }
     }
-
     &:nth-child(3) {
         min-width: 384px;
 
@@ -89,14 +88,12 @@ const CarouselSlide = styled.div`
             min-width: 328px;
         }
     }
-
     &:nth-child(4) {
         min-width: 792px;
         @media ${device.tablet} {
             min-width: 328px;
         }
     }
-
     &:nth-child(5) {
         min-width: 384px;
 
@@ -104,7 +101,6 @@ const CarouselSlide = styled.div`
             min-width: 192px;
         }
     }
-
     &:nth-child(6) {
         min-width: 384px;
 

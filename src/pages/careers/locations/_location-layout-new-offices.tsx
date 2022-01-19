@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import CareerContainer from '../_layout-components/CareerContainer'
+import CareerContainer from '../_layout-components/_career_container'
 import { locationsTypes } from '../_model/_locations/_locations.types'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'

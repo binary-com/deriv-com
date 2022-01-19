@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { desktop_pins, mobile_pins, MapPinType } from './_data'
 import { localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, CssGrid, Show, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
-import { desktop_pins, mobile_pins, MapPinType } from './_data'
 
 const query = graphql`
     query {
@@ -111,7 +111,9 @@ const PinWrapper = styled.div<PinWrapperProps>`
     top: ${(props) => props.top};
     left: ${(props) => props.left};
     -webkit-tap-highlight-color: transparent;
+    /* stylelint-disable */
     -webkit-appearance: none;
+    /* stylelint-enable */
     cursor: pointer;
 `
 

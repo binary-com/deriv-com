@@ -233,8 +233,7 @@ export const PlatformContent = ({
                 weight="normal"
                 mb={is_from_slider ? '16px' : '9px'}
             >
-                <span style={{ marginRight: '0.4rem' }}>{localize('Learn more')} </span>
-                {`>`}
+                <span style={{ marginRight: '0.4rem' }}>{`${localize('Learn more')} >`}</span>
             </StyledLink>
         </>
     )

@@ -52,10 +52,6 @@ const Video = styled.video`
     width: 100%;
     height: 100%;
 
-    &::-webkit-media-controls {
-        display: none !important;
-    }
-
     @media ${device.tabletL} {
         transform: translate(-40%, -50%) scale(1.5);
     }
@@ -74,7 +70,16 @@ export const Hero = () => {
 
     return (
         <BackgroundWrapper>
-            <Video className="lazy" width="100%" height="100%" autoPlay muted playsInline loop>
+            <Video
+                className="lazy"
+                width="100%"
+                height="100%"
+                autoPlay
+                muted
+                playsInline
+                loop
+                webkit-playsinline
+            >
                 <source data-src={Globe} type="video/mp4" />
                 <source data-src={Globe2} type="video/webm" />
             </Video>

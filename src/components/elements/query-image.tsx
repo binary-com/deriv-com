@@ -16,7 +16,7 @@ export type QueryImageProps = {
     onClick?: MouseEventHandler<HTMLDivElement>
 }
 
-type ImageWrapperProps = {
+export type ImageWrapperProps = {
     width: string
     height: string
     className?: string

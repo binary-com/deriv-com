@@ -111,7 +111,7 @@ module.exports = {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = ['en', 'x-default'].includes(locale)
                             const href_locale = is_default ? '' : `/${replaced_locale}`
-                            const href = `${site_url}/${href_locale}${current_page}`
+                            const href = `${site_url}${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }
                         }
                     })

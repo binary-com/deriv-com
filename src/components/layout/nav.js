@@ -7,7 +7,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { Container, Flex } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import {
     OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -15,7 +15,10 @@ import {
     Text,
     QueryImage,
 } from 'components/elements'
-import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
+import {
+    DesktopWrapper as DesktopShow,
+    MobileWrapper as MobileShow,
+} from 'components/containers/wrapper'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -45,6 +48,24 @@ const query = graphql`
         }
     }
 `
+
+export const DesktopWrapper = styled.div`
+    display: block;
+    @media ${(props) => props.media || device.tabletL} {
+        display: none;
+    }
+`
+
+export const MobileWrapper = styled.div`
+    display: none;
+    @media ${(props) => props.media || device.tabletL} {
+        display: block;
+    }
+`
+
+const LanguageSwitcherNavDesktop = ({ no_language }) =>
+    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
+
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
     background-color: ${(props) => (props.is_transparent ? 'transparent' : 'var(--color-black)')};
@@ -406,9 +427,6 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
-const showLanguageSwitcher = (no_language) =>
-    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
-
 const handleGetTrading = () => {
     const sub_url = redirectToTradingPlatform()
 
@@ -598,7 +616,8 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        {showLanguageSwitcher(no_language)}
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -611,7 +630,8 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        {showLanguageSwitcher(no_language)}
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -671,7 +691,7 @@ export const Nav = ({
         <>
             <NavWrapperMain is_transparent={is_transparent}>
                 <StyledNavMain>
-                    <DesktopWrapper media={device.bp1060}>
+                    <DesktopShow media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -681,8 +701,8 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </DesktopWrapper>
-                    <MobileWrapper media={device.bp1060}>
+                    </DesktopShow>
+                    <MobileShow media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -690,7 +710,7 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </MobileWrapper>
+                    </MobileShow>
                 </StyledNavMain>
             </NavWrapperMain>
             <CFDWarning />
@@ -715,6 +735,10 @@ NavDesktop.propTypes = {
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
+}
+
+LanguageSwitcherNavDesktop.propTypes = {
     no_language: PropTypes.bool,
 }
 
@@ -763,7 +787,7 @@ export const NavInterim = ({ interim_type }) => (
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <DesktopWrapper media={device.bp1060}>
+                    <DesktopShow media={device.bp1060}>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
@@ -775,8 +799,8 @@ export const NavInterim = ({ interim_type }) => (
                                 />
                             </Flex>
                         </StyledLogo>
-                    </DesktopWrapper>
-                    <MobileWrapper media={device.bp1060}>
+                    </DesktopShow>
+                    <MobileShow media={device.bp1060}>
                         <LogoLinkMobile
                             to={`/interim/${interim_type}`}
                             aria-label={localize('Home')}
@@ -794,7 +818,7 @@ export const NavInterim = ({ interim_type }) => (
                                 </LogoDescription>
                             </Flex>
                         </LogoLinkMobile>
-                    </MobileWrapper>
+                    </MobileShow>
                 </Flex>
                 <Auto jc="flex-end" ai="center">
                     <LanguageSwitcher short_name="true" />
@@ -992,9 +1016,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/story/">
+                            <HomeLink to="/who-we-are/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
-                                    {localize('About us')}
+                                    {localize('Who we are')}
                                 </Text>
                             </HomeLink>
                             <HomeLink to="/contact_us/">
@@ -1117,12 +1141,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <DesktopWrapper media={device.bp1060}>
+                                        <DesktopShow media={device.bp1060}>
                                             <span>{localize('Affiliate & IB log in')}</span>
-                                        </DesktopWrapper>
-                                        <MobileWrapper media={device.bp1060}>
+                                        </DesktopShow>
+                                        <MobileShow media={device.bp1060}>
                                             <span>{localize('Log in')}</span>
-                                        </MobileWrapper>
+                                        </MobileShow>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>
@@ -1157,4 +1181,83 @@ NavPartners.propTypes = {
 
 NavInterim.propTypes = {
     interim_type: PropTypes.string,
+}
+
+const Section = styled(SectionContainer)`
+    background-color: ${(props) => (props.background ? 'transparent' : 'var(--color-black)')};
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    padding: 4px 1%;
+    height: 7.2rem;
+    @media ${device.tabletL} {
+        padding: 4px;
+        height: 64px;
+    }
+    @media ${device.mobileL} {
+        padding: 4px 0;
+    }
+`
+
+export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
+    const [is_logged_in, setLoggedIn] = useState(true)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
+
+    const handleScrollBG = useCallback(() => {
+        const currentScrollPos = window.pageYOffset
+        setVisible(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleScrollBG)
+
+        let checkCookieChange = setInterval(() => {
+            setLoggedIn(isLoggedIn())
+        }, 800)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleScrollBG)
+        }
+    }, [])
+
+    return (
+        <>
+            <Section background={visible}>
+                <DesktopShow media={device.bp1060}>
+                    <NavDesktop
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </DesktopShow>
+                <MobileShow media={device.bp1060}>
+                    <NavMobile
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </MobileShow>
+            </Section>
+            <CFDWarning no_eu_banner={true} />
+        </>
+    )
+}
+
+NavSticky.propTypes = {
+    academy_logo: PropTypes.bool,
+    base: PropTypes.string,
+    hide_signup_login: PropTypes.bool,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }

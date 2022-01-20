@@ -737,6 +737,22 @@ export const cryptocurrencies_trade_type = [
 
 export const cryptocurrencies_cfds = [
     {
+        src: icons.AVALANCHE,
+        text: <Localize translate_text="Avalanche" />,
+    },
+    {
+        src: icons.ALGORAND,
+        text: <Localize translate_text="Algorand" />,
+    },
+    {
+        src: icons.BAT,
+        text: <Localize translate_text="BAT" />,
+    },
+    {
+        src: icons.BNB,
+        text: <Localize translate_text="Binance coin" />,
+    },
+    {
         src: icons.BTC,
         text: <Localize translate_text="Bitcoin" />,
     },
@@ -745,56 +761,100 @@ export const cryptocurrencies_cfds = [
         text: <Localize translate_text="Bitcoin Cash" />,
     },
     {
-        src: icons.ETH,
-        text: <Localize translate_text="Ethereum" />,
+        src: icons.CARDANO,
+        text: <Localize translate_text="Cardano" />,
     },
     {
-        src: icons.LTC,
-        text: <Localize translate_text="Litecoin" />,
-    },
-    {
-        src: icons.TRX,
-        text: <Localize translate_text="Tron" />,
-    },
-    {
-        src: icons.BNB,
-        text: <Localize translate_text="Binance coin" />,
+        src: icons.CHAINLINK,
+        text: <Localize translate_text="Chainlink" />,
     },
     {
         src: icons.DASH,
         text: <Localize translate_text="DASH" />,
     },
     {
-        src: icons.XRP,
-        text: <Localize translate_text="Ripple" />,
-    },
-    {
-        src: icons.MNR,
-        text: <Localize translate_text="Monero" />,
-    },
-    {
-        src: icons.ZEC,
-        text: <Localize translate_text="ZCash" />,
+        src: icons.DOGECOIN,
+        text: <Localize translate_text="Dogecoin" />,
     },
     {
         src: icons.EOS,
         text: <Localize translate_text="EOS" />,
     },
     {
+        src: icons.ETH,
+        text: <Localize translate_text="Ethereum" />,
+    },
+    {
+        src: icons.ETH_CLASSIC,
+        text: <Localize translate_text="Ethereum Classic" />,
+    },
+    {
+        src: icons.FILECOIN,
+        text: <Localize translate_text="Filecoin" />,
+    },
+    {
         src: icons.IOTA,
         text: <Localize translate_text="IOTA" />,
     },
     {
-        src: icons.OMG,
-        text: <Localize translate_text="OMG network" />,
+        src: icons.LTC,
+        text: <Localize translate_text="Litecoin" />,
+    },
+    {
+        src: icons.MAKER,
+        text: <Localize translate_text="Maker" />,
+    },
+    {
+        src: icons.MNR,
+        text: <Localize translate_text="Monero" />,
+    },
+    {
+        src: icons.NEO,
+        text: <Localize translate_text="Neo" />,
+    },
+    {
+        src: icons.OMICEGO,
+        text: <Localize translate_text="OmiseGo" />,
+    },
+    {
+        src: icons.POLKADOT,
+        text: <Localize translate_text="Polkadot" />,
+    },
+    {
+        src: icons.POLYGON,
+        text: <Localize translate_text="Polygon" />,
+    },
+    {
+        src: icons.XRP,
+        text: <Localize translate_text="Ripple" />,
+    },
+    {
+        src: icons.SOLANA,
+        text: <Localize translate_text="Solana" />,
     },
     {
         src: icons.XLM,
         text: <Localize translate_text="Stellar Lumens" />,
     },
     {
-        src: icons.NEO,
-        text: <Localize translate_text="Neo" />,
+        src: icons.TERRA,
+        text: <Localize translate_text="Terra" />,
+    },
+    {
+        src: icons.TRX,
+        text: <Localize translate_text="Tron" />,
+    },
+    {
+        src: icons.UNISWAP,
+        text: <Localize translate_text="Uniswap" />,
+    },
+    {
+        src: icons.XTZ,
+        text: <Localize translate_text="XTZ" />,
+    },
+    {
+        src: icons.ZEC,
+        text: <Localize translate_text="ZCash" />,
     },
 ]
 

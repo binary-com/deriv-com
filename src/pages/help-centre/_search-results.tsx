@@ -9,10 +9,10 @@ type TopicsType = {
     category: string
     label: string
     title: string | React.ReactElement
-}[]
+}
 
 type SearchSuccessProps = {
-    suggested_topics: TopicsType | string[]
+    suggested_topics: TopicsType[] | string[]
     max_length: number
 }
 

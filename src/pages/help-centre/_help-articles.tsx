@@ -8,14 +8,14 @@ type ArticlesByCategoryType = {
     label?: string
     title_eu?: React.ReactElement
     label_eu?: string
-}
+}[]
 
 type ArcticlesType = {
     category: React.ReactElement
-    articles: ArticlesByCategoryType[]
-}[]
+    articles: ArticlesByCategoryType
+}
 
-export const articles: ArcticlesType = [
+export const articles: ArcticlesType[] = [
     {
         category: <Localize translate_text="Account" />,
         articles: [

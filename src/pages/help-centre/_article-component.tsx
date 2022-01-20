@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { convertToHash } from './_utility'
 import { Header, Text } from 'components/elements'
 import { LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 
-interface Items {
+type IItems = {
     translate_text: string
     is_expanded: boolean
 }
 
-interface Props {
-    props: Items
+type IProps = {
+    props: IItems
     translate_text: string
     is_expanded: boolean
+    is_eu_country?: boolean
 }
 
-type PropsType = Items & Props
+export type PropsType = IItems & IProps
 
 type ArticlesProps = {
     category: string
@@ -37,7 +38,6 @@ type ArticleComponentProps = {
     item: ItemProps
     all_categories: PropsType
     is_eu_country: boolean
-    toggleArticle: (category: string) => void
 }
 
 const ArticleDiv = styled.div`
@@ -150,8 +150,17 @@ const ArticleComponent = ({
     item,
     all_categories,
     is_eu_country,
-    toggleArticle,
 }: ArticleComponentProps) => {
+    const [current_categories, setCurrentCategories] = useState(all_categories)
+
+    const toggleArticle = (category) => {
+        if (current_categories[category]) {
+            const categories = { ...current_categories }
+            categories[category].is_expanded = !categories[category].is_expanded
+            setCurrentCategories(categories)
+        }
+    }
+
     return (
         <ArticleDiv key={idx}>
             {id === 1 && idx == 0 && <Platforms>Platforms</Platforms>}

@@ -14,6 +14,7 @@ import AUDNZD from 'images/svg/symbols/aud-nzd.svg'
 import AUDSGD from 'images/svg/symbols/aud-sgd.svg'
 import AUDUSD from 'images/svg/symbols/aud-usd.svg'
 import AUS200 from 'images/svg/symbols/aus-200.svg'
+import AVALANCHE from 'images/svg/symbols/avalanche.svg'
 import BA from 'images/svg/symbols/ba.svg'
 import BABA from 'images/svg/symbols/baba.svg'
 import BAC from 'images/svg/symbols/bac.svg'
@@ -243,6 +244,7 @@ import STOCKSVISA from 'images/svg/symbols/markets-stocks-and-indices/american-s
 import STOCKSWALMART from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
 import STOCKSWALTDISNEY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import STOCKSZOOM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-zoom-video-communications-inc.svg'
+import TERRA from 'images/svg/symbols/terra.svg'
 import ZINCUSD from 'images/svg/symbols/zinc-usd.svg'
 import ZM from 'images/svg/symbols/zm.svg'
 import BNB from 'images/svg/symbols/binance_coin_flag.svg'
@@ -251,6 +253,7 @@ import BCH from 'images/svg/symbols/btc_cash_flag.svg'
 import DASH from 'images/svg/symbols/dash_flag.svg'
 import EOS from 'images/svg/symbols/eos_flag.svg'
 import ETH from 'images/svg/symbols/eth_flag.svg'
+import ETH_CLASSIC from 'images/svg/symbols/ethereum-classic.svg'
 import IOTA from 'images/svg/symbols/iota_flag.svg'
 import LTC from 'images/svg/symbols/ltc_flag.svg'
 import NEO from 'images/svg/symbols/neo_flag.svg'
@@ -282,6 +285,7 @@ export {
     AUDSGD,
     AUDUSD,
     AUS200,
+    AVALANCHE,
     BA,
     BABA,
     BAC,
@@ -510,6 +514,7 @@ export {
     STOCKSWALMART,
     STOCKSWALTDISNEY,
     STOCKSZOOM,
+    TERRA,
     STOCKSSWISS20,
     STOCKSHONGKONG50,
     ZINCUSD,
@@ -520,6 +525,7 @@ export {
     DASH,
     EOS,
     ETH,
+    ETH_CLASSIC,
     IOTA,
     LTC,
     NEO,

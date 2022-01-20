@@ -315,7 +315,7 @@ export const addScript = (settings) => {
 // Function to get the user selected language, can be used in the future once need to check other languages
 export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
 
-// Function to manually replace server's locale ("zh_tw" or "zh_cn")  to "zh-tw"/"zh-cn"
+// Function to manually replace server's locale ("zh_tw" or "zh_cn") to "zh-tw"/"zh-cn"
 export const replaceLocale = (locale) => {
     let checked_locale = locale
     if (locale === 'zh_tw') {
@@ -347,3 +347,10 @@ export const slugify = (text) =>
         .replace(/\s+/g, '-') // Replace spaces with -
         .replace(/[^\w-]+/g, '') // Remove all non-word chars
         .replace(/--+/g, '-') // Replace multiple - with single -
+
+export const getBaseRef = (ref) => {
+    // this is intended to solve a problem of preact that
+    // in some cases element api's are in the ref.current.base and
+    // in other cases they are in ref.current
+    return ref?.current?.base?.style ? ref?.current?.base : ref?.current
+}

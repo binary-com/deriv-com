@@ -53,7 +53,7 @@ const Hero = ({
     const [is_mobile] = useBrowserResize()
     return (
         <MainWrapper width="100%" p="4%" bg={bg} tablet={{ bg: { bgMobile } }}>
-            <HeaderBody max_width="1440px" m="0" tablet={{ height: 'auto' }}>
+            <HeaderBody max_width="1440px" m="0 auto" tablet={{ height: 'auto' }}>
                 <Flex width="100%" direction="column">
                     <Box
                         width="100%"

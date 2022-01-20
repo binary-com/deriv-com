@@ -86,6 +86,10 @@ const SocialButton = styled(Button)`
         position: relative;
     }
 
+    @media ${device.desktopL} {
+        width: 11rem;
+    }
+
     @media ${device.tabletS} {
         width: 100%;
         height: 43px;

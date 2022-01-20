@@ -7,7 +7,6 @@ import device from 'themes/device'
 
 const StyledDesktopCarousel = styled(Flex)`
     @media ${device.desktopL} {
-        max-width: 1600px;
         margin: 0 auto;
     }
 `

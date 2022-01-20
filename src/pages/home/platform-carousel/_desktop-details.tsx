@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { getOSIcon, platform_details } from './utils'
+import { getOSIcon, platform_details } from './_utils'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
 

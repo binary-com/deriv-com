@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { platform_details, getOSIcon, PlatformContent, PlatformIcon } from './utils'
-import type { PlatformDetailsProps } from './utils'
+import { platform_details, getOSIcon, PlatformContent, ImageTag } from './_utils'
+import type { PlatformDetailsProps } from './_utils'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
@@ -91,7 +91,7 @@ const image_query = graphql`
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (
         <>
-            <PlatformIcon width="40px" height="40px" src={icon} alt="platform" />
+            <ImageTag width="40px" height="40px" src={icon} alt="platform" />
             <Flex
                 fd="column"
                 ai="flex-start"

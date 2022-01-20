@@ -114,7 +114,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
                         {title}
                     </StyledHeader>
                     <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
-                        <Header as="h1" color="white" type="subtitle-1" weight="normal">
+                        <Header as="h2" color="white" type="subtitle-1" weight="normal">
                             {content}
                         </Header>
                     </HeroContent>

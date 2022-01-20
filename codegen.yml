@@ -1,0 +1,14 @@
+schema: http://localhost:8000/___graphql
+documents:
+  - ./src/**/*.{ts,tsx}
+generates:
+  ./src/types/graphql-types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      namingConvention:
+        enumValues: 'keep'
+hooks:
+  afterAllFileWrite:
+    - prettier --write

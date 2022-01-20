@@ -15,10 +15,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Title>{localize('ABOUT')}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">
-                            <Link to="/story/">{localize('Our story')}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/leadership/">{localize('Our leadership')}</Link>
+                            <Link to="/who-we-are/">{localize('Who we are')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/why-choose-us/">{localize('Why choose us?')}</Link>
@@ -42,7 +39,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <Show.NonEU>
                             <LinkWrapper>
-                                <Link to="/landing/deriv-go/">{localize('Deriv Go')}</Link>
+                                <Link to="/landing/deriv-go/">{localize('Deriv GO')}</Link>
                             </LinkWrapper>
                             <LinkWrapper>
                                 <Link to="/dbot/">{localize('DBot')}</Link>

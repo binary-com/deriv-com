@@ -12,6 +12,7 @@
     "emitDecoratorMetadata": true,
     "noEmit": true,
     "skipLibCheck": true,
+
     "moduleResolution": "node"
   },
   "paths": {

@@ -2,27 +2,19 @@ const isBrowser = () => typeof window !== 'undefined'
 
 const deriv_com_url = 'deriv.com'
 const deriv_me_url = 'deriv.me'
-const deriv_be_url = 'deriv.be'
 
-export const deriv_com_app_id = 16929
-export const deriv_me_app_id = 1411
-export const deriv_be_app_id = 30767
+const deriv_com_app_id = 16929
+const deriv_me_app_id = 1411
 
-const supported_domains = [deriv_com_url, deriv_me_url, deriv_be_url]
+const supported_domains = [deriv_com_url, deriv_me_url]
 const domain_url =
     isBrowser() && supported_domains.includes(window.location.hostname)
         ? window.location.hostname
         : deriv_com_url
 
-const getDomainAppID = () => {
-    if (domain_url === deriv_me_url) return deriv_me_app_id
-    else if (domain_url === deriv_be_url) return deriv_be_app_id
-    else return deriv_com_app_id
-}
-
 // URL
 export const domain_full_url = `https://${domain_url}`
-export const deriv_app_id = getDomainAppID()
+export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_api_url = `https://api.${domain_url}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`

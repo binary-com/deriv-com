@@ -7,26 +7,17 @@
  *
  */
 import { isBrowser } from '../utility'
-import {
-    default_server_url,
-    deriv_com_app_id,
-    deriv_me_app_id,
-    deriv_be_app_id,
-} from '../constants'
+import { default_server_url } from '../constants'
 
 export const domain_config = {
     production: [
         {
             hostname: 'deriv.com',
-            app_id: deriv_com_app_id,
+            app_id: 11780,
         },
         {
             hostname: 'deriv.me',
-            app_id: deriv_me_app_id,
-        },
-        {
-            hostname: 'deriv.be',
-            app_id: deriv_be_app_id,
+            app_id: 1411,
         },
     ],
     staging: {

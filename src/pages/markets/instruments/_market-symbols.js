@@ -737,6 +737,10 @@ export const cryptocurrencies_trade_type = [
 
 export const cryptocurrencies_cfds = [
     {
+        src: icons.AVALANCHE,
+        text: <Localize translate_text="Avalanche" />,
+    },
+    {
         src: icons.ALGORAND,
         text: <Localize translate_text="Algorand" />,
     },
@@ -779,6 +783,10 @@ export const cryptocurrencies_cfds = [
     {
         src: icons.ETH,
         text: <Localize translate_text="Ethereum" />,
+    },
+    {
+        src: icons.ETH_CLASSIC,
+        text: <Localize translate_text="Ethereum Classic" />,
     },
     {
         src: icons.FILECOIN,
@@ -827,6 +835,10 @@ export const cryptocurrencies_cfds = [
     {
         src: icons.XLM,
         text: <Localize translate_text="Stellar Lumens" />,
+    },
+    {
+        src: icons.TERRA,
+        text: <Localize translate_text="Terra" />,
     },
     {
         src: icons.TRX,

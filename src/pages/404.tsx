@@ -17,7 +17,7 @@ const query = graphql`
 `
 
 const PageNotFoundContainerInfo = styled.div`
-    margin-left: 2.4rem;
+    margin: 2.4rem;
 
     * {
         margin: 1.6rem 0;
@@ -33,7 +33,7 @@ const PageNotFoundContainer = styled.div`
     flex-direction: column;
 `
 const ButtonWrapper = styled.div`
-    margin-top: 2.6rem;
+    margin-top: 3rem;
     text-align: center;
 `
 

@@ -210,6 +210,7 @@ const MarketsFold = () => {
             loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
+            align: is_mobile ? 'start' : '',
         },
         container_style: {
             maxWidth: '100%',

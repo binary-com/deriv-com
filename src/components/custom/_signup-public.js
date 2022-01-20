@@ -29,7 +29,7 @@ const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding: 41px 0 40px;
+        padding: 0 0 40px;
     }
 `
 const Wrapper = styled.div`

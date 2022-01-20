@@ -8,6 +8,10 @@ type DerivProviderProps = {
 }
 
 export type DerivStoreType = {
+    is_livechat_interactive: boolean
+    LC_API: { open_chat_window: () => void }
+    setFirstLoadOpenLc: (boolean) => void
+    is_loading_lc: boolean
     is_eu_country: boolean
     is_uk_country: boolean
     is_p2p_allowed_country: boolean

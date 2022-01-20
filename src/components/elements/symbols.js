@@ -25,6 +25,7 @@ import BIIB from 'images/svg/symbols/biib.svg'
 import BMW from 'images/svg/symbols/bmw.svg'
 import BOOM1000 from 'images/svg/symbols/boom-indices-1000.svg'
 import BOOM500 from 'images/svg/symbols/boom-indices-500.svg'
+import BOOM300 from 'images/svg/symbols/boom-indices-300.svg'
 import BOOM300EU from 'images/svg/symbols/boom-eu-boom-300.svg'
 import CRASH300EU from 'images/svg/symbols/crash-eu-crash-300.svg'
 import BTCUSD from 'images/svg/symbols/btc-usd.svg'
@@ -38,6 +39,7 @@ import CLBRENT from 'images/svg/symbols/cl-brent.svg'
 import COPPERUSD from 'images/svg/symbols/copper-usd.svg'
 import CRASH1000 from 'images/svg/symbols/crash-indices-1000.svg'
 import CRASH500 from 'images/svg/symbols/crash-indices-500.svg'
+import CRASH300 from 'images/svg/symbols/crash-indices-300.svg'
 import CRM from 'images/svg/symbols/crm.svg'
 import CSCO from 'images/svg/symbols/csco.svg'
 import DAL from 'images/svg/symbols/dal.svg'
@@ -91,6 +93,8 @@ import IBM from 'images/svg/symbols/ibm.svg'
 import INDEX10 from 'images/svg/symbols/index10.svg'
 import INDEX100 from 'images/svg/symbols/index100.svg'
 import INDEX100S1 from 'images/svg/symbols/index100s1.svg'
+import INDEX200S1 from 'images/svg/symbols/index200s1.svg'
+import INDEX300S1 from 'images/svg/symbols/index300s1.svg'
 import INDEX10S1 from 'images/svg/symbols/index10s1.svg'
 import INDEX25 from 'images/svg/symbols/index25.svg'
 import INDEX25S1 from 'images/svg/symbols/index25s1.svg'
@@ -296,6 +300,7 @@ export {
     BMW,
     BOOM1000,
     BOOM500,
+    BOOM300,
     BOOM300EU,
     CRASH300EU,
     BTCUSD,
@@ -309,6 +314,7 @@ export {
     COPPERUSD,
     CRASH1000,
     CRASH500,
+    CRASH300,
     CRM,
     CSCO,
     DAL,
@@ -362,6 +368,8 @@ export {
     INDEX10,
     INDEX100,
     INDEX100S1,
+    INDEX200S1,
+    INDEX300S1,
     INDEX10S1,
     INDEX25,
     INDEX25S1,

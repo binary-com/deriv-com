@@ -7,6 +7,7 @@ import {
     ExoticPairs,
     MajorPairs,
     Metals,
+    MicroPairs,
     MinorPairs,
     RangeBreak,
     SmartFX,
@@ -68,6 +69,10 @@ export const forex_cfds = {
         {
             title: <Localize translate_text="Exotic pairs" />,
             component: <ExoticPairs />,
+        },
+        {
+            title: <Localize translate_text="Micro pairs" />,
+            component: <MicroPairs />,
         },
         {
             title: <Localize translate_text="SmartFX" />,

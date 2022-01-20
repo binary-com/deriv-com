@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import {
     CrashBoom,
     ContinuousIndices,
+    JumpIndices,
+    StepIndices,
     VolatilityIndices,
 } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
@@ -141,6 +143,28 @@ const ContinuousIndicesDetails = () => (
     </DetailsContainer>
 )
 
+const JumpIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="These indices correspond to simulated markets with <0>constant volatilities of 10%, 25%, 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes</0>, on average. The jump size is <0>around 30 times</0> the normal price movement, on average."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+const StepIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="With these indices, there is an equal probability of up/down movement in a price series with a <0>fixed step size of 0.1</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
 const SyntheticIndices = () => {
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -232,6 +256,54 @@ const SyntheticIndices = () => {
                         />
                     </MarketsWrapper>
                 )}
+                <MarketsWrapper direction="column">
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Flex jc="flex-start" ai="center">
+                                <Col max_width="13.2rem">
+                                    <Show.Desktop>
+                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                            {localize('Jump indices')}
+                                        </Title>
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                            {localize('Jump indices')}
+                                        </Title>
+                                    </Show.Mobile>
+                                </Col>
+                                <MarketsList>
+                                    <JumpIndices />
+                                </MarketsList>
+                            </Flex>
+                        )}
+                        renderDetails={JumpIndicesDetails}
+                    />
+                </MarketsWrapper>
+                <MarketsWrapper direction="column">
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Flex jc="flex-start" ai="center">
+                                <Col max_width="13.2rem">
+                                    <Show.Desktop>
+                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                            {localize('Step indices')}
+                                        </Title>
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                            {localize('Step indices')}
+                                        </Title>
+                                    </Show.Mobile>
+                                </Col>
+                                <MarketsList>
+                                    <StepIndices />
+                                </MarketsList>
+                            </Flex>
+                        )}
+                        renderDetails={StepIndicesDetails}
+                    />
+                </MarketsWrapper>
             </Flex>
         </SectionContainer>
     )

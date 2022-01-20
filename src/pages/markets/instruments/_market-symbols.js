@@ -55,6 +55,14 @@ export const continuous_indices = [
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
+        src: icons.INDEX200S1,
+        text: <Localize translate_text="Volatility 200 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX300S1,
+        text: <Localize translate_text="Volatility 300 (1s) Index" />,
+    },
+    {
         src: icons.INDEX10,
         text: <Localize translate_text="Volatility 10 Index" />,
     },
@@ -99,12 +107,20 @@ export const crash_boom = [
         text: <Localize translate_text="Boom 500 Index" />,
     },
     {
+        src: icons.BOOM300,
+        text: <Localize translate_text="Boom 300 Index" />,
+    },
+    {
         src: icons.CRASH1000,
         text: <Localize translate_text="Crash 1000 Index" />,
     },
     {
         src: icons.CRASH500,
         text: <Localize translate_text="Crash 500 Index" />,
+    },
+    {
+        src: icons.CRASH300,
+        text: <Localize translate_text="Crash 300 Index" />,
     },
 ]
 
@@ -191,10 +207,6 @@ export const exotic_pairs = [
         text: <Localize translate_text="GBP/SGD" />,
     },
     {
-        src: icons.GBPTRY,
-        text: <Localize translate_text="GBP/TRY" />,
-    },
-    {
         src: icons.HKDJPY,
         text: <Localize translate_text="HKD/JPY" />,
     },
@@ -229,10 +241,6 @@ export const exotic_pairs = [
     {
         src: icons.USDTHB,
         text: <Localize translate_text="USD/THB" />,
-    },
-    {
-        src: icons.USDTRY,
-        text: <Localize translate_text="USD/TRY" />,
     },
 ]
 
@@ -286,10 +294,6 @@ export const major_pairs = [
         text: <Localize translate_text="USD/CAD" />,
     },
     {
-        src: icons.USDCHF,
-        text: <Localize translate_text="USD/CHF" />,
-    },
-    {
         src: icons.USDJPY,
         text: <Localize translate_text="USD/JPY" />,
     },
@@ -297,28 +301,12 @@ export const major_pairs = [
 
 export const metals = [
     {
-        src: icons.ALUMINIUMUSD,
-        text: <Localize translate_text="Aluminium/USD" />,
-    },
-    {
-        src: icons.COPPERUSD,
-        text: <Localize translate_text="Copper/USD" />,
-    },
-    {
         src: icons.GOLDEUR,
         text: <Localize translate_text="Gold/EUR" />,
     },
     {
         src: icons.GOLDUSD,
         text: <Localize translate_text="Gold/USD" />,
-    },
-    {
-        src: icons.LEADUSD,
-        text: <Localize translate_text="Lead/USD" />,
-    },
-    {
-        src: icons.NICKELUSD,
-        text: <Localize translate_text="Nickel/USD" />,
     },
     {
         src: icons.PALLADIUMUSD,
@@ -336,9 +324,84 @@ export const metals = [
         src: icons.SILVERUSD,
         text: <Localize translate_text="Silver/USD" />,
     },
+]
+
+export const micro_pairs = [
     {
-        src: icons.ZINCUSD,
-        text: <Localize translate_text="Zinc/USD" />,
+        src: icons.AUDCAD,
+        text: <Localize translate_text="AUD/CAD" />,
+    },
+    {
+        src: icons.AUDCHF,
+        text: <Localize translate_text="AUD/CHF" />,
+    },
+    {
+        src: icons.AUDJPY,
+        text: <Localize translate_text="AUD/JPY" />,
+    },
+    {
+        src: icons.AUDNZD,
+        text: <Localize translate_text="AUD/NZD" />,
+    },
+    {
+        src: icons.AUDUSD,
+        text: <Localize translate_text="AUD/USD" />,
+    },
+    {
+        src: icons.EURAUD,
+        text: <Localize translate_text="EUR/AUD" />,
+    },
+    {
+        src: icons.EURCAD,
+        text: <Localize translate_text="EUR/CAD" />,
+    },
+    {
+        src: icons.EURCHF,
+        text: <Localize translate_text="EUR/CHF" />,
+    },
+    {
+        src: icons.EURGBP,
+        text: <Localize translate_text="EUR/GBP" />,
+    },
+    {
+        src: icons.EURJPY,
+        text: <Localize translate_text="EUR/JPY" />,
+    },
+    {
+        src: icons.EURNZD,
+        text: <Localize translate_text="EUR/NZD" />,
+    },
+    {
+        src: icons.EURUSD,
+        text: <Localize translate_text="EUR/USD" />,
+    },
+    {
+        src: icons.GBPCHF,
+        text: <Localize translate_text="GBP/CHF" />,
+    },
+    {
+        src: icons.GBPJPY,
+        text: <Localize translate_text="GBP/JPY" />,
+    },
+    {
+        src: icons.GBPUSD,
+        text: <Localize translate_text="GBP/USD" />,
+    },
+    {
+        src: icons.NZDUSD,
+        text: <Localize translate_text="NZD/USD" />,
+    },
+    {
+        src: icons.USDCAD,
+        text: <Localize translate_text="USD/CAD" />,
+    },
+    {
+        src: icons.USDCHF,
+        text: <Localize translate_text="USD/CHF" />,
+    },
+    {
+        src: icons.USDJPY,
+        text: <Localize translate_text="USD/JPY" />,
     },
 ]
 
@@ -397,12 +460,37 @@ export const minor_pairs = [
         text: <Localize translate_text="AUD/NZD" />,
     },
     {
+        src: icons.CADCHF,
+        // TODO FLAG
+        text: <Localize translate_text="CAD/CHF" />,
+    },
+    {
+        src: icons.CADJPY,
+
+        text: <Localize translate_text="CAD/JPY" />,
+    },
+    {
         src: icons.CHFJPY,
-        text: <Localize translate_text="CHF/JPY" />,
+        text: <Localize translate_text="CAD/CHF" />,
+    },
+    {
+        src: icons.EURNZD,
+        // TODO EURNOK
+        text: <Localize translate_text="EUR/NOK" />,
     },
     {
         src: icons.EURNZD,
         text: <Localize translate_text="EUR/NZD" />,
+    },
+    {
+        src: icons.EURNZD,
+        // TODO EURPLN
+        text: <Localize translate_text="EUR/PLN" />,
+    },
+    {
+        src: icons.EURNZD,
+        // TODO EURSEK
+        text: <Localize translate_text="EUR/SEK" />,
     },
     {
         src: icons.GBPCAD,
@@ -421,12 +509,27 @@ export const minor_pairs = [
         text: <Localize translate_text="GBP/NZD" />,
     },
     {
+        src: icons.EURNZD,
+        // TODO GBPSEK
+        text: <Localize translate_text="GBP/SEK" />,
+    },
+    {
+        src: icons.NZDCAD,
+        // TODO FLAG
+        text: <Localize translate_text="NZD/CAD" />,
+    },
+    {
         src: icons.NZDJPY,
         text: <Localize translate_text="NZD/JPY" />,
     },
     {
         src: icons.NZDUSD,
         text: <Localize translate_text="NZD/USD" />,
+    },
+    {
+        src: icons.EURNZD,
+        // TODO USDCNH
+        text: <Localize translate_text="USD/CNH" />,
     },
     {
         src: icons.USDMXN,
@@ -443,6 +546,11 @@ export const minor_pairs = [
     {
         src: icons.USDSEK,
         text: <Localize translate_text="USD/SEK" />,
+    },
+    {
+        src: icons.USDZAR,
+        // TODO FLAG
+        text: <Localize translate_text="USD/ZAR" />,
     },
 ]
 
@@ -487,7 +595,7 @@ export const stocks_european_indices = [
     },
     {
         src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
+        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSUK100,
@@ -519,6 +627,26 @@ export const american_stocks = [
     {
         src: icons.STOCKSAMAZON,
         text: <Localize translate_text="Amazon.com Inc" />,
+    },
+    {
+        src: icons.STOCKSAMAZON,
+        // TODO ICON
+        text: <Localize translate_text="Airbus SE" />,
+    },
+    {
+        src: icons.STOCKSAMAZON,
+        // TODO ICON
+        text: <Localize translate_text="Air France KLM SA" />,
+    },
+    {
+        src: icons.STOCKSAMAZON,
+        // TODO ICON
+        text: <Localize translate_text="Advanced Micro Devices, Inc." />,
+    },
+    {
+        src: icons.STOCKSAMAZON,
+        // TODO ICON
+        text: <Localize translate_text="Bayer AG" />,
     },
     {
         src: icons.STOCKSBOEING,
@@ -553,12 +681,22 @@ export const american_stocks = [
         text: <Localize translate_text="Cisco Systems" />,
     },
     {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Continental AG" />,
+    },
+    {
         src: icons.STOCKSDELTAAIRLINES,
         text: <Localize translate_text="Delta Air Lines" />,
     },
     {
         src: icons.STOCKSDEUTSCHEBANK,
         text: <Localize translate_text="Deutsche Bank AG" />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Deutsche Lufthansa AG" />,
     },
     {
         src: icons.STOCKSWALTDISNEY,
@@ -577,6 +715,11 @@ export const american_stocks = [
         text: <Localize translate_text="Fedex" />,
     },
     {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Fox Corp Class B" />,
+    },
+    {
         src: icons.STOCKSGENERALMOTORSCOMP,
         text: <Localize translate_text="General Motors Company" />,
     },
@@ -591,6 +734,16 @@ export const american_stocks = [
     {
         src: icons.STOCKSHPINC,
         text: <Localize translate_text="HP Inc" />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Home Depot Inc" />,
+    },
+    {
+        src: icons.STOCKSHPINC,
+        // TODO ICON
+        text: <Localize translate_text="Hugo Boss AG Common Stock" />,
     },
     {
         src: icons.STOCKSIBM,
@@ -625,12 +778,22 @@ export const american_stocks = [
         text: <Localize translate_text="Microsoft Corporation" />,
     },
     {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Nestle SA" />,
+    },
+    {
         src: icons.STOCKSNETFLIX,
         text: <Localize translate_text="Netflix Inc" />,
     },
     {
         src: icons.STOCKSNIKE,
         text: <Localize translate_text="Nike" />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Novartis AG" />,
     },
     {
         src: icons.STOCKSNVIDIA,
@@ -647,6 +810,26 @@ export const american_stocks = [
     {
         src: icons.STOCKSPAYPAL,
         text: <Localize translate_text="Paypal" />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="PepsiCo, Inc." />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Porsche Automobil Holding SE" />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Puma SE" />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        // TODO ICON
+        text: <Localize translate_text="Sony Group Corp" />,
     },
     {
         src: icons.STOCKSTEVAPHARMACEUTICAL,
@@ -692,182 +875,273 @@ export const american_stocks = [
     },
 ]
 
+// export const cryptocurrencies_trade_type = [
+//     {
+//         src: icons.BTC,
+//         text: <Localize translate_text="Bitcoin" />,
+//     },
+//     {
+//         src: icons.BCH,
+//         text: <Localize translate_text="Bitcoin Cash" />,
+//     },
+//     {
+//         src: icons.ETH,
+//         text: <Localize translate_text="Ethereum" />,
+//     },
+//     {
+//         src: icons.LTC,
+//         text: <Localize translate_text="Litecoin" />,
+//     },
+//     {
+//         src: icons.EOS,
+//         text: <Localize translate_text="EOS" />,
+//     },
+//     {
+//         src: icons.BNB,
+//         text: <Localize translate_text="Binance Coin" />,
+//     },
+//     {
+//         src: icons.DASH,
+//         text: <Localize translate_text="DASH" />,
+//     },
+//     {
+//         src: icons.XRP,
+//         text: <Localize translate_text="Ripple" />,
+//     },
+//     {
+//         src: icons.MNR,
+//         text: <Localize translate_text="Monero" />,
+//     },
+//     {
+//         src: icons.ZEC,
+//         text: <Localize translate_text="ZCash" />,
+//     },
+// ]
+
 export const cryptocurrencies_trade_type = [
     {
         src: icons.BTC,
-        text: <Localize translate_text="Bitcoin" />,
-    },
-    {
-        src: icons.BCH,
-        text: <Localize translate_text="Bitcoin Cash" />,
+        text: <Localize translate_text="BTC/USD" />,
     },
     {
         src: icons.ETH,
-        text: <Localize translate_text="Ethereum" />,
-    },
-    {
-        src: icons.LTC,
-        text: <Localize translate_text="Litecoin" />,
-    },
-    {
-        src: icons.EOS,
-        text: <Localize translate_text="EOS" />,
-    },
-    {
-        src: icons.BNB,
-        text: <Localize translate_text="Binance Coin" />,
-    },
-    {
-        src: icons.DASH,
-        text: <Localize translate_text="DASH" />,
-    },
-    {
-        src: icons.XRP,
-        text: <Localize translate_text="Ripple" />,
-    },
-    {
-        src: icons.MNR,
-        text: <Localize translate_text="Monero" />,
-    },
-    {
-        src: icons.ZEC,
-        text: <Localize translate_text="ZCash" />,
+        text: <Localize translate_text="ETH/USD" />,
     },
 ]
 
+// export const cryptocurrencies_cfds = [
+//     {
+//         src: icons.AVALANCHE,
+//         text: <Localize translate_text="Avalanche" />,
+//     },
+//     {
+//         src: icons.ALGORAND,
+//         text: <Localize translate_text="Algorand" />,
+//     },
+//     {
+//         src: icons.BAT,
+//         text: <Localize translate_text="BAT" />,
+//     },
+//     {
+//         src: icons.BNB,
+//         text: <Localize translate_text="Binance coin" />,
+//     },
+//     {
+//         src: icons.BTC,
+//         text: <Localize translate_text="Bitcoin" />,
+//     },
+//     {
+//         src: icons.BCH,
+//         text: <Localize translate_text="Bitcoin Cash" />,
+//     },
+//     {
+//         src: icons.CARDANO,
+//         text: <Localize translate_text="Cardano" />,
+//     },
+//     {
+//         src: icons.CHAINLINK,
+//         text: <Localize translate_text="Chainlink" />,
+//     },
+//     {
+//         src: icons.DASH,
+//         text: <Localize translate_text="DASH" />,
+//     },
+//     {
+//         src: icons.DOGECOIN,
+//         text: <Localize translate_text="Dogecoin" />,
+//     },
+//     {
+//         src: icons.EOS,
+//         text: <Localize translate_text="EOS" />,
+//     },
+//     {
+//         src: icons.ETH,
+//         text: <Localize translate_text="Ethereum" />,
+//     },
+//     {
+//         src: icons.ETH_CLASSIC,
+//         text: <Localize translate_text="Ethereum Classic" />,
+//     },
+//     {
+//         src: icons.FILECOIN,
+//         text: <Localize translate_text="Filecoin" />,
+//     },
+//     {
+//         src: icons.IOTA,
+//         text: <Localize translate_text="IOTA" />,
+//     },
+//     {
+//         src: icons.LTC,
+//         text: <Localize translate_text="Litecoin" />,
+//     },
+//     {
+//         src: icons.MAKER,
+//         text: <Localize translate_text="Maker" />,
+//     },
+//     {
+//         src: icons.MNR,
+//         text: <Localize translate_text="Monero" />,
+//     },
+//     {
+//         src: icons.NEO,
+//         text: <Localize translate_text="Neo" />,
+//     },
+//     {
+//         src: icons.OMICEGO,
+//         text: <Localize translate_text="OmiseGo" />,
+//     },
+//     {
+//         src: icons.POLKADOT,
+//         text: <Localize translate_text="Polkadot" />,
+//     },
+//     {
+//         src: icons.POLYGON,
+//         text: <Localize translate_text="Polygon" />,
+//     },
+//     {
+//         src: icons.XRP,
+//         text: <Localize translate_text="Ripple" />,
+//     },
+//     {
+//         src: icons.SOLANA,
+//         text: <Localize translate_text="Solana" />,
+//     },
+//     {
+//         src: icons.XLM,
+//         text: <Localize translate_text="Stellar Lumens" />,
+//     },
+//     {
+//         src: icons.TERRA,
+//         text: <Localize translate_text="Terra" />,
+//     },
+//     {
+//         src: icons.TRX,
+//         text: <Localize translate_text="Tron" />,
+//     },
+//     {
+//         src: icons.UNISWAP,
+//         text: <Localize translate_text="Uniswap" />,
+//     },
+//     {
+//         src: icons.XTZ,
+//         text: <Localize translate_text="XTZ" />,
+//     },
+//     {
+//         src: icons.ZEC,
+//         text: <Localize translate_text="ZCash" />,
+//     },
+// ]
+
 export const cryptocurrencies_cfds = [
     {
-        src: icons.AVALANCHE,
-        text: <Localize translate_text="Avalanche" />,
-    },
-    {
-        src: icons.ALGORAND,
-        text: <Localize translate_text="Algorand" />,
-    },
-    {
-        src: icons.BAT,
-        text: <Localize translate_text="BAT" />,
-    },
-    {
-        src: icons.BNB,
-        text: <Localize translate_text="Binance coin" />,
+        src: icons.BTC,
+        text: <Localize translate_text="BTC/ETH" />,
     },
     {
         src: icons.BTC,
-        text: <Localize translate_text="Bitcoin" />,
+        text: <Localize translate_text="BTC/LTC" />,
     },
     {
-        src: icons.BCH,
-        text: <Localize translate_text="Bitcoin Cash" />,
+        src: icons.BTC,
+        text: <Localize translate_text="BTC/XAG" />,
     },
     {
-        src: icons.CARDANO,
-        text: <Localize translate_text="Cardano" />,
+        src: icons.BTC,
+        text: <Localize translate_text="BTC/XAU" />,
     },
     {
-        src: icons.CHAINLINK,
-        text: <Localize translate_text="Chainlink" />,
+        src: icons.BTC,
+        text: <Localize translate_text="ADA/USD" />,
     },
     {
-        src: icons.DASH,
-        text: <Localize translate_text="DASH" />,
+        src: icons.BTC,
+        text: <Localize translate_text="ALG/USD" />,
     },
     {
-        src: icons.DOGECOIN,
-        text: <Localize translate_text="Dogecoin" />,
+        src: icons.BTC,
+        text: <Localize translate_text="BAT/USD" />,
     },
     {
-        src: icons.EOS,
-        text: <Localize translate_text="EOS" />,
+        src: icons.BTC,
+        text: <Localize translate_text="DOG/USD" />,
     },
     {
-        src: icons.ETH,
-        text: <Localize translate_text="Ethereum" />,
+        src: icons.BTC,
+        text: <Localize translate_text="DOT/USD" />,
     },
     {
-        src: icons.ETH_CLASSIC,
-        text: <Localize translate_text="Ethereum Classic" />,
+        src: icons.BTC,
+        text: <Localize translate_text="ETC/USD" />,
     },
     {
-        src: icons.FILECOIN,
-        text: <Localize translate_text="Filecoin" />,
+        src: icons.BTC,
+        text: <Localize translate_text="FIL/USD" />,
     },
     {
-        src: icons.IOTA,
-        text: <Localize translate_text="IOTA" />,
+        src: icons.BTC,
+        text: <Localize translate_text="LNK/USD" />,
     },
     {
-        src: icons.LTC,
-        text: <Localize translate_text="Litecoin" />,
+        src: icons.BTC,
+        text: <Localize translate_text="MKR/USD" />,
     },
     {
-        src: icons.MAKER,
-        text: <Localize translate_text="Maker" />,
+        src: icons.BTC,
+        text: <Localize translate_text="MTC/USD" />,
     },
     {
-        src: icons.MNR,
-        text: <Localize translate_text="Monero" />,
+        src: icons.BTC,
+        text: <Localize translate_text="SOL/USD" />,
     },
     {
-        src: icons.NEO,
-        text: <Localize translate_text="Neo" />,
+        src: icons.BTC,
+        text: <Localize translate_text="UNI/USD" />,
     },
     {
-        src: icons.OMICEGO,
-        text: <Localize translate_text="OmiseGo" />,
+        src: icons.BTC,
+        text: <Localize translate_text="XTZ/USD" />,
     },
     {
-        src: icons.POLKADOT,
-        text: <Localize translate_text="Polkadot" />,
+        src: icons.BTC,
+        text: <Localize translate_text="AVA/USD" />,
     },
     {
-        src: icons.POLYGON,
-        text: <Localize translate_text="Polygon" />,
-    },
-    {
-        src: icons.XRP,
-        text: <Localize translate_text="Ripple" />,
-    },
-    {
-        src: icons.SOLANA,
-        text: <Localize translate_text="Solana" />,
-    },
-    {
-        src: icons.XLM,
-        text: <Localize translate_text="Stellar Lumens" />,
-    },
-    {
-        src: icons.TERRA,
-        text: <Localize translate_text="Terra" />,
-    },
-    {
-        src: icons.TRX,
-        text: <Localize translate_text="Tron" />,
-    },
-    {
-        src: icons.UNISWAP,
-        text: <Localize translate_text="Uniswap" />,
-    },
-    {
-        src: icons.XTZ,
-        text: <Localize translate_text="XTZ" />,
-    },
-    {
-        src: icons.ZEC,
-        text: <Localize translate_text="ZCash" />,
+        src: icons.BTC,
+        text: <Localize translate_text="TER/USD" />,
     },
 ]
 
 export const cryptocurrencies_multipliers = [
     {
         src: icons.BTC,
-        text: <Localize translate_text="Bitcoin" />,
+        text: <Localize translate_text="BTC/USD" />,
     },
     {
         src: icons.ETH,
-        text: <Localize translate_text="Ethereum" />,
+        text: <Localize translate_text="ETH/USD" />,
     },
 ]
+
 export const jump_indices = [
     {
         src: icons.JUMP10,
@@ -892,10 +1166,6 @@ export const jump_indices = [
 ]
 
 export const energy = [
-    {
-        src: icons.NATURALGAS,
-        text: <Localize translate_text="Natural gas" />,
-    },
     {
         src: icons.OILUSD,
         text: <Localize translate_text="Oil/USD" />,

@@ -2,13 +2,13 @@ import React from 'react'
 import NProgress from 'nprogress'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
+import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking.js'
 import { getClientInformation, getDomain, addScript } from 'common/utility'
-import { gtm_test_domain, pushwoosh_app_code } from 'common/constants'
+import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 
 const is_browser = typeof window !== 'undefined'
@@ -119,26 +119,9 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     NProgress.start()
 
-    const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)
-    }
-
-    // Add GTM script for test domain
-    if (!isLocalHost() && is_gtm_test_domain) {
-        addScript({
-            src: 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH',
-            id: 'gtm-test-container',
-        })
-        addScript({
-            text: `
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-TNX2ZKH');`,
-        })
     }
 
     addScript({

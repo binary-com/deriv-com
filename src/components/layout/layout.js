@@ -2,7 +2,6 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import useGTMData from '../hooks/use-gtm-data'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
@@ -22,8 +21,6 @@ import { loss_percent } from 'common/constants'
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
-
-// const has_dataLayer = isBrowser() && window.dataLayer
 
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
@@ -127,7 +124,6 @@ const Layout = ({
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
-    // const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
 
@@ -143,25 +139,13 @@ const Layout = ({
         if (typeof is_eu_country === 'boolean') {
             const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
             if (is_eu_country && !tracking_status) setShowCookieBanner(true)
-            const allow_tracking = true
-            // (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
-            if (allow_tracking) {
-                // window.onload = () => {
-                //     window.setTimeout(() => {
-                //         setGTMData({ event: 'allow_tracking' })
-                //     }, 2000)
-                // }
-            }
             setMounted(true)
         }
     }, [is_eu_country])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
-
-        // if (!gtm_data && has_dataLayer) setGTMData({ event: 'allow_tracking' })
-
         setShowCookieBanner(false)
     }
 

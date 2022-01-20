@@ -6,7 +6,7 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO, Container, Show } from 'components/containers'
 import { DerivStore } from 'store'
 
-type CoverMinimizeButtonProps = {
+type CoverMinimizeButtonTypes = {
     loading: boolean
 }
 
@@ -16,7 +16,7 @@ const StyledContainer = styled(Container)`
     justify-content: center;
 `
 
-const CoverMinimizeButton = styled.div<CoverMinimizeButtonProps>`
+const CoverMinimizeButton = styled.div<CoverMinimizeButtonTypes>`
     width: 70px;
     height: 50px;
     background-color: rgb(255 255 255);

@@ -7,7 +7,7 @@ type DerivProviderProps = {
     children?: ReactNode
 }
 
-type WebsiteStatusType = {
+type WebsiteStatusTypes = {
     clients_country: string
     crypto_config: any
 }
@@ -23,7 +23,7 @@ type DerivStoreTypes = {
     LC_API: any
     is_loading_lc: boolean
     crypto_config: any
-    website_status: WebsiteStatusType
+    website_status: WebsiteStatusTypes
     setFirstLoadOpenLc: Dispatch<any>
 }
 

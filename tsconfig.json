@@ -1,5 +1,8 @@
 {
-    "include": ["./src/**/*", "./src/custom.d.ts", "./src/styled.d.ts"],
+    "include": [
+        "./src/**/*",
+        "./src/custom.d.ts"
+    ],
     "jsx": "react",
     "compilerOptions": {
         "baseUrl": "src",
@@ -9,6 +12,15 @@
         "emitDecoratorMetadata": true,
         "noEmit": true,
         "skipLibCheck": true,
+
         "moduleResolution": "node"
+    },
+    "paths": {
+        "react": [
+            "node_modules/preact/compat/"
+        ],
+        "react-dom": [
+            "node_modules/preact/compat/"
+        ]
     }
 }

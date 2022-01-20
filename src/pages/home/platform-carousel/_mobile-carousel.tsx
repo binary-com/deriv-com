@@ -50,11 +50,17 @@ const settings = {
         @media ${device.tabletL} {
             bottom: 228px;
         }
-        @media (max-width: 691px) {
-            bottom: 276px;
+        @media (max-width: 660px) {
+            bottom: 268px;
         }
-        @media (max-width: 376px) {
-            bottom: 316px;
+        @media (max-width: 425px) {
+            bottom: 292px;
+        }
+        @media (max-width: 375px) {
+            bottom: 310px;
+        }
+        @media (max-width: 317px) {
+            bottom: 362px;
         }
     `,
 }

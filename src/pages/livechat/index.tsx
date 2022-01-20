@@ -6,17 +6,21 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO, Container, Show } from 'components/containers'
 import { DerivStore } from 'store'
 
+type CoverMinimizeButtonProps = {
+    loading: boolean
+}
+
 const StyledContainer = styled(Container)`
     text-align: center;
     height: 100vh;
     justify-content: center;
 `
 
-const CoverMinimizeButton = styled.div`
+const CoverMinimizeButton = styled.div<CoverMinimizeButtonProps>`
     width: 70px;
     height: 50px;
     background-color: rgb(255 255 255);
-    display: ${(props) => (props.loading === 'true' ? 'none' : 'block')};
+    display: ${({ loading }) => (loading ? 'none' : 'block')};
     position: absolute;
     top: -85px;
     right: 0;
@@ -43,7 +47,7 @@ const LiveChatPage = () => {
             />
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
             <Show.Mobile>
-                <CoverMinimizeButton loading={`${loading}`} />
+                <CoverMinimizeButton loading={loading} />
             </Show.Mobile>
         </Layout>
     )

@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
-    children?: React.ReactNode
+    children?: ReactNode
 }
 
-export type DerivStoreType = {
+type WebsiteStatusType = {
+    clients_country: string
+    crypto_config: any
+}
+
+type DerivStoreTypes = {
+    setWebsiteStatus: Dispatch<any>
+    is_p2p_allowed_country: boolean
+    user_country: string
     is_eu_country: boolean
     is_uk_country: boolean
-    is_p2p_allowed_country: boolean
-    crypto_config: boolean
+    is_livechat_interactive: boolean
     website_status_loading: boolean
-    website_status: string
-    setWebsiteStatus: string
-    user_country: boolean
+    LC_API: any
+    is_loading_lc: boolean
+    crypto_config: any
+    website_status: WebsiteStatusType
+    setFirstLoadOpenLc: Dispatch<any>
 }
 
-export const DerivStore = React.createContext<DerivStoreType>(null)
+export const DerivStore = createContext<DerivStoreTypes>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()

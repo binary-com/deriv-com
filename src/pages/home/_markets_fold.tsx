@@ -24,6 +24,7 @@ const FoldContainer = styled(Flex)`
 const ItemWrapper = styled.div`
     z-index: 4;
     height: 320px;
+    position: relative;
 `
 
 const CarouselItemContainer = styled(Flex)`
@@ -138,7 +139,6 @@ const query = graphql`
 
 type CarouselItemProps = {
     header: string
-    setAutoplay: Dispatch<SetStateAction<boolean>>
     description: string
     image: ImageDataLike
     is_mobile: boolean
@@ -149,7 +149,6 @@ type CarouselItemProps = {
 
 const CarouselItem = ({
     header,
-    setAutoplay,
     description,
     image,
     is_mobile,
@@ -159,14 +158,13 @@ const CarouselItem = ({
 }: CarouselItemProps) => {
     const [is_hovered, setHovered] = useState(false)
     const handleHover = (is_hovered) => {
-        setAutoplay(!is_hovered)
         return !is_mobile && setHovered(is_hovered)
     }
 
     return (
         <ItemWrapper
-            onMouseOver={() => handleHover(true)}
-            onMouseOut={() => handleHover(false)}
+            onMouseEnter={() => handleHover(true)}
+            onMouseLeave={() => handleHover(false)}
             onClick={() => is_mobile && setHovered(!is_hovered)}
         >
             <StyledLink to={url}>
@@ -193,9 +191,10 @@ const CarouselItem = ({
                         alt={header}
                         loading="eager"
                         $hovered={is_hovered}
-                        onMouseOver={() => handleHover(true)}
-                        onMouseOut={() => handleHover(false)}
-                        onClick={() => is_mobile && setHovered(!is_hovered)}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            is_mobile && setHovered(!is_hovered)
+                        }}
                     />
                 </CarouselItemContainer>
             </StyledLink>
@@ -205,15 +204,12 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const [is_autoplay, setAutoplay] = useState(true)
     const [is_mobile] = useBrowserResize()
-
     const settings = {
         options: {
-            loop: is_autoplay || is_mobile,
-            dragFree: is_autoplay || is_mobile,
-            align: 'start',
+            loop: true,
             containScroll: 'trimSnaps',
+            slidesToScroll: 1,
         },
         container_style: {
             maxWidth: '100%',
@@ -243,8 +239,8 @@ const MarketsFold = () => {
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={is_autoplay || is_mobile}
-                    autoplay_interval={2000}
+                    has_autoplay={true}
+                    autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >
                     {market_data.map((market) => {
@@ -260,7 +256,6 @@ const MarketsFold = () => {
                                 image={data[img_name]}
                                 gradient_start={gradient_start}
                                 gradient_end={gradient_end}
-                                setAutoplay={setAutoplay}
                                 url={to}
                             />
                         )

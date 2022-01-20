@@ -17,7 +17,7 @@ const query = graphql`
 `
 
 const PageNotFoundContainerInfo = styled.div`
-    margin: 2.4rem;
+    margin: 16px;
 
     * {
         margin: 1.6rem 0;

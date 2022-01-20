@@ -7,7 +7,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import {
     OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -25,6 +25,7 @@ import {
     getLanguage,
     getDerivAppLocalizedURL,
     redirectToTradingPlatform,
+    getBaseRef,
 } from 'common/utility'
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
@@ -43,6 +44,24 @@ const query = graphql`
         }
     }
 `
+
+export const DesktopWrapper = styled.div`
+    display: block;
+    @media ${(props) => props.media || device.tabletL} {
+        display: none;
+    }
+`
+
+export const MobileWrapper = styled.div`
+    display: none;
+    @media ${(props) => props.media || device.tabletL} {
+        display: block;
+    }
+`
+
+const LanguageSwitcherNavDesktop = ({ no_language }) =>
+    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
+
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
     width: 100%;
@@ -213,18 +232,20 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${(props) => {
+            const ref_base = getBaseRef(props.button_ref)
+
             if (props.hide_signup_login) {
                 return 0
             } else if (props.move && !props.hide_signup_login) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 1
                 }
                 return 0
             } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 2
+                    const calculation = ref_base.offsetWidth + 2
                     return `${calculation}px`
                 }
                 return '300px'
@@ -509,9 +530,6 @@ const NavDesktop = ({
         setActiveLinkRef(target)
     }
 
-    const LanguageSwitcherNavDesktop = () =>
-        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
-
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
     useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
@@ -593,7 +611,8 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        <LanguageSwitcherNavDesktop />
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -606,7 +625,8 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcherNavDesktop />
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -649,7 +669,7 @@ export const Nav = ({
         <>
             <NavWrapperMain>
                 <StyledNavMain>
-                    <Show.Desktop max_width="bp1060">
+                    <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -659,8 +679,8 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Desktop>
-                    <Show.Mobile min_width="bp1060">
+                    </DesktopWrapper>
+                    <MobileWrapper media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
                             academy_logo={academy_logo}
@@ -668,7 +688,7 @@ export const Nav = ({
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </StyledNavMain>
             </NavWrapperMain>
             <CFDWarning />
@@ -692,6 +712,10 @@ NavDesktop.propTypes = {
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
+}
+
+LanguageSwitcherNavDesktop.propTypes = {
     no_language: PropTypes.bool,
 }
 
@@ -740,7 +764,7 @@ export const NavInterim = ({ interim_type }) => (
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <Show.Desktop>
+                    <DesktopWrapper>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
@@ -752,8 +776,8 @@ export const NavInterim = ({ interim_type }) => (
                                 />
                             </Flex>
                         </StyledLogo>
-                    </Show.Desktop>
-                    <Show.Mobile>
+                    </DesktopWrapper>
+                    <MobileWrapper>
                         <LogoLinkMobile
                             to={`/interim/${interim_type}`}
                             aria-label={localize('Home')}
@@ -771,7 +795,7 @@ export const NavInterim = ({ interim_type }) => (
                                 </LogoDescription>
                             </Flex>
                         </LogoLinkMobile>
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </Flex>
                 <Auto jc="flex-end" ai="center">
                     <LanguageSwitcher short_name="true" />
@@ -841,16 +865,17 @@ const StyledNavRight = styled(NavRight)`
     margin-left: auto;
     transform: translateX(
         ${(props) => {
+            const ref_base = getBaseRef(props.button_ref)
             if (props.move) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 1
                 }
                 return '50px'
             } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 50
+                    const calculation = ref_base.offsetWidth + 50
                     return `${calculation}px`
                 }
                 return '225px'
@@ -881,7 +906,7 @@ const StyledNavWrapper = styled(Wrapper)`
     }
 `
 
-const Mobile = styled(Show.Mobile)`
+const Mobile = styled(MobileWrapper)`
     width: 100%;
 `
 
@@ -921,7 +946,7 @@ const LSContainer = styled(Container)`
     margin-left: 200px;
 `
 
-const DesktopLS = styled(Show.Desktop)`
+const DesktopLS = styled(DesktopWrapper)`
     z-index: 2;
 `
 
@@ -966,9 +991,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/story/">
+                            <HomeLink to="/who-we-are/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
-                                    {localize('About us')}
+                                    {localize('Who we are')}
                                 </Text>
                             </HomeLink>
                             <HomeLink to="/contact_us/">
@@ -1091,12 +1116,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <Show.Desktop>
+                                        <DesktopWrapper>
                                             <span>{localize('Affiliate & IB log in')}</span>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </DesktopWrapper>
+                                        <MobileWrapper>
                                             <span>{localize('Log in')}</span>
-                                        </Show.Mobile>
+                                        </MobileWrapper>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>
@@ -1131,4 +1156,83 @@ NavPartners.propTypes = {
 
 NavInterim.propTypes = {
     interim_type: PropTypes.string,
+}
+
+const Section = styled(SectionContainer)`
+    background-color: ${(props) => (props.background ? 'transparent' : 'var(--color-black)')};
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    padding: 4px 1%;
+    height: 7.2rem;
+    @media ${device.tabletL} {
+        padding: 4px;
+        height: 64px;
+    }
+    @media ${device.mobileL} {
+        padding: 4px 0;
+    }
+`
+
+export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
+    const [is_logged_in, setLoggedIn] = useState(true)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
+
+    const handleScrollBG = useCallback(() => {
+        const currentScrollPos = window.pageYOffset
+        setVisible(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleScrollBG)
+
+        let checkCookieChange = setInterval(() => {
+            setLoggedIn(isLoggedIn())
+        }, 800)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleScrollBG)
+        }
+    }, [])
+
+    return (
+        <>
+            <Section background={visible}>
+                <DesktopWrapper media={device.bp1060}>
+                    <NavDesktop
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </DesktopWrapper>
+                <MobileWrapper media={device.bp1060}>
+                    <NavMobile
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </MobileWrapper>
+            </Section>
+            <CFDWarning no_eu_banner={true} />
+        </>
+    )
+}
+
+NavSticky.propTypes = {
+    academy_logo: PropTypes.bool,
+    base: PropTypes.string,
+    hide_signup_login: PropTypes.bool,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }

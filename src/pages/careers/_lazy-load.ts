@@ -6,4 +6,4 @@ export const LifeAtDerivCarousel = Loadable(() => import('./_life-at-deriv-carou
 export const OurValues = Loadable(() => import('./_our-values'))
 export const EmployeeTestimonial = Loadable(() => import('./_employee-testimonial-carousel'))
 export const OurHiringProcess = Loadable(() => import('./_our-hiring-process'))
-export const BeSquareBanner = Loadable(() => import('./BeSquareBanner'))
+export const BeSquareBanner = Loadable(() => import('./_be_square_banner'))

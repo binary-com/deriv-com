@@ -123,7 +123,7 @@ export const StyledChevron = styled(Chevron)`
 export const NavigationContainer = styled(Flex)`
     position: relative;
     width: 100%;
-    height: 8px;
+    height: ${(props) => props.height ?? '8px'};
     bottom: ${(props) => props.bottom_offset ?? '40px'};
 `
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import MarketInstruments from '../../../markets/components/sections/_market_instruments.js'
 import { SwapFreePairs } from '../../../markets/instruments/_submarkets.js'
 import device from 'themes/device'
@@ -37,8 +36,12 @@ const TryButton = styled(LinkButton)`
         margin-top: 24px 0 40px;
     }
 `
+type TablebtnProps = {
+    btnlabel: string
+    text: string
+}
 
-const Tablebtn = ({ btnlabel, text }) => {
+const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
     const swap_free_pairs = {
         markets_list: {
             col: 4,
@@ -76,11 +79,6 @@ const Tablebtn = ({ btnlabel, text }) => {
             </StyledContainer>
         </StyledSection>
     )
-}
-
-Tablebtn.propTypes = {
-    btnlabel: PropTypes.string,
-    text: PropTypes.string,
 }
 
 export default Tablebtn

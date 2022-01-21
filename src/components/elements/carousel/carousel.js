@@ -75,7 +75,6 @@ export const Carousel = ({
     container_style,
     embla_style,
     has_autoplay,
-    navigation_css,
     navigation_style,
     options,
     slide_style,
@@ -143,7 +142,7 @@ export const Carousel = ({
     const { chevron_color, chevron_left, chevron_right, is_displayed_on_mobile } =
         chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
-    const { nav_color, bottom_offset } = navigation_style || {}
+    const { nav_color, bottom_offset, height } = navigation_style || {}
 
     return (
         <div style={container_style}>
@@ -176,10 +175,9 @@ export const Carousel = ({
                     />
                 )}
                 {nav_color && (
-                    <NavigationContainer
-                        bottom_offset={bottom_offset}
-                        navigation_css={navigation_css}
-                    >
+                    <NavigationContainer bottom_offset={bottom_offset} height={height}>
+                        {/* We need the `child` below as an argument for embla-carousel to
+                        correctly render the navigation buttons */}
                         {children.map((child, idx) => (
                             <NavigationButton
                                 key={idx}

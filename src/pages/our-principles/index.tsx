@@ -61,6 +61,7 @@ const StyledContainer = styled(Container)`
 `
 const TitleSection = styled(SectionContainer)`
     padding: ${(props) => (props.padding ? props.padding : '120px 0 24px 10rem')};
+
     @media ${device.tablet} {
         padding: 40px 0 24px 0;
     }
@@ -68,10 +69,10 @@ const TitleSection = styled(SectionContainer)`
 
 const PrinciplesSection = styled(SectionContainer)`
     padding: ${(props) => (props.padding ? props.padding : '120px 0 24px 10rem')};
+
     @media ${device.tablet} {
         padding: 40px 0 24px 0;
     }
-
     @media ${device.mobileM} {
         padding: 0 0 24px 0;
     }

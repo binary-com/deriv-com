@@ -75,6 +75,7 @@ const StyledH1 = styled.h1`
     font-size: 200px;
     z-index: 3;
     line-height: inherit;
+
     @media (max-width: 1200px) {
         margin: 188px auto 70px;
         font-size: 170px;

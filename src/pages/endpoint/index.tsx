@@ -14,6 +14,17 @@ import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
 
+type ValuesType = {
+    server_url?: string
+    app_id?: string
+    clients_country?: string
+}
+
+type ActionsType = {
+    setSubmitting: (arg0: boolean) => void
+    setStatus: (arg0: { message?: string }) => void
+}
+
 const StyledInput = styled(Input)`
     & ~ label {
         transform: translate(-0.6rem, -2rem) scale(0.7);
@@ -52,8 +63,8 @@ const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
 
-const endpointValidation = (values) => {
-    let errors = {}
+const endpointValidation = (values: ValuesType) => {
+    const errors: ValuesType = {}
 
     const server_url = trimSpaces(values ? values.server_url : '')
     const app_id = trimSpaces(values ? values.app_id.toString() : '')
@@ -90,13 +101,13 @@ const Endpoint = () => {
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 
-    const handleStatus = (setStatus, message) => {
+    const handleStatus = (setStatus: (arg0: { message?: string }) => void, message: string) => {
         setStatus({ message })
         setTimeout(() => {
             setStatus({})
         }, STATUS_TIMEOUT_DELAY)
     }
-    const resetEndpointSettings = (setStatus) => {
+    const resetEndpointSettings = (setStatus: (status?: unknown) => void) => {
         // reset local storage values
         setResetLoading(true)
         setServerUrl()
@@ -113,7 +124,7 @@ const Endpoint = () => {
         // TODO: if there is a change requires reload in the future
         // window.location.reload()
     }
-    const endpointSubmission = (values, actions) => {
+    const endpointSubmission = (values: ValuesType, actions: ActionsType) => {
         actions.setSubmitting(true)
         setServerUrl(values.server_url)
         setAppId(values.app_id)

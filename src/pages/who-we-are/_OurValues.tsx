@@ -50,6 +50,7 @@ const Card = styled(Flex)`
     margin: 0 24px 24px 0;
     margin-top: ${(props) => (props.index === 1 ? '80px' : props.index === 2 ? '-80px' : 0)};
     border-radius: 8px;
+
     @media (max-width: 930px) {
         order: ${(props) => (props.index === 2 ? 1 : props.index === 1 ? 2 : props.index)};
         margin: 0 0 19px;

@@ -1,38 +1,16 @@
 import React, { useEffect } from 'react'
-import type { ImageDataLike } from 'gatsby-plugin-image'
 import { VideoGrid } from '../common/_styles'
 import VideoCard from '../videos/_video-card'
 import VideoPlayer from '../components/_video-player'
-import { TagsType } from './_article-card'
 import { slugify } from 'common/utility'
+import { VideosType } from 'components/hooks/use-academy-data'
 
 type VideoParentWrapperProps = {
     closeVideo: () => void
-    currentVideoItems: CurrentVideoItemsType[]
+    currentVideoItems: VideosType[]
     openVideo: (id: string, title: string) => void
     show: boolean
     video_src: string
-}
-
-type CurrentVideoItemsType = {
-    featured: boolean
-    published_date: string
-    tags: TagsType[]
-    video_description: string
-    video_duration: string
-    video_file: VideoFileType
-    video_thumbnail: VideoThumbnailType
-    video_title: string
-}
-
-type VideoFileType = {
-    id: string
-}
-
-type VideoThumbnailType = {
-    id: string
-    imageFile: ImageDataLike
-    title?: string
 }
 
 const VideoParentWrapper = ({

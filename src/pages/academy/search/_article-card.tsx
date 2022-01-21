@@ -1,5 +1,4 @@
 import React from 'react'
-import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -7,33 +6,10 @@ import { LocalizedLink } from 'components/localization'
 import { convertDate } from 'common/utility'
 import ArticleIcon from 'images/svg/blog/article-icon.svg'
 import StarIcon from 'images/svg/blog/star-icon.svg'
+import { BlogType } from 'components/hooks/use-academy-data'
 
 type ArticleCardProps = {
-    items: ItemType
-}
-
-type ItemType = {
-    blog_description?: string
-    blog_title: string
-    featured: boolean
-    id: string
-    main_image: MainImageType
-    published_date: string
-    slug: string
-    tags?: TagsType[]
-}
-
-type MainImageType = {
-    description?: string
-    id: string
-    imageFile: ImageDataLike
-}
-
-export type TagsType = {
-    id: string
-    tags_id: {
-        tag_name: string
-    }
+    items: BlogType
 }
 
 const StyledLink = styled(LocalizedLink)`

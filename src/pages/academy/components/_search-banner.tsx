@@ -554,7 +554,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const combined_data = [...academy_data.blog, ...academy_data.videos]
     let data_to_render
-    const handleFilterSearch = (e) => {
+    const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(e.target.value)
         is_mobile_separator && setHideMobileTopic(true)
 
@@ -592,7 +592,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         })
     } else data_to_render = null
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         if (search_input && focus_index === -1)
             navigate(`/academy/search?q=${encodeURI(search_input)}`)
@@ -623,7 +623,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         navigate(`/academy/search?q=${encodeURI(search_input)}`)
     }
 
-    const handleNavigation = (e) => {
+    const handleNavigation = (e: React.KeyboardEvent) => {
         if (result_opened) {
             switch (e.key) {
                 case 'Enter':
@@ -667,7 +667,7 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         }
     }
 
-    const getHighlightedTitle = (text, highlight) => {
+    const getHighlightedTitle = (text: string, highlight: string) => {
         // Split on highlight term and include term into parts, ignore case
         const parts = text.split(new RegExp(`(${highlight})`, 'gi'))
         return (
@@ -744,10 +744,10 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                             >{`Search for: ${search_query}`}</SearchResultRows>
 
                             {data_to_render &&
-                                data_to_render.slice(0, 6).map((post, idx) => {
+                                data_to_render.slice(0, 6).map((post, idx: number) => {
                                     const icon = post.blog_title ? ArticleIcon : VideoIcon
                                     const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                                    const handleMouseDown = (e) => {
+                                    const handleMouseDown = (e: React.KeyboardEvent) => {
                                         e.preventDefault()
                                         navigate(redirect_link_arr[idx])
                                     }
@@ -792,10 +792,10 @@ export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         >{`Search for: ${search_query}`}</SearchResultRows>
                     )}
                     {data_to_render &&
-                        data_to_render.slice(0, 4).map((post, idx) => {
+                        data_to_render.slice(0, 4).map((post, idx: number) => {
                             const icon = post.blog_title ? ArticleIcon : VideoIcon
                             const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                            const handleMouseDown = (e) => {
+                            const handleMouseDown = (e: React.MouseEvent) => {
                                 e.preventDefault()
                                 navigate(redirect_link_arr[idx])
                             }

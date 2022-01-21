@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
-import { useAcademyData } from 'components/hooks/use-academy-data'
+import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
@@ -17,6 +17,7 @@ export type DerivStoreType = {
     website_status: string
     setWebsiteStatus: string
     user_country: boolean
+    academy_data: AcademyDataType
 }
 
 export const DerivStore = React.createContext<DerivStoreType>(null)

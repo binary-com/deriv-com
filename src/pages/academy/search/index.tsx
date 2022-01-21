@@ -60,7 +60,7 @@ const ArticlePaginationWrapper = styled(Flex)`
                 align-items: center;
             }
 
-            @media (max-width: 768px) {
+            @media ${device.tablet} {
                 margin: 0 1rem;
             }
         }
@@ -118,7 +118,7 @@ const SearchPage = () => {
     }, [])
 
     // video player functions
-    const openVideo = (track_id, video_title) => {
+    const openVideo = (track_id: string, video_title: string) => {
         setPlayVideoId(track_id)
         setQuery({ ...query, t: video_title })
         setShow(true)
@@ -254,7 +254,7 @@ const SearchPage = () => {
         return result
     }
 
-    const getSearchResultBasedOnType = (obj, params: string) => {
+    const getSearchResultBasedOnType = (obj: Record<string, unknown>[], params: string) => {
         const result = []
         let key_to_find: string
 

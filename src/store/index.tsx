@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
@@ -7,30 +8,32 @@ type DerivProviderProps = {
     children?: ReactNode
 }
 
-type WebsiteStatusTypes = {
+type WebsiteStatusType = {
     clients_country: string
     crypto_config: any
 }
 
 type DerivStoreTypes = {
-    setWebsiteStatus: Dispatch<any>
-    is_p2p_allowed_country: boolean
-    user_country: string
-    is_eu_country: boolean
-    is_uk_country: boolean
-    is_livechat_interactive: boolean
-    website_status_loading: boolean
-    LC_API: any
-    is_loading_lc: boolean
+    academy_data: AcademyDataType
     crypto_config: any
-    website_status: WebsiteStatusTypes
-    setFirstLoadOpenLc: Dispatch<any>
+    is_eu_country: boolean
+    is_livechat_interactive: boolean
+    is_loading_lc: boolean
+    is_p2p_allowed_country: boolean
+    is_uk_country: boolean
+    LC_API: any
+    setFirstLoadOpenLc: Dispatch<boolean>
+    setWebsiteStatus: Dispatch<WebsiteStatusType>
+    user_country: string
+    website_status_loading: boolean
+    website_status: WebsiteStatusType
 }
 
 export const DerivStore = createContext<DerivStoreTypes>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
+    const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
@@ -53,18 +56,19 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     return (
         <DerivStore.Provider
             value={{
-                is_eu_country,
-                is_uk_country,
-                is_p2p_allowed_country,
+                academy_data,
                 crypto_config,
-                website_status,
-                website_status_loading,
+                is_eu_country,
+                is_livechat_interactive,
+                is_loading_lc,
+                is_p2p_allowed_country,
+                is_uk_country,
+                LC_API,
+                setFirstLoadOpenLc,
                 setWebsiteStatus,
                 user_country,
-                is_livechat_interactive,
-                LC_API,
-                is_loading_lc,
-                setFirstLoadOpenLc,
+                website_status_loading,
+                website_status,
             }}
         >
             {children}

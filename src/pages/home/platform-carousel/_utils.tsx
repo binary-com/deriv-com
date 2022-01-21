@@ -103,7 +103,7 @@ export const getSlideStyles = (
     return styles
 }
 
-export const getOSIcon = (type) => {
+export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
     else if (type === 'app_store') return AppStore
     else if (type === 'google_play') return GooglePlay

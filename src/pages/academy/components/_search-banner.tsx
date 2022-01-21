@@ -127,7 +127,7 @@ const TopicItemWrapper = styled(Flex)`
         display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
     }
 `
-export const styled_link_greyed_css = css`
+const styled_link_greyed_css = css`
     pointer-events: none;
     opacity: 0.32;
 `
@@ -363,183 +363,7 @@ type TopicItemsAccordionProps = {
     handleHref: (category: string) => void
 }
 
-const SearchBanner = ({ hidden }: SearchBannerProps) => {
-    const [is_mobile] = useBrowserResize(768)
-    const [video_tags, blog_tags] = useAcademyTags()
-    const [modal_opened, setModal] = useState(false)
-    const [hide_mobile_topic, setHideMobileTopic] = useState(false)
-    const [blog_post_url, setBlogPostURL] = useState(false)
-
-    useEffect(() => {
-        const currentLocation = window.location.pathname.split('/').slice(0, 4).join('/') + '/'
-        if (currentLocation == '/academy/blog/posts/') {
-            setBlogPostURL(true)
-        }
-
-        document.body.style.background = 'var(--color-white)'
-    }, [])
-
-    useEffect(() => {
-        document.body.style.overflow = modal_opened ? 'hidden' : 'unset'
-    }, [modal_opened])
-
-    const openModal = () => {
-        setModal(!modal_opened)
-    }
-
-    const handleGreyed = (category) => {
-        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
-            if (video_tags.includes(category)) return false
-            return true
-        }
-        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
-            if (blog_tags.includes(category)) return false
-            return true
-        }
-        return false
-    }
-
-    const handleHref = (category) => {
-        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
-            return `/academy/search?type=video&category=${slugify(category)}`
-        }
-        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
-            return `/academy/search?type=article&category=${slugify(category)}`
-        }
-        return `/academy/search?category=${slugify(category)}`
-    }
-
-    return (
-        <ParentWrapper overlay={modal_opened}>
-            <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
-                <NavWrapper>
-                    <Flex ai="center" jc="space-between">
-                        <Link to="/academy">
-                            <LogoWrapper src={AcademyLogo} />
-                        </Link>
-                        <Flex ai="center" max_width="751px" jc="flex-end">
-                            <DesktopWrapper height="auto">
-                                <Flex height="auto" jc="flex-end" style={{ position: 'relative' }}>
-                                    <SearchBar setModal={setModal} />
-                                </Flex>
-                            </DesktopWrapper>
-
-                            <TopicSectionWrapper
-                                ml="40px"
-                                width="auto"
-                                max_width="auto"
-                                ai="center"
-                                onClick={openModal}
-                            >
-                                <Header
-                                    as="h3"
-                                    type="paragraph-1"
-                                    weight="normal"
-                                    mr="10px"
-                                    color="--color-black-3"
-                                >
-                                    Topics
-                                </Header>
-                                <HoverChevron>
-                                    <StyledChevron
-                                        src={Chevron}
-                                        alt="chevron"
-                                        expanded={modal_opened}
-                                    />
-                                </HoverChevron>
-                            </TopicSectionWrapper>
-                        </Flex>
-                    </Flex>
-                </NavWrapper>
-                <Flex style={{ position: 'relative' }} height="0">
-                    <TopicParent modal={modal_opened}>
-                        <TopicWrapper jc="space-evenly" fd="row">
-                            <MobileWrapper style={{ height: 'auto' }}>
-                                <Flex
-                                    height="auto"
-                                    jc="flex-end"
-                                    style={{ position: 'relative' }}
-                                    tabletL={{
-                                        height: '100%',
-                                        jc: 'flex-start',
-                                        fd: 'column',
-                                        p: '0 16px',
-                                    }}
-                                >
-                                    <SearchBar
-                                        setModal={setModal}
-                                        setHideMobileTopic={setHideMobileTopic}
-                                    />
-                                </Flex>
-                            </MobileWrapper>
-                            {is_mobile ? (
-                                <TopicMobileParentWrapper
-                                    fd="column"
-                                    m="0 16px"
-                                    is_mobile_expanded={hide_mobile_topic}
-                                >
-                                    {combined_filter_type.map((filter, index) => {
-                                        return (
-                                            <>
-                                                <TopicItemsAccordion
-                                                    key={index}
-                                                    items={filter}
-                                                    setModal={setModal}
-                                                    handleGreyed={handleGreyed}
-                                                    handleHref={handleHref}
-                                                />
-                                            </>
-                                        )
-                                    })}
-                                </TopicMobileParentWrapper>
-                            ) : (
-                                <TopicItemsParentWrapper jc="space-evenly" ai="flex-start">
-                                    {combined_filter_type.map((filter, index) => {
-                                        return (
-                                            <TopicItemWrapper
-                                                key={index}
-                                                fd="column"
-                                                is_mobile_expanded={hide_mobile_topic}
-                                            >
-                                                <Header
-                                                    as="h3"
-                                                    type="paragraph-2"
-                                                    align="left"
-                                                    color="grey-5"
-                                                    p="8px"
-                                                    mb="8px"
-                                                    style={{ borderBottom: '1px solid #D6DADB' }}
-                                                >
-                                                    {filter.type.toUpperCase()}
-                                                </Header>
-                                                {filter.items.map((item, idx) => {
-                                                    return (
-                                                        <StyledLink
-                                                            key={idx}
-                                                            to={handleHref(item.title)}
-                                                            onClick={() => setModal(false)}
-                                                            greyed={handleGreyed(item.title)}
-                                                        >
-                                                            {item.title}
-                                                        </StyledLink>
-                                                    )
-                                                })}
-                                            </TopicItemWrapper>
-                                        )
-                                    })}
-                                </TopicItemsParentWrapper>
-                            )}
-                        </TopicWrapper>
-                    </TopicParent>
-                </Flex>
-            </MainWrapper>
-        </ParentWrapper>
-    )
-}
-
-export default SearchBanner
-
-export const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
+const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const [is_mobile_separator] = useBrowserResize(992)
     const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
@@ -886,3 +710,179 @@ const TopicItemsAccordion = ({
         </>
     )
 }
+
+const SearchBanner = ({ hidden }: SearchBannerProps) => {
+    const [is_mobile] = useBrowserResize(768)
+    const [video_tags, blog_tags] = useAcademyTags()
+    const [modal_opened, setModal] = useState(false)
+    const [hide_mobile_topic, setHideMobileTopic] = useState(false)
+    const [blog_post_url, setBlogPostURL] = useState(false)
+
+    useEffect(() => {
+        const currentLocation = window.location.pathname.split('/').slice(0, 4).join('/') + '/'
+        if (currentLocation == '/academy/blog/posts/') {
+            setBlogPostURL(true)
+        }
+
+        document.body.style.background = 'var(--color-white)'
+    }, [])
+
+    useEffect(() => {
+        document.body.style.overflow = modal_opened ? 'hidden' : 'unset'
+    }, [modal_opened])
+
+    const openModal = () => {
+        setModal(!modal_opened)
+    }
+
+    const handleGreyed = (category) => {
+        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
+            if (video_tags.includes(category)) return false
+            return true
+        }
+        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
+            if (blog_tags.includes(category)) return false
+            return true
+        }
+        return false
+    }
+
+    const handleHref = (category) => {
+        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
+            return `/academy/search?type=video&category=${slugify(category)}`
+        }
+        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
+            return `/academy/search?type=article&category=${slugify(category)}`
+        }
+        return `/academy/search?category=${slugify(category)}`
+    }
+
+    return (
+        <ParentWrapper overlay={modal_opened}>
+            <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
+                <NavWrapper>
+                    <Flex ai="center" jc="space-between">
+                        <Link to="/academy">
+                            <LogoWrapper src={AcademyLogo} />
+                        </Link>
+                        <Flex ai="center" max_width="751px" jc="flex-end">
+                            <DesktopWrapper height="auto">
+                                <Flex height="auto" jc="flex-end" style={{ position: 'relative' }}>
+                                    <SearchBar setModal={setModal} />
+                                </Flex>
+                            </DesktopWrapper>
+
+                            <TopicSectionWrapper
+                                ml="40px"
+                                width="auto"
+                                max_width="auto"
+                                ai="center"
+                                onClick={openModal}
+                            >
+                                <Header
+                                    as="h3"
+                                    type="paragraph-1"
+                                    weight="normal"
+                                    mr="10px"
+                                    color="--color-black-3"
+                                >
+                                    Topics
+                                </Header>
+                                <HoverChevron>
+                                    <StyledChevron
+                                        src={Chevron}
+                                        alt="chevron"
+                                        expanded={modal_opened}
+                                    />
+                                </HoverChevron>
+                            </TopicSectionWrapper>
+                        </Flex>
+                    </Flex>
+                </NavWrapper>
+                <Flex style={{ position: 'relative' }} height="0">
+                    <TopicParent modal={modal_opened}>
+                        <TopicWrapper jc="space-evenly" fd="row">
+                            <MobileWrapper style={{ height: 'auto' }}>
+                                <Flex
+                                    height="auto"
+                                    jc="flex-end"
+                                    style={{ position: 'relative' }}
+                                    tabletL={{
+                                        height: '100%',
+                                        jc: 'flex-start',
+                                        fd: 'column',
+                                        p: '0 16px',
+                                    }}
+                                >
+                                    <SearchBar
+                                        setModal={setModal}
+                                        setHideMobileTopic={setHideMobileTopic}
+                                    />
+                                </Flex>
+                            </MobileWrapper>
+                            {is_mobile ? (
+                                <TopicMobileParentWrapper
+                                    fd="column"
+                                    m="0 16px"
+                                    is_mobile_expanded={hide_mobile_topic}
+                                >
+                                    {combined_filter_type.map((filter, index) => {
+                                        return (
+                                            <>
+                                                <TopicItemsAccordion
+                                                    key={index}
+                                                    items={filter}
+                                                    setModal={setModal}
+                                                    handleGreyed={handleGreyed}
+                                                    handleHref={handleHref}
+                                                />
+                                            </>
+                                        )
+                                    })}
+                                </TopicMobileParentWrapper>
+                            ) : (
+                                <TopicItemsParentWrapper jc="space-evenly" ai="flex-start">
+                                    {combined_filter_type.map((filter, index) => {
+                                        return (
+                                            <TopicItemWrapper
+                                                key={index}
+                                                fd="column"
+                                                is_mobile_expanded={hide_mobile_topic}
+                                            >
+                                                <Header
+                                                    as="h3"
+                                                    type="paragraph-2"
+                                                    align="left"
+                                                    color="grey-5"
+                                                    p="8px"
+                                                    mb="8px"
+                                                    style={{ borderBottom: '1px solid #D6DADB' }}
+                                                >
+                                                    {filter.type.toUpperCase()}
+                                                </Header>
+                                                {filter.items.map((item, idx) => {
+                                                    return (
+                                                        <StyledLink
+                                                            key={idx}
+                                                            to={handleHref(item.title)}
+                                                            onClick={() => setModal(false)}
+                                                            greyed={handleGreyed(item.title)}
+                                                        >
+                                                            {item.title}
+                                                        </StyledLink>
+                                                    )
+                                                })}
+                                            </TopicItemWrapper>
+                                        )
+                                    })}
+                                </TopicItemsParentWrapper>
+                            )}
+                        </TopicWrapper>
+                    </TopicParent>
+                </Flex>
+            </MainWrapper>
+        </ParentWrapper>
+    )
+}
+
+export default SearchBanner

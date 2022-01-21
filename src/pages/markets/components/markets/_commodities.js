@@ -34,8 +34,8 @@ const Commodities = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={commodities_cfds} />}
                 DigitalOptions={
-                    is_eu_country &&
-                    is_uk_country && (
+                    !is_eu_country &&
+                    !is_uk_country && (
                         <DigitalOptions
                             market_name={localize('commodities')}
                             options_list={commodities_options}

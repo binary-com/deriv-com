@@ -7,6 +7,7 @@ export const Background = styled.div`
     background: var(--color-grey-8);
     width: 100%;
     height: 100%;
+    position: relative;
 
     @media ${device.laptop} {
         background-image: linear-gradient(var(--color-grey-8) 84%, var(--color-white) 20%);
@@ -33,6 +34,22 @@ export const HeroContainer = styled(Container)`
         flex-direction: column;
     }
 `
+export const StickyBreadCrumbsWrapper = styled(Flex)`
+    background: ${(props) => (props.scroll ? 'var(--color-white)' : 'var(--color-grey-8)')};
+    position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
+    top: ${(props) => (props.scroll ? '70px' : 'unset')};
+    z-index: ${(props) => (props.scroll ? '1' : 'unset')};
+    height: auto;
+    border-top: 1px solid var(--color-grey-8);
+
+    @media ${device.desktopL} {
+        top: ${(props) => (props.scroll ? '86px' : 'unset')};
+    }
+
+    @media ${device.tabletL} {
+        top: ${(props) => (props.scroll ? '59px' : 'unset')};
+    }
+`
 export const BreadcrumbsWrapper = styled(Container)`
     padding: 24px 0;
 
@@ -43,9 +60,27 @@ export const BreadcrumbsWrapper = styled(Container)`
 
     @media ${device.laptop} {
         width: 100%;
-        max-width: 58.8rem;
         padding: 20px 16px;
         flex-direction: column;
+    }
+`
+export const Scrollbar = styled.div`
+    position: fixed;
+    top: ${(props) => (props.scroll ? '138px' : '14.4rem')};
+    width: 100%;
+    background: var(--color-grey-8);
+
+    @media ${device.desktopL} {
+        top: ${(props) => (props.scroll ? '155px' : '176px')};
+    }
+
+    @media ${device.laptop} {
+        top: ${(props) => (props.scroll ? '128px' : '14.6rem')};
+    }
+
+    @media ${device.tabletL} {
+        top: 114px;
+        top: ${(props) => (props.scroll ? '118px' : '114px')};
     }
 `
 export const ArticleTitle = styled(Header)`
@@ -423,21 +458,6 @@ export const StyledBreadcrumbsTitle = styled(Text)`
     font-size: 14px;
     line-height: 20px;
     color: var(--color-black-3);
-`
-
-export const Scrollbar = styled.div`
-    position: fixed;
-    top: 7.2rem;
-    width: 100%;
-    background: var(--color-grey-8);
-    z-index: 100;
-    @media ${device.laptop} {
-        top: 67px;
-    }
-
-    @media ${device.tabletL} {
-        top: 58px;
-    }
 `
 
 export const ProgressContainer = styled.div`

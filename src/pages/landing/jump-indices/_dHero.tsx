@@ -123,7 +123,7 @@ const StyledAnimationWrapper = styled(Flex)`
 `
 
 const DHero = () => {
-    const animation_container = createRef()
+    const animation_container = createRef<HTMLElement>()
     useEffect(() => {
         const anim = lottie.loadAnimation({
             container: animation_container.current,

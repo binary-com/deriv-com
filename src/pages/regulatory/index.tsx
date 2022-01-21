@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import FinancialCommission from './_financial_commission'
@@ -29,6 +28,14 @@ import MGA from 'images/common/regulatory/mga.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
 
+type BoxProps = {
+    padding?: string
+}
+
+type RegulatoryProps = {
+    language: string
+}
+
 const Img = styled.img`
     display: flex;
     width: 16rem;
@@ -52,7 +59,7 @@ const Mobile = styled(Show.Mobile)`
 const Desktop = styled(Show.Desktop)`
     display: flex;
 `
-const Box = styled.div`
+const Box = styled.div<BoxProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,7 +101,7 @@ const ResponsiveHeader = styled(StyledHeader)`
 const Content = styled.div`
     display: contents;
 `
-const Regulatory = (locale) => {
+const Regulatory = (locale: RegulatoryProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
@@ -460,10 +467,6 @@ const Regulatory = (locale) => {
             </SectionContainer>
         </Layout>
     )
-}
-
-Regulatory.propTypes = {
-    locale: PropTypes.object,
 }
 
 export default WithIntl()(Regulatory)

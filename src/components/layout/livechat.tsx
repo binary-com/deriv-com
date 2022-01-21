@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import LiveChatIC from 'images/svg/layout/livechat.svg'
 import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
@@ -8,7 +7,15 @@ import { DerivStore } from 'store'
 import { isBrowser } from 'common/utility'
 import InitialLoader from 'components/elements/dot-loader'
 
-const StyledLiveChat = styled.div`
+type LiveChatProps = {
+    is_banner_shown: boolean
+}
+
+type StyledLiveChatTypes = LiveChatProps & {
+    is_eu_country: boolean
+}
+
+const StyledLiveChat = styled.div<StyledLiveChatTypes>`
     position: fixed;
     bottom: ${(props) => (props.is_eu_country ? '9rem' : '1.6rem')};
     right: 1.6rem;
@@ -21,7 +28,7 @@ const StyledLiveChat = styled.div`
     z-index: 999;
     ${(props) => {
         if (props.is_eu_country) {
-            return css`
+            return css<StyledLiveChatTypes>`
                 @media (max-width: 1269px) {
                     bottom: 11rem;
                 }
@@ -46,7 +53,7 @@ const StyledLiveChat = styled.div`
     }}
 `
 
-const LiveChat = ({ is_banner_shown }) => {
+const LiveChat = ({ is_banner_shown }: LiveChatProps) => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
     const [is_livechat_hover, setLivechatHover] = useState(false)
@@ -90,13 +97,6 @@ const LiveChat = ({ is_banner_shown }) => {
             )}
         </StyledLiveChat>
     )
-}
-
-LiveChat.propTypes = {
-    is_banner_shown: PropTypes.bool,
-    is_livechat_interactive: PropTypes.bool,
-    LC_API: PropTypes.object,
-    setLiveChatInteractive: PropTypes.func,
 }
 
 export default LiveChat

@@ -11,6 +11,7 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
+import { UK, EU, ROW } from 'components/containers/visibility'
 import { DerivStore } from 'store'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -32,13 +33,17 @@ const Forex = ({ simple_step_content }) => {
             </WhyTrade>
             <AvailableTrades
                 CFDs={
-                    <CFDs
-                        market_content={
-                            (is_eu_country && forex_cfds_eu) ||
-                            (is_uk_country && forex_cfds_uk) ||
-                            (!is_eu_country && !is_uk_country && forex_cfds)
-                        }
-                    />
+                    <>
+                        <UK>
+                            <CFDs market_content={forex_cfds_uk} />
+                        </UK>
+                        <EU>
+                            <CFDs market_content={forex_cfds_eu} />
+                        </EU>
+                        <ROW>
+                            <CFDs market_content={forex_cfds} />
+                        </ROW>
+                    </>
                 }
                 DigitalOptions={
                     !is_eu_country &&

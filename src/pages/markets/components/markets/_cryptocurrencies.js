@@ -13,6 +13,7 @@ import CryptoPairs from 'images/svg/markets/crypto-pairs.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission.svg'
 import Leverage from 'images/svg/markets/leverage.svg'
 import { DerivStore } from 'store'
+import { NonUK } from 'components/containers/visibility'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -44,7 +45,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
     ]
 
     return (
-        <>
+        <NonUK>
             <WhyTrade
                 header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
                 text={
@@ -71,7 +72,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
                 sign_up
             />
             <OtherMarkets except="cryptocurrencies" />
-        </>
+        </NonUK>
     )
 }
 

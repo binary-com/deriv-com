@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
+import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const TabsContainer = styled(Flex)`
@@ -80,7 +81,35 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 
-const tabList = [
+const tab_list_non_uk = [
+    {
+        title: <Localize translate_text="Forex" />,
+        tab_name: 'forex',
+        route_to: '/markets/forex/',
+    },
+    {
+        title: <Localize translate_text="Synthetic indices" />,
+        tab_name: 'synthetic',
+        route_to: '/markets/synthetic/',
+    },
+    {
+        title: <Localize translate_text="Stocks & indices" />,
+        tab_name: 'stock',
+        route_to: '/markets/stock/',
+    },
+    {
+        title: <Localize translate_text="Commodities" />,
+        tab_name: 'commodities',
+        route_to: '/markets/commodities/',
+    },
+    {
+        title: <Localize translate_text="Cryptocurrencies" />,
+        tab_name: 'cryptocurrencies',
+        route_to: '/markets/cryptocurrencies/',
+    },
+]
+
+const tab_list_uk = [
     {
         title: <Localize translate_text="Forex" />,
         tab_name: 'forex',
@@ -109,6 +138,14 @@ const tabList = [
 ]
 
 const NavTab = ({ route_from, route_offset }) => {
+    const { is_uk_country } = React.useContext(DerivStore)
+
+    const [tabList, setTabList] = useState(tab_list_non_uk)
+
+    useEffect(() => {
+        is_uk_country && setTabList(tab_list_uk)
+    }, [])
+
     const ref = useRef(null)
 
     useEffect(() => {
@@ -128,7 +165,6 @@ const NavTab = ({ route_from, route_offset }) => {
                             </TabButton>
                         )
                     })}
-
                     <LineDivider />
                 </TabList>
             </Flex>

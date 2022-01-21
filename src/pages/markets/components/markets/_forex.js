@@ -12,13 +12,12 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
 import { DerivStore } from 'store'
-import { EU } from 'components/containers/visibility'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Forex = ({ simple_step_content }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
     return (
         <>
             <WhyTrade
@@ -32,9 +31,14 @@ const Forex = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={EU ? forex_cfds_eu : forex_cfds} />}
+                CFDs={
+                    <CFDs
+                        market_content={is_eu_country && is_uk_country ? forex_cfds_eu : forex_cfds}
+                    />
+                }
                 DigitalOptions={
-                    !EU && (
+                    !is_eu_country &&
+                    is_uk_country && (
                         <DigitalOptions
                             market_name={localize('forex')}
                             options_list={forex_options}
@@ -42,7 +46,9 @@ const Forex = ({ simple_step_content }) => {
                     )
                 }
                 Multipliers={
-                    <Multipliers market_content={EU ? forex_multiplier_eu : forex_multiplier} />
+                    <Multipliers
+                        market_content={is_eu_country ? forex_multiplier_eu : forex_multiplier}
+                    />
                 }
                 name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}

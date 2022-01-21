@@ -32,12 +32,12 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_tab_name={'stock-indices'} market_content={stock_cfds} />}
                 DigitalOptions={
-                    !EU && (
+                    <EU>
                         <DigitalOptions
                             market_name={localize('stocks & indices')}
                             options_list={stock_options}
                         />
-                    )
+                    </EU>
                 }
                 name="Stocks & indices"
                 display_title={

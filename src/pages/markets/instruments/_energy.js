@@ -1,19 +1,20 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
 import { energy, energy_eu } from './_market-symbols'
-import { EU } from 'components/containers/visibility'
+import { DerivStore } from 'store'
 
 const Energy = () => {
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+
     return (
         <>
-            {EU &&
-                energy_eu.map((symbol, index) => (
-                    <Symbol key={index} src={symbol.src} text={symbol.text} />
-                ))}
-            {!EU &&
-                energy.map((symbol, index) => (
-                    <Symbol key={index} src={symbol.src} text={symbol.text} />
-                ))}
+            {is_eu_country && is_uk_country
+                ? energy_eu.map((symbol, index) => (
+                      <Symbol key={index} src={symbol.src} text={symbol.text} />
+                  ))
+                : energy.map((symbol, index) => (
+                      <Symbol key={index} src={symbol.src} text={symbol.text} />
+                  ))}
         </>
     )
 }

@@ -57,7 +57,7 @@ const settings = {
             bottom: 292px;
         }
         @media (max-width: 375px) {
-            bottom: 310px;
+            bottom: 320px;
         }
         @media (max-width: 317px) {
             bottom: 362px;

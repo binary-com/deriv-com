@@ -217,7 +217,9 @@ export const PlatformContent = ({
 }: PlatformDetailsProps) => {
     return (
         <>
-            <Header type="subtitle-1">{title}</Header>
+            <Header type="subtitle-1" tablet={{ mb: '8px' }}>
+                {title}
+            </Header>
             <Header
                 as="p"
                 type={is_from_slider ? 'subtitle-2' : 'paragraph-1'}

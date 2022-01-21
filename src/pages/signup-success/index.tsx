@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import { getLanguage } from '../../common/utility'
 import Layout from 'components/layout/layout'
@@ -101,10 +100,6 @@ const SignupSuccess = () => {
             <StyledDiv />
         </Layout>
     )
-}
-
-SignupSuccess.propTypes = {
-    autofocus: PropTypes.bool,
 }
 
 export default WithIntl()(SignupSuccess)

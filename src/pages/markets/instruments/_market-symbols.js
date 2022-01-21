@@ -590,6 +590,10 @@ export const stocks_european_indices = [
         text: <Localize translate_text="France 40" />,
     },
     {
+        src: icons.STOCKSGERMANY40,
+        text: <Localize translate_text="Germany 40" />,
+    },
+    {
         src: icons.STOCKSUK100,
         text: <Localize translate_text="UK 100" />,
     },

@@ -130,11 +130,6 @@ const tab_list_uk = [
         tab_name: 'commodities',
         route_to: '/markets/commodities/',
     },
-    {
-        title: <Localize translate_text="Cryptocurrencies" />,
-        tab_name: 'cryptocurrencies',
-        route_to: '/markets/cryptocurrencies/',
-    },
 ]
 
 const NavTab = ({ route_from, route_offset }) => {

@@ -9,11 +9,14 @@ import { stock_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { localize, Localize } from 'components/localization'
-import { EU } from 'components/containers/visibility'
+import { DerivStore } from 'store'
+
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const StockIndices = ({ simple_step_content }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
     simple_step_content[1].text = localize(
         'Open a real account, make a deposit, and start trading stocks, indices and other markets.',
     )
@@ -32,12 +35,12 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_tab_name={'stock-indices'} market_content={stock_cfds} />}
                 DigitalOptions={
-                    <EU>
+                    is_eu_country && (
                         <DigitalOptions
                             market_name={localize('stocks & indices')}
                             options_list={stock_options}
                         />
-                    </EU>
+                    )
                 }
                 name="Stocks & indices"
                 display_title={

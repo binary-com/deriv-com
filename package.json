@@ -45,6 +45,7 @@
         "react-helmet": "^6.1.0",
         "react-i18next": "^11.15.3",
         "react-is": "^17.0.2",
+        "react-paginate": "^8.1.0",
         "react-perfect-scrollbar": "^1.5.8",
         "use-query-params": "^1.2.3",
         "web-push-notifications": "^3.24.0",

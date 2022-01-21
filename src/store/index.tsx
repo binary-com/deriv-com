@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
@@ -16,12 +17,14 @@ export type DerivStoreType = {
     website_status: string
     setWebsiteStatus: string
     user_country: boolean
+    academy_data: AcademyDataType
 }
 
 export const DerivStore = React.createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
+    const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
@@ -52,6 +55,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 website_status_loading,
                 setWebsiteStatus,
                 user_country,
+                academy_data,
                 is_livechat_interactive,
                 LC_API,
                 is_loading_lc,

@@ -1,3 +1,3 @@
-export type StringObject = {
+export type StringObjectType = {
     [key: string]: string
 }

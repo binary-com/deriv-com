@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
@@ -81,7 +81,7 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 
-const tab_list_non_uk = [
+const tab_list = [
     {
         title: <Localize translate_text="Forex" />,
         tab_name: 'forex',
@@ -135,12 +135,6 @@ const tab_list_uk = [
 const NavTab = ({ route_from, route_offset }) => {
     const { is_uk_country } = React.useContext(DerivStore)
 
-    const [tabList, setTabList] = useState(tab_list_non_uk)
-
-    useEffect(() => {
-        is_uk_country && setTabList(tab_list_uk)
-    }, [])
-
     const ref = useRef(null)
 
     useEffect(() => {
@@ -151,7 +145,7 @@ const NavTab = ({ route_from, route_offset }) => {
         <TabsContainer>
             <Flex direction="column">
                 <TabList ref={ref}>
-                    {tabList.map((item, index) => {
+                    {(is_uk_country ? tab_list_uk : tab_list).map((item, index) => {
                         return (
                             <TabButton selected={route_from == item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>

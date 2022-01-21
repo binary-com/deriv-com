@@ -12,7 +12,7 @@ type QueryImageProps = {
     loading?: 'eager' | 'lazy'
 }
 
-type ImageWrapperProps = {
+export type ImageWrapperProps = {
     width: string
     height: string
     className?: string

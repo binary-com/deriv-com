@@ -1,8 +1,59 @@
 import { useStaticQuery, graphql } from 'gatsby'
+import type { ImageDataLike } from 'gatsby-plugin-image'
+
+export type AcademyDataType = {
+    blog: BlogType[]
+    videos: VideosType[]
+}
+
+export type BlogType = {
+    blog_description: string
+    blog_title: string
+    featured: boolean
+    id: string
+    main_image: MainImageType
+    published_date: string
+    slug: string
+    tags?: TagsType[]
+}
+
+export type MainImageType = {
+    description?: string
+    id: string
+    imageFile: ImageDataLike
+}
+
+export type TagsType = {
+    id: string
+    tags_id: {
+        tag_name: string
+    }
+}
+
+export type VideosType = {
+    featured: boolean
+    published_date: string
+    tags: TagsType[]
+    video_description: string
+    video_duration: string
+    video_file: VideoFileType
+    video_thumbnail: VideoThumbnailType
+    video_title: string
+}
+
+export type VideoFileType = {
+    id: string
+}
+
+export type VideoThumbnailType = {
+    id: string
+    imageFile: ImageDataLike
+    title?: string
+}
 
 // This hook is used to fetch data from Directus during build time
-export const useAcademyData = (): [unknown] => {
-    let academy_data: any = useStaticQuery(query)
+export const useAcademyData = (): [AcademyDataType] => {
+    let academy_data = useStaticQuery(query)
     academy_data = academy_data?.directus
 
     return [academy_data]

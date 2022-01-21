@@ -66,10 +66,6 @@ export const forex_cfds_uk = {
             title: <Localize translate_text="Minor pairs" />,
             component: <MinorPairs />,
         },
-        {
-            title: <Localize translate_text="Micro pairs" />,
-            component: <MicroPairs />,
-        },
     ],
 }
 

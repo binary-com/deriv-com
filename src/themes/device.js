@@ -20,6 +20,7 @@ const device = {
     mobileS: `(max-width: ${size.mobileS}px)`,
     mobileM: `(max-width: ${size.mobileM}px)`,
     mobileL: `(max-width: ${size.mobileL}px)`,
+    tabletM: `(min-width: ${size.mobileL}px) and (max-width: ${size.tabletL}px)`,
     tabletS: `(max-width: ${size.tabletS}px)`,
     tablet: `(max-width: ${size.tablet}px)`,
     tabletL: `(max-width: ${size.tabletL}px)`,

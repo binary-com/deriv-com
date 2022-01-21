@@ -13,7 +13,8 @@
     "noEmit": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
   },
   "paths": {
     "react": [

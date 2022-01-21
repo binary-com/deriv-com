@@ -74,6 +74,7 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/academy/blog/posts/preview',
                 ],
                 query: `
                 {
@@ -112,7 +113,7 @@ module.exports = {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = ['en', 'x-default'].includes(locale)
                             const href_locale = is_default ? '' : `/${replaced_locale}`
-                            const href = `${site_url}/${href_locale}${current_page}`
+                            const href = `${site_url}${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }
                         }
                     })
@@ -198,14 +199,6 @@ module.exports = {
             },
         },
         'gatsby-plugin-anchor-links',
-        {
-            resolve: `gatsby-plugin-nprogress`,
-            options: {
-                color: `#85ACB0`,
-                showSpinner: false,
-                minimum: 0.4,
-            },
-        },
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {

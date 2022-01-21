@@ -6,6 +6,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
+import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const TitleWrapper = styled.div`
@@ -110,6 +111,7 @@ const SubtitleHeader = styled(Header)`
 `
 
 const DerivIBProgramme = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
     return (
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
@@ -132,8 +134,14 @@ const DerivIBProgramme = () => {
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financial} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
+                        <DERIVIBDMT5Cards
+                            data={is_eu_country ? ib_dmt5_financial : ib_dmt5_financial_non_eu}
+                        />
+                        <DERIVIBDMT5Cards
+                            data={
+                                is_eu_country ? ib_dmt5_financialSTP : ib_dmt5_financialSTP_non_eu
+                            }
+                        />
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader
@@ -433,6 +441,66 @@ const ib_dmt5_financial = {
     ],
 }
 
+const ib_dmt5_financial_non_eu = {
+    ...ib_dmt5_financial,
+    type: [
+        {
+            title: <Localize translate_text="Forex and metals" />,
+            headerHeight: '8.0rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [
+                        <Localize key={1} translate_text="Forex" />,
+                        <Localize key={2} translate_text="Metals" />,
+                    ],
+                },
+                {
+                    title: <Localize key={0} translate_text="Commission per lot" />,
+                    list: [
+                        <Localize key={1} translate_text="USD 2" />,
+                        <Localize key={2} translate_text="USD 4" />,
+                    ],
+                },
+            ],
+        },
+        {
+            title: <Localize translate_text="Stock indices" />,
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [
+                        <Localize key={1} translate_text="Stock indices" />,
+                        <Localize key={2} translate_text="Stocks" />,
+                    ],
+                },
+                {
+                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    list: [
+                        <Localize key={1} translate_text="USD 1" />,
+                        <Localize key={2} translate_text="USD 10" />,
+                    ],
+                },
+            ],
+        },
+        {
+            title: <Localize translate_text="Cryptocurrencies" />,
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
+                },
+                {
+                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    list: [<Localize key={1} translate_text="10" />],
+                },
+            ],
+        },
+    ],
+}
+
 const ib_dmt5_financialSTP = {
     name: <Localize translate_text="Deriv MT5 Financial STP" />,
     description: (
@@ -543,6 +611,45 @@ const ib_dmt5_financialSTP = {
                             <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
                         ),
                     },
+                },
+            ],
+        },
+    ],
+}
+
+const ib_dmt5_financialSTP_non_eu = {
+    ...ib_dmt5_financialSTP,
+    type: [
+        {
+            title: <Localize translate_text="Forex" />,
+            headerHeight: '8.0rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [<Localize key={1} translate_text="Forex" />],
+                },
+                {
+                    title: (
+                        <Localize
+                            key={0}
+                            translate_text="Commission per lot (1 standard lot is 100k units)"
+                        />
+                    ),
+                    list: [<Localize key={1} translate_text="2.5" />],
+                },
+            ],
+        },
+        {
+            title: <Localize translate_text="Cryptocurrencies" />,
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
+                },
+                {
+                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    list: [<Localize key={1} translate_text="10" />],
                 },
             ],
         },

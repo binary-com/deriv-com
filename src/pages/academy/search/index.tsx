@@ -296,9 +296,15 @@ const SearchPage = () => {
         const special_titles: {
             cfds: string
             'stocks-stock-indices': string
+            dtrader: string
+            dbot: string
+            'deriv-mt5': string
         } = {
             cfds: 'CFDs',
             'stocks-stock-indices': 'Stocks & stock indices',
+            dtrader: 'DTrader',
+            dbot: 'DBot',
+            'deriv-mt5': 'Deriv MT5',
         }
         if (Object.keys(special_titles).includes(current_category)) {
             category_name = special_titles[current_category]

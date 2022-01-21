@@ -461,7 +461,6 @@ export const minor_pairs = [
     },
     {
         src: icons.CADCHF,
-        // TODO FLAG
         text: <Localize translate_text="CAD/CHF" />,
     },
     {
@@ -474,8 +473,7 @@ export const minor_pairs = [
         text: <Localize translate_text="CAD/CHF" />,
     },
     {
-        src: icons.EURNZD,
-        // TODO EURNOK
+        src: icons.EURNOK,
         text: <Localize translate_text="EUR/NOK" />,
     },
     {
@@ -483,13 +481,11 @@ export const minor_pairs = [
         text: <Localize translate_text="EUR/NZD" />,
     },
     {
-        src: icons.EURNZD,
-        // TODO EURPLN
+        src: icons.EURPLN,
         text: <Localize translate_text="EUR/PLN" />,
     },
     {
-        src: icons.EURNZD,
-        // TODO EURSEK
+        src: icons.EURSEK,
         text: <Localize translate_text="EUR/SEK" />,
     },
     {
@@ -509,13 +505,11 @@ export const minor_pairs = [
         text: <Localize translate_text="GBP/NZD" />,
     },
     {
-        src: icons.EURNZD,
-        // TODO GBPSEK
+        src: icons.GBPSEK,
         text: <Localize translate_text="GBP/SEK" />,
     },
     {
         src: icons.NZDCAD,
-        // TODO FLAG
         text: <Localize translate_text="NZD/CAD" />,
     },
     {
@@ -527,8 +521,7 @@ export const minor_pairs = [
         text: <Localize translate_text="NZD/USD" />,
     },
     {
-        src: icons.EURNZD,
-        // TODO USDCNH
+        src: icons.USDCNH,
         text: <Localize translate_text="USD/CNH" />,
     },
     {
@@ -549,7 +542,6 @@ export const minor_pairs = [
     },
     {
         src: icons.USDZAR,
-        // TODO FLAG
         text: <Localize translate_text="USD/ZAR" />,
     },
 ]
@@ -629,23 +621,19 @@ export const american_stocks = [
         text: <Localize translate_text="Amazon.com Inc" />,
     },
     {
-        src: icons.STOCKSAMAZON,
-        // TODO ICON
+        src: icons.STOCKSAIRBUS,
         text: <Localize translate_text="Airbus SE" />,
     },
     {
-        src: icons.STOCKSAMAZON,
-        // TODO ICON
+        src: icons.STOCKSAIRFRANCE,
         text: <Localize translate_text="Air France KLM SA" />,
     },
     {
-        src: icons.STOCKSAMAZON,
-        // TODO ICON
+        src: icons.STOCKSAMD,
         text: <Localize translate_text="Advanced Micro Devices, Inc." />,
     },
     {
-        src: icons.STOCKSAMAZON,
-        // TODO ICON
+        src: icons.STOCKSBAYERAG,
         text: <Localize translate_text="Bayer AG" />,
     },
     {
@@ -681,8 +669,7 @@ export const american_stocks = [
         text: <Localize translate_text="Cisco Systems" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSCONTINENTALAG,
         text: <Localize translate_text="Continental AG" />,
     },
     {
@@ -694,8 +681,7 @@ export const american_stocks = [
         text: <Localize translate_text="Deutsche Bank AG" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSDEUTSCHELUFTHANSAAG,
         text: <Localize translate_text="Deutsche Lufthansa AG" />,
     },
     {
@@ -715,8 +701,7 @@ export const american_stocks = [
         text: <Localize translate_text="Fedex" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSFOXCORPCLASSB,
         text: <Localize translate_text="Fox Corp Class B" />,
     },
     {
@@ -736,13 +721,11 @@ export const american_stocks = [
         text: <Localize translate_text="HP Inc" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSHOMEDEPOTINC,
         text: <Localize translate_text="Home Depot Inc" />,
     },
     {
-        src: icons.STOCKSHPINC,
-        // TODO ICON
+        src: icons.STOCKSHUGOBOSSAGCOMMONSTOCK,
         text: <Localize translate_text="Hugo Boss AG Common Stock" />,
     },
     {
@@ -778,8 +761,7 @@ export const american_stocks = [
         text: <Localize translate_text="Microsoft Corporation" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSNESTLESA,
         text: <Localize translate_text="Nestle SA" />,
     },
     {
@@ -791,8 +773,7 @@ export const american_stocks = [
         text: <Localize translate_text="Nike" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSNOVARTISAG,
         text: <Localize translate_text="Novartis AG" />,
     },
     {
@@ -812,23 +793,19 @@ export const american_stocks = [
         text: <Localize translate_text="Paypal" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSPEPSICOINC,
         text: <Localize translate_text="PepsiCo, Inc." />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSPORSCHEAUTOMOBILHOLDINGSE,
         text: <Localize translate_text="Porsche Automobil Holding SE" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.STOCKSPUMASE,
         text: <Localize translate_text="Puma SE" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        // TODO ICON
+        src: icons.SONYGROUPCORP,
         text: <Localize translate_text="Sony Group Corp" />,
     },
     {

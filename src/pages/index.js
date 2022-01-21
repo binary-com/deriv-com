@@ -83,6 +83,7 @@ const Home = () => {
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}
             {/* {!isProduction() && <Ticker />} */}
+            {/* {!isProduction() && <Ticker />} */}
         </Layout>
     )
 }

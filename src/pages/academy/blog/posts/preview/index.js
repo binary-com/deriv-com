@@ -22,8 +22,7 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
-    DesktopBreadcrumbsWrapper,
-    MobileBreadcrumbsWrapper,
+    StickyBreadCrumbsWrapper,
     StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
@@ -34,14 +33,36 @@ import ArticleEmailBanner from '../../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
-import { convertDate, isBrowser, getMinRead } from 'common/utility'
+import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { cms_assets_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const BlogPreview = () => {
+    const [is_mobile] = useBrowserResize(992)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
+    const [isMounted, setMounted] = useState(false)
     const [data, setData] = useState(null)
     const [id, setId] = useState(null)
     const end_point_url = 'https://cms.deriv.cloud/items/blog/'
+
+    useEffect(() => {
+        setMounted(true)
+        isMounted && window.scrollTo(0, 0) && handleScroll()
+    }, [isMounted])
+
+    const handleScroll = () => {
+        const currentScrollPos = window.scrollY
+        setPrevScrollPos(currentScrollPos)
+        setVisible(currentScrollPos > 72)
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [prevScrollPos, visible, handleScroll])
 
     useEffect(() => {
         const getPreviewId = () => {
@@ -98,36 +119,27 @@ const BlogPreview = () => {
     }
 
     return (
-        <Layout type="academy">
+        <Layout type="academy" margin_top={'14.4'}>
             <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
             <>
                 {post_data && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
-                            <BreadcrumbsWrapper>
-                                <Flex jc="flex-start" ai="center">
-                                    <StyledBreadcrumbsLink to="/academy/" color="grey-5">
-                                        Home
-                                    </StyledBreadcrumbsLink>
-                                    <StyledImg src={RightArrow} height="16" width="16" />
-                                    <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
-                                        All articles
-                                    </StyledBreadcrumbsLink>
-                                    <StyledImg src={RightArrow} height="16" width="16" />
-                                    <DesktopBreadcrumbsWrapper>
+                            <StickyBreadCrumbsWrapper scroll={visible}>
+                                <BreadcrumbsWrapper scroll={visible}>
+                                    <Flex jc="flex-start" ai="center">
+                                        <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
+                                            All articles
+                                        </StyledBreadcrumbsLink>
+                                        <StyledImg src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
-                                            {article_title}
-                                        </StyledBreadcrumbsTitle>
-                                    </DesktopBreadcrumbsWrapper>
-                                </Flex>
-                                <MobileBreadcrumbsWrapper>
-                                    <Flex width="auto" jc="flex-start" mt="10px">
-                                        <StyledBreadcrumbsTitle lh="20px">
-                                            {article_title}
+                                            {is_mobile
+                                                ? truncateString(article_title, 30)
+                                                : article_title}
                                         </StyledBreadcrumbsTitle>
                                     </Flex>
-                                </MobileBreadcrumbsWrapper>
-                            </BreadcrumbsWrapper>
+                                </BreadcrumbsWrapper>
+                            </StickyBreadCrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">

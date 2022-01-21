@@ -220,7 +220,6 @@ const TradeTypes = (): React.ReactNode => {
         },
         view_port: {
             height: '620px',
-            padding: '0 120px',
         },
         container_style: {
             maxWidth: '100%',

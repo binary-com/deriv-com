@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex, SectionContainer } from 'components/containers'
-import PlatformCarousel from 'pages/home/platform-carousel/_carousel'
+import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 

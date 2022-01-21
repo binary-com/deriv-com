@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from 'react'
+import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -157,8 +157,8 @@ const CarouselItem = ({
     url,
 }: CarouselItemProps) => {
     const [is_hovered, setHovered] = useState(false)
-    const handleHover = (is_hovered) => {
-        return !is_mobile && setHovered(is_hovered)
+    const handleHover = (hover_state: boolean) => {
+        return !is_mobile && setHovered(hover_state)
     }
 
     return (

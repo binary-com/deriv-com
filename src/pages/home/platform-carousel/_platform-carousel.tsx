@@ -1,6 +1,6 @@
 import React from 'react'
-import DesktopPlatformCarousel from './_desktop-carousel'
-import MobilePlatformCarousel from './_mobile-carousel'
+import DesktopPlatformCarousel from './_desktop-platform-carousel'
+import MobilePlatformCarousel from './_mobile-platform-carousel'
 import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
 
 const PlatformCarousel = () => {

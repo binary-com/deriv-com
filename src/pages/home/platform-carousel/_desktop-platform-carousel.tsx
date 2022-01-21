@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Details from './_desktop-details'
+import Details from './_details'
 import Slider from './_desktop-slider'
 import { Flex } from 'components/containers'
 import device from 'themes/device'

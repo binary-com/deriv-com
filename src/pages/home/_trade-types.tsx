@@ -17,7 +17,7 @@ type TradeTypesProps = {
     link_text: ReactElement
 }
 
-type ItemsDetails = {
+type TradeItemsProps = {
     items_details: TradeTypesProps
 }
 
@@ -175,7 +175,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     }
 `
 
-const TradeItems = ({ items_details }: ItemsDetails): ReactElement => {
+const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const [details_visible, setDetailsVisibility] = React.useState(false)

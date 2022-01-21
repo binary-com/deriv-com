@@ -664,8 +664,8 @@ export const Nav = ({
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [is_transparent, setTransparent] = useState(is_nav_transparent)
 
-    const handleScroll = useCallback(() => {
-        const currentScrollPos = window.pageYOffset
+    const handleTransparentNavScroll = useCallback(() => {
+        const currentScrollPos = window.scrollY
         setTransparent(
             (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 20) ||
                 currentScrollPos < 10,
@@ -675,7 +675,7 @@ export const Nav = ({
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
-        window.addEventListener('scroll', handleScroll, { passive: true })
+        window.addEventListener('scroll', handleTransparentNavScroll, { passive: true })
 
         let checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
@@ -683,7 +683,7 @@ export const Nav = ({
 
         return () => {
             clearInterval(checkCookieChange)
-            window.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('scroll', handleTransparentNavScroll)
         }
     }, [])
 

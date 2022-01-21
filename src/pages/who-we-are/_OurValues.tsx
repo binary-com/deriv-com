@@ -45,12 +45,12 @@ const StyledFlex = styled(Flex)`
 const Card = styled(Flex)`
     max-width: 384px;
     padding: 32px 44px 32px 32px;
-    box-shadow: rgba(14, 14, 14, 0.1) 0px 4px 8px 0px;
-
+    box-shadow: rgba(14, 14, 14, 0.1) 0 4px 8px 0;
     background-color: var(--color-white);
     margin: 0 24px 24px 0;
     margin-top: ${(props) => (props.index === 1 ? '80px' : props.index === 2 ? '-80px' : 0)};
     border-radius: 8px;
+
     @media (max-width: 930px) {
         order: ${(props) => (props.index === 2 ? 1 : props.index === 1 ? 2 : props.index)};
         margin: 0 0 19px;

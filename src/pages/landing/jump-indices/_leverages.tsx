@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 import TradingIcon from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
@@ -80,28 +80,41 @@ const StyledLinkButton = styled(LinkButton)`
     padding: 11px 16px;
 `
 
+type ContentType = {
+    imgsrc: string
+    header: ReactElement
+    title: ReactElement
+}
+
+const content: ContentType[] = [
+    {
+        imgsrc: TradingIcon,
+        header: <Localize translate_text="Available 24/7" />,
+        title: (
+            <Localize translate_text="As jump indices are synthetics, you can trade them 24/7, 365 days of the year." />
+        ),
+    },
+    {
+        imgsrc: LeverageIcon,
+        header: <Localize translate_text="High leverage" />,
+        title: (
+            <Localize translate_text="Trade with high leverage ratios to have even more opportunities to increase your position size." />
+        ),
+    },
+]
 const Leverages = () => {
     return (
         <MainWrapper>
             <ParentWrapper>
-                <EachWrapper>
-                    <ImgWrapper src={TradingIcon} />
-                    <StyledHeader type="section-title">{localize('Available 24/7')}</StyledHeader>
-                    <StyledHeaderSmall type="sub-section-title" weight="normal">
-                        {localize(
-                            'As jump indices are synthetics, you can trade them 24/7, 365 days of the year.',
-                        )}
-                    </StyledHeaderSmall>
-                </EachWrapper>
-                <EachWrapper>
-                    <ImgWrapper src={LeverageIcon} />
-                    <StyledHeader type="section-title">{localize('High leverage')}</StyledHeader>
-                    <StyledHeaderSmall type="sub-section-title" weight="normal">
-                        {localize(
-                            'Trade with high leverage ratios to have even more opportunities to increase your position size.',
-                        )}
-                    </StyledHeaderSmall>
-                </EachWrapper>
+                {content.map((item, index) => (
+                    <EachWrapper key={`key-${index}`}>
+                        <ImgWrapper src={item.imgsrc} />
+                        <StyledHeader type="section-title">{item.header}</StyledHeader>
+                        <StyledHeaderSmall type="sub-section-title" weight="normal">
+                            {item.title}
+                        </StyledHeaderSmall>
+                    </EachWrapper>
+                ))}
             </ParentWrapper>
             <BtnWrapper>
                 <StyledLinkButton

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import MarketInstruments from '../../../markets/components/sections/_market_instruments.js'
 import { SwapFreePairs } from '../../../markets/instruments/_submarkets.js'
 import device from 'themes/device'
@@ -8,6 +7,11 @@ import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+
+type TablebtnProps = {
+    btnlabel: string
+    text: string
+}
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -38,7 +42,7 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const Tablebtn = ({ btnlabel, text }) => {
+const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
     const swap_free_pairs = {
         markets_list: {
             col: 4,
@@ -76,11 +80,6 @@ const Tablebtn = ({ btnlabel, text }) => {
             </StyledContainer>
         </StyledSection>
     )
-}
-
-Tablebtn.propTypes = {
-    btnlabel: PropTypes.string,
-    text: PropTypes.string,
 }
 
 export default Tablebtn

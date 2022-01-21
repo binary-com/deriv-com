@@ -10,7 +10,7 @@ import { LinkButton } from 'components/form'
 
 const query = graphql`
     query {
-        page_not_found: file(relativePath: { eq: "image-not available.png" }) {
+        page_not_found: file(relativePath: { eq: "image-not-available.png" }) {
             ...fadeIn
         }
     }

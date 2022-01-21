@@ -24,6 +24,7 @@ type ParentWrapperProps = {
 
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`
     width: 100%;
+    background-color: #10212f;
     background-image: url(${(props) => props.bg_image_desktop});
     background-position: center;
     background-size: cover;
@@ -66,7 +67,6 @@ const StyledHeader = styled(Header)`
 const StyledH1 = styled.h1`
     height: 100%;
     width: 100%;
-    margin: 0 auto;
     color: white;
     font-weight: bold;
     margin: 175px auto 70px;

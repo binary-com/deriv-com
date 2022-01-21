@@ -29,6 +29,7 @@ import BOOM300 from 'images/svg/symbols/boom-indices-300.svg'
 import BOOM300EU from 'images/svg/symbols/boom-eu-boom-300.svg'
 import CRASH300EU from 'images/svg/symbols/crash-eu-crash-300.svg'
 import BTCUSD from 'images/svg/symbols/btc-usd.svg'
+import BRENTCRUDEOILUK from 'images/svg/symbols/brent-crude-oil-uk.svg'
 import C from 'images/svg/symbols/c.svg'
 import CADCHF from 'images/svg/symbols/cad-chf.svg'
 import CADJPY from 'images/svg/symbols/cad-jpy.svg'
@@ -269,6 +270,7 @@ import STOCKSWALMART from 'images/svg/symbols/markets-stocks-and-indices/america
 import STOCKSWALTDISNEY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import STOCKSZOOM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-zoom-video-communications-inc.svg'
 import TERRA from 'images/svg/symbols/terra.svg'
+import WTIOILUS from 'images/svg/symbols/wti-oil-us.svg'
 import ZINCUSD from 'images/svg/symbols/zinc-usd.svg'
 import ZM from 'images/svg/symbols/zm.svg'
 import BNB from 'images/svg/symbols/binance_coin_flag.svg'
@@ -324,6 +326,7 @@ export {
     BOOM300EU,
     CRASH300EU,
     BTCUSD,
+    BRENTCRUDEOILUK,
     C,
     CARDANO,
     CADCHF,
@@ -563,6 +566,7 @@ export {
     STOCKSWALTDISNEY,
     STOCKSZOOM,
     TERRA,
+    WTIOILUS,
     STOCKSSWISS20,
     STOCKSHONGKONG50,
     ZINCUSD,

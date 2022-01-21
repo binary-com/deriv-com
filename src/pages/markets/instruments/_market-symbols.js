@@ -1110,6 +1110,66 @@ export const cryptocurrencies_cfds = [
         src: icons.BTC,
         text: <Localize translate_text="TER/USD" />,
     },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="BCH/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="BNB/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="BTC/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="DSH/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="EOS/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="ETH/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="LTC/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="XMR/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="XRP/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="ZEC/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="IOT/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="NEO/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="OMG/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="TRX/USD" />,
+    },
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="XLM/USD" />,
+    },
 ]
 
 export const cryptocurrencies_multipliers = [
@@ -1155,11 +1215,11 @@ export const energy = [
 
 export const energy_eu = [
     {
-        src: icons.OILUSD,
+        src: icons.BRENTCRUDEOILUK,
         text: <Localize translate_text="Brent crude oil" />,
     },
     {
-        src: icons.OILUSD,
+        src: icons.WTIOILUS,
         text: <Localize translate_text="West Texas Intermediate" />,
     },
 ]

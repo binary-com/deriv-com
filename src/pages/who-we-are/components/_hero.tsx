@@ -69,7 +69,7 @@ const StyledH1 = styled.h1`
     width: 100%;
     color: white;
     font-weight: bold;
-    margin: 175px auto 70px;
+    margin-top: 10%;
     display: flex;
     justify-content: center;
     letter-spacing: 1px;
@@ -77,7 +77,7 @@ const StyledH1 = styled.h1`
     z-index: 3;
     line-height: inherit;
     @media (max-width: 1200px) {
-        margin: 188px auto 70px;
+        margin-top: 10%;
         font-size: 170px;
     }
 `

@@ -165,7 +165,7 @@ const HelpCenter = () => {
 }
 
 const HelpCentre = (is_eu_country) => {
-    const [hook, setHook] = useState({
+    const [State, setState] = useState({
         name: '',
         searching: '',
         toggle_search: false,
@@ -174,14 +174,6 @@ const HelpCentre = (is_eu_country) => {
         all_articles: [],
     })
 
-    const handleInputChange = (e) => {
-        e.preventDefault()
-        let { name, value } = e.target
-        const handle = { [name]: `${sanitize(value)}` }
-        setHook({ name: handle })
-    }
-
-    const handleSubmit = (e) => e.preventDefault()
     useEffect(() => {
         const current_label = getLocationHash()
         const deepClone = (arr) => {
@@ -198,13 +190,13 @@ const HelpCentre = (is_eu_country) => {
         }
 
         if (current_label) {
-            setHook({
+            setState({
                 toggle_search: false,
                 search_has_transition: false,
             })
         }
 
-        const all_articles = getAllArticles(articles)
+        const all_articles = getAllArticles(articles) // не уверен: задать начальным значыением в стэйт all_articles: getAllArticles(articles)
 
         const duplicate_articles = deepClone(all_articles)
 
@@ -214,18 +206,27 @@ const HelpCentre = (is_eu_country) => {
             return article
         })
 
-        const all_categories = {}
+        const all_categories = State.all_categories
         Object.keys(all_articles).forEach((article) => {
             all_categories[all_articles[article].category] = { is_expanded: false }
         })
 
-        setHook({
+        setState({
             all_categories,
             all_articles: translated_articles,
         })
     })
 
-    const filtered_articles = matchSorter(hook.all_articles, hook.trim(), {
+    const handleInputChange = (e) => {
+        e.preventDefault()
+        let { name, value } = e.target
+        const handle = { [name]: `${sanitize(value)}` }
+        setState({ name: handle })
+    }
+
+    const handleSubmit = (e) => e.preventDefault()
+
+    const filtered_articles = matchSorter(State.all_articles, State.searching.trim(), {
         keys: ['title', 'sub_category'],
     })
 
@@ -235,8 +236,8 @@ const HelpCentre = (is_eu_country) => {
 
     const has_results = !!filtered_articles.length
 
-    const clearSearch = () => setHook({ searching: '' })
-    const search_component = hook.searching.length > 0 && (
+    const clearSearch = () => setState({ searching: '' })
+    const search_component = State.searching.length > 0 && (
         <SearchCrossIcon src={CrossIcon} alt="cross icon" onClick={clearSearch} />
     )
 
@@ -251,7 +252,7 @@ const HelpCentre = (is_eu_country) => {
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
-            <SearchSection show={hook.toggle_search} has_transition={hook.search_has_transition}>
+            <SearchSection show={State.toggle_search} has_transition={State.search_has_transition}>
                 <Backdrop>
                     <Container align="left" justify="flex-start" direction="column">
                         <StyledContainer align="normal" direction="column">
@@ -263,7 +264,7 @@ const HelpCentre = (is_eu_country) => {
                                 <Search
                                     autoFocus
                                     name="search"
-                                    value={hook.searching}
+                                    value={State.searching}
                                     onChange={handleInputChange}
                                     placeholder={localize('Try “Trade”')}
                                     data-lpignore="true"
@@ -272,14 +273,14 @@ const HelpCentre = (is_eu_country) => {
                                 {search_component}
                             </SearchForm>
                             <ResultWrapper>
-                                {!!has_results && !!hook.searching.length && (
+                                {!!has_results && !!State.searching.length && (
                                     <SearchSuccess
                                         suggested_topics={filtered_articles}
                                         max_length={3}
                                     />
                                 )}
-                                {!has_results && !!hook.searching.length && (
-                                    <SearchError search={hook.searching} />
+                                {!has_results && !!State.searching.length && (
+                                    <SearchError search={State.searching} />
                                 )}
                             </ResultWrapper>
                         </StyledContainer>
@@ -306,7 +307,7 @@ const HelpCentre = (is_eu_country) => {
                                             idx={idx}
                                             id={id}
                                             item={item}
-                                            all_categories={hook.all_categories}
+                                            all_categories={State.all_categories}
                                             is_eu_country={is_eu_country}
                                         />
                                     )

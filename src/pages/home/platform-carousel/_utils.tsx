@@ -18,6 +18,7 @@ import {
     smarttrader_url,
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
+import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 // SVG Icons
 import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
@@ -226,15 +227,17 @@ export const PlatformContent = ({
             >
                 {description}
             </Header>
-            <StyledLink
-                to={learn_more_link}
-                is_external={learn_more_link.includes('https')}
-                type={is_from_slider ? 'subtitle-2' : 'paragraph-1'}
-                weight="normal"
-                mb={is_from_slider ? '16px' : '9px'}
-            >
-                <span style={{ marginRight: '0.4rem' }}>{`${localize('Learn more')} >`}</span>
-            </StyledLink>
+            <Flex jc="flex-start" tabletL={{ jc: 'center' }}>
+                <StyledLink
+                    to={learn_more_link}
+                    is_external={learn_more_link.includes('https')}
+                    type={is_from_slider ? 'subtitle-2' : 'paragraph-1'}
+                    weight="normal"
+                    mb={is_from_slider ? '16px' : '9px'}
+                >
+                    <span>{`${localize('Learn more')} >`}</span>
+                </StyledLink>
+            </Flex>
         </>
     )
 }

@@ -13,7 +13,7 @@ type WebsiteStatusType = {
     crypto_config: any
 }
 
-type DerivStoreTypes = {
+export type DerivStoreType = {
     academy_data: AcademyDataType
     crypto_config: any
     is_eu_country: boolean
@@ -21,15 +21,15 @@ type DerivStoreTypes = {
     is_loading_lc: boolean
     is_p2p_allowed_country: boolean
     is_uk_country: boolean
-    LC_API: any
-    setFirstLoadOpenLc: Dispatch<boolean>
+    LC_API: { open_chat_window: () => void }
+    setFirstLoadOpenLc: React.Dispatch<React.SetStateAction<boolean>>
     setWebsiteStatus: Dispatch<WebsiteStatusType>
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
 }
 
-export const DerivStore = createContext<DerivStoreTypes>(null)
+export const DerivStore = createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()

@@ -47,7 +47,7 @@ const Forex = ({ simple_step_content }) => {
                 }
                 DigitalOptions={
                     !is_eu_country &&
-                    is_uk_country && (
+                    !is_uk_country && (
                         <DigitalOptions
                             market_name={localize('forex')}
                             options_list={forex_options}

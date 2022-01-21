@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import kid_data from './data/_kid_data.js'
+import kid_data from './data/_kid_data'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
@@ -8,6 +8,8 @@ import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 import XLSXIcon from 'images/svg/regulatory/excel.svg'
 import { DerivStore } from 'store'
+
+type DocumentAccordionProps = { locale: { language: string } }
 
 const FlexText = styled(LinkText)`
     width: 26%;
@@ -114,7 +116,7 @@ const RTS27_28 = () => (
     </>
 )
 
-const DocumentAccordion = (locale) => {
+const DocumentAccordion = (locale: DocumentAccordionProps) => {
     const content_style = {
         background: 'var(--color-white)',
         boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
@@ -135,7 +137,7 @@ const DocumentAccordion = (locale) => {
     const selected_language = locale.locale.language || 'en'
     const supported_languages = ['es', 'it', 'pl', 'pt']
 
-    const is_supported_language = (language) => supported_languages.includes(language)
+    const is_supported_language = (language: string) => supported_languages.includes(language)
 
     const { is_eu_country } = React.useContext(DerivStore)
 

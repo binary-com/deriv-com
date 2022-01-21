@@ -9,6 +9,7 @@ import { commodities_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
+import { EU } from 'components/containers/visibility'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
@@ -31,10 +32,12 @@ const Commodities = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={commodities_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('commodities')}
-                        options_list={commodities_options}
-                    />
+                    !EU && (
+                        <DigitalOptions
+                            market_name={localize('commodities')}
+                            options_list={commodities_options}
+                        />
+                    )
                 }
                 name="Commodity"
                 display_title={<Localize translate_text="Commodity trades available on Deriv" />}

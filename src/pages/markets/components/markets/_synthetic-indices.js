@@ -14,6 +14,7 @@ import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 import { DerivStore } from 'store'
+import { EU } from 'components/containers/visibility'
 
 const StockIndices = ({ simple_step_content }) => {
     const { is_eu_country } = React.useContext(DerivStore)
@@ -36,10 +37,12 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('synthetic indices')}
-                        options_list={synthetic_options}
-                    />
+                    !EU && (
+                        <DigitalOptions
+                            market_name={localize('synthetic indices')}
+                            options_list={synthetic_options}
+                        />
+                    )
                 }
                 Multipliers={
                     <Multipliers

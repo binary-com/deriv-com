@@ -164,6 +164,10 @@ export const europe = [
         text: <Localize translate_text="Germany 30" />,
     },
     {
+        src: icons.STOCKSGERMANY40,
+        text: <Localize translate_text="Germany 40" />,
+    },
+    {
         src: icons.STOCKSSWISS20,
         text: <Localize translate_text="Swiss 20" />,
     },
@@ -584,10 +588,6 @@ export const stocks_european_indices = [
     {
         src: icons.STOCKSFRANCE40,
         text: <Localize translate_text="France 40" />,
-    },
-    {
-        src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSUK100,
@@ -1146,6 +1146,17 @@ export const energy = [
     {
         src: icons.OILUSD,
         text: <Localize translate_text="Oil/USD" />,
+    },
+]
+
+export const energy_eu = [
+    {
+        src: icons.OILUSD,
+        text: <Localize translate_text="Brent crude oil" />,
+    },
+    {
+        src: icons.OILUSD,
+        text: <Localize translate_text="West Texas Intermediate" />,
     },
 ]
 

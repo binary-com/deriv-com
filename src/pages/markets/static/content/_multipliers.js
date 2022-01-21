@@ -41,6 +41,20 @@ export const forex_multiplier = {
     ],
 }
 
+export const forex_multiplier_eu = {
+    markets_list: {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 2,
+    },
+    content: [
+        {
+            title: <Localize translate_text="Major pairs" />,
+            component: <MajorPairs />,
+        },
+    ],
+}
+
 export const synthetic_multiplier = {
     has_global_accordion: true,
     content: [

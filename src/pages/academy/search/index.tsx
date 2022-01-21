@@ -290,6 +290,22 @@ const SearchPage = () => {
                 : total_article
         } of ${total_article} results`
 
+    // function show selected topic
+    const cirrentTopic = (current_category: string) => {
+        let category_name = unslugify(current_category)
+        const special_titles: {
+            cfds: string
+            'stocks-stock-indices': string
+        } = {
+            cfds: 'CFDs',
+            'stocks-stock-indices': 'Stocks & stock indices',
+        }
+        if (Object.keys(special_titles).includes(current_category)) {
+            category_name = special_titles[current_category]
+        }
+        return category_name
+    }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -320,7 +336,7 @@ const SearchPage = () => {
                                     Selection for
                                 </Header>
                                 <Header type="heading-2" as="span" color="black-3" weight="normal">
-                                    {unslugify(category_type)}
+                                    {cirrentTopic(category_type)}
                                 </Header>
                             </>
                         )}

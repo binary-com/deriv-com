@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
 import Slider from './_desktop-slider'
+import { platform_details } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
@@ -11,12 +12,12 @@ const StyledDesktopCarousel = styled(Flex)`
     }
 `
 const DesktopPlatformCarousel = () => {
-    const [selected_slide, setSelectedSlide] = useState('Deriv X')
+    const [slide_index, setSlideIndex] = useState(0)
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">
-            <Slider selected_slide={selected_slide} onSelectSlide={setSelectedSlide} />
-            <Details slide={selected_slide} />
+            <Slider slide_index={slide_index} onSelectSlide={setSlideIndex} />
+            <Details slide={slide_index} />
         </StyledDesktopCarousel>
     )
 }

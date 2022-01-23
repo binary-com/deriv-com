@@ -10,7 +10,7 @@ const DownloadLink = styled(StyledLink)`
 `
 
 type DetailsProps = {
-    slide: string
+    slide: number
 }
 
 const image_query = graphql`
@@ -44,7 +44,7 @@ const image_query = graphql`
 
 const Details = ({ slide }: DetailsProps) => {
     const images = useStaticQuery(image_query)
-    const selected_platform = platform_details.find((p) => p.title === slide)
+    const selected_platform = platform_details[slide]
 
     return (
         <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>

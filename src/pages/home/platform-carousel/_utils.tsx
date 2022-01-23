@@ -1,7 +1,6 @@
 import React from 'react'
 import type { CSSProperties } from 'react'
 import styled from 'styled-components'
-import type { EmblaCarouselType } from 'embla-carousel-react'
 import {
     deriv_api_url,
     deriv_app_url,
@@ -35,74 +34,6 @@ import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
 
-const CIRCLE_DEGREES = 360
-const WHEEL_ITEM_SIZE = 140
-const WHEEL_ITEM_COUNT = 18
-const WHEEL_ITEMS_IN_VIEW = 4
-
-export const WHEEL_ITEM_RADIUS = CIRCLE_DEGREES / WHEEL_ITEM_COUNT
-export const IN_VIEW_DEGREES = WHEEL_ITEM_RADIUS * WHEEL_ITEMS_IN_VIEW
-export const WHEEL_RADIUS = Math.round(WHEEL_ITEM_SIZE / 2 / Math.tan(Math.PI / WHEEL_ITEM_COUNT))
-
-const isInView = (wheel_location, slide_position): boolean =>
-    Math.abs(wheel_location - slide_position) < IN_VIEW_DEGREES
-
-export const getStyle = (
-    embla: EmblaCarouselType,
-    index,
-    loop,
-    slide_count,
-    total_radius,
-    wheel_rotation,
-) => {
-    const wheel_location = embla.scrollProgress() * total_radius
-    const default_position = embla.scrollSnapList()[index] * total_radius
-    const loop_start_position = default_position + total_radius
-    const loop_end_position = default_position - total_radius
-
-    let in_view = false
-    let angle = index * -WHEEL_ITEM_RADIUS
-
-    if (isInView(wheel_location, default_position)) {
-        in_view = true
-    }
-
-    if (loop && isInView(wheel_location, loop_end_position)) {
-        in_view = true
-        angle = -CIRCLE_DEGREES + (slide_count - index) * WHEEL_ITEM_RADIUS
-    }
-
-    if (loop && isInView(wheel_location, loop_start_position)) {
-        in_view = true
-        angle = -(total_radius % CIRCLE_DEGREES) - index * WHEEL_ITEM_RADIUS
-    }
-
-    if (in_view) {
-        return {
-            opacity: 1,
-            transform: `rotateX(${angle + wheel_rotation}deg) translateZ(${WHEEL_RADIUS}px)`,
-        }
-    }
-    return { opacity: 0, transform: 'none' }
-}
-
-export const getSlideStyles = (
-    embla: EmblaCarouselType,
-    loop,
-    slide_count,
-    total_radius,
-    wheel_rotation,
-) => {
-    const styles = []
-    for (let index = 0; index < slide_count; index++) {
-        const style = embla
-            ? getStyle(embla, index, loop, slide_count, total_radius, wheel_rotation)
-            : {}
-        styles.push(style)
-    }
-    return styles
-}
-
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
     else if (type === 'app_store') return AppStore
@@ -111,8 +42,19 @@ export const getOSIcon = (type: string) => {
     else if (type === 'apk') return APK
 }
 
-export const platform_details = [
+export type TPlatformDetails = {
+    id: number
+    title: string
+    icon: string
+    image_key: string
+    description: string
+    learn_more_link: string
+    download_links: Array<{ type: string; url: string }>
+}
+
+export const platform_details: TPlatformDetails[] = [
     {
+        id: 0,
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',
@@ -126,6 +68,7 @@ export const platform_details = [
         ],
     },
     {
+        id: 1,
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader',
@@ -134,6 +77,7 @@ export const platform_details = [
         download_links: [{ type: 'browser', url: deriv_app_url }],
     },
     {
+        id: 2,
         title: 'Deriv X',
         icon: DerivXIcon,
         image_key: 'platforms_derivx',
@@ -146,6 +90,7 @@ export const platform_details = [
         ],
     },
     {
+        id: 3,
         title: 'DBot',
         icon: DBotIcon,
         image_key: 'platforms_dbot',
@@ -158,6 +103,7 @@ export const platform_details = [
         ],
     },
     {
+        id: 4,
         title: 'Deriv GO',
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
@@ -169,6 +115,7 @@ export const platform_details = [
         ],
     },
     {
+        id: 5,
         title: 'SmartTrader',
         icon: SmartTraderIcon,
         image_key: 'platforms_smarttrader',
@@ -177,6 +124,7 @@ export const platform_details = [
         download_links: [{ type: 'browser', url: smarttrader_url }],
     },
     {
+        id: 6,
         title: 'Binary Bot',
         icon: BinaryBotIcon,
         image_key: 'platforms_binary_bot',
@@ -185,6 +133,7 @@ export const platform_details = [
         download_links: [{ type: 'browser', url: 'https://bot.deriv.com/' }],
     },
     {
+        id: 7,
         title: 'API',
         icon: APIIcon,
         image_key: 'platforms_api',
@@ -198,6 +147,12 @@ export const ImageTag = styled.img`
     width: 40px;
     height: 40px;
     margin-right: 16px;
+`
+
+const LearnMoreLink = styled(StyledLink)`
+    span {
+        font-size: 16px;
+    }
 `
 
 export type PlatformDetailsProps = {
@@ -217,28 +172,26 @@ export const PlatformContent = ({
 }: PlatformDetailsProps) => {
     return (
         <>
-            <Header type="subtitle-1" tablet={{ mb: '8px' }}>
+            <Header type={is_from_slider ? 'subtitle-1' : 'subtitle-2'} tablet={{ mb: '8px' }}>
                 {title}
             </Header>
             <Header
                 as="p"
-                type={is_from_slider ? 'subtitle-2' : 'paragraph-1'}
+                type="paragraph-1"
                 weight="normal"
-                mb="16px"
+                mb={is_from_slider ? 'unset' : '16px'}
                 laptopL={{ max_width: is_from_slider ? '288px' : '' }}
             >
                 {description}
             </Header>
             <Flex jc="flex-start" tabletL={{ jc: 'center' }}>
-                <StyledLink
+                <LearnMoreLink
                     to={learn_more_link}
                     is_external={learn_more_link.includes('https')}
-                    type={is_from_slider ? 'subtitle-2' : 'paragraph-1'}
-                    weight="normal"
-                    mb={is_from_slider ? '16px' : '9px'}
+                    mb="9px"
                 >
                     <span>{`${localize('Learn more')} >`}</span>
-                </StyledLink>
+                </LearnMoreLink>
             </Flex>
         </>
     )

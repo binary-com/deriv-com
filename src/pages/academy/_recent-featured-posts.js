@@ -59,7 +59,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 mobile_tab_button_underline_length="100%"
                 has_no_query
             >
-                <Tabs.Panel label={localize('Recent posts')}>
+                <Tabs.Panel label={localize('Recent articles')}>
                     <ArticleContentWrapper>
                         <LeftContent>
                             <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}/`}>
@@ -140,7 +140,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                     </ArticleContentWrapper>
                 </Tabs.Panel>
                 {featured_data && (
-                    <Tabs.Panel label={localize('Featured posts')}>
+                    <Tabs.Panel label={localize('Featured articles')}>
                         <ArticleContentWrapper>
                             <LeftContent>
                                 <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}/`}>
@@ -228,7 +228,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 )}
             </StyledTabs>
             <AllArticleButton tertiary="true" to="/academy/blog/">
-                See all blog articles
+                {localize('See all articles')}
             </AllArticleButton>
         </StyledContainer>
     )

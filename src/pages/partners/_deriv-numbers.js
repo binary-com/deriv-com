@@ -31,7 +31,9 @@ const CardHeader = styled(Header)`
 const DerivNumbers = () => {
     return (
         <Container direction="column">
-            <Header as="h2" type="page-title" align="center" mb="2rem"></Header>
+            <Header as="h2" type="page-title" align="center" mb="2rem">
+                {localize('Deriv in numbers')}
+            </Header>
             <Wrapper mb="8rem">
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">

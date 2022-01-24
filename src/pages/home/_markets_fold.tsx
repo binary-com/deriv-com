@@ -62,6 +62,7 @@ const StyledDescription = styled(Text)<{ $hovered: boolean }>`
 
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
+    z-index: 40;
 `
 
 const market_data = [

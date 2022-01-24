@@ -698,40 +698,8 @@ export const cryptocurrencies_trade_type = [
         text: <Localize translate_text="Bitcoin" />,
     },
     {
-        src: icons.BCH,
-        text: <Localize translate_text="Bitcoin Cash" />,
-    },
-    {
         src: icons.ETH,
         text: <Localize translate_text="Ethereum" />,
-    },
-    {
-        src: icons.LTC,
-        text: <Localize translate_text="Litecoin" />,
-    },
-    {
-        src: icons.EOS,
-        text: <Localize translate_text="EOS" />,
-    },
-    {
-        src: icons.BNB,
-        text: <Localize translate_text="Binance Coin" />,
-    },
-    {
-        src: icons.DASH,
-        text: <Localize translate_text="DASH" />,
-    },
-    {
-        src: icons.XRP,
-        text: <Localize translate_text="Ripple" />,
-    },
-    {
-        src: icons.MNR,
-        text: <Localize translate_text="Monero" />,
-    },
-    {
-        src: icons.ZEC,
-        text: <Localize translate_text="ZCash" />,
     },
 ]
 

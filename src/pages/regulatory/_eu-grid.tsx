@@ -1,9 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { ReactComponent as ViewLicense } from 'images/svg/regulatory/view-license.svg'
+
+type GridItemProps = {
+    name: string
+    order: string
+    url: string
+}
 
 const Country = styled.div`
     margin-bottom: 2.4rem;
@@ -61,7 +66,8 @@ const AttachmentIcon = styled(ViewLicense)`
         }
     }
 `
-const GridItem = ({ name, order, url }) => (
+
+const GridItem = ({ name, order, url }: GridItemProps) => (
     <Country>
         <Order>{order}</Order>
         <License>
@@ -72,11 +78,7 @@ const GridItem = ({ name, order, url }) => (
         </License>
     </Country>
 )
-GridItem.propTypes = {
-    name: PropTypes.string,
-    order: PropTypes.string,
-    url: PropTypes.string,
-}
+
 const EUgrid = () => {
     return (
         <CssGrid columns="repeat(2, 1fr)" columngap="1rem">

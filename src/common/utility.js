@@ -345,8 +345,16 @@ export const slugify = (text) =>
         .toLowerCase()
         .trim() // Remove whitespace from both sides of a string
         .replace(/\s+/g, '-') // Replace spaces with -
-        .replace(/[^\w-]+/g, '') // Remove all non-word chars
         .replace(/--+/g, '-') // Replace multiple - with single -
+
+export const unslugify = (slug) => {
+    if (slug) {
+        const result = slug.replace(/-/g, ' ')
+        return result.replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        })
+    }
+}
 
 export const getBaseRef = (ref) => {
     // this is intended to solve a problem of preact that

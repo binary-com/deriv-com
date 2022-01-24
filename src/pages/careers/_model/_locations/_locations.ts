@@ -368,15 +368,15 @@ export const guernsey = {
     has_iframe: false,
 }
 export const all_offices: locationsTypes[] = [
-    london,
     dubai,
-    paris,
     malta,
     cyprus,
-    guernsey,
     cyberjaya,
     labuan,
     ipoh,
+    london,
+    paris,
+    guernsey,
     melaka,
     asuncion,
     rwanda,

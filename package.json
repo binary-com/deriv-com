@@ -11,6 +11,7 @@
         "@svgr/webpack": "^6.1.2",
         "commander": "^8.3.0",
         "crc-32": "^1.2.0",
+        "embla-carousel-autoplay": "^6.1.1",
         "embla-carousel-react": "^6.0.2",
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",

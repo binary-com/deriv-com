@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -35,11 +36,7 @@ const Carousel = styled.div`
     margin-right: auto;
 `
 
-type CarouselViewportType = {
-    isDragging: boolean
-}
-
-const CarouselViewport = styled.div<CarouselViewportType>`
+const CarouselViewport = styled.div`
     overflow: hidden;
     width: 100%;
 
@@ -142,7 +139,17 @@ const StyledQueryImage = styled(QueryImage)`
     }
 `
 
+//TODO: Refactor this to use Carousel component
+
 const EmblaCarousel = () => {
+    const options = {
+        containScroll: 'keepSnaps',
+        loop: false,
+    }
+    const autoplay = useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: false }, (emblaRoot) => emblaRoot.parentElement),
+    )
+
     const carousel_data = useStaticQuery(queryCarouselData)
     const carousel_images: ImageDataLike[] = [
         carousel_data.media1,
@@ -153,11 +160,7 @@ const EmblaCarousel = () => {
         carousel_data.media6,
     ]
 
-    const [viewportRef, embla] = useEmblaCarousel({
-        containScroll: 'keepSnaps',
-        dragFree: true,
-        draggable: true,
-    })
+    const [viewportRef, embla] = useEmblaCarousel(options, [autoplay.current])
 
     const [, setPrevBtnEnabled] = useState(false)
     const [, setNextBtnEnabled] = useState(false)
@@ -176,7 +179,7 @@ const EmblaCarousel = () => {
 
     return (
         <Carousel>
-            <CarouselViewport isDragging ref={viewportRef}>
+            <CarouselViewport ref={viewportRef}>
                 <CarouselContainer>
                     {carousel_images.map((carouselItem, index) => (
                         <CarouselSlide key={index}>

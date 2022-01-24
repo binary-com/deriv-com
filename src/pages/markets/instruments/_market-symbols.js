@@ -698,44 +698,16 @@ export const cryptocurrencies_trade_type = [
         text: <Localize translate_text="Bitcoin" />,
     },
     {
-        src: icons.BCH,
-        text: <Localize translate_text="Bitcoin Cash" />,
-    },
-    {
         src: icons.ETH,
         text: <Localize translate_text="Ethereum" />,
-    },
-    {
-        src: icons.LTC,
-        text: <Localize translate_text="Litecoin" />,
-    },
-    {
-        src: icons.EOS,
-        text: <Localize translate_text="EOS" />,
-    },
-    {
-        src: icons.BNB,
-        text: <Localize translate_text="Binance Coin" />,
-    },
-    {
-        src: icons.DASH,
-        text: <Localize translate_text="DASH" />,
-    },
-    {
-        src: icons.XRP,
-        text: <Localize translate_text="Ripple" />,
-    },
-    {
-        src: icons.MNR,
-        text: <Localize translate_text="Monero" />,
-    },
-    {
-        src: icons.ZEC,
-        text: <Localize translate_text="ZCash" />,
     },
 ]
 
 export const cryptocurrencies_cfds = [
+    {
+        src: icons.AVALANCHE,
+        text: <Localize translate_text="Avalanche" />,
+    },
     {
         src: icons.ALGORAND,
         text: <Localize translate_text="Algorand" />,
@@ -779,6 +751,10 @@ export const cryptocurrencies_cfds = [
     {
         src: icons.ETH,
         text: <Localize translate_text="Ethereum" />,
+    },
+    {
+        src: icons.ETH_CLASSIC,
+        text: <Localize translate_text="Ethereum Classic" />,
     },
     {
         src: icons.FILECOIN,
@@ -827,6 +803,10 @@ export const cryptocurrencies_cfds = [
     {
         src: icons.XLM,
         text: <Localize translate_text="Stellar Lumens" />,
+    },
+    {
+        src: icons.TERRA,
+        text: <Localize translate_text="Terra" />,
     },
     {
         src: icons.TRX,

@@ -74,6 +74,7 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/academy/blog/posts/preview',
                 ],
                 query: `
                 {
@@ -198,14 +199,6 @@ module.exports = {
             },
         },
         'gatsby-plugin-anchor-links',
-        {
-            resolve: `gatsby-plugin-nprogress`,
-            options: {
-                color: `#85ACB0`,
-                showSpinner: false,
-                minimum: 0.4,
-            },
-        },
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {

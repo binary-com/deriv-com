@@ -51,8 +51,8 @@ const query = graphql`
 
 const StocksEbook = (props) => {
     const { language } = props
-
-    console.log(language)
+    const isLanguages = ['es', 'pt', 'fr']
+    const languageSwitch = isLanguages.includes(language) ? `_${language}` : ''
 
     const data = useStaticQuery(query)
     return (
@@ -75,9 +75,7 @@ const StocksEbook = (props) => {
                 ebook_utm_code="cryptocurrencies-ebook"
                 introSub=""
                 introMain={localize('Learn how to trade cryptocurrencies with Deriv')}
-                mainHeaderImage={
-                    language === 'en' ? data[`crypto_hero`] : data[`crypto_hero_${language}`]
-                }
+                mainHeaderImage={data[`crypto_hero${languageSwitch}`]}
             />
             <ImageText
                 imageWidth={282}
@@ -91,9 +89,7 @@ const StocksEbook = (props) => {
             />
             <Topics
                 title={localize('In this e-book we will cover')}
-                topicsImage={
-                    language === 'en' ? data[`crypto_inside`] : data[`crypto_inside_${language}`]
-                }
+                topicsImage={data[`crypto_inside${languageSwitch}`]}
                 topicsList={topicsCovered}
             />
             <WhatOurClientsSay />

@@ -48,7 +48,7 @@ export const platforms: TopicType[] = [
                 title: 'DBot',
             },
             {
-                title: 'Deriv Go',
+                title: 'Deriv GO',
             },
         ],
     },

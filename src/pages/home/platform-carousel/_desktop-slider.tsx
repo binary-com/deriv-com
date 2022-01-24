@@ -108,8 +108,14 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
     }
 
     return (
-        <Box width="40%" height="640px" background="rgba(249, 251, 255, 1)" p="0 20px" m="0 auto">
-            <Flex position="relative" max_width="384px" m="0 auto" jc="unset">
+        <Box
+            width="fit-content"
+            height="640px"
+            background="rgba(249, 251, 255, 1)"
+            p="0 20px"
+            m="0 auto"
+        >
+            <Flex position="relative" width="384px" m="0 auto" jc="unset">
                 <Shadow location="start" />
                 <Shadow location="end" />
                 <SelectedSlide

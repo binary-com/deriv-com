@@ -13,7 +13,7 @@ const FoldWrapper = styled(SectionContainer)`
     padding: 120px 20px;
 
     @media ${device.tablet} {
-        padding: 40px 16px 12px;
+        padding: 40px 0 12px;
     }
 `
 
@@ -210,7 +210,7 @@ const MarketsFold = () => {
             loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
-            align: is_mobile ? 'start' : 'center',
+            align: is_mobile ? 0.04 : 'center',
         },
         container_style: {
             maxWidth: '100%',

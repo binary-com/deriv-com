@@ -7,11 +7,6 @@ import { DerivStore, DerivStoreType } from 'store'
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
-type StoreDataType = {
-    is_livechat_interactive: boolean
-    LC_API: any
-    setFirstLoadOpenLc: any
-}
 const General = () => (
     <>
         <Header as="h5" type="main-paragraph">

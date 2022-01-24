@@ -861,7 +861,6 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                     {filter.type.toUpperCase()}
                                                 </Header>
                                                 {filter.items.map((item, idx) => {
-                                                    console.log(item.title)
                                                     return (
                                                         <StyledLink
                                                             key={idx}

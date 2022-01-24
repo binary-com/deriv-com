@@ -290,6 +290,24 @@ const SearchPage = () => {
                 : total_article
         } of ${total_article} results`
 
+    // This is a temporary solution without adding slug to the combined_filter_type
+    // array from the constant file. This can be refactored in the future but
+    // requires a change in the logic for both SearchBanner and search page.
+    const getCategoryText = () => {
+        switch (category_type) {
+            case 'cfds':
+                return 'CFDs'
+            case 'dbot':
+                return 'DBot'
+            case 'dtrader':
+                return 'DTrader'
+            case 'deriv-mt5':
+                return 'Deriv MT5'
+            default:
+                return unslugify(category_type)
+        }
+    }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -320,7 +338,7 @@ const SearchPage = () => {
                                     Selection for
                                 </Header>
                                 <Header type="heading-2" as="span" color="black-3" weight="normal">
-                                    {unslugify(category_type)}
+                                    {getCategoryText()}
                                 </Header>
                             </>
                         )}

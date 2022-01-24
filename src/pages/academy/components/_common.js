@@ -9,6 +9,7 @@ export const TextWrapper = styled(Text)`
         return populateStyle(props, default_props_object, 0)
     }}
     width: fit-content;
+    text-align: center;
 
     @media ${device.tabletL} {
         max-width: ${({ max_width }) => responsiveFallback(max_width, max_width?.length !== 2)};

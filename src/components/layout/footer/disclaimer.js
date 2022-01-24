@@ -6,10 +6,10 @@ import {
     StaticAsset,
     RiskWarning,
     BoldLink,
-} from './common/style.js'
+} from './common/style'
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import { loss_percent } from 'common/constants.js'
+import { loss_percent } from 'common/constants'
 
 const DisclaimerSection = ({ is_academy }) => {
     return (

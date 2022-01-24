@@ -1,0 +1,68 @@
+name: Release Translation
+
+on:
+    push:
+        tags:
+            - 'translation*'
+        paths-ignore:
+            - '**.md'
+
+env:
+    GATSBY_CPU_COUNT: 2
+    GATSBY_ENV: production
+    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
+    GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
+
+jobs:
+    release-translation:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+              with:
+                  ref: crowdin
+
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '14.x'
+
+            - name: Extract, Upload and Download from Crowdin Platform
+              run: branch_name="deriv_com_translations"
+
+                  echo "Setting up Git identity"
+                  git config --global user.name "DerivFE"
+                  git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+
+                  echo "Installing Crowdin CLI"
+                  sudo npm i -g @crowdin/cli
+
+                  echo "Checking out new branch [$branch_name]"
+                  git checkout -b "$branch_name"
+
+                  echo "Running the translation script (extract-translations.js)"
+                  cd $(git rev-parse --show-toplevel)/scripts
+                  node extract-translations.js
+                  cd $(git rev-parse --show-toplevel)
+
+                  # Uncomment these after testing completed
+                  # echo "Uploading new strings to Crowdin"
+                  # crowdin upload sources -b crowdin
+
+                  echo "Downloading new strings to Crowdin"
+                  crowdin download -b crowdin
+                  crowdin download -b crowdin -l zh-CN
+
+                  # Commit the newly downloaded files
+                  cd $(git rev-parse --show-toplevel)
+                  git add .
+                  git commit -m "translations - 📚 extract, upload and download from crowdin"
+
+                  # Force push to this branch in case a previous run created it.
+                  git push --set-upstream origin "$branch_name" -f
+
+                  # Creating PR 
+                  sudo apt install gh
+                  gh auth login --with-token <<< ${{ github.token }}
+                  gh pr close "$branch_name" || true
+                  gh pr create --fill --base "crowdin" --head "binary-com:$branch_name"

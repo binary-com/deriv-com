@@ -1,17 +1,14 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { getOSIcon, platform_details } from './_utils'
+import { getOSIcon } from './_utils'
+import type { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
 
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
-
-type DetailsProps = {
-    slide: number
-}
 
 const image_query = graphql`
     query {
@@ -42,14 +39,29 @@ const image_query = graphql`
     }
 `
 
-const Details = ({ slide }: DetailsProps) => {
+const StyledQueryImage = styled(QueryImage)`
+    .gatsby-image-wrapper [data-main-image] {
+        object-fit: contain !important;
+    }
+`
+
+type DetailsProps = {
+    slide: number
+    platform_details: TPlatformDetails[]
+}
+
+const Details = ({ slide, platform_details }: DetailsProps) => {
     const images = useStaticQuery(image_query)
     const selected_platform = platform_details[slide]
 
     return (
         <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
-            <Flex>
-                <QueryImage height="100%" data={images[selected_platform.image_key]} alt="test" />
+            <Flex max_height="550px" mb="24px">
+                <StyledQueryImage
+                    height="100%"
+                    data={images[selected_platform.image_key]}
+                    alt="test"
+                />
             </Flex>
             <Flex>
                 {selected_platform.download_links.map((link, index) => {

@@ -143,6 +143,26 @@ export const platform_details: TPlatformDetails[] = [
     },
 ]
 
+export const getPlatformDetails = (no_of_copies) => {
+    const new_details = []
+    let current_index = 0
+
+    for (let index = 0; index < no_of_copies; index++) {
+        platform_details.forEach((p) => {
+            current_index++
+            new_details.push({ ...p, id: current_index })
+        })
+    }
+
+    return new_details
+}
+
+export const no_slide_sets = 11
+
+export const getSlideStartingIndex = () => {
+    return Math.round((no_slide_sets * 8) / 2 - 1)
+}
+
 export const ImageTag = styled.img`
     width: 40px;
     height: 40px;

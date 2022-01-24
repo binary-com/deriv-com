@@ -2,7 +2,7 @@ import React from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
-import { platform_details, PlatformContent, ImageTag } from './_utils'
+import { PlatformContent, ImageTag, getSlideStartingIndex } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -84,28 +84,18 @@ const Slide = styled(Flex)<{ distance_center: number }>`
     align-items: center;
     cursor: pointer;
     backface-visibility: hidden;
-    ${({ distance_center }) => {
-        if (Math.abs(distance_center) === 1) {
-            if (distance_center < 0) {
-                return css`
-                    margin-bottom: 30px;
-                `
-            } else {
-                return css`
-                    margin-top: 30px;
-                `
-            }
-        }
-    }}
+    margin-bottom: 30px;
 `
 
 type PlatformSliderProps = {
     slide_index: number
     onSelectSlide: Dispatch<SetStateAction<number>>
+    platform_details: TPlatformDetails[]
 }
 
-const PlatformSlider = ({ slide_index, onSelectSlide }: PlatformSliderProps) => {
+const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
     const [viewportRef, embla] = useEmblaCarousel({
+        startIndex: getSlideStartingIndex(),
         loop: true,
         axis: 'y',
         skipSnaps: false,

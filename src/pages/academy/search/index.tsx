@@ -303,6 +303,8 @@ const SearchPage = () => {
                 return 'DTrader'
             case 'deriv-mt5':
                 return 'Deriv MT5'
+            case 'deriv-go':
+                return 'Deriv GO'
             default:
                 return unslugify(category_type)
         }

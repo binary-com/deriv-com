@@ -66,7 +66,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                 <MainArticle image={getAssetUrl(headline_recent?.main_image?.id)}>
                                     <Description>
                                         <TagParentWrapper>
-                                            {headline_recent.tags.map((article) => {
+                                            {headline_recent.tags.slice(0, 3).map((article) => {
                                                 return (
                                                     <TagWrapper key={article?.id}>
                                                         <StyledCategories>
@@ -149,15 +149,17 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                     >
                                         <Description>
                                             <TagParentWrapper>
-                                                {headline_featured.tags.map((article) => {
-                                                    return (
-                                                        <TagWrapper key={article.id}>
-                                                            <StyledCategories>
-                                                                {article.tags_id?.tag_name}
-                                                            </StyledCategories>
-                                                        </TagWrapper>
-                                                    )
-                                                })}
+                                                {headline_featured.tags
+                                                    .slice(0, 3)
+                                                    .map((article) => {
+                                                        return (
+                                                            <TagWrapper key={article.id}>
+                                                                <StyledCategories>
+                                                                    {article.tags_id?.tag_name}
+                                                                </StyledCategories>
+                                                            </TagWrapper>
+                                                        )
+                                                    })}
                                             </TagParentWrapper>
                                             <Header as="h3" type="heading-3" color="white" mb="5px">
                                                 {headline_featured.blog_title}

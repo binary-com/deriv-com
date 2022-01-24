@@ -82,6 +82,7 @@ export const Carousel = ({
     vertical_container,
     view_port,
     last_slide_no_spacing = false,
+    navigation_css,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
@@ -184,7 +185,11 @@ export const Carousel = ({
                     />
                 )}
                 {nav_color && (
-                    <NavigationContainer bottom_offset={bottom_offset} height={height}>
+                    <NavigationContainer
+                        navigation_css={navigation_css}
+                        bottom_offset={bottom_offset}
+                        height={height}
+                    >
                         {/* We need the `child` below as an argument for embla-carousel to
                         correctly render the navigation buttons */}
                         {children.map((child, idx) => (

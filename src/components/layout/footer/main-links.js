@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { deriv_status_page_url } from 'common/constants'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
     return (
@@ -68,7 +68,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
-                                to={binary_bot_url}
+                                to="https://bot.deriv.com"
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -10,6 +10,7 @@ import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { CookieStorage } from 'common/storage'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
@@ -101,7 +102,7 @@ export const CFDWarning = ({ is_ppc }) => {
             </CFDWrapper>
         )
     }
-    return <></>
+    return <Fragment />
 }
 
 const Main = styled.main`
@@ -156,6 +157,81 @@ const Layout = ({
         }
     }, [is_eu_country])
 
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country || ''
+
+    const client_information_cookie = new CookieStorage('client_information')
+    const residence = client_information_cookie.get('residence')
+
+    const handleDerivRedirect = (country) => {
+        switch (country) {
+            case 'gb':
+                window.location.host = 'uk.deriv.com'
+                break
+            case 'nl':
+                window.location.host = 'eu.deriv.com'
+                break
+            default:
+                break
+        }
+    }
+
+    const handleUKRedirect = (country) => {
+        if (country === 'nl') {
+            window.location.host = 'eu.deriv.com'
+        } else if (country !== 'gb') {
+            window.location.host = 'uk.deriv.com'
+        }
+    }
+
+    const handleEURedirect = (country) => {
+        if (country === 'gb') {
+            window.location.host = 'uk.deriv.com'
+        } else if (country !== 'nl') {
+            window.location.host = 'eu.deriv.com'
+        }
+    }
+
+    const handleDeriv = () => {
+        if (residence) {
+            handleDerivRedirect(residence)
+        } else {
+            handleDerivRedirect(current_client_country)
+        }
+    }
+
+    const handleUKDeriv = () => {
+        if (residence) {
+            handleUKRedirect(residence)
+        } else {
+            handleUKRedirect(current_client_country)
+        }
+    }
+
+    const handleEUDeriv = () => {
+        if (residence) {
+            handleEURedirect(residence)
+        } else {
+            handleEURedirect(current_client_country)
+        }
+    }
+
+    React.useEffect(() => {
+        switch (window.location.host) {
+            case 'deriv.com':
+                handleDeriv()
+                break
+            case 'uk.deriv.com':
+                handleUKDeriv()
+                break
+            case 'eu.deriv.com':
+                handleEUDeriv()
+                break
+            default:
+                break
+        }
+    }, [])
+
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
@@ -170,8 +246,8 @@ const Layout = ({
     }
 
     // Handle navigation types
-    let Navigation = <></>
-    let FooterNav = <></>
+    let Navigation = <Fragment />
+    let FooterNav = <Fragment />
     switch (type) {
         case 'academy':
             Navigation = <Nav academy_logo={true} no_language={true} />

@@ -10,7 +10,7 @@ export type TopicType = {
 // academy topic
 export const market_type: TopicType[] = [
     {
-        type: 'Market',
+        type: 'Markets',
         items: [
             {
                 title: 'Forex',
@@ -33,7 +33,7 @@ export const market_type: TopicType[] = [
 
 export const platforms: TopicType[] = [
     {
-        type: 'Platform',
+        type: 'Platforms',
         items: [
             {
                 title: 'Deriv MT5',

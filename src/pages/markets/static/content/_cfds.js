@@ -51,42 +51,6 @@ export const commodities_cfds = {
     ],
 }
 
-export const forex_cfds_uk = {
-    markets_list: {
-        col: 4,
-        tablet_col: 3,
-        mobile_col: 2,
-    },
-    content: [
-        {
-            title: <Localize translate_text="Major pairs" />,
-            component: <MajorPairs />,
-        },
-        {
-            title: <Localize translate_text="Minor pairs" />,
-            component: <MinorPairsCFDS />,
-        },
-    ],
-}
-
-export const forex_cfds_eu = {
-    markets_list: {
-        col: 4,
-        tablet_col: 3,
-        mobile_col: 2,
-    },
-    content: [
-        {
-            title: <Localize translate_text="Major pairs" />,
-            component: <MajorPairs />,
-        },
-        {
-            title: <Localize translate_text="Minor pairs" />,
-            component: <MinorPairsCFDS />,
-        },
-    ],
-}
-
 export const forex_cfds = {
     markets_list: {
         col: 4,
@@ -114,6 +78,24 @@ export const forex_cfds = {
             title: <Localize translate_text="SmartFX" />,
             component: <SmartFX />,
             details: SmartFXDetails,
+        },
+    ],
+}
+
+export const forex_cfds_eu_uk = {
+    markets_list: {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 2,
+    },
+    content: [
+        {
+            title: <Localize translate_text="Major pairs" />,
+            component: <MajorPairs />,
+        },
+        {
+            title: <Localize translate_text="Minor pairs" />,
+            component: <MinorPairsCFDS />,
         },
     ],
 }

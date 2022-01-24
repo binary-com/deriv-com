@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
+import { navigate } from 'gatsby'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
@@ -17,6 +18,10 @@ import { DerivStore } from 'store'
 
 const StockIndices = ({ simple_step_content }) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+
+    if (is_uk_country) {
+        navigate('/404/', { replace: true })
+    }
 
     return (
         <div>
@@ -36,8 +41,7 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds} />}
                 DigitalOptions={
-                    !is_eu_country &&
-                    !is_uk_country && (
+                    !is_eu_country && (
                         <DigitalOptions
                             market_name={localize('synthetic indices')}
                             options_list={synthetic_options}

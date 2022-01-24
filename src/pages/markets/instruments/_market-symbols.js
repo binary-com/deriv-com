@@ -294,6 +294,10 @@ export const major_pairs = [
         text: <Localize translate_text="USD/CAD" />,
     },
     {
+        src: icons.USDCHF,
+        text: <Localize translate_text="USD/CHF" />,
+    },
+    {
         src: icons.USDJPY,
         text: <Localize translate_text="USD/JPY" />,
     },

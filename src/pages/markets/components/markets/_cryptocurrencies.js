@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
+import { navigate } from 'gatsby'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
 import { crypto_cfds } from '../../static/content/_cfds'
@@ -20,7 +21,7 @@ const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Cryptocurrencies = ({ simple_step_content }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
     const crypto_content = [
         {
             src: Leverage,
@@ -43,6 +44,10 @@ const Cryptocurrencies = ({ simple_step_content }) => {
             text: <Localize translate_text="Zero commission" />,
         },
     ]
+
+    if (is_uk_country) {
+        navigate('/404/', { replace: true })
+    }
 
     return (
         <NonUK>

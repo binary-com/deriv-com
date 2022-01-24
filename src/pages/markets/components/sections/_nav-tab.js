@@ -116,11 +116,6 @@ const tab_list_uk = [
         route_to: '/markets/forex/',
     },
     {
-        title: <Localize translate_text="Synthetic indices" />,
-        tab_name: 'synthetic',
-        route_to: '/markets/synthetic/',
-    },
-    {
         title: <Localize translate_text="Stocks & indices" />,
         tab_name: 'stock',
         route_to: '/markets/stock/',

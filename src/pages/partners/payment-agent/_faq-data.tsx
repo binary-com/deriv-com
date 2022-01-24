@@ -4,6 +4,7 @@ import { HeaderPrimary, TextPrimary, LocalizedLinkText } from '../affiliate-ib/_
 import { Header, LinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { DerivStore, DerivStoreType } from 'store'
+
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 type StoreDataType = {

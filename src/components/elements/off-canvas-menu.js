@@ -21,9 +21,9 @@ import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
 import CFD from 'images/svg/custom/margin-trading-nav.svg'
 import Multipliers from 'images/svg/custom/multipliers-nav.svg'
 import Options from 'images/svg/custom/options-nav.svg'
@@ -239,6 +239,20 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
+                        {!is_eu_country && (
+                            <Flex mb="2rem">
+                                <NavCard
+                                    aria_label="Deriv GO"
+                                    icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                    }
+                                    title={<Localize translate_text="Deriv GO" />}
+                                    onClick={handleArrowClick}
+                                    to="/landing/deriv-go/"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="SmartTrader"
@@ -269,12 +283,12 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
-                                aria_label="BinaryBot"
+                                aria_label="Binary Bot"
                                 icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
                                 content={
                                     <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
                                 }
-                                title={<Localize translate_text="BinaryBot" />}
+                                title={<Localize translate_text="Binary Bot" />}
                                 onClick={handleArrowClick}
                                 to="https://bot.deriv.com/"
                                 external="true"
@@ -362,17 +376,11 @@ export const OffCanvasMenuWrapper = (props) => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/story/" onClick={handleArrowClick}>
+                        <StyledLink to="/who-we-are/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Story} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Our story')}</span>
-                        </StyledLink>
-                        <StyledLink to="/leadership/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Leadership} alt="" width="24" height="24" />
-                            </div>
-                            <span>{localize('Our leadership')}</span>
+                            <span>{localize('Who we are')}</span>
                         </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
                             <div>

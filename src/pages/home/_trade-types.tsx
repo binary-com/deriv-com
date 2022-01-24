@@ -71,7 +71,6 @@ const ItemsDetails: TradeTypesProps[] = [
 
 const StyledSection = styled(SectionContainer)`
     max-width: 100%;
-    padding: 60px 20px;
 
     @media ${device.tablet} {
         padding: 40px 20px 80px;
@@ -237,7 +236,7 @@ const TradeTypes = (): React.ReactNode => {
         last_slide_no_spacing: true,
     }
     return (
-        <StyledSection>
+        <StyledSection padding="unset">
             <Header as="h2" type="heading-2" align="center">
                 {localize('Trade types')}
             </Header>

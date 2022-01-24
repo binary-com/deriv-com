@@ -199,10 +199,6 @@ export const exotic_pairs = [
         text: <Localize translate_text="EUR/SGD" />,
     },
     {
-        src: icons.EURTRY,
-        text: <Localize translate_text="EUR/TRY" />,
-    },
-    {
         src: icons.EURZAR,
         text: <Localize translate_text="EUR/ZAR" />,
     },
@@ -450,7 +446,7 @@ export const smart_gold_index = [
     },
 ]
 
-export const minor_pairs = [
+export const minor_pairs_cfds = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -547,6 +543,65 @@ export const minor_pairs = [
     {
         src: icons.USDZAR,
         text: <Localize translate_text="USD/ZAR" />,
+    },
+]
+
+export const minor_pairs_options = [
+    {
+        src: icons.AUDCAD,
+        text: <Localize translate_text="AUD/CAD" />,
+    },
+    {
+        src: icons.AUDCHF,
+        text: <Localize translate_text="AUD/CHF" />,
+    },
+    {
+        src: icons.AUDNZD,
+        text: <Localize translate_text="AUD/NZD" />,
+    },
+    {
+        src: icons.EURNZD,
+        text: <Localize translate_text="EUR/NZD" />,
+    },
+    {
+        src: icons.GBPCAD,
+        text: <Localize translate_text="GBP/CAD" />,
+    },
+    {
+        src: icons.GBPCHF,
+        text: <Localize translate_text="GBP/CHF" />,
+    },
+    {
+        src: icons.GBPNOK,
+        text: <Localize translate_text="GBP/NOK" />,
+    },
+    {
+        src: icons.GBPNZD,
+        text: <Localize translate_text="GBP/NZD" />,
+    },
+    {
+        src: icons.NZDJPY,
+        text: <Localize translate_text="NZD/JPY" />,
+    },
+    {
+        src: icons.NZDUSD,
+        text: <Localize translate_text="NZD/USD" />,
+    },
+    {
+        src: icons.USDMXN,
+        text: <Localize translate_text="USD/MXN" />,
+    },
+    {
+        src: icons.USDNOK,
+        text: <Localize translate_text="USD/NOK" />,
+    },
+    {
+        src: icons.USDPLN,
+        text: <Localize translate_text="USD/PLN" />,
+    },
+    {
+        src: icons.USDSEK,
+        text: <Localize translate_text="USD/SEK" />,
     },
 ]
 

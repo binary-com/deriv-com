@@ -9,7 +9,7 @@ import {
     JumpIndices,
     MajorPairs,
     Metals,
-    MinorPairs,
+    MinorPairsOptions,
     SmartFX,
 } from '../../instruments/_submarkets.js'
 import {
@@ -243,7 +243,7 @@ export const forex_options = {
             },
             {
                 title: <Localize translate_text="Minor pairs" />,
-                component: <MinorPairs />,
+                component: <MinorPairsOptions />,
             },
             {
                 title: <Localize translate_text="SmartFX" />,

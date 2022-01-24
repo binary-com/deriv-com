@@ -8,7 +8,7 @@ import {
     MajorPairs,
     Metals,
     MicroPairs,
-    MinorPairs,
+    MinorPairsCFDS,
     RangeBreak,
     SmartFX,
     StepIndices,
@@ -64,7 +64,7 @@ export const forex_cfds_uk = {
         },
         {
             title: <Localize translate_text="Minor pairs" />,
-            component: <MinorPairs />,
+            component: <MinorPairsCFDS />,
         },
     ],
 }
@@ -82,7 +82,7 @@ export const forex_cfds_eu = {
         },
         {
             title: <Localize translate_text="Minor pairs" />,
-            component: <MinorPairs />,
+            component: <MinorPairsCFDS />,
         },
         {
             title: <Localize translate_text="Micro pairs" />,
@@ -104,7 +104,7 @@ export const forex_cfds = {
         },
         {
             title: <Localize translate_text="Minor pairs" />,
-            component: <MinorPairs />,
+            component: <MinorPairsCFDS />,
         },
         {
             title: <Localize translate_text="Exotic pairs" />,

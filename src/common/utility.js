@@ -345,7 +345,6 @@ export const slugify = (text) =>
         .toLowerCase()
         .trim() // Remove whitespace from both sides of a string
         .replace(/\s+/g, '-') // Replace spaces with -
-        .replace(/[^\w-]+/g, '') // Remove all non-word chars
         .replace(/--+/g, '-') // Replace multiple - with single -
 
 export const unslugify = (slug) => {

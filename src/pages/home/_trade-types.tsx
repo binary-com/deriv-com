@@ -234,6 +234,7 @@ const TradeTypes = (): React.ReactNode => {
             paddingBottom: '48px',
             position: 'relative',
         },
+        last_slide_no_spacing: true,
     }
     return (
         <StyledSection>

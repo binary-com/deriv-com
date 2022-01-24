@@ -109,6 +109,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide }: PlatformSliderProps) => 
         loop: true,
         axis: 'y',
         skipSnaps: false,
+        draggable: false,
     })
 
     const clickHandler = (index) => {

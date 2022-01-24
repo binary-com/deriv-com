@@ -81,6 +81,7 @@ export const Carousel = ({
     slide_inner_width,
     vertical_container,
     view_port,
+    last_slide_no_spacing = false,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
@@ -149,11 +150,19 @@ export const Carousel = ({
             <Embla style={embla_style}>
                 <ViewPort style={view_port} ref={emblaRef}>
                     <EmblaContainer style={vertical_container ? vertical_container : null}>
-                        {children.map((child, idx) => (
-                            <div key={idx} style={slide_style}>
-                                <EmblaSlideInner width={slide_inner_width}>{child}</EmblaSlideInner>
-                            </div>
-                        ))}
+                        {children.map((child, idx) => {
+                            const new_style =
+                                last_slide_no_spacing && idx === children.length + 1
+                                    ? { ...slide_style, marginRight: 0, paddingRight: 0 }
+                                    : slide_style
+                            return (
+                                <div key={idx} style={new_style}>
+                                    <EmblaSlideInner width={slide_inner_width}>
+                                        {child}
+                                    </EmblaSlideInner>
+                                </div>
+                            )
+                        })}
                     </EmblaContainer>
                 </ViewPort>
                 {chevron_color && is_arrow && (
@@ -201,6 +210,7 @@ Carousel.propTypes = {
     container_style: PropTypes.object,
     embla_style: PropTypes.object,
     has_autoplay: PropTypes.bool,
+    last_slide_no_spacing: PropTypes.bool,
     navigation_css: PropTypes.array,
     navigation_style: PropTypes.object,
     options: PropTypes.object,

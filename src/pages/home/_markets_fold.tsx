@@ -166,7 +166,7 @@ const CarouselItem = ({
         <ItemWrapper
             onMouseEnter={() => handleHover(true)}
             onMouseLeave={() => handleHover(false)}
-            onClick={() => is_mobile && setHovered(!is_hovered)}
+            onClick={(e) => !is_mobile && e.preventDefault()}
         >
             <StyledLink to={url}>
                 <CarouselItemContainer
@@ -193,8 +193,7 @@ const CarouselItem = ({
                         loading="eager"
                         $hovered={is_hovered}
                         onClick={(e) => {
-                            e.preventDefault()
-                            is_mobile && setHovered(!is_hovered)
+                            !is_mobile && e.preventDefault()
                         }}
                     />
                 </CarouselItemContainer>

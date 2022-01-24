@@ -153,7 +153,7 @@ export const Carousel = ({
                     <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => {
                             const new_style =
-                                last_slide_no_spacing && idx === children.length + 1
+                                last_slide_no_spacing && idx === children.length - 1
                                     ? { ...slide_style, marginRight: 0, paddingRight: 0 }
                                     : slide_style
                             return (

@@ -218,12 +218,12 @@ const TradeTypes = (): React.ReactNode => {
             containScroll: 'trimSnaps',
         },
         view_port: {
-            height: '620px',
+            height: '580px',
         },
         container_style: {
             maxWidth: '100%',
             margin: '0 auto',
-            height: '620px',
+            height: '580px',
         },
         slide_style: {
             width: '384px',

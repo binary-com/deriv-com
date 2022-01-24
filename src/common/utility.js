@@ -348,6 +348,15 @@ export const slugify = (text) =>
         .replace(/[^\w-]+/g, '') // Remove all non-word chars
         .replace(/--+/g, '-') // Replace multiple - with single -
 
+export const unslugify = (slug) => {
+    if (slug) {
+        const result = slug.replace(/-/g, ' ')
+        return result.replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        })
+    }
+}
+
 export const getBaseRef = (ref) => {
     // this is intended to solve a problem of preact that
     // in some cases element api's are in the ref.current.base and

@@ -79,6 +79,7 @@ const ClientName = styled(Text)`
 
     @media ${device.tablet} {
         font-size: 14px;
+        margin-bottom: 8px;
     }
 `
 

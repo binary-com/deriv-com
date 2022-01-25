@@ -3,7 +3,6 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
 import NavAcademy from './academy/nav-academy'
@@ -184,7 +183,6 @@ const Layout = ({
             break
         case 'interim':
             Navigation = <NavInterim interim_type={interim_type} />
-            FooterNav = <Copyright />
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />

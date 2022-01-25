@@ -664,24 +664,16 @@ export const stocks_european_indices = [
 
 export const american_stocks = [
     {
-        src: icons.STOCKSAIRLINESGROUP,
-        text: <Localize translate_text="American Airlines Group Inc" />,
-    },
-    {
-        src: icons.STOCKSAPPLE,
-        text: <Localize translate_text="Apple" />,
-    },
-    {
         src: icons.STOCKSADIDASSALOMON,
         text: <Localize translate_text="Adidas Salomon" />,
     },
     {
-        src: icons.STOCKSAMERICANINTERNATIONAL,
-        text: <Localize translate_text="American International Group" />,
+        src: icons.STOCKSAMD,
+        text: <Localize translate_text="Advanced Micro Devices, Inc." />,
     },
     {
-        src: icons.STOCKSAMAZON,
-        text: <Localize translate_text="Amazon.com Inc" />,
+        src: icons.STOCKSAIRBNB,
+        text: <Localize translate_text="Airbnb" />,
     },
     {
         src: icons.STOCKSAIRBUS,
@@ -692,20 +684,28 @@ export const american_stocks = [
         text: <Localize translate_text="Air France KLM SA" />,
     },
     {
-        src: icons.STOCKSAMD,
-        text: <Localize translate_text="Advanced Micro Devices, Inc." />,
-    },
-    {
-        src: icons.STOCKSBAYERAG,
-        text: <Localize translate_text="Bayer AG" />,
-    },
-    {
-        src: icons.STOCKSBOEING,
-        text: <Localize translate_text="Boeing" />,
-    },
-    {
         src: icons.STOCKSALIBABAGROUP,
         text: <Localize translate_text="Alibaba Group Holding Ltd" />,
+    },
+    {
+        src: icons.STOCKSALPHABET,
+        text: <Localize translate_text="Alphabet Inc Class C" />,
+    },
+    {
+        src: icons.STOCKSAMAZON,
+        text: <Localize translate_text="Amazon.com Inc" />,
+    },
+    {
+        src: icons.STOCKSAIRLINESGROUP,
+        text: <Localize translate_text="American Airlines Group Inc" />,
+    },
+    {
+        src: icons.STOCKSAMERICANINTERNATIONAL,
+        text: <Localize translate_text="American International Group" />,
+    },
+    {
+        src: icons.STOCKSAPPLE,
+        text: <Localize translate_text="Apple" />,
     },
     {
         src: icons.STOCKSBANKOFAMERICA,
@@ -720,12 +720,12 @@ export const american_stocks = [
         text: <Localize translate_text="BMW" />,
     },
     {
-        src: icons.STOCKSCITIGROUP,
-        text: <Localize translate_text="Citigroup" />,
+        src: icons.STOCKSBOEING,
+        text: <Localize translate_text="Boeing" />,
     },
     {
-        src: icons.STOCKSSALESFORCE,
-        text: <Localize translate_text="Salesforce.com Inc" />,
+        src: icons.STOCKSBIOGEN,
+        text: <Localize translate_text="Biogen Inc" />,
     },
     {
         src: icons.STOCKSCISCO,
@@ -734,6 +734,14 @@ export const american_stocks = [
     {
         src: icons.STOCKSCONTINENTALAG,
         text: <Localize translate_text="Continental AG" />,
+    },
+    {
+        src: icons.STOCKSCITIGROUP,
+        text: <Localize translate_text="Citigroup" />,
+    },
+    {
+        src: icons.STOCKSCOCACOLA,
+        text: <Localize translate_text="Coca-Cola" />,
     },
     {
         src: icons.STOCKSDELTAAIRLINES,
@@ -746,10 +754,6 @@ export const american_stocks = [
     {
         src: icons.STOCKSDEUTSCHELUFTHANSAAG,
         text: <Localize translate_text="Deutsche Lufthansa AG" />,
-    },
-    {
-        src: icons.STOCKSWALTDISNEY,
-        text: <Localize translate_text="Walt Disney Company" />,
     },
     {
         src: icons.STOCKSEBAY,
@@ -770,10 +774,6 @@ export const american_stocks = [
     {
         src: icons.STOCKSGENERALMOTORSCOMP,
         text: <Localize translate_text="General Motors Company" />,
-    },
-    {
-        src: icons.STOCKSALPHABET,
-        text: <Localize translate_text="Alphabet Inc Class C" />,
     },
     {
         src: icons.STOCKSGOLDMANSACHS,
@@ -808,10 +808,6 @@ export const american_stocks = [
         text: <Localize translate_text="JP Morgan Chase" />,
     },
     {
-        src: icons.STOCKSCOCACOLA,
-        text: <Localize translate_text="Coca-Cola" />,
-    },
-    {
         src: icons.STOCKSMASTERCARDINC,
         text: <Localize translate_text="Mastercard Inc" />,
     },
@@ -822,6 +818,10 @@ export const american_stocks = [
     {
         src: icons.STOCKSMICROSOFT,
         text: <Localize translate_text="Microsoft Corporation" />,
+    },
+    {
+        src: icons.STOCKSMODERNA,
+        text: <Localize translate_text="Moderna Inc" />,
     },
     {
         src: icons.STOCKSNESTLESA,
@@ -868,6 +868,10 @@ export const american_stocks = [
         text: <Localize translate_text="Puma SE" />,
     },
     {
+        src: icons.STOCKSSALESFORCE,
+        text: <Localize translate_text="Salesforce.com Inc" />,
+    },
+    {
         src: icons.SONYGROUPCORP,
         text: <Localize translate_text="Sony Group Corp" />,
     },
@@ -892,26 +896,16 @@ export const american_stocks = [
         text: <Localize translate_text="Visa" />,
     },
     {
+        src: icons.STOCKSWALTDISNEY,
+        text: <Localize translate_text="Walt Disney Company" />,
+    },
+    {
         src: icons.STOCKSWALMART,
         text: <Localize translate_text="Wal-Mart Stores Inc" />,
     },
-
     {
         src: icons.STOCKSZOOM,
         text: <Localize translate_text="Zoom Video Communications Inc" />,
-    },
-    {
-        src: icons.STOCKSAIRBNB,
-        text: <Localize translate_text="Airbnb" />,
-    },
-
-    {
-        src: icons.STOCKSBIOGEN,
-        text: <Localize translate_text="Biogen Inc" />,
-    },
-    {
-        src: icons.STOCKSMODERNA,
-        text: <Localize translate_text="Moderna Inc" />,
     },
 ]
 
@@ -1094,22 +1088,6 @@ export const cryptocurrencies_trade_type = [
 
 export const cryptocurrencies_cfds = [
     {
-        src: icons.BTCETH,
-        text: <Localize translate_text="BTC/ETH" />,
-    },
-    {
-        src: icons.BTCLTC,
-        text: <Localize translate_text="BTC/LTC" />,
-    },
-    {
-        src: icons.BTCXAG,
-        text: <Localize translate_text="BTC/XAG" />,
-    },
-    {
-        src: icons.BTCXAU,
-        text: <Localize translate_text="BTC/XAU" />,
-    },
-    {
         src: icons.ADAUSD,
         text: <Localize translate_text="ADA/USD" />,
     },
@@ -1118,56 +1096,12 @@ export const cryptocurrencies_cfds = [
         text: <Localize translate_text="ALG/USD" />,
     },
     {
-        src: icons.BATUSD,
-        text: <Localize translate_text="BAT/USD" />,
-    },
-    {
-        src: icons.DOGUSD,
-        text: <Localize translate_text="DOG/USD" />,
-    },
-    {
-        src: icons.DOTUSD,
-        text: <Localize translate_text="DOT/USD" />,
-    },
-    {
-        src: icons.ETCUSD,
-        text: <Localize translate_text="ETC/USD" />,
-    },
-    {
-        src: icons.FILUSD,
-        text: <Localize translate_text="FIL/USD" />,
-    },
-    {
-        src: icons.LNKUSD,
-        text: <Localize translate_text="LNK/USD" />,
-    },
-    {
-        src: icons.MKRUSD,
-        text: <Localize translate_text="MKR/USD" />,
-    },
-    {
-        src: icons.MTCUSD,
-        text: <Localize translate_text="MTC/USD" />,
-    },
-    {
-        src: icons.SOLUSD,
-        text: <Localize translate_text="SOL/USD" />,
-    },
-    {
-        src: icons.UNIUSD,
-        text: <Localize translate_text="UNI/USD" />,
-    },
-    {
-        src: icons.XTZUSD,
-        text: <Localize translate_text="XTZ/USD" />,
-    },
-    {
         src: icons.AVAUSD,
         text: <Localize translate_text="AVA/USD" />,
     },
     {
-        src: icons.TERUSD,
-        text: <Localize translate_text="TER/USD" />,
+        src: icons.BATUSD,
+        text: <Localize translate_text="BAT/USD" />,
     },
     {
         src: icons.BCHUSD,
@@ -1178,8 +1112,32 @@ export const cryptocurrencies_cfds = [
         text: <Localize translate_text="BNB/USD" />,
     },
     {
+        src: icons.BTCETH,
+        text: <Localize translate_text="BTC/ETH" />,
+    },
+    {
+        src: icons.BTCLTC,
+        text: <Localize translate_text="BTC/LTC" />,
+    },
+    {
         src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
+    },
+    {
+        src: icons.BTCXAG,
+        text: <Localize translate_text="BTC/XAG" />,
+    },
+    {
+        src: icons.BTCXAU,
+        text: <Localize translate_text="BTC/XAU" />,
+    },
+    {
+        src: icons.DOGUSD,
+        text: <Localize translate_text="DOG/USD" />,
+    },
+    {
+        src: icons.DOTUSD,
+        text: <Localize translate_text="DOT/USD" />,
     },
     {
         src: icons.DSHUSD,
@@ -1194,24 +1152,32 @@ export const cryptocurrencies_cfds = [
         text: <Localize translate_text="ETH/USD" />,
     },
     {
-        src: icons.LTCUSD,
-        text: <Localize translate_text="LTC/USD" />,
+        src: icons.ETCUSD,
+        text: <Localize translate_text="ETC/USD" />,
     },
     {
-        src: icons.XMRUSD,
-        text: <Localize translate_text="XMR/USD" />,
-    },
-    {
-        src: icons.XRPUSD,
-        text: <Localize translate_text="XRP/USD" />,
-    },
-    {
-        src: icons.ZECUSD,
-        text: <Localize translate_text="ZEC/USD" />,
+        src: icons.FILUSD,
+        text: <Localize translate_text="FIL/USD" />,
     },
     {
         src: icons.IOTUSD,
         text: <Localize translate_text="IOT/USD" />,
+    },
+    {
+        src: icons.LNKUSD,
+        text: <Localize translate_text="LNK/USD" />,
+    },
+    {
+        src: icons.LTCUSD,
+        text: <Localize translate_text="LTC/USD" />,
+    },
+    {
+        src: icons.MKRUSD,
+        text: <Localize translate_text="MKR/USD" />,
+    },
+    {
+        src: icons.MTCUSD,
+        text: <Localize translate_text="MTC/USD" />,
     },
     {
         src: icons.NEOUSD,
@@ -1222,12 +1188,40 @@ export const cryptocurrencies_cfds = [
         text: <Localize translate_text="OMG/USD" />,
     },
     {
+        src: icons.SOLUSD,
+        text: <Localize translate_text="SOL/USD" />,
+    },
+    {
+        src: icons.TERUSD,
+        text: <Localize translate_text="TER/USD" />,
+    },
+    {
         src: icons.TRXUSD,
         text: <Localize translate_text="TRX/USD" />,
     },
     {
+        src: icons.UNIUSD,
+        text: <Localize translate_text="UNI/USD" />,
+    },
+    {
         src: icons.XLMUSD,
         text: <Localize translate_text="XLM/USD" />,
+    },
+    {
+        src: icons.XMRUSD,
+        text: <Localize translate_text="XMR/USD" />,
+    },
+    {
+        src: icons.XRPUSD,
+        text: <Localize translate_text="XRP/USD" />,
+    },
+    {
+        src: icons.XTZUSD,
+        text: <Localize translate_text="XTZ/USD" />,
+    },
+    {
+        src: icons.ZECUSD,
+        text: <Localize translate_text="ZEC/USD" />,
     },
 ]
 

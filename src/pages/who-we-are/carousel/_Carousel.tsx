@@ -143,8 +143,8 @@ const StyledQueryImage = styled(QueryImage)`
 
 const EmblaCarousel = () => {
     const options = {
-        containScroll: 'keepSnaps',
-        loop: false,
+        speed: 2,
+        loop: true,
     }
     const autoplay = useRef(
         Autoplay({ delay: 3000, stopOnInteraction: false }, (emblaRoot) => emblaRoot.parentElement),
@@ -160,22 +160,7 @@ const EmblaCarousel = () => {
         carousel_data.media6,
     ]
 
-    const [viewportRef, embla] = useEmblaCarousel(options, [autoplay.current])
-
-    const [, setPrevBtnEnabled] = useState(false)
-    const [, setNextBtnEnabled] = useState(false)
-
-    const onSelect = useCallback(() => {
-        if (!embla) return
-        setPrevBtnEnabled(embla.canScrollPrev())
-        setNextBtnEnabled(embla.canScrollNext())
-    }, [embla])
-
-    useEffect(() => {
-        if (!embla) return
-        embla.on('select', onSelect)
-        onSelect()
-    }, [embla, onSelect])
+    const [viewportRef] = useEmblaCarousel(options, [autoplay.current])
 
     return (
         <Carousel>

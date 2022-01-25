@@ -960,11 +960,11 @@ export const american_stocks = [
 
 export const cryptocurrencies_trade_type = [
     {
-        src: icons.BTC,
+        src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
     },
     {
-        src: icons.ETH,
+        src: icons.ETHUSD,
         text: <Localize translate_text="ETH/USD" />,
     },
 ]
@@ -1094,150 +1094,150 @@ export const cryptocurrencies_trade_type = [
 
 export const cryptocurrencies_cfds = [
     {
-        src: icons.BTC,
+        src: icons.BTCETH,
         text: <Localize translate_text="BTC/ETH" />,
     },
     {
-        src: icons.BTC,
+        src: icons.BTCLTC,
         text: <Localize translate_text="BTC/LTC" />,
     },
     {
-        src: icons.BTC,
+        src: icons.BTCXAG,
         text: <Localize translate_text="BTC/XAG" />,
     },
     {
-        src: icons.BTC,
+        src: icons.BTCXAU,
         text: <Localize translate_text="BTC/XAU" />,
     },
     {
-        src: icons.BTC,
+        src: icons.ADAUSD,
         text: <Localize translate_text="ADA/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.ALGUSD,
         text: <Localize translate_text="ALG/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.BATUSD,
         text: <Localize translate_text="BAT/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.DOGUSD,
         text: <Localize translate_text="DOG/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.DOTUSD,
         text: <Localize translate_text="DOT/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.ETCUSD,
         text: <Localize translate_text="ETC/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.FILUSD,
         text: <Localize translate_text="FIL/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.LNKUSD,
         text: <Localize translate_text="LNK/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.MKRUSD,
         text: <Localize translate_text="MKR/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.MTCUSD,
         text: <Localize translate_text="MTC/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.SOLUSD,
         text: <Localize translate_text="SOL/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.UNIUSD,
         text: <Localize translate_text="UNI/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.XTZUSD,
         text: <Localize translate_text="XTZ/USD" />,
     },
+    // {
+    //     src: icons.AVAUSD,
+    //     text: <Localize translate_text="AVA/USD" />,
+    // },
+    // {
+    //     src: icons.TERUSD,
+    //     text: <Localize translate_text="TER/USD" />,
+    // },
     {
-        src: icons.BTC,
-        text: <Localize translate_text="AVA/USD" />,
-    },
-    {
-        src: icons.BTC,
-        text: <Localize translate_text="TER/USD" />,
-    },
-    {
-        src: icons.BTC,
+        src: icons.BCHUSD,
         text: <Localize translate_text="BCH/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.BNBUSD,
         text: <Localize translate_text="BNB/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.DSHUSD,
         text: <Localize translate_text="DSH/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.EOSUSD,
         text: <Localize translate_text="EOS/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.ETHUSD,
         text: <Localize translate_text="ETH/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.LTCUSD,
         text: <Localize translate_text="LTC/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.XMRUSD,
         text: <Localize translate_text="XMR/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.XRPUSD,
         text: <Localize translate_text="XRP/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.ZECUSD,
         text: <Localize translate_text="ZEC/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.IOTUSD,
         text: <Localize translate_text="IOT/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.NEOUSD,
         text: <Localize translate_text="NEO/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.OMGUSD,
         text: <Localize translate_text="OMG/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.TRXUSD,
         text: <Localize translate_text="TRX/USD" />,
     },
     {
-        src: icons.BTC,
+        src: icons.XLMUSD,
         text: <Localize translate_text="XLM/USD" />,
     },
 ]
 
 export const cryptocurrencies_multipliers = [
     {
-        src: icons.BTC,
+        src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
     },
     {
-        src: icons.ETH,
+        src: icons.ETHUSD,
         text: <Localize translate_text="ETH/USD" />,
     },
 ]

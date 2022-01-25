@@ -13,7 +13,7 @@ const OurPrinciples = Loadable(() => import('./_OurPrinciples'))
 const OurLeadership = Loadable(() => import('./_OurLeadership'))
 const AboutUsBanner = Loadable(() => import('./_AboutUsBanner'))
 const DerivNumbers = Loadable(() => import('./_DerivNumbers'))
-const EmblaCarousel = Loadable(() => import('./carousel/_Carousel'))
+const Marquee = Loadable(() => import('./carousel/_Marquee'))
 const OurOffices = Loadable(() => import('./_OurOffices'))
 
 const StartSeparator = styled.div`
@@ -53,7 +53,7 @@ const AboutUs = () => {
             <OurPrinciples />
             <OurLeadership />
             <DerivNumbers />
-            <EmblaCarousel />
+            <Marquee />
             <OurOffices />
             <AboutUsBanner />
         </Layout>

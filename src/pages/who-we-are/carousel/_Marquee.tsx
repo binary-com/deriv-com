@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
+import Marquee from 'react-fast-marquee'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -28,32 +27,6 @@ const queryCarouselData = graphql`
             ...fadeIn
         }
     }
-`
-
-const Carousel = styled.div`
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-`
-
-const CarouselViewport = styled.div`
-    overflow: hidden;
-    width: 100%;
-
-    @media (min-width: 3107px) {
-        display: flex;
-        justify-content: center;
-    }
-`
-const CarouselContainer = styled.div`
-    display: flex;
-    user-select: none;
-    -webkit-touch-callout: none;
-    /* stylelint-disable */
-    -khtml-user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    /* stylelint-enable */
-    margin-left: -10px;
 `
 
 const CarouselSlide = styled.div`
@@ -139,17 +112,7 @@ const StyledQueryImage = styled(QueryImage)`
     }
 `
 
-//TODO: Refactor this to use Carousel component
-
-const EmblaCarousel = () => {
-    const options = {
-        speed: 2,
-        loop: true,
-    }
-    const autoplay = useRef(
-        Autoplay({ delay: 3000, stopOnInteraction: false }, (emblaRoot) => emblaRoot.parentElement),
-    )
-
+const ImageMarquee = () => {
     const carousel_data = useStaticQuery(queryCarouselData)
     const carousel_images: ImageDataLike[] = [
         carousel_data.media1,
@@ -160,23 +123,17 @@ const EmblaCarousel = () => {
         carousel_data.media6,
     ]
 
-    const [viewportRef] = useEmblaCarousel(options, [autoplay.current])
-
     return (
-        <Carousel>
-            <CarouselViewport ref={viewportRef}>
-                <CarouselContainer>
-                    {carousel_images.map((carouselItem, index) => (
-                        <CarouselSlide key={index}>
-                            <StyledImageWrapper>
-                                <StyledQueryImage data={carouselItem} alt="" loading="lazy" />
-                            </StyledImageWrapper>
-                        </CarouselSlide>
-                    ))}
-                </CarouselContainer>
-            </CarouselViewport>
-        </Carousel>
+        <Marquee speed={100} gradient={false}>
+            {carousel_images.map((carouselItem, index) => (
+                <CarouselSlide key={index}>
+                    <StyledImageWrapper>
+                        <StyledQueryImage data={carouselItem} alt="" loading="lazy" />
+                    </StyledImageWrapper>
+                </CarouselSlide>
+            ))}
+        </Marquee>
     )
 }
 
-export default EmblaCarousel
+export default ImageMarquee

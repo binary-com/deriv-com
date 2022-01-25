@@ -159,7 +159,7 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
                 ></StyledIFrame>
 
                 {P2P.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>

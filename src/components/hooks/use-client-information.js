@@ -7,7 +7,10 @@ export const useClientInformation = () => {
 
     const setCurrentClientInformation = () => {
         const current_client_information = getClientInformation(getDomain())
-        if (JSON.stringify(current_client_information) != JSON.stringify(client_information)) {
+        if (
+            current_client_information &&
+            JSON.stringify(current_client_information) != JSON.stringify(client_information)
+        ) {
             setClientInformation(current_client_information)
         }
     }

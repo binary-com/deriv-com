@@ -205,7 +205,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one CFD trading platform." />
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 onClick={handleArrowClick}
@@ -218,7 +218,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
@@ -356,6 +356,18 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={localize('Cryptocurrencies')}
                                 onClick={handleArrowClick}
                                 to="/markets/cryptocurrencies/"
+                            />
+                        </Flex>
+                        <Flex>
+                            <NavCard
+                                aria_label="Basket indices"
+                                icon={() => <img src={Commodities} alt="" width="32" height="32" />}
+                                content={localize(
+                                    'Trade weighted indices that measure the value of a currency against a basket of major currencies.',
+                                )}
+                                title={localize('Basket indices')}
+                                onClick={handleArrowClick}
+                                to="/markets/basket-indices/"
                             />
                         </Flex>
                         <Flex>

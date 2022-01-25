@@ -749,12 +749,12 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
 
     const handleHref = (category) => {
         if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
-            return `/academy/search?type=video&category=${slugify(category)}`
+            return `/academy/search?type=video&category=${encodeURIComponent(slugify(category))}`
         }
         if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
-            return `/academy/search?type=article&category=${slugify(category)}`
+            return `/academy/search?type=article&category=${encodeURIComponent(slugify(category))}`
         }
-        return `/academy/search?category=${slugify(category)}`
+        return `/academy/search?category=${encodeURIComponent(slugify(category))}`
     }
 
     return (

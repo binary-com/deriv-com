@@ -1,27 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import { ImageTextAndIntroductionProps } from './_types'
 import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import BackgroundPattern from 'images/svg/landing/ebook-intro-bg.svg'
 import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
 
-const BacgroundWrapper = styled.div`
+const BackgroundWrapper = styled.div`
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 50px 60px 80px;
     background-image: url(${BackgroundPattern});
     background-size: cover;
+    @media ${device.tabletL} {
+        padding: 5% 35px 10%;
+    }
+    @media ${device.tabletS} {
+        padding: 10% 15px 18%;
+    }
 `
 
-const MediaWapper = styled.div`
+const MediaWrapper = styled.div`
     display: flex;
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 120px 50px;
+    flex-wrap: wrap;
 
     img.intro-forex {
         align-self: center;
@@ -32,14 +38,17 @@ const MediaWapper = styled.div`
         font-size: 48px;
         font-weight: bold;
         line-height: 1.25;
-        color: #333333;
+        color: var(--color-black-3);
         margin-bottom: 20px;
     }
 
     @media ${device.tabletL} {
         margin: 0 auto;
-        padding: 120px 15px;
 
+        img.intro-forex {
+            margin: 0 auto 20px;
+            padding: 25px;
+        }
         h3.intro-text {
             font-size: 30px;
             text-align: center;
@@ -47,9 +56,6 @@ const MediaWapper = styled.div`
     }
 
     @media ${device.tabletS} {
-        img.intro-forex {
-            display: none;
-        }
         h3.intro-text {
             font-size: 30px;
         }
@@ -65,7 +71,7 @@ const MediaBody = styled.div`
         font-size: 16px;
         font-weight: normal;
         line-height: 1.5;
-        color: #333333;
+        color: var(--color-black-3);
         margin-bottom: 15px;
         display: flex;
     }
@@ -85,19 +91,24 @@ const MediaItemList = styled.ul`
     font-size: 20px;
 `
 
-const Introduction = ({ introImage, imageWidth, introPara, subPara, introList }) => {
+const ImageText = ({
+    introImage,
+    imageWidth,
+    introPara,
+    subPara,
+    introList,
+}: ImageTextAndIntroductionProps) => {
     return (
-        <BacgroundWrapper>
-            <MediaWapper>
+        <BackgroundWrapper>
+            <MediaWrapper>
                 <img
                     className="intro-forex"
                     width={`${imageWidth}px`}
-                    height="462 px"
                     src={introImage}
                     alt="Generic placeholder image"
                 />
                 <MediaBody>
-                    <Header as="h3" className="mt-0 intro-text">
+                    <Header as="h3" className="intro-text">
                         {localize('Introduction')}
                     </Header>
                     <Text className="intro-desc" mb="20px">
@@ -130,17 +141,9 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                         </>
                     )}
                 </MediaBody>
-            </MediaWapper>
-        </BacgroundWrapper>
+            </MediaWrapper>
+        </BackgroundWrapper>
     )
 }
 
-Introduction.propTypes = {
-    imageWidth: PropTypes.number,
-    introImage: PropTypes.any,
-    introList: PropTypes.array,
-    introPara: PropTypes.string,
-    subPara: PropTypes.string,
-}
-
-export default Introduction
+export default ImageText

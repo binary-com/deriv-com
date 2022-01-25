@@ -43,7 +43,7 @@ export const getOSIcon = (type: string) => {
 }
 
 export type TPlatformDetails = {
-    id: number
+    id?: number
     title: string
     icon: string
     image_key: string
@@ -54,7 +54,6 @@ export type TPlatformDetails = {
 
 export const platform_details: TPlatformDetails[] = [
     {
-        id: 0,
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',
@@ -68,7 +67,6 @@ export const platform_details: TPlatformDetails[] = [
         ],
     },
     {
-        id: 1,
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader',
@@ -77,7 +75,6 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: deriv_app_url }],
     },
     {
-        id: 2,
         title: 'Deriv X',
         icon: DerivXIcon,
         image_key: 'platforms_derivx',
@@ -90,7 +87,6 @@ export const platform_details: TPlatformDetails[] = [
         ],
     },
     {
-        id: 3,
         title: 'DBot',
         icon: DBotIcon,
         image_key: 'platforms_dbot',
@@ -103,7 +99,6 @@ export const platform_details: TPlatformDetails[] = [
         ],
     },
     {
-        id: 4,
         title: 'Deriv GO',
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
@@ -115,7 +110,6 @@ export const platform_details: TPlatformDetails[] = [
         ],
     },
     {
-        id: 5,
         title: 'SmartTrader',
         icon: SmartTraderIcon,
         image_key: 'platforms_smarttrader',
@@ -124,7 +118,6 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: smarttrader_url }],
     },
     {
-        id: 6,
         title: 'Binary Bot',
         icon: BinaryBotIcon,
         image_key: 'platforms_binary_bot',
@@ -133,7 +126,6 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: 'https://bot.deriv.com/' }],
     },
     {
-        id: 7,
         title: 'API',
         icon: APIIcon,
         image_key: 'platforms_api',
@@ -149,8 +141,8 @@ export const getPlatformDetails = (no_of_copies) => {
 
     for (let index = 0; index < no_of_copies; index++) {
         platform_details.forEach((p) => {
-            current_index++
             new_details.push({ ...p, id: current_index })
+            current_index++
         })
     }
 

@@ -213,7 +213,7 @@ export const crypto_cfds = {
     },
     content: [
         {
-            title: <Localize translate_text="Cryptocurrencies" />,
+            title: <Localize translate_text="Crypto pairs" />,
             component: <CryptocurrenciesCFDs />,
         },
     ],

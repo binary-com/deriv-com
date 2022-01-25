@@ -16,6 +16,7 @@ import AUDNZD from 'images/svg/symbols/aud-nzd.svg'
 import AUDSGD from 'images/svg/symbols/aud-sgd.svg'
 import AUDUSD from 'images/svg/symbols/aud-usd.svg'
 import AUS200 from 'images/svg/symbols/aus-200.svg'
+import AVAUSD from 'images/svg/symbols/ava-usd.svg'
 import AVALANCHE from 'images/svg/symbols/avalanche.svg'
 import BA from 'images/svg/symbols/ba.svg'
 import BABA from 'images/svg/symbols/baba.svg'
@@ -139,9 +140,9 @@ import JUMP25 from 'images/svg/symbols/jump-25.svg'
 import JUMP50 from 'images/svg/symbols/jump-50.svg'
 import JUMP75 from 'images/svg/symbols/jump-75.svg'
 import KO from 'images/svg/symbols/ko.svg'
-import LTCUSD from 'images/svg/symbols/ltc-usd.svg'
 import LEADUSD from 'images/svg/symbols/lead-usd.svg'
 import LNKUSD from 'images/svg/symbols/lnk-usd.svg'
+import LTCUSD from 'images/svg/symbols/ltc-usd.svg'
 import LTC from 'images/svg/symbols/ltc_flag.svg'
 import MA from 'images/svg/symbols/ma.svg'
 import MAKER from 'images/svg/symbols/maker.svg'
@@ -272,6 +273,7 @@ import SOLUSD from 'images/svg/symbols/sol-usd.svg'
 import SOLANA from 'images/svg/symbols/solana.svg'
 import XLM from 'images/svg/symbols/stellar_flag.svg'
 import STEPINDICES from 'images/svg/symbols/step-indices.svg'
+import TERUSD from 'images/svg/symbols/ter-usd.svg'
 import TERRA from 'images/svg/symbols/terra.svg'
 import TEVA from 'images/svg/symbols/teva.svg'
 import TRX from 'images/svg/symbols/tron_flag.svg'
@@ -322,6 +324,8 @@ import ZEC from 'images/svg/symbols/z_cash_flag.svg'
 
 export {
     ADAUSD,
+    AVAUSD,
+    TERUSD,
     XLMUSD,
     ALGUSD,
     BATUSD,

@@ -1161,14 +1161,14 @@ export const cryptocurrencies_cfds = [
         src: icons.XTZUSD,
         text: <Localize translate_text="XTZ/USD" />,
     },
-    // {
-    //     src: icons.AVAUSD,
-    //     text: <Localize translate_text="AVA/USD" />,
-    // },
-    // {
-    //     src: icons.TERUSD,
-    //     text: <Localize translate_text="TER/USD" />,
-    // },
+    {
+        src: icons.AVAUSD,
+        text: <Localize translate_text="AVA/USD" />,
+    },
+    {
+        src: icons.TERUSD,
+        text: <Localize translate_text="TER/USD" />,
+    },
     {
         src: icons.BCHUSD,
         text: <Localize translate_text="BCH/USD" />,

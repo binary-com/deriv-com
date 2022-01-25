@@ -5,5 +5,8 @@
     ],
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
         "prettier --write"
+    ],
+    "src/images/src/**/*.svg": [
+        "svgo"
     ]
 }

@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -143,7 +144,7 @@ type FooterBannerProps = {
     is_ppc: boolean
     title: ReactElement
     small_title: ReactElement
-    data: { stocks_banner: any }
+    data: { stocks_banner: ImageDataLike }
 }
 
 const FooterBanner = ({

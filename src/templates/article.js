@@ -88,7 +88,7 @@ const ArticlesTemplate = (props) => {
     const meta_title = post_data?.meta_title
     const meta_description = post_data?.meta_description
     const og_image =
-        post_data?.og_image?.imageFile.childImageSharp.gatsbyImageData.images.fallback.src
+        post_data?.og_image?.imageFile.childImageSharp?.gatsbyImageData.images.fallback.src
     const og_title = post_data?.og_title
     const og_description = post_data?.og_description
     const test_data = post_data?.test_data

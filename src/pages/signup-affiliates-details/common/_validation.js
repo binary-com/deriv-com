@@ -99,7 +99,7 @@ const validation = {
         return null
     },
     address: (input) => {
-        return textValidation(input, localize('Address'), 2, 50)
+        return textValidation(input, localize('Address'), 2, 70)
     },
     mobileNumber: (input) => {
         return phoneValidation(input, localize('Mobile number'), 9, 35)

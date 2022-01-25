@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
-import Slider from './_desktop-slider'
+import PlatformSlider from './_platform-slider'
 import { no_slide_sets, getPlatformDetails, getSlideStartingIndex } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -18,7 +18,7 @@ const DesktopPlatformCarousel = () => {
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">
-            <Slider
+            <PlatformSlider
                 slide_index={slide_index}
                 onSelectSlide={setSlideIndex}
                 platform_details={platform_details}

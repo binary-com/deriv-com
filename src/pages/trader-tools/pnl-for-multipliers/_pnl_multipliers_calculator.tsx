@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Field, Formik } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
+import { FormikErrors, FormikTouched } from '../common/_formik-types'
 import {
     getPnlMultiplierCommon,
     numberSubmitFormat,
@@ -47,33 +48,13 @@ import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
-type FormikErrors<Values> = {
-    [K in keyof Values]?: Values[K] extends string[]
-        ? Values[K][number] extends Record<string, unknown>
-            ? FormikErrors<Values[K][number]>[] | string | string[]
-            : string | string[]
-        : Values[K] extends Record<string, unknown>
-        ? FormikErrors<Values[K]>
-        : string
-}
-
-type FormikTouched<Values> = {
-    [K in keyof Values]?: Values[K] extends string[]
-        ? Values[K][number] extends Record<string, unknown>
-            ? FormikTouched<Values[K][number]>[]
-            : boolean
-        : Values[K] extends Record<string, unknown>
-        ? FormikTouched<Values[K]>
-        : boolean
-}
-
 type ErrorHandlersKeyType =
-    | 'commission_error_handler'
-    | 'stop_loss_amount_error_handler'
-    | 'asset_price_error_handler'
-    | 'multiplier_error_handler'
-    | 'stop_loss_level_error_handler'
-    | 'stake_error_handler'
+    | 'commissionErrorHandler'
+    | 'stopLossAmountErrorHandler'
+    | 'assetPriceErrorHandler'
+    | 'multiplierErrorHandler'
+    | 'stopLossLevelErrorHandler'
+    | 'stakeErrorHandler'
 
 type ErrorHandlersCallbackType = (current_input: string) => void
 
@@ -121,7 +102,7 @@ const CommissionField = ({
     touched,
     errors,
     handleBlur,
-    commission_error_handler,
+    commissionErrorHandler,
 }: FieldsType<CommissionFieldProps>) => (
     <Field
         name="commission"
@@ -140,7 +121,7 @@ const CommissionField = ({
                 error={touched.commission && errors.commission}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={commission_error_handler}
+                handleError={commissionErrorHandler}
                 maxLength={getMaxLength(values.commission, 8)}
                 background="white"
             />
@@ -154,7 +135,7 @@ const StopLossAmountField = ({
     touched,
     errors,
     handleBlur,
-    stop_loss_amount_error_handler,
+    stopLossAmountErrorHandler,
 }: FieldsType<StopLossAmountFieldProps>) => (
     <Field
         name="stopLossAmount"
@@ -174,7 +155,7 @@ const StopLossAmountField = ({
                 error={touched.stopLossAmount && errors.stopLossAmount}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={stop_loss_amount_error_handler}
+                handleError={stopLossAmountErrorHandler}
                 maxLength={getMaxLength(values.stopLossAmount, 15)}
                 background="white"
             />
@@ -188,7 +169,7 @@ const AssetPriceField = ({
     touched,
     errors,
     handleBlur,
-    asset_price_error_handler,
+    assetPriceErrorHandler,
 }: FieldsType<AssetPriceFieldProps>) => (
     <Field
         name="assetPrice"
@@ -205,7 +186,7 @@ const AssetPriceField = ({
                 error={touched.assetPrice && errors.assetPrice}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={asset_price_error_handler}
+                handleError={assetPriceErrorHandler}
                 maxLength={getMaxLength(values.assetPrice, 8)}
                 background="white"
             />
@@ -219,7 +200,7 @@ const MultiplierField = ({
     touched,
     errors,
     handleBlur,
-    multiplier_error_handler,
+    multiplierErrorHandler,
 }: FieldsType<MultiplierFieldProps>) => (
     <Field
         name="multiplier"
@@ -239,7 +220,7 @@ const MultiplierField = ({
                 error={touched.multiplier && errors.multiplier}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={multiplier_error_handler}
+                handleError={multiplierErrorHandler}
                 maxLength={getMaxLength(values.multiplier, 4)}
                 background="white"
             />
@@ -253,7 +234,7 @@ const MultiplierFieldWithoutValue = ({
     touched,
     errors,
     handleBlur,
-    multiplier_error_handler,
+    multiplierErrorHandler,
 }: FieldsType<MultiplierFieldProps>) => (
     <Field
         name="multiplier"
@@ -272,7 +253,7 @@ const MultiplierFieldWithoutValue = ({
                 error={touched.multiplier && errors.multiplier}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={multiplier_error_handler}
+                handleError={multiplierErrorHandler}
                 maxLength={getMaxLength(values.multiplier, 4)}
                 background="white"
             />
@@ -286,7 +267,7 @@ const StopLossLevelField = ({
     touched,
     errors,
     handleBlur,
-    stop_loss_level_error_handler,
+    stopLossLevelErrorHandler,
 }: FieldsType<StopLossLevelFieldProps>) => (
     <Field
         name="stopLossLevel"
@@ -306,7 +287,7 @@ const StopLossLevelField = ({
                 error={touched.stopLossLevel && errors.stopLossLevel}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={stop_loss_level_error_handler}
+                handleError={stopLossLevelErrorHandler}
                 maxLength={getMaxLength(values.stopLossLevel, 15)}
                 background="white"
             />
@@ -320,7 +301,7 @@ const StakeField = ({
     touched,
     errors,
     handleBlur,
-    stake_error_handler,
+    stakeErrorHandler,
 }: FieldsType<StakeFieldProps>) => (
     <Field
         name="stake"
@@ -337,7 +318,7 @@ const StakeField = ({
                 error={touched.stake && errors.stake}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={stake_error_handler}
+                handleError={stakeErrorHandler}
                 maxLength={getMaxLength(values.stake, 15)}
                 background="white"
             />
@@ -351,7 +332,7 @@ const StakeFieldWithValue = ({
     touched,
     errors,
     handleBlur,
-    stake_error_handler,
+    stakeErrorHandler,
 }: FieldsType<StakeFieldProps>) => (
     <Field
         name="stake"
@@ -371,7 +352,7 @@ const StakeFieldWithValue = ({
                 error={touched.stake && errors.stake}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={stake_error_handler}
+                handleError={stakeErrorHandler}
                 maxLength={getMaxLength(values.stake, 15)}
                 background="white"
             />
@@ -449,7 +430,7 @@ const PnlMultipliersCalculator = () => {
     const onTabClick = (t) => setTab(t)
     const onSubTabClick = (t) => setSubTab(t)
 
-    const main_asset_price_error_handler =
+    const mainAssetPriceErrorHandler =
         (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
             setFieldValue('assetPrice', '', false)
             setFieldError('assetPrice', '')
@@ -457,7 +438,7 @@ const PnlMultipliersCalculator = () => {
             current_input.focus()
         }
 
-    const main_multiplier_error_handler =
+    const mainMultiplierErrorHandler =
         (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
             setFieldValue('multiplier', '', false)
             setFieldError('multiplier', '')
@@ -465,7 +446,7 @@ const PnlMultipliersCalculator = () => {
             current_input.focus()
         }
 
-    const main_commission_error_handler =
+    const mainCommissionErrorHandler =
         (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
             setFieldValue('commission', '', false)
             setFieldError('commission', '')
@@ -473,7 +454,7 @@ const PnlMultipliersCalculator = () => {
             current_input.focus()
         }
 
-    const main_stake_error_handler =
+    const mainStakeErrorHandler =
         (setFieldValue, setFieldError, setFieldTouched) => (current_input) => {
             setFieldValue('stake', '', false)
             setFieldError('stake', '')
@@ -589,40 +570,39 @@ const PnlMultipliersCalculator = () => {
                                     isValid,
                                     dirty,
                                 }) => {
-                                    const asset_price_error_handler =
-                                        main_asset_price_error_handler(
-                                            setFieldValue,
-                                            setFieldError,
-                                            setFieldTouched,
-                                        )
-
-                                    const multiplier_error_handler = main_multiplier_error_handler(
+                                    const assetPriceErrorHandler = mainAssetPriceErrorHandler(
                                         setFieldValue,
                                         setFieldError,
                                         setFieldTouched,
                                     )
 
-                                    const commission_error_handler = main_commission_error_handler(
+                                    const multiplierErrorHandler = mainMultiplierErrorHandler(
                                         setFieldValue,
                                         setFieldError,
                                         setFieldTouched,
                                     )
 
-                                    const take_profit_amount_error_handler = (current_input) => {
+                                    const commissionErrorHandler = mainCommissionErrorHandler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
+
+                                    const takeProfitAmountErrorHandler = (current_input) => {
                                         setFieldValue('takeProfitAmount', '', false)
                                         setFieldError('takeProfitAmount', '')
                                         setFieldTouched('takeProfitAmount', false, false)
                                         current_input.focus()
                                     }
 
-                                    const stop_loss_amount_error_handler = (current_input) => {
+                                    const stopLossAmountErrorHandler = (current_input) => {
                                         setFieldValue('stopLossAmount', '', false)
                                         setFieldError('stopLossAmount', '')
                                         setFieldTouched('stopLossAmount', false, false)
                                         current_input.focus()
                                     }
 
-                                    const stake_error_handler = main_stake_error_handler(
+                                    const stakeErrorHandler = mainStakeErrorHandler(
                                         setFieldValue,
                                         setFieldError,
                                         setFieldTouched,
@@ -710,8 +690,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        asset_price_error_handler={
-                                                                            asset_price_error_handler
+                                                                        assetPriceErrorHandler={
+                                                                            assetPriceErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -726,8 +706,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        commission_error_handler={
-                                                                            commission_error_handler
+                                                                        commissionErrorHandler={
+                                                                            commissionErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -745,8 +725,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        stake_error_handler={
-                                                                            stake_error_handler
+                                                                        stakeErrorHandler={
+                                                                            stakeErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -778,7 +758,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 onBlur={handleBlur}
                                                                                 data-lpignore="true"
                                                                                 handleError={
-                                                                                    take_profit_amount_error_handler
+                                                                                    takeProfitAmountErrorHandler
                                                                                 }
                                                                                 maxLength={getMaxLength(
                                                                                     values.takeProfitAmount,
@@ -803,8 +783,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        multiplier_error_handler={
-                                                                            multiplier_error_handler
+                                                                        multiplierErrorHandler={
+                                                                            multiplierErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -819,8 +799,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        stop_loss_amount_error_handler={
-                                                                            stop_loss_amount_error_handler
+                                                                        stopLossAmountErrorHandler={
+                                                                            stopLossAmountErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -915,8 +895,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                asset_price_error_handler={
-                                                                    asset_price_error_handler
+                                                                assetPriceErrorHandler={
+                                                                    assetPriceErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -927,8 +907,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                stake_error_handler={
-                                                                    stake_error_handler
+                                                                stakeErrorHandler={
+                                                                    stakeErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -939,8 +919,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                multiplier_error_handler={
-                                                                    multiplier_error_handler
+                                                                multiplierErrorHandler={
+                                                                    multiplierErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -951,8 +931,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                commission_error_handler={
-                                                                    commission_error_handler
+                                                                commissionErrorHandler={
+                                                                    commissionErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -983,7 +963,7 @@ const PnlMultipliersCalculator = () => {
                                                                         onBlur={handleBlur}
                                                                         data-lpignore="true"
                                                                         handleError={
-                                                                            take_profit_amount_error_handler
+                                                                            takeProfitAmountErrorHandler
                                                                         }
                                                                         maxLength={getMaxLength(
                                                                             values.takeProfitAmount,
@@ -1001,8 +981,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                stop_loss_amount_error_handler={
-                                                                    stop_loss_amount_error_handler
+                                                                stopLossAmountErrorHandler={
+                                                                    stopLossAmountErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -1228,40 +1208,39 @@ const PnlMultipliersCalculator = () => {
                                     isValid,
                                     dirty,
                                 }) => {
-                                    const asset_price_error_handler =
-                                        main_asset_price_error_handler(
-                                            setFieldValue,
-                                            setFieldError,
-                                            setFieldTouched,
-                                        )
-
-                                    const multiplier_error_handler = main_multiplier_error_handler(
+                                    const assetPriceErrorHandler = mainAssetPriceErrorHandler(
                                         setFieldValue,
                                         setFieldError,
                                         setFieldTouched,
                                     )
 
-                                    const commission_error_handler = main_commission_error_handler(
+                                    const multiplierErrorHandler = mainMultiplierErrorHandler(
                                         setFieldValue,
                                         setFieldError,
                                         setFieldTouched,
                                     )
 
-                                    const take_profit_level_error_handler = (current_input) => {
+                                    const commissionErrorHandler = mainCommissionErrorHandler(
+                                        setFieldValue,
+                                        setFieldError,
+                                        setFieldTouched,
+                                    )
+
+                                    const takeProfitLevelErrorHandler = (current_input) => {
                                         setFieldValue('takeProfitLevel', '', false)
                                         setFieldError('takeProfitLevel', '')
                                         setFieldTouched('takeProfitLevel', false, false)
                                         current_input.focus()
                                     }
 
-                                    const stop_loss_level_error_handler = (current_input) => {
+                                    const stopLossLevelErrorHandler = (current_input) => {
                                         setFieldValue('stopLossLevel', '', false)
                                         setFieldError('stopLossLevel', '')
                                         setFieldTouched('stopLossLevel', false, false)
                                         current_input.focus()
                                     }
 
-                                    const stake_error_handler = main_stake_error_handler(
+                                    const stakeErrorHandler = mainStakeErrorHandler(
                                         setFieldValue,
                                         setFieldError,
                                         setFieldTouched,
@@ -1351,8 +1330,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        asset_price_error_handler={
-                                                                            asset_price_error_handler
+                                                                        assetPriceErrorHandler={
+                                                                            assetPriceErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -1367,8 +1346,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        commission_error_handler={
-                                                                            commission_error_handler
+                                                                        commissionErrorHandler={
+                                                                            commissionErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -1386,8 +1365,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        stake_error_handler={
-                                                                            stake_error_handler
+                                                                        stakeErrorHandler={
+                                                                            stakeErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -1419,7 +1398,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 onBlur={handleBlur}
                                                                                 data-lpignore="true"
                                                                                 handleError={
-                                                                                    take_profit_level_error_handler
+                                                                                    takeProfitLevelErrorHandler
                                                                                 }
                                                                                 maxLength={getMaxLength(
                                                                                     values.takeProfitLevel,
@@ -1444,8 +1423,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        multiplier_error_handler={
-                                                                            multiplier_error_handler
+                                                                        multiplierErrorHandler={
+                                                                            multiplierErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -1460,8 +1439,8 @@ const PnlMultipliersCalculator = () => {
                                                                         touched={touched}
                                                                         errors={errors}
                                                                         handleBlur={handleBlur}
-                                                                        stop_loss_level_error_handler={
-                                                                            stop_loss_level_error_handler
+                                                                        stopLossLevelErrorHandler={
+                                                                            stopLossLevelErrorHandler
                                                                         }
                                                                     />
                                                                 </PnLInputGroup>
@@ -1558,8 +1537,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                asset_price_error_handler={
-                                                                    asset_price_error_handler
+                                                                assetPriceErrorHandler={
+                                                                    assetPriceErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -1570,8 +1549,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                stake_error_handler={
-                                                                    stake_error_handler
+                                                                stakeErrorHandler={
+                                                                    stakeErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -1582,8 +1561,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                multiplier_error_handler={
-                                                                    multiplier_error_handler
+                                                                multiplierErrorHandler={
+                                                                    multiplierErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -1594,8 +1573,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                commission_error_handler={
-                                                                    commission_error_handler
+                                                                commissionErrorHandler={
+                                                                    commissionErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>
@@ -1626,7 +1605,7 @@ const PnlMultipliersCalculator = () => {
                                                                         onBlur={handleBlur}
                                                                         data-lpignore="true"
                                                                         handleError={
-                                                                            take_profit_level_error_handler
+                                                                            takeProfitLevelErrorHandler
                                                                         }
                                                                         maxLength={getMaxLength(
                                                                             values.takeProfitLevel,
@@ -1644,8 +1623,8 @@ const PnlMultipliersCalculator = () => {
                                                                 touched={touched}
                                                                 errors={errors}
                                                                 handleBlur={handleBlur}
-                                                                stop_loss_level_error_handler={
-                                                                    stop_loss_level_error_handler
+                                                                stopLossLevelErrorHandler={
+                                                                    stopLossLevelErrorHandler
                                                                 }
                                                             />
                                                         </InputGroup>

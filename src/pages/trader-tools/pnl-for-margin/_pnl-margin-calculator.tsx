@@ -275,13 +275,13 @@ const PnlMarginCalculator = () => {
                                 setErrors,
                                 resetForm,
                             }) => {
-                                const pnl_calculator_synthetic = () => {
+                                const pnlSyntheticHandler = () => {
                                     onSubTabClick('Synthetic')
                                     setErrors({})
                                     resetForm()
                                 }
 
-                                const pnl_calculator_financial = () => {
+                                const pnlFinancialHandler = () => {
                                     onSubTabClick('Financial')
                                     setErrors({})
                                     resetForm()
@@ -289,28 +289,27 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('optionList', financialItemLists)
                                 }
 
-                                const calculator_dropdown_handler = (value) => {
+                                const calculatorDropdownHandler = (value) => {
                                     setFieldValue('pnlMarginSymbol', getCurrency(value))
-
                                     setFieldValue('contractSize', getContractSize(value))
                                     setFieldValue('symbol', value)
                                 }
 
-                                const take_profit_handle_error = (current_input) => {
+                                const takeProfitErrorHanlder = (current_input) => {
                                     setFieldValue('takeProfitAmount', '', false)
                                     setFieldError('takeProfitAmount', '')
                                     setFieldTouched('takeProfitAmount', false, false)
                                     current_input.focus()
                                 }
 
-                                const stop_loss_handle_error = (current_input) => {
+                                const stopLossErrorHandler = (current_input) => {
                                     setFieldValue('stopLossAmount', '', false)
                                     setFieldError('stopLossAmount', '')
                                     setFieldTouched('stopLossAmount', false, false)
                                     current_input.focus()
                                 }
 
-                                const asset_price_input = ({ field }) => (
+                                const AssetPriceInput = ({ field }: { field: React.ReactNode }) => (
                                     <Input
                                         {...field}
                                         id="assetPrice"
@@ -332,7 +331,11 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const stop_loss_amount_input = ({ field }) => (
+                                const StopLossAmountInput = ({
+                                    field,
+                                }: {
+                                    field: React.ReactNode
+                                }) => (
                                     <Input
                                         {...field}
                                         id="assetPrice"
@@ -343,13 +346,13 @@ const PnlMarginCalculator = () => {
                                         error={touched.stopLossAmount && errors.stopLossAmount}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
-                                        handleError={stop_loss_handle_error}
+                                        handleError={stopLossErrorHandler}
                                         maxLength={getMaxLength(values.stopLossAmount, 15)}
                                         background="white"
                                     />
                                 )
 
-                                const point_value_input = ({ field }) => (
+                                const PointValueInput = ({ field }: { field: React.ReactNode }) => (
                                     <Input
                                         {...field}
                                         id="pointValue"
@@ -370,15 +373,19 @@ const PnlMarginCalculator = () => {
                                     />
                                 )
 
-                                const take_profit_amount_change_handler = (value) => {
+                                const takeProfitAmountChangeHandler = (value) => {
                                     setFieldValue('takeProfitAmount', value)
                                 }
 
-                                const stop_loss_amount_change_handler = (value) => {
+                                const stopLossAmountChangeHandler = (value) => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const take_profit_amount_input = ({ field }) => (
+                                const TakeProfitAmountInput = ({
+                                    field,
+                                }: {
+                                    field: React.ReactNode
+                                }) => (
                                     <Input
                                         {...field}
                                         id="takeProfitAmount"
@@ -388,7 +395,7 @@ const PnlMarginCalculator = () => {
                                         error={touched.takeProfitAmount && errors.takeProfitAmount}
                                         onBlur={handleBlur}
                                         data-lpignore="true"
-                                        handleError={take_profit_handle_error}
+                                        handleError={takeProfitErrorHanlder}
                                         maxLength={getMaxLength(values.takeProfitAmount, 15)}
                                         background="white"
                                     />
@@ -470,7 +477,7 @@ const PnlMarginCalculator = () => {
                                                     >
                                                         <PnlCalculatorTabItem
                                                             active={sub_tab === 'Synthetic'}
-                                                            onClick={pnl_calculator_synthetic}
+                                                            onClick={pnlSyntheticHandler}
                                                         >
                                                             <Text align="center">
                                                                 {localize('Synthetic')}
@@ -479,7 +486,7 @@ const PnlMarginCalculator = () => {
                                                         <PnlCalculatorTabItem
                                                             active={sub_tab === 'Financial'}
                                                             disabled={sub_tab === 'Financial'}
-                                                            onClick={pnl_calculator_financial}
+                                                            onClick={pnlFinancialHandler}
                                                         >
                                                             <Text align="center">
                                                                 {localize('Financial')}
@@ -494,9 +501,7 @@ const PnlMarginCalculator = () => {
                                                                 default_option={optionItemDefault}
                                                                 selected_option={values.symbol}
                                                                 id="symbol"
-                                                                onChange={
-                                                                    calculator_dropdown_handler
-                                                                }
+                                                                onChange={calculatorDropdownHandler}
                                                                 contractSize={values.contractSize}
                                                                 error={
                                                                     touched.symbol && errors.symbol
@@ -516,7 +521,7 @@ const PnlMarginCalculator = () => {
                                                                         )
                                                                     }}
                                                                 >
-                                                                    {point_value_input}
+                                                                    {PointValueInput}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -585,10 +590,10 @@ const PnlMarginCalculator = () => {
                                                                     name="takeProfitAmount"
                                                                     value={values.takeProfitAmount}
                                                                     onChange={
-                                                                        take_profit_amount_change_handler
+                                                                        takeProfitAmountChangeHandler
                                                                     }
                                                                 >
-                                                                    {take_profit_amount_input}
+                                                                    {TakeProfitAmountInput}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -607,7 +612,7 @@ const PnlMarginCalculator = () => {
                                                                         )
                                                                     }}
                                                                 >
-                                                                    {asset_price_input}
+                                                                    {AssetPriceInput}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -617,10 +622,10 @@ const PnlMarginCalculator = () => {
                                                                     name="stopLossAmount"
                                                                     value={values.stopLossAmount}
                                                                     onChange={
-                                                                        stop_loss_amount_change_handler
+                                                                        stopLossAmountChangeHandler
                                                                     }
                                                                 >
-                                                                    {stop_loss_amount_input}
+                                                                    {StopLossAmountInput}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -715,7 +720,7 @@ const PnlMarginCalculator = () => {
                                                     >
                                                         <PnlCalculatorTabItem
                                                             active={sub_tab === 'Synthetic'}
-                                                            onClick={pnl_calculator_synthetic}
+                                                            onClick={pnlSyntheticHandler}
                                                         >
                                                             <Text align="center">
                                                                 {localize('Synthetic')}
@@ -724,7 +729,7 @@ const PnlMarginCalculator = () => {
                                                         <PnlCalculatorTabItem
                                                             active={sub_tab === 'Financial'}
                                                             disabled={sub_tab === 'Financial'}
-                                                            onClick={pnl_calculator_financial}
+                                                            onClick={pnlFinancialHandler}
                                                         >
                                                             <Text align="center">
                                                                 {localize('Financial')}
@@ -737,7 +742,7 @@ const PnlMarginCalculator = () => {
                                                         default_option={optionItemDefault}
                                                         selected_option={values.symbol}
                                                         id="symbol"
-                                                        onChange={calculator_dropdown_handler}
+                                                        onChange={calculatorDropdownHandler}
                                                         contractSize={values.contractSize}
                                                         error={touched.symbol && errors.symbol}
                                                         onBlur={handleBlur}
@@ -796,7 +801,7 @@ const PnlMarginCalculator = () => {
                                                                 setFieldValue('assetPrice', value)
                                                             }}
                                                         >
-                                                            {asset_price_input}
+                                                            {AssetPriceInput}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
@@ -807,29 +812,25 @@ const PnlMarginCalculator = () => {
                                                                 setFieldValue('pointValue', value)
                                                             }}
                                                         >
-                                                            {point_value_input}
+                                                            {PointValueInput}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
                                                         <Field
                                                             name="takeProfitAmount"
                                                             value={values.takeProfitAmount}
-                                                            onChange={
-                                                                take_profit_amount_change_handler
-                                                            }
+                                                            onChange={takeProfitAmountChangeHandler}
                                                         >
-                                                            {take_profit_amount_input}
+                                                            {TakeProfitAmountInput}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
                                                         <Field
                                                             name="stopLossAmount"
                                                             value={values.stopLossAmount}
-                                                            onChange={
-                                                                stop_loss_amount_change_handler
-                                                            }
+                                                            onChange={stopLossAmountChangeHandler}
                                                         >
-                                                            {stop_loss_amount_input}
+                                                            {StopLossAmountInput}
                                                         </Field>
                                                     </InputGroup>
 

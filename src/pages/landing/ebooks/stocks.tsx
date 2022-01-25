@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import HeaderSection from './components/_header'
+import HeaderSection from './components/_header-section'
 import Introduction from './components/_introduction'
 import Topics from './components/_topics'
 import Layout from 'components/layout/layout'

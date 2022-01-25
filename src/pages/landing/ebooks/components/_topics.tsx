@@ -1,10 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Header, Li, QueryImage } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
+
+type TopicsProps = {
+    title?: string
+    topicsImage: ImageDataLike
+    topicsList: string[]
+}
 
 const FullWidth = styled.div`
     background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
@@ -79,7 +85,7 @@ const TopicImgWrapper = styled.div`
     }
 `
 
-const Topics = ({ title, topicsImage, topicsList }) => {
+const Topics = ({ title, topicsImage, topicsList }: TopicsProps) => {
     return (
         <FullWidth>
             <Wrapper>
@@ -111,12 +117,6 @@ const Topics = ({ title, topicsImage, topicsList }) => {
             </Wrapper>
         </FullWidth>
     )
-}
-
-Topics.propTypes = {
-    title: PropTypes.string,
-    topicsImage: PropTypes.any,
-    topicsList: PropTypes.array,
 }
 
 export default Topics

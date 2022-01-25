@@ -98,7 +98,7 @@ const SignupAffiliate = ({
 
     return (
         <StyledFlex jc="flex-start" fd="column" p="4rem">
-            <Header as="h4" type="sub-section-title" mb="0.8rem">
+            <Header as="h4" type="subtitle-2" mb="0.8rem">
                 {localize('Sign up')}
             </Header>
             <SubTitle>{localize('Enter your email address to begin')}</SubTitle>

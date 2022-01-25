@@ -74,7 +74,7 @@ const benefits_content = [
 
 const Benefits = () => {
     return (
-        <StyledFlex width="48.4rem" jc="flex-start" fd="column" m="9.4rem 4.7rem 0 0">
+        <StyledFlex width="48rem" jc="flex-start" fd="column" m="9.4rem 7.8rem 0 0">
             {benefits_content.map((item) => {
                 return (
                     <Flex ai="center" height="auto" key={item.id}>

@@ -48,7 +48,7 @@ const RadioInput = ({ label, checked, onChange, description }) => {
                 jc="space-between"
                 style={{ cursor: 'pointer' }}
             >
-                <Label>{localize(label)}</Label>
+                s <Label>{label}</Label>
                 <input
                     type="radio"
                     style={{ cursor: 'pointer' }}

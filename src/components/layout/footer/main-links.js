@@ -18,7 +18,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/who-we-are/">{localize('Who we are')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/why-choose-us/">{localize('Why choose us?')}</Link>
+                            <Link to="/why-choose-us/">{localize('Why choose us')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/partners/">{localize('Partnership programmes')}</Link>

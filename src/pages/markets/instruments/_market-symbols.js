@@ -474,7 +474,7 @@ export const minor_pairs_cfds = [
     },
     {
         src: icons.CHFJPY,
-        text: <Localize translate_text="CAD/CHF" />,
+        text: <Localize translate_text="CHF/JPY" />,
     },
     {
         src: icons.EURNOK,

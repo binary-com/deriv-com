@@ -20,7 +20,7 @@ const StockIndices = ({ simple_step_content }) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 
     if (is_uk_country) {
-        navigate('/404/', { replace: true })
+        navigate('/404/')
     }
 
     return (

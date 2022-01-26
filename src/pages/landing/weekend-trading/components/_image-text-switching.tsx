@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import device from 'themes/device'
-import { Container, SectionContainer, Show } from 'components/containers'
+import device, { size } from 'themes/device'
+import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 type ImageWrapperProps = {
     margin_right: string
@@ -111,6 +112,8 @@ type ImageTextSwitchingProps = {
 
 const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
     const data = useStaticQuery(query)
+    const [is_tabletL] = useBrowserResize(size.tabletL)
+
     return (
         <StyledSection background="var(--color-white)" padding="5rem 0 0 0">
             <StyledContainer direction="column">
@@ -132,20 +135,19 @@ const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
                                 <StyledHeader type="heading-3" mb="1rem">
                                     {item.title}
                                 </StyledHeader>
-                                <Show.Desktop>
-                                    <Text size="var(--text-size-m)" pb="2rem">
-                                        {item.subtitle1}
-                                    </Text>
-                                </Show.Desktop>
-                                <Show.Desktop>
-                                    <Text size="var(--text-size-m)">{item.subtitle2}</Text>
-                                </Show.Desktop>
-                                <Show.Mobile>
-                                    <Text pb="2rem">{item.subtitle_mobile1}</Text>
-                                </Show.Mobile>
-                                <Show.Mobile>
-                                    <Text>{item.subtitle_mobile2}</Text>
-                                </Show.Mobile>
+                                {is_tabletL ? (
+                                    <>
+                                        <Text pb="2rem">{item.subtitle_mobile1}</Text>
+                                        <Text>{item.subtitle_mobile2}</Text>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Text size="var(--text-size-m)" pb="2rem">
+                                            {item.subtitle1}
+                                        </Text>
+                                        <Text size="var(--text-size-m)">{item.subtitle2}</Text>
+                                    </>
+                                )}
                             </Content>
                             <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
                                 <QueryImage

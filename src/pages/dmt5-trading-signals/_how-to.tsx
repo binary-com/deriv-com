@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import SignalSteps from './_signal-steps'
 import { localize, Localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
-import SignalSteps from './_signal-steps'
 
 type HowToProps = {
     active_tab: 'signal-subscriber' | 'signal-provider'

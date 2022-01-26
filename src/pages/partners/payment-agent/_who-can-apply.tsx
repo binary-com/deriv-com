@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import {
     StyledSection,
@@ -12,7 +12,7 @@ import {
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header, Text, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
@@ -70,7 +70,47 @@ const ButtonWrapper = styled(CenteredSection)`
     display: flex;
     justify-content: center;
 `
+type SectionComponentProps = {
+    img_src: string
+    header: ReactElement
+    text: ReactElement
+}
 
+const section_content: SectionComponentProps[] = [
+    {
+        img_src: TradingExperts,
+        header: <Localize translate_text="Currency exchangers" />,
+        text: (
+            <Localize translate_text="Reputable online currency exchangers who want to gain more exposure and clients." />
+        ),
+    },
+    {
+        img_src: Affiliates,
+        header: <Localize translate_text="Affiliates" />,
+        text: <Localize translate_text="Deriv affiliates who want to support their clients." />,
+    },
+    {
+        img_src: CommunityManagers,
+        header: <Localize translate_text="Community managers" />,
+        text: (
+            <Localize translate_text="Trusted influencers or community managers who want to earn extra revenue." />
+        ),
+    },
+]
+
+const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
+    return (
+        <Wrapper>
+            <ImageWrapper src={img_src} alt="" />
+            <Content max_width="36.4rem">
+                <Header as="h4" type="sub-section-title">
+                    {header}
+                </Header>
+                <Text>{text}</Text>
+            </Content>
+        </Wrapper>
+    )
+}
 const WhoCanApply = () => {
     return (
         <SectionWrapper padding="8rem 0">
@@ -80,48 +120,18 @@ const WhoCanApply = () => {
                         <StyledHeader as="h2" size="3.6rem">
                             {localize('Who can apply')}
                         </StyledHeader>
-                        <Wrapper>
-                            <ImageWrapper src={TradingExperts} alt="" />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" type="sub-section-title">
-                                    {localize('Currency exchangers')}
-                                </Header>
-                                <Text>
-                                    {localize(
-                                        'Reputable online currency exchangers who want to gain more exposure and clients.',
-                                    )}
-                                </Text>
-                            </Content>
-                        </Wrapper>
-                        <Wrapper>
-                            <ImageWrapper src={Affiliates} alt="" />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" type="sub-section-title">
-                                    {localize('Affiliates')}
-                                </Header>
-                                <Text>
-                                    {localize(
-                                        'Deriv affiliates who want to support their clients.',
-                                    )}
-                                </Text>
-                            </Content>
-                        </Wrapper>
-                        <Wrapper>
-                            <ImageWrapper src={CommunityManagers} alt="" />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" type="sub-section-title">
-                                    {localize('Community managers')}
-                                </Header>
-                                <Text>
-                                    {localize(
-                                        'Trusted influencers or community managers who want to earn extra revenue.',
-                                    )}
-                                </Text>
-                            </Content>
-                        </Wrapper>
+                        {section_content.map((item, index) => (
+                            <SectionComponent
+                                key={`key-${index}`}
+                                img_src={item.img_src}
+                                header={item.header}
+                                text={item.text}
+                            />
+                        ))}
                     </WhoCanApplyWrapper>
                 </Flex>
                 <Separator />
+                {/* how to apply section */}
                 <Flex>
                     <HowToApply>
                         <HeaderHowToApply as="h2" mb="4rem" size="3.6rem">

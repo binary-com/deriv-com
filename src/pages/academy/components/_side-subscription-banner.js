@@ -245,10 +245,14 @@ const ArticleEmailBanner = () => {
         window._cio.identify({
             id: email,
             email,
+            country: user_country,
             created_at: Math.round(Date.now() / 1000),
             name,
             type: 'Academy',
-            country: user_country,
+            unsubscribed: true,
+        })
+        window._cio.track('academy_subscription', {
+            id: email,
         })
     }
 

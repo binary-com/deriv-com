@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
-import AcademyNav from './_nav'
+import AcademyNav from './_academy-nav'
 import Subscribe from './_subscribe'
 import { SectionContainer, SEO, Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import { LinkButton } from 'components/form/'
@@ -97,4 +97,4 @@ const Subscription = () => {
     )
 }
 
-export default Subscription
+export default WithIntl()(Subscription)

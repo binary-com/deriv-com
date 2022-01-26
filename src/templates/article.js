@@ -368,10 +368,9 @@ export const query = graphql`
                     imageFile {
                         childImageSharp {
                             gatsbyImageData(
-                                quality: 100
-                                webpOptions: { quality: 100 }
-                                avifOptions: { quality: 100, lossless: true }
-                                placeholder: BLURRED
+                                quality: 60
+                                webpOptions: { quality: 60 }
+                                avifOptions: { quality: 60 }
                             )
                         }
                     }
@@ -401,10 +400,9 @@ export const query = graphql`
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    quality: 100
-                                    webpOptions: { quality: 100 }
-                                    avifOptions: { quality: 100, lossless: true }
-                                    placeholder: BLURRED
+                                    quality: 60
+                                    webpOptions: { quality: 60 }
+                                    avifOptions: { quality: 60 }
                                 )
                             }
                         }
@@ -415,10 +413,9 @@ export const query = graphql`
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    quality: 100
-                                    webpOptions: { quality: 100 }
-                                    avifOptions: { quality: 100, lossless: true }
-                                    placeholder: BLURRED
+                                    quality: 60
+                                    webpOptions: { quality: 60 }
+                                    avifOptions: { quality: 60 }
                                 )
                             }
                         }
@@ -434,10 +431,9 @@ export const query = graphql`
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    quality: 100
-                                    webpOptions: { quality: 100 }
-                                    avifOptions: { quality: 100, lossless: true }
-                                    placeholder: BLURRED
+                                    quality: 60
+                                    webpOptions: { quality: 60 }
+                                    avifOptions: { quality: 60 }
                                 )
                             }
                         }

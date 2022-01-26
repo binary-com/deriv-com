@@ -15,7 +15,7 @@ export const academyQuery = graphql`
                 desktop_hero: image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(quality: 100)
+                            gatsbyImageData(quality: 60)
                         }
                     }
                     id
@@ -40,7 +40,7 @@ export const academyQuery = graphql`
                 desktop_hero: image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(quality: 100)
+                            gatsbyImageData(quality: 60)
                         }
                     }
                     id
@@ -65,7 +65,7 @@ export const academyQuery = graphql`
                 desktop_hero: image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(quality: 100)
+                            gatsbyImageData(quality: 60)
                         }
                     }
                     id

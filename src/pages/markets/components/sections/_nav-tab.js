@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
-import { Flex, UK, NonUK } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
+import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const TabsContainer = styled(Flex)`
@@ -127,51 +128,31 @@ const tab_list_uk = [
 ]
 
 const NavTab = ({ route_from, route_offset }) => {
+    const { is_uk_country } = React.useContext(DerivStore)
+
     const ref = useRef(null)
 
     useEffect(() => {
         ref.current.scrollLeft = route_offset
-    }, [ref.current])
+    }, [ref.current, is_uk_country])
 
     return (
-        <>
-            <NonUK>
-                <TabsContainer>
-                    <Flex direction="column">
-                        <TabList ref={ref}>
-                            {tab_list.map((item, index) => {
-                                return (
-                                    <TabButton selected={route_from == item.tab_name} key={index}>
-                                        <StyledLink to={item.route_to}>
-                                            <TextWrapper>{item.title}</TextWrapper>
-                                        </StyledLink>
-                                    </TabButton>
-                                )
-                            })}
-                            <LineDivider />
-                        </TabList>
-                    </Flex>
-                </TabsContainer>
-            </NonUK>
-            <UK>
-                <TabsContainer>
-                    <Flex direction="column">
-                        <TabList ref={ref}>
-                            {tab_list_uk.map((item, index) => {
-                                return (
-                                    <TabButton selected={route_from == item.tab_name} key={index}>
-                                        <StyledLink to={item.route_to}>
-                                            <TextWrapper>{item.title}</TextWrapper>
-                                        </StyledLink>
-                                    </TabButton>
-                                )
-                            })}
-                            <LineDivider />
-                        </TabList>
-                    </Flex>
-                </TabsContainer>
-            </UK>
-        </>
+        <TabsContainer>
+            <Flex direction="column">
+                <TabList ref={ref}>
+                    {(is_uk_country ? tab_list_uk : tab_list).map((item, index) => {
+                        return (
+                            <TabButton selected={route_from == item.tab_name} key={index}>
+                                <StyledLink to={item.route_to}>
+                                    <TextWrapper>{item.title}</TextWrapper>
+                                </StyledLink>
+                            </TabButton>
+                        )
+                    })}
+                    <LineDivider />
+                </TabList>
+            </Flex>
+        </TabsContainer>
     )
 }
 

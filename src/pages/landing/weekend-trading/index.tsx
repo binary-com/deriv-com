@@ -29,7 +29,6 @@ const DP2P_CONTENT = [
         subtitle_mobile2: (
             <Localize translate_text="Available to trade on Deriv MT5 and Deriv X (with margin), DTrader (with options and multipliers), and Deriv GO (with multipliers)." />
         ),
-
         image_name: 'buy_sell',
         image_alt: localize('Buy and sell'),
     },
@@ -66,12 +65,7 @@ const WeekenLP = () => {
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}
             />
-            <Hero
-                title={localize('Ride the trends even on weekends')}
-                content={
-                    <Localize translate_text="Trade even when most financial markets are closed" />
-                }
-            />
+            <Hero />
             <IconTextRow />
             <ImageTextSwitching reverse P2P={DP2P_CONTENT} />
             <Titlebtn

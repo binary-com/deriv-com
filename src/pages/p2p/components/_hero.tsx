@@ -6,9 +6,8 @@ import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import device, { size } from 'themes/device.js'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { size } from 'themes/device'
 
 const BackgroundWrapper = styled(Background)`
     height: 100%;

@@ -174,7 +174,9 @@ const Subscribe = () => {
     const { is_eu_country, user_country } = React.useContext(DerivStore)
 
     useEffect(() => {
-        addScriptForCIO()
+        if (!window._cio) {
+            addScriptForCIO()
+        }
         const options = {
             headers: new Headers({ 'content-type': 'application/json' }),
             mode: 'no-cors',

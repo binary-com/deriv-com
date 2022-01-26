@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
@@ -127,14 +127,32 @@ const tab_list_uk = [
     },
 ]
 
-const NavTab = ({ route_from }) => {
+const NavTab = ({ route_from, route_offset }) => {
     const { is_uk_country } = React.useContext(DerivStore)
+
+    const ref = useRef(null)
+
+    useEffect(() => {
+        ref.current.scrollLeft = route_offset
+    }, [ref.current])
 
     return (
         <TabsContainer>
             <Flex direction="column">
-                <TabList>
-                    {(is_uk_country ? tab_list_uk : tab_list).map((item, index) => {
+                <TabList ref={ref}>
+                    {(is_uk_country && tab_list).map((item, index) => {
+                        return (
+                            <TabButton selected={route_from == item.tab_name} key={index}>
+                                <StyledLink to={item.route_to}>
+                                    <TextWrapper>{item.title}</TextWrapper>
+                                </StyledLink>
+                            </TabButton>
+                        )
+                    })}
+                    <LineDivider />
+                </TabList>
+                <TabList ref={ref}>
+                    {(is_uk_country && tab_list_uk).map((item, index) => {
                         return (
                             <TabButton selected={route_from == item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>

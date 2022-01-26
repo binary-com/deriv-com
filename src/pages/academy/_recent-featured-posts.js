@@ -230,7 +230,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 )}
             </StyledTabs>
             <AllArticleButton tertiary="true" to="/academy/blog/">
-                See all blog articles
+                {localize('See all articles')}
             </AllArticleButton>
         </StyledContainer>
     )

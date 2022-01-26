@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
+
+type ContentProps = {
+    margin_right: string
+    margin_left: string
+}
+
+type ImageWrapperProps = {
+    margin_right?: string
+}
+
+type RowProps = {
+    flex_direction: string
+}
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-30);
@@ -17,7 +29,7 @@ const MainWrapper = styled(Container)`
     }
 `
 
-const Content = styled(Flex)`
+const Content = styled(Flex)<ContentProps>`
     width: 60%;
     flex-direction: column;
     margin-right: ${(props) => props.margin_right};
@@ -40,7 +52,7 @@ const Content = styled(Flex)`
     }
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<ImageWrapperProps>`
     display: flex;
     width: 40%;
     margin-right: ${(props) => props.margin_right};
@@ -60,7 +72,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const Row = styled.div`
+const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -74,6 +86,7 @@ const Row = styled.div`
         flex-direction: column;
     }
 `
+
 const query = graphql`
     query {
         dbot_strategy: file(relativePath: { eq: "dbot/dbot-strategy.png" }) {
@@ -121,26 +134,31 @@ const query = graphql`
         }
     }
 `
-const Parallelogram = ({ trading, reverse, two_title }) => {
+
+type ParallelogramProps = {
+    reverse: boolean
+    trading: TradingType[]
+}
+
+type TradingType = {
+    title: ReactElement
+    subtitle: ReactElement
+    image_name: string
+    image_alt: string
+}
+
+const Parallelogram = ({ trading, reverse }: ParallelogramProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
             <MainWrapper fd="column">
                 {trading.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content>
                                 <StyledHeader type="display-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader type="page-title" mt="2.4rem">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <Text>{item.second_subtitle}</Text>
-                                    </>
-                                )}
                             </Content>
                             {item.image_name && (
                                 <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
@@ -157,12 +175,6 @@ const Parallelogram = ({ trading, reverse, two_title }) => {
             </MainWrapper>
         </StyledSection>
     )
-}
-
-Parallelogram.propTypes = {
-    reverse: PropTypes.bool,
-    trading: PropTypes.array,
-    two_title: PropTypes.bool,
 }
 
 export default Parallelogram

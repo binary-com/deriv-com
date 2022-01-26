@@ -72,12 +72,6 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledContainer = styled(Container)`
-    @media ${device.desktop} {
-        max-width: 1280px;
-    }
-`
-
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
 
@@ -88,16 +82,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
     return (
         <HeroWrapper>
             <BackgroundImage is_unstyled data={data.hero_background} loading="eager">
-                <StyledContainer
-                    width="100%"
-                    max_width="100%"
-                    m="0 auto"
-                    p="0 12rem"
-                    fd="column"
-                    ai="flex-start"
-                    laptopM={{ p: '0 8rem' }}
-                    tabletL={{ ai: 'center', max_width: '588px', p: '0 16px' }}
-                >
+                <Container fd="column" ai="flex-start">
                     <Flex
                         m="0 auto"
                         tabletL={{
@@ -162,17 +147,9 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 </HeroButton>
                             </Box>
                         </Flex>
-                        <Flex
-                            m="0 auto"
-                            min_height="500px"
-                            ai="center"
-                            jc="center"
-                            tabletL={{ mt: '0', width: 'unset', min_height: '340px', p: '0 39px' }}
-                        >
-                            <PlatformSlideshow />
-                        </Flex>
+                        <PlatformSlideshow />
                     </Flex>
-                </StyledContainer>
+                </Container>
             </BackgroundImage>
         </HeroWrapper>
     )

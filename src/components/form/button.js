@@ -101,6 +101,7 @@ export const SharedButtonStyle = css`
                 padding: 17px 24px;
                 font-size: 20px;
                 line-height: 30px;
+                border-radius: 8px;
 
                 &:hover {
                     background-color: var(--color-red-3);

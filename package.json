@@ -76,6 +76,7 @@
         "gh-pages": "^3.2.3",
         "husky": "^7.0.4",
         "lint-staged": "^12.1.5",
+        "minify-lint-staged": "^0.0.5",
         "npm-force-resolutions": "0.0.10",
         "prettier": "^2.5.1",
         "query-string": "^7.0.1",

@@ -13,7 +13,9 @@ export const Section = styled(SectionContainer)`
     background-color: ${({ color }) => `var(--color-${color})`};
     padding: 0;
 `
-
+export const FooterSection = styled(Section)`
+    margin-bottom: ${(props) => props.is_eu_country && '7.3rem'};
+`
 export const ContentContainer = styled(Container)`
     max-width: 1440px;
     flex-direction: row-reverse;

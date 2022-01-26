@@ -46,7 +46,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
     ]
 
     if (is_uk_country) {
-        navigate('/404/', { replace: true })
+        navigate('/404/')
     }
 
     return (

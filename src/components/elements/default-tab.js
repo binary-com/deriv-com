@@ -144,15 +144,7 @@ const Tabs = ({
                         onClick={() => setActiveTab(tab_list[index])}
                         mobile_tab_button_underline_length={mobile_tab_button_underline_length}
                     >
-                        <TextWrapper
-                            font_size={
-                                route_from === 'markets'
-                                    ? '24px'
-                                    : route_from === 'recent_featured_posts'
-                                    ? '18px'
-                                    : undefined
-                            }
-                        >
+                        <TextWrapper font_size={route_from === 'markets' ? '24px' : undefined}>
                             {label}
                         </TextWrapper>
                     </TabButton>

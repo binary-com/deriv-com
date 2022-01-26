@@ -232,7 +232,7 @@ const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrenc
                             active_tab={active_tab}
                         />
                     )}
-                    {SyntheticIndices && (
+                    {!is_uk_country && SyntheticIndices && (
                         <Card
                             name="Synthetic Indices"
                             display_name={<Localize translate_text="Synthetic Indices" />}

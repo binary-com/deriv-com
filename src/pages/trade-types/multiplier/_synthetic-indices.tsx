@@ -13,6 +13,7 @@ import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { NonUK } from 'components/containers/visibility'
 import { DerivStore } from 'store'
 
 const StyledText = styled(Text)`
@@ -169,24 +170,59 @@ const SyntheticIndices = () => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
-        <SectionContainer padding="4rem 0 8rem">
-            <Flex max_width="79.2rem" m="0 auto" direction="column">
-                <StyledText mb="12px" align="center">
-                    {is_eu_country
-                        ? localize(
-                              'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from tight spreads and fixed generation intervals.',
-                          )
-                        : localize(
-                              'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.',
-                          )}
-                </StyledText>
-                <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms dtrader />
-                </AvailablePlatformsWrapper>
-                <Text weight="bold">
-                    {localize('Synthetic indices available for multipliers trading')}
-                </Text>
-                {is_eu_country && (
+        <NonUK>
+            <SectionContainer padding="4rem 0 8rem">
+                <Flex max_width="79.2rem" m="0 auto" direction="column">
+                    <StyledText mb="12px" align="center">
+                        {is_eu_country
+                            ? localize(
+                                  'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from tight spreads and fixed generation intervals.',
+                              )
+                            : localize(
+                                  'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.',
+                              )}
+                    </StyledText>
+                    <AvailablePlatformsWrapper mb="40px">
+                        <AvailablePlatforms dtrader />
+                    </AvailablePlatformsWrapper>
+                    <Text weight="bold">
+                        {localize('Synthetic indices available for multipliers trading')}
+                    </Text>
+                    {is_eu_country && (
+                        <MarketsWrapper direction="column">
+                            <MarketsAccordion
+                                renderTitle={() => (
+                                    <Flex jc="flex-start" ai="center">
+                                        <Col max_width="13.2rem">
+                                            <Show.Desktop>
+                                                <Title
+                                                    weight="bold"
+                                                    max_width="9.7rem"
+                                                    align="center"
+                                                >
+                                                    {localize('Volatility indices')}
+                                                </Title>
+                                            </Show.Desktop>
+                                            <Show.Mobile>
+                                                <Title
+                                                    weight="bold"
+                                                    max_width="9.7rem"
+                                                    align="center"
+                                                >
+                                                    {localize('Volatility indices')}
+                                                </Title>
+                                            </Show.Mobile>
+                                        </Col>
+                                        <MarketsList>
+                                            <VolatilityIndices />
+                                        </MarketsList>
+                                    </Flex>
+                                )}
+                                renderDetails={VolatilityIndicesDetails}
+                            />
+                        </MarketsWrapper>
+                    )}
+
                     <MarketsWrapper direction="column">
                         <MarketsAccordion
                             renderTitle={() => (
@@ -194,118 +230,93 @@ const SyntheticIndices = () => {
                                     <Col max_width="13.2rem">
                                         <Show.Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
-                                                {localize('Volatility indices')}
+                                                {localize('Crash/Boom')}
                                             </Title>
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
-                                                {localize('Volatility indices')}
+                                                {localize('Crash/ Boom')}
                                             </Title>
                                         </Show.Mobile>
                                     </Col>
                                     <MarketsList>
-                                        <VolatilityIndices />
+                                        <CrashBoom />
                                     </MarketsList>
                                 </Flex>
                             )}
-                            renderDetails={VolatilityIndicesDetails}
+                            renderDetails={CrashBoomDetails}
                         />
                     </MarketsWrapper>
-                )}
-
-                <MarketsWrapper direction="column">
-                    <MarketsAccordion
-                        renderTitle={() => (
-                            <Flex jc="flex-start" ai="center">
-                                <Col max_width="13.2rem">
-                                    <Show.Desktop>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Crash/Boom')}
-                                        </Title>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Crash/ Boom')}
-                                        </Title>
-                                    </Show.Mobile>
-                                </Col>
-                                <MarketsList>
-                                    <CrashBoom />
-                                </MarketsList>
-                            </Flex>
-                        )}
-                        renderDetails={CrashBoomDetails}
-                    />
-                </MarketsWrapper>
-                {!is_eu_country && (
+                    {!is_eu_country && (
+                        <MarketsWrapper direction="column">
+                            <MarketsAccordion
+                                renderTitle={() => (
+                                    <Flex jc="flex-start" ai="center">
+                                        <Col>
+                                            <Title weight="bold" align="center">
+                                                {localize('Continuous indices')}
+                                            </Title>
+                                        </Col>
+                                        <MarketsList>
+                                            <ContinuousIndices />
+                                        </MarketsList>
+                                    </Flex>
+                                )}
+                                renderDetails={ContinuousIndicesDetails}
+                            />
+                        </MarketsWrapper>
+                    )}
                     <MarketsWrapper direction="column">
                         <MarketsAccordion
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
-                                    <Col>
-                                        <Title weight="bold" align="center">
-                                            {localize('Continuous indices')}
-                                        </Title>
+                                    <Col max_width="13.2rem">
+                                        <Show.Desktop>
+                                            <Title weight="bold" max_width="9.7rem" align="center">
+                                                {localize('Jump indices')}
+                                            </Title>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <Title weight="bold" max_width="9.7rem" align="center">
+                                                {localize('Jump indices')}
+                                            </Title>
+                                        </Show.Mobile>
                                     </Col>
                                     <MarketsList>
-                                        <ContinuousIndices />
+                                        <JumpIndices />
                                     </MarketsList>
                                 </Flex>
                             )}
-                            renderDetails={ContinuousIndicesDetails}
+                            renderDetails={JumpIndicesDetails}
                         />
                     </MarketsWrapper>
-                )}
-                <MarketsWrapper direction="column">
-                    <MarketsAccordion
-                        renderTitle={() => (
-                            <Flex jc="flex-start" ai="center">
-                                <Col max_width="13.2rem">
-                                    <Show.Desktop>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Jump indices')}
-                                        </Title>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Jump indices')}
-                                        </Title>
-                                    </Show.Mobile>
-                                </Col>
-                                <MarketsList>
-                                    <JumpIndices />
-                                </MarketsList>
-                            </Flex>
-                        )}
-                        renderDetails={JumpIndicesDetails}
-                    />
-                </MarketsWrapper>
-                <MarketsWrapper direction="column">
-                    <MarketsAccordion
-                        renderTitle={() => (
-                            <Flex jc="flex-start" ai="center">
-                                <Col max_width="13.2rem">
-                                    <Show.Desktop>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Step indices')}
-                                        </Title>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Step indices')}
-                                        </Title>
-                                    </Show.Mobile>
-                                </Col>
-                                <MarketsList>
-                                    <StepIndices />
-                                </MarketsList>
-                            </Flex>
-                        )}
-                        renderDetails={StepIndicesDetails}
-                    />
-                </MarketsWrapper>
-            </Flex>
-        </SectionContainer>
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col max_width="13.2rem">
+                                        <Show.Desktop>
+                                            <Title weight="bold" max_width="9.7rem" align="center">
+                                                {localize('Step indices')}
+                                            </Title>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <Title weight="bold" max_width="9.7rem" align="center">
+                                                {localize('Step indices')}
+                                            </Title>
+                                        </Show.Mobile>
+                                    </Col>
+                                    <MarketsList>
+                                        <StepIndices />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={StepIndicesDetails}
+                        />
+                    </MarketsWrapper>
+                </Flex>
+            </SectionContainer>
+        </NonUK>
     )
 }
 

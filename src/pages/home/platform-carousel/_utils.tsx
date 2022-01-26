@@ -92,11 +92,7 @@ export const platform_details: TPlatformDetails[] = [
         image_key: 'platforms_dbot',
         description: localize('Automate your trading. No coding required.'),
         learn_more_link: '/dbot/',
-        download_links: [
-            { type: 'browser', url: deriv_bot_app_url },
-            { type: 'app_store', url: derivx_ios_url },
-            { type: 'google_play', url: derivx_android_url },
-        ],
+        download_links: [{ type: 'browser', url: deriv_bot_app_url }],
     },
     {
         title: 'Deriv GO',
@@ -152,7 +148,7 @@ export const getPlatformDetails = (no_of_copies) => {
 export const no_slide_sets = 11
 
 export const getSlideStartingIndex = () => {
-    return Math.round((no_slide_sets * 8) / 2 - 1)
+    return Math.round((no_slide_sets * 8) / 2 - 3)
 }
 
 export const ImageTag = styled.img`

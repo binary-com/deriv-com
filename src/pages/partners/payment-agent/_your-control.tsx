@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Container, SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 // SVG
@@ -58,6 +58,32 @@ const StyledText = styled(Text)`
     }
 `
 
+type CardItemType = {
+    img_src: string
+    card_text: ReactElement
+}
+const cardItems: CardItemType[] = [
+    {
+        img_src: Comission,
+        card_text: (
+            <Localize translate_text="Determine your commission per transaction, subject to our established thresholds." />
+        ),
+    },
+    {
+        img_src: LoudSpeaker,
+        card_text: (
+            <Localize translate_text="Choose which countries to service, and promote your services your way." />
+        ),
+    },
+    {
+        img_src: WithdrawDeposit,
+        card_text: <Localize translate_text="Perform multiple deposits and withdrawals per day." />,
+    },
+    {
+        img_src: CloseAccount,
+        card_text: <Localize translate_text="Close your account at any time you want." />,
+    },
+]
 const YourControl = () => {
     return (
         <SectionContainer background="grey-8">
@@ -78,32 +104,12 @@ const YourControl = () => {
                     mobile_columns="1fr"
                     mobile_row_gap="16px"
                 >
-                    <Card>
-                        <img src={Comission} alt="" />
-                        <CardText>
-                            {localize(
-                                'Determine your commission per transaction, subject to our established thresholds.',
-                            )}
-                        </CardText>
-                    </Card>
-                    <Card>
-                        <img src={LoudSpeaker} alt="" />
-                        <CardText>
-                            {localize(
-                                'Choose which countries to service, and promote your services your way.',
-                            )}
-                        </CardText>
-                    </Card>
-                    <Card>
-                        <img src={WithdrawDeposit} alt="" />
-                        <CardText>
-                            {localize('Perform multiple deposits and withdrawals per day.')}
-                        </CardText>
-                    </Card>
-                    <Card>
-                        <img src={CloseAccount} alt="" />
-                        <CardText>{localize('Close your account at any time you want.')}</CardText>
-                    </Card>
+                    {cardItems.map((item, index) => (
+                        <Card key={`key-${index}`}>
+                            <img src={item.img_src} alt={''} />
+                            <CardText>{item.card_text}</CardText>
+                        </Card>
+                    ))}
                 </CssGrid>
             </Container>
         </SectionContainer>

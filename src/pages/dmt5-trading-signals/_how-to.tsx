@@ -1,11 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import SignalSteps from './_signal-steps'
 import { localize, Localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
+
+type HowToProps = {
+    active_tab: 'signal-subscriber' | 'signal-provider'
+}
 
 const content = {
     subscriber: {
@@ -16,12 +20,12 @@ const content = {
     },
 }
 
-const StyledSectionContainer = styled(SectionContainer)`
+const StyledSectionContainer = styled(SectionContainer)<HowToProps>`
     padding: 9.1rem 0 8rem 0;
-    background-color: ${(props) =>
-        props.active_tab === 'signal-subscriber' ? 'var(--color-grey-25)' : 'var(--color-white)'};
-    box-shadow: ${(props) =>
-        props.active_tab === 'signal-subscriber' ? 'none' : 'inset 0 1px 0 0 var(--color-grey-2);'};
+    background-color: ${({ active_tab }) =>
+        active_tab === 'signal-subscriber' ? 'var(--color-grey-25)' : 'var(--color-white)'};
+    box-shadow: ${({ active_tab }) =>
+        active_tab === 'signal-subscriber' ? 'none' : 'inset 0 1px 0 0 var(--color-grey-2);'};
 
     @media ${device.tabletL} {
         padding: 29px 0 40px 0;
@@ -60,17 +64,20 @@ const DMT5Button = styled(LinkButton)`
     }
 `
 
-const HowTo = ({ Steps, active_tab }) => {
+const HowTo = ({ active_tab }: HowToProps) => {
+    const [signal_subscriber, signal_provider] = [
+        active_tab === 'signal-subscriber',
+        active_tab === 'signal-provider',
+    ]
+
     return (
         <StyledSectionContainer active_tab={active_tab}>
             <StyledContainer justify="center" direction="column">
                 <StyledHeader as="h2">
-                    {active_tab === 'signal-subscriber'
-                        ? content.subscriber.header
-                        : content.provider.header}
+                    {signal_subscriber ? content.subscriber.header : content.provider.header}
                 </StyledHeader>
-                <Steps active_tab={active_tab} />
-                {active_tab === 'signal-provider' && (
+                <SignalSteps active_tab={active_tab} />
+                {signal_provider && (
                     <DMT5Button
                         secondary="true"
                         external="true"
@@ -87,8 +94,4 @@ const HowTo = ({ Steps, active_tab }) => {
     )
 }
 
-HowTo.propTypes = {
-    active_tab: PropTypes.string,
-    Steps: PropTypes.func,
-}
 export default HowTo

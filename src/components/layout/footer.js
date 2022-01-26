@@ -6,7 +6,6 @@ import { DefaultFooter, FooterGrid } from './footer/common/style.js'
 import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
-import CopyrightSection from './footer/copyright'
 import BottomSocialSection from './footer/bottom-social-wrapper'
 import AdditionalEUSection from './footer/additional-eu'
 import { DerivStore } from 'store'
@@ -39,7 +38,6 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy }) => {
                         is_eu_country={is_eu_country}
                     />
                     <DisclaimerSection is_academy={academy} />
-                    <CopyrightSection />
                     <BottomSocialSection type={type} />
                     <AdditionalEUSection />
                 </FooterGrid>

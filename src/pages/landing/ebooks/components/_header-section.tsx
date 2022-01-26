@@ -1,11 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import GetEbook from './_get-ebook'
+import { HeaderAndHeroProps } from './_types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
+
+type HeaderImageProps = {
+    imgWidth: number
+    imgHeight: number
+}
+
+type HeaderSectionProps = HeaderAndHeroProps & {
+    imgHeight: number
+    imgWidth: number
+}
 
 const MainWrapper = styled(Flex)`
     width: 100%;
@@ -48,9 +58,13 @@ const TopHeaderImgWrapper = styled(Flex)`
         margin-top: -70px;
     }
 `
-const HeaderImage = styled(QueryImage)`
-    width: ${(props) => (props.imgWidth ? `${props.imgWidth}px` : '557px')};
-    height: ${(props) => (props.imgHeight ? `${props.imgHeight}px` : '703px')};
+
+const widthProps = (props) => (props.imgWidth ? `${props.imgWidth}px` : '557px')
+const heightProps = (props) => (props.imgHeight ? `${props.imgHeight}px` : '703px')
+
+const HeaderImage = styled(QueryImage)<HeaderImageProps>`
+    width: ${widthProps};
+    height: ${heightProps};
     position: relative;
     top: 75px;
     margin: 0;
@@ -71,7 +85,7 @@ const HeaderImage = styled(QueryImage)`
 
     @media ${device.tabletS} {
         width: ${(props) => (props.imgWidth < 600 ? '115%' : '105%')};
-        height: ${(props) => (props.imgWidth < 600 ? '105%' : '105%')};
+        height: ${(props) => props.imgWidth < 600 && '105%'};
         margin-left: ${(props) => (props.imgWidth < 600 ? '-110px' : '-50px')};
     }
     @media ${device.mobileS} {
@@ -149,7 +163,7 @@ const HeaderSection = ({
     bg,
     bgMobile,
     ebook_utm_code,
-}) => {
+}: HeaderSectionProps) => {
     return (
         <MainWrapper bg={bg} bgMobile={bgMobile}>
             <HeaderBody>
@@ -226,19 +240,6 @@ const HeaderSection = ({
             </HeaderBody>
         </MainWrapper>
     )
-}
-
-HeaderSection.propTypes = {
-    authorDesc: PropTypes.string,
-    authorName: PropTypes.string,
-    bg: PropTypes.any,
-    bgMobile: PropTypes.any,
-    ebook_utm_code: PropTypes.string,
-    imgHeight: PropTypes.number,
-    imgWidth: PropTypes.number,
-    introMain: PropTypes.any,
-    introSub: PropTypes.any,
-    mainHeaderImage: PropTypes.any,
 }
 
 export default HeaderSection

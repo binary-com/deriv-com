@@ -492,7 +492,7 @@ export const NavCompany = ({ onClick }) => (
         />
         <CardLink
             icon={() => <img src={Choose} alt="" width="24" height="24" />}
-            title={localize('Why choose us?')}
+            title={localize('Why choose us')}
             onClick={onClick}
             to="/why-choose-us/"
         />

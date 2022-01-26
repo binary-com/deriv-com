@@ -84,7 +84,7 @@ const Slide = styled(Flex)<{ distance_center: number }>`
     align-items: center;
     cursor: pointer;
     backface-visibility: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 `
 
 type PlatformSliderProps = {

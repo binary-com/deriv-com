@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
+import { Flex, Show } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
@@ -8,6 +8,7 @@ import FacebookIcon from 'images/svg/blog/facebook.svg'
 import PinterestIcon from 'images/svg/blog/pinterest.svg'
 import TwitterIcon from 'images/svg/blog/twitter.svg'
 import LinkedInIcon from 'images/svg/layout/footer-linkedin.svg'
+import ShareIcon from 'images/svg/academy/share.svg'
 
 const IconWrapper = styled.div`
     width: 120px;
@@ -28,61 +29,182 @@ const StyledFlex = styled(Flex)`
     }
 `
 
+const SharingWrapper = styled.div`
+    display: flex;
+    position: absolute;
+    left: 80%;
+    top: 25px;
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+
+    @media ${device.tabletL} {
+        position: absolute;
+        left: 85%;
+        top: 8px;
+    }
+`
+
+const SharingButton = styled.button`
+    height: 40px;
+    width: 40px;
+    margin-bottom: 10px;
+    background: rgba(236, 241, 247, 0.5);
+    border: 1px solid rgba(236, 241, 247, 0.5);
+    border-radius: 5px;
+
+    img {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -5%;
+        left: -10%;
+    }
+`
+
+const DropDownSharingButton = styled.div`
+    position: absolute;
+    left: -5px;
+    top: 50px;
+    width: 50px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+
+    &::after {
+        border: 5px solid transparent;
+        border-bottom: 10px solid white;
+        content: '';
+        position: absolute;
+        right: 20px;
+        top: -14px;
+        z-index: 2;
+    }
+`
+
+export const SocialWrapper = styled.div`
+    grid-area: social;
+
+    img {
+        margin-right: 2rem;
+    }
+
+    @media ${device.tabletL} {
+        grid-area: social;
+        display: flex;
+        justify-content: center;
+        margin: 3rem 0 1rem;
+
+        img {
+            margin: 1rem 1rem 1rem 1rem;
+        }
+    }
+`
+
+// clip-path: polygon(50% 60%, 20% 100%, 80% 100%);
+const url = typeof window !== 'undefined' ? window.location.href : ''
+const social_media = [
+    {
+        link: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+        image: FacebookIcon,
+    },
+    {
+        link: `http://www.linkedin.com/shareArticle?mini=true&url=${url}`,
+        image: LinkedInIcon,
+    },
+    {
+        link: `https://www.twitter.com/share?url=${url}`,
+        image: TwitterIcon,
+    },
+    {
+        link: `https://pinterest.com/pin/create/button/?url=${url}&media=&description=`,
+        image: PinterestIcon,
+    },
+]
+
+const SocialDesktopComponent = () => {
+    return social_media.map((account, index) => (
+        <LocalizedLink
+            key={index}
+            external="true"
+            to={account.link}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <img src={account.image} alt={account.image_alt} width="41" height="41" />
+        </LocalizedLink>
+    ))
+}
+
+const SocialMobileComponent = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggling = () => setIsOpen(!isOpen)
+
+    return (
+        <SharingWrapper>
+            <SharingButton onClick={toggling}>
+                <img src={ShareIcon} />
+            </SharingButton>
+            {isOpen && (
+                <DropDownSharingButton>
+                    {social_media.map((account, index) => (
+                        <LocalizedLink
+                            key={index}
+                            external="true"
+                            to={account.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                src={account.image}
+                                alt={account.image_alt}
+                                width="41"
+                                height="41"
+                            />
+                        </LocalizedLink>
+                    ))}
+                </DropDownSharingButton>
+            )}
+        </SharingWrapper>
+    )
+}
+
 const SocialSharing = () => {
-    const url = typeof window !== 'undefined' ? window.location.href : ''
     return (
         url && (
-            <Flex>
-                <StyledFlex
-                    jc="flex-end"
-                    ai="center"
-                    tablet_direction="column"
-                    tablet_jc="flex-end"
-                    tablet_ai="flex-end"
-                >
-                    <HeaderWrapper>
-                        <Header type="paragraph-2" weight="normal">
-                            Share this post
-                        </Header>
-                    </HeaderWrapper>
-                    <IconWrapper>
-                        <Flex jc="space-between">
-                            <LocalizedLink
-                                external
-                                to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={FacebookIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={`http://www.linkedin.com/shareArticle?mini=true&url=${url}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={LinkedInIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={`https://www.twitter.com/share?url=${url}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={TwitterIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={`https://pinterest.com/pin/create/button/?url=${url}&media=&description=`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={PinterestIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                        </Flex>
-                    </IconWrapper>
-                </StyledFlex>
-            </Flex>
+            <SocialWrapper>
+                <Flex>
+                    <StyledFlex
+                        jc="flex-end"
+                        ai="center"
+                        tablet_direction="column"
+                        tablet_jc="flex-end"
+                        tablet_ai="flex-end"
+                    >
+                        <HeaderWrapper>
+                            <IconWrapper>
+                                <Flex jc="space-between">
+                                    <Header type="paragraph-2" weight="normal">
+                                        <Show.Desktop>
+                                            <SharingWrapper>
+                                                <SocialDesktopComponent />
+                                            </SharingWrapper>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <SharingWrapper>
+                                                <SocialMobileComponent />
+                                            </SharingWrapper>
+                                        </Show.Mobile>
+                                    </Header>
+                                </Flex>
+                            </IconWrapper>
+                        </HeaderWrapper>
+                    </StyledFlex>
+                </Flex>
+            </SocialWrapper>
         )
     )
 }

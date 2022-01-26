@@ -37,22 +37,26 @@ export const HeroContainer = styled(Container)`
 export const StickyBreadCrumbsWrapper = styled(Flex)`
     background: ${(props) => (props.scroll ? 'var(--color-white)' : 'var(--color-grey-8)')};
     position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
-    top: ${(props) => (props.scroll ? '70px' : 'unset')};
+    top: ${(props) => (props.scroll ? '64px' : 'unset')};
     z-index: ${(props) => (props.scroll ? '1' : 'unset')};
     height: auto;
     border-top: 1px solid var(--color-grey-8);
 
     @media ${device.desktopL} {
         top: ${(props) => (props.scroll ? '86px' : 'unset')};
+        height: 90px;
+        padding-right: 0;
+        padding-top: 0;
     }
 
     @media ${device.tabletL} {
-        top: ${(props) => (props.scroll ? '59px' : 'unset')};
+        top: ${(props) => (props.scroll ? '55px' : 'unset')};
+        height: 66px;
+        padding-right: 0;
+        padding-top: 0;
     }
 `
 export const BreadcrumbsWrapper = styled(Container)`
-    padding: 24px 0;
-
     @media ${device.desktopS} {
         max-width: 1200px;
         margin: 0 auto;
@@ -405,10 +409,20 @@ export const PreviewContainer = styled(Box)`
     }
 `
 export const SocialComponentsWrapper = styled(Flex)`
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    border-top: 1px solid var(--color-grey-6);
-    padding-top: 24px;
-    margin: 40px 0;
+    padding-top: 60px;
+    margin: 8px 22px;
+    width: 0;
+
+    @media ${device.tabletL} {
+        display: flex;
+        justify-content: flex-end;
+        width: 0;
+        padding-top: 0;
+        margin: 0;
+    }
 `
 export const LeftSocialComponents = styled.div`
     width: 10px;
@@ -464,6 +478,7 @@ export const ProgressContainer = styled.div`
     height: 4px;
     width: 100%;
     background: var(--color-grey-2);
+    z-index: 1;
 `
 export const ProgressBar = styled.div`
     height: 4px;

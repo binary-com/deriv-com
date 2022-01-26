@@ -24,7 +24,6 @@ import {
     DesktopWrapper,
     MobileWrapper,
     StickyBreadCrumbsWrapper,
-    StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
     Scrollbar,
@@ -140,20 +139,28 @@ const ArticlesTemplate = (props) => {
                                         <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                             All articles
                                         </StyledBreadcrumbsLink>
-                                        <StyledImg src={RightArrow} height="16" width="16" />
+                                        <img src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
                                                 ? truncateString(article_title, 30)
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
+                                        <SocialComponentsWrapper>
+                                            <LeftSocialComponents />
+                                            <RightSocialComponents>
+                                                <SocialSharing />
+                                            </RightSocialComponents>
+                                        </SocialComponentsWrapper>
                                     </Flex>
                                 </BreadcrumbsWrapper>
+
                                 <Scrollbar scroll={visible}>
                                     <ProgressContainer>
                                         <ProgressBar ref={barElement}></ProgressBar>
                                     </ProgressContainer>
                                 </Scrollbar>
                             </StickyBreadCrumbsWrapper>
+
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">
@@ -300,12 +307,6 @@ const ArticlesTemplate = (props) => {
                                     {footer_banner_details && (
                                         <Banner detailsObj={footer_banner_details} />
                                     )}
-                                    <SocialComponentsWrapper>
-                                        <LeftSocialComponents />
-                                        <RightSocialComponents>
-                                            <SocialSharing />
-                                        </RightSocialComponents>
-                                    </SocialComponentsWrapper>
 
                                     {side_banner_data_details && (
                                         <MobileWrapper>

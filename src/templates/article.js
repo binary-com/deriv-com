@@ -153,14 +153,12 @@ const ArticlesTemplate = (props) => {
                                         </SocialComponentsWrapper>
                                     </Flex>
                                 </BreadcrumbsWrapper>
-
                                 <Scrollbar scroll={visible}>
                                     <ProgressContainer>
                                         <ProgressBar ref={barElement}></ProgressBar>
                                     </ProgressContainer>
                                 </Scrollbar>
                             </StickyBreadCrumbsWrapper>
-
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">

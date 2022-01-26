@@ -32,7 +32,7 @@ const StyledFlex = styled(Flex)`
 const SharingWrapper = styled.div`
     display: flex;
     position: absolute;
-    left: 80%;
+    left: 73%;
     top: 25px;
 
     img {

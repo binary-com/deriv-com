@@ -8,6 +8,7 @@ import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/ele
 import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
@@ -361,7 +362,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         <Flex>
                             <NavCard
                                 aria_label="Basket indices"
-                                icon={() => <img src={Commodities} alt="" width="32" height="32" />}
+                                icon={() => <img src={Basket} alt="" width="32" height="32" />}
                                 content={localize(
                                     'Trade weighted indices that measure the value of a currency against a basket of major currencies.',
                                 )}

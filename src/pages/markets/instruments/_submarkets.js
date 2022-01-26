@@ -1,5 +1,6 @@
 import Americas from './_americas'
 import AsiaOceania from './_asia-oceania'
+import BasketIndicesCfds from './_basket_indices_cfds'
 import ContinuousIndices from './_continuous-indices'
 import CrashBoom from './_crash-boom'
 import CrashBoomEU from './_crash-boom-eu'
@@ -28,6 +29,7 @@ import SwapFreePairs from './_swap-free-pairs'
 export {
     Americas,
     AsiaOceania,
+    BasketIndicesCfds,
     ContinuousIndices,
     CrashBoom,
     CrashBoomEU,

@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
-import AvailableTrades from '../helper/_available-trades.js'
+import AvailableTrades from '../helper/_available-trades'
 import { basket_indices_content, basket_indices_content_eu } from '../../static/content/_basket'
-import { forex_cfds } from '../../static/content/_cfds'
+import { basket_cfds } from '../../static/content/_cfds'
 import { forex_multiplier } from '../../static/content/_multipliers'
 import { forex_options } from '../../static/content/_digital-options'
-import CFDs from '../sub-markets/_cfds'
+import CFDs from '../sub-markets/_cfds-basket'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
@@ -37,12 +37,12 @@ const BasketIndices = ({ simple_step_content }) => {
                 )}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={forex_cfds} />}
+                CFDs={<CFDs market_content={basket_cfds} />}
                 DigitalOptions={
                     <DigitalOptions market_name={localize('forex')} options_list={forex_options} />
                 }
                 Multipliers={<Multipliers market_content={forex_multiplier} />}
-                name="Forex"
+                name="Basket indices"
                 display_title={
                     <Localize translate_text="Basket indices trades  available on Deriv" />
                 }
@@ -54,7 +54,7 @@ const BasketIndices = ({ simple_step_content }) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="forex" />
+            <OtherMarkets except="commodities" />
         </>
     )
 }

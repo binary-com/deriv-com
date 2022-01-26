@@ -8,10 +8,10 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import Commodities from 'images/svg/markets/commodities.svg'
-import Cryptocurrencies from 'images/svg/markets/cryptocurrencies.svg'
-import Forex from 'images/svg/markets/forex.svg'
-import StockIndices from 'images/svg/markets/stock.svg'
-import SyntheticIndices from 'images/svg/markets/synthetic.svg'
+import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
+import Forex from 'images/svg/markets/forex-new.svg'
+import StockIndices from 'images/svg/markets/stock-new.svg'
+import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import device from 'themes/device'
 
 const markets_type = {
@@ -68,6 +68,7 @@ const markets_type = {
         id: 'marketcryptocurrenciesothermarket',
     },
 }
+
 const LearnMore = styled(LocalizedLink)`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
@@ -225,7 +226,7 @@ const OtherMarkets = ({ except }) => {
         'cryptocurrencies',
     ]
     return (
-        <SectionContainer margin="auto" background="white">
+        <SectionContainer padding="120px 0" margin="auto" background="#f9fbff">
             <Show.Desktop max_width="laptopM">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">

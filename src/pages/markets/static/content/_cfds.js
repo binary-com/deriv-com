@@ -10,6 +10,7 @@ import {
     MinorPairs,
     RangeBreak,
     SmartFX,
+    BasketIndicesCfds,
     StepIndices,
     VolatilityIndices,
     VolatilityIndicesEU,
@@ -20,6 +21,7 @@ import {
     JumpIndices,
 } from '../../instruments/_submarkets'
 import {
+    BasketFXDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
     RangeBreakIndicesDetails,
@@ -192,6 +194,21 @@ export const crypto_cfds = {
         {
             title: <Localize translate_text="Cryptocurrencies" />,
             component: <CryptocurrenciesCFDs />,
+        },
+    ],
+}
+
+export const basket_cfds = {
+    markets_list: {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 1,
+    },
+    content: [
+        {
+            title: <Localize translate_text="Basket indices" />,
+            component: <BasketIndicesCfds />,
+            details: BasketFXDetails,
         },
     ],
 }

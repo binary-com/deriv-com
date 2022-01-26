@@ -10,6 +10,7 @@ import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 
 const StyledSection = styled(SectionContainer)`
+    padding: 120px 0;
     position: relative;
 
     ${Container} {
@@ -22,7 +23,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const StyledFlex = styled(Flex)`
-    margin: 4rem 0 0 0;
+    margin: 40px 0 0 0;
 
     article:first-child {
         margin-left: 0;
@@ -59,7 +60,7 @@ const ClientCard = styled.article`
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 31.6rem;
-    padding: 3.2rem 2.4rem;
+    padding: 32px 24px;
     height: auto;
     position: relative;
 

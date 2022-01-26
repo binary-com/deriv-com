@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
@@ -6,12 +6,12 @@ import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
 //SVG
-import CFDIcon from 'images/svg/trade-types/cfds.svg'
-import MultipliersIcon from 'images/svg/markets/multipliers.svg'
-import OptionsIcon from 'images/svg/markets/options.svg'
+import CFDIcon from 'images/svg/trade-types/cfds-new.svg'
+import MultipliersIcon from 'images/svg/custom/multipliers-nav.svg'
+import OptionsIcon from 'images/svg/custom/options-nav.svg'
 
 const StyledSection = styled(SectionContainer)`
-    padding: 8rem 0;
+    padding: 120px 0;
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
@@ -60,7 +60,7 @@ const CardWrapper = styled(Flex)`
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 29rem;
+    min-width: 24rem;
     height: 7.72rem;
     padding: 0;
     margin: 0 -0.6rem;
@@ -69,18 +69,18 @@ const CardContainer = styled(Flex)`
     padding-right: 5rem;
 
     ${Flex} {
-        padding: 2.71rem 0 0 3.2rem;
+        padding: 16px 24px;
 
         img {
             width: 32px;
             height: 32px;
-            margin-right: 1.6rem;
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0')};
+            margin: 0 8px 0 0;
+            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
         }
         h4 {
             color: ${(props) =>
-                props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
+                props.active_tab === props.name ? 'var(--color-black)' : 'var(--color-black-3)'};
+            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
         }
         @media ${device.tabletL} {
             width: 100%;
@@ -104,9 +104,9 @@ const CardContainer = styled(Flex)`
         content: ''; /* To generate the box */
         width: 100%;
         position: absolute;
-        top: 0;
+        top: -10px;
         right: 0;
-        bottom: -1rem;
+        bottom: 0;
         left: 0;
         z-index: -1;
         border-bottom: none;
@@ -166,13 +166,13 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
-                {active_tab === 'CFDs' && (
+                {name === 'CFDs' && (
                     <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />
                 )}
-                {active_tab === 'Options' && (
+                {name === 'Options' && (
                     <TabIcon src={OptionsIcon} alt="" name={name} active_tab={active_tab} />
                 )}
-                {active_tab === 'Multipliers' && (
+                {name === 'Multipliers' && (
                     <TabIcon src={MultipliersIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
@@ -190,57 +190,51 @@ Card.propTypes = {
     onTabChange: PropTypes.func,
 }
 
-class AvailableTrades extends React.Component {
-    state = {
-        active_tab: 'CFDs',
+const AvailableTrades = ({ CFDs, DigitalOptions, Multipliers, display_title }) => {
+    const [active_tab, SetActiveTab] = useState('CFDs')
+    const handleTabChange = (new_tab) => {
+        if (new_tab !== active_tab) return SetActiveTab(new_tab)
     }
-    handleTabChange = (new_tab) => {
-        if (new_tab === this.state.active_tab) return
-        this.setState({ active_tab: new_tab })
-    }
-    render() {
-        const { CFDs, DigitalOptions, Multipliers, display_title } = this.props
-        return (
-            <StyledSection>
-                <StyledHeader size="var(--text-size-header-1)" align="center">
-                    {display_title}
-                </StyledHeader>
-                <StyledContainer direction="column">
-                    <CardWrapper position="relative">
-                        {CFDs && (
-                            <Card
-                                name="CFDs"
-                                display_name={<Localize translate_text="CFDs" />}
-                                onTabChange={() => this.handleTabChange('CFDs')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
-                        {DigitalOptions && (
-                            <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => this.handleTabChange('Options')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
-                        {Multipliers && (
-                            <Card
-                                name="Multipliers"
-                                display_name={<Localize translate_text="Multipliers" />}
-                                onTabChange={() => this.handleTabChange('Multipliers')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
-                    </CardWrapper>
-                    <ContentWrapper>
-                        {this.state.active_tab === 'CFDs' && CFDs}
-                        {this.state.active_tab === 'Options' && DigitalOptions}
-                        {this.state.active_tab === 'Multipliers' && Multipliers}
-                    </ContentWrapper>
-                </StyledContainer>
-            </StyledSection>
-        )
-    }
+    return (
+        <StyledSection>
+            <StyledHeader size="var(--text-size-l)" align="center">
+                {display_title}
+            </StyledHeader>
+            <StyledContainer direction="column">
+                <CardWrapper position="relative">
+                    {CFDs && (
+                        <Card
+                            name="CFDs"
+                            display_name={<Localize translate_text="CFDs" />}
+                            onTabChange={() => handleTabChange('CFDs')}
+                            active_tab={active_tab}
+                        />
+                    )}
+                    {DigitalOptions && (
+                        <Card
+                            name="Options"
+                            display_name={<Localize translate_text="Options" />}
+                            onTabChange={() => handleTabChange('Options')}
+                            active_tab={active_tab}
+                        />
+                    )}
+                    {Multipliers && (
+                        <Card
+                            name="Multipliers"
+                            display_name={<Localize translate_text="Multipliers" />}
+                            onTabChange={() => handleTabChange('Multipliers')}
+                            active_tab={active_tab}
+                        />
+                    )}
+                </CardWrapper>
+                <ContentWrapper>
+                    {active_tab === 'CFDs' && CFDs}
+                    {active_tab === 'Options' && DigitalOptions}
+                    {active_tab === 'Multipliers' && Multipliers}
+                </ContentWrapper>
+            </StyledContainer>
+        </StyledSection>
+    )
 }
 
 AvailableTrades.propTypes = {

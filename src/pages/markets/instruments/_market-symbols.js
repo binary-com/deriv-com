@@ -970,3 +970,26 @@ export const swap_free_pairs = [
         text: <Localize translate_text="USD/JPY" />,
     },
 ]
+
+export const basket_indices_cfds = [
+    {
+        src: icons.AUDBASKET,
+        text: <Localize translate_text="AUD Basket" />,
+    },
+    {
+        src: icons.EURBASKET,
+        text: <Localize translate_text="EUR Basket" />,
+    },
+    {
+        src: icons.GBPBASKET,
+        text: <Localize translate_text="GBP Basket" />,
+    },
+    {
+        src: icons.USDBASKET,
+        text: <Localize translate_text="USD Basket" />,
+    },
+    {
+        src: icons.GOLDBASKET,
+        text: <Localize translate_text="Gold Basket" />,
+    },
+]

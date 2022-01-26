@@ -45,7 +45,7 @@ const BasketPage = () => (
             )}
         />
         <Hero />
-        <NavTab route_from={'basket-indices'} route_offset={0} />
+        <NavTab route_from={'basket-indices'} route_offset={650} />
         <BasketIndices simple_step_content={simple_step_content_basket} />
         <Signup appearance={Appearances.public} />
     </Layout>

@@ -211,12 +211,21 @@ const query = graphql`
     }
 `
 
-const SignalSteps = (active_tab) => {
+type SignalStepsProps = {
+    active_tab: 'signal-subscriber' | 'signal-provider'
+}
+
+const SignalSteps = ({ active_tab }: SignalStepsProps) => {
     const data = useStaticQuery(query)
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const [signal_subscriber, signal_provider] = [
+        active_tab === 'signal-subscriber',
+        active_tab === 'signal-provider',
+    ]
+
     return (
         <>
-            {active_tab.active_tab === 'signal-subscriber' && (
+            {signal_subscriber && (
                 <Container>
                     {is_mounted && (
                         <>
@@ -282,7 +291,7 @@ const SignalSteps = (active_tab) => {
                     )}
                 </Container>
             )}
-            {active_tab.active_tab === 'signal-provider' && (
+            {signal_provider && (
                 <Container>
                     {is_mounted && (
                         <>

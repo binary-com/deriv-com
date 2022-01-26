@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
 import { Signal } from './_signal'
-import SignalSteps from './_signal-steps'
 import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -66,7 +65,12 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = styled.div`
+type ItemProps = {
+    active_tab: 'signal-subscriber' | 'signal-provider'
+    name: 'signal-subscriber' | 'signal-provider'
+}
+
+const Item = styled.div<ItemProps>`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -109,6 +113,11 @@ const Separator = styled.div`
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabStateQuery(['signal-subscriber', 'signal-provider'])
     const [is_mounted, setMounted] = useState(false) //needs to fix bug with hightlight of the 1st loading
+    const [signal_subscriber, signal_provider] = [
+        active_tab === 'signal-subscriber',
+        active_tab === 'signal-provider',
+    ]
+
     useEffect(() => {
         setMounted(true)
     }, [])
@@ -151,13 +160,11 @@ const DMT5TradingSignals = () => {
             </TabsContainer>
             <Box position="relative">
                 <Separator />
-                {active_tab === 'signal-subscriber' && (
-                    <Signal content={signal_content_subscriber} />
-                )}
-                {active_tab === 'signal-provider' && <Signal content={signal_content_provider} />}
+                {signal_subscriber && <Signal content={signal_content_subscriber} />}
+                {signal_provider && <Signal content={signal_content_provider} />}
             </Box>
-            <HowTo Steps={SignalSteps} active_tab={active_tab} />
-            {active_tab === 'signal-subscriber' && <Subscription />}
+            <HowTo active_tab={active_tab} />
+            {signal_subscriber && <Subscription />}
         </Layout>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Marquee from 'react-fast-marquee'
 import type { ImageDataLike } from 'gatsby-plugin-image'
@@ -128,7 +128,7 @@ const ImageMarquee = () => {
             {carousel_images.map((carouselItem, index) => (
                 <CarouselSlide key={index}>
                     <StyledImageWrapper>
-                        <StyledQueryImage data={carouselItem} alt="" loading="lazy" />
+                        <StyledQueryImage data={carouselItem} alt="" />
                     </StyledImageWrapper>
                 </CarouselSlide>
             ))}

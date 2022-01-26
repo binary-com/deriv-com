@@ -253,13 +253,10 @@ const MobileCardContainer = styled(Flex)`
     }
 `
 const OtherMarkets = ({ except }) => {
-    const markets = [
-        'forex',
-        'Synthetic_Indices',
-        'stock_indices',
-        'commodities',
-        'cryptocurrencies',
-    ]
+    const { is_uk_country } = React.useContext(DerivStore)
+    const markets = !is_uk_country
+        ? ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities', 'cryptocurrencies']
+        : ['forex', 'stock_indices', 'commodities']
     return (
         <SectionContainer margin="auto" background="white">
             <Show.Desktop max_width="laptopM">

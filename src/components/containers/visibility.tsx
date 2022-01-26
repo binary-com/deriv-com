@@ -131,6 +131,16 @@ export const NonUK = ({ children }: ResponsiveContainerProps) => {
     return !is_uk ? <>{children}</> : null
 }
 
+export const UKEU = ({ children }: ResponsiveContainerProps) => {
+    const { is_uk_domain, is_eu_domain } = domainBasedCheck()
+    const { is_uk_country, is_eu_country } = React.useContext<StoreDataType>(DerivStore)
+
+    const is_uk = is_uk_country || is_uk_domain
+    const is_eu = is_eu_domain || is_eu_country
+
+    return !is_eu && !is_uk ? null : <>{children}</>
+}
+
 export const ROW = ({ children }: ResponsiveContainerProps) => {
     const { is_uk_domain, is_eu_domain } = domainBasedCheck()
     const { is_uk_country, is_eu_country } = React.useContext<StoreDataType>(DerivStore)

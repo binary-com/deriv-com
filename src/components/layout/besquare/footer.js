@@ -135,16 +135,6 @@ const BeSquareFooter = () => {
                     </TextContainer>
                 </ContentContainer>
             </Section>
-            <Section color="black-3">
-                <TextWrapper
-                    max_width={['100%']}
-                    font_size={['14px']}
-                    line_height={['19.6px']}
-                    padding={['21px 120px', '19px 16px']}
-                >
-                    &copy; {localize('2021 Deriv | All rights reserved')}
-                </TextWrapper>
-            </Section>
         </React.Fragment>
     )
 }

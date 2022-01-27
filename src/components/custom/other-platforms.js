@@ -27,9 +27,9 @@ import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
 import CFD from 'images/svg/custom/margin-trading-nav.svg'
 import Multipliers from 'images/svg/custom/multipliers-nav.svg'
 import Options from 'images/svg/custom/options-nav.svg'
@@ -366,6 +366,16 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                 {!is_eu_country && (
                     <>
                         <NavCard
+                            aria_label="Deriv GO"
+                            icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                            content={
+                                <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                            }
+                            title={<Localize translate_text="Deriv GO" />}
+                            onClick={onClick}
+                            to="/landing/deriv-go/"
+                        />
+                        <NavCard
                             aria_label="DBot"
                             icon={() => <img src={DBot} alt="" width="32" height="32" />}
                             content={
@@ -467,15 +477,9 @@ export const NavCompany = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <img src={Story} alt="" width="24" height="24" />}
-            title={localize('Our story')}
+            title={localize('Who we are')}
             onClick={onClick}
-            to="/story/"
-        />
-        <CardLink
-            icon={() => <img src={Leadership} alt="" width="24" height="24" />}
-            title={localize('Our leadership')}
-            onClick={onClick}
-            to="/leadership/"
+            to="/who-we-are/"
         />
         <CardLink
             icon={() => <img src={RegulatoryInfo} alt="" width="24" height="24" />}
@@ -485,7 +489,7 @@ export const NavCompany = ({ onClick }) => (
         />
         <CardLink
             icon={() => <img src={Choose} alt="" width="24" height="24" />}
-            title={localize('Why choose us?')}
+            title={localize('Why choose us')}
             onClick={onClick}
             to="/why-choose-us/"
         />

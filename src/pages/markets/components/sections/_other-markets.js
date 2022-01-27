@@ -159,6 +159,7 @@ const StyledFlex = styled(Flex)`
     background-color: var(--color-white);
     top: 0;
     min-height: 29.6rem;
+    margin-left: 2rem;
 
     ${LearnMore} {
         img {
@@ -268,7 +269,7 @@ const OtherMarkets = ({ except }) => {
                         <Wrapper>
                             <CardWrapper
                                 max_width="120rem"
-                                jc="space-around"
+                                jc="center"
                                 position="absolute"
                                 max_height="320rem"
                             >

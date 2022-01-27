@@ -10,6 +10,7 @@ import {
     Metals,
     MinorPairs,
     SmartFX,
+    BasketIndicesCfds,
 } from '../../instruments/_submarkets.js'
 import {
     AmericasDetails,
@@ -18,6 +19,7 @@ import {
     DailyResetIndicesDetails,
     EuropeDetails,
     SmartFXDetails,
+    BasketFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 import Asians from 'images/svg/options/asians.svg'
@@ -247,6 +249,24 @@ export const forex_options = {
                 title: <Localize translate_text="SmartFX" />,
                 component: <SmartFX />,
                 details: SmartFXDetails,
+            },
+        ],
+    },
+    options: getOptions(false),
+}
+
+export const basket_options = {
+    market_instruments: {
+        markets_list: {
+            col: 4,
+            tablet_col: 3,
+            mobile_col: 1,
+        },
+        content: [
+            {
+                title: <Localize translate_text="Basket indices" />,
+                component: <BasketIndicesCfds />,
+                details: BasketFXDetails,
             },
         ],
     },

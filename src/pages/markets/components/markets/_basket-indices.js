@@ -5,8 +5,8 @@ import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { basket_indices_content, basket_indices_content_eu } from '../../static/content/_basket'
 import { basket_cfds } from '../../static/content/_cfds'
-import { forex_multiplier } from '../../static/content/_multipliers'
-import { forex_options } from '../../static/content/_digital-options'
+import { basket_multiplier } from '../../static/content/_multipliers'
+import { basket_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds-basket'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
@@ -39,9 +39,13 @@ const BasketIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={basket_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions market_name={localize('forex')} options_list={forex_options} />
+                    <DigitalOptions
+                        market_type="basket-indices"
+                        market_name={localize('forex')}
+                        options_list={basket_options}
+                    />
                 }
-                Multipliers={<Multipliers market_content={forex_multiplier} />}
+                Multipliers={<Multipliers market_content={basket_multiplier} />}
                 name="Basket indices"
                 display_title={
                     <Localize translate_text="Basket indices trades  available on Deriv" />

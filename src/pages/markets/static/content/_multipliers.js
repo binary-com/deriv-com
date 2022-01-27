@@ -8,6 +8,7 @@ import {
     CryptocurrenciesMultipliers,
     VolatilityIndicesEU,
     SmartFX,
+    BasketIndicesCfds,
 } from '../../instruments/_submarkets'
 import {
     ContinuousIndicesDetails,
@@ -17,6 +18,7 @@ import {
     CryptocurrenciesDetails,
     VolatilityIndicesDetailsEU,
     SmartFXDetails,
+    BasketFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -35,6 +37,20 @@ export const forex_multiplier = {
             title: <Localize translate_text="SmartFX" />,
             component: <SmartFX />,
             details: SmartFXDetails,
+        },
+    ],
+}
+export const basket_multiplier = {
+    markets_list: {
+        col: 5,
+        tablet_col: 3,
+        mobile_col: 1,
+    },
+    content: [
+        {
+            title: <Localize translate_text="Basket indices" />,
+            component: <BasketIndicesCfds />,
+            details: BasketFXDetails,
         },
     ],
 }

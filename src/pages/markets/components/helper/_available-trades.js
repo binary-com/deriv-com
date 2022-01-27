@@ -44,7 +44,6 @@ const CardWrapper = styled(Flex)`
 
     div:first-child {
         z-index: 3;
-        margin: 0 -0.3rem;
     }
     div:nth-child(2) {
         z-index: 2;
@@ -60,8 +59,8 @@ const CardWrapper = styled(Flex)`
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 24rem;
-    height: 7.72rem;
+    min-width: 240px;
+    height: 68px;
     padding: 0;
     margin: 0 -0.6rem;
     cursor: pointer;

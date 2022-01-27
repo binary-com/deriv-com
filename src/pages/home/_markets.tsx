@@ -91,7 +91,7 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                         </Header>
                         <Text>
                             {localize(
-                                'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
+                                'Tlargest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
                             )}
                         </Text>
                         <Localize

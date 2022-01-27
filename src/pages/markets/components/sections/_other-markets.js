@@ -7,7 +7,8 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
-import Commodities from 'images/svg/markets/commodities.svg'
+import Basket from 'images/svg/custom/basket-nav.svg'
+import Commodities from 'images/svg/markets/commodities-new.svg'
 import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
@@ -25,7 +26,7 @@ const markets_type = {
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
-    Synthetic_Indices: {
+    synthetic_indices: {
         // eslint-disable-next-line react/display-name
         icon: () => <img src={SyntheticIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
@@ -66,6 +67,16 @@ const markets_type = {
         ),
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
+    },
+    basket_indices: {
+        // eslint-disable-next-line react/display-name
+        icon: () => <img src={Basket} alt="" width="64" height="64" />,
+        title: <Localize translate_text="Basket indices" />,
+        content: (
+            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
+        ),
+        to: '/markets/basket_indices/',
+        id: 'marketbasket_indicesothermarket',
     },
 }
 
@@ -217,13 +228,14 @@ const MobileCardContainer = styled(Flex)`
         margin-top: 0;
     }
 `
-const OtherMarkets = ({ except }) => {
+const OtherMarkets = ({ excepts }) => {
     const markets = [
         'forex',
-        'Synthetic_Indices',
+        'synthetic_indices',
         'stock_indices',
         'commodities',
         'cryptocurrencies',
+        'basket_indices',
     ]
     return (
         <SectionContainer padding="120px 0" margin="auto" background="#f9fbff">
@@ -241,7 +253,9 @@ const OtherMarkets = ({ except }) => {
                                 max_height="320rem"
                             >
                                 {markets.map((market) =>
-                                    market !== except ? <Card name={market} key={market} /> : null,
+                                    excepts.includes(market) ? null : (
+                                        <Card name={market} key={market} />
+                                    ),
                                 )}
                             </CardWrapper>
                         </Wrapper>
@@ -254,7 +268,7 @@ const OtherMarkets = ({ except }) => {
                 </StyledHeader>
                 <MobileCardContainer direction="column">
                     {markets.map((market) =>
-                        market !== except ? <MobileCard name={market} key={market} /> : null,
+                        excepts.includes(market) ? null : <MobileCard name={market} key={market} />,
                     )}
                 </MobileCardContainer>
             </Show.Mobile>
@@ -262,7 +276,7 @@ const OtherMarkets = ({ except }) => {
     )
 }
 OtherMarkets.propTypes = {
-    except: PropTypes.string,
+    excepts: PropTypes.array,
 }
 Card.propTypes = {
     name: PropTypes.string,

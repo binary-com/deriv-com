@@ -70,7 +70,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="cryptocurrencies" />
+            <OtherMarkets excepts={['cryptocurrencies', 'basket_indices']} />
         </>
     )
 }

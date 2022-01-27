@@ -159,6 +159,7 @@ export const SymbolContainer = styled(Flex)`
         font-weight: normal;
         font-size: 14px;
         line-height: 21px;
+        white-space: nowrap;
     }
 
     @media ${device.mobileL} {

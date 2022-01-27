@@ -5,7 +5,7 @@ import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_status_page_url } from 'common/constants'
 
-const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
+const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
     return (
         <LinksWrapper>
             <Show.Desktop>
@@ -29,6 +29,53 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                         <LinkWrapper>
                             <Link to="/careers/">{localize('Careers')}</Link>
                         </LinkWrapper>
+                    </LinksCol>
+                    <LinksCol>
+                        <LinkWrapper>
+                            <Title>{localize('TRADE')}</Title>
+                        </LinkWrapper>
+                        <LinkWrapper first_child="true">
+                            <Link to="/dtrader/">{localize('DTrader')}</Link>
+                        </LinkWrapper>
+                        <Show.NonEU>
+                            <LinkWrapper>
+                                <Link to="/landing/deriv-go/">{localize('Deriv GO')}</Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/dbot/">{localize('DBot')}</Link>
+                            </LinkWrapper>
+                        </Show.NonEU>
+                        <LinkWrapper>
+                            <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
+                                {localize('DMT5')}
+                            </Link>
+                        </LinkWrapper>
+                        <Show.NonEU>
+                            <LinkWrapper>
+                                <Link to="/derivx/">{localize('Deriv X')}</Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link
+                                    to="trading"
+                                    type="smart_trader"
+                                    external="true"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('SmartTrader')}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link
+                                    to="https://bot.deriv.com"
+                                    external="true"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('Binary Bot')}
+                                </Link>
+                            </LinkWrapper>
+                        </Show.NonEU>
                     </LinksCol>
                     {!is_ppc && (
                         <LinksCol>
@@ -83,11 +130,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 {localize('Deriv MT5')}
                             </Link>
                         </LinkWrapper>
-                        {!is_eu_country && (
-                            <LinkWrapper>
-                                <Link to="/derivx/">{localize('Deriv X')}</Link>
-                            </LinkWrapper>
-                        )}
                         <LinkWrapper>
                             <Link to="/dtrader/">{localize('DTrader')}</Link>
                         </LinkWrapper>
@@ -205,7 +247,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
 export default MainLinksSection
 
 MainLinksSection.propTypes = {
-    is_eu_country: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     type: PropTypes.string,

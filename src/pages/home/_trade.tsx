@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
-import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
+import { SectionContainer, Container, Flex, CssGrid, NonEU } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 
 const platforms = Object.freeze({
@@ -30,6 +30,7 @@ const ImageContainer = styled.div`
 `
 const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-30), rgba(238, 238, 238, 0));
+    min-height: 69rem;
 `
 const query = graphql`
     query {
@@ -100,12 +101,14 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             >
                                 <TraderCard />
                             </div>
-                            <div
-                                onMouseEnter={() => setSelected(platforms.bot)}
-                                onMouseLeave={() => setSelected('')}
-                            >
-                                <BotCard />
-                            </div>
+                            <NonEU>
+                                <div
+                                    onMouseEnter={() => setSelected(platforms.bot)}
+                                    onMouseLeave={() => setSelected('')}
+                                >
+                                    <BotCard />
+                                </div>
+                            </NonEU>
                             <div
                                 onMouseEnter={() => setSelected(platforms.mt5)}
                                 onMouseLeave={() => setSelected('')}

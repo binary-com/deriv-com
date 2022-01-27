@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container, Show } from 'components/containers'
+import { Flex, Container } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import device, { size } from 'themes/device.js'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const BackgroundWrapper = styled(Background)`
     height: 100%;
@@ -156,41 +156,6 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const HeroComponent = ({ title, content, background_data, img_data }) => {
-    return (
-        <BackgroundWrapper data={background_data}>
-            <Wrapper>
-                <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h1" weight={500}>
-                        {title}
-                    </StyledHeader>
-                    <HeroContent>
-                        <Header as="h2">{content}</Header>
-                    </HeroContent>
-                    <TryButton
-                        secondary="true"
-                        to="/cashier/p2p"
-                        external="true"
-                        type="deriv_app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {localize('Try Deriv P2P now')}
-                    </TryButton>
-                </InformationWrapper>
-                <ImgWrapper>
-                    <QueryImage
-                        data={img_data}
-                        alt={'Deriv’s P2P mobile app'}
-                        height={'700px'}
-                        width={'576px'}
-                    />
-                </ImgWrapper>
-            </Wrapper>
-        </BackgroundWrapper>
-    )
-}
-
 const query = graphql`
     query {
         p2p_hero_background: file(relativePath: { eq: "p2p/p2p_hero_background.png" }) {
@@ -207,41 +172,48 @@ const query = graphql`
     }
 `
 
-const Hero = ({ title, content }) => {
+const Hero = () => {
     const data = useStaticQuery(query)
+    const [is_tabletL] = useBrowserResize(size.tabletL)
+    const background = is_tabletL ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
     return (
-        <div>
-            <Show.Desktop min_width="992">
-                <HeroComponent
-                    title={title}
-                    content={content}
-                    background_data={data['p2p_hero_background']}
-                    img_data={data['p2p_hero_img']}
-                />
-            </Show.Desktop>
-            <Show.Mobile>
-                <HeroComponent
-                    title={title}
-                    content={content}
-                    background_data={data['p2p_hero_background_mobile']}
-                    img_data={data['p2p_hero_img']}
-                />
-            </Show.Mobile>
-        </div>
+        <BackgroundWrapper data={background}>
+            <Wrapper>
+                <InformationWrapper height="unset" direction="column">
+                    <StyledHeader as="h1" weight={500}>
+                        {localize('Hassle-free deposits and withdrawals')}
+                    </StyledHeader>
+                    <HeroContent>
+                        <Header as="h2">
+                            {
+                                <Localize translate_text="Use your local currency to make deposits into and withdrawals from your Deriv account." />
+                            }
+                        </Header>
+                    </HeroContent>
+                    <TryButton
+                        secondary="true"
+                        to="/cashier/p2p"
+                        external="true"
+                        type="deriv_app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {localize('Try Deriv P2P now')}
+                    </TryButton>
+                </InformationWrapper>
+
+                <ImgWrapper>
+                    <QueryImage
+                        data={data['p2p_hero_img']}
+                        alt={'Deriv’s P2P mobile app'}
+                        height={'700px'}
+                        width={'576px'}
+                    />
+                </ImgWrapper>
+            </Wrapper>
+        </BackgroundWrapper>
     )
-}
-
-HeroComponent.propTypes = {
-    background_data: PropTypes.any,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    img_data: PropTypes.any,
-    title: PropTypes.string,
-}
-
-Hero.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string,
 }
 
 export default Hero

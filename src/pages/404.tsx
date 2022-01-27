@@ -7,7 +7,7 @@ import Layout from 'components/layout/layout'
 import { Header, QueryImage } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import { LinkButton } from 'components/form'
-
+import ImageNotAvailable from 'images/svg/image-not-available.svg'
 const query = graphql`
     query {
         page_not_found: file(relativePath: { eq: "image-not-available.png" }) {
@@ -38,7 +38,6 @@ const ButtonWrapper = styled.div`
 `
 
 const PageNotFound = () => {
-    const data = useStaticQuery(query)
     return (
         isBrowser() && (
             <Layout>
@@ -47,12 +46,12 @@ const PageNotFound = () => {
                     description={localize('The page you are looking for does not exist.')}
                 />
                 <PageNotFoundContainer>
-                    <QueryImage
-                        width="96px"
-                        height="96px"
-                        data={data['page_not_found']}
+                    <img
+                        src={ImageNotAvailable}
                         alt={localize('Page not found')}
                         loading="eager"
+                        width="96"
+                        height="96"
                     />
 
                     <PageNotFoundContainerInfo>

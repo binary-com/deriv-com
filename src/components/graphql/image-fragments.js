@@ -38,12 +38,7 @@ export const fadeIn = graphql`
 export const homePageHeroFadeIn = graphql`
     fragment homePageHeroFadeIn on File {
         childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, WEBP]
-                layout: CONSTRAINED
-                breakpoints: [360, 992]
-                placeholder: DOMINANT_COLOR
-            )
+            gatsbyImageData(formats: [AUTO, AVIF, WEBP], layout: CONSTRAINED, placeholder: NONE)
         }
     }
 `

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 
-export const useRecursiveTimeout = (callback, delay) => {
+export const useRecursiveTimeout = (callback, delay, start_delay = 0) => {
     const [isRunning, setIsRunning] = useState(false)
     const stop = useCallback(() => setIsRunning(false), [setIsRunning])
     const play = useCallback(() => setIsRunning(true), [setIsRunning])
@@ -19,7 +19,7 @@ export const useRecursiveTimeout = (callback, delay) => {
             savedCallback.current()
             requestAnimationFrame(() => (id = setTimeout(tick, delay)))
         }
-        requestAnimationFrame(() => (id = setTimeout(tick, delay)))
+        setTimeout(() => requestAnimationFrame(() => (id = setTimeout(tick, delay))), start_delay)
 
         return () => {
             if (id) clearTimeout(id)

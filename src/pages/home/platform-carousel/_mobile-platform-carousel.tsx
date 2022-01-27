@@ -67,6 +67,9 @@ const settings = {
 
 const image_query = graphql`
     query {
+        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go_m.png" }) {
+            ...fadeIn
+        }
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5_m.png" }) {
             ...fadeIn
         }
@@ -77,9 +80,6 @@ const image_query = graphql`
             ...fadeIn
         }
         platforms_dbot: file(relativePath: { eq: "home/platforms_dbot_m.png" }) {
-            ...fadeIn
-        }
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go_m.png" }) {
             ...fadeIn
         }
         platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader_m.png" }) {

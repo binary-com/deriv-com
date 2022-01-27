@@ -4,7 +4,7 @@ import { Paddings, Margins } from 'themes/function'
 import device from 'themes/device.js'
 
 export const SharedButtonStyle = css`
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 10px 16px;
     font-size: 14px;
     transition: all 0.25s;

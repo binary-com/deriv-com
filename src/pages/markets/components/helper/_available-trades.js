@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { SectionContainer, Flex, Container } from 'components/containers'
+import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
@@ -194,6 +194,7 @@ const AvailableTrades = ({ CFDs, DigitalOptions, Multipliers, display_title }) =
     const handleTabChange = (new_tab) => {
         if (new_tab !== active_tab) return SetActiveTab(new_tab)
     }
+
     return (
         <StyledSection>
             <StyledHeader size="var(--text-size-l)" align="center">
@@ -209,14 +210,17 @@ const AvailableTrades = ({ CFDs, DigitalOptions, Multipliers, display_title }) =
                             active_tab={active_tab}
                         />
                     )}
-                    {DigitalOptions && (
-                        <Card
-                            name="Options"
-                            display_name={<Localize translate_text="Options" />}
-                            onTabChange={() => handleTabChange('Options')}
-                            active_tab={active_tab}
-                        />
-                    )}
+                    <NonEU>
+                        {DigitalOptions && (
+                            <Card
+                                name="Options"
+                                display_name={<Localize translate_text="Options" />}
+                                onTabChange={() => handleTabChange('Options')}
+                                active_tab={active_tab}
+                            />
+                        )}
+                    </NonEU>
+
                     {Multipliers && (
                         <Card
                             name="Multipliers"

@@ -163,12 +163,7 @@ module.exports = {
                 //   ],
             },
         },
-        {
-            resolve: `gatsby-plugin-offline`,
-            options: {
-              precachePages: [`/`, `/markets/*`],
-            },
-        },
+        `gatsby-plugin-offline`,
         {
             resolve: 'gatsby-plugin-svgr',
             options: {

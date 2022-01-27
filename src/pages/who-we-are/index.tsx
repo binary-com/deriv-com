@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
-import Marquee from './carousel/_Marquee'
+import ImageMarquee from './carousel/_ImageMarquee'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -53,7 +53,7 @@ const AboutUs = () => {
             <OurPrinciples />
             <OurLeadership />
             <DerivNumbers />
-            <Marquee />
+            <ImageMarquee />
             <OurOffices />
             <AboutUsBanner />
         </Layout>

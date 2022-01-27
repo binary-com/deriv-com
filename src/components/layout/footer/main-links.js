@@ -133,30 +133,32 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Link to="/dtrader/">{localize('DTrader')}</Link>
                         </LinkWrapper>
-                        <LinkWrapper>
-                            <Link
-                                to="trading"
-                                type="smart_trader"
-                                external="true"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {localize('SmartTrader')}
-                            </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/dbot/">{localize('DBot')}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link
-                                to="https://bot.deriv.com"
-                                external="true"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {localize('Binary Bot')}
-                            </Link>
-                        </LinkWrapper>
+                        <Show.NonEU>
+                            <LinkWrapper>
+                                <Link
+                                    to="trading"
+                                    type="smart_trader"
+                                    external="true"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('SmartTrader')}
+                                </Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/dbot/">{localize('DBot')}</Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link
+                                    to="https://bot.deriv.com"
+                                    external="true"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('Binary Bot')}
+                                </Link>
+                            </LinkWrapper>
+                        </Show.NonEU>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>

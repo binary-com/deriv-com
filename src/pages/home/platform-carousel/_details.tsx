@@ -12,28 +12,28 @@ const DownloadLink = styled(StyledLink)`
 
 const image_query = graphql`
     query {
-        platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
+        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go_m.png" }) {
             ...fadeIn
         }
-        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
+        platforms_mt5: file(relativePath: { eq: "home/platforms_mt5_m.png" }) {
+            ...fadeIn
+        }
+        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader_m.png" }) {
             ...homePageHeroFadeIn
         }
-        platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
+        platforms_derivx: file(relativePath: { eq: "home/platforms_derivx_m.png" }) {
             ...fadeIn
         }
-        platforms_dbot: file(relativePath: { eq: "home/platforms_dbot.png" }) {
+        platforms_dbot: file(relativePath: { eq: "home/platforms_dbot_m.png" }) {
             ...fadeIn
         }
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
+        platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader_m.png" }) {
             ...fadeIn
         }
-        platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader.png" }) {
+        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot_m.png" }) {
             ...fadeIn
         }
-        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
-            ...fadeIn
-        }
-        platforms_api: file(relativePath: { eq: "home/platforms_api.png" }) {
+        platforms_api: file(relativePath: { eq: "home/platforms_api_m.png" }) {
             ...fadeIn
         }
     }

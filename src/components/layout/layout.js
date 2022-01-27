@@ -3,7 +3,6 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
 import NavAcademy from './academy/nav-academy'
@@ -118,6 +117,7 @@ const Layout = ({
     interim_type,
     is_ppc,
     is_ppc_redirect,
+    is_nav_transparent,
     margin_top,
     no_live_chat,
     no_login_signup,
@@ -184,7 +184,6 @@ const Layout = ({
             break
         case 'interim':
             Navigation = <NavInterim interim_type={interim_type} />
-            FooterNav = <Copyright />
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
@@ -215,7 +214,13 @@ const Layout = ({
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = (
+                <Nav
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_ppc={is_ppc}
+                    is_nav_transparent={is_nav_transparent}
+                />
+            )
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
@@ -261,6 +266,7 @@ CFDWarning.propTypes = {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

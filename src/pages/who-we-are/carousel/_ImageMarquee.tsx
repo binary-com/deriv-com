@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import Marquee from 'react-fast-marquee'
+// import Marquee from 'react-fast-marquee'
+import Ticker from 'react-ticker'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -124,15 +125,19 @@ const ImageMarquee = () => {
     ]
 
     return (
-        <Marquee speed={200} gradient={false}>
-            {carousel_images.map((carouselItem, index) => (
-                <CarouselSlide key={index}>
-                    <StyledImageWrapper>
-                        <StyledQueryImage data={carouselItem} alt="" loading="eager" />
-                    </StyledImageWrapper>
-                </CarouselSlide>
-            ))}
-        </Marquee>
+        <Ticker speed={20}>
+            {() => (
+                <div style={{ display: 'flex' }}>
+                    {carousel_images.map((carouselItem, index) => (
+                        <CarouselSlide key={index}>
+                            <StyledImageWrapper>
+                                <StyledQueryImage data={carouselItem} alt="" loading="eager" />
+                            </StyledImageWrapper>
+                        </CarouselSlide>
+                    ))}
+                </div>
+            )}
+        </Ticker>
     )
 }
 

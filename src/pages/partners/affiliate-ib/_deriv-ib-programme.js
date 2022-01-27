@@ -132,8 +132,8 @@ const DerivIBProgramme = () => {
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financial_non_eu} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTP_non_eu} />
+                        <DERIVIBDMT5Cards data={ib_dmt5_financial} />
+                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader
@@ -348,51 +348,11 @@ const ib_dmt5_financial = {
             assets: [
                 {
                     title: <Localize key={0} translate_text="Asset" />,
-                    list: [
-                        <Localize key={1} translate_text="BTC/USD" />,
-                        <Localize key={2} translate_text="BTC/XAG" />,
-                        <Localize key={3} translate_text="BTC/XAU" />,
-                        <Localize key={4} translate_text="ETH/USD" />,
-                        <Localize key={5} translate_text="LTC/USD" />,
-                        <Localize key={6} translate_text="BCH/USD" />,
-                        <Localize key={7} translate_text="XRP/USD" />,
-                        <Localize key={8} translate_text="DSH/USD" />,
-                        <Localize key={9} translate_text="EOS/USD" />,
-                        <Localize key={10} translate_text="ZEC/USD" />,
-                        <Localize key={11} translate_text="XMR/USD" />,
-                        <Localize key={12} translate_text="BNB/USD" />,
-                        <Localize key={13} translate_text="IOT/USD" />,
-                        <Localize key={14} translate_text="NEO/USD" />,
-                        <Localize key={15} translate_text="OMG/USD" />,
-                        <Localize key={16} translate_text="TRX/USD" />,
-                        <Localize key={17} translate_text="XLM/USD" />,
-                        <Localize key={18} translate_text="BTC/ETH" />,
-                        <Localize key={19} translate_text="BTC/LTC" />,
-                    ],
+                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
                 },
                 {
                     title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [
-                        <Localize key={1} translate_text="20" />,
-                        <Localize key={2} translate_text="20" />,
-                        <Localize key={3} translate_text="20" />,
-                        <Localize key={4} translate_text="20" />,
-                        <Localize key={5} translate_text="25" />,
-                        <Localize key={6} translate_text="25" />,
-                        <Localize key={7} translate_text="25" />,
-                        <Localize key={8} translate_text="250" />,
-                        <Localize key={9} translate_text="250" />,
-                        <Localize key={10} translate_text="250" />,
-                        <Localize key={11} translate_text="250" />,
-                        <Localize key={12} translate_text="25" />,
-                        <Localize key={13} translate_text="150" />,
-                        <Localize key={14} translate_text="150" />,
-                        <Localize key={15} translate_text="150" />,
-                        <Localize key={16} translate_text="25" />,
-                        <Localize key={17} translate_text="25" />,
-                        <Localize key={18} translate_text="20" />,
-                        <Localize key={19} translate_text="20" />,
-                    ],
+                    list: [<Localize key={1} translate_text="10" />],
                 },
             ],
         },
@@ -433,66 +393,6 @@ const ib_dmt5_financial = {
     ],
 }
 
-const ib_dmt5_financial_non_eu = {
-    ...ib_dmt5_financial,
-    type: [
-        {
-            title: <Localize translate_text="Forex and metals" />,
-            headerHeight: '8.0rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [
-                        <Localize key={1} translate_text="Forex" />,
-                        <Localize key={2} translate_text="Metals" />,
-                    ],
-                },
-                {
-                    title: <Localize key={0} translate_text="Commission per lot" />,
-                    list: [
-                        <Localize key={1} translate_text="USD 2" />,
-                        <Localize key={2} translate_text="USD 4" />,
-                    ],
-                },
-            ],
-        },
-        {
-            title: <Localize translate_text="Stock indices" />,
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [
-                        <Localize key={1} translate_text="Stock indices" />,
-                        <Localize key={2} translate_text="Stocks" />,
-                    ],
-                },
-                {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [
-                        <Localize key={1} translate_text="USD 1" />,
-                        <Localize key={2} translate_text="USD 10" />,
-                    ],
-                },
-            ],
-        },
-        {
-            title: <Localize translate_text="Cryptocurrencies" />,
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
-                },
-                {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [<Localize key={1} translate_text="10" />],
-                },
-            ],
-        },
-    ],
-}
-
 const ib_dmt5_financialSTP = {
     name: <Localize translate_text="Deriv MT5 Financial STP" />,
     description: (
@@ -524,51 +424,11 @@ const ib_dmt5_financialSTP = {
             assets: [
                 {
                     title: <Localize key={0} translate_text="Asset" />,
-                    list: [
-                        <Localize key={1} translate_text="BTC/USD" />,
-                        <Localize key={2} translate_text="BTC/XAG" />,
-                        <Localize key={3} translate_text="BTC/XAU" />,
-                        <Localize key={4} translate_text="ETH/USD" />,
-                        <Localize key={5} translate_text="LTC/USD" />,
-                        <Localize key={6} translate_text="BCH/USD" />,
-                        <Localize key={7} translate_text="XRP/USD" />,
-                        <Localize key={8} translate_text="DSH/USD" />,
-                        <Localize key={9} translate_text="EOS/USD" />,
-                        <Localize key={10} translate_text="ZEC/USD" />,
-                        <Localize key={11} translate_text="XMR/USD" />,
-                        <Localize key={12} translate_text="BNB/USD" />,
-                        <Localize key={13} translate_text="IOT/USD" />,
-                        <Localize key={14} translate_text="NEO/USD" />,
-                        <Localize key={15} translate_text="OMG/USD" />,
-                        <Localize key={16} translate_text="TRX/USD" />,
-                        <Localize key={17} translate_text="XLM/USD" />,
-                        <Localize key={18} translate_text="BTC/ETH" />,
-                        <Localize key={19} translate_text="BTC/LTC" />,
-                    ],
+                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
                 },
                 {
                     title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [
-                        <Localize key={1} translate_text="20" />,
-                        <Localize key={2} translate_text="20" />,
-                        <Localize key={3} translate_text="20" />,
-                        <Localize key={4} translate_text="20" />,
-                        <Localize key={5} translate_text="25" />,
-                        <Localize key={6} translate_text="25" />,
-                        <Localize key={7} translate_text="25" />,
-                        <Localize key={8} translate_text="250" />,
-                        <Localize key={9} translate_text="250" />,
-                        <Localize key={10} translate_text="250" />,
-                        <Localize key={11} translate_text="250" />,
-                        <Localize key={12} translate_text="25" />,
-                        <Localize key={13} translate_text="150" />,
-                        <Localize key={14} translate_text="150" />,
-                        <Localize key={15} translate_text="150" />,
-                        <Localize key={16} translate_text="25" />,
-                        <Localize key={17} translate_text="25" />,
-                        <Localize key={18} translate_text="20" />,
-                        <Localize key={19} translate_text="20" />,
-                    ],
+                    list: [<Localize key={1} translate_text="10" />],
                 },
             ],
         },
@@ -609,42 +469,4 @@ const ib_dmt5_financialSTP = {
     ],
 }
 
-const ib_dmt5_financialSTP_non_eu = {
-    ...ib_dmt5_financialSTP,
-    type: [
-        {
-            title: <Localize translate_text="Forex" />,
-            headerHeight: '8.0rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Forex" />],
-                },
-                {
-                    title: (
-                        <Localize
-                            key={0}
-                            translate_text="Commission per lot (1 standard lot is 100k units)"
-                        />
-                    ),
-                    list: [<Localize key={1} translate_text="2.5" />],
-                },
-            ],
-        },
-        {
-            title: <Localize translate_text="Cryptocurrencies" />,
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
-                },
-                {
-                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
-                    list: [<Localize key={1} translate_text="10" />],
-                },
-            ],
-        },
-    ],
-}
 export default DerivIBProgramme

@@ -29,12 +29,12 @@ const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding: 41px 0 40px;
+        padding: 0 0 40px;
     }
 `
 const Wrapper = styled.div`
     border-radius: 8px;
-    background-image: linear-gradient(73deg, #ff6444, #ff444f);
+    background: linear-gradient(241.92deg, #d74b56 12.96%, #d1632f 86.33%);
     background-repeat: round;
     position: relative;
     display: flex;
@@ -374,7 +374,7 @@ const SignupPublic = ({
                                             background="white"
                                             tabletBackground="green-1"
                                             inputColor="grey-5"
-                                            inputBackground="grey-8"
+                                            inputBackground="white"
                                             labelFocusColor="grey-7"
                                             labelColor="black-3"
                                             labelSize="16px"
@@ -387,7 +387,6 @@ const SignupPublic = ({
                                             autoFocus={autofocus}
                                             autoComplete="off"
                                             required
-                                            border="unset"
                                             height="40px"
                                             focusBorder="var(--color-grey-7)"
                                         />
@@ -412,7 +411,7 @@ const SignupPublic = ({
                                     handleChangeCheckbox={handleChange}
                                 />
                                 <SocialWrapper jc="unset" ai="center">
-                                    <SignInText>{localize('Or sign in with')}</SignInText>
+                                    <SignInText>{localize('Or sign up with')}</SignInText>
                                     <SocialButton
                                         onClick={handleSocialSignup}
                                         provider="google"

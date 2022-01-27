@@ -123,6 +123,43 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
+                            <Title>{localize('APPS')}</Title>
+                        </LinkWrapper>
+                        <LinkWrapper first_child="true">
+                            <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
+                                {localize('Deriv MT5')}
+                            </Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/dtrader/">{localize('DTrader')}</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link
+                                to="trading"
+                                type="smart_trader"
+                                external="true"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {localize('SmartTrader')}
+                            </Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/dbot/">{localize('DBot')}</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link
+                                to="https://bot.deriv.com"
+                                external="true"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {localize('Binary Bot')}
+                            </Link>
+                        </LinkWrapper>
+                    </LinksCol>
+                    <LinksCol>
+                        <LinkWrapper>
                             <Title>{localize('LEGAL')}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">

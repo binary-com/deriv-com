@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Signup, WhatOurClientsSay } from '../../home/_lazy-load'
 import ImageText from './components/_image-text'
@@ -27,10 +28,32 @@ const query = graphql`
         crypto_inside: file(relativePath: { eq: "ebooks/crypto-inside.png" }) {
             ...bannerImage
         }
+        crypto_hero_es: file(relativePath: { eq: "ebooks/crypto-hero-es.png" }) {
+            ...bannerImage
+        }
+        crypto_inside_es: file(relativePath: { eq: "ebooks/crypto-inside-es.png" }) {
+            ...bannerImage
+        }
+        crypto_hero_pt: file(relativePath: { eq: "ebooks/crypto-hero-pt.png" }) {
+            ...bannerImage
+        }
+        crypto_inside_pt: file(relativePath: { eq: "ebooks/crypto-inside-pt.png" }) {
+            ...bannerImage
+        }
+        crypto_hero_fr: file(relativePath: { eq: "ebooks/crypto-hero-fr.png" }) {
+            ...bannerImage
+        }
+        crypto_inside_fr: file(relativePath: { eq: "ebooks/crypto-inside-fr.png" }) {
+            ...bannerImage
+        }
     }
 `
 
-const StocksEbook = () => {
+const StocksEbook = (props) => {
+    const { language } = props
+    const isLanguages = ['es', 'pt', 'fr']
+    const languageSwitch = isLanguages.includes(language) ? `_${language}` : ''
+
     const data = useStaticQuery(query)
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
@@ -52,7 +75,7 @@ const StocksEbook = () => {
                 ebook_utm_code="cryptocurrencies-ebook"
                 introSub=""
                 introMain={localize('Learn how to trade cryptocurrencies with Deriv')}
-                mainHeaderImage={data['crypto_hero']}
+                mainHeaderImage={data[`crypto_hero${languageSwitch}`]}
             />
             <ImageText
                 imageWidth={282}
@@ -66,13 +89,17 @@ const StocksEbook = () => {
             />
             <Topics
                 title={localize('In this e-book we will cover')}
-                topicsImage={data['crypto_inside']}
+                topicsImage={data[`crypto_inside${languageSwitch}`]}
                 topicsList={topicsCovered}
             />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
         </Layout>
     )
+}
+
+StocksEbook.propTypes = {
+    language: PropTypes.string,
 }
 
 export default WithIntl()(StocksEbook)

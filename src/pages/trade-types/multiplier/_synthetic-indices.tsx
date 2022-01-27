@@ -10,10 +10,9 @@ import {
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex, CssGrid, Desktop, Mobile, NonUK } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { NonUK } from 'components/containers/visibility'
 import { DerivStore } from 'store'
 
 const StyledText = styled(Text)`
@@ -194,7 +193,7 @@ const SyntheticIndices = () => {
                                 renderTitle={() => (
                                     <Flex jc="flex-start" ai="center">
                                         <Col max_width="13.2rem">
-                                            <Show.Desktop>
+                                            <Desktop>
                                                 <Title
                                                     weight="bold"
                                                     max_width="9.7rem"
@@ -202,8 +201,8 @@ const SyntheticIndices = () => {
                                                 >
                                                     {localize('Volatility indices')}
                                                 </Title>
-                                            </Show.Desktop>
-                                            <Show.Mobile>
+                                            </Desktop>
+                                            <Mobile>
                                                 <Title
                                                     weight="bold"
                                                     max_width="9.7rem"
@@ -211,7 +210,7 @@ const SyntheticIndices = () => {
                                                 >
                                                     {localize('Volatility indices')}
                                                 </Title>
-                                            </Show.Mobile>
+                                            </Mobile>
                                         </Col>
                                         <MarketsList>
                                             <VolatilityIndices />
@@ -228,16 +227,16 @@ const SyntheticIndices = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col max_width="13.2rem">
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Crash/Boom')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Crash/ Boom')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <CrashBoom />
@@ -271,16 +270,16 @@ const SyntheticIndices = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col max_width="13.2rem">
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Jump indices')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Jump indices')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <JumpIndices />
@@ -295,16 +294,16 @@ const SyntheticIndices = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col max_width="13.2rem">
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Step indices')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Step indices')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <StepIndices />

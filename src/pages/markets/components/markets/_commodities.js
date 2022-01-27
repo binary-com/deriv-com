@@ -33,6 +33,7 @@ const Commodities = ({ simple_step_content }) => {
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_content={commodities_cfds} />}
+                // We need to replace this with ROW but we need to refactor available-trades.js due to ROW producing a truthy value and rendering the component tab title still
                 DigitalOptions={
                     !is_eu_country &&
                     !is_uk_country && (

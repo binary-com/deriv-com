@@ -9,9 +9,7 @@ const Energy = () => {
     return (
         <>
             {!is_eu_country && !is_uk_country
-                ? energy.map((symbol, index) => (
-                      <Symbol key={index} src={symbol.src} text={symbol.text} />
-                  ))
+                ? energy
                 : energy_eu.map((symbol, index) => (
                       <Symbol key={index} src={symbol.src} text={symbol.text} />
                   ))}

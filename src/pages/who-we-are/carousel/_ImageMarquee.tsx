@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-// import Marquee from 'react-fast-marquee'
 import Ticker from 'react-ticker'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'

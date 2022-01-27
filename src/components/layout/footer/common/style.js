@@ -202,6 +202,7 @@ export const CopyrightWrapper = styled(Flex)`
         width: 90%;
         margin: 0 auto;
         padding: 2rem 0;
+        justify-content: center;
 
         p {
             font-size: 1.75rem;

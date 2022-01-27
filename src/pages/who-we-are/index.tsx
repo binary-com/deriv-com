@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
+import Marquee from './carousel/_Marquee'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -13,7 +14,6 @@ const OurPrinciples = Loadable(() => import('./_OurPrinciples'))
 const OurLeadership = Loadable(() => import('./_OurLeadership'))
 const AboutUsBanner = Loadable(() => import('./_AboutUsBanner'))
 const DerivNumbers = Loadable(() => import('./_DerivNumbers'))
-const Marquee = Loadable(() => import('./carousel/_Marquee'))
 const OurOffices = Loadable(() => import('./_OurOffices'))
 
 const StartSeparator = styled.div`

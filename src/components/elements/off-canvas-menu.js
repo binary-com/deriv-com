@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex } from 'components/containers'
+import { Flex, NonEU } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { deriv_status_page_url } from 'common/constants'
@@ -39,7 +39,6 @@ import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
-import { DerivStore } from 'store'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
 
@@ -123,7 +122,6 @@ const content_style = {
 }
 
 export const OffCanvasMenuWrapper = (props) => {
-    const { is_eu_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -133,11 +131,7 @@ export const OffCanvasMenuWrapper = (props) => {
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
     return (
-        <OffCanvasMenu
-            is_canvas_menu_open={props.is_canvas_menu_open}
-            ref={canvas}
-            is_eu_country={is_eu_country}
-        >
+        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
@@ -162,7 +156,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         to="/trade-types/cfds/"
                                     />
                                 </Flex>
-                                {!is_eu_country && (
+                                <NonEU>
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
@@ -177,7 +171,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             to="/trade-types/options/"
                                         />
                                     </Flex>
-                                )}
+                                </NonEU>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Multipliers"
@@ -212,7 +206,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        {!is_eu_country && (
+                        <NonEU>
                             <Flex mb="2rem">
                                 <NavCard
                                     aria_label="Derivx"
@@ -225,7 +219,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     to="/derivx/"
                                 />
                             </Flex>
-                        )}
+                        </NonEU>
 
                         <Flex mb="2rem">
                             <NavCard
@@ -239,7 +233,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        {!is_eu_country && (
+                        <NonEU>
                             <>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -305,7 +299,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     />
                                 </Flex>
                             </>
-                        )}
+                        </NonEU>
                     </AccordionItem>
                     <AccordionItem
                         header="Markets"
@@ -562,7 +556,6 @@ OffCanvasMenuWrapper.propTypes = {
 }
 
 export const OffCanvasMenuPartner = (props) => {
-    const { is_eu_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -583,11 +576,7 @@ export const OffCanvasMenuPartner = (props) => {
     }, [])
 
     return (
-        <OffCanvasMenuSecondary
-            is_canvas_menu_open={props.is_canvas_menu_open}
-            ref={canvas}
-            is_eu_country={is_eu_country}
-        >
+        <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     <div>

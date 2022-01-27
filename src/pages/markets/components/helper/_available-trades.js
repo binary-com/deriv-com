@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { SectionContainer, Flex, Container } from 'components/containers'
+import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
@@ -9,7 +9,6 @@ import device from 'themes/device'
 import CFDIcon from 'images/svg/trade-types/cfds.svg'
 import MultipliersIcon from 'images/svg/markets/multipliers.svg'
 import OptionsIcon from 'images/svg/markets/options.svg'
-import { DerivStore } from 'store'
 
 const StyledSection = styled(SectionContainer)`
     padding: 8rem 0;
@@ -192,7 +191,6 @@ Card.propTypes = {
 }
 
 class AvailableTrades extends React.Component {
-    static contextType = DerivStore
     state = {
         active_tab: 'CFDs',
     }
@@ -202,7 +200,6 @@ class AvailableTrades extends React.Component {
     }
     render() {
         const { CFDs, DigitalOptions, Multipliers, display_title } = this.props
-        const { is_eu_country } = this.context
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center">
@@ -218,14 +215,17 @@ class AvailableTrades extends React.Component {
                                 active_tab={this.state.active_tab}
                             />
                         )}
-                        {!is_eu_country && DigitalOptions && (
-                            <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => this.handleTabChange('Options')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
+                        <NonEU>
+                            {DigitalOptions && (
+                                <Card
+                                    name="Options"
+                                    display_name={<Localize translate_text="Options" />}
+                                    onTabChange={() => this.handleTabChange('Options')}
+                                    active_tab={this.state.active_tab}
+                                />
+                            )}
+                        </NonEU>
+
                         {Multipliers && (
                             <Card
                                 name="Multipliers"

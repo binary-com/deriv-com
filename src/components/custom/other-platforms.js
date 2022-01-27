@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, EU, NonEU } from 'components/containers'
 import {
     Text,
     Card,
@@ -13,7 +13,6 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 // icons
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
@@ -208,18 +207,22 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-
+    const getHeaderText = () => (
+        <>
+            <EU>
+                <Localize translate_text="Check out our other platform" />
+            </EU>
+            <NonEU>
+                <Localize translate_text="Check out our other platforms" />
+            </NonEU>
+        </>
+    )
     return (
         <SectionContainer padding="0">
             {is_nav ? null : (
                 <HeaderWrapper>
                     <Header as="h3" type="section-title" align="center">
-                        {header
-                            ? header
-                            : is_eu_country
-                            ? localize('Check out our other platform')
-                            : localize('Check out our other platforms')}
+                        {header ? header : getHeaderText()}
                     </Header>
                     {subHeader && (
                         <Header
@@ -239,7 +242,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             )}
             <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
                 {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
-                {!is_eu_country && exclude.toLowerCase() !== 'dbot' && <BotCard />}
+                <NonEU>{exclude.toLowerCase() !== 'dbot' && <BotCard />}</NonEU>
                 {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
                 {/* {exclude.toLowerCase() !== 'derivx' && <DerivXCard />} */}
             </StyledFlexGridContainer>
@@ -266,8 +269,6 @@ OtherPlatform.propTypes = {
 }
 
 export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-
     return (
         <Flex>
             {!is_ppc && (
@@ -284,7 +285,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             onClick={onClick}
                             to="/trade-types/cfds/"
                         />
-                        {!is_eu_country && (
+                        <NonEU>
                             <NavCard
                                 aria_label="Options"
                                 icon={() => <img src={Options} alt="" width="32" height="32" />}
@@ -295,7 +296,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                                 onClick={onClick}
                                 to="/trade-types/options/"
                             />
-                        )}
+                        </NonEU>
                         <NavCard
                             aria_label="Multipliers"
                             icon={() => <img src={Multipliers} alt="" width="32" height="32" />}
@@ -322,7 +323,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
-                {!is_eu_country && (
+                <NonEU>
                     <>
                         <NavCard
                             aria_label="Derivx"
@@ -349,7 +350,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </>
-                )}
+                </NonEU>
             </Flex>
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <EmptySpace />
@@ -363,7 +364,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to="/dtrader/"
                 />
-                {!is_eu_country && (
+                <NonEU>
                     <>
                         <NavCard
                             aria_label="Deriv GO"
@@ -399,7 +400,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </>
-                )}
+                </NonEU>
             </Flex>
         </Flex>
     )

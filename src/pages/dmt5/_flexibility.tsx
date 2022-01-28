@@ -38,14 +38,14 @@ const content: ContentType[] = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (
-            <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
+            <Localize translate_text="Trade CFDs 24/7 on our exclusive, proprietary synthetic indices, which simulate real-world market movements." />
         ),
         icon: <StyledSyntheticIcon src={SyntheticIcon} alt="" />,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
+            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, basket indices, commodities, and crypto with high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },

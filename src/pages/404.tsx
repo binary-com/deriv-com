@@ -1,20 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import { isBrowser } from 'common/utility'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import { LinkButton } from 'components/form'
 import ImageNotAvailable from 'images/svg/image-not-available.svg'
-const query = graphql`
-    query {
-        page_not_found: file(relativePath: { eq: "image-not-available.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const PageNotFoundContainerInfo = styled.div`
     margin: 16px;

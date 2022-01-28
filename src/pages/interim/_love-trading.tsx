@@ -133,7 +133,7 @@ const LeftCTASection = (params: LeftCTASectionProps) => {
 }
 
 type RightCTASectionProps = LeftCTASectionProps & {
-    button_props?: any
+    button_props?: unknown
 }
 
 const RightCTASection = (params: RightCTASectionProps) => {

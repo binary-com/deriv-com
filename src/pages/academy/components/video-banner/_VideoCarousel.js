@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
@@ -29,17 +30,26 @@ const ItemsMainWrapper = styled(Flex)`
         min-width: 300px;
         height: auto;
     }
+
+    /* > .video-image {
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        object-fit: cover;
+    } */
 `
-const ImgDiv = styled.img`
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    object-fit: cover;
-`
+// const ImgDiv = styled.img`
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     position: absolute;
+//     object-fit: cover;
+// `
 
 const PlayerIconWrapper = styled(Flex)`
     width: 48px;
@@ -129,14 +139,16 @@ const VideoCarousel = ({ carousel_items }) => {
                 <Flex height="auto">
                     <CustomCarousel {...settings} custom_blog_video_nav>
                         {carousel_items.map((item, index) => {
+                            // console.log(item)
                             const {
                                 published_date,
-                                thumbnail_img,
+                                // thumbnail_img,
                                 thumbnail_img_alt,
                                 video_title,
                                 video_url,
                                 video_duration,
                             } = getVideoObject(item)
+                            // console.log(item.video_thumbnail.imageFile)
 
                             return (
                                 <ItemsMainWrapper
@@ -150,7 +162,13 @@ const VideoCarousel = ({ carousel_items }) => {
                                         br="unset"
                                         tabletL_br="unset"
                                     >
-                                        <ImgDiv src={thumbnail_img} alt={thumbnail_img_alt} />
+                                        <GatsbyImage
+                                            image={getImage(item.video_thumbnail)}
+                                            alt={thumbnail_img_alt}
+                                            // width="100%"
+                                            // height="100%"
+                                            // className="video-image"
+                                        />
                                         <PlayerIconWrapper absolute ai="center">
                                             <IconDiv>
                                                 <PlayerIcon src={PlayIcon} />

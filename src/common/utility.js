@@ -1,5 +1,4 @@
 import { navigate } from 'gatsby'
-// import { getImage } from 'gatsby-plugin-image'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import {

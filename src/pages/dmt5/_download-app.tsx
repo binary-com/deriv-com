@@ -7,18 +7,12 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import AppStore from 'images/svg/dmt5/app-store.svg'
 import GooglePlay from 'images/svg/dmt5/google-play.svg'
 import GooglePlayMobile from 'images/svg/dmt5/google-play-mobile.svg'
-import Linux from 'images/svg/dmt5/linux.svg'
+// import Linux from 'images/svg/dmt5/linux.svg'
 import MacOS from 'images/svg/dmt5/macos.svg'
 import MoreInfo from 'images/svg/dmt5/more-info.svg'
 import Windows from 'images/svg/dmt5/windows.svg'
 import device from 'themes/device'
-import {
-    dmt5_macos_url,
-    dmt5_windows_url,
-    dmt5_linux_url,
-    dmt5_android_url,
-    dmt5_ios_url,
-} from 'common/constants'
+import { dmt5_macos_url, dmt5_windows_url, dmt5_android_url, dmt5_ios_url } from 'common/constants'
 
 type ImageWrapperProps = {
     mt?: string
@@ -101,7 +95,9 @@ const DownloadApp = () => {
                 tabletL={{ mt: '0', pl: '10px', pr: '10px' }}
             >
                 <Show.Desktop>
-                    <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
+                    <StyledHeader as="h4" type="subtitle-1">
+                        {localize('Desktop')}
+                    </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
                             <LocalizedLink
@@ -120,18 +116,10 @@ const DownloadApp = () => {
                             >
                                 <img src={MacOS} alt="macos" />
                             </LocalizedLink>
-                            <LocalizedLink
-                                external="true"
-                                to={dmt5_linux_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={Linux} alt="linux" />
-                            </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
 
-                    <StyledHeader mt="2.4rem" as="h4">
+                    <StyledHeader mt="2.4rem" as="h4" type="subtitle-1">
                         {localize('Mobile')}
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
@@ -203,14 +191,6 @@ const DownloadApp = () => {
                                 rel="noopener noreferrer"
                             >
                                 <img src={MacOS} alt="macos" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external="true"
-                                to={dmt5_linux_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={Linux} alt="linux" />
                             </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>

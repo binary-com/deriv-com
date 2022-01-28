@@ -84,14 +84,14 @@ const StyledLinkButton = styled(LinkButton)`
     font-size: 14px;
     height: auto;
     min-height: 4rem;
-    width: 24rem;
+    width: 11rem;
     margin: 0;
     @media ${device.tabletL} {
         margin: auto;
     }
 
     @media ${device.mobileL} {
-        width: 100%;
+        width: 30%;
     }
 
     :active {
@@ -161,22 +161,21 @@ const InterestFreeTrading = () => {
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
-                    <CheckedText>Stocks</CheckedText>
-                    <CheckedText>Stock indices</CheckedText>
-                    <CheckedText>Commodities</CheckedText>
-                    <CheckedText>Cryptocurrencies</CheckedText>
                     <CheckedText>Synthetic indices</CheckedText>
+                    <CheckedText>Cryptocurrencies</CheckedText>
+                    <CheckedText>Basket indices</CheckedText>
+                    <CheckedText>Commodities</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
-                    <Localize translate_text="Access markets with swap-free trading" />
+                    <Localize translate_text="Trade on the world markets without commission" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="Enjoy interest-free trading with no swap charges on overnight positions for forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices." />
+                    <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
                 </StyledRightText>
                 <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
-                    <Localize translate_text="Choose swap-free trading now" />
+                    <Localize translate_text="Trade now" />
                 </StyledLinkButton>
             </StyledFlex>
         </StyledContainer>

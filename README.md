@@ -270,4 +270,4 @@ If preferable to use manual deployment, you can use [gh-pages](https://pages.git
 -   [how to style my element?](documents/implementation-guide.md#styled-component)
 -   [Where to put my new component?](documents/file-structures.md)
 
-⚠️ If you have more questions to add, please open a PR to add your question in FAQ section. The Answer will be on the PR reviews
+⚠️ If you have more questions to add, please open a PR to add your question in FAQ section. The Answer will be on the PR reviews 

@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Text } from './typography'
+import { Header, Text } from './typography'
 import { Flex } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { useTabState } from 'components/hooks/use-tab-state'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
+
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
@@ -55,20 +58,22 @@ const TabList = styled.div`
     width: 100%;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     position: relative;
-    overflow: auto;
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: auto;
+    white-space: nowrap;
     -ms-overflow-style: none;
     scrollbar-width: none;
 
-    @media ${device.mobileL} {
-        justify-content: ${(props) => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
+    &::-webkit-scrollbar {
+        display: none;
     }
+
     @media ${device.laptopM} {
         justify-content: ${(props) => (props.jc_laptopM ? props.jc_laptopM : 'center')};
+    }
+
+    @media ${device.mobileL} {
+        justify-content: ${(props) => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
     }
 `
 
@@ -86,14 +91,11 @@ const Content = styled.div`
     width: 100%;
 `
 
-const TextWrapper = styled(Text)`
+const TextWrapper = styled(Header)`
     text-align: center;
-    font-size: var(--text-size-m);
+
     @media ${device.tabletS} {
-        font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};
-    }
-    @media ${device.mobileM} {
-        font-size: ${({ font_size }) => font_size ?? 'var(--text-size-s)'};
+        font-size: ${({ mobile_font_size }) => mobile_font_size && `${mobile_font_size}px`};
     }
 `
 
@@ -109,23 +111,43 @@ TabPanel.propTypes = {
 
 const Tabs = ({
     children,
-    route_from,
     tab_list,
     jc,
     jc_mobileL,
     jc_laptopM,
     line_divider_length,
+    mobile_font_size,
     mobile_tab_button_underline_length,
     has_no_query,
 }) => {
+    const [is_mobile] = useBrowserResize(768)
+    const [is_mounted] = usePageLoaded()
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = has_no_query
         ? useTabState(tab_list)
         : useTabStateQuery(tab_list)
+    const [offset, setOffset] = useState(0)
+    const ref = useRef(null)
 
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
     }, [active_tab])
+
+    useEffect(() => {
+        const selected_el = ref.current.querySelector('[aria-selected="true"]')
+        if (selected_el) {
+            setOffset(selected_el.offsetLeft - 24)
+        }
+    }, [is_mounted])
+
+    useEffect(() => {
+        ref.current.scrollLeft = offset
+    }, [ref.current, offset])
+
+    const setOffsetPositioning = (e, index) => {
+        const left = e.target.offsetLeft - 24
+        is_mobile && index > 0 ? setOffset(left) : setOffset(0)
+    }
 
     return (
         <Flex direction="column">
@@ -135,16 +157,20 @@ const Tabs = ({
                 jc_mobileL={jc_mobileL}
                 jc_laptopM={jc_laptopM}
                 line_divider_length={line_divider_length}
+                ref={ref}
             >
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
                         role="tab"
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
-                        onClick={() => setActiveTab(tab_list[index])}
+                        onClick={(e) => {
+                            setOffsetPositioning(e, index)
+                            setActiveTab(tab_list[index])
+                        }}
                         mobile_tab_button_underline_length={mobile_tab_button_underline_length}
                     >
-                        <TextWrapper font_size={route_from === 'markets' ? '24px' : undefined}>
+                        <TextWrapper type="subtitle-1" mobile_font_size={mobile_font_size}>
                             {label}
                         </TextWrapper>
                     </TabButton>
@@ -170,8 +196,8 @@ Tabs.propTypes = {
     jc_laptopM: PropTypes.string,
     jc_mobileL: PropTypes.string,
     line_divider_length: PropTypes.string,
+    mobile_font_size: PropTypes.number,
     mobile_tab_button_underline_length: PropTypes.string,
-    route_from: PropTypes.string,
     tab_list: PropTypes.array,
 }
 

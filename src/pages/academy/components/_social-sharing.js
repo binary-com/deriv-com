@@ -36,30 +36,34 @@ const SharingWrapper = styled.div`
     top: 25px;
 
     img {
-        width: 30px;
-        height: 30px;
+        width: 21px;
+        height: 23px;
     }
 
     @media ${device.tabletL} {
-        position: absolute;
         left: 85%;
         top: 8px;
     }
 `
 
 const SharingButton = styled.button`
-    height: 40px;
-    width: 40px;
-    margin-bottom: 10px;
-    background: rgba(236, 241, 247, 0.5);
-    border: 1px solid rgba(236, 241, 247, 0.5);
-    border-radius: 5px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 0;
+    top: 5px;
+    background: #ffffff;
+    border: 0 solid rgba(236, 241, 247, 0.5);
+    border-radius: 4px;
 
+    :focus-within {
+        background: #f2f3f4;
+    }
     img {
-        width: 30px;
-        height: 30px;
+        width: 21px;
+        height: 23px;
         position: absolute;
-        top: -5%;
+        top: -10%;
         left: -10%;
     }
 `
@@ -68,7 +72,7 @@ const DropDownSharingButton = styled.div`
     position: absolute;
     left: -5px;
     top: 50px;
-    width: 50px;
+    width: 40px;
     background-color: #ffffff;
     border: 1px solid #ffffff;
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
@@ -78,8 +82,8 @@ const DropDownSharingButton = styled.div`
         border-bottom: 10px solid white;
         content: '';
         position: absolute;
-        right: 20px;
-        top: -14px;
+        right: 13px;
+        top: -15px;
         z-index: 2;
     }
 `
@@ -92,7 +96,6 @@ export const SocialWrapper = styled.div`
     }
 
     @media ${device.tabletL} {
-        grid-area: social;
         display: flex;
         justify-content: center;
         margin: 3rem 0 1rem;

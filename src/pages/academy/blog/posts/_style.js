@@ -45,15 +45,15 @@ export const StickyBreadCrumbsWrapper = styled(Flex)`
     @media ${device.desktopL} {
         top: ${(props) => (props.scroll ? '86px' : 'unset')};
         height: 90px;
-        padding-right: 0;
-        padding-top: 0;
+    }
+
+    @media ${device.laptop} {
+        top: 55px;
     }
 
     @media ${device.tabletL} {
         top: ${(props) => (props.scroll ? '55px' : 'unset')};
         height: 66px;
-        padding-right: 0;
-        padding-top: 0;
     }
 `
 export const BreadcrumbsWrapper = styled(Container)`
@@ -64,7 +64,7 @@ export const BreadcrumbsWrapper = styled(Container)`
 
     @media ${device.laptop} {
         width: 100%;
-        padding: 20px 16px;
+        padding: 0 0 10px;
         flex-direction: column;
     }
 `
@@ -409,7 +409,6 @@ export const PreviewContainer = styled(Box)`
     }
 `
 export const SocialComponentsWrapper = styled(Flex)`
-    display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 60px;
@@ -417,7 +416,6 @@ export const SocialComponentsWrapper = styled(Flex)`
     width: 0;
 
     @media ${device.tabletL} {
-        display: flex;
         justify-content: flex-end;
         width: 0;
         padding-top: 0;

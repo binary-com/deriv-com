@@ -49,7 +49,6 @@ const PageNotFound = () => {
                     <img
                         src={ImageNotAvailable}
                         alt={localize('Page not found')}
-                        loading="eager"
                         width="96"
                         height="96"
                     />

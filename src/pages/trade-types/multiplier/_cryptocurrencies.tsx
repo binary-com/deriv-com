@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { NonUK } from 'components/containers/visibility'
@@ -8,6 +7,8 @@ import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { cryptocurrencies_trade_type } from 'pages/markets/instruments/_market-symbols'
+import Symbol from 'pages/markets/components/helper/_symbol'
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
@@ -132,7 +133,7 @@ const Cryptocurrencies = () => {
                                         </Show.Mobile>
                                     </Col>
                                     <MarketsList>
-                                        <CryptocurrenciesTradeType />
+                                        <Symbol instruments_type={cryptocurrencies_trade_type} />
                                     </MarketsList>
                                 </Flex>
                             )}

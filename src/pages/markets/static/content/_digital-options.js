@@ -1,17 +1,17 @@
 import React from 'react'
+import { Energy } from '../../instruments/_submarkets.js'
 import {
-    Americas,
-    AsiaOceania,
-    ContinuousIndices,
-    DailyResetIndices,
-    Energy,
-    Europe,
-    JumpIndices,
-    MajorPairs,
-    Metals,
-    MinorPairsOptions,
-    SmartFX,
-} from '../../instruments/_submarkets.js'
+    americas,
+    asia_oceania,
+    continuous_indices,
+    daily_reset_indices,
+    europe,
+    jump_indices,
+    major_pairs,
+    metals,
+    minor_pairs_options,
+    smart_fx,
+} from '../../instruments/_market-symbols.js'
 import {
     AmericasDetails,
     AsiaOceaniaDetails,
@@ -36,6 +36,7 @@ import RcRp from 'images/svg/options/rc-rp.svg'
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import SbGo from 'images/svg/options/sb-go.svg'
 import TNT from 'images/svg/options/tnt.svg'
+import Symbol from 'pages/markets/components/helper/_symbol'
 
 const getOptions = (is_synthetic_options) => {
     const options = [
@@ -215,7 +216,7 @@ export const commodities_options = {
         content: [
             {
                 title: <Localize translate_text="Metals" />,
-                component: <Metals />,
+                component: <Symbol instruments_type={metals} />,
             },
             {
                 title: <Localize translate_text="Energy" />,
@@ -239,15 +240,15 @@ export const forex_options = {
         content: [
             {
                 title: <Localize translate_text="Major pairs" />,
-                component: <MajorPairs />,
+                component: <Symbol instruments_type={major_pairs} />,
             },
             {
                 title: <Localize translate_text="Minor pairs" />,
-                component: <MinorPairsOptions />,
+                component: <Symbol instruments_type={minor_pairs_options} />,
             },
             {
                 title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
+                component: <Symbol instruments_type={smart_fx} />,
                 details: SmartFXDetails,
             },
         ],
@@ -267,7 +268,7 @@ export const stock_options = {
                         components={[<br key={0} />]}
                     />
                 ),
-                component: <Americas />,
+                component: <Symbol instruments_type={americas} />,
                 details: AmericasDetails,
                 tablet_col: 2,
                 mobile_col: 2,
@@ -279,7 +280,7 @@ export const stock_options = {
                 title: (
                     <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />
                 ),
-                component: <AsiaOceania />,
+                component: <Symbol instruments_type={asia_oceania} />,
                 details: AsiaOceaniaDetails,
                 tablet_col: 2,
                 mobile_col: 2,
@@ -294,7 +295,7 @@ export const stock_options = {
                         components={[<br key={0} />]}
                     />
                 ),
-                component: <Europe />,
+                component: <Symbol instruments_type={europe} />,
                 details: EuropeDetails,
                 custom_index: -1,
                 col: 4,
@@ -314,17 +315,17 @@ export const synthetic_options = {
         content: [
             {
                 title: <Localize translate_text="Continuous indices" />,
-                component: <ContinuousIndices />,
+                component: <Symbol instruments_type={continuous_indices} />,
                 details: ContinuousIndicesDetails,
             },
             {
                 title: <Localize translate_text="Jump indices" />,
-                component: <JumpIndices />,
+                component: <Symbol instruments_type={jump_indices} />,
                 details: JumpIndicesDetails,
             },
             {
                 title: <Localize translate_text="Daily reset indices" />,
-                component: <DailyResetIndices />,
+                component: <Symbol instruments_type={daily_reset_indices} />,
                 details: DailyResetIndicesDetails,
             },
         ],

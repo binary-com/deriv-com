@@ -1,14 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-    CrashBoom,
-    ContinuousIndices,
-    JumpIndices,
-    StepIndices,
-    VolatilityIndices,
-} from '../../markets/instruments/_submarkets.js'
+import { CrashBoom, StepIndices, VolatilityIndices } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { continuous_indices, jump_indices } from 'pages/markets/instruments/_market-symbols'
+import Symbol from 'pages/markets/components/helper/_symbol'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Desktop, Mobile, NonUK } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -257,7 +253,7 @@ const SyntheticIndices = () => {
                                             </Title>
                                         </Col>
                                         <MarketsList>
-                                            <ContinuousIndices />
+                                            <Symbol instruments_type={continuous_indices} />
                                         </MarketsList>
                                     </Flex>
                                 )}
@@ -282,7 +278,7 @@ const SyntheticIndices = () => {
                                         </Mobile>
                                     </Col>
                                     <MarketsList>
-                                        <JumpIndices />
+                                        <Symbol instruments_type={jump_indices} />
                                     </MarketsList>
                                 </Flex>
                             )}

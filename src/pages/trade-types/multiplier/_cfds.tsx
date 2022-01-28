@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import MarketInstruments from '../../markets/components/sections/_market_instruments.js'
-import { MajorPairs, SmartFX } from '../../markets/instruments/_submarkets.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { SmartFXDetails } from '../../markets/static/content/_details'
 import { Text } from 'components/elements'
@@ -9,6 +8,8 @@ import { SectionContainer, Show, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+import { major_pairs, smart_fx } from 'pages/markets/instruments/_market-symbols'
+import Symbol from 'pages/markets/components/helper/_symbol'
 
 const AvailablePlatformsWrapper = styled(Flex)`
     border-bottom: 1px solid var(--color-grey-21);
@@ -28,7 +29,7 @@ const StyledTitle = styled(Text)`
 const CFDs = () => {
     const { is_eu_country } = React.useContext(DerivStore)
 
-    const major_pairs = {
+    const major_pairs_content = {
         markets_list: {
             col: 4,
             tablet_col: 3,
@@ -37,7 +38,7 @@ const CFDs = () => {
         content: [
             {
                 title: <Localize translate_text="Major pairs" />,
-                component: <MajorPairs />,
+                component: <Symbol instruments_type={major_pairs} />,
             },
         ],
     }
@@ -47,7 +48,7 @@ const CFDs = () => {
         content: [
             {
                 title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
+                component: <Symbol instruments_type={smart_fx} />,
                 details: SmartFXDetails,
                 col: 3,
                 tablet_col: 2,
@@ -59,7 +60,7 @@ const CFDs = () => {
         content: [
             {
                 title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
+                component: <Symbol instruments_type={smart_fx} />,
                 details: SmartFXDetails,
             },
         ],
@@ -81,7 +82,7 @@ const CFDs = () => {
                 <StyledTitle>
                     {localize('Forex pairs available for multipliers trading')}
                 </StyledTitle>
-                <MarketInstruments market_content={major_pairs} />
+                <MarketInstruments market_content={major_pairs_content} />
                 {!is_eu_country && (
                     <>
                         <Show.Desktop>

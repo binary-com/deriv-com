@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import MarketInstruments from '../../../markets/components/sections/_market_instruments.js'
-import { SwapFreePairs } from '../../../markets/instruments/_submarkets.js'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import Symbol from 'pages/markets/components/helper/_symbol.js'
+import { swap_free_pairs } from 'pages/markets/instruments/_market-symbols'
 
 type TablebtnProps = {
     btnlabel: string
@@ -43,7 +44,7 @@ const TryButton = styled(LinkButton)`
 `
 
 const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
-    const swap_free_pairs = {
+    const swap_free_pairs_content = {
         markets_list: {
             col: 4,
             tablet_col: 3,
@@ -52,7 +53,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
         content: [
             {
                 title: <Localize translate_text="Swap-free pairs" />,
-                component: <SwapFreePairs />,
+                component: <Symbol instrumets_type={swap_free_pairs} />,
             },
         ],
     }
@@ -64,7 +65,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                     {text}
                 </StyledText>
                 <MarketInstruments
-                    market_content={swap_free_pairs}
+                    market_content={swap_free_pairs_content}
                     background="var(--color-white)"
                 />
                 <TryButton

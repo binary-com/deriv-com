@@ -1,15 +1,15 @@
 import React from 'react'
+import { CrashBoom, StepIndices } from '../../instruments/_submarkets'
 import {
-    ContinuousIndices,
-    CrashBoom,
-    CrashBoomEU,
-    JumpIndices,
-    MajorPairs,
-    StepIndices,
-    CryptocurrenciesMultipliers,
-    VolatilityIndicesEU,
-    SmartFX,
-} from '../../instruments/_submarkets'
+    continuous_indices,
+    crash_boom_eu,
+    cryptocurrencies_multipliers,
+    jump_indices,
+    major_pairs,
+    smart_fx,
+    volatility_indices_eu,
+} from '../../instruments/_market-symbols'
+import Symbol from '../../components/helper/_symbol'
 import {
     ContinuousIndicesDetails,
     CrashBoomDetails,
@@ -31,11 +31,11 @@ export const forex_multiplier = {
     content: [
         {
             title: <Localize translate_text="Major pairs" />,
-            component: <MajorPairs />,
+            component: <Symbol instruments_type={major_pairs} />,
         },
         {
             title: <Localize translate_text="SmartFX" />,
-            component: <SmartFX />,
+            component: <Symbol instruments_type={smart_fx} />,
             details: SmartFXDetails,
         },
     ],
@@ -50,7 +50,7 @@ export const forex_multiplier_eu = {
     content: [
         {
             title: <Localize translate_text="Major pairs" />,
-            component: <MajorPairs />,
+            component: <Symbol instruments_type={major_pairs} />,
         },
     ],
 }
@@ -60,7 +60,7 @@ export const synthetic_multiplier = {
     content: [
         {
             title: <Localize translate_text="Continuous indices" />,
-            component: <ContinuousIndices />,
+            component: <Symbol instruments_type={continuous_indices} />,
             details: ContinuousIndicesDetails,
         },
         {
@@ -73,7 +73,7 @@ export const synthetic_multiplier = {
         },
         {
             title: <Localize translate_text="Jump indices" />,
-            component: <JumpIndices />,
+            component: <Symbol instruments_type={jump_indices} />,
             details: JumpIndicesDetails,
         },
         {
@@ -96,7 +96,7 @@ export const synthetic_multiplier_eu = {
     content: [
         {
             title: <Localize translate_text="Volatility indices" />,
-            component: <VolatilityIndicesEU />,
+            component: <Symbol instruments_type={volatility_indices_eu} />,
             details: VolatilityIndicesDetailsEU,
         },
         {
@@ -104,7 +104,7 @@ export const synthetic_multiplier_eu = {
             mobile_title: (
                 <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
             ),
-            component: <CrashBoomEU />,
+            component: <Symbol instruments_type={crash_boom_eu} />,
             details: CrashBoomDetailsEU,
         },
     ],
@@ -120,7 +120,7 @@ export const crypto_multiplier = {
     content: [
         {
             title: <Localize translate_text="Crypto pairs" />,
-            component: <CryptocurrenciesMultipliers />,
+            component: <Symbol instruments_type={cryptocurrencies_multipliers} />,
             details: CryptocurrenciesDetails,
         },
     ],

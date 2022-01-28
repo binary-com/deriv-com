@@ -23,6 +23,7 @@ import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 import { Header } from 'components/elements'
+import { Flex } from 'components/containers'
 
 export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
     <StyledButtonWrapper
@@ -209,21 +210,26 @@ export const CustomCarousel = ({
                             </div>
                         ))}
                         {!is_mobile && (
-                            <LastChildWrapper key={'lastchild of carousel'} to="/academy/videos/">
-                                <PlayerIconWrapper>
-                                    <PlayerIcon src={PlayIcon} />
-                                </PlayerIconWrapper>
-                                <Header
-                                    as="p"
-                                    type="paragraph-2"
-                                    color="white"
-                                    mt="8px"
-                                    mb="0"
-                                    align="center"
+                            <Flex m="auto 0" height="100%">
+                                <LastChildWrapper
+                                    key={'lastchild of carousel'}
+                                    to="/academy/videos/"
                                 >
-                                    See all videos
-                                </Header>
-                            </LastChildWrapper>
+                                    <PlayerIconWrapper>
+                                        <PlayerIcon src={PlayIcon} />
+                                    </PlayerIconWrapper>
+                                    <Header
+                                        as="p"
+                                        type="paragraph-2"
+                                        color="white"
+                                        mt="8px"
+                                        mb="0"
+                                        align="center"
+                                    >
+                                        See all videos
+                                    </Header>
+                                </LastChildWrapper>
+                            </Flex>
                         )}
                     </EmblaContainer>
                 </ViewPort>

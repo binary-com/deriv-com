@@ -210,11 +210,8 @@ export const CustomCarousel = ({
                             </div>
                         ))}
                         {!is_mobile && (
-                            <Flex m="auto 0" height="100%">
-                                <LastChildWrapper
-                                    key={'lastchild of carousel'}
-                                    to="/academy/videos/"
-                                >
+                            <Flex m="auto 0" height="100%" key="lastchild of carousel">
+                                <LastChildWrapper to="/academy/videos/">
                                     <PlayerIconWrapper>
                                         <PlayerIcon src={PlayIcon} />
                                     </PlayerIconWrapper>

@@ -5,8 +5,5 @@
     ],
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
         "prettier --write"
-    ],
-    "*.{jpeg,jpg,gif,svg}" : [
-        "minify-lint-staged"
     ]
 }

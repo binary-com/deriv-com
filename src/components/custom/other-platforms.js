@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer, EU, NonEU } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, EU, NonEU, NonUK } from 'components/containers'
 import {
     Text,
     Card,
@@ -14,7 +14,6 @@ import {
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
-import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
@@ -35,7 +34,6 @@ import Options from 'images/svg/custom/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
-import Signals from 'images/svg/menu/signals.svg'
 import Smarttrader from 'images/svg/custom/smarttrader.svg'
 import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
@@ -423,16 +421,18 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             to="/markets/forex/"
         />
         {!is_ppc && (
-            <NavCard
-                aria_label="Synthetic indices"
-                icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
-                }
-                title={<Localize translate_text="Synthetic indices" />}
-                onClick={onClick}
-                to="/markets/synthetic/"
-            />
+            <NonUK>
+                <NavCard
+                    aria_label="Synthetic indices"
+                    icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+                    }
+                    title={<Localize translate_text="Synthetic indices" />}
+                    onClick={onClick}
+                    to="/markets/synthetic/"
+                />
+            </NonUK>
         )}
         <NavCard
             aria_label="Stocks & indices"
@@ -444,16 +444,18 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             onClick={onClick}
             to="/markets/stock/"
         />
-        <NavCard
-            aria_label="Cryptocurrencies"
-            icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-            }
-            title={<Localize translate_text="Cryptocurrencies" />}
-            onClick={onClick}
-            to="/markets/cryptocurrencies/"
-        />
+        <NonUK>
+            <NavCard
+                aria_label="Cryptocurrencies"
+                icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                }
+                title={<Localize translate_text="Cryptocurrencies" />}
+                onClick={onClick}
+                to="/markets/cryptocurrencies/"
+            />
+        </NonUK>
         <NavCard
             aria_label="Commodities"
             icon={() => <img src={Commodities} alt="" width="32" height="32" />}
@@ -547,18 +549,6 @@ export const NavResources = ({ onClick }) => (
             title={localize('Payment methods')}
             onClick={onClick}
             to="/payment-methods/"
-        />
-        <CardLink
-            icon={() => <img src={Signals} alt="" width="24" height="24" />}
-            title={localize('DMT5 Signals')}
-            onClick={onClick}
-            to="/dmt5-trading-signals/#signal-subscriber/"
-        />
-        <CardLink
-            icon={() => <img src={Blog} alt="" width="24" height="24" />}
-            title={localize('Academy')}
-            onClick={onClick}
-            to="/academy/"
         />
     </Flex>
 )

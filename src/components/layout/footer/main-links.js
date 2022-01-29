@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { localize } from 'components/localization'
-import { Flex, Show, NonEU, NonUK, ROW } from 'components/containers'
+import { Flex, Show, NonUK, ROW } from 'components/containers'
 import { deriv_status_page_url } from 'common/constants'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
@@ -38,13 +38,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <LinkWrapper first_child="true">
                                 <Link to="/trade-types/cfds/">{localize('CFDs')}</Link>
                             </LinkWrapper>
-                            <NonEU>
+                            <ROW>
                                 <LinkWrapper>
                                     <Link to="/trade-types/options/">
                                         {localize('Digital options')}
                                     </Link>
                                 </LinkWrapper>
-                            </NonEU>
+                            </ROW>
                             <LinkWrapper>
                                 <Link to="/trade-types/multiplier/">{localize('Multipliers')}</Link>
                             </LinkWrapper>
@@ -101,9 +101,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             </LinkWrapper>
                             <LinkWrapper>
                                 <Link to="/landing/deriv-go/">{localize('Deriv GO')}</Link>
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <Link to="/dtrader/">{localize('DTrader')}</Link>
                             </LinkWrapper>
                             <LinkWrapper>
                                 <Link

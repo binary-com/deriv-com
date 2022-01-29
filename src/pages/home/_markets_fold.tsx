@@ -7,6 +7,7 @@ import { localize, LocalizedLink } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
+import { getCountryRule } from 'components/containers/visibility'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -117,6 +118,38 @@ const market_data = [
         gradient_end: '#060C11',
     },
 ]
+const market_data_uk = [
+    {
+        header: localize('Forex'),
+        description: localize(
+            'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
+        ),
+        img_name: 'market_forex',
+        to: '/markets/forex/',
+        gradient_start: '#661B20',
+        gradient_end: '#190708',
+    },
+    {
+        header: localize(`Stocks & indices`),
+        description: localize(
+            'Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market.',
+        ),
+        img_name: 'market_stocks_indices',
+        to: '/markets/stock/',
+        gradient_start: '#2A2040',
+        gradient_end: '#0A0810',
+    },
+    {
+        header: localize('Commodities'),
+        description: localize(
+            'Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action.',
+        ),
+        img_name: 'market_commodities',
+        to: '/markets/commodities/',
+        gradient_start: '#183046',
+        gradient_end: '#060C11',
+    },
+]
 
 const query = graphql`
     query {
@@ -204,6 +237,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
+    const { is_uk } = getCountryRule()
     const [is_mobile] = useBrowserResize()
     const settings = {
         options: {
@@ -244,7 +278,7 @@ const MarketsFold = () => {
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >
-                    {market_data.map((market) => {
+                    {(is_uk ? market_data_uk : market_data).map((market) => {
                         const { header, description, img_name, gradient_start, gradient_end, to } =
                             market
 

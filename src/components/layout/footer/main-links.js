@@ -77,9 +77,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             </LinkWrapper>
                         </NonUK>
                         <LinkWrapper>
-                            <Link to="/markets/basket/">{localize('Basket indices')}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
                             <Link to="/markets/commodities/">{localize('Commodities')}</Link>
                         </LinkWrapper>
                     </LinksCol>

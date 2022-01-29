@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { useCookieState } from './use-cookie-state'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { getDateFromToday } from 'common/utility'
@@ -13,7 +13,7 @@ export const useWebsiteStatus = () => {
     const [is_loading, setLoading] = useState(true)
     const binary_socket = BinarySocketBase.init()
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setLoading(true)
         if (!website_status) {
             binary_socket.onopen = () => {

@@ -10,6 +10,8 @@ import {
 } from './constants'
 import { isUK } from 'common/country-base'
 import { localize } from 'components/localization'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { CookieStorage } from 'common/storage'
 
 export const trimSpaces = (value) => value?.trim()
 
@@ -347,3 +349,72 @@ export const slugify = (text) =>
         .replace(/\s+/g, '-') // Replace spaces with -
         .replace(/[^\w-]+/g, '') // Remove all non-word chars
         .replace(/--+/g, '-') // Replace multiple - with single -
+
+const [website_status] = useWebsiteStatus()
+const current_client_country = website_status?.clients_country || ''
+
+const client_information_cookie = new CookieStorage('client_information')
+const residence = client_information_cookie.get('residence')
+
+const handleDerivRedirect = (country) => {
+    switch (country) {
+        case 'gb':
+            window.location.host = 'uk.deriv.com'
+            break
+        case 'nl':
+            window.location.host = 'eu.deriv.com'
+            break
+        default:
+            break
+    }
+}
+
+const handleUKRedirect = (country) => {
+    if (country === 'nl') {
+        window.location.host = 'eu.deriv.com'
+    } else if (country !== 'gb') {
+        window.location.host = 'uk.deriv.com'
+    }
+}
+
+const handleEURedirect = (country) => {
+    if (country === 'gb') {
+        window.location.host = 'uk.deriv.com'
+    } else if (country !== 'nl') {
+        window.location.host = 'eu.deriv.com'
+    }
+}
+
+const handleDeriv = () => {
+    if (residence) {
+        handleDerivRedirect(residence)
+    } else {
+        handleDerivRedirect(current_client_country)
+    }
+}
+
+const handleUKDeriv = () => {
+    if (residence) {
+        handleUKRedirect(residence)
+    } else {
+        handleUKRedirect(current_client_country)
+    }
+}
+
+const handleEUDeriv = () => {
+    if (residence) {
+        handleEURedirect(residence)
+    } else {
+        handleEURedirect(current_client_country)
+    }
+}
+
+export const handleRedirect = (domain) => {
+    if (domain.includes('uk')) {
+        handleUKDeriv()
+    } else if (domain.includes('eu')) {
+        handleEUDeriv()
+    } else {
+        handleDeriv()
+    }
+}

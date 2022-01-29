@@ -363,57 +363,47 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
+const redirect = (redirect_domain) => {
+    window.location.host = redirect_domain
+}
+
 const handleDerivRedirect = (country) => {
-    switch (country) {
-        case 'gb':
-            window.location.host = 'uk.deriv.com'
-            break
-        case 'nl':
-            window.location.host = 'eu.deriv.com'
-            break
-        default:
-            break
+    if (country === 'nl') {
+        redirect('eu.deriv.com')
+    } else if (country === 'gb') {
+        redirect('uk.deriv.com')
     }
 }
 
 const handleUKRedirect = (country) => {
     if (country === 'nl') {
-        window.location.host = 'eu.deriv.com'
+        redirect('eu.deriv.com')
     } else if (country !== 'gb') {
-        window.location.host = 'uk.deriv.com'
+        redirect('deriv.com')
     }
 }
 
 const handleEURedirect = (country) => {
     if (country === 'gb') {
-        window.location.host = 'uk.deriv.com'
+        redirect('uk.deriv.com')
     } else if (country !== 'nl') {
-        window.location.host = 'eu.deriv.com'
+        redirect('deriv.com')
     }
 }
 
 const handleDeriv = (residence, current_client_country) => {
-    if (residence) {
-        handleDerivRedirect(residence)
-    } else {
-        handleDerivRedirect(current_client_country)
-    }
+    const country = residence ? residence : current_client_country
+    handleDerivRedirect(country)
 }
 
 const handleUKDeriv = (residence, current_client_country) => {
-    if (residence) {
-        handleUKRedirect(residence)
-    } else {
-        handleUKRedirect(current_client_country)
-    }
+    const country = residence ? residence : current_client_country
+    handleUKRedirect(country)
 }
 
 const handleEUDeriv = (residence, current_client_country) => {
-    if (residence) {
-        handleEURedirect(residence)
-    } else {
-        handleEURedirect(current_client_country)
-    }
+    const country = residence ? residence : current_client_country
+    handleEURedirect(country)
 }
 
 export const handleRedirect = (domain, residence, current_client_country) => {

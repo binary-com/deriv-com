@@ -18,6 +18,7 @@ import { Text } from 'components/elements'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -158,8 +159,14 @@ const Layout = ({
         }
     }, [is_eu_country])
 
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country || ''
+
+    const client_information_cookie = new CookieStorage('client_information')
+    const residence = client_information_cookie.get('residence')
+
     React.useEffect(() => {
-        handleRedirect(window.location.host)
+        handleRedirect(window.location.host, residence, current_client_country)
     }, [])
 
     const onAccept = () => {
@@ -176,8 +183,8 @@ const Layout = ({
     }
 
     // Handle navigation types
-    let Navigation = <Fragment />
-    let FooterNav = <Fragment />
+    let Navigation = <></>
+    let FooterNav = <></>
     switch (type) {
         case 'academy':
             Navigation = <NavAcademy academy_logo={true} no_language={true} />

@@ -10,8 +10,6 @@ import {
 } from './constants'
 import { isUK } from 'common/country-base'
 import { localize } from 'components/localization'
-import { useWebsiteStatus } from 'components/hooks/use-website-status'
-import { CookieStorage } from 'common/storage'
 
 export const trimSpaces = (value) => value?.trim()
 
@@ -365,13 +363,9 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
-const [website_status] = useWebsiteStatus()
-const current_client_country = website_status?.clients_country || ''
-
-const client_information_cookie = new CookieStorage('client_information')
-const residence = client_information_cookie.get('residence')
-
 const handleDerivRedirect = (country) => {
+    // eslint-disable-next-line no-console
+    console.log(country)
     switch (country) {
         case 'gb':
             window.location.host = 'uk.deriv.com'
@@ -400,7 +394,7 @@ const handleEURedirect = (country) => {
     }
 }
 
-const handleDeriv = () => {
+const handleDeriv = (residence, current_client_country) => {
     if (residence) {
         handleDerivRedirect(residence)
     } else {
@@ -408,7 +402,7 @@ const handleDeriv = () => {
     }
 }
 
-const handleUKDeriv = () => {
+const handleUKDeriv = (residence, current_client_country) => {
     if (residence) {
         handleUKRedirect(residence)
     } else {
@@ -416,7 +410,7 @@ const handleUKDeriv = () => {
     }
 }
 
-const handleEUDeriv = () => {
+const handleEUDeriv = (residence, current_client_country) => {
     if (residence) {
         handleEURedirect(residence)
     } else {
@@ -424,12 +418,12 @@ const handleEUDeriv = () => {
     }
 }
 
-export const handleRedirect = (domain) => {
+export const handleRedirect = (domain, residence, current_client_country) => {
     if (domain.includes('uk')) {
-        handleUKDeriv()
+        handleUKDeriv(residence, current_client_country)
     } else if (domain.includes('eu')) {
-        handleEUDeriv()
+        handleEUDeriv(residence, current_client_country)
     } else {
-        handleDeriv()
+        handleDeriv(residence, current_client_country)
     }
 }

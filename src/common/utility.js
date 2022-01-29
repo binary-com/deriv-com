@@ -364,8 +364,6 @@ export const getBaseRef = (ref) => {
 }
 
 const handleDerivRedirect = (country) => {
-    // eslint-disable-next-line no-console
-    console.log(country)
     switch (country) {
         case 'gb':
             window.location.host = 'uk.deriv.com'

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { localize } from 'components/localization'
-import { Flex, Show, NonEU } from 'components/containers'
+import { Flex, Show, NonEU, ROW } from 'components/containers'
 import { deriv_status_page_url } from 'common/constants'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
@@ -12,7 +12,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                 <Flex jc="space-between">
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{localize('ABOUT')}</Title>
+                            <Title>{localize('ABOUT US')}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">
                             <Link to="/who-we-are/">{localize('Who we are')}</Link>
@@ -30,64 +30,19 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/careers/">{localize('Careers')}</Link>
                         </LinkWrapper>
                     </LinksCol>
-                    <LinksCol>
-                        <LinkWrapper>
-                            <Title>{localize('TRADE')}</Title>
-                        </LinkWrapper>
-                        <LinkWrapper first_child="true">
-                            <Link to="/dtrader/">{localize('DTrader')}</Link>
-                        </LinkWrapper>
-                        <NonEU>
-                            <LinkWrapper>
-                                <Link to="/landing/deriv-go/">{localize('Deriv GO')}</Link>
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <Link to="/dbot/">{localize('DBot')}</Link>
-                            </LinkWrapper>
-                        </NonEU>
-                        <LinkWrapper>
-                            <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
-                                {localize('DMT5')}
-                            </Link>
-                        </LinkWrapper>
-                        <NonEU>
-                            <LinkWrapper>
-                                <Link to="/derivx/">{localize('Deriv X')}</Link>
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <Link
-                                    to="trading"
-                                    type="smart_trader"
-                                    external="true"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {localize('SmartTrader')}
-                                </Link>
-                            </LinkWrapper>
-                            <LinkWrapper>
-                                <Link
-                                    to="https://bot.deriv.com"
-                                    external="true"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {localize('Binary Bot')}
-                                </Link>
-                            </LinkWrapper>
-                        </NonEU>
-                    </LinksCol>
                     {!is_ppc && (
                         <LinksCol>
                             <LinkWrapper>
-                                <Title>{localize('TRADE TYPES')}</Title>
+                                <Title>{localize('PRODUCTS')}</Title>
                             </LinkWrapper>
                             <LinkWrapper first_child="true">
                                 <Link to="/trade-types/cfds/">{localize('CFDs')}</Link>
                             </LinkWrapper>
                             <NonEU>
                                 <LinkWrapper>
-                                    <Link to="/trade-types/options/">{localize('Options')}</Link>
+                                    <Link to="/trade-types/options/">
+                                        {localize('Digital options')}
+                                    </Link>
                                 </LinkWrapper>
                             </NonEU>
                             <LinkWrapper>
@@ -113,12 +68,15 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/markets/stock/">{localize('Stocks & indices')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/markets/commodities/">{localize('Commodities')}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
                             <Link to="/markets/cryptocurrencies/">
                                 {localize('Cryptocurrencies')}
                             </Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/markets/basket/">{localize('Basket indices')}</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/markets/commodities/">{localize('Commodities')}</Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
@@ -133,7 +91,16 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Link to="/dtrader/">{localize('DTrader')}</Link>
                         </LinkWrapper>
-                        <NonEU>
+                        <ROW>
+                            <LinkWrapper>
+                                <Link to="/derivx/">{localize('DerivX')}</Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/landing/deriv-go/">{localize('Deriv GO')}</Link>
+                            </LinkWrapper>
+                            <LinkWrapper>
+                                <Link to="/dtrader/">{localize('DTrader')}</Link>
+                            </LinkWrapper>
                             <LinkWrapper>
                                 <Link
                                     to="trading"
@@ -158,7 +125,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                     {localize('Binary Bot')}
                                 </Link>
                             </LinkWrapper>
-                        </NonEU>
+                        </ROW>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
@@ -191,20 +158,15 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/partners/payment-agent/">{localize('Payment agents')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link
-                                to=""
-                                type="api"
-                                target="_blank"
-                                external="true"
-                                rel="noopener noreferrer"
-                            >
-                                {localize('API')}
-                            </Link>
+                            <Link to="/partners/developers/">{localize('Developers')}</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/partners/bug-bounty/">{localize('Bug bounty')}</Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{localize('RESOURCES')}</Title>
+                            <Title>{localize('SUPPORT')}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">
                             <Link to="/help-centre/">{localize('Help centre')}</Link>
@@ -219,9 +181,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             >
                                 {localize('Community')}
                             </Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/trader-tools/">{localize('Traders’ tools')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/payment-methods/">{localize('Payment methods')}</Link>

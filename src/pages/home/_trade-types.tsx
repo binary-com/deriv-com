@@ -7,6 +7,7 @@ import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import { getCountryRule } from 'components/containers/visibility'
 
 type TradeTypesProps = {
     image_url: string
@@ -40,7 +41,7 @@ const query = graphql`
     }
 `
 
-const ItemsDetails: TradeTypesProps[] = [
+const ItemsDetails_CR: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
         image_alt: <Localize translate_text="CFDs" />,
@@ -66,6 +67,27 @@ const ItemsDetails: TradeTypesProps[] = [
         desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
         link: '/trade-types/options/',
         link_text: <Localize translate_text="More on options" />,
+    },
+]
+
+const ItemsDetails_EU_UK: TradeTypesProps[] = [
+    {
+        image_url: 'trade_type_cfds',
+        image_alt: <Localize translate_text="CFDs" />,
+        header: <Localize translate_text="CFDs" />,
+        desc: (
+            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+        ),
+        link: '/trade-types/cfds/',
+        link_text: <Localize translate_text="More on CFDs" />,
+    },
+    {
+        image_url: 'trade_type_multipliers',
+        image_alt: <Localize translate_text="Multipliers" />,
+        header: <Localize translate_text="Multipliers" />,
+        desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
+        link: '/trade-types/multiplier/',
+        link_text: <Localize translate_text="More on multipliers" />,
     },
 ]
 
@@ -211,6 +233,8 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 }
 
 const TradeTypes = (): React.ReactNode => {
+    const { is_row } = getCountryRule()
+
     const settings = {
         options: {
             loop: false,
@@ -248,31 +272,29 @@ const TradeTypes = (): React.ReactNode => {
                 mb="40px"
                 tablet={{ mb: '16px' }}
             >
-                {localize('Trade the way you want with 3 exciting trade types')}
+                {is_row
+                    ? localize('Trade the way you want with 3 exciting trade types')
+                    : localize('Trade the way you want with 2 exciting trade types')}
             </Header>
 
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {ItemsDetails.map((item) => {
-                            return (
-                                <Flex key={item.image_url} ai="flex-start">
-                                    <TradeItems items_details={item} />
-                                </Flex>
-                            )
-                        })}
+                        {(is_row ? ItemsDetails_CR : ItemsDetails_EU_UK).map((item) => (
+                            <Flex key={item.image_url} ai="flex-start">
+                                <TradeItems items_details={item} />
+                            </Flex>
+                        ))}
                     </Carousel>
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {ItemsDetails.map((item) => {
-                        return (
-                            <Flex key={item.link} ai="flex-start">
-                                <TradeItems items_details={item} />
-                            </Flex>
-                        )
-                    })}
+                    {(is_row ? ItemsDetails_CR : ItemsDetails_EU_UK).map((item) => (
+                        <Flex key={item.link} ai="flex-start">
+                            <TradeItems items_details={item} />
+                        </Flex>
+                    ))}
                 </Flex>
             </MobileWrapper>
         </StyledSection>

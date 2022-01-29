@@ -96,7 +96,7 @@ type PlatformSliderProps = {
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
     const [viewportRef, embla] = useEmblaCarousel({
         startIndex: getSlideStartingIndex(),
-        loop: true,
+        loop: getSlideStartingIndex() > 2 ? true : false,
         axis: 'y',
         skipSnaps: false,
         draggable: false,

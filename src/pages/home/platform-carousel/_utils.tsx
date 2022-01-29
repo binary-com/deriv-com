@@ -33,6 +33,7 @@ import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
+import { getCountryRule } from 'components/containers/visibility'
 
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
@@ -52,7 +53,7 @@ export type TPlatformDetails = {
     download_links: Array<{ type: string; url: string }>
 }
 
-export const platform_details: TPlatformDetails[] = [
+export const platform_details_cr: TPlatformDetails[] = [
     {
         title: 'Deriv GO',
         icon: DerivGOIcon,
@@ -130,13 +131,38 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: deriv_api_url }],
     },
 ]
+export const platform_details_eu_uk: TPlatformDetails[] = [
+    {
+        title: 'Deriv MT5',
+        icon: DMT5Icon,
+        image_key: 'platforms_mt5',
+        description: localize('The all-in-one CFD trading platform.'),
+        learn_more_link: '/dmt5/',
+        download_links: [
+            { type: 'browser', url: deriv_mt5_app_url },
+            { type: 'app_store', url: dmt5_macos_url },
+            { type: 'linux', url: dmt5_linux_url },
+            { type: 'google_play', url: dmt5_android_url },
+        ],
+    },
+    {
+        title: 'DTrader',
+        icon: DTraderIcon,
+        image_key: 'platforms_dtrader',
+        description: localize('Our flagship app for trading options and multipliers.'),
+        learn_more_link: '/dtrader/',
+        download_links: [{ type: 'browser', url: deriv_app_url }],
+    },
+]
 
 export const getPlatformDetails = (no_of_copies) => {
+    const { is_row } = getCountryRule()
+
     const new_details = []
     let current_index = 0
 
     for (let index = 0; index < no_of_copies; index++) {
-        platform_details.forEach((p) => {
+        (is_row ? platform_details_cr : platform_details_eu_uk).forEach((p) => {
             new_details.push({ ...p, id: current_index })
             current_index++
         })
@@ -145,10 +171,20 @@ export const getPlatformDetails = (no_of_copies) => {
     return new_details
 }
 
-export const no_slide_sets = 11
+export const no_slide_sets = () => {
+    const { is_row } = getCountryRule()
+    if (!is_row) {
+        return 1
+    }
+    return 11
+}
 
 export const getSlideStartingIndex = () => {
-    return Math.round((no_slide_sets * 8) / 2 - 2)
+    const { is_row } = getCountryRule()
+    if (!is_row) {
+        return 1
+    }
+    return Math.round((no_slide_sets() * 8) / 2 - 2)
 }
 
 export const ImageTag = styled.img`

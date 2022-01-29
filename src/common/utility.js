@@ -391,27 +391,14 @@ const handleEURedirect = (country) => {
     }
 }
 
-const handleDeriv = (residence, current_client_country) => {
-    const country = residence ? residence : current_client_country
-    handleDerivRedirect(country)
-}
-
-const handleUKDeriv = (residence, current_client_country) => {
-    const country = residence ? residence : current_client_country
-    handleUKRedirect(country)
-}
-
-const handleEUDeriv = (residence, current_client_country) => {
-    const country = residence ? residence : current_client_country
-    handleEURedirect(country)
-}
-
 export const handleRedirect = (domain, residence, current_client_country) => {
+    const country = residence ? residence : current_client_country
+
     if (domain.includes('uk')) {
-        handleUKDeriv(residence, current_client_country)
+        handleUKRedirect(country)
     } else if (domain.includes('eu')) {
-        handleEUDeriv(residence, current_client_country)
+        handleEURedirect(country)
     } else {
-        handleDeriv(residence, current_client_country)
+        handleDerivRedirect(country)
     }
 }

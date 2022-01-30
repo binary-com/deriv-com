@@ -9,7 +9,8 @@ const OurPlatforms = () => {
         <SectionContainer
             background="#f9fbff"
             height="fit-content"
-            tabletL={{ height: 'fit-content', min_height: '663px', pb: 'unset' }}
+            tabletL={{ height: 'fit-content', pb: 'unset' }}
+            padding="8rem 0 0 0"
         >
             <Flex fd="column" tabletL={{ width: '90%' }}>
                 <Flex fd="column" ai="center" jc="center" mb="8rem" tabletL={{ mb: '24px' }}>

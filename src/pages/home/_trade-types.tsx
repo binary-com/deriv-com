@@ -41,7 +41,7 @@ const query = graphql`
     }
 `
 
-const ItemsDetails_CR: TradeTypesProps[] = [
+const item_details_CR: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
         image_alt: <Localize translate_text="CFDs" />,
@@ -70,7 +70,7 @@ const ItemsDetails_CR: TradeTypesProps[] = [
     },
 ]
 
-const ItemsDetails_EU_UK: TradeTypesProps[] = [
+const item_details_EU_UK: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
         image_alt: <Localize translate_text="CFDs" />,
@@ -280,7 +280,7 @@ const TradeTypes = (): React.ReactNode => {
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {(is_row ? ItemsDetails_CR : ItemsDetails_EU_UK).map((item) => (
+                        {(is_row ? item_details_CR : item_details_EU_UK).map((item) => (
                             <Flex key={item.image_url} ai="flex-start">
                                 <TradeItems items_details={item} />
                             </Flex>
@@ -290,7 +290,7 @@ const TradeTypes = (): React.ReactNode => {
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {(is_row ? ItemsDetails_CR : ItemsDetails_EU_UK).map((item) => (
+                    {(is_row ? item_details_CR : item_details_EU_UK).map((item) => (
                         <Flex key={item.link} ai="flex-start">
                             <TradeItems items_details={item} />
                         </Flex>

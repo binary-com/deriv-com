@@ -362,3 +362,43 @@ export const getBaseRef = (ref) => {
     // in other cases they are in ref.current
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
+
+const redirect = (redirect_domain) => {
+    window.location.host = redirect_domain
+}
+
+const handleDerivRedirect = (country) => {
+    if (country === 'nl') {
+        redirect('eu.deriv.com')
+    } else if (country === 'gb') {
+        redirect('uk.deriv.com')
+    }
+}
+
+const handleUKRedirect = (country) => {
+    if (country === 'nl') {
+        redirect('eu.deriv.com')
+    } else if (country !== 'gb') {
+        redirect('deriv.com')
+    }
+}
+
+const handleEURedirect = (country) => {
+    if (country === 'gb') {
+        redirect('uk.deriv.com')
+    } else if (country !== 'nl') {
+        redirect('deriv.com')
+    }
+}
+
+export const handleRedirect = (domain, residence, current_client_country) => {
+    const country = residence ? residence : current_client_country
+
+    if (domain.includes('uk')) {
+        handleUKRedirect(country)
+    } else if (domain.includes('eu')) {
+        handleEURedirect(country)
+    } else {
+        handleDerivRedirect(country)
+    }
+}

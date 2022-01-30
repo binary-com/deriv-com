@@ -37,11 +37,11 @@ const domainBasedCheck = () => {
 
     useEffect(() => {
         if (window) {
-            const host_name = window.location.hostname
-            if (host_name.includes('eu')) {
+            const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+            if (subdomain === 'eu' || subdomain === 'staging-eu') {
                 setEuDomain(true)
             }
-            if (host_name.includes('uk')) {
+            if (subdomain === 'uk' || subdomain === 'staging-uk') {
                 setUkDomain(true)
             }
         }

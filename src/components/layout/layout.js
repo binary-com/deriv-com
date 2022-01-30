@@ -165,7 +165,7 @@ const Layout = ({
     const client_information_cookie = new CookieStorage('client_information')
     const residence = client_information_cookie.get('residence')
 
-    const subdomain = window?.location.hostname.split('.').slice(0, -2).join('.')
+    const subdomain = window && window.location.hostname.split('.').slice(0, -2).join('.')
 
     React.useLayoutEffect(() => {
         handleRedirect(subdomain, residence, current_client_country)

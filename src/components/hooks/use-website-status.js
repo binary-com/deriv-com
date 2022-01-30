@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { useCookieState } from './use-cookie-state'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { getDateFromToday } from 'common/utility'
@@ -12,11 +12,10 @@ export const useWebsiteStatus = () => {
     })
     const [is_loading, setLoading] = useState(true)
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setLoading(true)
         if (!website_status) {
             const binary_socket = BinarySocketBase.init()
-
             binary_socket.onopen = () => {
                 binary_socket.send(JSON.stringify({ website_status: 1 }))
             }
@@ -26,13 +25,30 @@ export const useWebsiteStatus = () => {
 
                 if (!response.error) {
                     const { clients_country, crypto_config } = response.website_status
+
                     setWebsiteStatus({ clients_country, crypto_config })
                 }
                 setLoading(false)
                 binary_socket.close()
             }
         } else {
-            setLoading(false)
+            const binary_socket = BinarySocketBase.init()
+            binary_socket.onopen = () => {
+                binary_socket.send(JSON.stringify({ website_status: 1 }))
+            }
+
+            binary_socket.onmessage = (msg) => {
+                const response = JSON.parse(msg.data)
+
+                if (!response.error) {
+                    const { clients_country, crypto_config } = response.website_status
+                    if (clients_country !== website_status.clients_country) {
+                        setWebsiteStatus({ clients_country, crypto_config })
+                    }
+                }
+                setLoading(false)
+                binary_socket.close()
+            }
         }
     }, [website_status])
 

@@ -391,14 +391,14 @@ const handleEURedirect = (country) => {
     }
 }
 
-export const handleRedirect = (domain, residence, current_client_country) => {
+export const handleRedirect = (subdomain, residence, current_client_country) => {
     const country = residence ? residence : current_client_country
 
-    if (domain.includes('uk')) {
-        handleUKRedirect(country.toLowerCase())
-    } else if (domain.includes('eu')) {
-        handleEURedirect(country.toLowerCase())
+    if (subdomain === 'uk' || subdomain === 'staging-uk') {
+        handleUKRedirect(country)
+    } else if (subdomain === 'eu' || subdomain === 'staging-eu') {
+        handleEURedirect(country)
     } else {
-        handleDerivRedirect(country.toLowerCase())
+        handleDerivRedirect(country)
     }
 }

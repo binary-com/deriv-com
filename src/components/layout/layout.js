@@ -165,7 +165,7 @@ const Layout = ({
     const client_information_cookie = new CookieStorage('client_information')
     const residence = client_information_cookie.get('residence')
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         handleRedirect(window.location.host, residence, current_client_country)
     }, [])
 

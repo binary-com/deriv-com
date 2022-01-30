@@ -396,7 +396,7 @@ export const handleRedirect = (domain, residence, current_client_country) => {
 
     if (domain.includes('uk')) {
         handleUKRedirect(country.toLowerCase())
-    } else if (domain.includes('eu'.to)) {
+    } else if (domain.includes('eu')) {
         handleEURedirect(country.toLowerCase())
     } else {
         handleDerivRedirect(country.toLowerCase())

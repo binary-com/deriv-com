@@ -130,7 +130,7 @@ const MobilePlatformCarousel = () => {
                 return (
                     <CarouselItemWrapper key={platform.description}>
                         <Flex tabletL={{ mb: '56px' }}>
-                            <MobileImage data={images[image_key]} alt={image_key} />
+                            <MobileImage data={images[image_key]} alt={image_key} height={'55vw'} />
                         </Flex>
                         <Flex>
                             <PlatformDetails

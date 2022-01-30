@@ -396,7 +396,7 @@ export const handleRedirect = (subdomain, residence, current_client_country) => 
 
     if (subdomain === 'uk' || subdomain === 'staging-uk') {
         handleUKRedirect(country)
-    } else if (subdomain === 'staging-eu' || subdomain === 'eu') {
+    } else if (subdomain === 'eu' || subdomain === 'staging-eu') {
         handleEURedirect(country)
     } else {
         handleDerivRedirect(country)

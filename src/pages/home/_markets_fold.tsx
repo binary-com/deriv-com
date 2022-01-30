@@ -7,7 +7,7 @@ import { localize, LocalizedLink } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
-import { getCountryRule } from 'components/containers/visibility'
+import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -46,12 +46,20 @@ const CarouselItemContainer = styled(Flex)`
     }
 `
 
-const CarouselItemImage = styled(QueryImage)<{ $hovered: boolean }>`
+const CarouselItemImageDesktop = styled(QueryImage)<{ $hovered: boolean }>`
     position: absolute;
     width: 220px;
     top: ${(props) => (props.$hovered ? '220px' : '91px')};
     right: 31px;
     transition: ease-in 0.3s;
+    z-index: 3;
+`
+
+const CarouselItemImageMobile = styled(QueryImage)`
+    position: absolute;
+    width: 220px;
+    top: 91px;
+    right: 31px;
     z-index: 3;
 `
 
@@ -212,23 +220,30 @@ const CarouselItem = ({
                     <Header color="white" type="subtitle-1" mb="8px">
                         {header}
                     </Header>
-                    <StyledDescription
-                        lh="24px"
-                        color="white"
-                        type="paragraph-1"
-                        $hovered={is_hovered}
-                    >
-                        {description}
-                    </StyledDescription>
-                    <CarouselItemImage
-                        data={image}
-                        alt={header}
-                        loading="eager"
-                        $hovered={is_hovered}
-                        onClick={(e) => {
-                            !is_mobile && e.preventDefault()
-                        }}
-                    />
+                    <Desktop>
+                        <>
+                            <StyledDescription
+                                lh="24px"
+                                color="white"
+                                type="paragraph-1"
+                                $hovered={is_hovered}
+                            >
+                                {description}
+                            </StyledDescription>
+                            <CarouselItemImageDesktop
+                                data={image}
+                                alt={header}
+                                loading="eager"
+                                $hovered={is_hovered}
+                                onClick={(e) => {
+                                    !is_mobile && e.preventDefault()
+                                }}
+                            />
+                        </>
+                    </Desktop>
+                    <Mobile>
+                        <CarouselItemImageMobile data={image} alt={header} />
+                    </Mobile>
                 </CarouselItemContainer>
             </StyledLink>
         </ItemWrapper>

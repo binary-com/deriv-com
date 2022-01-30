@@ -12,6 +12,9 @@ const DownloadLink = styled(StyledLink)`
 
 const image_query = graphql`
     query {
+        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
+            ...fadeIn
+        }
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
             ...fadeIn
         }
@@ -22,9 +25,6 @@ const image_query = graphql`
             ...fadeIn
         }
         platforms_dbot: file(relativePath: { eq: "home/platforms_dbot.png" }) {
-            ...fadeIn
-        }
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
         }
         platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader.png" }) {

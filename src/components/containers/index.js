@@ -26,8 +26,8 @@ export {
     Mobile,
     EU,
     UK,
+    UKEU,
     ROW,
     NonUK,
     NonEU,
-    UKEU,
 }

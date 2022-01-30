@@ -140,7 +140,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
-            cover_content={localize('Discover DMT5 now')}
+            cover_content={localize('Discover Deriv MT5 now')}
             title={localize('Deriv MT5')}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
             content={[localize('Trade on Deriv MT5, the all-in-one CFD trading platform.')]}

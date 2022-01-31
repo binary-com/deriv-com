@@ -18,6 +18,7 @@ import SignupAffiliate from 'components/custom/_signup-affiliate'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
+import { affiliate_app_id } from 'common/constants'
 
 const Form = styled.form`
     height: 100%;
@@ -119,6 +120,11 @@ const Signup = (props) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
+
+        if (props.appearance === Appearances.affiliateSignup) {
+            window.localStorage.setItem('config.app_id', affiliate_app_id)
+        }
+
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {

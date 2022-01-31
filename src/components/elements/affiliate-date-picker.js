@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import 'antd/dist/antd.css'
@@ -30,7 +30,7 @@ const DatePickerWrapper = styled.div`
     }
     label {
         ${(props) => {
-            return props.isDateField || props.birthDate
+            return props.isDateField || props.birthDate || props.defaultValue
                 ? css`
                       transform: translate(-0.6rem, -2rem) scale(0.7);
                       color: var(--color-${(props) => props.labelFocusColor || 'green'});
@@ -75,9 +75,17 @@ const AffiliateDatePicker = (props) => {
         labelColor,
         tabletBackground,
         isAffiliate,
+        value,
     } = props
-    const [birthDate, setBirthDate] = useState()
+
+    const [birthDate, setBirthDate] = useState('')
     const [isDateField, selectDateField] = useState(false)
+
+    const defaultValue = useMemo(() => {
+        if (value) {
+            return moment(new Date(value * 1000).toLocaleDateString('en-GB'))
+        }
+    }, [value])
 
     const onChange = (date, dateString) => {
         setBirthDate(dateString)
@@ -90,19 +98,39 @@ const AffiliateDatePicker = (props) => {
     }
 
     const disabledDate = (current) => minorAge < current
-
     return (
-        <DatePickerWrapper birthDate={birthDate} isDateField={isDateField}>
+        <DatePickerWrapper
+            birthDate={birthDate}
+            defaultValue={defaultValue}
+            isDateField={isDateField}
+        >
             <Space direction="vertical">
-                <DatePicker
-                    onChange={onChange}
-                    placeholder={null}
-                    onFocus={() => selectDateField(true)}
-                    onBlur={onBlur}
-                    defaultPickerValue={minorAge}
-                    disabledDate={disabledDate}
-                    showToday={false}
-                />
+                {defaultValue ? (
+                    <DatePicker
+                        key="datepicker-1"
+                        defaultValue={defaultValue}
+                        format={'DD/MM/YYYY'}
+                        onChange={onChange}
+                        placeholder={null}
+                        onFocus={() => selectDateField(true)}
+                        onBlur={onBlur}
+                        defaultPickerValue={minorAge}
+                        disabledDate={disabledDate}
+                        showToday={false}
+                    />
+                ) : (
+                    <DatePicker
+                        key="datepicker-2"
+                        format={'DD/MM/YYYY'}
+                        onChange={onChange}
+                        placeholder={null}
+                        onFocus={() => selectDateField(true)}
+                        onBlur={onBlur}
+                        defaultPickerValue={minorAge}
+                        disabledDate={disabledDate}
+                        showToday={false}
+                    />
+                )}
             </Space>
             <StyledLabel
                 tabletBackground={tabletBackground}
@@ -127,6 +155,7 @@ AffiliateDatePicker.propTypes = {
     setFieldTouched: PropTypes.func,
     setFieldValue: PropTypes.func,
     tabletBackground: PropTypes.string,
+    value: PropTypes.string,
 }
 
 export default AffiliateDatePicker

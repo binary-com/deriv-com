@@ -116,7 +116,7 @@ const DropdownSearch = ({
                         onKeyDown={toggleListVisibility}
                         onKeyUp={handleKeyUp}
                         has_short_name={has_short_name}
-                        value={input_value}
+                        value={input_value || selected_item}
                         is_active={is_open}
                         placeholder={label}
                     />

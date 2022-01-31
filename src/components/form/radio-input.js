@@ -6,10 +6,11 @@ import { Flex } from '../containers'
 import { localize } from 'components/localization'
 
 const StyledContainerFlex = styled(Flex)`
+    width: 48%;
     border-radius: 0.4rem;
     border: 1px solid var(--color-grey-7);
     cursor: pointer;
-
+    height: auto;
     @media ${device.mobileL} {
         height: 15rem;
     }
@@ -19,8 +20,10 @@ const Label = styled.div`
     font-weight: bold;
 `
 const Description = styled.p`
+    margin-bottom: 0;
     padding: 1rem 0;
     font-size: 12px;
+    line-height: normal;
 `
 
 const RadioInput = ({ label, checked, onChange, description }) => {
@@ -33,14 +36,7 @@ const RadioInput = ({ label, checked, onChange, description }) => {
     }
 
     return (
-        <StyledContainerFlex
-            fd="column"
-            jc="start"
-            width="48%"
-            height="12rem"
-            p="1.6rem"
-            onClick={onClickContainer}
-        >
+        <StyledContainerFlex fd="column" jc="start" p="1.6rem" onClick={onClickContainer}>
             <Flex
                 width="100%"
                 height="auto"
@@ -48,7 +44,7 @@ const RadioInput = ({ label, checked, onChange, description }) => {
                 jc="space-between"
                 style={{ cursor: 'pointer' }}
             >
-                s <Label>{label}</Label>
+                <Label>{label}</Label>
                 <input
                     type="radio"
                     style={{ cursor: 'pointer' }}

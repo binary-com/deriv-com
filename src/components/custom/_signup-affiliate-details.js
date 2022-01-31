@@ -1,3 +1,5 @@
+/* eslint-disable no-debugger */
+
 import React, { useState } from 'react'
 import { Tooltip } from 'antd'
 import styled from 'styled-components'
@@ -10,6 +12,7 @@ import {
 } from '../../pages/signup-affiliates-details/common/_utility'
 import { DropdownSearch, LocalizedLinkText } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
+import { useAffiliateData } from '../hooks/use-affiliate-data'
 import Info from '../../images/svg/signup-affiliate-details/info.svg'
 import RadioInput from '../form/radio-input'
 import AgreementLabel from './_agreement-label'
@@ -99,6 +102,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     const [is_input_country, setCountryInput] = useState(true)
     const residence_list = useResidenceList()
     const countries = residence_list.map((el) => el.name)
+    const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
+        useAffiliateData()
 
     const handlePepChange = (event) => {
         setPepChecked(event.currentTarget.checked)
@@ -125,13 +130,13 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
             <Formik
                 enableReinitialize
                 initialValues={{
-                    firstName: '',
-                    lastName: '',
-                    date: '',
-                    country: '',
+                    firstName: first_name || '',
+                    lastName: last_name || '',
+                    date: date_of_birth || '',
+                    country: country || '',
                     residenceList: residence_list,
-                    address: '',
-                    mobileNumber: '',
+                    address: address_line_1 || address_line_2 || '',
+                    mobileNumber: phone || '',
                     password: '',
                     plan: '',
                 }}

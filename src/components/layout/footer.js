@@ -7,6 +7,7 @@ import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
 import BottomSocialSection from './footer/bottom-social-wrapper'
+import AdditionalEUSection from './footer/additional-eu'
 import { DerivStore } from 'store'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
@@ -31,9 +32,14 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy }) => {
             <Container>
                 <FooterGrid>
                     <LogoSection type={type} />
-                    <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+                    <MainLinksSection
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                        is_eu_country={is_eu_country}
+                    />
                     <DisclaimerSection is_academy={academy} />
                     <BottomSocialSection type={type} />
+                    <AdditionalEUSection />
                 </FooterGrid>
             </Container>
         </DefaultFooter>

@@ -38,10 +38,13 @@ const domainBasedCheck = () => {
     useEffect(() => {
         if (window) {
             const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
-            if (subdomain === 'eu' || subdomain === 'staging-eu') {
+            const eu_domains = ['eu', 'staging-eu']
+            const uk_domains = ['uk', 'staging-uk']
+
+            if (eu_domains.includes(subdomain)) {
                 setEuDomain(true)
             }
-            if (subdomain === 'uk' || subdomain === 'staging-uk') {
+            if (uk_domains.includes(subdomain)) {
                 setUkDomain(true)
             }
         }

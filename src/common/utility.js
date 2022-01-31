@@ -363,42 +363,54 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
-const redirect = (redirect_domain) => {
-    window.location.host = redirect_domain
+const current_domain = localStorage['current_domain']
+
+const redirect = (subdomain) => {
+    const redirection_url = `${subdomain}.deriv.com`
+    window.location.host = redirection_url
 }
 
-const handleDerivRedirect = (country) => {
+const redirectToDeriv = (full_domain) => {
+    window.location.host = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
+}
+
+const handleDerivRedirect = (country, subdomain) => {
     if (country === 'nl') {
-        redirect('eu.deriv.com')
+        redirect(subdomain.includes('staging') ? subdomain : 'eu')
     } else if (country === 'gb') {
-        redirect('uk.deriv.com')
+        redirect(subdomain.includes('staging') ? subdomain : 'uk')
     }
 }
 
-const handleUKRedirect = (country) => {
+const handleUKRedirect = (country, subdomain, full_domain) => {
     if (country === 'nl') {
-        redirect('eu.deriv.com')
+        redirect(subdomain.includes('staging') ? subdomain : 'eu')
     } else if (country !== 'gb') {
-        redirect('deriv.com')
+        redirectToDeriv(full_domain)
     }
 }
 
-const handleEURedirect = (country) => {
+const handleEURedirect = (country, subdomain, full_domain) => {
     if (country === 'gb') {
-        redirect('uk.deriv.com')
+        redirect(subdomain.includes('staging') ? subdomain : 'uk')
     } else if (country !== 'nl') {
-        redirect('deriv.com')
+        redirectToDeriv(full_domain)
     }
 }
 
-export const handleRedirect = (subdomain, residence, current_client_country) => {
+export const handleRedirect = (subdomain, residence, current_client_country, full_domain) => {
     const country = residence ? residence : current_client_country
 
-    if (subdomain === 'uk' || subdomain === 'staging-uk') {
-        handleUKRedirect(country)
-    } else if (subdomain === 'eu' || subdomain === 'staging-eu') {
-        handleEURedirect(country)
+    const eu_domains = ['eu', 'staging-eu']
+    const uk_domains = ['uk', 'staging-uk']
+
+    const sub_domains = current_domain ? current_domain : subdomain
+
+    if (eu_domains.includes(subdomain) || current_domain === 'uk') {
+        handleUKRedirect(country, sub_domains, full_domain)
+    } else if (uk_domains.includes(subdomain) || current_domain === 'eu') {
+        handleEURedirect(country, sub_domains, full_domain)
     } else {
-        handleDerivRedirect(country)
+        handleDerivRedirect(country, subdomain)
     }
 }

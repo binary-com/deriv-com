@@ -27,6 +27,11 @@ const DisclaimerSection = () => {
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     {localize(
+                        'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
+                    )}
+                </DisclaimerParagraph>
+                <DisclaimerParagraph>
+                    {localize(
                         'This website’s services are not available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.',
                     )}
                 </DisclaimerParagraph>

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex } from 'components/containers'
+import { Flex, NonEU } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { deriv_status_page_url } from 'common/constants'
@@ -39,7 +39,6 @@ import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
-import { DerivStore } from 'store'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
 
@@ -123,7 +122,6 @@ const content_style = {
 }
 
 export const OffCanvasMenuWrapper = (props) => {
-    const { is_eu_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -133,11 +131,7 @@ export const OffCanvasMenuWrapper = (props) => {
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
     return (
-        <OffCanvasMenu
-            is_canvas_menu_open={props.is_canvas_menu_open}
-            ref={canvas}
-            is_eu_country={is_eu_country}
-        >
+        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
@@ -162,7 +156,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         to="/trade-types/cfds/"
                                     />
                                 </Flex>
-                                {!is_eu_country && (
+                                <NonEU>
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
@@ -177,7 +171,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             to="/trade-types/options/"
                                         />
                                     </Flex>
-                                )}
+                                </NonEU>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Multipliers"
@@ -205,27 +199,27 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                                 }
-                                title={<Localize translate_text="DMT5" />}
+                                title={<Localize translate_text="Deriv MT5" />}
                                 onClick={handleArrowClick}
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        {!is_eu_country && (
+                        <NonEU>
                             <Flex mb="2rem">
                                 <NavCard
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
                                     to="/derivx/"
                                 />
                             </Flex>
-                        )}
+                        </NonEU>
 
                         <Flex mb="2rem">
                             <NavCard
@@ -239,63 +233,73 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        {!is_eu_country && (
-                            <Flex mb="2rem">
-                                <NavCard
-                                    aria_label="Deriv GO"
-                                    icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
-                                    content={
-                                        <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
-                                    }
-                                    title={<Localize translate_text="Deriv GO" />}
-                                    onClick={handleArrowClick}
-                                    to="/landing/deriv-go/"
-                                />
-                            </Flex>
-                        )}
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="SmartTrader"
-                                icon={() => <img src={Smarttrader} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                                }
-                                title={<Localize translate_text="SmartTrader" />}
-                                onClick={handleArrowClick}
-                                to="trading"
-                                type="smart_trader"
-                                external="true"
-                                target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
-                            />
-                        </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DBot"
-                                icon={() => <img src={DBot} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                                }
-                                title={<Localize translate_text="DBot" />}
-                                onClick={handleArrowClick}
-                                to="/dbot/"
-                            />
-                        </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="Binary Bot"
-                                icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
-                                }
-                                title={<Localize translate_text="Binary Bot" />}
-                                onClick={handleArrowClick}
-                                to="https://bot.deriv.com/"
-                                external="true"
-                                target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
-                            />
-                        </Flex>
+                        <NonEU>
+                            <>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Deriv GO"
+                                        icon={() => (
+                                            <img src={DerivGo} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                        }
+                                        title={<Localize translate_text="Deriv GO" />}
+                                        onClick={handleArrowClick}
+                                        to="/landing/deriv-go/"
+                                    />
+                                </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="SmartTrader"
+                                        icon={() => (
+                                            <img src={Smarttrader} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                        }
+                                        title={<Localize translate_text="SmartTrader" />}
+                                        onClick={handleArrowClick}
+                                        to="trading"
+                                        type="smart_trader"
+                                        external="true"
+                                        target="_blank"
+                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                    />
+                                </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="DBot"
+                                        icon={() => (
+                                            <img src={DBot} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                        }
+                                        title={<Localize translate_text="DBot" />}
+                                        onClick={handleArrowClick}
+                                        to="/dbot/"
+                                    />
+                                </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="BinaryBot"
+                                        icon={() => (
+                                            <img src={BinaryBot} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                                        }
+                                        title={<Localize translate_text="BinaryBot" />}
+                                        onClick={handleArrowClick}
+                                        to="https://bot.deriv.com/"
+                                        external="true"
+                                        target="_blank"
+                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                    />
+                                </Flex>
+                            </>
+                        </NonEU>
                     </AccordionItem>
                     <AccordionItem
                         header="Markets"
@@ -552,7 +556,6 @@ OffCanvasMenuWrapper.propTypes = {
 }
 
 export const OffCanvasMenuPartner = (props) => {
-    const { is_eu_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -573,11 +576,7 @@ export const OffCanvasMenuPartner = (props) => {
     }, [])
 
     return (
-        <OffCanvasMenuSecondary
-            is_canvas_menu_open={props.is_canvas_menu_open}
-            ref={canvas}
-            is_eu_country={is_eu_country}
-        >
+        <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     <div>

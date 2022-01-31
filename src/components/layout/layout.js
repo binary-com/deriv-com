@@ -117,6 +117,7 @@ const Layout = ({
     interim_type,
     is_ppc,
     is_ppc_redirect,
+    is_nav_transparent,
     margin_top,
     no_live_chat,
     no_login_signup,
@@ -213,7 +214,13 @@ const Layout = ({
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = (
+                <Nav
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_ppc={is_ppc}
+                    is_nav_transparent={is_nav_transparent}
+                />
+            )
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
@@ -259,6 +266,7 @@ CFDWarning.propTypes = {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

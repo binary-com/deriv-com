@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
-import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
+import { SectionContainer, Container, Flex, CssGrid, NonEU } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 
 const platforms = Object.freeze({
@@ -13,13 +12,13 @@ const platforms = Object.freeze({
     mt5: 'dmt5',
 })
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<{ is_selected: boolean }>`
     height: 100%;
     width: 100%;
     max-width: 65.7rem;
-    visibility: ${(props) => (props.is_selected ? 'initial' : 'hidden')};
-    opacity: ${(props) => (props.is_selected ? '1' : '0')};
-    z-index: ${(props) => (props.is_selected ? '0' : '10')};
+    visibility: ${({ is_selected }) => (is_selected ? 'initial' : 'hidden')};
+    opacity: ${({ is_selected }) => (is_selected ? '1' : '0')};
+    z-index: ${({ is_selected }) => (is_selected ? '0' : '10')};
     position: absolute;
     transition: opacity 0.25s;
 `
@@ -31,6 +30,7 @@ const ImageContainer = styled.div`
 `
 const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-30), rgba(238, 238, 238, 0));
+    min-height: 69rem;
 `
 const query = graphql`
     query {
@@ -46,10 +46,15 @@ const query = graphql`
     }
 `
 
-const Trade = ({ is_ppc_redirect }) => {
+type TradeProps = {
+    is_ppc_redirect: boolean
+}
+
+const Trade = ({ is_ppc_redirect }: TradeProps) => {
     const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
+
     return (
         <StyledSection>
             <Container direction="column">
@@ -96,12 +101,14 @@ const Trade = ({ is_ppc_redirect }) => {
                             >
                                 <TraderCard />
                             </div>
-                            <div
-                                onMouseEnter={() => setSelected(platforms.bot)}
-                                onMouseLeave={() => setSelected('')}
-                            >
-                                <BotCard />
-                            </div>
+                            <NonEU>
+                                <div
+                                    onMouseEnter={() => setSelected(platforms.bot)}
+                                    onMouseLeave={() => setSelected('')}
+                                >
+                                    <BotCard />
+                                </div>
+                            </NonEU>
                             <div
                                 onMouseEnter={() => setSelected(platforms.mt5)}
                                 onMouseLeave={() => setSelected('')}
@@ -114,10 +121,6 @@ const Trade = ({ is_ppc_redirect }) => {
             </Container>
         </StyledSection>
     )
-}
-
-Trade.propTypes = {
-    is_ppc_redirect: PropTypes.bool,
 }
 
 export default Trade

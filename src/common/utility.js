@@ -415,6 +415,6 @@ export const handleRedirect = (
     } else if (uk_domains.includes(subdomain) || current_domain === 'eu') {
         handleEURedirect(country, sub_domains, full_domain)
     } else {
-        handleDerivRedirect(country, subdomain)
+        handleDerivRedirect(country, sub_domains)
     }
 }

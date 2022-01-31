@@ -7,7 +7,7 @@ import { basket_indices_content, basket_indices_content_eu } from '../../static/
 import { basket_cfds } from '../../static/content/_cfds'
 import { basket_multiplier } from '../../static/content/_multipliers'
 import { basket_options } from '../../static/content/_digital-options'
-import CFDs from '../sub-markets/_cfds-basket'
+import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'

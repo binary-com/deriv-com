@@ -171,7 +171,13 @@ const Layout = ({
         if (window && is_redirection_enabled) {
             const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
 
-            handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
+            handleRedirect(
+                subdomain,
+                residence,
+                current_client_country,
+                window.location.hostname,
+                is_redirection_enabled,
+            )
         }
     }, [])
 

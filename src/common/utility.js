@@ -363,8 +363,6 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
-const current_domain = localStorage['current_domain']
-
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
     window.location.host = redirection_url
@@ -398,7 +396,13 @@ const handleEURedirect = (country, subdomain, full_domain) => {
     }
 }
 
-export const handleRedirect = (subdomain, residence, current_client_country, full_domain) => {
+export const handleRedirect = (
+    subdomain,
+    residence,
+    current_client_country,
+    full_domain,
+    current_domain,
+) => {
     const country = residence ? residence : current_client_country
 
     const eu_domains = ['eu', 'staging-eu']

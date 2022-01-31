@@ -62,7 +62,12 @@ const VideoWrapper = styled.div`
     max-width: 79.2rem;
     width: 100%;
 `
-const StepCommon = css`
+
+type StepCommonTypes = {
+    no_margin: string
+}
+
+const StepCommon = css<StepCommonTypes>`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
@@ -102,8 +107,8 @@ const GotoLiveWrapper = styled.div`
 const DtraderTabs = () => {
     const data = useStaticQuery(query)
     const [current_step, setStep] = React.useState('step_1')
-    const clickHandler = (incoming_step) => {
-        if (incoming_step == current_step) return
+    const clickHandler = (incoming_step: string) => {
+        if (incoming_step === current_step) return
         setStep(incoming_step)
     }
     return (

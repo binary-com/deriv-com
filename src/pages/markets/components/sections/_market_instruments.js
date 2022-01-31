@@ -86,7 +86,7 @@ const MarketInstruments = ({ market_content }) => {
                                 {content.component}
                             </LatestMarketsList>
                         ) : (
-                            <MarketsList {...market_content.markets_list}>
+                            <MarketsList {...market_content.markets_list} gap="16px">
                                 {content.component}
                             </MarketsList>
                         )}

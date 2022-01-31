@@ -79,6 +79,11 @@ const QuoteWrapper = styled(Flex)`
         top: 16px;
     }
 `
+const StyledImg = styled.img`
+    width: 100%;
+    height: 100%;
+`
+
 const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
     return (
         <Flex ai="center" height="unset">
@@ -86,13 +91,7 @@ const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
                 <Flex tablet_direction="column">
                     <Flex>
                         <ImageWrapper>
-                            <img
-                                loading="lazy"
-                                width="100%"
-                                height="100%"
-                                src={img_path}
-                                alt={img_alt}
-                            />
+                            <StyledImg loading="lazy" src={img_path} alt={img_alt} />
                         </ImageWrapper>
                     </Flex>
                     <QuoteWrapper direction="column">

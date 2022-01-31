@@ -58,7 +58,7 @@ const WhyChooseUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Why choose Deriv for your online trading | Deriv')}
+                title={localize('Why choose us for your online trading | Deriv')}
                 description={localize(
                     'We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders.',
                 )}
@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
             <Section>
                 <GridContainer>
                     <ResponsiveHeader as="h1" type="display-title" align="center">
-                        {localize('Why choose Deriv')}
+                        {localize('Why choose us')}
                     </ResponsiveHeader>
                     <StyledHeader
                         as="h4"

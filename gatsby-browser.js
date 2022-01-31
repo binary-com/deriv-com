@@ -1,5 +1,4 @@
 import React from 'react'
-import NProgress from 'nprogress'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
@@ -16,7 +15,7 @@ const is_browser = typeof window !== 'undefined'
 const checkDomain = () => {
     return eval(
         decodeURIComponent(
-            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
+            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
 }
@@ -112,13 +111,9 @@ export const onInitialClientRender = () => {
             document.head.appendChild(jipt)
         }
     }
-
-    NProgress.done()
 }
 
 export const onClientEntry = () => {
-    NProgress.start()
-
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
     if (isLive()) {
@@ -149,12 +144,7 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 }
 
-export const onPreRouteUpdate = () => {
-    NProgress.start()
-}
-
 export const onRouteUpdate = () => {
-    NProgress.done()
     checkDomain()
 
     const dataLayer = window.dataLayer

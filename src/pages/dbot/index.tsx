@@ -1,4 +1,4 @@
-import React, { Component, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
@@ -24,7 +24,7 @@ type MetaType = {
     og_description: string
 }
 
-type ItemsType = {
+type ItemType = {
     title: string | ReactElement
     subtitle: ReactElement
 }
@@ -54,7 +54,7 @@ const query = graphql`
         }
     }
 `
-const items: ItemsType[] = [
+const items: ItemType[] = [
     { title: '3', subtitle: <Localize translate_text="pre-built strategies included" /> },
     {
         title: <Localize translate_text="FREE" />,

@@ -62,6 +62,8 @@ const StyledRefLink = styled(LocalizedLink)`
     font-size: 16px;
     line-height: 24px;
     color: var(--color-red);
+    display: flex;
+    justify-content: center;
 `
 /* commented for now unless there is an item that has no icon */
 // const NoIconText = styled.div`

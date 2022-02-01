@@ -11,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect } from 'common/utility'
+import { isBrowser, handleRedirect, handleDerivRedirect } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -167,10 +167,9 @@ const Layout = ({
 
     React.useEffect(() => {
         const is_redirection_enabled = localStorage['current_domain']
+        const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
 
-        if (window && is_redirection_enabled) {
-            const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
-
+        if (is_redirection_enabled) {
             handleRedirect(
                 subdomain,
                 residence,
@@ -178,6 +177,8 @@ const Layout = ({
                 window.location.hostname,
                 is_redirection_enabled,
             )
+        } else {
+            handleDerivRedirect(residence, current_client_country, subdomain)
         }
     }, [])
 

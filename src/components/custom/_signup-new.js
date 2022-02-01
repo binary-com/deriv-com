@@ -283,7 +283,7 @@ const SignupNew = ({
             >
                 {localize('Create demo account')}
             </EmailButton>
-            <Header as="p" type="small" weight="300" color="grey-5" width="98%" mt="0.8rem">
+            <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
                 {localize(
                     'By signing up for a Deriv account, you agree to receive occasional updates about our products, services, and events. You can unsubscribe at any time in your account settings.',
                 )}

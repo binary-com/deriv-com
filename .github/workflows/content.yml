@@ -108,8 +108,8 @@ jobs:
             - name: Pushing Image to docker hub 🐳
               run: |
                   echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:${{ steps.get_tag_name.outputs.VERSION }}
+                  #docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
+                  #docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:${{ steps.get_tag_name.outputs.VERSION }}
                   
             - name: git tag used for deployment
               run: |
@@ -121,10 +121,10 @@ jobs:
                   export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
                   export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
                   export CA=${{ secrets.CA }}
-                  git clone https://github.com/binary-com/devops-ci-scripts
-                  cd devops-ci-scripts/k8s-build_tools
-                  echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-                  ./release.sh deriv-com ${{ steps.get_tag_name.outputs.VERSION }}
+                  #git clone https://github.com/binary-com/devops-ci-scripts
+                  #cd devops-ci-scripts/k8s-build_tools
+                  #echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
+                  #./release.sh deriv-com ${{ steps.get_tag_name.outputs.VERSION }}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

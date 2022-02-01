@@ -16,10 +16,6 @@ export const StyledContainer = styled(Flex)`
     @media ${device.laptopM} {
         max-width: 58.8rem;
     }
-
-    @media ${device.mobileL} {
-        width: 100%;
-    }
 `
 
 export const StyledTabs = styled(Tabs)`
@@ -30,15 +26,9 @@ export const ArticleContentWrapper = styled(Container)`
     margin-top: 24px;
     color: var(--color-white);
     width: 100%;
-
     @media ${device.laptopM} {
         flex-direction: column;
         width: 100%;
-    }
-
-    @media ${device.mobileL} {
-        margin: 24px auto 0;
-        padding: 0 16px 0 18px;
     }
 `
 
@@ -300,11 +290,6 @@ export const AllArticleButton = styled(LinkButton)`
 
     @media ${device.laptopM} {
         width: 100%;
-    }
-
-    @media ${device.mobileL} {
-        width: 90%;
-        margin-top: 24px;
     }
 `
 

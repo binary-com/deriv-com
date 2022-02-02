@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -114,7 +114,7 @@ export const DailyResetIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const EuropeDetails = (index) => {
+export const EuropeDetails = (index: number) => {
     const children = [
         <Text key={0}>
             {localize(
@@ -170,7 +170,7 @@ export const EuropeDetails = (index) => {
     )
 }
 
-export const RangeBreakIndicesDetails = () => (
+export const RangeBreakIndicesDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -179,7 +179,7 @@ export const RangeBreakIndicesDetails = () => (
         </Text>
     </DetailsContainer>
 )
-export const SmartFXDetails = () => (
+export const SmartFXDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             <Localize
@@ -292,7 +292,7 @@ export const VolatilityIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const VolatilityIndicesDetailsEU = () => (
+export const VolatilityIndicesDetailsEU = (): ReactElement => (
     <DetailsContainer>
         <Text>
             <Localize
@@ -309,7 +309,7 @@ export const VolatilityIndicesDetailsEU = () => (
     </DetailsContainer>
 )
 
-export const AmericanIndicesDetails = () => (
+export const AmericanIndicesDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -337,7 +337,7 @@ export const AmericanIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const AsianIndicesDetails = () => (
+export const AsianIndicesDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -359,7 +359,7 @@ export const AsianIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const EuropeanIndicesDetails = () => (
+export const EuropeanIndicesDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -404,7 +404,7 @@ export const EuropeanIndicesDetails = () => (
         </Text>
     </DetailsContainer>
 )
-export const CryptocurrenciesDetails = () => (
+export const CryptocurrenciesDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             {localize(
@@ -414,7 +414,7 @@ export const CryptocurrenciesDetails = () => (
     </DetailsContainer>
 )
 
-export const JumpIndicesDetails = () => (
+export const JumpIndicesDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             <Localize

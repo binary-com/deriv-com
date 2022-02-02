@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission.svg'
 import Leverage from 'images/svg/markets/leverage.svg'
 
-export default [
+export type CryptocurrenciesContent = {
+    src: string
+    alt: string
+    text: ReactElement
+}
+const cryptocurrencies: CryptocurrenciesContent[] = [
     {
         src: Leverage,
         alt: 'leverage',
@@ -27,3 +32,5 @@ export default [
         text: <Localize translate_text="Zero commission" />,
     },
 ]
+
+export default cryptocurrencies

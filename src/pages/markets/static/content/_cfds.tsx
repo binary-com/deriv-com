@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import {
     CrashBoom,
     CrashBoomEU,
@@ -36,7 +36,52 @@ import {
 } from './_details'
 import { Localize } from 'components/localization'
 
-export const commodities_cfds = {
+export type Content = {
+    title: ReactElement
+    component: ReactElement
+    details?: () => ReactElement
+    mobile_title?: ReactElement
+}
+export type StockContent = {
+    title: ReactElement
+    component: ReactElement
+    tablet_col: number
+    mobile_col: number
+    padding: string
+    gap: string
+    flex?: boolean
+    col?: number
+    details?: () => ReactElement
+    gap_mobile?: string
+    mobile_template?: boolean
+}
+
+export type Cfds = {
+    markets_list: {
+        col: number
+    }
+    content: Content[]
+}
+export type ForexCfds = {
+    markets_list: {
+        col: number
+        tablet_col: number
+        mobile_col: number
+    }
+    content: Content[]
+}
+export type SyntheticCfds = {
+    has_global_accordion: boolean
+    content: Content[]
+    template?: number
+}
+
+export type StockCfds = {
+    template: number
+    content: StockContent[]
+}
+
+export const commodities_cfds: Cfds = {
     markets_list: {
         col: 4,
     },
@@ -52,7 +97,7 @@ export const commodities_cfds = {
     ],
 }
 
-export const forex_cfds = {
+export const forex_cfds: ForexCfds = {
     markets_list: {
         col: 4,
         tablet_col: 3,
@@ -79,7 +124,7 @@ export const forex_cfds = {
     ],
 }
 
-export const synthetic_cfds = {
+export const synthetic_cfds: SyntheticCfds = {
     has_global_accordion: true,
     content: [
         {
@@ -113,7 +158,7 @@ export const synthetic_cfds = {
     ],
 }
 
-export const synthetic_cfds_eu = {
+export const synthetic_cfds_eu: SyntheticCfds = {
     has_global_accordion: true,
     template: 2,
     content: [
@@ -133,7 +178,7 @@ export const synthetic_cfds_eu = {
     ],
 }
 
-export const stock_cfds = {
+export const stock_cfds: StockCfds = {
     template: 2,
     content: [
         {

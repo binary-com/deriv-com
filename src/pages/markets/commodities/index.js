@@ -1,5 +1,5 @@
 import React from 'react'
-import Commodities from '../components/markets/_commodities.js'
+import Commodities from '../components/markets/_commodities'
 import { Hero } from '../components/sections/_hero'
 import NavTab from '../components/sections/_nav-tab'
 import Signup, { Appearances } from 'components/custom/signup'

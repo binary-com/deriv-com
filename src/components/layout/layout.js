@@ -180,7 +180,7 @@ const Layout = ({
         } else {
             handleDerivRedirect(residence, current_client_country, subdomain)
         }
-    }, [])
+    }, [website_status])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

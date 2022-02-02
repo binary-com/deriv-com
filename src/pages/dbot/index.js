@@ -84,7 +84,7 @@ const trading = [
         subtitle: (
             <Localize translate_text="Access tutorials, guides, and reference information as you build your bot." />
         ),
-        image_name: 'dbot_get_integrated_help',
+        image_name: 'dbot_get_integrated_help trial',
         image_alt: localize('Guide and tutorial for DBot'),
     },
     {

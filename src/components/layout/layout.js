@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
@@ -166,20 +168,22 @@ const Layout = ({
     const residence = client_information_cookie.get('residence')
 
     React.useEffect(() => {
-        const is_redirection_enabled = localStorage['current_domain']
-        const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+        console.log('current_client_country', current_client_country)
+        console.log('residence', residence)
+        // const is_redirection_enabled = localStorage['current_domain']
+        // const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
 
-        if (is_redirection_enabled) {
-            handleRedirect(
-                subdomain,
-                residence,
-                current_client_country,
-                window.location.hostname,
-                is_redirection_enabled,
-            )
-        } else {
-            handleDerivRedirect(residence, current_client_country, subdomain)
-        }
+        // if (is_redirection_enabled) {
+        //     handleRedirect(
+        //         subdomain,
+        //         residence,
+        //         current_client_country,
+        //         window.location.hostname,
+        //         is_redirection_enabled,
+        //     )
+        // } else {
+        //     handleDerivRedirect(residence, current_client_country, subdomain)
+        // }
     }, [])
 
     const onAccept = () => {

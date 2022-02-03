@@ -7,12 +7,11 @@ export const useClientInformation = () => {
 
     const setCurrentClientInformation = () => {
         const current_client_information = getClientInformation(getDomain())
-        if (
+        const is_client_information_updated =
             current_client_information &&
             JSON.stringify(current_client_information) != JSON.stringify(client_information)
-        ) {
-            setClientInformation(current_client_information)
-        }
+
+        if (is_client_information_updated) setClientInformation(current_client_information)
     }
 
     useEffect(() => {

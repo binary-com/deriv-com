@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal.svg'
@@ -6,7 +6,13 @@ import FriendlySupport from 'images/svg/markets/friendly-support.svg'
 import Leverage from 'images/svg/markets/leverage.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
 
-export const forex_content = [
+export type ForexContentContent = {
+    src: string
+    alt: string
+    text: ReactElement
+}
+
+export const forex_content: ForexContentContent[] = [
     {
         src: Leverage,
         alt: 'leverage',
@@ -34,7 +40,7 @@ export const forex_content = [
     },
 ]
 
-export const forex_content_eu = [
+export const forex_content_eu: ForexContentContent[] = [
     {
         src: Leverage,
         alt: 'leverage',

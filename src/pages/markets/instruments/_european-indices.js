@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { stocks_european_indices } from './_market-symbols'
+import { stocks_european_indices } from '../static/content/_market-symbols'
 
 const EuropeanIndices = () => {
     return (

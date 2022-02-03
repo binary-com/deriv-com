@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { cryptocurrencies_multipliers } from './_market-symbols'
+import { cryptocurrencies_multipliers } from '../static/content/_market-symbols'
 
 const CryptocurrenciesMultipliers = () => {
     return (

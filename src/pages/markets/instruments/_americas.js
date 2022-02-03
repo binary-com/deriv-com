@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { americas } from './_market-symbols'
+import { americas } from '../static/content/_market-symbols'
 
 const Americas = () => {
     return (

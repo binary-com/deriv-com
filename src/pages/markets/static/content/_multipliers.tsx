@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import {
     ContinuousIndices,
     CrashBoom,
@@ -22,7 +22,38 @@ import {
 } from './_details'
 import { Localize } from 'components/localization'
 
-export const forex_multiplier = {
+type Option = {
+    title: ReactElement
+    component: ReactElement
+    mobile_title?: ReactElement
+    details?: () => ReactElement
+}
+
+export type ForexAndBasketMultiplier = {
+    markets_list: {
+        col: number
+        tablet_col: number
+        mobile_col: number
+    }
+    content: Option[]
+}
+export type SyntheticMultiplier = {
+    has_global_accordion: boolean
+    content: Option[]
+    eu_content?: ReactElement[]
+    template?: number
+}
+export type CryptoMultiplier = {
+    has_global_accordion: boolean
+    markets_list: {
+        col: number
+        tablet_col: number
+        mobile_col: number
+    }
+    content: Option[]
+}
+
+export const forex_multiplier: ForexAndBasketMultiplier = {
     markets_list: {
         col: 4,
         tablet_col: 3,
@@ -40,7 +71,7 @@ export const forex_multiplier = {
         },
     ],
 }
-export const basket_multiplier = {
+export const basket_multiplier: ForexAndBasketMultiplier = {
     markets_list: {
         col: 5,
         tablet_col: 3,
@@ -55,7 +86,7 @@ export const basket_multiplier = {
     ],
 }
 
-export const synthetic_multiplier = {
+export const synthetic_multiplier: SyntheticMultiplier = {
     has_global_accordion: true,
     content: [
         {
@@ -85,7 +116,7 @@ export const synthetic_multiplier = {
     ],
 }
 
-export const synthetic_multiplier_eu = {
+export const synthetic_multiplier_eu: SyntheticMultiplier = {
     has_global_accordion: true,
     template: 2,
     content: [
@@ -105,7 +136,7 @@ export const synthetic_multiplier_eu = {
     ],
 }
 
-export const crypto_multiplier = {
+export const crypto_multiplier: CryptoMultiplier = {
     markets_list: {
         col: 4,
         tablet_col: 4,

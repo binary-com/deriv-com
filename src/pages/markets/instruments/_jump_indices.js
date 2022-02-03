@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { jump_indices } from './_market-symbols'
+import { jump_indices } from '../static/content/_market-symbols'
 
 const JumpIndices = () => {
     return (

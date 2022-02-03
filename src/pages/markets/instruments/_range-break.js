@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { range_break } from './_market-symbols'
+import { range_break } from '../static/content/_market-symbols'
 
 const RangeBreak = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { energy } from './_market-symbols'
+import { energy } from '../static/content/_market-symbols'
 
 const Energy = () => {
     return (

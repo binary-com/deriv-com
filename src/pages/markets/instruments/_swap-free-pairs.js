@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { swap_free_pairs } from './_market-symbols'
+import { swap_free_pairs } from '../static/content/_market-symbols'
 
 const SwapFreePairs = () => {
     return (

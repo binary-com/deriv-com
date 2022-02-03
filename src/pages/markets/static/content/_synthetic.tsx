@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support.svg'
@@ -6,7 +6,11 @@ import MarketandRisk from 'images/svg/markets/market-and-risk.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
 import SevenTrading from 'images/svg/markets/seven-trading.svg'
 
-export default [
+type Synthetic = {
+    src: string
+    text: ReactElement
+}
+const synthetic: Synthetic[] = [
     {
         src: SevenTrading,
         text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
@@ -28,3 +32,4 @@ export default [
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]
+export default synthetic

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Symbol from '../components/helper/_symbol'
-import { american_stocks } from './_market-symbols'
+import { american_stocks } from '../static/content/_market-symbols'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal.svg'
 import ExtendedTime from 'images/svg/markets/extended-trading-times.svg'
@@ -6,7 +6,12 @@ import FriendlySupport from 'images/svg/markets/friendly-support.svg'
 import MinimalCapital from 'images/svg/markets/minimal-capital.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
 
-export default [
+type Stock = {
+    src: string
+    text: ReactElement
+}
+
+const stocks: Stock[] = [
     {
         src: MinimalCapital,
         text: <Localize translate_text="Minimal capital requirements, limited risk" />,
@@ -28,3 +33,4 @@ export default [
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]
+export default stocks

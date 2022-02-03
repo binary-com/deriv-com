@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { basket_indices_cfds } from './_market-symbols'
+import { basket_indices_cfds } from '../static/content/_market-symbols'
 
 const BasketIndicesCfds = () => {
     return (

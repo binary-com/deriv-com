@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { metals } from './_market-symbols'
+import { metals } from '../static/content/_market-symbols'
 
 const Metals = () => {
     return (

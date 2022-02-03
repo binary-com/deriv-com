@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { major_pairs } from './_market-symbols'
+import { major_pairs } from '../static/content/_market-symbols'
 
 const MajorPairs = () => {
     return (

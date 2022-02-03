@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { crash_boom, crash_boom_trade_type_eu } from './_market-symbols'
+import { crash_boom, crash_boom_trade_type_eu } from '../static/content/_market-symbols'
 import { DerivStore } from 'store'
 
 const CrashBoom = () => {

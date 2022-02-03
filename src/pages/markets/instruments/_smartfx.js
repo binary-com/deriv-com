@@ -1,6 +1,6 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { smart_fx } from './_market-symbols'
+import { smart_fx } from '../static/content/_market-symbols'
 
 const SmartFX = () => {
     return (

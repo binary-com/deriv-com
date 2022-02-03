@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { url } from './utility'
 import { Flex, Show } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
@@ -107,7 +108,7 @@ export const SocialWrapper = styled.div`
 `
 
 // clip-path: polygon(50% 60%, 20% 100%, 80% 100%);
-const url = typeof window !== 'undefined' ? window.location.href : ''
+
 const social_media = [
     {
         link: `https://www.facebook.com/sharer/sharer.php?u=${url}`,

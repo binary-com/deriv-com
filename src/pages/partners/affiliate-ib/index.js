@@ -177,7 +177,7 @@ const AffiliateIb = () => {
                 <Container direction="column">
                     <SubtitleHeader as="h4" type="sub-section-title" weight="normal" align="center">
                         {localize(
-                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several financial markets with the utmost convenience. Deriv Group – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
+                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
                         )}
                     </SubtitleHeader>
                     <SectionContainerWrapper>

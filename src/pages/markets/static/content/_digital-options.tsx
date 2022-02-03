@@ -11,7 +11,7 @@ import {
     MinorPairs,
     SmartFX,
     BasketIndicesCfds,
-} from '../../instruments/_submarkets.js'
+} from '../../instruments/_submarkets'
 import {
     AmericasDetails,
     AsiaOceaniaDetails,

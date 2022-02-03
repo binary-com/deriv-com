@@ -6,13 +6,13 @@ import FriendlySupport from 'images/svg/markets/friendly-support.svg'
 import Leverage from 'images/svg/markets/leverage.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
 
-export type ForexContentContent = {
+export type ForexContentElement = {
     src: string
     alt: string
     text: ReactElement
 }
 
-export const forex_content: ForexContentContent[] = [
+export const forex_content: ForexContentElement[] = [
     {
         src: Leverage,
         alt: 'leverage',
@@ -40,7 +40,7 @@ export const forex_content: ForexContentContent[] = [
     },
 ]
 
-export const forex_content_eu: ForexContentContent[] = [
+export const forex_content_eu: ForexContentElement[] = [
     {
         src: Leverage,
         alt: 'leverage',

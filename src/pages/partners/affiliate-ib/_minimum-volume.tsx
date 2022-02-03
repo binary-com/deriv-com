@@ -138,7 +138,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center" mb="24px">
                         <LeftWrapper>
                             <Text size="16px">
-                                <Localize translate_text="A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 10. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
+                                <Localize translate_text="A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 20. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -177,14 +177,14 @@ const firstCalculatedFormula: CalculatedFormulaType = {
                     next_operator: '÷',
                 },
                 {
-                    item: '10',
+                    item: '20',
                     description: <Localize translate_text="Commission rate" />,
                 },
             ],
             result: {
                 total: (
                     <Localize
-                        translate_text="<0>USD 100</0> Volume"
+                        translate_text="<0>USD 50</0> Volume"
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
@@ -194,7 +194,7 @@ const firstCalculatedFormula: CalculatedFormulaType = {
             totalItem: 2,
             formula: [
                 {
-                    item: 'USD 100',
+                    item: 'USD 50',
                     description: <Localize translate_text="Volume" />,
                     next_operator: '÷',
                 },
@@ -206,7 +206,7 @@ const firstCalculatedFormula: CalculatedFormulaType = {
             result: {
                 total: (
                     <Localize
-                        translate_text="<0>0.002 lots</0>"
+                        translate_text="<0>0.001 lots</0>"
                         components={[<ResultStrong key={0} />]}
                     />
                 ),

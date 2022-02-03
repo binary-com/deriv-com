@@ -1,4 +1,4 @@
-export const size = Object.freeze({
+export const size = {
     mobileS: 320,
     mobileM: 375,
     mobileL: 425,
@@ -14,9 +14,9 @@ export const size = Object.freeze({
     laptopL: 1440,
     desktopS: 1680,
     desktop: 1980,
-})
+}
 
-const device = Object.freeze({
+const device = {
     mobileS: `(max-width: ${size.mobileS}px)`,
     mobileM: `(max-width: ${size.mobileM}px)`,
     mobileL: `(max-width: ${size.mobileL}px)`,
@@ -25,12 +25,11 @@ const device = Object.freeze({
     tabletL: `(max-width: ${size.tabletL}px)`,
     laptopS: `(min-width: ${size.tabletL}px)`,
     laptop: `(max-width: ${size.laptop}px)`,
-    bp1060: `(max-width: ${size.bp1060}px)`,
     laptopM: `(max-width: ${size.laptopM}px)`,
     laptopL: `(max-width: ${size.laptopL}px)`,
     desktopS: `(min-width: ${size.desktopS}px)`,
     desktop: `(max-width: ${size.desktop}px)`,
     desktopL: `(min-width: ${size.desktop}px)`,
-})
+}
 
 export default device

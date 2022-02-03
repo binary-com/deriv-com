@@ -51,6 +51,7 @@ const SubtitleHeader = styled(Header)`
 
 const ComissionPlanContainer = styled(SectionContainer)`
     padding: 4rem 0 8rem 0;
+    background: unset;
     @media ${device.tabletL} {
         padding: 16px 0 0 0;
     }

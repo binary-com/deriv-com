@@ -19,6 +19,7 @@ import {
     PointerStick,
     PointerText,
     PointerTextMobile,
+    StyledVolume,
 } from './_style'
 import { Show } from 'components/containers'
 
@@ -44,17 +45,23 @@ const CalculatedFormula = ({ data }) => {
                                             </PointerContainer>
                                         </FormulaValueSwapSynthetic>
                                         {list.next_operator && (
-                                            <FormulaValueSwapSynthetic>
-                                                <FormulaGreen>{list.next_operator}</FormulaGreen>
-                                            </FormulaValueSwapSynthetic>
+                                            <StyledVolume>
+                                                <FormulaValueSwapSynthetic>
+                                                    <FormulaGreen>
+                                                        {list.next_operator}
+                                                    </FormulaGreen>
+                                                </FormulaValueSwapSynthetic>
+                                            </StyledVolume>
                                         )}
                                     </>
                                 ))}
                                 <FormulaResult>
                                     <FormulaValueResultSwapSynthetic>
                                         <FormulaResultGreen>=</FormulaResultGreen>
-                                        {result.total}
-                                        {result.description && result.description}
+                                        <StyledVolume>
+                                            {result.total}
+                                            {result.description && result.description}
+                                        </StyledVolume>
                                     </FormulaValueResultSwapSynthetic>
                                 </FormulaResult>
                             </FormulaHighlight>
@@ -105,7 +112,9 @@ const CalculatedFormula = ({ data }) => {
                                         <FormulaResult>
                                             <FormulaValueResultSwapSynthetic>
                                                 <FormulaResultGreen>=</FormulaResultGreen>
-                                                {totalResult} {totalResultDesc}
+                                                <StyledVolume>
+                                                    {totalResult} {totalResultDesc}
+                                                </StyledVolume>
                                             </FormulaValueResultSwapSynthetic>
                                         </FormulaResult>
                                     </FormulaBottomWrapper>
@@ -144,14 +153,14 @@ const CalculatedFormula = ({ data }) => {
                                         <FormulaResult>
                                             <FormulaValueResultSwapSynthetic>
                                                 <FormulaResultGreen>=</FormulaResultGreen>
-                                                {totalResult}
+                                                <StyledVolume>{totalResult}</StyledVolume>
                                             </FormulaValueResultSwapSynthetic>
 
                                             <PointerContainerMobile>
                                                 <PointerDot />
                                                 <PointerStick />
                                                 <PointerTextMobile>
-                                                    {totalResultDesc}
+                                                    <StyledVolume>{totalResultDesc}</StyledVolume>
                                                 </PointerTextMobile>
                                             </PointerContainerMobile>
                                         </FormulaResult>

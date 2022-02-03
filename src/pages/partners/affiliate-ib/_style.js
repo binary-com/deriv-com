@@ -205,3 +205,6 @@ export const ResultStrong = styled.span`
     margin-right: 0.4rem;
     color: var(--color-black-3);
 `
+export const StyledVolume = styled.div`
+    color: var(--color-grey-5);
+`

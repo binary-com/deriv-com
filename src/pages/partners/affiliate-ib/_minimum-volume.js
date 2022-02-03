@@ -93,12 +93,13 @@ const RightWrapper = styled(Flex)`
         max-width: 58.8rem;
     }
 `
+
 const MinimumVolume = () => {
     return (
         <StyledSection>
             <Container direction="column">
                 <TitleWrapper direction="column">
-                    <Header as="h2" type="page-title" align="center" mb="0.8rem">
+                    <Header as="h2" type="sub-section-title" align="center" mb="0.8rem" fs="32px">
                         {localize('Minimum volume requirement')}
                     </Header>
                     <Text size="16px" align="center">

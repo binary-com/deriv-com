@@ -33,12 +33,12 @@ const StyledFlex = styled(Flex)`
 const SharingWrapper = styled.div`
     display: flex;
     position: absolute;
-    left: 73%;
-    top: 25px;
+    left: 83%;
+    top: 28px;
 
     img {
-        width: 21px;
-        height: 23px;
+        width: 24px;
+        height: 24px;
     }
 
     @media ${device.tabletL} {
@@ -93,7 +93,7 @@ export const SocialWrapper = styled.div`
     grid-area: social;
 
     img {
-        margin-right: 2rem;
+        margin-right: 16px;
     }
 
     @media ${device.tabletL} {

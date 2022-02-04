@@ -10,10 +10,10 @@ import { synthetic_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
+import { DerivStore } from 'store'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
-import { DerivStore } from 'store'
 
 const StockIndices = ({ simple_step_content }) => {
     const { is_eu_country } = React.useContext(DerivStore)
@@ -23,10 +23,7 @@ const StockIndices = ({ simple_step_content }) => {
             <WhyTrade
                 header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
                 text={
-                    <Localize
-                        translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and
-                    liquidity risks."
-                    />
+                    <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
                 }
             >
                 {synthetic_content.map((content, index) => (

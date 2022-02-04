@@ -61,8 +61,8 @@ const SharingButton = styled.button`
         background: #f2f3f4;
     }
     img {
-        width: 21px;
-        height: 23px;
+        width: 24px;
+        height: 24px;
         position: absolute;
         top: -10%;
         left: -10%;

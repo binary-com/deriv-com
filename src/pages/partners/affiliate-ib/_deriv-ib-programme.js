@@ -316,8 +316,8 @@ const ib_dmt5_financial = {
                 {
                     title: <Localize key={0} translate_text="Commission per lot" />,
                     list: [
-                        <Localize key={1} translate_text="USD 2" />,
-                        <Localize key={2} translate_text="USD 4" />,
+                        <Localize key={1} translate_text="USD 5" />,
+                        <Localize key={2} translate_text="USD 5" />,
                     ],
                 },
             ],
@@ -451,7 +451,7 @@ const ib_dmt5_financialSTP = {
                     title: (
                         <Localize
                             key={0}
-                            translate_text="Commission per lot (1 standard lot is 100k units)"
+                            translate_text="Commission per lot (1 standard forex lot is 100k units)"
                         />
                     ),
                     list: [<Localize key={1} translate_text="2.5" />],

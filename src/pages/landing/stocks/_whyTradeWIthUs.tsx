@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
 const SectionWrapper = styled(SectionContainer)`
@@ -36,14 +35,26 @@ const StyledImage = styled.img`
     width: 80px;
     height: 80px;
 `
+
 const StyledIconTitle = styled(Header)`
     @media ${device.tabletL} {
         font-size: 20px;
     }
 `
 
-const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }) => {
-    let CardWidth = 100 / columnPerRow + '%'
+type WhyTradeWithUsProps = {
+    mainTitle: ReactElement
+    columnPerRow: number
+    itemsArr: ItemsArrType[]
+}
+
+type ItemsArrType = {
+    title: ReactElement
+    icon: string
+}
+
+const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsProps) => {
+    const CardWidth = 100 / columnPerRow + '%'
     const Card = styled(Flex)`
         max-width: 38.4rem;
         justify-content: flex-start;
@@ -101,7 +112,6 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }) => {
                                 >
                                     {item.title}
                                 </StyledIconTitle>
-                                {item.desc && <Text align="center">{item.desc}</Text>}
                             </Card>
                         )
                     })}
@@ -109,12 +119,6 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }) => {
             </MainContainer>
         </SectionWrapper>
     )
-}
-
-WhyTradeWithUs.propTypes = {
-    columnPerRow: PropTypes.number,
-    itemsArr: PropTypes.array,
-    mainTitle: PropTypes.object,
 }
 
 export default WhyTradeWithUs

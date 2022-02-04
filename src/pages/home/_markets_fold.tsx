@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
+import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
@@ -76,9 +76,9 @@ const StyledLink = styled(LocalizedLink)`
 
 const market_data = [
     {
-        header: localize('Forex'),
-        description: localize(
-            'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
+        header: <Localize translate_text="Forex" />,
+        description: (
+            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
@@ -86,9 +86,9 @@ const market_data = [
         gradient_end: '#190708',
     },
     {
-        header: localize('Synthetic indices'),
-        description: localize(
-            'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
+        header: <Localize translate_text="Synthetic indices" />,
+        description: (
+            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
         ),
         img_name: 'market_synthetic_indices',
         to: '/markets/synthetic/',
@@ -96,9 +96,9 @@ const market_data = [
         gradient_end: '#08100E',
     },
     {
-        header: localize(`Stocks & indices`),
-        description: localize(
-            'Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market.',
+        header: <Localize translate_text="Stocks & indices" />,
+        description: (
+            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
@@ -106,9 +106,9 @@ const market_data = [
         gradient_end: '#0A0810',
     },
     {
-        header: localize('Cryptocurrencies'),
-        description: localize(
-            'Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet.',
+        header: <Localize translate_text="Cryptocurrencies" />,
+        description: (
+            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
         ),
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
@@ -116,9 +116,9 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: localize('Commodities'),
-        description: localize(
-            'Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action.',
+        header: <Localize translate_text="Commodities" />,
+        description: (
+            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',

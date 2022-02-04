@@ -22,6 +22,7 @@ const Item = styled(Flex)`
 
         ${Text} {
             font-size: 2rem;
+            margin-top: 8px;
         }
     }
 `
@@ -36,7 +37,7 @@ const ItemContainer = styled(Box)`
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: center;
-        margin: 10px 0 32px 0;
+        margin: 0 0 32px 0;
     }
 `
 const StyledHeader = styled(Header)`

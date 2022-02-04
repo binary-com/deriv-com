@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
-export type ContentElement = {
+export type MarketSymbol = {
     src: string
     text: ReactElement
 }
-export const americas: ContentElement[] = [
+export const americas: MarketSymbol[] = [
     {
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
@@ -21,7 +21,7 @@ export const americas: ContentElement[] = [
     },
 ]
 
-export const asia_oceania: ContentElement[] = [
+export const asia_oceania: MarketSymbol[] = [
     {
         src: icons.STOCKSAUS200,
         text: <Localize translate_text="Australia 200" />,
@@ -36,7 +36,7 @@ export const asia_oceania: ContentElement[] = [
     },
 ]
 
-export const continuous_indices: ContentElement[] = [
+export const continuous_indices: MarketSymbol[] = [
     {
         src: icons.INDEX10S1,
         text: <Localize translate_text="Volatility 10 (1s) Index" />,
@@ -79,9 +79,9 @@ export const continuous_indices: ContentElement[] = [
     },
 ]
 
-export const volatility_indices: ContentElement[] = continuous_indices
+export const volatility_indices: MarketSymbol[] = continuous_indices
 
-export const volatility_indices_eu: ContentElement[] = [
+export const volatility_indices_eu: MarketSymbol[] = [
     {
         src: icons.VINDEXIC200,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
@@ -92,7 +92,7 @@ export const volatility_indices_eu: ContentElement[] = [
     },
 ]
 
-export const crash_boom: ContentElement[] = [
+export const crash_boom: MarketSymbol[] = [
     {
         src: icons.BOOM1000,
         text: <Localize translate_text="Boom 1000 Index" />,
@@ -111,7 +111,7 @@ export const crash_boom: ContentElement[] = [
     },
 ]
 
-export const crash_boom_eu: ContentElement[] = [
+export const crash_boom_eu: MarketSymbol[] = [
     {
         src: icons.VCRASHIC300,
         text: <Localize translate_text="Crash 300 Index" />,
@@ -122,7 +122,7 @@ export const crash_boom_eu: ContentElement[] = [
     },
 ]
 
-export const daily_reset_indices: ContentElement[] = [
+export const daily_reset_indices: MarketSymbol[] = [
     {
         src: icons.MARKETBEAR,
         text: <Localize translate_text="Bear Market Index" />,
@@ -133,7 +133,7 @@ export const daily_reset_indices: ContentElement[] = [
     },
 ]
 
-export const europe: ContentElement[] = [
+export const europe: MarketSymbol[] = [
     {
         src: icons.STOCKSNETHERLAND25,
         text: <Localize translate_text="Netherland 25" />,
@@ -160,7 +160,7 @@ export const europe: ContentElement[] = [
     },
 ]
 
-export const exotic_pairs: ContentElement[] = [
+export const exotic_pairs: MarketSymbol[] = [
     {
         src: icons.AUDSGD,
         text: <Localize translate_text="AUD/SGD" />,
@@ -239,7 +239,7 @@ export const exotic_pairs: ContentElement[] = [
     },
 ]
 
-export const major_pairs: ContentElement[] = [
+export const major_pairs: MarketSymbol[] = [
     {
         src: icons.AUDJPY,
         text: <Localize translate_text="AUD/JPY" />,
@@ -298,7 +298,7 @@ export const major_pairs: ContentElement[] = [
     },
 ]
 
-export const metals: ContentElement[] = [
+export const metals: MarketSymbol[] = [
     {
         src: icons.ALUMINIUMUSD,
         text: <Localize translate_text="Aluminium/USD" />,
@@ -345,7 +345,7 @@ export const metals: ContentElement[] = [
     },
 ]
 
-export const range_break: ContentElement[] = [
+export const range_break: MarketSymbol[] = [
     {
         src: icons.RANGEBREAK100,
         text: <Localize translate_text="Range Break 100 Index" />,
@@ -356,7 +356,7 @@ export const range_break: ContentElement[] = [
     },
 ]
 
-export const smart_fx: ContentElement[] = [
+export const smart_fx: MarketSymbol[] = [
     {
         src: icons.AUDINDEX,
         text: <Localize translate_text="AUD Index" />,
@@ -379,14 +379,14 @@ export const smart_fx: ContentElement[] = [
     },
 ]
 
-export const smart_gold_index: ContentElement[] = [
+export const smart_gold_index: MarketSymbol[] = [
     {
         src: icons.GOLDUSD,
         text: <Localize translate_text="Smart Gold Index" />,
     },
 ]
 
-export const minor_pairs: ContentElement[] = [
+export const minor_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -449,7 +449,7 @@ export const minor_pairs: ContentElement[] = [
     },
 ]
 
-export const stocks_american_indices: ContentElement[] = [
+export const stocks_american_indices: MarketSymbol[] = [
     {
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
@@ -464,7 +464,7 @@ export const stocks_american_indices: ContentElement[] = [
     },
 ]
 
-export const stocks_asian_indices: ContentElement[] = [
+export const stocks_asian_indices: MarketSymbol[] = [
     {
         src: icons.STOCKSAUS200,
         text: <Localize translate_text="Australia 200" />,
@@ -475,7 +475,7 @@ export const stocks_asian_indices: ContentElement[] = [
     },
 ]
 
-export const stocks_european_indices: ContentElement[] = [
+export const stocks_european_indices: MarketSymbol[] = [
     {
         src: icons.STOCKSNETHERLAND25,
         text: <Localize translate_text="Netherland 25" />,
@@ -502,7 +502,7 @@ export const stocks_european_indices: ContentElement[] = [
     },
 ]
 
-export const american_stocks: ContentElement[] = [
+export const american_stocks: MarketSymbol[] = [
     {
         src: icons.STOCKSAIRLINESGROUP,
         text: <Localize translate_text="American Airlines Group Inc" />,
@@ -695,7 +695,7 @@ export const american_stocks: ContentElement[] = [
     },
 ]
 
-export const cryptocurrencies_trade_type: ContentElement[] = [
+export const cryptocurrencies_trade_type: MarketSymbol[] = [
     {
         src: icons.BTC,
         text: <Localize translate_text="Bitcoin" />,
@@ -706,7 +706,7 @@ export const cryptocurrencies_trade_type: ContentElement[] = [
     },
 ]
 
-export const cryptocurrencies_cfds: ContentElement[] = [
+export const cryptocurrencies_cfds: MarketSymbol[] = [
     {
         src: icons.AVALANCHE,
         text: <Localize translate_text="Avalanche" />,
@@ -829,7 +829,7 @@ export const cryptocurrencies_cfds: ContentElement[] = [
     },
 ]
 
-export const cryptocurrencies_multipliers: ContentElement[] = [
+export const cryptocurrencies_multipliers: MarketSymbol[] = [
     {
         src: icons.BTC,
         text: <Localize translate_text="Bitcoin" />,
@@ -839,7 +839,7 @@ export const cryptocurrencies_multipliers: ContentElement[] = [
         text: <Localize translate_text="Ethereum" />,
     },
 ]
-export const jump_indices: ContentElement[] = [
+export const jump_indices: MarketSymbol[] = [
     {
         src: icons.JUMP10,
         text: <Localize translate_text="Jump 10 Index" />,
@@ -862,7 +862,7 @@ export const jump_indices: ContentElement[] = [
     },
 ]
 
-export const energy: ContentElement[] = [
+export const energy: MarketSymbol[] = [
     {
         src: icons.NATURALGAS,
         text: <Localize translate_text="Natural gas" />,
@@ -873,7 +873,7 @@ export const energy: ContentElement[] = [
     },
 ]
 
-export const volatility_indices_trade_type_eu: ContentElement[] = [
+export const volatility_indices_trade_type_eu: MarketSymbol[] = [
     {
         src: icons.VOLATILITY200EU,
         text: <Localize translate_text="Volatility 200 Index" />,
@@ -884,7 +884,7 @@ export const volatility_indices_trade_type_eu: ContentElement[] = [
     },
 ]
 
-export const crash_boom_trade_type_eu: ContentElement[] = [
+export const crash_boom_trade_type_eu: MarketSymbol[] = [
     {
         src: icons.CRASH300EU,
         text: <Localize translate_text="Crash 300 Index" />,
@@ -895,7 +895,7 @@ export const crash_boom_trade_type_eu: ContentElement[] = [
     },
 ]
 
-export const swap_free_pairs: ContentElement[] = [
+export const swap_free_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -974,7 +974,7 @@ export const swap_free_pairs: ContentElement[] = [
     },
 ]
 
-export const basket_indices_cfds: ContentElement[] = [
+export const basket_indices_cfds: MarketSymbol[] = [
     {
         src: icons.AUDBASKET,
         text: <Localize translate_text="AUD Basket" />,

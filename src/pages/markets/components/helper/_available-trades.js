@@ -15,9 +15,10 @@ const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding: 48px 0 40px;
+        padding: 80px 0 40px;
     }
 `
+
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         max-width: 280px;
@@ -25,6 +26,7 @@ const StyledHeader = styled(Header)`
         margin: 0 auto;
     }
 `
+
 const StyledContainer = styled(Container)`
     margin-top: 4rem;
 
@@ -33,13 +35,13 @@ const StyledContainer = styled(Container)`
         margin-top: 0;
     }
 `
+
 const CardWrapper = styled(Flex)`
     max-width: 100.6rem;
     justify-content: flex-start;
     z-index: 1;
     height: 8rem;
     align-items: flex-end;
-    padding-left: 0.8rem;
     overflow: hidden;
 
     div:first-child {
@@ -50,10 +52,6 @@ const CardWrapper = styled(Flex)`
     }
     div:last-child {
         z-index: 1;
-    }
-
-    @media ${device.mobileL} {
-        overflow-x: auto;
     }
 `
 const CardContainer = styled(Flex)`
@@ -90,9 +88,10 @@ const CardContainer = styled(Flex)`
             img {
                 width: 16px;
                 height: 16px;
-                margin-right: 1rem;
+                margin: 0 8px 0 23px;
             }
         }
+
         @media ${device.mobileL} {
             img {
                 margin-right: 5px;
@@ -109,7 +108,7 @@ const CardContainer = styled(Flex)`
         left: 0;
         z-index: -1;
         border-bottom: none;
-        border-radius: 8px 8px 0 0;
+        border-radius: 8px 16px 0 0;
         background: var(--color-grey-36);
         transform: perspective(8px) rotateX(0.8deg);
         transform-origin: bottom left;
@@ -121,8 +120,9 @@ const CardContainer = styled(Flex)`
                 `
         }}
     }
+
     @media ${device.tabletL} {
-        height: 6rem;
+        height: 35px;
         min-width: unset;
         padding-right: 25px;
 
@@ -131,12 +131,14 @@ const CardContainer = styled(Flex)`
         }
     }
 `
+
 const TabIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
                 margin-left: 16px;
+
                 @media ${device.mobileL} {
                     margin-left: 5px;
                 }
@@ -156,15 +158,17 @@ const ContentWrapper = styled.div`
         padding: 0 2rem;
     }
 `
+
 const CardHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 1.75rem;
     }
 `
+
 const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
-            <Flex height="fit-content" jc="flex-start" ai="center">
+            <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
                 {name === 'CFDs' && (
                     <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />
                 )}
@@ -201,7 +205,7 @@ const AvailableTrades = ({ CFDs, DigitalOptions, Multipliers, display_title }) =
                 {display_title}
             </StyledHeader>
             <StyledContainer direction="column">
-                <CardWrapper position="relative">
+                <CardWrapper margin="0" position="relative">
                     {CFDs && (
                         <Card
                             name="CFDs"

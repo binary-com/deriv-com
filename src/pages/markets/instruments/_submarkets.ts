@@ -25,6 +25,7 @@ import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
 import SwapFreePairs from './_swap-free-pairs'
+import SymbolsMapper from './_symbolsMapper'
 
 export {
     Americas,
@@ -54,4 +55,5 @@ export {
     AsianIndices,
     EuropeanIndices,
     SwapFreePairs,
+    SymbolsMapper,
 }

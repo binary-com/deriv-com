@@ -129,7 +129,7 @@ const Hero = () => {
                             width="unset"
                         />
                         <StyledHeader as="h1" color="white" align="center" mt="40px" type="unset">
-                            {localize('Who \nwe are')}
+                            {title}
                         </StyledHeader>
                     </Flex>
                 </MobileWrapper>

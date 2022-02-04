@@ -64,7 +64,7 @@ const BeSquareFooter = () => {
                         alt="Fresh graduates discussing with their laptops"
                     />
                     <TextContainer>
-                        <Title as="h3">Next intake: 4 April 2022</Title>
+                        <Title as="h3">Next intake: 13 June 2022</Title>
                         <TextWrapper
                             max_width={['510px', '328px']}
                             font_size={['20px', '16px']}
@@ -72,7 +72,7 @@ const BeSquareFooter = () => {
                             margin={['-24px 49px 0 0']}
                         >
                             <Text color="white" size="2rem">
-                                Submit your application before 18 March 2022
+                                Submit your application before 1 June 2022
                             </Text>
                             <Localize
                                 translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"

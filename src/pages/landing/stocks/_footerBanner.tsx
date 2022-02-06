@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-// import Show from 'components/containers/show'
 import device from 'themes/device.js'
 
 const BannerWrapper = styled(Flex)`
@@ -128,19 +127,33 @@ const StyledHeaderSmall = styled(Header)`
     }
 `
 
-const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) => {
-    const BackgroundPattern = styled.img`
-        position: absolute;
-        top: -298px;
-        left: -8%;
-        z-index: 1;
-        width: 558px;
+const BackgroundPattern = styled.img`
+    position: absolute;
+    top: -298px;
+    left: -8%;
+    z-index: 1;
+    width: 558px;
 
-        @media ${device.tabletL} {
-            display: none;
-        }
-    `
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
 
+type FooterBannerProps = {
+    background_pattern: string
+    is_ppc: boolean
+    title: ReactElement
+    small_title: ReactElement
+    data: { stocks_banner: ImageDataLike }
+}
+
+const FooterBanner = ({
+    background_pattern,
+    data,
+    is_ppc,
+    small_title,
+    title,
+}: FooterBannerProps) => {
     return (
         <BannerWrapper>
             <MainWrapper>
@@ -192,14 +205,6 @@ const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) 
             </MainWrapper>
         </BannerWrapper>
     )
-}
-
-FooterBanner.propTypes = {
-    background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    data: PropTypes.object.isRequired,
-    is_ppc: PropTypes.bool,
-    small_title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default FooterBanner

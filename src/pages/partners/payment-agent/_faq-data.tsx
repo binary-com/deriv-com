@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { HeaderPrimary, TextPrimary, LocalizedLinkText } from '../affiliate-ib/_faq-data'
 import { Header, LinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { DerivStore } from 'store'
+import { DerivStore, DerivStoreType } from 'store'
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
@@ -60,7 +60,8 @@ const General = () => (
     </>
 )
 const AccountManagement = () => {
-    const { is_livechat_interactive, LC_API, setFirstLoadOpenLc } = useContext(DerivStore)
+    const { is_livechat_interactive, LC_API, setFirstLoadOpenLc } =
+        useContext<DerivStoreType>(DerivStore)
 
     return (
         <>

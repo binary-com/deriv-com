@@ -31,6 +31,7 @@ const MainWrapper = styled(Flex)`
     flex-direction: column;
     overflow: hidden;
 `
+
 const HeaderWrapper = styled(Flex)`
     position: relative;
     overflow: hidden;
@@ -53,6 +54,7 @@ const TopHeaderWrapper = styled(Container)`
         margin-top: 41px;
     }
 `
+
 const BackgroundPattern = styled.img`
     position: absolute;
     top: 30%;
@@ -70,6 +72,7 @@ const BackgroundPattern = styled.img`
         height: 224px;
     }
 `
+
 const BackgroundPatternSection = styled.img`
     width: 679px;
     position: absolute;
@@ -80,6 +83,7 @@ const BackgroundPatternSection = styled.img`
         display: none;
     }
 `
+
 const TopHeaderTextDiv = styled(Flex)`
     width: 690px;
     margin-right: 24px;
@@ -91,6 +95,7 @@ const TopHeaderTextDiv = styled(Flex)`
         margin-right: 0;
     }
 `
+
 const TopTextWrapper = styled(Flex)`
     flex-direction: column;
     margin-bottom: 26%;
@@ -99,10 +104,12 @@ const TopTextWrapper = styled(Flex)`
         margin-bottom: 0;
     }
 `
+
 const StyledLinkButton = styled(LinkButton)`
     border: unset;
     line-height: 20px;
 `
+
 const StyledHeader = styled(Header)`
     margin-bottom: 16px;
     @media ${device.tabletL} {
@@ -110,6 +117,7 @@ const StyledHeader = styled(Header)`
         margin-bottom: 8px;
     }
 `
+
 const StyledHeaderSmall = styled(Header)`
     font-size: 24px;
     max-width: 58rem;
@@ -120,10 +128,12 @@ const StyledHeaderSmall = styled(Header)`
         max-width: 100%;
     }
 `
+
 const BtnDiv = styled(Flex)`
     height: unset;
     justify-content: start;
 `
+
 const TopHeaderBgDiv = styled(Flex)`
     width: 486px;
     @media ${device.tabletL} {
@@ -133,15 +143,18 @@ const TopHeaderBgDiv = styled(Flex)`
         position: relative;
     }
 `
+
 const TopHeaderImgWrapper = styled(Flex)`
     align-items: flex-end;
 `
+
 const DesktopImageWrapper = styled(Container)`
     width: 100%;
     @media ${device.tabletL} {
         display: none;
     }
 `
+
 const MobileImageWrapper = styled(Container)`
     display: none;
     @media ${device.tabletL} {
@@ -149,6 +162,7 @@ const MobileImageWrapper = styled(Container)`
         width: 100%;
     }
 `
+
 const SectionWrapper = styled(Container)`
     height: 704px;
     flex-direction: row;
@@ -163,6 +177,7 @@ const SectionWrapper = styled(Container)`
         flex-direction: column-reverse;
     }
 `
+
 const SectionImgWrapper = styled(Flex)`
     width: 487px;
     @media ${device.laptopM} {
@@ -173,6 +188,7 @@ const SectionImgWrapper = styled(Flex)`
         justify-content: center;
     }
 `
+
 const SectionImgDiv = styled.div`
     width: 100%;
     position: relative;
@@ -181,6 +197,7 @@ const SectionImgDiv = styled.div`
         max-width: 58.8rem;
     }
 `
+
 const SectionBannerImg = styled.img`
     width: 100%;
     position: absolute;
@@ -193,6 +210,7 @@ const SectionBannerImg = styled.img`
         margin: 0 auto;
     }
 `
+
 const SectionTextWrapper = styled(Flex)`
     width: 588px;
     align-items: center;
@@ -210,6 +228,7 @@ const SectionTextWrapper = styled(Flex)`
         margin: 0 auto;
     }
 `
+
 const SectionStyledHeader = styled(Header)`
     font-size: 64px;
     text-align: left;
@@ -221,6 +240,7 @@ const SectionStyledHeader = styled(Header)`
         margin-bottom: 8px;
     }
 `
+
 const SectionStyledHeaderSmall = styled(Header)`
     font-size: 24px;
     max-width: 100%;
@@ -232,7 +252,6 @@ const SectionStyledHeaderSmall = styled(Header)`
         text-align: center;
     }
 `
-// const is_ppc = true
 
 const HeaderSection = () => {
     const data = useStaticQuery(query)

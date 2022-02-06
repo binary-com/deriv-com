@@ -7,28 +7,34 @@
         "plugin:import/warnings"
     ],
     "overrides": [
-    {
-        "files": ["*.{ts,tsx}"],
-        "parser": "@typescript-eslint/parser",
-        "extends": [
-            "eslint:recommended",
-            "plugin:@typescript-eslint/recommended",
-            "plugin:react/recommended",
-            "plugin:import/errors",
-            "plugin:import/warnings"
-        ],
-        "rules": {
-            "@typescript-eslint/explicit-module-boundary-types": "off"
-        },
-        "parserOptions": {
-            "project": "./tsconfig.json",
-            "ecmaVersion": 2020,
-            "sourceType": "module" // Allows for the use of imports
+        {
+            "files": [
+                "*.{ts,tsx}"
+            ],
+            "parser": "@typescript-eslint/parser",
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:react/recommended",
+                "plugin:import/errors",
+                "plugin:import/warnings"
+            ],
+            "rules": {
+                "@typescript-eslint/explicit-module-boundary-types": "off"
+            },
+            "parserOptions": {
+                "project": "./tsconfig.json",
+                "ecmaVersion": 2020,
+                "sourceType": "module" // Allows for the use of imports
+            }
         }
-    }
     ],
-    "plugins": ["@typescript-eslint"],
+    "plugins": [
+        "@typescript-eslint",
+        "deprecation"
+    ],
     "rules": {
+        "deprecation/deprecation": "off",
         "strict": 0,
         "camelcase": 0,
         "no-console": "warn",
@@ -103,8 +109,13 @@
                 "paths": [
                     "src"
                 ],
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
-              }
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
         },
         "react": {
             "version": "17"

@@ -95,8 +95,10 @@ const ArticlesPage = ({ data }) => {
         }
     }, [])
 
-    window.onunload = () => {
-        window.localStorage.removeItem('scroll')
+    if (typeof window !== 'undefined') {
+        window.onunload = () => {
+            window.localStorage.removeItem('scroll')
+        }
     }
 
     return (

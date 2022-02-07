@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
@@ -37,7 +36,12 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const Titlebtn = ({ btnlabel, text }) => {
+type TitlebtnProps = {
+    btnlabel: string
+    text: string
+}
+
+const Titlebtn = ({ btnlabel, text }: TitlebtnProps) => {
     return (
         <StyledSection background="var(--color-grey-30)" padding="7rem 0 3rem" mt="9rem">
             <StyledContainer direction="column">
@@ -57,11 +61,6 @@ const Titlebtn = ({ btnlabel, text }) => {
             </StyledContainer>
         </StyledSection>
     )
-}
-
-Titlebtn.propTypes = {
-    btnlabel: PropTypes.string,
-    text: PropTypes.string,
 }
 
 export default Titlebtn

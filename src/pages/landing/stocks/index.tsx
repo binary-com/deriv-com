@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import {
-    FooterBanner,
-    HeaderSection,
-    DTrading,
-    Parallelogram,
-    WhyTradeWithUs,
-} from './_lazy-load.js'
+import { FooterBanner, HeaderSection, DTrading, Parallelogram, WhyTradeWithUs } from './_lazy-load'
 import BackgroundFooterStocksPattern from 'images/svg/stock-indices/stocks-footer-banner-overlay-shape.svg'
 import Layout from 'components/layout/layout'
 import { Show, SEO } from 'components/containers'
@@ -104,7 +98,9 @@ const Stocks = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
+
     const data = useStaticQuery(query)
+
     return (
         <Layout is_ppc_redirect={true}>
             <SEO

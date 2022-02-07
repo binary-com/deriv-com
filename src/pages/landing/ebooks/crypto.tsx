@@ -10,7 +10,7 @@ import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/landing/crypto-intro.svg'
 
-const topicsCovered = [
+const topics_covered = [
     localize('Introduction to cryptocurrencies'),
     localize('Types of cryptocurrencies'),
     localize('The basics of trading cryptocurrency'),
@@ -27,10 +27,35 @@ const query = graphql`
         crypto_inside: file(relativePath: { eq: "ebooks/crypto-inside.png" }) {
             ...bannerImage
         }
+        crypto_hero_es: file(relativePath: { eq: "ebooks/crypto-hero-es.png" }) {
+            ...bannerImage
+        }
+        crypto_inside_es: file(relativePath: { eq: "ebooks/crypto-inside-es.png" }) {
+            ...bannerImage
+        }
+        crypto_hero_pt: file(relativePath: { eq: "ebooks/crypto-hero-pt.png" }) {
+            ...bannerImage
+        }
+        crypto_inside_pt: file(relativePath: { eq: "ebooks/crypto-inside-pt.png" }) {
+            ...bannerImage
+        }
+        crypto_hero_fr: file(relativePath: { eq: "ebooks/crypto-hero-fr.png" }) {
+            ...bannerImage
+        }
+        crypto_inside_fr: file(relativePath: { eq: "ebooks/crypto-inside-fr.png" }) {
+            ...bannerImage
+        }
     }
 `
 
-const StocksEbook = () => {
+type StocksEbookProps = {
+    language: string
+}
+
+const StocksEbook = ({ language }: StocksEbookProps) => {
+    const ebook_languages = ['es', 'pt', 'fr']
+    const ebook_image = ebook_languages.includes(language) ? `_${language}` : ''
+
     const data = useStaticQuery(query)
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
@@ -52,7 +77,7 @@ const StocksEbook = () => {
                 ebook_utm_code="cryptocurrencies-ebook"
                 introSub=""
                 introMain={localize('Learn how to trade cryptocurrencies with Deriv')}
-                mainHeaderImage={data['crypto_hero']}
+                mainHeaderImage={data[`crypto_hero${ebook_image}`]}
             />
             <ImageText
                 imageWidth={282}
@@ -66,8 +91,8 @@ const StocksEbook = () => {
             />
             <Topics
                 title={localize('In this e-book we will cover')}
-                topicsImage={data['crypto_inside']}
-                topicsList={topicsCovered}
+                topicsImage={data[`crypto_inside${ebook_image}`]}
+                topicsList={topics_covered}
             />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />

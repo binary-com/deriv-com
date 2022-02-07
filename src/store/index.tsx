@@ -10,12 +10,12 @@ type DerivProviderProps = {
 
 type WebsiteStatusType = {
     clients_country: string
-    crypto_config: any
+    crypto_config: unknown
 }
 
 export type DerivStoreType = {
     academy_data: AcademyDataType
-    crypto_config: any
+    crypto_config: unknown
     is_eu_country: boolean
     is_livechat_interactive: boolean
     is_loading_lc: boolean

@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import device from 'themes/device'
-import { Container, SectionContainer, Show } from 'components/containers'
+import device, { size } from 'themes/device'
+import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
+
+type ImageWrapperProps = {
+    margin_right: string
+}
+
+type RowProps = {
+    flex_direction: string
+}
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -18,7 +26,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div`
+const Content = styled.div<ImageWrapperProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +46,7 @@ const Content = styled.div`
     }
 `
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<ImageWrapperProps>`
     max-width: 47.1rem;
     width: 100%;
     max-height: 30rem;
@@ -60,7 +68,7 @@ const StyledText = styled(Text)`
         line-height: 30px;
     }
 `
-const Row = styled.div`
+const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -86,8 +94,26 @@ const query = graphql`
         }
     }
 `
-const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
+
+type P2PType = {
+    title: React.ReactElement
+    subtitle1: React.ReactElement
+    subtitle2: React.ReactElement
+    subtitle_mobile1: React.ReactElement
+    subtitle_mobile2: React.ReactElement
+    image_name: string
+    image_alt: string
+}
+
+type ImageTextSwitchingProps = {
+    P2P: P2PType[]
+    reverse: boolean
+}
+
+const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
     const data = useStaticQuery(query)
+    const [is_tabletL] = useBrowserResize(size.tabletL)
+
     return (
         <StyledSection background="var(--color-white)" padding="5rem 0 0 0">
             <StyledContainer direction="column">
@@ -102,38 +128,24 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                 </StyledText>
 
                 {P2P.map((item, index) => {
-                    let is_even = isIndexEven(index, reverse)
+                    const is_even = isIndexEven(index, reverse)
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content
-                                width="100%"
-                                max_width="58.8rem"
-                                margin_right={!is_even ? '12.6rem' : '0'}
-                            >
+                            <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader type="heading-3" mb="1rem">
                                     {item.title}
                                 </StyledHeader>
-                                <Show.Desktop>
-                                    <Text size="var(--text-size-m)" pb="2rem">
-                                        {item.subtitle1}
-                                    </Text>
-                                </Show.Desktop>
-                                <Show.Desktop>
-                                    <Text size="var(--text-size-m)">{item.subtitle2}</Text>
-                                </Show.Desktop>
-                                <Show.Mobile>
-                                    <Text pb="2rem">{item.subtitle_mobile1}</Text>
-                                </Show.Mobile>
-                                <Show.Mobile>
-                                    <Text>{item.subtitle_mobile2}</Text>
-                                </Show.Mobile>
-                                {two_title && (
+                                {is_tabletL ? (
                                     <>
-                                        <StyledHeader type="heading-3">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <Text>{item.second_subtitle1}</Text>
-                                        <Text>{item.second_subtitle2}</Text>
+                                        <Text pb="2rem">{item.subtitle_mobile1}</Text>
+                                        <Text>{item.subtitle_mobile2}</Text>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Text size="var(--text-size-m)" pb="2rem">
+                                            {item.subtitle1}
+                                        </Text>
+                                        <Text size="var(--text-size-m)">{item.subtitle2}</Text>
                                     </>
                                 )}
                             </Content>
@@ -150,12 +162,6 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
             </StyledContainer>
         </StyledSection>
     )
-}
-
-ImageTextSwitching.propTypes = {
-    P2P: PropTypes.array,
-    reverse: PropTypes.bool,
-    two_title: PropTypes.bool,
 }
 
 export default ImageTextSwitching

@@ -95,10 +95,10 @@ const Content = styled.div`
 
     @media ${device.tabletL} {
         ${Text} {
-            text-align: center;
+            text-align: unset;
         }
         ${Header} {
-            text-align: center;
+            text-align: unset;
         }
     }
 `

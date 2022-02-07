@@ -4,24 +4,30 @@ import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
 
 const query = graphql`
     {
-        deriv_platform: file(relativePath: { eq: "bug-bounty/devices.jpg" }) {
+        deriv_platform: file(relativePath: { eq: "bug-bounty/devices.png" }) {
             ...fadeIn
         }
     }
 `
 
 const ImageWrapper = styled.div`
-    width: 38.4rem;
-    height: 22.4rem;
+    width: 384px;
     margin-left: 2.4rem;
 
     @media ${device.laptopM} {
         margin-left: 0;
+    }
+
+    @media ${device.tablet} {
+        width: 328px;
+    }
+
+    @media ${device.mobileM} {
+        width: 285px;
     }
 `
 
@@ -45,18 +51,8 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const SeparatorLine = styled.div`
-    height: 24px;
-    @media ${device.laptopM} {
-        height: 20px;
-    }
-`
-
 const AboutDeriv = () => {
     const data = useStaticQuery(query)
-    const [is_mobile] = useBrowserResize()
-    const image_width = is_mobile ? '328px' : '384px'
-    const image_height = is_mobile ? '187px' : '224px'
 
     return (
         <Container>
@@ -65,22 +61,22 @@ const AboutDeriv = () => {
                     <StyledHeader mb="0.8rem" as="h2" type="heading-2">
                         {localize('About Deriv')}
                     </StyledHeader>
+                    <Header
+                        type="paragraph-1"
+                        weight="normal"
+                        as="p"
+                        mb="24px"
+                        laptopM={{ mb: '20px' }}
+                    >
+                        <Localize translate_text="We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms." />
+                    </Header>
                     <Header type="paragraph-1" weight="normal" as="p">
-                        <Localize
-                            translate_text="We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms. 
-                            <0/>Security is important to us. We continuously improve our products and services by collaborating with independent security researchers worldwide."
-                            components={[<SeparatorLine key={0} />]}
-                        />
+                        <Localize translate_text="Security is important to us. We continuously improve our products and services by collaborating with independent security researchers worldwide." />
                     </Header>
                 </WrapText>
 
                 <ImageWrapper>
-                    <QueryImage
-                        data={data.deriv_platform}
-                        alt={'Deriv platform'}
-                        height={image_height}
-                        width={image_width}
-                    />
+                    <QueryImage data={data.deriv_platform} alt={'Deriv platform'} />
                 </ImageWrapper>
             </WrapContainer>
         </Container>

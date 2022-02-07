@@ -43,11 +43,20 @@ const TextWrap = styled.div`
 `
 
 const ImageWrap = styled.div`
+    width: 328px;
     padding: 32px 0 0 32px;
 
     @media ${device.tabletL} {
         padding: 24px 0 0;
         margin: 0 auto;
+    }
+
+    @media ${device.tablet} {
+        width: 280px;
+    }
+
+    @media ${device.mobileM} {
+        width: 240px;
     }
 `
 
@@ -66,8 +75,6 @@ const SubmitABugReport = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const bug_report_image = is_mobile ? data['bug_report_mobile'] : data['bug_report_desktop']
-    const image_width = is_mobile ? '280px' : '328px'
-    const image_height = is_mobile ? '276px' : '258px'
 
     return (
         <SectionContainer>
@@ -92,16 +99,18 @@ const SubmitABugReport = () => {
                     </TextWrap>
 
                     <ImageWrap>
-                        <QueryImage
-                            data={bug_report_image}
-                            alt="bug_report_image"
-                            width={image_width}
-                            height={image_height}
-                        />
+                        <QueryImage data={bug_report_image} alt="bug_report_image" />
                     </ImageWrap>
                 </Wrapper>
 
-                <Header align="center" type="paragraph-2" mt="8px" as="p" weight="normal">
+                <Header
+                    p="0 18px"
+                    align="center"
+                    type="paragraph-2"
+                    mt="8px"
+                    as="p"
+                    weight="normal"
+                >
                     <Localize
                         translate_text="Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program."
                         components={[

@@ -70,7 +70,7 @@ export const our_principles: PrincipleType[] = [
     {
         title: localize('Be fair'),
         text: localize(
-            'We treat all customers equitably, handle complaints with integrity, and offer competitive prices with no hidden costs and no artificial barriers on  customer withdrawals.',
+            'We treat all customers equitably, handle complaints with integrity, and offer competitive prices with no hidden costs and no artificial barriers on customer withdrawals.',
         ),
         color: 'rgba(255, 195, 89, 0.25)',
     },

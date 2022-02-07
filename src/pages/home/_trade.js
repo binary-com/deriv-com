@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid, NonEU } from 'components/containers'
@@ -12,13 +13,13 @@ const platforms = Object.freeze({
     mt5: 'dmt5',
 })
 
-const ImageWrapper = styled.div<{ is_selected: boolean }>`
+const ImageWrapper = styled.div`
     height: 100%;
     width: 100%;
     max-width: 65.7rem;
-    visibility: ${({ is_selected }) => (is_selected ? 'initial' : 'hidden')};
-    opacity: ${({ is_selected }) => (is_selected ? '1' : '0')};
-    z-index: ${({ is_selected }) => (is_selected ? '0' : '10')};
+    visibility: ${(props) => (props.is_selected ? 'initial' : 'hidden')};
+    opacity: ${(props) => (props.is_selected ? '1' : '0')};
+    z-index: ${(props) => (props.is_selected ? '0' : '10')};
     position: absolute;
     transition: opacity 0.25s;
 `
@@ -46,15 +47,10 @@ const query = graphql`
     }
 `
 
-type TradeProps = {
-    is_ppc_redirect: boolean
-}
-
-const Trade = ({ is_ppc_redirect }: TradeProps) => {
+const Trade = ({ is_ppc_redirect }) => {
     const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
-
     return (
         <StyledSection>
             <Container direction="column">
@@ -121,6 +117,10 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
             </Container>
         </StyledSection>
     )
+}
+
+Trade.propTypes = {
+    is_ppc_redirect: PropTypes.bool,
 }
 
 export default Trade

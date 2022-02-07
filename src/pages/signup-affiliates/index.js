@@ -10,6 +10,7 @@ import { Header, Text } from 'components/elements'
 import Map from 'images/svg/landing/map.svg'
 
 const StyledFlexWrapper = styled(Flex)`
+    height: 35rem;
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
@@ -17,28 +18,37 @@ const StyledFlexWrapper = styled(Flex)`
     }
 `
 const StyledFlex = styled(Flex)`
+    @media ${device.tabletL} {
+        margin-right: 4rem;
+    }
+
     @media ${device.tablet} {
+        margin-top: 13.4rem;
         order: 2;
     }
 
     @media ${device.mobileL} {
+        margin-top: 18rem;
         padding: 5rem 2rem;
     }
 `
 const StyledDiv = styled.div`
+    height: 100%;
     background-color: rgba(200, 214, 215, 0.22);
 `
 
 const StyledMap = styled.img`
     width: 100%;
+    height: 52vh;
     overflow: initial;
 
     @media ${device.laptop} {
         width: auto;
+        height: 62vh;
     }
     @media ${device.tablet} {
         width: 100%;
-        padding-top: 20rem;
+        padding-top: 46rem;
     }
 `
 
@@ -61,16 +71,16 @@ const affiliateSignup = () => {
             />
             <StyledFlexWrapper fd="row" fw="wrap" ai="flex-start" jc="center">
                 {submit_state !== 'success' && (
-                    <StyledFlex jc="flex-start" fd="column" mt="2.4rem" mr="4.7rem" width="42rem">
-                        <Header mt="2.4rem" as="h3" type="section-title">
+                    <StyledFlex jc="flex-start" fd="column" mt="6.4rem" mr="15rem" width="43.8rem">
+                        <Header mt="2.4rem" mb="0.8rem" as="h3" type="section-title">
                             {localize('Deriv Affiliate')}
                         </Header>
                         <Text>
                             {localize(
-                                "Partner with us as an affiliate. Earn commission from your clients' trades on DTrader and DBot.",
+                                'Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot.',
                             )}
                         </Text>
-                        <Header mt="2.4rem" as="h3" type="section-title">
+                        <Header mt="2.4rem" mb="0.8rem" as="h3" type="section-title">
                             {localize('Deriv IB Programme')}
                         </Header>
                         <Text>

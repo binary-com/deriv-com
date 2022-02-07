@@ -9,15 +9,18 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const StyledFlex = styled(Flex)`
+    height: 44rem;
     background-color: var(--color-white);
     border-radius: 0.6rem;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 53rem;
+        height: 48.6rem;
     }
     @media ${device.mobileL} {
         width: 100%;
+        height: 57rem;
         padding: 6rem 2rem;
     }
 `
@@ -28,7 +31,7 @@ const SubTitle = styled(Text)`
     }
 `
 const StyledNoteFlex = styled(Flex)`
-    min-height: 1.7rem;
+    height: auto;
     border-radius: 0.4rem;
     background-color: rgba(242, 243, 244, 0.56);
 
@@ -56,7 +59,6 @@ const EmailButton = styled(Button)`
     }
 
     @media ${device.mobileL} {
-        width: 184px;
         font-size: 12px;
     }
 `
@@ -67,6 +69,7 @@ const LoginText = styled(Text)`
     font-size: 14px;
 
     @media ${device.tabletL} {
+        display: flex;
         margin-bottom: 0;
         margin-top: 3.75rem;
     }
@@ -98,7 +101,7 @@ const SignupAffiliate = ({
 
     return (
         <StyledFlex jc="flex-start" fd="column" p="4rem">
-            <Header as="h4" type="subtitle-2" mb="0.8rem">
+            <Header as="h4" type="heading-3" mb="0.8rem">
                 {localize('Sign up')}
             </Header>
             <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
@@ -160,7 +163,7 @@ const SignupAffiliate = ({
                 {localize('Create partner account')}
             </EmailButton>
             <LoginText>
-                {localize('Already have a Deriv or Binary.com affiliate account?')}
+                <div>{localize('Already have a Deriv or Binary.com affiliate account?')}</div>
                 <StyledLinkText
                     id="dm-new-login-button"
                     ml="0.4rem"

@@ -174,7 +174,7 @@ const Tabs = ({
                         }}
                         mobile_tab_button_underline_length={mobile_tab_button_underline_length}
                     >
-                        <TextWrapper type="subtitle-1" mobile_font_size={mobile_font_size}>
+                        <TextWrapper as="p" type="subtitle-1" mobile_font_size={mobile_font_size}>
                             {label}
                         </TextWrapper>
                     </TabButton>

@@ -9,7 +9,15 @@ import device from 'themes/device'
 const query = graphql`
     {
         deriv_platform: file(relativePath: { eq: "bug-bounty/devices.png" }) {
-            ...fadeIn
+            childImageSharp {
+                gatsbyImageData(
+                    formats: [AUTO, WEBP]
+                    layout: CONSTRAINED
+                    quality: 70
+                    breakpoints: [360, 992]
+                    placeholder: NONE
+                )
+            }
         }
     }
 `

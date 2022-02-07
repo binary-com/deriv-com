@@ -34,7 +34,7 @@
         "deprecation"
     ],
     "rules": {
-        "deprecation/deprecation": "off",
+        "deprecation/deprecation": "warn",
         "strict": 0,
         "camelcase": 0,
         "no-console": "warn",

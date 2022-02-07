@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
+
+type ContentProps = {
+    margin_right: string
+    margin_left: string
+}
+
+type ImageWrapperProps = {
+    width: string
+    margin_right?: string
+}
+
+type RowProps = {
+    flex_direction: string
+    flex_direction_mobile: string
+}
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -16,7 +30,7 @@ const StyledSection = styled(SectionContainer)`
 const Wrapper = styled(Container)`
     width: 100%;
 `
-const Content = styled.div`
+const Content = styled.div<ContentProps>`
     width: 689px;
     display: flex;
     flex-direction: column;
@@ -54,7 +68,7 @@ const MobileImageWrapper = styled(Container)`
     }
 `
 
-const ImageWrapper = styled(Flex)`
+const ImageWrapper = styled(Flex)<ImageWrapperProps>`
     width: ${(props) => props.width};
     margin-right: ${(props) => props.margin_right};
 
@@ -77,7 +91,8 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const Row = styled.div`
+
+const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
@@ -145,14 +160,30 @@ const query = graphql`
         }
     }
 `
-const DTrading = ({ contentMargin, trading, reverse, setWidth, two_title }) => {
+
+type DTradingProps = {
+    contentMargin: string
+    reverse: boolean
+    setWidth: string
+    trading: TradingType[]
+}
+
+type TradingType = {
+    title: ReactElement
+    subtitle: ReactElement
+    image_name: string
+    image_alt: string
+    image_name_mobile?: string
+}
+
+const DTrading = ({ contentMargin, trading, reverse, setWidth }: DTradingProps) => {
     const data = useStaticQuery(query)
 
     return (
         <StyledSection>
             <Wrapper fd="column" ai="center">
                 {trading.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row
                             flex_direction={!is_even ? 'row' : 'row-reverse'}
@@ -165,14 +196,6 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth, two_title }) => {
                             >
                                 <StyledHeader type="display-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader type="page-title" mt="2.4rem">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <Text>{item.second_subtitle}</Text>
-                                    </>
-                                )}
                             </Content>
                             {item.image_name_mobile && (
                                 <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
@@ -207,14 +230,6 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth, two_title }) => {
             </Wrapper>
         </StyledSection>
     )
-}
-
-DTrading.propTypes = {
-    contentMargin: PropTypes.string,
-    reverse: PropTypes.bool,
-    setWidth: PropTypes.string,
-    trading: PropTypes.array,
-    two_title: PropTypes.bool,
 }
 
 export default DTrading

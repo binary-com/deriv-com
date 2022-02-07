@@ -53,13 +53,10 @@ const SharingButton = styled.button`
     height: 32px;
     left: 0;
     top: 0;
-    background: #ffffff;
+    background: ${(props) => (props.isOpen ? '#f2f3f4' : 'rgb(255, 255, 255, 0.0)')};
     border: 0 solid rgba(236, 241, 247, 0.5);
     border-radius: 4px;
 
-    :focus-within {
-        background: #f2f3f4;
-    }
     img {
         width: 24px;
         height: 24px;
@@ -149,7 +146,12 @@ const SocialMobileComponent = () => {
 
     return (
         <SharingWrapper>
-            <SharingButton onClick={toggling} autoFocus={false} onBlur={() => setIsOpen(false)}>
+            <SharingButton
+                onClick={toggling}
+                autoFocus={false}
+                onBlur={() => setIsOpen(false)}
+                isOpen={isOpen}
+            >
                 <img src={ShareIcon} />
             </SharingButton>
             {isOpen && (

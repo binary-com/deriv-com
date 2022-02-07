@@ -69,6 +69,36 @@ const ArticlesPage = ({ data }) => {
         og_description:
             'Educational content at your fingertips – everything you need to know to start trading or upgrade your trading skills.',
     }
+
+    const [scrollPosition, setScrollPosition] = React.useState(0)
+    const handleScroll = () => {
+        const position = window.pageYOffset
+        setScrollPosition(position)
+    }
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true })
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
+    React.useEffect(() => {
+        scrollPosition && localStorage.setItem('scroll', scrollPosition.toString())
+    }, [scrollPosition])
+
+    React.useEffect(() => {
+        const prevScroll = parseInt(localStorage.getItem('scroll'))
+        if (prevScroll !== -1) {
+            window.scrollTo(0, prevScroll)
+        }
+    }, [])
+
+    window.onunload = () => {
+        window.localStorage.removeItem('scroll')
+    }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO

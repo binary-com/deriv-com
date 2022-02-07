@@ -53,8 +53,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 route_from="recent_featured_posts"
                 type="blog-featured"
                 jc="start"
-                jc_mobileL="center"
                 jc_tabletM="center"
+                jc_mobileL="center"
+                mobile_font_size={16}
                 line_divider_length="unset"
                 mobile_tab_button_underline_length="100%"
                 has_no_query

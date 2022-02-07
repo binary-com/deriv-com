@@ -58,9 +58,9 @@ const TabList = styled.div`
     width: 100%;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     position: relative;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: auto;
+    overflow-x: auto;
     white-space: nowrap;
+    -webkit-overflow-scrolling: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -74,6 +74,10 @@ const TabList = styled.div`
 
     @media ${device.mobileL} {
         justify-content: ${(props) => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
+    }
+
+    @media (max-width: 330px) {
+        justify-content: flex-start;
     }
 `
 

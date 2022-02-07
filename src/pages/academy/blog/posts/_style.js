@@ -64,7 +64,7 @@ export const BreadcrumbsWrapper = styled(Container)`
 
     @media ${device.laptop} {
         width: 100%;
-        padding: 0 0 10px;
+        padding: 0 16px 0 16px;
         flex-direction: column;
     }
 `
@@ -464,12 +464,14 @@ export const StyledBreadcrumbsLink = styled(LocalizedLinkText)`
     font-size: 14px;
     line-height: 20px;
     color: var(--color-grey-5);
+    padding-right: 13px;
 `
 export const StyledBreadcrumbsTitle = styled(Text)`
     font-weight: normal;
     font-size: 14px;
     line-height: 20px;
     color: var(--color-black-3);
+    padding-left: 13px;
 `
 
 export const ProgressContainer = styled.div`

@@ -33,7 +33,7 @@ const StyledFlex = styled(Flex)`
 const SharingWrapper = styled.div`
     display: flex;
     position: absolute;
-    left: 83%;
+    right: 100px;
     top: 28px;
 
     img {
@@ -52,7 +52,7 @@ const SharingButton = styled.button`
     width: 32px;
     height: 32px;
     left: 0;
-    top: 5px;
+    top: 0;
     background: #ffffff;
     border: 0 solid rgba(236, 241, 247, 0.5);
     border-radius: 4px;
@@ -149,7 +149,7 @@ const SocialMobileComponent = () => {
 
     return (
         <SharingWrapper>
-            <SharingButton onClick={toggling}>
+            <SharingButton onClick={toggling} autoFocus={false} onBlur={() => setIsOpen(false)}>
                 <img src={ShareIcon} />
             </SharingButton>
             {isOpen && (

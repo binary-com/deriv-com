@@ -206,8 +206,7 @@ const Layout = ({
             FooterNav = <Footer />
             break
         case 'landing-page':
-            Navigation = <Nav hide_signup_login={true} no_language={true} />
-            FooterNav = <Footer />
+            Navigation = <JumpIndicesNav />
             break
         case 'jump-indices':
             Navigation = <JumpIndicesNav />

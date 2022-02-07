@@ -30,7 +30,7 @@ const query = graphql`
 const StocksEbook = () => {
     const data = useStaticQuery(query)
     return (
-        <Layout type="ebook" is_ppc_redirect={true}>
+        <Layout type="interim" is_ppc_redirect={true}>
             <SEO
                 title={localize('Stocks Ebook')}
                 description={localize('Trade Forex CFDs on our Deriv platform.')}

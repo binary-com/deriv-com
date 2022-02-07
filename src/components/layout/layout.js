@@ -197,13 +197,8 @@ const Layout = ({
             Navigation = <NavPartners no_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
-        case 'ebook':
-            Navigation = <Nav hide_signup_login={true} />
-            FooterNav = <Footer />
-            break
         case 'landing-page':
-            Navigation = <Nav hide_signup_login={true} no_language={true} />
-            FooterNav = <Footer />
+            Navigation = <JumpIndicesNav />
             break
         case 'jump-indices':
             Navigation = <JumpIndicesNav />

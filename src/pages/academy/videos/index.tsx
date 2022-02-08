@@ -142,7 +142,7 @@ export const query = graphql`
                     imageFile {
                         id
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 382, aspectRatio: 1.6666666667)
                         }
                     }
                 }

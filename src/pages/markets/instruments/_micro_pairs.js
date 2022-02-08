@@ -1,15 +1,15 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { minor_pairs } from './_market-symbols'
+import { micro_pairs } from './_market-symbols'
 
-const MinorPairs = () => {
+const MicroPairs = () => {
     return (
         <>
-            {minor_pairs.map((symbol, index) => (
+            {micro_pairs.map((symbol, index) => (
                 <Symbol key={index} src={symbol.src} text={symbol.text} />
             ))}
         </>
     )
 }
 
-export default MinorPairs
+export default MicroPairs

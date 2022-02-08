@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import useEmblaCarousel from 'embla-carousel-react'
+import Ticker from 'react-ticker'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -27,36 +27,6 @@ const queryCarouselData = graphql`
             ...fadeIn
         }
     }
-`
-
-const Carousel = styled.div`
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-`
-
-type CarouselViewportType = {
-    isDragging: boolean
-}
-
-const CarouselViewport = styled.div<CarouselViewportType>`
-    overflow: hidden;
-    width: 100%;
-
-    @media (min-width: 3107px) {
-        display: flex;
-        justify-content: center;
-    }
-`
-const CarouselContainer = styled.div`
-    display: flex;
-    user-select: none;
-    -webkit-touch-callout: none;
-    /* stylelint-disable */
-    -khtml-user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    /* stylelint-enable */
-    margin-left: -10px;
 `
 
 const CarouselSlide = styled.div`
@@ -142,7 +112,7 @@ const StyledQueryImage = styled(QueryImage)`
     }
 `
 
-const EmblaCarousel = () => {
+const ImageMarquee = () => {
     const carousel_data = useStaticQuery(queryCarouselData)
     const carousel_images: ImageDataLike[] = [
         carousel_data.media1,
@@ -153,42 +123,21 @@ const EmblaCarousel = () => {
         carousel_data.media6,
     ]
 
-    const [viewportRef, embla] = useEmblaCarousel({
-        containScroll: 'keepSnaps',
-        dragFree: true,
-        draggable: true,
-    })
-
-    const [, setPrevBtnEnabled] = useState(false)
-    const [, setNextBtnEnabled] = useState(false)
-
-    const onSelect = useCallback(() => {
-        if (!embla) return
-        setPrevBtnEnabled(embla.canScrollPrev())
-        setNextBtnEnabled(embla.canScrollNext())
-    }, [embla])
-
-    useEffect(() => {
-        if (!embla) return
-        embla.on('select', onSelect)
-        onSelect()
-    }, [embla, onSelect])
-
     return (
-        <Carousel>
-            <CarouselViewport isDragging ref={viewportRef}>
-                <CarouselContainer>
+        <Ticker speed={20}>
+            {() => (
+                <div style={{ display: 'flex' }}>
                     {carousel_images.map((carouselItem, index) => (
                         <CarouselSlide key={index}>
                             <StyledImageWrapper>
-                                <StyledQueryImage data={carouselItem} alt="" loading="lazy" />
+                                <StyledQueryImage data={carouselItem} alt="" loading="eager" />
                             </StyledImageWrapper>
                         </CarouselSlide>
                     ))}
-                </CarouselContainer>
-            </CarouselViewport>
-        </Carousel>
+                </div>
+            )}
+        </Ticker>
     )
 }
 
-export default EmblaCarousel
+export default ImageMarquee

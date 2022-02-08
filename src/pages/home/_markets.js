@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -29,10 +30,10 @@ const MarketWrapper = styled(Flex)`
         }
     }
 `
-const MarketCard = styled.article<{ mb?: string; mr?: string }>`
+const MarketCard = styled.article`
     display: flex;
-    margin-bottom: ${({ mb }) => mb};
-    margin-right: ${({ mr }) => mr};
+    margin-bottom: ${(props) => props.mb || ''};
+    margin-right: ${(props) => props.mr || ''};
 
     svg {
         margin-right: 2rem;
@@ -74,11 +75,7 @@ const MarketLink = styled(LocalizedLinkText)`
     margin-top: 0.8rem;
 `
 
-type MarketsProps = {
-    is_ppc: boolean
-}
-
-const Markets = ({ is_ppc }: MarketsProps) => (
+const Markets = ({ is_ppc }) => (
     <StyledSection>
         <Container direction="column">
             <Header align="center" as="h3" type="section-title">
@@ -165,5 +162,9 @@ const Markets = ({ is_ppc }: MarketsProps) => (
         </Container>
     </StyledSection>
 )
+
+Markets.propTypes = {
+    is_ppc: PropTypes.bool,
+}
 
 export default Markets

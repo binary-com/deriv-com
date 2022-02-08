@@ -45,8 +45,6 @@ const StyledItemDiv = styled.div`
 `
 const StyledKeyDiv = styled.div`
     width: 50%;
-    display: flex;
-    justify-content: flex-end;
 
     @media ${device.mobileL} {
         max-width: 120px;
@@ -86,10 +84,6 @@ const StyledRefLink = styled(Flex)`
     @media ${device.mobileL} {
         justify-content: flex-start;
     }
-
-    @media ${device.tabletM} {
-        width: 65%;
-    }
 `
 
 const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, payment_data }) => {
@@ -116,7 +110,9 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {/* first row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            <Header type="subtitle-2">{localize('Currencies')}</Header>
+                            <Header as="p" type="subtitle-2">
+                                {localize('Currencies')}
+                            </Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText type="subtitle-2" weight="normal">
@@ -129,15 +125,21 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_crypto || is_fiat_onramp ? (
-                                <Header type="subtitle-2">{localize('Min deposit')}</Header>
+                                <Header as="p" type="subtitle-2">
+                                    {localize('Min deposit')}
+                                </Header>
                             ) : is_dp2p ? (
-                                <Header type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     {localize('Supported Deriv accounts')}
                                 </Header>
                             ) : (
                                 <>
-                                    <Header type="subtitle-2">{localize('Min-max')}</Header>
-                                    <Header type="subtitle-2">{localize('deposit')}</Header>
+                                    <Header as="p" type="subtitle-2">
+                                        {localize('Min-max')}
+                                    </Header>
+                                    <Header as="p" type="subtitle-2">
+                                        {localize('deposit')}
+                                    </Header>
                                 </>
                             )}
                         </StyledItemDiv>
@@ -154,17 +156,19 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                             <StyledRow jc="space-between" ai="center">
                                 <StyledItemDiv>
                                     {is_crypto ? (
-                                        <Header type="subtitle-2">
+                                        <Header as="p" type="subtitle-2">
                                             {localize('Min withdrawal')}
                                         </Header>
                                     ) : is_dp2p ? (
-                                        <Header type="subtitle-2">
+                                        <Header as="p" type="subtitle-2">
                                             {localize('Daily deposit limits')}
                                         </Header>
                                     ) : (
                                         <>
-                                            <Header type="subtitle-2">{localize('Min-max')}</Header>
-                                            <Header type="subtitle-2">
+                                            <Header as="p" type="subtitle-2">
+                                                {localize('Min-max')}
+                                            </Header>
+                                            <Header as="p" type="subtitle-2">
                                                 {localize('withdrawal')}
                                             </Header>
                                         </>
@@ -191,17 +195,21 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_fiat_onramp ? (
-                                <Header type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     {localize('Deposit processing time')}
                                 </Header>
                             ) : is_dp2p ? (
-                                <Header type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     {localize('Daily withdrawal limits')}
                                 </Header>
                             ) : (
-                                <Header type="subtitle-2">
-                                    <Header type="subtitle-2">{localize('Deposit')}</Header>
-                                    <Header type="subtitle-2">{localize('processing time')}</Header>
+                                <Header as="p" type="subtitle-2">
+                                    <Header as="p" type="subtitle-2">
+                                        {localize('Deposit')}
+                                    </Header>
+                                    <Header as="p" type="subtitle-2">
+                                        {localize('processing time')}
+                                    </Header>
                                 </Header>
                             )}
                         </StyledItemDiv>
@@ -216,8 +224,12 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {!is_fiat_onramp && !is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <Header type="subtitle-2">{localize('Withdrawal')}</Header>
-                                <Header type="subtitle-2">{localize('processing time')}</Header>
+                                <Header as="p" type="subtitle-2">
+                                    {localize('Withdrawal')}
+                                </Header>
+                                <Header as="p" type="subtitle-2">
+                                    {localize('processing time')}
+                                </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
                                 <ValueText type="subtitle-2" weight="normal">
@@ -229,7 +241,9 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <Header type="subtitle-2">{localize('Processing time')}</Header>
+                                <Header as="p" type="subtitle-2">
+                                    {localize('Processing time')}
+                                </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
                                 <ValueText type="subtitle-2" weight="normal">
@@ -242,7 +256,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {/* reference row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            <Header type="subtitle-2">
+                            <Header as="p" type="subtitle-2">
                                 {is_dp2p ? localize('More info') : localize('Reference')}
                             </Header>
                         </StyledItemDiv>
@@ -277,7 +291,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     </StyledRow>
                     {payment_data.description && (
                         <Flex p="16px 0" fd="column">
-                            <Header type="paragraph-1" weight="normal">
+                            <Header as="p" type="paragraph-1" weight="normal">
                                 {payment_data.description}
                             </Header>
                             {payment_data.url && (

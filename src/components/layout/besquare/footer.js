@@ -8,7 +8,7 @@ import {
     IconWrapper,
     ImageWrapper,
     Link,
-    Section,
+    FooterSection,
     TextContainer,
     TextWrapper,
     Title,
@@ -20,7 +20,7 @@ import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
 import Facebook from 'images/svg/be-square/facebook.svg'
 import Instagram from 'images/svg/be-square/instagram.svg'
-
+import { DerivStore } from 'store'
 const query = graphql`
     query {
         footer_image: file(relativePath: { eq: "be-square/footer-image.png" }) {
@@ -54,10 +54,10 @@ const BeSquareFooter = () => {
     ]
 
     const data = useStaticQuery(query)
-
+    const { is_eu_country } = React.useContext(DerivStore)
     return (
         <React.Fragment>
-            <Section color="black">
+            <FooterSection color="black" is_eu_country={is_eu_country}>
                 <ContentContainer>
                     <ImageWrapper
                         data={data['footer_image']}
@@ -134,17 +134,7 @@ const BeSquareFooter = () => {
                         </FollowUsContainer>
                     </TextContainer>
                 </ContentContainer>
-            </Section>
-            <Section color="black-3">
-                <TextWrapper
-                    max_width={['100%']}
-                    font_size={['14px']}
-                    line_height={['19.6px']}
-                    padding={['21px 120px', '19px 16px']}
-                >
-                    &copy; {localize('2021 Deriv | All rights reserved')}
-                </TextWrapper>
-            </Section>
+            </FooterSection>
         </React.Fragment>
     )
 }

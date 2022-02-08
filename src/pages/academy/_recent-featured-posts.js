@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Clock from './components/recent-featured-posts/images/clock.svg'
 import Dot from './components/recent-featured-posts/images/dot.svg'
 import {
@@ -7,6 +8,9 @@ import {
     StyledTabs,
     ArticleContentWrapper,
     LeftContent,
+    BackgroundImageWrapper,
+    BackgroundImageContainer,
+    GradientWrapper,
     RightContent,
     MainArticle,
     Description,
@@ -25,7 +29,7 @@ import {
     DotIcon,
 } from './components/recent-featured-posts/_style'
 import { StandardImgWrapper } from './common/_styles'
-import { convertDate, getAssetUrl, getMinRead } from 'common/utility'
+import { convertDate, getMinRead } from 'common/utility'
 import { QueryImage, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
@@ -59,14 +63,32 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 mobile_tab_button_underline_length="100%"
                 has_no_query
             >
-                <Tabs.Panel label={localize('Recent posts')}>
+                <Tabs.Panel label={localize('Recent articles')}>
                     <ArticleContentWrapper>
                         <LeftContent>
                             <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}/`}>
-                                <MainArticle image={getAssetUrl(headline_recent?.main_image?.id)}>
+                                <MainArticle>
+                                    <BackgroundImageWrapper>
+                                        <BackgroundImageContainer>
+                                            <GatsbyImage
+                                                image={getImage(
+                                                    headline_recent.main_image.imageFile,
+                                                )}
+                                                alt={headline_recent.main_image.description}
+                                                width="100%"
+                                                height="100%"
+                                                layout="fullWidth"
+                                                transformOptions={{
+                                                    fit: 'cover',
+                                                    cropFocus: 'attention',
+                                                }}
+                                            />
+                                        </BackgroundImageContainer>
+                                    </BackgroundImageWrapper>
+                                    <GradientWrapper />
                                     <Description>
                                         <TagParentWrapper>
-                                            {headline_recent.tags.map((article) => {
+                                            {headline_recent.tags.slice(0, 3).map((article) => {
                                                 return (
                                                     <TagWrapper key={article?.id}>
                                                         <StyledCategories>
@@ -140,24 +162,42 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                     </ArticleContentWrapper>
                 </Tabs.Panel>
                 {featured_data && (
-                    <Tabs.Panel label={localize('Featured posts')}>
+                    <Tabs.Panel label={localize('Featured articles')}>
                         <ArticleContentWrapper>
                             <LeftContent>
                                 <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}/`}>
-                                    <MainArticle
-                                        image={getAssetUrl(headline_featured.main_image.id)}
-                                    >
+                                    <MainArticle>
+                                        <BackgroundImageWrapper>
+                                            <BackgroundImageContainer>
+                                                <GatsbyImage
+                                                    image={getImage(
+                                                        headline_featured.main_image.imageFile,
+                                                    )}
+                                                    alt={headline_featured.main_image.description}
+                                                    width="100%"
+                                                    height="100%"
+                                                    layout="fullWidth"
+                                                    transformOptions={{
+                                                        fit: 'cover',
+                                                        cropFocus: 'attention',
+                                                    }}
+                                                />
+                                            </BackgroundImageContainer>
+                                        </BackgroundImageWrapper>
+                                        <GradientWrapper />
                                         <Description>
                                             <TagParentWrapper>
-                                                {headline_featured.tags.map((article) => {
-                                                    return (
-                                                        <TagWrapper key={article.id}>
-                                                            <StyledCategories>
-                                                                {article.tags_id?.tag_name}
-                                                            </StyledCategories>
-                                                        </TagWrapper>
-                                                    )
-                                                })}
+                                                {headline_featured.tags
+                                                    .slice(0, 3)
+                                                    .map((article) => {
+                                                        return (
+                                                            <TagWrapper key={article.id}>
+                                                                <StyledCategories>
+                                                                    {article.tags_id?.tag_name}
+                                                                </StyledCategories>
+                                                            </TagWrapper>
+                                                        )
+                                                    })}
                                             </TagParentWrapper>
                                             <Header as="h3" type="heading-3" color="white" mb="5px">
                                                 {headline_featured.blog_title}
@@ -228,7 +268,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 )}
             </StyledTabs>
             <AllArticleButton tertiary="true" to="/academy/blog/">
-                See all blog articles
+                {localize('See all articles')}
             </AllArticleButton>
         </StyledContainer>
     )

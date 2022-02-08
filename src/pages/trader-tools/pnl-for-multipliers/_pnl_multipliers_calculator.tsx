@@ -506,7 +506,6 @@ const PnlMultipliersCalculator = () => {
                                 enableReinitialize
                                 initialValues={{
                                     direction: 'Up',
-                                    pnlMarginSymbol: 'USD',
                                     stopLossLevelOutput: 0,
                                     takeProfitLevelOutput: 0,
                                     takeProfitAmount: '',

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
+import { navigate } from 'gatsby'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
 import { crypto_cfds } from '../../static/content/_cfds'
@@ -13,20 +14,21 @@ import CryptoPairs from 'images/svg/markets/crypto-pairs.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission.svg'
 import Leverage from 'images/svg/markets/leverage.svg'
 import { DerivStore } from 'store'
+import { NonUK } from 'components/containers/visibility'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Cryptocurrencies = ({ simple_step_content }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
     const crypto_content = [
         {
             src: Leverage,
             text: is_eu_country ? (
                 <Localize translate_text="1:2 leverage" />
             ) : (
-                <Localize translate_text="1:50 leverage" />
+                <Localize translate_text="1:100 leverage" />
             ),
         },
         {
@@ -35,7 +37,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
         },
         {
             src: CryptoPairs,
-            text: <Localize translate_text="17+ crypto pairs" />,
+            text: <Localize translate_text="25+ crypto pairs" />,
         },
         {
             src: ZeroCommission,
@@ -43,8 +45,12 @@ const Cryptocurrencies = ({ simple_step_content }) => {
         },
     ]
 
+    if (is_uk_country) {
+        navigate('/404/')
+    }
+
     return (
-        <>
+        <NonUK>
             <WhyTrade
                 header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
                 text={
@@ -71,7 +77,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
                 sign_up
             />
             <OtherMarkets except="cryptocurrencies" />
-        </>
+        </NonUK>
     )
 }
 

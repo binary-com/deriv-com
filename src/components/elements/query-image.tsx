@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 
 type QueryImageProps = {
     alt: string
@@ -8,10 +9,11 @@ type QueryImageProps = {
     data: ImageDataLike
     height?: string
     width?: string
+    max_width?: string
     loading?: 'eager' | 'lazy'
 }
 
-type ImageWrapperProps = {
+export type ImageWrapperProps = {
     width: string
     height: string
     className?: string

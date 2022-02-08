@@ -9,10 +9,13 @@ import { commodities_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
+import { DerivStore } from 'store'
+
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Commodities = ({ simple_step_content }) => {
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
     simple_step_content[1].text = (
         <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
     )
@@ -30,11 +33,15 @@ const Commodities = ({ simple_step_content }) => {
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_content={commodities_cfds} />}
+                // We need to replace this with ROW but we need to refactor available-trades.js due to ROW producing a truthy value and rendering the component tab title still
                 DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('commodities')}
-                        options_list={commodities_options}
-                    />
+                    !is_eu_country &&
+                    !is_uk_country && (
+                        <DigitalOptions
+                            market_name={localize('commodities')}
+                            options_list={commodities_options}
+                        />
+                    )
                 }
                 name="Commodity"
                 display_title={<Localize translate_text="Commodity trades available on Deriv" />}

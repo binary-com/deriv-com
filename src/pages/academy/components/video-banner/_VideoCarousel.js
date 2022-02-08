@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
@@ -25,20 +26,11 @@ const StyledDot = styled.img`
 const ItemsMainWrapper = styled(Flex)`
     min-width: 327px;
     cursor: pointer;
+
     @media ${device.tabletL} {
         min-width: 300px;
         height: auto;
     }
-`
-const ImgDiv = styled.img`
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    object-fit: cover;
 `
 
 const PlayerIconWrapper = styled(Flex)`
@@ -99,8 +91,8 @@ const VideoCarousel = ({ carousel_items }) => {
             overflow: 'hidden',
         },
         slide_style: {
-            width: '352px',
-            marginRight: '23px',
+            width: '372px',
+            marginRight: '24px',
             position: 'relative',
         },
         slide_mobile_style: {
@@ -131,7 +123,6 @@ const VideoCarousel = ({ carousel_items }) => {
                         {carousel_items.map((item, index) => {
                             const {
                                 published_date,
-                                thumbnail_img,
                                 thumbnail_img_alt,
                                 video_title,
                                 video_url,
@@ -146,11 +137,17 @@ const VideoCarousel = ({ carousel_items }) => {
                                 >
                                     <StandardImgWrapper
                                         width="174px"
+                                        height="100%"
                                         tabletL_width="142px"
                                         br="unset"
                                         tabletL_br="unset"
                                     >
-                                        <ImgDiv src={thumbnail_img} alt={thumbnail_img_alt} />
+                                        <GatsbyImage
+                                            image={getImage(item.video_thumbnail.imageFile)}
+                                            alt={thumbnail_img_alt}
+                                            width="100%"
+                                            height="100%"
+                                        />
                                         <PlayerIconWrapper absolute ai="center">
                                             <IconDiv>
                                                 <PlayerIcon src={PlayIcon} />

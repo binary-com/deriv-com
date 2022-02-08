@@ -41,21 +41,13 @@ export const StandardImgWrapper = styled.div`
     overflow: hidden;
     position: relative;
     text-align: center;
+    display: flex;
+    align-items: center;
 
     ::before {
         content: '';
         float: left;
         padding-bottom: 60%; /* aspect-ratio 5:3 */
-    }
-    &img,
-    .standard-query-img {
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: absolute;
     }
 
     @media ${device.tabletL} {

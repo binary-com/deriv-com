@@ -43,7 +43,20 @@ const SharingWrapper = styled.div`
 
     @media ${device.tabletL} {
         left: 85%;
-        top: 8px;
+    }
+
+    @media ${device.laptop} {
+        top: 20px;
+    }
+
+    @media ${device.desktopS} {
+        top: -24px;
+        position: relative;
+        left: 78rem;
+    }
+
+    @media ${device.desktopL} {
+        left: 81rem;
     }
 `
 
@@ -52,7 +65,7 @@ const SharingButton = styled.button`
     width: 32px;
     height: 32px;
     left: 0;
-    top: 0;
+    top: 5px;
     background: ${(props) => (props.isOpen ? '#f2f3f4' : 'rgb(255, 255, 255, 0.0)')};
     border: 0 solid rgba(236, 241, 247, 0.5);
     border-radius: 4px;
@@ -69,7 +82,7 @@ const SharingButton = styled.button`
 const DropDownSharingButton = styled.div`
     position: absolute;
     left: -5px;
-    top: 50px;
+    top: 45px;
     width: 40px;
     background-color: #ffffff;
     border: 1px solid #ffffff;
@@ -145,7 +158,7 @@ const SocialMobileComponent = () => {
     const toggling = () => setIsOpen(!isOpen)
 
     return (
-        <SharingWrapper>
+        <>
             <SharingButton
                 onClick={toggling}
                 autoFocus={false}
@@ -174,7 +187,7 @@ const SocialMobileComponent = () => {
                     ))}
                 </DropDownSharingButton>
             )}
-        </SharingWrapper>
+        </>
     )
 }
 

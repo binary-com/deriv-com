@@ -39,16 +39,17 @@ export const StickyBreadCrumbsWrapper = styled(Flex)`
     position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
     top: ${(props) => (props.scroll ? '64px' : 'unset')};
     z-index: ${(props) => (props.scroll ? '1' : 'unset')};
-    height: auto;
+    height: 74px;
     border-top: 1px solid var(--color-grey-8);
 
     @media ${device.desktopL} {
-        top: ${(props) => (props.scroll ? '86px' : 'unset')};
-        height: 90px;
+        top: ${(props) => (props.scroll ? '82px' : 'unset')};
+        height: 74px;
     }
 
     @media ${device.laptop} {
-        top: 55px;
+        height: 72px;
+        top: 68px;
     }
 
     @media ${device.tabletL} {

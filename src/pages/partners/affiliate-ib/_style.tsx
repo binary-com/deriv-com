@@ -2,6 +2,11 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
+type PointerProps = {
+    ml?: string
+    is_top?: boolean
+}
+
 export const FormulaBottomWrapper = styled(Flex)`
     flex-direction: row;
     justify-content: flex-end;
@@ -133,7 +138,8 @@ export const FormulaValueSwapSynthetic = styled.div`
     margin-left: 1.8rem;
     margin-right: 1.8rem;
 `
-export const PointerContainer = styled.div`
+
+export const PointerContainer = styled.div<PointerProps>`
     display: flex;
     margin-top: 8px;
     flex-direction: column;
@@ -150,7 +156,7 @@ export const PointerContainer = styled.div`
         transform: ${(props) => (props.is_top ? 'translate(-50%, -50%)' : 'unset')};
     }
 `
-export const PointerContainerMobile = styled.div`
+export const PointerContainerMobile = styled.div<PointerProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,7 +176,7 @@ export const PointerStick = styled.div`
     background-color: black;
     opacity: 0.1;
 `
-export const PointerText = styled.div`
+export const PointerText = styled.div<PointerProps>`
     font-size: 14px;
     font-weight: normal;
     color: var(--color-grey-5);

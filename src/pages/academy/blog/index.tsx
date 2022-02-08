@@ -72,8 +72,7 @@ const ArticlesPage = ({ data }) => {
 
     const [scroll_position, setScrollPosition] = React.useState(0)
     const handleScroll = () => {
-        const position = window.pageYOffset
-        setScrollPosition(position)
+        setScrollPosition(window.pageYOffset)
     }
 
     useEffect(() => {

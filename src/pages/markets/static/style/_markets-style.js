@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { CssGrid, Flex } from 'components/containers'
+import { Box, CssGrid, Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 
@@ -182,4 +182,7 @@ export const Title = styled(Text)`
         font-weight: 600;
         font-size: 14px;
     }
+`
+export const StyledBox = styled(Box)`
+    content: ${(props) => (props.text ? props.text : '')};
 `

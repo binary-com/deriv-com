@@ -15,6 +15,12 @@ export type SimpleStepContentElement = {
     icon: ReactElement
 }
 
+export type BasketIndicesContent = {
+    src: string
+    alt: string
+    text: string
+}
+
 export const simple_step_content_basket: SimpleStepContentElement[] = [
     {
         header: <Localize translate_text="Practise" />,
@@ -38,12 +44,6 @@ export const simple_step_content_basket: SimpleStepContentElement[] = [
         icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
     },
 ]
-
-export type BasketIndicesContent = {
-    src: string
-    alt: string
-    text: string
-}
 
 export const basket_indices_content: BasketIndicesContent[] = [
     {

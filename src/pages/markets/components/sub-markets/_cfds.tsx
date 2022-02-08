@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import AvailablePlatforms from '../helper/_available-platforms.js'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments.js'
+import type { Cfds } from '../../static/content/_cfds'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+
+type CFDProps = {
+    market_content: Cfds
+    market_tab_name?: string
+}
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -15,7 +20,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const CFDs = ({ market_content, market_tab_name }) => {
+const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
@@ -36,7 +41,7 @@ const CFDs = ({ market_content, market_tab_name }) => {
                                   'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
                               )}
                     </StyledText>
-                    {market_tab_name === 'stock-indices' ? (
+                    {market_tab_name && market_tab_name === 'stock-indices' ? (
                         <AvailablePlatforms dmt5 />
                     ) : (
                         <AvailablePlatforms dmt5 derivx />
@@ -49,11 +54,6 @@ const CFDs = ({ market_content, market_tab_name }) => {
             </ContentWrapper>
         </StyledSection>
     )
-}
-
-CFDs.propTypes = {
-    market_content: PropTypes.object,
-    market_tab_name: PropTypes.String,
 }
 
 export default CFDs

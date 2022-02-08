@@ -1,13 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import AvailablePlatforms from '../helper/_available-platforms.js'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
-import { SectionContainer, Show } from 'components/containers'
-import { Text } from 'components/elements'
+import type { ForexAndBasketMultiplier, CryptoMultiplier } from '../../static/content/_multipliers'
+import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 
-const Multipliers = ({ market_content, is_crypto }) => (
+type MultipliersProps = {
+    market_content: ForexAndBasketMultiplier | CryptoMultiplier
+    is_crypto?: boolean
+}
+const Multipliers = ({ market_content, is_crypto }: MultipliersProps) => (
     <SectionContainer padding="4rem 0 8rem">
         <ContentWrapper>
             <Descriptions>
@@ -26,20 +29,16 @@ const Multipliers = ({ market_content, is_crypto }) => (
                 {localize('Instruments available for multipliers trading')}
             </StyledText>
             <MarketInstruments market_content={market_content} />
-            <Show.Eu>
+            {/* deprecated?? */}
+            {/* <Show.Eu>
                 {market_content.eu_content?.map((text, index) => (
                     <Text key={index} mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
                         {text}
                     </Text>
                 ))}
-            </Show.Eu>
+            </Show.Eu> */}
         </ContentWrapper>
     </SectionContainer>
 )
-
-Multipliers.propTypes = {
-    is_crypto: PropTypes.bool,
-    market_content: PropTypes.object,
-}
 
 export default Multipliers

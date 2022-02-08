@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import AvailablePlatforms from '../helper/_available-platforms'
 import AvailableOptions from '../helper/_available-options'
 import {
@@ -10,11 +9,23 @@ import {
     StyledText,
 } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
-import { SectionContainer, Show } from 'components/containers'
+import type {
+    ForexAndBasketOptions,
+    SyntheticOptions,
+    StockOptions,
+    CommoditiesOptions,
+} from '../../static/content/_digital-options'
+import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
-const DigitalOptions = ({ market_name, market_type, options_list }) => {
+type DigitalOptionsProps = {
+    market_name: string
+    market_type?: string
+    options_list: ForexAndBasketOptions | SyntheticOptions | StockOptions | CommoditiesOptions
+}
+
+const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptionsProps) => {
     const what_to_show = market_name === 'forex' && market_type === 'basket-indices'
 
     return (
@@ -46,13 +57,14 @@ const DigitalOptions = ({ market_name, market_type, options_list }) => {
                             ))}
                         </OptionsRow>
                     ))}
-                    <Show.Eu>
+                    {/* no content for this component inside data  */}
+                    {/* <Show.Eu>
                         {options_list.eu_content?.map((text, index) => (
                             <Text key={index} mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
                                 {text}
                             </Text>
                         ))}
-                    </Show.Eu>
+                    </Show.Eu>  */}
                 </Descriptions>
                 <Text weight="bold" mt="4.0rem">
                     {localize('Instruments available for options trading')}
@@ -61,12 +73,6 @@ const DigitalOptions = ({ market_name, market_type, options_list }) => {
             </ContentWrapper>
         </SectionContainer>
     )
-}
-
-DigitalOptions.propTypes = {
-    market_name: PropTypes.string,
-    market_type: PropTypes.string,
-    options_list: PropTypes.object,
 }
 
 export default DigitalOptions

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import AvailableTrades from '../helper/_available-trades'
 import { WhyTrade } from '../sections/_why-trade'
@@ -8,11 +7,18 @@ import { commodities_cfds } from '../../static/content/_cfds'
 import { commodities_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
+import { StyledBox } from '../../static/style/_markets-style.js'
 import { Localize, localize } from 'components/localization'
+import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+//Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
-const Commodities = ({ simple_step_content }) => {
+type CommoditiesProps = {
+    simple_step_content: SimpleStepsContent[]
+}
+
+const Commodities = ({ simple_step_content }: CommoditiesProps) => {
     simple_step_content[1].text = (
         <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
     )
@@ -25,7 +31,11 @@ const Commodities = ({ simple_step_content }) => {
                 }
             >
                 {commodities.map((content, index) => (
-                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
+                    <StyledBox
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    />
                 ))}
             </WhyTrade>
             <AvailableTrades
@@ -50,7 +60,5 @@ const Commodities = ({ simple_step_content }) => {
         </>
     )
 }
-Commodities.propTypes = {
-    simple_step_content: PropTypes.array,
-}
+
 export default Commodities

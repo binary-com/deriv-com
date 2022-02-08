@@ -63,7 +63,7 @@ type StockOption = {
 }
 type ForexandSyntheticOption = CommoditiesOption & { details?: () => ReactElement }
 
-type CommoditiesOptions = {
+export type CommoditiesOptions = {
     market_instruments: {
         content: CommoditiesOption[]
         markets_list: {
@@ -72,7 +72,8 @@ type CommoditiesOptions = {
     }
     options: Array<Option[]>
 }
-type ForexAndBasketOptions = {
+
+export type ForexAndBasketOptions = {
     market_instruments: {
         markets_list: {
             col: number
@@ -83,7 +84,7 @@ type ForexAndBasketOptions = {
     }
     options: Array<Option[]>
 }
-type StockOptions = {
+export type StockOptions = {
     market_instruments: {
         has_global_accordion: boolean
         template: number
@@ -91,7 +92,7 @@ type StockOptions = {
     }
     options: Array<Option[]>
 }
-type SyntheticOptions = {
+export type SyntheticOptions = {
     market_instruments: {
         has_global_accordion: boolean
         content: ForexandSyntheticOption[]

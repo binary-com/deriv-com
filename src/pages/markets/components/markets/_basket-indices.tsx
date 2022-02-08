@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
@@ -11,16 +10,12 @@ import { basket_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { Box } from 'components/containers'
+import { StyledBox } from '../../static/style/_markets-style.js'
 import { Localize, localize } from 'components/localization'
 import { DerivStore } from 'store'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
-
-const StyledBox = styled(Box)`
-    content: ${(props) => (props.text ? props.text : '')};
-`
 
 type BasketIndicesProps = {
     simple_step_content: SimpleStepContentElement[]

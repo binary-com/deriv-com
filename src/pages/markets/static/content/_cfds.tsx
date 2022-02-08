@@ -59,6 +59,8 @@ export type StockContent = {
 export type Cfds = {
     markets_list: {
         col: number
+        tablet_col?: number
+        mobile_col?: number
     }
     content: Content[]
 }
@@ -229,7 +231,7 @@ export const stock_cfds: StockCfds = {
     ],
 }
 
-export const crypto_cfds = {
+export const crypto_cfds: Cfds = {
     markets_list: {
         col: 4,
         tablet_col: 3,
@@ -243,7 +245,7 @@ export const crypto_cfds = {
     ],
 }
 
-export const basket_cfds = {
+export const basket_cfds: Cfds = {
     markets_list: {
         col: 4,
         tablet_col: 3,

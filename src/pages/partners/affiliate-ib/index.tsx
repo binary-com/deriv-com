@@ -12,7 +12,7 @@ import { SectionContainer, Container, SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
-import { MetaAttributesType } from 'types/page.type'
+import { MetaAttributesType } from 'types/page.types'
 
 const WhyUs = Loadable(() => import('./_why-us'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply'))

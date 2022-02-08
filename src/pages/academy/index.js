@@ -34,7 +34,6 @@ const MainWrapper = styled.div`
         max-width: 1600px;
     }
 `
-
 const DerivBlog = ({ data }) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 

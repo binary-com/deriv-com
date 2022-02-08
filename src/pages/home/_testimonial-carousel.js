@@ -1,5 +1,5 @@
-import React, { Children, useState, useEffect, useRef, ReactNode } from 'react'
-import type { Dispatch, SetStateAction } from 'react'
+import React, { Children, useState, useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import ArrowLeft from 'images/svg/testimonials/arrow-left.svg'
@@ -22,10 +22,10 @@ const FlexiItem = styled(Flex)`
     */
 
     .flexi-item {
-        margin-bottom: 40px;
+        margin-bottom: 0;
 
-        @media ${device.tabletL} {
-            margin-bottom: 24px;
+        @media ${device.tablet} {
+            margin-bottom: 20px;
         }
     }
 `
@@ -56,12 +56,7 @@ const Arrows = styled.img`
     }
 `
 
-const renderNavigations = (
-    count: number,
-    active: number,
-    setActive: Dispatch<SetStateAction<number>>,
-    animate: (action) => void,
-) => {
+const renderNavigations = (count, active, setActive, animate) => {
     const is_carousel = count > 1
     const has_prev = active !== 0
     const has_next = active < count - 1
@@ -102,20 +97,12 @@ const renderNavigations = (
                 position="absolute"
                 height="fit-content"
                 tablet_jc="center"
-                tabletL={{
-                    mt: '50px',
+                tablet={{
+                    mt: '24px',
                 }}
             >
-                <Arrows
-                    src={has_prev ? ArrowLeft : ArrowLeftFade}
-                    onClick={previous}
-                    alt="previous arrow"
-                />
-                <Arrows
-                    src={has_next ? ArrowRight : ArrowRightFade}
-                    onClick={next}
-                    alt="next arrow"
-                />
+                <Arrows src={has_prev ? ArrowLeft : ArrowLeftFade} onClick={previous} />
+                <Arrows src={has_next ? ArrowRight : ArrowRightFade} onClick={next} />
             </Navigation>
         )
     }
@@ -123,17 +110,7 @@ const renderNavigations = (
     return <React.Fragment />
 }
 
-type TestimonialCarouselProps = {
-    children?: ReactNode
-    default_active?: number
-    height?: string
-}
-
-const TestimonialCarousel = ({
-    children,
-    default_active = 0,
-    height = 'fit-content',
-}: TestimonialCarouselProps) => {
+const TestimonialCarousel = ({ children, default_active = 0, height = '295px' }) => {
     const [active, setActive] = useState(default_active)
     const children_array = Children.toArray(children)
     const container_ref = useRef(null)
@@ -159,13 +136,15 @@ const TestimonialCarousel = ({
         if (molder_ref) {
             const molder_element = molder_ref.current
             const flex_height = molder_element.offsetHeight
+            let final_height = flex_height + 'px'
 
             // Safari browser issue fallback - offset height is undetectable
             if (flex_height == 0) {
+                final_height = 'fit-content'
                 container_ref.current.querySelector('.flexi-item').style.marginBottom = '40px'
             }
 
-            container_ref.current.style.height = 'fit-content'
+            container_ref.current.style.height = final_height
             container_ref.current.style.opacity = 1
         }
     }, [active])
@@ -213,6 +192,12 @@ const TestimonialCarousel = ({
             {navigations}
         </Flex>
     )
+}
+
+TestimonialCarousel.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    default_active: PropTypes.number,
+    height: PropTypes.string,
 }
 
 export default TestimonialCarousel

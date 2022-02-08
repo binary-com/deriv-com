@@ -1,19 +1,16 @@
-import React, { MouseEventHandler, ReactElement } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 
-export type QueryImageProps = {
-    alt: ReactElement | string
+type QueryImageProps = {
+    alt: string
     className?: string
     data: ImageDataLike
     height?: string
     width?: string
+    max_width?: string
     loading?: 'eager' | 'lazy'
-    disable_transition?: boolean
-    onMouseOver?: MouseEventHandler<HTMLDivElement>
-    onMouseOut?: MouseEventHandler<HTMLDivElement>
-    onClick?: MouseEventHandler<HTMLDivElement>
 }
 
 export type ImageWrapperProps = {
@@ -21,7 +18,6 @@ export type ImageWrapperProps = {
     height: string
     className?: string
     loading: 'eager' | 'lazy'
-    disable_transition: boolean
 }
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`
@@ -30,8 +26,8 @@ export const ImageWrapper = styled.div<ImageWrapperProps>`
         height: ${(props) => props.height};
     }
     .gatsby-image-wrapper [data-main-image] {
-        ${({ loading, disable_transition }) => {
-            if (disable_transition && loading === 'eager') {
+        ${(props) => {
+            if (props.loading === 'eager') {
                 return css`
                     transition: none;
                     opacity: 1;
@@ -45,25 +41,16 @@ const QueryImage = ({
     alt,
     className,
     data,
-    disable_transition = false,
     height,
     loading = 'lazy',
-    onClick,
     width,
     ...props
 }: QueryImageProps) => {
     const image = getImage(data)
     if (data) {
         return (
-            <ImageWrapper
-                loading={loading}
-                width={width}
-                height={height}
-                className={className}
-                disable_transition={disable_transition}
-                onClick={onClick}
-            >
-                <GatsbyImage image={image} alt={alt as string} loading={loading} {...props} />
+            <ImageWrapper loading={loading} width={width} height={height} className={className}>
+                <GatsbyImage image={image} alt={alt} loading={loading} {...props} />
             </ImageWrapper>
         )
     }

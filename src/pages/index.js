@@ -1,12 +1,20 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
-import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
-import Hero from '../home/_hero'
-import Trade from '../home/_trade'
-import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
+import {
+    Markets,
+    Signup,
+    SimpleSteps,
+    TradeTypes,
+    TradeTypesMobile,
+    WhatOurClientsSay,
+} from './home/_lazy-load'
+import Hero from './home/_hero'
+import Trade from './home/_trade'
+import TradeTheWayYouLike from './home/_trade-the-way-you-like'
+import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, Localize, localize } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
@@ -35,27 +43,37 @@ const simple_step_content = [
         icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
     },
 ]
+
 const Home = () => {
+    /* redirect livechat for en to open live chat popup */
+    useOpenLiveChat()
+
     return (
-        <Layout is_ppc_redirect={true} is_ppc={true}>
+        <Layout>
             <SEO
                 title={localize(
                     'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
                 )}
                 description={localize(
-                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on',
+                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
                 has_organization_schema
-                no_index
             />
-            <Hero is_ppc={true} />
+            <Hero />
             <Show.Desktop>
-                <Trade is_ppc_redirect={true} />
+                <Trade />
             </Show.Desktop>
             <Show.Mobile>
-                <TradeTheWayYouLike is_ppc_redirect={true} />
+                <TradeTheWayYouLike />
             </Show.Mobile>
-            <Markets is_ppc={true} />
+
+            <Show.Mobile>
+                <TradeTypesMobile />
+            </Show.Mobile>
+            <Show.Desktop>
+                <TradeTypes />
+            </Show.Desktop>
+            <Markets />
             <SimpleSteps
                 content={simple_step_content}
                 header={<Localize translate_text="3 simple steps" />}

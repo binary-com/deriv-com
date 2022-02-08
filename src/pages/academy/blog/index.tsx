@@ -89,7 +89,7 @@ const ArticlesPage = ({ data }) => {
 
     useEffect(() => {
         const prevScroll = parseInt(localStorage.getItem('scroll'))
-        if (prevScroll !== -1) {
+        if (!Number.isNaN(prevScroll)) {
             window.scrollTo(0, prevScroll)
         }
     }, [])

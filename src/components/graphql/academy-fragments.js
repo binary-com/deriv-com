@@ -15,7 +15,7 @@ export const academyQuery = graphql`
                 desktop_hero: image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(quality: 60, width: 1600, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(quality: 60, width: 1600)
                         }
                     }
                     id
@@ -40,7 +40,7 @@ export const academyQuery = graphql`
                 desktop_hero: image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(quality: 60, width: 1600, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(quality: 60, width: 1600)
                         }
                     }
                     id
@@ -65,7 +65,7 @@ export const academyQuery = graphql`
                 desktop_hero: image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(quality: 60, width: 1600, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(quality: 60, width: 1600)
                         }
                     }
                     id
@@ -93,7 +93,7 @@ export const academyQuery = graphql`
                 main_image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(width: 200, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(width: 200)
                         }
                     }
                     id
@@ -124,11 +124,7 @@ export const academyQuery = graphql`
                 main_image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(
-                                width: 200
-                                aspectRatio: 1.6666666667
-                                formats: [AUTO, AVIF, WEBP]
-                            )
+                            gatsbyImageData(width: 200, aspectRatio: 1.6666666667)
                         }
                     }
                     id
@@ -159,7 +155,7 @@ export const academyQuery = graphql`
                 main_image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(width: 200, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(width: 200)
                         }
                     }
                     id
@@ -176,7 +172,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -210,7 +206,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -244,7 +240,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -272,11 +268,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(
-                                aspectRatio: 1.6666666667
-                                quality: 60
-                                formats: [AUTO, AVIF, WEBP]
-                            )
+                            gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
                         }
                     }
                 }
@@ -311,11 +303,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(
-                                aspectRatio: 1.6666666667
-                                quality: 60
-                                formats: [AUTO, AVIF, WEBP]
-                            )
+                            gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
                         }
                     }
                 }
@@ -350,11 +338,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(
-                                aspectRatio: 1.6666666667
-                                quality: 60
-                                formats: [AUTO, AVIF, WEBP]
-                            )
+                            gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
                         }
                     }
                 }
@@ -378,7 +362,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -413,7 +397,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -448,7 +432,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -480,7 +464,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -516,7 +500,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -552,7 +536,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(aspectRatio: 1.6666666667, formats: [AUTO, AVIF, WEBP])
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }

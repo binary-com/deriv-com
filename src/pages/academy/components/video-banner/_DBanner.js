@@ -31,7 +31,6 @@ const BackgroundImageWrapper = styled.div`
 const BackgroundImageContainer = styled(Flex)`
     & > div {
         width: 100%;
-        background-color: blue;
     }
 `
 const GradientWrapper = styled.div`

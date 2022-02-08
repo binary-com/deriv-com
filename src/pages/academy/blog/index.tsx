@@ -130,7 +130,7 @@ export const query = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 600, aspectRatio: 1.6666666667)
                         }
                     }
                 }

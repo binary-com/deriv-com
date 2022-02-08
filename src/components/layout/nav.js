@@ -34,7 +34,6 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
-import AcademyLogo from 'images/svg/academy-logo.svg'
 import { CFDWarning } from 'components/layout'
 
 const query = graphql`
@@ -438,7 +437,6 @@ export const NavMobile = ({
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
@@ -456,11 +454,6 @@ export const NavMobile = ({
                     <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
-                        {academy_logo ? (
-                            <img src={AcademyLogo} alt="Academy" />
-                        ) : (
-                            <img src={LogoCombinedShape} alt="logo combined shape" />
-                        )}
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -501,7 +494,6 @@ export const NavDesktop = ({
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const data = useStaticQuery(query)
@@ -571,11 +563,7 @@ export const NavDesktop = ({
                         />
                     </LogoLink>
                     <Line />
-                    {academy_logo ? (
-                        <img src={AcademyLogo} alt="Academy" />
-                    ) : (
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
-                    )}
+                    <img src={LogoCombinedShape} alt="logo combined shape" />
                 </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>

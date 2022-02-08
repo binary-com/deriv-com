@@ -268,7 +268,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(width: 1000)
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -303,7 +303,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(width: 1000)
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -338,7 +338,7 @@ export const academyQuery = graphql`
                     title
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData(width: 1000)
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }

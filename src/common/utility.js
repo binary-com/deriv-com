@@ -276,6 +276,7 @@ export const getVideoObject = (video_data) => {
         thumbnail_img_alt: alt,
         video_title,
         video_description,
+        video_thumbnail,
         video_url: getAssetUrl(video_id),
         video_duration,
         featured,

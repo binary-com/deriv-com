@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
@@ -11,32 +12,44 @@ import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
 const ParentWrapper = styled(Flex)`
-    /* prettier-ignore */
-    background: ${(props) => {
-        const bg_image = `linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top left`
-        const default_bg =
-            'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'
-        return props.bg_image ? bg_image : default_bg
-    }};
     overflow: hidden;
     margin: 80px 0;
     position: relative;
-    background-size: cover;
     height: auto;
     padding: 160px 0 40px;
 
     @media ${device.tabletL} {
-        /* prettier-ignore */
-        background: ${(props) => {
-            const bg_image = `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top right 46.5%`
-            const default_bg =
-                'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'
-
-            return props.bg_image ? bg_image : default_bg
-        }};
-        background-size: cover;
         padding: 73px 0 40px;
         margin: 40px 0;
+    }
+`
+const BackgroundImageWrapper = styled.div`
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: 1;
+`
+const BackgroundImageContainer = styled(Flex)`
+    & > div {
+        width: 100%;
+        background-color: blue;
+    }
+`
+const GradientWrapper = styled.div`
+    position: absolute;
+    inset: 0 0 0 0;
+    background: linear-gradient(
+        251.14deg,
+        rgba(14, 14, 14, 0.5632) 29.18%,
+        rgba(7, 6, 6, 0.88) 85.14%
+    );
+    z-index: 2;
+
+    @media ${device.tabletL} {
+        background: linear-gradient(
+            251.14deg,
+            rgba(14, 14, 14, 0.5632) 29.18%,
+            rgba(7, 6, 6, 0.88) 85.14%
+        );
     }
 `
 const PlayerIconWrapper = styled(Flex)`
@@ -99,6 +112,7 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
         thumbnail_img,
         video_title,
         video_description,
+        video_thumbnail,
         video_url,
         video_duration,
         types,
@@ -111,7 +125,20 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
     return (
         <>
             <ParentWrapper direction="column" bg_image={thumbnail_img}>
-                <Container direction="column" jc="flex-start">
+                <BackgroundImageWrapper>
+                    <BackgroundImageContainer>
+                        <GatsbyImage
+                            image={getImage(video_thumbnail.imageFile)}
+                            alt={thumbnail_img}
+                            width="100%"
+                            height="100%"
+                            layout="fullWidth"
+                            transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
+                        />
+                    </BackgroundImageContainer>
+                </BackgroundImageWrapper>
+                <GradientWrapper />
+                <Container direction="column" jc="flex-start" style={{ zIndex: 3 }}>
                     <Flex direction="column" jc="flex-start" height="auto">
                         <PlayerIconWrapper
                             ai="center"

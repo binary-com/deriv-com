@@ -32,12 +32,6 @@ export const EmblaSlideInner = styled.div`
     padding-left: 0;
     margin: 0 auto;
     height: 100%;
-    ${(props) => {
-        if (props.width)
-            return css`
-                width: ${props.width};
-            `
-    }}
 `
 
 export const StyledButtonWrapper = styled.div`

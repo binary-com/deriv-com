@@ -1,17 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Carousel, Header } from 'components/elements'
 
 const StyledHeader = styled(Header)`
     height: 36px;
-    line-height: 36px;
+    margin: 10px 0;
 `
 
-type VerticalCarouselProps = {
-    contents: unknown[]
-}
-
-const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
+const VerticalCarousel = ({ contents }) => {
     const settings = {
         options: {
             loop: true,
@@ -21,19 +18,18 @@ const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
         },
         container_style: {
             maxWidth: 'auto',
-            margin: '24px 0 32px',
+            margin: '2.4rem 0 3.2rem',
         },
         slide_style: {
             position: 'relative',
-            height: '36px',
         },
         vertical_container: {
             flexDirection: 'column',
-            height: '36px',
+            height: '43px',
         },
     }
     return (
-        <Carousel has_autoplay autoplay_delay={6000} autoplay_interval={2500} {...settings}>
+        <Carousel has_autoplay autoplay_interval={2500} {...settings}>
             {contents.map((content, index) => (
                 <StyledHeader
                     as="h3"
@@ -49,4 +45,7 @@ const VerticalCarousel = ({ contents }: VerticalCarouselProps) => {
     )
 }
 
+VerticalCarousel.propTypes = {
+    contents: PropTypes.array,
+}
 export default VerticalCarousel

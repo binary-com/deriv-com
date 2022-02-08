@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Signup, WhatOurClientsSay } from '../../home/_lazy-load'
 import ImageText from './components/_image-text'
@@ -11,7 +10,7 @@ import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/landing/crypto-intro.svg'
 
-const topicsCovered = [
+const topics_covered = [
     localize('Introduction to cryptocurrencies'),
     localize('Types of cryptocurrencies'),
     localize('The basics of trading cryptocurrency'),
@@ -49,10 +48,13 @@ const query = graphql`
     }
 `
 
-const StocksEbook = (props) => {
-    const { language } = props
-    const isLanguages = ['es', 'pt', 'fr']
-    const languageSwitch = isLanguages.includes(language) ? `_${language}` : ''
+type StocksEbookProps = {
+    language: string
+}
+
+const StocksEbook = ({ language }: StocksEbookProps) => {
+    const ebook_languages = ['es', 'pt', 'fr']
+    const ebook_image = ebook_languages.includes(language) ? `_${language}` : ''
 
     const data = useStaticQuery(query)
     return (
@@ -75,7 +77,7 @@ const StocksEbook = (props) => {
                 ebook_utm_code="cryptocurrencies-ebook"
                 introSub=""
                 introMain={localize('Learn how to trade cryptocurrencies with Deriv')}
-                mainHeaderImage={data[`crypto_hero${languageSwitch}`]}
+                mainHeaderImage={data[`crypto_hero${ebook_image}`]}
             />
             <ImageText
                 imageWidth={282}
@@ -89,17 +91,13 @@ const StocksEbook = (props) => {
             />
             <Topics
                 title={localize('In this e-book we will cover')}
-                topicsImage={data[`crypto_inside${languageSwitch}`]}
-                topicsList={topicsCovered}
+                topicsImage={data[`crypto_inside${ebook_image}`]}
+                topicsList={topics_covered}
             />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
         </Layout>
     )
-}
-
-StocksEbook.propTypes = {
-    language: PropTypes.string,
 }
 
 export default WithIntl()(StocksEbook)

@@ -52,11 +52,11 @@ const SharingWrapper = styled.div`
     @media ${device.desktopS} {
         top: -24px;
         position: relative;
-        left: 78rem;
+        left: 66rem;
     }
 
     @media ${device.desktopL} {
-        left: 81rem;
+        left: 71rem;
     }
 `
 

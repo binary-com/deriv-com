@@ -48,8 +48,8 @@ export const StickyBreadCrumbsWrapper = styled(Flex)`
     }
 
     @media ${device.laptop} {
-        height: 72px;
-        top: 68px;
+        height: 66px;
+        top: 66px;
     }
 
     @media ${device.tabletL} {
@@ -472,7 +472,7 @@ export const StyledBreadcrumbsTitle = styled(Text)`
     font-size: 14px;
     line-height: 20px;
     color: var(--color-black-3);
-    padding-left: 13px;
+    padding: 0 35px 0 13px;
 `
 
 export const ProgressContainer = styled.div`

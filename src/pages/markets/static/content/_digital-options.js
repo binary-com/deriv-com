@@ -6,9 +6,10 @@ import {
     DailyResetIndices,
     Energy,
     Europe,
+    JumpIndices,
     MajorPairs,
     Metals,
-    MinorPairs,
+    MinorPairsOptions,
     SmartFX,
 } from '../../instruments/_submarkets.js'
 import {
@@ -17,6 +18,7 @@ import {
     ContinuousIndicesDetails,
     DailyResetIndicesDetails,
     EuropeDetails,
+    JumpIndicesDetails,
     SmartFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
@@ -241,7 +243,7 @@ export const forex_options = {
             },
             {
                 title: <Localize translate_text="Minor pairs" />,
-                component: <MinorPairs />,
+                component: <MinorPairsOptions />,
             },
             {
                 title: <Localize translate_text="SmartFX" />,
@@ -314,6 +316,11 @@ export const synthetic_options = {
                 title: <Localize translate_text="Continuous indices" />,
                 component: <ContinuousIndices />,
                 details: ContinuousIndicesDetails,
+            },
+            {
+                title: <Localize translate_text="Jump indices" />,
+                component: <JumpIndices />,
+                details: JumpIndicesDetails,
             },
             {
                 title: <Localize translate_text="Daily reset indices" />,

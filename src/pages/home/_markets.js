@@ -10,6 +10,8 @@ import CommoditiesIcon from 'images/svg/markets/commodities.svg'
 import ForexIcon from 'images/svg/markets/forex.svg'
 import StockIcon from 'images/svg/markets/stock.svg'
 import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
+import { NonUK } from 'components/containers/visibility'
+
 // Images
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
@@ -115,25 +117,27 @@ const Markets = ({ is_ppc }) => (
                     </div>
                 </MarketCard>
                 {!is_ppc && (
-                    <MarketCard mr="2.4rem">
-                        <img src={SyntheticIndicesIcon} alt="" width="64" height="64" />
-                        <div>
-                            <Header as="h4" type="sub-section-title">
-                                {localize('Synthetic indices')}
-                            </Header>
-                            <Text>
-                                {localize(
-                                    'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
-                                )}
-                            </Text>
-                            <Localize
-                                translate_text="<0>Learn more</0>"
-                                components={[
-                                    <MarketLink key={0} to="/markets/synthetic/" color="red" />,
-                                ]}
-                            />
-                        </div>
-                    </MarketCard>
+                    <NonUK>
+                        <MarketCard mr="2.4rem">
+                            <img src={SyntheticIndicesIcon} alt="" width="64" height="64" />
+                            <div>
+                                <Header as="h4" type="sub-section-title">
+                                    {localize('Synthetic indices')}
+                                </Header>
+                                <Text>
+                                    {localize(
+                                        'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
+                                    )}
+                                </Text>
+                                <Localize
+                                    translate_text="<0>Learn more</0>"
+                                    components={[
+                                        <MarketLink key={0} to="/markets/synthetic/" color="red" />,
+                                    ]}
+                                />
+                            </div>
+                        </MarketCard>
+                    </NonUK>
                 )}
                 <MarketCard>
                     <img src={CommoditiesIcon} alt="" width="64" height="64" />

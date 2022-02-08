@@ -4,20 +4,21 @@ import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
 import { forex_content, forex_content_eu } from '../../static/content/_forex'
-import { forex_cfds } from '../../static/content/_cfds'
-import { forex_multiplier } from '../../static/content/_multipliers'
+import { forex_cfds, forex_cfds_eu_uk } from '../../static/content/_cfds'
+import { forex_multiplier, forex_multiplier_eu } from '../../static/content/_multipliers'
 import { forex_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
+import { UKEU, ROW } from 'components/containers/visibility'
 import { DerivStore } from 'store'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Forex = ({ simple_step_content }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
     return (
         <>
             <WhyTrade
@@ -31,11 +32,30 @@ const Forex = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={forex_cfds} />}
-                DigitalOptions={
-                    <DigitalOptions market_name={localize('forex')} options_list={forex_options} />
+                CFDs={
+                    <>
+                        <UKEU>
+                            <CFDs market_content={forex_cfds_eu_uk} />
+                        </UKEU>
+                        <ROW>
+                            <CFDs market_content={forex_cfds} />
+                        </ROW>
+                    </>
                 }
-                Multipliers={<Multipliers market_content={forex_multiplier} />}
+                DigitalOptions={
+                    !is_eu_country &&
+                    !is_uk_country && (
+                        <DigitalOptions
+                            market_name={localize('forex')}
+                            options_list={forex_options}
+                        />
+                    )
+                }
+                Multipliers={
+                    <Multipliers
+                        market_content={is_eu_country ? forex_multiplier_eu : forex_multiplier}
+                    />
+                }
                 name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />

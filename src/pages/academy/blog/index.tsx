@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
@@ -70,13 +70,13 @@ const ArticlesPage = ({ data }) => {
             'Educational content at your fingertips – everything you need to know to start trading or upgrade your trading skills.',
     }
 
-    const [scrollPosition, setScrollPosition] = React.useState(0)
+    const [scroll_position, setScrollPosition] = React.useState(0)
     const handleScroll = () => {
         const position = window.pageYOffset
         setScrollPosition(position)
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true })
 
         return () => {
@@ -84,11 +84,11 @@ const ArticlesPage = ({ data }) => {
         }
     }, [])
 
-    React.useEffect(() => {
-        scrollPosition && localStorage.setItem('scroll', scrollPosition.toString())
-    }, [scrollPosition])
+    useEffect(() => {
+        scroll_position && localStorage.setItem('scroll', scroll_position.toString())
+    }, [scroll_position])
 
-    React.useEffect(() => {
+    useEffect(() => {
         const prevScroll = parseInt(localStorage.getItem('scroll'))
         if (prevScroll !== -1) {
             window.scrollTo(0, prevScroll)

@@ -125,7 +125,7 @@ const ContinuousIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 200%, and 300%.',
             )}
         </Text>
         <Text>
@@ -136,7 +136,7 @@ const ContinuousIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s), and 200 (1s), and 300 (1s)</0>."
                 components={[<strong key={0} />]}
             />
         </Text>

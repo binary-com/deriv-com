@@ -44,7 +44,7 @@ const TitleWrapper = styled(Flex)`
     margin: 0 auto 2.4rem;
 
     ${Text} {
-        max-width: 792px;
+        max-width: 1200px;
         margin: 0 auto;
     }
 
@@ -128,7 +128,7 @@ const MinimumVolume = () => {
                     <Header as="h2" type="sub-section-title" align="center" mb="0.8rem">
                         {localize('Minimum volume requirement')}
                     </Header>
-                    <Text size="16px" align="center">
+                    <Text size="24px" align="center">
                         <Localize translate_text="To receive the minimum commission (0.01 in any currency) allowed by the system, the minimum volume requirement is calculated based on the following formulas:" />
                     </Text>
                 </TitleWrapper>

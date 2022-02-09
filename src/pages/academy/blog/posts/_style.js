@@ -37,9 +37,9 @@ export const HeroContainer = styled(Container)`
 export const StickyBreadCrumbsWrapper = styled(Flex)`
     background: ${(props) => (props.scroll ? 'var(--color-white)' : 'var(--color-grey-8)')};
     position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
-    top: ${(props) => (props.scroll ? '64px' : 'unset')};
+    top: ${(props) => (props.scroll ? '70px' : 'unset')};
     z-index: ${(props) => (props.scroll ? '1' : 'unset')};
-    height: 74px;
+    height: 70px;
     border-top: 1px solid var(--color-grey-8);
 
     @media ${device.desktopL} {

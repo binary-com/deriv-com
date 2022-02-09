@@ -10,6 +10,7 @@ import PinterestIcon from 'images/svg/blog/pinterest.svg'
 import TwitterIcon from 'images/svg/blog/twitter.svg'
 import LinkedInIcon from 'images/svg/layout/footer-linkedin.svg'
 import ShareIcon from 'images/svg/academy/share.svg'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 const IconWrapper = styled.div`
     width: 120px;
@@ -34,7 +35,7 @@ const SharingWrapper = styled.div`
     display: flex;
     position: absolute;
     right: 100px;
-    top: 28px;
+    top: 24px;
 
     img {
         width: 24px;
@@ -52,11 +53,11 @@ const SharingWrapper = styled.div`
     @media ${device.desktopS} {
         top: -24px;
         position: relative;
-        left: 66rem;
+        left: 73rem;
     }
 
     @media ${device.desktopL} {
-        left: 71rem;
+        left: 77rem;
     }
 `
 
@@ -154,15 +155,19 @@ const SocialDesktopComponent = () => {
 
 const SocialMobileComponent = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const dropdown_ref = React.useRef(null)
+
+    useOutsideClick(dropdown_ref, () => setIsOpen(false))
 
     const toggling = () => setIsOpen(!isOpen)
 
     return (
-        <>
+        <div ref={dropdown_ref}>
             <SharingButton
                 onClick={toggling}
                 autoFocus={false}
                 onBlur={() => setIsOpen(false)}
+                onFocus={() => setIsOpen(false)}
                 isOpen={isOpen}
             >
                 <img src={ShareIcon} />
@@ -187,7 +192,7 @@ const SocialMobileComponent = () => {
                     ))}
                 </DropDownSharingButton>
             )}
-        </>
+        </div>
     )
 }
 

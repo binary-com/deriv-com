@@ -4,7 +4,6 @@ import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_status_page_url } from 'common/constants'
-import { NonUK } from 'components/containers/visibility'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
     return (
@@ -104,13 +103,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/markets/forex/">{localize('Forex')}</Link>
                         </LinkWrapper>
                         {!is_ppc && (
-                            <NonUK>
-                                <LinkWrapper>
-                                    <Link to="/markets/synthetic/">
-                                        {localize('Synthetic indices')}
-                                    </Link>
-                                </LinkWrapper>
-                            </NonUK>
+                            <LinkWrapper>
+                                <Link to="/markets/synthetic/">
+                                    {localize('Synthetic indices')}
+                                </Link>
+                            </LinkWrapper>
                         )}
                         <LinkWrapper>
                             <Link to="/markets/stock/">{localize('Stocks & indices')}</Link>
@@ -118,13 +115,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Link to="/markets/commodities/">{localize('Commodities')}</Link>
                         </LinkWrapper>
-                        <NonUK>
-                            <LinkWrapper>
-                                <Link to="/markets/cryptocurrencies/">
-                                    {localize('Cryptocurrencies')}
-                                </Link>
-                            </LinkWrapper>
-                        </NonUK>
+                        <LinkWrapper>
+                            <Link to="/markets/cryptocurrencies/">
+                                {localize('Cryptocurrencies')}
+                            </Link>
+                        </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>

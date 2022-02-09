@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import device from 'themes/device'
-function ColGen(num, is_balance) {
+
+function ColGen(num: number, is_balance: boolean) {
     let grid_col_template = ''
     for (let i = 0; i < num; i++) {
         grid_col_template += is_balance ? `${100 / +num}% ` : 'auto '
@@ -8,7 +9,7 @@ function ColGen(num, is_balance) {
     return grid_col_template
 }
 
-function AreaGen(num) {
+function AreaGen(num: number) {
     let grid_template_area = ''
     for (let i = 0; i < num; i++) {
         grid_template_area += 'area' + i + ' '
@@ -16,7 +17,16 @@ function AreaGen(num) {
     return grid_template_area
 }
 
-const Table = styled.div`
+type TableProps = {
+    grid_col_number?: number
+    is_balance?: boolean
+    max_width?: string
+    grid_area?: string
+    isTitle?: string
+    even?: string
+}
+
+const Table = styled.div<TableProps>`
     width: 100%;
     display: grid;
     margin-top: 1.6rem;
@@ -30,14 +40,14 @@ const Table = styled.div`
         }
     }
 `
-const TC = styled.div`
+const TC = styled.div<TableProps>`
     display: flex;
     max-width: ${(props) => props.max_width};
     grid-area: ${(props) => props.grid_area};
     flex-direction: column;
     height: 100%;
 `
-const TR = styled.div`
+const TR = styled.div<TableProps>`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
@@ -54,7 +64,7 @@ const TR = styled.div`
     }
 `
 
-const TRAP = styled.div`
+const TRAP = styled.div<TableProps>`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
@@ -66,7 +76,7 @@ const TRAP = styled.div`
     }
 `
 
-const TRAPREVERSE = styled.div`
+const TRAPREVERSE = styled.div<TableProps>`
     padding: 1rem 0.8rem;
     background-color: ${(props) => (props.even === 'true' ? 'var(--color-grey-39)' : 'unset')};
     display: flex;

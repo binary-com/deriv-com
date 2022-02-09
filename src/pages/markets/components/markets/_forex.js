@@ -11,7 +11,7 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
-import { UKEU, ROW } from 'components/containers/visibility'
+import { UKEU, ROW } from 'components/containers'
 import { DerivStore } from 'store'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))

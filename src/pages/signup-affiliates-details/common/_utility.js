@@ -14,6 +14,7 @@ export const resetSignupAffiliateDetails = (values, is_input_country) => {
     const address_error = validation.address(values.address)
     const mobileNumber_error = validation.mobileNumber(values.mobileNumber)
     const password_error = validation.password(values.password)
+    const currency_error = validation.currency(values.currency)
 
     if (firstName_error) {
         errors.firstName = firstName_error
@@ -36,5 +37,9 @@ export const resetSignupAffiliateDetails = (values, is_input_country) => {
     if (password_error) {
         errors.password = password_error
     }
+    if (currency_error) {
+        errors.currency_error = currency_error
+    }
+
     return errors
 }

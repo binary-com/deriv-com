@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -19,7 +20,7 @@ const Item = styled(Flex)`
 
 const StyledContentFlex = styled(Flex)``
 
-const CurrencySelect = () => {
+const CurrencySelect = ({ setFieldValue, current_select }) => {
     const query = graphql`
         query {
             usd: file(relativePath: { eq: "currencies/usd.png" }) {
@@ -66,23 +67,26 @@ const CurrencySelect = () => {
 
     const data = useStaticQuery(query)
 
+    const setCurrencyData = (value) => setFieldValue('currency', value)
+
     return (
         <StyledContentFlex jc="space-between">
             {currency_list.map((currency, idx) => {
+                const selected = current_select === currency.value
                 return (
                     <Item
                         fd="column"
                         ai="center"
                         id={currency.value}
-                        onClick={() => console.log(currency.value)}
+                        onClick={() => setCurrencyData(currency.value)}
                         key={idx}
+                        selected={selected}
                     >
                         <QueryImage width="24px" height="24px" alt="" data={data[currency.code]} />
-                        {/* <Text ml="0.8rem" color={current_select ? 'red' : 'black'}> */}
                         <Header
                             as="h5"
                             weight="normal"
-                            color={'black'}
+                            color={selected ? 'red' : 'black'}
                             style={{ textAlign: 'center' }}
                         >
                             {currency.text}
@@ -92,6 +96,11 @@ const CurrencySelect = () => {
             })}
         </StyledContentFlex>
     )
+}
+
+CurrencySelect.propTypes = {
+    current_select: PropTypes.string,
+    setFieldValue: PropTypes.func.isRequired,
 }
 
 export default CurrencySelect

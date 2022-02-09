@@ -107,6 +107,7 @@ const validation = {
     password: (input) => {
         return passwordValidation(input, localize('Password'), 2, 50)
     },
+    currency: (input) => (!input ? localize('Currency is required') : null),
 }
 
 export default validation

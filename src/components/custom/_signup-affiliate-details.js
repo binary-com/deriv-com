@@ -121,7 +121,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     }
 
     const submitValues = (values, callback) => {
-        console.log(values, 'wtf')
         Object.keys(values).forEach((el) => {
             callback(el, getSignupAffiliateValue(values[el]))
         })
@@ -141,6 +140,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     mobileNumber: phone || '',
                     password: '',
                     plan: '',
+                    currency: '',
                 }}
                 validate={(values) => resetSignupAffiliateDetails(values, is_input_country)}
                 onSubmit={(values, { setFieldValue }) => submitValues(values, setFieldValue)}
@@ -235,7 +235,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             required: true,
                         },
                     ]
-
                     return (
                         <AffiliateForm>
                             <Header as="h4" type="sub-section-title" mb="0.8rem">
@@ -380,7 +379,16 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                 </StyledText>
                                 <Line />
                             </Flex>
-                            <CurrencySelect />
+                            <Field name="currency-select">
+                                {({ field }) => (
+                                    <CurrencySelect
+                                        {...field}
+                                        setFieldValue={setFieldValue}
+                                        current_select={values.currency}
+                                        error={errors.currency_error}
+                                    />
+                                )}
+                            </Field>
                             <Flex fd="column">
                                 <AgreementLabel
                                     pep_label={localize(

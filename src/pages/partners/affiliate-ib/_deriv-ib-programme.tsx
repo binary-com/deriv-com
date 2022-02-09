@@ -453,7 +453,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
                     title: (
                         <Localize
                             key={0}
-                            translate_text="Commission per lot (1 standard forex lot is 100k units)"
+                            translate_text="Commission per lot (1 standard lot is 100k units)"
                         />
                     ),
                     list: [<Localize key={1} translate_text="2.5" />],

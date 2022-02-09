@@ -1,4 +1,4 @@
-/* Partytown 0.2.3 - MIT builder.io */
+/* Partytown 0.3.2 - MIT builder.io */
 (self => {
     const WinIdKey = Symbol();
     const InstanceIdKey = Symbol();
@@ -1267,31 +1267,24 @@
     const HTMLIFrameDescriptorMap = {
         contentDocument: {
             get() {
-                return this.contentWindow.document;
+                return getIframeEnv(this).$document$;
             }
         },
         contentWindow: {
             get() {
-                const $winId$ = this[InstanceIdKey];
-                environments[$winId$] || createEnvironment({
-                    $winId$: $winId$,
-                    $parentWinId$: this[WinIdKey],
-                    $url$: getter(this, [ "src" ]) || "about:blank"
-                }, true);
-                return environments[$winId$].$window$;
+                return getIframeEnv(this).$window$;
             }
         },
         src: {
             get() {
-                let src = environments[this[InstanceIdKey]].$location$.href;
+                let src = getIframeEnv(this).$location$.href;
                 src.startsWith("about") && (src = "");
                 return src;
             },
             set(src) {
                 let xhr = new XMLHttpRequest;
                 let xhrStatus;
-                let winId = this[InstanceIdKey];
-                let env = environments[winId];
+                let env = getIframeEnv(this);
                 env.$location$.href = src = resolveUrl(getEnv(this), src);
                 env.$isLoading$ = 1;
                 setInstanceStateValue(this, 1, void 0);
@@ -1301,7 +1294,7 @@
                 if (xhrStatus > 199 && xhrStatus < 300) {
                     setter(this, [ "srcdoc" ], `<base href="${src}">` + xhr.responseText.replace(/<script>/g, '<script type="text/partytown">').replace(/<script /g, '<script type="text/partytown" ').replace(/text\/javascript/g, "text/partytown") + getPartytownScript());
                     sendToMain(true);
-                    webWorkerCtx.$postMessage$([ 5, winId ]);
+                    webWorkerCtx.$postMessage$([ 5, env.$winId$ ]);
                 } else {
                     setInstanceStateValue(this, 1, xhrStatus);
                     env.$isLoading$ = 0;
@@ -1309,6 +1302,15 @@
             }
         },
         ...HTMLSrcElementDescriptorMap
+    };
+    const getIframeEnv = iframe => {
+        const $winId$ = iframe[InstanceIdKey];
+        environments[$winId$] || createEnvironment({
+            $winId$: $winId$,
+            $parentWinId$: iframe[WinIdKey],
+            $url$: getter(iframe, [ "src" ]) || "about:blank"
+        }, true);
+        return environments[$winId$];
     };
     const defineWorkerInterface = ([cstrName, superCstrName, members, interfaceType, nodeName]) => {
         const SuperCstr = TrapConstructors[cstrName] ? WorkerTrapProxy : "EventTarget" === superCstrName ? WorkerEventTargetProxy : "Object" === superCstrName ? WorkerInstance : self[superCstrName];

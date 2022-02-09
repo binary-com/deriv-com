@@ -1,4 +1,4 @@
-/* Partytown 0.2.3 - MIT builder.io */
+/* Partytown 0.3.2 - MIT builder.io */
 !function(win, doc, nav, top, useAtomics, config, libPath, timeout, scripts, sandbox, mainForwardFn, isReady) {
     function ready() {
         if (!isReady) {
@@ -26,6 +26,8 @@
                             console.warn(swRegistration);
                         }
                     }), console.error) : fallback();
+                } else {
+                    0 === scripts.length && console.debug("No Partytown scripts found");
                 }
             } else {
                 console.warn('Partytown config.lib url must start with "/"');

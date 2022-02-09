@@ -21,6 +21,7 @@ import {
     SmartFXDetails,
     BasketFXDetails,
 } from './_details'
+import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { Localize } from 'components/localization'
 import Asians from 'images/svg/options/asians.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
@@ -37,7 +38,7 @@ import RiseFall from 'images/svg/options/rise-fall.svg'
 import SbGo from 'images/svg/options/sb-go.svg'
 import TNT from 'images/svg/options/tnt.svg'
 
-type Option = {
+type OptionElement = {
     svg: string
     text: ReactElement
     wrap?: string
@@ -45,63 +46,14 @@ type Option = {
     title?: ReactElement
     mobile_pt?: string
 }
-type CommoditiesOption = {
-    title: ReactElement
-    component: ReactElement
-}
-type StockOption = {
-    title: ReactElement
-    component: ReactElement
-    details: (index: number) => ReactElement
-    tablet_col: number
-    mobile_col: number
-    padding: string
-    flex?: boolean
-    gap: string
-    col?: number
-    custom_index?: number
-}
-type ForexandSyntheticOption = CommoditiesOption & { details?: () => ReactElement }
-
-export type CommoditiesOptions = {
-    market_instruments: {
-        content: CommoditiesOption[]
-        markets_list: {
-            col: number
-        }
-    }
-    options: Array<Option[]>
+export type Options = {
+    market_instruments: MarketInstrumentsElement
+    options: Array<OptionElement[]>
+    eu_content?: ReactElement[]
 }
 
-export type ForexAndBasketOptions = {
-    market_instruments: {
-        markets_list: {
-            col: number
-            tablet_col: number
-            mobile_col: number
-        }
-        content: ForexandSyntheticOption[]
-    }
-    options: Array<Option[]>
-}
-export type StockOptions = {
-    market_instruments: {
-        has_global_accordion: boolean
-        template: number
-        content: StockOption[]
-    }
-    options: Array<Option[]>
-}
-export type SyntheticOptions = {
-    market_instruments: {
-        has_global_accordion: boolean
-        content: ForexandSyntheticOption[]
-    }
-    options: Array<Option[]>
-    eu_content: ReactElement[]
-}
 const getOptions = (is_synthetic_options: boolean) => {
-    const options: Array<Option[]> = [
+    const options: Array<OptionElement[]> = [
         [
             {
                 title: <Localize translate_text="Up/Down" />,
@@ -273,7 +225,7 @@ const getOptions = (is_synthetic_options: boolean) => {
     return options
 }
 
-export const commodities_options: CommoditiesOptions = {
+export const commodities_options: Options = {
     market_instruments: {
         content: [
             {
@@ -292,7 +244,7 @@ export const commodities_options: CommoditiesOptions = {
     options: getOptions(false),
 }
 
-export const forex_options: ForexAndBasketOptions = {
+export const forex_options: Options = {
     market_instruments: {
         markets_list: {
             col: 4,
@@ -318,7 +270,7 @@ export const forex_options: ForexAndBasketOptions = {
     options: getOptions(false),
 }
 
-export const basket_options: ForexAndBasketOptions = {
+export const basket_options: Options = {
     market_instruments: {
         markets_list: {
             col: 4,
@@ -336,7 +288,7 @@ export const basket_options: ForexAndBasketOptions = {
     options: getOptions(false),
 }
 
-export const stock_options: StockOptions = {
+export const stock_options: Options = {
     market_instruments: {
         has_global_accordion: true,
         template: 2,
@@ -389,7 +341,7 @@ export const stock_options: StockOptions = {
     options: getOptions(false),
 }
 
-export const synthetic_options: SyntheticOptions = {
+export const synthetic_options: Options = {
     market_instruments: {
         has_global_accordion: true,
         content: [

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
@@ -8,11 +7,18 @@ import { stock_cfds } from '../../static/content/_cfds'
 import { stock_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
+import { StyledBox } from '../../static/style/_markets-style'
 import { localize, Localize } from 'components/localization'
+import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+//Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
-const StockIndices = ({ simple_step_content }) => {
+type StockIndicesProps = {
+    simple_step_content: SimpleStepsContent[]
+}
+
+const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     simple_step_content[1].text = localize(
         'Open a real account, make a deposit, and start trading stocks, indices and other markets.',
     )
@@ -25,7 +31,11 @@ const StockIndices = ({ simple_step_content }) => {
                 }
             >
                 {stock_content.map((content, index) => (
-                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
+                    <StyledBox
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    />
                 ))}
             </WhyTrade>
             <AvailableTrades
@@ -52,7 +62,5 @@ const StockIndices = ({ simple_step_content }) => {
         </div>
     )
 }
-StockIndices.propTypes = {
-    simple_step_content: PropTypes.objects,
-}
+
 export default StockIndices

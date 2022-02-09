@@ -6,7 +6,7 @@ import { crypto_cfds } from '../../static/content/_cfds'
 import { crypto_multiplier } from '../../static/content/_multipliers'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
-import { StyledBox } from '../../static/style/_markets-style.js'
+import { StyledBox } from '../../static/style/_markets-style'
 import { Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs.svg'
@@ -16,7 +16,7 @@ import { DerivStore } from 'store'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type CryptocurrenciesProps = {
     simple_step_content: SimpleStepsContent[]

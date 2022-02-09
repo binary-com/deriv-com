@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactElement } from 'react'
 import MarketsAccordion from '../helper/_markets_accordion'
 import {
     Col,
@@ -10,8 +9,41 @@ import {
     Title,
 } from '../../static/style/_markets-style'
 import { useBrowserResize } from '../../../../components/hooks/use-browser-resize'
+// import type { Cfds,StockCfds } from '../../static/content/_cfds'
+// import type { SwapFreePairsTable } from 'pages/landing/forex-trading/components/_table-btn'
+// import type { ForexCfds } from 'pages/trade-types/multiplier/_cfds'
+// import type { ForexAndBasketMultiplier, CryptoMultiplier } from '../../static/content/_multipliers'
+// //SwapFreePairsTable| Cfds|StockCfds|ForexCfds|ForexAndBasketMultiplier | CryptoMultiplier|
+type Contentelement = {
+    component?: ReactElement
+    mobile_title?: ReactElement
+    title?: ReactElement
+    details?: (index?: number) => ReactElement | JSX.Element
+    col?: number
+    tablet_col?: number
+    mobile_col?: number
+    padding?: string
+    flex?: boolean
+    gap?: string
+    gap_mobile?: string
+    custom_index?: number
+    mobile_template?: true
+}
 
-const MarketInstruments = ({ market_content }) => {
+export type MarketInstrumentsElement = {
+    markets_list?: {
+        col?: number
+        tablet_col?: number
+        mobile_col?: number
+    }
+    content?: Contentelement[]
+    has_global_accordion?: boolean
+    template?: number
+}
+export type MarketInstrumentsProps = {
+    market_content: MarketInstrumentsElement
+}
+const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
     const [is_mobile] = useBrowserResize()
     return (
         <MarketsWrapper>
@@ -95,10 +127,6 @@ const MarketInstruments = ({ market_content }) => {
             )}
         </MarketsWrapper>
     )
-}
-
-MarketInstruments.propTypes = {
-    market_content: PropTypes.object,
 }
 
 export default MarketInstruments

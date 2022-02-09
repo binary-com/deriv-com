@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import MarketInstruments from '../../../markets/components/sections/_market_instruments'
 import { SwapFreePairs } from '../../../markets/instruments/_submarkets'
@@ -12,7 +12,19 @@ type TablebtnProps = {
     btnlabel: string
     text: string
 }
-
+export type SwapFreePairsTable = {
+    markets_list: {
+        col: number
+        tablet_col: number
+        mobile_col: number
+    }
+    content: [
+        {
+            title: ReactElement
+            component: ReactElement
+        },
+    ]
+}
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 16px;
@@ -43,7 +55,7 @@ const TryButton = styled(LinkButton)`
 `
 
 const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
-    const swap_free_pairs = {
+    const swap_free_pairs: SwapFreePairsTable = {
         markets_list: {
             col: 4,
             tablet_col: 3,

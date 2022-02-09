@@ -9,12 +9,7 @@ import {
     StyledText,
 } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
-import type {
-    ForexAndBasketOptions,
-    SyntheticOptions,
-    StockOptions,
-    CommoditiesOptions,
-} from '../../static/content/_digital-options'
+import type { Options } from '../../static/content/_digital-options'
 import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -22,7 +17,7 @@ import { localize, Localize } from 'components/localization'
 type DigitalOptionsProps = {
     market_name: string
     market_type?: string
-    options_list: ForexAndBasketOptions | SyntheticOptions | StockOptions | CommoditiesOptions
+    options_list: Options
 }
 
 const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptionsProps) => {

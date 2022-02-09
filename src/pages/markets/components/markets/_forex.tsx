@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
@@ -10,13 +9,18 @@ import { forex_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
+import { StyledBox } from '../../static/style/_markets-style'
 import { Localize, localize } from 'components/localization'
 import { DerivStore } from 'store'
+import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
-const Forex = ({ simple_step_content }) => {
+type ForexProps = {
+    simple_step_content: SimpleStepsContent[]
+}
+const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
     return (
         <>
@@ -27,7 +31,11 @@ const Forex = ({ simple_step_content }) => {
                 }
             >
                 {(!is_eu_country ? forex_content : forex_content_eu).map((content, index) => (
-                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
+                    <StyledBox
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    />
                 ))}
             </WhyTrade>
             <AvailableTrades
@@ -51,7 +59,4 @@ const Forex = ({ simple_step_content }) => {
     )
 }
 
-Forex.propTypes = {
-    simple_step_content: PropTypes.array,
-}
 export default Forex

@@ -7,6 +7,7 @@ import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import type { SwapFreePairsTable } from 'pages/landing/forex-trading/components/_table-btn'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -42,7 +43,7 @@ type TablebtnProps = {
 }
 
 const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
-    const swap_free_pairs = {
+    const swap_free_pairs: SwapFreePairsTable = {
         markets_list: {
             col: 4,
             tablet_col: 3,
@@ -64,7 +65,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                 </StyledText>
                 <MarketInstruments
                     market_content={swap_free_pairs}
-                    background="var(--color-white)"
+                    // background="var(--color-white)"
                 />
                 <TryButton
                     m="4.2rem 0 40px"

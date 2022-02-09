@@ -114,7 +114,7 @@ export const DailyResetIndicesDetails = () => (
     </DetailsContainer>
 )
 
-export const EuropeDetails = (index: number) => {
+export const EuropeDetails = (index: number): ReactElement => {
     const children = [
         <Text key={0}>
             {localize(

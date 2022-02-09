@@ -7,12 +7,12 @@ import { commodities_cfds } from '../../static/content/_cfds'
 import { commodities_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { StyledBox } from '../../static/style/_markets-style.js'
+import { StyledBox } from '../../static/style/_markets-style'
 import { Localize, localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type CommoditiesProps = {
     simple_step_content: SimpleStepsContent[]

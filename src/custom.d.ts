@@ -8,7 +8,13 @@ declare module '*.svg' {
 
     export default src
 }
-
+/* eslint-disable */
+declare module '*.webm' {
+    //@ts-ignore
+    const content: any
+    export default content
+}
+/* eslint-enable */
 declare module '*.png'
 declare module '*.jpg'
 declare module '*.jpeg'

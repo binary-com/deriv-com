@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import AvailablePlatforms from '../helper/_available-platforms.js'
+import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
-import MarketInstruments from '../sections/_market_instruments.js'
-import type { Cfds } from '../../static/content/_cfds'
+import MarketInstruments from '../sections/_market_instruments'
+import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
 type CFDProps = {
-    market_content: Cfds
+    market_content: MarketInstrumentsElement
     market_tab_name?: string
 }
 

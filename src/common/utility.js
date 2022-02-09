@@ -372,9 +372,7 @@ const redirectToDeriv = (full_domain) => {
     window.location.host = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
 }
 
-export const handleDerivRedirect = (residence, current_client_country, subdomain) => {
-    const country = residence ? residence : current_client_country
-
+export const handleDerivRedirect = (country, subdomain) => {
     if (country === 'nl') {
         redirect(subdomain.includes('staging') ? subdomain : 'eu')
     } else if (country === 'gb') {
@@ -398,21 +396,17 @@ const handleEURedirect = (country, subdomain, full_domain) => {
     }
 }
 
-export const handleRedirect = (
-    subdomain,
-    residence,
-    current_client_country,
-    full_domain,
-    current_domain,
-) => {
+export const handleRedirect = (subdomain, residence, current_client_country, full_domain) => {
     const country = residence ? residence : current_client_country
 
     const eu_domains = ['eu', 'staging-eu']
     const uk_domains = ['uk', 'staging-uk']
 
-    if (eu_domains.includes(subdomain) || current_domain === 'uk') {
+    if (eu_domains.includes(subdomain)) {
         handleUKRedirect(country, subdomain, full_domain)
-    } else if (uk_domains.includes(subdomain) || current_domain === 'eu') {
+    } else if (uk_domains.includes(subdomain)) {
         handleEURedirect(country, subdomain, full_domain)
+    } else {
+        handleDerivRedirect(country, subdomain)
     }
 }

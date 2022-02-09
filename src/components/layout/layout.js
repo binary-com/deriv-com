@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -11,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, handleDerivRedirect } from 'common/utility'
+import { isBrowser, handleRedirect } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -103,7 +103,7 @@ export const CFDWarning = ({ is_ppc }) => {
             </CFDWrapper>
         )
     }
-    return <></>
+    return <Fragment />
 }
 
 const Main = styled.main`
@@ -166,19 +166,11 @@ const Layout = ({
     const residence = client_information_cookie.get('residence')
 
     React.useEffect(() => {
-        const is_redirection_enabled = localStorage['current_domain']
+        const is_redirection_enabled = localStorage['is_redirection_enabled']
         const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
 
         if (is_redirection_enabled) {
-            handleRedirect(
-                subdomain,
-                residence,
-                current_client_country,
-                window.location.hostname,
-                is_redirection_enabled,
-            )
-        } else {
-            handleDerivRedirect(residence, current_client_country, subdomain)
+            handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
         }
     }, [website_status])
 

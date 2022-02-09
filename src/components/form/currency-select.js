@@ -54,6 +54,8 @@ const CurrencySelect = ({ setFieldValue, current_select }) => {
 
     const setCurrencyData = (value) => setFieldValue('currency', value)
 
+    const setCurrencyData = (value) => setFieldValue('currency', value)
+
     return (
         <Flex jc="space-between">
             {currency_list.map((currency, idx) => {

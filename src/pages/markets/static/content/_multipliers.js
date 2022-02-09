@@ -3,7 +3,6 @@ import {
     ContinuousIndices,
     CrashBoom,
     CrashBoomEU,
-    JumpIndices,
     MajorPairs,
     StepIndices,
     CryptocurrenciesMultipliers,
@@ -18,7 +17,6 @@ import {
     CryptocurrenciesDetails,
     VolatilityIndicesDetailsEU,
     SmartFXDetails,
-    JumpIndicesDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -41,20 +39,6 @@ export const forex_multiplier = {
     ],
 }
 
-export const forex_multiplier_eu = {
-    markets_list: {
-        col: 4,
-        tablet_col: 3,
-        mobile_col: 2,
-    },
-    content: [
-        {
-            title: <Localize translate_text="Major pairs" />,
-            component: <MajorPairs />,
-        },
-    ],
-}
-
 export const synthetic_multiplier = {
     has_global_accordion: true,
     content: [
@@ -70,11 +54,6 @@ export const synthetic_multiplier = {
             ),
             component: <CrashBoom />,
             details: CrashBoomDetails,
-        },
-        {
-            title: <Localize translate_text="Jump indices" />,
-            component: <JumpIndices />,
-            details: JumpIndicesDetails,
         },
         {
             title: <Localize translate_text="Step indices" />,
@@ -119,7 +98,7 @@ export const crypto_multiplier = {
     has_global_accordion: true,
     content: [
         {
-            title: <Localize translate_text="Crypto pairs" />,
+            title: <Localize translate_text="Cryptocurrencies" />,
             component: <CryptocurrenciesMultipliers />,
             details: CryptocurrenciesDetails,
         },

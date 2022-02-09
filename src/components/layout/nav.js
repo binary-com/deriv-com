@@ -454,6 +454,7 @@ export const NavMobile = ({
                     <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -634,14 +635,7 @@ export const NavDesktop = ({
     )
 }
 
-export const Nav = ({
-    base,
-    is_ppc_redirect,
-    is_ppc,
-    hide_signup_login,
-    academy_logo,
-    no_language,
-}) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login, no_language }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -660,7 +654,6 @@ export const Nav = ({
                     <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
@@ -671,7 +664,6 @@ export const Nav = ({
                     <MobileWrapper media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             is_ppc={is_ppc}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
@@ -685,7 +677,6 @@ export const Nav = ({
 }
 
 Nav.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
@@ -694,7 +685,6 @@ Nav.propTypes = {
 }
 
 NavDesktop.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
@@ -708,7 +698,6 @@ LanguageSwitcherNavDesktop.propTypes = {
 }
 
 NavMobile.propTypes = {
-    academy_logo: PropTypes.bool,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
@@ -1217,7 +1206,6 @@ export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
 }
 
 NavSticky.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,

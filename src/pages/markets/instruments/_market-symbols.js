@@ -55,6 +55,49 @@ export const continuous_indices = [
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
+        src: icons.INDEX10,
+        text: <Localize translate_text="Volatility 10 Index" />,
+    },
+    {
+        src: icons.INDEX25,
+        text: <Localize translate_text="Volatility 25 Index" />,
+    },
+    {
+        src: icons.INDEX50,
+        text: <Localize translate_text="Volatility 50 Index" />,
+    },
+    {
+        src: icons.INDEX75,
+        text: <Localize translate_text="Volatility 75 Index" />,
+    },
+    {
+        src: icons.INDEX100,
+        text: <Localize translate_text="Volatility 100 Index" />,
+    },
+]
+
+export const volatility_indices = [
+    {
+        src: icons.INDEX10S1,
+        text: <Localize translate_text="Volatility 10 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX25S1,
+        text: <Localize translate_text="Volatility 25 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX50S1,
+        text: <Localize translate_text="Volatility 50 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX75S1,
+        text: <Localize translate_text="Volatility 75 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX100S1,
+        text: <Localize translate_text="Volatility 100 (1s) Index" />,
+    },
+    {
         src: icons.INDEX200S1,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
     },
@@ -83,8 +126,6 @@ export const continuous_indices = [
         text: <Localize translate_text="Volatility 100 Index" />,
     },
 ]
-
-export const volatility_indices = continuous_indices
 
 export const volatility_indices_eu = [
     {

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { CalculatedFormulaProps } from './_minimum-volume'
 import {
     FormulaBottomWrapper,
     FormulaContainer,
@@ -22,7 +22,7 @@ import {
 } from './_style'
 import { Show } from 'components/containers'
 
-const CalculatedFormula = ({ data }) => {
+const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
     const itemList = data.list
 
     return (
@@ -54,7 +54,7 @@ const CalculatedFormula = ({ data }) => {
                                     <FormulaValueResultSwapSynthetic>
                                         <FormulaResultGreen>=</FormulaResultGreen>
                                         {result.total}
-                                        {result.description && result.description}
+                                        {result.description}
                                     </FormulaValueResultSwapSynthetic>
                                 </FormulaResult>
                             </FormulaHighlight>
@@ -164,10 +164,6 @@ const CalculatedFormula = ({ data }) => {
             </Show.Mobile>
         </>
     )
-}
-
-CalculatedFormula.propTypes = {
-    data: PropTypes.object,
 }
 
 export default CalculatedFormula

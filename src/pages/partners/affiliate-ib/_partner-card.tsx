@@ -2,7 +2,16 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
-export const Card = styled.section`
+export type CardProps = {
+    width?: string
+    height?: string
+    padding?: string
+    tabletHeight?: string
+    mobileHeight?: string
+    headerHeight?: string
+}
+
+export const Card = styled.section<CardProps>`
     margin-top: 1.6rem;
     width: ${(props) => (props.width ? props.width : '38.4rem')};
     min-width: 38.4rem;

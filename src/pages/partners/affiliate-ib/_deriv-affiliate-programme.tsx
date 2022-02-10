@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card, CardWrapper } from './_partner-card.js'
-import { Table, TRAP, TRAPREVERSE, TC } from './_table.js'
+import { Card, CardWrapper } from './_partner-card'
+import { Table, TRAP, TRAPREVERSE, TC } from './_table'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
+
+type AffiliateType = {
+    title: React.ReactElement
+    data: React.ReactElement[]
+}[]
 
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
@@ -145,7 +150,7 @@ const StyledTrap = styled(TRAP)`
     border-bottom: none;
 `
 
-const RevenueShare = [
+const RevenueShare: AffiliateType = [
     {
         title: <Localize translate_text="Net revenue" />,
         data: [
@@ -161,7 +166,7 @@ const RevenueShare = [
         ],
     },
 ]
-const Turnover = [
+const Turnover: AffiliateType = [
     {
         title: <Localize translate_text="Probability of return" />,
         data: [
@@ -220,11 +225,8 @@ const DerivAffiliateProgramme = () => {
                                             <StyledTrap isTitle="true">
                                                 <StyledText weight="bold">{col.title}</StyledText>
                                             </StyledTrap>
-                                            {col.data.map((data, index) => (
-                                                <TRAPREVERSE
-                                                    even={index % 2 ? 'true' : ''}
-                                                    key={index}
-                                                >
+                                            {col.data.map((data, idx) => (
+                                                <TRAPREVERSE even={idx % 2 ? 'true' : ''} key={idx}>
                                                     <StyledText>{data}</StyledText>
                                                 </TRAPREVERSE>
                                             ))}
@@ -265,11 +267,8 @@ const DerivAffiliateProgramme = () => {
                                                     {localize(col.title)}
                                                 </StyledText>
                                             </StyledTrap>
-                                            {col.data.map((data, index) => (
-                                                <TRAPREVERSE
-                                                    even={index % 2 ? 'true' : ''}
-                                                    key={index}
-                                                >
+                                            {col.data.map((data, id) => (
+                                                <TRAPREVERSE even={id % 2 ? 'true' : ''} key={id}>
                                                     <StyledText>{data}</StyledText>
                                                 </TRAPREVERSE>
                                             ))}

@@ -43,21 +43,23 @@ const SharingWrapper = styled.div`
     }
 
     @media ${device.tabletL} {
-        left: 85%;
-    }
-
-    @media ${device.laptop} {
-        top: 20px;
+        left: 80%;
     }
 
     @media ${device.desktopS} {
-        top: -24px;
+        top: 6px;
         position: relative;
-        left: 73rem;
+        left: 78rem;
+    }
+
+    @media ${device.desktopS} {
+        top: 6px;
+        position: relative;
+        left: 78rem;
     }
 
     @media ${device.desktopL} {
-        left: 77rem;
+        left: 65rem;
     }
 `
 
@@ -66,7 +68,7 @@ const SharingButton = styled.button`
     width: 32px;
     height: 32px;
     left: 0;
-    top: 5px;
+    top: 2px;
     background: ${(props) => (props.isOpen ? '#f2f3f4' : 'rgb(255, 255, 255, 0.0)')};
     border: 0 solid rgba(236, 241, 247, 0.5);
     border-radius: 4px;
@@ -83,7 +85,7 @@ const SharingButton = styled.button`
 const DropDownSharingButton = styled.div`
     position: absolute;
     left: -5px;
-    top: 45px;
+    top: 40px;
     width: 40px;
     background-color: #ffffff;
     border: 1px solid #ffffff;
@@ -95,7 +97,7 @@ const DropDownSharingButton = styled.div`
         content: '';
         position: absolute;
         right: 13px;
-        top: -15px;
+        top: -13px;
         z-index: 2;
     }
 `

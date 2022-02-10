@@ -62,6 +62,10 @@ export const BreadcrumbsWrapper = styled(Container)`
         max-width: 1200px;
         margin: 0 auto;
     }
+    @media ${device.desktopL} {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
     @media ${device.laptop} {
         width: 100%;
@@ -472,7 +476,7 @@ export const StyledBreadcrumbsTitle = styled(Text)`
     font-size: 14px;
     line-height: 20px;
     color: var(--color-black-3);
-    padding: 0 35px 0 13px;
+    padding: 0 0 0 13px;
 `
 
 export const ProgressContainer = styled.div`

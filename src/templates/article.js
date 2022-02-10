@@ -18,9 +18,6 @@ import {
     SideBarContainer,
     Tag,
     PreviewContainer,
-    SocialComponentsWrapper,
-    LeftSocialComponents,
-    RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
     StickyBreadCrumbsWrapper,
@@ -145,12 +142,7 @@ const ArticlesTemplate = (props) => {
                                                 ? truncateString(article_title, 30)
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
-                                        <SocialComponentsWrapper>
-                                            <LeftSocialComponents />
-                                            <RightSocialComponents>
-                                                <SocialSharing />
-                                            </RightSocialComponents>
-                                        </SocialComponentsWrapper>
+                                        <SocialSharing />
                                     </Flex>
                                 </BreadcrumbsWrapper>
                                 <Scrollbar scroll={visible}>

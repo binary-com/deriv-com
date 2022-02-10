@@ -1,7 +1,7 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
-import AvailableTrades from '../helper/_available-trades.js'
+import AvailableTrades from '../helper/_available-trades'
 import { forex_content, forex_content_eu } from '../../static/content/_forex'
 import { forex_cfds } from '../../static/content/_cfds'
 import { forex_multiplier } from '../../static/content/_multipliers'
@@ -44,7 +44,6 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <DigitalOptions market_name={localize('forex')} options_list={forex_options} />
                 }
                 Multipliers={<Multipliers market_content={forex_multiplier} />}
-                name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
             <SimpleSteps

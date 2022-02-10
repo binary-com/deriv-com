@@ -46,7 +46,6 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                         options_list={commodities_options}
                     />
                 }
-                name="Commodity"
                 display_title={<Localize translate_text="Commodity trades available on Deriv" />}
             />
             <SimpleSteps

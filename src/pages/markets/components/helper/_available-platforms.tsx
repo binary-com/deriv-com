@@ -13,6 +13,17 @@ import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import SmartTrader from 'images/svg/custom/smarttrader.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 
+type AvailablePlatformsProps = {
+    dmt5?: boolean
+    dtrader?: boolean
+    dbot?: boolean
+    smarttrader?: boolean
+    derivx?: boolean
+    flex_direction?: string
+    tablet_direction?: string
+    m_top?: string
+}
+
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
     width: unset;
@@ -54,6 +65,7 @@ const StyledFlex = styled(Flex)`
         font-size: 14px;
     }
 `
+
 const AvailablePlatforms = ({
     dmt5,
     dtrader,
@@ -63,7 +75,7 @@ const AvailablePlatforms = ({
     flex_direction,
     tablet_direction,
     m_top,
-}) => {
+}: AvailablePlatformsProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (

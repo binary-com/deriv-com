@@ -1,13 +1,17 @@
 import React from 'react'
-import AvailablePlatforms from '../helper/_available-platforms.js'
+import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
-import type { ForexAndBasketMultiplier, CryptoMultiplier } from '../../static/content/_multipliers'
+import type {
+    ForexAndBasketMultiplier,
+    CryptoMultiplier,
+    SyntheticMultiplier,
+} from '../../static/content/_multipliers'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 
 type MultipliersProps = {
-    market_content: ForexAndBasketMultiplier | CryptoMultiplier
+    market_content: ForexAndBasketMultiplier | CryptoMultiplier | SyntheticMultiplier
     is_crypto?: boolean
 }
 const Multipliers = ({ market_content, is_crypto }: MultipliersProps) => (

@@ -77,7 +77,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                 </StyledText>
                 <MarketInstruments
                     market_content={swap_free_pairs}
-                    background="var(--color-white)"
+                    // background="var(--color-white)"
                 />
                 <TryButton
                     m="4.2rem 0 40px"

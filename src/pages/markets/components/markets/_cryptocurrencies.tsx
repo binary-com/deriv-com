@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
-import AvailableTrades from '../helper/_available-trades.js'
+import AvailableTrades from '../helper/_available-trades'
 import { crypto_cfds } from '../../static/content/_cfds'
 import { crypto_multiplier } from '../../static/content/_multipliers'
 import CFDs from '../sub-markets/_cfds'
@@ -71,7 +71,6 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
-                name="Cryptocurrency"
                 display_title={
                     <Localize translate_text="Cryptocurrency trades available on Deriv" />
                 }

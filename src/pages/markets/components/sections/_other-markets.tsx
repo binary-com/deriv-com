@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex, SectionContainer, Show } from 'components/containers'
 import Box from 'components/containers/box'
 import { Header, Text } from 'components/elements'
@@ -14,10 +13,29 @@ import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import device from 'themes/device'
-
-const markets_type = {
+type MarketType = {
+    icon: () => ReactElement
+    title: ReactElement
+    content: ReactElement
+    to: string
+    id: string
+}
+type MarketsType = {
+    forex: MarketType
+    synthetic_indices: MarketType
+    stock_indices: MarketType
+    commodities: MarketType
+    cryptocurrencies: MarketType
+    basket_indices: MarketType
+}
+type CardProps = {
+    market: string
+}
+type OtherMarketsProps = {
+    excepts: string[]
+}
+const markets_type: MarketsType = {
     forex: {
-        // eslint-disable-next-line react/display-name
         icon: () => <img src={Forex} alt="" width="64" height="64" />,
         title: <Localize translate_text="Forex" />,
         content: (
@@ -148,9 +166,9 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
-const Card = ({ name }) => {
+const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
-    const Icon = markets_type[name].icon
+    const Icon = markets_type[market].icon
 
     return (
         <StyledFlex
@@ -164,32 +182,33 @@ const Card = ({ name }) => {
             onMouseLeave={() => setButtonVisibility('false')}
         >
             <div>
-                <Icon dynamic_id={markets_type[name].id} width="64px" height="64px" />
+                <Icon dynamic_id={markets_type[market].id} width="64px" height="64px" />
             </div>
 
             <Text weight="bold" mt="1.6rem">
-                {localize(markets_type[name].title)}
+                {localize(markets_type[market].title)}
             </Text>
-            <Text mt="0.8rem">{markets_type[name].content}</Text>
-            <LearnMore to={markets_type[name].to} visibility={button_visibility}>
+            <Text mt="0.8rem">{markets_type[market].content}</Text>
+            <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
         </StyledFlex>
     )
 }
-const MobileCard = ({ name }) => {
-    const Icon = markets_type[name].icon
+
+const MobileCard = ({ market }: CardProps) => {
+    const Icon = markets_type[market].icon
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
             <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
                 <Text size="18px" weight="bold">
-                    {localize(markets_type[name].title)}
+                    {localize(markets_type[market].title)}
                 </Text>
-                <Icon dynamic_id={markets_type[name].id + '_mobile'} />
+                <Icon dynamic_id={markets_type[market].id + '_mobile'} />
             </Flex>
-            <Text size="2rem">{markets_type[name].content}</Text>
-            <LearnMore to={markets_type[name].to} visibility="true">
+            <Text size="2rem">{markets_type[market].content}</Text>
+            <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>
@@ -228,7 +247,8 @@ const MobileCardContainer = styled(Flex)`
         margin-top: 0;
     }
 `
-const OtherMarkets = ({ excepts }) => {
+
+const OtherMarkets = ({ excepts }: OtherMarketsProps) => {
     const markets = [
         'forex',
         'synthetic_indices',
@@ -254,7 +274,7 @@ const OtherMarkets = ({ excepts }) => {
                             >
                                 {markets.map((market) =>
                                     excepts.includes(market) ? null : (
-                                        <Card name={market} key={market} />
+                                        <Card market={market} key={market} />
                                     ),
                                 )}
                             </CardWrapper>
@@ -268,20 +288,14 @@ const OtherMarkets = ({ excepts }) => {
                 </StyledHeader>
                 <MobileCardContainer direction="column">
                     {markets.map((market) =>
-                        excepts.includes(market) ? null : <MobileCard name={market} key={market} />,
+                        excepts.includes(market) ? null : (
+                            <MobileCard market={market} key={market} />
+                        ),
                     )}
                 </MobileCardContainer>
             </Show.Mobile>
         </SectionContainer>
     )
 }
-OtherMarkets.propTypes = {
-    excepts: PropTypes.array,
-}
-Card.propTypes = {
-    name: PropTypes.string,
-}
-MobileCard.propTypes = {
-    name: PropTypes.string,
-}
+
 export default OtherMarkets

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
@@ -10,6 +10,12 @@ import CFDIcon from 'images/svg/trade-types/cfds-new.svg'
 import MultipliersIcon from 'images/svg/custom/multipliers-nav.svg'
 import OptionsIcon from 'images/svg/custom/options-nav.svg'
 
+type CardProps = {
+    active_tab: string
+    display_name: ReactElement
+    name: string
+    onTabChange: (name: string) => void
+}
 const StyledSection = styled(SectionContainer)`
     padding: 120px 0;
     background-color: var(--color-white);
@@ -131,8 +137,11 @@ const CardContainer = styled(Flex)`
         }
     }
 `
-
-const TabIcon = styled.img`
+type TabIconProps = {
+    active_tab: string
+    name: string
+}
+const TabIcon = styled.img<TabIconProps>`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -165,7 +174,7 @@ const CardHeader = styled(Header)`
     }
 `
 
-const Card = ({ display_name, active_tab, onTabChange, name }) => {
+const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
@@ -184,13 +193,6 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
             </Flex>
         </CardContainer>
     )
-}
-
-Card.propTypes = {
-    active_tab: PropTypes.string,
-    display_name: PropTypes.object,
-    name: PropTypes.string,
-    onTabChange: PropTypes.func,
 }
 
 const AvailableTrades = ({ CFDs, DigitalOptions, Multipliers, display_title }) => {

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
@@ -10,12 +9,18 @@ import { synthetic_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
+import { StyledBox } from '../../static/style/_markets-style'
+import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import { DerivStore } from 'store'
 
-const StockIndices = ({ simple_step_content }) => {
+type StockIndicesProps = {
+    simple_step_content: SimpleStepsContent[]
+}
+
+const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
@@ -30,7 +35,11 @@ const StockIndices = ({ simple_step_content }) => {
                 }
             >
                 {synthetic_content.map((content, index) => (
-                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
+                    <StyledBox
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    />
                 ))}
             </WhyTrade>
             <AvailableTrades
@@ -48,7 +57,6 @@ const StockIndices = ({ simple_step_content }) => {
                         }
                     />
                 }
-                name="Synthetic indices"
                 display_title={
                     <Localize translate_text="Synthetic indices trades available on Deriv" />
                 }
@@ -65,7 +73,4 @@ const StockIndices = ({ simple_step_content }) => {
     )
 }
 
-StockIndices.propTypes = {
-    simple_step_content: PropTypes.array,
-}
 export default StockIndices

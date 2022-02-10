@@ -1,10 +1,18 @@
-import React, { useEffect, useRef } from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactElement, useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
+
+type NavTabProps = {
+    route_from: string
+    route_offset: number
+}
+
+type TabButtonProps = {
+    selected: boolean
+}
 
 const TabsContainer = styled(Flex)`
     background-color: var(--color-grey-23);
@@ -24,7 +32,8 @@ const TabList = styled.div`
         padding-top: 16px;
     }
 `
-const TabButton = styled.button`
+
+const TabButton = styled.button<TabButtonProps>`
     z-index: 2;
     height: auto;
     padding: 8px 24px 10px;
@@ -79,8 +88,12 @@ const StyledLink = styled(LocalizedLink)`
         color: red;
     }
 `
-
-const tabList = [
+type TabList = {
+    title: ReactElement
+    tab_name: string
+    route_to: string
+}
+const tabList: TabList[] = [
     {
         title: <Localize translate_text="Forex" />,
         tab_name: 'forex',
@@ -113,7 +126,7 @@ const tabList = [
     },
 ]
 
-const NavTab = ({ route_from, route_offset }) => {
+const NavTab = ({ route_from, route_offset }: NavTabProps) => {
     const ref = useRef(null)
 
     useEffect(() => {
@@ -126,24 +139,18 @@ const NavTab = ({ route_from, route_offset }) => {
                 <TabList ref={ref}>
                     {tabList.map((item, index) => {
                         return (
-                            <TabButton selected={route_from == item.tab_name} key={index}>
+                            <TabButton selected={route_from === item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>
                                     <TextWrapper>{item.title}</TextWrapper>
                                 </StyledLink>
                             </TabButton>
                         )
                     })}
-
                     <LineDivider />
                 </TabList>
             </Flex>
         </TabsContainer>
     )
-}
-
-NavTab.propTypes = {
-    route_from: PropTypes.string,
-    route_offset: PropTypes.number,
 }
 
 export default NavTab

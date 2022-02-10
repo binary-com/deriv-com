@@ -33,7 +33,6 @@ import {
     CRM,
     CSCO,
     DAL,
-    DAX30,
     DBK,
     DIS,
     DSHUSD,
@@ -549,12 +548,6 @@ export const financialItemLists = [
         name: 'AUS200',
         display_name: 'Australia 200',
         icon: <img src={AUS200} alt="australia 200" />,
-        market: 'other',
-    },
-    {
-        name: 'DAX30',
-        display_name: 'Germany 30',
-        icon: <img src={DAX30} alt="germany 30" />,
         market: 'other',
     },
     {

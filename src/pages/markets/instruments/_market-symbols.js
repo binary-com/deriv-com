@@ -201,10 +201,6 @@ export const europe = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
-    },
-    {
         src: icons.STOCKSGERMANY40,
         text: <Localize translate_text="Germany 40" />,
     },

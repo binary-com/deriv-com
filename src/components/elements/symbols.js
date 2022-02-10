@@ -57,7 +57,6 @@ import CRM from 'images/svg/symbols/crm.svg'
 import CSCO from 'images/svg/symbols/csco.svg'
 import DAL from 'images/svg/symbols/dal.svg'
 import DASH from 'images/svg/symbols/dash_flag.svg'
-import DAX30 from 'images/svg/symbols/dax-30.svg'
 import DBK from 'images/svg/symbols/dbk.svg'
 import DIS from 'images/svg/symbols/dis.svg'
 import DOGUSD from 'images/svg/symbols/dog-usd.svg'
@@ -397,7 +396,6 @@ export {
     CRM,
     CSCO,
     DAL,
-    DAX30,
     DBK,
     DIS,
     DOGECOIN,

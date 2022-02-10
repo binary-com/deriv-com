@@ -18,11 +18,14 @@ const AgreementLabel = ({
     color,
     pep_label,
     link_text = localize(pep_label || 'I agree to the <0>terms and conditions</0>'),
+    isAffiliate,
 }) => {
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
-
+    const type = isAffiliate
+        ? 'terms_and_conditions/#business-partners'
+        : 'terms_and_conditions/#clients'
     return (
         <label
             style={{
@@ -51,7 +54,7 @@ const AgreementLabel = ({
                     components={[
                         <LocalizedLinkText
                             key={0}
-                            type="terms_and_conditions/#clients"
+                            type={type}
                             external="true"
                             rel="noopener noreferrer"
                             size="14px"
@@ -67,6 +70,7 @@ const AgreementLabel = ({
 AgreementLabel.propTypes = {
     color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,
+    isAffiliate: PropTypes.bool,
     isChecked: PropTypes.bool,
     link_text: PropTypes.string,
     pep_label: PropTypes.string,

@@ -400,6 +400,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                 <AgreementLabel
                                     isChecked={is_terms_checked}
                                     handleChangeCheckbox={handleTermsChange}
+                                    isAffiliate
                                 />
                             </Flex>
                             <SignupButton

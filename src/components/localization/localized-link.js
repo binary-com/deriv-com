@@ -145,7 +145,10 @@ const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
 // add item to this array if you need to make an internal link open on a new tab without modal window
 // !only for  paths without localisation: add item to this array if you need to make an internal link open on a new tab without modal window
 const only_en_new_tab_no_modal = ['tnc/security-and-privacy.pdf']
-const new_tab_no_modal = ['terms_and_conditions/#clients']
+const new_tab_no_modal = [
+    'terms_and_conditions/#clients',
+    'terms_and_conditions/#business-partners',
+]
 
 const getURLFormat = (type, locale, to, affiliate_lang) => {
     if (deriv_app_links.includes(type)) {
@@ -182,6 +185,7 @@ const ExternalLink = ({
     type,
     ...props
 }) => {
+    console.log(children)
     const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
@@ -202,6 +206,7 @@ const ExternalLink = ({
     }
 
     const handleClick = (e) => {
+        console.log('clicked')
         if (show_modal) {
             e.preventDefault()
             setModalPayload({
@@ -217,6 +222,8 @@ const ExternalLink = ({
             onClick(e)
         }
     }
+
+    console.log(!show_modal, url)
 
     return (
         <StyledAnchor

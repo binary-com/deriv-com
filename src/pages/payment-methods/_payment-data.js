@@ -61,7 +61,9 @@ const StyledIcon = styled.img`
 const StyledRefLink = styled(LocalizedLink)`
     font-size: 16px;
     line-height: 24px;
-    color: var(--color-blue-9);
+    color: var(--color-red);
+    display: flex;
+    justify-content: center;
 `
 /* commented for now unless there is an item that has no icon */
 // const NoIconText = styled.div`
@@ -849,12 +851,8 @@ const payment_data = [
                 deposit_time: <Localize translate_text="500 USD" />,
                 withdrawal_time: <Localize translate_text="Max 2 hours" />,
                 reference_link: (
-                    <StyledRefLink
-                        to="/help-centre/deriv-p2p/#what-is-deriv-p2p"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Deriv P2P FAQ
+                    <StyledRefLink to="/p2p/" target="_blank" rel="noopener noreferrer">
+                        Learn more
                     </StyledRefLink>
                 ),
                 name: 'DP2P',

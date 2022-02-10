@@ -13,25 +13,9 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
-    const is_story = /story/g.test(page.path)
+    const who_we_are = /who-we-are/g.test(page.path)
     const is_market = /markets/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
-    const is_landing_ebooks =/landing\/ebooks/g.test(page.path)
-
-    if (is_landing_ebooks) {
-        createRedirect({
-            fromPath: `/landing/ebooks/`,
-            toPath: `/404/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/landing/ebooks`,
-            toPath: `/404`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
 
     if (is_responsible_trading) {
         createRedirect({
@@ -84,16 +68,40 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
-    if (is_story) {
+    if (who_we_are) {
         createRedirect({
             fromPath: `/about/`,
-            toPath: `/story/`,
+            toPath: `/who-we-are/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
             fromPath: `/about`,
-            toPath: `/story/`,
+            toPath: `/who-we-are/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/story/`,
+            toPath: `/who-we-are/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/story`,
+            toPath: `/who-we-are/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/leadership/`,
+            toPath: `/who-we-are/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/leadership`,
+            toPath: `/who-we-are/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -191,20 +199,6 @@ exports.onCreatePage = ({ page, actions }) => {
                 isPermanent: true,
             })
         }
-        if (is_landing_ebooks) {
-            createRedirect({
-                fromPath: `/${lang}/landing/ebooks/`,
-                toPath: `/${lang}/404/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/landing/ebooks`,
-                toPath: `/${lang}/404`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
 
         if (is_contact_us) {
             createRedirect({
@@ -242,16 +236,40 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        if (is_story) {
+        if (who_we_are) {
             createRedirect({
                 fromPath: `/${lang}/about/`,
-                toPath: `/${lang}/story/`,
+                toPath: `/${lang}/who-we-are/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
                 fromPath: `/${lang}/about`,
-                toPath: `/${lang}/story/`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/story/`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/story`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/leadership/`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/leadership`,
+                toPath: `/${lang}/who-we-are/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

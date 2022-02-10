@@ -1,50 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { TextWrapper, Title } from './_common'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
-import { BackgroundImage } from 'components/elements'
+import { BackgroundImage, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 
 const StyledBackground = styled(BackgroundImage)`
     width: 100%;
-    height: 600px;
+    height: 504px;
     object-fit: cover;
     background-size: cover;
     background-color: transparent;
     background-repeat: no-repeat, no-repeat;
-    background-position: center, center right;
 
-    @media ${device.tabletL} {
-        height: 650px;
+    @media ${device.desktopL} {
+        height: auto;
     }
-
+    @media ${device.tabletL} {
+        height: 440px;
+    }
     @media ${device.tablet} {
         height: auto;
-        object-fit: cover;
-        background-position: center right 15% !important;
-
-        ::before,
-        ::after {
-            background-position: center right 15% !important;
-        }
     }
 `
 const Wrapper = styled(Flex)`
     position: relative;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     min-height: ${(props) => props.d_height};
-    padding: 2rem 12rem;
+    padding: 10rem 12rem;
     z-index: 1;
     flex-direction: column;
     height: 100%;
     max-width: 1440px;
     margin: 0 auto;
 
-    h1 {
-        margin-bottom: 20px;
-    }
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
     }
@@ -63,25 +54,29 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
         <>
             <StyledBackground data={imageData} alt={imageAlt}>
                 <Wrapper>
-                    <Title
+                    <Header
                         as="h1"
-                        color={'white'}
-                        text_align={'left'}
-                        font_size={['64px', '32px']}
-                        line_height={['80px', '40px']}
-                        max_width={['636px', '328px']}
+                        color="white"
+                        align="center"
+                        type="heading-2"
+                        max_width="588px"
+                        mb="8px"
+                        tabletL={{ max_width: '320px' }}
                     >
                         {title}
-                    </Title>
-                    <TextWrapper
-                        color={'white'}
-                        font_size={['20px', '14px']}
-                        line_height={['30px', '24px']}
-                        max_width={['636px', '328px']}
+                    </Header>
+                    <Header
+                        as="p"
+                        color="white"
+                        align="center"
+                        weight="regular"
+                        type="subtitle-2"
+                        max_width="588px"
+                        tabletL={{ max_width: '320px' }}
                     >
                         {description}
-                    </TextWrapper>
-                    <Flex jc="flex-start" height="unset" mt="24px" tabletL={{ mt: '16px' }}>
+                    </Header>
+                    <Flex jc="center" height="unset" mt="16px">
                         <LinkButton
                             id="hero-article"
                             to={href}

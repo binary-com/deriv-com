@@ -61,6 +61,9 @@ const StyledError = styled.img`
         right: 2rem;
         top: 1.6rem;
     }
+    @media ${device.desktopL} {
+        top: 1rem;
+    }
 `
 
 const StyledInput = styled.input`

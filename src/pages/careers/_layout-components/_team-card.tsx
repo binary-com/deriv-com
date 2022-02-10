@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'

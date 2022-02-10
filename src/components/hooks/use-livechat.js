@@ -1,13 +1,12 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
 export const useLivechat = () => {
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
+    const [is_loading_lc, setLoadingLc] = useState(false)
+    const [first_load_open_lc, setFirstLoadOpenLc] = useState(false)
+    const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_logged_in, setLoggedIn] = React.useState(false)
-
-    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
-    const is_livechat_query = url_params.get('is_livechat_open')
+    const [is_logged_in, setLoggedIn] = useState(false)
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
@@ -20,10 +19,10 @@ export const useLivechat = () => {
         if (callback) callback()
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         let cookie_interval = null
-        let script_timeout = null
-        if (isBrowser()) {
+        if (isBrowser() && first_load_open_lc) {
+            setLoadingLc(true)
             const domain = getDomain()
 
             /* this function runs every second to determine logged in status*/
@@ -35,34 +34,23 @@ export const useLivechat = () => {
             })()
             cookie_interval = setInterval(checkCookie, 1000)
 
-            // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
-            script_timeout = setTimeout(() => {
-                loadLiveChatScript(() => {
-                    window.LiveChatWidget.on('ready', () => {
-                        setLiveChatInteractive(true)
-                        if (is_livechat_query?.toLowerCase() === 'true') {
-                            window.LC_API.open_chat_window()
-                        }
-                    })
+            loadLiveChatScript(() => {
+                window.LiveChatWidget.on('ready', () => {
+                    setLiveChatInteractive(true)
+                    window.LC_API.open_chat_window()
+                    setLoadingLc(false)
                 })
-            }, 2000)
+            })
         }
 
-        return () => {
-            clearInterval(cookie_interval)
-            clearTimeout(script_timeout)
-        }
-    }, [])
+        return () => clearInterval(cookie_interval)
+    }, [first_load_open_lc])
 
-    React.useEffect(() => {
-        if (isBrowser()) {
+    useEffect(() => {
+        if (isBrowser() && first_load_open_lc) {
             const domain = getDomain()
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
-                    // we open and close the window to trigger the widget to listen for new events
-                    window.LC_API.open_chat_window()
-                    window.LC_API.hide_chat_window()
-
                     const utm_data = getUTMData(domain)
                     const client_information = getClientInformation(domain)
                     const url_params = new URLSearchParams(window.location.search)
@@ -130,5 +118,5 @@ export const useLivechat = () => {
         }
     }, [is_logged_in, is_livechat_interactive])
 
-    return [is_livechat_interactive, LC_API]
+    return [is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc]
 }

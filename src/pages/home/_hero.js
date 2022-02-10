@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
-import { Container, Box, Flex, Show } from 'components/containers'
+import { Container, Box, Flex, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
@@ -143,7 +143,7 @@ const Hero = ({ is_ppc }) => {
             <StyledContainer fd="column" ai="flex-start">
                 <StyledHeroContainer>
                     <Details>
-                        <Show.Desktop>
+                        <Desktop>
                             <Flex mb="1.6rem" direction="column">
                                 <StyledHeader color="white" ad="0.5s">
                                     <Localize translate_text="Simple." />
@@ -155,15 +155,15 @@ const Hero = ({ is_ppc }) => {
                                     <Localize translate_text="Reliable." />
                                 </StyledHeader>
                             </Flex>
-                        </Show.Desktop>
+                        </Desktop>
                         {check_first_load && (
-                            <Show.Mobile>
+                            <Mobile>
                                 <Flex>
                                     <StyledHeader color="white" mb="2rem" as="h1">
                                         <Localize translate_text="Simple. Flexible. Reliable." />
                                     </StyledHeader>
                                 </Flex>
-                            </Show.Mobile>
+                            </Mobile>
                         )}
 
                         <TypeWriter
@@ -179,7 +179,7 @@ const Hero = ({ is_ppc }) => {
                     </Details>
                     <ImageWrapper>
                         {check_first_load && (
-                            <Show.Mobile>
+                            <Mobile>
                                 <QueryImage
                                     data={data.background}
                                     alt="Deriv's trading platform"
@@ -187,9 +187,9 @@ const Hero = ({ is_ppc }) => {
                                     height="233"
                                     loading="eager"
                                 />
-                            </Show.Mobile>
+                            </Mobile>
                         )}
-                        <Show.Desktop>
+                        <Desktop>
                             <QueryImage
                                 data={data.background}
                                 alt="Deriv's trading platform"
@@ -197,7 +197,7 @@ const Hero = ({ is_ppc }) => {
                                 height="346"
                                 loading="eager"
                             />
-                        </Show.Desktop>
+                        </Desktop>
                     </ImageWrapper>
                 </StyledHeroContainer>
                 <ButtonWrapper>

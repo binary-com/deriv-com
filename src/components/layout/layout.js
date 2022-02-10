@@ -121,7 +121,6 @@ const Layout = ({
     no_live_chat,
     no_login_signup,
     type,
-    no_scroll_top,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
@@ -131,13 +130,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-
-    // Every layout change will trigger scroll to top
-    React.useEffect(() => {
-        if (!no_scroll_top && isBrowser()) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
 
     // Allow tracking cookie banner setup
     React.useEffect(() => {
@@ -266,7 +258,6 @@ Layout.propTypes = {
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,
-    no_scroll_top: PropTypes.bool,
     type: PropTypes.string,
 }
 

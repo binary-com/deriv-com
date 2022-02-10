@@ -7,6 +7,13 @@ const deriv_com_app_id = 16929
 const deriv_me_app_id = 1411
 
 export const affiliate_app_id = 30971
+
+export const affiliate_validation_regex = {
+    alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
+    phone: /^\+?((-|\s)*[0-9])*$/,
+    password: /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]*$/,
+}
+
 const supported_domains = [deriv_com_url, deriv_me_url]
 const domain_url =
     isBrowser() && supported_domains.includes(window.location.hostname)

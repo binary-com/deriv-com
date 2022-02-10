@@ -1,11 +1,6 @@
 import React from 'react'
+import { affiliate_validation_regex } from '../../../common/constants'
 import { localize, Localize } from 'components/localization'
-
-const validation_regex = {
-    alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
-    phone: /^\+?((-|\s)*[0-9])*$/,
-    password: /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]*$/,
-}
 
 const validation_is_exceed_number = (input, maxDigit) => {
     const max_digit = maxDigit || 15
@@ -28,7 +23,7 @@ const nameValidation = (input, fieldName, minDigit, maxDigit) => {
         !validation_is_lack_number(input, minDigit)
     ) {
         return localize(`You should enter ${minDigit}-${maxDigit} characters.`)
-    } else if (validation_regex.alphabet.test(input)) {
+    } else if (affiliate_validation_regex.alphabet.test(input)) {
         return localize('Only alphabet is allowed')
     }
     return null
@@ -62,7 +57,7 @@ const phoneValidation = (input, fieldName, minDigit, maxDigit) => {
         !validation_is_lack_number(input, minDigit)
     ) {
         return localize(`You should enter ${minDigit}-${maxDigit} numbers.`)
-    } else if (!validation_regex.phone.test(input)) {
+    } else if (!affiliate_validation_regex.phone.test(input)) {
         return localize(`Please enter a valid phone number (e.g. +15417541234)`)
     }
     return null
@@ -76,7 +71,7 @@ const passwordValidation = (input, fieldName, minDigit, maxDigit) => {
         !validation_is_lack_number(input, minDigit)
     ) {
         return localize(`You should enter ${minDigit}-${maxDigit} characters.`)
-    } else if (!validation_regex.password.test(input)) {
+    } else if (!affiliate_validation_regex.password.test(input)) {
         return localize(`Password should have lower and uppercase English letters with numbers.`)
     }
     return null

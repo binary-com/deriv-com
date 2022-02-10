@@ -211,6 +211,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 }
 
 const TradeTypes = (): React.ReactNode => {
+    const [is_not_big_screen] = useBrowserResize(1979)
     const settings = {
         options: {
             loop: false,
@@ -218,12 +219,12 @@ const TradeTypes = (): React.ReactNode => {
             containScroll: 'trimSnaps',
         },
         view_port: {
-            height: '580px',
+            height: is_not_big_screen ? '600px' : '660px',
         },
         container_style: {
             maxWidth: '100%',
             margin: '0 auto',
-            height: '580px',
+            height: is_not_big_screen ? '600px' : '660px',
         },
         slide_style: {
             width: '384px',

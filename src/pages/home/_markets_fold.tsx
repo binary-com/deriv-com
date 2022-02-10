@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -148,8 +148,8 @@ const query = graphql`
 `
 
 type CarouselItemProps = {
-    header: string
-    description: string
+    header: ReactElement
+    description: ReactElement
     image: ImageDataLike
     is_mobile: boolean
     gradient_start: string
@@ -166,6 +166,7 @@ const CarouselItem = ({
     gradient_end,
     url,
 }: CarouselItemProps) => {
+    const [is_not_big_screen] = useBrowserResize(1979)
     const [is_hovered, setHovered] = useState(false)
     const handleHover = (hover_state: boolean) => {
         return !is_mobile && setHovered(hover_state)
@@ -181,7 +182,7 @@ const CarouselItem = ({
                 <CarouselItemContainer
                     direction="column"
                     jc="flex-start"
-                    width="282px"
+                    width={is_not_big_screen ? '282px' : '400px'}
                     gradient_start={gradient_start}
                     gradient_end={gradient_end}
                 >
@@ -221,6 +222,7 @@ const CarouselItem = ({
 const MarketsFold = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
+    const [is_not_big_screen] = useBrowserResize(1979)
     const settings = {
         options: {
             loop: true,
@@ -236,7 +238,7 @@ const MarketsFold = () => {
             minHeight: is_mobile ? '364px' : 'auto',
         },
         slide_style: {
-            width: '282px',
+            width: is_not_big_screen ? '282px' : '400px',
             height: 'auto',
             marginRight: is_mobile ? '16px' : '24px',
             position: 'relative',

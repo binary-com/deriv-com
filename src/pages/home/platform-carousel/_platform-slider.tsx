@@ -6,6 +6,7 @@ import { PlatformContent, ImageTag, getSlideStartingIndex } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
+import device from 'themes/device'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -87,6 +88,14 @@ const Slide = styled(Flex)<{ distance_center: number }>`
     margin-bottom: 40px;
 `
 
+const StyledFlex = styled(Flex)`
+    width: 600px;
+
+    @media ${device.desktop} {
+        width: 384px;
+    }
+`
+
 type PlatformSliderProps = {
     slide_index: number
     onSelectSlide: Dispatch<SetStateAction<number>>
@@ -115,7 +124,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
             p="0 20px"
             m="0 auto"
         >
-            <Flex position="relative" width="384px" m="0 auto" jc="unset">
+            <StyledFlex position="relative" m="0 auto" jc="unset">
                 <Shadow location="start" />
                 <Shadow location="end" />
                 <SelectedSlide
@@ -141,7 +150,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
                         </Viewport>
                     </Scene>
                 </Flex>
-            </Flex>
+            </StyledFlex>
         </Box>
     )
 }

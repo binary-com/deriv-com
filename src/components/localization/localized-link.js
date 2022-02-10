@@ -185,7 +185,6 @@ const ExternalLink = ({
     type,
     ...props
 }) => {
-    console.log(children)
     const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]

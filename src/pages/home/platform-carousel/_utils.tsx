@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import type { CSSProperties } from 'react'
 import styled from 'styled-components'
 import {
@@ -18,7 +18,7 @@ import {
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 // SVG Icons
 import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
 import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
@@ -47,7 +47,7 @@ export type TPlatformDetails = {
     title: string
     icon: string
     image_key: string
-    description: string
+    description: ReactElement
     learn_more_link: string
     download_links: Array<{ type: string; url: string }>
 }
@@ -57,7 +57,7 @@ export const platform_details: TPlatformDetails[] = [
         title: 'Deriv GO',
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
-        description: localize('Our best trading experience on your mobile.'),
+        description: <Localize translate_text="Our best trading experience on your mobile." />,
         learn_more_link: '/landing/deriv-go/',
         download_links: [
             { type: 'app_store', url: deriv_go_ios_url },
@@ -68,7 +68,7 @@ export const platform_details: TPlatformDetails[] = [
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',
-        description: localize('The all-in-one CFD trading platform.'),
+        description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: [
             { type: 'browser', url: deriv_mt5_app_url },
@@ -81,7 +81,9 @@ export const platform_details: TPlatformDetails[] = [
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader',
-        description: localize('Our flagship app for trading options and multipliers.'),
+        description: (
+            <Localize translate_text="Our flagship app for trading options and multipliers." />
+        ),
         learn_more_link: '/dtrader/',
         download_links: [{ type: 'browser', url: deriv_app_url }],
     },
@@ -89,7 +91,7 @@ export const platform_details: TPlatformDetails[] = [
         title: 'Deriv X',
         icon: DerivXIcon,
         image_key: 'platforms_derivx',
-        description: localize('The CFD trading platform to fit your style.'),
+        description: <Localize translate_text="The CFD trading platform to fit your style." />,
         learn_more_link: '/derivx/',
         download_links: [
             { type: 'browser', url: derivx_app_url },
@@ -101,7 +103,7 @@ export const platform_details: TPlatformDetails[] = [
         title: 'DBot',
         icon: DBotIcon,
         image_key: 'platforms_dbot',
-        description: localize('Automate your trading. No coding required.'),
+        description: <Localize translate_text="Automate your trading. No coding required." />,
         learn_more_link: '/dbot/',
         download_links: [{ type: 'browser', url: deriv_bot_app_url }],
     },
@@ -109,7 +111,7 @@ export const platform_details: TPlatformDetails[] = [
         title: 'SmartTrader',
         icon: SmartTraderIcon,
         image_key: 'platforms_smarttrader',
-        description: localize('Our legacy options trading platform.'),
+        description: <Localize translate_text="Our legacy options trading platform." />,
         learn_more_link: smarttrader_url,
         download_links: [{ type: 'browser', url: smarttrader_url }],
     },
@@ -117,7 +119,9 @@ export const platform_details: TPlatformDetails[] = [
         title: 'Binary Bot',
         icon: BinaryBotIcon,
         image_key: 'platforms_binary_bot',
-        description: localize('Our classic bot builder and automated trading platform.'),
+        description: (
+            <Localize translate_text="Our classic bot builder and automated trading platform." />
+        ),
         learn_more_link: 'https://bot.deriv.com/',
         download_links: [{ type: 'browser', url: 'https://bot.deriv.com/' }],
     },
@@ -125,7 +129,7 @@ export const platform_details: TPlatformDetails[] = [
         title: 'API',
         icon: APIIcon,
         image_key: 'platforms_api',
-        description: localize('Build your own apps with our API.'),
+        description: <Localize translate_text="Build your own apps with our API." />,
         learn_more_link: deriv_api_url,
         download_links: [{ type: 'browser', url: deriv_api_url }],
     },

@@ -205,7 +205,6 @@ const ExternalLink = ({
     }
 
     const handleClick = (e) => {
-        console.log('clicked')
         if (show_modal) {
             e.preventDefault()
             setModalPayload({
@@ -221,9 +220,6 @@ const ExternalLink = ({
             onClick(e)
         }
     }
-
-    console.log(!show_modal, url)
-
     return (
         <StyledAnchor
             style={style ? style : default_style}

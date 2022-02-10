@@ -163,7 +163,15 @@ module.exports = {
                 //   ],
             },
         },
-        `gatsby-plugin-offline`,
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+              precachePages: [`/`, `//markets/*`],
+              workboxConfig: {
+                importWorkboxFrom: `cdn`,
+              },
+            },
+          },
         {
             resolve: 'gatsby-plugin-svgr',
             options: {

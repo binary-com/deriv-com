@@ -9,7 +9,7 @@ export const resetSignupAffiliateDetails = (values, is_input_country) => {
     const errors = {}
     const no_validation = ['residenceList', 'plan', 'currency']
     const inputFields = Object.keys(values).filter((el) => !no_validation.includes(el))
-    inputFields.map((item) => {
+    inputFields.forEach((item) => {
         if (item !== 'country') {
             if (validation[item](values[item])) {
                 return (errors[item] = validation[item](values[item]))

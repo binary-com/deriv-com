@@ -116,33 +116,6 @@ const AvailableMarkets = () => {
                         </Card>
                     </MarketsItem>
                 </MarketsCarousel.Item>
-                <MarketsCarousel.Item>
-                    <MarketsItem>
-                        <Card>
-                            <MobileCardHeader>
-                                <img
-                                    src={Cryptocurrencies}
-                                    alt="cryptocurrencies"
-                                    width="64"
-                                    height="64"
-                                />
-
-                                <StyledText weight="bold">
-                                    {localize('Cryptocurrencies')}
-                                </StyledText>
-                            </MobileCardHeader>
-                            <Text>
-                                {localize(
-                                    'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
-                                )}
-                            </Text>
-                            <LearnMore
-                                text={<Localize translate_text="Learn more" />}
-                                to="/markets/cryptocurrencies/"
-                            />
-                        </Card>
-                    </MarketsItem>
-                </MarketsCarousel.Item>
                 <NonUK>
                     <MarketsCarousel.Item>
                         <MarketsItem>
@@ -167,6 +140,35 @@ const AvailableMarkets = () => {
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/synthetic/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                </NonUK>
+                <NonUK>
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="cryptocurrencies"
+                                        width="64"
+                                        height="64"
+                                    />
+
+                                    <StyledText weight="bold">
+                                        {localize('Cryptocurrencies')}
+                                    </StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/cryptocurrencies/"
                                 />
                             </Card>
                         </MarketsItem>

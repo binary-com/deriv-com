@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MarketsCarousel from '../components/_markets-carousel'
 import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Flex, NonUK } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
@@ -64,28 +64,30 @@ const MarketsAvailable = () => {
                             </Card>
                         </MarketsItem>
                     </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img src={SyntheticIndices} alt="" width="64" height="64" />
+                    <NonUK>
+                        <MarketsCarousel.Item>
+                            <MarketsItem>
+                                <Card>
+                                    <MobileCardHeader>
+                                        <img src={SyntheticIndices} alt="" width="64" height="64" />
 
-                                    <StyledText weight="bold">
-                                        {localize('Synthetic indices')}
-                                    </StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/synthetic/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
+                                        <StyledText weight="bold">
+                                            {localize('Synthetic indices')}
+                                        </StyledText>
+                                    </MobileCardHeader>
+                                    <Text>
+                                        {localize(
+                                            'Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk.',
+                                        )}
+                                    </Text>
+                                    <LearnMore
+                                        text={<Localize translate_text="Learn more" />}
+                                        to="/markets/synthetic/"
+                                    />
+                                </Card>
+                            </MarketsItem>
+                        </MarketsCarousel.Item>
+                    </NonUK>
                 </MarketsCarousel>
             </SectionContainer>
         </>

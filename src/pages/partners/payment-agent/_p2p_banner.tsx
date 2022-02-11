@@ -56,7 +56,7 @@ const MainWrapper = styled(Flex)`
     }
 `
 const LeftWrapper = styled(Flex)`
-    padding: 55px 0 55px 100px;
+    padding: 56px 0 56px 102px;
     justify-content: flex-start;
     @media ${device.laptopM} {
         padding: 55px 0 55px 60px;

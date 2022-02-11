@@ -140,12 +140,16 @@ export const Carousel = ({
         chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
     const { nav_color, bottom_offset, height } = navigation_style || {}
-
     return (
         <div style={container_style}>
             <Embla>
                 <ViewPort style={view_port} ref={emblaRef}>
-                    <EmblaContainer style={vertical_container ? vertical_container : null}>
+                    <EmblaContainer
+                        style={
+                            (vertical_container ? vertical_container : null,
+                            children.length === 1 && { flexDirection: 'column' })
+                        }
+                    >
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
                                 <EmblaSlideInner>{child}</EmblaSlideInner>

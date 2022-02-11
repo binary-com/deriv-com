@@ -165,7 +165,7 @@ const HelpCenter = () => {
 }
 
 const HelpCentre = (is_eu_country) => {
-    const [State, setState] = useState({
+    const [state, setState] = useState({
         name: '',
         searching: '',
         toggle_search: false,
@@ -181,7 +181,7 @@ const HelpCentre = (is_eu_country) => {
             for (let i = 0, len = arr.length; i < len; i++) {
                 const item = arr[i]
                 const obj = {}
-                for (const k in item) {
+                for (let k in item) {
                     obj[k] = item[k]
                 }
                 out.push(obj)
@@ -206,7 +206,7 @@ const HelpCentre = (is_eu_country) => {
             return article
         })
 
-        const all_categories = State.all_categories
+        const all_categories = {}
         Object.keys(all_articles).forEach((article) => {
             all_categories[all_articles[article].category] = { is_expanded: false }
         })
@@ -220,13 +220,12 @@ const HelpCentre = (is_eu_country) => {
     const handleInputChange = (e) => {
         e.preventDefault()
         let { name, value } = e.target
-        const handle = { [name]: `${sanitize(value)}` }
-        setState({ name: handle })
+        setState({ [name]: `${sanitize(value)}` })
     }
 
     const handleSubmit = (e) => e.preventDefault()
 
-    const filtered_articles = matchSorter(State.all_articles, State.searching.trim(), {
+    const filtered_articles = matchSorter(state.all_articles, state.searching.trim(), {
         keys: ['title', 'sub_category'],
     })
 
@@ -236,10 +235,15 @@ const HelpCentre = (is_eu_country) => {
 
     const has_results = !!filtered_articles.length
 
-    const clearSearch = () => setState({ searching: '' })
-    const search_component = State.searching.length > 0 && (
-        <SearchCrossIcon src={CrossIcon} alt="cross icon" onClick={clearSearch} />
+    const search_component = state.searching.length > 0 && (
+        <SearchCrossIcon
+            src={CrossIcon}
+            alt="cross icon"
+            onClick={() => setState({ searching: '' })}
+        />
     )
+
+    console.log('search_component:', search_component, 'has_results:', has_results)
 
     return (
         <Layout>
@@ -252,7 +256,7 @@ const HelpCentre = (is_eu_country) => {
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
-            <SearchSection show={State.toggle_search} has_transition={State.search_has_transition}>
+            <SearchSection show={state.toggle_search} has_transition={state.search_has_transition}>
                 <Backdrop>
                     <Container align="left" justify="flex-start" direction="column">
                         <StyledContainer align="normal" direction="column">
@@ -264,7 +268,7 @@ const HelpCentre = (is_eu_country) => {
                                 <Search
                                     autoFocus
                                     name="search"
-                                    value={State.searching}
+                                    value={state.searching}
                                     onChange={handleInputChange}
                                     placeholder={localize('Try “Trade”')}
                                     data-lpignore="true"
@@ -273,14 +277,14 @@ const HelpCentre = (is_eu_country) => {
                                 {search_component}
                             </SearchForm>
                             <ResultWrapper>
-                                {!!has_results && !!State.searching.length && (
+                                {!!has_results && !!state.searching.length && (
                                     <SearchSuccess
                                         suggested_topics={filtered_articles}
                                         max_length={3}
                                     />
                                 )}
-                                {!has_results && !!State.searching.length && (
-                                    <SearchError search={State.searching} />
+                                {!has_results && !!state.searching.length && (
+                                    <SearchError search={state.searching} />
                                 )}
                             </ResultWrapper>
                         </StyledContainer>
@@ -307,7 +311,7 @@ const HelpCentre = (is_eu_country) => {
                                             idx={idx}
                                             id={id}
                                             item={item}
-                                            all_categories={State.all_categories}
+                                            all_categories={state.all_categories}
                                             is_eu_country={is_eu_country}
                                         />
                                     )

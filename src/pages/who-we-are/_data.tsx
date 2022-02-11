@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'

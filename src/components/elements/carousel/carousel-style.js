@@ -121,10 +121,16 @@ export const StyledChevron = styled(Chevron)`
 `
 
 export const NavigationContainer = styled(Flex)`
-    position: relative;
-    width: 100%;
-    height: ${(props) => props.height ?? '8px'};
-    bottom: ${(props) => props.bottom_offset ?? '40px'};
+    ${({ navigation_css, bottom_offset, height }) => {
+        if (navigation_css) return navigation_css
+        else
+            return css`
+                position: relative;
+                width: 100%;
+                height: ${height ?? '8px'};
+                bottom: ${bottom_offset ?? '40px'};
+            `
+    }}
 `
 
 export const StyledDot = styled.div`

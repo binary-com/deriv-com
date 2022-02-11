@@ -46,7 +46,7 @@ const RedButton = styled(LinkButton)`
     }
 `
 
-const CTA = () => {
+const PartnerCTA = () => {
     return (
         <StyledSection padding="4rem 0">
             <Container>
@@ -89,4 +89,4 @@ const CTA = () => {
     )
 }
 
-export default CTA
+export default PartnerCTA

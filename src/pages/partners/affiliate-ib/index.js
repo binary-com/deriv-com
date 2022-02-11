@@ -67,8 +67,11 @@ const SubtitleHeader = styled(Header)`
         width: 100%;
     }
     @media ${device.tabletL} {
-        font-size: 16px;
+        font-size: 18px;
         text-align: justify;
+    }
+    @media ${device.mobileL} {
+        text-align: center;
     }
 `
 const SectionContainerWrapper = styled(SectionContainer)`
@@ -107,6 +110,10 @@ const StyledText = styled(Text)`
     @media ${device.tabletL} {
         padding-top: 0;
         margin: 12px 0;
+    }
+    @media ${device.mobileL} {
+        font-size: 14px;
+        margin: 0;
     }
 `
 
@@ -184,7 +191,7 @@ const AffiliateIb = () => {
                         <StyledContainer justify="space-around">
                             {items.map((item, index) => (
                                 <NumberWrapper key={index}>
-                                    <Header as="p" type="page-title" align="center">
+                                    <Header as="p" type="heading-2" align="center">
                                         {item.title}
                                     </Header>
                                     <StyledText align="center">{item.subtitle}</StyledText>

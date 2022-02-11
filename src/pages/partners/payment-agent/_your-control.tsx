@@ -72,7 +72,7 @@ const cardItems: CardItemType[] = [
     {
         img_src: LoudSpeaker,
         card_text: (
-            <Localize translate_text="Choose which countries to service, and promote your services your way." />
+            <Localize translate_text="Promote your services to Deriv clients in your country." />
         ),
     },
     {

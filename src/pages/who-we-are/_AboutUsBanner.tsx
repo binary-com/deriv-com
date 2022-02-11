@@ -72,7 +72,7 @@ const StyledHeader = styled(Header)`
 
 const StyledHeader2 = styled(Header)`
     color: var(--color-white);
-    margin: 18px 0 24px;
+    margin: 18px 0 4px;
     @media ${device.tablet} {
         margin: 6px 0 10px;
         font-size: 11px;

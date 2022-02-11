@@ -1,4 +1,4 @@
-/* Partytown 0.3.2 - MIT builder.io */
+/* Partytown 0.3.4 - MIT builder.io */
 (self => {
     const WinIdKey = Symbol();
     const InstanceIdKey = Symbol();
@@ -466,7 +466,11 @@
         env.$currentScriptId$ = -1;
         return errorMsg;
     };
-    const run = (env, scriptContent, scriptUrl) => new Function(`with(this){${scriptContent.replace(/\bthis\b/g, "(thi$(this)?window:this)").replace(/\/\/# so/g, "//Xso")};function thi$(t){return t===this}${(webWorkerCtx.$config$.globalFns || []).filter((globalFnName => /[a-zA-Z_$][0-9a-zA-Z_$]*/.test(globalFnName))).map((g => `(typeof ${g}=='function'&&(window.${g}=${g}))`)).join(";")}}` + (scriptUrl ? "\n//# sourceURL=" + scriptUrl : "")).call(env.$window$);
+    const run = (env, scriptContent, scriptUrl) => {
+        env.$runWindowLoadEvent$ = 1;
+        new Function(`with(this){${scriptContent.replace(/\bthis\b/g, "(thi$(this)?window:this)").replace(/\/\/# so/g, "//Xso")}\n;function thi$(t){return t===this}${(webWorkerCtx.$config$.globalFns || []).filter((globalFnName => /[a-zA-Z_$][0-9a-zA-Z_$]*/.test(globalFnName))).map((g => `(typeof ${g}=='function'&&(window.${g}=${g}))`)).join(";")}}` + (scriptUrl ? "\n//# sourceURL=" + scriptUrl : "")).call(env.$window$);
+        env.$runWindowLoadEvent$ = 0;
+    };
     const runStateLoadHandlers = (instance, type, handlers) => {
         handlers = getInstanceStateValue(instance, type);
         handlers && setTimeout((() => handlers.map((cb => cb({
@@ -622,6 +626,11 @@
                 };
             }
             _this.Worker = void 0;
+        }
+        addEventListener(...args) {
+            "load" === args[0] ? getEnv(this).$runWindowLoadEvent$ && setTimeout((() => args[1]({
+                type: "load"
+            }))) : callMethod(this, [ "addEventListener" ], args, 2);
         }
         get body() {
             return getEnv(this).$body$;

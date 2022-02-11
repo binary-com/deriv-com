@@ -1,4 +1,4 @@
-/* Partytown 0.3.2 - MIT builder.io */
+/* Partytown 0.3.4 - MIT builder.io */
 !function(win, doc, nav, top, useAtomics, config, libPath, timeout, scripts, sandbox, mainForwardFn, isReady) {
     function ready() {
         if (!isReady) {

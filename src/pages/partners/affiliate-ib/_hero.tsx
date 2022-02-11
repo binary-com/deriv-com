@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container } from 'components/containers'
 import { BackgroundImage } from 'components/elements'
+import device from 'themes/device'
 
 type HeroProps = {
     children: React.ReactNode
@@ -23,21 +24,28 @@ const query = graphql`
     }
 `
 
+const StyledBG = styled(BackgroundImage)`
+    height: 48rem;
+    @media ${device.mobileL} {
+        height: 43rem;
+    }
+`
+
 const Hero = ({ children }: HeroProps) => {
     const hero_img = useStaticQuery(query)
     return (
         <>
-            <BackgroundImage
+            <StyledBG
                 data={hero_img.image}
                 style={{
-                    height: '80rem',
                     width: '100%',
+                    maxHeight: '480px',
                 }}
             >
                 <StyeldContainer direction="column" justify="center" align="center">
                     {children}
                 </StyeldContainer>
-            </BackgroundImage>
+            </StyledBG>
         </>
     )
 }

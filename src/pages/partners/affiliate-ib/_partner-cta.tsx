@@ -31,19 +31,13 @@ const LightButton = styled(LinkButton)`
     margin-top: 1.6rem;
     border-radius: 4px;
     border: solid 1px #6e6e6e;
-    padding-top: 7px;
-    height: 32px;
-    @media ${device.tabletL} {
-        padding-top: 9px;
-    }
+    padding-top: 12px;
+    height: 40px;
 `
 const RedButton = styled(LinkButton)`
     border-radius: 4px;
-    padding-top: 0.5rem;
-    height: 32px;
-    @media ${device.tabletL} {
-        padding-top: 1rem;
-    }
+    padding-top: 12px;
+    height: 40px;
 `
 
 const PartnerCTA = () => {

@@ -70,10 +70,20 @@ const Wrapper = styled.div`
 const Content = styled.div<ContentProps>`
     display: flex;
     flex-direction: column;
+    text-align: center;
     max-width: ${(props) => props.max_width};
 
     @media (max-width: 749px) {
         margin-top: ${(props) => props.mt_mobile};
+    }
+
+    @media ${device.mobileL} {
+        & h4 {
+            text-align: center;
+        }
+        & p {
+            text-align: center;
+        }
     }
 `
 
@@ -136,7 +146,7 @@ const LineStyle = css`
 `
 const HowToApply = styled(Col)`
     width: 100%;
-    max-width: 42.8rem;
+    max-width: 43.8rem;
     display: flex;
     flex-direction: column;
 
@@ -158,6 +168,10 @@ const ContentWrapper = styled(Wrapper)`
     @media (max-width: 749px) {
         flex-flow: wrap;
         margin-top: 16px;
+    }
+    @media ${device.mobileL} {
+        justify-content: center;
+        text-align: center;
     }
 `
 
@@ -259,7 +273,7 @@ const WhoCanApply = () => {
                                     <Show.Desktop max_width="bp749">
                                         <ImageWrapper src={Advertise} alt="" />
                                     </Show.Desktop>
-                                    <GetStartedContent max_width="32.4rem">
+                                    <GetStartedContent max_width="35.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Advertise')}
                                         </Header>
@@ -276,7 +290,7 @@ const WhoCanApply = () => {
                                     <Show.Desktop max_width="bp749">
                                         <ImageWrapper src={Earn} alt="" />
                                     </Show.Desktop>
-                                    <GetStartedContent max_width="32.4rem">
+                                    <GetStartedContent max_width="33.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Earn')}
                                         </Header>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Flex, Show, Box } from 'components/containers'
+import { Flex, Box, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import AppStore from 'images/svg/dmt5/app-store.svg'
@@ -110,25 +110,6 @@ const TabList = styled.div<ContentProps>`
         margin: 0;
     }
 `
-
-const Desktop = styled(Show.Desktop)`
-    flex: 1;
-    width: 100%;
-`
-
-const Mobile = styled(Show.Mobile)`
-    @media ${device.tabletS} {
-        margin-bottom: 2.3rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-    @media ${device.mobileL} {
-        margin-bottom: 0;
-    }
-`
-
 const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
 
 const SideTab = ({

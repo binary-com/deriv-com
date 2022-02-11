@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, CssGrid, SectionContainer, Flex, Show } from 'components/containers'
+import { Container, CssGrid, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 // SVG
@@ -103,7 +103,7 @@ const OurValues = () => (
                         </Text>
                     </GridItem>
                     <GridItem direction="column" style={{ marginBottom: 0 }}>
-                        <Show.Desktop>
+                        <Desktop>
                             <img src={Competence} alt="" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Competence
@@ -112,8 +112,8 @@ const OurValues = () => (
                                 We love to work with smart and talented people who are eager to roll
                                 up their sleeves and get things done.
                             </Text>
-                        </Show.Desktop>
-                        <Show.Mobile>
+                        </Desktop>
+                        <Mobile>
                             <img src={Customer} alt="" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Customer focus
@@ -123,12 +123,12 @@ const OurValues = () => (
                                 products and services that give them the best trading experience
                                 possible.
                             </Text>
-                        </Show.Mobile>
+                        </Mobile>
                     </GridItem>
                 </div>
                 <ThirdColumn>
                     <GridItem direction="column">
-                        <Show.Desktop>
+                        <Desktop>
                             <img src={Customer} alt="" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Customer focus
@@ -138,8 +138,8 @@ const OurValues = () => (
                                 products and services that give them the best trading experience
                                 possible.
                             </Text>
-                        </Show.Desktop>
-                        <Show.Mobile>
+                        </Desktop>
+                        <Mobile>
                             <img src={Competence} alt="" />
                             <MiddleText as="h4" type="sub-section-title">
                                 Competence
@@ -148,7 +148,7 @@ const OurValues = () => (
                                 We love to work with smart and talented people who are eager to roll
                                 up their sleeves and get things done.
                             </Text>
-                        </Show.Mobile>
+                        </Mobile>
                     </GridItem>
                     <GridItem direction="column" style={{ marginBottom: 0 }}>
                         <img src={Teamwork} alt="" />

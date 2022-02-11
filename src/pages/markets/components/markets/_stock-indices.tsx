@@ -46,7 +46,6 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                         options_list={stock_options}
                     />
                 }
-                name="Stocks & indices"
                 display_title={
                     <Localize translate_text="Stocks & indices trades available on Deriv" />
                 }

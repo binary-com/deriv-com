@@ -1,9 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
 import ChevronThick from 'images/svg/custom/chevron-thick.svg'
+
+type StyledChevron = {
+    is_show_detail: string
+}
+
+type MarketsAccordionProps = {
+    renderTitle: () => JSX.Element
+    renderDetails: (custom_index?: number) => JSX.Element
+    custom_index?: number
+}
 
 const Wrapper = styled.div`
     border: 1px solid var(--color-grey-22);
@@ -26,7 +35,8 @@ const Title = styled(Flex)`
         flex-direction: column;
     }
 `
-const StyledChevron = styled.img`
+
+const StyledChevron = styled.img<StyledChevron>`
     transform: rotate(${(props) => (props.is_show_detail == 'true' ? '0' : '180')}deg);
     transition: transform 100ms linear;
 
@@ -43,7 +53,8 @@ const Details = styled(Box)`
         padding: 1rem 1rem 2rem 1rem;
     }
 `
-const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }) => {
+
+const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }: MarketsAccordionProps) => {
     const [is_show_detail, setShow] = React.useState(false)
     return (
         <Wrapper>
@@ -68,9 +79,4 @@ const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }) => {
     )
 }
 
-MarketsAccordion.propTypes = {
-    custom_index: PropTypes.number,
-    renderDetails: PropTypes.func,
-    renderTitle: PropTypes.func,
-}
 export default MarketsAccordion

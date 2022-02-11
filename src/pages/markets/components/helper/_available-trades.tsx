@@ -1,6 +1,5 @@
 import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -16,6 +15,24 @@ type CardProps = {
     name: string
     onTabChange: (name: string) => void
 }
+
+type TabIconProps = {
+    active_tab: string
+    name: string
+}
+
+type AvailableTradesProps = {
+    CFDs: ReactElement
+    DigitalOptions?: ReactElement
+    Multipliers?: ReactElement
+    display_title: ReactElement
+}
+
+type CardContainerProps = {
+    active_tab: string
+    name: string
+}
+
 const StyledSection = styled(SectionContainer)`
     padding: 120px 0;
     background-color: var(--color-white);
@@ -60,7 +77,8 @@ const CardWrapper = styled(Flex)`
         z-index: 1;
     }
 `
-const CardContainer = styled(Flex)`
+
+const CardContainer = styled(Flex)<CardContainerProps>`
     position: relative;
     width: fit-content;
     min-width: 240px;
@@ -137,10 +155,7 @@ const CardContainer = styled(Flex)`
         }
     }
 `
-type TabIconProps = {
-    active_tab: string
-    name: string
-}
+
 const TabIcon = styled.img<TabIconProps>`
     min-width: 16px;
     ${(props) => {
@@ -195,7 +210,12 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     )
 }
 
-const AvailableTrades = ({ CFDs, DigitalOptions, Multipliers, display_title }) => {
+const AvailableTrades = ({
+    CFDs,
+    DigitalOptions,
+    Multipliers,
+    display_title,
+}: AvailableTradesProps) => {
     const [active_tab, SetActiveTab] = useState('CFDs')
     const handleTabChange = (new_tab) => {
         if (new_tab !== active_tab) return SetActiveTab(new_tab)
@@ -244,13 +264,6 @@ const AvailableTrades = ({ CFDs, DigitalOptions, Multipliers, display_title }) =
             </StyledContainer>
         </StyledSection>
     )
-}
-
-AvailableTrades.propTypes = {
-    CFDs: PropTypes.object,
-    DigitalOptions: PropTypes.object,
-    display_title: PropTypes.object,
-    Multipliers: PropTypes.object,
 }
 
 export default AvailableTrades

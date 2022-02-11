@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+
+type WhyTradeProps = {
+    children: ReactElement[]
+    header: ReactElement
+    text: ReactElement
+}
 
 const Item = styled(Flex)`
     max-width: 18rem;
@@ -68,7 +73,8 @@ const StyledButton = styled(LinkButton)`
         padding: 1.25rem 4.75rem;
     }
 `
-export const WhyTrade = ({ children, header, text }) => {
+
+export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
     return (
         <StyledSection background="#f9fbff" padding="120px 16px">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
@@ -101,10 +107,4 @@ export const WhyTrade = ({ children, header, text }) => {
             </Flex>
         </StyledSection>
     )
-}
-WhyTrade.propTypes = {
-    children: PropTypes.node,
-    header: PropTypes.object,
-    icon: PropTypes.object,
-    text: PropTypes.object,
 }

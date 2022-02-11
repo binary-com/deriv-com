@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { DerivStore } from 'store'
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
@@ -137,15 +136,4 @@ const AvailablePlatforms = ({
     )
 }
 
-AvailablePlatforms.propTypes = {
-    dbot: PropTypes.bool,
-    derivx: PropTypes.bool,
-    dmt5: PropTypes.bool,
-    dtrader: PropTypes.bool,
-    flex_direction: PropTypes.string,
-    m_top: PropTypes.string,
-    smarttrader: PropTypes.bool,
-    tablet_direction: PropTypes.string,
-    tablet_jc: PropTypes.string,
-}
 export default AvailablePlatforms

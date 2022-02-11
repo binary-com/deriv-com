@@ -45,7 +45,6 @@ const markets_type: MarketsType = {
         id: 'marketforexothermarkets',
     },
     synthetic_indices: {
-        // eslint-disable-next-line react/display-name
         icon: () => <img src={SyntheticIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
@@ -55,7 +54,6 @@ const markets_type: MarketsType = {
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
-        // eslint-disable-next-line react/display-name
         icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Stocks & indices" />,
         content: (
@@ -66,7 +64,6 @@ const markets_type: MarketsType = {
     },
 
     commodities: {
-        // eslint-disable-next-line react/display-name
         icon: () => <img src={Commodities} alt="" width="64" height="64" />,
         title: <Localize translate_text="Commodities" />,
         content: (
@@ -77,7 +74,6 @@ const markets_type: MarketsType = {
     },
 
     cryptocurrencies: {
-        // eslint-disable-next-line react/display-name
         icon: () => <img src={Cryptocurrencies} alt="" width="64" height="64" />,
         title: <Localize translate_text="Cryptocurrencies" />,
         content: (
@@ -87,7 +83,6 @@ const markets_type: MarketsType = {
         id: 'marketcryptocurrenciesothermarket',
     },
     basket_indices: {
-        // eslint-disable-next-line react/display-name
         icon: () => <img src={Basket} alt="" width="64" height="64" />,
         title: <Localize translate_text="Basket indices" />,
         content: (

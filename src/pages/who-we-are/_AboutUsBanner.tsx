@@ -26,7 +26,10 @@ const StyledSectionContainer = styled(SectionContainer)`
 const StyledFlex = styled(Flex)`
     border-radius: 10px;
     background-image: url(${Bg});
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
+    overflow: hidden;
     @media ${device.laptopM} {
         width: 100%;
     }
@@ -43,10 +46,10 @@ const StyledFlex = styled(Flex)`
 
 const PictureFlex = styled(Flex)`
     width: 373px;
-    margin: 32px 0 0 100px;
+    margin: 32px 0 32px 100px;
     flex-direction: 'column';
     @media ${device.laptop} {
-        margin: 32px 0 0 50px;
+        margin: 32px 0 32px 50px;
     }
     @media ${device.tablet} {
         margin: 40px 0 0 29px;
@@ -91,7 +94,7 @@ const StyledLinkButton = styled(LinkButton)`
 const AboutUsBanner = () => {
     return (
         <StyledSectionContainer>
-            <StyledFlex direction="column" height="288px" width="1200px">
+            <StyledFlex direction="column" height="auto" min_height="288px" width="1200px">
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
                         {localize('We have a huge mission, an incredible team, and rapid growth.')}

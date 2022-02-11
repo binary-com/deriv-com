@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -103,7 +103,7 @@ export const CFDWarning = ({ is_ppc }) => {
             </CFDWrapper>
         )
     }
-    return <Fragment />
+    return <></>
 }
 
 const Main = styled.main`

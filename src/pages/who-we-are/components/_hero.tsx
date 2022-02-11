@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 import { localize } from 'components/localization'
@@ -40,19 +40,7 @@ const ContentWrapper = styled(Flex)`
         margin: 180px 0 145px;
     }
 `
-const DesktopWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        display: none;
-    }
-`
-const MobileWrapper = styled.div`
-    display: none;
-    margin: 0 31px;
 
-    @media ${device.tabletL} {
-        display: flex;
-    }
-`
 const MobileHeader = styled.h1`
     color: var(--color-white);
     text-align: center;
@@ -114,7 +102,7 @@ const Hero = () => {
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
             <ContentWrapper jc="center">
-                <DesktopWrapper>
+                <Desktop>
                     <StyledFlex>
                         <StyledQueryImage
                             data={data['about_us_logo']}
@@ -125,8 +113,8 @@ const Hero = () => {
                             <DesktopHeader>{title}</DesktopHeader>
                         </Flex>
                     </StyledFlex>
-                </DesktopWrapper>
-                <MobileWrapper>
+                </Desktop>
+                <Mobile>
                     <Flex fd="column" ai="center" p="0 16px">
                         <StyledMobileQueryImage
                             data={data['about_us_logo']}
@@ -135,7 +123,7 @@ const Hero = () => {
                         />
                         <MobileHeader>{title}</MobileHeader>
                     </Flex>
-                </MobileWrapper>
+                </Mobile>
             </ContentWrapper>
         </ParentWrapper>
     )

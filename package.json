@@ -47,6 +47,7 @@
         "react-is": "^17.0.2",
         "react-paginate": "^8.1.0",
         "react-perfect-scrollbar": "^1.5.8",
+        "react-ticker": "^1.3.1",
         "use-query-params": "^1.2.3",
         "web-push-notifications": "^3.24.0",
         "webpack": "^5.65.0"
@@ -94,8 +95,8 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "gatsby build --log-pages",
-        "develop": "gatsby develop -o",
+        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+        "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.{js,jsx,ts,tsx}','./*.js'} --fix",

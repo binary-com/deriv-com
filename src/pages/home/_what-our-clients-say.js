@@ -66,7 +66,7 @@ const QuoteIcon = styled.img`
 `
 
 const ClientTestimonial = styled(Text)`
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 
     @media ${device.tablet} {
         font-size: 18px;
@@ -79,7 +79,6 @@ const ClientName = styled(Text)`
 
     @media ${device.tablet} {
         font-size: 14px;
-        margin-bottom: 8px;
     }
 `
 

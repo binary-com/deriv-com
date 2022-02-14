@@ -7,6 +7,7 @@ import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import { DerivStore } from 'store'
 
 type TradeTypesProps = {
     image_url: string
@@ -235,6 +236,16 @@ const TradeTypes = (): React.ReactNode => {
         },
         last_slide_no_spacing: true,
     }
+
+    const filteredItem = ItemsDetails.filter((item) => {
+        const { is_eu_country } = React.useContext(DerivStore)
+
+        // If the country is not EU, We will return all the items.
+        if (!is_eu_country) return true
+
+        return item.image_url !== 'trade_type_digitaloptions'
+    })
+
     return (
         <StyledSection padding="unset">
             <Header as="h2" type="heading-2" align="center">
@@ -248,13 +259,15 @@ const TradeTypes = (): React.ReactNode => {
                 mb="40px"
                 tablet={{ mb: '16px' }}
             >
-                {localize('Trade the way you want with 3 exciting trade types')}
+                {localize(
+                    `Trade the way you want with ${filteredItem.length} exciting trade types`,
+                )}
             </Header>
 
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {ItemsDetails.map((item) => {
+                        {filteredItem.map((item) => {
                             return (
                                 <Flex key={item.image_url} ai="flex-start">
                                     <TradeItems items_details={item} />
@@ -266,7 +279,7 @@ const TradeTypes = (): React.ReactNode => {
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {ItemsDetails.map((item) => {
+                    {filteredItem.map((item) => {
                         return (
                             <Flex key={item.link} ai="flex-start">
                                 <TradeItems items_details={item} />

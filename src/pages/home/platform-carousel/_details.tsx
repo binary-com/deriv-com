@@ -46,25 +46,19 @@ const StyledQueryImage = styled(QueryImage)`
 `
 
 type DetailsProps = {
-    slide: number
-    platform_details: TPlatformDetails[]
+    data: TPlatformDetails
 }
 
-const Details = ({ slide, platform_details }: DetailsProps) => {
+const Details = ({ data: { image_key, download_links } }: DetailsProps) => {
     const images = useStaticQuery(image_query)
-    const selected_platform = platform_details[slide]
 
     return (
         <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
             <Flex max_height="550px" mb="24px">
-                <StyledQueryImage
-                    height="100%"
-                    data={images[selected_platform.image_key]}
-                    alt="test"
-                />
+                <StyledQueryImage height="100%" data={images[image_key]} alt="test" />
             </Flex>
             <Flex>
-                {selected_platform.download_links.map((link, index) => {
+                {download_links.map((link, index) => {
                     return (
                         <DownloadLink
                             key={index}

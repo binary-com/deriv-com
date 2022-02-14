@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
-import { PlatformContent, ImageTag, getSlideStartingIndex } from './_utils'
+import { PlatformContent, ImageTag } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -88,23 +88,35 @@ const Slide = styled(Flex)<{ distance_center: number }>`
 `
 
 type PlatformSliderProps = {
-    slide_index: number
-    onSelectSlide: Dispatch<SetStateAction<number>>
-    platform_details: TPlatformDetails[]
+    onChange: Dispatch<SetStateAction<TPlatformDetails>>
+    items: TPlatformDetails[]
 }
 
-const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
+const PlatformSlider = ({ onChange, items }: PlatformSliderProps) => {
+    // Todo(@mitra-fs): We should create an infinite array instead of
+    // duplicating the data many times to create a bigger array
+    const data = [...items, ...items, ...items, ...items, ...items, ...items]
+    const start_index = Math.round(data.length / 2)
+    const [selected, setSelected] = useState(data[start_index])
+
     const [viewportRef, embla] = useEmblaCarousel({
-        startIndex: getSlideStartingIndex(),
+        startIndex: start_index,
         loop: true,
         axis: 'y',
         skipSnaps: false,
         draggable: false,
     })
 
-    const clickHandler = (index) => {
+    // Whenever the items changes, We recalculate the start_index, And we need to call onChange with the correct data.
+    useEffect(() => {
+        setSelected(data[start_index])
+        onChange(data[start_index])
+    }, [start_index])
+
+    const clickHandler = (index: number) => {
         embla.scrollTo(index)
-        onSelectSlide(index)
+        setSelected(data[index])
+        onChange(data[index])
     }
 
     return (
@@ -118,20 +130,14 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
             <Flex position="relative" width="384px" m="0 auto" jc="unset">
                 <Shadow location="start" />
                 <Shadow location="end" />
-                <SelectedSlide
-                    selected_slide={platform_details[slide_index] || platform_details[0]}
-                />
+                <SelectedSlide selected_slide={selected} />
                 <Flex ai="center" jc="unset">
                     <Scene>
                         <Viewport position="relative" ai="center" ref={viewportRef}>
                             <WheelContainer>
-                                {platform_details.map(({ title, icon, learn_more_link }, index) => {
+                                {data.map(({ id, title, icon }, index) => {
                                     return (
-                                        <Slide
-                                            distance_center={index - slide_index}
-                                            key={learn_more_link}
-                                            onClick={() => clickHandler(index)}
-                                        >
+                                        <Slide key={id + index} onClick={() => clickHandler(index)}>
                                             <ImageTag src={icon} />
                                             <Header type="subtitle-1">{title}</Header>
                                         </Slide>

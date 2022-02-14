@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { platform_details, getOSIcon, PlatformContent, ImageTag } from './_utils'
+import { getPlatformDetails, getOSIcon, PlatformContent, ImageTag } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
@@ -124,7 +124,7 @@ const MobilePlatformCarousel = () => {
 
     return (
         <Carousel {...settings}>
-            {platform_details.map((platform, index) => {
+            {getPlatformDetails().map((platform, index) => {
                 const image_key = Object.keys(images)[index]
 
                 return (

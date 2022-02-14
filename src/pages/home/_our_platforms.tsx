@@ -1,4 +1,5 @@
 import React from 'react'
+import { getPlatformDetails } from './platform-carousel/_utils'
 import { Flex, SectionContainer } from 'components/containers'
 import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
@@ -31,7 +32,9 @@ const OurPlatforms = () => {
                         mobileM={{ max_width: '328px' }}
                     >
                         {localize(
-                            'Choose from 8 powerful platforms — each designed with your needs in mind',
+                            `Choose from ${
+                                getPlatformDetails().length
+                            } powerful platforms — each designed with your needs in mind`,
                         )}
                     </Header>
                 </Flex>

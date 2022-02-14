@@ -16,6 +16,7 @@ import {
     dmt5_macos_url,
     smarttrader_url,
 } from 'common/constants'
+import { DerivStore } from 'store'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
@@ -43,7 +44,7 @@ export const getOSIcon = (type: string) => {
 }
 
 export type TPlatformDetails = {
-    id?: number
+    id: string
     title: string
     icon: string
     image_key: string
@@ -54,6 +55,7 @@ export type TPlatformDetails = {
 
 export const platform_details: TPlatformDetails[] = [
     {
+        id: 'deriv_go',
         title: 'Deriv GO',
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
@@ -65,6 +67,7 @@ export const platform_details: TPlatformDetails[] = [
         ],
     },
     {
+        id: 'deriv_mt5',
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',
@@ -78,6 +81,7 @@ export const platform_details: TPlatformDetails[] = [
         ],
     },
     {
+        id: 'd_trader',
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader',
@@ -86,6 +90,7 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: deriv_app_url }],
     },
     {
+        id: 'deriv_x',
         title: 'Deriv X',
         icon: DerivXIcon,
         image_key: 'platforms_derivx',
@@ -98,6 +103,7 @@ export const platform_details: TPlatformDetails[] = [
         ],
     },
     {
+        id: 'd_bot',
         title: 'DBot',
         icon: DBotIcon,
         image_key: 'platforms_dbot',
@@ -106,6 +112,7 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: deriv_bot_app_url }],
     },
     {
+        id: 'smart_trader',
         title: 'SmartTrader',
         icon: SmartTraderIcon,
         image_key: 'platforms_smarttrader',
@@ -114,6 +121,7 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: smarttrader_url }],
     },
     {
+        id: 'binary_bot',
         title: 'Binary Bot',
         icon: BinaryBotIcon,
         image_key: 'platforms_binary_bot',
@@ -122,6 +130,7 @@ export const platform_details: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: 'https://bot.deriv.com/' }],
     },
     {
+        id: 'api',
         title: 'API',
         icon: APIIcon,
         image_key: 'platforms_api',
@@ -131,24 +140,14 @@ export const platform_details: TPlatformDetails[] = [
     },
 ]
 
-export const getPlatformDetails = (no_of_copies) => {
-    const new_details = []
-    let current_index = 0
+export const getPlatformDetails = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
 
-    for (let index = 0; index < no_of_copies; index++) {
-        platform_details.forEach((p) => {
-            new_details.push({ ...p, id: current_index })
-            current_index++
-        })
+    if (is_eu_country) {
+        return platform_details.filter((item) => item.id === 'deriv_mt5' || item.id === 'd_trader')
     }
 
-    return new_details
-}
-
-export const no_slide_sets = 11
-
-export const getSlideStartingIndex = () => {
-    return Math.round((no_slide_sets * 8) / 2 - 2)
+    return platform_details
 }
 
 export const ImageTag = styled.img`

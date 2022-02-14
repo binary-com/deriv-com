@@ -9,11 +9,11 @@ export const handleScroll = (show, hide) => {
     window.scrollY > show_height ? show() : hide()
 }
 
-export function moveButton() {
+export const moveButton = () => {
     const [show_button, setShowButton] = useState(false)
     const showButton = () => setShowButton(!show_button)
     const hideButton = () => setShowButton(false)
-    return [show_button, showButton, hideButton]
+    return [show_button, showButton, hideButton] as const // here, we freeze the array to a tuple, so we can not change it out of this methods
 }
 
 export const handleLogin = () => {

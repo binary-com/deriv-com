@@ -54,9 +54,7 @@
         "webpack": "^5.65.0"
     },
     "devDependencies": {
-        "@graphql-codegen/cli": "^2.6.2",
-        "@graphql-codegen/typescript": "^2.4.5",
-        "@graphql-codegen/typescript-operations": "^2.3.2",
+        "@percy/cli": "^1.0.0-beta.75",
         "@storybook/addon-actions": "^6.4.9",
         "@storybook/addon-essentials": "^6.4.9",
         "@storybook/addon-links": "^6.4.9",
@@ -78,6 +76,7 @@
         "eslint-webpack-plugin": "^3.1.1",
         "gatsby-plugin-eslint": "^4.0.2",
         "gatsby-plugin-styled-components": "^5.9.0",
+        "gatsby-plugin-percy": "^1.0.0",
         "gh-pages": "^3.2.3",
         "husky": "^7.0.4",
         "lint-staged": "^12.1.5",

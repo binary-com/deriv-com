@@ -166,12 +166,13 @@ module.exports = {
         {
             resolve: `gatsby-plugin-offline`,
             options: {
-              precachePages: [`/`, `//markets/*`],
+              precachePages: [`/`, `/markets/*`, `/trade-types/*`],
               workboxConfig: {
                 importWorkboxFrom: `cdn`,
               },
             },
           },
+        `gatsby-plugin-percy`,
         {
             resolve: 'gatsby-plugin-svgr',
             options: {

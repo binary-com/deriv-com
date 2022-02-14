@@ -6,6 +6,7 @@ import AIG from 'images/svg/symbols/aig.svg'
 import ALGORAND from 'images/svg/symbols/algorand.svg'
 import ALUMINIUMUSD from 'images/svg/symbols/aluminium-usd.svg'
 import AMZN from 'images/svg/symbols/amzn.svg'
+import AUDBASKET from 'images/svg/symbols/aud-basket.svg'
 import AUDCAD from 'images/svg/symbols/aud-cad.svg'
 import AUDCHF from 'images/svg/symbols/aud-chf.svg'
 import AUDINDEX from 'images/svg/symbols/aud-index.svg'
@@ -51,6 +52,7 @@ import EOSUSD from 'images/svg/symbols/eos-usd.svg'
 import ESP35 from 'images/svg/symbols/esp-35.svg'
 import EUR50 from 'images/svg/symbols/eur-50.svg'
 import EURAUD from 'images/svg/symbols/eur-aud.svg'
+import EURBASKET from 'images/svg/symbols/eur-basket.svg'
 import EURCAD from 'images/svg/symbols/eur-cad.svg'
 import EURCHF from 'images/svg/symbols/eur-chf.svg'
 import EURGBP from 'images/svg/symbols/eur-gbp.svg'
@@ -70,6 +72,7 @@ import FILECOIN from 'images/svg/symbols/filecoin.svg'
 import FDX from 'images/svg/symbols/fdx.svg'
 import FRA40 from 'images/svg/symbols/fra-40.svg'
 import GBPAUD from 'images/svg/symbols/gbp-aud.svg'
+import GBPBASKET from 'images/svg/symbols/gbp-basket.svg'
 import GBPCAD from 'images/svg/symbols/gbp-cad.svg'
 import GBPCHF from 'images/svg/symbols/gbp-chf.svg'
 import GBPINDEX from 'images/svg/symbols/gbp-index.svg'
@@ -80,6 +83,7 @@ import GBPSGD from 'images/svg/symbols/gbp-sgd.svg'
 import GBPTRY from 'images/svg/symbols/gbp-try.svg'
 import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
 import GM from 'images/svg/symbols/gm.svg'
+import GOLDBASKET from 'images/svg/symbols/gold-basket.svg'
 import GOLDINDEX from 'images/svg/symbols/gold-index.svg'
 import GOLDEUR from 'images/svg/symbols/gold-eur.svg'
 import GOLDUSD from 'images/svg/symbols/gold-usd.svg'
@@ -161,6 +165,7 @@ import UNISWAP from 'images/svg/symbols/uniswap.svg'
 import US100 from 'images/svg/symbols/us-100.svg'
 import US30 from 'images/svg/symbols/us-30.svg'
 import US500 from 'images/svg/symbols/us-500.svg'
+import USDBASKET from 'images/svg/symbols/usd-basket.svg'
 import USDCAD from 'images/svg/symbols/usd-cad.svg'
 import USDCHF from 'images/svg/symbols/usd-chf.svg'
 import USDHKD from 'images/svg/symbols/usd-hkd.svg'
@@ -277,6 +282,7 @@ export {
     ALGORAND,
     ALUMINIUMUSD,
     AMZN,
+    AUDBASKET,
     AUDCAD,
     AUDCHF,
     AUDINDEX,
@@ -322,6 +328,7 @@ export {
     ESP35,
     EUR50,
     EURAUD,
+    EURBASKET,
     EURCAD,
     EURCHF,
     EURGBP,
@@ -341,6 +348,7 @@ export {
     FILECOIN,
     FRA40,
     GBPAUD,
+    GBPBASKET,
     GBPCAD,
     GBPCHF,
     GBPINDEX,
@@ -351,6 +359,7 @@ export {
     GBPTRY,
     GBPUSD,
     GM,
+    GOLDBASKET,
     GOLDINDEX,
     GOLDEUR,
     GOLDUSD,
@@ -434,6 +443,7 @@ export {
     US100,
     US30,
     US500,
+    USDBASKET,
     USDCAD,
     USDCHF,
     USDHKD,

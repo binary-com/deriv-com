@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import MarketInstruments from '../../markets/components/sections/_market_instruments.js'
-import { MajorPairs, SmartFX } from '../../markets/instruments/_submarkets.js'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import MarketInstruments from '../../markets/components/sections/_market_instruments'
+import { MajorPairs, SmartFX } from '../../markets/instruments/_submarkets'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
 import { SmartFXDetails } from '../../markets/static/content/_details'
+import type { MarketInstrumentsElement } from '../../markets/components/sections/_market_instruments'
 import { Text } from 'components/elements'
 import { SectionContainer, Show, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
@@ -28,7 +29,7 @@ const StyledTitle = styled(Text)`
 const CFDs = () => {
     const { is_eu_country } = React.useContext(DerivStore)
 
-    const major_pairs = {
+    const major_pairs: MarketInstrumentsElement = {
         markets_list: {
             col: 4,
             tablet_col: 3,
@@ -42,7 +43,7 @@ const CFDs = () => {
         ],
     }
 
-    const forex_cfds_desktop = {
+    const forex_cfds_desktop: MarketInstrumentsElement = {
         template: 2,
         content: [
             {
@@ -55,7 +56,7 @@ const CFDs = () => {
         ],
     }
 
-    const forex_cfds_mobile = {
+    const forex_cfds_mobile: MarketInstrumentsElement = {
         content: [
             {
                 title: <Localize translate_text="SmartFX" />,

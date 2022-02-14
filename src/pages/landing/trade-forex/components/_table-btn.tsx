@@ -1,13 +1,30 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import MarketInstruments from '../../../markets/components/sections/_market_instruments.js'
-import { SwapFreePairs } from '../../../markets/instruments/_submarkets.js'
+import MarketInstruments from '../../../markets/components/sections/_market_instruments'
+import { SwapFreePairs } from '../../../markets/instruments/_submarkets'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 
+type TablebtnProps = {
+    btnlabel: string
+    text: string
+}
+export type SwapFreePairsTable = {
+    markets_list: {
+        col: number
+        tablet_col: number
+        mobile_col: number
+    }
+    content: [
+        {
+            title: ReactElement
+            component: ReactElement
+        },
+    ]
+}
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 16px;
@@ -36,13 +53,9 @@ const TryButton = styled(LinkButton)`
         margin-top: 24px 0 40px;
     }
 `
-type TablebtnProps = {
-    btnlabel: string
-    text: string
-}
 
 const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
-    const swap_free_pairs = {
+    const swap_free_pairs: SwapFreePairsTable = {
         markets_list: {
             col: 4,
             tablet_col: 3,
@@ -64,7 +77,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                 </StyledText>
                 <MarketInstruments
                     market_content={swap_free_pairs}
-                    background="var(--color-white)"
+                    // background="var(--color-white)"
                 />
                 <TryButton
                     m="4.2rem 0 40px"

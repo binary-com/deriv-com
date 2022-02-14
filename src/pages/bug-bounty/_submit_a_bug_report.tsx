@@ -36,8 +36,10 @@ const LinkText = styled.a<LinkTextProps>`
 
 const TextWrap = styled.div`
     padding: 64px 0;
+    width: 690px;
 
     @media ${device.tabletL} {
+        width: unset;
         padding: 0;
     }
 `
@@ -45,7 +47,6 @@ const TextWrap = styled.div`
 const ImageWrap = styled.div`
     width: 328px;
     padding: 32px 0 0 32px;
-
     @media ${device.tabletL} {
         padding: 24px 0 0;
         margin: 0 auto;
@@ -99,7 +100,7 @@ const SubmitABugReport = () => {
                     </TextWrap>
 
                     <ImageWrap>
-                        <QueryImage data={bug_report_image} alt="bug_report_image" />
+                        <QueryImage data={bug_report_image} alt="bug_report_image" width="100%" />
                     </ImageWrap>
                 </Wrapper>
 

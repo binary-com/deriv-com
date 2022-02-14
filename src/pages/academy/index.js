@@ -34,7 +34,6 @@ const MainWrapper = styled.div`
         max-width: 1600px;
     }
 `
-
 const DerivBlog = ({ data }) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 
@@ -113,8 +112,8 @@ const DerivBlog = ({ data }) => {
                         return (
                             <Flex key={page_data.id}>
                                 <Hero
-                                    imageData={page_data.desktop_hero.imageFile}
-                                    imageAlt={page_data?.desktop_hero?.description}
+                                    imageData={page_data.image?.imageFile}
+                                    imageAlt={page_data?.image?.description}
                                     title={page_data.heading}
                                     description={page_data.sub_heading}
                                     href={page_data.link}

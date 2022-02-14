@@ -9,6 +9,7 @@ export type QueryImageProps = {
     data: ImageDataLike
     height?: string
     width?: string
+    max_width?: string
     loading?: 'eager' | 'lazy'
     disable_transition?: boolean
     onMouseOver?: MouseEventHandler<HTMLDivElement>

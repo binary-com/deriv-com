@@ -32,12 +32,6 @@ export const EmblaSlideInner = styled.div`
     padding-left: 0;
     margin: 0 auto;
     height: 100%;
-    ${(props) => {
-        if (props.width)
-            return css`
-                width: ${props.width};
-            `
-    }}
 `
 
 export const StyledButtonWrapper = styled.div`
@@ -127,13 +121,13 @@ export const StyledChevron = styled(Chevron)`
 `
 
 export const NavigationContainer = styled(Flex)`
-    ${({ navigation_css, bottom_offset }) => {
+    ${({ navigation_css, bottom_offset, height }) => {
         if (navigation_css) return navigation_css
         else
             return css`
                 position: relative;
                 width: 100%;
-                height: 8px;
+                height: ${height ?? '8px'};
                 bottom: ${bottom_offset ?? '40px'};
             `
     }}

@@ -33,6 +33,7 @@ module.exports = {
             options: {
                 failOnError: true,
                 base64Width: 20,
+                forceBase64Format: 'webp',
                 stripMetadata: true,
                 defaultQuality: 50,
             },
@@ -74,6 +75,7 @@ module.exports = {
                     '/signup-success',
                     '/**/signup-success',
                     '/academy/blog/posts/preview',
+                    '/academy/subscription',
                 ],
                 query: `
                 {

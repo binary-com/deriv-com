@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { Form } from 'formik'
 import { Flex, SectionContainer, Container } from 'components/containers'
@@ -5,6 +6,16 @@ import { Dropdown, Header, Text } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
+
+type CalculatorTabItemProps = {
+    active?: ReactNode
+    disabled?: ReactNode
+}
+
+type PnlCalculatorTabItemProps = {
+    active?: ReactNode
+    disabled?: ReactNode
+}
 
 export const Hero = styled(Flex)`
     height: 40rem;
@@ -57,6 +68,23 @@ export const SectionSubtitle = styled(Header)`
         padding: 0 16px;
     }
 `
+const swap_tab_selector_css = (props) =>
+    props.active
+        ? css`
+              box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+              border: unset;
+
+              ${Text} {
+                  font-weight: bold;
+              }
+          `
+        : css`
+              box-shadow: unset;
+
+              ${Text} {
+                  font-weight: unset;
+              }
+          `
 
 export const SwapTabSelector = styled(Flex)`
     padding: 22px 64px;
@@ -66,21 +94,7 @@ export const SwapTabSelector = styled(Flex)`
     border: solid 1px rgba(51, 51, 51, 0.1);
     flex-direction: column;
     cursor: pointer;
-    ${(props) =>
-        props.active
-            ? css`
-                  box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-                  border: unset;
-                  ${Text} {
-                      font-weight: bold;
-                  }
-              `
-            : css`
-                  box-shadow: unset;
-                  ${Text} {
-                      font-weight: unset;
-                  }
-              `}
+    ${swap_tab_selector_css}
 
     @media ${device.mobileL} {
         padding: 12px 24px;
@@ -300,6 +314,24 @@ export const CalculatorBody = styled.div`
     }
 `
 
+const calculator_tab_item_style_css = (props: { active: string }) =>
+    props.active
+        ? css`
+              pointer-events: none;
+              border: 1.5px solid var(--color-blue-5);
+
+              ${Text} {
+                  font-weight: bold;
+              }
+          `
+        : css`
+              box-shadow: unset;
+
+              ${Text} {
+                  font-weight: unset;
+              }
+          `
+
 const CalculatorTabItemStyles = css`
     height: 72px;
     width: 23.4rem;
@@ -310,21 +342,7 @@ const CalculatorTabItemStyles = css`
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
-    ${(props) =>
-        props.active
-            ? css`
-                  pointer-events: none;
-                  border: 1.5px solid var(--color-blue-5);
-                  ${Text} {
-                      font-weight: bold;
-                  }
-              `
-            : css`
-                  box-shadow: unset;
-                  ${Text} {
-                      font-weight: unset;
-                  }
-              `}
+    ${calculator_tab_item_style_css}
 
     ${Text} {
         @media ${device.mobileL} {
@@ -333,7 +351,7 @@ const CalculatorTabItemStyles = css`
     }
 `
 
-export const CalculatorTabItem = styled.div`
+export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {
@@ -341,7 +359,7 @@ export const CalculatorTabItem = styled.div`
     }
 `
 
-export const PnlCalculatorTabItem = styled.div`
+export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {

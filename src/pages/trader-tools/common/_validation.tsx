@@ -6,11 +6,6 @@ const validation_regex_number = (maxDigit) =>
 
 const validation_regex_number_with_negative = (maxDigit) =>
     new RegExp(`^-?\\d{0,${maxDigit}}\\.{0,1}\\d{0,${maxDigit}}$`)
-const validation_regex = {
-    number: /^\d*\.?\d+$/,
-    numberWithNegative: /^-?\d*\.{0,1}\d+$/,
-    integer: /^\d+$/,
-}
 
 const validation_is_exceed_number = (input, maxDigit) => {
     const max_digit = maxDigit || 15

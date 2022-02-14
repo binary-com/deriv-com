@@ -28,7 +28,6 @@ export const Section = styled(SectionContainer)`
     @media ${device.tablet} {
         padding: 16px;
     }
-
     @media ${device.mobileL} {
         padding: 16px 0;
     }

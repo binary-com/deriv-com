@@ -25,8 +25,14 @@ const Card = styled(Flex)`
     margin: 0 12px;
 
     @media ${device.laptopM} {
-        height: 362px;
-        min-width: 282px;
+        height: 395px;
+        min-width: 284px;
+        margin: 12px;
+        padding: 12px;
+    }
+
+    @media ${device.tabletL} {
+        height: 296px;
     }
 `
 
@@ -35,6 +41,7 @@ const CardWrapper = styled(Flex)`
     flex-direction: row;
 
     @media ${device.laptopM} {
+        margin-top: 24px;
         overflow-x: scroll;
         position: relative;
         justify-content: flex-start;
@@ -93,9 +100,13 @@ const card_content = [
     },
 ]
 
+const StyledSectionContainer = styled(SectionContainer)`
+    box-shadow: inset 0px -1px 0px var(--color-grey-8);
+`
+
 const Rewards = () => {
     return (
-        <SectionContainer>
+        <StyledSectionContainer>
             <Container fd="column">
                 <Header as="h2" type="heading-2" align="center" mb="8px">
                     {localize('Rewards')}
@@ -178,7 +189,7 @@ const Rewards = () => {
                     <img src={Arrow} alt="arrow" width="16" height="16" />
                 </Flex>
             </Container>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

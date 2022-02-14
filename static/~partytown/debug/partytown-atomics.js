@@ -1,4 +1,4 @@
-/* Partytown 0.3.4 - MIT builder.io */
+/* Partytown 0.3.5 - MIT builder.io */
 (window => {
     const isPromise = v => "object" == typeof v && v && v.then;
     const noop = () => {};
@@ -476,7 +476,7 @@
                 const msg = ev.data;
                 10 === msg[0] ? mainAccessHandler(worker, msg[1]) : onMessageHandler(worker, msg);
             };
-            logMain("Created Partytown web worker (0.3.4)");
+            logMain("Created Partytown web worker (0.3.5)");
             worker.onerror = ev => console.error("Web Worker Error", ev);
             mainWindow.addEventListener("pt1", (ev => registerWindow(worker, getAndSetInstanceId(ev.detail.frameElement), ev.detail)));
         }

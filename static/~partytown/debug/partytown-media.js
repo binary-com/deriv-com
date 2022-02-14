@@ -1,4 +1,4 @@
-/* Partytown 0.3.4 - MIT builder.io */
+/* Partytown 0.3.5 - MIT builder.io */
 (self => {
     const ContextKey = Symbol();
     const MediaSourceKey = Symbol();

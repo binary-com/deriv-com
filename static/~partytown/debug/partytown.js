@@ -1,4 +1,4 @@
-/* Partytown 0.3.4 - MIT builder.io */
+/* Partytown 0.3.5 - MIT builder.io */
 !function(win, doc, nav, top, useAtomics, config, libPath, timeout, scripts, sandbox, mainForwardFn, isReady) {
     function ready() {
         if (!isReady) {
@@ -11,7 +11,7 @@
                         detail: win
                     }));
                 } else if (scripts.length) {
-                    timeout = setTimeout(fallback, 6e4);
+                    timeout = setTimeout(fallback, 1e4);
                     doc.addEventListener("pt0", clearFallback);
                     useAtomics ? loadSandbox(1) : nav.serviceWorker ? nav.serviceWorker.register(libPath + "partytown-sw.js", {
                         scope: libPath
@@ -51,6 +51,7 @@
             script.innerHTML = scripts[i].innerHTML;
             doc.head.appendChild(script);
         }
+        sandbox && sandbox.parentNode.removeChild(sandbox);
     }
     function clearFallback() {
         clearTimeout(timeout);

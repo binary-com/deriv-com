@@ -1,12 +1,18 @@
 import React from 'react'
-import { ButtonWrapper, ContentContainer, LogoWrapper, Section, StyledLogoLink } from './style/nav'
+import {
+    ButtonWrapper,
+    ContentContainer,
+    LogoWrapper,
+    Section,
+    StyledLogoLink,
+} from './styles/nav-besquare-styles'
 import { besquare_signup_url } from 'common/constants'
 import { localize } from 'components/localization'
 import BeSquareLogo from 'images/svg/be-square/be-square-logo.svg'
 
 const hasApplyButton = false
 
-const BeSquareNav = () => (
+const NavBeSquare = () => (
     <Section>
         <ContentContainer>
             <LogoWrapper>
@@ -29,4 +35,4 @@ const BeSquareNav = () => (
     </Section>
 )
 
-export default BeSquareNav
+export default NavBeSquare

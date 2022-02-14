@@ -1,3 +1,4 @@
+// global styles of nav components
 import styled from 'styled-components'
 import device from 'themes/device'
 import { getBaseRef } from 'common/utility'

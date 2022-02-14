@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import { CFDWarning } from 'components/layout'
@@ -9,33 +8,12 @@ import { QueryImage } from 'components/elements'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
 
-export const Section = styled(SectionContainer)`
-    background-color: var(--color-black);
-    width: 100%;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    padding: 22px 1%;
-    height: 72px;
-
-    @media ${device.tabletL} {
-        padding: 16px;
-        height: 48px;
-    }
-
-    @media ${device.mobileL} {
-        padding: 16px 0;
-    }
-`
-
 const ContentContainer = styled(Container)`
     justify-content: space-between;
-
     @media ${device.tabletL} {
         justify-content: center;
     }
 `
-
 const LogoWrapper = styled(Flex)`
     align-items: center;
     width: 293px;
@@ -43,14 +21,28 @@ const LogoWrapper = styled(Flex)`
         width: 176px;
     }
 `
-
 const ImgWrapper = styled.img`
     width: 120px;
     height: 16px;
-
     @media ${device.tabletL} {
         width: 75px;
         height: 10px;
+    }
+`
+const Section = styled(SectionContainer)`
+    background-color: var(--color-black);
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    padding: 22px 1%;
+    height: 72px;
+    @media ${device.tabletL} {
+        padding: 16px;
+        height: 48px;
+    }
+    @media ${device.mobileL} {
+        padding: 16px 0;
     }
 `
 const Line = styled.div`
@@ -59,12 +51,11 @@ const Line = styled.div`
     margin-right: 8px;
     margin-left: 8px;
     background-color: var(--color-white);
-
     @media ${device.tabletL} {
         height: 16px;
     }
 `
-export const LogoLink = styled(LocalizedLink)`
+const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
     width: 100%;
 `
@@ -76,8 +67,14 @@ const query = graphql`
         }
     }
 `
-const JumpIndiceNav = ({ is_ppc }) => {
+
+type NavJumpIndiceProps = {
+    is_ppc: boolean
+}
+
+const NavJumpIndice = (props: NavJumpIndiceProps) => {
     const data = useStaticQuery(query)
+
     return (
         <>
             <Section>
@@ -97,13 +94,9 @@ const JumpIndiceNav = ({ is_ppc }) => {
                     </LogoWrapper>
                 </ContentContainer>
             </Section>
-            <CFDWarning is_ppc={is_ppc} />
+            <CFDWarning {...props} />
         </>
     )
 }
 
-JumpIndiceNav.propTypes = {
-    is_ppc: PropTypes.bool,
-}
-
-export default JumpIndiceNav
+export default NavJumpIndice

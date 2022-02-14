@@ -62,6 +62,8 @@ const uk_exceptions = ['Synthetic indices']
 const filterByUkExeptions = (markets: AllMarketsType) =>
     markets.filter(({ title }) => !uk_exceptions.includes(title))
 
+const uk_markets = filterByUkExeptions(all_markets)
+
 const MarketsAvailable = () => {
     const { is_uk_country } = React.useContext<DerivStoreType>(DerivStore)
 
@@ -74,7 +76,7 @@ const MarketsAvailable = () => {
                     </Header>
                 </SmallContainer>
                 <MarketsCarousel>
-                    {(is_uk_country ? filterByUkExeptions(all_markets) : all_markets).map(
+                    {(is_uk_country ? uk_markets : all_markets).map(
                         ({ image, title, text, url }) => (
                             <MarketsCarousel.Item key={title}>
                                 <MarketsItem>

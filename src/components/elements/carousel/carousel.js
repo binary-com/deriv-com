@@ -144,12 +144,7 @@ export const Carousel = ({
         <div style={container_style}>
             <Embla>
                 <ViewPort style={view_port} ref={emblaRef}>
-                    <EmblaContainer
-                        style={
-                            (vertical_container ? vertical_container : null,
-                            children.length === 1 && { flexDirection: 'column' })
-                        }
-                    >
+                    <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
                                 <EmblaSlideInner>{child}</EmblaSlideInner>

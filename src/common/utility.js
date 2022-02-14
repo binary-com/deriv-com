@@ -363,8 +363,8 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
-const eu_subdomain_countries = ['nl']
 const uk_subdomain_countries = ['gb']
+const eu_subdomain_countries = ['nl']
 
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`

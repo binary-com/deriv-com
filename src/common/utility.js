@@ -363,6 +363,9 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
+const eu_subdomain_countries = ['nl']
+const uk_subdomain_countries = ['gb']
+
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
     window.location.host = redirection_url
@@ -373,25 +376,25 @@ const redirectToDeriv = (full_domain) => {
 }
 
 export const handleDerivRedirect = (country, subdomain) => {
-    if (country === 'nl') {
+    if (eu_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? subdomain : 'eu')
-    } else if (country === 'gb') {
+    } else if (uk_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? subdomain : 'uk')
     }
 }
 
 const handleUKRedirect = (country, subdomain, full_domain) => {
-    if (country === 'nl') {
+    if (eu_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? subdomain : 'eu')
-    } else if (country !== 'gb') {
+    } else if (!uk_subdomain_countries.includes(country)) {
         redirectToDeriv(full_domain)
     }
 }
 
 const handleEURedirect = (country, subdomain, full_domain) => {
-    if (country === 'gb') {
+    if (uk_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? subdomain : 'uk')
-    } else if (country !== 'nl') {
+    } else if (!eu_subdomain_countries.includes(country)) {
         redirectToDeriv(full_domain)
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { AllVideosQuery } from '../../../../graphql.types'
 import Subscribe from '../components/_subscribe'
 import AllVideos from './_all-videos'
 import Layout from 'components/layout/layout'
@@ -46,10 +46,16 @@ const Hero = styled(Flex)`
     }
 `
 
-const VideosPage = ({ data }) => {
+type VideosPageProps = {
+    data: AllVideosQuery
+}
+
+export type VideoDataType = AllVideosQuery['directus']['videos']
+
+const VideosPage = ({ data }: VideosPageProps) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 
-    let video_data
+    let video_data = data.directus.videos
 
     // We need to include the !is_uk_country check together with is_eu_country because 'gb'
     // is a valid country code for both EU and UK in our country base.
@@ -61,8 +67,6 @@ const VideosPage = ({ data }) => {
         video_data = data.directus.videos.filter(
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )
-    } else {
-        video_data = data.directus.videos
     }
 
     const meta_attributes = {
@@ -112,13 +116,10 @@ const VideosPage = ({ data }) => {
     )
 }
 
-VideosPage.propTypes = {
-    data: PropTypes.object,
-}
 export default WithIntl()(VideosPage)
 
 export const query = graphql`
-    query AllVideosQuery {
+    query AllVideos {
         directus {
             videos(filter: { status: { _eq: "published" } }, sort: "- published_date") {
                 video_id

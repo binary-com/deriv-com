@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { NavWrapperMain, StyledNavMain, NavDesktop, NavMobile } from '../nav'
 import SearchBanner from '../../../pages/academy/components/_search-banner'
+import { NavWrapperMain, StyledNavMain } from './styles/nav-styles'
+import { NavTypes } from './models/nav-types'
+import NavDesktop from './nav-desktop'
+import NavMobile from './nav-mobile'
 import { Desktop, Mobile } from 'components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { CFDWarning } from 'components/layout'
 import { isLoggedIn } from 'common/utility'
 
-type NavAcademyProps = {
-    base: string
-    is_ppc_redirect: boolean
-    is_ppc: boolean
-    hide_signup_login: boolean
-    academy_logo: boolean
-    no_language: boolean
-}
-
-const MainWrapper = styled(NavWrapperMain)`
-    display: ${(props) => (props.background ? 'none' : 'block')};
+const MainWrapper = styled(NavWrapperMain)<{ background?: boolean }>`
+    display: ${({ background }) => (background ? 'none' : 'block')};
     transition: opacity 1s ease-out;
 `
 
@@ -28,7 +22,7 @@ const NavAcademy = ({
     hide_signup_login,
     academy_logo,
     no_language,
-}: NavAcademyProps) => {
+}: NavTypes) => {
     const [is_logged_in, setLoggedIn] = useState(false)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
@@ -46,16 +40,12 @@ const NavAcademy = ({
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
-
-        const checkCookieChange = setInterval(() => {
-            setLoggedIn(isLoggedIn())
-        }, 800)
+        const checkCookieChange = setInterval(() => setLoggedIn(isLoggedIn()), 800)
         return () => clearInterval(checkCookieChange)
     }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
-
         return () => window.removeEventListener('scroll', handleScroll)
     }, [prevScrollPos, visible, handleScroll])
 

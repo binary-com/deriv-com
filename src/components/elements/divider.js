@@ -7,7 +7,7 @@ const Divider = styled.hr`
     height: ${(props) => (props.height ? props.height : '1px')};
 
     /* prettier-ignore */
-    background-color: var(--color-${(props) => props.color || 'grey-2'});
+    background-color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-grey-2)')};
     ${Margins}
 `
 

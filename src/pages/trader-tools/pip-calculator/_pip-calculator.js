@@ -39,6 +39,7 @@ import {
     FormulaText,
     StyledOl,
 } from '../common/_style'
+import ExampleCalculation from '../common/_example-calc'
 import {
     Accordion,
     AccordionItem,
@@ -82,6 +83,63 @@ const PipCalculator = () => {
     const onTabClick = (tab) => {
         setTab(tab)
     }
+
+    const pip_snthetic_indices = [
+        {
+            value: '0.01',
+            description: (
+                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '✕',
+        },
+        {
+            value: '1',
+            description: <Localize translate_text="Volume" />,
+            next_operator: '✕',
+        },
+        {
+            value: '1',
+            description: (
+                <Localize
+                    translate_text="Contract size <0>2</0>"
+                    components={[<strong key={0} />]}
+                />
+            ),
+            next_operator: '=',
+        },
+        {
+            value: '0.01',
+            description: <Localize translate_text="Pip value" />,
+        },
+    ]
+    const pip_forex = [
+        {
+            value: '0.00001',
+            description: (
+                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '✕',
+        },
+        {
+            value: '2',
+            description: <Localize translate_text="Volume" />,
+            next_operator: '✕',
+        },
+        {
+            value: '100, 000',
+            description: (
+                <Localize
+                    translate_text="Contract size <0>2</0>"
+                    components={[<strong key={0} />]}
+                />
+            ),
+            next_operator: '=',
+        },
+        {
+            value: '2',
+            description: <Localize translate_text="Pip value" />,
+        },
+    ]
 
     return (
         <>
@@ -340,11 +398,12 @@ const PipCalculator = () => {
                                 </Text>
 
                                 <Show.Desktop>
-                                    <QueryImage
+                                    {/* <QueryImage
                                         data={data.pip_value_formula}
                                         alt={localize('Margin formula')}
-                                    />
-                                    <QueryImage data={data.pip_info} alt={localize('Pip Info')} />
+                                    /> */}
+                                    {/* <QueryImage data={data.pip_info} alt={localize('Pip Info')} /> */}
+                                    <ExampleCalculation data={pip_snthetic_indices} />
                                 </Show.Desktop>
 
                                 <Show.Mobile>
@@ -393,10 +452,11 @@ const PipCalculator = () => {
                                 </Text>
 
                                 <Show.Desktop>
-                                    <QueryImage
+                                    {/* <QueryImage
                                         data={data.pip_value_forex_formula}
                                         alt={localize('Pip Forex formula')}
-                                    />
+                                    /> */}
+                                    <ExampleCalculation data={pip_forex} />
                                 </Show.Desktop>
 
                                 <Show.Mobile>

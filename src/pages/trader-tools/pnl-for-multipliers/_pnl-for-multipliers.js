@@ -34,6 +34,7 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
+import ExampleCalculation from '../common/_example-calc'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -92,6 +93,78 @@ const PnlMultipliersCalculator = () => {
             }
         }
     `
+    const level_in_up = [
+        {
+            value: '3376.24',
+            description: <Localize translate_text="Asset price" />,
+            next_operator: '✕',
+        },
+        {
+            value: '{( -7.54',
+            description: <Localize translate_text="Stop loss or take profit amount" />,
+            next_operator: '+',
+        },
+        {
+            value: ' 0.2 )',
+            description: (
+                <Localize translate_text="Commission <0>1</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '÷',
+        },
+        {
+            value: ' (10',
+            description: <Localize translate_text="Stake" />,
+            next_operator: '✕',
+        },
+        {
+            value: '100 )',
+            description: <Localize translate_text="Multiplier" />,
+            next_operator: '+',
+        },
+        {
+            value: ' 1 }',
+            description: <Localize translate_text="" />,
+            next_operator: '=',
+        },
+        {
+            value: '3351.46',
+            description: <Localize translate_text="Stop loss level" />,
+        },
+    ]
+
+    const level_in_down = [
+        {
+            value: '3376.24',
+            description: <Localize translate_text="Asset price" />,
+        },
+        {
+            value: '✕ {( -7.54',
+            description: <Localize translate_text="Stop loss or take profit amount" />,
+        },
+        {
+            value: '+ 0.2 )',
+            description: (
+                <Localize translate_text="Commission <0>1</0>" components={[<strong key={0} />]} />
+            ),
+        },
+        {
+            value: '÷ (10',
+            description: <Localize translate_text="Stake" />,
+        },
+        {
+            value: '✕ 100 )',
+            description: <Localize translate_text="Multiplier" />,
+        },
+        {
+            value: '+ 1 }',
+            description: <Localize translate_text="" />,
+        },
+        {
+            value: '= 3350.11',
+            description: <Localize translate_text="Stop loss level" />,
+        },
+    ]
+
     const data = useStaticQuery(query)
 
     const [tab, setTab] = useState('Level')
@@ -1077,6 +1150,7 @@ const PnlMultipliersCalculator = () => {
                                             data={data.stop_loss_level_up_formula}
                                             alt={localize('stop loss level up formula')}
                                         />
+                                        {/* <ExampleCalculation data={level_in_up} /> */}
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
@@ -1124,6 +1198,7 @@ const PnlMultipliersCalculator = () => {
                                             data={data.take_profit_level_down_formula_mobile}
                                             alt={localize('take profit level down formula')}
                                         />
+                                        {/* <ExampleCalculation data={level_in_down} /> */}
                                     </Show.Mobile>
                                     <FormulaText size="14px">
                                         <StyledOl>
@@ -2096,10 +2171,11 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.take_profit_amount_up_formula}
                                             alt={localize('take profit amount up formula')}
-                                        />
+                                        /> */}
+                                        <ExampleCalculation data={level_in_up} />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
@@ -2137,10 +2213,11 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.stop_loss_amount_down_formula}
                                             alt={localize('stop loss amount down formula')}
-                                        />
+                                        /> */}
+                                        <ExampleCalculation data={level_in_down} />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage

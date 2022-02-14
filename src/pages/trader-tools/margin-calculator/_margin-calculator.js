@@ -39,6 +39,7 @@ import {
     StyledOl,
     StyledSection,
 } from '../common/_style'
+import ExampleCalculation from '../common/_example-calc'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import {
@@ -53,6 +54,35 @@ import {
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+
+const margin_data = [
+    {
+        value: '(2',
+        description: <Localize translate_text="Volume" />,
+        next_operator: '✕',
+    },
+    {
+        value: '100,000',
+        description: (
+            <Localize translate_text="Contract size<0>1</0>" components={[<strong key={0} />]} />
+        ),
+        next_operator: '✕',
+    },
+    {
+        value: '1.1)',
+        description: <Localize translate_text="Asset price" />,
+        next_operator: '÷',
+    },
+    {
+        value: '100',
+        description: <Localize translate_text="Levarage" />,
+        next_operator: '=',
+    },
+    {
+        value: '2,200',
+        description: <Localize translate_text="Margin required" />,
+    },
+]
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -335,10 +365,11 @@ const MarginCalculator = () => {
                                     )}
                                 </Text>
                                 <Show.Desktop>
-                                    <QueryImage
+                                    {/* <QueryImage
                                         data={data.margin_formula}
                                         alt={localize('Margin formula')}
-                                    />
+                                    /> */}
+                                    <ExampleCalculation data={margin_data} />
                                 </Show.Desktop>
                                 <Show.Mobile>
                                     <QueryImage

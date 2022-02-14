@@ -43,6 +43,8 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
+import ExampleCalculation from '../common/_example-calc'
+// import { stop_loss_level, stop_loss_pip_value } from './_pnl_example_data'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -101,6 +103,115 @@ const PnlMarginCalculator = () => {
             }
         }
     `
+    const stop_loss_level = [
+        {
+            value: '1.17524',
+            description: <Localize translate_text="Asset price" />,
+            next_operator: '+',
+        },
+        {
+            value: '{ - 24',
+            description: <Localize translate_text="Stop loss or take profit amount" />,
+            next_operator: '÷',
+        },
+        {
+            value: '( 1',
+            description: <Localize translate_text="Volume" />,
+            next_operator: '✕ ',
+        },
+        {
+            value: '100, 000)}',
+            description: (
+                <Localize
+                    translate_text="Contract size <0>1</0>"
+                    components={[<strong key={0} />]}
+                />
+            ),
+            next_operator: '=',
+        },
+        {
+            value: ' 1.1750',
+            description: <Localize translate_text="Stop loss level" />,
+        },
+    ]
+    const stop_loss_pip_value = [
+        {
+            value: '| ( 1.1750',
+            description: <Localize translate_text="stop loss or take profit level" />,
+            next_operator: '-',
+        },
+        {
+            value: '1.17524)|',
+            description: <Localize translate_text="Asset price" />,
+            next_operator: '÷',
+        },
+        {
+            value: ' 0.00001',
+            description: (
+                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '=',
+        },
+        {
+            value: '24',
+            description: <Localize translate_text="Stop loss pip value" />,
+        },
+    ]
+    const profit_level = [
+        {
+            value: '249.5961',
+            description: <Localize translate_text="Asset price" />,
+            next_operator: '-',
+        },
+        {
+            value: '{84',
+            description: <Localize translate_text="stop loss or take profit level" />,
+            next_operator: '÷',
+        },
+        {
+            value: ' (3',
+            description: <Localize translate_text="Volume" />,
+            next_operator: '✕',
+        },
+        {
+            value: ' 1)}',
+            description: (
+                <Localize
+                    translate_text="Contract size<0>1</0>"
+                    components={[<strong key={0} />]}
+                />
+            ),
+            next_operator: '=',
+        },
+        {
+            value: '221.5961',
+            description: <Localize translate_text="Take profit level" />,
+        },
+    ]
+    const profit_pip_value = [
+        {
+            value: '| ( 221.5961',
+            description: <Localize translate_text="stop loss or take profit level" />,
+            next_operator: '-',
+        },
+        {
+            value: '249.5961)|',
+            description: <Localize translate_text="Asset price" />,
+            next_operator: '÷',
+        },
+        {
+            value: ' 0.00001',
+            description: (
+                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '=',
+        },
+        {
+            value: '280, 000',
+            description: <Localize translate_text="Take profit pip value" />,
+        },
+    ]
+
     const data = useStaticQuery(query)
     const formik_ref = useRef()
     const form = formik_ref.current
@@ -1143,10 +1254,11 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.stop_loss_level_formula}
                                             alt={localize('stop loss level formula')}
-                                        />
+                                        /> */}
+                                        <ExampleCalculation data={stop_loss_level} />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
@@ -1171,10 +1283,11 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.stop_loss_pip_formula}
                                             alt={localize('stop loss pip formula')}
-                                        />
+                                        /> */}
+                                        <ExampleCalculation data={stop_loss_pip_value} />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
@@ -1277,12 +1390,13 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    {/* <Show.Desktop max_width="mobileL">
                                         <QueryImage
                                             data={data.take_profit_level_formula}
                                             alt={localize('take profit level formula')}
                                         />
-                                    </Show.Desktop>
+                                    </Show.Desktop> */}
+                                    <ExampleCalculation data={profit_level} />
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
                                             data={data.take_profit_level_formula_mobile}
@@ -1306,10 +1420,11 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.take_profit_pip_formula}
                                             alt={localize('take profit pip formula')}
-                                        />
+                                        /> */}
+                                        <ExampleCalculation data={profit_pip_value} />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage

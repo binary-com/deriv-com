@@ -42,6 +42,7 @@ import {
     SwapFormWrapper,
     SwapTabSelector,
 } from '../common/_style'
+import ExampleCalculation from '../common/_example-calc'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -83,6 +84,86 @@ const SwapCalculator = () => {
             }
         }
     `
+    const swap_synthetic_data = [
+        {
+            value: '0.01',
+            description: <Localize translate_text="Volume" />,
+            next_operator: '✕ ',
+        },
+        {
+            value: '1',
+            description: (
+                <Localize
+                    translate_text="Contract size <0>1</0>"
+                    components={[<strong key={0} />]}
+                />
+            ),
+            next_operator: '✕ ',
+        },
+        {
+            value: '400, 000',
+            description: <Localize translate_text="Asset price" />,
+            next_operator: '✕ ',
+        },
+        {
+            value: '( -7.5',
+            description: (
+                <Localize translate_text="Swap rate <0>2</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '÷',
+        },
+        {
+            value: '100',
+            // description: <Localize translate_text="Swap rate" />,
+            next_operator: '÷',
+        },
+        {
+            value: '360',
+            // description: <Localize translate_text="Swap rate" />,
+            next_operator: '=',
+        },
+        {
+            value: '0.83',
+            description: <Localize translate_text="Swap charge" />,
+        },
+    ]
+
+    const swap_financial_data = [
+        {
+            value: '2',
+            description: <Localize translate_text="Volume" />,
+            next_operator: '✕ ',
+        },
+        {
+            value: '100, 000',
+            description: (
+                <Localize
+                    translate_text="Contract size <0>1</0>"
+                    components={[<strong key={0} />]}
+                />
+            ),
+            next_operator: '✕ ',
+        },
+        {
+            value: '0.00001',
+            description: (
+                <Localize translate_text="Point value <0>2</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '✕ ',
+        },
+        {
+            value: '( -0.12',
+            description: (
+                <Localize translate_text="Swap rate <0>3</0>" components={[<strong key={0} />]} />
+            ),
+            next_operator: '=',
+        },
+        {
+            value: '0.24',
+            description: <Localize translate_text="Swap charge" />,
+        },
+    ]
+
     const data = useStaticQuery(query)
 
     const [tab, setTab] = useState('Synthetic')
@@ -398,10 +479,11 @@ const SwapCalculator = () => {
                                         </Text>
 
                                         <Show.Desktop>
-                                            <QueryImage
+                                            {/* <QueryImage
                                                 data={data.swap_synthetic_formula}
                                                 alt={localize('swap synthetic formula')}
-                                            />
+                                            /> */}
+                                            <ExampleCalculation data={swap_synthetic_data} />
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <QueryImage
@@ -724,10 +806,11 @@ const SwapCalculator = () => {
                                         </Text>
 
                                         <Show.Desktop>
-                                            <QueryImage
+                                            {/* <QueryImage
                                                 data={data.swap_forex_formula}
                                                 alt={localize('Swap forex formula')}
-                                            />
+                                            /> */}
+                                            <ExampleCalculation data={swap_financial_data} />
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <QueryImage

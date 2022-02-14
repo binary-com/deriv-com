@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import banner from 'images/common/p2p/banner.png'
 import bannerBG from 'images/common/p2p/gradient_bg.png'
@@ -29,10 +29,10 @@ const StyledSection = styled(SectionContainer)`
 `
 const MainWrapper = styled(Flex)`
     border-radius: 10px;
-    height: 390px;
+    height: 350px;
     background-image: url(${banner}), url(${bannerBG});
     background-repeat: no-repeat, no-repeat;
-    background-size: 575px 335px, cover;
+    background-size: 530px 281px, cover;
     background-position: bottom right;
 
     @media ${device.laptopM} {
@@ -73,7 +73,7 @@ const LeftWrapper = styled(Flex)`
 const LeftChild = styled(Flex)`
     flex-direction: column;
     color: white;
-    max-width: 500px;
+    max-width: 490px;
     z-index: 2;
 
     @media ${device.laptopM} {
@@ -89,8 +89,6 @@ const LeftChild = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: 32px;
-    line-height: 40px;
     color: var(--color-white);
     margin-bottom: 16px;
 
@@ -99,11 +97,9 @@ const StyledHeader = styled(Header)`
         max-width: 378px;
     }
 `
-const StyledText = styled(Text)`
+const Subtitle = styled(Header)`
     color: var(--color-white);
     margin-bottom: 3rem;
-    font-size: 24px;
-    line-height: 36px;
 
     & span {
         color: var(--color-red);
@@ -112,27 +108,10 @@ const StyledText = styled(Text)`
     @media (max-width: 1100px) {
         margin-bottom: 16px;
     }
-
-    @media ${device.tabletL} {
-        max-width: 294px;
-        font-size: 18px;
-        line-height: 26px;
-    }
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 10px 16px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: bold;
-    border-radius: 4px;
     width: 146px;
-    white-space: nowrap;
-
-    @media ${device.tabletL} {
-        height: fit-content;
-        padding: 6px;
-    }
 `
 
 const P2PBanner = () => {
@@ -141,13 +120,13 @@ const P2PBanner = () => {
             <MainWrapper>
                 <LeftWrapper>
                     <LeftChild>
-                        <StyledHeader as="h3" type="section-title">
+                        <StyledHeader as="h3" type="heading-3">
                             Looking for Deriv P2P instead?
                         </StyledHeader>
-                        <StyledText>
+                        <Subtitle as="h4" type="subtitle-2" weight="none">
                             We offer a <span>peer-to-peer payment service</span> where you can make
                             deposits and withdrawals in minutes via exchanges with fellow traders.
-                        </StyledText>
+                        </Subtitle>
                         <StyledLinkButton
                             secondary="true"
                             to="/p2p/"

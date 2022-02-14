@@ -71,14 +71,7 @@ const ButtonWrapper = styled(CenteredSection)`
     justify-content: center;
 `
 const StyledListHeader = styled(Header)`
-    width: 100%;
-    max-width: 42.8rem;
     margin-top: 4rem;
-
-    @media ${device.tabletL} {
-        font-size: 14px;
-        line-height: 20px;
-    }
 `
 
 type SectionComponentProps = {
@@ -139,7 +132,7 @@ const WhoCanApply = () => {
                                 text={item.text}
                             />
                         ))}
-                        <StyledListHeader as="h4" size="1.6rem">
+                        <StyledListHeader as="h4" type="paragraph-1">
                             {localize('A couple of things to note:')}
                         </StyledListHeader>
                         <StyledUl>

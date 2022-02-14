@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import PlatformsDropdown from '../../custom/platforms-dropdown'
 import { handleGetTrading, handleLogin, handleScroll, moveButton } from './util/nav-methods'
 import { Line, LogoLink, NavLink, NavRight, Wrapper } from './styles/nav-styles'
+import { NavTypes } from './models/nav-types'
 import device from 'themes/device'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
@@ -64,16 +65,6 @@ const NavLeftMain = styled.div`
     width: 100%;
 `
 
-type NavDesktopTypes = {
-    base: string
-    is_ppc: boolean
-    is_ppc_redirect: boolean
-    is_logged_in: boolean
-    hide_signup_login: boolean
-    academy_logo: boolean
-    no_language: boolean
-}
-
 const query = graphql`
     query {
         deriv: file(relativePath: { eq: "logo.png" }) {
@@ -93,7 +84,7 @@ const NavDesktop = ({
     hide_signup_login,
     academy_logo,
     no_language,
-}: NavDesktopTypes) => {
+}: NavTypes) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const navigation_bar_ref = useRef(null)

@@ -8,7 +8,7 @@ import { LocalizedLink } from 'components/localization'
 type NavRightProps = {
     mounted: boolean
     has_scrolled: boolean
-    move: boolean
+    move?: boolean
     hide_signup_login: boolean
     button_ref: any
 }

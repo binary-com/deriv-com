@@ -13,91 +13,62 @@ import ShareIcon from 'images/svg/academy/share.svg'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 const IconWrapper = styled.div`
-    width: 120px;
+    width: 40px;
 `
 
 const HeaderWrapper = styled.span`
     margin-right: 16px;
-
-    @media ${device.tablet} {
-        margin: 0 auto 8px;
-    }
 `
 
-const StyledFlex = styled(Flex)`
-    @media ${device.tablet} {
-        width: 120px;
-        margin-left: auto;
-    }
-`
+const StyledFlex = styled(Flex)``
 
 const SharingWrapper = styled.div`
-    display: flex;
-    position: absolute;
-    right: 100px;
-    top: 24px;
+    width: 16rem;
 
     img {
         width: 24px;
         height: 24px;
     }
-
+    @media ${device.laptop} {
+        width: 18rem;
+    }
     @media ${device.tabletL} {
-        left: 80%;
-    }
-
-    @media ${device.desktopS} {
-        top: 6px;
-        position: relative;
-        left: 78rem;
-    }
-
-    @media ${device.desktopS} {
-        top: 6px;
-        position: relative;
-        left: 78rem;
-    }
-
-    @media ${device.desktopL} {
-        left: 65rem;
+        width: 0;
     }
 `
 
 const SharingButton = styled.button`
-    position: absolute;
     width: 32px;
     height: 32px;
-    left: 0;
-    top: 2px;
     background: ${(props) => (props.isOpen ? '#f2f3f4' : 'rgb(255, 255, 255, 0.0)')};
+    background-image: url(${ShareIcon});
+    background-position: center;
     border: 0 solid rgba(236, 241, 247, 0.5);
     border-radius: 4px;
 
     img {
         width: 24px;
         height: 24px;
-        position: absolute;
-        top: -10%;
-        left: -10%;
+        margin: 8px 8px 8px 8px;
     }
 `
 
-const DropDownSharingButton = styled.div`
-    position: absolute;
-    left: -5px;
-    top: 40px;
+const DropDownSharingButtons = styled.div`
     width: 40px;
     background-color: #ffffff;
     border: 1px solid #ffffff;
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+    position: absolute;
+    right: 20px;
+    top: 60px;
 
     &::after {
         border: 5px solid transparent;
-        border-bottom: 10px solid white;
+        border-bottom: 14px solid white;
         content: '';
         position: absolute;
         right: 13px;
-        top: -13px;
+        top: -12px;
         z-index: 2;
     }
 `
@@ -107,16 +78,6 @@ export const SocialWrapper = styled.div`
 
     img {
         margin-right: 16px;
-    }
-
-    @media ${device.tabletL} {
-        display: flex;
-        justify-content: center;
-        margin: 3rem 0 1rem;
-
-        img {
-            margin: 1rem 1rem 1rem 1rem;
-        }
     }
 `
 
@@ -156,7 +117,7 @@ const SocialDesktopComponent = () => {
 }
 
 const SocialMobileComponent = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     const dropdown_ref = React.useRef(null)
 
     useOutsideClick(dropdown_ref, () => setIsOpen(false))
@@ -164,18 +125,16 @@ const SocialMobileComponent = () => {
     const toggling = () => setIsOpen(!isOpen)
 
     return (
-        <div ref={dropdown_ref}>
-            <SharingButton
-                onClick={toggling}
-                autoFocus={false}
-                onBlur={() => setIsOpen(false)}
-                onFocus={() => setIsOpen(false)}
-                isOpen={isOpen}
-            >
-                <img src={ShareIcon} />
-            </SharingButton>
+        <SharingButton
+            onClick={toggling}
+            autoFocus={false}
+            onBlur={() => setIsOpen(false)}
+            onFocus={() => setIsOpen(false)}
+            isOpen={isOpen}
+            ref={dropdown_ref}
+        >
             {isOpen && (
-                <DropDownSharingButton>
+                <DropDownSharingButtons>
                     {social_media.map((account, index) => (
                         <LocalizedLink
                             key={index}
@@ -192,9 +151,9 @@ const SocialMobileComponent = () => {
                             />
                         </LocalizedLink>
                     ))}
-                </DropDownSharingButton>
+                </DropDownSharingButtons>
             )}
-        </div>
+        </SharingButton>
     )
 }
 

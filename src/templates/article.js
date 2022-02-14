@@ -23,6 +23,9 @@ import {
     StickyBreadCrumbsWrapper,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
+    BreadcrumbsContainer,
+    StyledBreadcrumbsContainer,
+    SocialSharingContainer,
     Scrollbar,
     ProgressContainer,
     ProgressBar,
@@ -133,16 +136,25 @@ const ArticlesTemplate = (props) => {
                             <StickyBreadCrumbsWrapper scroll={visible}>
                                 <BreadcrumbsWrapper scroll={visible}>
                                     <Flex jc="flex-start" ai="center">
-                                        <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
-                                            All articles
-                                        </StyledBreadcrumbsLink>
-                                        <img src={RightArrow} height="16" width="16" />
-                                        <StyledBreadcrumbsTitle>
-                                            {is_mobile
-                                                ? truncateString(article_title, 30)
-                                                : article_title}
-                                        </StyledBreadcrumbsTitle>
-                                        <SocialSharing />
+                                        <BreadcrumbsContainer>
+                                            <StyledBreadcrumbsContainer>
+                                                <StyledBreadcrumbsLink
+                                                    to="/academy/blog/"
+                                                    color="grey-5"
+                                                >
+                                                    All articles
+                                                </StyledBreadcrumbsLink>
+                                                <img src={RightArrow} height="16" width="16" />
+                                                <StyledBreadcrumbsTitle>
+                                                    {is_mobile
+                                                        ? truncateString(article_title, 20)
+                                                        : article_title}
+                                                </StyledBreadcrumbsTitle>
+                                            </StyledBreadcrumbsContainer>
+                                            <SocialSharingContainer>
+                                                <SocialSharing />
+                                            </SocialSharingContainer>
+                                        </BreadcrumbsContainer>
                                     </Flex>
                                 </BreadcrumbsWrapper>
                                 <Scrollbar scroll={visible}>

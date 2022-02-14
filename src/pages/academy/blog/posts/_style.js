@@ -69,10 +69,38 @@ export const BreadcrumbsWrapper = styled(Container)`
 
     @media ${device.laptop} {
         width: 100%;
-        padding: 0 16px 0 16px;
+        padding: 0 0 0 16px;
         flex-direction: column;
     }
 `
+export const BreadcrumbsContainer = styled(Container)`
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    @media ${device.tabletL} {
+        width: 972px;
+    }
+    @media (min-width: 992px) {
+        width: 86%;
+    }
+    @media (min-width: 1024px) {
+        width: 93%;
+    }
+`
+export const SocialSharingContainer = styled(Container)`
+    display: flex;
+    justify-content: end;
+    height: 37px;
+`
+
+export const StyledBreadcrumbsContainer = styled(Container)`
+    justify-content: start;
+    width: 66%;
+`
+
 export const Scrollbar = styled.div`
     position: fixed;
     top: ${(props) => (props.scroll ? '138px' : '14.4rem')};
@@ -424,7 +452,7 @@ export const SocialComponentsWrapper = styled(Flex)`
         justify-content: flex-end;
         width: 0;
         padding-top: 0;
-        margin: 0;
+        margin: 0 auto;
     }
 `
 export const LeftSocialComponents = styled.div`
@@ -466,12 +494,15 @@ export const MobileBreadcrumbsWrapper = styled.div`
 `
 export const StyledBreadcrumbsLink = styled(LocalizedLinkText)`
     font-weight: normal;
+    white-space: nowrap;
     font-size: 14px;
     line-height: 20px;
     color: var(--color-grey-5);
     padding-right: 13px;
 `
 export const StyledBreadcrumbsTitle = styled(Text)`
+    display: flex;
+    white-space: nowrap;
     font-weight: normal;
     font-size: 14px;
     line-height: 20px;

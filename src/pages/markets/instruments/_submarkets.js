@@ -8,10 +8,8 @@ import Energy from './_energy'
 import Europe from './_europe'
 import ExoticPairs from './_exotic-pairs'
 import MajorPairs from './_major-pairs'
-import MicroPairs from './_micro_pairs'
 import Metals from './_metals'
-import MinorPairsCFDS from './_minor-pairs-cfds'
-import MinorPairsOptions from './_minor-pairs-options'
+import MinorPairs from './_minor-pairs'
 import RangeBreak from './_range-break'
 import SmartFX from './_smartfx'
 import StepIndices from './_step-indices'
@@ -43,9 +41,7 @@ export {
     JumpIndices,
     MajorPairs,
     Metals,
-    MinorPairsCFDS,
-    MinorPairsOptions,
-    MicroPairs,
+    MinorPairs,
     RangeBreak,
     SmartFX,
     StepIndices,

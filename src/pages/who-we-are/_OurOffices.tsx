@@ -173,7 +173,7 @@ const OurOffices = () => {
             </StyledHeader>
 
             <Flex>
-                <Desktop max_width="tabletL">
+                <Desktop>
                     <MapImage data={data['earth']}>
                         {desktop_pins.map((pin) => (
                             <MapPin
@@ -186,7 +186,7 @@ const OurOffices = () => {
                         ))}
                     </MapImage>
                 </Desktop>
-                <Mobile min_width="tabletL">
+                <Mobile>
                     <MapImage data={data['earth_mobile']}>
                         {mobile_pins.map((pin) => (
                             <MapPin

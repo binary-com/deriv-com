@@ -77,11 +77,13 @@ export const Title = styled(Header)`
     font-weight: 700;
     line-height: 60px;
     color: var(--color-white);
+    white-space: nowrap;
 
     @media ${device.tablet} {
         max-width: 328px;
         font-size: 28px;
         line-height: 34px;
+        white-space: pre-wrap;
     }
 `
 

@@ -1,5 +1,22 @@
 import validation from './_validation'
 
+type ErrorsType = {
+    errors?: null
+    symbol?: string
+    volume?: string
+    assetPrice?: string
+    leverage?: string
+    pointValue?: string
+    takeProfitAmount?: string
+    stopLossAmount?: string
+    commission?: string
+    stake?: string
+    multiplier?: string
+    takeProfitLevel?: string
+    stopLossLevel?: string
+    swapRate?: string
+}
+
 const STEPINDEX_VALUE = 100
 const RANGEBREAK100VALUE = 400
 const RANGEBREAK200VALUE = 800
@@ -26,23 +43,22 @@ const rawCalculation = (values, specialFormula) => {
 export const getMargin = (values) => {
     const { volume, assetPrice, leverage, contractSize } = values
     const specialFormula = (volume * contractSize * assetPrice) / leverage.name
-    let margin_formula = rawCalculation(values, specialFormula)
+    const margin_formula = rawCalculation(values, specialFormula)
     return toFixed(margin_formula)
 }
 
 export const getPipValue = (values) => {
     const { volume, pointValue, contractSize } = values
     const specialFormula = volume * contractSize * pointValue
-    let pip_formula = rawCalculation(values, specialFormula)
+    const pip_formula = rawCalculation(values, specialFormula)
 
     return toFixed(pip_formula)
 }
 
 export const getSwapChargeSynthetic = (values) => {
     const { volume, assetPrice, swapRate, contractSize } = values
-    const specialFormula = (swap_formula_synthetic =
-        (volume * contractSize * assetPrice * (swapRate / 100)) / 360)
-    let swap_formula_synthetic = rawCalculation(values, specialFormula)
+    const specialFormula = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
+    const swap_formula_synthetic = rawCalculation(values, specialFormula)
 
     return toFixed(swap_formula_synthetic)
 }
@@ -55,25 +71,16 @@ export const getSwapChargeForex = (values) => {
 
 // PnL Margin Calculator
 export const getPnlMarginCommon = (values, action) => {
-    let {
-        assetPrice,
-        stopLossAmount,
-        takeProfitAmount,
-        volume,
-        contractSize,
-        stopLossLevel,
-        takeProfitLevel,
-        pointValue,
-    } = values
+    const { volume, contractSize, pointValue } = values
+    let { assetPrice, stopLossAmount, takeProfitAmount, stopLossLevel } = values
     assetPrice = Number(assetPrice)
     stopLossAmount = Number(stopLossAmount)
     takeProfitAmount = Number(takeProfitAmount)
     stopLossLevel = Number(numberWithoutCommas(stopLossLevel))
-    takeProfitLevel = Number(numberWithoutCommas(stopLossLevel))
 
     switch (action) {
         case 'getStopLossLevelSell': {
-            const stop_loss_level_formula = assetPrice - [-stopLossAmount / (volume * contractSize)]
+            const stop_loss_level_formula = assetPrice - -[stopLossAmount / (volume * contractSize)]
             return toFixed(stop_loss_level_formula)
         }
         case 'getTakeProfitLevelSell': {
@@ -95,7 +102,7 @@ export const getPnlMarginCommon = (values, action) => {
             return toFixed(stop_loss_pip_formula)
         }
         case 'getTakeProfitPip': {
-            const take_profit_pip_formula = Math.abs(takeProfitLevel - assetPrice) / pointValue
+            const take_profit_pip_formula = Math.abs(stopLossLevel - assetPrice) / pointValue
             return toFixed(take_profit_pip_formula)
         }
     }
@@ -103,6 +110,7 @@ export const getPnlMarginCommon = (values, action) => {
 
 // PnL Multipliers Calculator
 export const getPnlMultiplierCommon = (values, action) => {
+    const { stake, multiplier } = values
     let {
         assetPrice,
         stopLossAmount,
@@ -110,8 +118,6 @@ export const getPnlMultiplierCommon = (values, action) => {
         takeProfitLevel,
         stopLossLevel,
         commission,
-        stake,
-        multiplier,
     } = values
     stopLossAmount = Number(stopLossAmount)
     takeProfitAmount = Number(takeProfitAmount)
@@ -224,7 +230,7 @@ export const getContractSize = (symbol) => {
 
 // Reset Validations
 export const resetValidationMargin = (values) => {
-    const errors = {}
+    const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const leverage_error = validation.leverage(values.leverage)
     const symbol_error = validation.symbol(values.symbol)
@@ -246,7 +252,7 @@ export const resetValidationMargin = (values) => {
 }
 
 export const resetValidationPip = (values) => {
-    const errors = {}
+    const errors: ErrorsType = {}
     const pointValue_error = validation.pointValue(values.pointValue)
     const symbol_error = validation.symbol(values.symbol)
     const volume_error = validation.volume(values.volume)
@@ -264,7 +270,7 @@ export const resetValidationPip = (values) => {
 }
 
 export const resetValidationPnlMargin = (values) => {
-    const errors = {}
+    const errors: ErrorsType = {}
     const pointValue_error = validation.pointValue(values.pointValue)
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const takeProfitAmount_error = validation.takeProfitAmount(values.takeProfitAmount)
@@ -294,7 +300,7 @@ export const resetValidationPnlMargin = (values) => {
 }
 
 export const resetValidationPnlMultipliersLevel = (values) => {
-    const errors = {}
+    const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const takeProfitAmount_error = validation.takeProfitAmount(values.takeProfitAmount)
     const stopLossAmount_error = validation.stopLossAmount(values.stopLossAmount)
@@ -324,7 +330,7 @@ export const resetValidationPnlMultipliersLevel = (values) => {
 }
 
 export const resetValidationPnlMultipliersAmount = (values) => {
-    const errors = {}
+    const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const takeProfitLevel_error = validation.takeProfitLevel(values.takeProfitLevel)
     const stopLossLevel_error = validation.stopLossLevel(values.stopLossLevel)
@@ -354,7 +360,7 @@ export const resetValidationPnlMultipliersAmount = (values) => {
 }
 
 export const resetValidationSynthetic = (values) => {
-    const errors = {}
+    const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const swapRate_error = validation.swapRate(values.swapRate)
     const symbol_error = validation.symbol(values.symbol)
@@ -376,7 +382,7 @@ export const resetValidationSynthetic = (values) => {
 }
 
 export const resetValidationForex = (values) => {
-    const errors = {}
+    const errors: ErrorsType = {}
     const pointValue_error = validation.pointValue(values.pointValue)
     const swapRate_error = validation.swapRate(values.swapRate)
     const symbol_error = validation.symbol(values.symbol)

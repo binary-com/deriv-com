@@ -1,6 +1,6 @@
 import React from 'react'
 import { Hero, StyledHeader } from '../common/_style'
-import PnLMarginCalculatorSection from './_pnl-for-margin'
+import PnLMarginCalculatorSection from './_pnl-margin-calculator'
 import { Container, SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'

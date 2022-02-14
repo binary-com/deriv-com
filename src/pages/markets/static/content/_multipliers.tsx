@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react'
 import {
+    BasketIndicesCfds,
+    BasketIndicesCommodities,
     ContinuousIndices,
     CrashBoom,
     CrashBoomEU,
@@ -8,9 +10,10 @@ import {
     CryptocurrenciesMultipliers,
     VolatilityIndicesEU,
     SmartFX,
-    BasketIndicesCfds,
 } from '../../instruments/_submarkets'
 import {
+    BasketFXDetails,
+    BasketCommoditiesDetails,
     ContinuousIndicesDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
@@ -18,7 +21,6 @@ import {
     CryptocurrenciesDetails,
     VolatilityIndicesDetailsEU,
     SmartFXDetails,
-    BasketFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -79,9 +81,14 @@ export const basket_multiplier: ForexAndBasketMultiplier = {
     },
     content: [
         {
-            title: <Localize translate_text="Basket indices" />,
+            title: <Localize translate_text="Forex Basket" />,
             component: <BasketIndicesCfds />,
             details: BasketFXDetails,
+        },
+        {
+            title: <Localize translate_text="Commodities Basket" />,
+            component: <BasketIndicesCommodities />,
+            details: BasketCommoditiesDetails,
         },
     ],
 }

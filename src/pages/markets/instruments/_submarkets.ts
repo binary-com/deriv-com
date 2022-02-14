@@ -1,6 +1,7 @@
 import Americas from './_americas'
 import AsiaOceania from './_asia-oceania'
 import BasketIndicesCfds from './_basket_indices_cfds'
+import BasketIndicesCommodities from './_basket_indices_commodities'
 import ContinuousIndices from './_continuous-indices'
 import CrashBoom from './_crash-boom'
 import CrashBoomEU from './_crash-boom-eu'
@@ -25,12 +26,13 @@ import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
 import SwapFreePairs from './_swap-free-pairs'
-import SymbolsMapper from './_symbolsMapper'
+import SymbolsMapper from './_symbols_mapper'
 
 export {
     Americas,
     AsiaOceania,
     BasketIndicesCfds,
+    BasketIndicesCommodities,
     ContinuousIndices,
     CrashBoom,
     CrashBoomEU,

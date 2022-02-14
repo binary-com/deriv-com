@@ -980,17 +980,20 @@ export const basket_indices_cfds: MarketSymbol[] = [
         text: <Localize translate_text="AUD Basket" />,
     },
     {
-        src: icons.EURBASKET,
-        text: <Localize translate_text="EUR Basket" />,
-    },
-    {
         src: icons.GBPBASKET,
         text: <Localize translate_text="GBP Basket" />,
+    },
+    {
+        src: icons.EURBASKET,
+        text: <Localize translate_text="EUR Basket" />,
     },
     {
         src: icons.USDBASKET,
         text: <Localize translate_text="USD Basket" />,
     },
+]
+
+export const basket_indices_commodities: MarketSymbol[] = [
     {
         src: icons.GOLDBASKET,
         text: <Localize translate_text="Gold Basket" />,

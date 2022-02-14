@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react'
 import {
     Americas,
     AsiaOceania,
+    BasketIndicesCfds,
+    BasketIndicesCommodities,
     ContinuousIndices,
     DailyResetIndices,
     Energy,
@@ -10,16 +12,16 @@ import {
     Metals,
     MinorPairs,
     SmartFX,
-    BasketIndicesCfds,
 } from '../../instruments/_submarkets'
 import {
     AmericasDetails,
     AsiaOceaniaDetails,
+    BasketFXDetails,
+    BasketCommoditiesDetails,
     ContinuousIndicesDetails,
     DailyResetIndicesDetails,
     EuropeDetails,
     SmartFXDetails,
-    BasketFXDetails,
 } from './_details'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { Localize } from 'components/localization'
@@ -279,9 +281,14 @@ export const basket_options: Options = {
         },
         content: [
             {
-                title: <Localize translate_text="Basket indices" />,
+                title: <Localize translate_text="Forex Basket" />,
                 component: <BasketIndicesCfds />,
                 details: BasketFXDetails,
+            },
+            {
+                title: <Localize translate_text="Commodities Basket" />,
+                component: <BasketIndicesCommodities />,
+                details: BasketCommoditiesDetails,
             },
         ],
     },

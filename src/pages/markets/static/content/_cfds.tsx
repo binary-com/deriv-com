@@ -11,6 +11,7 @@ import {
     RangeBreak,
     SmartFX,
     BasketIndicesCfds,
+    BasketIndicesCommodities,
     StepIndices,
     VolatilityIndices,
     VolatilityIndicesEU,
@@ -21,6 +22,7 @@ import {
     JumpIndices,
 } from '../../instruments/_submarkets'
 import {
+    BasketCommoditiesDetails,
     BasketFXDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
@@ -207,9 +209,14 @@ export const basket_cfds: MarketInstrumentsElement = {
     },
     content: [
         {
-            title: <Localize translate_text="Basket indices" />,
+            title: <Localize translate_text="Forex Basket" />,
             component: <BasketIndicesCfds />,
             details: BasketFXDetails,
+        },
+        {
+            title: <Localize translate_text="Commodities Basket" />,
+            component: <BasketIndicesCommodities />,
+            details: BasketCommoditiesDetails,
         },
     ],
 }

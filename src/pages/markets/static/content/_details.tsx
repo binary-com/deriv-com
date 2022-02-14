@@ -224,13 +224,13 @@ export const BasketFXDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>EUR Basket</0> measures the value of the Euro against a basket of five global currencies (USD, AUD, GBP, JPY, CAD), each weighted by 20%."
+                translate_text="<0>GBP Basket</0> measures the value of the British pound against a basket of five global currencies (USD, EUR, AUD, JPY, CAD), each weighted by 20%."
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>GBP Basket</0> measures the value of the British pound against a basket of five global currencies (USD, EUR, AUD, JPY, CAD), each weighted by 20%."
+                translate_text="<0>EUR Basket</0> measures the value of the Euro against a basket of five global currencies (USD, AUD, GBP, JPY, CAD), each weighted by 20%."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -240,6 +240,10 @@ export const BasketFXDetails = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
+    </DetailsContainer>
+)
+export const BasketCommoditiesDetails = () => (
+    <DetailsContainer>
         <Text>
             <Localize
                 translate_text="<0>Gold Basket</0> measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%."
@@ -248,7 +252,6 @@ export const BasketFXDetails = () => (
         </Text>
     </DetailsContainer>
 )
-
 export const SmartGoldIndexDetails = () => (
     <DetailsContainer>
         <Text>

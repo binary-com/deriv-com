@@ -1,12 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { isIndexEven } from 'common/utility'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+
+type ToolsType = {
+    title: JSX.Element
+    subtitle: JSX.Element
+    link: { text: JSX.Element; route: string }
+    image_name: string
+    image_alt: string
+}[]
+
+type TradingToolsProps = {
+    reverse?: boolean
+    tools: ToolsType
+}
+
+type ColumnProps = {
+    margin_left?: string
+    margin_right?: string
+}
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -20,18 +37,16 @@ const ToolWrapper = styled(Flex)`
     .fresnel-container {
         display: flex;
     }
-
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         max-width: 500px;
     }
 `
-const Column = styled.div`
+const Column = styled.div<ColumnProps>`
     width: 100%;
     height: 100%;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
-
     @media ${device.tabletL} {
         margin: 24px 0 0;
     }
@@ -44,7 +59,6 @@ const Content = styled(Flex)`
     max-width: 39rem;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
-
     @media ${device.tabletL} {
         max-width: 100%;
         margin: 0;
@@ -57,7 +71,6 @@ const StyledLinkButton = styled(LinkButton)`
     &:hover {
         cursor: pointer;
     }
-
     @media ${device.tabletL} {
         margin-top: 32px;
         width: 100%;
@@ -70,7 +83,6 @@ const Divider = styled.div`
         background: var(--color-grey-21);
         margin: 80px 0;
     }
-
     @media ${device.tabletL} {
         :not(:last-child) {
             margin: 40px 0;
@@ -117,7 +129,7 @@ const query = graphql`
     }
 `
 
-const TradingTools = ({ tools }) => {
+const TradingTools = ({ tools }: TradingToolsProps) => {
     const inner_margin = '24px'
     const outer_margin = '102px'
     const data = useStaticQuery(query)
@@ -125,7 +137,7 @@ const TradingTools = ({ tools }) => {
         <StyledSection background="white">
             <Container fd="column">
                 {tools.map((item, index) => {
-                    let is_even = isIndexEven(index)
+                    const is_even = isIndexEven(index)
                     return (
                         <React.Fragment key={item.image_alt}>
                             <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
@@ -174,11 +186,6 @@ const TradingTools = ({ tools }) => {
             </Container>
         </StyledSection>
     )
-}
-
-TradingTools.propTypes = {
-    reverse: PropTypes.bool,
-    tools: PropTypes.array,
 }
 
 export default TradingTools

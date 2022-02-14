@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
-    getPipValue,
-    resetValidationPip,
-    getCurrency,
-    getContractSize,
+    getMargin,
     numberSubmitFormat,
+    getContractSize,
+    getCurrency,
+    resetValidationMargin,
     getMaxLength,
 } from '../common/_utility'
 import {
     optionItemDefault,
+    leverageItemLists,
     syntheticItemLists,
     financialItemLists,
 } from '../common/_underlying-data'
@@ -18,7 +19,6 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -27,6 +27,7 @@ import {
     CalculatorOutputSymbol,
     CalculatorTabItem,
     ContentContainer,
+    FormulaText,
     FormWrapper,
     header_style,
     InputGroup,
@@ -35,13 +36,16 @@ import {
     RightContent,
     SectionSubtitle,
     StyledLinkButton,
-    StyledSection,
-    FormulaText,
     StyledOl,
+    StyledSection,
 } from '../common/_style'
+import { localize, Localize } from 'components/localization'
+import { Flex, Show } from 'components/containers'
 import {
     Accordion,
     AccordionItem,
+    Dropdown,
+    DropdownSearch,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -49,27 +53,18 @@ import {
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { Flex, Show } from 'components/containers'
-import { localize, Localize } from 'components/localization'
 
-const PipCalculator = () => {
+const MarginCalculator = () => {
     const query = graphql`
         query {
-            pip_value_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
+            margin_formula: file(relativePath: { eq: "trade-tools/margin-formula.png" }) {
                 ...fadeIn
             }
-            pip_value_forex_formula: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula.png" }
-            ) {
+            margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
                 ...fadeIn
             }
-            pip_value_formula_mobile: file(
-                relativePath: { eq: "trade-tools/pip-value-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            pip_value_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula-mobile.png" }
+            margin_formula_mobile: file(
+                relativePath: { eq: "trade-tools/margin-formula-mobile.png" }
             ) {
                 ...fadeIn
             }
@@ -79,8 +74,8 @@ const PipCalculator = () => {
 
     const [tab, setTab] = useState('Synthetic')
 
-    const onTabClick = (tab) => {
-        setTab(tab)
+    const onTabClick = (t) => {
+        setTab(t)
     }
 
     return (
@@ -97,16 +92,15 @@ const PipCalculator = () => {
                         width="16"
                         style={{ margin: '0 8px' }}
                     />
-                    <Text>{localize('Pip calculator')}</Text>
+                    <Text>{localize('Margin calculator')}</Text>
                 </Flex>
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our pip calculator helps you to estimate the pip value in your trades so that you can better manage your risk.',
+                        'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MT5 (DMT5).',
                     )}
                 </SectionSubtitle>
-
                 <ContentContainer mt="8rem" mb="4rem">
                     <FormWrapper>
                         <Formik
@@ -117,15 +111,16 @@ const PipCalculator = () => {
                                 marginSymbol: 'USD',
                                 symbol: '',
                                 volume: '',
-                                pointValue: '',
+                                assetPrice: '',
+                                leverage: '',
                                 optionList: syntheticItemLists,
                                 contractSize: '',
                             }}
-                            validate={resetValidationPip}
+                            validate={resetValidationMargin}
                             onSubmit={(values, { setFieldValue }) => {
-                                setFieldValue('margin', getPipValue(values))
+                                setFieldValue('margin', getMargin(values))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
-                                setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
+                                setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))
                             }}
                         >
                             {({
@@ -144,7 +139,7 @@ const PipCalculator = () => {
                                 <CalculatorForm>
                                     <CalculatorHeader>
                                         <CalculatorLabel htmlFor="message">
-                                            {localize('Pip value')}
+                                            {localize('Margin required')}
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
@@ -155,7 +150,6 @@ const PipCalculator = () => {
                                             </CalculatorOutputSymbol>
                                         </CalculatorOutputContainer>
                                     </CalculatorHeader>
-
                                     <CalculatorBody>
                                         <CalculatorLabel>
                                             {localize('Account type')}
@@ -190,13 +184,14 @@ const PipCalculator = () => {
                                                 <Text align="center">{localize('Financial')}</Text>
                                             </CalculatorTabItem>
                                         </Flex>
-
-                                        <CalculatorDropdown
-                                            option_list={values.optionList}
-                                            label={localize('Symbol')}
-                                            default_option={optionItemDefault}
-                                            selected_option={values.symbol}
+                                        <DropdownSearch
                                             id="symbol"
+                                            key={tab}
+                                            contractSize={values.contractSize}
+                                            default_item={optionItemDefault}
+                                            error={touched.symbol && errors.symbol}
+                                            items={values.optionList}
+                                            label={localize('Symbol')}
                                             onChange={(value) => {
                                                 setFieldValue('marginSymbol', getCurrency(value))
                                                 setFieldValue(
@@ -205,12 +200,9 @@ const PipCalculator = () => {
                                                 )
                                                 setFieldValue('symbol', value)
                                             }}
-                                            error={touched.symbol && errors.symbol}
+                                            selected_item={values.symbol}
                                             onBlur={handleBlur}
-                                            autocomplete="off"
-                                            contractSize={values.contractSize}
                                         />
-
                                         <InputGroup>
                                             <Field
                                                 name="volume"
@@ -240,38 +232,37 @@ const PipCalculator = () => {
                                                 )}
                                             </Field>
                                         </InputGroup>
-
                                         <InputGroup>
                                             <Field
-                                                name="pointValue"
-                                                value={values.pointValue}
+                                                name="assetPrice"
+                                                value={values.assetPrice}
                                                 onChange={(value) => {
-                                                    setFieldValue('pointValue', value)
+                                                    setFieldValue('assetPrice', value)
                                                 }}
                                             >
                                                 {({ field }) => (
                                                     <Input
                                                         {...field}
-                                                        id="pointValue"
+                                                        id="assetPrice"
                                                         type="text"
-                                                        label={localize('Point Value')}
+                                                        label={localize('Asset price')}
                                                         autoComplete="off"
                                                         error={
-                                                            touched.pointValue && errors.pointValue
+                                                            touched.assetPrice && errors.assetPrice
                                                         }
                                                         onBlur={handleBlur}
                                                         handleError={(current_input) => {
-                                                            setFieldValue('pointValue', '', false)
-                                                            setFieldError('pointValue', '')
+                                                            setFieldValue('assetPrice', '', false)
+                                                            setFieldError('assetPrice', '')
                                                             setFieldTouched(
-                                                                'pointValue',
+                                                                'assetPrice',
                                                                 false,
                                                                 false,
                                                             )
                                                             current_input.focus()
                                                         }}
                                                         maxLength={getMaxLength(
-                                                            values.pointValue,
+                                                            values.assetPrice,
                                                             15,
                                                         )}
                                                         background="white"
@@ -279,6 +270,20 @@ const PipCalculator = () => {
                                                 )}
                                             </Field>
                                         </InputGroup>
+                                        <Dropdown
+                                            option_list={leverageItemLists}
+                                            id="leverage"
+                                            label={localize('Leverage')}
+                                            default_option={optionItemDefault}
+                                            selected_option={values.leverage}
+                                            onChange={(value) => {
+                                                setFieldValue('leverage', value)
+                                            }}
+                                            error={touched.leverage && errors.leverage}
+                                            onBlur={handleBlur}
+                                            autoComplete="off"
+                                            data-lpignore="true"
+                                        />
                                         <Flex mt="3rem">
                                             <CalculateButton
                                                 secondary
@@ -293,156 +298,88 @@ const PipCalculator = () => {
                             )}
                         </Formik>
                     </FormWrapper>
-
                     <RightContent>
                         <Header as="h3" type="section-title" mb="0.8rem">
-                            {localize('How to calculate pip value')}
+                            {localize('How to calculate margin')}
                         </Header>
-
                         <Text>
-                            {localize(
-                                'The pip value for a contract on DMT5 is calculated based on this formula:',
-                            )}
+                            <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
-                                translate_text="<0>Pip value = point value × volume × contract size</0>"
+                                translate_text="<0>Margin = (volume × contract size × asset price) ÷ leverage</0>"
                                 components={[<strong key={0} />]}
                             />
                         </Text>
-
                         <Text mb="1.6rem">
-                            {localize(
-                                'For synthetic accounts, the pip value is calculated in USD.',
-                            )}
+                            <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
                         </Text>
                         <Text mb="40px">
                             {localize(
-                                'For financial accounts, the pip value is in the quote currency for forex pairs.',
+                                'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be calculated in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
                             )}
                         </Text>
-
                         <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
                         </Header>
-
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={localize('Pip value for synthetic indices')}
+                                header={localize('Margin required')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
                             >
                                 <Text mb="16px">
                                     {localize(
-                                        'Let’s say you want to trade 1 lot of Volatility 75 Index.',
+                                        'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                                     )}
                                 </Text>
-
                                 <Show.Desktop>
                                     <QueryImage
-                                        data={data.pip_value_formula}
+                                        data={data.margin_formula}
                                         alt={localize('Margin formula')}
                                     />
-                                    <QueryImage data={data.pip_info} alt={localize('Pip Info')} />
                                 </Show.Desktop>
-
                                 <Show.Mobile>
                                     <QueryImage
-                                        data={data.pip_value_formula_mobile}
+                                        data={data.margin_formula_mobile}
                                         alt={localize('Margin formula mobile')}
                                     />
-                                    <QueryImage
-                                        data={data.pip_info_mobile}
-                                        alt={localize('Pip Info')}
-                                    />
                                 </Show.Mobile>
                                 <FormulaText>
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01.',
-                                                )}
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                {localize(
-                                                    'The contract size is one standard lot of Volatility 75 index = 1',
-                                                )}
+                                                <Localize translate_text="One standard lot of forex = 100,000 units" />
                                             </span>
                                         </li>
                                     </StyledOl>
                                 </FormulaText>
                                 <Text mb="1.6rem" mt="1.6rem">
                                     <Localize
-                                        translate_text="So your pip value is <0>0.01 USD</0>."
+                                        translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
-                            </AccordionItem>
-                            <AccordionItem
-                                header={localize('Pip value for forex')}
-                                header_style={header_style}
-                                style={item_style}
-                                plus
-                            >
-                                <Text mb="16px">
-                                    {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
-                                </Text>
-
-                                <Show.Desktop>
-                                    <QueryImage
-                                        data={data.pip_value_forex_formula}
-                                        alt={localize('Pip Forex formula')}
-                                    />
-                                </Show.Desktop>
-
-                                <Show.Mobile>
-                                    <QueryImage
-                                        data={data.pip_value_forex_formula_mobile}
-                                        alt={localize('Pip Forex formula')}
-                                    />
-                                </Show.Mobile>
-
-                                <FormulaText>
-                                    <StyledOl>
-                                        <li>
-                                            <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001.',
-                                                )}
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                {localize(
-                                                    'One standard lot of forex = 100,000 units',
-                                                )}
-                                            </span>
-                                        </li>
-                                    </StyledOl>
-                                </FormulaText>
-
-                                <Text mb="1.6rem" mt="1.6rem">
-                                    <Localize
-                                        translate_text="So your pip value is <0>2 USD</0>."
-                                        components={[<strong key={0} />]}
-                                    />
+                                <Text>
+                                    {localize(
+                                        'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
+                                    )}
                                 </Text>
                             </AccordionItem>
                         </Accordion>
-
-                        <LinkWrapper>
+                        <LinkWrapper height="auto">
                             <StyledLinkButton
-                                secondary="true"
+                                tertiary="true"
                                 type="mt5"
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 {localize('Go to Deriv MT5 dashboard')}
+                            </StyledLinkButton>
+                            <StyledLinkButton secondary="true" to="/trade-types/cfds/">
+                                {localize('Learn more about margin')}
                             </StyledLinkButton>
                         </LinkWrapper>
                     </RightContent>
@@ -452,4 +389,4 @@ const PipCalculator = () => {
     )
 }
 
-export default PipCalculator
+export default MarginCalculator

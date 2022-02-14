@@ -17,7 +17,7 @@ const AgreementLabel = ({
     isChecked,
     color,
     pep_label,
-    link_text = localize(pep_label || 'I agree to the <0>terms and conditions</0>'),
+    link_text = pep_label || localize('I agree to the <0>terms and conditions</0>'),
     isAffiliate,
 }) => {
     const handleChange = (event) => {

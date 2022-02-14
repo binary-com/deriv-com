@@ -1,5 +1,5 @@
 import React from 'react'
-import { affiliate_validation_regex } from '../../../common/constants'
+import { affiliate_validation_regex } from 'common/constants'
 import { localize, Localize } from 'components/localization'
 
 const validation_is_exceed_number = (input, maxDigit) => {

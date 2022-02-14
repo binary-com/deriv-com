@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex } from '../containers'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, Text, LinkText, LocalizedLinkText } from 'components/elements'
+import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
@@ -22,12 +22,6 @@ const StyledFlex = styled(Flex)`
         width: 100%;
         height: 57rem;
         padding: 6rem 2rem;
-    }
-`
-const SubTitle = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        margin-bottom: 1rem;
     }
 `
 const StyledNoteFlex = styled(Flex)`
@@ -62,11 +56,10 @@ const EmailButton = styled(Button)`
         font-size: 12px;
     }
 `
-const LoginText = styled(Text)`
+const LoginText = styled(Header)`
     text-align: center;
     align-self: center;
     margin-top: 1.6rem;
-    font-size: 14px;
 
     @media ${device.tabletL} {
         display: flex;
@@ -104,12 +97,15 @@ const SignupAffiliate = ({
             <Header as="h4" type="heading-3" mb="0.8rem">
                 {localize('Sign up')}
             </Header>
-            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
+            <Header type="subtitle-1" weight="normal">
+                {localize('Enter your email address to begin')}
+            </Header>
             {!is_ppc && (
                 <StyledNoteFlex fd="row" width="100%" p="8px 14px" mt="1.6rem">
                     <div>
-                        <Text
+                        <Header
                             mb="0.2rem"
+                            weight="normal"
                             notedBox
                             color="grey-16"
                             size="var(--text-size-xs)"
@@ -126,7 +122,7 @@ const SignupAffiliate = ({
                                     Create a Deriv account
                                 </StyledLinkText>
                             </LocalizedLinkText>
-                        </Text>
+                        </Header>
                     </div>
                 </StyledNoteFlex>
             )}
@@ -162,7 +158,7 @@ const SignupAffiliate = ({
             >
                 {localize('Create partner account')}
             </EmailButton>
-            <LoginText>
+            <LoginText weight="normal" type="paragraph-1">
                 <div>{localize('Already have a Deriv or Binary.com affiliate account?')}</div>
                 <StyledLinkText
                     id="dm-new-login-button"

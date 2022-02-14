@@ -18,7 +18,7 @@ import RadioInput from '../form/radio-input'
 import CurrencySelect from '../form/currency-select'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, Text, LinkText } from 'components/elements'
+import { Header, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
@@ -38,24 +38,10 @@ const StyledContentFlex = styled(Flex)`
         padding: 6rem 2rem;
     }
 `
-const SubTitle = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-`
 const Line = styled.div`
-    width: 110px;
+    width: 130px;
     height: 1px;
     background-color: var(--color-grey-7);
-`
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
-    }
-    @media ${device.mobileL} {
-        font-size: 12px;
-    }
 `
 const InputGroup = styled.div`
     position: relative;
@@ -78,7 +64,7 @@ const SignupButton = styled(Button)`
         font-size: 1.75rem;
     }
 `
-const LoginText = styled(Text)`
+const LoginText = styled(Header)`
     text-align: left;
     margin-top: 1.6rem;
     @media ${device.tabletL} {
@@ -240,11 +226,11 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             <Header as="h4" type="sub-section-title" mb="0.8rem">
                                 {localize('We’re glad you’re here')}
                             </Header>
-                            <SubTitle>
+                            <Header type="subtitle-2" weight="normal">
                                 {localize(
                                     'Complete this form to sign up for our partnership programme.',
                                 )}
-                            </SubTitle>
+                            </Header>
                             <InputGroup>
                                 {form_inputs.map((item) => {
                                     return item.name === 'country' ? (
@@ -309,35 +295,43 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             </InputGroup>
                             <Flex fd="row" jc="space-between" ai="center" mt="2.4">
                                 <Line />
-                                <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                                    {localize('Choose a plan')}
-                                </StyledText>
-                                <Tooltip
-                                    title={
-                                        <div style={{ color: 'black' }}>
-                                            {localize(
-                                                'Choose which plan you would like to subscribe to.',
-                                            )}{' '}
-                                            <LocalizedLinkText
-                                                to="/partners/affiliate-ib#deriv-ap"
-                                                external="true"
-                                                color="red"
-                                                target="_blank"
-                                                is_anchor
-                                                style={{ fontSize: '14px' }}
-                                            >
-                                                {localize('Learn more')}
-                                            </LocalizedLinkText>
-                                        </div>
-                                    }
-                                    color={'#d6dadb'}
-                                >
-                                    <img
-                                        style={{ marginLeft: '5px', cursor: 'pointer' }}
-                                        src={Info}
-                                        alt="info"
-                                    />
-                                </Tooltip>
+                                <Flex fd="row" ai="center" width="40%">
+                                    <Header
+                                        type="paragraph-2"
+                                        align="center"
+                                        tabletFontSize="12px"
+                                        weight="normal"
+                                        mb="0"
+                                    >
+                                        {localize('Choose a plan')}
+                                    </Header>
+                                    <Tooltip
+                                        title={
+                                            <div style={{ color: 'black' }}>
+                                                {localize(
+                                                    'Choose which plan you would like to subscribe to.',
+                                                )}{' '}
+                                                <LocalizedLinkText
+                                                    to="/partners/affiliate-ib#deriv-ap"
+                                                    external="true"
+                                                    color="red"
+                                                    target="_blank"
+                                                    is_anchor
+                                                    style={{ fontSize: '14px' }}
+                                                >
+                                                    {localize('Learn more')}
+                                                </LocalizedLinkText>
+                                            </div>
+                                        }
+                                        color={'#d6dadb'}
+                                    >
+                                        <img
+                                            style={{ marginLeft: '5px', cursor: 'pointer' }}
+                                            src={Info}
+                                            alt="info"
+                                        />
+                                    </Tooltip>
+                                </Flex>
                                 <Line />
                             </Flex>
                             <Flex fd="row" jc="space-between" m="2rem 0">
@@ -374,9 +368,16 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             </Flex>
                             <Flex fd="row" jc="space-between" ai="center" mt="2.4">
                                 <Line />
-                                <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                                    {localize('Choose your currency')}
-                                </StyledText>
+                                <Flex fd="row" ai="center" width="40%">
+                                    <Header
+                                        type="paragraph-2"
+                                        align="center"
+                                        tabletFontSize="12px"
+                                        weight="normal"
+                                    >
+                                        {localize('Choose your currency')}
+                                    </Header>
+                                </Flex>
                                 <Line />
                             </Flex>
                             <Field name="currency-select">
@@ -415,7 +416,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     )
                 }}
             </Formik>
-            <LoginText>
+            <LoginText type="paragraph-1" weight="normal">
                 {localize('Already have an account?')}
                 <StyledLinkText
                     id="dm-new-login-button"

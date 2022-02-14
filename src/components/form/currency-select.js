@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import { Flex } from '../containers'
-import { QueryImage, Header } from '../elements'
+import { Header } from '../elements'
+import USD from '../../images/svg/signup-affiliate-details/usd.svg'
+import AUD from '../../images/svg/signup-affiliate-details/aud.svg'
+import EUR from '../../images/svg/signup-affiliate-details/eur.svg'
+import GBP from '../../images/svg/signup-affiliate-details/gbp.svg'
 
 const Item = styled(Flex)`
     width: 90px;
@@ -17,60 +20,42 @@ const Item = styled(Flex)`
         background: rgba(245, 247, 250, 0.64);
     }
 `
-
-const StyledContentFlex = styled(Flex)``
-
 const CurrencySelect = ({ setFieldValue, current_select }) => {
-    const query = graphql`
-        query {
-            usd: file(relativePath: { eq: "currencies/usd.png" }) {
-                ...fadeIn
-            }
-            eur: file(relativePath: { eq: "currencies/eur.png" }) {
-                ...fadeIn
-            }
-            gbp: file(relativePath: { eq: "currencies/gbp.png" }) {
-                ...fadeIn
-            }
-            aud: file(relativePath: { eq: "currencies/aud.png" }) {
-                ...fadeIn
-            }
-        }
-    `
-
     const currency_list = [
         {
             value: '/usd/',
             text: 'US dollar (USD)',
             is_selected: false,
             code: 'usd',
+            image: USD,
         },
         {
             value: '/eur/',
             text: 'Euro (EUR)',
             is_selected: false,
             code: 'eur',
+            image: EUR,
         },
         {
             value: '/gbp/',
             text: 'Pound sterling (GBP)',
             is_selected: false,
             code: 'gbp',
+            image: GBP,
         },
         {
             value: '/aud/',
             text: 'Australian dollar (AUD)',
             is_selected: false,
             code: 'aud',
+            image: AUD,
         },
     ]
-
-    const data = useStaticQuery(query)
 
     const setCurrencyData = (value) => setFieldValue('currency', value)
 
     return (
-        <StyledContentFlex jc="space-between">
+        <Flex jc="space-between">
             {currency_list.map((currency, idx) => {
                 const selected = current_select === currency.value
                 return (
@@ -82,7 +67,9 @@ const CurrencySelect = ({ setFieldValue, current_select }) => {
                         key={idx}
                         selected={selected}
                     >
-                        <QueryImage width="24px" height="24px" alt="" data={data[currency.code]} />
+                        <div>
+                            <img src={currency.image} alt="" width="24" height="24" />
+                        </div>
                         <Header
                             as="h5"
                             weight="normal"
@@ -94,7 +81,7 @@ const CurrencySelect = ({ setFieldValue, current_select }) => {
                     </Item>
                 )
             })}
-        </StyledContentFlex>
+        </Flex>
     )
 }
 

@@ -1,24 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex } from '../../components/containers'
+import { Desktop, Flex } from '../../components/containers'
 import { Localize, localize } from 'components/localization'
 import Join from 'images/svg/signup-affiliate-details/join.svg'
 import Earn from 'images/svg/signup-affiliate-details/earn.svg'
 import Products from 'images/svg/signup-affiliate-details/products.svg'
 import Support from 'images/svg/signup-affiliate-details/support.svg'
-import device from 'themes/device.js'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 
-const StyledFlex = styled(Flex)`
-    @media ${device.tablet} {
-        display: none;
-    }
-`
-const Icon = styled.section`
+const IconWrapper = styled.div`
     width: 48px;
     height: 64px;
 `
-const Description = styled.section`
+const Description = styled.div`
     padding-left: 3rem;
 `
 const benefits_content = [
@@ -26,11 +20,11 @@ const benefits_content = [
         id: 'benefit_join',
         header: <Localize translate_text="Join for free" />,
         text: (
-            <Text>
+            <Header type="paragraph-1" weight="normal">
                 {localize(
                     'There are no fees to join our partnership programme, only opportunities to earn!',
                 )}
-            </Text>
+            </Header>
         ),
         icon: <img src={Join} alt="join" />,
     },
@@ -38,11 +32,11 @@ const benefits_content = [
         id: 'benefit_earn',
         header: <Localize translate_text="Earn daily" />,
         text: (
-            <Text>
+            <Header type="paragraph-1" weight="normal">
                 {localize(
                     "Whenever your clients trade, you earn a commission: daily if you're an IB and monthly if you're an affiliate.",
                 )}
-            </Text>
+            </Header>
         ),
         icon: <img src={Earn} alt="earn" />,
     },
@@ -50,11 +44,11 @@ const benefits_content = [
         id: 'benefit_products',
         header: <Localize translate_text="A variety of products for your clients" />,
         text: (
-            <Text>
+            <Header type="paragraph-1" weight="normal">
                 {localize(
                     'Promote our diverse products to your clients and enhance your income. Our platforms are designed to fit any trading style.',
                 )}
-            </Text>
+            </Header>
         ),
         icon: <img src={Products} alt="products" />,
     },
@@ -62,11 +56,11 @@ const benefits_content = [
         id: 'benefit_support',
         header: <Localize translate_text="Get the support you need" />,
         text: (
-            <Text>
+            <Header type="paragraph-1" weight="normal">
                 {localize(
                     'New to the world of affiliate marketing? We’ll support you with exclusive marketing tools, training videos, and more.',
                 )}
-            </Text>
+            </Header>
         ),
         icon: <img src={Support} alt="support" width="48" height="64" />,
     },
@@ -74,21 +68,23 @@ const benefits_content = [
 
 const Benefits = () => {
     return (
-        <StyledFlex width="48rem" jc="flex-start" fd="column" m="9.4rem 7.8rem 0 0">
-            {benefits_content.map((item) => {
-                return (
-                    <Flex ai="center" height="auto" key={item.id}>
-                        <Icon>{item.icon}</Icon>
-                        <Description>
-                            <Header mt="2.4rem" as="h4" type="subtitle-2">
-                                {item.header}
-                            </Header>
-                            {item.text}
-                        </Description>
-                    </Flex>
-                )
-            })}
-        </StyledFlex>
+        <Desktop>
+            <Flex width="48rem" jc="flex-start" fd="column" m="9.4rem 7.8rem 0 0">
+                {benefits_content.map(({ id, icon, header, text }) => {
+                    return (
+                        <Flex ai="center" height="auto" key={id}>
+                            <IconWrapper>{icon}</IconWrapper>
+                            <Description>
+                                <Header mt="2.4rem" as="h4" type="subtitle-2">
+                                    {header}
+                                </Header>
+                                {text}
+                            </Description>
+                        </Flex>
+                    )
+                })}
+            </Flex>
+        </Desktop>
     )
 }
 

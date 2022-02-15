@@ -23,9 +23,7 @@ import {
     StickyBreadCrumbsWrapper,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
-    BreadcrumbsContainer,
     StyledBreadcrumbsContainer,
-    SocialSharingContainer,
     Scrollbar,
     ProgressContainer,
     ProgressBar,
@@ -43,7 +41,8 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
-    const [is_mobile] = useBrowserResize(992)
+    const [is_mobile] = useBrowserResize(475)
+    const [is_little_mobile] = useBrowserResize(400)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded(false)
@@ -121,6 +120,12 @@ const ArticlesTemplate = (props) => {
         og_description: og_description ? og_description : meta_description,
     }
 
+    const getTruncateLength = () => {
+        if (is_little_mobile) return 15
+        else if (is_mobile) return 30
+        else return 60
+    }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -135,27 +140,18 @@ const ArticlesTemplate = (props) => {
                         <Background>
                             <StickyBreadCrumbsWrapper scroll={visible}>
                                 <BreadcrumbsWrapper scroll={visible}>
-                                    <Flex jc="flex-start" ai="center">
-                                        <BreadcrumbsContainer>
-                                            <StyledBreadcrumbsContainer>
-                                                <StyledBreadcrumbsLink
-                                                    to="/academy/blog/"
-                                                    color="grey-5"
-                                                >
-                                                    All articles
-                                                </StyledBreadcrumbsLink>
-                                                <img src={RightArrow} height="16" width="16" />
-                                                <StyledBreadcrumbsTitle>
-                                                    {is_mobile
-                                                        ? truncateString(article_title, 20)
-                                                        : article_title}
-                                                </StyledBreadcrumbsTitle>
-                                            </StyledBreadcrumbsContainer>
-                                            <SocialSharingContainer>
-                                                <SocialSharing />
-                                            </SocialSharingContainer>
-                                        </BreadcrumbsContainer>
-                                    </Flex>
+                                    <StyledBreadcrumbsContainer>
+                                        <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
+                                            All articles
+                                        </StyledBreadcrumbsLink>
+                                        <img src={RightArrow} height="16" width="16" />
+                                        <StyledBreadcrumbsTitle>
+                                            {is_mobile
+                                                ? truncateString(article_title, getTruncateLength())
+                                                : article_title}
+                                        </StyledBreadcrumbsTitle>
+                                        <SocialSharing />
+                                    </StyledBreadcrumbsContainer>
                                 </BreadcrumbsWrapper>
                                 <Scrollbar scroll={visible}>
                                     <ProgressContainer>

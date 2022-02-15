@@ -58,47 +58,25 @@ export const StickyBreadCrumbsWrapper = styled(Flex)`
     }
 `
 export const BreadcrumbsWrapper = styled(Container)`
-    @media ${device.desktopS} {
+    @media (min-width: 992px) {
         max-width: 1200px;
-        margin: 0 auto;
-    }
-    @media ${device.desktopL} {
-        max-width: 1200px;
-        margin: 0 auto;
     }
 
-    @media ${device.laptop} {
-        width: 100%;
-        padding: 0 0 0 16px;
-        flex-direction: column;
+    @media ${device.tabletL} {
+        width: calc(100% - 32px);
     }
 `
-export const BreadcrumbsContainer = styled(Container)`
+
+export const StyledBreadcrumbsContainer = styled(Container)`
     flex-wrap: nowrap;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-    border: 0;
 
     @media ${device.tabletL} {
         width: 972px;
     }
-    @media (min-width: 992px) {
-        width: 86%;
-    }
-    @media (min-width: 1024px) {
-        width: 93%;
-    }
-`
-export const SocialSharingContainer = styled(Container)`
-    display: flex;
-    justify-content: end;
-    height: 37px;
-`
 
-export const StyledBreadcrumbsContainer = styled(Container)`
-    justify-content: start;
-    width: 66%;
+    @media (min-width: 992px) {
+        width: 1200px;
+    }
 `
 
 export const Scrollbar = styled.div`

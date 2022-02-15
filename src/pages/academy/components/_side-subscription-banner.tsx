@@ -1,4 +1,3 @@
-declare const window: any
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TextWrapper } from './_common'

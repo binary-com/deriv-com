@@ -12,7 +12,6 @@ type NavAcademyProps = {
     is_ppc_redirect: boolean
     is_ppc: boolean
     hide_signup_login: boolean
-    academy_logo: boolean
     no_language: boolean
 }
 
@@ -26,7 +25,6 @@ const NavAcademy = ({
     is_ppc_redirect,
     is_ppc,
     hide_signup_login,
-    academy_logo,
     no_language,
 }: NavAcademyProps) => {
     const [is_logged_in, setLoggedIn] = useState(false)
@@ -66,7 +64,6 @@ const NavAcademy = ({
                     <Desktop breakpoint={1060}>
                         <NavDesktop
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
@@ -77,7 +74,6 @@ const NavAcademy = ({
                     <Mobile breakpoint={1060}>
                         <NavMobile
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             is_ppc={is_ppc}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}

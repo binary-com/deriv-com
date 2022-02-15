@@ -368,6 +368,7 @@ export const query = graphql`
                         childImageSharp {
                             gatsbyImageData(
                                 quality: 60
+                                width: 800
                                 webpOptions: { quality: 60 }
                                 avifOptions: { quality: 60 }
                             )

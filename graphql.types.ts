@@ -5452,6 +5452,13 @@ export type Unnamed_79_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_79_Query = { about_us_logo?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
+export type ArticleQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type ArticleQuery = { directus: { blog?: Array<{ id?: string | null, blog_title: string, meta_title?: string | null, meta_description?: string | null, og_title?: string | null, og_description?: string | null, test_data: boolean, published_date: any, blog_post?: string | null, author?: { id?: string | null, name: string, image?: { id?: string | null, description?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null } | null, main_image?: { id?: string | null, description?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null, og_image?: { id?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null, tags?: Array<{ id?: string | null, tags_id?: { id?: string | null, tag_name: string } | null } | null> | null, footer_banners?: { id?: string | null, cta_url: string, name: string, desktop_banner_image?: { id?: string | null, description?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null, mobile_banner_image?: { id?: string | null, description?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null } | null, side_banners?: { id?: string | null, cta_url: string, name: string, banner_image?: { id?: string | null, description?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null } | null } | null> | null } };
+
 export type GatsbyImageSharpFixedFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 
 export type GatsbyImageSharpFixed_TracedSvgFragment = { tracedSVG?: string | null, width: number, height: number, src: string, srcSet: string };

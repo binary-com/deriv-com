@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { ArticleQuery } from '../../graphql.types'
 import {
     ArticleTitle,
     Background,
@@ -43,14 +43,21 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
-const ArticlesTemplate = (props) => {
+type ArticlesTemplateProps = {
+    data: ArticleQuery
+}
+
+const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
     const [is_mobile] = useBrowserResize(992)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
-    const [is_mounted] = usePageLoaded(false)
+    const [is_mounted] = usePageLoaded()
 
     useEffect(() => {
-        is_mounted && handleScroll() && window.scrollTo(0, 0)
+        if (is_mounted) {
+            handleScroll()
+            window.scrollTo(0, 0)
+        }
     }, [is_mounted])
 
     const barElement = useRef(null)
@@ -81,7 +88,7 @@ const ArticlesTemplate = (props) => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [prevScrollPos, visible, handleScroll])
 
-    const post_data = props.data.directus.blog[0]
+    const post_data = data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
     const article_title = post_data?.blog_title
@@ -325,11 +332,6 @@ const ArticlesTemplate = (props) => {
             </>
         </Layout>
     )
-}
-
-ArticlesTemplate.propTypes = {
-    data: PropTypes.object,
-    pageContext: PropTypes.object,
 }
 
 export default WithIntl()(ArticlesTemplate)

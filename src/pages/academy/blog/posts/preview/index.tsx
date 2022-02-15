@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import {
     ArticleTitle,
     Background,
@@ -29,7 +28,7 @@ import {
 } from '../_style'
 import Banner from '../../../components/_banner'
 import SocialSharing from '../../../components/_social-sharing'
-import ArticleEmailBanner from '../../../components/_side-subscription-banner'
+import SideSubscriptionBanner from '../../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
@@ -49,7 +48,10 @@ const BlogPreview = () => {
 
     useEffect(() => {
         setMounted(true)
-        isMounted && window.scrollTo(0, 0) && handleScroll()
+        if (isMounted) {
+            window.scrollTo(0, 0)
+            handleScroll()
+        }
     }, [isMounted])
 
     const handleScroll = () => {
@@ -263,7 +265,7 @@ const BlogPreview = () => {
                                             <Banner detailsPreviewObj={side_banner_data_details} />
                                         )}
                                         <DesktopWrapper>
-                                            <ArticleEmailBanner />
+                                            <SideSubscriptionBanner />
                                         </DesktopWrapper>
                                     </SideBarContainer>
                                 </Show.Desktop>
@@ -298,7 +300,7 @@ const BlogPreview = () => {
                                         </Show.Mobile>
                                     )}
                                     <MobileWrapper>
-                                        <ArticleEmailBanner />
+                                        <SideSubscriptionBanner />
                                     </MobileWrapper>
                                 </Flex>
                             </RightBodyContainerWrapper>
@@ -308,10 +310,6 @@ const BlogPreview = () => {
             </>
         </Layout>
     )
-}
-
-BlogPreview.propTypes = {
-    pageContext: PropTypes.object,
 }
 
 export default WithIntl()(BlogPreview)

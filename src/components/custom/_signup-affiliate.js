@@ -57,17 +57,9 @@ const EmailButton = styled(Button)`
     }
 `
 const LoginText = styled(Header)`
-    text-align: center;
-    align-self: center;
-    margin-top: 1.6rem;
-
     @media ${device.tabletL} {
         display: flex;
-        margin-bottom: 0;
-        margin-top: 3.75rem;
-    }
-    @media ${device.tabletL} {
-        font-size: 12px;
+        justify-content: center;
     }
 `
 const StyledLinkText = styled(LinkText)`
@@ -97,13 +89,14 @@ const SignupAffiliate = ({
             <Header as="h4" type="heading-3" mb="0.8rem">
                 {localize('Sign up')}
             </Header>
-            <Header type="subtitle-1" weight="normal">
+            <Header as="p" type="subtitle-1" weight="normal">
                 {localize('Enter your email address to begin')}
             </Header>
             {!is_ppc && (
                 <StyledNoteFlex fd="row" width="100%" p="8px 14px" mt="1.6rem">
                     <div>
                         <Header
+                            as="p"
                             mb="0.2rem"
                             weight="normal"
                             notedBox
@@ -126,7 +119,6 @@ const SignupAffiliate = ({
                     </div>
                 </StyledNoteFlex>
             )}
-
             <InputGroup>
                 <Input
                     id="dm-email-input"
@@ -158,7 +150,14 @@ const SignupAffiliate = ({
             >
                 {localize('Create partner account')}
             </EmailButton>
-            <LoginText weight="normal" type="paragraph-1">
+            <LoginText
+                as="p"
+                align="center"
+                weight="normal"
+                type="paragraph-2"
+                mt="1.6rem"
+                tabletL={{ mb: 0, mt: '24px' }}
+            >
                 <div>{localize('Already have a Deriv or Binary.com affiliate account?')}</div>
                 <StyledLinkText
                     id="dm-new-login-button"

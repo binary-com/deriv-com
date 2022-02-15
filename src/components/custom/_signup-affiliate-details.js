@@ -64,18 +64,11 @@ const SignupButton = styled(Button)`
         font-size: 1.75rem;
     }
 `
-const LoginText = styled(Header)`
-    text-align: left;
-    margin-top: 1.6rem;
-    @media ${device.tabletL} {
-        margin-top: 3.75rem;
-    }
-    @media ${device.tabletL} {
-        font-size: 2rem;
-    }
-`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
+    @media ${device.mobileL} {
+        font-size: 1.75rem;
+    }
 `
 const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
@@ -226,7 +219,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             <Header as="h4" type="sub-section-title" mb="0.8rem">
                                 {localize('We’re glad you’re here')}
                             </Header>
-                            <Header type="subtitle-2" weight="normal">
+                            <Header as="p" type="subtitle-2" weight="normal">
                                 {localize(
                                     'Complete this form to sign up for our partnership programme.',
                                 )}
@@ -297,6 +290,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                 <Line />
                                 <Flex fd="row" ai="center" width="40%">
                                     <Header
+                                        as="p"
                                         type="paragraph-2"
                                         align="center"
                                         tabletFontSize="12px"
@@ -326,7 +320,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                         color={'#d6dadb'}
                                     >
                                         <img
-                                            style={{ marginLeft: '5px', cursor: 'pointer' }}
+                                            style={{ margin: '0 5px', cursor: 'pointer' }}
                                             src={Info}
                                             alt="info"
                                         />
@@ -370,6 +364,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                 <Line />
                                 <Flex fd="row" ai="center" width="40%">
                                     <Header
+                                        as="p"
                                         type="paragraph-2"
                                         align="center"
                                         tabletFontSize="12px"
@@ -416,7 +411,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     )
                 }}
             </Formik>
-            <LoginText type="paragraph-1" weight="normal">
+            <Header as="p" type="paragraph-1" weight="normal" mt="1.6rem" tabletL={{ mt: '19px' }}>
                 {localize('Already have an account?')}
                 <StyledLinkText
                     id="dm-new-login-button"
@@ -427,7 +422,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                 >
                     {localize('Log in')}
                 </StyledLinkText>
-            </LoginText>
+            </Header>
         </StyledContentFlex>
     )
 }

@@ -20,7 +20,7 @@ const benefits_content = [
         id: 'benefit_join',
         header: <Localize translate_text="Join for free" />,
         text: (
-            <Header type="paragraph-1" weight="normal">
+            <Header as="p" type="paragraph-1" weight="normal">
                 {localize(
                     'There are no fees to join our partnership programme, only opportunities to earn!',
                 )}
@@ -32,7 +32,7 @@ const benefits_content = [
         id: 'benefit_earn',
         header: <Localize translate_text="Earn daily" />,
         text: (
-            <Header type="paragraph-1" weight="normal">
+            <Header as="p" type="paragraph-1" weight="normal">
                 {localize(
                     "Whenever your clients trade, you earn a commission: daily if you're an IB and monthly if you're an affiliate.",
                 )}
@@ -44,7 +44,7 @@ const benefits_content = [
         id: 'benefit_products',
         header: <Localize translate_text="A variety of products for your clients" />,
         text: (
-            <Header type="paragraph-1" weight="normal">
+            <Header as="p" type="paragraph-1" weight="normal">
                 {localize(
                     'Promote our diverse products to your clients and enhance your income. Our platforms are designed to fit any trading style.',
                 )}
@@ -56,7 +56,7 @@ const benefits_content = [
         id: 'benefit_support',
         header: <Localize translate_text="Get the support you need" />,
         text: (
-            <Header type="paragraph-1" weight="normal">
+            <Header as="p" type="paragraph-1" weight="normal">
                 {localize(
                     'New to the world of affiliate marketing? We’ll support you with exclusive marketing tools, training videos, and more.',
                 )}
@@ -75,7 +75,7 @@ const Benefits = () => {
                         <Flex ai="center" height="auto" key={id}>
                             <IconWrapper>{icon}</IconWrapper>
                             <Description>
-                                <Header mt="2.4rem" as="h4" type="subtitle-2">
+                                <Header as="h4" type="subtitle-2" mt="2.4rem">
                                     {header}
                                 </Header>
                                 {text}

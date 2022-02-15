@@ -1069,14 +1069,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                 src={Close}
                                 alt="close menu 2"
                                 onClick={closeOffCanvasMenu}
-                                width="16px"
                             />
                         ) : (
                             <HamburgerMenuPartners
                                 src={Hamburger}
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
-                                width="16px"
                             />
                         )}
 

@@ -32,7 +32,7 @@ import {
     ProgressBar,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/academy/components/_banner'
-import ArticleEmailBanner from '../pages/academy/components/_side-subscription-banner'
+import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -289,7 +289,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                             <Banner detailsObj={side_banner_data_details} />
                                         )}
                                         <DesktopWrapper>
-                                            <ArticleEmailBanner />
+                                            <SideSubscriptionBanner />
                                         </DesktopWrapper>
                                     </SideBarContainer>
                                 </Show.Desktop>
@@ -322,7 +322,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                         </MobileWrapper>
                                     )}
                                     <MobileWrapper>
-                                        <ArticleEmailBanner />
+                                        <SideSubscriptionBanner />
                                     </MobileWrapper>
                                 </Flex>
                             </RightBodyContainerWrapper>

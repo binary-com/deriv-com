@@ -117,7 +117,7 @@ const StyledLocalizedLink = styled(LocalizedLinkText)`
     }
 `
 
-const ArticleEmailBanner = () => {
+const SideSubscriptionBanner = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [name, setName] = React.useState('')
@@ -415,4 +415,4 @@ const ArticleEmailBanner = () => {
     )
 }
 
-export default ArticleEmailBanner
+export default SideSubscriptionBanner

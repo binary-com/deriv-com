@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { AcademyIndexFragment } from '../../../graphql.types'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
-import DVideoBanner from './_video-banner'
+import VideoBanner from './_video-banner'
 import Hero from './components/_hero'
 import MarketNews from './components/_markets-news'
 import Layout from 'components/layout/layout'
@@ -131,7 +131,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
-            <DVideoBanner
+            <VideoBanner
                 featured_video_list_data={featured_video_list_data}
                 non_featured_video_list_data={non_featured_video_list_data}
             />

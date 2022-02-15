@@ -1,13 +1,19 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import ArticleCard from './_article-card'
 import FirstArticle from './_first-article'
+import { ArticleDataType } from './index'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
-const AllArticles = ({ article_data }) => {
+type AllArticlesProps = {
+    article_data: ArticleDataType
+}
+
+export type ItemType = ArticleDataType[0]
+
+const AllArticles = ({ article_data }: AllArticlesProps) => {
     return (
         <Container m="0 auto" fd="column" ai="center">
             <Flex jc="flex-start" ai="center" mt="40px">
@@ -25,10 +31,6 @@ const AllArticles = ({ article_data }) => {
             </VideoGrid>
         </Container>
     )
-}
-
-AllArticles.propTypes = {
-    article_data: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default AllArticles

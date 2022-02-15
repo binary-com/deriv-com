@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
+import { ItemType } from './_all-articles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -58,13 +57,17 @@ const RedirectLink = styled(LocalizedLink)`
     margin-top: 96px;
 `
 
-const FirstArticle = ({ item }) => {
+type FirstArticleProps = {
+    item: ItemType
+}
+
+const FirstArticle = ({ item }: FirstArticleProps) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
             <StyledFlex jc="flex-start">
                 <StandardImgWrapper width="592px" br="6px 0 0 6px" tabletL_br="6px 6px 0 0">
                     <QueryImage
-                        data={getImage(item.main_image.imageFile)}
+                        data={item.main_image.imageFile}
                         alt={item.main_image.description || ''}
                         width="100%"
                         className="standard-query-img"
@@ -104,10 +107,6 @@ const FirstArticle = ({ item }) => {
             </StyledFlex>
         </RedirectLink>
     )
-}
-
-FirstArticle.propTypes = {
-    item: PropTypes.object,
 }
 
 export default FirstArticle

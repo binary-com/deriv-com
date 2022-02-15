@@ -39,6 +39,14 @@ type DerivBlogProps = {
     data: AcademyIndexFragment
 }
 
+export type RecentDataType = AcademyIndexFragment['directus']['recent']
+
+export type FeaturedDataType = AcademyIndexFragment['directus']['featured']
+
+export type FeaturedVideoListDataType = AcademyIndexFragment['directus']['featured_video']
+
+export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['videos']
+
 const DerivBlog = ({ data }: DerivBlogProps) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 

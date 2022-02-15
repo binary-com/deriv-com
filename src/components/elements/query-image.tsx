@@ -1,12 +1,12 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
 
 type QueryImageProps = {
     alt: string
     className?: string
-    data: ImageDataLike
+    data: ImageDataLike | IGatsbyImageData
     height?: string
     width?: string
     max_width?: string

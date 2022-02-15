@@ -1,9 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Dbanner from './components/video-banner/_DBanner'
+import { FeaturedVideoListDataType, NonFeaturedVideoListDataType } from './index'
 import { Flex } from 'components/containers'
 
-const DVideoBanner = ({ featured_video_list_data, non_featured_video_list_data }) => {
+type DVideoBannerProps = {
+    featured_video_list_data: FeaturedVideoListDataType
+    non_featured_video_list_data: NonFeaturedVideoListDataType
+}
+
+const DVideoBanner = ({
+    featured_video_list_data,
+    non_featured_video_list_data,
+}: DVideoBannerProps) => {
     return (
         <Flex>
             {non_featured_video_list_data && non_featured_video_list_data.length && (
@@ -14,11 +22,6 @@ const DVideoBanner = ({ featured_video_list_data, non_featured_video_list_data }
             )}
         </Flex>
     )
-}
-
-DVideoBanner.propTypes = {
-    featured_video_list_data: PropTypes.array,
-    non_featured_video_list_data: PropTypes.array,
 }
 
 export default DVideoBanner

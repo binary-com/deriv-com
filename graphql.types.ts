@@ -5047,10 +5047,10 @@ export type TagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type TagsQuery = { directus: { videos_tags?: Array<{ tags_id?: { tag_name: string } | null } | null> | null, blog_tags?: Array<{ tags_id?: { tag_name: string } | null } | null> | null } };
 
-export type AllArticlesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllArticlesQueryQuery = { directus: { blog?: Array<{ id?: string | null, slug: string, featured: boolean, visibility?: string | null, blog_title: string, blog_description: string, blog_post?: string | null, published_date: any, main_image?: { id?: string | null, description?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null, tags?: Array<{ id?: string | null, tags_id?: { tag_name: string } | null } | null> | null } | null> | null } };
+export type AllArticlesQuery = { directus: { blog?: Array<{ id?: string | null, slug: string, featured: boolean, visibility?: string | null, blog_title: string, blog_description: string, blog_post?: string | null, published_date: any, main_image?: { id?: string | null, description?: string | null, imageFile?: { childImageSharp?: { gatsbyImageData: any } | null } | null } | null, tags?: Array<{ id?: string | null, tags_id?: { tag_name: string } | null } | null> | null } | null> | null } };
 
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 

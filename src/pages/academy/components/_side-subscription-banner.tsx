@@ -1,3 +1,4 @@
+declare const window: any
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TextWrapper } from './_common'
@@ -121,7 +122,7 @@ const ArticleEmailBanner = () => {
     const [email, setEmail] = React.useState('')
     const [name, setName] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
-    const [submit_status, setSubmitStatus] = React.useState('')
+    const [submit_status, setSubmitStatus] = React.useState<boolean | string>('')
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
@@ -132,12 +133,11 @@ const ArticleEmailBanner = () => {
         if (!window._cio) {
             addScriptForCIO()
         }
-        const options = {
-            headers: new Headers({ 'content-type': 'application/json' }),
-            mode: 'no-cors',
-        }
         const url = 'https://assets.customer.io/assets/track.js'
-        fetch(url, options)
+        fetch(url, {
+            headers: { 'Content-type': 'application/json' },
+            mode: 'no-cors',
+        })
             .then(() => {
                 setSubmitStatus(true)
             })

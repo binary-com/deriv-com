@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Header, Text } from './typography'
+import { Header } from './typography'
 import { Flex } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { useTabState } from 'components/hooks/use-tab-state'
@@ -40,9 +40,6 @@ const TabButton = styled.button`
         props.selected &&
         css`
             border-color: var(--color-red);
-            ${Text} {
-                font-weight: bold;
-            }
         `}
 
     &:hover,
@@ -97,6 +94,7 @@ const Content = styled.div`
 
 const TextWrapper = styled(Header)`
     text-align: center;
+    font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
 
     @media ${device.tabletS} {
         font-size: ${({ mobile_font_size }) => mobile_font_size && `${mobile_font_size}px`};
@@ -174,7 +172,12 @@ const Tabs = ({
                         }}
                         mobile_tab_button_underline_length={mobile_tab_button_underline_length}
                     >
-                        <TextWrapper as="p" type="subtitle-1" mobile_font_size={mobile_font_size}>
+                        <TextWrapper
+                            as="p"
+                            type="subtitle-1"
+                            selected={selected_tab === index}
+                            mobile_font_size={mobile_font_size}
+                        >
                             {label}
                         </TextWrapper>
                     </TabButton>

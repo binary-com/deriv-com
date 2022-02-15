@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
-import { Container, SectionContainer, Flex, Show } from 'components/containers'
+import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
 import Underage from 'images/svg/responsible/underage.svg'
@@ -122,8 +122,8 @@ const NeedHelp = () => {
                                     {item.header}
                                 </Header>
                                 <LogoWrapper>
-                                    <Show.Desktop>{item.icon}</Show.Desktop>
-                                    <Show.Mobile>{item.icon_mobile}</Show.Mobile>
+                                    <Desktop>{item.icon}</Desktop>
+                                    <Mobile>{item.icon_mobile}</Mobile>
                                 </LogoWrapper>
                             </Flex>
                             {item.text}

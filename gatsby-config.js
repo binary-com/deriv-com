@@ -74,6 +74,7 @@ module.exports = {
                     '/signup-success',
                     '/**/signup-success',
                     '/academy/blog/posts/preview',
+                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -198,13 +199,6 @@ module.exports = {
             },
         },
         'gatsby-plugin-anchor-links',
-        {
-            resolve: 'gatsby-plugin-google-tagmanager',
-            options: {
-                id: 'GTM-NF7884S',
-                includeInDevelopment: false,
-            },
-        },
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {

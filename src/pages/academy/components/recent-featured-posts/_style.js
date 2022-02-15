@@ -16,6 +16,10 @@ export const StyledContainer = styled(Flex)`
     @media ${device.laptopM} {
         max-width: 58.8rem;
     }
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
 `
 
 export const StyledTabs = styled(Tabs)`
@@ -26,9 +30,15 @@ export const ArticleContentWrapper = styled(Container)`
     margin-top: 24px;
     color: var(--color-white);
     width: 100%;
+
     @media ${device.laptopM} {
         flex-direction: column;
         width: 100%;
+    }
+
+    @media ${device.mobileL} {
+        margin: 24px auto 0;
+        padding: 0 16px 0 18px;
     }
 `
 
@@ -68,11 +78,6 @@ export const RightContent = styled(Flex)`
 `
 
 export const MainArticle = styled(Flex)`
-    /* prettier-ignore */
-    background: ${(props) =>
-        props.image
-            ? `linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat top left`
-            : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
     position: relative;
     background-size: cover;
     max-height: 464px;
@@ -102,14 +107,9 @@ export const MainArticle = styled(Flex)`
     }
 
     @media ${device.laptopM} {
-        /* prettier-ignore */
         max-width: 58.8rem;
         width: 90vw;
         padding: 0;
-        background: ${(props) =>
-            props.image
-                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat center right 46.5%`
-                : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
         justify-content: flex-end;
 
@@ -123,12 +123,42 @@ export const MainArticle = styled(Flex)`
     }
 `
 
+export const BackgroundImageWrapper = styled.div`
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: 1;
+`
+export const BackgroundImageContainer = styled(Flex)`
+    & > div {
+        width: 100%;
+    }
+`
+export const GradientWrapper = styled.div`
+    position: absolute;
+    inset: 0 0 0 0;
+    background: linear-gradient(
+        251.14deg,
+        rgba(14, 14, 14, 0.5632) 29.18%,
+        rgba(7, 6, 6, 0.88) 85.14%
+    );
+    z-index: 2;
+
+    @media ${device.tabletL} {
+        background: linear-gradient(
+            251.14deg,
+            rgba(14, 14, 14, 0.5632) 29.18%,
+            rgba(7, 6, 6, 0.88) 85.14%
+        );
+    }
+`
+
 export const Description = styled.div`
     position: absolute;
     left: 0;
     bottom: 0;
     padding: 24px 40px 0 40px;
     margin-bottom: 80px;
+    z-index: 3;
 
     @media ${device.laptopM} {
         padding: 30px;
@@ -176,6 +206,7 @@ export const BottomDescription = styled(Flex)`
     order: 1;
     flex-grow: 0;
     color: var(--color-white);
+    z-index: 3;
 
     @media ${device.laptopM} {
         display: none;
@@ -290,6 +321,11 @@ export const AllArticleButton = styled(LinkButton)`
 
     @media ${device.laptopM} {
         width: 100%;
+    }
+
+    @media ${device.mobileL} {
+        width: 90%;
+        margin-top: 24px;
     }
 `
 

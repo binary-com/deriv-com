@@ -160,6 +160,7 @@ const AdditionalFlex = styled.div`
         font-size: 1.75rem;
     }
 `
+
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
@@ -173,7 +174,9 @@ const Subscribe = () => {
     const { is_eu_country, user_country } = React.useContext(DerivStore)
 
     useEffect(() => {
-        addScriptForCIO()
+        if (!window._cio) {
+            addScriptForCIO()
+        }
         const options = {
             headers: new Headers({ 'content-type': 'application/json' }),
             mode: 'no-cors',
@@ -289,10 +292,14 @@ const Subscribe = () => {
         window._cio.identify({
             id: email,
             email,
+            country: user_country,
             created_at: Math.round(Date.now() / 1000),
             name,
             type: 'Academy',
-            country: user_country,
+            unsubscribed: true,
+        })
+        window._cio.track('academy_subscription', {
+            id: email,
         })
     }
 

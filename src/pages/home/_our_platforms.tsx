@@ -3,8 +3,11 @@ import { Flex, SectionContainer } from 'components/containers'
 import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
+import { DerivStore } from 'store'
 
 const OurPlatforms = () => {
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+
     return (
         <SectionContainer
             background="#f9fbff"
@@ -30,9 +33,13 @@ const OurPlatforms = () => {
                         align="center"
                         mobileM={{ max_width: '328px' }}
                     >
-                        {localize(
-                            'Choose from 8 powerful platforms — each designed with your needs in mind',
-                        )}
+                        {!is_eu_country && !is_uk_country
+                            ? localize(
+                                  'Choose from 8 powerful platforms — each designed with your needs in mind',
+                              )
+                            : localize(
+                                  'Choose from 2 powerful platforms — each designed with your needs in mind',
+                              )}
                     </Header>
                 </Flex>
                 <PlatformCarousel />

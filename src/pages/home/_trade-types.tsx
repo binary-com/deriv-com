@@ -234,6 +234,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 
 const TradeTypes = (): React.ReactNode => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+    const is_row = !is_eu_country
 
     const settings = {
         options: {
@@ -280,29 +281,25 @@ const TradeTypes = (): React.ReactNode => {
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {!is_eu_country && !is_uk_country
-                            ? item_details_CR
-                            : item_details_EU_UK.map((item) => {
-                                  return (
-                                      <Flex key={item.image_url} ai="flex-start">
-                                          <TradeItems items_details={item} />
-                                      </Flex>
-                                  )
-                              })}
+                        {(is_row ? item_details_CR : item_details_EU_UK).map((item) => {
+                            return (
+                                <Flex key={item.image_url} ai="flex-start">
+                                    <TradeItems items_details={item} />
+                                </Flex>
+                            )
+                        })}
                     </Carousel>
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {!is_eu_country && !is_uk_country
-                        ? item_details_CR
-                        : item_details_EU_UK.map((item) => {
-                              return (
-                                  <Flex key={item.link} ai="flex-start">
-                                      <TradeItems items_details={item} />
-                                  </Flex>
-                              )
-                          })}
+                    {(is_row ? item_details_CR : item_details_EU_UK).map((item) => {
+                        return (
+                            <Flex key={item.link} ai="flex-start">
+                                <TradeItems items_details={item} />
+                            </Flex>
+                        )
+                    })}
                 </Flex>
             </MobileWrapper>
         </StyledSection>

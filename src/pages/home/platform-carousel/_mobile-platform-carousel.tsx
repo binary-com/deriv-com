@@ -1,11 +1,18 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { platform_details, getOSIcon, PlatformContent, ImageTag } from './_utils'
+import {
+    platform_details_cr,
+    platform_details_eu_uk,
+    getOSIcon,
+    PlatformContent,
+    ImageTag,
+} from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
+import { DerivStore } from 'store'
 
 const CarouselItemWrapper = styled.div`
     width: 100%;
@@ -120,48 +127,55 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
 }
 
 const MobilePlatformCarousel = () => {
+    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
     const images = useStaticQuery(image_query)
 
     return (
         <Carousel {...settings}>
-            {platform_details.map((platform, index) => {
-                const image_key = Object.keys(images)[index]
+            {!is_eu_country && !is_uk_country
+                ? platform_details_cr
+                : platform_details_eu_uk.map((platform, index) => {
+                      const image_key = Object.keys(images)[index]
 
-                return (
-                    <CarouselItemWrapper key={platform.description}>
-                        <Flex tabletL={{ mb: '56px' }}>
-                            <MobileImage data={images[image_key]} alt={image_key} height={'55vw'} />
-                        </Flex>
-                        <Flex>
-                            <PlatformDetails
-                                title={platform.title}
-                                icon={platform.icon}
-                                description={platform.description}
-                                learn_more_link={platform.learn_more_link}
-                            />
-                        </Flex>
-                        <Flex
-                            ai="flex-start"
-                            jc="center"
-                            fw="wrap"
-                            width="unset"
-                            tabletL={{ m: '3.2rem 3.8rem' }}
-                            mobileL={{ m: '32px 0 40px' }}
-                        >
-                            {platform.download_links.map((link) => (
-                                <DownloadLink
-                                    key={link.url}
-                                    to={link.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img src={getOSIcon(link.type)} alt={link.type} />
-                                </DownloadLink>
-                            ))}
-                        </Flex>
-                    </CarouselItemWrapper>
-                )
-            })}
+                      return (
+                          <CarouselItemWrapper key={platform.description}>
+                              <Flex tabletL={{ mb: '56px' }}>
+                                  <MobileImage
+                                      data={images[image_key]}
+                                      alt={image_key}
+                                      height={'55vw'}
+                                  />
+                              </Flex>
+                              <Flex>
+                                  <PlatformDetails
+                                      title={platform.title}
+                                      icon={platform.icon}
+                                      description={platform.description}
+                                      learn_more_link={platform.learn_more_link}
+                                  />
+                              </Flex>
+                              <Flex
+                                  ai="flex-start"
+                                  jc="center"
+                                  fw="wrap"
+                                  width="unset"
+                                  tabletL={{ m: '3.2rem 3.8rem' }}
+                                  mobileL={{ m: '32px 0 40px' }}
+                              >
+                                  {platform.download_links.map((link) => (
+                                      <DownloadLink
+                                          key={link.url}
+                                          to={link.url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                      >
+                                          <img src={getOSIcon(link.type)} alt={link.type} />
+                                      </DownloadLink>
+                                  ))}
+                              </Flex>
+                          </CarouselItemWrapper>
+                      )
+                  })}
         </Carousel>
     )
 }

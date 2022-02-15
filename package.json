@@ -5,6 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^3.2.1",
+        "@builder.io/partytown": "^0.3.5",
         "@directus/gatsby-source-directus": "^9.5.0",
         "@livechat/customer-sdk": "^3.1.0",
         "@loadable/component": "^5.15.2",

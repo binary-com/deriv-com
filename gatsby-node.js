@@ -17,6 +17,11 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_market = /markets/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
 
+    createRedirect({
+        fromPath: `/en/?is_livechat_open=true`,
+        toPath: `/?is_livechat_open=true`,
+    });
+
     if (is_responsible_trading) {
         createRedirect({
             fromPath: `/responsible-trading/`,

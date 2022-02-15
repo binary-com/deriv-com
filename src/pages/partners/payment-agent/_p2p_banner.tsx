@@ -88,15 +88,6 @@ const LeftChild = styled(Flex)`
     }
 `
 
-const StyledHeader = styled(Header)`
-    color: var(--color-white);
-    margin-bottom: 16px;
-
-    @media ${device.tabletL} {
-        margin-bottom: 8px;
-        max-width: 378px;
-    }
-`
 const Subtitle = styled(Header)`
     color: var(--color-white);
     margin-bottom: 3rem;
@@ -107,6 +98,16 @@ const Subtitle = styled(Header)`
 
     @media (max-width: 1100px) {
         margin-bottom: 16px;
+    }
+`
+
+const StyledHeader = styled(Header)`
+    color: var(--color-white);
+    margin-bottom: 16px;
+
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
+        max-width: 378px;
     }
 `
 

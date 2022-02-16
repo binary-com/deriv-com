@@ -6,7 +6,7 @@ const deriv_me_url = 'deriv.me'
 const deriv_com_app_id = 16929
 const deriv_me_app_id = 1411
 
-const supported_domains = [deriv_com_url, deriv_me_url]
+export const supported_domains = [deriv_com_url, deriv_me_url]
 const domain_url =
     isBrowser() && supported_domains.includes(window.location.hostname)
         ? window.location.hostname

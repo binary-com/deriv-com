@@ -4,6 +4,7 @@ import device from 'themes/device'
 import { getBaseRef } from 'common/utility'
 import { Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
+import { SharedLinkStyle } from 'components/localization/localized-link'
 
 type NavRightProps = {
     mounted: boolean
@@ -175,4 +176,45 @@ export const NavWrapperMain = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
+`
+
+export const NavWrapperPartners = styled.div`
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+
+    .fresnel-between-start-tabletL {
+        display: none;
+    }
+    @media ${device.tabletL} {
+        .fresnel-between-start-tabletL {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+    }
+`
+export const StyledNavPartners = styled.nav`
+    background-color: var(--color-black);
+    height: 7.2rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    @media ${device.tabletL} {
+        height: auto;
+    }
+`
+export const NavLeftPartners = styled.div`
+    text-align: left;
+    display: flex;
+    align-items: center;
+    max-width: 30rem;
+    width: 100%;
+    @media (max-width: 991px) {
+        display: none;
+    }
+`
+export const StyledLink = styled(LocalizedLink)`
+    ${SharedLinkStyle}
 `

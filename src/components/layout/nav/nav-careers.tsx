@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     StyledNavPartners as StyledNav,
@@ -9,7 +8,7 @@ import {
     LogoLink,
     Wrapper,
     NavLeftPartners as NavLeft,
-} from './nav'
+} from './styles/nav-styles'
 import { Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -31,7 +30,6 @@ const CareerRight = styled(Flex)`
     width: auto;
     justify-self: flex-end;
 `
-
 const CareerButton = styled(LinkButton)`
     @media ${device.tabletS} {
         font-size: 12px;
@@ -43,14 +41,12 @@ const CareerButton = styled(LinkButton)`
         margin-left: 4px;
     }
 `
-
 const CareerLink = styled(StyledLink)`
     @media ${device.mobileM} {
         font-size: 9px;
         padding: 4px;
     }
 `
-
 const CareerLogo = styled(LogoLink)`
     margin-right: 3.2rem;
     @media ${device.tabletS} {
@@ -65,16 +61,19 @@ const CareerLogo = styled(LogoLink)`
         }
     }
 `
-
 const CareerNavLeft = styled(NavLeft)`
     @media ${device.tabletL} {
         display: flex;
     }
 `
 
-export const NavCareers = ({ is_besquare }) => {
+type NavCareersProps = {
+    is_besquare?: boolean
+}
+
+const NavCareers = ({ is_besquare }: NavCareersProps) => {
     const data = useStaticQuery(query)
-    const { has_mounted } = React.useContext(LocationContext)
+    const { has_mounted } = useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
     const button_component = is_besquare ? (
         <CareerButton
@@ -101,6 +100,24 @@ export const NavCareers = ({ is_besquare }) => {
         </CareerButton>
     )
 
+    const links = [
+        { id: 1, title: 'HOME', active: 'home', to: '/careers/', aria_label: 'Careers' },
+        {
+            id: 2,
+            title: 'LOCATIONS',
+            active: 'locations',
+            to: '/careers/locations/',
+            aria_label: 'Locations',
+        },
+        {
+            id: 3,
+            title: 'BESQUARE',
+            active: 'besquare',
+            to: '/careers/besquare/',
+            aria_label: 'BeSquare',
+        },
+    ]
+
     return (
         <>
             <NavWrapper>
@@ -116,33 +133,21 @@ export const NavCareers = ({ is_besquare }) => {
                                     loading="eager"
                                 />
                             </CareerLogo>
-                            <CareerLink
-                                active={current_page === 'home'}
-                                activeClassName="active"
-                                to="/careers/"
-                                aria-label={'Careers'}
-                                partiallyActive={true}
-                            >
-                                HOME
-                            </CareerLink>
-                            <CareerLink
-                                active={current_page === 'locations'}
-                                activeClassName="active"
-                                to="/careers/locations/"
-                                aria-label={'Locations'}
-                                partiallyActive={true}
-                            >
-                                LOCATIONS
-                            </CareerLink>
-                            <CareerLink
-                                active={current_page === 'besquare'}
-                                activeClassName="active"
-                                to="/careers/besquare/"
-                                aria-label={'BeSquare'}
-                                partiallyActive={true}
-                            >
-                                BESQUARE
-                            </CareerLink>
+
+                            {links.map((item) => {
+                                return (
+                                    <CareerLink
+                                        key={item.id}
+                                        active={current_page === item.active}
+                                        activeClassName="active"
+                                        to={item.to}
+                                        aria-label={item.aria_label}
+                                        partiallyActive
+                                    >
+                                        {item.title}
+                                    </CareerLink>
+                                )
+                            })}
                         </CareerNavLeft>
                         <CareerRight jc="flex-end" ai="center">
                             {has_mounted && button_component}
@@ -155,8 +160,4 @@ export const NavCareers = ({ is_besquare }) => {
     )
 }
 
-NavCareers.propTypes = {
-    is_besquare: PropTypes.bool,
-}
-
-export default { NavCareers }
+export default NavCareers

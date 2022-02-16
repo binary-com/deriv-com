@@ -1,15 +1,15 @@
 {
-"redirects": [
-    {
-        "source": "/proxy/:path",
-        "has": [
-            {
-                "type": "header",
-                "key": "Access-Control-Allow-Origin",
-                "value": "*"
-            }
-            ],
-        "destination": "https://www.googletagmanager.com/debug/bootstrap?=id=GTM-NF7884S" 
-    }
-]
+    "rewrites": [
+        {
+            "source": "/proxy/:path",
+            "has": [
+                {
+                    "type": "header",
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                }
+                ],
+            "destination": ":path" 
+        }
+    ]
 }

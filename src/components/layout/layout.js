@@ -3,11 +3,15 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
-import JumpIndicesNav from './jump-indices/nav'
-import NavAcademy from './academy/nav-academy'
-import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
+import NavAcademy from './nav/nav-academy'
+import NavStatic from './nav/nav-static'
+import NavInterim from './nav/nav-interim'
+import NavPartners from './nav/nav-partner'
+import Nav from './nav/nav'
+import NavJumpIndice from './nav/nav-jump-indices'
+import NavCareers from './nav/nav-careers'
+import NavSticky from './nav/nav-sticky'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
@@ -197,7 +201,7 @@ const Layout = ({
             FooterNav = <Footer />
             break
         case 'jump-indices':
-            Navigation = <JumpIndicesNav />
+            Navigation = <NavJumpIndice />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         case 'besquare':
@@ -209,7 +213,7 @@ const Layout = ({
             FooterNav = <Footer no_language={true} type={type} />
             break
         case 'about-us':
-            Navigation = <NavSticky is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = <NavSticky is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:

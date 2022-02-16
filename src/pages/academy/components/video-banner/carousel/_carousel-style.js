@@ -110,7 +110,7 @@ export const StyledDot = styled.div`
     outline: 0;
     border: 0;
     margin-right: 8px;
-    background-color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-grey-21)')};
+    background-color: var(${(props) => props.color ?? '--color-grey-21'});
 `
 
 export const ChevronRight = styled(StyledChevron)`

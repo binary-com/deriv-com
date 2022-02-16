@@ -9,7 +9,7 @@
                 "value": "*"
             }
             ],
-        "destination": ":path" 
+        "destination": "https://www.googletagmanager.com/debug/bootstrap?=id=GTM-NF7884S" 
     }
 ]
 }

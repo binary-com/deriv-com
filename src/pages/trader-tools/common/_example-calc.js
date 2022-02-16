@@ -10,32 +10,32 @@ const StyledSectionContainer = styled(SectionContainer)`
     border-radius: 6px;
     padding-top: 20px;
 `
-export const CalculationOutput = styled.div`
+const CalculationOutput = styled.div`
     display: inline-block;
     align-items: center;
     color: black;
 `
-export const PointerDot = styled.div`
+const PointerDot = styled.div`
     height: 8px;
     width: 8px;
     border: 5px solid black;
     border-radius: 50%;
     opacity: 0.1;
 `
-export const PointerStick = styled.div`
+const PointerStick = styled.div`
     position: relative;
     height: 20px;
     width: 1.5px;
     background-color: black;
     opacity: 0.1;
 `
-export const PointerText = styled.div`
+const PointerText = styled.div`
     font-size: 14px;
     font-weight: bold;
     color: var(--color-green);
     position: relative;
 `
-export const Operator = styled.div`
+const Operator = styled.div`
     display: inline-block;
     color: var(--color-green);
     margin-left: 20px;

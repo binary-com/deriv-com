@@ -23,6 +23,7 @@ const AllVideos = ({ video_data }) => {
     useEffect(() => {
         const video_track = video_data.find((item) => hasVideo(item))?.video_file.id
         const video_title_param = removeSpecialCharacterUrl(title_params)
+        setTitleParams(video_title_param)
         if (video_track) openVideo(video_track, video_title_param)
     }, [])
 

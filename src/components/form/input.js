@@ -155,7 +155,9 @@ const ErrorMessages = styled(Text)`
 
 export const StyledLabel = styled.label`
     /* prettier-ignore */
+    /* stylelint-disable */
     color: var(--color-${(props) => props.labelColor || 'grey'});
+    /* stylelint-enable */
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;

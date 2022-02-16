@@ -6,14 +6,14 @@ export const useAffiliateData = () => {
     const [initiated, setInitiated] = useState(false)
 
     // needs to be loaded from user API data
-    const token = 'So8fm8w4zH0HQhj'
+    // const token = 'loaded_value'
 
     useEffect(() => {
         if (!initiated) {
             const binary_socket = BinarySocketBase.init()
             setInitiated(true)
             binary_socket.onopen = () => {
-                binary_socket.send(JSON.stringify({ authorize: token }))
+                // binary_socket.send(JSON.stringify({ authorize: token }))
                 binary_socket.onmessage = () => {
                     binary_socket.send(JSON.stringify({ get_settings: '1' }))
 

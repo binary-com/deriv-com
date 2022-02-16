@@ -87,12 +87,18 @@ const DayPickerWrapper = styled.div`
                 ? css`
                       transform: translate(-0.6rem, -2.2rem) scale(0.7);
 <<<<<<< HEAD
+<<<<<<< HEAD
                       color: var(
                           --color-${({ error, labelFocusColor }) => (error ? 'red' : labelFocusColor)}
                       );
 =======
                       color: 'green';
 >>>>>>> fc4dcaed31 (style:update date-picker label transition)
+=======
+                      color: var(
+                          --color-${({ error, labelFocusColor }) => (error ? 'red' : labelFocusColor)}
+                      );
+>>>>>>> 591ec14393 (style:update focus label color)
                       background-color: var(--color-white);
                   `
                 : css`
@@ -102,9 +108,12 @@ const DayPickerWrapper = styled.div`
     }
 `
 const StyledLabel = styled.label`
+<<<<<<< HEAD
     /* stylelint-disable */
     color: var(--color-${({ labelColor }) => labelColor || 'grey'});
     /* stylelint-enable */
+=======
+>>>>>>> 591ec14393 (style:update focus label color)
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
@@ -132,6 +141,7 @@ const AffiliateDatePicker = (props) => {
         labelFocusColor,
     } = props
 
+    console.log(labelColor, 'labelColor')
     const [maxDate, setMaxDate] = useState()
     const [isDateField, selectDateField] = useState(false)
     const [currentValue, onChange] = useState(maxDate)

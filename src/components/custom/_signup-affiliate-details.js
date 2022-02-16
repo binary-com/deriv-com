@@ -260,6 +260,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                                     border="solid 1px var(--color-grey-7)"
                                                     labelColor="grey-5"
                                                     labelHoverColor="grey-5"
+                                                    labelFocusColor="black"
                                                     background="white"
                                                     error={item.touch && item.error}
                                                     label={localize(item.label)}

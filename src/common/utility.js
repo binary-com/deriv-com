@@ -7,7 +7,7 @@ import {
     deriv_app_languages,
     live_chat_redirection_link,
     live_chat_key,
-    supported_domains,
+    domains,
 } from './constants'
 import { isUK } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -319,7 +319,6 @@ export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
 // Function to manually replace server's locale ("zh_tw" or "zh_cn") to "zh-tw"/"zh-cn"
 export const replaceLocale = (url) => {
     let checked_locale = url
-    const domains = [...supported_domains, 'localhost', 'deriv-com-git-fork'] //deriv-com-git-fork for vercel server, localhost - for developer mode
     const excluded_paths = ['smarttrader']
     if (!excluded_paths.some((path) => url.includes(path))) {
         domains.forEach((domain) => {

@@ -1,0 +1,15 @@
+{
+"redirects": [
+    {
+        "source": "/proxy/:path",
+        "has": [
+            {
+                "type": "header",
+                "key": "Access-Control-Allow-Origin",
+                "value": "*"
+            }
+            ],
+        "destination": ":path" 
+    }
+]
+}

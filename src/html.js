@@ -13,7 +13,18 @@ export default function HTML(props) {
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
                 />
 
-                <Partytown forward={['dataLayer.push']} />
+                <Partytown
+                    forward={['dataLayer.push']}
+                    resolveUrl={(url) => {
+                        if (url.hostname === 'www.googletagmanager.com') {
+                            const proxyUrl = new URL(
+                                `https://deriv-com-git-fork-sean-binary-offload-third-party-scripts.binary.sx/proxy/${url}`,
+                            )
+                            return proxyUrl
+                        }
+                        return url
+                    }}
+                />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var

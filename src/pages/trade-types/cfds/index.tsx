@@ -18,12 +18,6 @@ const CFD = () => {
         og_description: localize(
             'Trade CFDs on multiple markets and enjoy high leverage and risk management tools, giving you a chance to amplify your potential profits and limit your losses.',
         ),
-        keywords: [
-            localize('cfd'),
-            localize('cfd trading'),
-            localize('trade cfd/cfds'),
-            localize('cfds leverage'),
-        ],
     }
     return (
         <Layout>

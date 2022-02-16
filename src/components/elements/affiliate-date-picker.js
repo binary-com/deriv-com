@@ -86,9 +86,13 @@ const DayPickerWrapper = styled.div`
             return isDateField || currentValue
                 ? css`
                       transform: translate(-0.6rem, -2.2rem) scale(0.7);
+<<<<<<< HEAD
                       color: var(
                           --color-${({ error, labelFocusColor }) => (error ? 'red' : labelFocusColor)}
                       );
+=======
+                      color: 'green';
+>>>>>>> fc4dcaed31 (style:update date-picker label transition)
                       background-color: var(--color-white);
                   `
                 : css`

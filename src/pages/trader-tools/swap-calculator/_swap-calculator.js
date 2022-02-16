@@ -41,6 +41,7 @@ import {
     StyledSection,
     SwapFormWrapper,
     SwapTabSelector,
+    Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
 import { localize, Localize } from 'components/localization'
@@ -64,14 +65,6 @@ const StyledInputGroup = styled(InputGroup)`
 const SwapCalculator = () => {
     const query = graphql`
         query {
-            swap_synthetic_formula: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula: file(relativePath: { eq: "trade-tools/swap-forex-formula.png" }) {
-                ...fadeIn
-            }
             swap_synthetic_formula_mobile: file(
                 relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile.png" }
             ) {
@@ -93,10 +86,7 @@ const SwapCalculator = () => {
         {
             value: '1',
             description: (
-                <Localize
-                    translate_text="Contract size <0>1</0>"
-                    components={[<strong key={0} />]}
-                />
+                <Localize translate_text="Contract size <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '✕ ',
         },
@@ -108,7 +98,7 @@ const SwapCalculator = () => {
         {
             value: '( -7.5',
             description: (
-                <Localize translate_text="Swap rate <0>2</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Swap rate <0>2</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '÷',
         },
@@ -137,24 +127,21 @@ const SwapCalculator = () => {
         {
             value: '100, 000',
             description: (
-                <Localize
-                    translate_text="Contract size <0>1</0>"
-                    components={[<strong key={0} />]}
-                />
+                <Localize translate_text="Contract size <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '✕ ',
         },
         {
             value: '0.00001',
             description: (
-                <Localize translate_text="Point value <0>2</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Point value <0>2</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '✕ ',
         },
         {
             value: '( -0.12',
             description: (
-                <Localize translate_text="Swap rate <0>3</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Swap rate <0>3</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '=',
         },
@@ -479,10 +466,6 @@ const SwapCalculator = () => {
                                         </Text>
 
                                         <Show.Desktop>
-                                            {/* <QueryImage
-                                                data={data.swap_synthetic_formula}
-                                                alt={localize('swap synthetic formula')}
-                                            /> */}
                                             <ExampleCalculation data={swap_synthetic_data} />
                                         </Show.Desktop>
                                         <Show.Mobile>
@@ -806,10 +789,6 @@ const SwapCalculator = () => {
                                         </Text>
 
                                         <Show.Desktop>
-                                            {/* <QueryImage
-                                                data={data.swap_forex_formula}
-                                                alt={localize('Swap forex formula')}
-                                            /> */}
                                             <ExampleCalculation data={swap_financial_data} />
                                         </Show.Desktop>
                                         <Show.Mobile>

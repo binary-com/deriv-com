@@ -33,6 +33,7 @@ import {
     StyledOl,
     StyledSection,
     SwapTabSelector,
+    Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
 import { localize, Localize } from 'components/localization'
@@ -107,7 +108,7 @@ const PnlMultipliersCalculator = () => {
         {
             value: ' 0.2 )',
             description: (
-                <Localize translate_text="Commission <0>1</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Commission <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '÷',
         },
@@ -144,7 +145,7 @@ const PnlMultipliersCalculator = () => {
         {
             value: '+ 0.2 )',
             description: (
-                <Localize translate_text="Commission <0>1</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Commission <0>1</0>" components={[<Sup key={0} />]} />
             ),
         },
         {

@@ -38,6 +38,7 @@ import {
     StyledSection,
     FormulaText,
     StyledOl,
+    Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
 import {
@@ -56,9 +57,6 @@ import { localize, Localize } from 'components/localization'
 const PipCalculator = () => {
     const query = graphql`
         query {
-            pip_value_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
-                ...fadeIn
-            }
             pip_value_forex_formula: file(
                 relativePath: { eq: "trade-tools/pip-value-forex-formula.png" }
             ) {
@@ -88,7 +86,7 @@ const PipCalculator = () => {
         {
             value: '0.01',
             description: (
-                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Point value <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '✕',
         },
@@ -100,10 +98,7 @@ const PipCalculator = () => {
         {
             value: '1',
             description: (
-                <Localize
-                    translate_text="Contract size <0>2</0>"
-                    components={[<strong key={0} />]}
-                />
+                <Localize translate_text="Contract size <0>2</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '=',
         },
@@ -116,7 +111,7 @@ const PipCalculator = () => {
         {
             value: '0.00001',
             description: (
-                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Point value <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '✕',
         },
@@ -128,10 +123,7 @@ const PipCalculator = () => {
         {
             value: '100, 000',
             description: (
-                <Localize
-                    translate_text="Contract size <0>2</0>"
-                    components={[<strong key={0} />]}
-                />
+                <Localize translate_text="Contract size <0>2</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '=',
         },
@@ -398,11 +390,6 @@ const PipCalculator = () => {
                                 </Text>
 
                                 <Show.Desktop>
-                                    {/* <QueryImage
-                                        data={data.pip_value_formula}
-                                        alt={localize('Margin formula')}
-                                    /> */}
-                                    {/* <QueryImage data={data.pip_info} alt={localize('Pip Info')} /> */}
                                     <ExampleCalculation data={pip_snthetic_indices} />
                                 </Show.Desktop>
 

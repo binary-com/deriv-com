@@ -5,7 +5,8 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 
 const StyledSectionContainer = styled(SectionContainer)`
-    border: solid 2px var(--color-green);
+    border: 1.5px solid var(--color-blue-5);
+    background-color: var(--color-blue-4);
     border-radius: 6px;
     padding-top: 20px;
 `
@@ -15,22 +16,22 @@ export const CalculationOutput = styled.div`
     color: black;
 `
 export const PointerDot = styled.div`
-    height: 6px;
-    width: 6px;
-    border: 3px solid black;
+    height: 8px;
+    width: 8px;
+    border: 5px solid black;
     border-radius: 50%;
     opacity: 0.1;
 `
 export const PointerStick = styled.div`
     position: relative;
-    height: 16px;
+    height: 20px;
     width: 1.5px;
     background-color: black;
     opacity: 0.1;
 `
 export const PointerText = styled.div`
     font-size: 14px;
-    font-weight: normal;
+    font-weight: bold;
     color: var(--color-green);
     position: relative;
 `

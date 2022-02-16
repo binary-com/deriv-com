@@ -38,6 +38,7 @@ import {
     StyledLinkButton,
     StyledOl,
     StyledSection,
+    Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
 import { localize, Localize } from 'components/localization'
@@ -64,7 +65,7 @@ const margin_data = [
     {
         value: '100,000',
         description: (
-            <Localize translate_text="Contract size<0>1</0>" components={[<strong key={0} />]} />
+            <Localize translate_text="Contract size<0>1</0>" components={[<Sup key={0} />]} />
         ),
         next_operator: '✕',
     },
@@ -87,9 +88,6 @@ const margin_data = [
 const MarginCalculator = () => {
     const query = graphql`
         query {
-            margin_formula: file(relativePath: { eq: "trade-tools/margin-formula.png" }) {
-                ...fadeIn
-            }
             margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
                 ...fadeIn
             }
@@ -365,10 +363,6 @@ const MarginCalculator = () => {
                                     )}
                                 </Text>
                                 <Show.Desktop>
-                                    {/* <QueryImage
-                                        data={data.margin_formula}
-                                        alt={localize('Margin formula')}
-                                    /> */}
                                     <ExampleCalculation data={margin_data} />
                                 </Show.Desktop>
                                 <Show.Mobile>

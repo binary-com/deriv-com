@@ -42,6 +42,7 @@ import {
     StyledOl,
     StyledSection,
     SwapTabSelector,
+    Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
 // import { stop_loss_level, stop_loss_pip_value } from './_pnl_example_data'
@@ -61,11 +62,6 @@ import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 const PnlMarginCalculator = () => {
     const query = graphql`
         query {
-            stop_loss_level_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula.png" }
-            ) {
-                ...fadeIn
-            }
             stop_loss_level_formula_mobile: file(
                 relativePath: { eq: "trade-tools/stop-loss-level-formula-mobile.png" }
             ) {
@@ -122,10 +118,7 @@ const PnlMarginCalculator = () => {
         {
             value: '100, 000)}',
             description: (
-                <Localize
-                    translate_text="Contract size <0>1</0>"
-                    components={[<strong key={0} />]}
-                />
+                <Localize translate_text="Contract size <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '=',
         },
@@ -148,7 +141,7 @@ const PnlMarginCalculator = () => {
         {
             value: ' 0.00001',
             description: (
-                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Point value <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '=',
         },
@@ -176,10 +169,7 @@ const PnlMarginCalculator = () => {
         {
             value: ' 1)}',
             description: (
-                <Localize
-                    translate_text="Contract size<0>1</0>"
-                    components={[<strong key={0} />]}
-                />
+                <Localize translate_text="Contract size<0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '=',
         },
@@ -202,7 +192,7 @@ const PnlMarginCalculator = () => {
         {
             value: ' 0.00001',
             description: (
-                <Localize translate_text="Point value <0>1</0>" components={[<strong key={0} />]} />
+                <Localize translate_text="Point value <0>1</0>" components={[<Sup key={0} />]} />
             ),
             next_operator: '=',
         },
@@ -1254,10 +1244,6 @@ const PnlMarginCalculator = () => {
                                     plus
                                 >
                                     <Show.Desktop max_width="mobileL">
-                                        {/* <QueryImage
-                                            data={data.stop_loss_level_formula}
-                                            alt={localize('stop loss level formula')}
-                                        /> */}
                                         <ExampleCalculation data={stop_loss_level} />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">

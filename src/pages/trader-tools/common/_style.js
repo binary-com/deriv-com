@@ -451,3 +451,8 @@ export const header_style = {
     position: 'relative',
     boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
 }
+export const Sup = styled.span`
+    color: black;
+    font-size: xx-small;
+    vertical-align: super;
+`

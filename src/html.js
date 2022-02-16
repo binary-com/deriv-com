@@ -17,9 +17,10 @@ export default function HTML(props) {
                     forward={['dataLayer.push']}
                     resolveUrl={(url) => {
                         if (url.pathname.includes('debug/bootstrap')) {
-                            const proxyUrl = new URL(
-                                `https://deriv-com-git-fork-sean-binary-offload-third-party-scripts.binary.sx/proxy/${url}`,
+                            var proxyUrl = new URL(
+                                'https://deriv-com-git-fork-sean-binary-offload-third-party-scripts.binary.sx/proxy/',
                             )
+                            proxyUrl.searchParams.append('url', url)
                             return proxyUrl
                         }
                         return url

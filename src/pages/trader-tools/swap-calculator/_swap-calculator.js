@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import {
     getSwapChargeSynthetic,
@@ -44,6 +43,7 @@ import {
     Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
+import MobileExampleCalculation from '../common/_mobile-example-calc'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -51,7 +51,6 @@ import {
     Dropdown,
     Header,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
@@ -63,20 +62,6 @@ const StyledInputGroup = styled(InputGroup)`
 `
 
 const SwapCalculator = () => {
-    const query = graphql`
-        query {
-            swap_synthetic_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            swap_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/swap-forex-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
     const swap_synthetic_data = [
         {
             value: '0.01',
@@ -104,12 +89,10 @@ const SwapCalculator = () => {
         },
         {
             value: '100',
-            // description: <Localize translate_text="Swap rate" />,
             next_operator: '÷',
         },
         {
             value: '360',
-            // description: <Localize translate_text="Swap rate" />,
             next_operator: '=',
         },
         {
@@ -150,8 +133,6 @@ const SwapCalculator = () => {
             description: <Localize translate_text="Swap charge" />,
         },
     ]
-
-    const data = useStaticQuery(query)
 
     const [tab, setTab] = useState('Synthetic')
 
@@ -469,10 +450,7 @@ const SwapCalculator = () => {
                                             <ExampleCalculation data={swap_synthetic_data} />
                                         </Show.Desktop>
                                         <Show.Mobile>
-                                            <QueryImage
-                                                data={data.swap_synthetic_formula_mobile}
-                                                alt={localize('swap synthetic formula mobile')}
-                                            />
+                                            <MobileExampleCalculation data={swap_synthetic_data} />
                                         </Show.Mobile>
                                         <FormulaText size="14px">
                                             <StyledOl>
@@ -792,10 +770,7 @@ const SwapCalculator = () => {
                                             <ExampleCalculation data={swap_financial_data} />
                                         </Show.Desktop>
                                         <Show.Mobile>
-                                            <QueryImage
-                                                data={data.swap_forex_formula_mobile}
-                                                alt={localize('Swap forex formula mobile')}
-                                            />
+                                            <MobileExampleCalculation data={swap_financial_data} />
                                         </Show.Mobile>
                                         <FormulaText size="14px">
                                             <StyledOl>

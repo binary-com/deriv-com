@@ -36,6 +36,7 @@ import {
     Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
+// import MobileExampleCalculation from '../common/_mobile-example-calc'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,

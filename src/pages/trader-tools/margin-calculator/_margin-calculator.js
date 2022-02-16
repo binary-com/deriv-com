@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getMargin,
     numberSubmitFormat,
@@ -41,6 +40,7 @@ import {
     Sup,
 } from '../common/_style'
 import ExampleCalculation from '../common/_example-calc'
+import MobileExampleCalculation from '../common/_mobile-example-calc'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import {
@@ -50,7 +50,6 @@ import {
     DropdownSearch,
     Header,
     LocalizedLinkText,
-    QueryImage,
     Text,
 } from 'components/elements'
 import Input from 'components/form/input'
@@ -86,20 +85,6 @@ const margin_data = [
 ]
 
 const MarginCalculator = () => {
-    const query = graphql`
-        query {
-            margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
-                ...fadeIn
-            }
-            margin_formula_mobile: file(
-                relativePath: { eq: "trade-tools/margin-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Synthetic')
 
     const onTabClick = (tab) => {
@@ -366,10 +351,7 @@ const MarginCalculator = () => {
                                     <ExampleCalculation data={margin_data} />
                                 </Show.Desktop>
                                 <Show.Mobile>
-                                    <QueryImage
-                                        data={data.margin_formula_mobile}
-                                        alt={localize('Margin formula mobile')}
-                                    />
+                                    <MobileExampleCalculation data={margin_data} />
                                 </Show.Mobile>
                                 <FormulaText>
                                     <StyledOl>

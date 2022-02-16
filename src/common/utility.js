@@ -319,7 +319,7 @@ export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
 // Function to manually replace server's locale ("zh_tw" or "zh_cn") to "zh-tw"/"zh-cn"
 export const replaceLocale = (url) => {
     let checked_locale = url
-    const domains = [...supported_domains, 'localhost', 'deriv-com-git-fork'] //deriv-com-git-fork for versel server, localhost - for developer mode
+    const domains = [...supported_domains, 'localhost', 'deriv-com-git-fork'] //deriv-com-git-fork for vercel server, localhost - for developer mode
     domains.forEach((domain) => {
         if (url.includes(domain) && url.includes('zh_tw'))
             checked_locale = url.replace(/(zh_tw)/g, 'zh-tw')

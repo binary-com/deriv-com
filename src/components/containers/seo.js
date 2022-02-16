@@ -41,6 +41,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
     const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
     const default_og_description = localize('Trading platforms designed with you in mind.')
+    const default_keywords = [localize('online trading'), localize('trading platforms')]
 
     let is_ach_page = false
     let current_page = ''
@@ -91,6 +92,10 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 {
                     name: 'description',
                     content: metaDescription,
+                },
+                {
+                    name: 'keywords',
+                    content: (meta_attributes?.keywords || default_keywords).join(','),
                 },
                 {
                     name: 'google',

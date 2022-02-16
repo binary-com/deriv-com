@@ -16,7 +16,7 @@ export default function HTML(props) {
                 <Partytown
                     forward={['dataLayer.push']}
                     resolveUrl={(url) => {
-                        if (url.includes('www.googletagmanager.com/debug/bootstrap')) {
+                        if (url.pathname.includes('debug/bootstrap')) {
                             const proxyUrl = new URL(
                                 `https://deriv-com-git-fork-sean-binary-offload-third-party-scripts.binary.sx/proxy/${url}`,
                             )

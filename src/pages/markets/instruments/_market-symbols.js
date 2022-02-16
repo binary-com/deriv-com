@@ -1317,12 +1317,8 @@ export const jump_indices = [
 
 export const energy = [
     {
-        src: icons.BRENTCRUDEOILUK,
-        text: <Localize translate_text="Brent crude oil" />,
-    },
-    {
-        src: icons.WTIOILUS,
-        text: <Localize translate_text="West Texas Intermediate" />,
+        src: icons.OILUSD,
+        text: <Localize translate_text="Oil/USD" />,
     },
 ]
 

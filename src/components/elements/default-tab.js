@@ -28,6 +28,7 @@ const TabButton = styled.button`
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
     white-space: nowrap;
+    margin-bottom: 0;
 
     @media ${device.laptopM} {
         width: ${(props) =>

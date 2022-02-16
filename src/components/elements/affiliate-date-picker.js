@@ -19,8 +19,6 @@ const DayPickerWrapper = styled.div`
     .react-date-picker__wrapper {
         border: none;
         border-radius: 5px;
-        box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
-            0 9px 28px 8px rgb(0 0 0 / 5%);
     }
     .react-date-picker__calendar {
         width: 280px;
@@ -46,17 +44,6 @@ const DayPickerWrapper = styled.div`
         box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
             0 9px 28px 8px rgb(0 0 0 / 5%);
     }
-    .react-date-picker__calendar {
-        width: 280px;
-    }
-    .react-calendar__month-view__weekdays__weekday {
-        font-size: 15px;
-        font-weight: initial;
-    }
-    abbr {
-        border-bottom: none !important;
-        text-decoration: none !important;
-    }
     .react-calendar__navigation {
         border-bottom: 1px solid #f3f4f5;
     }
@@ -74,10 +61,6 @@ const DayPickerWrapper = styled.div`
         background-color: red;
         border-radius: 5px;
     }
-    .react-calendar__tile--active:hover,
-    .react-calendar__tile:hover {
-        border-radius: 5px;
-    }
     label {
         background-color: var(--color-white);
         color: 'green';
@@ -89,10 +72,10 @@ const DayPickerWrapper = styled.div`
                       color: var(
                           --color-${({ error, labelFocusColor }) => (error ? 'red' : labelFocusColor)}
                       );
-                      background-color: var(--color-white);
                   `
                 : css`
                       transform: translate(0rem, 0rem) scale(1);
+                      color: var(--color-${({ error }) => (error ? 'red' : 'grey')});
                   `
         }}
     }

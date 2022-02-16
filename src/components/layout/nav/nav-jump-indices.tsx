@@ -69,7 +69,7 @@ const query = graphql`
 `
 
 type NavJumpIndiceProps = {
-    is_ppc: boolean
+    is_ppc?: boolean
 }
 
 const NavJumpIndice = (props: NavJumpIndiceProps) => {

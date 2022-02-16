@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { DesktopWrapper, MobileWrapper } from "./styles/nav-styles"
+import { DesktopWrapper, MobileWrapper } from './styles/nav-styles'
 import NavDesktop from './nav-desktop'
 import NavMobile from './nav-mobile'
 import { SectionContainer } from 'components/containers'
@@ -27,8 +27,8 @@ const Section = styled(SectionContainer)<{ background?: boolean }>`
 
 type NavStickyProps = {
     is_ppc: boolean
-    hide_signup_login: boolean
-    no_language: boolean
+    hide_signup_login?: boolean
+    no_language?: boolean
 }
 
 const NavSticky = ({ is_ppc, hide_signup_login, no_language }: NavStickyProps) => {

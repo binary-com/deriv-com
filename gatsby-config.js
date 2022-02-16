@@ -201,6 +201,13 @@ module.exports = {
         },
         'gatsby-plugin-anchor-links',
         {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-NF7884S',
+                includeInDevelopment: false,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,

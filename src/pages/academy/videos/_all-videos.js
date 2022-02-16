@@ -13,6 +13,7 @@ const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
     const [play_video_id, setPlayVideoId] = useState('')
     const [title_params, setTitleParams] = useQueryParam('t', StringParam)
+
     const hasVideo = (item) => {
         const new_title_params = removeSpecialCharacterUrl(title_params)
         const video_slugify = removeSpecialCharacterUrl(item.video_title)
@@ -24,8 +25,12 @@ const AllVideos = ({ video_data }) => {
         const video_track = video_data.find((item) => hasVideo(item))?.video_file.id
         const video_title_param = removeSpecialCharacterUrl(title_params)
         setTitleParams(video_title_param)
-        console.log('video', video_title_param)
-        if (video_track) openVideo(video_track, video_title_param)
+
+        if (video_track) {
+            openVideo(video_track, video_title_param)
+        } else {
+            closeVideo()
+        }
     }, [title_params])
 
     useEffect(() => {

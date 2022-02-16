@@ -320,12 +320,15 @@ export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
 export const replaceLocale = (url) => {
     let checked_locale = url
     const domains = [...supported_domains, 'localhost', 'deriv-com-git-fork'] //deriv-com-git-fork for vercel server, localhost - for developer mode
-    domains.forEach((domain) => {
-        if (url.includes(domain) && url.includes('zh_tw'))
-            checked_locale = url.replace(/(zh_tw)/g, 'zh-tw')
-        if (url.includes(domain) && url.includes('zh_cn'))
-            checked_locale = url.replace(/(zh_cn)/g, 'zh-cn')
-    })
+    const excluded_paths = ['smarttrader']
+    if (!excluded_paths.some((path) => url.includes(path))) {
+        domains.forEach((domain) => {
+            if (url.includes(domain) && url.includes('zh_tw'))
+                checked_locale = url.replace(/(zh_tw)/g, 'zh-tw')
+            if (url.includes(domain) && url.includes('zh_cn'))
+                checked_locale = url.replace(/(zh_cn)/g, 'zh-cn')
+        })
+    }
     return checked_locale
 }
 

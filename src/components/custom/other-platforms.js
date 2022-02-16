@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer, EU, NonEU } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, EU, NonEU, NonUK } from 'components/containers'
 import {
     Text,
     Card,
@@ -423,16 +423,18 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             to="/markets/forex/"
         />
         {!is_ppc && (
-            <NavCard
-                aria_label="Synthetic indices"
-                icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
-                }
-                title={<Localize translate_text="Synthetic indices" />}
-                onClick={onClick}
-                to="/markets/synthetic/"
-            />
+            <NonUK>
+                <NavCard
+                    aria_label="Synthetic indices"
+                    icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+                    }
+                    title={<Localize translate_text="Synthetic indices" />}
+                    onClick={onClick}
+                    to="/markets/synthetic/"
+                />
+            </NonUK>
         )}
         <NavCard
             aria_label="Stocks & indices"
@@ -444,16 +446,18 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             onClick={onClick}
             to="/markets/stock/"
         />
-        <NavCard
-            aria_label="Cryptocurrencies"
-            icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-            }
-            title={<Localize translate_text="Cryptocurrencies" />}
-            onClick={onClick}
-            to="/markets/cryptocurrencies/"
-        />
+        <NonUK>
+            <NavCard
+                aria_label="Cryptocurrencies"
+                icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                }
+                title={<Localize translate_text="Cryptocurrencies" />}
+                onClick={onClick}
+                to="/markets/cryptocurrencies/"
+            />
+        </NonUK>
         <NavCard
             aria_label="Commodities"
             icon={() => <img src={Commodities} alt="" width="32" height="32" />}

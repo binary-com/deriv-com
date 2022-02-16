@@ -24,8 +24,9 @@ const AllVideos = ({ video_data }) => {
         const video_track = video_data.find((item) => hasVideo(item))?.video_file.id
         const video_title_param = removeSpecialCharacterUrl(title_params)
         setTitleParams(video_title_param)
+        console.log('video', video_title_param)
         if (video_track) openVideo(video_track, video_title_param)
-    }, [])
+    }, [title_params])
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')

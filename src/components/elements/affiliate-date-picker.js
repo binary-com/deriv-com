@@ -1,39 +1,80 @@
-import React, { useState, useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import 'antd/dist/antd.css'
-import { DatePicker, Space } from 'antd'
+import DatePicker from 'react-date-picker'
 import moment from 'moment'
+import dayjs from 'dayjs'
 import device from 'themes/device'
 
-const DatePickerWrapper = styled.div`
+const DayPickerWrapper = styled.div`
     width: 100%;
     height: 100%;
 
-    .ant-space-vertical,
-    .ant-picker,
-    .ant-space-item {
-        width: 100%;
-        height: 100%;
+    .react-date-picker {
+        display: block;
+        font-size: var(--text-size-xs);
+        padding: 1rem 1rem 1rem 0.8rem;
+        height: 40px;
     }
-    .ant-picker {
+    .react-date-picker__wrapper {
         border: none;
     }
-    .ant-picker-input {
-        height: 30px;
+    .react-date-picker__inputGroup__input {
+        outline: none;
     }
-    .ant-picker-panel-container {
-        border-radius: 8px;
+    .react-date-picker__inputGroup__input:invalid {
+        background: none;
     }
-    .ant-picker-focused {
-        box-shadow: none;
+    .react-calendar {
+        margin-top: 5px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
+            0 9px 28px 8px rgb(0 0 0 / 5%);
+    }
+    .react-date-picker__calendar {
+        width: 280px;
+    }
+    .react-calendar__month-view__weekdays__weekday {
+        font-size: 15px;
+        font-weight: initial;
+    }
+    abbr {
+        border-bottom: none !important;
+        text-decoration: none !important;
+    }
+    .react-calendar__navigation {
+        border-bottom: 1px solid #f3f4f5;
+    }
+    .react-calendar__navigation__arrow {
+        font-size: 30px;
+        font-weight: 100;
+    }
+    .react-calendar__navigation__arrow:hover {
+        background-color: none;
+    }
+    .react-calendar__tile--active,
+    .react-calendar__tile--active:hover,
+    .react-calendar__tile--hasActive,
+    .react-calendar__tile--hasActive:hover {
+        background-color: red;
+        border-radius: 5px;
+    }
+    .react-calendar__tile--active:hover,
+    .react-calendar__tile:hover {
+        border-radius: 5px;
     }
     label {
-        ${(props) => {
-            return props.isDateField || props.birthDate || props.defaultValue
+        background-color: var(--color-white);
+        color: 'green';
+        transform: translate(-0.6rem, -2rem) scale(0.7);
+        ${({ isDateField, currentValue }) => {
+            return isDateField || currentValue
                 ? css`
-                      transform: translate(-0.6rem, -2rem) scale(0.7);
-                      color: var(--color-${(props) => props.labelFocusColor || 'green'});
+                      transform: translate(-0.6rem, -2.2rem) scale(0.7);
+                      color: var(
+                          --color-${({ error, labelFocusColor }) => (error ? 'red' : labelFocusColor)}
+                      );
                       background-color: var(--color-white);
                   `
                 : css`
@@ -42,15 +83,15 @@ const DatePickerWrapper = styled.div`
         }}
     }
 `
-
 const StyledLabel = styled.label`
-    /* prettier-ignore */
-    color: var(--color-${(props) => props.labelColor || 'grey'});
+    /* stylelint-disable */
+    color: var(--color-${({ labelColor }) => labelColor || 'grey'});
+    /* stylelint-enable */
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: ${(props) => (props.isAffiliate ? '1.6rem' : '1.4rem')};
+    top: ${({ isAffiliate }) => (isAffiliate ? '1.8rem' : '1.2rem')};
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
@@ -60,11 +101,6 @@ const StyledLabel = styled.label`
         top: 1.8rem;
     }
 `
-const minorAge = moment().subtract(18, 'years')
-moment.updateLocale('en', {
-    weekdaysMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-})
-
 const AffiliateDatePicker = (props) => {
     const {
         id,
@@ -75,21 +111,20 @@ const AffiliateDatePicker = (props) => {
         labelColor,
         tabletBackground,
         isAffiliate,
-        value,
+        labelFocusColor,
     } = props
 
-    const [birthDate, setBirthDate] = useState('')
+    const [maxDate, setMaxDate] = useState()
     const [isDateField, selectDateField] = useState(false)
+    const [currentValue, onChange] = useState(maxDate)
 
-    const defaultValue = useMemo(() => {
-        if (value) {
-            return moment(new Date(value * 1000).toLocaleDateString('en-GB'))
-        }
-    }, [value])
+    useEffect(() => {
+        setMaxDate(moment().subtract(18, 'years').toDate())
+    }, [])
 
-    const onChange = (date, dateString) => {
-        setBirthDate(dateString)
-        setFieldValue('date', dateString)
+    const onDateChange = (date) => {
+        onChange(date)
+        setFieldValue('date', date)
     }
 
     const onBlur = () => {
@@ -97,51 +132,37 @@ const AffiliateDatePicker = (props) => {
         setFieldTouched('date', true)
     }
 
-    const disabledDate = (current) => minorAge < current
     return (
-        <DatePickerWrapper
-            birthDate={birthDate}
-            defaultValue={defaultValue}
+        <DayPickerWrapper
             isDateField={isDateField}
+            currentValue={currentValue}
+            labelFocusColor={labelFocusColor}
+            error={error}
         >
-            <Space direction="vertical">
-                {defaultValue ? (
-                    <DatePicker
-                        key="datepicker-1"
-                        defaultValue={defaultValue}
-                        format={'DD/MM/YYYY'}
-                        onChange={onChange}
-                        placeholder={null}
-                        onFocus={() => selectDateField(true)}
-                        onBlur={onBlur}
-                        defaultPickerValue={minorAge}
-                        disabledDate={disabledDate}
-                        showToday={false}
-                    />
-                ) : (
-                    <DatePicker
-                        key="datepicker-2"
-                        format={'DD/MM/YYYY'}
-                        onChange={onChange}
-                        placeholder={null}
-                        onFocus={() => selectDateField(true)}
-                        onBlur={onBlur}
-                        defaultPickerValue={minorAge}
-                        disabledDate={disabledDate}
-                        showToday={false}
-                    />
-                )}
-            </Space>
+            <DatePicker
+                onChange={onDateChange}
+                value={currentValue}
+                format={'dd/MM/yyyy'}
+                formatShortWeekday={(locale, date) => dayjs(date).format('dd').substring(0, 1)}
+                formatMonth={(locale, date) => dayjs(date).format('MMM')}
+                formatMonthYear={(locale, date) => dayjs(date).format('MMM YYYY')}
+                onFocus={() => selectDateField(true)}
+                onBlur={onBlur}
+                maxDate={maxDate}
+                activeStartDate={maxDate}
+                clearIcon={null}
+            />
             <StyledLabel
                 tabletBackground={tabletBackground}
                 error={error}
                 htmlFor={id}
                 labelColor={labelColor}
                 isAffiliate={isAffiliate}
+                isDateField={isDateField}
             >
                 {label}
             </StyledLabel>
-        </DatePickerWrapper>
+        </DayPickerWrapper>
     )
 }
 
@@ -151,11 +172,11 @@ AffiliateDatePicker.propTypes = {
     isAffiliate: PropTypes.bool,
     label: PropTypes.string,
     labelColor: PropTypes.string,
+    labelFocusColor: PropTypes.string,
     placeholder: PropTypes.string,
     setFieldTouched: PropTypes.func,
     setFieldValue: PropTypes.func,
     tabletBackground: PropTypes.string,
-    value: PropTypes.string,
 }
 
 export default AffiliateDatePicker

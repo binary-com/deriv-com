@@ -358,6 +358,7 @@ export const unslugify = (slug) => {
 }
 
 export const removeSpecialCharacterUrl = (url) =>
+    url &&
     slugify(url)
         .replace(/\?+/g, '') // Replace question mark with empty value
         .replace(/[/]/g, '-') //Replace '/' with single -

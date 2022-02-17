@@ -135,13 +135,6 @@ const Layout = ({
 
     const is_static = type === 'static'
 
-    // Every layout change will trigger scroll to top
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
-
     // Allow tracking cookie banner setup
     React.useEffect(() => {
         if (typeof is_eu_country === 'boolean') {
@@ -179,7 +172,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'academy':
-            Navigation = <NavAcademy academy_logo={true} no_language={true} />
+            Navigation = <NavAcademy no_language={true} />
             FooterNav = <Footer academy={true} />
             break
         case 'static':

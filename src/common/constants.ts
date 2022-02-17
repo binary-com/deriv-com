@@ -9,7 +9,7 @@ export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
 
-const getDomainUrl = (): string => {
+const getDomainUrl = () => {
     if (isBrowser()) {
         switch (window.location.hostname) {
             case deriv_com_url:

@@ -96,6 +96,7 @@ export const academyQuery = graphql`
                             gatsbyImageData(width: 200)
                         }
                     }
+                    description
                     id
                 }
             }
@@ -127,6 +128,7 @@ export const academyQuery = graphql`
                             gatsbyImageData(width: 200, aspectRatio: 1.6666666667)
                         }
                     }
+                    description
                     id
                 }
             }
@@ -158,6 +160,7 @@ export const academyQuery = graphql`
                             gatsbyImageData(width: 200)
                         }
                     }
+                    description
                     id
                 }
             }

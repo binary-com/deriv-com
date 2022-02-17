@@ -4,7 +4,8 @@ import ContinuousIndices from './_continuous-indices'
 import CrashBoom from './_crash-boom'
 import CrashBoomEU from './_crash-boom-eu'
 import DailyResetIndices from './_daily-reset-indices'
-import Energy from './_energy'
+import EnergyCFDs from './_energy-cfds'
+import EnergyOptions from './_energy-options'
 import Europe from './_europe'
 import ExoticPairs from './_exotic-pairs'
 import MajorPairs from './_major-pairs'
@@ -37,7 +38,8 @@ export {
     CryptocurrenciesCFDs,
     CryptocurrenciesTradeType,
     DailyResetIndices,
-    Energy,
+    EnergyCFDs,
+    EnergyOptions,
     Europe,
     ExoticPairs,
     JumpIndices,

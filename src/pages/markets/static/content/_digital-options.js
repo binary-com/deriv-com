@@ -4,7 +4,7 @@ import {
     AsiaOceania,
     ContinuousIndices,
     DailyResetIndices,
-    Energy,
+    EnergyOptions,
     Europe,
     JumpIndices,
     MajorPairs,
@@ -219,7 +219,7 @@ export const commodities_options = {
             },
             {
                 title: <Localize translate_text="Energy" />,
-                component: <Energy />,
+                component: <EnergyOptions />,
             },
         ],
         markets_list: {

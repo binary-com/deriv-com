@@ -1315,14 +1315,14 @@ export const jump_indices = [
     },
 ]
 
-export const energy = [
+export const energy_options = [
     {
         src: icons.OILUSD,
         text: <Localize translate_text="Oil/USD" />,
     },
 ]
 
-export const energy_eu = [
+export const energy_cfds = [
     {
         src: icons.BRENTCRUDEOILUK,
         text: <Localize translate_text="Brent crude oil" />,

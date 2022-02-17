@@ -3,7 +3,7 @@ import {
     CrashBoom,
     CrashBoomEU,
     CryptocurrenciesCFDs,
-    Energy,
+    EnergyCFDs,
     ExoticPairs,
     MajorPairs,
     Metals,
@@ -46,7 +46,7 @@ export const commodities_cfds = {
         },
         {
             title: <Localize translate_text="Energy" />,
-            component: <Energy />,
+            component: <EnergyCFDs />,
         },
     ],
 }

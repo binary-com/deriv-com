@@ -6,7 +6,7 @@ import {
     EnergyCFDs,
     ExoticPairs,
     MajorPairs,
-    Metals,
+    MetalsCFDs,
     MicroPairs,
     MinorPairsCFDS,
     RangeBreak,
@@ -42,7 +42,7 @@ export const commodities_cfds = {
     content: [
         {
             title: <Localize translate_text="Metals" />,
-            component: <Metals />,
+            component: <MetalsCFDs />,
         },
         {
             title: <Localize translate_text="Energy" />,

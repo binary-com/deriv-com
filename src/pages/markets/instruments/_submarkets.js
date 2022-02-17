@@ -10,7 +10,8 @@ import Europe from './_europe'
 import ExoticPairs from './_exotic-pairs'
 import MajorPairs from './_major-pairs'
 import MicroPairs from './_micro_pairs'
-import Metals from './_metals'
+import MetalsCFDs from './_metals-cfds'
+import MetalsOptions from './_metals-options'
 import MinorPairsCFDS from './_minor-pairs-cfds'
 import MinorPairsOptions from './_minor-pairs-options'
 import RangeBreak from './_range-break'
@@ -44,7 +45,8 @@ export {
     ExoticPairs,
     JumpIndices,
     MajorPairs,
-    Metals,
+    MetalsCFDs,
+    MetalsOptions,
     MinorPairsCFDS,
     MinorPairsOptions,
     MicroPairs,

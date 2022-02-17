@@ -8,7 +8,7 @@ import {
     Europe,
     JumpIndices,
     MajorPairs,
-    Metals,
+    MetalsOptions,
     MinorPairsOptions,
     SmartFX,
 } from '../../instruments/_submarkets.js'
@@ -215,7 +215,7 @@ export const commodities_options = {
         content: [
             {
                 title: <Localize translate_text="Metals" />,
-                component: <Metals />,
+                component: <MetalsOptions />,
             },
             {
                 title: <Localize translate_text="Energy" />,

@@ -1,18 +1,18 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { metals, metals_eu } from './_market-symbols'
+import { metals_cfds, metals_cfds_eu } from './_market-symbols'
 import { ROW, UKEU } from 'components/containers'
 
-const Metals = () => {
+const MetalsCFDs = () => {
     return (
         <>
             <ROW>
-                {metals.map((symbol, index) => (
+                {metals_cfds.map((symbol, index) => (
                     <Symbol key={index} src={symbol.src} text={symbol.text} />
                 ))}
             </ROW>
             <UKEU>
-                {metals_eu.map((symbol, index) => (
+                {metals_cfds_eu.map((symbol, index) => (
                     <Symbol key={index} src={symbol.src} text={symbol.text} />
                 ))}
             </UKEU>
@@ -20,4 +20,4 @@ const Metals = () => {
     )
 }
 
-export default Metals
+export default MetalsCFDs

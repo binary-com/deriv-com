@@ -340,7 +340,7 @@ export const major_pairs = [
     },
 ]
 
-export const metals = [
+export const metals_cfds = [
     {
         src: icons.ALUMINIUMUSD,
         text: <Localize translate_text="Aluminium/USD" />,
@@ -379,7 +379,7 @@ export const metals = [
     },
 ]
 
-export const metals_eu = [
+export const metals_cfds_eu = [
     {
         src: icons.ALUMINIUMUSD,
         text: <Localize translate_text="Aluminium/USD" />,
@@ -423,6 +423,25 @@ export const metals_eu = [
     {
         src: icons.ZINCUSD,
         text: <Localize translate_text="Zinc/USD" />,
+    },
+]
+
+export const metals_options = [
+    {
+        src: icons.GOLDUSD,
+        text: <Localize translate_text="Gold/USD" />,
+    },
+    {
+        src: icons.PALLADIUMUSD,
+        text: <Localize translate_text="Palladium/USD" />,
+    },
+    {
+        src: icons.PLATINUMUSD,
+        text: <Localize translate_text="Platinum/USD" />,
+    },
+    {
+        src: icons.SILVERUSD,
+        text: <Localize translate_text="Silver/USD" />,
     },
 ]
 

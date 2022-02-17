@@ -434,7 +434,7 @@ const PipCalculator = () => {
                             </AccordionItem>
                         </Accordion>
 
-                        <LinkWrapper>
+                        <LinkWrapper style={{ width: 'fit-content', height: 'fit-content' }}>
                             <StyledLinkButton
                                 secondary="true"
                                 type="mt5"

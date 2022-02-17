@@ -40,7 +40,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
     const closeVideo = (): void => {
         setShow(false)
         setPlayVideoId('')
-        setTitleParams(null)
+        setTitleParams(undefined)
     }
     return (
         <Container m="0 auto" fd="column">

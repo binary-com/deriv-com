@@ -375,7 +375,7 @@ export const metals = [
     },
     {
         src: icons.ZINCUSD,
-        text: <Localize translate_text="ZINCUSD/USD" />,
+        text: <Localize translate_text="Zinc/USD" />,
     },
 ]
 
@@ -422,7 +422,7 @@ export const metals_eu = [
     },
     {
         src: icons.ZINCUSD,
-        text: <Localize translate_text="ZINCUSD/USD" />,
+        text: <Localize translate_text="Zinc/USD" />,
     },
 ]
 

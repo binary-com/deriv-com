@@ -72,11 +72,11 @@ const MarketNews = ({ data }: MarketNewsProps) => {
                     Market news
                 </Header>
                 <MarketsNewsWrapper>
-                    {data.map((data) => {
+                    {data.map((post) => {
                         return (
                             <StyledLocalizedLink
-                                key={data.id}
-                                to={`/academy/blog/posts/${data.slug}/`}
+                                key={post.id}
+                                to={`/academy/blog/posts/${post.slug}/`}
                             >
                                 <StyledFlex>
                                     <StandardImgWrapper
@@ -88,15 +88,15 @@ const MarketNews = ({ data }: MarketNewsProps) => {
                                         mobileL_height="70px"
                                     >
                                         <QueryImage
-                                            data={data.main_image.imageFile}
-                                            alt={data.main_image.description || ''}
+                                            data={post.main_image.imageFile}
+                                            alt={post.main_image.description || ''}
                                             className="standard-query-img"
                                         />
                                     </StandardImgWrapper>
 
                                     <ContentWrapper ml="8px" fd="column" ai="flex-start">
                                         <Header type="paragraph-1" weight="bold">
-                                            {data.blog_title}
+                                            {post.blog_title}
                                         </Header>
                                         <Flex
                                             mt="auto"
@@ -112,7 +112,7 @@ const MarketNews = ({ data }: MarketNewsProps) => {
                                                 weight="normal"
                                                 color="grey-5"
                                             >
-                                                {getMinRead(data?.blog_post)}
+                                                {getMinRead(post?.blog_post)}
                                             </Header>
                                         </Flex>
                                     </ContentWrapper>

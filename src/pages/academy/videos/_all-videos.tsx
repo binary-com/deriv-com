@@ -26,7 +26,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
     }, [])
 
     useEffect(() => {
-        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+        document.body.style.overflow = show ? 'hidden' : 'unset'
     }, [show])
 
     const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`

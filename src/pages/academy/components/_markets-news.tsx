@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { StandardImgWrapper } from '../common/_styles'
+import { MarketNewsDataType } from '../index'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -60,7 +60,11 @@ const StyledContainer = styled(Container)`
 //     return 'Market News'
 // }
 
-const MarketNews = ({ data }) => {
+type MarketNewsProps = {
+    data: MarketNewsDataType
+}
+
+const MarketNews = ({ data }: MarketNewsProps) => {
     return (
         <StyledContainer>
             <Flex fd="column">
@@ -85,7 +89,7 @@ const MarketNews = ({ data }) => {
                                     >
                                         <QueryImage
                                             data={data.main_image.imageFile}
-                                            alt={data.main_image.alt || ''}
+                                            alt={data.main_image.description || ''}
                                             className="standard-query-img"
                                         />
                                     </StandardImgWrapper>
@@ -123,7 +127,3 @@ const MarketNews = ({ data }) => {
 }
 
 export default MarketNews
-
-MarketNews.propTypes = {
-    data: PropTypes.array,
-}

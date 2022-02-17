@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { graphql } from 'gatsby'
-import { ArticleQuery } from '../../graphql.types'
+import { ArticleQuery } from '../../types/graphql.types'
 import {
     ArticleTitle,
     Background,

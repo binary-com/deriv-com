@@ -22,7 +22,12 @@ export const Container = styled(Flex)`
     }
 `
 
-export const VideoGrid = styled.div`
+type VideoGridProps = {
+    m?: string
+    margin?: string
+}
+
+export const VideoGrid = styled.div<VideoGridProps>`
     display: grid;
     width: 100%;
     height: 100%;
@@ -34,7 +39,19 @@ export const VideoGrid = styled.div`
     justify-content: center;
 `
 
-export const StandardImgWrapper = styled.div`
+type StandardImgWrapperProps = {
+    width?: string
+    height?: string
+    br?: string
+    tabletL_width?: string
+    tabletL_height?: string
+    tabletL_br?: string
+    mobileL_width?: string
+    mobileL_height?: string
+    mobileL_br?: string
+}
+
+export const StandardImgWrapper = styled.div<StandardImgWrapperProps>`
     width: ${(props) => (props.width ? props.width : '100%')};
     height: ${(props) => (props.height ? props.height : '100%')};
     border-radius: ${(props) => (props.br ? props.br : '4px')};

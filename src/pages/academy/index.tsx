@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { AcademyIndexFragment } from '../../../graphql.types'
+import { AcademyIndexFragment } from '../../../types/graphql.types'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
 import VideoBanner from './_video-banner'
@@ -46,6 +46,8 @@ export type FeaturedDataType = AcademyIndexFragment['directus']['featured']
 export type FeaturedVideoListDataType = AcademyIndexFragment['directus']['featured_video']
 
 export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['videos']
+
+export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)

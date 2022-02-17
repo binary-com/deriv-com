@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { AllArticlesQuery } from '../../../../graphql.types'
+import { AllArticlesQuery } from '../../../../types/graphql.types'
 import Subscribe from '../components/_subscribe'
 import AllArticles from './_all-articles'
 import Layout from 'components/layout/layout'

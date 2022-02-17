@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { AllVideosQuery } from '../../../../graphql.types'
+import { AllVideosQuery } from '../../../../types/graphql.types'
 import Subscribe from '../components/_subscribe'
 import AllVideos from './_all-videos'
 import Layout from 'components/layout/layout'

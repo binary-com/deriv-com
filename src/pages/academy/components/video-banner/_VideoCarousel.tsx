@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
+import { NonFeaturedVideoListDataType } from '../../index'
 import { StandardImgWrapper } from '../../common/_styles'
 import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
@@ -65,7 +65,11 @@ const PlayerIcon = styled.img`
     }
 `
 
-const VideoCarousel = ({ carousel_items }) => {
+type VideoCarouselProps = {
+    carousel_items: NonFeaturedVideoListDataType
+}
+
+const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
     const [show, setShow] = useState(false)
     const [video_src, setVideoSrc] = useState('')
 
@@ -143,7 +147,10 @@ const VideoCarousel = ({ carousel_items }) => {
                                         tabletL_br="unset"
                                     >
                                         <GatsbyImage
-                                            image={getImage(item.video_thumbnail.imageFile)}
+                                            image={
+                                                item.video_thumbnail.imageFile.childImageSharp
+                                                    .gatsbyImageData
+                                            }
                                             alt={thumbnail_img_alt}
                                             width="100%"
                                             height="100%"
@@ -195,7 +202,4 @@ const VideoCarousel = ({ carousel_items }) => {
     )
 }
 
-VideoCarousel.propTypes = {
-    carousel_items: PropTypes.array,
-}
 export default VideoCarousel

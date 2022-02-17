@@ -3,7 +3,7 @@ import Dbanner from './components/video-banner/_DBanner'
 import { FeaturedVideoListDataType, NonFeaturedVideoListDataType } from './index'
 import { Flex } from 'components/containers'
 
-type VideoBannerProps = {
+export type VideoBannerProps = {
     featured_video_list_data: FeaturedVideoListDataType
     non_featured_video_list_data: NonFeaturedVideoListDataType
 }
@@ -16,8 +16,8 @@ const VideoBanner = ({
         <Flex>
             {non_featured_video_list_data && non_featured_video_list_data.length && (
                 <Dbanner
-                    featured_video_list={featured_video_list_data}
-                    non_featured_video_list={non_featured_video_list_data}
+                    featured_video_list_data={featured_video_list_data}
+                    non_featured_video_list_data={non_featured_video_list_data}
                 />
             )}
         </Flex>

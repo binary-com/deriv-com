@@ -342,8 +342,24 @@ export const major_pairs = [
 
 export const metals = [
     {
+        src: icons.ALUMINIUMUSD,
+        text: <Localize translate_text="Aluminium/USD" />,
+    },
+    {
+        src: icons.COPPERUSD,
+        text: <Localize translate_text="Copper/USD" />,
+    },
+    {
         src: icons.GOLDUSD,
         text: <Localize translate_text="Gold/USD" />,
+    },
+    {
+        src: icons.LEADUSD,
+        text: <Localize translate_text="Lead/USD" />,
+    },
+    {
+        src: icons.NICKELUSD,
+        text: <Localize translate_text="Nickel/USD" />,
     },
     {
         src: icons.PALLADIUMUSD,
@@ -357,9 +373,21 @@ export const metals = [
         src: icons.SILVERUSD,
         text: <Localize translate_text="Silver/USD" />,
     },
+    {
+        src: icons.ZINCUSD,
+        text: <Localize translate_text="ZINCUSD/USD" />,
+    },
 ]
 
 export const metals_eu = [
+    {
+        src: icons.ALUMINIUMUSD,
+        text: <Localize translate_text="Aluminium/USD" />,
+    },
+    {
+        src: icons.COPPERUSD,
+        text: <Localize translate_text="Copper/USD" />,
+    },
     {
         src: icons.GOLDEUR,
         text: <Localize translate_text="Gold/EUR" />,
@@ -367,6 +395,14 @@ export const metals_eu = [
     {
         src: icons.GOLDUSD,
         text: <Localize translate_text="Gold/USD" />,
+    },
+    {
+        src: icons.LEADUSD,
+        text: <Localize translate_text="Lead/USD" />,
+    },
+    {
+        src: icons.NICKELUSD,
+        text: <Localize translate_text="Nickel/USD" />,
     },
     {
         src: icons.PALLADIUMUSD,
@@ -383,6 +419,10 @@ export const metals_eu = [
     {
         src: icons.SILVERUSD,
         text: <Localize translate_text="Silver/USD" />,
+    },
+    {
+        src: icons.ZINCUSD,
+        text: <Localize translate_text="ZINCUSD/USD" />,
     },
 ]
 

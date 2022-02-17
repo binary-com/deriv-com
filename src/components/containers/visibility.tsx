@@ -12,7 +12,6 @@ type ResponsiveContainerProps = {
 
 type LayerProps = {
     breakpoint?: number
-    className?: string
 }
 
 type StoreDataType = {

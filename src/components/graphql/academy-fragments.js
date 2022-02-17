@@ -12,7 +12,7 @@ export const academyQuery = graphql`
                 link
                 heading
                 sub_heading
-                desktop_hero: image {
+                image {
                     imageFile {
                         childImageSharp {
                             gatsbyImageData(quality: 60, width: 1600)
@@ -37,7 +37,7 @@ export const academyQuery = graphql`
                 link
                 heading
                 sub_heading
-                desktop_hero: image {
+                image {
                     imageFile {
                         childImageSharp {
                             gatsbyImageData(quality: 60, width: 1600)
@@ -62,7 +62,7 @@ export const academyQuery = graphql`
                 link
                 heading
                 sub_heading
-                desktop_hero: image {
+                image {
                     imageFile {
                         childImageSharp {
                             gatsbyImageData(quality: 60, width: 1600)

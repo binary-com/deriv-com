@@ -79,9 +79,6 @@ const TabButton = styled.div<ContentProps>`
         background: ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-grey-29)')};
         transition: background 0.25s;
     }
-    &:last-child {
-        margin-bottom: 0;
-    }
 
     @media ${device.tabletS} {
         margin: 0 16px 16px;

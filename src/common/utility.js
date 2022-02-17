@@ -338,6 +338,7 @@ export const calculateReadTime = (text) => {
 export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
 
 export const slugify = (text) =>
+    text &&
     text
         .toString()
         .normalize('NFD') // The normalize() method returns the Unicode Normalization Form of a given string.
@@ -356,11 +357,11 @@ export const unslugify = (slug) => {
     }
 }
 
-export const removeSpecialCharacterUrl = (url) =>
+export const removeSpecialCharacterUrl = (url) => {
     slugify(url)
         .replace(/\?+/g, '') // Replace question mark with empty value
         .replace(/[/]/g, '-') //Replace '/' with single -
-
+}
 export const getBaseRef = (ref) => {
     // this is intended to solve a problem of preact that
     // in some cases element api's are in the ref.current.base and

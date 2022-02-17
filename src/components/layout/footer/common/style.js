@@ -195,6 +195,7 @@ export const CopyrightWrapper = styled(Flex)`
     p {
         font-size: var(--text-size-xs);
         line-height: 1.14;
+        padding: 2rem 0;
     }
 
     @media ${device.tabletL} {

@@ -34,7 +34,6 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
-import AcademyLogo from 'images/svg/academy-logo.svg'
 import { CFDWarning } from 'components/layout'
 
 const query = graphql`
@@ -433,12 +432,11 @@ const handleGetTrading = () => {
     window.location.href = trading_url_localized
 }
 
-const NavMobile = ({
+export const NavMobile = ({
     is_ppc,
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
@@ -456,11 +454,7 @@ const NavMobile = ({
                     <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
-                        {academy_logo ? (
-                            <img src={AcademyLogo} alt="Academy" />
-                        ) : (
-                            <img src={LogoCombinedShape} alt="logo combined shape" />
-                        )}
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -495,13 +489,12 @@ const NavMobile = ({
     )
 }
 
-const NavDesktop = ({
+export const NavDesktop = ({
     base,
     is_ppc,
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const data = useStaticQuery(query)
@@ -571,11 +564,7 @@ const NavDesktop = ({
                         />
                     </LogoLink>
                     <Line />
-                    {academy_logo ? (
-                        <img src={AcademyLogo} alt="Academy" />
-                    ) : (
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
-                    )}
+                    <img src={LogoCombinedShape} alt="logo combined shape" />
                 </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
@@ -646,14 +635,7 @@ const NavDesktop = ({
     )
 }
 
-export const Nav = ({
-    base,
-    is_ppc_redirect,
-    is_ppc,
-    hide_signup_login,
-    academy_logo,
-    no_language,
-}) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login, no_language }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -672,7 +654,6 @@ export const Nav = ({
                     <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
@@ -683,7 +664,6 @@ export const Nav = ({
                     <MobileWrapper media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             is_ppc={is_ppc}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
@@ -697,7 +677,6 @@ export const Nav = ({
 }
 
 Nav.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
@@ -706,7 +685,6 @@ Nav.propTypes = {
 }
 
 NavDesktop.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
@@ -720,7 +698,6 @@ LanguageSwitcherNavDesktop.propTypes = {
 }
 
 NavMobile.propTypes = {
-    academy_logo: PropTypes.bool,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
@@ -1089,14 +1066,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                 src={Close}
                                 alt="close menu 2"
                                 onClick={closeOffCanvasMenu}
-                                width="16px"
                             />
                         ) : (
                             <HamburgerMenuPartners
                                 src={Hamburger}
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
-                                width="16px"
                             />
                         )}
 
@@ -1229,7 +1204,6 @@ export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
 }
 
 NavSticky.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,

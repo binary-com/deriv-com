@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Title, TextWrapper } from './_common'
+import { TextWrapper } from './_common'
 import paperPlane from 'images/common/blog/paperplanes.png'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import { LocalizedLinkText } from 'components/elements'
+import { LocalizedLinkText, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
@@ -160,6 +160,7 @@ const AdditionalFlex = styled.div`
         font-size: 1.75rem;
     }
 `
+
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
@@ -173,7 +174,9 @@ const Subscribe = () => {
     const { is_eu_country, user_country } = React.useContext(DerivStore)
 
     useEffect(() => {
-        addScriptForCIO()
+        if (!window._cio) {
+            addScriptForCIO()
+        }
         const options = {
             headers: new Headers({ 'content-type': 'application/json' }),
             mode: 'no-cors',
@@ -289,10 +292,14 @@ const Subscribe = () => {
         window._cio.identify({
             id: email,
             email,
+            country: user_country,
             created_at: Math.round(Date.now() / 1000),
             name,
             type: 'Academy',
-            country: user_country,
+            unsubscribed: true,
+        })
+        window._cio.track('academy_subscription', {
+            id: email,
         })
     }
 
@@ -319,25 +326,23 @@ const Subscribe = () => {
         <SignupFormWrapper>
             <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
             <StyledFormContent>
-                <Title
-                    as="h3"
-                    color={'white'}
-                    text_align={'left'}
-                    font_size={['24px', '18px']}
-                    line_height={['36px', '26px']}
-                >
+                <Header as="h3" type="heading-3" color="white" align="left">
                     {localize('Subscribe to our academy via email')}
-                </Title>
-                <TextWrapper
-                    color={'white'}
-                    font_size={['16px', '14px']}
-                    line_height={['22px', '18px']}
-                    max_width={['684px', '291px']}
+                </Header>
+                <Header
+                    as="p"
+                    color="white"
+                    type="paragraph-1"
+                    mt="8px"
+                    max_width="492px"
+                    align="left"
+                    weight="regular"
+                    tabletL={{ max_width: '100%' }}
                 >
                     {localize(
                         'Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates.',
                     )}
-                </TextWrapper>
+                </Header>
                 <InputGroupForm onSubmit={handleEmailSignup} noValidate>
                     <Flex jc="flex-start">
                         <InputWrapper>

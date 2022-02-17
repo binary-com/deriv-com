@@ -3,9 +3,9 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
+import NavAcademy from './academy/nav-academy'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
@@ -131,13 +131,6 @@ const Layout = ({
 
     const is_static = type === 'static'
 
-    // Every layout change will trigger scroll to top
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
-
     // Allow tracking cookie banner setup
     React.useEffect(() => {
         if (typeof is_eu_country === 'boolean') {
@@ -175,7 +168,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'academy':
-            Navigation = <Nav academy_logo={true} no_language={true} />
+            Navigation = <NavAcademy no_language={true} />
             FooterNav = <Footer academy={true} />
             break
         case 'static':
@@ -183,7 +176,6 @@ const Layout = ({
             break
         case 'interim':
             Navigation = <NavInterim interim_type={interim_type} />
-            FooterNav = <Copyright />
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />

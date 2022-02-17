@@ -400,11 +400,6 @@ const LogoDescription = styled(Flex)`
     }
 `
 
-const SecurityLogoInMobile = styled.img`
-    width: 170px;
-    margin-right: 10px;
-`
-
 const handleLogin = () => {
     redirectToTradingPlatform()
     Login.redirectToLogin()
@@ -1199,10 +1194,7 @@ export const NavSecurity = () => {
                         <Mobile>
                             <Flex ai="center" jc="space-between">
                                 <LogoLinkMobileSecurity to="/" aria-label={localize('Bug bounty')}>
-                                    <SecurityLogoInMobile
-                                        src={LogoBugBounty}
-                                        alt="logo bug bounty"
-                                    />
+                                    <ResLogo src={LogoOnly} alt="logo only bug bounty" />
                                 </LogoLinkMobileSecurity>
 
                                 <LinkButton

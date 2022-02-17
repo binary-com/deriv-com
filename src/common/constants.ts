@@ -9,22 +9,17 @@ export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
 
-const getDomainUrl = () => {
-    if (isBrowser()) {
-        switch (window.location.hostname) {
-            case deriv_com_url:
-                return deriv_com_url
-            case deriv_me_url:
-                return deriv_me_url
-            case deriv_be_url:
-                return deriv_be_url
-            case staging_deriv_be_url:
-                return deriv_be_url
-            default:
-                return deriv_com_url
-        }
-    }
+const domain_url_pair = {
+    [deriv_com_url]: deriv_com_url,
+    [deriv_me_url]: deriv_me_url,
+    [deriv_be_url]: deriv_be_url,
+    [staging_deriv_be_url]: deriv_be_url,
 }
+
+const getDomainUrl = (): string =>
+    isBrowser() && window.location.hostname in domain_url_pair
+        ? domain_url_pair[window.location.hostname]
+        : deriv_com_url
 
 const getDomainAppID = () => {
     if (getDomainUrl() === deriv_me_url) return deriv_me_app_id

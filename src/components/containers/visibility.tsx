@@ -1,8 +1,9 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { DerivStore } from 'store'
+import { eu_domains, uk_domains } from 'common/constants'
 
 type ResponsiveContainerProps = {
     children: ReactElement
@@ -39,8 +40,6 @@ const domainBasedCheck = () => {
     useEffect(() => {
         if (window) {
             const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
-            const eu_domains = ['eu', 'staging-eu']
-            const uk_domains = ['uk', 'staging-uk']
 
             if (eu_domains.includes(subdomain)) {
                 setEuDomain(true)
@@ -70,7 +69,7 @@ const deviceRenderer = (): boolean => {
 
 export const getCountryRule = () => {
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
-    const { is_eu_country, is_uk_country } = React.useContext<StoreDataType>(DerivStore)
+    const { is_eu_country, is_uk_country } = useContext<StoreDataType>(DerivStore)
 
     const is_eu = (is_eu_country || is_eu_domain) && !is_uk_country
     const is_uk = is_uk_country || is_uk_domain

@@ -12,6 +12,9 @@ const domain_url =
         ? window.location.hostname
         : deriv_com_url
 
+export const eu_domains = ['eu', 'staging-eu']
+export const uk_domains = ['uk', 'staging-uk']
+
 // URL
 export const domain_full_url = `https://${domain_url}`
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id

@@ -234,6 +234,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 
 const TradeTypes = (): React.ReactNode => {
     const { is_row } = getCountryRule()
+    const items_details_by_region = is_row ? items_details_cr : items_details_eu_uk
     const [is_not_big_screen] = useBrowserResize(1979)
     const settings = {
         options: {
@@ -272,15 +273,16 @@ const TradeTypes = (): React.ReactNode => {
                 mb="40px"
                 tablet={{ mb: '16px' }}
             >
-                {is_row
-                    ? localize('Trade the way you want with 3 exciting trade types')
-                    : localize('Trade the way you want with 2 exciting trade types')}
+                <Localize
+                    translate_text="Trade the way you want with {{trade_no}} exciting trade types"
+                    values={{ trade_no: is_row ? '3' : '2' }}
+                />
             </Header>
 
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {(is_row ? items_details_cr : items_details_eu_uk).map((item) => {
+                        {items_details_by_region.map((item) => {
                             return (
                                 <Flex key={item.image_url} ai="flex-start">
                                     <TradeItems items_details={item} />
@@ -292,7 +294,7 @@ const TradeTypes = (): React.ReactNode => {
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {(is_row ? items_details_cr : items_details_eu_uk).map((item) => {
+                    {items_details_by_region.map((item) => {
                         return (
                             <Flex key={item.link} ai="flex-start">
                                 <TradeItems items_details={item} />

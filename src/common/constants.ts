@@ -14,6 +14,7 @@ const domain_url_pair = {
     [deriv_me_url]: deriv_me_url,
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
+    localhost: deriv_be_url,
 }
 
 const getDomainUrl = (): string =>

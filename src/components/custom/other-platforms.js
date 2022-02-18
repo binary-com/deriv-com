@@ -13,6 +13,7 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import { DerivStore } from 'store'
+import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -394,7 +395,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                                 <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
                             }
                             title={<Localize translate_text="Binary Bot" />}
-                            to="https://bot.deriv.com/"
+                            to={binary_bot_url}
                             external="true"
                             target="_blank"
                             onClick={onClick}

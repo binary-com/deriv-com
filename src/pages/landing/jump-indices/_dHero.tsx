@@ -5,6 +5,7 @@ import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device.js'
 import GridSVG from 'images/svg/jump-indices/jump-indices-grid.svg'
 import JumpIndicesAnimation from 'lotties/JumpIndicesChart.json'
@@ -124,6 +125,10 @@ const StyledAnimationWrapper = styled(Flex)`
 
 const DHero = () => {
     const animation_container = createRef<HTMLElement>()
+    // the is mounted check is used for making sure the localized link text
+    // properly renders the correct domain url
+    const [is_mounted] = usePageLoaded()
+
     useEffect(() => {
         const anim = lottie.loadAnimation({
             container: animation_container.current,
@@ -148,17 +153,19 @@ const DHero = () => {
                         )}
                     </StyledHeaderSmall>
                     <BtnDiv>
-                        <StyledLinkButton
-                            external="true"
-                            type="deriv_app"
-                            to="/mt5"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            secondary="true"
-                            hero
-                        >
-                            {localize('Start trading')}
-                        </StyledLinkButton>
+                        {is_mounted && (
+                            <StyledLinkButton
+                                external="true"
+                                type="deriv_app"
+                                to="/mt5"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                secondary="true"
+                                hero
+                            >
+                                {localize('Start trading')}
+                            </StyledLinkButton>
+                        )}
                     </BtnDiv>
                 </LeftWrapper>
                 <RigthWrapper>

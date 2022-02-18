@@ -51,7 +51,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
                 <StyledImg src={RightArrow} alt="Right arrow" height={16} width={16} />
                 <Text>All videos</Text>
             </Flex>
-            <VideoGrid m="8rem 0">
+            <VideoGrid margin="8rem 0">
                 {video_data.map((item) => {
                     return (
                         <VideoCard

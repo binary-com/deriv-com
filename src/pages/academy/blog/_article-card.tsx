@@ -62,7 +62,12 @@ const ArticleCard = ({ item }: ArticleCardProps) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
             <ArticleCardWrapper>
-                <StandardImgWrapper width="384px" height="auto" br="unset" tabletL_br="unset">
+                <StandardImgWrapper
+                    width="384px"
+                    height="auto"
+                    border_radius="unset"
+                    tabletL_border_radius="unset"
+                >
                     <QueryImage
                         data={item.main_image.imageFile}
                         alt={item.main_image.description || ''}

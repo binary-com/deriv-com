@@ -26,7 +26,7 @@ const VideoParentWrapper = ({
 
     return (
         <>
-            <VideoGrid m="24px 0 32px 0">
+            <VideoGrid margin="24px 0 32px 0">
                 {currentVideoItems.map((item) => {
                     return (
                         <VideoCard

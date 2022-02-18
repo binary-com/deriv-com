@@ -143,8 +143,8 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
                                         width="174px"
                                         height="100%"
                                         tabletL_width="142px"
-                                        br="unset"
-                                        tabletL_br="unset"
+                                        border_radius="unset"
+                                        tabletL_border_radius="unset"
                                     >
                                         <GatsbyImage
                                             image={

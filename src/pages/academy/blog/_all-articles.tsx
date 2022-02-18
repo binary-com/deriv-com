@@ -24,7 +24,7 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
                 <Text>All articles</Text>
             </Flex>
             <FirstArticle item={article_data[0]} />
-            <VideoGrid m="40px 0">
+            <VideoGrid margin="40px 0">
                 {article_data.slice(1).map((item) => {
                     return <ArticleCard key={item.id} item={item} />
                 })}

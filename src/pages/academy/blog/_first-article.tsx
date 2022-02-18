@@ -65,7 +65,11 @@ const FirstArticle = ({ item }: FirstArticleProps) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
             <StyledFlex jc="flex-start">
-                <StandardImgWrapper width="592px" br="6px 0 0 6px" tabletL_br="6px 6px 0 0">
+                <StandardImgWrapper
+                    width="592px"
+                    border_radius="6px 0 0 6px"
+                    tabletL_border_radius="6px 6px 0 0"
+                >
                     <QueryImage
                         data={item.main_image.imageFile}
                         alt={item.main_image.description || ''}

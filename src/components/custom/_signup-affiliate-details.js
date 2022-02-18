@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Tooltip } from 'antd'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Formik, Field, Form } from 'formik'
@@ -8,10 +7,10 @@ import {
     getSignupAffiliateValue,
     resetSignupAffiliateDetails,
 } from '../../pages/signup-affiliates-details/common/_utility'
-import { DropdownSearch, LocalizedLinkText } from '../elements'
+import { DropdownSearch } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
 import { useAffiliateData } from '../hooks/use-affiliate-data'
-import Info from '../../images/svg/signup-affiliate-details/info.svg'
+import Tooltip from '../form/tooltip'
 import RadioInput from '../form/radio-input'
 import CurrencySelect from '../form/currency-select'
 import AgreementLabel from './_agreement-label'
@@ -298,32 +297,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                     >
                                         {localize('Choose a plan')}
                                     </Header>
-                                    <Tooltip
-                                        title={
-                                            <div style={{ color: 'black' }}>
-                                                {localize(
-                                                    'Choose which plan you would like to subscribe to.',
-                                                )}{' '}
-                                                <LocalizedLinkText
-                                                    to="/partners/affiliate-ib#deriv-ap"
-                                                    external="true"
-                                                    color="red"
-                                                    target="_blank"
-                                                    is_anchor
-                                                    style={{ fontSize: '14px' }}
-                                                >
-                                                    {localize('Learn more')}
-                                                </LocalizedLinkText>
-                                            </div>
-                                        }
-                                        color={'#d6dadb'}
-                                    >
-                                        <img
-                                            style={{ margin: '0 5px', cursor: 'pointer' }}
-                                            src={Info}
-                                            alt="info"
-                                        />
-                                    </Tooltip>
+                                    <Tooltip />
                                 </Flex>
                                 <Line />
                             </Flex>

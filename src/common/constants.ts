@@ -14,11 +14,9 @@ const domain_url_pair = {
     [deriv_me_url]: deriv_me_url,
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
-    localhost: deriv_be_url,
-    'deriv-com-git-fork-sean-binary-fix-landing-page-redirect.binary.sx': deriv_be_url,
 }
 
-export const getDomainUrl = (): string =>
+const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair
         ? domain_url_pair[window.location.hostname]
         : deriv_com_url

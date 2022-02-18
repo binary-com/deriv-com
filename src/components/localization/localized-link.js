@@ -6,7 +6,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
-import { localized_link_url } from 'common/constants'
+import { localized_link_url, getDomainUrl } from 'common/constants'
 import { getLocalizedUrl, getDerivAppLocalizedURL, getThaiExcludedLocale } from 'common/utility'
 import { DerivStore } from 'store'
 
@@ -155,11 +155,11 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
     } else if (new_tab_no_modal.includes(type)) {
-        return `${localized_link_url.domain_full_url}${locale === 'en' ? '' : '/' + locale}/${
+        return `https://${getDomainUrl()}${locale === 'en' ? '' : '/' + locale}/${
             type.replace(/_/g, '-') + '/'
         }`
     } else if (only_en_new_tab_no_modal.includes(type)) {
-        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-')}`
+        return `https://${getDomainUrl()}/${type.replace(/_/g, '-')}`
     } else {
         return to
     }

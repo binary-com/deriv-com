@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
-import { getClientInformation, getDomain } from 'common/utility'
+import { useState, useEffect } from 'react'
+import { getClientInformation, getDomain, useCallbackRef } from 'common/utility'
 
 export const useClientInformation = () => {
     const [client_information, setClientInformation] = useState(false)
-    const callback_ref = useRef()
 
     const setCurrentClientInformation = () => {
         const current_client_information = getClientInformation(getDomain())
@@ -14,9 +13,7 @@ export const useClientInformation = () => {
         if (is_client_information_updated) setClientInformation(current_client_information)
     }
 
-    useEffect(() => {
-        callback_ref.current = setCurrentClientInformation
-    })
+    const callback_ref = useCallbackRef(setCurrentClientInformation)
 
     useEffect(() => {
         const cookie_interval = setInterval(() => {

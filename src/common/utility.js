@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
@@ -347,3 +348,13 @@ export const slugify = (text) =>
         .replace(/\s+/g, '-') // Replace spaces with -
         .replace(/[^\w-]+/g, '') // Remove all non-word chars
         .replace(/--+/g, '-') // Replace multiple - with single -
+
+export const useCallbackRef = (callback) => {
+    const callback_ref = useRef()
+
+    useEffect(() => {
+        callback_ref.current = callback
+    }, [callback])
+
+    return callback_ref
+}

@@ -37,6 +37,7 @@ export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_mt5_app_url = `${deriv_app_url}/mt5`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
+export const binary_bot_url = `https://bot.${getDomainUrl()}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = getDomainUrl()
 export const login_url = `https://login.${getDomainUrl()}`

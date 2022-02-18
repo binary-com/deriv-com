@@ -5,7 +5,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex, NonEU } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
-import { deriv_status_page_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -292,7 +292,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         }
                                         title={<Localize translate_text="BinaryBot" />}
                                         onClick={handleArrowClick}
-                                        to="https://bot.deriv.com/"
+                                        to={binary_bot_url}
                                         external="true"
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}

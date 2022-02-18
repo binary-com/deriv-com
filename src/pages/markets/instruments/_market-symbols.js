@@ -129,11 +129,11 @@ export const volatility_indices = [
 
 export const volatility_indices_eu = [
     {
-        src: icons.VINDEXIC200,
+        src: icons.INDEX200S1,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
     },
     {
-        src: icons.VINDEXIC300,
+        src: icons.INDEX300S1,
         text: <Localize translate_text="Volatility 300 (1s) Index" />,
     },
 ]
@@ -1347,11 +1347,11 @@ export const energy_cfds = [
 
 export const volatility_indices_trade_type_eu = [
     {
-        src: icons.VOLATILITY200EU,
+        src: icons.INDEX200S1,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
     },
     {
-        src: icons.VOLATILITY300EU,
+        src: icons.INDEX300S1,
         text: <Localize translate_text="Volatility 300 (1s) Index" />,
     },
 ]

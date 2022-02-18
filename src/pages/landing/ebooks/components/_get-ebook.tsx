@@ -332,6 +332,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         isChecked={is_checked}
                         handleChangeCheckbox={handleChange}
                         color={color}
+                        isTnc
                     />
                     <EmailButton
                         isChecked={is_checked}

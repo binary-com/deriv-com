@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Checkbox, LocalizedLinkText, Header } from 'components/elements'
 import { Localize } from 'components/localization'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device.js'
 
 const StyledLocalizedLinkText = styled(LocalizedLinkText)`
@@ -13,7 +14,15 @@ const StyledLocalizedLinkText = styled(LocalizedLinkText)`
     }
 `
 
-const AgreementLabel = ({ handleChangeCheckbox, isChecked, link_text = 'I agree to the' }) => {
+const AgreementLabel = ({
+    handleChangeCheckbox,
+    color,
+    isTnc,
+    isChecked,
+    link_text = 'I agree to the',
+}) => {
+    const [is_mounted] = usePageLoaded()
+
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
@@ -41,24 +50,28 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, link_text = 'I agree 
                 onChange={handleChange}
                 checked={isChecked}
             />
-            <Header as="span" type="paragraph-2" weight="regular">
+            <Header as="span" type="paragraph-2" weight="regular" color={color}>
                 <Localize translate_text={link_text} />{' '}
-                <StyledLocalizedLinkText
-                    type="terms_and_conditions/#clients"
-                    external="true"
-                    rel="noopener noreferrer"
-                    color="red"
-                >
-                    terms and conditions
-                </StyledLocalizedLinkText>
+                {is_mounted && isTnc && (
+                    <StyledLocalizedLinkText
+                        type="terms_and_conditions/#clients"
+                        external="true"
+                        rel="noopener noreferrer"
+                        color="red"
+                    >
+                        terms and conditions
+                    </StyledLocalizedLinkText>
+                )}
             </Header>
         </label>
     )
 }
 
 AgreementLabel.propTypes = {
+    color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,
     isChecked: PropTypes.bool,
+    isTnc: PropTypes.bool,
     link_text: PropTypes.string,
 }
 

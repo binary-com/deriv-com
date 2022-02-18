@@ -63,14 +63,14 @@ const Scope = () => {
                                     {localize(list.description)}
                                 </Header>
 
-                                {list.check_list.map((item, idx) => {
+                                {list.check_list.map((item, index) => {
                                     return (
                                         <Flex
                                             height="auto"
                                             mt="1.6rem"
                                             ai="flex-start"
                                             jc="flex-start"
-                                            key={idx}
+                                            key={index}
                                         >
                                             <IconWrap src={tick_icon ? TickIcon : XIcon} />
                                             <div>

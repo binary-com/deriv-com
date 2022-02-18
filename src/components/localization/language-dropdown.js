@@ -46,7 +46,15 @@ const Arrow = styled(Chevron)`
 const Absolute = styled.div`
     position: absolute;
     z-index: -1;
-    top: ${(props) => (props.is_high_nav ? '4.8rem' : props.security ? '10.5rem' : '5.5rem')};
+    top: ${(props) => {
+        if (props.is_high_nav) {
+            return '4.8rem'
+        } else if (props.security) {
+            return '10.5rem'
+        } else {
+            return '5.5rem'
+        }
+    }};
     left: -22rem;
     height: auto;
     background-color: var(--color-white);
@@ -61,7 +69,7 @@ const Absolute = styled.div`
         left: 0;
     }
 `
-
+/* stylelint-disable */
 const FadeInDown = keyframes`
     from {
         opacity:0;
@@ -78,6 +86,7 @@ const FadeOutUp = keyframes`
         opacity:0;
     }
 `
+
 const ItemContainer = styled.div`
     background-color: var(--color-white);
     padding: 1.6rem 0.8rem;
@@ -130,6 +139,7 @@ const ResponsiveText = styled(Text)`
         display: none;
     }
 `
+/* stylelint-enable */
 
 const query = graphql`
     query {

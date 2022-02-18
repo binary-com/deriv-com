@@ -5,7 +5,7 @@ import { vulnerability_types_content } from '../static/_vulnerabilities-types-co
 import { localize, WithIntl, Localize } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, Flex, SEO } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 interface CardItemProps {
@@ -102,19 +102,28 @@ const VulnerabilitiesTypes = () => {
                                             </Header>
                                         </CardItem>
                                     ) : (
-                                        item.profit_table.map((item, idx) => {
-                                            return (
-                                                <CardItem second_item={idx === 1} key={idx}>
-                                                    <Header type="small" weight="normal">
-                                                        <Localize translate_text={item.title} />
-                                                    </Header>
+                                        item.profit_table.map(
+                                            (profit_table_item, profit_table_idx) => {
+                                                return (
+                                                    <CardItem
+                                                        second_item={profit_table_idx === 1}
+                                                        key={profit_table_idx}
+                                                    >
+                                                        <Header type="small" weight="normal">
+                                                            <Localize
+                                                                translate_text={
+                                                                    profit_table_item.title
+                                                                }
+                                                            />
+                                                        </Header>
 
-                                                    <Header type="paragraph-2" mt="4px">
-                                                        {item.content}
-                                                    </Header>
-                                                </CardItem>
-                                            )
-                                        })
+                                                        <Header type="paragraph-2" mt="4px">
+                                                            {profit_table_item.content}
+                                                        </Header>
+                                                    </CardItem>
+                                                )
+                                            },
+                                        )
                                     )}
                                 </CardWrap>
 
@@ -129,8 +138,12 @@ const VulnerabilitiesTypes = () => {
                                 </Header>
 
                                 <StyledUl>
-                                    {item.examples.map((item, idx) => {
-                                        return <StyledLi key={idx}>{localize(item)}</StyledLi>
+                                    {item.examples.map((example_item, example_idx) => {
+                                        return (
+                                            <StyledLi key={example_idx}>
+                                                {localize(example_item)}
+                                            </StyledLi>
+                                        )
                                     })}
                                 </StyledUl>
                             </React.Fragment>

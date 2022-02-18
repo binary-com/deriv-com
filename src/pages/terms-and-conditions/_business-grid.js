@@ -36,7 +36,7 @@ Col.propTypes = {
     url: PropTypes.string,
 }
 
-const IconGrid = () => (
+const BusinessGrid = () => (
     <StyledContainer>
         <StyledGrid
             columns="repeat(3, 1fr)"
@@ -87,4 +87,4 @@ const IconGrid = () => (
     </StyledContainer>
 )
 
-export default IconGrid
+export default BusinessGrid

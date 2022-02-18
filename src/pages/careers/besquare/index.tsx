@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import Advantages from './components/sections/_advantages'
 import ApplicationProcess from './components/sections/_application-process'
 import Description from './components/sections/_description'

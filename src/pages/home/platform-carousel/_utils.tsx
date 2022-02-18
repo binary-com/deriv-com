@@ -188,7 +188,7 @@ export const no_slide_sets = () => {
 export const getSlideStartingIndex = () => {
     const { is_row } = getCountryRule()
     if (!is_row) {
-        return 1
+        return 0
     }
     return Math.round((no_slide_sets() * 8) / 2 - 2)
 }

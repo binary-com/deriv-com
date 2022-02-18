@@ -56,7 +56,9 @@ const items_details_cr: TradeTypesProps[] = [
         image_url: 'trade_type_multipliers',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
-        desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
+        desc: (
+            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
+        ),
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
     },
@@ -85,7 +87,9 @@ const items_details_eu_uk: TradeTypesProps[] = [
         image_url: 'trade_type_multipliers',
         image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
-        desc: <Localize translate_text="Amplify your gains without losing more than your stake." />,
+        desc: (
+            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
+        ),
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
     },

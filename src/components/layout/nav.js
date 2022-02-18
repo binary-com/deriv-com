@@ -7,7 +7,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import {
     OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -26,6 +26,7 @@ import {
     getLanguage,
     getDerivAppLocalizedURL,
     redirectToTradingPlatform,
+    getBaseRef,
 } from 'common/utility'
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
@@ -35,7 +36,6 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
-import AcademyLogo from 'images/svg/academy-logo.svg'
 import { CFDWarning } from 'components/layout'
 
 const query = graphql`
@@ -45,6 +45,24 @@ const query = graphql`
         }
     }
 `
+
+export const DesktopWrapper = styled.div`
+    display: block;
+    @media ${(props) => props.media || device.tabletL} {
+        display: none;
+    }
+`
+
+export const MobileWrapper = styled.div`
+    display: none;
+    @media ${(props) => props.media || device.tabletL} {
+        display: block;
+    }
+`
+
+const LanguageSwitcherNavDesktop = ({ no_language }) =>
+    !no_language && <LanguageSwitcher short_name="true" is_high_nav />
+
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
     width: 100%;
@@ -215,18 +233,20 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${(props) => {
+            const ref_base = getBaseRef(props.button_ref)
+
             if (props.hide_signup_login) {
                 return 0
             } else if (props.move && !props.hide_signup_login) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 1
                 }
                 return 0
             } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 2
+                    const calculation = ref_base.offsetWidth + 2
                     return `${calculation}px`
                 }
                 return '300px'
@@ -272,7 +292,7 @@ export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.span`
-    ${SharedLinkStyle}
+    ${SharedLinkStyle};
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
@@ -296,6 +316,7 @@ const LinkSignupButton = styled(LinkButton)`
 const HamburgerMenu = styled.img`
     cursor: pointer;
     display: none;
+    width: 16px;
     @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
@@ -314,6 +335,8 @@ const HamburgerMenuPartners = styled.img`
 const CloseMenu = styled.img`
     cursor: pointer;
     display: none;
+    width: 16px;
+
     @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
@@ -415,12 +438,11 @@ const handleGetTrading = () => {
     window.location.href = trading_url_localized
 }
 
-const NavMobile = ({
+export const NavMobile = ({
     is_ppc,
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
@@ -428,26 +450,17 @@ const NavMobile = ({
     return (
         <Wrapper width="95%">
             {is_canvas_menu_open ? (
-                <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} width="16px" />
+                <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} />
             ) : (
-                <HamburgerMenu
-                    src={Hamburger}
-                    alt="hamburger"
-                    onClick={openOffCanvasMenu}
-                    width="16px"
-                />
+                <HamburgerMenu src={Hamburger} alt="hamburger" onClick={openOffCanvasMenu} />
             )}
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
-                        {academy_logo ? (
-                            <img src={AcademyLogo} alt="Academy" />
-                        ) : (
-                            <img src={LogoCombinedShape} alt="logo combined shape" />
-                        )}
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -482,13 +495,12 @@ const NavMobile = ({
     )
 }
 
-const NavDesktop = ({
+export const NavDesktop = ({
     base,
     is_ppc,
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const data = useStaticQuery(query)
@@ -517,9 +529,6 @@ const NavDesktop = ({
         setActiveLinkRef(target)
     }
 
-    const LanguageSwitcherNavDesktop = () =>
-        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
-
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
     useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
@@ -537,6 +546,7 @@ const NavDesktop = ({
         <>
             {active_dropdown && (
                 <PlatformsDropdown
+                    active_dropdown={active_dropdown}
                     key={active_dropdown}
                     current_ref={active_link_ref}
                     parent={active_dropdown}
@@ -560,11 +570,7 @@ const NavDesktop = ({
                         />
                     </LogoLink>
                     <Line />
-                    {academy_logo ? (
-                        <img src={AcademyLogo} alt="Academy" />
-                    ) : (
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
-                    )}
+                    <img src={LogoCombinedShape} alt="logo combined shape" />
                 </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
@@ -600,7 +606,8 @@ const NavDesktop = ({
 
                 {is_logged_in ? (
                     <NavGetTrading>
-                        <LanguageSwitcherNavDesktop />
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
                         </NowrapButton>
@@ -613,7 +620,8 @@ const NavDesktop = ({
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcherNavDesktop />
+                        <LanguageSwitcherNavDesktop no_language={no_language} />
+
                         {!hide_signup_login && (
                             <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
@@ -633,14 +641,7 @@ const NavDesktop = ({
     )
 }
 
-export const Nav = ({
-    base,
-    is_ppc_redirect,
-    is_ppc,
-    hide_signup_login,
-    academy_logo,
-    no_language,
-}) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login, no_language }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -656,26 +657,24 @@ export const Nav = ({
         <>
             <NavWrapperMain>
                 <StyledNavMain>
-                    <Show.Desktop max_width="bp1060">
+                    <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Desktop>
-                    <Show.Mobile min_width="bp1060">
+                    </DesktopWrapper>
+                    <MobileWrapper media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             is_ppc={is_ppc}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </StyledNavMain>
             </NavWrapperMain>
             <CFDWarning />
@@ -684,7 +683,6 @@ export const Nav = ({
 }
 
 Nav.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
@@ -693,7 +691,6 @@ Nav.propTypes = {
 }
 
 NavDesktop.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
@@ -702,8 +699,11 @@ NavDesktop.propTypes = {
     no_language: PropTypes.bool,
 }
 
+LanguageSwitcherNavDesktop.propTypes = {
+    no_language: PropTypes.bool,
+}
+
 NavMobile.propTypes = {
-    academy_logo: PropTypes.bool,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
@@ -747,7 +747,7 @@ export const NavInterim = ({ interim_type }) => (
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <Show.Desktop>
+                    <DesktopWrapper>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
@@ -759,8 +759,8 @@ export const NavInterim = ({ interim_type }) => (
                                 />
                             </Flex>
                         </StyledLogo>
-                    </Show.Desktop>
-                    <Show.Mobile>
+                    </DesktopWrapper>
+                    <MobileWrapper>
                         <LogoLinkMobile
                             to={`/interim/${interim_type}`}
                             aria-label={localize('Home')}
@@ -778,7 +778,7 @@ export const NavInterim = ({ interim_type }) => (
                                 </LogoDescription>
                             </Flex>
                         </LogoLinkMobile>
-                    </Show.Mobile>
+                    </MobileWrapper>
                 </Flex>
                 <Auto jc="flex-end" ai="center">
                     <LanguageSwitcher short_name="true" />
@@ -797,13 +797,13 @@ export const NavStatic = ({ is_ppc }) => (
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
-                    <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
+                    <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
                     <Line />
                     <img
                         src={LogoCombinedShape}
                         alt="logo combined shape nav static"
-                        width="120"
-                        height="17"
+                        width={120}
+                        height={17}
                     />
                 </Flex>
             </LogoLink>
@@ -848,16 +848,17 @@ const StyledNavRight = styled(NavRight)`
     margin-left: auto;
     transform: translateX(
         ${(props) => {
+            const ref_base = getBaseRef(props.button_ref)
             if (props.move) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 1
                 }
                 return '50px'
             } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
+                if (ref_base && props.mounted) {
+                    ref_base.style.opacity = 0
 
-                    const calculation = props.button_ref.current.offsetWidth + 50
+                    const calculation = ref_base.offsetWidth + 50
                     return `${calculation}px`
                 }
                 return '225px'
@@ -901,7 +902,7 @@ const StyledNavWrapperPartner = styled(StyledNavWrapper)`
     }
 `
 
-const Mobile = styled(Show.Mobile)`
+const Mobile = styled(MobileWrapper)`
     width: 100%;
 `
 
@@ -941,7 +942,7 @@ const LSContainer = styled(Container)`
     margin-left: 200px;
 `
 
-const DesktopLS = styled(Show.Desktop)`
+const DesktopLS = styled(DesktopWrapper)`
     z-index: 2;
 `
 
@@ -986,9 +987,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/story/">
+                            <HomeLink to="/who-we-are/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
-                                    {localize('About us')}
+                                    {localize('Who we are')}
                                 </Text>
                             </HomeLink>
                             <HomeLink to="/contact_us/">
@@ -1089,14 +1090,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                 src={Close}
                                 alt="close menu 2"
                                 onClick={closeOffCanvasMenu}
-                                width="16px"
                             />
                         ) : (
                             <HamburgerMenuPartners
                                 src={Hamburger}
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
-                                width="16px"
                             />
                         )}
 
@@ -1116,12 +1115,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <Show.Desktop>
+                                        <DesktopWrapper>
                                             <span>{localize('Affiliate & IB log in')}</span>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </DesktopWrapper>
+                                        <MobileWrapper>
                                             <span>{localize('Log in')}</span>
-                                        </Show.Mobile>
+                                        </MobileWrapper>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>
@@ -1239,4 +1238,82 @@ NavPartners.propTypes = {
 
 NavInterim.propTypes = {
     interim_type: PropTypes.string,
+}
+
+const Section = styled(SectionContainer)`
+    background-color: ${(props) => (props.background ? 'transparent' : 'var(--color-black)')};
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    padding: 4px 1%;
+    height: 7.2rem;
+    @media ${device.tabletL} {
+        padding: 4px;
+        height: 64px;
+    }
+    @media ${device.mobileL} {
+        padding: 4px 0;
+    }
+`
+
+export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
+    const [is_logged_in, setLoggedIn] = useState(true)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
+
+    const handleScrollBG = useCallback(() => {
+        const currentScrollPos = window.pageYOffset
+        setVisible(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleScrollBG)
+
+        let checkCookieChange = setInterval(() => {
+            setLoggedIn(isLoggedIn())
+        }, 800)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleScrollBG)
+        }
+    }, [])
+
+    return (
+        <>
+            <Section background={visible}>
+                <DesktopWrapper media={device.bp1060}>
+                    <NavDesktop
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </DesktopWrapper>
+                <MobileWrapper media={device.bp1060}>
+                    <NavMobile
+                        no_language={no_language}
+                        is_ppc={is_ppc}
+                        is_logged_in={is_logged_in}
+                        hide_signup_login={hide_signup_login}
+                    />
+                </MobileWrapper>
+            </Section>
+            <CFDWarning no_eu_banner={true} />
+        </>
+    )
+}
+
+NavSticky.propTypes = {
+    base: PropTypes.string,
+    hide_signup_login: PropTypes.bool,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }

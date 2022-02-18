@@ -76,9 +76,10 @@ export const MarketsList = styled(CssGrid)`
     grid-template-columns: ${({ col }) => `repeat(${col ?? 4}, 1fr)`};
     width: 100%;
     padding: 24px;
-    gap: 10px;
+    gap: ${({ gap }) => (gap ? gap : '10px')};
 
     @media ${device.tabletL} {
+        gap: 10px;
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
     }
 

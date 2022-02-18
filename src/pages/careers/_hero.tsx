@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import Container from './_layout-components/CareerContainer'
+import Container from './_layout-components/_career_container'
 import { Header, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/constants'

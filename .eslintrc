@@ -7,25 +7,25 @@
         "plugin:import/warnings"
     ],
     "overrides": [
-    {
-        "files": ["*.{ts,tsx}"],
-        "parser": "@typescript-eslint/parser",
-        "extends": [
-            "eslint:recommended",
-            "plugin:@typescript-eslint/recommended",
-            "plugin:react/recommended",
-            "plugin:import/errors",
-            "plugin:import/warnings"
-        ],
-        "rules": {
-            "@typescript-eslint/explicit-module-boundary-types": "off"
-        },
-        "parserOptions": {
-            "project": "./tsconfig.json",
-            "ecmaVersion": 2020,
-            "sourceType": "module" // Allows for the use of imports
+        {
+            "files": ["*.{ts,tsx}"],
+            "parser": "@typescript-eslint/parser",
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:react/recommended",
+                "plugin:import/errors",
+                "plugin:import/warnings"
+            ],
+            "rules": {
+                "@typescript-eslint/explicit-module-boundary-types": "off"
+            },
+            "parserOptions": {
+                "project": "./tsconfig.json",
+                "ecmaVersion": 2020,
+                "sourceType": "module" // Allows for the use of imports
+            }
         }
-    }
     ],
     "plugins": ["@typescript-eslint"],
     "rules": {
@@ -63,9 +63,7 @@
         "import/no-extraneous-dependencies": [
             0,
             {
-                "extensions": [
-                    ".jsx"
-                ]
+                "extensions": [".jsx"]
             }
         ],
         "import/no-useless-path-segments": "error",
@@ -73,13 +71,7 @@
         "import/order": [
             "error",
             {
-                "groups": [
-                    "builtin",
-                    "external",
-                    "parent",
-                    "sibling",
-                    "index"
-                ],
+                "groups": ["builtin", "external", "parent", "sibling", "index"],
                 "newlines-between": "never"
             }
         ],
@@ -100,11 +92,9 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": [
-                    "src"
-                ],
+                "paths": ["src"],
                 "extensions": [".js", ".jsx", ".ts", ".tsx"]
-              }
+            }
         },
         "react": {
             "version": "17"

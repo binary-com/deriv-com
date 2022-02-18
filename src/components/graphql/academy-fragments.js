@@ -12,12 +12,10 @@ export const academyQuery = graphql`
                 link
                 heading
                 sub_heading
-                desktop_hero: image {
+                image {
                     imageFile {
                         childImageSharp {
-                            fluid(quality: 100) {
-                                ...GatsbyImageSharpFluid_withWebp
-                            }
+                            gatsbyImageData(quality: 60, width: 1600)
                         }
                     }
                     id
@@ -39,12 +37,10 @@ export const academyQuery = graphql`
                 link
                 heading
                 sub_heading
-                desktop_hero: image {
+                image {
                     imageFile {
                         childImageSharp {
-                            fluid(quality: 100) {
-                                ...GatsbyImageSharpFluid_withWebp
-                            }
+                            gatsbyImageData(quality: 60, width: 1600)
                         }
                     }
                     id
@@ -66,12 +62,10 @@ export const academyQuery = graphql`
                 link
                 heading
                 sub_heading
-                desktop_hero: image {
+                image {
                     imageFile {
                         childImageSharp {
-                            fluid(quality: 100) {
-                                ...GatsbyImageSharpFluid_withWebp
-                            }
+                            gatsbyImageData(quality: 60, width: 1600)
                         }
                     }
                     id
@@ -99,7 +93,7 @@ export const academyQuery = graphql`
                 main_image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 200)
                         }
                     }
                     id
@@ -130,7 +124,7 @@ export const academyQuery = graphql`
                 main_image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 200, aspectRatio: 1.6666666667)
                         }
                     }
                     id
@@ -161,7 +155,7 @@ export const academyQuery = graphql`
                 main_image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 200)
                         }
                     }
                     id
@@ -176,6 +170,11 @@ export const academyQuery = graphql`
                 video_thumbnail {
                     id
                     title
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(aspectRatio: 1.6666666667)
+                        }
+                    }
                 }
                 video_file {
                     id
@@ -205,6 +204,11 @@ export const academyQuery = graphql`
                 video_thumbnail {
                     id
                     title
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(aspectRatio: 1.6666666667)
+                        }
+                    }
                 }
                 video_file {
                     id
@@ -234,6 +238,11 @@ export const academyQuery = graphql`
                 video_thumbnail {
                     id
                     title
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(aspectRatio: 1.6666666667)
+                        }
+                    }
                 }
                 video_file {
                     id
@@ -257,6 +266,11 @@ export const academyQuery = graphql`
                 video_thumbnail {
                     id
                     title
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
+                        }
+                    }
                 }
                 video_file {
                     id
@@ -287,6 +301,11 @@ export const academyQuery = graphql`
                 video_thumbnail {
                     id
                     title
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
+                        }
+                    }
                 }
                 video_file {
                     id
@@ -317,6 +336,11 @@ export const academyQuery = graphql`
                 video_thumbnail {
                     id
                     title
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(aspectRatio: 1.6666666667, quality: 60)
+                        }
+                    }
                 }
                 video_file {
                     id
@@ -338,7 +362,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -373,7 +397,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -408,7 +432,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -440,7 +464,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -476,7 +500,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }
@@ -512,7 +536,7 @@ export const academyQuery = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(aspectRatio: 1.6666666667)
                         }
                     }
                 }

@@ -15,6 +15,7 @@ const domain_url_pair = {
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
     localhost: deriv_be_url,
+    'deriv-com-git-fork-sean-binary-fix-landing-page-redirect.binary.sx': deriv_be_url,
 }
 
 const getDomainUrl = (): string =>

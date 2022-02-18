@@ -100,12 +100,12 @@ const CrashBoomDetails = () => {
         <DetailsContainer>
             <Text>
                 <Localize
-                    translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in  a {{series}}."
+                    translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in {{series}}."
                     values={{
                         series:
                             !is_eu_country && !is_uk_country
-                                ? '<0>series of 1000, or 500 ticks</0>'
-                                : '<0>series of 300 ticks</0>',
+                                ? '<0>a series of 1000, or 500 ticks</0>'
+                                : '<0>a series of 300 ticks</0>',
                     }}
                     components={[<strong key={0} />]}
                 />

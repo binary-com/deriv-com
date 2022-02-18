@@ -36,7 +36,13 @@
                 ]
             }
         ],
-        "value-keyword-case": null
+        "value-keyword-case": null,
+        "declaration-block-no-redundant-longhand-properties": null,
+        "alpha-value-notation": null,
+        "color-function-notation": null,
+        "shorthand-property-no-redundant-values": null,
+        "keyframes-name-pattern": null,
+        "selector-class-pattern": null
     },
     "syntax": "scss"
 }

@@ -53,7 +53,7 @@ const SocialSharing = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={FacebookIcon} width="24px" height="24px" />
+                                <img src={FacebookIcon} width={24} height={24} />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
@@ -61,7 +61,7 @@ const SocialSharing = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={LinkedInIcon} width="24px" height="24px" />
+                                <img src={LinkedInIcon} width={24} height={24} />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
@@ -69,7 +69,7 @@ const SocialSharing = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={TwitterIcon} width="24px" height="24px" />
+                                <img src={TwitterIcon} width={24} height={24} />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
@@ -77,7 +77,7 @@ const SocialSharing = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={PinterestIcon} width="24px" height="24px" />
+                                <img src={PinterestIcon} width={24} height={24} />
                             </LocalizedLink>
                         </Flex>
                     </IconWrapper>

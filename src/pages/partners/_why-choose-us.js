@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
         <SectionContainer background="grey-4">
             <Container direction="column">
                 <Header as="h2" type="page-title" align="center" mb="4rem">
-                    {localize('Why choose us?')}
+                    {localize('Why choose us')}
                 </Header>
                 <Wrapper>
                     <Card direction="column">

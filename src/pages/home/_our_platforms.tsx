@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex, SectionContainer } from 'components/containers'
 import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { getCountryRule } from 'components/containers/visibility'
 
 const OurPlatforms = () => {
@@ -33,13 +33,10 @@ const OurPlatforms = () => {
                         align="center"
                         mobileM={{ max_width: '328px' }}
                     >
-                        {is_row
-                            ? localize(
-                                  'Choose from 8 powerful platforms — each designed with your needs in mind',
-                              )
-                            : localize(
-                                  'Choose from 2 powerful platforms — each designed with your needs in mind',
-                              )}
+                        <Localize
+                            translate_text="Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind"
+                            values={{ platforms_no: is_row ? '8' : '2' }}
+                        />
                     </Header>
                 </Flex>
                 <PlatformCarousel />

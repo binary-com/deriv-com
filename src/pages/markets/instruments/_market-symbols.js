@@ -342,45 +342,6 @@ export const metals_cfds = [
         text: <Localize translate_text="Copper/USD" />,
     },
     {
-        src: icons.GOLDUSD,
-        text: <Localize translate_text="Gold/USD" />,
-    },
-    {
-        src: icons.LEADUSD,
-        text: <Localize translate_text="Lead/USD" />,
-    },
-    {
-        src: icons.NICKELUSD,
-        text: <Localize translate_text="Nickel/USD" />,
-    },
-    {
-        src: icons.PALLADIUMUSD,
-        text: <Localize translate_text="Palladium/USD" />,
-    },
-    {
-        src: icons.PLATINUMUSD,
-        text: <Localize translate_text="Platinum/USD" />,
-    },
-    {
-        src: icons.SILVERUSD,
-        text: <Localize translate_text="Silver/USD" />,
-    },
-    {
-        src: icons.ZINCUSD,
-        text: <Localize translate_text="Zinc/USD" />,
-    },
-]
-
-export const metals_cfds_eu = [
-    {
-        src: icons.ALUMINIUMUSD,
-        text: <Localize translate_text="Aluminium/USD" />,
-    },
-    {
-        src: icons.COPPERUSD,
-        text: <Localize translate_text="Copper/USD" />,
-    },
-    {
         src: icons.GOLDEUR,
         text: <Localize translate_text="Gold/EUR" />,
     },

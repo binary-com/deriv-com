@@ -26,8 +26,12 @@ const AllVideos = ({ video_data }) => {
         const video_title_param = removeSpecialCharacterUrl(title_params)
         // setTitleParams(video_title_param)
         console.log('video_track', video_track)
-        if (video_track) openVideo(video_track, video_title_param)
-    }, [])
+        if (video_track) {
+            openVideo(video_track, video_title_param)
+        } else {
+            closeVideo()
+        }
+    }, [title_params])
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')

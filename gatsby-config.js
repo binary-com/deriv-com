@@ -226,5 +226,11 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
+        {
+            // This is to resolve all path the needs query params to not fire a 404 page on localhost
+            // Gatsby 4 Incompatibility issue with use-query-params package
+            resolve: `gatsby-plugin-create-client-paths`,
+            options: { prefixes: [`/academy/videos/*`] },
+        },
     ],
 }

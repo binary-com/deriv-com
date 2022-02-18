@@ -81,7 +81,8 @@ const BlogPreview = () => {
         const fetchBlogPreview = async () => {
             const url = `${end_point_url}${id}?access_token=${process.env.GATSBY_DIRECTUS_AUTH_TOKEN}&fields=*.*.*.*.*`
             const res = await fetch(url, { cache: 'no-store' })
-            return await res.json()
+            const fetched_data = await res.json()
+            return fetched_data
         }
 
         const getPreviews = async () => {

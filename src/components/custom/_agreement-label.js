@@ -1,23 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Checkbox, LocalizedLinkText } from 'components/elements'
+import { Checkbox, LocalizedLinkText, Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device.js'
 
-const CheckboxSpan = styled.span`
+const StyledLocalizedLinkText = styled(LocalizedLinkText)`
     font-size: 14px;
-    color: ${(props) => (props.color ? props.color : 'black')};
+
     @media ${device.tabletL} {
         font-size: 12px;
     }
 `
-const AgreementLabel = ({
-    handleChangeCheckbox,
-    isChecked,
-    color,
-    link_text = 'I agree to the <0>terms and conditions</0>',
-}) => {
+
+const AgreementLabel = ({ handleChangeCheckbox, isChecked, link_text = 'I agree to the' }) => {
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
@@ -29,6 +25,8 @@ const AgreementLabel = ({
                 lineHeight: '1px',
                 marginTop: '5px',
                 marginBottom: '0',
+                display: 'flex',
+                alignItems: 'center',
             }}
         >
             <Checkbox
@@ -43,28 +41,22 @@ const AgreementLabel = ({
                 onChange={handleChange}
                 checked={isChecked}
             />
-            <CheckboxSpan color={color}>
-                <Localize
-                    fontSize="14px"
-                    translate_text={link_text}
-                    components={[
-                        <LocalizedLinkText
-                            key={0}
-                            type="terms_and_conditions/#clients"
-                            external="true"
-                            rel="noopener noreferrer"
-                            size="14px"
-                            color="red"
-                        />,
-                    ]}
-                />
-            </CheckboxSpan>
+            <Header as="span" type="paragraph-2" weight="regular">
+                <Localize translate_text={link_text} />{' '}
+                <StyledLocalizedLinkText
+                    type="terms_and_conditions/#clients"
+                    external="true"
+                    rel="noopener noreferrer"
+                    color="red"
+                >
+                    terms and conditions
+                </StyledLocalizedLinkText>
+            </Header>
         </label>
     )
 }
 
 AgreementLabel.propTypes = {
-    color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,
     isChecked: PropTypes.bool,
     link_text: PropTypes.string,

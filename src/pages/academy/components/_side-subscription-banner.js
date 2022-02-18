@@ -372,8 +372,8 @@ const ArticleEmailBanner = () => {
                                 <AgreementLabel
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
-                                    color="grey-19"
-                                    link_text="Send me marketing materials too!"
+                                    color="#C2C2C2"
+                                    link_text={localize('Send me marketing materials too!')}
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize

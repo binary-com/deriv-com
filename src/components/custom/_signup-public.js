@@ -410,7 +410,6 @@ const SignupPublic = ({
                                 <AgreementLabel
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
-                                    isTnc
                                 />
                                 <SocialWrapper jc="unset" ai="center">
                                     <SignInText>{localize('Or sign in with')}</SignInText>
@@ -567,7 +566,6 @@ const SignupPublic = ({
                                 <AgreementLabel
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
-                                    isTnc
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>

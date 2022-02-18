@@ -1,41 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Checkbox, LocalizedLinkText, Header } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Checkbox, LocalizedLinkText } from 'components/elements'
+import { Localize, localize } from 'components/localization'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device.js'
 
-const StyledLocalizedLinkText = styled(LocalizedLinkText)`
+const CheckboxSpan = styled.span`
     font-size: 14px;
-
+    color: ${(props) => (props.color ? props.color : 'black')};
     @media ${device.tabletL} {
         font-size: 12px;
     }
 `
-
 const AgreementLabel = ({
     handleChangeCheckbox,
-    color,
-    isTnc,
     isChecked,
-    link_text = 'I agree to the',
+    color,
+    link_text = localize('I agree to the <0>terms and conditions</0>'),
 }) => {
+    // the is mounted check is used for making sure the localized link text
+    // properly renders the correct domain url
     const [is_mounted] = usePageLoaded()
-
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
 
-    return (
+    return is_mounted ? (
         <label
             style={{
                 fontWeight: 'normal',
                 lineHeight: '1px',
                 marginTop: '5px',
                 marginBottom: '0',
-                display: 'flex',
-                alignItems: 'center',
             }}
         >
             <Checkbox
@@ -50,20 +47,25 @@ const AgreementLabel = ({
                 onChange={handleChange}
                 checked={isChecked}
             />
-            <Header as="span" type="paragraph-2" weight="regular" color={color}>
-                <Localize translate_text={link_text} />{' '}
-                {is_mounted && isTnc && (
-                    <StyledLocalizedLinkText
-                        type="terms_and_conditions/#clients"
-                        external="true"
-                        rel="noopener noreferrer"
-                        color="red"
-                    >
-                        terms and conditions
-                    </StyledLocalizedLinkText>
-                )}
-            </Header>
+            <CheckboxSpan color={color}>
+                <Localize
+                    fontSize="14px"
+                    translate_text={link_text}
+                    components={[
+                        <LocalizedLinkText
+                            key={0}
+                            type="terms_and_conditions/#clients"
+                            external="true"
+                            rel="noopener noreferrer"
+                            size="14px"
+                            color="red"
+                        />,
+                    ]}
+                />
+            </CheckboxSpan>
         </label>
+    ) : (
+        <></>
     )
 }
 
@@ -71,7 +73,6 @@ AgreementLabel.propTypes = {
     color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,
     isChecked: PropTypes.bool,
-    isTnc: PropTypes.bool,
     link_text: PropTypes.string,
 }
 

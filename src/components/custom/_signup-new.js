@@ -273,7 +273,7 @@ const SignupNew = ({
                     required
                 />
             </InputGroup>
-            <AgreementLabel isChecked={is_checked} handleChangeCheckbox={handleChange} isTnc />
+            <AgreementLabel isChecked={is_checked} handleChangeCheckbox={handleChange} />
             <EmailButton
                 isChecked={is_checked}
                 type="submit"

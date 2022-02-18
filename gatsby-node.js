@@ -1,4 +1,7 @@
+
 /* eslint-disable import/order */
+const axios = require('axios');
+const crypto = require('crypto');
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
 
@@ -326,7 +329,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             alias: {
-                react: 'preact/compat',
+                'react': 'preact/compat',
                 'react-dom/test-utils': 'preact/test-utils',
                 'react-dom': 'preact/compat',
                 'react/jsx-runtime': 'preact/jsx-runtime',
@@ -369,3 +372,37 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
         })
     })
 }
+
+exports.sourceNodes = async ({ actions }) => {
+    const { createNode } = actions;
+    const url = `https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Front-end&source=CareerSite`;
+    const fetchJobDetails = () => axios.get(url);
+    const res = await fetchJobDetails();
+  
+    res.data.data.map((job, i) => {
+      const userNode = {
+        id: `${i}`,
+        parent: `__SOURCE__`,
+        internal: {
+          type: `OpenJobs`,
+        },
+        children: [],
+  
+        job_opening_Name: job.Job_Opening_Name,
+        url: job.$url,
+        city: job.City,
+        country: job.Country,
+        job_type: job.Job_Type,
+        remote_job: job.Remote_Job,
+      }
+  
+      const contentDigest = crypto
+        .createHash(`md5`)
+        .update(JSON.stringify(userNode))
+        .digest(`hex`);
+      userNode.internal.contentDigest = contentDigest;
+      createNode(userNode);
+    });
+  
+    return;
+  }

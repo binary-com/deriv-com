@@ -26,8 +26,7 @@ const AllVideos = ({ video_data }) => {
         const video_title_param = removeSpecialCharacterUrl(title_params)
         // setTitleParams(video_title_param)
         console.log('video_track', video_track)
-
-        openVideo(video_track, video_title_param)
+        if (video_track) openVideo(video_track, video_title_param)
     }, [])
 
     useEffect(() => {

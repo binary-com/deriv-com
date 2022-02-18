@@ -30,7 +30,6 @@ import BNB from 'images/svg/symbols/binance_coin_flag.svg'
 import BTC from 'images/svg/symbols/bitcoin_flag.svg'
 import BMW from 'images/svg/symbols/bmw.svg'
 import BNBUSD from 'images/svg/symbols/bnb-usd.svg'
-import BOOM300EU from 'images/svg/symbols/boom-eu-boom-300.svg'
 import BOOM1000 from 'images/svg/symbols/boom-indices-1000.svg'
 import BOOM300 from 'images/svg/symbols/boom-indices-300.svg'
 import BOOM500 from 'images/svg/symbols/boom-indices-500.svg'
@@ -49,7 +48,6 @@ import CHAINLINK from 'images/svg/symbols/chainlink.svg'
 import CHFJPY from 'images/svg/symbols/chf-jpy.svg'
 import CLBRENT from 'images/svg/symbols/cl-brent.svg'
 import COPPERUSD from 'images/svg/symbols/copper-usd.svg'
-import CRASH300EU from 'images/svg/symbols/crash-eu-crash-300.svg'
 import CRASH1000 from 'images/svg/symbols/crash-indices-1000.svg'
 import CRASH300 from 'images/svg/symbols/crash-indices-300.svg'
 import CRASH500 from 'images/svg/symbols/crash-indices-500.svg'
@@ -378,8 +376,6 @@ export {
     BOOM1000,
     BOOM500,
     BOOM300,
-    BOOM300EU,
-    CRASH300EU,
     BTCUSD,
     BRENTCRUDEOILUK,
     C,

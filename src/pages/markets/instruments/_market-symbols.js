@@ -1358,11 +1358,11 @@ export const volatility_indices_trade_type_eu = [
 
 export const crash_boom_trade_type_eu = [
     {
-        src: icons.CRASH300EU,
+        src: icons.CRASH300,
         text: <Localize translate_text="Crash 300 Index" />,
     },
     {
-        src: icons.BOOM300EU,
+        src: icons.BOOM300,
         text: <Localize translate_text="Boom 300 Index " />,
     },
 ]

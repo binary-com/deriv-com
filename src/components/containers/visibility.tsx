@@ -7,6 +7,7 @@ import { DerivStore } from 'store'
 type ResponsiveContainerProps = {
     children: ReactElement
     breakpoint?: number
+    className?: string
 }
 
 type LayerProps = {
@@ -67,12 +68,13 @@ const deviceRenderer = (): boolean => {
 export const Desktop = ({
     children,
     breakpoint = DEFAULT_BREAKPOINT,
+    className = '',
 }: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint)
     const [is_mobile] = useBrowserResize(breakpoint_size)
     const is_loaded = deviceRenderer()
 
-    const desktop_view = is_mobile ? <></> : <>{children}</>
+    const desktop_view = is_mobile ? <></> : <div className={className}>{children}</div>
 
     return is_loaded ? (
         desktop_view
@@ -81,12 +83,16 @@ export const Desktop = ({
     )
 }
 
-export const Mobile = ({ children, breakpoint = DEFAULT_BREAKPOINT }: ResponsiveContainerProps) => {
+export const Mobile = ({
+    children,
+    breakpoint = DEFAULT_BREAKPOINT,
+    className = '',
+}: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint) + 1
     const [is_mobile] = useBrowserResize(breakpoint_size - 1)
     const is_loaded = deviceRenderer()
 
-    const mobile_view = is_mobile ? <>{children}</> : <></>
+    const mobile_view = is_mobile ? <div className={className}>{children}</div> : <></>
 
     return is_loaded ? (
         mobile_view

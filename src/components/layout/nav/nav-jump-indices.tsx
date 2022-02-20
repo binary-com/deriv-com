@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import { CFDWarning } from 'components/layout'
-import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
+import GetTrading from 'images/svg/layout/get-trading.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
@@ -90,7 +90,7 @@ const NavJumpIndice = (props: NavJumpIndiceProps) => {
                             />
                         </LogoLink>
                         <Line />
-                        <ImgWrapper src={LogoCombinedShape} />
+                        <ImgWrapper src={GetTrading} />
                     </LogoWrapper>
                 </ContentContainer>
             </Section>

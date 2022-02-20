@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { DesktopWrapper, MobileWrapper, NavWrapperMain, StyledNavMain } from './styles/nav-styles'
 import { NavTypes } from './models/nav-types'
-import NavDesktop from './nav-desktop'
+import NavDesktop from './components/nav-desktop'
 import NavMobile from './nav-mobile'
 import { CFDWarning } from 'components/layout'
 import { isLoggedIn } from 'common/utility'
@@ -29,13 +29,13 @@ const Nav = ({
                 <StyledNavMain>
                     <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
-                            no_language={no_language}
-                            academy_logo={academy_logo}
+                            hide_language_switcher={no_language}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
+                            hide_get_trading={false}
                         />
                     </DesktopWrapper>
 

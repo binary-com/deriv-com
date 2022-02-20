@@ -7,11 +7,11 @@ import { LocalizedLink } from 'components/localization'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 
 type NavRightProps = {
-    mounted: boolean
-    has_scrolled: boolean
-    move?: boolean
-    hide_signup_login: boolean
     button_ref: any
+    mounted: boolean
+    move?: boolean
+    has_scrolled: boolean
+    hide_signup_login: boolean
 }
 
 type WrapperProps = {

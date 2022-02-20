@@ -14,7 +14,7 @@ import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
-import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
+import GetTrading from 'images/svg/layout/get-trading.svg'
 import { CFDWarning } from 'components/layout'
 
 const InterimNav = styled.nav`
@@ -64,7 +64,7 @@ const NavInterim = ({ interim_type }: NavInterimProps) => (
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
                                 <img
-                                    src={LogoCombinedShape}
+                                    src={GetTrading}
                                     alt="logo combined shape desktop"
                                     width="120"
                                     height="17"
@@ -83,7 +83,7 @@ const NavInterim = ({ interim_type }: NavInterimProps) => (
                                 <LogoDescription ai="center">
                                     <Line />
                                     <img
-                                        src={LogoCombinedShape}
+                                        src={GetTrading}
                                         alt="logo combined shape mobile"
                                         width="120"
                                         height="17"

@@ -11,7 +11,7 @@ import { OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
-import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
+import GetTrading from 'images/svg/layout/get-trading.svg'
 import AcademyLogo from 'images/svg/academy-logo.svg'
 
 const HamburgerMenu = styled.img`
@@ -87,7 +87,7 @@ const NavMobile = ({
                         {academy_logo ? (
                             <img src={AcademyLogo} alt="Academy" />
                         ) : (
-                            <img src={LogoCombinedShape} alt="logo combined shape" />
+                            <img src={GetTrading} alt="logo combined shape" />
                         )}
                     </LogoDescription>
                 </Flex>

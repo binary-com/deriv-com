@@ -4,7 +4,7 @@ import { LogoLink, Line } from './styles/nav-styles'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
-import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
+import GetTrading from 'images/svg/layout/get-trading.svg'
 import { CFDWarning } from 'components/layout'
 
 const StaticWrapper = styled.nav`
@@ -28,7 +28,7 @@ const NavStatic = (props: NavStaticProps) => (
                     <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
                     <Line />
                     <img
-                        src={LogoCombinedShape}
+                        src={GetTrading}
                         alt="logo combined shape nav static"
                         width={120}
                         height={17}

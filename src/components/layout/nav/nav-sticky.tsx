@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { DesktopWrapper, MobileWrapper } from './styles/nav-styles'
-import NavDesktop from './nav-desktop'
+import NavDesktop from './components/nav-desktop'
 import NavMobile from './nav-mobile'
+import CFDWarning from './components/cfd-warning'
 import { SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import { isLoggedIn } from 'common/utility'
-import { CFDWarning } from 'components/layout'
 
 const Section = styled(SectionContainer)<{ background?: boolean }>`
     background-color: ${({ background }) => (background ? 'transparent' : 'var(--color-black)')};

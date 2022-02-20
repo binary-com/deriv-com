@@ -3,7 +3,7 @@ import { DesktopWrapper, MobileWrapper, NavWrapperMain, StyledNavMain } from './
 import { NavTypes } from './models/nav-types'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './nav-mobile'
-import { CFDWarning } from 'components/layout'
+import CFDWarning from './components/cfd-warning'
 import { isLoggedIn } from 'common/utility'
 import device from 'themes/device'
 

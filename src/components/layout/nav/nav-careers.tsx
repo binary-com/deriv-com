@@ -9,13 +9,13 @@ import {
     Wrapper,
     NavLeftPartners as NavLeft,
 } from './styles/nav-styles'
+import CFDWarning from './components/cfd-warning'
 import { Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
-import { CFDWarning } from 'components/layout'
 import { besquare_signup_url } from 'common/constants'
 
 const query = graphql`

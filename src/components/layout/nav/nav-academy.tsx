@@ -5,9 +5,9 @@ import { NavWrapperMain, StyledNavMain } from './styles/nav-styles'
 import { NavTypes } from './models/nav-types'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './nav-mobile'
+import CFDWarning from './components/cfd-warning'
 import { Desktop, Mobile } from 'components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { CFDWarning } from 'components/layout'
 import { isLoggedIn } from 'common/utility'
 
 type NavAcademyProps = {

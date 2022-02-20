@@ -14,6 +14,7 @@ import {
     StyledLink,
 } from './styles/nav-styles'
 import { handleScroll, moveButton } from './util/nav-methods'
+import CFDWarning from './components/cfd-warning'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Container, Flex } from 'components/containers'
@@ -27,7 +28,6 @@ import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
-import { CFDWarning } from 'components/layout'
 
 const LinkSignupButton = styled(LinkButton)`
     opacity: 0;

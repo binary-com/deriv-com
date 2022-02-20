@@ -8,6 +8,7 @@ import {
     LogoLink,
     LogoDescription,
 } from './styles/nav-styles'
+import CFDWarning from './components/cfd-warning'
 import { localize, LanguageSwitcher } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Container, Flex } from 'components/containers'
@@ -15,7 +16,6 @@ import device from 'themes/device'
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
-import { CFDWarning } from 'components/layout'
 
 const InterimNav = styled.nav`
     width: 100%;

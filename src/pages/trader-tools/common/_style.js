@@ -583,6 +583,7 @@ export const PointerText = styled.div`
     font-size: 16px;
     font-weight: 600;
     color: var(--color-blue-5);
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
 
 export const PointerTextMobile = styled.div`

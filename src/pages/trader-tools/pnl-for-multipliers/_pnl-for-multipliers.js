@@ -51,16 +51,6 @@ import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 const PnlMultipliersCalculator = () => {
     const query = graphql`
         query {
-            stop_loss_level_up_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-up-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_level_up_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-up-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
             stop_loss_amount_down_formula: file(
                 relativePath: { eq: "trade-tools/stop-loss-amount-down-formula.png" }
             ) {
@@ -68,16 +58,6 @@ const PnlMultipliersCalculator = () => {
             }
             stop_loss_amount_down_formula_mobile: file(
                 relativePath: { eq: "trade-tools/stop-loss-amount-down-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_down_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-level-down-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_level_down_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-level-down-formula-mobile.png" }
             ) {
                 ...fadeIn
             }
@@ -1074,17 +1054,9 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        {/* <QueryImage
-                                            data={data.stop_loss_level_up_formula}
-                                            alt={localize('stop loss level up formula')}
-                                        /> */}
                                         <StopLossLevelUp />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
-                                        {/* <QueryImage
-                                            data={data.stop_loss_level_up_formula_mobile}
-                                            alt={localize('stop loss level up formula')}
-                                        /> */}
                                         <StopLossLevelUp />
                                     </Show.Mobile>
                                     <FormulaText size="14px">
@@ -1117,17 +1089,9 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        {/* <QueryImage
-                                            data={data.take_profit_level_down_formula}
-                                            alt={localize('take profit level down formula')}
-                                        /> */}
                                         <TakeProfitLevelUp />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
-                                        {/* <QueryImage
-                                            data={data.take_profit_level_down_formula_mobile}
-                                            alt={localize('take profit level down formula')}
-                                        /> */}
                                         <TakeProfitLevelUp />
                                     </Show.Mobile>
                                     <FormulaText size="14px">

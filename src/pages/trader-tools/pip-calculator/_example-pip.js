@@ -28,12 +28,12 @@ export const PipSyntheticExample = () => {
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="0.01" />
-                            <PointerContainer>
+                            <PointerContainer ml="-18px">
                                 <PointerDot />
                                 <PointerStick />
-                                <PointerText>
+                                <PointerText ml="10px">
                                     <Localize
-                                        translate_text="POint value 1<0>1</0>"
+                                        translate_text="Point value <0>1</0>"
                                         components={[<Sup key={0} />]}
                                     />
                                 </PointerText>
@@ -82,10 +82,10 @@ export const PipSyntheticExample = () => {
                                 translate_text="<0>0.01</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer>
+                            <PointerContainer ml="10px">
                                 <PointerDot />
                                 <PointerStick />
-                                <PointerText>
+                                <PointerText ml="10px">
                                     <Localize translate_text="Pip value" />
                                 </PointerText>
                             </PointerContainer>
@@ -180,7 +180,7 @@ export const PipForexExample = () => {
                                 <PointerStick />
                                 <PointerText>
                                     <Localize
-                                        translate_text="Point value 1<0>1</0>"
+                                        translate_text="Point value<0>1</0>"
                                         components={[<Sup key={0} />]}
                                     />
                                 </PointerText>

@@ -34,6 +34,7 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
+import { StopLossLevelUp, TakeProfitLevelUp } from './_example-pnl-multipliers'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -1073,16 +1074,18 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.stop_loss_level_up_formula}
                                             alt={localize('stop loss level up formula')}
-                                        />
+                                        /> */}
+                                        <StopLossLevelUp />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.stop_loss_level_up_formula_mobile}
                                             alt={localize('stop loss level up formula')}
-                                        />
+                                        /> */}
+                                        <StopLossLevelUp />
                                     </Show.Mobile>
                                     <FormulaText size="14px">
                                         <StyledOl>
@@ -1114,16 +1117,18 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.take_profit_level_down_formula}
                                             alt={localize('take profit level down formula')}
-                                        />
+                                        /> */}
+                                        <TakeProfitLevelUp />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
-                                        <QueryImage
+                                        {/* <QueryImage
                                             data={data.take_profit_level_down_formula_mobile}
                                             alt={localize('take profit level down formula')}
-                                        />
+                                        /> */}
+                                        <TakeProfitLevelUp />
                                     </Show.Mobile>
                                     <FormulaText size="14px">
                                         <StyledOl>

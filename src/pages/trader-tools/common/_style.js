@@ -462,12 +462,14 @@ export const FormulaContainer = styled(Flex)`
     margin: 16px 0 0;
     border-radius: 4px;
     background-color: var(--color-blue-4);
+    position: relative;
 `
 
 export const FormulaContainerMobile = styled(Flex)`
     width: 360px;
     height: ${(props) => (props.height ? props.height : '160px')};
     background-color: var(--color-blue-4);
+    position: relative;
 `
 
 export const FormulaHighlight = styled(Flex)`

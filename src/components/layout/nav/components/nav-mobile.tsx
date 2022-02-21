@@ -13,7 +13,7 @@ import GetTrading from 'images/svg/layout/get-trading.svg'
 
 type NavMobileProps = {
     is_ppc: boolean
-    is_ppc_redirect: boolean
+    is_ppc_redirect?: boolean
     hide_language_switcher?: boolean
     is_logged_in: boolean
     hide_signup_login?: boolean

@@ -11,9 +11,9 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 
 type NavDesktopProps = {
-    base: string
+    base?: string
     is_ppc: boolean
-    is_ppc_redirect: boolean
+    is_ppc_redirect?: boolean
     is_logged_in: boolean
     hide_signup_login?: boolean
     hide_language_switcher?: boolean

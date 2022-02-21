@@ -916,6 +916,11 @@ const ResLogo = styled.img`
     }
 `
 
+const SecurityLogoInMobile = styled.img`
+    width: 170px;
+    margin-right: 10px;
+`
+
 const NavLogoLink = styled(LogoLink)`
     @media (max-width: 1300px) {
         & svg,
@@ -1174,7 +1179,7 @@ export const NavSecurity = () => {
                     <StyledNavWrapper>
                         <NavLeftPartners>
                             <NavLogoLink to="/" aria-label={localize('Bug bounty')}>
-                                <img src={LogoBugBounty} alt="reslogo" />
+                                <img src={LogoBugBounty} alt="logo bug bounty" />
                             </NavLogoLink>
                         </NavLeftPartners>
                         <SecurityNavRight button_ref={button_ref} mounted={true}>
@@ -1193,7 +1198,10 @@ export const NavSecurity = () => {
                         <Mobile>
                             <Flex ai="center" jc="space-between">
                                 <LogoLinkMobileSecurity to="/" aria-label={localize('Bug bounty')}>
-                                    <ResLogo src={LogoOnly} alt="logo only bug bounty" />
+                                    <SecurityLogoInMobile
+                                        src={LogoBugBounty}
+                                        alt="logo bug bounty"
+                                    />
                                 </LogoLinkMobileSecurity>
 
                                 <LinkButton

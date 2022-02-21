@@ -147,7 +147,7 @@ const SocialWrapper = styled(Flex)`
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
-        justify-content: center;
+        justify-content: left;
     }
 
     @media ${device.tabletL} {

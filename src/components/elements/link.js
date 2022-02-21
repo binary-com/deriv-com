@@ -7,7 +7,9 @@ export const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     font-weight: ${(props) => props.weight || 'normal'};
     text-align: ${(props) => props.align || 'left'};
     margin: ${(props) => props.margin || 'none'};
-    color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-red)')};
+
+    /* prettier-ignore */
+    color: var(--color-${(props) => props.color || 'red'});
     text-decoration: none;
 
     &:hover {

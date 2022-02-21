@@ -10,7 +10,7 @@
             ]
         }
     ],
-    "rewrites": [
+    "redirects": [
         {
             "source": "/party-proxy",
             "has": [

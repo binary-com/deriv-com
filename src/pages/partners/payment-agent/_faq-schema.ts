@@ -34,6 +34,16 @@ export const faq_schema: FaqSchemaType = {
         },
         {
             '@type': 'Question',
+            name: localize('Is the Deriv Payment Agent Programme the same as Deriv P2P?'),
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: localize(
+                    'No, it isn’t. Deriv P2P is a peer-to-peer service for our clients to make deposits and withdrawals using their local currency. As our payment agent, you can use Deriv P2P to offer your services to Deriv clients in your country.',
+                ),
+            },
+        },
+        {
+            '@type': 'Question',
             name: localize('Why do clients need a payment agent?'),
             acceptedAnswer: {
                 '@type': 'Answer',

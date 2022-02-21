@@ -26,12 +26,12 @@ import device from 'themes/device'
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
         margin-top: 3.2rem;
-        margin-left: -4.6rem;
+        text-align: left;
     }
 `
 const HowToApply = styled(Col)`
     @media ${device.laptop} {
-        padding-left: 4rem;
+        padding-left: 1.6rem;
     }
 `
 const HowToApplyContent = styled.div`
@@ -43,6 +43,11 @@ const ImageWrapper = styled.img`
     margin-right: 1.6rem;
     width: 48px;
     height: 48px;
+
+    @media ${device.tabletL} {
+        width: 30px;
+        height: 32px;
+    }
 `
 
 const WhoCanApplyWrapper = styled(Col)`
@@ -158,7 +163,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <HowToApply>
                         <HeaderHowToApply as="h2" mb="4rem" size="3.6rem">
-                            {localize('How to apply')}
+                            {localize('Get started easily')}
                         </HeaderHowToApply>
                         <Timeline>
                             <Timeline.Item>

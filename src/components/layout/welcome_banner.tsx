@@ -104,17 +104,17 @@ export const WelcomeBanner = () => {
     }
 
     if (
-        (window.location.hostname.includes('uk') || window.location.hostname.includes('eu')) &&
+        // (window.location.hostname.includes('uk') || window.location.hostname.includes('eu')) &&
         !is_welcome_banner_dismissed
     ) {
-        const country = window.location.hostname.split('.').slice(0, -2).join('.')
+        // const country = window.location.hostname.split('.').slice(0, -2).join('.')
 
         return (
-            <BannerWrapper country={country}>
+            <BannerWrapper country={'uk'}>
                 <BannerClose onClick={handleBannerDismiss} />
                 <TextWrapper>
                     <StyledHeader as="h3" type="subtitle-2">
-                        Welcome to the new Deriv {country.toUpperCase()} website, designed with your
+                        Welcome to the new Deriv {'uk'.toUpperCase()} website, designed with your
                         needs in mind.
                     </StyledHeader>
                     <StyledText as="h3" type="subtitle-2">

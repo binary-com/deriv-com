@@ -1,17 +1,4 @@
 {
-    "redirects": [
-        {
-            "source": "/party-proxy/:path*",
-            "has": [
-                {
-                    "type": "query",
-                    "key": "url",
-                    "value": "(?<url>.*)"
-                  }
-                ],
-            "destination": ":url" 
-        }
-    ],
     "headers": [
         {
             "source": "/party-proxy/:path*",
@@ -21,6 +8,19 @@
                 "value": "*"
               }
             ]
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/party-proxy/:path*",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "url",
+                    "value": "(?<url>.*)"
+                }
+            ],
+            "destination": ":url" 
         }
     ]
 }

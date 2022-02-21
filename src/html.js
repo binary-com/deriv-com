@@ -18,7 +18,7 @@ export default function HTML(props) {
                     resolveUrl={(url) => {
                         if (url.pathname.includes('debug/bootstrap')) {
                             var proxyUrl = new URL(
-                                'https://deriv-com-git-fork-sean-binary-offload-third-party-scripts.binary.sx/proxy/',
+                                'https://deriv-com-git-fork-sean-binary-offload-third-party-scripts.binary.sx/proxy',
                             )
                             proxyUrl.searchParams.append('url', url)
                             return proxyUrl

@@ -1,20 +1,20 @@
 {
     "rewrites": [
         {
-            "source": "/party-proxy",
+            "source": "/party-proxy/:path*",
             "has": [
                 {
                     "type": "query",
                     "key": "url",
-                    "value": "(?<pathname>.*)"
+                    "value": "(?<url>.*)"
                   }
                 ],
-            "destination": "https://www.googletagmanager.com/:pathname" 
+            "destination": ":url" 
         }
     ],
     "headers": [
         {
-            "source": "/party-proxy",
+            "source": "/party-proxy/:path*",
             "headers": [
               {
                 "key": "Access-Control-Allow-Origin",

@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    CrashBoom,
+    CrashBoomMultipliers,
     CrashBoomEU,
     ContinuousIndices,
     JumpIndices,
@@ -11,7 +11,7 @@ import {
     SmartFX,
 } from '../../instruments/_submarkets'
 import {
-    CrashBoomDetails,
+    CrashBoomMultipliersDetails,
     CrashBoomDetailsEU,
     ContinuousIndicesDetails,
     StepIndicesDetails,
@@ -68,8 +68,8 @@ export const synthetic_multiplier = {
             mobile_title: (
                 <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
             ),
-            component: <CrashBoom />,
-            details: CrashBoomDetails,
+            component: <CrashBoomMultipliers />,
+            details: CrashBoomMultipliersDetails,
         },
         {
             title: <Localize translate_text="Jump indices" />,

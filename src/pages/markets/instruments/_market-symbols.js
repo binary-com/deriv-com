@@ -164,6 +164,24 @@ export const crash_boom = [
         text: <Localize translate_text="Crash 300 Index" />,
     },
 ]
+export const crash_boom_multipliers = [
+    {
+        src: icons.BOOM1000,
+        text: <Localize translate_text="Boom 1000 Index" />,
+    },
+    {
+        src: icons.BOOM500,
+        text: <Localize translate_text="Boom 500 Index" />,
+    },
+    {
+        src: icons.CRASH1000,
+        text: <Localize translate_text="Crash 1000 Index" />,
+    },
+    {
+        src: icons.CRASH500,
+        text: <Localize translate_text="Crash 500 Index" />,
+    },
+]
 
 export const crash_boom_eu = [
     {

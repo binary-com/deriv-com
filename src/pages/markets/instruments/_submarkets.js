@@ -2,6 +2,7 @@ import Americas from './_americas'
 import AsiaOceania from './_asia-oceania'
 import ContinuousIndices from './_continuous-indices'
 import CrashBoom from './_crash-boom'
+import CrashBoomMultipliers from './_crash-boom-multipliers'
 import CrashBoomEU from './_crash-boom-eu'
 import DailyResetIndices from './_daily-reset-indices'
 import EnergyCFDs from './_energy-cfds'
@@ -34,6 +35,7 @@ export {
     AsiaOceania,
     ContinuousIndices,
     CrashBoom,
+    CrashBoomMultipliers,
     CrashBoomEU,
     CryptocurrenciesMultipliers,
     CryptocurrenciesCFDs,

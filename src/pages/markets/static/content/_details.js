@@ -92,6 +92,17 @@ export const CrashBoomDetails = () => (
     </DetailsContainer>
 )
 
+export const CrashBoomMultipliersDetails = () => (
+    <DetailsContainer>
+        <CrashText>
+            <Localize
+                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000, or 500 ticks</0>."
+                components={[<strong key={0} />]}
+            />
+        </CrashText>
+    </DetailsContainer>
+)
+
 export const CrashBoomDetailsEU = () => (
     <DetailsContainer>
         <CrashText>

@@ -26,12 +26,12 @@ import device from 'themes/device'
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
         margin-top: 3.2rem;
-        margin-left: -4.6rem;
+        text-align: left;
     }
 `
 const HowToApply = styled(Col)`
     @media ${device.laptop} {
-        padding-left: 4rem;
+        padding-left: 1.6rem;
     }
 `
 const HowToApplyContent = styled.div`
@@ -43,6 +43,11 @@ const ImageWrapper = styled.img`
     margin-right: 1.6rem;
     width: 48px;
     height: 48px;
+
+    @media ${device.tabletL} {
+        width: 30px;
+        height: 32px;
+    }
 `
 
 const WhoCanApplyWrapper = styled(Col)`
@@ -70,6 +75,10 @@ const ButtonWrapper = styled(CenteredSection)`
     display: flex;
     justify-content: center;
 `
+const StyledListHeader = styled(Header)`
+    margin-top: 4rem;
+`
+
 type SectionComponentProps = {
     img_src: string
     header: ReactElement
@@ -128,6 +137,25 @@ const WhoCanApply = () => {
                                 text={item.text}
                             />
                         ))}
+                        <StyledListHeader as="h4" type="paragraph-1">
+                            {localize('A couple of things to note:')}
+                        </StyledListHeader>
+                        <StyledUl>
+                            <Li>
+                                <Text>
+                                    {localize(
+                                        'You must have a minimum balance in your Deriv account, depending on your country of residence.',
+                                    )}
+                                </Text>
+                            </Li>
+                            <Li>
+                                <Text>
+                                    {localize(
+                                        'You can only service Deriv clients in your country of residence.',
+                                    )}
+                                </Text>
+                            </Li>
+                        </StyledUl>
                     </WhoCanApplyWrapper>
                 </Flex>
                 <Separator />
@@ -135,7 +163,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <HowToApply>
                         <HeaderHowToApply as="h2" mb="4rem" size="3.6rem">
-                            {localize('How to apply')}
+                            {localize('Get started easily')}
                         </HeaderHowToApply>
                         <Timeline>
                             <Timeline.Item>

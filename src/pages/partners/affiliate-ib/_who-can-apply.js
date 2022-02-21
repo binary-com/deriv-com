@@ -98,7 +98,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         font-size: 24px;
-        text-align: center;
+        text-align: left;
     }
 `
 

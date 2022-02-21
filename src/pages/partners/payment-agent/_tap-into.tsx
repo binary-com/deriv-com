@@ -23,10 +23,10 @@ const WrapContainer = styled(Container)`
             margin-bottom: 2.4rem;
         }
         ${Header} {
-            text-align: center;
+            text-align: left;
         }
         ${Text} {
-            text-align: center;
+            text-align: left;
         }
     }
 `

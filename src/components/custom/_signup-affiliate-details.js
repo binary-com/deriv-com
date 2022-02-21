@@ -72,9 +72,7 @@ const DropdownSearchWrapper = styled.div`
 const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
-    const [is_input_country, setCountryInput] = useState(true)
     const residence_list = useResidenceList()
-    const countries = residence_list.map((el) => el.name)
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()
 
@@ -87,10 +85,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     }
 
     const checksSelected = () => is_pep_checked && is_terms_checked
-
-    const checkCountryInput = (value) => {
-        setCountryInput(countries.includes(value))
-    }
 
     const submitValues = (values, callback) => {
         Object.keys(values).forEach((el) => {
@@ -114,7 +108,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                     plan: '',
                     currency: '',
                 }}
-                validate={(values) => resetSignupAffiliateDetails(values, is_input_country)}
+                validate={(values) => resetSignupAffiliateDetails(values)}
                 onSubmit={(values, { setFieldValue }) => submitValues(values, setFieldValue)}
             >
                 {({
@@ -229,11 +223,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                                 error={item.touch && item.error}
                                                 items={item.list}
                                                 label={localize('Country of residence')}
-                                                onChange={(value) => {
-                                                    checkCountryInput(value.name)
+                                                onChange={(value) =>
                                                     setFieldValue('country', value)
-                                                }}
-                                                checkCountryInput={checkCountryInput}
+                                                }
                                                 onBlur={handleBlur}
                                             />
                                         </DropdownSearchWrapper>

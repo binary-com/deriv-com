@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
@@ -44,8 +44,6 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
-    checkCountryInput,
-    id,
     isAffiliate,
     ...props
 }) => {
@@ -56,11 +54,6 @@ const DropdownSearch = ({
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
-
-        if (id === 'dm-country-select') {
-            checkCountryInput(e.target.value)
-        }
-
         toggleListVisibility(e)
     }
 
@@ -100,10 +93,7 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
-                    <StyledLabel
-                        isAffiliate={isAffiliate}
-                        active={is_open || input_value || (!is_open && selected_item)}
-                    >
+                    <StyledLabel active={is_open || (!is_open && selected_item)}>
                         {label}
                     </StyledLabel>
                     <DropdownInput
@@ -116,7 +106,7 @@ const DropdownSearch = ({
                         onKeyDown={toggleListVisibility}
                         onKeyUp={handleKeyUp}
                         has_short_name={has_short_name}
-                        value={input_value || selected_item}
+                        value={input_value}
                         is_active={is_open}
                         placeholder={label}
                     />
@@ -137,12 +127,10 @@ const DropdownSearch = ({
 }
 
 DropdownSearch.propTypes = {
-    checkCountryInput: PropTypes.func,
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
-    id: PropTypes.string,
     isAffiliate: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

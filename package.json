@@ -12,6 +12,7 @@
         "@svgr/webpack": "^6.2.1",
         "commander": "^9.0.0",
         "crc-32": "^1.2.1",
+        "dayjs": "^1.10.7",
         "embla-carousel-react": "^6.2.0",
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",

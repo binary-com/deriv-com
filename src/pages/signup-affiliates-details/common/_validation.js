@@ -87,8 +87,8 @@ const validation = {
     date: (input) => {
         return dateValidation(input, localize('Date'))
     },
-    country: (input, is_input_country) => {
-        if (!input || input.display_name === '' || !is_input_country) {
+    country: (input) => {
+        if (!input || input.display_name === '') {
             return localize('Country is required')
         }
         return null

@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import CFDWarning from './cfd-warning'
 import SearchBanner from 'pages/academy/components/_search-banner'
 
+// TODO is ppc props
+// TODO rename styles
+
 type NavTemplateProps = StyledNavMainProps &
     NavWrapperMain & {
         children: ReactNode
@@ -41,53 +44,6 @@ const StyledNavMain = styled.nav<StyledNavMainProps>`
         height: auto;
     }
 `
-
-// jump indices
-// still have problem
-// const ContentContainer = styled(Container)`
-//     justify-content: space-between;
-//     @media ${device.tabletL} {
-//         justify-content: center;
-//     }
-// `
-
-// const Section = styled(SectionContainer)`
-//     padding: 22px 1%;
-//     @media ${device.tabletL} {
-//         padding: 16px;
-//         height: 48px;
-//     }
-//     @media ${device.mobileL} {
-//         padding: 16px 0;
-//     }
-// `
-
-// static
-// const StaticWrapper = styled.nav`
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-// `
-
-// nav sticky
-// need to add this to styledNavMain
-// import { SectionContainer } from 'components/containers'
-// const Section = styled(SectionContainer)`
-//     padding: 4px 1%;
-
-//     @media ${device.tabletL} {
-//         padding: 4px;
-//         height: 64px;
-//     }
-//     @media ${device.mobileL} {
-//         padding: 4px 0;
-//     }
-// `
-{
-    /* TODO is ppc props */
-    // TODO rename styles
-}
 
 const NavTemplate = ({
     is_ppc,

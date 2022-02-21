@@ -1,48 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import SearchBanner from '../../../pages/academy/components/_search-banner'
-import { NavWrapperMain, StyledNavMain } from './styles/nav-styles'
-import { NavTypes } from './models/nav-types'
+import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
-import NavMobile from './nav-mobile'
-import CFDWarning from './components/cfd-warning'
-import { Desktop, Mobile } from 'components/containers'
+import NavMobile from './components/nav-mobile'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { isLoggedIn } from 'common/utility'
 
 type NavAcademyProps = {
-    base: string
-    is_ppc_redirect: boolean
     is_ppc: boolean
-    hide_signup_login: boolean
-    no_language: boolean
 }
 
-const MainWrapper = styled(NavWrapperMain)`
-    display: ${(props) => (props.background ? 'none' : 'block')};
-    transition: opacity 1s ease-out;
-`
-
-const NavAcademy = ({
-    base,
-    is_ppc_redirect,
-    is_ppc,
-    hide_signup_login,
-    no_language,
-}: NavTypes) => {
+const NavAcademy = ({ is_ppc }: NavAcademyProps) => {
     const [is_logged_in, setLoggedIn] = useState(false)
-    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [prev_scroll_position, setPrevScrollPosition] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded(false)
 
-    const handleScroll = () => {
-        const currentScrollPos = window.scrollY
-        setPrevScrollPos(currentScrollPos)
-        setVisible(currentScrollPos > 72)
+    const scrollHandler = () => {
+        const current_scroll_position = window.scrollY
+        setPrevScrollPosition(current_scroll_position)
+        setVisible(current_scroll_position > 72)
     }
 
     useEffect(() => {
-        is_mounted && handleScroll()
+        is_mounted && scrollHandler()
     }, [is_mounted])
 
     useEffect(() => {
@@ -52,37 +32,15 @@ const NavAcademy = ({
     }, [])
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [prevScrollPos, visible, handleScroll])
+        window.addEventListener('scroll', scrollHandler)
+        return () => window.removeEventListener('scroll', scrollHandler)
+    }, [prev_scroll_position, visible, scrollHandler])
 
     return (
-        <>
-            <MainWrapper background={visible}>
-                <StyledNavMain>
-                    <Desktop breakpoint={1060}>
-                        <NavDesktop
-                            no_language={no_language}
-                            base={base}
-                            is_ppc={is_ppc}
-                            is_ppc_redirect={is_ppc_redirect}
-                            is_logged_in={is_logged_in}
-                            hide_signup_login={hide_signup_login}
-                        />
-                    </Desktop>
-                    <Mobile breakpoint={1060}>
-                        <NavMobile
-                            no_language={no_language}
-                            is_ppc={is_ppc}
-                            is_logged_in={is_logged_in}
-                            hide_signup_login={hide_signup_login}
-                        />
-                    </Mobile>
-                </StyledNavMain>
-            </MainWrapper>
-            {is_mounted && <SearchBanner hidden={visible} />}
-            <CFDWarning />
-        </>
+        <NavTemplate is_ppc={is_ppc} show_academy_nav={is_mounted} hide_nav={visible}>
+            <NavDesktop is_logged_in={is_logged_in} hide_language_switcher />
+            <NavMobile is_logged_in={is_logged_in} hide_language_switcher />
+        </NavTemplate>
     )
 }
 

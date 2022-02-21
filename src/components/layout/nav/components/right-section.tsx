@@ -63,7 +63,7 @@ const RightSection = ({
             <Wrapper>
                 <Language hide_component={hide_language_switcher} />
                 <StyledButton onClick={handleGetTrading} primary>
-                    <span>{localize('Get Trading')}</span>
+                    {localize('Get Trading')}
                 </StyledButton>
             </Wrapper>
         )
@@ -81,12 +81,12 @@ const RightSection = ({
                 {!hide_signup_login && (
                     <>
                         <StyledButton id="dm-nav-login-button" onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
+                            {localize('Log in')}
                         </StyledButton>
 
                         <LocalizedLink id="dm-signup" to={signup_url}>
                             <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
-                                <span>{localize('Create free demo account')}</span>
+                                {localize('Create free demo account')}
                             </SignupButton>
                         </LocalizedLink>
                     </>

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import PlatformsDropdown from '../../../custom/platforms-dropdown'
-import { NavLink, Wrapper } from '../styles/nav-styles'
+import { DesktopWrapper, NavLink, Wrapper } from '../styles/nav-styles'
 import LogoSection from './logo-section'
 import RightSection from './right-section'
 import device from 'themes/device'
@@ -15,9 +15,9 @@ type NavDesktopProps = {
     is_ppc: boolean
     is_ppc_redirect: boolean
     is_logged_in: boolean
-    hide_signup_login: boolean
-    hide_language_switcher: boolean
-    hide_get_trading: boolean
+    hide_signup_login?: boolean
+    hide_language_switcher?: boolean
+    hide_get_trading?: boolean
 }
 
 type TabProps = {
@@ -86,7 +86,7 @@ const NavDesktop = ({
     useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
 
     return (
-        <>
+        <DesktopWrapper>
             {active_dropdown && (
                 <PlatformsDropdown
                     active_dropdown={active_dropdown}
@@ -139,7 +139,7 @@ const NavDesktop = ({
                     is_ppc_redirect={is_ppc_redirect}
                 />
             </Wrapper>
-        </>
+        </DesktopWrapper>
     )
 }
 

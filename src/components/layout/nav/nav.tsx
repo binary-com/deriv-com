@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { DesktopWrapper, MobileWrapper, NavWrapperMain, StyledNavMain } from './styles/nav-styles'
-import { NavTypes } from './models/nav-types'
+import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
-import NavMobile from './nav-mobile'
-import CFDWarning from './components/cfd-warning'
+import NavMobile from './components/nav-mobile'
 import { isLoggedIn } from 'common/utility'
-import device from 'themes/device'
 
-const Nav = ({
-    base,
-    is_ppc_redirect,
-    is_ppc,
-    hide_signup_login,
-    academy_logo,
-    no_language,
-}: NavTypes) => {
+type NavProps = {
+    base: string
+    is_ppc_redirect: boolean
+    is_ppc: boolean
+    hide_signup_login?: boolean
+    hide_language_switcher?: boolean
+    hide_get_trading?: boolean
+}
+
+const Nav = ({ base, hide_get_trading, is_ppc, ...rest }: NavProps) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -24,34 +23,16 @@ const Nav = ({
     }, [])
 
     return (
-        <>
-            <NavWrapperMain>
-                <StyledNavMain>
-                    <DesktopWrapper media={device.bp1060}>
-                        <NavDesktop
-                            hide_language_switcher={no_language}
-                            base={base}
-                            is_ppc={is_ppc}
-                            is_ppc_redirect={is_ppc_redirect}
-                            is_logged_in={is_logged_in}
-                            hide_signup_login={hide_signup_login}
-                            hide_get_trading={false}
-                        />
-                    </DesktopWrapper>
-
-                    <MobileWrapper media={device.bp1060}>
-                        <NavMobile
-                            no_language={no_language}
-                            academy_logo={academy_logo}
-                            is_ppc={is_ppc}
-                            is_logged_in={is_logged_in}
-                            hide_signup_login={hide_signup_login}
-                        />
-                    </MobileWrapper>
-                </StyledNavMain>
-            </NavWrapperMain>
-            <CFDWarning />
-        </>
+        <NavTemplate is_ppc={is_ppc}>
+            <NavDesktop
+                base={base}
+                hide_get_trading={hide_get_trading}
+                is_ppc={is_ppc}
+                is_logged_in={is_logged_in}
+                {...rest}
+            />
+            <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} {...rest} />
+        </NavTemplate>
     )
 }
 

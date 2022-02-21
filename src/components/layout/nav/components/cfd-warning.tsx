@@ -70,7 +70,6 @@ const CFDText = styled(Text)`
 
 const CFDWarning = ({ is_ppc }: CFDWarningProps) => {
     const { is_eu_country } = useContext(DerivStore)
-    console.log('cfd')
 
     if (is_ppc || is_eu_country) {
         return (

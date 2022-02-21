@@ -1,5 +1,5 @@
 {
-    "rewrites": [
+    "redirects": [
         {
             "source": "/party-proxy/:path*",
             "has": [

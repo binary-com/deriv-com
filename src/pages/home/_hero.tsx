@@ -75,10 +75,10 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_row } = getCountryRule()
+    const { is_uk } = getCountryRule()
 
     const text =
-        !is_ppc && is_row
+        !is_ppc && !is_uk
             ? localize(
                   'Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.',
               )

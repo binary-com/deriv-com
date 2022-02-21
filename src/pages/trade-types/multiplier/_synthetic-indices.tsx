@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-    CrashBoom,
+    CrashBoomMultipliers,
     ContinuousIndices,
     JumpIndices,
     StepIndices,
@@ -248,7 +248,7 @@ const SyntheticIndices = () => {
                                         </Mobile>
                                     </Col>
                                     <MarketsList>
-                                        <CrashBoom />
+                                        <CrashBoomMultipliers />
                                     </MarketsList>
                                 </Flex>
                             )}

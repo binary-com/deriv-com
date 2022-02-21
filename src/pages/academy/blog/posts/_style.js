@@ -60,6 +60,7 @@ export const StickyBreadCrumbsWrapper = styled(Flex)`
 export const BreadcrumbsWrapper = styled(Container)`
     @media (min-width: 992px) {
         max-width: 1200px;
+        width: 90%;
     }
 
     @media ${device.tabletL} {
@@ -424,7 +425,6 @@ export const SocialComponentsWrapper = styled(Flex)`
     justify-content: space-between;
     padding-top: 60px;
     margin: 8px 22px;
-    width: 0;
 
     @media ${device.tabletL} {
         justify-content: flex-end;
@@ -485,7 +485,7 @@ export const StyledBreadcrumbsTitle = styled(Text)`
     font-size: 14px;
     line-height: 20px;
     color: var(--color-black-3);
-    padding: 0 0 0 13px;
+    padding-left: 13px;
 `
 
 export const ProgressContainer = styled.div`

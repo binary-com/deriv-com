@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { url } from './utility'
-import { Show, Container } from 'components/containers'
+import { Desktop, Mobile, Container } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import FacebookIcon from 'images/svg/blog/facebook.svg'
 import PinterestIcon from 'images/svg/blog/pinterest.svg'
 import TwitterIcon from 'images/svg/blog/twitter.svg'
 import LinkedInIcon from 'images/svg/layout/footer-linkedin.svg'
 import ShareIcon from 'images/svg/academy/share.svg'
-import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 const SharingButton = styled.button`
     width: 32px;
     height: 32px;
-    background: ${(props) => (props.isOpen ? '#f2f3f4' : 'rgb(255, 255, 255, 0.0)')};
+    background: ${(props) => (props.is_open ? 'var(--color-grey-8)' : 'rgb(255, 255, 255, 0.0)')};
     background-image: url(${ShareIcon});
     background-position: center;
     background-size: 80%;
@@ -30,8 +29,8 @@ const SharingButton = styled.button`
 
 const DropDownSharingButtons = styled.div`
     width: 40px;
-    background-color: #ffffff;
-    border: 1px solid #ffffff;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-white);
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
     position: absolute;
     right: 12px;
@@ -49,7 +48,6 @@ const DropDownSharingButtons = styled.div`
 `
 
 export const SocialWrapper = styled(Container)`
-    display: flex;
     justify-content: flex-end;
 
     img {
@@ -60,12 +58,9 @@ export const SocialWrapper = styled(Container)`
 `
 
 const SocialSharing = () => {
-    const [isOpen, setIsOpen] = useState(false)
-    const dropdown_ref = React.useRef(null)
-
-    useOutsideClick(dropdown_ref, () => setIsOpen(false))
-
-    const toggling = () => setIsOpen(!isOpen)
+    const [is_open, setIsOpen] = useState(false)
+    const hideBurger = () => setIsOpen(false)
+    const toggleBurger = () => setIsOpen(!is_open)
 
     const social_media = [
         {
@@ -89,7 +84,7 @@ const SocialSharing = () => {
     return (
         url && (
             <SocialWrapper>
-                <Show.Desktop>
+                <Desktop>
                     {social_media.map((account, index) => (
                         <LocalizedLink
                             key={index}
@@ -106,17 +101,15 @@ const SocialSharing = () => {
                             />
                         </LocalizedLink>
                     ))}
-                </Show.Desktop>
-                <Show.Mobile>
+                </Desktop>
+                <Mobile>
                     <SharingButton
-                        onClick={toggling}
-                        autoFocus={false}
-                        onBlur={() => setIsOpen(false)}
-                        onFocus={() => setIsOpen(false)}
-                        isOpen={isOpen}
-                        ref={dropdown_ref}
+                        onClick={toggleBurger}
+                        autoFocus={true}
+                        onMouseLeave={hideBurger}
+                        is_open={is_open}
                     >
-                        {isOpen && (
+                        {is_open && (
                             <DropDownSharingButtons>
                                 {social_media.map((account, index) => (
                                     <LocalizedLink
@@ -137,7 +130,7 @@ const SocialSharing = () => {
                             </DropDownSharingButtons>
                         )}
                     </SharingButton>
-                </Show.Mobile>
+                </Mobile>
             </SocialWrapper>
         )
     )

@@ -1,1 +1,3 @@
-export const url = typeof window !== 'undefined' ? window.location.href : ''
+import { isBrowser } from 'common/utility'
+
+export const url = isBrowser() ? window.location.href : ''

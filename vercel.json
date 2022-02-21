@@ -1,7 +1,7 @@
 {
     "headers": [
         {
-            "source": "/party-proxy/:path*",
+            "source": "/party-proxy",
             "headers": [
               {
                 "key": "Access-Control-Allow-Origin",
@@ -12,7 +12,7 @@
     ],
     "redirects": [
         {
-            "source": "/party-proxy/:path*",
+            "source": "/party-proxy",
             "has": [
                 {
                     "type": "query",

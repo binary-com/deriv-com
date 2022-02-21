@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Field, Formik } from 'formik'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     getPnlMultiplierCommon,
     numberSubmitFormat,
@@ -34,47 +33,19 @@ import {
     StyledSection,
     SwapTabSelector,
 } from '../common/_style'
-import { StopLossLevelUp, TakeProfitLevelUp } from './_example-pnl-multipliers'
-import { localize, Localize } from 'components/localization'
 import {
-    Accordion,
-    AccordionItem,
-    Header,
-    LocalizedLinkText,
-    QueryImage,
-    Text,
-} from 'components/elements'
+    StopLossLevelUp,
+    TakeProfitLevelUp,
+    TakeProfitAmountUp,
+    StopLossAmountDown,
+} from './_example-pnl-multipliers'
+import { localize, Localize } from 'components/localization'
+import { Accordion, AccordionItem, Header, LocalizedLinkText, Text } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMultipliersCalculator = () => {
-    const query = graphql`
-        query {
-            stop_loss_amount_down_formula: file(
-                relativePath: { eq: "trade-tools/stop-loss-amount-down-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            stop_loss_amount_down_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-amount-down-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_amount_up_formula: file(
-                relativePath: { eq: "trade-tools/take-profit-amount-up-formula.png" }
-            ) {
-                ...fadeIn
-            }
-            take_profit_amount_up_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-amount-up-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
-        }
-    `
-    const data = useStaticQuery(query)
-
     const [tab, setTab] = useState('Level')
     const [sub_tab, setSubTab] = useState('Up')
 
@@ -2065,16 +2036,10 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_amount_up_formula}
-                                            alt={localize('take profit amount up formula')}
-                                        />
+                                        <TakeProfitAmountUp />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.take_profit_amount_up_formula_mobile}
-                                            alt={localize('take profit amount up formula')}
-                                        />
+                                        <TakeProfitAmountUp />
                                     </Show.Mobile>
                                     <FormulaText size="14px">
                                         <StyledOl>
@@ -2106,16 +2071,10 @@ const PnlMultipliersCalculator = () => {
                                         )}
                                     </Text>
                                     <Show.Desktop max_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_amount_down_formula}
-                                            alt={localize('stop loss amount down formula')}
-                                        />
+                                        <StopLossAmountDown />
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
-                                        <QueryImage
-                                            data={data.stop_loss_amount_down_formula_mobile}
-                                            alt={localize('stop loss amount down formula')}
-                                        />
+                                        <StopLossAmountDown />
                                     </Show.Mobile>
                                     <FormulaText size="14px">
                                         <StyledOl>

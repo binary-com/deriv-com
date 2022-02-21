@@ -473,12 +473,12 @@ export const FormulaContainerMobile = styled(Flex)`
 `
 
 export const FormulaHighlight = styled(Flex)`
-    margin-top: 24px;
+    margin-top: 50px;
     width: 618px;
     height: 72px;
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
-    background-color: #ffffff;
+    background-color: white;
     align-items: center;
     font-size: 16px;
     font-weight: 600;
@@ -492,7 +492,7 @@ export const FormulaHighlightMobile = styled(Flex)`
     height: ${(props) => (props.height ? props.height : '53px')};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
-    background-color: #ffffff;
+    background-color: white;
     align-items: center;
     font-size: 14px;
     font-weight: 600;
@@ -526,8 +526,8 @@ export const PointerContainer = styled.div`
     display: flex;
     position: absolute;
     height: 80px;
-    margin-top: 10px;
-    flex-direction: column;
+    margin-top: ${(props) => (props.top ? '-100px' : '8px')};
+    flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     align-items: center;
     max-width: 55px;
     white-space: nowrap;
@@ -597,7 +597,7 @@ export const PointerTextMobile = styled.div`
 
 export const Sup = styled.span`
     color: black;
-    font-size: xx-small;
+    font-size: 9px;
     vertical-align: super;
 `
 
@@ -614,4 +614,8 @@ export const FormulaBottomWrapper = styled.div`
 export const PnlBottomWrapper = styled.div`
     display: block;
     margin-top: 10px;
+`
+export const PnlFormulaBottomWrapper = styled.div`
+    display: block;
+    margin-top: 20px;
 `

@@ -458,7 +458,7 @@ export const header_style = {
 }
 export const FormulaContainer = styled(Flex)`
     width: 650px;
-    height: 172px;
+    height: ${(props) => (props.height ? props.height : '172px')};
     margin: 16px 0 0;
     border-radius: 4px;
     background-color: var(--color-blue-4);
@@ -475,7 +475,7 @@ export const FormulaContainerMobile = styled(Flex)`
 export const FormulaHighlight = styled(Flex)`
     margin-top: 50px;
     width: 618px;
-    height: 72px;
+    height: ${(props) => (props.height ? props.height : '72px')};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
@@ -503,6 +503,7 @@ export const FormulaValue = styled.div`
     display: inline-block;
     min-width: 55px;
     text-align: center;
+    margin-bottom: ${(props) => (props.mb ? props.mb : '14px')};
 `
 
 export const FormulaValueSwapSynthetic = styled.div`
@@ -515,6 +516,7 @@ export const FormulaValueMobile = styled.div`
     display: inline-block;
     min-width: 20px;
     text-align: center;
+    margin-bottom: ${(props) => (props.mb ? props.mb : '10px')};
 `
 
 export const FormulaGreen = styled.span`
@@ -614,8 +616,4 @@ export const FormulaBottomWrapper = styled.div`
 export const PnlBottomWrapper = styled.div`
     display: block;
     margin-top: 10px;
-`
-export const PnlFormulaBottomWrapper = styled.div`
-    display: block;
-    margin-top: 20px;
 `

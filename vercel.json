@@ -1,7 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/proxy",
+            "source": "/party-proxy",
             "has": [
                 {
                     "type": "query",
@@ -14,7 +14,7 @@
     ],
     "headers": [
         {
-            "source": "/proxy",
+            "source": "/party-proxy",
             "headers": [
               {
                 "key": "Access-Control-Allow-Origin",

@@ -1,0 +1,26 @@
+{
+    "headers": [
+        {
+            "source": "/party-proxy",
+            "headers": [
+              {
+                "key": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/party-proxy",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "url",
+                    "value": "(?<url>.*)"
+                }
+            ],
+            "destination": ":url" 
+        }
+    ]
+}

@@ -154,9 +154,7 @@ export const platform_details_eu_uk: TPlatformDetails[] = [
         title: 'DTrader',
         icon: DTraderIcon,
         image_key: 'platforms_dtrader',
-        description: (
-            <Localize translate_text="Our flagship app for trading options and multipliers." />
-        ),
+        description: <Localize translate_text="Our flagship app for trading multipliers." />,
         learn_more_link: '/dtrader/',
         download_links: [{ type: 'browser', url: deriv_app_url }],
     },
@@ -168,7 +166,7 @@ export const getPlatformDetails = (no_of_copies) => {
     let current_index = 0
 
     for (let index = 0; index < no_of_copies; index++) {
-        (is_row ? platform_details_cr : platform_details_eu_uk).forEach((p) => {
+        ;(is_row ? platform_details_cr : platform_details_eu_uk).forEach((p) => {
             new_details.push({ ...p, id: current_index })
             current_index++
         })

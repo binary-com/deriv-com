@@ -877,7 +877,7 @@ export const StopLossAmountDown = () => {
                                     <PointerDot />
                                     <PointerStick />
                                     <PointerText>
-                                        <Localize translate_text="Take profit Amount" />
+                                        <Localize translate_text="Stop loss Amount" />
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
@@ -1009,7 +1009,7 @@ export const StopLossAmountDown = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="10px" />
                                     <PointerTextMobile>
-                                        <Localize translate_text="Take profit" />
+                                        <Localize translate_text="Stop loss" />
                                     </PointerTextMobile>
                                     <PointerTextMobile>
                                         <Localize translate_text=" Amount" />

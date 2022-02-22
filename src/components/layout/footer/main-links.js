@@ -14,7 +14,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('ABOUT')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/who-we-are/">{localize('Who we are')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
@@ -34,7 +34,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('TRADE')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/dtrader/">{localize('DTrader')}</Link>
                         </LinkWrapper>
                         <NonEU>
@@ -82,7 +82,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <LinkWrapper>
                                 <Title>{localize('TRADE TYPES')}</Title>
                             </LinkWrapper>
-                            <LinkWrapper first_child="true">
+                            <LinkWrapper>
                                 <Link to="/trade-types/cfds/">{localize('CFDs')}</Link>
                             </LinkWrapper>
                             <NonEU>
@@ -99,7 +99,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('MARKETS')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/markets/forex/">{localize('Forex')}</Link>
                         </LinkWrapper>
                         {!is_ppc && (
@@ -125,7 +125,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('LEGAL')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/regulatory/">{localize('Regulatory information')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
@@ -143,7 +143,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('PARTNER')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/partners/affiliate-ib/">
                                 {localize('Affiliates and IBs')}
                             </Link>
@@ -167,7 +167,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('RESOURCES')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/help-centre/">{localize('Help centre')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>

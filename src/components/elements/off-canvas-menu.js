@@ -302,7 +302,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </NonEU>
                     </AccordionItem>
                     <AccordionItem
-                        header="Markets"
+                        header={localize('Markets')}
                         header_style={header_style}
                         style={content_style}
                     >

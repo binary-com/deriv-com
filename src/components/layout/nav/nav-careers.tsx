@@ -1,15 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import {
-    StyledNavPartners as StyledNav,
-    StyledLink,
-    NavWrapperPartners as NavWrapper,
-    LogoLink,
-    Wrapper,
-    NavLeftPartners as NavLeft,
-} from './styles/nav-styles'
-import CFDWarning from './components/cfd-warning'
+import NavTemplate from './components/nav-template'
+import { LogoLink, StyledLink, Wrapper } from './styles/nav-styles'
 import { Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -18,37 +11,31 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url } from 'common/constants'
 
-const query = graphql`
-    query {
-        deriv: file(relativePath: { eq: "logo.png" }) {
-            ...fadeIn
+type NavCareersProps = {
+    is_besquare?: boolean
+}
+
+const LeftSection = styled.div`
+    display: flex;
+    align-items: center;
+    max-width: 30rem;
+    width: 100%;
+`
+const NavWrapper = styled.div`
+    .fresnel-between-start-tabletL {
+        display: none;
+    }
+    @media ${device.tabletL} {
+        .fresnel-between-start-tabletL {
+            display: flex;
+            width: 100%;
+            align-items: center;
         }
     }
 `
-
-const CareerRight = styled(Flex)`
-    width: auto;
-    justify-self: flex-end;
-`
-const CareerButton = styled(LinkButton)`
-    @media ${device.tabletS} {
-        font-size: 12px;
-    }
-    @media ${device.mobileL} {
-        font-size: 9px;
-    }
-    @media ${device.mobileM} {
-        margin-left: 4px;
-    }
-`
-const CareerLink = styled(StyledLink)`
-    @media ${device.mobileM} {
-        font-size: 9px;
-        padding: 4px;
-    }
-`
-const CareerLogo = styled(LogoLink)`
+const StyledLogoLink = styled(LogoLink)`
     margin-right: 3.2rem;
+
     @media ${device.tabletS} {
         margin-right: 0;
         max-width: 100px;
@@ -61,102 +48,103 @@ const CareerLogo = styled(LogoLink)`
         }
     }
 `
-const CareerNavLeft = styled(NavLeft)`
-    @media ${device.tabletL} {
-        display: flex;
+const RightSection = styled(Flex)`
+    width: auto;
+    justify-self: flex-end;
+`
+const StyledLinkButton = styled(LinkButton)`
+    @media ${device.tabletS} {
+        font-size: 12px;
+    }
+    @media ${device.mobileL} {
+        font-size: 9px;
+    }
+    @media ${device.mobileM} {
+        margin-left: 4px;
+    }
+`
+const NavLink = styled(StyledLink)`
+    @media ${device.mobileM} {
+        font-size: 9px;
+        padding: 4px;
     }
 `
 
-type NavCareersProps = {
-    is_besquare?: boolean
-}
+const query = graphql`
+    query {
+        deriv: file(relativePath: { eq: "logo.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const NavCareers = ({ is_besquare }: NavCareersProps) => {
     const data = useStaticQuery(query)
-    const { has_mounted } = useContext(LocationContext)
+    const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
-    const button_component = is_besquare ? (
-        <CareerButton
-            external="true"
-            secondary
-            to={besquare_signup_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            ml="2.4rem"
-        >
-            Apply now
-        </CareerButton>
-    ) : (
-        <CareerButton
-            external="true"
-            secondary
-            type="zoho"
-            to="/"
-            target="_blank"
-            rel="noopener noreferrer"
-            ml="2.4rem"
-        >
-            Explore jobs
-        </CareerButton>
-    )
-
-    const links = [
-        { id: 1, title: 'HOME', active: 'home', to: '/careers/', aria_label: 'Careers' },
-        {
-            id: 2,
-            title: 'LOCATIONS',
-            active: 'locations',
-            to: '/careers/locations/',
-            aria_label: 'Locations',
-        },
-        {
-            id: 3,
-            title: 'BESQUARE',
-            active: 'besquare',
-            to: '/careers/besquare/',
-            aria_label: 'BeSquare',
-        },
-    ]
 
     return (
-        <>
+        <NavTemplate>
             <NavWrapper>
-                <StyledNav>
-                    <Wrapper offset_px_mobile={4}>
-                        <CareerNavLeft>
-                            <CareerLogo to={'/'} aria-label={'Home'}>
-                                <QueryImage
-                                    data={data['deriv']}
-                                    alt={'Deriv'}
-                                    width="16.4rem"
-                                    height="auto"
-                                    loading="eager"
-                                />
-                            </CareerLogo>
+                <Wrapper offset_px_mobile={4}>
+                    <LeftSection>
+                        <StyledLogoLink to="/" aria-label="Home">
+                            <QueryImage
+                                data={data['deriv']}
+                                alt="Deriv"
+                                width="16.4rem"
+                                height="auto"
+                                loading="eager"
+                            />
+                        </StyledLogoLink>
 
-                            {links.map((item) => {
-                                return (
-                                    <CareerLink
-                                        key={item.id}
-                                        active={current_page === item.active}
-                                        activeClassName="active"
-                                        to={item.to}
-                                        aria-label={item.aria_label}
-                                        partiallyActive
-                                    >
-                                        {item.title}
-                                    </CareerLink>
-                                )
-                            })}
-                        </CareerNavLeft>
-                        <CareerRight jc="flex-end" ai="center">
-                            {has_mounted && button_component}
-                        </CareerRight>
-                    </Wrapper>
-                </StyledNav>
+                        <NavLink
+                            active={current_page === 'home'}
+                            activeClassName="active"
+                            to="/careers/"
+                            aria-label="Careers"
+                            partiallyActive
+                        >
+                            HOME
+                        </NavLink>
+                        <NavLink
+                            active={current_page === 'locations'}
+                            activeClassName="active"
+                            to="/careers/locations/"
+                            aria-label="Locations"
+                            partiallyActive
+                        >
+                            LOCATIONS
+                        </NavLink>
+                        <NavLink
+                            active={current_page === 'besquare'}
+                            activeClassName="active"
+                            to="/careers/besquare/"
+                            aria-label="BeSquare"
+                            partiallyActive
+                        >
+                            BESQUARE
+                        </NavLink>
+                    </LeftSection>
+
+                    <RightSection jc="flex-end" ai="center">
+                        {has_mounted && (
+                            <StyledLinkButton
+                                external="true"
+                                secondary
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                ml="2.4rem"
+                                to={is_besquare ? besquare_signup_url : '/'}
+                                type={is_besquare && 'zoho'}
+                            >
+                                {is_besquare ? 'Apply now' : 'Explore jobs'}
+                            </StyledLinkButton>
+                        )}
+                    </RightSection>
+                </Wrapper>
             </NavWrapper>
-            <CFDWarning />
-        </>
+        </NavTemplate>
     )
 }
 

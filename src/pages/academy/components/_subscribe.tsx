@@ -352,10 +352,10 @@ const Subscribe = () => {
                                 error={name_error_msg}
                                 value={name}
                                 background="white"
-                                tabletBackground="green-1"
+                                tablet_background="green-1"
                                 inputBackground="grey-8"
                                 labelFocusColor="grey-7"
-                                labelColor="black-3"
+                                label_color="black-3"
                                 labelSize="16px"
                                 labelTop="1.2rem"
                                 placeholder={'Your name'}
@@ -365,7 +365,7 @@ const Subscribe = () => {
                                 border="unset"
                                 maxLength="70"
                                 height="40px"
-                                focusBorder="var(--color-grey-7)"
+                                focus_border="var(--color-grey-7)"
                             />
                             <Input
                                 id="email"
@@ -374,10 +374,10 @@ const Subscribe = () => {
                                 error={email_error_msg}
                                 value={email}
                                 background="white"
-                                tabletBackground="green-1"
+                                tablet_background="green-1"
                                 inputBackground="grey-8"
                                 labelFocusColor="grey-7"
-                                labelColor="black-3"
+                                label_color="black-3"
                                 labelSize="16px"
                                 labelTop="1.2rem"
                                 placeholder={'Your email address'}
@@ -388,7 +388,7 @@ const Subscribe = () => {
                                 border="unset"
                                 height="40px"
                                 maxLength="254"
-                                focusBorder="var(--color-grey-7)"
+                                focus_border="var(--color-grey-7)"
                             />
                         </InputWrapper>
                         <EmailButton

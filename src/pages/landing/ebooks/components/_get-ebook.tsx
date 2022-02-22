@@ -310,10 +310,10 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             error={email_error_msg}
                             value={email}
                             background="white"
-                            tabletBackground="green-1"
+                            tablet_background="green-1"
                             inputBackground="grey-8"
                             labelFocusColor="grey-7"
-                            labelColor="black-3"
+                            label_color="black-3"
                             labelSize="16px"
                             labelTop="1.2rem"
                             placeholder={localize('email address')}
@@ -325,7 +325,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             required
                             border="unset"
                             height="40px"
-                            focusBorder="var(--color-grey-7)"
+                            focus_border="var(--color-grey-7)"
                         />
                     </InputWrapper>
                     <AgreementLabel

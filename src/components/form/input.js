@@ -22,13 +22,13 @@ const InputWrapper = styled.div`
         border-color: var(--color-grey-5);
 
         & > label {
-            color: ${({ labelHoverColor }) =>
-                labelHoverColor ? `var(--color-${labelHoverColor})` : 'var(--color-black-3)'};
+            color: ${({ label_hover_color }) =>
+                label_hover_color ? `var(--color-${label_hover_color})` : 'var(--color-black-3)'};
         }
     }
     &:focus-within {
-        border-color: ${({ focusBorder }) =>
-            focusBorder ? `var(--color-${focusBorder})` : 'var(--color-green)'};
+        border-color: ${({ focus_border }) =>
+            focus_border ? `var(--color-${focus_border})` : 'var(--color-green)'};
     }
 
     ${(props) =>
@@ -151,7 +151,8 @@ const ErrorMessages = styled(Text)`
 `
 
 const StyledLabel = styled.label`
-    color: ${({ labelColor }) => (labelColor ? `var(--color-${labelColor})` : 'var(--color-grey)')};
+    color: ${({ label_color }) =>
+        label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
@@ -167,14 +168,14 @@ const Input = ({
     label,
     height,
     border,
-    focusBorder,
-    labelHoverColor,
-    labelColor,
+    focus_border,
+    label_hover_color,
+    label_color,
     disabled,
     id,
     error,
     background,
-    tabletBackground,
+    tablet_background,
     handleError,
     maxLength,
     ...props
@@ -185,8 +186,8 @@ const Input = ({
         <RelativeWrapper>
             <InputWrapper
                 border={border}
-                focusBorder={focusBorder}
-                labelHoverColor={labelHoverColor}
+                focus_border={focus_border}
+                label_hover_color={label_hover_color}
                 disabled={disabled}
                 error={error}
                 className="input-wrapper"
@@ -204,10 +205,10 @@ const Input = ({
                 />
                 {label && (
                     <StyledLabel
-                        tabletBackground={tabletBackground}
+                        tablet_background={tablet_background}
                         error={error}
                         htmlFor={id}
-                        labelColor={labelColor}
+                        label_color={label_color}
                     >
                         {label}
                     </StyledLabel>
@@ -235,15 +236,15 @@ Input.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     disabled: PropTypes.bool,
     error: PropTypes.string,
-    focusBorder: PropTypes.string,
+    focus_border: PropTypes.string,
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
     label: PropTypes.string,
-    labelColor: PropTypes.string,
-    labelHoverColor: PropTypes.string,
+    label_color: PropTypes.string,
+    label_hover_color: PropTypes.string,
     maxLength: PropTypes.string,
-    tabletBackground: PropTypes.string,
+    tablet_background: PropTypes.string,
     width: PropTypes.string,
 }
 

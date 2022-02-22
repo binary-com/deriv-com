@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, SectionContainer, Box, Show } from 'components/containers'
+import { Flex, SectionContainer, Box, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import AppStore from 'images/svg/dmt5/app-store.svg'
@@ -100,7 +100,7 @@ const DownloadApp = () => {
                 height="auto"
                 tabletL={{ mt: '0', pl: '10px', pr: '10px' }}
             >
-                <Show.Desktop>
+                <Desktop>
                     <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
@@ -154,9 +154,9 @@ const DownloadApp = () => {
                             <img src={GooglePlay} alt="google play" width="138" height="40" />
                         </LocalizedLink>
                     </Flex>
-                </Show.Desktop>
+                </Desktop>
 
-                <Show.Mobile>
+                <Mobile>
                     <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
@@ -214,7 +214,7 @@ const DownloadApp = () => {
                             </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
-                </Show.Mobile>
+                </Mobile>
             </Flex>
 
             <Separator />

@@ -846,10 +846,6 @@ export const american_stocks = [
         text: <Localize translate_text="Deutsche Bank AG" />,
     },
     {
-        src: icons.STOCKSDEUTSCHELUFTHANSAAG,
-        text: <Localize translate_text="Lufthansa AG" />,
-    },
-    {
         src: icons.STOCKSEBAY,
         text: <Localize translate_text="eBay Inc" />,
     },
@@ -900,6 +896,10 @@ export const american_stocks = [
     {
         src: icons.STOCKSJPMORGANCHASE,
         text: <Localize translate_text="JP Morgan Chase" />,
+    },
+    {
+        src: icons.STOCKSDEUTSCHELUFTHANSAAG,
+        text: <Localize translate_text="Lufthansa AG" />,
     },
     {
         src: icons.STOCKSMASTERCARDINC,

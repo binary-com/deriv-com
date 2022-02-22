@@ -137,7 +137,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                     <Box>
                         <Text>
                             <Localize
-                                translate_text="Deriv Investments (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
+                                translate_text="Deriv Investments (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union. It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK."
                                 components={[
                                     <LinkText
                                         key={0}

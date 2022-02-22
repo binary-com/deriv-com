@@ -23,10 +23,6 @@ const FlexiItem = styled(Flex)`
 
     .flexi-item {
         margin-bottom: 0;
-
-        @media ${device.tablet} {
-            margin-bottom: 20px;
-        }
     }
 `
 

@@ -60,7 +60,7 @@ const Hero = () => {
                     <Header as="h1" type="display-title" color="white" align="center">
                         {localize('Deriv partnership programmes')}
                     </Header>
-                    <Header as="h3" color="white" align="center" type="section-title">
+                    <Header as="h3" color="white" align="center" type="section-title" weight="400">
                         {localize('Partner with a trusted online trading provider.')}
                     </Header>
                 </Container>

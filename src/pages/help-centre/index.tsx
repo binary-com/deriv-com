@@ -23,25 +23,17 @@ const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
 const ArticleComponent = Loadable(() => import('./_article-component'))
 
-// export type StyledProps = {
-//     should_show_item?: boolean
-//     wrap?: string
-//     show?: boolean
-//     has_transition?: boolean
-//     align?: string
-//     direction?: string
-// }
+export type StyledProps = {
+    wrap?: string
+    show?: boolean
+    has_transition?: boolean
+    align?: string
+    direction?: string
+}
 
-// type HelpCenterProps = {
-//     props?: PropsType
-//     is_eu_country?: unknown
-//     align?: string
-//     all_articles?: string[]
-//     all_categories?: Record<number, { is_expanded: boolean }>
-//     search?: string
-//     search_has_transition?: boolean
-//     toggle_search?: boolean
-// }
+type HelpCenterProps = {
+    is_eu_country: unknown
+}
 
 const Backdrop = styled.div`
     padding: 8rem 0;
@@ -52,12 +44,12 @@ const Backdrop = styled.div`
         padding: 8rem 0 4rem;
     }
 `
-const StyledContainer = styled.div`
+const StyledContainer = styled.div<StyledProps>`
     @media ${device.tabletL} {
         padding: 2rem 0 2rem 0;
     }
 `
-const SearchSection = styled.section`
+const SearchSection = styled.section<StyledProps>`
     ${Backdrop} {
         max-height: ${(props) => (props.show ? '100rem' : '0')};
         transition: ${(props) => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
@@ -137,7 +129,7 @@ const ArticleSection = styled.section`
     }
 `
 
-const RowDiv = styled.div`
+const RowDiv = styled.div<StyledProps>`
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -160,15 +152,14 @@ const ResponsiveHeader = styled(Header)`
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
 const HelpCenter = () => {
-    const is_eu_country = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext(DerivStore)
     return <HelpCentre is_eu_country={is_eu_country} />
 }
 
-const HelpCentre = (is_eu_country) => {
-    const [state, setState] = useState({
-        name: '',
-        searching: '',
-        toggle_search: false,
+const HelpCentre = (is_eu_country: HelpCenterProps) => {
+    const [data, setData] = useState({
+        search: '',
+        toggle_search: true,
         search_has_transition: false,
         all_categories: {},
         all_articles: [],
@@ -181,7 +172,7 @@ const HelpCentre = (is_eu_country) => {
             for (let i = 0, len = arr.length; i < len; i++) {
                 const item = arr[i]
                 const obj = {}
-                for (let k in item) {
+                for (const k in item) {
                     obj[k] = item[k]
                 }
                 out.push(obj)
@@ -190,16 +181,11 @@ const HelpCentre = (is_eu_country) => {
         }
 
         if (current_label) {
-            setState({
-                toggle_search: false,
-                search_has_transition: false,
-            })
+            setData({ ...data, toggle_search: false, search_has_transition: false })
         }
-
-        const all_articles = getAllArticles(articles) // не уверен: задать начальным значыением в стэйт all_articles: getAllArticles(articles)
+        const all_articles = getAllArticles(articles)
 
         const duplicate_articles = deepClone(all_articles)
-
         const translated_articles = duplicate_articles.map((article) => {
             article.title = article.title.props.translate_text
             article.sub_category = article.sub_category.props.translate_text
@@ -211,21 +197,17 @@ const HelpCentre = (is_eu_country) => {
             all_categories[all_articles[article].category] = { is_expanded: false }
         })
 
-        setState({
-            all_categories,
-            all_articles: translated_articles,
-        })
-    })
-
-    const handleInputChange = (e) => {
-        e.preventDefault()
-        let { name, value } = e.target
-        setState({ [name]: `${sanitize(value)}` })
-    }
+        setData({ ...data, all_categories, all_articles: translated_articles })
+    }, [])
 
     const handleSubmit = (e) => e.preventDefault()
+    const clearSearch = () => setData({ ...data, search: '' })
+    const handleInputChange = (e) => {
+        e.preventDefault()
+        setData({ ...data, search: sanitize(e.target.value) })
+    }
 
-    const filtered_articles = matchSorter(state.all_articles, state.searching.trim(), {
+    const filtered_articles = matchSorter(data.all_articles, data.search.trim(), {
         keys: ['title', 'sub_category'],
     })
 
@@ -235,15 +217,13 @@ const HelpCentre = (is_eu_country) => {
 
     const has_results = !!filtered_articles.length
 
-    const search_component = state.searching.length > 0 && (
-        <SearchCrossIcon
-            src={CrossIcon}
-            alt="cross icon"
-            onClick={() => setState({ searching: '' })}
-        />
-    )
-
-    console.log('search_component:', search_component, 'has_results:', has_results)
+    const toggleArticle = (category) => {
+        if (data.all_categories[category]) {
+            const categories = { ...data.all_categories }
+            categories[category].is_expanded = !categories[category].is_expanded
+            setData({ ...data, all_categories: categories })
+        }
+    }
 
     return (
         <Layout>
@@ -256,7 +236,7 @@ const HelpCentre = (is_eu_country) => {
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
-            <SearchSection show={state.toggle_search} has_transition={state.search_has_transition}>
+            <SearchSection show={data.toggle_search} has_transition={data.search_has_transition}>
                 <Backdrop>
                     <Container align="left" justify="flex-start" direction="column">
                         <StyledContainer align="normal" direction="column">
@@ -267,24 +247,29 @@ const HelpCentre = (is_eu_country) => {
                                 <SearchIconBig src={SearchIcon} alt="search-icon" />
                                 <Search
                                     autoFocus
-                                    name="search"
-                                    value={state.searching}
+                                    value={data.search}
                                     onChange={handleInputChange}
                                     placeholder={localize('Try “Trade”')}
                                     data-lpignore="true"
                                     autoComplete="off"
                                 />
-                                {search_component}
+                                {data.search.length > 0 && (
+                                    <SearchCrossIcon
+                                        src={CrossIcon}
+                                        alt="cross icon"
+                                        onClick={clearSearch}
+                                    />
+                                )}
                             </SearchForm>
                             <ResultWrapper>
-                                {!!has_results && !!state.searching.length && (
+                                {!!has_results && !!data.search.length && (
                                     <SearchSuccess
                                         suggested_topics={filtered_articles}
                                         max_length={3}
                                     />
                                 )}
-                                {!has_results && !!state.searching.length && (
-                                    <SearchError search={state.searching} />
+                                {!has_results && !!data.search.length && (
+                                    <SearchError search={data.search} />
                                 )}
                             </ResultWrapper>
                         </StyledContainer>
@@ -311,7 +296,8 @@ const HelpCentre = (is_eu_country) => {
                                             idx={idx}
                                             id={id}
                                             item={item}
-                                            all_categories={state.all_categories}
+                                            all_categories={data.all_categories}
+                                            toggleArticle={toggleArticle}
                                             is_eu_country={is_eu_country}
                                         />
                                     )

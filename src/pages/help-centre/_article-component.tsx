@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { convertToHash } from './_utility'
 import { Header, Text } from 'components/elements'
@@ -37,6 +37,7 @@ type ArticleComponentProps = {
     id: number
     item: ItemProps
     all_categories: PropsType
+    toggleArticle: any
     is_eu_country: boolean
 }
 
@@ -149,18 +150,9 @@ const ArticleComponent = ({
     id,
     item,
     all_categories,
+    toggleArticle,
     is_eu_country,
 }: ArticleComponentProps) => {
-    const [current_categories, setCurrentCategories] = useState(all_categories)
-
-    const toggleArticle = (category) => {
-        if (current_categories[category]) {
-            const categories = { ...current_categories }
-            categories[category].is_expanded = !categories[category].is_expanded
-            setCurrentCategories(categories)
-        }
-    }
-
     return (
         <ArticleDiv key={idx}>
             {id === 1 && idx == 0 && <Platforms>Platforms</Platforms>}

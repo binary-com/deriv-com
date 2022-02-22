@@ -276,7 +276,7 @@ export const financialItemLists = [
     },
     {
         name: 'ABNB',
-        display_name: 'Airbnb',
+        display_name: 'Airbnb Inc',
         icon: <img src={ABNB} alt="airbnb" />,
         market: 'other',
     },

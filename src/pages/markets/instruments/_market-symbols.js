@@ -767,7 +767,7 @@ export const american_stocks = [
     },
     {
         src: icons.STOCKSAIRBNB,
-        text: <Localize translate_text="Airbnb" />,
+        text: <Localize translate_text="Airbnb Inc" />,
     },
     {
         src: icons.STOCKSAIRBUS,

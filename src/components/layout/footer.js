@@ -21,7 +21,7 @@ const mobile_accordion_header = {
 
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 
-const Footer = ({ type, is_ppc, is_ppc_redirect, academy }) => {
+const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footerlinks }) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
     const { is_eu_country } = React.useContext(DerivStore)
     mobile_accordion_header_about.borderTop = 'none'
@@ -31,7 +31,9 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy }) => {
             <Container>
                 <FooterGrid>
                     <LogoSection type={type} />
-                    <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+                    {!no_footerlinks && (
+                        <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+                    )}
                     <DisclaimerSection is_academy={academy} />
                     <BottomSocialSection type={type} />
                 </FooterGrid>
@@ -44,6 +46,7 @@ Footer.propTypes = {
     academy: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_footerlinks: PropTypes.bool,
     type: PropTypes.string,
 }
 

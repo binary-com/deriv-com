@@ -373,3 +373,54 @@ export const useCallbackRef = (callback) => {
 
     return callback_ref
 }
+
+const uk_subdomain_countries = ['gb']
+const eu_subdomain_countries = ['nl']
+
+const redirect = (subdomain) => {
+    const redirection_url = `${subdomain}.deriv.com`
+    window.location.host = redirection_url
+}
+
+const redirectToDeriv = (full_domain) => {
+    window.location.host = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
+}
+
+export const handleDerivRedirect = (country, subdomain) => {
+    if (eu_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
+    } else if (uk_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-uk' : 'uk')
+    }
+}
+
+const handleUKRedirect = (country, subdomain, full_domain) => {
+    if (eu_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
+    } else if (!uk_subdomain_countries.includes(country)) {
+        redirectToDeriv(full_domain)
+    }
+}
+
+const handleEURedirect = (country, subdomain, full_domain) => {
+    if (uk_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-uk' : 'uk')
+    } else if (!eu_subdomain_countries.includes(country)) {
+        redirectToDeriv(full_domain)
+    }
+}
+
+export const handleRedirect = (subdomain, residence, current_client_country, full_domain) => {
+    const country = residence ? residence : current_client_country
+
+    const eu_domains = ['eu', 'staging-eu']
+    const uk_domains = ['uk', 'staging-uk']
+
+    if (eu_domains.includes(subdomain)) {
+        handleEURedirect(country, subdomain, full_domain)
+    } else if (uk_domains.includes(subdomain)) {
+        handleUKRedirect(country, subdomain, full_domain)
+    } else {
+        handleDerivRedirect(country, subdomain)
+    }
+}

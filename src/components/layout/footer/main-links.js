@@ -162,6 +162,9 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {localize('API')}
                             </Link>
                         </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/bug-bounty/">{localize('Bug bounty')}</Link>
+                        </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>

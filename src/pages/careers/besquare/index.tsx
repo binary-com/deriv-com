@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import Advantages from './components/sections/_advantages'
 import ApplicationProcess from './components/sections/_application-process'
 import Description from './components/sections/_description'
@@ -23,8 +23,8 @@ const meta_attributes = {
     og_img: BeSquareOg,
 }
 
-const BeSquare = (): ReactElement => (
-    <Layout type="besquare">
+const BeSquare = () => (
+    <Layout type="careers">
         <SEO
             title={'IT graduate programme for Malaysians | BeSquare by Deriv'}
             description={

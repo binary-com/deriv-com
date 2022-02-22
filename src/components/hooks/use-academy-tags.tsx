@@ -27,7 +27,7 @@ export const useAcademyTags = (): [VideoTagsType, BlogTagsType] => {
 }
 
 const query = graphql`
-    query VideoTagsQuery {
+    query Tags {
         directus {
             videos_tags {
                 tags_id {

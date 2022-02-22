@@ -3,7 +3,7 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
+import { Nav, NavStatic, NavPartners, NavInterim, NavSticky, NavSecurity } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
 import NavAcademy from './academy/nav-academy'
 import { NavCareers } from './nav-careers'
@@ -11,13 +11,14 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser } from 'common/utility'
+import { isBrowser, handleRedirect } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -150,6 +151,21 @@ const Layout = ({
         }
     }, [is_eu_country])
 
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country || ''
+
+    const client_information_cookie = new CookieStorage('client_information')
+    const residence = client_information_cookie.get('residence')
+
+    React.useEffect(() => {
+        const is_redirection_enabled = localStorage['is_redirection_enabled']
+        const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+
+        if (is_redirection_enabled) {
+            handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
+        }
+    }, [website_status])
+
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
@@ -179,6 +195,10 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'security':
+            Navigation = <NavSecurity no_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
         case 'ebook':

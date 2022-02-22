@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Checkbox, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device.js'
 
 const CheckboxSpan = styled.span`
@@ -18,15 +19,15 @@ const AgreementLabel = ({
     color,
     pep_label,
     link_text = pep_label || localize('I agree to the <0>terms and conditions</0>'),
-    isAffiliate,
 }) => {
+    // the is mounted check is used for making sure the localized link text
+    // properly renders the correct domain url
+    const [is_mounted] = usePageLoaded()
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
-    const type = isAffiliate
-        ? 'terms_and_conditions/#business-partners'
-        : 'terms_and_conditions/#clients'
-    return (
+
+    return is_mounted ? (
         <label
             style={{
                 fontWeight: 'normal',
@@ -54,7 +55,6 @@ const AgreementLabel = ({
                     components={[
                         <LocalizedLinkText
                             key={0}
-                            type={type}
                             external="true"
                             rel="noopener noreferrer"
                             size="14px"
@@ -64,13 +64,14 @@ const AgreementLabel = ({
                 />
             </CheckboxSpan>
         </label>
+    ) : (
+        <></>
     )
 }
 
 AgreementLabel.propTypes = {
     color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,
-    isAffiliate: PropTypes.bool,
     isChecked: PropTypes.bool,
     link_text: PropTypes.string,
     pep_label: PropTypes.string,

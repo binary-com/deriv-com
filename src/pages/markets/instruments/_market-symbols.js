@@ -847,7 +847,7 @@ export const american_stocks = [
     },
     {
         src: icons.STOCKSDEUTSCHELUFTHANSAAG,
-        text: <Localize translate_text="Deutsche Lufthansa AG" />,
+        text: <Localize translate_text="Lufthansa AG" />,
     },
     {
         src: icons.STOCKSEBAY,
@@ -863,7 +863,7 @@ export const american_stocks = [
     },
     {
         src: icons.STOCKSFOXCORPCLASSB,
-        text: <Localize translate_text="Fox Corp Class B" />,
+        text: <Localize translate_text="Fox Corporation B" />,
     },
     {
         src: icons.STOCKSGENERALMOTORSCOMP,
@@ -883,7 +883,7 @@ export const american_stocks = [
     },
     {
         src: icons.STOCKSHUGOBOSSAGCOMMONSTOCK,
-        text: <Localize translate_text="Hugo Boss AG Common Stock" />,
+        text: <Localize translate_text="Hugo Boss AG" />,
     },
     {
         src: icons.STOCKSIBM,
@@ -951,7 +951,7 @@ export const american_stocks = [
     },
     {
         src: icons.STOCKSPEPSICOINC,
-        text: <Localize translate_text="PepsiCo, Inc." />,
+        text: <Localize translate_text="PepsiCo Inc" />,
     },
     {
         src: icons.STOCKSPORSCHEAUTOMOBILHOLDINGSE,
@@ -967,7 +967,7 @@ export const american_stocks = [
     },
     {
         src: icons.SONYGROUPCORP,
-        text: <Localize translate_text="Sony Group Corp" />,
+        text: <Localize translate_text="Sony Corporation" />,
     },
     {
         src: icons.STOCKSTEVAPHARMACEUTICAL,

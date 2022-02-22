@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import CFDWarning from './cfd-warning'
 import SearchBanner from 'pages/academy/components/_search-banner'
+import { CFDWarning } from 'components/layout/layout'
 import device from 'themes/device.js'
 
 // TODO is ppc props

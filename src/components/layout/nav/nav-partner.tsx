@@ -1,10 +1,10 @@
 // Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
 import React from 'react'
 import styled from 'styled-components'
+import { CFDWarning } from '../layout'
 import MainNav from './components/partner/main-nav'
 import NavPartnerMobile from './components/partner/nav-partner-mobile'
 import NavPartnerDesktop from './components/partner/nav-partner-desktop'
-import CFDWarning from './components/cfd-warning'
 import device from 'themes/device'
 
 type NavPartnersProps = {

@@ -8,7 +8,7 @@ import {
     LogoLink,
     LogoDescription,
 } from './styles/nav-styles'
-import CFDWarning from './components/cfd-warning'
+import NavTemplate from './components/nav-template'
 import { localize, LanguageSwitcher } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Container, Flex } from 'components/containers'
@@ -17,26 +17,13 @@ import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 
-const InterimNav = styled.nav`
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    background: var(--color-black);
-`
-const Auto = styled(Flex)`
-    @media ${device.mobileM} {
-        width: 100%;
-    }
-`
-const LeftButton = styled(LinkButton)`
-    margin-left: 0.8rem;
-    @media ${device.mobileL} {
-        padding: 1rem;
-    }
-`
-const StyledLogo = styled(LogoLink)`
+type NavInterimProps = {
+    interim_type: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
+}
+
+const LogoWrapper = styled(LogoLink)`
     max-width: 31rem;
+
     @media ${device.mobileL} {
         display: none;
     }
@@ -46,64 +33,52 @@ const StyledLogo = styled(LogoLink)`
         }
     }
 `
-const NavInterimContainer = styled.div`
-    position: relative;
+const StyledLinkButton = styled(LinkButton)`
+    margin-left: 0.8rem;
+    @media ${device.mobileL} {
+        padding: 1rem;
+    }
+`
+const RightSection = styled(Flex)`
+    @media ${device.mobileM} {
+        width: 100%;
+    }
 `
 
-type NavInterimProps = {
-    interim_type: string
-}
-
 const NavInterim = ({ interim_type }: NavInterimProps) => (
-    <InterimNav>
-        <NavInterimContainer>
-            <Container jc="space-between" p="2.4rem 0">
-                <Flex ai="center" jc="flex-start">
-                    <DesktopWrapper>
-                        <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
-                            <Flex ai="center">
-                                <img src={Logo} alt="logo" width="190" height="27" />
-                                <img
-                                    src={GetTrading}
-                                    alt="logo combined shape desktop"
-                                    width="120"
-                                    height="17"
-                                />
-                            </Flex>
-                        </StyledLogo>
-                    </DesktopWrapper>
+    <NavTemplate>
+        <Container jc="space-between" p="2.4rem 0">
+            <Flex ai="center" jc="flex-start">
+                <DesktopWrapper>
+                    <LogoWrapper to={`/interim/${interim_type}`} aria-label="Home">
+                        <Flex ai="center">
+                            <img src={Logo} alt="deriv logo" width="190" height="27" />
+                            <img src={GetTrading} alt="get trading" width="120" height="17" />
+                        </Flex>
+                    </LogoWrapper>
+                </DesktopWrapper>
 
-                    <MobileWrapper>
-                        <LogoLinkMobile
-                            to={`/interim/${interim_type}`}
-                            aria-label={localize('Home')}
-                        >
-                            <Flex>
-                                <img src={LogoOnly} alt="logo only 2" width="115" height="27" />
-                                <LogoDescription ai="center">
-                                    <Line />
-                                    <img
-                                        src={GetTrading}
-                                        alt="logo combined shape mobile"
-                                        width="120"
-                                        height="17"
-                                    />
-                                </LogoDescription>
-                            </Flex>
-                        </LogoLinkMobile>
-                    </MobileWrapper>
-                </Flex>
+                <MobileWrapper>
+                    <LogoLinkMobile to={`/interim/${interim_type}`} aria-label="Home">
+                        <Flex>
+                            <img src={LogoOnly} alt="deriv logo" width="115" height="27" />
+                            <LogoDescription ai="center">
+                                <Line />
+                                <img src={GetTrading} alt="get trading" width="120" height="17" />
+                            </LogoDescription>
+                        </Flex>
+                    </LogoLinkMobile>
+                </MobileWrapper>
+            </Flex>
 
-                <Auto jc="flex-end" ai="center">
-                    <LanguageSwitcher short_name="true" />
-                    <LeftButton secondary to="/">
-                        {localize('Explore Deriv.com')}
-                    </LeftButton>
-                </Auto>
-            </Container>
-        </NavInterimContainer>
-        <CFDWarning />
-    </InterimNav>
+            <RightSection jc="flex-end" ai="center">
+                <LanguageSwitcher short_name="true" />
+                <StyledLinkButton secondary to="/">
+                    {localize('Explore Deriv.com')}
+                </StyledLinkButton>
+            </RightSection>
+        </Container>
+    </NavTemplate>
 )
 
 export default NavInterim

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
-import { Header, LocalizedLinkText } from 'components/elements'
+import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import banner from 'images/common/p2p/banner.png'
@@ -89,16 +89,11 @@ const Subtitle = styled(Header)`
         margin-bottom: 16px;
     }
 `
-const BannerText = styled(LocalizedLinkText)`
+const BannerText = styled.span`
     color: var(--color-red);
     margin-bottom: 3rem;
     font-size: 2rem;
-    text-decoration: none;
-    cursor: default;
 
-    &:hover {
-        text-decoration: none;
-    }
     @media (max-width: 1100px) {
         margin-bottom: 16px;
     }

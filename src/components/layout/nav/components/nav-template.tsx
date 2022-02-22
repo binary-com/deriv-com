@@ -16,6 +16,7 @@ type NavTemplateProps = StyledNavMainProps &
 type StyledNavMainProps = {
     transparent_background?: boolean
     nav_height?: string
+    nav_height_mobile?: string
 }
 
 type NavWrapperMain = {
@@ -41,7 +42,7 @@ const StyledNavMain = styled.nav<StyledNavMainProps>`
     z-index: 1;
 
     @media (max-width: 1060px) {
-        height: auto;
+        height: ${({ nav_height_mobile }) => nav_height_mobile || 'auto'};
     }
 `
 
@@ -53,12 +54,14 @@ const NavTemplate = ({
     static_position,
     show_academy_nav,
     hide_nav,
+    nav_height_mobile,
 }: NavTemplateProps) => {
     return (
         <>
             <NavWrapperMain static_position={static_position} hide_nav={hide_nav}>
                 <StyledNavMain
                     nav_height={nav_height}
+                    nav_height_mobile={nav_height_mobile}
                     transparent_background={transparent_background}
                 >
                     {children}

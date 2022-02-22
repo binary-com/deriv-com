@@ -12,13 +12,14 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
 import { UKEU, ROW } from 'components/containers'
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
+
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Forex = ({ simple_step_content }) => {
-    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+    const { is_row, is_eu } = getCountryRule()
     return (
         <>
             <WhyTrade
@@ -27,7 +28,7 @@ const Forex = ({ simple_step_content }) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {(!is_eu_country ? forex_content : forex_content_eu).map((content, index) => (
+                {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
                     <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
                 ))}
             </WhyTrade>
@@ -43,8 +44,7 @@ const Forex = ({ simple_step_content }) => {
                     </>
                 }
                 DigitalOptions={
-                    !is_eu_country &&
-                    !is_uk_country && (
+                    is_row && (
                         <DigitalOptions
                             market_name={localize('forex')}
                             options_list={forex_options}
@@ -52,9 +52,7 @@ const Forex = ({ simple_step_content }) => {
                     )
                 }
                 Multipliers={
-                    <Multipliers
-                        market_content={is_eu_country ? forex_multiplier_eu : forex_multiplier}
-                    />
+                    <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
                 }
                 name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer, EU, NonEU } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, EU, NonEU, ROW } from 'components/containers'
 import {
     Text,
     Card,
@@ -12,7 +12,7 @@ import {
     Divider,
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
@@ -287,7 +287,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             onClick={onClick}
                             to="/trade-types/cfds/"
                         />
-                        <NonEU>
+                        <ROW>
                             <NavCard
                                 aria_label="Options"
                                 icon={() => <img src={Options} alt="" width="32" height="32" />}
@@ -298,7 +298,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                                 onClick={onClick}
                                 to="/trade-types/options/"
                             />
-                        </NonEU>
+                        </ROW>
                         <NavCard
                             aria_label="Multipliers"
                             icon={() => <img src={Multipliers} alt="" width="32" height="32" />}
@@ -325,7 +325,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
-                <NonEU>
+                <ROW>
                     <>
                         <NavCard
                             aria_label="Derivx"
@@ -352,7 +352,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </>
-                </NonEU>
+                </ROW>
             </Flex>
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <EmptySpace />
@@ -366,7 +366,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to="/dtrader/"
                 />
-                <NonEU>
+                <ROW>
                     <>
                         <NavCard
                             aria_label="Deriv GO"
@@ -402,7 +402,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </>
-                </NonEU>
+                </ROW>
             </Flex>
         </Flex>
     )
@@ -415,7 +415,7 @@ NavPlatform.propTypes = {
 }
 
 export const NavMarket = ({ onClick, is_ppc }) => {
-    const { is_uk_country } = React.useContext(DerivStore)
+    const { is_not_uk } = getCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
@@ -429,7 +429,7 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 onClick={onClick}
                 to="/markets/forex/"
             />
-            {!is_ppc && !is_uk_country && (
+            {!is_ppc && is_not_uk && (
                 <NavCard
                     aria_label="Synthetic indices"
                     icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
@@ -451,7 +451,7 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 onClick={onClick}
                 to="/markets/stock/"
             />
-            {!is_uk_country && (
+            {is_not_uk && (
                 <NavCard
                     aria_label="Cryptocurrencies"
                     icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}

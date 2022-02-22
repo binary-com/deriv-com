@@ -14,12 +14,12 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 
 const StockIndices = ({ simple_step_content }) => {
-    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+    const { is_eu, is_not_eu, is_uk } = getCountryRule()
 
-    if (is_uk_country) {
+    if (is_uk) {
         navigate('/404/')
     }
 
@@ -39,9 +39,9 @@ const StockIndices = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds} />}
+                CFDs={<CFDs market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds} />}
                 DigitalOptions={
-                    !is_eu_country && (
+                    is_not_eu && (
                         <DigitalOptions
                             market_name={localize('synthetic indices')}
                             options_list={synthetic_options}
@@ -50,9 +50,7 @@ const StockIndices = ({ simple_step_content }) => {
                 }
                 Multipliers={
                     <Multipliers
-                        market_content={
-                            is_eu_country ? synthetic_multiplier_eu : synthetic_multiplier
-                        }
+                        market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
                 name="Synthetic indices"

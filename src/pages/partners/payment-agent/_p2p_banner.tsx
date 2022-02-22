@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import banner from 'images/common/p2p/banner.png'
 import bannerBG from 'images/common/p2p/gradient_bg.png'
 import mobilebannerBG from 'images/common/p2p/mobile_gradient_bg.png'
@@ -85,8 +85,19 @@ const Subtitle = styled(Header)`
     color: var(--color-white);
     margin-bottom: 3rem;
 
-    & span {
-        color: var(--color-red);
+    @media (max-width: 1100px) {
+        margin-bottom: 16px;
+    }
+`
+const BannerText = styled(LocalizedLinkText)`
+    color: var(--color-red);
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    cursor: default;
+
+    &:hover {
+        text-decoration: none;
     }
     @media (max-width: 1100px) {
         margin-bottom: 16px;
@@ -116,11 +127,10 @@ const P2PBanner = () => {
                             {localize('Looking for Deriv P2P instead?')}
                         </StyledHeader>
                         <Subtitle as="h4" type="subtitle-2" weight="none">
-                            {localize('We offer a ')}
-                            <span>{localize('peer-to-peer payment service')}</span>
-                            {localize(
-                                ' where you can make deposits and withdrawals in minutes via exchanges with fellow traders.',
-                            )}
+                            <Localize
+                                translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."
+                                components={[<BannerText key={0} />]}
+                            />
                         </Subtitle>
                         <StyledLinkButton
                             secondary="true"

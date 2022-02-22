@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import { AcademyIndexFragment } from '../../../types/graphql.types'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
-import DVideoBanner from './_video-banner'
+import VideoBanner from './_video-banner'
 import Hero from './components/_hero'
-import MarketNews from './components/_markets-news'
+import MarketNews from './components/_market-news'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -16,7 +16,7 @@ import device from 'themes/device.js'
 
 export const query = graphql`
     query {
-        ...academyQuery
+        ...AcademyIndex
     }
 `
 
@@ -34,7 +34,22 @@ const MainWrapper = styled.div`
         max-width: 1600px;
     }
 `
-const DerivBlog = ({ data }) => {
+
+type DerivBlogProps = {
+    data: AcademyIndexFragment
+}
+
+export type RecentDataType = AcademyIndexFragment['directus']['recent']
+
+export type FeaturedDataType = AcademyIndexFragment['directus']['featured']
+
+export type FeaturedVideoListDataType = AcademyIndexFragment['directus']['featured_video']
+
+export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['videos']
+
+export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
+
+const DerivBlog = ({ data }: DerivBlogProps) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 
     const meta_attributes = {
@@ -62,12 +77,12 @@ const DerivBlog = ({ data }) => {
         },
     }
 
-    let market_news_data,
-        recent_data,
-        featured_data,
-        homepage_banner_data,
-        non_featured_video_list_data,
-        featured_video_list_data
+    let market_news_data = data.directus.market_news
+    let recent_data = data.directus.recent
+    let featured_data = data.directus.featured
+    let homepage_banner_data = data.directus.homepage_banners
+    let non_featured_video_list_data = data.directus.videos
+    let featured_video_list_data = data.directus.featured_video
 
     // We need to include the !is_uk_country check together with is_eu_country because 'gb'
     // is a valid country code for both EU and UK in our country base.
@@ -85,13 +100,6 @@ const DerivBlog = ({ data }) => {
         homepage_banner_data = data.directus.homepage_banners_uk
         non_featured_video_list_data = data.directus.videos_uk
         featured_video_list_data = data.directus.featured_video_uk
-    } else {
-        market_news_data = data.directus.market_news
-        recent_data = data.directus.recent
-        featured_data = data.directus.featured
-        homepage_banner_data = data.directus.homepage_banners
-        non_featured_video_list_data = data.directus.videos
-        featured_video_list_data = data.directus.featured_video
     }
 
     //arranges homepage banners in ascendingly on order value
@@ -125,7 +133,7 @@ const DerivBlog = ({ data }) => {
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
-            <DVideoBanner
+            <VideoBanner
                 featured_video_list_data={featured_video_list_data}
                 non_featured_video_list_data={non_featured_video_list_data}
             />
@@ -143,10 +151,6 @@ const DerivBlog = ({ data }) => {
             </Container>
         </Layout>
     )
-}
-
-DerivBlog.propTypes = {
-    data: PropTypes.object,
 }
 
 export default WithIntl()(DerivBlog)

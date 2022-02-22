@@ -1,7 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
+import { VideoDataType } from './index'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
@@ -107,7 +107,12 @@ const ContentWrapper = styled.div`
     padding: 16px 24px;
 `
 
-const VideoCard = ({ item, openVideo }) => {
+type VideoCardProps = {
+    item: VideoDataType[0]
+    openVideo: (track_id: string, video_title: string) => void
+}
+
+const VideoCard = ({ item, openVideo }: VideoCardProps) => {
     const first_2_tags = item.tags?.slice(0, 2)
     const another_tags_number = item.tags.length > 2 ? `+${item.tags.length - 2}` : ''
     const converted_date = convertDate(item.published_date)
@@ -155,11 +160,6 @@ const VideoCard = ({ item, openVideo }) => {
             </VideoCardWrapper>
         </div>
     )
-}
-
-VideoCard.propTypes = {
-    item: PropTypes.object,
-    openVideo: PropTypes.func,
 }
 
 export default VideoCard

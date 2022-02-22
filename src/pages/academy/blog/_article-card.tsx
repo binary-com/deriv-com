@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
+import { ItemType } from './_all-articles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -55,13 +54,22 @@ const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 
-const ArticleCard = ({ item }) => {
+type ArticleCardProps = {
+    item: ItemType
+}
+
+const ArticleCard = ({ item }: ArticleCardProps) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
             <ArticleCardWrapper>
-                <StandardImgWrapper width="384px" height="auto" br="unset" tabletL_br="unset">
+                <StandardImgWrapper
+                    width="384px"
+                    height="auto"
+                    border_radius="unset"
+                    tabletL_border_radius="unset"
+                >
                     <QueryImage
-                        data={getImage(item.main_image.imageFile)}
+                        data={item.main_image.imageFile}
                         alt={item.main_image.description || ''}
                         className="standard-query-img"
                     />
@@ -100,10 +108,6 @@ const ArticleCard = ({ item }) => {
             </ArticleCardWrapper>
         </RedirectLink>
     )
-}
-
-ArticleCard.propTypes = {
-    item: PropTypes.object,
 }
 
 export default ArticleCard

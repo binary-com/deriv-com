@@ -45,8 +45,8 @@ const ImageWrapper = styled.img`
     height: 48px;
 
     @media ${device.tabletL} {
-        width: 30px;
-        height: 32px;
+        width: 4rem;
+        height: 4rem;
     }
 `
 

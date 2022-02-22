@@ -22,12 +22,6 @@ const WrapContainer = styled(Container)`
             margin-right: 0;
             margin-bottom: 2.4rem;
         }
-        ${Header} {
-            text-align: left;
-        }
-        ${Text} {
-            text-align: left;
-        }
     }
 `
 

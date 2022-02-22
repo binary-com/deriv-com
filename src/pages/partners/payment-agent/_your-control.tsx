@@ -50,7 +50,6 @@ const CardText = styled(Text)`
         width: 100%;
         max-width: unset;
         margin: 16px 0 0;
-        text-align: left;
         padding-left: 1.6rem;
     }
 `

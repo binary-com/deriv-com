@@ -98,7 +98,6 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         font-size: 24px;
-        text-align: left;
     }
 `
 

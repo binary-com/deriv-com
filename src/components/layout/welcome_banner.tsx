@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import device from 'themes/device'
@@ -94,35 +94,38 @@ const BannerClose = styled.div`
 `
 
 export const WelcomeBanner = () => {
-    // const [is_welcome_banner_dismissed, setWelcomeBanner] = useState(
-    //     localStorage.getItem('is_welcome_banner_dismissed'),
-    // )
+    const [is_welcome_banner_dismissed, setWelcomeBanner] = useState(null)
+    const [is_uk_domain, setUkDomain] = useState(null)
+    const [is_eu_domain, setEUDomain] = useState(null)
+    const [country, setCountry] = useState('')
+
+    useEffect(() => {
+        setWelcomeBanner(localStorage.getItem('is_welcome_banner_dismissed'))
+        setUkDomain(window.location.hostname.includes('uk'))
+        setEUDomain(window.location.hostname.includes('eu'))
+        setCountry(window.location.hostname.split('.').slice(0, -2).join('.'))
+    }, [])
 
     const handleBannerDismiss = () => {
-        // setWelcomeBanner('yes')
+        setWelcomeBanner('yes')
         localStorage.setItem('is_welcome_banner_dismissed', 'yes')
     }
 
-    // if (
-    //     // (window.location.hostname.includes('uk') || window.location.hostname.includes('eu')) &&
-    //     !is_welcome_banner_dismissed
-    // ) {
-    // const country = window.location.hostname.split('.').slice(0, -2).join('.')
-
-    return (
-        <BannerWrapper country={'uk'}>
-            <BannerClose onClick={handleBannerDismiss} />
-            <TextWrapper>
-                <StyledHeader as="h3" type="subtitle-2">
-                    Welcome to the new Deriv {'uk'.toUpperCase()} website, designed with your needs
-                    in mind.
-                </StyledHeader>
-                <StyledText as="h3" type="subtitle-2">
-                    Stay up to date with products and services tailored just for you.
-                </StyledText>
-            </TextWrapper>
-        </BannerWrapper>
-    )
-    // }
-    // return <></>
+    if ((is_uk_domain || is_eu_domain) && !is_welcome_banner_dismissed) {
+        return (
+            <BannerWrapper country={country}>
+                <BannerClose onClick={handleBannerDismiss} />
+                <TextWrapper>
+                    <StyledHeader as="h3" type="subtitle-2">
+                        Welcome to the new Deriv {country.toUpperCase()} website, designed with your
+                        needs in mind.
+                    </StyledHeader>
+                    <StyledText as="h3" type="subtitle-2">
+                        Stay up to date with products and services tailored just for you.
+                    </StyledText>
+                </TextWrapper>
+            </BannerWrapper>
+        )
+    }
+    return <></>
 }

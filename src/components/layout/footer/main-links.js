@@ -40,7 +40,9 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             </LinkWrapper>
                             <ROW>
                                 <LinkWrapper>
-                                    <Link to="/trade-types/options/">{localize('Options')}</Link>
+                                    <Link to="/trade-types/options/">
+                                        {localize('Digital options')}
+                                    </Link>
                                 </LinkWrapper>
                             </ROW>
                             <LinkWrapper>

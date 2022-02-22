@@ -10,7 +10,7 @@ import { Header, Text } from 'components/elements'
 import Map from 'images/svg/landing/map.svg'
 
 const StyledFlexWrapper = styled(Flex)`
-    height: 35rem;
+    height: ${(props) => (props.email ? '100vh' : '35rem')};
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
@@ -69,7 +69,7 @@ const affiliateSignup = () => {
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 )}
             />
-            <StyledFlexWrapper fd="row" fw="wrap" ai="flex-start" jc="center">
+            <StyledFlexWrapper fd="row" fw="wrap" ai="flex-start" jc="center" email={email}>
                 {submit_state !== 'success' && (
                     <StyledFlex jc="flex-start" fd="column" mt="6.4rem" mr="15rem" width="43.8rem">
                         <Header mt="2.4rem" mb="0.8rem" as="h3" type="section-title">

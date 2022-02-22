@@ -13,9 +13,9 @@ const validation_is_exceed_number = (input, maxDigit) => {
     return true
 }
 
-const validation_is_lack_number = (input, minDigit) => input.length > minDigit
+const validation_is_lack_number = (input, minDigit) => input.length + 1 > minDigit
 
-const nameValidation = (input, fieldName, minDigit, maxDigit) => {
+const nameValidation = (input, fieldName, minDigit, maxDigit, isUserName) => {
     if (!input) {
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (
@@ -23,7 +23,9 @@ const nameValidation = (input, fieldName, minDigit, maxDigit) => {
         !validation_is_lack_number(input, minDigit)
     ) {
         return localize(`You should enter ${minDigit}-${maxDigit} characters.`)
-    } else if (affiliate_validation_regex.alphabet.test(input)) {
+    } else if (isUserName && !affiliate_validation_regex.user_name.test(input)) {
+        return localize('Only alphabet, numbers, and underscores are allowed')
+    } else if (!isUserName && affiliate_validation_regex.alphabet.test(input)) {
         return localize('Only alphabet is allowed')
     }
     return null
@@ -78,11 +80,14 @@ const passwordValidation = (input, fieldName, minDigit, maxDigit) => {
 }
 
 const validation = {
+    userName: (input) => {
+        return nameValidation(input, localize('First Name'), 6, 50, true)
+    },
     firstName: (input) => {
-        return nameValidation(input, localize('First Name'), 2, 50)
+        return nameValidation(input, localize('First Name'), 2, 5, false)
     },
     lastName: (input) => {
-        return nameValidation(input, localize('Last Name'), 2, 50)
+        return nameValidation(input, localize('Last Name'), 2, 50, false)
     },
     date: (input) => {
         return dateValidation(input, localize('Date'))

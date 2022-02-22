@@ -124,6 +124,17 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                 }) => {
                     const form_inputs = [
                         {
+                            id: 'dm-user-name-input',
+                            name: 'userName',
+                            type: 'text',
+                            error: errors.userName,
+                            value: values.userName,
+                            touch: touched.userName,
+                            label: localize('Username'),
+                            placeholder: 'Username',
+                            required: true,
+                        },
+                        {
                             id: 'dm-first-name-input',
                             name: 'firstName',
                             type: 'text',

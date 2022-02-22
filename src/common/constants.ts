@@ -10,6 +10,7 @@ export const affiliate_app_id = 30971
 
 export const affiliate_validation_regex = {
     alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
+    user_name: /^[a-zA-Z0-9_]+$/,
     phone: /^\+?((-|\s)*[0-9])*$/,
     password: /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]*$/,
 }

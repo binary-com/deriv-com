@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { desktop_pins, mobile_pins, MapPinType } from './_data'
 import { localize, LocalizedLink } from 'components/localization'
-import { SectionContainer, CssGrid, Show, Flex } from 'components/containers'
+import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
@@ -173,7 +173,7 @@ const OurOffices = () => {
             </StyledHeader>
 
             <Flex>
-                <Show.Desktop max_width="tabletL">
+                <Desktop>
                     <MapImage data={data['earth']}>
                         {desktop_pins.map((pin) => (
                             <MapPin
@@ -185,8 +185,8 @@ const OurOffices = () => {
                             />
                         ))}
                     </MapImage>
-                </Show.Desktop>
-                <Show.Mobile min_width="tabletL">
+                </Desktop>
+                <Mobile>
                     <MapImage data={data['earth_mobile']}>
                         {mobile_pins.map((pin) => (
                             <MapPin
@@ -198,7 +198,7 @@ const OurOffices = () => {
                             />
                         ))}
                     </MapImage>
-                </Show.Mobile>
+                </Mobile>
             </Flex>
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">

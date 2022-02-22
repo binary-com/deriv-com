@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import CFDWarning from './cfd-warning'
 import SearchBanner from 'pages/academy/components/_search-banner'
+import device from 'themes/device.js'
 
 // TODO is ppc props
 // TODO rename styles
@@ -41,7 +42,7 @@ const StyledNavMain = styled.nav<StyledNavMainProps>`
     position: relative;
     z-index: 1;
 
-    @media (max-width: 1060px) {
+    @media ${device.tabletL} {
         height: ${({ nav_height_mobile }) => nav_height_mobile || 'auto'};
     }
 `

@@ -1,15 +1,16 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import CFDWarning from './components/cfd-warning'
+import NavTemplate from './components/nav-template'
 import { LocalizedLink, localize } from 'components/localization'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import { QueryImage } from 'components/elements'
-import { Container, Flex, SectionContainer } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import device from 'themes/device.js'
 
 const ContentContainer = styled(Container)`
     justify-content: space-between;
+    height: 100%;
     @media ${device.tabletL} {
         justify-content: center;
     }
@@ -29,22 +30,7 @@ const ImgWrapper = styled.img`
         height: 10px;
     }
 `
-const Section = styled(SectionContainer)`
-    background-color: var(--color-black);
-    width: 100%;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    padding: 22px 1%;
-    height: 72px;
-    @media ${device.tabletL} {
-        padding: 16px;
-        height: 48px;
-    }
-    @media ${device.mobileL} {
-        padding: 16px 0;
-    }
-`
+
 const Line = styled.div`
     width: 1px;
     height: 28px;
@@ -68,34 +54,27 @@ const query = graphql`
     }
 `
 
-type NavJumpIndiceProps = {
-    is_ppc?: boolean
-}
-
-const NavJumpIndice = (props: NavJumpIndiceProps) => {
+const NavJumpIndice = () => {
     const data = useStaticQuery(query)
 
     return (
-        <>
-            <Section>
-                <ContentContainer>
-                    <LogoWrapper>
-                        <LogoLink to="/" aria-label={localize('Home')}>
-                            <QueryImage
-                                data={data['deriv']}
-                                alt={localize('Deriv')}
-                                max_width="16.4rem"
-                                width="100%"
-                                height="auto"
-                            />
-                        </LogoLink>
-                        <Line />
-                        <ImgWrapper src={GetTrading} />
-                    </LogoWrapper>
-                </ContentContainer>
-            </Section>
-            <CFDWarning {...props} />
-        </>
+        <NavTemplate nav_height_mobile="48px">
+            <ContentContainer>
+                <LogoWrapper>
+                    <LogoLink to="/" aria-label={localize('Home')}>
+                        <QueryImage
+                            data={data['deriv']}
+                            alt={localize('Deriv')}
+                            max_width="16.4rem"
+                            width="100%"
+                            height="auto"
+                        />
+                    </LogoLink>
+                    <Line />
+                    <ImgWrapper src={GetTrading} />
+                </LogoWrapper>
+            </ContentContainer>
+        </NavTemplate>
     )
 }
 

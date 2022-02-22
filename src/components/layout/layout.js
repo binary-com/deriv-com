@@ -3,7 +3,7 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
+import { Nav, NavStatic, NavPartners, NavInterim, NavSticky, NavSecurity } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
 import NavAcademy from './academy/nav-academy'
 import { NavCareers } from './nav-careers'
@@ -195,6 +195,10 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'security':
+            Navigation = <NavSecurity no_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
         case 'ebook':

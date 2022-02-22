@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import { VideoBannerProps } from '../../_video-banner'
 import VideoPlayer from '../_video-player'
 import VideoCarousel from './_VideoCarousel'
 import { convertDate, getVideoObject } from 'common/utility'
@@ -93,17 +93,17 @@ const AllVideosButton = styled(LinkButton)`
     }
 `
 
-const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
+const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: VideoBannerProps) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = () => setShow(true)
 
     let featured_video
-    if (featured_video_list && featured_video_list.length) {
-        featured_video = featured_video_list[0]
+    if (featured_video_list_data && featured_video_list_data.length) {
+        featured_video = featured_video_list_data[0]
     } else {
-        featured_video = non_featured_video_list[0]
-        non_featured_video_list.shift()
+        featured_video = non_featured_video_list_data[0]
+        non_featured_video_list_data.shift()
     }
 
     const {
@@ -201,7 +201,7 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
                             </Header>
                         </Flex>
                     </Flex>
-                    <VideoCarousel carousel_items={non_featured_video_list} />
+                    <VideoCarousel carousel_items={non_featured_video_list_data} />
                     <AllVideosButton tertiary_light="true" to="/academy/videos/">
                         See all videos
                     </AllVideosButton>
@@ -210,11 +210,6 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
             {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
         </>
     )
-}
-
-Dbanner.propTypes = {
-    featured_video_list: PropTypes.array,
-    non_featured_video_list: PropTypes.array,
 }
 
 export default Dbanner

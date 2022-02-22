@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Clock from './components/recent-featured-posts/images/clock.svg'
 import Dot from './components/recent-featured-posts/images/dot.svg'
@@ -29,11 +28,17 @@ import {
     DotIcon,
 } from './components/recent-featured-posts/_style'
 import { StandardImgWrapper } from './common/_styles'
+import { RecentDataType, FeaturedDataType } from './index'
 import { convertDate, getMinRead } from 'common/utility'
 import { QueryImage, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
+type RecentFeaturedPostsProps = {
+    recent_data: RecentDataType
+    featured_data: FeaturedDataType
+}
+
+const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPostsProps) => {
     let featureds, headline_featured
 
     if (featured_data) {
@@ -273,11 +278,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
             </AllArticleButton>
         </StyledContainer>
     )
-}
-
-RecentFeaturedPosts.propTypes = {
-    featured_data: PropTypes.array,
-    recent_data: PropTypes.array,
 }
 
 export default WithIntl()(RecentFeaturedPosts)

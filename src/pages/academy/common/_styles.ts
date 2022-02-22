@@ -22,11 +22,15 @@ export const Container = styled(Flex)`
     }
 `
 
-export const VideoGrid = styled.div`
+type VideoGridProps = {
+    margin?: string
+}
+
+export const VideoGrid = styled.div<VideoGridProps>`
     display: grid;
     width: 100%;
     height: 100%;
-    margin: ${(props) => props.m || props.margin};
+    margin: ${(props) => props.margin};
     grid-template-columns: repeat(auto-fit, minmax(288px, 384px));
     grid-row-gap: 40px;
     grid-column-gap: 24px;
@@ -34,10 +38,22 @@ export const VideoGrid = styled.div`
     justify-content: center;
 `
 
-export const StandardImgWrapper = styled.div`
+type StandardImgWrapperProps = {
+    width?: string
+    height?: string
+    border_radius?: string
+    tabletL_width?: string
+    tabletL_height?: string
+    tabletL_border_radius?: string
+    mobileL_width?: string
+    mobileL_height?: string
+    mobileL_border_radius?: string
+}
+
+export const StandardImgWrapper = styled.div<StandardImgWrapperProps>`
     width: ${(props) => (props.width ? props.width : '100%')};
     height: ${(props) => (props.height ? props.height : '100%')};
-    border-radius: ${(props) => (props.br ? props.br : '4px')};
+    border-radius: ${(props) => (props.border_radius ? props.border_radius : '4px')};
     overflow: hidden;
     position: relative;
     text-align: center;
@@ -53,23 +69,14 @@ export const StandardImgWrapper = styled.div`
     @media ${device.tabletL} {
         width: ${(props) => (props.tabletL_width ? props.tabletL_width : '100%')};
         height: ${(props) => (props.tabletL_height ? props.tabletL_height : '100%')};
-        border-radius: ${(props) => (props.tabletL_br ? props.tabletL_br : '4px')};
+        border-radius: ${(props) =>
+            props.tabletL_border_radius ? props.tabletL_border_radius : '4px'};
     }
 
     @media ${device.mobileL} {
-        width: ${(props) =>
-            props.mobileL_width
-                ? props.mobileL_width
-                : props.tabletL_width
-                ? props.tabletL_width
-                : '100%'};
-        height: ${(props) =>
-            props.mobileL_height
-                ? props.mobileL_height
-                : props.tabletL_height
-                ? props.tabletL_height
-                : '100%'};
+        width: ${(props) => props.mobileL_width ?? props.tabletL_width ?? '100%'};
+        height: ${(props) => props.mobileL_height ?? props.tabletL_height ?? '100%'};
         border-radius: ${(props) =>
-            props.mobileL_br ? props.mobileL_br : props.tabletL_br ? props.tabletL_br : '4px'};
+            props.mobileL_border_radius ?? props.tabletL_border_radius ?? '4px'};
     }
 `

@@ -6,17 +6,22 @@ import useGTMData from '../hooks/use-gtm-data'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
-import NavInterim from './nav/nav-interim'
-import NavPartners from './nav/nav-partner'
 import Nav from './nav/nav'
-import NavJumpIndice from './nav/nav-jump-indices'
-import NavCareers from './nav/nav-careers'
 import NavSticky from './nav/nav-sticky'
+import NavCareers from './nav/nav-careers'
+import NavPartners from './nav/nav-partner'
+import NavInterim from './nav/nav-interim'
+import NavJumpIndice from './nav/nav-jump-indices'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+import { Localize } from 'components/localization'
+import { Text } from 'components/elements'
+import device from 'themes/device'
+import { Container } from 'components/containers'
+import { loss_percent } from 'common/constants'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -26,6 +31,82 @@ const has_dataLayer = isBrowser() && window.dataLayer
 
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
+
+const CFDWrapper = styled.section`
+    background-color: var(--color-grey-25);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 7.4rem;
+    height: fit-content;
+    padding: 1.7rem 0 1.5rem;
+    position: fixed;
+    bottom: 0;
+    box-shadow: inset 0 1px 0 0 var(--color-grey-21);
+    z-index: 100;
+    @media (max-width: 826px) {
+        padding: 0.8rem 0;
+        height: 12.4rem;
+    }
+    @media (max-width: 710px) {
+        height: 10.8rem;
+    }
+    @media (max-width: 538px) {
+        height: 14rem;
+    }
+`
+
+const CFDContainer = styled(Container)`
+    @media ${device.bp1060} {
+        width: 90%;
+    }
+    @media ${device.tabletL} {
+        width: 95%;
+    }
+    @media ${device.tabletS} {
+        margin: 1rem auto;
+    }
+    @media ${device.mobileL} {
+        margin: 2rem auto;
+    }
+    @media ${device.mobileM} {
+        margin: 1rem auto;
+    }
+`
+
+const CFDText = styled(Text)`
+    @media ${device.bp1060} {
+        font-size: 14px;
+    }
+    @media ${device.tablet} {
+        font-size: 12px;
+    }
+    @media ${device.mobileL} {
+        font-size: 10px;
+    }
+`
+
+export const CFDWarning = ({ is_ppc }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+    if (is_ppc || is_eu_country) {
+        return (
+            <CFDWrapper>
+                <CFDContainer>
+                    <CFDText>
+                        <Localize
+                            translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>{{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                            values={{ loss_percent }}
+                            components={[<strong key={0} />]}
+                        />
+                    </CFDText>
+                </CFDContainer>
+            </CFDWrapper>
+        )
+    }
+    return <></>
+}
 
 const Main = styled.main`
     margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
@@ -100,7 +181,7 @@ const Layout = ({
             Navigation = <NavInterim interim_type={interim_type} />
             break
         case 'partners':
-            Navigation = <NavPartners no_login_signup={no_login_signup} />
+            Navigation = <NavPartners hide_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
         case 'ebook':
@@ -124,7 +205,7 @@ const Layout = ({
             FooterNav = <Footer no_language={true} type={type} />
             break
         case 'about-us':
-            Navigation = <NavSticky is_ppc={is_ppc} />
+            Navigation = <NavSticky is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
@@ -165,6 +246,10 @@ const Layout = ({
             />
         </LocationProvider>
     )
+}
+
+CFDWarning.propTypes = {
+    is_ppc: PropTypes.bool,
 }
 
 Layout.propTypes = {

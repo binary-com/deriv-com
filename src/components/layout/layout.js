@@ -119,6 +119,7 @@ const Layout = ({
     is_ppc,
     is_ppc_redirect,
     margin_top,
+    no_languageSwitcher,
     no_live_chat,
     no_login_signup,
     type,
@@ -198,7 +199,8 @@ const Layout = ({
             FooterNav = <Footer />
             break
         case 'landing-page':
-            Navigation = <JumpIndicesNav />
+            Navigation = <NavInterim no_button={true} no_languageSwitcher={no_languageSwitcher} />
+            FooterNav = <Footer no_footerlinks={true} />
             break
         case 'jump-indices':
             Navigation = <JumpIndicesNav />
@@ -267,6 +269,7 @@ Layout.propTypes = {
     is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     nav_type: PropTypes.string,
+    no_languageSwitcher: PropTypes.bool,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,
     type: PropTypes.string,

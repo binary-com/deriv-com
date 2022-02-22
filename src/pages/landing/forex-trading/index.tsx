@@ -71,7 +71,7 @@ const DP2P_CONTENT = [
 const ForexTrading = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix the second Hero-component during page's loading
     return (
-        <Layout type="landing-page" is_ppc_redirect={true}>
+        <Layout type="landing-page" is_ppc_redirect={true} no_languageSwitcher={true}>
             <SEO
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}

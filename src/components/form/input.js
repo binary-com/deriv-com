@@ -69,8 +69,8 @@ const StyledError = styled.img`
 `
 
 const StyledInput = styled.input`
-    background: ${({ inputBackground }) =>
-        inputBackground ? `var(--color-${inputBackground})` : 'none'};
+    background: ${({ input_background }) =>
+        input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
@@ -107,8 +107,8 @@ const StyledInput = styled.input`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: ${({ labelFocusColor }) =>
-                labelFocusColor ? `var(--color-${labelFocusColor})` : 'var(--color-green)'};
+            color: ${({ label_focus_color }) =>
+                label_focus_color ? `var(--color-${label_focus_color})` : 'var(--color-green)'};
             background-color: ${({ background }) =>
                 background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 

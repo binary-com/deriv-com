@@ -311,8 +311,8 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             value={email}
                             background="white"
                             tablet_background="green-1"
-                            inputBackground="grey-8"
-                            labelFocusColor="grey-7"
+                            input_background="grey-8"
+                            label_focus_color="grey-7"
                             label_color="black-3"
                             labelSize="16px"
                             labelTop="1.2rem"

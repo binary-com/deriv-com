@@ -73,8 +73,8 @@ const AboutDeriv = () => {
                         type="paragraph-1"
                         weight="normal"
                         as="p"
-                        mb="24px"
-                        laptopM={{ mb: '20px' }}
+                        mb="16px"
+                        laptopM={{ mb: '14px' }}
                     >
                         <Localize translate_text="We provide online trading services to over 2 million clients via desktop and mobile applications across multiple platforms." />
                     </Header>

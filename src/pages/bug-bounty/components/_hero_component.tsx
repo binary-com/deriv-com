@@ -15,8 +15,7 @@ const StyledContainer = styled(Container)`
     padding: 160px 222px;
 
     @media ${device.tabletL} {
-        padding: 80px 16px;
-        align-items: flex-start;
+        padding: 120px 16px;
         width: 100%;
     }
 `

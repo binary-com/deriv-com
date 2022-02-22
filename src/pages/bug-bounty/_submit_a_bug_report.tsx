@@ -45,8 +45,8 @@ const TextWrap = styled.div`
 `
 
 const ImageWrap = styled.div`
-    width: 328px;
-    padding: 32px 0 0 32px;
+    width: 320px;
+    margin: 32px 0 0 32px;
     @media ${device.tabletL} {
         padding: 24px 0 0;
         margin: 0 auto;
@@ -108,7 +108,7 @@ const SubmitABugReport = () => {
                     p="0 18px"
                     align="center"
                     type="paragraph-2"
-                    mt="8px"
+                    mt="16px"
                     as="p"
                     weight="normal"
                 >

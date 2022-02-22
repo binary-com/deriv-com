@@ -25,14 +25,9 @@ const Card = styled(Flex)`
     margin: 0 12px;
 
     @media ${device.laptopM} {
-        height: 395px;
         min-width: 284px;
         margin: 12px;
-        padding: 12px;
-    }
-
-    @media ${device.tabletL} {
-        height: 296px;
+        padding: 24px;
     }
 `
 
@@ -101,7 +96,7 @@ const card_content = [
 ]
 
 const StyledSectionContainer = styled(SectionContainer)`
-    box-shadow: inset 0px -1px 0px var(--color-grey-8);
+    box-shadow: inset 0 -1px 0 var(--color-grey-8);
 `
 
 const Rewards = () => {

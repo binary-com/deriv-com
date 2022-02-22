@@ -23,14 +23,9 @@ const Card = styled.div`
 
     @media ${device.tabletL} {
         margin-left: 0;
-        margin-top: 2.4rem;
+        margin-top: 24px;
+        padding: 16px 24px;
     }
-`
-
-const ListWrap = styled.div`
-    display: flex;
-    margin-top: 1.6rem;
-    align-items: flex-start;
 `
 
 const IconWrap = styled.img`

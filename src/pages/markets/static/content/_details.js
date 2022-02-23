@@ -63,7 +63,7 @@ export const ContinuousIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%.',
             )}
         </Text>
         <Text>
@@ -85,7 +85,18 @@ export const CrashBoomDetails = () => (
     <DetailsContainer>
         <CrashText>
             <Localize
-                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000 or 500 ticks</0>."
+                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000, 500, or 300 ticks</0>."
+                components={[<strong key={0} />]}
+            />
+        </CrashText>
+    </DetailsContainer>
+)
+
+export const CrashBoomMultipliersDetails = () => (
+    <DetailsContainer>
+        <CrashText>
+            <Localize
+                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000, or 500 ticks</0>."
                 components={[<strong key={0} />]}
             />
         </CrashText>
@@ -141,7 +152,7 @@ export const EuropeDetails = (index) => {
         </Text>,
         <Text key={4}>
             <Localize
-                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 40</0> follows the stock performance of the 40 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -239,7 +250,7 @@ export const VolatilityIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 200%, and 300%.',
             )}
         </Text>
         <Text>
@@ -250,7 +261,7 @@ export const VolatilityIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 200 (1s), and 300 (1s)</0>."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -351,7 +362,7 @@ export const EuropeanIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 40</0> follows the stock performance of the 40 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>

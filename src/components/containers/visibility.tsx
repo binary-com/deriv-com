@@ -1,8 +1,9 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { DerivStore } from 'store'
+import { eu_domains, uk_domains } from 'common/constants'
 
 type ResponsiveContainerProps = {
     children: ReactElement
@@ -26,6 +27,7 @@ const DesktopLayer = styled.div<LayerProps>`
         display: none;
     }
 `
+
 const MobileLayer = styled.div<LayerProps>`
     @media (min-width: ${({ breakpoint }) => breakpoint}px) {
         display: none;
@@ -38,11 +40,12 @@ const domainBasedCheck = () => {
 
     useEffect(() => {
         if (window) {
-            const host_name = window.location.hostname
-            if (host_name.includes('eu')) {
+            const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+
+            if (eu_domains.includes(subdomain)) {
                 setEuDomain(true)
             }
-            if (host_name.includes('uk')) {
+            if (uk_domains.includes(subdomain)) {
                 setUkDomain(true)
             }
         }
@@ -65,6 +68,20 @@ const deviceRenderer = (): boolean => {
     return is_loaded
 }
 
+export const getCountryRule = () => {
+    const { is_eu_domain, is_uk_domain } = domainBasedCheck()
+    const { is_eu_country, is_uk_country } = useContext<StoreDataType>(DerivStore)
+
+    const is_eu = (is_eu_country || is_eu_domain) && !is_uk_country
+    const is_uk = is_uk_country || is_uk_domain
+    const is_non_uk = !is_uk
+    const is_non_eu = !is_eu
+    const is_eu_uk = !(!is_eu && !is_uk)
+    const is_row = !is_eu_uk
+
+    return { is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row }
+}
+
 export const Desktop = ({
     children,
     breakpoint = DEFAULT_BREAKPOINT,
@@ -74,7 +91,7 @@ export const Desktop = ({
     const [is_mobile] = useBrowserResize(breakpoint_size)
     const is_loaded = deviceRenderer()
 
-    const desktop_view = is_mobile ? <></> : <div className={className}>{children}</div>
+    const desktop_view = is_mobile ? <></> : <>{children}</>
 
     return is_loaded ? (
         desktop_view
@@ -102,47 +119,37 @@ export const Mobile = ({
 }
 
 export const EU = ({ children }: ResponsiveContainerProps) => {
-    const { is_eu_domain } = domainBasedCheck()
-    const { is_eu_country } = React.useContext<StoreDataType>(DerivStore)
-
-    const is_eu = is_eu_country || is_eu_domain
+    const { is_eu } = getCountryRule()
 
     return is_eu ? <>{children}</> : null
 }
 
 export const NonEU = ({ children }: ResponsiveContainerProps) => {
-    const { is_eu_domain } = domainBasedCheck()
-    const { is_eu_country } = React.useContext<StoreDataType>(DerivStore)
+    const { is_non_eu } = getCountryRule()
 
-    const is_eu = is_eu_domain || is_eu_country
-
-    return !is_eu ? <>{children}</> : null
+    return is_non_eu ? <>{children}</> : null
 }
 
 export const UK = ({ children }: ResponsiveContainerProps) => {
-    const { is_uk_domain } = domainBasedCheck()
-    const { is_uk_country } = React.useContext<StoreDataType>(DerivStore)
-
-    const is_uk = is_uk_country || is_uk_domain
+    const { is_uk } = getCountryRule()
 
     return is_uk ? <>{children}</> : null
 }
 
 export const NonUK = ({ children }: ResponsiveContainerProps) => {
-    const { is_uk_domain } = domainBasedCheck()
-    const { is_uk_country } = React.useContext<StoreDataType>(DerivStore)
+    const { is_non_uk } = getCountryRule()
 
-    const is_uk = is_uk_domain || is_uk_country
+    return is_non_uk ? <>{children}</> : null
+}
 
-    return !is_uk ? <>{children}</> : null
+export const UKEU = ({ children }: ResponsiveContainerProps) => {
+    const { is_eu_uk } = getCountryRule()
+
+    return is_eu_uk ? <>{children}</> : null
 }
 
 export const ROW = ({ children }: ResponsiveContainerProps) => {
-    const { is_uk_domain, is_eu_domain } = domainBasedCheck()
-    const { is_uk_country, is_eu_country } = React.useContext<StoreDataType>(DerivStore)
+    const { is_row } = getCountryRule()
 
-    const is_uk = is_uk_country || is_uk_domain
-    const is_eu = is_eu_domain || is_eu_country
-
-    return !is_eu && !is_uk ? <>{children}</> : null
+    return is_row ? <>{children}</> : null
 }

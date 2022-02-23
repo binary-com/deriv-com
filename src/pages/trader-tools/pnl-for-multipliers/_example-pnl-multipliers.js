@@ -571,19 +571,19 @@ export const TakeProfitAmountUp = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue ml="170px">
+                            <FormulaValue mb="0" ml="170px">
                                 <FormulaGreen> = </FormulaGreen>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue mb="0">
                                 <Localize translate_text="Max (6.83, -10)" />
                             </FormulaValue>
 
-                            <FormulaValue width="20px">
+                            <FormulaValue mb="0" width="20px">
                                 <FormulaGreen>=</FormulaGreen>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue mb="0">
                                 <Localize
                                     translate_text="<0>6.83</0>"
                                     components={[<FormulaGreen key={0} />]}
@@ -848,19 +848,19 @@ export const StopLossAmountDown = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue ml="170px">
+                            <FormulaValue mb="0" ml="170px">
                                 <FormulaGreen> = </FormulaGreen>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue mb="0">
                                 <Localize translate_text="Max (-7.23, -10)" />
                             </FormulaValue>
 
-                            <FormulaValue width="20px">
+                            <FormulaValue mb="0" width="20px">
                                 <FormulaGreen>=</FormulaGreen>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue mb="0">
                                 <Localize
                                     translate_text="<0>-7.23</0>"
                                     components={[<FormulaGreen key={0} />]}

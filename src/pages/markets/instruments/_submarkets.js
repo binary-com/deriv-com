@@ -2,19 +2,14 @@ import Americas from './_americas'
 import AsiaOceania from './_asia-oceania'
 import ContinuousIndices from './_continuous-indices'
 import CrashBoom from './_crash-boom'
-import CrashBoomMultipliers from './_crash-boom-multipliers'
 import CrashBoomEU from './_crash-boom-eu'
 import DailyResetIndices from './_daily-reset-indices'
-import EnergyCFDs from './_energy-cfds'
-import EnergyOptions from './_energy-options'
+import Energy from './_energy'
 import Europe from './_europe'
 import ExoticPairs from './_exotic-pairs'
 import MajorPairs from './_major-pairs'
-import MicroPairs from './_micro_pairs'
-import MetalsCFDs from './_metals-cfds'
-import MetalsOptions from './_metals-options'
-import MinorPairsCFDS from './_minor-pairs-cfds'
-import MinorPairsOptions from './_minor-pairs-options'
+import Metals from './_metals'
+import MinorPairs from './_minor-pairs'
 import RangeBreak from './_range-break'
 import SmartFX from './_smartfx'
 import StepIndices from './_step-indices'
@@ -35,23 +30,18 @@ export {
     AsiaOceania,
     ContinuousIndices,
     CrashBoom,
-    CrashBoomMultipliers,
     CrashBoomEU,
     CryptocurrenciesMultipliers,
     CryptocurrenciesCFDs,
     CryptocurrenciesTradeType,
     DailyResetIndices,
-    EnergyCFDs,
-    EnergyOptions,
+    Energy,
     Europe,
     ExoticPairs,
     JumpIndices,
     MajorPairs,
-    MetalsCFDs,
-    MetalsOptions,
-    MinorPairsCFDS,
-    MinorPairsOptions,
-    MicroPairs,
+    Metals,
+    MinorPairs,
     RangeBreak,
     SmartFX,
     StepIndices,

@@ -13,9 +13,8 @@ import Forex from 'images/svg/markets/forex.svg'
 import StockIndices from 'images/svg/markets/stock.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic.svg'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 
-const markets_type_non_uk = {
+const markets_type = {
     forex: {
         // eslint-disable-next-line react/display-name
         icon: () => <img src={Forex} alt="" width="64" height="64" />,
@@ -46,6 +45,7 @@ const markets_type_non_uk = {
         to: '/markets/stock/',
         id: 'marketstockothermarkets',
     },
+
     commodities: {
         // eslint-disable-next-line react/display-name
         icon: () => <img src={Commodities} alt="" width="64" height="64" />,
@@ -56,6 +56,7 @@ const markets_type_non_uk = {
         to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
     },
+
     cryptocurrencies: {
         // eslint-disable-next-line react/display-name
         icon: () => <img src={Cryptocurrencies} alt="" width="64" height="64" />,
@@ -65,39 +66,6 @@ const markets_type_non_uk = {
         ),
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
-    },
-}
-
-const markets_type_uk = {
-    forex: {
-        // eslint-disable-next-line react/display-name
-        icon: () => <img src={Forex} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Forex" />,
-        content: (
-            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
-        ),
-        to: '/markets/forex/',
-        id: 'marketforexothermarkets',
-    },
-    stock_indices: {
-        // eslint-disable-next-line react/display-name
-        icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Stocks & indices" />,
-        content: (
-            <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
-        ),
-        to: '/markets/stock/',
-        id: 'marketstockothermarkets',
-    },
-    commodities: {
-        // eslint-disable-next-line react/display-name
-        icon: () => <img src={Commodities} alt="" width="64" height="64" />,
-        title: <Localize translate_text="Commodities" />,
-        content: (
-            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
-        ),
-        to: '/markets/commodities/',
-        id: 'marketcommoditiesothermarket',
     },
 }
 const LearnMore = styled(LocalizedLink)`
@@ -159,7 +127,6 @@ const StyledFlex = styled(Flex)`
     background-color: var(--color-white);
     top: 0;
     min-height: 29.6rem;
-    margin-left: 2rem;
 
     ${LearnMore} {
         img {
@@ -170,8 +137,6 @@ const StyledFlex = styled(Flex)`
     }
 `
 const Card = ({ name }) => {
-    const { is_uk_country } = React.useContext(DerivStore)
-    const markets_type = is_uk_country ? markets_type_uk : markets_type_non_uk
     const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[name].icon
 
@@ -202,8 +167,6 @@ const Card = ({ name }) => {
     )
 }
 const MobileCard = ({ name }) => {
-    const { is_uk_country } = React.useContext(DerivStore)
-    const markets_type = is_uk_country ? markets_type_uk : markets_type_non_uk
     const Icon = markets_type[name].icon
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
@@ -254,10 +217,13 @@ const MobileCardContainer = styled(Flex)`
     }
 `
 const OtherMarkets = ({ except }) => {
-    const { is_uk_country } = React.useContext(DerivStore)
-    const markets = !is_uk_country
-        ? ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities', 'cryptocurrencies']
-        : ['forex', 'stock_indices', 'commodities']
+    const markets = [
+        'forex',
+        'Synthetic_Indices',
+        'stock_indices',
+        'commodities',
+        'cryptocurrencies',
+    ]
     return (
         <SectionContainer margin="auto" background="white">
             <Show.Desktop max_width="laptopM">
@@ -269,7 +235,7 @@ const OtherMarkets = ({ except }) => {
                         <Wrapper>
                             <CardWrapper
                                 max_width="120rem"
-                                jc="center"
+                                jc="space-around"
                                 position="absolute"
                                 max_height="320rem"
                             >

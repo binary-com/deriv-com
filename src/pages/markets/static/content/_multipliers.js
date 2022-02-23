@@ -1,9 +1,8 @@
 import React from 'react'
 import {
-    CrashBoomMultipliers,
-    CrashBoomEU,
     ContinuousIndices,
-    JumpIndices,
+    CrashBoom,
+    CrashBoomEU,
     MajorPairs,
     StepIndices,
     CryptocurrenciesMultipliers,
@@ -11,14 +10,13 @@ import {
     SmartFX,
 } from '../../instruments/_submarkets'
 import {
-    CrashBoomMultipliersDetails,
-    CrashBoomDetailsEU,
     ContinuousIndicesDetails,
+    CrashBoomDetails,
+    CrashBoomDetailsEU,
     StepIndicesDetails,
     CryptocurrenciesDetails,
     VolatilityIndicesDetailsEU,
     SmartFXDetails,
-    JumpIndicesDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -41,20 +39,6 @@ export const forex_multiplier = {
     ],
 }
 
-export const forex_multiplier_eu = {
-    markets_list: {
-        col: 4,
-        tablet_col: 3,
-        mobile_col: 2,
-    },
-    content: [
-        {
-            title: <Localize translate_text="Major pairs" />,
-            component: <MajorPairs />,
-        },
-    ],
-}
-
 export const synthetic_multiplier = {
     has_global_accordion: true,
     content: [
@@ -68,13 +52,8 @@ export const synthetic_multiplier = {
             mobile_title: (
                 <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
             ),
-            component: <CrashBoomMultipliers />,
-            details: CrashBoomMultipliersDetails,
-        },
-        {
-            title: <Localize translate_text="Jump indices" />,
-            component: <JumpIndices />,
-            details: JumpIndicesDetails,
+            component: <CrashBoom />,
+            details: CrashBoomDetails,
         },
         {
             title: <Localize translate_text="Step indices" />,
@@ -119,7 +98,7 @@ export const crypto_multiplier = {
     has_global_accordion: true,
     content: [
         {
-            title: <Localize translate_text="Crypto pairs" />,
+            title: <Localize translate_text="Cryptocurrencies" />,
             component: <CryptocurrenciesMultipliers />,
             details: CryptocurrenciesDetails,
         },

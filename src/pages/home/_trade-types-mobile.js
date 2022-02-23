@@ -138,7 +138,7 @@ const TradeTypesMobile = () => {
             is_displayed_on_mobile: true,
         },
         navigation_style: {
-            nav_color: '--color-grey-33',
+            nav_color: 'grey-33',
             bottom_offset: '24px',
         },
         view_port: {

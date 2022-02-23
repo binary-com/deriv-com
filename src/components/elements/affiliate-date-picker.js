@@ -82,7 +82,7 @@ const DayPickerWrapper = styled.div`
 `
 const StyledLabel = styled.label`
     /* stylelint-disable */
-    color: var(--color-${({ labelColor }) => labelColor || 'grey'});
+    color: var(--color-${({ label_color }) => label_color || 'grey'});
     /* stylelint-enable */
     font-size: var(--text-size-xs);
     position: absolute;
@@ -105,8 +105,8 @@ const AffiliateDatePicker = (props) => {
         setFieldValue,
         setFieldTouched,
         label,
-        labelColor,
-        tabletBackground,
+        label_color,
+        tablet_background,
         isAffiliate,
         labelFocusColor,
     } = props
@@ -150,10 +150,10 @@ const AffiliateDatePicker = (props) => {
                 clearIcon={null}
             />
             <StyledLabel
-                tabletBackground={tabletBackground}
+                tablet_background={tablet_background}
                 error={error}
                 htmlFor={id}
-                labelColor={labelColor}
+                label_color={label_color}
                 isAffiliate={isAffiliate}
                 isDateField={isDateField}
             >
@@ -168,12 +168,12 @@ AffiliateDatePicker.propTypes = {
     id: PropTypes.string,
     isAffiliate: PropTypes.bool,
     label: PropTypes.string,
-    labelColor: PropTypes.string,
+    label_color: PropTypes.string,
     labelFocusColor: PropTypes.string,
     placeholder: PropTypes.string,
     setFieldTouched: PropTypes.func,
     setFieldValue: PropTypes.func,
-    tabletBackground: PropTypes.string,
+    tablet_background: PropTypes.string,
 }
 
 export default AffiliateDatePicker

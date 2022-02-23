@@ -159,7 +159,7 @@ const EmployeeTestimonialCarousel = () => {
         },
         navigation_style: {
             bottom_offset: '0px',
-            nav_color: '--color-red',
+            nav_color: 'red',
         },
         view_port: {
             height: 'auto',

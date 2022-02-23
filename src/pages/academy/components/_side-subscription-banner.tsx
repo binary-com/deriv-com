@@ -294,7 +294,7 @@ const SideSubscriptionBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your name"
-                            focusBorder="var(--color-grey-6)"
+                            focus_border="var(--color-grey-6)"
                             autoComplete="off"
                             id="name"
                             name="text"
@@ -325,7 +325,7 @@ const SideSubscriptionBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your email address"
-                            focusBorder="var(--color-grey-6)"
+                            focus_border="var(--color-grey-6)"
                             autoComplete="off"
                             id="email"
                             name="email"

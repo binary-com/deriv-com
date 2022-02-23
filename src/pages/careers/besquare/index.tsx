@@ -24,7 +24,7 @@ const meta_attributes = {
 }
 
 const BeSquare = () => (
-    <Layout type="careers">
+    <Layout type="besquare">
         <SEO
             title={'IT graduate programme for Malaysians | BeSquare by Deriv'}
             description={

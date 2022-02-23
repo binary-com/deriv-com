@@ -15,7 +15,7 @@ const ReasonHeader = styled(Header)`
 `
 
 const Reason = styled.div`
-    width: 38.4rem;
+    width: 39.4rem;
     margin-top: 4rem;
 
     &:nth-child(2) {

@@ -50,11 +50,6 @@ const TitleWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         margin: 0 auto 16px;
-
-        ${Header} {
-            font-size: 20px;
-            line-height: 25px;
-        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -125,12 +120,12 @@ const MinimumVolume = () => {
         <StyledSection>
             <Container direction="column">
                 <TitleWrapper direction="column">
-                    <Header as="h2" type="sub-section-title" align="center" mb="0.8rem">
+                    <Header type="heading-3" align="center" mb="0.8rem">
                         {localize('Minimum volume requirement')}
                     </Header>
-                    <Text size="24px" align="center">
+                    <Header weight="400" as="h4" type="subtitle-1" align="center">
                         <Localize translate_text="To receive the minimum commission (0.01 in any currency) allowed by the system, the minimum volume requirement is calculated based on the following formulas:" />
-                    </Text>
+                    </Header>
                 </TitleWrapper>
                 <ExampleWrapper>
                     <StyledHeader as="h4" type="main-paragraph" mb="2.4rem">

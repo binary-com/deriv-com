@@ -63,11 +63,11 @@ const VideoWrapper = styled.div`
     width: 100%;
 `
 
-type StepCommonTypes = {
+type StepCommonType = {
     no_margin: string
 }
 
-const StepCommon = css<StepCommonTypes>`
+const StepCommon = css<StepCommonType>`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;

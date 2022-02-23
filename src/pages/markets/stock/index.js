@@ -9,7 +9,6 @@ import { SEO } from 'components/containers'
 import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
 import WithdrawIcon from 'images/svg/markets/withdraw.svg'
-import { DerivStore } from 'store'
 
 const simple_step_content_stock = [
     {
@@ -35,23 +34,19 @@ const simple_step_content_stock = [
     },
 ]
 
-const StocksAndIndicesPage = () => {
-    const { is_uk_country } = React.useContext(DerivStore)
-
-    return (
-        <Layout>
-            <SEO
-                description={localize(
-                    'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',
-                )}
-                title={localize('Stock market | Indices trading | Deriv')}
-            />
-            <Hero />
-            <NavTab route_from={'stock'} route_offset={is_uk_country ? 100 : 240} />
-            <StockIndices simple_step_content={simple_step_content_stock} />
-            <Signup appearance={Appearances.public} />
-        </Layout>
-    )
-}
+const StocksAndIndicesPage = () => (
+    <Layout>
+        <SEO
+            description={localize(
+                'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',
+            )}
+            title={localize('Stock market | Indices trading | Deriv')}
+        />
+        <Hero />
+        <NavTab route_from={'stock'} route_offset={240} />
+        <StockIndices simple_step_content={simple_step_content_stock} />
+        <Signup appearance={Appearances.public} />
+    </Layout>
+)
 
 export default WithIntl()(StocksAndIndicesPage)

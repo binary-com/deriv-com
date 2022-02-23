@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const TabsContainer = styled(Flex)`
@@ -81,7 +80,7 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 
-const tab_list = [
+const tabList = [
     {
         title: <Localize translate_text="Forex" />,
         tab_name: 'forex',
@@ -109,27 +108,7 @@ const tab_list = [
     },
 ]
 
-const tab_list_uk = [
-    {
-        title: <Localize translate_text="Forex" />,
-        tab_name: 'forex',
-        route_to: '/markets/forex/',
-    },
-    {
-        title: <Localize translate_text="Stocks & indices" />,
-        tab_name: 'stock',
-        route_to: '/markets/stock/',
-    },
-    {
-        title: <Localize translate_text="Commodities" />,
-        tab_name: 'commodities',
-        route_to: '/markets/commodities/',
-    },
-]
-
 const NavTab = ({ route_from, route_offset }) => {
-    const { is_uk_country } = React.useContext(DerivStore)
-
     const ref = useRef(null)
 
     useEffect(() => {
@@ -140,7 +119,7 @@ const NavTab = ({ route_from, route_offset }) => {
         <TabsContainer>
             <Flex direction="column">
                 <TabList ref={ref}>
-                    {(is_uk_country ? tab_list_uk : tab_list).map((item, index) => {
+                    {tabList.map((item, index) => {
                         return (
                             <TabButton selected={route_from == item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>
@@ -149,6 +128,7 @@ const NavTab = ({ route_from, route_offset }) => {
                             </TabButton>
                         )
                     })}
+
                     <LineDivider />
                 </TabList>
             </Flex>

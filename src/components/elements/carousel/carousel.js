@@ -140,6 +140,7 @@ export const Carousel = ({
         chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
     const { nav_color, bottom_offset, height } = navigation_style || {}
+
     return (
         <div style={container_style}>
             <Embla>

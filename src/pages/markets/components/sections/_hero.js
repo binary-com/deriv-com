@@ -6,7 +6,6 @@ import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { useLazyVideo } from 'components/hooks/use-lazy-video'
 import { localize } from 'components/localization'
-import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const BackgroundWrapper = styled.div`
@@ -67,8 +66,6 @@ const MarketSubHeader = styled(Header)`
     }
 `
 export const Hero = () => {
-    const { is_uk_country } = React.useContext(DerivStore)
-
     useLazyVideo()
 
     return (
@@ -91,13 +88,9 @@ export const Hero = () => {
                     align="center"
                     mt="1.6rem"
                 >
-                    {!is_uk_country
-                        ? localize(
-                              'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, stock indices, and cryptocurrencies.',
-                          )
-                        : localize(
-                              'Learn about the markets that you can trade online with Deriv, including forex, commodities, stocks, and stock indices.',
-                          )}
+                    {localize(
+                        'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, stock indices, and cryptocurrencies.',
+                    )}
                 </MarketSubHeader>
             </StyledContainer>
         </BackgroundWrapper>

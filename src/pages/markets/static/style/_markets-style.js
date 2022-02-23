@@ -149,7 +149,6 @@ export const SymbolContainer = styled(Flex)`
     width: fit-content;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 2px;
 
     img {
         width: 32px;

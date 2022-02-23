@@ -9,15 +9,21 @@ export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
 
-export const supported_domains = [deriv_com_url, deriv_me_url]
-export const domains = [...supported_domains, 'localhost', 'deriv-com-git-fork'] //deriv-com-git-fork for vercel server, localhost - for developer mode
-
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
     [deriv_me_url]: deriv_me_url,
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
 }
+
+export const domains = [
+    deriv_com_url,
+    deriv_me_url,
+    deriv_be_url,
+    staging_deriv_be_url,
+    'localhost',
+    'deriv-com-git-fork',
+] //deriv-com-git-fork for vercel server, localhost - for developer mode
 
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair

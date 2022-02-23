@@ -483,25 +483,22 @@ export const TakeProfitAmountUp = () => {
                                 </PointerContainer>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="30px">
                                 <FormulaGreen> x </FormulaGreen>
                             </FormulaValue>
 
                             <FormulaValue>
                                 <Localize translate_text="((3400" />
-                                <PointerContainer top>
+                                <PointerContainer>
                                     <PointerDot />
-                                    <PointerStick />
-                                    <PointerText top>
-                                        <Localize translate_text="profit amount " />
-                                    </PointerText>
+                                    <PointerStick height="70px" />
                                     <PointerText>
-                                        <Localize translate_text="Stop loss or take" />
+                                        <Localize translate_text="Stop loss or take profit amount " />
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="30px">
                                 <FormulaGreen>-</FormulaGreen>
                             </FormulaValue>
 
@@ -516,7 +513,7 @@ export const TakeProfitAmountUp = () => {
                                 </PointerContainer>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="30px">
                                 <FormulaGreen> &divide; </FormulaGreen>
                             </FormulaValue>
 
@@ -530,13 +527,13 @@ export const TakeProfitAmountUp = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen> x </FormulaGreen>
                             </FormulaValue>
 
                             <FormulaValue>
                                 <Localize translate_text="100)" />
-                                <PointerContainer top>
+                                <PointerContainer top ml="10px">
                                     <PointerDot />
                                     <PointerStick />
                                     <PointerText top>
@@ -544,15 +541,15 @@ export const TakeProfitAmountUp = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen>- </FormulaGreen>
                             </FormulaValue>
                             <FormulaValue>
                                 <Localize translate_text="0.2}," />
                                 <PointerContainer>
                                     <PointerDot />
-                                    <PointerStick />
-                                    <PointerText>
+                                    <PointerStick height="55px" />
+                                    <PointerText ml="25px">
                                         <Localize
                                             translate_text="Commission<0>1</0>"
                                             components={[<Sup key={0} />]}
@@ -560,21 +557,21 @@ export const TakeProfitAmountUp = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen> - </FormulaGreen>
                             </FormulaValue>
 
                             <FormulaValue>
                                 <Localize translate_text="-10]" />
-                                <PointerContainer>
+                                <PointerContainer top>
                                     <PointerDot />
                                     <PointerStick />
-                                    <PointerText>
+                                    <PointerText top>
                                         <Localize translate_text="Stake" />
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue>
+                            <FormulaValue ml="170px">
                                 <FormulaGreen> = </FormulaGreen>
                             </FormulaValue>
 
@@ -582,7 +579,7 @@ export const TakeProfitAmountUp = () => {
                                 <Localize translate_text="Max (6.83, -10)" />
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen>=</FormulaGreen>
                             </FormulaValue>
 
@@ -595,7 +592,7 @@ export const TakeProfitAmountUp = () => {
                                     <PointerDot />
                                     <PointerStick />
                                     <PointerText>
-                                        <Localize translate_text="Take profit Amount" />
+                                        <Localize translate_text="Take profit amount" />
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
@@ -763,25 +760,22 @@ export const StopLossAmountDown = () => {
                                 </PointerContainer>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="30px">
                                 <FormulaGreen> x </FormulaGreen>
                             </FormulaValue>
 
                             <FormulaValue>
-                                <Localize translate_text="(-(3400" />
-                                <PointerContainer top>
+                                <Localize translate_text="((3400" />
+                                <PointerContainer>
                                     <PointerDot />
-                                    <PointerStick />
-                                    <PointerText top>
-                                        <Localize translate_text="profit amount " />
-                                    </PointerText>
+                                    <PointerStick height="70px" />
                                     <PointerText>
-                                        <Localize translate_text="Stop loss or take" />
+                                        <Localize translate_text="Stop loss or take profit amount " />
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="30px">
                                 <FormulaGreen>-</FormulaGreen>
                             </FormulaValue>
 
@@ -796,7 +790,7 @@ export const StopLossAmountDown = () => {
                                 </PointerContainer>
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="30px">
                                 <FormulaGreen> &divide; </FormulaGreen>
                             </FormulaValue>
 
@@ -810,13 +804,13 @@ export const StopLossAmountDown = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen> x </FormulaGreen>
                             </FormulaValue>
 
                             <FormulaValue>
                                 <Localize translate_text="100)" />
-                                <PointerContainer top>
+                                <PointerContainer top ml="10px">
                                     <PointerDot />
                                     <PointerStick />
                                     <PointerText top>
@@ -824,16 +818,15 @@ export const StopLossAmountDown = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen>- </FormulaGreen>
                             </FormulaValue>
-
                             <FormulaValue>
                                 <Localize translate_text="0.2}," />
                                 <PointerContainer>
                                     <PointerDot />
-                                    <PointerStick />
-                                    <PointerText>
+                                    <PointerStick height="55px" />
+                                    <PointerText ml="25px">
                                         <Localize
                                             translate_text="Commission<0>1</0>"
                                             components={[<Sup key={0} />]}
@@ -841,22 +834,21 @@ export const StopLossAmountDown = () => {
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen> - </FormulaGreen>
                             </FormulaValue>
 
                             <FormulaValue>
                                 <Localize translate_text="-10]" />
-                                <PointerContainer>
+                                <PointerContainer top>
                                     <PointerDot />
                                     <PointerStick />
-                                    <PointerText>
+                                    <PointerText top>
                                         <Localize translate_text="Stake" />
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
-
-                            <FormulaValue>
+                            <FormulaValue ml="170px">
                                 <FormulaGreen> = </FormulaGreen>
                             </FormulaValue>
 
@@ -864,7 +856,7 @@ export const StopLossAmountDown = () => {
                                 <Localize translate_text="Max (-7.23, -10)" />
                             </FormulaValue>
 
-                            <FormulaValue>
+                            <FormulaValue width="20px">
                                 <FormulaGreen>=</FormulaGreen>
                             </FormulaValue>
 
@@ -877,7 +869,7 @@ export const StopLossAmountDown = () => {
                                     <PointerDot />
                                     <PointerStick />
                                     <PointerText>
-                                        <Localize translate_text="Stop loss Amount" />
+                                        <Localize translate_text="Stop loss amount" />
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>

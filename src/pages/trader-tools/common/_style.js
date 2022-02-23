@@ -501,9 +501,10 @@ export const FormulaHighlightMobile = styled(Flex)`
 
 export const FormulaValue = styled.div`
     display: inline-block;
-    min-width: 55px;
+    min-width: ${(props) => (props.width ? props.width : '55px')};
     text-align: center;
     margin-bottom: ${(props) => (props.mb ? props.mb : '14px')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
 
 export const FormulaValueSwapSynthetic = styled.div`
@@ -566,7 +567,7 @@ export const PointerDotMobile = styled.div`
 
 export const PointerStick = styled.div`
     position: relative;
-    height: 25px;
+    height: ${(props) => (props.height ? props.height : '25px')};
     width: 1px;
     background-color: black;
     opacity: 0.1;

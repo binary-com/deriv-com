@@ -30,7 +30,7 @@ const LeftSide = styled.div`
     width: 100%;
     max-width: 30rem;
 `
-const StyledLogoLink = styled(LogoLink)`
+export const StyledLogoLink = styled(LogoLink)`
     @media (max-width: 1300px) {
         & svg,
         .gatsby-image-wrapper {

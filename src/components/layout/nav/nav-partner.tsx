@@ -11,7 +11,7 @@ type NavPartnersProps = {
     hide_login_signup?: boolean
 }
 
-const NavigationBarWrapper = styled.nav`
+export const PartnerNavigationBarWrapper = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
@@ -22,7 +22,7 @@ const NavigationBarWrapper = styled.nav`
     }
 `
 
-const Wrapper = styled.div`
+export const PartnerWrapper = styled.div`
     width: 100%;
     position: fixed;
     top: 0;
@@ -43,13 +43,13 @@ const Wrapper = styled.div`
 const NavPartners = ({ hide_login_signup }: NavPartnersProps) => {
     return (
         <>
-            <Wrapper>
+            <PartnerWrapper>
                 <MainNav />
-                <NavigationBarWrapper>
+                <PartnerNavigationBarWrapper>
                     <NavPartnerDesktop hide_login_signup={hide_login_signup} />
                     <NavPartnerMobile hide_login_signup={hide_login_signup} />
-                </NavigationBarWrapper>
-            </Wrapper>
+                </PartnerNavigationBarWrapper>
+            </PartnerWrapper>
             <CFDWarning />
         </>
     )

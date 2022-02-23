@@ -23,8 +23,7 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
-    DesktopBreadcrumbsWrapper,
-    MobileBreadcrumbsWrapper,
+    StickyBreadCrumbsWrapper,
     StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
@@ -39,15 +38,20 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import { convertDate, getMinRead } from 'common/utility'
+import { convertDate, getMinRead, truncateString } from 'common/utility'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
-    const [isMounted, setMounted] = useState(false)
+    const [is_mobile] = useBrowserResize(992)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [visible, setVisible] = useState(true)
+    const [is_mounted] = usePageLoaded(false)
+
     useEffect(() => {
-        setMounted(true)
-        isMounted && window.scrollTo(0, 0)
-    }, [isMounted])
+        is_mounted && handleScroll() && window.scrollTo(0, 0)
+    }, [is_mounted])
 
     const barElement = useRef(null)
 
@@ -58,6 +62,12 @@ const ArticlesTemplate = (props) => {
         barElement.current.style.width = scrolled + '%'
     }
 
+    const handleScroll = () => {
+        const currentScrollPos = window.scrollY
+        setPrevScrollPos(currentScrollPos)
+        setVisible(currentScrollPos > 72)
+    }
+
     useEffect(() => {
         window.addEventListener('scroll', scrollFunc, { passive: true })
         return () => {
@@ -65,13 +75,20 @@ const ArticlesTemplate = (props) => {
         }
     }, [])
 
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [prevScrollPos, visible, handleScroll])
+
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
     const article_title = post_data?.blog_title
     const meta_title = post_data?.meta_title
     const meta_description = post_data?.meta_description
-    const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
+    const og_image =
+        post_data?.og_image?.imageFile.childImageSharp.gatsbyImageData.images.fallback.src
     const og_title = post_data?.og_title
     const og_description = post_data?.og_description
     const test_data = post_data?.test_data
@@ -106,7 +123,7 @@ const ArticlesTemplate = (props) => {
     }
 
     return (
-        <Layout type="academy">
+        <Layout type="academy" margin_top={'14.4'}>
             <SEO
                 description={meta_description}
                 title={meta_title}
@@ -114,38 +131,29 @@ const ArticlesTemplate = (props) => {
                 no_index={test_data}
             />
             <>
-                {isMounted && (
+                {is_mounted && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
-                            <BreadcrumbsWrapper>
-                                <Flex jc="flex-start" ai="center">
-                                    <StyledBreadcrumbsLink to="/academy/" color="grey-5">
-                                        Home
-                                    </StyledBreadcrumbsLink>
-                                    <StyledImg src={RightArrow} height="16" width="16" />
-                                    <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
-                                        All articles
-                                    </StyledBreadcrumbsLink>
-                                    <StyledImg src={RightArrow} height="16" width="16" />
-                                    <DesktopBreadcrumbsWrapper>
+                            <StickyBreadCrumbsWrapper scroll={visible}>
+                                <BreadcrumbsWrapper scroll={visible}>
+                                    <Flex jc="flex-start" ai="center">
+                                        <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
+                                            All articles
+                                        </StyledBreadcrumbsLink>
+                                        <StyledImg src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
-                                            {article_title}
-                                        </StyledBreadcrumbsTitle>
-                                    </DesktopBreadcrumbsWrapper>
-                                </Flex>
-                                <MobileBreadcrumbsWrapper>
-                                    <Flex width="auto" jc="flex-start" mt="10px">
-                                        <StyledBreadcrumbsTitle lh="20px">
-                                            {article_title}
+                                            {is_mobile
+                                                ? truncateString(article_title, 30)
+                                                : article_title}
                                         </StyledBreadcrumbsTitle>
                                     </Flex>
-                                </MobileBreadcrumbsWrapper>
-                            </BreadcrumbsWrapper>
-                            <Scrollbar>
-                                <ProgressContainer>
-                                    <ProgressBar ref={barElement}></ProgressBar>
-                                </ProgressContainer>
-                            </Scrollbar>
+                                </BreadcrumbsWrapper>
+                                <Scrollbar scroll={visible}>
+                                    <ProgressContainer>
+                                        <ProgressBar ref={barElement}></ProgressBar>
+                                    </ProgressContainer>
+                                </Scrollbar>
+                            </StickyBreadCrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">
@@ -359,10 +367,9 @@ export const query = graphql`
                     imageFile {
                         childImageSharp {
                             gatsbyImageData(
-                                quality: 100
-                                webpOptions: { quality: 100 }
-                                avifOptions: { quality: 100, lossless: true }
-                                placeholder: BLURRED
+                                quality: 60
+                                webpOptions: { quality: 60 }
+                                avifOptions: { quality: 60 }
                             )
                         }
                     }
@@ -371,10 +378,7 @@ export const query = graphql`
                     id
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
-                            fixed(width: 600) {
-                                src
-                            }
+                            gatsbyImageData(layout: FIXED, width: 600)
                         }
                     }
                 }
@@ -395,10 +399,9 @@ export const query = graphql`
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    quality: 100
-                                    webpOptions: { quality: 100 }
-                                    avifOptions: { quality: 100, lossless: true }
-                                    placeholder: BLURRED
+                                    quality: 60
+                                    webpOptions: { quality: 60 }
+                                    avifOptions: { quality: 60 }
                                 )
                             }
                         }
@@ -409,10 +412,9 @@ export const query = graphql`
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    quality: 100
-                                    webpOptions: { quality: 100 }
-                                    avifOptions: { quality: 100, lossless: true }
-                                    placeholder: BLURRED
+                                    quality: 60
+                                    webpOptions: { quality: 60 }
+                                    avifOptions: { quality: 60 }
                                 )
                             }
                         }
@@ -428,10 +430,9 @@ export const query = graphql`
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData(
-                                    quality: 100
-                                    webpOptions: { quality: 100 }
-                                    avifOptions: { quality: 100, lossless: true }
-                                    placeholder: BLURRED
+                                    quality: 60
+                                    webpOptions: { quality: 60 }
+                                    avifOptions: { quality: 60 }
                                 )
                             }
                         }

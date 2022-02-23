@@ -7,7 +7,7 @@ import {
     NavResources,
     NavMarket,
 } from 'components/custom/other-platforms.js'
-import { Container, Show } from 'components/containers'
+import { Container, Show, Flex } from 'components/containers'
 
 const FadeInDown = keyframes`
     from {
@@ -19,11 +19,10 @@ const FadeInDown = keyframes`
         transform: translateY(7.2rem) rotateY(0);
     }
 `
-
 const NavDropdown = styled.div`
-    display: flex;
-    width: auto;
-    left: ${(props) => (props.offset ? props.offset + 'px !important' : 'none')};
+    width: ${(props) => (props.is_trade ? '90%' : 'auto')};
+    max-width: 1200px;
+    left: ${(props) => (props.offset && !props.is_trade ? props.offset + 'px !important' : 'none')};
     position: absolute;
     padding: 2.2rem 0.8rem;
     z-index: -1;
@@ -68,17 +67,37 @@ const getNavigationContents = (parent, is_ppc, is_ppc_redirect) => {
     if (parent === 'resources') return <NavResources />
 }
 
-const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setActiveDropdown }) => {
-    const [left_offset, setLeftOffset] = useState(current_ref.offsetLeft)
-    const [left_arrow_offset, setLeftArrowOffset] = useState(current_ref.offsetWidth / 2 - 15)
+const PlatformsDropdown = ({
+    current_ref,
+    is_ppc,
+    is_ppc_redirect,
+    parent,
+    setActiveDropdown,
+    active_dropdown,
+}) => {
     const dropdownContainerRef = useRef(null)
+    const is_trade = active_dropdown === 'trade'
+    const current_offset = current_ref.offsetWidth / 2 - 15
+    const setTradeArrowOffset = (dropdownOffset) =>
+        current_ref.offsetLeft - dropdownOffset + current_offset
+    const [left_offset, setLeftOffset] = useState(current_ref.offsetLeft)
+    const [left_arrow_offset, setLeftArrowOffset] = useState()
 
     const updateOffsets = useCallback(() => {
-        if (current_ref) {
+        if (is_trade) {
+            setLeftArrowOffset(setTradeArrowOffset(dropdownContainerRef.current.offsetLeft))
+        } else if (current_ref && !is_trade) {
             setLeftOffset(current_ref.offsetLeft)
-            setLeftArrowOffset(current_ref.offsetWidth / 2 - 15)
+            setLeftArrowOffset(current_offset)
         }
     }, [current_ref])
+
+    const setInitArrowOffset = () => {
+        const dropdown_offset = dropdownContainerRef.current.offsetLeft
+        setLeftArrowOffset(is_trade ? setTradeArrowOffset(dropdown_offset) : current_offset)
+    }
+
+    useEffect(() => setInitArrowOffset(), [])
 
     useEffect(() => {
         if (dropdownContainerRef) {
@@ -92,20 +111,24 @@ const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setAc
 
     return (
         <Show.Desktop>
-            <NavDropdown
-                ref={dropdownContainerRef}
-                offset={left_offset}
-                offset_arrow={left_arrow_offset}
-            >
-                <StyledContainer>
-                    {getNavigationContents(parent, is_ppc, is_ppc_redirect)}
-                </StyledContainer>
-            </NavDropdown>
+            <Flex>
+                <NavDropdown
+                    ref={dropdownContainerRef}
+                    offset={left_offset}
+                    offset_arrow={left_arrow_offset}
+                    is_trade={is_trade}
+                >
+                    <StyledContainer>
+                        {getNavigationContents(parent, is_ppc, is_ppc_redirect)}
+                    </StyledContainer>
+                </NavDropdown>
+            </Flex>
         </Show.Desktop>
     )
 }
 
 PlatformsDropdown.propTypes = {
+    active_dropdown: PropTypes.string,
     current_ref: PropTypes.object,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,

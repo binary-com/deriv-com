@@ -1,5 +1,4 @@
 import React from 'react'
-import NProgress from 'nprogress'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
@@ -112,13 +111,9 @@ export const onInitialClientRender = () => {
             document.head.appendChild(jipt)
         }
     }
-
-    NProgress.done()
 }
 
 export const onClientEntry = () => {
-    NProgress.start()
-
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
     if (isLive()) {
@@ -149,12 +144,7 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 }
 
-export const onPreRouteUpdate = () => {
-    NProgress.start()
-}
-
 export const onRouteUpdate = () => {
-    NProgress.done()
     checkDomain()
 
     const dataLayer = window.dataLayer
@@ -177,7 +167,7 @@ export const onRouteUpdate = () => {
                 userId: client_information.user_id,
             }),
         })
-    }, 50)
+    }, 1500)
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

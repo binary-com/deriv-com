@@ -62,6 +62,7 @@ type MarketsCarouselProps = {
 }
 
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
+    const flex_width = children.length > 1 ? '0 0 50%' : '0 0 100%'
     const carousel_props = {
         options: {
             align: 'start',
@@ -73,7 +74,7 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             margin: '0 auto',
         },
         slide_style: {
-            flex: '0 0 50%',
+            flex: flex_width,
             position: 'relative',
             margin: '4rem 0',
         },

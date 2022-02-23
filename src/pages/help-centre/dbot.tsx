@@ -100,9 +100,9 @@ const StyledTable = styled.table<ArticleProps>`
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
 
-const WhatIsDBot = ({ text, label, is_mounted }: ArticleProps) => (
+const WhatIsDBot = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('What is DBot?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "DBot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'.",
@@ -111,9 +111,9 @@ const WhatIsDBot = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const FindBlocks = ({ text, label, is_mounted }: ArticleProps) => (
+const FindBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I find the blocks I need?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
         </Text>
@@ -148,11 +148,9 @@ const FindBlocks = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const RemoveBlocks = ({ text, label, is_mounted }: ArticleProps) => (
+const RemoveBlocks = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">
-            {localize('How do I remove blocks from the workspace?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace.",
@@ -170,9 +168,9 @@ const RemoveBlocks = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const CreateVariables = ({ text, label, is_mounted }: ArticleProps) => (
+const CreateVariables = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I create variables?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
         <ImageWrapper>
             <img
@@ -224,11 +222,9 @@ const CreateVariables = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const QuickStrategy = ({ text, label, is_mounted }: ArticleProps) => (
+const QuickStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">
-            {localize('What is a quick strategy and how do I use it?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
@@ -314,9 +310,9 @@ const QuickStrategy = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const MartingaleStrategy = ({ text, label, is_mounted }: ArticleProps) => (
+const MartingaleStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('What is the Martingale strategy?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
@@ -325,9 +321,9 @@ const MartingaleStrategy = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const AlembertStrategy = ({ text, label, is_mounted }: ArticleProps) => (
+const AlembertStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('What is the D’Alembert strategy?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade.',
@@ -336,9 +332,9 @@ const AlembertStrategy = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const OskarStrategy = ({ text, label, is_mounted }: ArticleProps) => (
+const OskarStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize("What is the Oscar's Grind strategy?")}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade.',
@@ -347,9 +343,9 @@ const OskarStrategy = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const SaveStrategy = ({ text, label, is_mounted }: ArticleProps) => (
+const SaveStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I save my strategy?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "First, give your strategy a name. Click the 'Bot name' field on the toolbar at the top and enter a name.",
@@ -438,9 +434,9 @@ const SaveStrategy = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ImportStrategy = ({ text, label, is_mounted }: ArticleProps) => (
+const ImportStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I import my strategies into DBot?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive.",
@@ -494,9 +490,9 @@ const ImportStrategy = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ResetWorkspace = ({ text, label, is_mounted }: ArticleProps) => (
+const ResetWorkspace = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I reset the workspace?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost.",
@@ -514,9 +510,9 @@ const ResetWorkspace = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const TransactionLog = ({ text, label, is_mounted }: ArticleProps) => (
+const TransactionLog = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I clear my transaction log?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize("1. In the panel on the right of the workspace, click 'Clear stat'.")}
         </Text>
@@ -542,9 +538,9 @@ const TransactionLog = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ControlLosses = ({ text, label, is_mounted }: ArticleProps) => (
+const ControlLosses = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I control my losses with DBot?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:',
@@ -655,11 +651,9 @@ const ControlLosses = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const TradeStatus = ({ text, label, is_mounted }: ArticleProps) => (
+const TradeStatus = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">
-            {localize('Where can I see the status of my trades in DBot?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc.",
@@ -693,9 +687,9 @@ const TradeStatus = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ViewChart = ({ text, label, is_mounted }: ArticleProps) => (
+const ViewChart = ({ text }: ArticleProps) => (
     <ArticleWrapper margin_left="2rem">
-        <StyledHeader as="h4">{localize('How do I view the chart in DBot?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 "Click 'Chart' at the bottom left corner of the workspace to view the chart.",

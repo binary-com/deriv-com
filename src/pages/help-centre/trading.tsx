@@ -6,9 +6,9 @@ import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
-const Forex = ({ text, label, is_mounted }: ArticleProps) => (
+const Forex = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is forex?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'Forex is the global decentralised market for the buying and selling of currencies.',
@@ -17,9 +17,9 @@ const Forex = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const Commodities = ({ text, label, is_mounted }: ArticleProps) => (
+const Commodities = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What are commodities?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'A commodity is either grown or produced naturally in the environment. Examples include crude oil, metals, gold, and silver.',
@@ -28,9 +28,9 @@ const Commodities = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const StockIndices = ({ text, label, is_mounted }: ArticleProps) => (
+const StockIndices = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What are stock indices?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'Stock indices measure the value of a selection of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
@@ -39,9 +39,9 @@ const StockIndices = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const SyntheticIndices = ({ text, label, is_mounted }: ArticleProps) => (
+const SyntheticIndices = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What are synthetic indices?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'Exclusive to Deriv, synthetic indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
@@ -50,9 +50,9 @@ const SyntheticIndices = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const CFD = ({ text, label, is_mounted }: ArticleProps) => (
+const CFD = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What are contracts for difference (CFDs)?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'A contract for differences (CFD) is a contract that pays the difference between the value of an asset at the time of opening a trade and its value at closing the trade.',
@@ -61,9 +61,9 @@ const CFD = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DigitalOptions = ({ text, label, is_mounted }: ArticleProps) => (
+const DigitalOptions = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results.',
@@ -72,9 +72,9 @@ const DigitalOptions = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const TradingPlatforms = ({ text, label, is_mounted }: ArticleProps) => (
+const TradingPlatforms = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How many trading platforms do you offer?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'We offer three trading platforms: DTrader, DBot, and DMT5. Each platform caters to a variety of trading styles and experiences, whether you’re a new or seasoned trader.',
@@ -83,9 +83,9 @@ const TradingPlatforms = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const AutomateTradingStrategy = ({ text, label, is_mounted }: ArticleProps) => (
+const AutomateTradingStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How can I automate my trading strategy?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'You can create and run your own automated trading strategies with DBot. You can also download ready-made trading robots (also known as Expert Advisors) for DMT5 by going to the ‘Market’ tab in the DMT5 platform.',
@@ -94,9 +94,9 @@ const AutomateTradingStrategy = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const TradingLimits = ({ text, label, is_mounted }: ArticleProps) => (
+const TradingLimits = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What are my trading limits?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="You can see your account’s trading limits by going to <0>Settings > Security and safety ></0> <1>Account limits</1>. Please note that if your account balance exceeds the maximum account cash balance, you must withdraw funds from your account to bring your account balance below the maximum limit."
@@ -115,11 +115,9 @@ const TradingLimits = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const WeekendContracts = ({ text, label, is_mounted }: ArticleProps) => (
+const WeekendContracts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('What contracts are available for trading on weekends?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Synthetic indices are available for trading 24/7.')}</Text>
     </ArticleWrapper>
 )

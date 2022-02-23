@@ -13,6 +13,7 @@ import {
     OffCanvasMenuPartner,
     moveOffCanvasMenu,
     Text,
+    Header,
     QueryImage,
 } from 'components/elements'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
@@ -30,6 +31,7 @@ import {
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
+import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
@@ -368,6 +370,10 @@ const LogoLinkMobile = styled(LocalizedLink)`
         cursor: pointer;
         margin-left: 2rem;
     }
+`
+
+const LogoLinkMobileSecurity = styled(LogoLinkMobile)`
+    margin: unset;
 `
 
 const NowrapButton = styled(Button)`
@@ -809,7 +815,7 @@ export const NavStatic = ({ is_ppc }) => (
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    height: 3rem;
+    height: 3.6rem;
 `
 
 const HomeLink = styled(LocalizedLink)`
@@ -871,13 +877,26 @@ const StyledNavRight = styled(NavRight)`
     }
 `
 
+const SecurityNavRight = styled(StyledNavRight)`
+    transform: unset;
+
+    > a:last-child {
+        opacity: 1;
+        color: var(--color-white);
+        pointer-events: visible;
+        cursor: pointer;
+    }
+`
+
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
     @media ${device.tabletL} {
         justify-content: ${(props) => (props.no_login_signup ? 'flex-start' : 'space-between')};
     }
+`
 
+const StyledNavWrapperPartner = styled(StyledNavWrapper)`
     ${LogoLinkMobile} {
         margin: 0 2.4rem;
     }
@@ -895,6 +914,11 @@ const ResLogo = styled.img`
     @media (max-width: 336px) {
         width: 82px;
     }
+`
+
+const SecurityLogoInMobile = styled.img`
+    width: 170px;
+    margin-right: 10px;
 `
 
 const NavLogoLink = styled(LogoLink)`
@@ -987,7 +1011,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNavPartners>
-                    <StyledNavWrapper no_login_signup>
+                    <StyledNavWrapperPartner no_login_signup>
                         <NavLeftPartners>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <img src={LogoPartner} alt="logo partner" />
@@ -1026,6 +1050,11 @@ export const NavPartners = ({ no_login_signup }) => {
                                     aria-label={localize('API')}
                                 >
                                     {localize('API')}
+                                </StyledLink>
+                            </NavLink>
+                            <NavLink>
+                                <StyledLink to="/bug-bounty/" aria-label={localize('Bug bounty')}>
+                                    {localize('Bug bounty')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
@@ -1105,6 +1134,92 @@ export const NavPartners = ({ no_login_signup }) => {
                             is_canvas_menu_open={is_canvas_menu_open}
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
+                    </StyledNavWrapperPartner>
+                </StyledNavPartners>
+            </NavWrapperPartners>
+            <CFDWarning />
+        </>
+    )
+}
+
+// Note: When using layout component for security page, please add type='security' and padding_top='10rem'
+export const NavSecurity = () => {
+    const button_ref = useRef(null)
+
+    return (
+        <>
+            <NavWrapperPartners>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
+                                    {localize('Go to Deriv.com')}
+                                </Header>
+                            </HomeLink>
+                            <HomeLink to="/story/">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
+                                    {localize('About us')}
+                                </Header>
+                            </HomeLink>
+                            <HomeLink to="/contact_us/">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
+                                    {localize('Contact us')}
+                                </Header>
+                            </HomeLink>
+                        </StyledContainer>
+
+                        <Flex ml="auto" ai="center" width="auto">
+                            <LanguageSwitcher short_name="true" security />
+                        </Flex>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+
+                <StyledNavPartners>
+                    <StyledNavWrapper>
+                        <NavLeftPartners>
+                            <NavLogoLink to="/" aria-label={localize('Bug bounty')}>
+                                <img src={LogoBugBounty} alt="logo bug bounty" />
+                            </NavLogoLink>
+                        </NavLeftPartners>
+                        <SecurityNavRight button_ref={button_ref} mounted={true}>
+                            <LinkButton
+                                to={'mailto:security@deriv.com'}
+                                is_mail_link
+                                external="true"
+                                target="_blank"
+                                tertiary
+                                style={{ width: '16rem' }}
+                            >
+                                <span>{localize('Submit a report')}</span>
+                            </LinkButton>
+                        </SecurityNavRight>
+
+                        <Mobile>
+                            <Flex ai="center" jc="space-between">
+                                <LogoLinkMobileSecurity to="/" aria-label={localize('Bug bounty')}>
+                                    <SecurityLogoInMobile
+                                        src={LogoBugBounty}
+                                        alt="logo bug bounty"
+                                    />
+                                </LogoLinkMobileSecurity>
+
+                                <LinkButton
+                                    to={'mailto:security@deriv.com'}
+                                    is_mail_link
+                                    external="true"
+                                    target="_blank"
+                                    tertiary
+                                    style={{
+                                        color: 'var(--color-white)',
+                                        fontSize: '12px',
+                                        padding: '8px 16px 7px',
+                                    }}
+                                >
+                                    <span>{localize('Submit a report')}</span>
+                                </LinkButton>
+                            </Flex>
+                        </Mobile>
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>

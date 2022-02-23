@@ -65,6 +65,7 @@ const StyledCard = styled(Card)`
     }
 
     @media ${device.tabletL} {
+        min-height: unset;
         min-width: 328px;
         padding: 16px 16px 0;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};

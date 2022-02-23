@@ -80,6 +80,7 @@ const StyledHeaderCommission = styled(StyledHeader)`
         padding-left: unset;
     }
     @media ${device.mobileL} {
+        text-align: left;
         width: 40rem;
     }
 

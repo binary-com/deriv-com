@@ -23,7 +23,7 @@ const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
 const ArticleComponent = Loadable(() => import('./_article-component'))
 
-export type StyledProps = {
+type StyledProps = {
     wrap?: string
     show?: boolean
     has_transition?: boolean

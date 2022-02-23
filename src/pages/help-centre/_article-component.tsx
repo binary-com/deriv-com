@@ -5,39 +5,40 @@ import { Header, Text } from 'components/elements'
 import { LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 
-type IItems = {
-    translate_text: string
-    is_expanded: boolean
+type StyledProps = {
+    should_show_item?: boolean
 }
 
-type IProps = {
-    props: IItems
+type TranslateTextType = {
+    translate_text: string
+}
+
+type CategoryType = {
+    props: TranslateTextType
     translate_text: string
     is_expanded: boolean
     is_eu_country?: boolean
 }
 
-export type PropsType = IItems & IProps
-
-type ArticlesProps = {
+type ArticleType = {
     category: string
     label: string
-    title: PropsType
+    title: CategoryType
     title_eu: boolean
     label_eu: boolean
-}[]
+}
 
-type ItemProps = {
-    category: PropsType
-    articles: ArticlesProps
+type ItemType = {
+    category: CategoryType
+    articles: ArticleType[]
 }
 
 type ArticleComponentProps = {
     idx: number
     id: number
-    item: ItemProps
-    all_categories: PropsType
-    toggleArticle: any
+    item: ItemType
+    all_categories: CategoryType
+    toggleArticle: (arg: string) => void
     is_eu_country: boolean
 }
 
@@ -107,10 +108,6 @@ const ListNoBullets = styled.ul`
         padding-bottom: 1.6rem;
     }
 `
-
-type StyledProps = {
-    should_show_item?: boolean
-}
 
 const ShowItem = styled.li<StyledProps>`
     display: ${(props) => (props.should_show_item ? 'block' : 'none')};

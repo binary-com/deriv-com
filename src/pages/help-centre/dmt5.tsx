@@ -7,9 +7,9 @@ import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { DerivStore } from 'store'
 
-const WhatIsDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
+const WhatIsDMT5 = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is DMT5?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'DMT5 is the MT5 platform on Deriv. It is a multi-asset online platform designed to give new and experienced traders access to a wide range of financial markets.',
@@ -18,11 +18,9 @@ const WhatIsDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DifferenceDMT5DTrader = ({ text, label, is_mounted }: ArticleProps) => (
+const DifferenceDMT5DTrader = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('What are the major differences between DTrader and DMT5?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'DTrader allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
@@ -36,14 +34,10 @@ const DifferenceDMT5DTrader = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts = ({ text, label, is_mounted }: ArticleProps) => {
+const DifferentAccounts = ({ text }: ArticleProps) => {
     return (
         <ArticleWrapper>
-            <StyledHeader as="h4">
-                {localize(
-                    'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
-                )}
-            </StyledHeader>
+            <StyledHeader as="h4">{text}</StyledHeader>
             <>
                 <Text>
                     {localize(
@@ -65,10 +59,10 @@ const DifferentAccounts = ({ text, label, is_mounted }: ArticleProps) => {
     )
 }
 
-const WhatIsCFDsAccount = ({ text, label, is_mounted }: ArticleProps) => {
+const WhatIsCFDsAccount = ({ text }: ArticleProps) => {
     return (
         <ArticleWrapper>
-            <StyledHeader as="h4">{localize('What is the CFDs account?')}</StyledHeader>
+            <StyledHeader as="h4">{text}</StyledHeader>
             {
                 <Text>
                     {localize(
@@ -80,11 +74,9 @@ const WhatIsCFDsAccount = ({ text, label, is_mounted }: ArticleProps) => {
     )
 }
 
-const DepositDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
+const DepositDMT5 = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('How can I deposit funds into my DMT5 real money account?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="To deposit funds into your MT5 account on Deriv, you’ll need to use the funds in your Deriv account. Go to <0>Cashier ></0> <1>Transfer between accounts</1> and follow the instructions on the screen."
@@ -108,11 +100,9 @@ const DepositDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const WithdrawDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
+const WithdrawDMT5 = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('How can I withdraw funds from my DMT5 real money account?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
             <Localize
                 translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier > </0> <1>Transfer between accounts</1> and follow the instructions on the screen."
@@ -136,11 +126,9 @@ const WithdrawDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const LoginCredentials = ({ text, label, is_mounted }: ArticleProps) => (
+const LoginCredentials = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('Why are my DMT5 login details different from my Deriv login details?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'MT5 on Deriv is a standalone trading platform that isn’t hosted on our website. Your DMT5 login details give you access to the MT5 platform while your Deriv login details give you access to the platforms hosted on our website, such as DTrader and DBot.',
@@ -149,9 +137,9 @@ const LoginCredentials = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ResetDMT5Password = ({ text, label, is_mounted }: ArticleProps) => (
+const ResetDMT5Password = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How can I reset my DMT5 account password?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="Please go to the <0>DMT5 dashboard</0> and click on the <1>Password</1> button of that DMT5 account."

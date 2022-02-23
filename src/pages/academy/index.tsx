@@ -72,7 +72,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
             position: 'relative',
         },
         navigation_style: {
-            nav_color: '--color-white',
+            nav_color: 'white',
             height: '0',
         },
     }

@@ -376,7 +376,7 @@ export const queryParams = {
         if (typeof key === 'string') {
             return params.get(key)
         } else {
-            key.map((k) => {
+            key.forEach((k) => {
                 param_values[key] = params.get(k)
             })
         }
@@ -386,7 +386,7 @@ export const queryParams = {
         // To set the params from the url
         const url = new URL(location)
 
-        Object.keys(objects).map((k) => {
+        Object.keys(objects).forEach((k) => {
             const value = objects[k]
             url.searchParams.set(k, value)
         })
@@ -399,7 +399,7 @@ export const queryParams = {
         if (typeof key === 'string') {
             url.searchParams.delete(key)
         } else {
-            key.map((k) => {
+            key.forEach((k) => {
                 url.searchParams.delete(k)
             })
         }

@@ -68,7 +68,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
         setShow(false)
         setPlayVideoId('')
         setTitleParams('')
-        queryParams.delete(['t'])
+        queryParams.delete('t')
     }
     return (
         <Container m="0 auto" fd="column">

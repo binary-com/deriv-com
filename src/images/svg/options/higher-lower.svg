@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-    <g fill="none" fill-rule="evenodd">
-        <circle cx="40" cy="40" r="40" fill="#F2F3F4"/>
-        <g fill-rule="nonzero">
-            <path fill="#85ACB0" d="M0 7.5H24V10.5H0z" transform="translate(44 29.5) rotate(180 12 9)"/>
-            <path fill="#FF444F" d="M15.621 10.5L21 15.885v-2.4c.003-.522.144-1.035.41-1.485H24v6c0 1.657-1.343 3-3 3h-7.5v-.015c0-1.646 1.333-2.982 2.979-2.985h2.4l-7.5-7.5h4.242zM5.121 0l6 6H6.879L4.5 3.621V6h-3V0h3.621z" transform="translate(44 29.5)"/>
-        </g>
-        <g fill-rule="nonzero">
-            <path fill="#85ACB0" d="M0 10.5H24V13.5H0z" transform="translate(12 29.5) rotate(180 12 12)"/>
-            <path fill="#FF444F" d="M4.5 15v2.379L6.879 15h4.242l-6 6H1.5v-6h3zM21 0c1.657 0 3 1.343 3 3v6.006h-2.59c-.266-.45-.407-.963-.41-1.485v-2.4L15.627 10.5h-4.242l7.5-7.5h-2.4C14.836 3 13.5 1.664 13.5.015V0H21z" transform="translate(12 29.5)"/>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><g fill="none" fill-rule="evenodd"><circle cx="40" cy="40" r="40" fill="#F2F3F4"/><g fill-rule="nonzero"><path fill="#85ACB0" d="M68 40H44v-3h24z"/><path fill="#FF444F" d="M59.621 40 65 45.385v-2.4a2.952 2.952 0 0 1 .41-1.485H68v6a3 3 0 0 1-3 3h-7.5v-.015a2.985 2.985 0 0 1 2.979-2.985h2.4l-7.5-7.5h4.242zm-10.5-10.5 6 6h-4.242L48.5 33.121V35.5h-3v-6h3.621z"/></g><g fill-rule="nonzero"><path fill="#85ACB0" d="M36 43H12v-3h24z"/><path fill="#FF444F" d="M16.5 44.5v2.379l2.379-2.379h4.242l-6 6H13.5v-6h3zm16.5-15a3 3 0 0 1 3 3v6.006h-2.59a2.952 2.952 0 0 1-.41-1.485v-2.4L27.627 40h-4.242l7.5-7.5h-2.4a2.984 2.984 0 0 1-2.985-2.985V29.5H33z"/></g></g></svg>

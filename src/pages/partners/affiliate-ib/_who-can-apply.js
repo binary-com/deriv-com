@@ -257,7 +257,7 @@ const WhoCanApply = () => {
                         <SecondaryHeader as="h2" mb="40px" size="3.2rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
-                        <Timeline pb="0rem">
+                        <Timeline paddingBottom="0rem">
                             <Timeline.Item pb="4rem" pbMobile="2rem">
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">

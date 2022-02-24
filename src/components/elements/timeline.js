@@ -73,11 +73,11 @@ Oval.propTypes = {
     children: PropTypes.number,
 }
 
-const Timeline = ({ pb, children, ...props }) => {
+const Timeline = ({ paddingBottom, children, ...props }) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
-                <FlexWrapper key={idx} is_border={children.length !== idx + 1} pb={pb}>
+                <FlexWrapper key={idx} is_border={children.length !== idx + 1} pb={paddingBottom}>
                     <Oval></Oval>
                     <ContentWrapper>
                         <div>{child}</div>
@@ -113,7 +113,7 @@ TimelineTick.Item = Item
 
 Timeline.propTypes = {
     children: PropTypes.node,
-    pb: PropTypes.string,
+    paddingBottom: PropTypes.string,
     props: PropTypes.any,
 }
 

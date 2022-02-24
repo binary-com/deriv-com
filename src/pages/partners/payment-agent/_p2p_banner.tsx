@@ -6,8 +6,6 @@ import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import banner from 'images/common/p2p/banner.png'
 import bannerBG from 'images/common/p2p/gradient_bg.png'
-import mobilebannerBG from 'images/common/p2p/mobile_gradient_bg.png'
-import mobilebanner from 'images/common/p2p/mobile_banner.png'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -43,11 +41,12 @@ const MainWrapper = styled(Flex)`
         background-size: 433px 305px, cover;
     }
     @media ${device.tabletL} {
-        background-image: url(${mobilebanner}), url(${mobilebannerBG});
-        background-size: 315px 206px, cover;
-        height: 543px;
-        width: 360px;
+        background-size: 280px 189px, cover;
+        height: 538px;
+        width: 310px;
+        max-width: 378px;
         background-position: bottom -1px center;
+        margin-bottom: 8px;
     }
 `
 const LeftWrapper = styled(Flex)`
@@ -67,9 +66,8 @@ const LeftWrapper = styled(Flex)`
 `
 const LeftChild = styled(Flex)`
     flex-direction: column;
-    color: white;
     max-width: 490px;
-    z-index: 2;
+
     @media ${device.laptopM} {
         max-width: 514px;
     }
@@ -81,12 +79,17 @@ const LeftChild = styled(Flex)`
     }
 `
 
-const Subtitle = styled(Header)`
-    color: var(--color-white);
-    margin-bottom: 3rem;
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        padding: 0 20px 8px 10px;
+        font-size: 26px;
+    }
+`
 
+const Subtitle = styled(Header)`
     @media (max-width: 1100px) {
-        margin-bottom: 16px;
+        margin-bottom: 24px;
+        padding: 0 20px 0 10px;
     }
 `
 const BannerText = styled.span`
@@ -99,17 +102,9 @@ const BannerText = styled.span`
     }
 `
 
-const StyledHeader = styled(Header)`
-    color: var(--color-white);
-    margin-bottom: 16px;
-    @media ${device.tabletL} {
-        margin-bottom: 8px;
-        max-width: 378px;
-    }
-`
-
 const StyledLinkButton = styled(LinkButton)`
     width: 146px;
+    margin-left: 10px;
 `
 
 const P2PBanner = () => {
@@ -118,10 +113,16 @@ const P2PBanner = () => {
             <MainWrapper>
                 <LeftWrapper>
                     <LeftChild>
-                        <StyledHeader as="h3" type="heading-3">
+                        <StyledHeader
+                            as="h3"
+                            type="heading-3"
+                            color="white"
+                            mb="16px"
+                            tabletL={{ mb: '8px', max_width: '378px' }}
+                        >
                             {localize('Looking for Deriv P2P instead?')}
                         </StyledHeader>
-                        <Subtitle as="h4" type="subtitle-2" weight="none">
+                        <Subtitle as="h4" type="subtitle-2" weight="none" color="white" mb="3rem">
                             <Localize
                                 translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."
                                 components={[<BannerText key={0} />]}

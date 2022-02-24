@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex, NonEU } from 'components/containers'
+import { Flex, NonEU, NonUK } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
@@ -160,20 +160,27 @@ export const OffCanvasMenuWrapper = (props) => {
                                     />
                                 </Flex>
                                 <NonEU>
-                                    <Flex mb="2rem">
-                                        <NavCard
-                                            aria_label="Options"
-                                            icon={() => (
-                                                <img src={Options} alt="" width="32" height="32" />
-                                            )}
-                                            content={
-                                                <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
-                                            }
-                                            title={<Localize translate_text="Options" />}
-                                            onClick={handleArrowClick}
-                                            to="/trade-types/options/"
-                                        />
-                                    </Flex>
+                                    <NonUK>
+                                        <Flex mb="2rem">
+                                            <NavCard
+                                                aria_label="Options"
+                                                icon={() => (
+                                                    <img
+                                                        src={Options}
+                                                        alt=""
+                                                        width="32"
+                                                        height="32"
+                                                    />
+                                                )}
+                                                content={
+                                                    <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                                }
+                                                title={<Localize translate_text="Options" />}
+                                                onClick={handleArrowClick}
+                                                to="/trade-types/options/"
+                                            />
+                                        </Flex>
+                                    </NonUK>
                                 </NonEU>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -209,21 +216,24 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        <NonEU>
-                            <Flex mb="2rem">
-                                <NavCard
-                                    aria_label="Derivx"
-                                    icon={() => <img src={DerivX} alt="" width="32" height="32" />}
-                                    content={
-                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
-                                    }
-                                    title={<Localize translate_text="Deriv X" />}
-                                    onClick={handleArrowClick}
-                                    to="/derivx/"
-                                />
-                            </Flex>
-                        </NonEU>
-
+                        <NonUK>
+                            <NonEU>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Derivx"
+                                        icon={() => (
+                                            <img src={DerivX} alt="" width="32" height="32" />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                        }
+                                        title={<Localize translate_text="Deriv X" />}
+                                        onClick={handleArrowClick}
+                                        to="/derivx/"
+                                    />
+                                </Flex>
+                            </NonEU>
+                        </NonUK>
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DTrader"
@@ -236,73 +246,85 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <NonEU>
-                            <>
-                                <Flex mb="2rem">
-                                    <NavCard
-                                        aria_label="Deriv GO"
-                                        icon={() => (
-                                            <img src={DerivGo} alt="" width="32" height="32" />
-                                        )}
-                                        content={
-                                            <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
-                                        }
-                                        title={<Localize translate_text="Deriv GO" />}
-                                        onClick={handleArrowClick}
-                                        to="/landing/deriv-go/"
-                                    />
-                                </Flex>
-                                <Flex mb="2rem">
-                                    <NavCard
-                                        aria_label="SmartTrader"
-                                        icon={() => (
-                                            <img src={Smarttrader} alt="" width="32" height="32" />
-                                        )}
-                                        content={
-                                            <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                                        }
-                                        title={<Localize translate_text="SmartTrader" />}
-                                        onClick={handleArrowClick}
-                                        to="trading"
-                                        type="smart_trader"
-                                        external="true"
-                                        target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
-                                    />
-                                </Flex>
-                                <Flex mb="2rem">
-                                    <NavCard
-                                        aria_label="DBot"
-                                        icon={() => (
-                                            <img src={DBot} alt="" width="32" height="32" />
-                                        )}
-                                        content={
-                                            <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                                        }
-                                        title={<Localize translate_text="DBot" />}
-                                        onClick={handleArrowClick}
-                                        to="/dbot/"
-                                    />
-                                </Flex>
-                                <Flex mb="2rem">
-                                    <NavCard
-                                        aria_label="BinaryBot"
-                                        icon={() => (
-                                            <img src={BinaryBot} alt="" width="32" height="32" />
-                                        )}
-                                        content={
-                                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
-                                        }
-                                        title={<Localize translate_text="BinaryBot" />}
-                                        onClick={handleArrowClick}
-                                        to={binary_bot_url}
-                                        external="true"
-                                        target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
-                                    />
-                                </Flex>
-                            </>
-                        </NonEU>
+                        <NonUK>
+                            <NonEU>
+                                <>
+                                    <Flex mb="2rem">
+                                        <NavCard
+                                            aria_label="Deriv GO"
+                                            icon={() => (
+                                                <img src={DerivGo} alt="" width="32" height="32" />
+                                            )}
+                                            content={
+                                                <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                            }
+                                            title={<Localize translate_text="Deriv GO" />}
+                                            onClick={handleArrowClick}
+                                            to="/landing/deriv-go/"
+                                        />
+                                    </Flex>
+                                    <Flex mb="2rem">
+                                        <NavCard
+                                            aria_label="SmartTrader"
+                                            icon={() => (
+                                                <img
+                                                    src={Smarttrader}
+                                                    alt=""
+                                                    width="32"
+                                                    height="32"
+                                                />
+                                            )}
+                                            content={
+                                                <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                            }
+                                            title={<Localize translate_text="SmartTrader" />}
+                                            onClick={handleArrowClick}
+                                            to="trading"
+                                            type="smart_trader"
+                                            external="true"
+                                            target="_blank"
+                                            otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                        />
+                                    </Flex>
+                                    <Flex mb="2rem">
+                                        <NavCard
+                                            aria_label="DBot"
+                                            icon={() => (
+                                                <img src={DBot} alt="" width="32" height="32" />
+                                            )}
+                                            content={
+                                                <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                            }
+                                            title={<Localize translate_text="DBot" />}
+                                            onClick={handleArrowClick}
+                                            to="/dbot/"
+                                        />
+                                    </Flex>
+                                    <Flex mb="2rem">
+                                        <NavCard
+                                            aria_label="BinaryBot"
+                                            icon={() => (
+                                                <img
+                                                    src={BinaryBot}
+                                                    alt=""
+                                                    width="32"
+                                                    height="32"
+                                                />
+                                            )}
+                                            content={
+                                                <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                                            }
+                                            title={<Localize translate_text="BinaryBot" />}
+                                            onClick={handleArrowClick}
+                                            to={binary_bot_url}
+                                            external="true"
+                                            target="_blank"
+                                            otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                        />
+                                    </Flex>
+                                </>
+                            </NonEU>
+                        </NonUK>
                     </AccordionItem>
                     <AccordionItem
                         header="Markets"

@@ -7,6 +7,7 @@ import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import DropdownSearch from './dropdown-search'
 import Checkbox from './checkbox'
+import HorizontalTab from './horizontal-tab'
 import QueryImage, { ImageWrapper } from './query-image'
 import { StyledLink } from './link'
 import {
@@ -40,6 +41,7 @@ export {
     Dropdown,
     DropdownSearch,
     Header,
+    HorizontalTab,
     ImageWrapper,
     Li,
     LinkText,

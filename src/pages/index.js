@@ -10,6 +10,7 @@ import {
 } from './home/_lazy-load'
 import Hero from './home/_hero'
 import Trade from './home/_trade'
+import PopularMarkets from './home/_popular-markets'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO, Show } from 'components/containers'
@@ -60,6 +61,9 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
+            <Show.Desktop>
+                <PopularMarkets />
+            </Show.Desktop>
             <Show.Desktop>
                 <Trade />
             </Show.Desktop>

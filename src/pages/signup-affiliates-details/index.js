@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from '../../components/containers'
-import SignupAffiliateDetails from '../../components/custom/_signup-affiliate-details'
 import Benefits from './_benefits'
+import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
@@ -12,10 +12,6 @@ import Map from 'images/svg/landing/map.svg'
 const StyledFlex = styled(Flex)`
     height: 70vh;
     background-color: rgba(200, 214, 215, 0.22);
-
-    @media ${device.mobileL} {
-        padding-top: 40px;
-    }
 `
 const StyledDiv = styled.div`
     padding-top: 20rem;
@@ -43,7 +39,11 @@ const affiliateSignupDetails = () => {
             />
             <StyledFlex jc="center" fd="row" ai="flex-start">
                 <Benefits />
-                <SignupAffiliateDetails />
+                <Signup
+                    appearance={Appearances.affiliateSignupDetails}
+                    bgColor="grey-14"
+                    autofocus={true}
+                />
             </StyledFlex>
             <StyledDiv>
                 <StyledMap src={Map} alt="map" />

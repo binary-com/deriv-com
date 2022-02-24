@@ -15,6 +15,7 @@ import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
 import SignupSimple from 'components/custom/_signup-simple'
 import SignupAffiliate from 'components/custom/_signup-affiliate'
+import SignupAffiliateDetails from 'components/custom/_signup-affiliate-details'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -206,6 +207,8 @@ const Signup = (props) => {
                 return <SignupNew {...parameters}></SignupNew>
             case Appearances.affiliateSignup:
                 return <SignupAffiliate {...parameters}></SignupAffiliate>
+            case Appearances.affiliateSignupDetails:
+                return <SignupAffiliateDetails {...parameters}></SignupAffiliateDetails>
             case Appearances.public:
                 return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:

@@ -203,7 +203,7 @@ export const Arrow = styled(Chevron)`
 `
 
 export const StyledLabel = styled.label`
-    color: ${(props) => (props.isAffiliate ? 'var(--color-grey-5)' : 'grey')};
+    color: ${(props) => (props.is_affiliate ? 'var(--color-grey-5)' : 'grey')};
     background: var(--color-white);
     font-size: var(--text-size-xs);
     position: absolute;

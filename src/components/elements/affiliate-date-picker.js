@@ -41,8 +41,7 @@ const DayPickerWrapper = styled.div`
         margin-top: 5px;
         border: none;
         border-radius: 5px;
-        box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
-            0 9px 28px 8px rgb(0 0 0 / 5%);
+        box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
     }
     .react-calendar__navigation {
         border-bottom: 1px solid #f3f4f5;
@@ -65,8 +64,8 @@ const DayPickerWrapper = styled.div`
         background-color: var(--color-white);
         color: 'green';
         transform: translate(-0.6rem, -2rem) scale(0.7);
-        ${({ isDateField, currentValue }) => {
-            return isDateField || currentValue
+        ${({ is_date_field, currentValue }) => {
+            return is_date_field || currentValue
                 ? css`
                       transform: translate(-0.6rem, -2.2rem) scale(0.7);
                       color: var(
@@ -88,7 +87,7 @@ const StyledLabel = styled.label`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: ${({ isAffiliate }) => (isAffiliate ? '1.8rem' : '1.2rem')};
+    top: ${({ is_affiliate }) => (is_affiliate ? '1.8rem' : '1.2rem')};
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
@@ -107,12 +106,12 @@ const AffiliateDatePicker = (props) => {
         label,
         label_color,
         tablet_background,
-        isAffiliate,
+        is_affiliate,
         labelFocusColor,
     } = props
 
     const [maxDate, setMaxDate] = useState()
-    const [isDateField, selectDateField] = useState(false)
+    const [is_date_field, selectDateField] = useState(false)
     const [currentValue, onChange] = useState(maxDate)
 
     useEffect(() => {
@@ -131,7 +130,7 @@ const AffiliateDatePicker = (props) => {
 
     return (
         <DayPickerWrapper
-            isDateField={isDateField}
+            is_date_field={is_date_field}
             currentValue={currentValue}
             labelFocusColor={labelFocusColor}
             error={error}
@@ -154,8 +153,8 @@ const AffiliateDatePicker = (props) => {
                 error={error}
                 htmlFor={id}
                 label_color={label_color}
-                isAffiliate={isAffiliate}
-                isDateField={isDateField}
+                is_affiliate={is_affiliate}
+                is_date_field={is_date_field}
             >
                 {label}
             </StyledLabel>
@@ -166,7 +165,7 @@ const AffiliateDatePicker = (props) => {
 AffiliateDatePicker.propTypes = {
     error: PropTypes.string,
     id: PropTypes.string,
-    isAffiliate: PropTypes.bool,
+    is_affiliate: PropTypes.bool,
     label: PropTypes.string,
     label_color: PropTypes.string,
     labelFocusColor: PropTypes.string,

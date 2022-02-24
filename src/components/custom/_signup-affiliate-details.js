@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Formik, Field, Form } from 'formik'
+import { Formik, Field } from 'formik'
 import { Flex } from '../containers'
 import {
     getSignupAffiliateValue,
@@ -14,59 +14,61 @@ import CurrencySelect from '../form/currency-select'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device.js'
 
-const AffiliateForm = styled(Form)`
-    display: block;
-`
 const StyledContentFlex = styled(Flex)`
+    width: 486px;
+    height: auto;
     background-color: var(--color-white);
     border-radius: 0.6rem;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
     z-index: 1;
-    @media ${device.tablet} {
-        width: 53rem;
-    }
     @media ${device.mobileL} {
         width: 100%;
-        padding: 6rem 2rem;
+        min-width: 360px;
+        padding: 40px 16px;
     }
 `
 const Line = styled.div`
-    width: 130px;
+    width: 126.5px;
     height: 1px;
-    background-color: var(--color-grey-7);
+    background-color: var(--color-grey-8);
+    @media ${device.mobileL} {
+        width: 97.5px;
+    }
 `
 const InputGroup = styled.div`
-    position: relative;
     width: 100%;
-    margin: 2.5rem 0 0.6rem;
+    position: relative;
+    margin: 40px 0 4px;
     @media ${device.mobileL} {
-        margin: 25px 0 16px 0;
+        margin: 32px 0 16px;
     }
 `
 const SignupButton = styled(Button)`
-    width: 120px;
-    font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-    margin-top: 3.2rem;
-    @media ${device.tabletL} {
-        margin-top: 24px;
-    }
-
+    width: 81px;
+    font-size: 14px;
+    margin-top: 40px;
     @media ${device.mobileL} {
-        font-size: 1.75rem;
+        margin-top: 32px;
+    }
+    @media ${device.mobileL} {
+        font-size: 12px;
     }
 `
 const StyledLinkText = styled(LinkText)`
-    font-size: ${(props) => props.size || '14px'};
+    font-size: '14px';
     @media ${device.mobileL} {
-        font-size: 1.75rem;
+        font-size: 12px;
     }
 `
 const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
+`
+const StyledLocalizedLink = styled(LocalizedLink)`
+    color: var(--color-red);
+    text-decoration: none;
 `
 
 const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
@@ -93,7 +95,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
     }
 
     return (
-        <StyledContentFlex jc="flex-start" fd="column" p="4rem" width="48rem" height="auto">
+        <StyledContentFlex jc="flex-start" fd="column" p="40px">
             <Formik
                 enableReinitialize
                 initialValues={{
@@ -213,8 +215,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                         },
                     ]
                     return (
-                        <AffiliateForm>
-                            <Header as="h4" type="sub-section-title" mb="0.8rem">
+                        <form style={{ display: 'block' }}>
+                            <Header as="h3" type="heading-3" mb="8px">
                                 {localize('We’re glad you’re here')}
                             </Header>
                             <Header as="p" type="subtitle-2" weight="normal">
@@ -228,7 +230,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                         <DropdownSearchWrapper key={item.id}>
                                             <DropdownSearch
                                                 id={item.id}
-                                                isAffiliate
+                                                is_affiliate
                                                 selected_item={values.country}
                                                 default_item={''}
                                                 error={item.touch && item.error}
@@ -252,8 +254,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                                 <Input
                                                     {...field}
                                                     id={item.id}
-                                                    isDate={item.name === 'date'}
-                                                    isAffiliate
+                                                    is_date={item.name === 'date'}
+                                                    is_affiliate
                                                     type={item.type}
                                                     border="solid 1px var(--color-grey-7)"
                                                     labelColor="grey-5"
@@ -283,14 +285,13 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                     )
                                 })}
                             </InputGroup>
-                            <Flex fd="row" jc="space-between" ai="center" mt="2.4">
+                            <Flex fd="row" jc="space-between" ai="center" mt="24px">
                                 <Line />
                                 <Flex fd="row" ai="center" width="40%">
                                     <Header
                                         as="p"
                                         type="paragraph-2"
                                         align="center"
-                                        tabletFontSize="12px"
                                         weight="normal"
                                     >
                                         {localize('Choose your currency')}
@@ -310,42 +311,63 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                             </Field>
                             <Flex fd="column">
                                 <AgreementLabel
-                                    pep_label={localize(
+                                    is_checked={is_pep_checked}
+                                    handleChangeCheckbox={handlePepChange}
+                                    link_text={localize(
                                         'I declare that I am not a politically exposed person.',
                                     )}
-                                    isChecked={is_pep_checked}
-                                    handleChangeCheckbox={handlePepChange}
-                                />
+                                ></AgreementLabel>
                                 <AgreementLabel
-                                    isChecked={is_terms_checked}
+                                    is_affiliate
+                                    is_checked={is_terms_checked}
                                     handleChangeCheckbox={handleTermsChange}
-                                    isAffiliate
-                                />
+                                    link_text={localize(
+                                        'I have read and accepted Deriv’s <0>General business terms</0> and ',
+                                    )}
+                                >
+                                    <StyledLocalizedLink
+                                        external="true"
+                                        to="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        secondary
+                                    >
+                                        Affiliates and introducing brokers’ terms.
+                                    </StyledLocalizedLink>
+                                </AgreementLabel>
                             </Flex>
-                            <SignupButton
-                                id="dm-new-signup"
-                                secondary
-                                type="submit"
-                                disabled={!isValid || !dirty || !checksSelected()}
-                            >
-                                {localize('Signup')}
-                            </SignupButton>
-                        </AffiliateForm>
+                            <Flex fd="column" ai="center">
+                                <SignupButton
+                                    id="dm-new-signup"
+                                    secondary
+                                    type="submit"
+                                    disabled={!isValid || !dirty || !checksSelected()}
+                                >
+                                    {localize('Signup')}
+                                </SignupButton>
+                                <Header
+                                    as="p"
+                                    type="paragraph-1"
+                                    weight="normal"
+                                    align="center"
+                                    mt="8px"
+                                >
+                                    {localize('Already have an account?')}
+                                    <StyledLinkText
+                                        id="dm-new-login-button"
+                                        ml="6px"
+                                        size="16px"
+                                        color="red"
+                                        onClick={handleLogin}
+                                    >
+                                        {localize('Log in')}
+                                    </StyledLinkText>
+                                </Header>
+                            </Flex>
+                        </form>
                     )
                 }}
             </Formik>
-            <Header as="p" type="paragraph-1" weight="normal" mt="1.6rem" tabletL={{ mt: '19px' }}>
-                {localize('Already have an account?')}
-                <StyledLinkText
-                    id="dm-new-login-button"
-                    ml="0.4rem"
-                    size="16px"
-                    color="red"
-                    onClick={handleLogin}
-                >
-                    {localize('Log in')}
-                </StyledLinkText>
-            </Header>
         </StyledContentFlex>
     )
 }

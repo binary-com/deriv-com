@@ -148,7 +148,7 @@ const StyledInput = styled.input`
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     ${(props) =>
-        props.isAffiliate &&
+        props.is_affiliate &&
         css`
             padding-bottom: 0.8rem;
         `}
@@ -179,8 +179,8 @@ const Input = ({
     label_color,
     disabled,
     id,
-    isAffiliate,
-    isDate,
+    is_affiliate,
+    is_date,
     error,
     background,
     tablet_background,
@@ -201,10 +201,10 @@ const Input = ({
                 error={error}
                 className="input-wrapper"
             >
-                {isDate ? (
+                {is_date ? (
                     <AffiliateDatePicker
                         id={id}
-                        isAffiliate={isAffiliate}
+                        is_affiliate={is_affiliate}
                         background={background}
                         maxLength={maxLength}
                         error={error}
@@ -232,7 +232,7 @@ const Input = ({
                         ref={(ip) => (current_input = ip)}
                     />
                 )}
-                {label && !isDate && (
+                {label && !is_date && (
                     <StyledLabel
                         tablet_background={tablet_background}
                         error={error}
@@ -243,7 +243,7 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="left" color="red-1" isAffiliate={isAffiliate}>
+            <ErrorMessages lh="1.4" align="left" color="red-1" is_affiliate={is_affiliate}>
                 {error}
             </ErrorMessages>
             {error && (
@@ -269,8 +269,8 @@ Input.propTypes = {
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
-    isAffiliate: PropTypes.bool,
-    isDate: PropTypes.bool,
+    is_affiliate: PropTypes.bool,
+    is_date: PropTypes.bool,
     label: PropTypes.string,
     label_color: PropTypes.string,
     label_hover_color: PropTypes.string,

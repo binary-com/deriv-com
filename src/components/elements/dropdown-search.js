@@ -28,7 +28,7 @@ const DropdownInput = styled.input`
     }
 
     @media ${device.tabletL} {
-        font-size: ${(props) => (props.isAffiliate ? '1.6rem' : '1.75rem')};
+        font-size: ${(props) => (props.is_affiliate ? '1.6rem' : '1.75rem')};
     }
 
     @media ${device.mobileL} {
@@ -44,7 +44,7 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
-    isAffiliate,
+    is_affiliate,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
@@ -98,7 +98,7 @@ const DropdownSearch = ({
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
-                        isAffiliate={isAffiliate}
+                        is_affiliate={is_affiliate}
                         tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
@@ -131,7 +131,7 @@ DropdownSearch.propTypes = {
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
-    isAffiliate: PropTypes.bool,
+    is_affiliate: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

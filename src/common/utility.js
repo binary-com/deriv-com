@@ -369,11 +369,12 @@ export const removeSpecialCharacterUrl = (url) =>
 
 export const queryParams = {
     get: (key) => {
-        const params = new URL(document.location).searchParams
+        const params = new URLSearchParams(location.search)
         let param_values = {}
         //To get the params from the url
 
         if (typeof key === 'string') {
+            console.log('params', params.get(key))
             return params.get(key)
         } else {
             key.forEach((k) => {

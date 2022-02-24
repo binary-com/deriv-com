@@ -22,11 +22,13 @@ const InputWrapper = styled.div`
         border-color: var(--color-grey-5);
 
         & > label {
-            color: var(--color-${(props) => props.labelHoverColor || 'black-3'});
+            color: ${({ label_hover_color }) =>
+                label_hover_color ? `var(--color-${label_hover_color})` : 'var(--color-black-3)'};
         }
     }
     &:focus-within {
-        border-color: ${(props) => props.focusBorder || 'var(--color-green)'};
+        border-color: ${({ focus_border }) =>
+            focus_border ? `var(--color-${focus_border})` : 'var(--color-green)'};
     }
 
     ${(props) =>
@@ -67,9 +69,10 @@ const StyledError = styled.img`
 `
 
 const StyledInput = styled.input`
-    /* prettier-ignore */
-    background: var(--color-${(props) => props.inputBackground || 'none'});
-    color: var(--color-${(props) => props.inputColor || 'black'});
+    background: ${({ input_background }) =>
+        input_background ? `var(--color-${input_background})` : 'none'};
+    color: ${({ inputColor }) =>
+        inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
@@ -104,12 +107,11 @@ const StyledInput = styled.input`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
+            color: ${({ label_focus_color }) =>
+                label_focus_color ? `var(--color-${label_focus_color})` : 'var(--color-green)'};
+            background-color: ${({ background }) =>
+                background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
-            /* prettier-ignore */
-            color: var(--color-${(props) => props.labelFocusColor || 'green'});
-
-            /* prettier-ignore */
-            background-color: var(--color-${(props) => props.background || 'grey-1'});
             @media ${device.mobileL} {
                 transform: translate(-0.6rem, -20px) scale(0.7);
             }
@@ -131,11 +133,12 @@ const StyledInput = styled.input`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
                     color: var(--color-black-3);
+                    background-color: ${({ background }) =>
+                        background ? `var(--color-${background})` : 'var(--color-grey-1)'};
+
                     @media ${device.tabletL} {
                         top: 9px;
                     }
-                    /* prettier-ignore */
-                    background-color: var(--color-${(props) => props.background || 'grey-1'});
                 }
             `}
     }
@@ -148,8 +151,8 @@ const ErrorMessages = styled(Text)`
 `
 
 const StyledLabel = styled.label`
-    /* prettier-ignore */
-    color: var(--color-${(props) => props.labelColor || 'grey'});
+    color: ${({ label_color }) =>
+        label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
@@ -165,14 +168,14 @@ const Input = ({
     label,
     height,
     border,
-    focusBorder,
-    labelHoverColor,
-    labelColor,
+    focus_border,
+    label_hover_color,
+    label_color,
     disabled,
     id,
     error,
     background,
-    tabletBackground,
+    tablet_background,
     handleError,
     maxLength,
     ...props
@@ -183,8 +186,8 @@ const Input = ({
         <RelativeWrapper>
             <InputWrapper
                 border={border}
-                focusBorder={focusBorder}
-                labelHoverColor={labelHoverColor}
+                focus_border={focus_border}
+                label_hover_color={label_hover_color}
                 disabled={disabled}
                 error={error}
                 className="input-wrapper"
@@ -202,10 +205,10 @@ const Input = ({
                 />
                 {label && (
                     <StyledLabel
-                        tabletBackground={tabletBackground}
+                        tablet_background={tablet_background}
                         error={error}
                         htmlFor={id}
-                        labelColor={labelColor}
+                        label_color={label_color}
                     >
                         {label}
                     </StyledLabel>
@@ -233,15 +236,15 @@ Input.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     disabled: PropTypes.bool,
     error: PropTypes.string,
-    focusBorder: PropTypes.string,
+    focus_border: PropTypes.string,
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
     label: PropTypes.string,
-    labelColor: PropTypes.string,
-    labelHoverColor: PropTypes.string,
+    label_color: PropTypes.string,
+    label_hover_color: PropTypes.string,
     maxLength: PropTypes.string,
-    tabletBackground: PropTypes.string,
+    tablet_background: PropTypes.string,
     width: PropTypes.string,
 }
 

@@ -22,6 +22,7 @@ import {
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
@@ -147,7 +148,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
-            cover_content={localize('Discover Deriv MT5 now')}
+            cover_content={localize('Discover DMT5 now')}
             title={localize('Deriv MT5')}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
             content={[localize('Trade on Deriv MT5, the all-in-one CFD trading platform.')]}
@@ -166,7 +167,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
 //         <Card
 //             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
 //             content={[
-//                 localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
+//                 localize('A highly customisable and easy-to-use CFD trading platform.'),
 //             ]}
 //             cover_background="var(--color-black)"
 //             cover_content={localize('Discover Deriv X now')}
@@ -396,7 +397,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             aria_label="Binary Bot"
                             icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
                             content={
-                                <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
+                                <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
                             }
                             title={<Localize translate_text="Binary Bot" />}
                             to="https://bot.deriv.com/"
@@ -467,6 +468,16 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                     to="/markets/cryptocurrencies/"
                 />
             </NonUK>
+            <NavCard
+                aria_label="Basket indices"
+                icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
+                }
+                title={<Localize translate_text="Basket indices" />}
+                onClick={onClick}
+                to="/markets/basket-indices/"
+            />
             <NavCard
                 aria_label="Commodities"
                 icon={() => <img src={Commodities} alt="" width="32" height="32" />}

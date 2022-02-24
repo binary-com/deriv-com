@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-    <g fill="none" fill-rule="evenodd">
-        <circle cx="40" cy="40" r="40" fill="#F2F3F4"/>
-        <g fill-rule="nonzero">
-            <path fill="#85ACB0" d="M5.25 10.813l5.25 7.875H0l5.25-7.875zm13.5 0L24 18.688H13.5l5.25-7.875z" transform="translate(44 30.5)"/>
-            <path fill="#FF444F" d="M6.75 8.188L12 0.313 17.25 8.188z" transform="translate(44 30.5)"/>
-        </g>
-        <g fill-rule="nonzero">
-            <path fill="#85ACB0" d="M9 15v9H0v-9h9zM24 0v9h-9V0h9z" transform="translate(12 28)"/>
-            <path fill="#FF444F" d="M24 15v9h-9v-9h9zM9 0v9H0V0h9z" transform="translate(12 28)"/>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><g fill="none" fill-rule="evenodd"><circle cx="40" cy="40" r="40" fill="#F2F3F4"/><g fill-rule="nonzero"><path fill="#85ACB0" d="m49.25 41.313 5.25 7.875H44l5.25-7.875zm13.5 0L68 49.188H57.5l5.25-7.875z"/><path fill="#FF444F" d="M50.75 38.688 56 30.813l5.25 7.875z"/></g><g fill-rule="nonzero"><path fill="#85ACB0" d="M21 43v9h-9v-9h9zm15-15v9h-9v-9h9z"/><path fill="#FF444F" d="M36 43v9h-9v-9h9zM21 28v9h-9v-9h9z"/></g></g></svg>

@@ -4,9 +4,9 @@ import {
     CrashBoom,
     ContinuousIndices,
     VolatilityIndices,
-} from '../../markets/instruments/_submarkets.js'
-import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+} from '../../markets/instruments/_submarkets'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -220,7 +220,7 @@ const SyntheticIndices = () => {
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
                                         <Title weight="bold" align="center">
-                                            {localize('Continuous indices')}
+                                            {localize('Volatility indices')}
                                         </Title>
                                     </Col>
                                     <MarketsList>

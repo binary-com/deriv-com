@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-    <g fill="none" fill-rule="evenodd">
-        <circle cx="40" cy="40" r="40" fill="#F2F3F4"/>
-        <g fill-rule="nonzero">
-            <path fill="#85ACB0" d="M5.121 21l-3 3H0v-3h5.121zM24 0v3H0V0h24z" transform="translate(44 28)"/>
-            <path fill="#FF444F" d="M23.985 10.5C22.336 10.5 21 11.836 21 13.485v2.4L15.621 10.5c-1.171-1.171-3.07-1.171-4.242 0L6 15.879v4.242l7.5-7.5L18.879 18h-2.4c-1.646.003-2.979 1.339-2.979 2.985V21H21c1.657 0 3-1.343 3-3v-7.5h-.015z" transform="translate(44 28)"/>
-        </g>
-        <g fill-rule="nonzero">
-            <path fill="#85ACB0" d="M8.136 21L6 23.139 5.139 24H0v-3h8.136zM24 0v3H0V0h24z" transform="translate(12 28)"/>
-            <path fill="#FF444F" d="M23.985 15H24V6c0-1.657-1.343-3-3-3h-9v.015C12 4.664 13.336 6 14.985 6h3.9L9 15.879v4.256L21 8.12v3.9C21.003 13.667 22.339 15 23.985 15z" transform="translate(12 28)"/>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><g fill="none" fill-rule="evenodd"><circle cx="40" cy="40" r="40" fill="#F2F3F4"/><g fill-rule="nonzero"><path fill="#85ACB0" d="m49.121 49-3 3H44v-3h5.121zM68 28v3H44v-3h24z"/><path fill="#FF444F" d="M67.985 38.5A2.984 2.984 0 0 0 65 41.485v2.4L59.621 38.5a3 3 0 0 0-4.242 0L50 43.879v4.242l7.5-7.5L62.879 46h-2.4a2.985 2.985 0 0 0-2.979 2.985V49H65a3 3 0 0 0 3-3v-7.5h-.015z"/></g><g fill-rule="nonzero"><path fill="#85ACB0" d="M20.136 49 18 51.139l-.861.861H12v-3h8.136zM36 28v3H12v-3h24z"/><path fill="#FF444F" d="M35.985 43H36v-9a3 3 0 0 0-3-3h-9v.015A2.984 2.984 0 0 0 26.985 34h3.9L21 43.879v4.256L33 36.12v3.9A2.985 2.985 0 0 0 35.985 43z"/></g></g></svg>

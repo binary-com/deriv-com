@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
+import { getCountryRule } from 'components/containers/visibility'
 
 const query = graphql`
     query {
@@ -53,13 +54,19 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const data = useStaticQuery(query)
+    const { is_row } = getCountryRule()
 
-    const slide_images = [
-        { key: 'hero1', image: data.hero_platform1 },
-        { key: 'hero2', image: data.hero_platform2 },
-        { key: 'hero3', image: data.hero_platform3 },
-        { key: 'hero4', image: data.hero_platform4 },
-    ]
+    const slide_images = is_row
+        ? [
+              { key: 'hero1', image: data.hero_platform1 },
+              { key: 'hero2', image: data.hero_platform2 },
+              { key: 'hero3', image: data.hero_platform3 },
+              { key: 'hero4', image: data.hero_platform4 },
+          ]
+        : [
+              { key: 'hero2', image: data.hero_platform2 },
+              { key: 'hero3', image: data.hero_platform3 },
+          ]
 
     const setNextImage = useCallback(() => {
         setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
@@ -71,7 +78,7 @@ const PlatformSlideshow = () => {
         }, 5000)
 
         return () => clearInterval(slideshow_timer)
-    }, [])
+    }, [slide_images])
 
     return (
         <Flex max_width="690px" height="626px" tablet={{ max_height: '360px', ai: 'center' }}>

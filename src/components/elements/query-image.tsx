@@ -21,7 +21,7 @@ export type ImageWrapperProps = {
     height: string
     className?: string
     loading: 'eager' | 'lazy'
-    disable_transition: boolean
+    disable_transition?: boolean
 }
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`

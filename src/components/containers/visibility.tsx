@@ -20,6 +20,10 @@ type StoreDataType = {
     is_uk_country?: boolean
 }
 
+type CountryRuleOptionsType = 'is_eu' | 'is_uk' | 'is_non_uk' | 'is_non_eu' | 'is_eu_uk' | 'is_row'
+
+type CountryRuleType = Record<CountryRuleOptionsType, boolean>
+
 const DEFAULT_BREAKPOINT = size.tabletL
 
 const DesktopLayer = styled.div<LayerProps>`
@@ -68,7 +72,7 @@ const deviceRenderer = (): boolean => {
     return is_loaded
 }
 
-export const getCountryRule = () => {
+export const getCountryRule = (): CountryRuleType => {
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
     const { is_eu_country, is_uk_country } = useContext<StoreDataType>(DerivStore)
 

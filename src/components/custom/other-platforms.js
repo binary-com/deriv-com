@@ -415,7 +415,7 @@ NavPlatform.propTypes = {
 }
 
 export const NavMarket = ({ onClick, is_ppc }) => {
-    const { is_not_uk } = getCountryRule()
+    const { is_non_uk } = getCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
@@ -429,7 +429,7 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 onClick={onClick}
                 to="/markets/forex/"
             />
-            {!is_ppc && is_not_uk && (
+            {!is_ppc && is_non_uk && (
                 <NavCard
                     aria_label="Synthetic indices"
                     icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
@@ -451,7 +451,7 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 onClick={onClick}
                 to="/markets/stock/"
             />
-            {is_not_uk && (
+            {is_non_uk && (
                 <NavCard
                     aria_label="Cryptocurrencies"
                     icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}

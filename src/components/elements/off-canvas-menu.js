@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex, NonEU } from 'components/containers'
+import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
@@ -159,7 +159,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         to="/trade-types/cfds/"
                                     />
                                 </Flex>
-                                <NonEU>
+                                <ROW>
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
@@ -174,7 +174,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             to="/trade-types/options/"
                                         />
                                     </Flex>
-                                </NonEU>
+                                </ROW>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Multipliers"
@@ -209,7 +209,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        <NonEU>
+                        <ROW>
                             <Flex mb="2rem">
                                 <NavCard
                                     aria_label="Derivx"
@@ -222,7 +222,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     to="/derivx/"
                                 />
                             </Flex>
-                        </NonEU>
+                        </ROW>
 
                         <Flex mb="2rem">
                             <NavCard
@@ -236,7 +236,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <NonEU>
+                        <ROW>
                             <>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -302,7 +302,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     />
                                 </Flex>
                             </>
-                        </NonEU>
+                        </ROW>
                     </AccordionItem>
                     <AccordionItem
                         header="Markets"

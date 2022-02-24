@@ -43,6 +43,17 @@ const Reason = styled.div`
             font-size: 14px;
         }
     }
+
+    @media ${device.mobileL} {
+        p {
+            width: 328px;
+        }
+    }
+    @media ${device.mobileS} {
+        p {
+            width: unset;
+        }
+    }
 `
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;

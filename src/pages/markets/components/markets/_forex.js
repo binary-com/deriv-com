@@ -19,7 +19,7 @@ const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Forex = ({ simple_step_content }) => {
-    const { is_row, is_eu } = getCountryRule()
+    const { is_row, is_eu_uk } = getCountryRule()
     return (
         <>
             <WhyTrade
@@ -28,7 +28,7 @@ const Forex = ({ simple_step_content }) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
+                {(is_eu_uk ? forex_content_eu : forex_content).map((content, index) => (
                     <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
                 ))}
             </WhyTrade>
@@ -52,7 +52,9 @@ const Forex = ({ simple_step_content }) => {
                     )
                 }
                 Multipliers={
-                    <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
+                    <Multipliers
+                        market_content={is_eu_uk ? forex_multiplier_eu : forex_multiplier}
+                    />
                 }
                 name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}

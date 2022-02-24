@@ -9,6 +9,7 @@ import { LinkButton } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
+import { getCountryRule } from 'components/containers/visibility'
 
 const query = graphql`
     query {
@@ -74,10 +75,14 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
+    const { is_uk } = getCountryRule()
 
-    const text = !is_ppc
-        ? localize('Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.')
-        : localize('Trade forex, commodities, stocks, and stock indices')
+    const text =
+        !is_ppc && !is_uk
+            ? localize(
+                  'Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.',
+              )
+            : localize('Trade forex, stocks & indices, and commodities.')
 
     return (
         <HeroWrapper>

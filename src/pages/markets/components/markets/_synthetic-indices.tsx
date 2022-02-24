@@ -68,7 +68,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets excepts={['synthetic_indices', 'basket_indices']} />
+            <OtherMarkets except="synthetic_indices" />
         </div>
     )
 }

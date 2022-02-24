@@ -1,14 +1,13 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
-import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets.svg'
-import Deposit from 'images/svg/markets/deposit-and-withdrawal.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support.svg'
-import Leverage from 'images/svg/markets/leverage.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
-import PractiseIcon from 'images/svg/markets/aim.svg'
-import TradeIcon from 'images/svg/markets/trade.svg'
-import WithdrawIcon from 'images/svg/markets/withdraw.svg'
+import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
+import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
+import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
+import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
+import PractiseIcon from 'images/svg/markets/aim-new.svg'
+import TradeIcon from 'images/svg/markets/trade-new.svg'
 
 export type ForexContentElement = {
     src: string
@@ -36,7 +35,7 @@ export const simple_step_content_forex: SimpleStepsContent[] = [
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
+        icon: <img src={Deposit} alt="" width="32" height="32" />,
     },
 ]
 

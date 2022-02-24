@@ -220,7 +220,7 @@ const SyntheticIndices = () => {
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
                                         <Title weight="bold" align="center">
-                                            {localize('Continuous indices')}
+                                            {localize('Volatility indices')}
                                         </Title>
                                     </Col>
                                     <MarketsList>

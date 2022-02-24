@@ -37,10 +37,12 @@ export const Col = styled(Flex)`
     padding: 0 4px;
 
     @media ${device.tabletL} {
-        max-width: ${({ full_width }) => (full_width ? '80px' : '129px')};
+        max-width: unset;
+        width: 100%;
+        /* max-width: ${({ full_width }) => (full_width ? '80px' : '129px')}; */
+        border-bottom: 1px solid var(--color-grey-22);
         ${({ mobile_template }) =>
-            mobile_template &&
-            'padding: 16px 0;max-width: 100%;border-bottom: 1px solid var(--color-grey-22)'};
+            mobile_template && 'padding: 16px 0;border-bottom: 1px solid var(--color-grey-22)'};
     }
 `
 
@@ -88,13 +90,14 @@ export const Row = styled(Flex)`
             `
         }
     }}
-
     justify-content: flex-start;
     align-items: center;
 
     @media ${device.tabletL} {
         ${({ mobile_template }) => mobile_template && 'flex-direction:column'};
         min-height: 76px;
+        flex-direction: column;
+        justify-content: center;
     }
 `
 
@@ -102,7 +105,7 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
     border-left: 1px solid var(--color-grey-22);
     border-right: ${({ has_right_border }) =>
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
-    grid-template-columns: ${({ col }) => `repeat(${col ?? 4}, 1fr)`};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 3}, 1fr)`};
     width: 100%;
     padding: 24px;
     gap: ${({ gap }) => (gap ? gap : '10px')};
@@ -134,7 +137,7 @@ export const LatestMarketsList = styled(CssGrid)<LatestMarketsListProps>`
     }
 
     @media ${device.mobileL} {
-        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 1}, 1fr)`};
+        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
         padding: 16px 8px;
         gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 0')};
@@ -189,7 +192,6 @@ export const SymbolContainer = styled(Flex)`
         font-weight: normal;
         font-size: 14px;
         line-height: 21px;
-        white-space: nowrap;
     }
 
     @media ${device.mobileL} {
@@ -209,6 +211,7 @@ export const Title = styled(Text)`
     font-weight: bold;
 
     @media ${device.tabletL} {
+        margin: 16px 0;
         font-weight: 600;
         font-size: 14px;
     }

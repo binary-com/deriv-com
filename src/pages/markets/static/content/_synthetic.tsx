@@ -1,14 +1,14 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
-import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support.svg'
-import MarketandRisk from 'images/svg/markets/market-and-risk.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
-import SevenTrading from 'images/svg/markets/seven-trading.svg'
-import PractiseIcon from 'images/svg/markets/aim.svg'
-import TradeIcon from 'images/svg/markets/trade.svg'
-import WithdrawIcon from 'images/svg/markets/withdraw.svg'
+import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
+import MarketandRisk from 'images/svg/markets/market-and-risk-new.svg'
+import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
+import SevenTrading from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
+import PractiseIcon from 'images/svg/markets/aim-new.svg'
+import TradeIcon from 'images/svg/markets/trade-new.svg'
+import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 type Synthetic = {
     src: string

@@ -12,8 +12,9 @@ import ExoticPairs from './_exotic-pairs'
 import MajorPairs from './_major-pairs'
 import Metals from './_metals'
 import MinorPairs from './_minor-pairs'
+import MinorOptionsPairs from './_minor-options-pairs'
 import RangeBreak from './_range-break'
-import SmartFX from './_smartfx'
+import MicroPairs from './_micro-pairs'
 import StepIndices from './_step-indices'
 import VolatilityIndices from './_volatility-indices'
 import VolatilityIndicesEU from './_volatility-indices-eu'
@@ -47,8 +48,9 @@ export {
     MajorPairs,
     Metals,
     MinorPairs,
+    MinorOptionsPairs,
     RangeBreak,
-    SmartFX,
+    MicroPairs,
     StepIndices,
     VolatilityIndices,
     VolatilityIndicesEU,

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import MarketInstruments from '../../markets/components/sections/_market_instruments'
-import { MajorPairs, SmartFX } from '../../markets/instruments/_submarkets'
+import { MajorPairs } from '../../markets/instruments/_submarkets'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
-import { SmartFXDetails } from '../../markets/static/content/_details'
+// import { SmartFXDetails } from '../../markets/static/content/_details'
 import type { MarketInstrumentsElement } from '../../markets/components/sections/_market_instruments'
 import { Text } from 'components/elements'
 import { SectionContainer, Show, Flex } from 'components/containers'
@@ -31,7 +31,7 @@ const CFDs = () => {
 
     const major_pairs: MarketInstrumentsElement = {
         markets_list: {
-            col: 4,
+            col: 5,
             tablet_col: 3,
             mobile_col: 2,
         },
@@ -48,8 +48,8 @@ const CFDs = () => {
         content: [
             {
                 title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
-                details: SmartFXDetails,
+                // component: <SmartFX />,
+                // details: SmartFXDetails,
                 col: 3,
                 tablet_col: 2,
             },
@@ -60,8 +60,8 @@ const CFDs = () => {
         content: [
             {
                 title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
-                details: SmartFXDetails,
+                // component: <SmartFX />,
+                // details: SmartFXDetails,
             },
         ],
     }

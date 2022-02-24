@@ -38,7 +38,7 @@ const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding: 80px 0 40px;
+        padding: 40px 0;
     }
 `
 

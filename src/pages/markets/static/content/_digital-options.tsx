@@ -10,8 +10,7 @@ import {
     Europe,
     MajorPairs,
     Metals,
-    MinorPairs,
-    SmartFX,
+    MinorOptionsPairs,
 } from '../../instruments/_submarkets'
 import {
     AmericasDetails,
@@ -21,7 +20,6 @@ import {
     ContinuousIndicesDetails,
     DailyResetIndicesDetails,
     EuropeDetails,
-    SmartFXDetails,
 } from './_details'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { Localize } from 'components/localization'
@@ -249,7 +247,7 @@ export const commodities_options: Options = {
 export const forex_options: Options = {
     market_instruments: {
         markets_list: {
-            col: 4,
+            col: 5,
             tablet_col: 3,
             mobile_col: 2,
         },
@@ -260,12 +258,7 @@ export const forex_options: Options = {
             },
             {
                 title: <Localize translate_text="Minor pairs" />,
-                component: <MinorPairs />,
-            },
-            {
-                title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
-                details: SmartFXDetails,
+                component: <MinorOptionsPairs />,
             },
         ],
     },
@@ -281,14 +274,14 @@ export const basket_options: Options = {
         },
         content: [
             {
-                title: <Localize translate_text="Forex Basket" />,
-                component: <BasketIndicesCfds />,
-                details: BasketFXDetails,
-            },
-            {
                 title: <Localize translate_text="Commodities Basket" />,
                 component: <BasketIndicesCommodities />,
                 details: BasketCommoditiesDetails,
+            },
+            {
+                title: <Localize translate_text="Forex Basket" />,
+                component: <BasketIndicesCfds />,
+                details: BasketFXDetails,
             },
         ],
     },
@@ -353,12 +346,12 @@ export const synthetic_options: Options = {
         has_global_accordion: true,
         content: [
             {
-                title: <Localize translate_text="Continuous indices" />,
+                title: <Localize translate_text="Volatility indices" />,
                 component: <ContinuousIndices />,
                 details: ContinuousIndicesDetails,
             },
             {
-                title: <Localize translate_text="Daily reset indices" />,
+                title: <Localize translate_text="Bull/Bear indices" />,
                 component: <DailyResetIndices />,
                 details: DailyResetIndicesDetails,
             },

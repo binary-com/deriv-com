@@ -1,14 +1,13 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
-import Deposit from 'images/svg/markets/deposit-and-withdrawal.svg'
-import ExtendedTime from 'images/svg/markets/extended-trading-times.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support.svg'
-import MinimalCapital from 'images/svg/markets/minimal-capital.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
-import PractiseIcon from 'images/svg/markets/aim.svg'
-import TradeIcon from 'images/svg/markets/trade.svg'
-import WithdrawIcon from 'images/svg/markets/withdraw.svg'
+import ExtendedTime from 'images/svg/stock-indices/stocks-minimum-capital.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
+import MinimalCapital from 'images/svg/stock-indices/stocks-extended-time.svg'
+import ResponsiveWebsite from 'images/svg/markets/responsive-another.svg'
+import PractiseIcon from 'images/svg/markets/aim-new.svg'
+import TradeIcon from 'images/svg/markets/trade-new.svg'
+import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 type Stock = {
     src: string
@@ -41,15 +40,15 @@ export const simple_step_content_stock: SimpleStepsContent[] = [
 
 const stocks: Stock[] = [
     {
-        src: MinimalCapital,
+        src: ExtendedTime,
         text: <Localize translate_text="Minimal capital requirements, limited risk" />,
     },
     {
-        src: ExtendedTime,
+        src: MinimalCapital,
         text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
     },
     {
-        src: Deposit,
+        src: WithdrawIcon,
         text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
     },
     {

@@ -5,11 +5,11 @@ import {
     ContinuousIndices,
     CrashBoom,
     CrashBoomEU,
+    CryptocurrenciesMultipliers,
+    JumpIndices,
     MajorPairs,
     StepIndices,
-    CryptocurrenciesMultipliers,
     VolatilityIndicesEU,
-    SmartFX,
 } from '../../instruments/_submarkets'
 import {
     BasketFXDetails,
@@ -17,10 +17,10 @@ import {
     ContinuousIndicesDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
-    StepIndicesDetails,
     CryptocurrenciesDetails,
+    JumpIndicesDetails,
+    StepIndicesDetails,
     VolatilityIndicesDetailsEU,
-    SmartFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -41,6 +41,10 @@ export type ForexAndBasketMultiplier = {
 }
 export type SyntheticMultiplier = {
     has_global_accordion: boolean
+    markets_list: {
+        col: number
+        tablet_col: number
+    }
     content: Option[]
     eu_content?: ReactElement[]
     template?: number
@@ -57,7 +61,7 @@ export type CryptoMultiplier = {
 
 export const forex_multiplier: ForexAndBasketMultiplier = {
     markets_list: {
-        col: 4,
+        col: 5,
         tablet_col: 3,
         mobile_col: 2,
     },
@@ -65,11 +69,6 @@ export const forex_multiplier: ForexAndBasketMultiplier = {
         {
             title: <Localize translate_text="Major pairs" />,
             component: <MajorPairs />,
-        },
-        {
-            title: <Localize translate_text="SmartFX" />,
-            component: <SmartFX />,
-            details: SmartFXDetails,
         },
     ],
 }
@@ -81,23 +80,27 @@ export const basket_multiplier: ForexAndBasketMultiplier = {
     },
     content: [
         {
-            title: <Localize translate_text="Forex Basket" />,
-            component: <BasketIndicesCfds />,
-            details: BasketFXDetails,
-        },
-        {
             title: <Localize translate_text="Commodities Basket" />,
             component: <BasketIndicesCommodities />,
             details: BasketCommoditiesDetails,
+        },
+        {
+            title: <Localize translate_text="Forex Basket" />,
+            component: <BasketIndicesCfds />,
+            details: BasketFXDetails,
         },
     ],
 }
 
 export const synthetic_multiplier: SyntheticMultiplier = {
     has_global_accordion: true,
+    markets_list: {
+        col: 3,
+        tablet_col: 3,
+    },
     content: [
         {
-            title: <Localize translate_text="Continuous indices" />,
+            title: <Localize translate_text="Volatility indices" />,
             component: <ContinuousIndices />,
             details: ContinuousIndicesDetails,
         },
@@ -108,6 +111,11 @@ export const synthetic_multiplier: SyntheticMultiplier = {
             ),
             component: <CrashBoom />,
             details: CrashBoomDetails,
+        },
+        {
+            title: <Localize translate_text="Jump indices" />,
+            component: <JumpIndices />,
+            details: JumpIndicesDetails,
         },
         {
             title: <Localize translate_text="Step indices" />,
@@ -125,7 +133,11 @@ export const synthetic_multiplier: SyntheticMultiplier = {
 
 export const synthetic_multiplier_eu: SyntheticMultiplier = {
     has_global_accordion: true,
-    template: 2,
+    markets_list: {
+        col: 3,
+        tablet_col: 3,
+    },
+    template: 1,
     content: [
         {
             title: <Localize translate_text="Volatility indices" />,

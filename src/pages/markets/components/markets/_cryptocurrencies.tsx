@@ -8,10 +8,10 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { StyledBox } from '../../static/style/_markets-style'
 import { Localize } from 'components/localization'
-import TightSpread from 'images/svg/markets/tight-spread.svg'
-import CryptoPairs from 'images/svg/markets/crypto-pairs.svg'
-import ZeroCommission from 'images/svg/markets/zero-commission.svg'
-import Leverage from 'images/svg/markets/leverage.svg'
+import TightSpread from 'images/svg/markets/tight-spread-new.svg'
+import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
+import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
+import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import { DerivStore } from 'store'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 //Lazy-load
@@ -82,7 +82,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets excepts={['cryptocurrencies', 'basket_indices']} />
+            <OtherMarkets except="cryptocurrencies" />
         </>
     )
 }

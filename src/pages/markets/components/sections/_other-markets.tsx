@@ -32,7 +32,7 @@ type CardProps = {
     market: string
 }
 type OtherMarketsProps = {
-    excepts: string[]
+    except: string
 }
 const markets_type: MarketsType = {
     forex: {
@@ -125,12 +125,11 @@ const LearnMore = styled(LocalizedLink)`
 `
 const MobileCardWrapper = styled(Flex)`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-    min-height: 32.5rem;
     position: relative;
     width: 100%;
     max-width: 35.25rem;
     height: 100%;
-    padding: 3rem;
+    padding: 24px 24px 44px;
     align-items: center;
     flex-direction: column;
 
@@ -202,7 +201,7 @@ const MobileCard = ({ market }: CardProps) => {
                 </Text>
                 <Icon dynamic_id={markets_type[market].id + '_mobile'} />
             </Flex>
-            <Text size="2rem">{markets_type[market].content}</Text>
+            <Text size="14px">{markets_type[market].content}</Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
@@ -243,7 +242,7 @@ const MobileCardContainer = styled(Flex)`
     }
 `
 
-const OtherMarkets = ({ excepts }: OtherMarketsProps) => {
+const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const markets = [
         'forex',
         'synthetic_indices',
@@ -268,7 +267,7 @@ const OtherMarkets = ({ excepts }: OtherMarketsProps) => {
                                 max_height="320rem"
                             >
                                 {markets.map((market) =>
-                                    excepts.includes(market) ? null : (
+                                    except === market ? null : (
                                         <Card market={market} key={market} />
                                     ),
                                 )}
@@ -283,9 +282,7 @@ const OtherMarkets = ({ excepts }: OtherMarketsProps) => {
                 </StyledHeader>
                 <MobileCardContainer direction="column">
                     {markets.map((market) =>
-                        excepts.includes(market) ? null : (
-                            <MobileCard market={market} key={market} />
-                        ),
+                        except === market ? null : <MobileCard market={market} key={market} />,
                     )}
                 </MobileCardContainer>
             </Show.Mobile>

@@ -38,43 +38,43 @@ export const asia_oceania: MarketSymbol[] = [
 
 export const continuous_indices: MarketSymbol[] = [
     {
-        src: icons.INDEX10S1,
+        src: icons.INDEX10S1NEW,
         text: <Localize translate_text="Volatility 10 (1s) Index" />,
     },
     {
-        src: icons.INDEX25S1,
+        src: icons.INDEX25S1NEW,
         text: <Localize translate_text="Volatility 25 (1s) Index" />,
     },
     {
-        src: icons.INDEX50S1,
+        src: icons.INDEX50S1NEW,
         text: <Localize translate_text="Volatility 50 (1s) Index" />,
     },
     {
-        src: icons.INDEX75S1,
+        src: icons.INDEX75S1NEW,
         text: <Localize translate_text="Volatility 75 (1s) Index" />,
     },
     {
-        src: icons.INDEX100S1,
+        src: icons.INDEX100S1NEW,
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
-        src: icons.INDEX10,
+        src: icons.INDEX10NEW,
         text: <Localize translate_text="Volatility 10 Index" />,
     },
     {
-        src: icons.INDEX25,
+        src: icons.INDEX25NEW,
         text: <Localize translate_text="Volatility 25 Index" />,
     },
     {
-        src: icons.INDEX50,
+        src: icons.INDEX50NEW,
         text: <Localize translate_text="Volatility 50 Index" />,
     },
     {
-        src: icons.INDEX75,
+        src: icons.INDEX75NEW,
         text: <Localize translate_text="Volatility 75 Index" />,
     },
     {
-        src: icons.INDEX100,
+        src: icons.INDEX100NEW,
         text: <Localize translate_text="Volatility 100 Index" />,
     },
 ]
@@ -94,19 +94,19 @@ export const volatility_indices_eu: MarketSymbol[] = [
 
 export const crash_boom: MarketSymbol[] = [
     {
-        src: icons.BOOM1000,
+        src: icons.BOOM1000NEW,
         text: <Localize translate_text="Boom 1000 Index" />,
     },
     {
-        src: icons.BOOM500,
+        src: icons.BOOM500NEW,
         text: <Localize translate_text="Boom 500 Index" />,
     },
     {
-        src: icons.CRASH1000,
+        src: icons.CRASH1000NEW,
         text: <Localize translate_text="Crash 1000 Index" />,
     },
     {
-        src: icons.CRASH500,
+        src: icons.CRASH500NEW,
         text: <Localize translate_text="Crash 500 Index" />,
     },
 ]
@@ -124,11 +124,11 @@ export const crash_boom_eu: MarketSymbol[] = [
 
 export const daily_reset_indices: MarketSymbol[] = [
     {
-        src: icons.MARKETBEAR,
+        src: icons.MARKETBEARNEW,
         text: <Localize translate_text="Bear Market Index" />,
     },
     {
-        src: icons.MARKETBULL,
+        src: icons.MARKETBULLNEW,
         text: <Localize translate_text="Bull Market Index" />,
     },
 ]
@@ -182,20 +182,17 @@ export const exotic_pairs: MarketSymbol[] = [
         text: <Localize translate_text="EUR/SGD" />,
     },
     {
-        src: icons.EURTRY,
-        text: <Localize translate_text="EUR/TRY" />,
-    },
-    {
         src: icons.EURZAR,
         text: <Localize translate_text="EUR/ZAR" />,
     },
+    // {
+    //     src: icons.EURTRY,
+    //     text: <Localize translate_text="EUR/TRY" />,
+    // },
+
     {
         src: icons.GBPSGD,
         text: <Localize translate_text="GBP/SGD" />,
-    },
-    {
-        src: icons.GBPTRY,
-        text: <Localize translate_text="GBP/TRY" />,
     },
     {
         src: icons.HKDJPY,
@@ -205,6 +202,10 @@ export const exotic_pairs: MarketSymbol[] = [
         src: icons.NZDCHF,
         text: <Localize translate_text="NZD/CHF" />,
     },
+    // {
+    //     src: icons.GBPTRY,
+    //     text: <Localize translate_text="GBP/TRY" />,
+    // },
     {
         src: icons.NZDSGD,
         text: <Localize translate_text="NZD/SGD" />,
@@ -233,10 +234,10 @@ export const exotic_pairs: MarketSymbol[] = [
         src: icons.USDTHB,
         text: <Localize translate_text="USD/THB" />,
     },
-    {
-        src: icons.USDTRY,
-        text: <Localize translate_text="USD/TRY" />,
-    },
+    // {
+    //     src: icons.USDTRY,
+    //     text: <Localize translate_text="USD/TRY" />,
+    // },
 ]
 
 export const major_pairs: MarketSymbol[] = [
@@ -356,26 +357,82 @@ export const range_break: MarketSymbol[] = [
     },
 ]
 
-export const smart_fx: MarketSymbol[] = [
+export const micro_pairs: MarketSymbol[] = [
     {
-        src: icons.AUDINDEX,
-        text: <Localize translate_text="AUD Index" />,
+        src: icons.AUDCAD,
+        text: <Localize translate_text="AUD/CAD" />,
     },
     {
-        src: icons.EURINDEX,
-        text: <Localize translate_text="EUR Index" />,
+        src: icons.AUDCHF,
+        text: <Localize translate_text="AUD/CHF" />,
     },
     {
-        src: icons.GBPINDEX,
-        text: <Localize translate_text="GBP Index" />,
+        src: icons.AUDJPY,
+        text: <Localize translate_text="AUD/JPY" />,
     },
     {
-        src: icons.USDINDEX,
-        text: <Localize translate_text="USD Index" />,
+        src: icons.AUDNZD,
+        text: <Localize translate_text="AUD/NZD" />,
     },
     {
-        src: icons.GOLDINDEX,
-        text: <Localize translate_text="Gold Index" />,
+        src: icons.AUDUSD,
+        text: <Localize translate_text="AUD/USD" />,
+    },
+    {
+        src: icons.EURAUD,
+        text: <Localize translate_text="EUR/AUD" />,
+    },
+    {
+        src: icons.EURCAD,
+        text: <Localize translate_text="EUR/CAD" />,
+    },
+    {
+        src: icons.EURCHF,
+        text: <Localize translate_text="EUR/CHF" />,
+    },
+    {
+        src: icons.EURGBP,
+        text: <Localize translate_text="EUR/GBP" />,
+    },
+    {
+        src: icons.EURJPY,
+        text: <Localize translate_text="EUR/JPY" />,
+    },
+    {
+        src: icons.EURNZD,
+        text: <Localize translate_text="EUR/NZD" />,
+    },
+    {
+        src: icons.EURUSD,
+        text: <Localize translate_text="EUR/USD" />,
+    },
+    {
+        src: icons.GBPCHF,
+        text: <Localize translate_text="GBP/CHF" />,
+    },
+    {
+        src: icons.GBPJPY,
+        text: <Localize translate_text="GBP/JPY" />,
+    },
+    {
+        src: icons.GBPUSD,
+        text: <Localize translate_text="GBP/USD" />,
+    },
+    {
+        src: icons.NZDUSD,
+        text: <Localize translate_text="NZD/USD" />,
+    },
+    {
+        src: icons.USDCAD,
+        text: <Localize translate_text="USD/CAD" />,
+    },
+    {
+        src: icons.USDCHF,
+        text: <Localize translate_text="USD/CHF" />,
+    },
+    {
+        src: icons.USDJPY,
+        text: <Localize translate_text="USD/JPY" />,
     },
 ]
 
@@ -400,8 +457,102 @@ export const minor_pairs: MarketSymbol[] = [
         text: <Localize translate_text="AUD/NZD" />,
     },
     {
+        src: icons.CADCHF,
+        text: <Localize translate_text="CAD/CHF" />,
+    },
+    {
+        src: icons.CADJPY,
+        text: <Localize translate_text="CAD/JPY" />,
+    },
+    {
         src: icons.CHFJPY,
         text: <Localize translate_text="CHF/JPY" />,
+    },
+    {
+        src: icons.EURNOK,
+        text: <Localize translate_text="EUR/NOK" />,
+    },
+    {
+        src: icons.EURNZD,
+        text: <Localize translate_text="EUR/NZD" />,
+    },
+    {
+        src: icons.EURLPN,
+        text: <Localize translate_text="EUR/LPN" />,
+    },
+    {
+        src: icons.EURSEK,
+        text: <Localize translate_text="EUR/SEK" />,
+    },
+    {
+        src: icons.GBPCAD,
+        text: <Localize translate_text="GBP/CAD" />,
+    },
+    {
+        src: icons.GBPCHF,
+        text: <Localize translate_text="GBP/CHF" />,
+    },
+    {
+        src: icons.GBPNOK,
+        text: <Localize translate_text="GBP/NOK" />,
+    },
+    {
+        src: icons.GBPNZD,
+        text: <Localize translate_text="GBP/NZD" />,
+    },
+    {
+        src: icons.GBPSEK,
+        text: <Localize translate_text="GBP/SEK" />,
+    },
+    {
+        src: icons.NZDCAD,
+        text: <Localize translate_text="NZD/CAD" />,
+    },
+    {
+        src: icons.NZDJPY,
+        text: <Localize translate_text="NZD/JPY" />,
+    },
+    {
+        src: icons.NZDUSD,
+        text: <Localize translate_text="NZD/USD" />,
+    },
+    {
+        src: icons.USDCNH,
+        text: <Localize translate_text="USD/CNH" />,
+    },
+    {
+        src: icons.USDMXN,
+        text: <Localize translate_text="USD/MXN" />,
+    },
+    {
+        src: icons.USDNOK,
+        text: <Localize translate_text="USD/NOK" />,
+    },
+    {
+        src: icons.USDPLN,
+        text: <Localize translate_text="USD/PLN" />,
+    },
+    {
+        src: icons.USDSEK,
+        text: <Localize translate_text="USD/SEK" />,
+    },
+    {
+        src: icons.USDZAR,
+        text: <Localize translate_text="USD/ZAR" />,
+    },
+]
+export const minor_options_pairs: MarketSymbol[] = [
+    {
+        src: icons.AUDCAD,
+        text: <Localize translate_text="AUD/CAD" />,
+    },
+    {
+        src: icons.AUDCHF,
+        text: <Localize translate_text="AUD/CHF" />,
+    },
+    {
+        src: icons.AUDNZD,
+        text: <Localize translate_text="AUD/NZD" />,
     },
     {
         src: icons.EURNZD,
@@ -697,135 +848,153 @@ export const american_stocks: MarketSymbol[] = [
 
 export const cryptocurrencies_trade_type: MarketSymbol[] = [
     {
-        src: icons.BTC,
-        text: <Localize translate_text="Bitcoin" />,
+        src: icons.BTCUSD,
+        text: <Localize translate_text="BTC/USD" />,
     },
     {
-        src: icons.ETH,
-        text: <Localize translate_text="Ethereum" />,
+        src: icons.ETHUSD,
+        text: <Localize translate_text="ETH/USD" />,
     },
 ]
 
 export const cryptocurrencies_cfds: MarketSymbol[] = [
     {
-        src: icons.AVALANCHE,
-        text: <Localize translate_text="Avalanche" />,
+        src: icons.ALGORAND,
+        text: <Localize translate_text="ALG/USD" />,
     },
     {
-        src: icons.ALGORAND,
-        text: <Localize translate_text="Algorand" />,
+        src: icons.ADAUSD,
+        text: <Localize translate_text="ADA/USD" />,
     },
+    {
+        src: icons.AVALANCHE,
+        text: <Localize translate_text="AVA/USD" />,
+    },
+
     {
         src: icons.BAT,
-        text: <Localize translate_text="BAT" />,
-    },
-    {
-        src: icons.BNB,
-        text: <Localize translate_text="Binance coin" />,
-    },
-    {
-        src: icons.BTC,
-        text: <Localize translate_text="Bitcoin" />,
+        text: <Localize translate_text="BAT/USD" />,
     },
     {
         src: icons.BCH,
-        text: <Localize translate_text="Bitcoin Cash" />,
+        text: <Localize translate_text="BCH/USD" />,
     },
     {
-        src: icons.CARDANO,
-        text: <Localize translate_text="Cardano" />,
+        src: icons.BNBUSD,
+        text: <Localize translate_text="BNB/USD" />,
+    },
+
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="BTC/USD" />,
     },
     {
-        src: icons.CHAINLINK,
-        text: <Localize translate_text="Chainlink" />,
+        src: icons.BTCETH,
+        text: <Localize translate_text="BTC/ETH" />,
     },
     {
-        src: icons.DASH,
-        text: <Localize translate_text="DASH" />,
+        src: icons.BTCLTC,
+        text: <Localize translate_text="BTC/LTC" />,
     },
     {
-        src: icons.DOGECOIN,
-        text: <Localize translate_text="Dogecoin" />,
+        src: icons.BTCXAG,
+        text: <Localize translate_text="BTC/XAG" />,
     },
     {
-        src: icons.EOS,
-        text: <Localize translate_text="EOS" />,
+        src: icons.BTCXAU,
+        text: <Localize translate_text="BTC/XAU" />,
     },
     {
-        src: icons.ETH,
-        text: <Localize translate_text="Ethereum" />,
+        src: icons.DOGUSD,
+        text: <Localize translate_text="DOG/USD" />,
     },
     {
-        src: icons.ETH_CLASSIC,
-        text: <Localize translate_text="Ethereum Classic" />,
+        src: icons.DOTUSD,
+        text: <Localize translate_text="DOT/USD" />,
     },
     {
-        src: icons.FILECOIN,
-        text: <Localize translate_text="Filecoin" />,
+        src: icons.DSHUSD1,
+        text: <Localize translate_text="DSH/USD" />,
     },
     {
-        src: icons.IOTA,
-        text: <Localize translate_text="IOTA" />,
+        src: icons.EOSUSD1,
+        text: <Localize translate_text="EOS/USD" />,
     },
     {
-        src: icons.LTC,
-        text: <Localize translate_text="Litecoin" />,
+        src: icons.ETCUSD,
+        text: <Localize translate_text="ETC/USD" />,
     },
     {
-        src: icons.MAKER,
-        text: <Localize translate_text="Maker" />,
+        src: icons.ETHUSD,
+        text: <Localize translate_text="ETH/USD" />,
     },
     {
-        src: icons.MNR,
-        text: <Localize translate_text="Monero" />,
+        src: icons.FILUSD,
+        text: <Localize translate_text="FIL/USD" />,
     },
     {
-        src: icons.NEO,
-        text: <Localize translate_text="Neo" />,
+        src: icons.IOTUSD,
+        text: <Localize translate_text="IOT/USD" />,
     },
     {
-        src: icons.OMICEGO,
-        text: <Localize translate_text="OmiseGo" />,
+        src: icons.LNKUSD,
+        text: <Localize translate_text="LNK/USD" />,
     },
     {
-        src: icons.POLKADOT,
-        text: <Localize translate_text="Polkadot" />,
+        src: icons.LTCUSD,
+        text: <Localize translate_text="LTC/USD" />,
     },
     {
-        src: icons.POLYGON,
-        text: <Localize translate_text="Polygon" />,
+        src: icons.MKRUSD,
+        text: <Localize translate_text="MKR/USD" />,
     },
     {
-        src: icons.XRP,
-        text: <Localize translate_text="Ripple" />,
+        src: icons.MTCUSD,
+        text: <Localize translate_text="MTC/USD" />,
     },
     {
-        src: icons.SOLANA,
-        text: <Localize translate_text="Solana" />,
+        src: icons.NEOUSD,
+        text: <Localize translate_text="NEO/USD" />,
     },
     {
-        src: icons.XLM,
-        text: <Localize translate_text="Stellar Lumens" />,
+        src: icons.OMGUSD,
+        text: <Localize translate_text="OMG/USD" />,
     },
     {
-        src: icons.TERRA,
-        text: <Localize translate_text="Terra" />,
+        src: icons.SOLUSD,
+        text: <Localize translate_text="SOL/USD" />,
     },
     {
-        src: icons.TRX,
-        text: <Localize translate_text="Tron" />,
+        src: icons.TERUSD,
+        text: <Localize translate_text="TER/USD" />,
     },
     {
-        src: icons.UNISWAP,
-        text: <Localize translate_text="Uniswap" />,
+        src: icons.TRXUSD,
+        text: <Localize translate_text="TRX/USD" />,
     },
     {
-        src: icons.XTZ,
-        text: <Localize translate_text="XTZ" />,
+        src: icons.UNIUSD,
+        text: <Localize translate_text="UNI/USD" />,
     },
     {
-        src: icons.ZEC,
-        text: <Localize translate_text="ZCash" />,
+        src: icons.XMRUSD,
+        text: <Localize translate_text="XMR/USD" />,
+    },
+    {
+        src: icons.XLMUSD,
+        text: <Localize translate_text="XLM/USD" />,
+    },
+    {
+        src: icons.XRPUSD1,
+        text: <Localize translate_text="XRP/USD" />,
+    },
+    {
+        src: icons.XTZUSD,
+        text: <Localize translate_text="XTZ/USD" />,
+    },
+    {
+        src: icons.ZECUSD,
+        text: <Localize translate_text="ZEC/USD" />,
     },
 ]
 
@@ -841,23 +1010,23 @@ export const cryptocurrencies_multipliers: MarketSymbol[] = [
 ]
 export const jump_indices: MarketSymbol[] = [
     {
-        src: icons.JUMP10,
+        src: icons.JUMP10NEW,
         text: <Localize translate_text="Jump 10 Index" />,
     },
     {
-        src: icons.JUMP25,
+        src: icons.JUMP25NEW,
         text: <Localize translate_text="Jump 25 Index" />,
     },
     {
-        src: icons.JUMP50,
+        src: icons.JUMP50NEW,
         text: <Localize translate_text="Jump 50 Index" />,
     },
     {
-        src: icons.JUMP75,
+        src: icons.JUMP75NEW,
         text: <Localize translate_text="Jump 75 Index" />,
     },
     {
-        src: icons.JUMP100,
+        src: icons.JUMP100NEW,
         text: <Localize translate_text="Jump 100 Index" />,
     },
 ]

@@ -9,7 +9,7 @@ import {
     Metals,
     MinorPairs,
     RangeBreak,
-    SmartFX,
+    MicroPairs,
     BasketIndicesCfds,
     BasketIndicesCommodities,
     StepIndices,
@@ -27,7 +27,6 @@ import {
     CrashBoomDetails,
     CrashBoomDetailsEU,
     RangeBreakIndicesDetails,
-    SmartFXDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
@@ -41,7 +40,7 @@ import { Localize } from 'components/localization'
 
 export const commodities_cfds: MarketInstrumentsElement = {
     markets_list: {
-        col: 4,
+        col: 5,
     },
     content: [
         {
@@ -57,7 +56,7 @@ export const commodities_cfds: MarketInstrumentsElement = {
 
 export const forex_cfds: MarketInstrumentsElement = {
     markets_list: {
-        col: 4,
+        col: 5,
         tablet_col: 3,
         mobile_col: 2,
     },
@@ -75,9 +74,8 @@ export const forex_cfds: MarketInstrumentsElement = {
             component: <ExoticPairs />,
         },
         {
-            title: <Localize translate_text="SmartFX" />,
-            component: <SmartFX />,
-            details: SmartFXDetails,
+            title: <Localize translate_text="Micro pairs" />,
+            component: <MicroPairs />,
         },
     ],
 }
@@ -209,14 +207,14 @@ export const basket_cfds: MarketInstrumentsElement = {
     },
     content: [
         {
-            title: <Localize translate_text="Forex Basket" />,
-            component: <BasketIndicesCfds />,
-            details: BasketFXDetails,
-        },
-        {
             title: <Localize translate_text="Commodities Basket" />,
             component: <BasketIndicesCommodities />,
             details: BasketCommoditiesDetails,
+        },
+        {
+            title: <Localize translate_text="Forex Basket" />,
+            component: <BasketIndicesCfds />,
+            details: BasketFXDetails,
         },
     ],
 }

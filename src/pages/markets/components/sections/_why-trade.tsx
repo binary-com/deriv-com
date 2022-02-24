@@ -22,7 +22,7 @@ const Item = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        max-width: 27rem;
+        max-width: 19rem;
         margin-top: 24px;
 
         ${Text} {
@@ -40,9 +40,12 @@ const ItemContainer = styled(Box)`
     max-width: 140.4rem;
 
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
         margin: 0 0 32px 0;
+    }
+    @media (max-width: 336px) {
+        justify-content: center;
     }
 `
 const StyledHeader = styled(Header)`
@@ -50,14 +53,15 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         text-align: center;
         max-width: unset;
-        font-size: 32px;
+        font-size: 28px;
         line-height: 1.5;
+        margin-bottom: 8px;
     }
 `
 const StyledText = styled(Text)`
     padding: 0 2px;
     @media ${device.tabletL} {
-        font-size: 2rem;
+        font-size: 1.8rem;
         padding: 0;
     }
 `
@@ -79,7 +83,7 @@ export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
         <StyledSection background="#f9fbff" padding="120px 16px">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
-                    <StyledHeader as="h3" type="section-title" align="center" mb="1.6rem" lh="1.25">
+                    <StyledHeader as="h3" type="section-title" align="center" mb="1.2rem" lh="1.25">
                         {header}
                     </StyledHeader>
                     <StyledText align="center">{text}</StyledText>

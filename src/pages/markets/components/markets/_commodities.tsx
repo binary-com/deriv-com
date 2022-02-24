@@ -55,7 +55,7 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets excepts={['commodities', 'basket_indices']} />
+            <OtherMarkets except="commodities" />
         </>
     )
 }

@@ -27,12 +27,12 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
         <StyledSection padding="4rem 0 8rem">
             <ContentWrapper>
                 <Descriptions>
-                    <StyledText align="center" font_size="16px">
+                    <StyledText align="center" font_size="14px">
                         {localize(
                             'CFD trading allows you to bet on the price movement of the underlying asset without purchasing it.',
                         )}
                     </StyledText>
-                    <StyledText align="center" mt="16px" font_size="16px">
+                    <StyledText align="center" mt="16px" font_size="14px">
                         {is_eu_country
                             ? localize(
                                   'On Deriv, trading CFDs on leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
@@ -47,7 +47,7 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                         <AvailablePlatforms dmt5 derivx />
                     )}
                 </Descriptions>
-                <StyledText font_size={'16px'} weight="bold" mt="4rem">
+                <StyledText font_size="14px" weight="bold" mt="4rem">
                     {localize('Instruments available for CFD trading')}
                 </StyledText>
                 <MarketInstruments market_content={market_content} />

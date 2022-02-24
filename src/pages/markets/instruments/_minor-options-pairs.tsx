@@ -1,15 +1,15 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { smart_fx } from '../static/content/_market-symbols'
+import { minor_options_pairs } from '../static/content/_market-symbols'
 
-const SmartFX = () => {
+const MinorOptionsPairs = () => {
     return (
         <>
-            {smart_fx.map((symbol, index) => (
+            {minor_options_pairs.map((symbol, index) => (
                 <Symbol key={index} src={symbol.src} text={symbol.text} />
             ))}
         </>
     )
 }
 
-export default SmartFX
+export default MinorOptionsPairs

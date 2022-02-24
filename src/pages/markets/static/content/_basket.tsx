@@ -2,12 +2,11 @@ import React, { ReactElement } from 'react'
 import { localize, Localize } from 'components/localization'
 import Stocks from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
-import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
-import PractiseIcon from 'images/svg/markets/aim.svg'
-import TradeIcon from 'images/svg/markets/trade.svg'
-import WithdrawIcon from 'images/svg/markets/withdraw.svg'
+import PractiseIcon from 'images/svg/markets/aim-new.svg'
+import TradeIcon from 'images/svg/markets/trade-new.svg'
+import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 
 export type SimpleStepContentElement = {
     header: ReactElement
@@ -67,7 +66,7 @@ export const basket_indices_content: BasketIndicesContent[] = [
         text: localize('Advanced charting widgets'),
     },
     {
-        src: Deposit,
+        src: WithdrawIcon,
         alt: 'deposit and withdrawal',
         text: localize('Convenient deposit and withdrawal methods'),
     },
@@ -95,7 +94,7 @@ export const basket_indices_content_eu: BasketIndicesContent[] = [
         text: localize('Advanced charting widgets'),
     },
     {
-        src: Deposit,
+        src: WithdrawIcon,
         alt: 'deposit and withdrawal',
         text: localize('Convenient deposit and withdrawal methods'),
     },

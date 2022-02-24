@@ -1,14 +1,14 @@
 import React, { ReactElement } from 'react'
 import { Localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
-import PractiseIcon from 'images/svg/markets/aim.svg'
-import TradeIcon from 'images/svg/markets/trade.svg'
-import WithdrawIcon from 'images/svg/markets/withdraw.svg'
-import FriendlySupport from 'images/svg/markets/friendly-support.svg'
-import MetalAndOil from 'images/svg/markets/precious-metals-and-oils.svg'
-import NoCommission from 'images/svg/markets/no-commission.svg'
-import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
-import VariableSpreads from 'images/svg/markets/variable-spreads.svg'
+import PractiseIcon from 'images/svg/markets/aim-new.svg'
+import TradeIcon from 'images/svg/markets/trade-new.svg'
+import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
+import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
+import NoCommission from 'images/svg/markets/no-commission-new.svg'
+import ResponsiveWebsite from 'images/svg/markets/responsive-website-new.svg'
+import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
 
 export type CommoditiesContent = {
     src: string

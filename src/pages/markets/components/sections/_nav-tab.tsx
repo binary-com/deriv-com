@@ -110,9 +110,9 @@ const tabList: TabList[] = [
         route_to: '/markets/stock/',
     },
     {
-        title: <Localize translate_text="Commodities" />,
-        tab_name: 'commodities',
-        route_to: '/markets/commodities/',
+        title: <Localize translate_text="Cryptocurrencies" />,
+        tab_name: 'cryptocurrencies',
+        route_to: '/markets/cryptocurrencies/',
     },
     {
         title: <Localize translate_text="Basket indices" />,
@@ -120,9 +120,9 @@ const tabList: TabList[] = [
         route_to: '/markets/basket-indices/',
     },
     {
-        title: <Localize translate_text="Cryptocurrencies" />,
-        tab_name: 'cryptocurrencies',
-        route_to: '/markets/cryptocurrencies/',
+        title: <Localize translate_text="Commodities" />,
+        tab_name: 'commodities',
+        route_to: '/markets/commodities/',
     },
 ]
 

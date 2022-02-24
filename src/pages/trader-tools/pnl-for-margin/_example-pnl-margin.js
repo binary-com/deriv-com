@@ -32,7 +32,7 @@ export const StopLoss = () => {
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="1.17524" />
-                            <PointerContainer ml="5px">
+                            <PointerContainer>
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -46,7 +46,7 @@ export const StopLoss = () => {
                         <FormulaTopWrapper>
                             <FormulaValueSwapSynthetic>
                                 <Localize translate_text="{-24" />
-                                <PointerContainer top ml="-5px">
+                                <PointerContainer top ml="-65px">
                                     <PointerDot />
                                     <PointerStick />
                                     <PointerText top>
@@ -73,7 +73,7 @@ export const StopLoss = () => {
                         </FormulaValueSwapSynthetic>
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="100,000)}" />
-                            <PointerContainer top ml="20px">
+                            <PointerContainer top>
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -92,7 +92,7 @@ export const StopLoss = () => {
                                 translate_text="<0>1.1750</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer ml="10px">
+                            <PointerContainer>
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -205,7 +205,7 @@ export const PipValue = () => {
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="|(1.1750" />
-                            <PointerContainer top ml="10px">
+                            <PointerContainer top ml="-50px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -256,7 +256,7 @@ export const PipValue = () => {
                                 translate_text="<0>24</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer ml="5px">
+                            <PointerContainer ml="-35px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -366,9 +366,9 @@ export const TakeProfitLevel = () => {
 
                         <FormulaValue>
                             <Localize translate_text="{84" />
-                            <PointerContainer top>
+                            <PointerContainer top ml="-60px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="18px" />
                                 <PointerText top>
                                     <Localize translate_text="Stop loss or take profit amount" />
                                 </PointerText>
@@ -396,7 +396,7 @@ export const TakeProfitLevel = () => {
 
                         <FormulaValue>
                             <Localize translate_text="1)}" />
-                            <PointerContainer top>
+                            <PointerContainer top ml="-18px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -417,7 +417,7 @@ export const TakeProfitLevel = () => {
                                 translate_text="<0>221.5961</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer ml="15px">
+                            <PointerContainer>
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -526,7 +526,7 @@ export const ProfitPipValue = () => {
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="|(221.5961" />
-                            <PointerContainer top ml="-10px">
+                            <PointerContainer top ml="-60px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -577,7 +577,7 @@ export const ProfitPipValue = () => {
                                 translate_text="<0>280,000</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer ml="10px">
+                            <PointerContainer ml="-15px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>

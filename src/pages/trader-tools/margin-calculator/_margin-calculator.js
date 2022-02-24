@@ -402,11 +402,10 @@ const MarginCalculator = () => {
                                                     translate_text="<0>2,200</0>"
                                                     components={[<FormulaGreen key={0} />]}
                                                 />
-                                                <PointerContainer>
+                                                <PointerContainer ml="-10px">
                                                     <PointerDot />
                                                     <PointerStick />
                                                     <PointerText>
-                                                        {' '}
                                                         <Localize translate_text="Margin required" />
                                                     </PointerText>
                                                 </PointerContainer>

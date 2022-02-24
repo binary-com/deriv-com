@@ -45,7 +45,7 @@ export const SwapSyntheticExample = () => {
 
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="1" />
-                            <PointerContainer top ml="-7px">
+                            <PointerContainer top ml="-28px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -78,7 +78,7 @@ export const SwapSyntheticExample = () => {
 
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="( -7.5 " />
-                            <PointerContainer top>
+                            <PointerContainer top ml="-5px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -115,7 +115,7 @@ export const SwapSyntheticExample = () => {
                                 translate_text="<0>-0.83</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer>
+                            <PointerContainer ml="-20px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -295,7 +295,7 @@ export const SwapFinancialExample = () => {
 
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="-0.12 " />
-                            <PointerContainer top>
+                            <PointerContainer top ml="-8px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -316,7 +316,7 @@ export const SwapFinancialExample = () => {
                                 translate_text="<0>-0.24</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer ml="18px">
+                            <PointerContainer ml="-8px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>

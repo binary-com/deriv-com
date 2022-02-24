@@ -532,8 +532,8 @@ export const PointerContainer = styled.div`
     margin-top: ${(props) => (props.top ? '-100px' : '8px')};
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     align-items: center;
-    max-width: 55px;
-    white-space: nowrap;
+    max-width: 200px;
+    white-space: normal;
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
 

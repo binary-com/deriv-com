@@ -24,9 +24,16 @@ export const scope_content = [
             {
                 content: (
                     <Localize
-                        translate_text="Our main trading platform: app.deriv.com<3>*</3>"
+                        translate_text="Our main trading platform: app.deriv.com<0>*</0>"
                         components={[
-                            <Header key={3} type="paragraph-2" as="span" color="red" size="14px" />,
+                            <Header
+                                key={0}
+                                type="paragraph-2"
+                                as="span"
+                                color="red"
+                                weight="normal"
+                                size="14px"
+                            />,
                         ]}
                     />
                 ),

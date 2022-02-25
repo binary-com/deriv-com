@@ -131,7 +131,15 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-
+    const queryParams = new URLSearchParams(window.location.search)
+    const term = queryParams.get('platform')
+    if (term == 'derivgo' || term == 'p2p') {
+        return (
+            <Main margin_top={'0'} is_static={is_static}>
+                {children}
+            </Main>
+        )
+    }
     // Allow tracking cookie banner setup
     React.useEffect(() => {
         if (typeof is_eu_country === 'boolean') {

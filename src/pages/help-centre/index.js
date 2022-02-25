@@ -239,7 +239,9 @@ const HeaderPlatforms = styled.div`
 const ShowItem = styled.li`
     display: ${(props) => (props.should_show_item ? 'block' : 'none')};
 `
-
+const queryParams = new URLSearchParams(window.location.search)
+const term = queryParams.get('platform')
+const param = term == 'derivgo' || term == 'p2p' ? term : ''
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
 // TODO - Refactor Help Center to function component and move this inside
@@ -456,6 +458,7 @@ class HelpCentreClass extends Component {
                                                                             item.category.props
                                                                                 .translate_text,
                                                                             label_type,
+                                                                            param,
                                                                         )}
                                                                     >
                                                                         {title_type}

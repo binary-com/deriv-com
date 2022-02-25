@@ -1,5 +1,16 @@
-export const convertToHash = (category, label) => {
-    return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '/#' + label
+export const convertToHash = (category, label, qparam) => {
+    if (qparam) {
+        return (
+            '/help-centre/' +
+            category.replace(/\s/g, '-').toLowerCase() +
+            '/?platform=' +
+            qparam +
+            '#' +
+            label
+        )
+    } else {
+        return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '/#' + label
+    }
 }
 
 export const getAllArticles = (articles) =>

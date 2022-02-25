@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 // import { button } from 'components/form'
 import styled, { css } from 'styled-components'
@@ -9,56 +9,114 @@ import styled, { css } from 'styled-components'
 // import { Desktop } from 'components/containers/show'
 // import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import ChartThumbnail from 'images/svg/markets/chart.svg'
+
 // Temporary data
-const market_data = [
-    {
-        market_name: 'AUD/JPY',
-        market_price: 80.582,
-        price_change: 0.01,
-    },
-    {
-        market_name: 'BTC/USD',
-        market_price: 44015.8,
-        price_change: 0.01,
-    },
-    {
-        market_name: 'US Index',
-        market_price: 4471.98,
-        price_change: 0.01,
-    },
-    {
-        market_name: 'Volatility 75',
-        market_price: 668341.4427,
-        price_change: -0.02,
-    },
-    {
-        market_name: 'Gold/USD',
-        market_price: 1750.2,
-        price_change: 0,
-    },
-]
+const market_data = {
+    all: [
+        {
+            market_name: 'AUD/JPY',
+            market_price: 80.582,
+            price_change: 0.01,
+        },
+        {
+            market_name: 'BTC/USD',
+            market_price: 44015.8,
+            price_change: 0.01,
+        },
+        {
+            market_name: 'US Index',
+            market_price: 4471.98,
+            price_change: 0.01,
+        },
+        {
+            market_name: 'Volatility 75',
+            market_price: 668341.4427,
+            price_change: -0.02,
+        },
+        {
+            market_name: 'Gold/USD',
+            market_price: 1750.2,
+            price_change: 0,
+        },
+    ],
+
+    forex: [
+        {
+            market_name: 'AUD/JPY',
+            market_price: 80.582,
+            price_change: 0.01,
+        },
+    ],
+
+    synthetic: [
+        {
+            market_name: 'Volatility 75',
+            market_price: 668341.4427,
+            price_change: -0.02,
+        },
+    ],
+
+    stocks: [
+        {
+            market_name: 'US Index',
+            market_price: 4471.98,
+            price_change: 0.01,
+        },
+    ],
+
+    stock_indices: [
+        {
+            market_name: 'US Index',
+            market_price: 4471.98,
+            price_change: 0.01,
+        },
+    ],
+
+    crypto: [
+        {
+            market_name: 'BTC/USD',
+            market_price: 44015.8,
+            price_change: 0.01,
+        },
+    ],
+
+    commodities: [
+        {
+            market_name: 'Gold/USD',
+            market_price: 1750.2,
+            price_change: 0,
+        },
+    ],
+}
 
 const market_tabs = [
     {
         market_type: 'All',
+        market_alt: 'all',
     },
     {
         market_type: 'Forex',
+        market_alt: 'forex',
     },
     {
         market_type: 'Synthetic indices',
+        market_alt: 'synthetic',
     },
     {
         market_type: 'Stocks',
+        market_alt: 'stocks',
     },
     {
         market_type: 'Stock indices',
+        market_alt: 'stock_indices',
     },
     {
         market_type: 'Cryptocurrencies',
+        market_alt: 'crypto',
     },
     {
         market_type: 'Commodities',
+        market_alt: 'commodities',
     },
 ]
 
@@ -159,9 +217,9 @@ const NegativePriceChange = styled.span`
     color: #ff3333;
 `
 
-const MarketTab = ({ market_name, is_active, key }) => {
+const MarketTab = ({ market_name, is_active, key, onClick }) => {
     return (
-        <StyledLi key={key} is_active={is_active}>
+        <StyledLi key={key} is_active={is_active} onClick={onClick}>
             {market_name}
         </StyledLi>
     )
@@ -171,6 +229,7 @@ MarketTab.propTypes = {
     is_active: PropTypes.bool,
     key: PropTypes.any,
     market_name: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 const PriceChange = ({ price_change }) => {
@@ -185,7 +244,7 @@ PriceChange.propTypes = {
     price_change: PropTypes.any,
 }
 
-const MarketTabs = ({ markets }) => {
+const MarketTabs = ({ markets, setSelectedMarket, selectedMarket }) => {
     // const handleFilter = () => {
     //     console.log('')
     //     console.log('MARKEET TAB')
@@ -195,9 +254,17 @@ const MarketTabs = ({ markets }) => {
     return (
         <div>
             <StyledUl>
-                <MarketTab market_name="TEST" is_active />
                 {markets.map((market, idx) => {
-                    return <MarketTab key={idx} market_name={market.market_type} />
+                    return (
+                        <MarketTab
+                            key={idx}
+                            market_name={market.market_type}
+                            onClick={() => {
+                                setSelectedMarket(market.market_alt)
+                            }}
+                            is_active={market.market_alt == selectedMarket}
+                        />
+                    )
                 })}
             </StyledUl>
         </div>
@@ -206,12 +273,14 @@ const MarketTabs = ({ markets }) => {
 
 MarketTabs.propTypes = {
     markets: PropTypes.object,
+    selectedMarket: PropTypes.string,
+    setSelectedMarket: PropTypes.func,
 }
 
-const TabsContent = () => {
+const TabsContent = ({ market_type }) => {
     return (
         <StyledColumn>
-            {market_data.map((d, idx) => {
+            {market_data[market_type].map((d, idx) => {
                 return (
                     <MarketRow
                         key={idx}
@@ -224,6 +293,10 @@ const TabsContent = () => {
             })}
         </StyledColumn>
     )
+}
+
+TabsContent.propTypes = {
+    market_type: PropTypes.string,
 }
 
 const MarketRow = ({ market_name, market_price, price_change }) => {
@@ -251,6 +324,7 @@ MarketRow.propTypes = {
 }
 
 const HorizontalTab = () => {
+    const [selectedMarket, setSelectedMarket] = useState('all')
     // const onFilter = (e) => {
     //     console.log('');
     //     console.log('HERE: ')
@@ -259,8 +333,12 @@ const HorizontalTab = () => {
 
     return (
         <>
-            <MarketTabs markets={market_tabs} />
-            <TabsContent>{/* <Button></Button> */}</TabsContent>
+            <MarketTabs
+                markets={market_tabs}
+                setSelectedMarket={setSelectedMarket}
+                selectedMarket={selectedMarket}
+            />
+            <TabsContent market_type={selectedMarket}>{/* <Button></Button> */}</TabsContent>
         </>
     )
 }

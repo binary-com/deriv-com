@@ -374,7 +374,6 @@ export const queryParams = {
         //To get the params from the url
 
         if (typeof key === 'string') {
-            console.log('params', params.get(key))
             return params.get(key)
         } else {
             key.forEach((k) => {

@@ -6,7 +6,6 @@ import { localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
-import { zoho_url } from 'common/constants'
 import { LinkButton } from 'components/form'
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -105,13 +104,7 @@ const AboutUsBanner = () => {
                     >
                         {localize('Join and grow with us.')}
                     </StyledHeader2>
-                    <StyledLinkButton
-                        secondary="true"
-                        to={zoho_url}
-                        external="true"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <StyledLinkButton secondary="true" to="/careers/">
                         {localize('See our open positions')}
                     </StyledLinkButton>
                 </PictureFlex>

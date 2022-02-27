@@ -1,12 +1,14 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { DerivStore } from 'store'
+import { eu_domains, uk_domains } from 'common/constants'
 
 type ResponsiveContainerProps = {
     children: ReactElement
     breakpoint?: number
+    className?: string
 }
 
 type LayerProps = {
@@ -25,6 +27,7 @@ const DesktopLayer = styled.div<LayerProps>`
         display: none;
     }
 `
+
 const MobileLayer = styled.div<LayerProps>`
     @media (min-width: ${({ breakpoint }) => breakpoint}px) {
         display: none;
@@ -37,11 +40,12 @@ const domainBasedCheck = () => {
 
     useEffect(() => {
         if (window) {
-            const host_name = window.location.hostname
-            if (host_name.includes('eu')) {
+            const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+
+            if (eu_domains.includes(subdomain)) {
                 setEuDomain(true)
             }
-            if (host_name.includes('uk')) {
+            if (uk_domains.includes(subdomain)) {
                 setUkDomain(true)
             }
         }
@@ -66,7 +70,7 @@ const deviceRenderer = (): boolean => {
 
 export const getCountryRule = () => {
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
-    const { is_eu_country, is_uk_country } = React.useContext<StoreDataType>(DerivStore)
+    const { is_eu_country, is_uk_country } = useContext<StoreDataType>(DerivStore)
 
     const is_eu = (is_eu_country || is_eu_domain) && !is_uk_country
     const is_uk = is_uk_country || is_uk_domain
@@ -81,6 +85,7 @@ export const getCountryRule = () => {
 export const Desktop = ({
     children,
     breakpoint = DEFAULT_BREAKPOINT,
+    className = '',
 }: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint)
     const [is_mobile] = useBrowserResize(breakpoint_size)
@@ -95,12 +100,16 @@ export const Desktop = ({
     )
 }
 
-export const Mobile = ({ children, breakpoint = DEFAULT_BREAKPOINT }: ResponsiveContainerProps) => {
+export const Mobile = ({
+    children,
+    breakpoint = DEFAULT_BREAKPOINT,
+    className = '',
+}: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint) + 1
     const [is_mobile] = useBrowserResize(breakpoint_size - 1)
     const is_loaded = deviceRenderer()
 
-    const mobile_view = is_mobile ? <>{children}</> : <></>
+    const mobile_view = is_mobile ? <div className={className}>{children}</div> : <></>
 
     return is_loaded ? (
         mobile_view

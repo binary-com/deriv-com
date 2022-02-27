@@ -54,9 +54,7 @@ export const BaseLink = css`
 export const BaseElement = css`
     text-align: ${(props) => props.align || 'left'};
     padding: ${(props) => props.padding || ''};
-
-    /* prettier-ignore */
-    color: var(--color-${(props) => props.color || 'black-3'});
+    color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-black-3)')};
     line-height: ${(props) => props.lh || '1.5'};
     max-width: ${(props) => props.max_width || ''};
     min-width: ${(props) => props.min_width || ''};
@@ -69,7 +67,7 @@ export const BaseElement = css`
 `
 
 //////////////////////////////////////////////////////////////////////////////
-/////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
+/////////////////// TEXT IS DEPRICATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
 export const Text = styled.p`
     ${BaseElement}
@@ -84,7 +82,7 @@ export const Text = styled.p`
     ${responsiveStyles}
 `
 //////////////////////////////////////////////////////////////////////////////
-/////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
+/////////////////// TEXT IS DEPRICATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>

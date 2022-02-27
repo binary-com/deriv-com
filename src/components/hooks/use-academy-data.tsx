@@ -64,15 +64,6 @@ const query = graphql`
         directus {
             blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 id
-                main_image {
-                    id
-                    description
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
                 slug
                 published_date
                 featured
@@ -97,7 +88,7 @@ const query = graphql`
                     imageFile {
                         id
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 382, aspectRatio: 1.6666666667)
                         }
                     }
                 }

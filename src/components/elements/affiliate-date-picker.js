@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import DatePicker from 'react-date-picker'
-import moment from 'moment'
 import dayjs from 'dayjs'
 import device from 'themes/device'
 
@@ -12,7 +11,7 @@ const DayPickerWrapper = styled.div`
 
     .react-date-picker {
         display: block;
-        font-size: var(--text-size-xs);
+        font-size: var(--text-size-s);
         padding: 1rem 1rem 1rem 0.8rem;
         height: 40px;
     }
@@ -64,25 +63,26 @@ const DayPickerWrapper = styled.div`
         background-color: var(--color-white);
         color: 'green';
         transform: translate(-0.6rem, -2rem) scale(0.7);
+        padding: 5px 4px;
+        margin: -5px 0;
         ${({ is_date_field, currentValue }) => {
             return is_date_field || currentValue
                 ? css`
                       transform: translate(-0.6rem, -2.2rem) scale(0.7);
                       color: var(
-                          --color-${({ error, labelFocusColor }) => (error ? 'red' : labelFocusColor)}
+                          --color-${({ error, labelFocusColor }) => (error ? 'red-1' : labelFocusColor)}
                       );
                   `
                 : css`
                       transform: translate(0rem, 0rem) scale(1);
-                      color: var(--color-${({ error }) => (error ? 'red' : 'grey')});
+                      color: var(--color-${({ error }) => (error ? 'red-1' : 'grey')});
                   `
         }}
     }
 `
 const StyledLabel = styled.label`
-    /* stylelint-disable */
-    color: var(--color-${({ label_color }) => label_color || 'grey'});
-    /* stylelint-enable */
+    color: ${({ label_color }) =>
+        label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
@@ -115,7 +115,7 @@ const AffiliateDatePicker = (props) => {
     const [currentValue, onChange] = useState(maxDate)
 
     useEffect(() => {
-        setMaxDate(moment().subtract(18, 'years').toDate())
+        setMaxDate(dayjs().subtract(18, 'year').toDate())
     }, [])
 
     const onDateChange = (date) => {
@@ -146,6 +146,7 @@ const AffiliateDatePicker = (props) => {
                 onBlur={onBlur}
                 maxDate={maxDate}
                 activeStartDate={maxDate}
+                showLeadingZeros={false}
                 clearIcon={null}
             />
             <StyledLabel

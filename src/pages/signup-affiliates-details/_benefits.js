@@ -13,7 +13,7 @@ const IconWrapper = styled.div`
     height: 64px;
 `
 const Description = styled.div`
-    padding-left: 3rem;
+    padding-left: 16px;
 `
 const benefits_content = [
     {
@@ -69,13 +69,13 @@ const benefits_content = [
 const Benefits = () => {
     return (
         <Desktop>
-            <Flex width="48rem" jc="flex-start" fd="column" m="9.4rem 7.8rem 0 0">
+            <Flex width="438px" jc="flex-start" fd="column" m="64px 90px 0 0">
                 {benefits_content.map(({ id, icon, header, text }) => {
                     return (
                         <Flex ai="center" height="auto" key={id}>
                             <IconWrapper>{icon}</IconWrapper>
                             <Description>
-                                <Header as="h4" type="subtitle-2" mt="2.4rem">
+                                <Header as="h4" type="subtitle-2" mt="24px">
                                     {header}
                                 </Header>
                                 {text}

@@ -9,50 +9,41 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const StyledFlex = styled(Flex)`
-    height: 44rem;
+    height: 450px;
     background-color: var(--color-white);
-    border-radius: 0.6rem;
+    border-radius: 6px;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
 
     @media ${device.tabletL} {
-        width: 53rem;
-        height: 48.6rem;
-    }
-    @media ${device.mobileL} {
-        width: 100%;
-        height: 57rem;
-        padding: 6rem 2rem;
+        margin: 0 auto;
+        padding: 40px 16px 0;
+        width: 360px;
+        min-width: 360px;
+        height: 392px;
     }
 `
 const StyledNoteFlex = styled(Flex)`
-    height: auto;
-    border-radius: 0.4rem;
-    background-color: rgba(242, 243, 244, 0.56);
+    min-width: 328px;
+    height: 36px;
+    border-radius: 4px;
+    background-color: rgba(248, 248, 249, 1);
 
     @media ${device.mobileL} {
-        min-height: auto;
-        padding: 13px 16px;
+        height: 34px;
+        padding: 8px 26px;
     }
 `
 const InputGroup = styled.div`
-    position: relative;
     width: 100%;
-    margin: 2.5rem 0 0.6rem;
-
-    @media ${device.mobileL} {
-        margin: 25px 0 16px 0;
-    }
+    margin-bottom: 16px;
 `
 const EmailButton = styled(Button)`
     width: 100%;
     font-size: 1.4rem;
-    margin: 3.2rem auto 0.4rem;
+    margin: 24px auto 14px;
 
     @media ${device.tabletL} {
-        margin-top: 24px;
-    }
-
-    @media ${device.mobileL} {
+        margin-bottom: 8px;
         font-size: 12px;
     }
 `
@@ -85,38 +76,24 @@ const SignupAffiliate = ({
     }
 
     return (
-        <StyledFlex jc="flex-start" fd="column" p="4rem">
-            <Header as="h4" type="heading-3" mb="0.8rem">
+        <StyledFlex jc="flex-start" fd="column" p="40px">
+            <Header as="h4" type="heading-3" mb="8px">
                 {localize('Sign up')}
             </Header>
             <Header as="p" type="subtitle-1" weight="normal">
                 {localize('Enter your email address to begin')}
             </Header>
             {!is_ppc && (
-                <StyledNoteFlex fd="row" width="100%" p="8px 14px" mt="1.6rem">
-                    <div>
-                        <Header
-                            as="p"
-                            mb="0.2rem"
-                            weight="normal"
-                            notedBox
-                            color="grey-16"
-                            size="var(--text-size-xs)"
-                            tabletFontSize="12px"
-                        >
-                            {localize('Want to sign up as a trader?')}
-                            <LocalizedLinkText to="/signup">
-                                <StyledLinkText
-                                    id="dm-new-login-button"
-                                    ml="0.5rem"
-                                    size="14px"
-                                    color="grey"
-                                >
-                                    Create a Deriv account
-                                </StyledLinkText>
-                            </LocalizedLinkText>
-                        </Header>
-                    </div>
+                <StyledNoteFlex fd="row" p="8px 14px" mt="24px" mb="16px">
+                    <Header as="p" type="paragraph-2" weight="normal" notedBox color="grey-5">
+                        {localize('Want to sign up as a trader?')}
+                        <LocalizedLinkText to="/signup">
+                            <StyledLinkText id="dm-new-login-button" size="14px" color="grey-5">
+                                {' '}
+                                Create a Deriv account
+                            </StyledLinkText>
+                        </LocalizedLinkText>
+                    </Header>
                 </StyledNoteFlex>
             )}
             <InputGroup>
@@ -150,20 +127,13 @@ const SignupAffiliate = ({
             >
                 {localize('Create partner account')}
             </EmailButton>
-            <LoginText
-                as="p"
-                align="center"
-                weight="normal"
-                type="paragraph-2"
-                mt="1.6rem"
-                tabletL={{ mb: 0, mt: '24px' }}
-            >
+            <LoginText as="p" align="center" weight="normal" type="paragraph-2">
                 <div>{localize('Already have a Deriv or Binary.com affiliate account?')}</div>
                 <StyledLinkText
                     id="dm-new-login-button"
-                    ml="0.4rem"
                     size="14px"
                     color="red"
+                    ml="3px"
                     onClick={handleLogin}
                 >
                     {localize('Log in')}

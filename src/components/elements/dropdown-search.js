@@ -93,7 +93,11 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
-                    <StyledLabel active={is_open || (!is_open && selected_item)}>
+                    <StyledLabel
+                        active={is_open || (!is_open && selected_item)}
+                        is_affiliate={is_affiliate}
+                        error={error}
+                    >
                         {label}
                     </StyledLabel>
                     <DropdownInput
@@ -121,7 +125,7 @@ const DropdownSearch = ({
                     selected_option={selected_item}
                 />
             </DropdownContainer>
-            <BottomLabel contractSize={contractSize} error={error} />
+            <BottomLabel contractSize={contractSize} error={error} is_affiliate={is_affiliate} />
         </>
     )
 }

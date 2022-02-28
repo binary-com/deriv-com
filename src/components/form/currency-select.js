@@ -13,7 +13,6 @@ const Item = styled(Flex)`
     pointer-events: all;
     cursor: pointer;
     font-size: 12px;
-    padding: 0.8rem 1.6rem;
     transition: background 0.25s;
 
     &:hover {
@@ -24,28 +23,32 @@ const CurrencySelect = ({ setFieldValue, current_select }) => {
     const currency_list = [
         {
             value: '/usd/',
-            text: 'US dollar (USD)',
+            text: 'US dollar',
+            short: '(USD)',
             is_selected: false,
             code: 'usd',
             image: USD,
         },
         {
             value: '/eur/',
-            text: 'Euro (EUR)',
+            text: 'Euro',
+            short: '(EUR)',
             is_selected: false,
             code: 'eur',
             image: EUR,
         },
         {
             value: '/gbp/',
-            text: 'Pound sterling (GBP)',
+            text: 'Pound sterling',
+            short: '(GBP)',
             is_selected: false,
             code: 'gbp',
             image: GBP,
         },
         {
             value: '/aud/',
-            text: 'Australian dollar (AUD)',
+            text: 'Australian dollar',
+            short: '(AUD)',
             is_selected: false,
             code: 'aud',
             image: AUD,
@@ -55,7 +58,7 @@ const CurrencySelect = ({ setFieldValue, current_select }) => {
     const setCurrencyData = (value) => setFieldValue('currency', value)
 
     return (
-        <Flex jc="space-between">
+        <Flex jc="space-evenly" mt="16px" mb="32px" width="406px">
             {currency_list.map((currency, idx) => {
                 const selected = current_select === currency.value
                 return (
@@ -71,12 +74,15 @@ const CurrencySelect = ({ setFieldValue, current_select }) => {
                             <img src={currency.image} alt="" width="24" height="24" />
                         </div>
                         <Header
-                            as="h5"
+                            as="p"
+                            type="small"
                             weight="normal"
                             color={selected ? 'red' : 'black'}
                             style={{ textAlign: 'center' }}
                         >
                             {currency.text}
+                            <br />
+                            {currency.short}
                         </Header>
                     </Item>
                 )

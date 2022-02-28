@@ -6,30 +6,21 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device.js'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import Map from 'images/svg/landing/map.svg'
 
 const StyledFlexWrapper = styled(Flex)`
-    height: ${(props) => (props.email ? '100vh' : '35rem')};
+    height: ${(props) => (props.email ? '100vh' : '326px')};
     background-color: rgba(200, 214, 215, 0.22);
-
-    @media ${device.mobileL} {
-        padding: 0;
+    @media ${device.tabletL} {
+        flex-direction: row-reverse;
     }
 `
 const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
-        margin-right: 4rem;
-    }
-
-    @media ${device.tablet} {
-        margin-top: 13.4rem;
+        width: 328px;
+        margin-top: 81px;
         order: 2;
-    }
-
-    @media ${device.mobileL} {
-        margin-top: 18rem;
-        padding: 5rem 2rem;
     }
 `
 const StyledDiv = styled.div`
@@ -38,17 +29,14 @@ const StyledDiv = styled.div`
 `
 
 const StyledMap = styled.img`
-    width: 100%;
-    height: 52vh;
+    width: 100vw;
+    height: 55vh;
     overflow: initial;
 
-    @media ${device.laptop} {
-        width: auto;
-        height: 62vh;
-    }
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 100%;
-        padding-top: 46rem;
+        height: 214px;
+        margin-top: 320px;
     }
 `
 
@@ -69,25 +57,25 @@ const affiliateSignup = () => {
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 )}
             />
-            <StyledFlexWrapper fd="row" fw="wrap" ai="flex-start" jc="center" email={email}>
+            <StyledFlexWrapper fd="row" fw="wrap" jc="space-evenly" email={email}>
                 {submit_state !== 'success' && (
-                    <StyledFlex jc="flex-start" fd="column" mt="6.4rem" mr="15rem" width="43.8rem">
-                        <Header mt="2.4rem" mb="0.8rem" as="h3" type="section-title">
+                    <StyledFlex jc="flex-start" fd="column" mt="64px" width="438px">
+                        <Header mb="8px" as="h3" type="heading-3">
                             {localize('Deriv Affiliate')}
                         </Header>
-                        <Text>
+                        <Header mb="24px" as="p" type="paragraph-1" weight="normal">
                             {localize(
                                 'Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot.',
                             )}
-                        </Text>
-                        <Header mt="2.4rem" mb="0.8rem" as="h3" type="section-title">
+                        </Header>
+                        <Header mb="8px" as="h3" type="heading-3">
                             {localize('Deriv IB Programme')}
                         </Header>
-                        <Text>
+                        <Header as="p" type="paragraph-1" weight="normal">
                             {localize(
                                 'Our introducing broker programme is available to all Deriv affiliates. Earn commission from your clients’ trades on Deriv MT5.',
                             )}
-                        </Text>
+                        </Header>
                     </StyledFlex>
                 )}
                 <Signup

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MarketInstruments from '../../markets/components/sections/_market_instruments.js'
-import { MajorPairs, SmartFX } from '../../markets/instruments/_submarkets.js'
+import { MajorPairs, SmartFX } from '../../markets/instruments/_index'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { SmartFXDetails } from '../../markets/static/content/_details'
 import { Text } from 'components/elements'

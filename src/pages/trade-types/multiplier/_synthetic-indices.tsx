@@ -6,7 +6,7 @@ import {
     JumpIndices,
     StepIndices,
     VolatilityIndices,
-} from '../../markets/instruments/_submarkets.js'
+} from '../../markets/instruments/_index'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { Text } from 'components/elements'

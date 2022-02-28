@@ -45,6 +45,10 @@ const BannerWrapper = styled.section<{ country: string; offsetHeight: number }>`
         bottom: 86px;
     }
 
+    @media ${device.tabletL} {
+        bottom: 106px;
+    }
+
     @media (max-width: 540px) {
         bottom: 112px;
     }

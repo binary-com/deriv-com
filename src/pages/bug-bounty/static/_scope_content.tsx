@@ -32,7 +32,6 @@ export const scope_content = [
                                 as="span"
                                 color="red"
                                 weight="normal"
-                                size="14px"
                             />,
                         ]}
                     />

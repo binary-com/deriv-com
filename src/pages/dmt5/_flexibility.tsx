@@ -45,7 +45,7 @@ const content: ContentType[] = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, basket indices, commodities, and crypto with high leverage." />
+            <Localize translate_text="Trade forex, basket indices, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },

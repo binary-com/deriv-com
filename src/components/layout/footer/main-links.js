@@ -82,7 +82,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <Title>{localize('APPS')}</Title>
+                            <Title>{localize('TRADE')}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">
                             <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>

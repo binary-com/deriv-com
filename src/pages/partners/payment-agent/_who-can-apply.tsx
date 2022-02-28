@@ -142,18 +142,18 @@ const WhoCanApply = () => {
                         </StyledListHeader>
                         <StyledUl>
                             <Li>
-                                <Text>
+                                <Header>
                                     {localize(
                                         'You must have a minimum balance in your Deriv account, depending on your country of residence.',
                                     )}
-                                </Text>
+                                </Header>
                             </Li>
                             <Li>
-                                <Text>
+                                <Header>
                                     {localize(
                                         'You can only service Deriv clients in your country of residence.',
                                     )}
-                                </Text>
+                                </Header>
                             </Li>
                         </StyledUl>
                     </WhoCanApplyWrapper>

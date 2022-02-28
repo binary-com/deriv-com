@@ -84,14 +84,14 @@ const StyledLinkButton = styled(LinkButton)`
     font-size: 14px;
     height: auto;
     min-height: 4rem;
-    width: 11rem;
+    width: 24rem;
     margin: 0;
     @media ${device.tabletL} {
         margin: auto;
     }
 
     @media ${device.mobileL} {
-        width: 30%;
+        width: 100%;
     }
 
     :active {
@@ -176,7 +176,7 @@ const InterestFreeTrading = () => {
                     <Localize translate_text="Enjoy interest-free trading with no swap charges on overnight positions for forex, basket indices, stocks and stock indices, commodities, cryptocurrencies, and synthetic indices." />
                 </StyledRightText>
                 <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
-                    <Localize translate_text="Trade now" />
+                    <Localize translate_text="Choose swap-free trading now" />
                 </StyledLinkButton>
             </StyledFlex>
         </StyledContainer>

@@ -332,7 +332,7 @@ const MarginCalculator = () => {
                                     )}
                                 </Text>
                                 <Show.Desktop>
-                                    <FormulaContainer>
+                                    <FormulaContainer height="185px">
                                         <FormulaHighlight>
                                             <FormulaValue>
                                                 <Localize translate_text="2" />
@@ -351,7 +351,7 @@ const MarginCalculator = () => {
 
                                             <FormulaValue>
                                                 <Localize translate_text="100,000" />
-                                                <PointerContainer top>
+                                                <PointerContainer width="100px" top>
                                                     <PointerDot />
                                                     <PointerStick />
                                                     <PointerText top>
@@ -402,7 +402,7 @@ const MarginCalculator = () => {
                                                     translate_text="<0>2,200</0>"
                                                     components={[<FormulaGreen key={0} />]}
                                                 />
-                                                <PointerContainer ml="-10px">
+                                                <PointerContainer ml="5px">
                                                     <PointerDot />
                                                     <PointerStick />
                                                     <PointerText>

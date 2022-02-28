@@ -466,14 +466,14 @@ export const FormulaContainer = styled(Flex)`
 `
 
 export const FormulaContainerMobile = styled(Flex)`
-    width: 360px;
+    width: auto;
     height: ${(props) => (props.height ? props.height : '160px')};
     background-color: var(--color-blue-4);
     position: relative;
 `
 
 export const FormulaHighlight = styled(Flex)`
-    margin-top: 50px;
+    margin-top: ${(props) => (props.mt ? props.mt : '50px')};
     width: 618px;
     height: ${(props) => (props.height ? props.height : '72px')};
     border-radius: 4px;
@@ -532,7 +532,7 @@ export const PointerContainer = styled.div`
     margin-top: ${(props) => (props.top ? '-100px' : '8px')};
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     align-items: center;
-    max-width: 200px;
+    max-width: ${(props) => (props.width ? 'props.width' : '60px')};
     white-space: normal;
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
@@ -546,7 +546,7 @@ export const PointerContainerMobile = styled.div`
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     align-items: center;
     max-width: 20px;
-    white-space: nowrap;
+    white-space: normal;
 `
 
 export const PointerDot = styled.div`

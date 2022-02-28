@@ -24,6 +24,15 @@ const domain_url_pair = {
     [staging_deriv_be_url]: deriv_be_url,
 }
 
+export const domains = [
+    deriv_com_url,
+    deriv_me_url,
+    deriv_be_url,
+    staging_deriv_be_url,
+    'localhost',
+    'deriv-com-git-fork',
+] //deriv-com-git-fork for vercel server, localhost - for developer mode
+
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair
         ? domain_url_pair[window.location.hostname]
@@ -34,6 +43,9 @@ const getDomainAppID = () => {
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
     else return deriv_com_app_id
 }
+
+export const eu_domains = ['eu', 'staging-eu']
+export const uk_domains = ['uk', 'staging-uk']
 
 // URL
 export const domain_full_url = `https://${getDomainUrl()}`

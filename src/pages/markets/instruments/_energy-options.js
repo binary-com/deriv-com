@@ -1,15 +1,15 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { energy } from './_market-symbols'
+import { energy_options } from './_market-symbols'
 
-const Energy = () => {
+const EnergyOptions = () => {
     return (
         <>
-            {energy.map((symbol, index) => (
+            {energy_options.map((symbol, index) => (
                 <Symbol key={index} src={symbol.src} text={symbol.text} />
             ))}
         </>
     )
 }
 
-export default Energy
+export default EnergyOptions

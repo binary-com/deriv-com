@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer, EU, NonEU } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, EU, NonEU, ROW } from 'components/containers'
 import {
     Text,
     Card,
@@ -12,6 +12,7 @@ import {
     Divider,
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
+import { getCountryRule } from 'components/containers/visibility'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
@@ -286,7 +287,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             onClick={onClick}
                             to="/trade-types/cfds/"
                         />
-                        <NonEU>
+                        <ROW>
                             <NavCard
                                 aria_label="Options"
                                 icon={() => <img src={Options} alt="" width="32" height="32" />}
@@ -297,7 +298,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                                 onClick={onClick}
                                 to="/trade-types/options/"
                             />
-                        </NonEU>
+                        </ROW>
                         <NavCard
                             aria_label="Multipliers"
                             icon={() => <img src={Multipliers} alt="" width="32" height="32" />}
@@ -324,7 +325,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
-                <NonEU>
+                <ROW>
                     <>
                         <NavCard
                             aria_label="Derivx"
@@ -351,7 +352,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </>
-                </NonEU>
+                </ROW>
             </Flex>
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <EmptySpace />
@@ -365,7 +366,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to="/dtrader/"
                 />
-                <NonEU>
+                <ROW>
                     <>
                         <NavCard
                             aria_label="Deriv GO"
@@ -401,7 +402,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </>
-                </NonEU>
+                </ROW>
             </Flex>
         </Flex>
     )
@@ -413,62 +414,68 @@ NavPlatform.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const NavMarket = ({ onClick, is_ppc }) => (
-    <Flex direction="column" wrap="wrap" jc="flex-start">
-        <NavCard
-            aria_label="Forex"
-            icon={() => <img src={Forex} alt="" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
-            }
-            title={<Localize translate_text="Forex" />}
-            onClick={onClick}
-            to="/markets/forex/"
-        />
-        {!is_ppc && (
+export const NavMarket = ({ onClick, is_ppc }) => {
+    const { is_non_uk } = getCountryRule()
+
+    return (
+        <Flex direction="column" wrap="wrap" jc="flex-start">
             <NavCard
-                aria_label="Synthetic indices"
-                icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
+                aria_label="Forex"
+                icon={() => <img src={Forex} alt="" width="32" height="32" />}
                 content={
-                    <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+                    <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
                 }
-                title={<Localize translate_text="Synthetic indices" />}
+                title={<Localize translate_text="Forex" />}
                 onClick={onClick}
-                to="/markets/synthetic/"
+                to="/markets/forex/"
             />
-        )}
-        <NavCard
-            aria_label="Stocks & indices"
-            icon={() => <img src={StockIndices} alt="" width="32" height="32" />}
-            content={
-                <Localize translate_text="Predict broader market trends and diversify your risk with stocks & indices." />
-            }
-            title={<Localize translate_text="Stocks & indices" />}
-            onClick={onClick}
-            to="/markets/stock/"
-        />
-        <NavCard
-            aria_label="Cryptocurrencies"
-            icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-            }
-            title={<Localize translate_text="Cryptocurrencies" />}
-            onClick={onClick}
-            to="/markets/cryptocurrencies/"
-        />
-        <NavCard
-            aria_label="Commodities"
-            icon={() => <img src={Commodities} alt="" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade natural resources that are central to the world's economy." />
-            }
-            title={<Localize translate_text="Commodities" />}
-            onClick={onClick}
-            to="/markets/commodities/"
-        />
-    </Flex>
-)
+            {!is_ppc && is_non_uk && (
+                <NavCard
+                    aria_label="Synthetic indices"
+                    icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+                    }
+                    title={<Localize translate_text="Synthetic indices" />}
+                    onClick={onClick}
+                    to="/markets/synthetic/"
+                />
+            )}
+            <NavCard
+                aria_label="Stocks & indices"
+                icon={() => <img src={StockIndices} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Predict broader market trends and diversify your risk with stocks & indices." />
+                }
+                title={<Localize translate_text="Stocks & indices" />}
+                onClick={onClick}
+                to="/markets/stock/"
+            />
+            {is_non_uk && (
+                <NavCard
+                    aria_label="Cryptocurrencies"
+                    icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                    }
+                    title={<Localize translate_text="Cryptocurrencies" />}
+                    onClick={onClick}
+                    to="/markets/cryptocurrencies/"
+                />
+            )}
+            <NavCard
+                aria_label="Commodities"
+                icon={() => <img src={Commodities} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Trade natural resources that are central to the world's economy." />
+                }
+                title={<Localize translate_text="Commodities" />}
+                onClick={onClick}
+                to="/markets/commodities/"
+            />
+        </Flex>
+    )
+}
 
 NavMarket.propTypes = {
     is_ppc: PropTypes.bool,

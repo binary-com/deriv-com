@@ -5,9 +5,9 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const VerifyAccount = ({ text, label, is_mounted }: ArticleProps) => (
+const VerifyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('Do I need to verify my Deriv account?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'No, you do not need to verify your Deriv account unless prompted. If your account requires verification, we will contact you via email to initiate the process and provide you with clear instructions on how to submit your documents.',
@@ -16,9 +16,9 @@ const VerifyAccount = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const VerificationDuration = ({ text, label, is_mounted }: ArticleProps) => (
+const VerificationDuration = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How long does verification take?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'We’ll typically take 1-3 business days to review your documents and will inform you of the result via email once it’s done.',
@@ -27,9 +27,9 @@ const VerificationDuration = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DocumentsDeclined = ({ text, label, is_mounted }: ArticleProps) => (
+const DocumentsDeclined = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('Why were my documents declined?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'We may decline your verification documents if they are insufficiently clear, invalid, expired, or have cropped edges.',

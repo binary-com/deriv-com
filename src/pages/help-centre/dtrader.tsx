@@ -5,9 +5,9 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const WhatIsDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
+const WhatIsDMT5 = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is DTrader?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
@@ -16,9 +16,9 @@ const WhatIsDMT5 = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DTraderMarkets = ({ text, label, is_mounted }: ArticleProps) => (
+const DTraderMarkets = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What markets can I trade on DTrader?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'You can trade forex, stock indices, commodities, and synthetic indices on DTrader.',
@@ -27,9 +27,9 @@ const DTraderMarkets = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DTraderContracts = ({ text, label, is_mounted }: ArticleProps) => (
+const DTraderContracts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What contract types can I use on DTrader?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'We offer three contract types on DTrader: Ups & Downs, Highs & Lows, and Digits.',

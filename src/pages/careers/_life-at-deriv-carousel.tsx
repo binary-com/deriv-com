@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { Container, SectionContainer, Show } from 'components/containers'
+import { Container, SectionContainer, Desktop, Mobile } from 'components/containers'
 import GymImage from 'images/common/careers/gym.png'
 import FitnessImage from 'images/common/careers/fitness.png'
 import TableTennis from 'images/common/careers/table-tennis.png'
@@ -141,7 +141,7 @@ const LifeAtDerivCarousel = () => {
                     <StyledHeader align="center" as="h3" type="section-title">
                         Life at Deriv
                     </StyledHeader>
-                    <Show.Desktop>
+                    <Desktop>
                         <GridDiv>
                             <ColumnDiv>
                                 <img
@@ -184,8 +184,8 @@ const LifeAtDerivCarousel = () => {
                                 />
                             </div>
                         </ThirdRow>
-                    </Show.Desktop>
-                    <Show.Mobile>
+                    </Desktop>
+                    <Mobile>
                         <MobileColumn>
                             <div>
                                 <img
@@ -232,7 +232,7 @@ const LifeAtDerivCarousel = () => {
                                 loading="lazy"
                             />
                         </MobileSingleImage>
-                    </Show.Mobile>
+                    </Mobile>
                 </StyledContainer>
             </StyledSection>
         </>

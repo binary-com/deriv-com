@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { NonUK } from 'components/containers/visibility'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -99,46 +100,48 @@ const CryptocurrenciesDetails = () => (
 
 const Cryptocurrencies = () => {
     return (
-        <SectionContainer padding="4rem 0 8rem">
-            <Flex max_width="79.2rem" m="0 auto" direction="column">
-                <StyledText mb="12px" align="center">
-                    {localize(
-                        'Trade cryptocurrencies with multipliers and take advantage of 24/7 trading, including weekends and holidays.',
-                    )}
-                </StyledText>
-                <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms dtrader />
-                </AvailablePlatformsWrapper>
-                <Text weight="bold">
-                    {localize('Cryptocurrencies available for multipliers trading')}
-                </Text>
-
-                <MarketsWrapper direction="column">
-                    <MarketsAccordion
-                        renderTitle={() => (
-                            <Flex jc="flex-start" ai="center">
-                                <Col>
-                                    <Show.Desktop>
-                                        <Title weight="bold" max_width="auto" align="center">
-                                            {localize('Cryptocurrencies')}
-                                        </Title>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
-                                        <Title weight="bold" max_width="auto" align="center">
-                                            {localize('Cryptocurrencies')}
-                                        </Title>
-                                    </Show.Mobile>
-                                </Col>
-                                <MarketsList>
-                                    <CryptocurrenciesTradeType />
-                                </MarketsList>
-                            </Flex>
+        <NonUK>
+            <SectionContainer padding="4rem 0 8rem">
+                <Flex max_width="79.2rem" m="0 auto" direction="column">
+                    <StyledText mb="12px" align="center">
+                        {localize(
+                            'Trade cryptocurrencies with multipliers and take advantage of 24/7 trading, including weekends and holidays.',
                         )}
-                        renderDetails={CryptocurrenciesDetails}
-                    />
-                </MarketsWrapper>
-            </Flex>
-        </SectionContainer>
+                    </StyledText>
+                    <AvailablePlatformsWrapper mb="40px">
+                        <AvailablePlatforms dtrader />
+                    </AvailablePlatformsWrapper>
+                    <Text weight="bold">
+                        {localize('Instruments available for multipliers trading')}
+                    </Text>
+
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col>
+                                        <Show.Desktop>
+                                            <Title weight="bold" max_width="auto" align="center">
+                                                {localize('Crypto pairs')}
+                                            </Title>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <Title weight="bold" max_width="auto" align="center">
+                                                {localize('Crypto pairs')}
+                                            </Title>
+                                        </Show.Mobile>
+                                    </Col>
+                                    <MarketsList>
+                                        <CryptocurrenciesTradeType />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={CryptocurrenciesDetails}
+                        />
+                    </MarketsWrapper>
+                </Flex>
+            </SectionContainer>
+        </NonUK>
     )
 }
 

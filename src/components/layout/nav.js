@@ -13,12 +13,9 @@ import {
     OffCanvasMenuPartner,
     moveOffCanvasMenu,
     Text,
+    Header,
     QueryImage,
 } from 'components/elements'
-import {
-    DesktopWrapper as DesktopShow,
-    MobileWrapper as MobileShow,
-} from 'components/containers/wrapper'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -34,11 +31,11 @@ import {
 // Icons
 import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
+import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
-import AcademyLogo from 'images/svg/academy-logo.svg'
 import { CFDWarning } from 'components/layout'
 
 const query = graphql`
@@ -68,7 +65,6 @@ const LanguageSwitcherNavDesktop = ({ no_language }) =>
 
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
-    background-color: ${(props) => (props.is_transparent ? 'transparent' : 'var(--color-black)')};
     width: 100%;
     position: fixed;
     top: 0;
@@ -127,11 +123,12 @@ export const Line = styled.div`
 `
 
 export const StyledNavMain = styled.nav`
+    background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
     z-index: 1;
-    @media ${device.bp1060} {
+    @media (max-width: 1060px) {
         height: auto;
     }
 `
@@ -375,6 +372,10 @@ const LogoLinkMobile = styled(LocalizedLink)`
     }
 `
 
+const LogoLinkMobileSecurity = styled(LogoLinkMobile)`
+    margin: unset;
+`
+
 const NowrapButton = styled(Button)`
     white-space: nowrap;
 `
@@ -408,12 +409,12 @@ const handleScroll = (show, hide) => {
 }
 
 const MobileRightMain = styled.div`
+    margin-left: auto;
     display: none;
+    align-items: center;
 
     @media (max-width: 1060px) {
         display: flex;
-        margin-left: auto;
-        align-items: center;
     }
 `
 const LogoDescription = styled(Flex)`
@@ -442,7 +443,6 @@ export const NavMobile = ({
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
@@ -460,11 +460,7 @@ export const NavMobile = ({
                     <img src={LogoOnly} alt="logo only" width={115} />
                     <LogoDescription ai="center">
                         <Line />
-                        {academy_logo ? (
-                            <img src={AcademyLogo} alt="Academy" />
-                        ) : (
-                            <img src={LogoCombinedShape} alt="logo combined shape" />
-                        )}
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -505,7 +501,6 @@ export const NavDesktop = ({
     is_ppc_redirect,
     is_logged_in,
     hide_signup_login,
-    academy_logo,
     no_language,
 }) => {
     const data = useStaticQuery(query)
@@ -524,7 +519,7 @@ export const NavDesktop = ({
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    }, [])
+    })
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
@@ -572,15 +567,10 @@ export const NavDesktop = ({
                             max_width="16.4rem"
                             width="100%"
                             height="auto"
-                            loading="eager"
                         />
                     </LogoLink>
                     <Line />
-                    {academy_logo ? (
-                        <img src={AcademyLogo} alt="Academy" />
-                    ) : (
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
-                    )}
+                    <img src={LogoCombinedShape} alt="logo combined shape" />
                 </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
@@ -651,66 +641,40 @@ export const NavDesktop = ({
     )
 }
 
-export const Nav = ({
-    base,
-    is_nav_transparent,
-    is_ppc_redirect,
-    is_ppc,
-    hide_signup_login,
-    academy_logo,
-    no_language,
-}) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login, no_language }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
-    const [prevScrollPos, setPrevScrollPos] = useState(0)
-    const [is_transparent, setTransparent] = useState(is_nav_transparent)
-
-    const handleTransparentNavScroll = useCallback(() => {
-        const currentScrollPos = window.scrollY
-        setTransparent(
-            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 20) ||
-                currentScrollPos < 10,
-        )
-        setPrevScrollPos(currentScrollPos)
-    }, [])
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
-        window.addEventListener('scroll', handleTransparentNavScroll, { passive: true })
 
         let checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
         }, 800)
-
-        return () => {
-            clearInterval(checkCookieChange)
-            window.removeEventListener('scroll', handleTransparentNavScroll)
-        }
+        return () => clearInterval(checkCookieChange)
     }, [])
 
     return (
         <>
-            <NavWrapperMain is_transparent={is_transparent}>
+            <NavWrapperMain>
                 <StyledNavMain>
-                    <DesktopShow media={device.bp1060}>
+                    <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </DesktopShow>
-                    <MobileShow media={device.bp1060}>
+                    </DesktopWrapper>
+                    <MobileWrapper media={device.bp1060}>
                         <NavMobile
                             no_language={no_language}
-                            academy_logo={academy_logo}
                             is_ppc={is_ppc}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
                         />
-                    </MobileShow>
+                    </MobileWrapper>
                 </StyledNavMain>
             </NavWrapperMain>
             <CFDWarning />
@@ -719,17 +683,14 @@ export const Nav = ({
 }
 
 Nav.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
-    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     no_language: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
@@ -743,7 +704,6 @@ LanguageSwitcherNavDesktop.propTypes = {
 }
 
 NavMobile.propTypes = {
-    academy_logo: PropTypes.bool,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
@@ -787,7 +747,7 @@ export const NavInterim = ({ interim_type }) => (
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <DesktopShow media={device.bp1060}>
+                    <DesktopWrapper>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
                                 <img src={Logo} alt="logo" width="190" height="27" />
@@ -799,8 +759,8 @@ export const NavInterim = ({ interim_type }) => (
                                 />
                             </Flex>
                         </StyledLogo>
-                    </DesktopShow>
-                    <MobileShow media={device.bp1060}>
+                    </DesktopWrapper>
+                    <MobileWrapper>
                         <LogoLinkMobile
                             to={`/interim/${interim_type}`}
                             aria-label={localize('Home')}
@@ -818,7 +778,7 @@ export const NavInterim = ({ interim_type }) => (
                                 </LogoDescription>
                             </Flex>
                         </LogoLinkMobile>
-                    </MobileShow>
+                    </MobileWrapper>
                 </Flex>
                 <Auto jc="flex-end" ai="center">
                     <LanguageSwitcher short_name="true" />
@@ -855,7 +815,7 @@ export const NavStatic = ({ is_ppc }) => (
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    height: 3rem;
+    height: 3.6rem;
 `
 
 const HomeLink = styled(LocalizedLink)`
@@ -917,13 +877,26 @@ const StyledNavRight = styled(NavRight)`
     }
 `
 
+const SecurityNavRight = styled(StyledNavRight)`
+    transform: unset;
+
+    > a:last-child {
+        opacity: 1;
+        color: var(--color-white);
+        pointer-events: visible;
+        cursor: pointer;
+    }
+`
+
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
     @media ${device.tabletL} {
         justify-content: ${(props) => (props.no_login_signup ? 'flex-start' : 'space-between')};
     }
+`
 
+const StyledNavWrapperPartner = styled(StyledNavWrapper)`
     ${LogoLinkMobile} {
         margin: 0 2.4rem;
     }
@@ -941,6 +914,11 @@ const ResLogo = styled.img`
     @media (max-width: 336px) {
         width: 82px;
     }
+`
+
+const SecurityLogoInMobile = styled.img`
+    width: 170px;
+    margin-right: 10px;
 `
 
 const NavLogoLink = styled(LogoLink)`
@@ -986,18 +964,16 @@ export const NavPartners = ({ no_login_signup }) => {
     const [has_scrolled, setHasScrolled] = useState(false)
     const current_page = useActiveLinkState('partners')
 
-    const buttonHandleScroll = useCallback(() => {
+    const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    }, [])
-
+    }
     useEffect(() => {
         setMounted(true)
         if (!no_login_signup) {
             document.addEventListener('scroll', buttonHandleScroll, {
                 passive: true,
             })
-
             return () => {
                 document.removeEventListener('scroll', buttonHandleScroll)
             }
@@ -1035,7 +1011,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNavPartners>
-                    <StyledNavWrapper no_login_signup>
+                    <StyledNavWrapperPartner no_login_signup>
                         <NavLeftPartners>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <img src={LogoPartner} alt="logo partner" />
@@ -1076,6 +1052,11 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('API')}
                                 </StyledLink>
                             </NavLink>
+                            <NavLink>
+                                <StyledLink to="/bug-bounty/" aria-label={localize('Bug bounty')}>
+                                    {localize('Bug bounty')}
+                                </StyledLink>
+                            </NavLink>
                         </StyledNavCenter>
                         {!no_login_signup && (
                             <StyledNavRight
@@ -1114,14 +1095,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                 src={Close}
                                 alt="close menu 2"
                                 onClick={closeOffCanvasMenu}
-                                width="16px"
                             />
                         ) : (
                             <HamburgerMenuPartners
                                 src={Hamburger}
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
-                                width="16px"
                             />
                         )}
 
@@ -1141,12 +1120,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <DesktopShow media={device.bp1060}>
+                                        <DesktopWrapper>
                                             <span>{localize('Affiliate & IB log in')}</span>
-                                        </DesktopShow>
-                                        <MobileShow media={device.bp1060}>
+                                        </DesktopWrapper>
+                                        <MobileWrapper>
                                             <span>{localize('Log in')}</span>
-                                        </MobileShow>
+                                        </MobileWrapper>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>
@@ -1155,6 +1134,92 @@ export const NavPartners = ({ no_login_signup }) => {
                             is_canvas_menu_open={is_canvas_menu_open}
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
+                    </StyledNavWrapperPartner>
+                </StyledNavPartners>
+            </NavWrapperPartners>
+            <CFDWarning />
+        </>
+    )
+}
+
+// Note: When using layout component for security page, please add type='security' and padding_top='10rem'
+export const NavSecurity = () => {
+    const button_ref = useRef(null)
+
+    return (
+        <>
+            <NavWrapperPartners>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
+                                    {localize('Go to Deriv.com')}
+                                </Header>
+                            </HomeLink>
+                            <HomeLink to="/story/">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
+                                    {localize('About us')}
+                                </Header>
+                            </HomeLink>
+                            <HomeLink to="/contact_us/">
+                                <Header weight="normal" color="grey-19" type="paragraph-2">
+                                    {localize('Contact us')}
+                                </Header>
+                            </HomeLink>
+                        </StyledContainer>
+
+                        <Flex ml="auto" ai="center" width="auto">
+                            <LanguageSwitcher short_name="true" security />
+                        </Flex>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+
+                <StyledNavPartners>
+                    <StyledNavWrapper>
+                        <NavLeftPartners>
+                            <NavLogoLink to="/" aria-label={localize('Bug bounty')}>
+                                <img src={LogoBugBounty} alt="logo bug bounty" />
+                            </NavLogoLink>
+                        </NavLeftPartners>
+                        <SecurityNavRight button_ref={button_ref} mounted={true}>
+                            <LinkButton
+                                to={'mailto:security@deriv.com'}
+                                is_mail_link
+                                external="true"
+                                target="_blank"
+                                tertiary
+                                style={{ width: '16rem' }}
+                            >
+                                <span>{localize('Submit a report')}</span>
+                            </LinkButton>
+                        </SecurityNavRight>
+
+                        <Mobile>
+                            <Flex ai="center" jc="space-between">
+                                <LogoLinkMobileSecurity to="/" aria-label={localize('Bug bounty')}>
+                                    <SecurityLogoInMobile
+                                        src={LogoBugBounty}
+                                        alt="logo bug bounty"
+                                    />
+                                </LogoLinkMobileSecurity>
+
+                                <LinkButton
+                                    to={'mailto:security@deriv.com'}
+                                    is_mail_link
+                                    external="true"
+                                    target="_blank"
+                                    tertiary
+                                    style={{
+                                        color: 'var(--color-white)',
+                                        fontSize: '12px',
+                                        padding: '8px 16px 7px',
+                                    }}
+                                >
+                                    <span>{localize('Submit a report')}</span>
+                                </LinkButton>
+                            </Flex>
+                        </Mobile>
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>
@@ -1231,22 +1296,22 @@ export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
     return (
         <>
             <Section background={visible}>
-                <DesktopShow media={device.bp1060}>
+                <DesktopWrapper media={device.bp1060}>
                     <NavDesktop
                         no_language={no_language}
                         is_ppc={is_ppc}
                         is_logged_in={is_logged_in}
                         hide_signup_login={hide_signup_login}
                     />
-                </DesktopShow>
-                <MobileShow media={device.bp1060}>
+                </DesktopWrapper>
+                <MobileWrapper media={device.bp1060}>
                     <NavMobile
                         no_language={no_language}
                         is_ppc={is_ppc}
                         is_logged_in={is_logged_in}
                         hide_signup_login={hide_signup_login}
                     />
-                </MobileShow>
+                </MobileWrapper>
             </Section>
             <CFDWarning no_eu_banner={true} />
         </>
@@ -1254,7 +1319,6 @@ export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
 }
 
 NavSticky.propTypes = {
-    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,

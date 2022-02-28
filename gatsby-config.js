@@ -33,6 +33,7 @@ module.exports = {
             options: {
                 failOnError: true,
                 base64Width: 20,
+                forceBase64Format: 'webp',
                 stripMetadata: true,
                 defaultQuality: 50,
             },
@@ -74,6 +75,7 @@ module.exports = {
                     '/signup-success',
                     '/**/signup-success',
                     '/academy/blog/posts/preview',
+                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -224,5 +226,16 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
+        {
+            resolve: `gatsby-plugin-graphql-codegen`,
+            options: {
+                fileName: `types/graphql.types.ts`,
+                documentPaths: [
+                    './src/**/*.{ts,tsx}',
+                    './src/components/graphql/*',
+                    './node_modules/gatsby-*/**/*.js',
+                ],
+            },
+        },
     ],
 }

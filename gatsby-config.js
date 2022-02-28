@@ -208,20 +208,15 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-source-multi-api',
+            resolve: "gatsby-source-custom-api",
             options: {
-              apis: [
-                {
-                    prefix: "FE",
-                    baseUrl: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Front-end&source=CareerSite",
-                },
-                {
-                    prefix: "BE",
-                    baseUrl: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Back-end&source=CareerSite",
-                },
-              ],
-            },
-          },
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Front-end&source=CareerSite",
+                rootKey: 'fe',
+                schemas:  {
+                    fe: `id: String`
+                }
+            }
+        },
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {

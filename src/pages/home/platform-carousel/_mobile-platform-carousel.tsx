@@ -1,11 +1,18 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { platform_details, getOSIcon, PlatformContent, ImageTag } from './_utils'
+import {
+    platform_details_cr,
+    platform_details_eu_uk,
+    getOSIcon,
+    PlatformContent,
+    ImageTag,
+} from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
+import { getCountryRule } from 'components/containers/visibility'
 
 const CarouselItemWrapper = styled.div`
     width: 100%;
@@ -120,15 +127,16 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
 }
 
 const MobilePlatformCarousel = () => {
+    const { is_row } = getCountryRule()
     const images = useStaticQuery(image_query)
 
     return (
         <Carousel {...settings}>
-            {platform_details.map((platform, index) => {
+            {(is_row ? platform_details_cr : platform_details_eu_uk).map((platform, index) => {
                 const image_key = Object.keys(images)[index]
 
                 return (
-                    <CarouselItemWrapper key={platform.description}>
+                    <CarouselItemWrapper key={index}>
                         <Flex tabletL={{ mb: '56px' }}>
                             <MobileImage data={images[image_key]} alt={image_key} height={'55vw'} />
                         </Flex>

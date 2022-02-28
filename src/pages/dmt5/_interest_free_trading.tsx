@@ -160,19 +160,20 @@ const InterestFreeTrading = () => {
                     <Localize translate_text="interest" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
-                    <CheckedText>Forex</CheckedText>
                     <CheckedText>Synthetic indices</CheckedText>
-                    <CheckedText>Cryptocurrencies</CheckedText>
                     <CheckedText>Basket indices</CheckedText>
+                    <CheckedText>Forex</CheckedText>
+                    <CheckedText>Stock indices</CheckedText>
+                    <CheckedText>Cryptocurrencies</CheckedText>
                     <CheckedText>Commodities</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
-                    <Localize translate_text="Trade on the world markets without commission" />
+                    <Localize translate_text="Access markets with swap-free trading" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
+                    <Localize translate_text="Enjoy interest-free trading with no swap charges on overnight positions for forex, basket indices, stocks and stock indices, commodities, cryptocurrencies, and synthetic indices." />
                 </StyledRightText>
                 <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
                     <Localize translate_text="Trade now" />

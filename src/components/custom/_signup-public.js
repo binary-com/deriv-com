@@ -330,11 +330,11 @@ const SignupPublic = ({
                                             error={email_error_msg}
                                             value={email}
                                             background="white"
-                                            tabletBackground="green-1"
+                                            tablet_background="green-1"
                                             inputColor="grey-5"
-                                            inputBackground="white"
-                                            labelFocusColor="grey-7"
-                                            labelColor="black-3"
+                                            input_background="grey-8"
+                                            label_focus_color="grey-7"
+                                            label_color="black-3"
                                             labelSize="16px"
                                             labelTop="1.2rem"
                                             label={localize('Email')}
@@ -346,7 +346,7 @@ const SignupPublic = ({
                                             autoComplete="off"
                                             required
                                             height="40px"
-                                            focusBorder="var(--color-grey-7)"
+                                            focus_border="var(--color-grey-7)"
                                         />
                                     </InputWrapper>
                                     <EmailButton
@@ -474,11 +474,11 @@ const SignupPublic = ({
                                             error={email_error_msg}
                                             value={email}
                                             background="white"
-                                            tabletBackground="green-1"
+                                            tablet_background="green-1"
                                             inputColor="grey-5"
-                                            inputBackground="grey-8"
-                                            labelFocusColor="grey-7"
-                                            labelColor="black-3"
+                                            input_background="grey-8"
+                                            label_focus_color="grey-7"
+                                            label_color="black-3"
                                             label={localize('Email')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
@@ -488,7 +488,7 @@ const SignupPublic = ({
                                             autoComplete="off"
                                             required
                                             border="unset"
-                                            focusBorder="var(--color-grey-7)"
+                                            focus_border="var(--color-grey-7)"
                                         />
                                     </InputWrapper>
                                     <EmailButton

@@ -2,10 +2,11 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex, ROW, NonUK } from 'components/containers'
+import { Flex, ROW } from 'components/containers'
+import { DerivStore } from 'store'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
-import { deriv_status_page_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -30,6 +31,7 @@ import Options from 'images/svg/custom/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
+import BugBounty from 'images/svg/menu/bug-bounty.svg'
 import Regulatory from 'images/svg/menu/regulatory.svg'
 import SecureTrading from 'images/svg/menu/secure-trading.svg'
 import Smarttrader from 'images/svg/custom/smarttrader.svg'
@@ -122,6 +124,7 @@ const content_style = {
 }
 
 export const OffCanvasMenuWrapper = (props) => {
+    const { is_uk_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -288,11 +291,11 @@ export const OffCanvasMenuWrapper = (props) => {
                                             <img src={BinaryBot} alt="" width="32" height="32" />
                                         )}
                                         content={
-                                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
+                                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
                                         }
                                         title={<Localize translate_text="BinaryBot" />}
                                         onClick={handleArrowClick}
-                                        to="https://bot.deriv.com/"
+                                        to={binary_bot_url}
                                         external="true"
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -318,29 +321,22 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets/forex/"
                             />
                         </Flex>
-                        <NonUK>
-                            {!props.is_ppc && (
-                                <Flex mb="3.2rem">
-                                    <NavCard
-                                        aria_label="Synthetic indices"
-                                        icon={() => (
-                                            <img
-                                                src={SyntheticIndices}
-                                                alt=""
-                                                width="32"
-                                                height="32"
-                                            />
-                                        )}
-                                        content={localize(
-                                            'Enjoy synthetic markets that emulate real-world market movements.',
-                                        )}
-                                        title={localize('Synthetic indices')}
-                                        onClick={handleArrowClick}
-                                        to="/markets/synthetic/"
-                                    />
-                                </Flex>
-                            )}
-                        </NonUK>
+                        {!props.is_ppc && !is_uk_country && (
+                            <Flex mb="3.2rem">
+                                <NavCard
+                                    aria_label="Synthetic indices"
+                                    icon={() => (
+                                        <img src={SyntheticIndices} alt="" width="32" height="32" />
+                                    )}
+                                    content={localize(
+                                        'Enjoy synthetic markets that emulate real-world market movements.',
+                                    )}
+                                    title={localize('Synthetic indices')}
+                                    onClick={handleArrowClick}
+                                    to="/markets/synthetic/"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Stocks & indices"
@@ -355,7 +351,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets/stock/"
                             />
                         </Flex>
-                        <NonUK>
+                        {!is_uk_country && (
                             <Flex mb="3.2rem">
                                 <NavCard
                                     aria_label="Cryptocurrencies"
@@ -370,7 +366,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     to="/markets/cryptocurrencies/"
                                 />
                             </Flex>
-                        </NonUK>
+                        )}
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"
@@ -552,6 +548,12 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('API')}</span>
                         </StyledLink>
+                        <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={BugBounty} alt="" width="32" height="32" />
+                            </div>
+                            <span>{localize('Bug bounty')}</span>
+                        </StyledLink>
                     </AccordionItem>
                 </Accordion>
             </OffCanvasMenuContainer>
@@ -611,6 +613,12 @@ export const OffCanvasMenuPartner = (props) => {
                         <img src={API} alt="" width="32" height="32" />
                     </div>
                     <span>{localize('API')}</span>
+                </StyledLink>
+                <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
+                    <div>
+                        <img src={BugBounty} alt="" width="32" height="32" />
+                    </div>
+                    <span>{localize('Bug bounty')}</span>
                 </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

@@ -7,6 +7,7 @@ import {
     deriv_app_languages,
     live_chat_redirection_link,
     live_chat_key,
+    domains,
 } from './constants'
 import { isUK } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -269,14 +270,14 @@ export const getVideoObject = (video_data) => {
         tags,
     } = video_data
     const { id: video_id } = video_file
-    const { id: thumbnail_id, title: alt } = video_thumbnail
+    const { title: alt } = video_thumbnail
 
     return {
         published_date,
-        thumbnail_img: getAssetUrl(thumbnail_id),
         thumbnail_img_alt: alt,
         video_title,
         video_description,
+        video_thumbnail,
         video_url: getAssetUrl(video_id),
         video_duration,
         featured,
@@ -316,12 +317,16 @@ export const addScript = (settings) => {
 export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
 
 // Function to manually replace server's locale ("zh_tw" or "zh_cn") to "zh-tw"/"zh-cn"
-export const replaceLocale = (locale) => {
-    let checked_locale = locale
-    if (locale === 'zh_tw') {
-        checked_locale = 'zh-tw'
-    } else if (locale === 'zh_cn') {
-        checked_locale = 'zh-cn'
+export const replaceLocale = (url) => {
+    let checked_locale = url
+    const excluded_paths = ['smarttrader']
+    if (!excluded_paths.some((path) => url.includes(path))) {
+        domains.forEach((domain) => {
+            if (url.includes(domain) && url.includes('zh_tw'))
+                checked_locale = url.replace(/(zh_tw)/g, 'zh-tw')
+            if (url.includes(domain) && url.includes('zh_cn'))
+                checked_locale = url.replace(/(zh_cn)/g, 'zh-cn')
+        })
     }
     return checked_locale
 }
@@ -361,4 +366,55 @@ export const getBaseRef = (ref) => {
     // in some cases element api's are in the ref.current.base and
     // in other cases they are in ref.current
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
+}
+
+const uk_subdomain_countries = ['gb']
+const eu_subdomain_countries = ['nl']
+
+const redirect = (subdomain) => {
+    const redirection_url = `${subdomain}.deriv.com`
+    window.location.host = redirection_url
+}
+
+const redirectToDeriv = (full_domain) => {
+    window.location.host = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
+}
+
+export const handleDerivRedirect = (country, subdomain) => {
+    if (eu_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
+    } else if (uk_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-uk' : 'uk')
+    }
+}
+
+const handleUKRedirect = (country, subdomain, full_domain) => {
+    if (eu_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
+    } else if (!uk_subdomain_countries.includes(country)) {
+        redirectToDeriv(full_domain)
+    }
+}
+
+const handleEURedirect = (country, subdomain, full_domain) => {
+    if (uk_subdomain_countries.includes(country)) {
+        redirect(subdomain.includes('staging') ? 'staging-uk' : 'uk')
+    } else if (!eu_subdomain_countries.includes(country)) {
+        redirectToDeriv(full_domain)
+    }
+}
+
+export const handleRedirect = (subdomain, residence, current_client_country, full_domain) => {
+    const country = residence ? residence : current_client_country
+
+    const eu_domains = ['eu', 'staging-eu']
+    const uk_domains = ['uk', 'staging-uk']
+
+    if (eu_domains.includes(subdomain)) {
+        handleEURedirect(country, subdomain, full_domain)
+    } else if (uk_domains.includes(subdomain)) {
+        handleUKRedirect(country, subdomain, full_domain)
+    } else {
+        handleDerivRedirect(country, subdomain)
+    }
 }

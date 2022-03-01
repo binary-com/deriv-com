@@ -9,6 +9,7 @@ import device from 'themes/device'
 import ForexIcon from 'images/svg/trade-types/market-forex.svg'
 import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
 import CryptocurrencyIcon from 'images/svg/markets/cryptocurrencies.svg'
+import { DerivStore } from 'store'
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -207,6 +208,8 @@ Card.propTypes = {
 }
 
 const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrencies }) => {
+    const { is_uk_country } = React.useContext(DerivStore)
+
     const [active_tab, setActiveTab] = useState('Forex')
 
     const handleTabChange = (new_tab: string) => {
@@ -229,7 +232,7 @@ const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrenc
                             active_tab={active_tab}
                         />
                     )}
-                    {SyntheticIndices && (
+                    {!is_uk_country && SyntheticIndices && (
                         <Card
                             name="Synthetic Indices"
                             display_name={<Localize translate_text="Synthetic Indices" />}
@@ -237,7 +240,7 @@ const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrenc
                             active_tab={active_tab}
                         />
                     )}
-                    {Cryptocurrencies && (
+                    {!is_uk_country && Cryptocurrencies && (
                         <Card
                             name="Cryptocurrencies"
                             display_name={<Localize translate_text="Cryptocurrencies" />}

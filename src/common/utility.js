@@ -420,8 +420,10 @@ export const handleRedirect = (subdomain, residence, current_client_country, ful
 }
 
 export const queryParamData = () => {
-    const queryParams = new URLSearchParams(window.location.search)
-    const platform_name = queryParams.get('platform')
-    const platform_list = ['derivgo', 'p2p']
-    return platform_list.includes(platform_name) ? platform_name : ''
+    if (isBrowser()) {
+        const queryParams = new URLSearchParams(window.location.search)
+        const platform_name = queryParams.get('platform')
+        const platform_list = ['derivgo', 'p2p']
+        return platform_list.includes(platform_name) ? platform_name : ''
+    } else return ''
 }

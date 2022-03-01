@@ -386,7 +386,7 @@ export const FormulaText = styled.div`
     width: 650px;
 
     @media ${device.tablet} {
-        width: 360px;
+        width: auto;
     }
 `
 

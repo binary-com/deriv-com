@@ -130,7 +130,7 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-    if (queryParamData() != '') {
+    if (queryParamData()) {
         return (
             <Main margin_top={'0'} is_static={is_static}>
                 {children}

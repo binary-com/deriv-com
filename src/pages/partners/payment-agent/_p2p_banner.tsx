@@ -98,12 +98,7 @@ const BannerText = styled(Header)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    width: 30%;
-    margin-left: 10px;
-
-    @media ${device.tabletL} {
-        width: 55%;
-    }
+    width: 111px;
 `
 
 const P2PBanner = () => {
@@ -141,6 +136,10 @@ const P2PBanner = () => {
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
+                            w="111px"
+                            tabletL={{
+                                ml: '10px',
+                            }}
                         >
                             Learn more
                         </StyledLinkButton>

@@ -84,6 +84,10 @@ const AccordionWrapper = styled.div`
 `
 
 const StyledAccordionWrapper = styled(AccordionWrapper)`
+    section {
+        background-color: unset;
+    }
+    ,
     p,
     h1,
     h5 {

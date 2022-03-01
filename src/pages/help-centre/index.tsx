@@ -31,10 +31,6 @@ type StyledProps = {
     direction?: string
 }
 
-type HelpCenterProps = {
-    is_eu_country: unknown
-}
-
 const Backdrop = styled.div`
     padding: 8rem 0;
     background-color: var(--color-white);
@@ -149,14 +145,8 @@ const ResponsiveHeader = styled(Header)`
     }
 `
 
-// Since useContext can only be used in functional components
-// Wrap HelpCenter class component in a function plug in the context
-const HelpCenter = () => {
+const HelpCentre = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    return <HelpCentre is_eu_country={is_eu_country} />
-}
-
-const HelpCentre = (is_eu_country: HelpCenterProps) => {
     const [data, setData] = useState({
         search: '',
         toggle_search: true,
@@ -315,4 +305,4 @@ const HelpCentre = (is_eu_country: HelpCenterProps) => {
     )
 }
 
-export default WithIntl()(HelpCenter)
+export default WithIntl()(HelpCentre)

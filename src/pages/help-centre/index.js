@@ -240,8 +240,9 @@ const ShowItem = styled.li`
     display: ${(props) => (props.should_show_item ? 'block' : 'none')};
 `
 const queryParams = new URLSearchParams(window.location.search)
-const term = queryParams.get('platform')
-const param = term == 'derivgo' || term == 'p2p' ? term : ''
+const platform_name = queryParams.get('platform')
+const platform_list = ['derivgo', 'p2p']
+const param = platform_list.includes(platform_name) ? platform_name : ''
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
 // TODO - Refactor Help Center to function component and move this inside

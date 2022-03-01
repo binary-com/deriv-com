@@ -202,9 +202,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                                 }
-                                title={<Localize translate_text="DMT5" />}
+                                title={<Localize translate_text="Deriv MT5" />}
                                 onClick={handleArrowClick}
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
@@ -215,7 +215,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
@@ -305,7 +305,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </ROW>
                     </AccordionItem>
                     <AccordionItem
-                        header="Markets"
+                        header={localize('Markets')}
                         header_style={header_style}
                         style={content_style}
                     >

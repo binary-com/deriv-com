@@ -13,7 +13,7 @@ import { SEO, Show, Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
-import { getLocationHash, sanitize } from 'common/utility'
+import { getLocationHash, sanitize, queryParamData } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 // Icons
@@ -239,10 +239,7 @@ const HeaderPlatforms = styled.div`
 const ShowItem = styled.li`
     display: ${(props) => (props.should_show_item ? 'block' : 'none')};
 `
-const queryParams = new URLSearchParams(window.location.search)
-const platform_name = queryParams.get('platform')
-const platform_list = ['derivgo', 'p2p']
-const param = platform_list.includes(platform_name) ? platform_name : ''
+const param = queryParamData() ? queryParamData() : ''
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
 // TODO - Refactor Help Center to function component and move this inside

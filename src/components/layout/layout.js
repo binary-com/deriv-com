@@ -11,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect } from 'common/utility'
+import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -19,7 +19,6 @@ import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
-
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -131,10 +130,7 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-    const queryParams = new URLSearchParams(window.location.search)
-    const platform_name = queryParams.get('platform')
-    const platform_list = ['derivgo', 'p2p']
-    if (platform_list.includes(platform_name)) {
+    if (queryParamData() != '') {
         return (
             <Main margin_top={'0'} is_static={is_static}>
                 {children}

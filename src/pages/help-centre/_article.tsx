@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
-
+import { queryParamData } from 'common/utility'
 export type ArticleProps = {
     children?: React.ReactNode
     header?: string
@@ -36,11 +36,7 @@ const TabWrapper = styled.div`
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
-
-const queryParams = new URLSearchParams(window.location.search)
-const platform_name = queryParams.get('platform')
-const platform_list = ['derivgo', 'p2p']
-const platform = platform_list.includes(platform_name) ? platform_name : ''
+const platform = queryParamData() ? queryParamData() : ''
 export const Article = ({
     children,
     header = '',

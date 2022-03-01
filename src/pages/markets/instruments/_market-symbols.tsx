@@ -2,7 +2,6 @@ import React from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
-// TODO: move this file to static/content
 export const americas = [
     {
         src: icons.STOCKSUS500,
@@ -534,13 +533,6 @@ export const smart_fx = [
     {
         src: icons.GOLDINDEX,
         text: <Localize translate_text="Gold Index" />,
-    },
-]
-
-export const smart_gold_index = [
-    {
-        src: icons.GOLDUSD,
-        text: <Localize translate_text="Smart Gold Index" />,
     },
 ]
 

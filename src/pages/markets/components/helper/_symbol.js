@@ -7,7 +7,7 @@ const Symbol = ({ instruments_type }) => (
     <React.Fragment>
         {instruments_type.map((symbol, index) => (
             <SymbolContainer key={index}>
-                <img src={symbol.src} />
+                <img src={symbol.src} alt="" />
                 <Text>{symbol.text}</Text>
             </SymbolContainer>
         ))}

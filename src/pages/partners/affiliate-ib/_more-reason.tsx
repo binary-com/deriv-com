@@ -15,7 +15,7 @@ const ReasonHeader = styled(Header)`
 `
 
 const Reason = styled.div`
-    width: 39.4rem;
+    width: 38.4rem;
     margin-top: 4rem;
 
     &:nth-child(2) {
@@ -49,14 +49,19 @@ const Reason = styled.div`
             width: 328px;
         }
     }
-    @media ${device.mobileS} {
+    @media (max-width: 350px) {
         p {
-            width: unset;
+            width: auto;
         }
     }
 `
 const StyledFlex = styled(Flex)`
+    width: 1200px;
     margin-top: -2rem;
+
+    @media ${device.laptopL} {
+        width: unset;
+    }
 
     @media ${device.tabletS} {
         justify-content: center;

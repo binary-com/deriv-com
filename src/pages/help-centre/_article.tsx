@@ -38,8 +38,9 @@ const ContactContainer = styled.div`
 `
 
 const queryParams = new URLSearchParams(window.location.search)
-const term = queryParams.get('platform')
-const param = term == 'derivgo' || term == 'p2p' ? term : ''
+const platform_name = queryParams.get('platform')
+const platforms_list = ['derivgo', 'p2p']
+const platform = platforms_list.includes(platform_name) ? platform_name : ''
 export const Article = ({
     children,
     header = '',
@@ -60,7 +61,7 @@ export const Article = ({
             />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
-                    to={param ? '/help-centre/?platform=' + param : '/help-centre/'}
+                    to={platform ? '/help-centre/?platform=' + platform : '/help-centre/'}
                     has_arrow="true"
                     color="black"
                     size="var(--text-size-s)"

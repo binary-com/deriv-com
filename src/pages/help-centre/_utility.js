@@ -1,15 +1,9 @@
 export const convertToHash = (category, label, qparam) => {
+    const categoryFormatter = category.replace(/\s/g, '-').toLowerCase()
     if (qparam) {
-        return (
-            '/help-centre/' +
-            category.replace(/\s/g, '-').toLowerCase() +
-            '/?platform=' +
-            qparam +
-            '#' +
-            label
-        )
+        return `/help-centre/${categoryFormatter}/?platform=${qparam}#${label}`
     } else {
-        return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '/#' + label
+        return `/help-centre/${categoryFormatter}/#${label}`
     }
 }
 

@@ -131,9 +131,10 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-    const queryParams = new URLSearchParams(window.location.search)
-    const term = queryParams.get('platform')
-    if (term == 'derivgo' || term == 'p2p') {
+    const query_params = new URLSearchParams(window.location.search)
+    const platform_name = query_params.get('platform')
+    const platforms_list = ['derivgo', 'p2p']
+    if (platforms_list.includes(platform_name)) {
         return (
             <Main margin_top={'0'} is_static={is_static}>
                 {children}

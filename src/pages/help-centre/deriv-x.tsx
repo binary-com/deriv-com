@@ -16,9 +16,9 @@ const ExternalLink = styled.a`
     }
 `
 
-const WhatisDerivX = ({ text, label, is_mounted }: ArticleProps) => (
+const WhatisDerivX = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is Deriv X?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'Deriv X is an-easy-to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference.',
@@ -27,16 +27,9 @@ const WhatisDerivX = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DepositDerivX = ({ text, label, is_mounted }: ArticleProps) => (
+const DepositDerivX = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {
-                <Localize
-                    translate_text="What is  the minimum / maximum I can deposit into my <0/>Deriv X account?<0/>"
-                    components={[<br key={0} />]}
-                />
-            }
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'There is no minimum deposit. You can make a maximum deposit of USD2,500 twelve times a day.',
@@ -45,9 +38,9 @@ const DepositDerivX = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DerivXMarkets = ({ text, label, is_mounted }: ArticleProps) => (
+const DerivXMarkets = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What markets can I trade on Deriv X?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'You can trade CFDs on forex, cryptocurrencies, commodities, and our proprietary synthetic indices on Deriv X.',
@@ -56,11 +49,9 @@ const DerivXMarkets = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DerivXTrade = ({ text, label, is_mounted }: ArticleProps) => (
+const DerivXTrade = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('What is the minimum and maximum amount to trade on Deriv X?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'This depends on the trade type. To find out, right click on the specific asset and select “Instrument info”.',
@@ -69,13 +60,9 @@ const DerivXTrade = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DifferenceDMT5DTraderDerivX = ({ text, label, is_mounted }: ArticleProps) => (
+const DifferenceDMT5DTraderDerivX = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize(
-                'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?',
-            )}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'DTrader allows you to trade more than 50 assets in the form of digital options, multipliers, and lookbacks.',
@@ -89,9 +76,9 @@ const DifferenceDMT5DTraderDerivX = ({ text, label, is_mounted }: ArticleProps) 
     </ArticleWrapper>
 )
 
-const DerivXAccount = ({ text, label, is_mounted }: ArticleProps) => (
+const DerivXAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Real or Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
@@ -108,11 +95,9 @@ const DerivXAccount = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts = ({ text, label, is_mounted }: ArticleProps) => (
+const DifferentAccounts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('What are the differences between Synthetics and Financial accounts?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'The Synthetics account allows you to trade on Deriv’s proprietary synthetic indices that are available 24/7 and simulate real-world market movements.',
@@ -126,20 +111,18 @@ const DifferentAccounts = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const TradingPassword = ({ text, label, is_mounted }: ArticleProps) => (
+const TradingPassword = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is a Deriv X password?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize('It is a password that you use to log in to the Deriv X trading platform.')}
         </Text>
     </ArticleWrapper>
 )
 
-const DifferentPassword = ({ text, label, is_mounted }: ArticleProps) => (
+const DifferentPassword = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('How is my Deriv X password different from my Deriv password?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'Your Deriv X password is linked to the standalone Deriv X trading platform while your Deriv password gives you access to platforms hosted on our website such as DTrader and DBot.',
@@ -148,9 +131,9 @@ const DifferentPassword = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ResetDerivXPassowrd = ({ text, label, is_mounted }: ArticleProps) => (
+const ResetDerivXPassowrd = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How do I reset my Deriv X password?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="Go to your <0>Account settings</0>. Click the “Security and safety” drop-down menu, and select “Passwords”. Under “Deriv X password”, click “Change password” to reset your password."
@@ -168,11 +151,9 @@ const ResetDerivXPassowrd = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const AccountInformation = ({ text, label, is_mounted }: ArticleProps) => (
+const AccountInformation = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('Where can I find my Deriv X account information?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="You can view your account information (account type and login numbers) on the <0>Deriv X dashboard</0>. "
@@ -189,11 +170,9 @@ const AccountInformation = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 // TOOD: uncomment once deriv x real is ready
-const DerivXRealMoneyAccount = ({ text, label, is_mounted }: ArticleProps) => (
+const DerivXRealMoneyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('How can I deposit funds into my Deriv X real money account?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
@@ -215,11 +194,9 @@ const DerivXRealMoneyAccount = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const WithdrawDerivX = ({ text, label, is_mounted }: ArticleProps) => (
+const WithdrawDerivX = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('How do I withdraw funds from my Deriv X real money account?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'To withdraw funds from your Deriv X account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier > Transfer between accounts and follow the instructions on the screen.',

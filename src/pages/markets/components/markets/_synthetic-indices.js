@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
+import { navigate } from 'gatsby'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
@@ -10,13 +11,17 @@ import { synthetic_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { DerivStore } from 'store'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
+import { getCountryRule } from 'components/containers/visibility'
 
 const StockIndices = ({ simple_step_content }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu, is_non_eu, is_uk } = getCountryRule()
+
+    if (is_uk) {
+        navigate('/404/')
+    }
 
     return (
         <div>
@@ -31,18 +36,18 @@ const StockIndices = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds} />}
+                CFDs={<CFDs market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('synthetic indices')}
-                        options_list={synthetic_options}
-                    />
+                    is_non_eu && (
+                        <DigitalOptions
+                            market_name={localize('synthetic indices')}
+                            options_list={synthetic_options}
+                        />
+                    )
                 }
                 Multipliers={
                     <Multipliers
-                        market_content={
-                            is_eu_country ? synthetic_multiplier_eu : synthetic_multiplier
-                        }
+                        market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
                 name="Synthetic indices"

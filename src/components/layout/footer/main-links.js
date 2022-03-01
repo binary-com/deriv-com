@@ -2,19 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { localize } from 'components/localization'
-import { Flex, Show, NonUK, ROW } from 'components/containers'
-import { deriv_status_page_url } from 'common/constants'
+import { Flex, NonUK, ROW, Desktop } from 'components/containers'
+import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
     return (
         <LinksWrapper>
-            <Show.Desktop>
+            <Desktop>
                 <Flex jc="space-between">
                     <LinksCol>
                         <LinkWrapper>
                             <Title>{localize('ABOUT US')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/who-we-are/">{localize('Who we are')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
@@ -35,7 +35,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <LinkWrapper>
                                 <Title>{localize('PRODUCTS')}</Title>
                             </LinkWrapper>
-                            <LinkWrapper first_child="true">
+                            <LinkWrapper>
                                 <Link to="/trade-types/cfds/">{localize('CFDs')}</Link>
                             </LinkWrapper>
                             <ROW>
@@ -54,7 +54,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('MARKETS')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/markets/forex/">{localize('Forex')}</Link>
                         </LinkWrapper>
                         <NonUK>
@@ -118,7 +118,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <ROW>
                                 <LinkWrapper>
                                     <Link
-                                        to="https://bot.deriv.com"
+                                        to={binary_bot_url}
                                         external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -133,7 +133,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('LEGAL')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/regulatory/">{localize('Regulatory information')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
@@ -151,7 +151,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Title>{localize('PARTNER')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/partners/affiliate-ib/">
                                 {localize('Affiliates and IBs')}
                             </Link>
@@ -165,12 +165,15 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Link to="/partners/bug-bounty/">{localize('Bug bounty')}</Link>
                         </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/bug-bounty/">{localize('Bug bounty')}</Link>
+                        </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
                             <Title>{localize('SUPPORT')}</Title>
                         </LinkWrapper>
-                        <LinkWrapper first_child="true">
+                        <LinkWrapper>
                             <Link to="/help-centre/">{localize('Help centre')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
@@ -202,7 +205,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                     </LinksCol>
                 </Flex>
-            </Show.Desktop>
+            </Desktop>
         </LinksWrapper>
     )
 }

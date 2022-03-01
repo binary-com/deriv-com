@@ -2,36 +2,61 @@ const isBrowser = () => typeof window !== 'undefined'
 
 const deriv_com_url = 'deriv.com'
 const deriv_me_url = 'deriv.me'
+const deriv_be_url = 'deriv.be'
+const staging_deriv_be_url = 'staging.deriv.be'
 
-const deriv_com_app_id = 16929
-const deriv_me_app_id = 1411
+export const deriv_com_app_id = 16929
+export const deriv_me_app_id = 1411
+export const deriv_be_app_id = 30767
 
-const supported_domains = [deriv_com_url, deriv_me_url]
-const domain_url =
-    isBrowser() && supported_domains.includes(window.location.hostname)
-        ? window.location.hostname
+const domain_url_pair = {
+    [deriv_com_url]: deriv_com_url,
+    [deriv_me_url]: deriv_me_url,
+    [deriv_be_url]: deriv_be_url,
+    [staging_deriv_be_url]: deriv_be_url,
+}
+
+export const domains = [
+    deriv_com_url,
+    deriv_me_url,
+    deriv_be_url,
+    staging_deriv_be_url,
+    'localhost',
+    'deriv-com-git-fork',
+] //deriv-com-git-fork for vercel server, localhost - for developer mode
+
+const getDomainUrl = (): string =>
+    isBrowser() && window.location.hostname in domain_url_pair
+        ? domain_url_pair[window.location.hostname]
         : deriv_com_url
+
+const getDomainAppID = () => {
+    if (getDomainUrl() === deriv_me_url) return deriv_me_app_id
+    else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
+    else return deriv_com_app_id
+}
 
 export const eu_domains = ['eu', 'staging-eu']
 export const uk_domains = ['uk', 'staging-uk']
 
 // URL
-export const domain_full_url = `https://${domain_url}`
-export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
-export const deriv_app_url = `https://app.${domain_url}`
-export const deriv_api_url = `https://api.${domain_url}`
+export const domain_full_url = `https://${getDomainUrl()}`
+export const deriv_app_id = getDomainAppID()
+export const deriv_app_url = `https://app.${getDomainUrl()}`
+export const deriv_api_url = `https://api.${getDomainUrl()}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_mt5_app_url = `${deriv_app_url}/mt5`
 export const derivx_app_url = `${deriv_app_url}/derivx`
-export const smarttrader_url = `https://smarttrader.${domain_url}`
+export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
+export const binary_bot_url = `https://bot.${getDomainUrl()}`
 export const blog_url = `https://blog.${deriv_com_url}`
-export const deriv_cookie_domain = domain_url
-export const login_url = `https://login.${domain_url}`
-export const affiliate_signup_url = `https://login.${domain_url}/signup.php`
-export const affiliate_signin_url = `https://login.${domain_url}/signin.php`
+export const deriv_cookie_domain = getDomainUrl()
+export const login_url = `https://login.${getDomainUrl()}`
+export const affiliate_signup_url = `https://login.${getDomainUrl()}/signup.php`
+export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
-export const oauth_url = `https://oauth.${domain_url}`
+export const oauth_url = `https://oauth.${getDomainUrl()}`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =

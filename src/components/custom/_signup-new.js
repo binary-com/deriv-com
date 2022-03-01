@@ -258,8 +258,8 @@ const SignupNew = ({
                     name="email"
                     type="text"
                     border="solid 1px var(--color-grey-7)"
-                    labelColor="grey-5"
-                    labelHoverColor="grey-5"
+                    label_color="grey-5"
+                    label_hover_color="grey-5"
                     background="white"
                     error={email_error_msg}
                     value={email}
@@ -283,6 +283,11 @@ const SignupNew = ({
             >
                 {localize('Create demo account')}
             </EmailButton>
+            <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
+                {localize(
+                    'By signing up for a Deriv account, you agree to receive occasional updates about our products, services, and events. You can unsubscribe at any time in your account settings.',
+                )}
+            </Header>
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" tabletFontSize="12px">

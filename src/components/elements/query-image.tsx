@@ -1,14 +1,15 @@
 import React, { MouseEventHandler, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
 
 export type QueryImageProps = {
     alt: ReactElement | string
     className?: string
-    data: ImageDataLike
+    data: ImageDataLike | IGatsbyImageData
     height?: string
     width?: string
+    max_width?: string
     loading?: 'eager' | 'lazy'
     disable_transition?: boolean
     onMouseOver?: MouseEventHandler<HTMLDivElement>

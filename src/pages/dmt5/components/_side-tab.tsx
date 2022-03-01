@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Flex, Show, Box } from 'components/containers'
+import { Flex, Box, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 import AppStore from 'images/svg/dmt5/app-store.svg'
 import GooglePlay from 'images/svg/dmt5/google-play.svg'
 import { LocalizedLink } from 'components/localization'
@@ -79,9 +79,6 @@ const TabButton = styled.div<ContentProps>`
         background: ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-grey-29)')};
         transition: background 0.25s;
     }
-    &:last-child {
-        margin-bottom: 0;
-    }
 
     @media ${device.tabletS} {
         margin: 0 16px 16px;
@@ -111,12 +108,12 @@ const TabList = styled.div<ContentProps>`
     }
 `
 
-const Desktop = styled(Show.Desktop)`
+const DesktopWrapper = styled(Desktop)`
     flex: 1;
     width: 100%;
 `
 
-const Mobile = styled(Show.Mobile)`
+const MobileWrapper = styled(Mobile)`
     @media ${device.tabletS} {
         margin-bottom: 2.3rem;
 
@@ -153,7 +150,7 @@ const SideTab = ({
 
     return (
         <StyledFlex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
-            <Desktop max_width={'bp769'}>
+            <DesktopWrapper breakpoint={size.bp769}>
                 {React.Children.map(children, (el, index) => {
                     return (
                         <Content selected={selected_tab === index}>
@@ -161,7 +158,7 @@ const SideTab = ({
                         </Content>
                     )
                 })}
-            </Desktop>
+            </DesktopWrapper>
             <div>
                 <TabList role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child: TabProps, index) => {
@@ -186,11 +183,11 @@ const SideTab = ({
                                         {description}
                                     </StyledText>
                                 </TabButton>
-                                <Mobile min_width={'bp769'}>
+                                <MobileWrapper breakpoint={size.bp769}>
                                     <Content selected={selected_tab === index}>
                                         {selected_tab === index ? child : undefined}
                                     </Content>
-                                </Mobile>
+                                </MobileWrapper>
                             </>
                         )
                     })}

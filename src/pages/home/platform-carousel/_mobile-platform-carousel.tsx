@@ -156,9 +156,9 @@ const MobilePlatformCarousel = () => {
                             tabletL={{ m: '3.2rem 3.8rem' }}
                             mobileL={{ m: '32px 0 40px' }}
                         >
-                            {platform.download_links.map((link, index) => (
+                            {platform.download_links.map((link, idx) => (
                                 <DownloadLink
-                                    key={index}
+                                    key={idx}
                                     external="true"
                                     type={link?.link_type}
                                     to={link?.url}

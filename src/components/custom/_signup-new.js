@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, Text, LinkText } from 'components/elements'
+import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 import { DerivStore } from 'store'
@@ -182,6 +182,13 @@ const SocialText = styled(Text)`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
+
+const StyledLocalizedLink = styled(LocalizedLinkText)`
+    @media ${device.tabletL} {
+        font-size: 10px;
+    }
+`
+
 const StyledBinaryLogo = styled.img`
     height: 42px;
     width: 43px;
@@ -284,9 +291,17 @@ const SignupNew = ({
                 {localize('Create demo account')}
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
-                {localize(
-                    'By signing up for a Deriv account, you agree to receive occasional updates about our products, services, and events. You can unsubscribe at any time in your account settings.',
-                )}
+                <Localize
+                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>"
+                    components={[
+                        <StyledLocalizedLink
+                            key={0}
+                            to="/tnc/security-and-privacy.pdf"
+                            size="12px"
+                            color="red"
+                        />,
+                    ]}
+                />
             </Header>
             <SignupWithContainer>
                 <Line />

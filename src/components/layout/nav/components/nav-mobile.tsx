@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Wrapper, Line, LogoDescription, MobileWrapper } from '../styles/nav-styles'
+import {
+    Wrapper,
+    Line,
+    LogoDescription,
+    MobileWrapper,
+    HamburgerMenu,
+    CloseIcon,
+} from '../styles/nav-styles'
 import { handleGetTrading, handleLogin } from '../util/nav-methods'
 import device from 'themes/device'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
@@ -19,14 +26,6 @@ type NavMobileProps = {
     hide_signup_login?: boolean
 }
 
-const HamburgerMenu = styled.img`
-    width: 16px;
-    cursor: pointer;
-`
-const CloseIcon = styled.img`
-    width: 16px;
-    cursor: pointer;
-`
 const LogoWrapper = styled(LocalizedLink)`
     display: flex;
     align-items: center;

@@ -188,7 +188,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'academy':
-            Navigation = <NavAcademy no_language={true} />
+            Navigation = <NavAcademy />
             FooterNav = <Footer academy={true} />
             break
         case 'static':
@@ -202,15 +202,15 @@ const Layout = ({
             FooterNav = <Footer />
             break
         case 'security':
-            Navigation = <NavSecurity no_login_signup={no_login_signup} />
+            Navigation = <NavSecurity />
             FooterNav = <Footer />
             break
         case 'ebook':
-            Navigation = <Nav hide_signup_login={true} />
+            Navigation = <Nav hide_signup_login />
             FooterNav = <Footer />
             break
         case 'landing-page':
-            Navigation = <Nav hide_signup_login={true} no_language={true} />
+            Navigation = <Nav hide_signup_login hide_language_switcher />
             FooterNav = <Footer />
             break
         case 'jump-indices':

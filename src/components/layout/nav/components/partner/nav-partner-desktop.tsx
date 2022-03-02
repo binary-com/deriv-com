@@ -167,7 +167,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     </NavLink>
 
                     <NavLink>
-                        <StyledLink to="/bug-bounty/" aria-label={localize('Bug bounty')}>
+                        <StyledLink to="/bug-bounty/" aria-label="Bug bounty">
                             {localize('Bug bounty')}
                         </StyledLink>
                     </NavLink>

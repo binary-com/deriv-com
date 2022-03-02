@@ -2,8 +2,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import MainNav from './components/partner/main-nav'
-import { PartnerWrapper, PartnerNavigationBarWrapper } from './nav-partner'
 import { StyledLogoLink } from './components/partner/nav-partner-desktop'
+import { PartnerWrapper, PartnerNavigationBarWrapper } from './styles/nav-styles'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Container } from 'components/containers'
@@ -38,7 +38,7 @@ const NavSecurity = () => {
     return (
         <>
             <PartnerWrapper>
-                <MainNav security />
+                <MainNav is_security />
                 <PartnerNavigationBarWrapper>
                     <Wrapper jc="space-between">
                         <StyledLogoLink to="/" aria-label="Bug bounty">

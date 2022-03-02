@@ -4,28 +4,25 @@ import SearchBanner from 'pages/academy/components/_search-banner'
 import { CFDWarning } from 'components/layout/layout'
 import device from 'themes/device.js'
 
-// TODO is ppc props
-// TODO rename styles
-
-type NavTemplateProps = StyledNavMainProps &
-    NavWrapperMain & {
+type NavTemplateProps = NavProps &
+    Wrapper & {
         children: ReactNode
-        is_ppc: boolean
+        is_ppc?: boolean
         show_academy_nav?: boolean
     }
 
-type StyledNavMainProps = {
+type NavProps = {
     transparent_background?: boolean
     nav_height?: string
     nav_height_mobile?: string
 }
 
-type NavWrapperMain = {
+type Wrapper = {
     static_position?: boolean
     hide_nav?: boolean
 }
 
-const NavWrapperMain = styled.div<NavWrapperMain>`
+const Wrapper = styled.div<Wrapper>`
     position: ${({ static_position }) => (static_position ? 'static' : 'fixed')};
     display: ${({ hide_nav }) => (hide_nav ? 'none' : 'block')};
     transition: opacity 1s ease-out;
@@ -34,7 +31,7 @@ const NavWrapperMain = styled.div<NavWrapperMain>`
     width: 100%;
 `
 
-const StyledNavMain = styled.nav<StyledNavMainProps>`
+const Nav = styled.nav<NavProps>`
     background-color: ${({ transparent_background }) =>
         transparent_background ? 'transparent' : 'var(--color-black)'};
     height: ${({ nav_height }) => nav_height || '7.2rem'};
@@ -59,17 +56,17 @@ const NavTemplate = ({
 }: NavTemplateProps) => {
     return (
         <>
-            <NavWrapperMain static_position={static_position} hide_nav={hide_nav}>
-                <StyledNavMain
+            <Wrapper static_position={static_position} hide_nav={hide_nav}>
+                <Nav
                     nav_height={nav_height}
                     nav_height_mobile={nav_height_mobile}
                     transparent_background={transparent_background}
                 >
                     {children}
-                </StyledNavMain>
-            </NavWrapperMain>
+                </Nav>
+            </Wrapper>
             {show_academy_nav && <SearchBanner hidden={hide_nav} />}
-            <CFDWarning is_ppc />
+            <CFDWarning is_ppc={is_ppc} />
         </>
     )
 }

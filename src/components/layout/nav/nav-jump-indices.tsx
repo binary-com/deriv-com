@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import NavTemplate from './components/nav-template'
-import { LocalizedLink, localize } from 'components/localization'
+import { LocalizedLink } from 'components/localization'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex } from 'components/containers'
@@ -30,7 +30,6 @@ const ImgWrapper = styled.img`
         height: 10px;
     }
 `
-
 const Line = styled.div`
     width: 1px;
     height: 28px;
@@ -61,17 +60,17 @@ const NavJumpIndice = () => {
         <NavTemplate nav_height_mobile="48px">
             <ContentContainer>
                 <LogoWrapper>
-                    <LogoLink to="/" aria-label={localize('Home')}>
+                    <LogoLink to="/" aria-label="Home">
                         <QueryImage
                             data={data['deriv']}
-                            alt={localize('Deriv')}
+                            alt="deriv logo"
                             max_width="16.4rem"
                             width="100%"
                             height="auto"
                         />
                     </LogoLink>
                     <Line />
-                    <ImgWrapper src={GetTrading} />
+                    <ImgWrapper src={GetTrading} alt="get trading" />
                 </LogoWrapper>
             </ContentContainer>
         </NavTemplate>

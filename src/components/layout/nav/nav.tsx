@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './components/nav-mobile'
-import { isLoggedIn } from 'common/utility'
+import useAuth from './util/useAuth'
 
 type NavProps = {
-    is_ppc: boolean
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
     hide_signup_login?: boolean
     hide_language_switcher?: boolean
-    is_ppc_redirect?: boolean
 }
 
 const Nav = ({ is_ppc, is_ppc_redirect, hide_language_switcher, hide_signup_login }: NavProps) => {
-    const [is_logged_in, setLoggedIn] = useState(false)
+    const [is_logged_in] = useAuth()
     const navProps = {
         is_ppc,
         is_logged_in,
@@ -21,14 +21,8 @@ const Nav = ({ is_ppc, is_ppc_redirect, hide_language_switcher, hide_signup_logi
         hide_signup_login,
     }
 
-    useEffect(() => {
-        setLoggedIn(isLoggedIn())
-        const checkCookieChange = setInterval(() => setLoggedIn(isLoggedIn()), 800)
-        return () => clearInterval(checkCookieChange)
-    }, [])
-
     return (
-        <NavTemplate is_ppc={is_ppc}>
+        <NavTemplate>
             <NavDesktop {...navProps} />
             <NavMobile {...navProps} />
         </NavTemplate>

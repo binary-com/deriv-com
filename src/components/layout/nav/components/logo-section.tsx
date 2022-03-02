@@ -1,21 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { LocalizedLink, localize } from 'components/localization'
+import { LocalizedLink } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import device from 'themes/device'
-
-// TODO logo link max width
 
 type LogoSectionProps = {
     is_ppc_redirect?: boolean
     base?: string
     hide_get_trading?: boolean
-}
-
-type LogoLinkTypes = {
-    max_width?: string
 }
 
 const Wrapper = styled.div`
@@ -24,9 +18,9 @@ const Wrapper = styled.div`
     max-width: 30rem;
     width: 100%;
 `
-const LogoLink = styled(LocalizedLink)<LogoLinkTypes>`
+const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
-    max-width: ${({ max_width }) => max_width || '16rem'};
+    max-width: 16rem;
     width: 100%;
     @media ${device.tabletS} {
         & svg,
@@ -65,7 +59,7 @@ const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionPro
             <LogoLink to={to} aria-label="Home">
                 <QueryImage
                     data={data['deriv']}
-                    alt={localize('Deriv')}
+                    alt="deriv logo"
                     max_width="16.4rem"
                     width="100%"
                     height="auto"
@@ -74,7 +68,7 @@ const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionPro
             {!hide_get_trading && (
                 <>
                     <Line />
-                    <img src={GetTrading} alt={'get trading'} />
+                    <img src={GetTrading} alt="get trading" />
                 </>
             )}
         </Wrapper>

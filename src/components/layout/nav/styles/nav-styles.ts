@@ -26,15 +26,13 @@ type LogoLinkProps = {
     max_width?: string
 }
 
-export const StyledNavMain = styled.nav`
-    background-color: var(--color-black);
-    height: 7.2rem;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    @media (max-width: 1060px) {
-        height: auto;
-    }
+export const HamburgerMenu = styled.img`
+    width: 16px;
+    cursor: pointer;
+`
+export const CloseIcon = styled.img`
+    width: 16px;
+    cursor: pointer;
 `
 
 export const Wrapper = styled(Container)<WrapperProps>`
@@ -171,14 +169,22 @@ export const Line = styled.div`
     background-color: var(--color-white);
 `
 
-export const NavWrapperMain = styled.div`
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 100;
+export const StyledLink = styled(LocalizedLink)`
+    ${SharedLinkStyle}
 `
 
-export const NavWrapperPartners = styled.div`
+export const PartnerNavigationBarWrapper = styled.nav`
+    background-color: var(--color-black);
+    height: 7.2rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    @media ${device.tabletL} {
+        height: auto;
+    }
+`
+
+export const PartnerWrapper = styled.div`
     width: 100%;
     position: fixed;
     top: 0;
@@ -194,27 +200,4 @@ export const NavWrapperPartners = styled.div`
             align-items: center;
         }
     }
-`
-export const StyledNavPartners = styled.nav`
-    background-color: var(--color-black);
-    height: 7.2rem;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    @media ${device.tabletL} {
-        height: auto;
-    }
-`
-export const NavLeftPartners = styled.div`
-    text-align: left;
-    display: flex;
-    align-items: center;
-    max-width: 30rem;
-    width: 100%;
-    @media (max-width: 991px) {
-        display: none;
-    }
-`
-export const StyledLink = styled(LocalizedLink)`
-    ${SharedLinkStyle}
 `

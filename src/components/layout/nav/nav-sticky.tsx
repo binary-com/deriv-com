@@ -2,14 +2,15 @@ import React, { useCallback, useEffect, useState } from 'react'
 import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './components/nav-mobile'
-import { isLoggedIn } from 'common/utility'
+import useAuth from './util/useAuth'
 
 type NavStickyProps = {
     is_ppc: boolean
+    is_ppc_redirect: boolean
 }
 
-const NavSticky = ({ is_ppc }: NavStickyProps) => {
-    const [is_logged_in, setLoggedIn] = useState(true)
+const NavSticky = ({ is_ppc_redirect, is_ppc }: NavStickyProps) => {
+    const [is_logged_in] = useAuth()
     const [prev_scroll_position, setPrevScrollPosition] = useState(0)
     const [visible, setVisible] = useState(true)
 
@@ -24,19 +25,22 @@ const NavSticky = ({ is_ppc }: NavStickyProps) => {
     }, [])
 
     useEffect(() => {
-        setLoggedIn(isLoggedIn())
         window.addEventListener('scroll', backgroundHandler)
-        const checkCookieChange = setInterval(() => setLoggedIn(isLoggedIn()), 800)
-        return () => {
-            clearInterval(checkCookieChange)
-            window.removeEventListener('scroll', backgroundHandler)
-        }
+        return () => window.removeEventListener('scroll', backgroundHandler)
     }, [])
 
     return (
-        <NavTemplate is_ppc={is_ppc} transparent_background={visible}>
-            <NavDesktop is_logged_in={is_logged_in} is_ppc={is_ppc} />
-            <NavMobile is_logged_in={is_logged_in} is_ppc={is_ppc} />
+        <NavTemplate transparent_background={visible}>
+            <NavDesktop
+                is_logged_in={is_logged_in}
+                is_ppc={is_ppc}
+                is_ppc_redirect={is_ppc_redirect}
+            />
+            <NavMobile
+                is_logged_in={is_logged_in}
+                is_ppc={is_ppc}
+                is_ppc_redirect={is_ppc_redirect}
+            />
         </NavTemplate>
     )
 }

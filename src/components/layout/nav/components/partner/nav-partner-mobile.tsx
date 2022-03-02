@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Wrapper, MobileWrapper } from '../../styles/nav-styles'
+import { Wrapper, MobileWrapper, HamburgerMenu, CloseIcon } from '../../styles/nav-styles'
 import { localize, LanguageSwitcher, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Flex } from 'components/containers'
@@ -17,14 +17,6 @@ type NavPartnerMobileProps = {
 
 const Mobile = styled(MobileWrapper)`
     width: 100%;
-`
-const HamburgerMenu = styled.img`
-    width: 16px;
-    cursor: pointer;
-`
-const CloseIcon = styled.img`
-    width: 16px;
-    cursor: pointer;
 `
 const LogoLink = styled(LocalizedLink)`
     cursor: pointer;

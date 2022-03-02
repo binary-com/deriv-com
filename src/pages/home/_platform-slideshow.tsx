@@ -81,7 +81,7 @@ const PlatformSlideshow = () => {
     }, [slide_images])
 
     return (
-        <Flex max_width="690px" height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
+        <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
             <Slides images={slide_images} active_index={active_index} />
         </Flex>
     )

@@ -47,7 +47,7 @@ const settings = {
     },
     navigation_style: {
         bottom_offset: '420px',
-        nav_color: '--color-red',
+        nav_color: 'red',
     },
     slide_inner_width: '100vw',
     navigation_css: css`
@@ -156,10 +156,12 @@ const MobilePlatformCarousel = () => {
                             tabletL={{ m: '3.2rem 3.8rem' }}
                             mobileL={{ m: '32px 0 40px' }}
                         >
-                            {platform.download_links.map((link) => (
+                            {platform.download_links.map((link, idx) => (
                                 <DownloadLink
-                                    key={link.url}
-                                    to={link.url}
+                                    key={idx}
+                                    external="true"
+                                    type={link?.link_type}
+                                    to={link?.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

@@ -10,6 +10,7 @@ export const useWebsiteStatus = () => {
     const [website_status, setWebsiteStatus] = useCookieState(null, WEBSITE_STATUS_COUNTRY_KEY, {
         expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
+
     const [is_loading, setLoading] = useState(true)
 
     useLayoutEffect(() => {

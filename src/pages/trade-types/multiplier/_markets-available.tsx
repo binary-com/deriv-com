@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import MarketsCarousel from '../components/_markets-carousel'
 import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
-import { DerivStore } from 'store'
-import { SectionContainer, Flex, NonUK } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
+import { getCountryRule } from 'components/containers/visibility'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
@@ -36,7 +36,7 @@ const StyledText = styled(Text)`
 `
 
 const MarketsAvailable = () => {
-    const { is_uk_country } = useContext(DerivStore)
+    const { is_non_uk } = getCountryRule()
 
     return (
         <>
@@ -46,30 +46,7 @@ const MarketsAvailable = () => {
                         {localize('Markets available for multipliers trading')}
                     </Header>
                 </SmallContainer>
-                {is_uk_country ? (
-                    <MarketsCarousel>
-                        <MarketsCarousel.Item>
-                            <MarketsItem>
-                                <Card>
-                                    <MobileCardHeader>
-                                        <img src={Forex} alt="" width="64" height="64" />
-
-                                        <StyledText weight="bold">{localize('Forex')}</StyledText>
-                                    </MobileCardHeader>
-                                    <Text>
-                                        {localize(
-                                            'Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake.',
-                                        )}
-                                    </Text>
-                                    <LearnMore
-                                        text={<Localize translate_text="Learn more" />}
-                                        to="/markets/forex/"
-                                    />
-                                </Card>
-                            </MarketsItem>
-                        </MarketsCarousel.Item>
-                    </MarketsCarousel>
-                ) : (
+                {is_non_uk ? (
                     <MarketsCarousel>
                         <MarketsCarousel.Item>
                             <MarketsItem>
@@ -109,6 +86,29 @@ const MarketsAvailable = () => {
                                     <LearnMore
                                         text={<Localize translate_text="Learn more" />}
                                         to="/markets/synthetic/"
+                                    />
+                                </Card>
+                            </MarketsItem>
+                        </MarketsCarousel.Item>
+                    </MarketsCarousel>
+                ) : (
+                    <MarketsCarousel>
+                        <MarketsCarousel.Item>
+                            <MarketsItem>
+                                <Card>
+                                    <MobileCardHeader>
+                                        <img src={Forex} alt="" width="64" height="64" />
+
+                                        <StyledText weight="bold">{localize('Forex')}</StyledText>
+                                    </MobileCardHeader>
+                                    <Text>
+                                        {localize(
+                                            'Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake.',
+                                        )}
+                                    </Text>
+                                    <LearnMore
+                                        text={<Localize translate_text="Learn more" />}
+                                        to="/markets/forex/"
                                     />
                                 </Card>
                             </MarketsItem>

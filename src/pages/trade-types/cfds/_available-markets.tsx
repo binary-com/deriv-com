@@ -4,6 +4,7 @@ import MarketsCarousel from '../components/_markets-carousel'
 import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
+import { getCountryRule } from 'components/containers/visibility'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
@@ -39,7 +40,8 @@ const StyledText = styled(Text)`
 `
 
 const AvailableMarkets = () => {
-    const { is_eu_country, is_uk_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_non_uk } = getCountryRule()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -48,84 +50,7 @@ const AvailableMarkets = () => {
                     {localize('Markets available for CFD trading')}
                 </Header>
             </SmallContainer>
-            {is_uk_country ? (
-                <MarketsCarousel>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img src={Forex} alt="forex" width="64" height="64" />
-
-                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {is_eu_country ? (
-                                        <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
-                                    ) : (
-                                        <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/forex/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img
-                                        src={Commodities}
-                                        alt="commodities"
-                                        width="64"
-                                        height="64"
-                                    />
-
-                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/commodities/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img
-                                        src={StockIndices}
-                                        alt="stock indices"
-                                        width="64"
-                                        height="64"
-                                    />
-
-                                    <StyledText weight="bold">
-                                        {localize('Stock indices')}
-                                    </StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/stock/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                </MarketsCarousel>
-            ) : (
+            {is_non_uk ? (
                 <MarketsCarousel>
                     <MarketsCarousel.Item>
                         <MarketsItem>
@@ -251,6 +176,83 @@ const AvailableMarkets = () => {
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/cryptocurrencies/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                </MarketsCarousel>
+            ) : (
+                <MarketsCarousel>
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img src={Forex} alt="forex" width="64" height="64" />
+
+                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {is_eu_country ? (
+                                        <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
+                                    ) : (
+                                        <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/forex/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img
+                                        src={Commodities}
+                                        alt="commodities"
+                                        width="64"
+                                        height="64"
+                                    />
+
+                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/commodities/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img
+                                        src={StockIndices}
+                                        alt="stock indices"
+                                        width="64"
+                                        height="64"
+                                    />
+
+                                    <StyledText weight="bold">
+                                        {localize('Stock indices')}
+                                    </StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/stock/"
                                 />
                             </Card>
                         </MarketsItem>

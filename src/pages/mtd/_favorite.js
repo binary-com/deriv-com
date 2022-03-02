@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { useWebsiteStatus } from '../../components/hooks/use-website-status'
+import { isEuCountry, isUK } from '../../common/country-base'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device.js'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import {
+    move_to_dmt5_is_eu_url,
+    move_to_dmt5_url,
+    move_to_dmt5_is_uk_url,
+    move_to_dtrader_is_eu_url,
+    move_to_dtrader_url,
+    move_to_dtrader_is_uk_url,
+} from 'common/constants'
 
 const query = graphql`
     query {
@@ -70,6 +80,28 @@ const ArrowImg = styled.img`
 
 const Favorite = () => {
     const data = useStaticQuery(query)
+
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country
+
+    const [dmt5_url, setDmt5Url] = useState(move_to_dmt5_url)
+    const [dtrader_url, setDtrader] = useState(move_to_dtrader_url)
+
+    useEffect(() => {
+        const is_eu = isEuCountry(current_client_country)
+        const is_uk = isUK(current_client_country)
+
+        if (is_eu) setDmt5Url(move_to_dmt5_is_eu_url)
+        if (is_uk) setDmt5Url(move_to_dmt5_is_uk_url)
+    }, [website_status])
+
+    useEffect(() => {
+        const is_eu = isEuCountry(current_client_country)
+        const is_uk = isUK(current_client_country)
+
+        if (is_eu) setDtrader(move_to_dtrader_is_eu_url)
+        if (is_uk) setDtrader(move_to_dtrader_is_uk_url)
+    }, [website_status])
     return (
         <StyledContainer>
             <Flex fd="column" mb="120px" tabletL={{ mb: '60px' }}>
@@ -83,7 +115,7 @@ const Favorite = () => {
                             alt="Deriv MT5 favorite"
                             width="100%"
                         />
-                        <LearnMore to="https://deriv.com/dmt5/">
+                        <LearnMore to={dmt5_url}>
                             <Text>Learn more</Text>
                             <ArrowImg src={Arrow} alt="arrow" />
                         </LearnMore>
@@ -94,7 +126,7 @@ const Favorite = () => {
                             alt="Dtrader favorite"
                             width="100%"
                         />
-                        <LearnMore to="https://deriv.com/dtrader/">
+                        <LearnMore to={dtrader_url}>
                             <Text>Learn more</Text>
                             <ArrowImg src={Arrow} alt="arrow" />
                         </LearnMore>

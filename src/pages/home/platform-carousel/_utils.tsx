@@ -121,7 +121,7 @@ export const platform_details_cr: TPlatformDetails[] = [
             <Localize translate_text="Our classic bot builder and automated trading platform." />
         ),
         learn_more_link: binary_bot_url,
-        download_links: [{ type: 'browser', url: binary_bot_url }],
+        download_links: [{ type: 'browser', link_type: 'binary_bot' }],
     },
     {
         title: 'API',

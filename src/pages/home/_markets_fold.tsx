@@ -255,9 +255,10 @@ const CarouselItem = ({
 const MarketsFold = () => {
     const data = useStaticQuery(query)
     const { is_uk } = getCountryRule()
-    const [is_mobile] = useBrowserResize()
     const [is_not_big_screen] = useBrowserResize(1979)
+    const [is_mobile] = useBrowserResize()
     const { is_row } = getCountryRule()
+    // const [mobile, setMobile] = useState(is_mobile)
 
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
@@ -267,17 +268,18 @@ const MarketsFold = () => {
 
     const settings = {
         options: {
-            loop: is_row ? true : false,
+            loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
             align: is_mobile ? 0.04 : 'start',
         },
         container_style: {
-            maxWidth: getMaxWidth(),
+            maxWidth: '100%',
             margin: '0 auto',
         },
         embla_style: {
             minHeight: is_mobile ? '364px' : 'auto',
+            maxWidth: getMaxWidth(),
         },
         slide_style: {
             width: is_not_big_screen ? '282px' : '400px',
@@ -300,7 +302,7 @@ const MarketsFold = () => {
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={true}
+                    has_autoplay={is_row ? true : false}
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >

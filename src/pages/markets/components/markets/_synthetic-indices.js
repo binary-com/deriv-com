@@ -17,7 +17,7 @@ const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 import { getCountryRule } from 'components/containers/visibility'
 
 const StockIndices = ({ simple_step_content }) => {
-    const { is_eu, is_not_eu, is_uk } = getCountryRule()
+    const { is_eu, is_non_eu, is_uk } = getCountryRule()
 
     if (is_uk) {
         navigate('/404/')
@@ -28,10 +28,7 @@ const StockIndices = ({ simple_step_content }) => {
             <WhyTrade
                 header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
                 text={
-                    <Localize
-                        translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and
-                    liquidity risks."
-                    />
+                    <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
                 }
             >
                 {synthetic_content.map((content, index) => (
@@ -41,7 +38,7 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds} />}
                 DigitalOptions={
-                    is_not_eu && (
+                    is_non_eu && (
                         <DigitalOptions
                             market_name={localize('synthetic indices')}
                             options_list={synthetic_options}

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex, NonEU } from 'components/containers'
+import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
@@ -159,7 +159,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         to="/trade-types/cfds/"
                                     />
                                 </Flex>
-                                <NonEU>
+                                <ROW>
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
@@ -174,7 +174,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             to="/trade-types/options/"
                                         />
                                     </Flex>
-                                </NonEU>
+                                </ROW>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Multipliers"
@@ -202,27 +202,27 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                                 }
-                                title={<Localize translate_text="DMT5" />}
+                                title={<Localize translate_text="Deriv MT5" />}
                                 onClick={handleArrowClick}
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        <NonEU>
+                        <ROW>
                             <Flex mb="2rem">
                                 <NavCard
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
                                     to="/derivx/"
                                 />
                             </Flex>
-                        </NonEU>
+                        </ROW>
 
                         <Flex mb="2rem">
                             <NavCard
@@ -236,7 +236,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <NonEU>
+                        <ROW>
                             <>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -302,10 +302,10 @@ export const OffCanvasMenuWrapper = (props) => {
                                     />
                                 </Flex>
                             </>
-                        </NonEU>
+                        </ROW>
                     </AccordionItem>
                     <AccordionItem
-                        header="Markets"
+                        header={localize('Markets')}
                         header_style={header_style}
                         style={content_style}
                     >

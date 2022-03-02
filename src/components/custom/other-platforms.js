@@ -141,12 +141,10 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
-            cover_content={localize('Discover DMT5 now')}
-            title={localize('DMT5')}
+            cover_content={localize('Discover Deriv MT5 now')}
+            title={localize('Deriv MT5')}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
-            content={[
-                localize('Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform.'),
-            ]}
+            content={[localize('Trade on Deriv MT5, the all-in-one CFD trading platform.')]}
             is_inline_icon
             min_height="12.4rem"
             is_selected={is_selected}
@@ -316,12 +314,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <StyledText>{localize('Trading platforms')}</StyledText>
                 <NavCard
-                    aria_label="DMT5"
+                    aria_label="Deriv MT5"
                     icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                     content={
-                        <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                        <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                     }
-                    title={<Localize translate_text="DMT5" />}
+                    title={<Localize translate_text="Deriv MT5" />}
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
@@ -415,7 +413,7 @@ NavPlatform.propTypes = {
 }
 
 export const NavMarket = ({ onClick, is_ppc }) => {
-    const { is_not_uk } = getCountryRule()
+    const { is_non_uk } = getCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
@@ -429,7 +427,7 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 onClick={onClick}
                 to="/markets/forex/"
             />
-            {!is_ppc && is_not_uk && (
+            {!is_ppc && is_non_uk && (
                 <NavCard
                     aria_label="Synthetic indices"
                     icon={() => <img src={SyntheticIndices} alt="" width="32" height="32" />}
@@ -451,7 +449,7 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                 onClick={onClick}
                 to="/markets/stock/"
             />
-            {is_not_uk && (
+            {is_non_uk && (
                 <NavCard
                     aria_label="Cryptocurrencies"
                     icon={() => <img src={Cryptocurrencies} alt="" width="32" height="32" />}

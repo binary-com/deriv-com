@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Flex, Desktop, Mobile } from 'components/containers'
+import { QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 import { localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
@@ -40,57 +40,48 @@ const ContentWrapper = styled(Flex)`
         margin: 180px 0 145px;
     }
 `
-const DesktopWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        display: none;
-    }
-`
-const MobileWrapper = styled.div`
-    display: none;
-    margin: 0 31px;
 
-    @media ${device.tabletL} {
-        display: flex;
-    }
-`
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 84px;
-        line-height: 94px;
-    }
-    @media ${device.tabletS} {
-        white-space: pre;
+const MobileHeader = styled.h1`
+    color: var(--color-white);
+    text-align: center;
+    margin-top: 40px;
+    font-size: 84px;
+    line-height: 94px;
+    font-weight: bold;
+
+    @media ${device.mobileL} {
+        font-size: 64px;
+        line-height: 1.25;
     }
 `
 
-const StyledH1 = styled.h1`
-    height: 100%;
-    width: 100%;
+const DesktopHeader = styled.h1`
     color: white;
     font-weight: bold;
-    margin: 175px auto 70px;
-    display: flex;
-    justify-content: center;
+    margin: 120px auto;
     letter-spacing: 1px;
     font-size: 200px;
     z-index: 3;
     line-height: inherit;
+    text-align: center;
 
     @media (max-width: 1200px) {
-        margin: 188px auto 70px;
-        font-size: 170px;
+        font-size: 140px;
     }
 `
 
 const StyledFlex = styled(Flex)`
     min-height: 400px;
-    width: 1150px;
+    position: relative;
 `
 
 const StyledQueryImage = styled(QueryImage)`
     max-width: 591px;
     z-index: 2;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `
 const StyledMobileQueryImage = styled(QueryImage)`
     max-width: 445px;
@@ -111,28 +102,28 @@ const Hero = () => {
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
             <ContentWrapper jc="center">
-                <DesktopWrapper>
+                <Desktop>
                     <StyledFlex>
                         <StyledQueryImage
                             data={data['about_us_logo']}
                             alt="example"
                             width="unset"
                         />
-                        <StyledH1>{title}</StyledH1>
+                        <Flex jc="center" p="0 32px" max_width="1440px">
+                            <DesktopHeader>{title}</DesktopHeader>
+                        </Flex>
                     </StyledFlex>
-                </DesktopWrapper>
-                <MobileWrapper>
-                    <Flex fd="column">
+                </Desktop>
+                <Mobile>
+                    <Flex fd="column" ai="center" p="0 16px">
                         <StyledMobileQueryImage
                             data={data['about_us_logo']}
                             alt="example"
                             width="unset"
                         />
-                        <StyledHeader as="h1" color="white" align="center" mt="40px" type="unset">
-                            {localize('Who \nwe are')}
-                        </StyledHeader>
+                        <MobileHeader>{title}</MobileHeader>
                     </Flex>
-                </MobileWrapper>
+                </Mobile>
             </ContentWrapper>
         </ParentWrapper>
     )

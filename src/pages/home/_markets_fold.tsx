@@ -257,15 +257,22 @@ const MarketsFold = () => {
     const { is_uk } = getCountryRule()
     const [is_mobile] = useBrowserResize()
     const [is_not_big_screen] = useBrowserResize(1979)
+
+    const getMaxWidth = () => {
+        if (is_mobile) return '100%'
+        if (is_not_big_screen) return '1175px'
+        else return '1600px'
+    }
+
     const settings = {
         options: {
             loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
-            align: is_mobile ? 0.04 : 'center',
+            align: is_mobile ? 0.04 : 'start',
         },
         container_style: {
-            maxWidth: '100%',
+            maxWidth: getMaxWidth(),
             margin: '0 auto',
         },
         embla_style: {
@@ -279,7 +286,7 @@ const MarketsFold = () => {
         },
         navigation_style: {
             bottom_offset: '-24px',
-            nav_color: '--color-red',
+            nav_color: 'red',
         },
     }
 

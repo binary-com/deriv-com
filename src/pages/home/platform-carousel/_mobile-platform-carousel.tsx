@@ -47,7 +47,7 @@ const settings = {
     },
     navigation_style: {
         bottom_offset: '420px',
-        nav_color: '--color-red',
+        nav_color: 'red',
     },
     slide_inner_width: '100vw',
     navigation_css: css`

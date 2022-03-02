@@ -2,7 +2,7 @@ import React, { MouseEventHandler } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
-import { localize, LocalizedLink } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import type { ImageWrapperProps } from 'components/elements/query-image'
@@ -156,7 +156,7 @@ const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
 
 type ModalPropsType = {
     name: string
-    position: string
+    position: React.ReactElement
     link?: string
 }
 type StyledLogoType = {
@@ -197,7 +197,7 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
 }
 type LeaderType = {
     name: string
-    position: string
+    position: React.ReactElement
     link: string
     image: ImageDataLike
 }
@@ -242,85 +242,85 @@ const OurLeadership = () => {
     const leaders: LeaderType[] = [
         {
             name: 'Jean-Yves Sireau',
-            position: 'Chief Executive Officer',
+            position: <Localize translate_text="Chief Executive Officer" />,
             link: 'https://www.linkedin.com/in/jeanyvessireau/',
             image: leaders_data.jy,
         },
         {
             name: 'Rakshit Choudhary ',
-            position: 'Chief Operating Officer',
+            position: <Localize translate_text="Chief Operating Officer" />,
             link: 'https://www.linkedin.com/in/rakshit-choudhary-9a67b61b0/',
             image: leaders_data.rakshit,
         },
         {
             name: 'Tom Molesworth',
-            position: 'Chief Technology Officer',
+            position: <Localize translate_text="Chief Technology Officer" />,
             link: '',
             image: leaders_data.tom,
         },
         {
             name: 'Joanna Frendo',
-            position: 'Chief Compliance Officer',
+            position: <Localize translate_text="Chief Compliance Officer" />,
             link: 'https://www.linkedin.com/in/joanna-frendo-4449975/',
             image: leaders_data.joanna,
         },
         {
             name: 'Louise Wolf',
-            position: 'Chief Financial Officer',
+            position: <Localize translate_text="Chief Financial Officer" />,
             link: 'https://www.linkedin.com/in/louise-wolf-7b98b460/',
             image: leaders_data.louise,
         },
         {
             name: 'Shyamala Siva',
-            position: 'Chief Administrative Officer',
+            position: <Localize translate_text="Chief Administrative Officer" />,
             link: 'https://www.linkedin.com/in/shyamala-siva-90043b208/',
             image: leaders_data.shyamala,
         },
         {
             name: 'Gary Ross Vytialingam',
-            position: 'Chief Risk Officer',
+            position: <Localize translate_text="Chief Risk Officer" />,
             link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
             image: leaders_data.gary,
         },
         {
             name: 'Seema Hallon',
-            position: 'Head of People Management',
+            position: <Localize translate_text="Head of People Management" />,
             link: 'https://www.linkedin.com/in/seema-hallon-6919073/',
             image: leaders_data.seema,
         },
         {
             name: 'Derek Swift',
-            position: 'Head of Marketing & Global Partnerships',
+            position: <Localize translate_text="Head of Marketing & Global Partnerships" />,
             link: 'https://www.linkedin.com/in/derek-swift-5787208/',
             image: leaders_data.derek,
         },
         {
             name: 'Waqas Awan',
-            position: 'Head of Product & Content Design',
+            position: <Localize translate_text="Head of Product & Content Design" />,
             link: 'https://www.linkedin.com/in/waqasawan/',
             image: leaders_data.waqas,
         },
         {
             name: 'Raunak Kathuria',
-            position: 'Head of Back End Development',
+            position: <Localize translate_text="Head of Back End Development" />,
             link: 'https://www.linkedin.com/in/raunakkathuria/',
             image: leaders_data.raunak,
         },
         {
             name: 'Jeyavarthini Vairakanan',
-            position: 'Head of Customer Support',
+            position: <Localize translate_text="Head of Customer Support" />,
             link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
             image: leaders_data.jeya,
         },
         {
             name: 'Antony Pradeep Charles',
-            position: 'Head of Strategy & Project Management',
+            position: <Localize translate_text="Head of Strategy & Project Management" />,
             link: 'https://www.linkedin.com/in/antonypradeep/',
             image: leaders_data.antony,
         },
         {
             name: 'Jennice Lourdsamy',
-            position: 'Head of Accounts',
+            position: <Localize translate_text="Head of Accounts" />,
             link: 'https://www.linkedin.com/in/jennice-lourdsamy-352b897/',
             image: leaders_data.jennice,
         },

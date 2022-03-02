@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-    CrashBoom,
+    CrashBoomMultipliers,
     ContinuousIndices,
     VolatilityIndices,
+    JumpIndices,
+    StepIndices,
 } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { StepIndicesDetails, JumpIndicesDetails } from 'pages/markets/static/content/_details'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -206,7 +209,7 @@ const SyntheticIndices = () => {
                                     </Show.Mobile>
                                 </Col>
                                 <MarketsList>
-                                    <CrashBoom />
+                                    <CrashBoomMultipliers />
                                 </MarketsList>
                             </Flex>
                         )}
@@ -229,6 +232,44 @@ const SyntheticIndices = () => {
                                 </Flex>
                             )}
                             renderDetails={ContinuousIndicesDetails}
+                        />
+                    </MarketsWrapper>
+                )}
+                {!is_eu_country && (
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col>
+                                        <Title weight="bold" align="center">
+                                            {localize('Jump indices')}
+                                        </Title>
+                                    </Col>
+                                    <MarketsList>
+                                        <JumpIndices />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={JumpIndicesDetails}
+                        />
+                    </MarketsWrapper>
+                )}
+                {!is_eu_country && (
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col>
+                                        <Title weight="bold" align="center">
+                                            {localize('Step indices')}
+                                        </Title>
+                                    </Col>
+                                    <MarketsList>
+                                        <StepIndices />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={StepIndicesDetails}
                         />
                     </MarketsWrapper>
                 )}

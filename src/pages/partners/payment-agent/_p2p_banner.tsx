@@ -98,7 +98,7 @@ const BannerText = styled(Header)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    width: 111px;
+    width: fit-content;
 `
 
 const P2PBanner = () => {
@@ -136,7 +136,6 @@ const P2PBanner = () => {
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
-                            w="111px"
                             tabletL={{
                                 ml: '10px',
                             }}

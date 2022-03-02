@@ -78,6 +78,11 @@ const ButtonWrapper = styled(CenteredSection)`
 const StyledListHeader = styled(Header)`
     margin-top: 4rem;
 `
+const WhoCanApplyHeader = styled(Header)`
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+`
 
 type SectionComponentProps = {
     img_src: string
@@ -142,18 +147,18 @@ const WhoCanApply = () => {
                         </StyledListHeader>
                         <StyledUl>
                             <Li>
-                                <Text>
+                                <WhoCanApplyHeader type="paragraph-2">
                                     {localize(
                                         'You must have a minimum balance in your Deriv account, depending on your country of residence.',
                                     )}
-                                </Text>
+                                </WhoCanApplyHeader>
                             </Li>
                             <Li>
-                                <Text>
+                                <WhoCanApplyHeader type="paragraph-2">
                                     {localize(
                                         'You can only service Deriv clients in your country of residence.',
                                     )}
-                                </Text>
+                                </WhoCanApplyHeader>
                             </Li>
                         </StyledUl>
                     </WhoCanApplyWrapper>

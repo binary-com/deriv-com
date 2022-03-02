@@ -9,7 +9,12 @@ import {
 } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
-import { StepIndicesDetails, JumpIndicesDetails } from 'pages/markets/static/content/_details'
+import {
+    CrashBoomMultipliersDetails,
+    CrashBoomDetailsEU,
+    StepIndicesDetails,
+    JumpIndicesDetails,
+} from 'pages/markets/static/content/_details'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -93,17 +98,6 @@ const AvailablePlatformsWrapper = styled(Flex)`
         padding-bottom: 16px;
     }
 `
-
-const CrashBoomDetails = () => (
-    <DetailsContainer>
-        <Text>
-            <Localize
-                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in  <0>a series of 300 ticks</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-    </DetailsContainer>
-)
 
 const VolatilityIndicesDetails = () => (
     <DetailsContainer>
@@ -213,7 +207,9 @@ const SyntheticIndices = () => {
                                 </MarketsList>
                             </Flex>
                         )}
-                        renderDetails={CrashBoomDetails}
+                        renderDetails={
+                            is_eu_country ? CrashBoomDetailsEU : CrashBoomMultipliersDetails
+                        }
                     />
                 </MarketsWrapper>
                 {!is_eu_country && (

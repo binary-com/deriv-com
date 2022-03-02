@@ -257,6 +257,7 @@ const MarketsFold = () => {
     const { is_uk } = getCountryRule()
     const [is_mobile] = useBrowserResize()
     const [is_not_big_screen] = useBrowserResize(1979)
+    const { is_row } = getCountryRule()
 
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
@@ -266,7 +267,7 @@ const MarketsFold = () => {
 
     const settings = {
         options: {
-            loop: true,
+            loop: is_row ? true : false,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
             align: is_mobile ? 0.04 : 'start',

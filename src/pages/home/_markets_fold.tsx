@@ -258,7 +258,6 @@ const MarketsFold = () => {
     const [is_not_big_screen] = useBrowserResize(1979)
     const [is_mobile] = useBrowserResize()
     const { is_row } = getCountryRule()
-    // const [mobile, setMobile] = useState(is_mobile)
 
     const getMaxWidth = () => {
         if (is_mobile) return '100%'

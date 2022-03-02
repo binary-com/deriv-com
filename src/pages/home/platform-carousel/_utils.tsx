@@ -92,7 +92,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         description: <Localize translate_text="The CFD trading platform to fit your style." />,
         learn_more_link: '/derivx/',
         download_links: [
-            { type: 'browser', link_type: 'deriv_app' },
+            { type: 'browser', link_type: 'derivx' },
             { type: 'app_store', url: derivx_ios_url },
             { type: 'google_play', url: derivx_android_url },
         ],

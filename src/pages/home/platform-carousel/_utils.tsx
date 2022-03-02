@@ -3,18 +3,15 @@ import type { CSSProperties } from 'react'
 import styled from 'styled-components'
 import {
     deriv_api_url,
-    deriv_app_url,
-    deriv_bot_app_url,
-    deriv_mt5_app_url,
     deriv_go_ios_url,
     deriv_go_playstore_url,
     derivx_android_url,
-    derivx_app_url,
     derivx_ios_url,
     dmt5_android_url,
     dmt5_linux_url,
     dmt5_macos_url,
     smarttrader_url,
+    binary_bot_url,
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -50,7 +47,7 @@ export type TPlatformDetails = {
     image_key: string
     description: ReactElement
     learn_more_link: string
-    download_links: Array<{ type: string; url: string }>
+    download_links: Array<{ type: string; url?: string; link_type?: string }>
 }
 
 export const platform_details_cr: TPlatformDetails[] = [
@@ -72,7 +69,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: [
-            { type: 'browser', url: deriv_mt5_app_url },
+            { type: 'browser', link_type: 'mt5' },
             { type: 'app_store', url: dmt5_macos_url },
             { type: 'linux', url: dmt5_linux_url },
             { type: 'google_play', url: dmt5_android_url },
@@ -86,7 +83,7 @@ export const platform_details_cr: TPlatformDetails[] = [
             <Localize translate_text="Our flagship app for trading options and multipliers." />
         ),
         learn_more_link: '/dtrader/',
-        download_links: [{ type: 'browser', url: deriv_app_url }],
+        download_links: [{ type: 'browser', link_type: 'deriv_app' }],
     },
     {
         title: 'Deriv X',
@@ -95,7 +92,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         description: <Localize translate_text="The CFD trading platform to fit your style." />,
         learn_more_link: '/derivx/',
         download_links: [
-            { type: 'browser', url: derivx_app_url },
+            { type: 'browser', link_type: 'deriv_app' },
             { type: 'app_store', url: derivx_ios_url },
             { type: 'google_play', url: derivx_android_url },
         ],
@@ -106,7 +103,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         image_key: 'platforms_dbot',
         description: <Localize translate_text="Automate your trading. No coding required." />,
         learn_more_link: '/dbot/',
-        download_links: [{ type: 'browser', url: deriv_bot_app_url }],
+        download_links: [{ type: 'browser', link_type: 'dbot' }],
     },
     {
         title: 'SmartTrader',
@@ -114,7 +111,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         image_key: 'platforms_smarttrader',
         description: <Localize translate_text="Our legacy options trading platform." />,
         learn_more_link: smarttrader_url,
-        download_links: [{ type: 'browser', url: smarttrader_url }],
+        download_links: [{ type: 'browser', link_type: 'smart_trader', url: 'trading' }],
     },
     {
         title: 'Binary Bot',
@@ -123,8 +120,8 @@ export const platform_details_cr: TPlatformDetails[] = [
         description: (
             <Localize translate_text="Our classic bot builder and automated trading platform." />
         ),
-        learn_more_link: 'https://bot.deriv.com/',
-        download_links: [{ type: 'browser', url: 'https://bot.deriv.com/' }],
+        learn_more_link: binary_bot_url,
+        download_links: [{ type: 'browser', url: binary_bot_url }],
     },
     {
         title: 'API',
@@ -144,7 +141,7 @@ export const platform_details_eu_uk: TPlatformDetails[] = [
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: [
-            { type: 'browser', url: deriv_mt5_app_url },
+            { type: 'browser', link_type: 'mt5' },
             { type: 'app_store', url: dmt5_macos_url },
             { type: 'linux', url: dmt5_linux_url },
             { type: 'google_play', url: dmt5_android_url },
@@ -156,7 +153,7 @@ export const platform_details_eu_uk: TPlatformDetails[] = [
         image_key: 'platforms_dtrader',
         description: <Localize translate_text="Our flagship app for trading multipliers." />,
         learn_more_link: '/dtrader/',
-        download_links: [{ type: 'browser', url: deriv_app_url }],
+        download_links: [{ type: 'browser', link_type: 'deriv_app' }],
     },
 ]
 
@@ -166,6 +163,7 @@ export const getPlatformDetails = (no_of_copies) => {
     let current_index = 0
 
     for (let index = 0; index < no_of_copies; index++) {
+        // prettier-ignore
         (is_row ? platform_details_cr : platform_details_eu_uk).forEach((p) => {
             new_details.push({ ...p, id: current_index })
             current_index++
@@ -235,7 +233,7 @@ export const PlatformContent = ({
             <Flex jc="flex-start" tabletL={{ jc: 'center' }}>
                 <LearnMoreLink
                     to={learn_more_link}
-                    is_external={learn_more_link.includes('https')}
+                    external={learn_more_link.includes('https')}
                     mb="9px"
                 >
                     <span>{`${localize('Learn more')} >`}</span>

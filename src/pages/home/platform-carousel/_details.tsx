@@ -68,7 +68,9 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                     return (
                         <DownloadLink
                             key={index}
-                            to={link.url}
+                            external="true"
+                            type={link?.link_type}
+                            to={link?.url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

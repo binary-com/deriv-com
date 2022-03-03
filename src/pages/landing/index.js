@@ -1,5 +1,4 @@
 import React from 'react'
-// import Ticker from './home/_ticker'
 import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
 import Hero from '../home/_hero'
 import Trade from '../home/_trade'
@@ -63,8 +62,6 @@ const Home = () => {
             />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
-            {/* TODO: investigate performance and enable later */}
-            {/* {!isProduction() && <Ticker />} */}
         </Layout>
     )
 }

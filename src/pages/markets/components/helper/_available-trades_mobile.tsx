@@ -75,7 +75,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     ${Flex} {
         width: 100%;
         justify-content: flex-start;
-        padding: 16px 25px 16px 24px;
         height: 40px;
         min-width: unset;
 
@@ -196,49 +195,51 @@ const AvailableTradesMobile = ({
                     </CardWrapper>
                     <ContentWrapper>{active_tab.includes('CFDs') && CFDs}</ContentWrapper>
                 </StyledDiv>
-                <NonEU>
-                    <StyledDiv>
-                        <CardWrapper margin="0" position="relative">
-                            {DigitalOptions && (
+                {DigitalOptions && (
+                    <NonEU>
+                        <StyledDiv>
+                            <CardWrapper margin="0" position="relative">
                                 <Card
                                     name="Options"
                                     display_name={<Localize translate_text="Options" />}
                                     onTabChange={() => handleTabChange('Options')}
                                     active_tab={active_tab}
                                 />
-                            )}
-                            {active_tab.includes('Options') ? (
-                                <StyledSvg src={Minus} alt="Minus" height="16" width="16" />
-                            ) : (
-                                <StyledSvg src={Plus} alt="Plus" height="16" width="16" />
-                            )}
-                        </CardWrapper>
-                        <ContentWrapper>
-                            {active_tab.includes('Options') && DigitalOptions}
-                        </ContentWrapper>
-                    </StyledDiv>
-                </NonEU>
-                <StyledDiv>
-                    <CardWrapper margin="0" position="relative">
-                        {Multipliers && (
+
+                                {active_tab.includes('Options') ? (
+                                    <StyledSvg src={Minus} alt="Minus" height="16" width="16" />
+                                ) : (
+                                    <StyledSvg src={Plus} alt="Plus" height="16" width="16" />
+                                )}
+                            </CardWrapper>
+                            <ContentWrapper>
+                                {active_tab.includes('Options') && DigitalOptions}
+                            </ContentWrapper>
+                        </StyledDiv>
+                    </NonEU>
+                )}
+                {Multipliers && (
+                    <StyledDiv>
+                        <CardWrapper margin="0" position="relative">
                             <Card
                                 name="Multipliers"
                                 display_name={<Localize translate_text="Multipliers" />}
                                 onTabChange={() => handleTabChange('Multipliers')}
                                 active_tab={active_tab}
                             />
-                        )}
-                        {active_tab.includes('Multipliers') ? (
-                            <StyledSvg src={Minus} alt="Minus" height="16" width="16" />
-                        ) : (
-                            <StyledSvg src={Plus} alt="Plus" height="16" width="16" />
-                        )}
-                    </CardWrapper>
 
-                    <ContentWrapper>
-                        {active_tab.includes('Multipliers') && Multipliers}
-                    </ContentWrapper>
-                </StyledDiv>
+                            {active_tab.includes('Multipliers') ? (
+                                <StyledSvg src={Minus} alt="Minus" height="16" width="16" />
+                            ) : (
+                                <StyledSvg src={Plus} alt="Plus" height="16" width="16" />
+                            )}
+                        </CardWrapper>
+
+                        <ContentWrapper>
+                            {active_tab.includes('Multipliers') && Multipliers}
+                        </ContentWrapper>
+                    </StyledDiv>
+                )}
             </StyledContainer>
         </StyledSection>
     )

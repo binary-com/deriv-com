@@ -223,7 +223,128 @@ module.exports = {
                 url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Back-end&source=CareerSite",
                 rootKey: 'be',
                 schemas:  {
-                    fe: `id: String`
+                    be: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Internal-Audit&source=CareerSite",
+                rootKey: 'audit',
+                schemas:  {
+                    audit: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Business-Excellence&source=CareerSite",
+                rootKey: 'business',
+                schemas:  {
+                    business: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Software-Testing&source=CareerSite",
+                rootKey: 'testing',
+                schemas:  {
+                    testing: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Trading-Operations&source=CareerSite",
+                rootKey: 'trading',
+                schemas:  {
+                    trading: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Payments&source=CareerSite",
+                rootKey: 'payments',
+                schemas:  {
+                    payments: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Finance&source=CareerSite",
+                rootKey: 'finance',
+                schemas:  {
+                    finance: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Compliance&source=CareerSite",
+                rootKey: 'compliance',
+                schemas:  {
+                    compliance: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Product-Design-and-UX&source=CareerSite",
+                rootKey: 'ux',
+                schemas:  {
+                    ux: `id: String`
+                }
+                
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=People-Management&source=CareerSite",
+                rootKey: 'pm',
+                schemas:  {
+                    pm: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Customer-Support&source=CareerSite",
+                rootKey: 'cs',
+                schemas:  {
+                    cs: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Security&source=CareerSite",
+                rootKey: 'security',
+                schemas:  {
+                    security: `id: String`
+                }
+            }
+        },
+        {
+            resolve: "gatsby-source-custom-api",
+            options: {
+                url: "https://deriv.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Marketing&source=CareerSite",
+                rootKey: 'marketing',
+                schemas:  {
+                    marketing: `id: String`
                 }
             }
         },

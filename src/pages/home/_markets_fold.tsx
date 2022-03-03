@@ -262,7 +262,7 @@ const MarketsFold = () => {
 
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
-        if (size.width < 1980 && size.width >= 768) return '1172px'
+        if (is_not_big_screen) return '1172px'
         else return '1600px'
     }
 

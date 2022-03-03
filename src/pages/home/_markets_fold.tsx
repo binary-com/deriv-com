@@ -254,7 +254,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_uk } = getCountryRule()
+    const { is_uk, is_non_uk } = getCountryRule()
     const [is_not_big_screen] = useBrowserResize(1979)
     const [is_mobile] = useBrowserResize()
 
@@ -300,7 +300,7 @@ const MarketsFold = () => {
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={is_uk ? true : false}
+                    has_autoplay={is_non_uk ? true : false}
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >

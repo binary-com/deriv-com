@@ -189,6 +189,7 @@ import OTCUS from 'images/svg/symbols/otcus.svg'
 import OTCUSTECH from 'images/svg/symbols/otcustech.svg'
 import OTCWALLSTREET from 'images/svg/symbols/otcwallstreet.svg'
 import PALLADIUMUSD from 'images/svg/symbols/palladium-usd.svg'
+import POUNDBRENT from 'images/svg/symbols/pound-brent.svg'
 import PFE from 'images/svg/symbols/pfe.svg'
 import PG from 'images/svg/symbols/pg.svg'
 import POLKADOT from 'images/svg/symbols/polkadot.svg'
@@ -224,6 +225,7 @@ import USDINDEX from 'images/svg/symbols/usd-index.svg'
 import USDJPY from 'images/svg/symbols/usd-jpy.svg'
 import USDMXN from 'images/svg/symbols/usd-mxn.svg'
 import USDNOK from 'images/svg/symbols/usd-nok.svg'
+import USDBRENT from 'images/svg/symbols/usd-brent.svg'
 import USDPLN from 'images/svg/symbols/usd-pln.svg'
 import USDRUB from 'images/svg/symbols/usd-rub.svg'
 import USDSEK from 'images/svg/symbols/usd-sek.svg'
@@ -520,6 +522,7 @@ export {
     OTCUS,
     OTCUSTECH,
     OTCWALLSTREET,
+    POUNDBRENT,
     PALLADIUMUSD,
     PFE,
     PG,
@@ -658,4 +661,5 @@ export {
     VINDEXIC200,
     VINDEXIC300,
     USDCNH,
+    USDBRENT,
 }

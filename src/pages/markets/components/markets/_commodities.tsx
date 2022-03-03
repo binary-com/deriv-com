@@ -10,6 +10,7 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { Localize, localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+import { DerivStore } from 'store'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
@@ -19,9 +20,12 @@ type CommoditiesProps = {
 }
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
     simple_step_content[1].text = (
         <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
     )
+
     return (
         <>
             <WhyTrade
@@ -38,16 +42,27 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                     />
                 ))}
             </WhyTrade>
-            <AvailableTrades
-                CFDs={<CFDs market_content={commodities_cfds} />}
-                DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('commodities')}
-                        options_list={commodities_options}
-                    />
-                }
-                display_title={<Localize translate_text="Commodity trades available on Deriv" />}
-            />
+            {is_eu_country ? (
+                <AvailableTrades
+                    CFDs={<CFDs market_content={commodities_cfds} />}
+                    display_title={
+                        <Localize translate_text="Commodity trades available on Deriv" />
+                    }
+                />
+            ) : (
+                <AvailableTrades
+                    CFDs={<CFDs market_content={commodities_cfds} />}
+                    DigitalOptions={
+                        <DigitalOptions
+                            market_name={localize('commodities')}
+                            options_list={commodities_options}
+                        />
+                    }
+                    display_title={
+                        <Localize translate_text="Commodity trades available on Deriv" />
+                    }
+                />
+            )}
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading commodities on Deriv in 3 simple steps" />

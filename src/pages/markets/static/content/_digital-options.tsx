@@ -6,10 +6,10 @@ import {
     BasketIndicesCommodities,
     ContinuousIndices,
     DailyResetIndices,
-    Energy,
+    EnergyOptions,
     Europe,
     MajorPairs,
-    Metals,
+    MetalsOptions,
     MinorOptionsPairs,
 } from '../../instruments/_submarkets'
 import {
@@ -230,11 +230,11 @@ export const commodities_options: Options = {
         content: [
             {
                 title: <Localize translate_text="Metals" />,
-                component: <Metals />,
+                component: <MetalsOptions />,
             },
             {
                 title: <Localize translate_text="Energy" />,
-                component: <Energy />,
+                component: <EnergyOptions />,
             },
         ],
         markets_list: {

@@ -345,6 +345,24 @@ export const metals: MarketSymbol[] = [
         text: <Localize translate_text="Zinc/USD" />,
     },
 ]
+export const metals_options: MarketSymbol[] = [
+    {
+        src: icons.GOLDUSD,
+        text: <Localize translate_text="Gold/USD" />,
+    },
+    {
+        src: icons.PALLADIUMUSD,
+        text: <Localize translate_text="Palladium/USD" />,
+    },
+    {
+        src: icons.PLATINUMUSD,
+        text: <Localize translate_text="Platinum/USD" />,
+    },
+    {
+        src: icons.SILVEREUR,
+        text: <Localize translate_text="Silver/EUR" />,
+    },
+]
 
 export const range_break: MarketSymbol[] = [
     {
@@ -1033,15 +1051,21 @@ export const jump_indices: MarketSymbol[] = [
 
 export const energy: MarketSymbol[] = [
     {
-        src: icons.NATURALGAS,
-        text: <Localize translate_text="Natural gas" />,
+        src: icons.POUNDBRENT,
+        text: <Localize translate_text="Brent crude oil" />,
     },
     {
-        src: icons.OILUSD,
-        text: <Localize translate_text="Oil/USD" />,
+        src: icons.USDBRENT,
+        text: <Localize translate_text="West Texas Intermediate" />,
     },
 ]
 
+export const energy_options: MarketSymbol[] = [
+    {
+        src: icons.USDBRENT,
+        text: <Localize translate_text="Oil/USD" />,
+    },
+]
 export const volatility_indices_trade_type_eu: MarketSymbol[] = [
     {
         src: icons.VOLATILITY200EU,

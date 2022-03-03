@@ -7,6 +7,7 @@ import {
     deriv_app_languages,
     live_chat_redirection_link,
     live_chat_key,
+    domains,
 } from './constants'
 import { isUK } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -316,12 +317,16 @@ export const addScript = (settings) => {
 export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
 
 // Function to manually replace server's locale ("zh_tw" or "zh_cn") to "zh-tw"/"zh-cn"
-export const replaceLocale = (locale) => {
-    let checked_locale = locale
-    if (locale === 'zh_tw') {
-        checked_locale = 'zh-tw'
-    } else if (locale === 'zh_cn') {
-        checked_locale = 'zh-cn'
+export const replaceLocale = (url) => {
+    let checked_locale = url
+    const excluded_paths = ['smarttrader']
+    if (!excluded_paths.some((path) => url.includes(path))) {
+        domains.forEach((domain) => {
+            if (url.includes(domain) && url.includes('zh_tw'))
+                checked_locale = url.replace(/(zh_tw)/g, 'zh-tw')
+            if (url.includes(domain) && url.includes('zh_cn'))
+                checked_locale = url.replace(/(zh_cn)/g, 'zh-cn')
+        })
     }
     return checked_locale
 }

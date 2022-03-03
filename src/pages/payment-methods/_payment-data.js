@@ -852,7 +852,7 @@ const payment_data = [
                 withdrawal_time: <Localize translate_text="Max 2 hours" />,
                 reference_link: (
                     <StyledRefLink to="/p2p/" target="_blank" rel="noopener noreferrer">
-                        Learn more
+                        <Localize translate_text="Learn more" />
                     </StyledRefLink>
                 ),
                 name: 'DP2P',

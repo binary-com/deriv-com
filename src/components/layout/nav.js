@@ -16,6 +16,7 @@ import {
     Header,
     QueryImage,
 } from 'components/elements'
+import { DesktopWrapper, MobileWrapper } from 'components/containers/wrapper'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -46,25 +47,12 @@ const query = graphql`
     }
 `
 
-export const DesktopWrapper = styled.div`
-    display: block;
-    @media ${(props) => props.media || device.tabletL} {
-        display: none;
-    }
-`
-
-export const MobileWrapper = styled.div`
-    display: none;
-    @media ${(props) => props.media || device.tabletL} {
-        display: block;
-    }
-`
-
 const LanguageSwitcherNavDesktop = ({ no_language }) =>
     !no_language && <LanguageSwitcher short_name="true" is_high_nav />
 
 // TODO: Proper refactor of shared nav sub components between the various nav bars
 export const NavWrapperMain = styled.div`
+    background-color: ${(props) => (props.is_transparent ? 'transparent' : 'var(--color-black)')};
     width: 100%;
     position: fixed;
     top: 0;
@@ -123,12 +111,11 @@ export const Line = styled.div`
 `
 
 export const StyledNavMain = styled.nav`
-    background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
     z-index: 1;
-    @media (max-width: 1060px) {
+    @media ${device.bp1060} {
         height: auto;
     }
 `
@@ -409,12 +396,12 @@ const handleScroll = (show, hide) => {
 }
 
 const MobileRightMain = styled.div`
-    margin-left: auto;
     display: none;
-    align-items: center;
 
     @media (max-width: 1060px) {
         display: flex;
+        margin-left: auto;
+        align-items: center;
     }
 `
 const LogoDescription = styled(Flex)`
@@ -519,7 +506,7 @@ export const NavDesktop = ({
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    })
+    }, [])
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
@@ -567,6 +554,7 @@ export const NavDesktop = ({
                             max_width="16.4rem"
                             width="100%"
                             height="auto"
+                            loading="eager"
                         />
                     </LogoLink>
                     <Line />
@@ -641,21 +629,44 @@ export const NavDesktop = ({
     )
 }
 
-export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login, no_language }) => {
+export const Nav = ({
+    base,
+    is_nav_transparent,
+    is_ppc_redirect,
+    is_ppc,
+    hide_signup_login,
+    no_language,
+}) => {
     const [is_logged_in, setLoggedIn] = useState(false)
+    const [prevScrollPos, setPrevScrollPos] = useState(0)
+    const [is_transparent, setTransparent] = useState(is_nav_transparent)
+
+    const handleTransparentNavScroll = useCallback(() => {
+        const currentScrollPos = window.scrollY
+        setTransparent(
+            (prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 20) ||
+                currentScrollPos < 10,
+        )
+        setPrevScrollPos(currentScrollPos)
+    }, [])
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
+        window.addEventListener('scroll', handleTransparentNavScroll, { passive: true })
 
         let checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
         }, 800)
-        return () => clearInterval(checkCookieChange)
+
+        return () => {
+            clearInterval(checkCookieChange)
+            window.removeEventListener('scroll', handleTransparentNavScroll)
+        }
     }, [])
 
     return (
         <>
-            <NavWrapperMain>
+            <NavWrapperMain is_transparent={is_transparent}>
                 <StyledNavMain>
                     <DesktopWrapper media={device.bp1060}>
                         <NavDesktop
@@ -685,6 +696,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login, no_langu
 Nav.propTypes = {
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
+    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     no_language: PropTypes.bool,
@@ -966,16 +978,18 @@ export const NavPartners = ({ no_login_signup }) => {
     const [has_scrolled, setHasScrolled] = useState(false)
     const current_page = useActiveLinkState('partners')
 
-    const buttonHandleScroll = () => {
+    const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    }
+    }, [])
+
     useEffect(() => {
         setMounted(true)
         if (!no_login_signup) {
             document.addEventListener('scroll', buttonHandleScroll, {
                 passive: true,
             })
+
             return () => {
                 document.removeEventListener('scroll', buttonHandleScroll)
             }

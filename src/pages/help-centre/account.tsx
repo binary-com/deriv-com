@@ -86,7 +86,7 @@ const RecoveringPassword = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
+                translate_text="If you’ve forgotten your Google/Facebook/Apple account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
                 components={[
                     <StyledLink
                         to="/reset-password/"
@@ -193,7 +193,7 @@ const AccountArticle = () => {
                 />
                 <RecoveringPassword
                     text={localize(
-                        'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
+                        'I forgot my Google/Facebook/Apple account password. How can I log in to my Deriv account?',
                     )}
                     label="recovering-your-password"
                     is_mounted={is_mounted}

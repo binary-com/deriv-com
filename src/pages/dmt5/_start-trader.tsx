@@ -90,7 +90,7 @@ const Section = styled(SectionContainer)`
 `
 const ImageWrapper = styled.div`
     max-width: 79.2rem;
-    width: 100%;
+    width: 79.2rem;
     height: 43.4rem;
     position: relative;
     margin: -3.2rem auto;
@@ -287,6 +287,7 @@ const StartTrader = () => {
                                 <QueryImage
                                     data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
                                     alt="Demo DMT5 account- step 2"
+                                    width="79.2rem"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>

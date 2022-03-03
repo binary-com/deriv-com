@@ -257,7 +257,6 @@ const MarketsFold = () => {
     const { is_uk } = getCountryRule()
     const [is_not_big_screen] = useBrowserResize(1979)
     const [is_mobile] = useBrowserResize()
-    const { is_row } = getCountryRule()
 
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
@@ -301,7 +300,7 @@ const MarketsFold = () => {
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={is_row ? true : false}
+                    has_autoplay={is_uk ? true : false}
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >

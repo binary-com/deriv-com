@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Text, Header } from 'components/elements'
+import { Header } from 'components/elements'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import ukbanner from 'images/common/eu-uk-welcome-banner/uk_banner.png'
 import eubanner from 'images/common/eu-uk-welcome-banner/eu_banner.png'
 import eubannerMobile from 'images/common/eu-uk-welcome-banner/eu_mobile.png'
 import ukbannerMobile from 'images/common/eu-uk-welcome-banner/uk_mobile.png'
-import closeBanner from 'images/common/eu-uk-welcome-banner/close_icon.png'
+import closeBanner from 'images/svg/close.svg'
 
 const countriesBanner = {
     uk: ukbanner,
@@ -15,67 +16,47 @@ const countriesBanner = {
     ukMobile: ukbannerMobile,
 }
 
-const BannerWrapper = styled.section<{ country: string }>`
+const BannerWrapper = styled.section<{ country: string; offsetHeight: number }>`
     background-color: #3c77ae;
-    width: 83%;
-    min-height: 9.4rem;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 98px;
     height: fit-content;
     padding: 1.7rem;
     border-radius: 8px;
     position: fixed;
     z-index: 100;
-    top: 81%;
-    left: 12%;
-    margin-top: -50px;
-    margin-left: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 24px;
     background-image: url(${(props) => countriesBanner[props.country]});
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top right;
+    bottom: ${(props) => props.offsetHeight}px;
 
-    @media (max-width: 826px) {
-        padding: 0.8rem 0;
-        height: 12.4rem;
-    }
-    @media (max-width: 710px) {
-        height: 10.8rem;
-    }
-
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         background-image: url(${(props) => countriesBanner[`${props.country}Mobile`]});
         border-radius: 0;
         width: 100%;
-        margin-top: 0;
-        margin-left: 0;
-        left: 0;
-        padding: 1.7rem;
-        top: 69%;
+        padding: 16px;
         height: fit-content;
+        margin-bottom: 0;
+        bottom: 86px;
     }
-`
-const StyledHeader = styled(Header)`
-    font-size: 24px;
-    line-height: 36px;
-    color: var(--color-white);
-    @media ${device.tabletL} {
-        font-size: 18px;
-        line-height: 26px;
-    }
-`
 
+    @media (max-width: 540px) {
+        bottom: 112px;
+    }
+`
 const TextWrapper = styled.div`
     @media ${device.tabletL} {
-        max-width: 80%;
+        padding: 8px;
     }
-`
-const StyledText = styled(Text)`
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: normal;
-    color: var(--color-white);
-    @media ${device.tabletL} {
-        font-size: 16px;
-        line-height: 24px;
+
+    @media ${device.tablet} {
+        max-width: 80%;
+        padding: 0;
     }
 `
 const BannerClose = styled.div`
@@ -84,26 +65,43 @@ const BannerClose = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     cursor: pointer;
-    width: 18px;
-    height: 18px;
+    width: 25px;
+    height: 25px;
     float: right;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         margin-top: 20px;
     }
 `
+type baseProbs = {
+    offsetHeight: number
+}
+type currentProbs = {
+    base: baseProbs
+}
+type CFDWarningRefProbs = {
+    current: currentProbs
+}
+type WelcomeBannerProbs = {
+    CFDWarningRef: CFDWarningRefProbs
+}
 
-export const WelcomeBanner = () => {
+export const WelcomeBanner = ({ CFDWarningRef }: WelcomeBannerProbs) => {
     const [is_welcome_banner_dismissed, setWelcomeBanner] = useState(null)
-    const [is_uk_domain, setUkDomain] = useState(null)
-    const [is_eu_domain, setEUDomain] = useState(null)
-    const [country, setCountry] = useState('')
+    // const [is_uk_domain, setUkDomain] = useState(null)
+    // const [is_eu_domain, setEUDomain] = useState(null)
+    const [country, setCountry] = useState(null)
 
+    const offsetHeight = CFDWarningRef.current?.base.offsetHeight
+
+    // using useEffect to set the values to help prevent vercel build error
     useEffect(() => {
         setWelcomeBanner(localStorage.getItem('is_welcome_banner_dismissed'))
-        setUkDomain(window.location.hostname.includes('uk'))
-        setEUDomain(window.location.hostname.includes('eu'))
-        setCountry(window.location.hostname.split('.').slice(0, -2).join('.'))
+        setCountry(localStorage.getItem('current_domain'))
+        // commented this part to find a work around for QA to test using the test link
+        // setUkDomain(window.location.hostname.includes('uk'))
+        // setEUDomain(window.location.hostname.includes('eu'))
+        // setCountry(window.location.hostname.split('.').slice(0, -2).join('.'))
     }, [])
 
     const handleBannerDismiss = () => {
@@ -111,18 +109,20 @@ export const WelcomeBanner = () => {
         localStorage.setItem('is_welcome_banner_dismissed', 'yes')
     }
 
-    if ((is_uk_domain || is_eu_domain) && !is_welcome_banner_dismissed) {
+    if (country && !is_welcome_banner_dismissed) {
         return (
-            <BannerWrapper country={country}>
+            <BannerWrapper country={country} offsetHeight={offsetHeight}>
                 <BannerClose onClick={handleBannerDismiss} />
                 <TextWrapper>
-                    <StyledHeader as="h3" type="subtitle-2">
-                        Welcome to the new Deriv {country.toUpperCase()} website, designed with your
-                        needs in mind.
-                    </StyledHeader>
-                    <StyledText as="h3" type="subtitle-2">
-                        Stay up to date with products and services tailored just for you.
-                    </StyledText>
+                    <Header as="h3" type="subtitle-1" color="white">
+                        <Localize
+                            translate_text={`Welcome to the new Deriv ${country.toUpperCase()} website, designed with your
+                        needs in mind.`}
+                        />
+                    </Header>
+                    <Header as="h3" type="subtitle-2" color="white" weight="normal">
+                        <Localize translate_text="Stay up to date with products and services tailored just for you." />
+                    </Header>
                 </TextWrapper>
             </BannerWrapper>
         )

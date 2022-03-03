@@ -49,7 +49,7 @@ jobs:
                   git add .
                   git commit -m "Update Translations 📚 - $GIT_TAG_NAME"
 
-                  git push --set-upstream origin "$branch_name" -f
+                  git push --set-upstream origin "$branch_name"
 
                   sudo apt install gh
                   gh auth login --with-token <<< ${{ secrets.PERSONAL_ACCESS_TOKEN }}

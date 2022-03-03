@@ -269,9 +269,10 @@ export const basket_options: Options = {
     market_instruments: {
         markets_list: {
             col: 4,
-            tablet_col: 3,
-            mobile_col: 1,
+            tablet_col: 4,
+            mobile_col: 2,
         },
+        template: 2,
         content: [
             {
                 title: <Localize translate_text="Commodities Basket" />,

@@ -1000,12 +1000,12 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
 
 export const cryptocurrencies_multipliers: MarketSymbol[] = [
     {
-        src: icons.BTC,
-        text: <Localize translate_text="Bitcoin" />,
+        src: icons.BTCUSD,
+        text: <Localize translate_text="BTC/USD" />,
     },
     {
-        src: icons.ETH,
-        text: <Localize translate_text="Ethereum" />,
+        src: icons.ETHUSD,
+        text: <Localize translate_text="ETH/USD" />,
     },
 ]
 export const jump_indices: MarketSymbol[] = [

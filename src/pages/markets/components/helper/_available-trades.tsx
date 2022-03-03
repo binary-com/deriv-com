@@ -3,7 +3,6 @@ import AvailableTradesMobile from './_available-trades_mobile'
 import AvailableTradesDesktop from './_available-trades_desktop'
 import { getWindowWidth } from 'common/utility'
 
-
 type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
@@ -36,7 +35,6 @@ const AvailableTrades = ({
                 />
             )}
         </>
-
     )
 }
 

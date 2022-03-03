@@ -40,7 +40,8 @@ import { Localize } from 'components/localization'
 
 export const commodities_cfds: MarketInstrumentsElement = {
     markets_list: {
-        col: 5,
+        col: 3,
+        mobile_col: 2,
     },
     content: [
         {

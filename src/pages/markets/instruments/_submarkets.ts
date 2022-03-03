@@ -7,10 +7,12 @@ import CrashBoom from './_crash-boom'
 import CrashBoomEU from './_crash-boom-eu'
 import DailyResetIndices from './_daily-reset-indices'
 import Energy from './_energy'
+import EnergyOptions from './_energy-options'
 import Europe from './_europe'
 import ExoticPairs from './_exotic-pairs'
 import MajorPairs from './_major-pairs'
 import Metals from './_metals'
+import MetalsOptions from './_metals-options'
 import MinorPairs from './_minor-pairs'
 import MinorOptionsPairs from './_minor-options-pairs'
 import RangeBreak from './_range-break'
@@ -42,11 +44,13 @@ export {
     CryptocurrenciesTradeType,
     DailyResetIndices,
     Energy,
+    EnergyOptions,
     Europe,
     ExoticPairs,
     JumpIndices,
     MajorPairs,
     Metals,
+    MetalsOptions,
     MinorPairs,
     MinorOptionsPairs,
     RangeBreak,

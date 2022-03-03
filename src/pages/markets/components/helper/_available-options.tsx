@@ -25,7 +25,6 @@ const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
-
 const Icon = styled.img`
     margin-right: 1.6rem;
     width: 80px;
@@ -36,7 +35,7 @@ const Icon = styled.img`
         height: 60px;
     }
 `
-
+        
 const AvailableOptions = ({
     title,
     content,
@@ -44,6 +43,7 @@ const AvailableOptions = ({
     svg,
     mobile_pt,
 }: AvailableOptionsProps) => {
+
     return (
         <StyledFlex mt={remove_title ? '1.6rem' : 0} mobile_pt={mobile_pt}>
             {!remove_title && (

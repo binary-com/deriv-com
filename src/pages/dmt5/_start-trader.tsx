@@ -287,7 +287,6 @@ const StartTrader = () => {
                                 <QueryImage
                                     data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
                                     alt="Demo DMT5 account- step 2"
-                                    width="79.2rem"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>

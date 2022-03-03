@@ -16,7 +16,7 @@ import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
-import { CFDWarning, WelcomeBanner } from 'components/layout'
+import { CFDWarning } from 'components/layout'
 import { besquare_signup_url } from 'common/constants'
 
 const query = graphql`
@@ -151,7 +151,6 @@ export const NavCareers = ({ is_besquare }) => {
                 </StyledNav>
             </NavWrapper>
             <CFDWarning />
-            <WelcomeBanner />
         </>
     )
 }

@@ -85,11 +85,11 @@ const CFDText = styled(Text)`
     }
 `
 
-export const CFDWarning = ({ is_ppc }) => {
+export const CFDWarning = ({ is_ppc, ref }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     if (is_ppc || is_eu_country) {
         return (
-            <CFDWrapper>
+            <CFDWrapper ref={ref}>
                 <CFDContainer>
                     <CFDText>
                         <Localize
@@ -273,6 +273,7 @@ const Layout = ({
 
 CFDWarning.propTypes = {
     is_ppc: PropTypes.bool,
+    ref: PropTypes.element,
 }
 
 Layout.propTypes = {

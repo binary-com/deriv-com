@@ -664,6 +664,8 @@ export const Nav = ({
         }
     }, [])
 
+    const CFDWarningRef = useRef()
+
     return (
         <>
             <NavWrapperMain is_transparent={is_transparent}>
@@ -688,8 +690,8 @@ export const Nav = ({
                     </MobileWrapper>
                 </StyledNavMain>
             </NavWrapperMain>
-            <CFDWarning />
-            <WelcomeBanner />
+            <CFDWarning ref={CFDWarningRef} />
+            <WelcomeBanner CFDWarningRef={CFDWarningRef} />
         </>
     )
 }
@@ -802,7 +804,6 @@ export const NavInterim = ({ interim_type }) => (
             </Container>
         </NavInterimContainer>
         <CFDWarning />
-        <WelcomeBanner />
     </InterimNav>
 )
 
@@ -823,7 +824,6 @@ export const NavStatic = ({ is_ppc }) => (
             </LogoLink>
         </StaticWrapper>
         <CFDWarning is_ppc={is_ppc} />
-        <WelcomeBanner />
     </>
 )
 
@@ -1241,7 +1241,6 @@ export const NavSecurity = () => {
                 </StyledNavPartners>
             </NavWrapperPartners>
             <CFDWarning />
-            <WelcomeBanner />
         </>
     )
 }
@@ -1331,7 +1330,6 @@ export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
                     />
                 </MobileWrapper>
             </Section>
-            <WelcomeBanner />
         </>
     )
 }

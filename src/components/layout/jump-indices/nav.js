@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
-import { CFDWarning } from 'components/layout'
+import { CFDWarning, WelcomeBanner } from 'components/layout'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex, SectionContainer } from 'components/containers'
@@ -98,6 +98,7 @@ const JumpIndiceNav = ({ is_ppc }) => {
                 </ContentContainer>
             </Section>
             <CFDWarning is_ppc={is_ppc} />
+            <WelcomeBanner />
         </>
     )
 }

@@ -37,7 +37,7 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
-import { CFDWarning } from 'components/layout'
+import { CFDWarning, WelcomeBanner } from 'components/layout'
 
 const query = graphql`
     query {
@@ -689,6 +689,7 @@ export const Nav = ({
                 </StyledNavMain>
             </NavWrapperMain>
             <CFDWarning />
+            <WelcomeBanner />
         </>
     )
 }
@@ -801,6 +802,7 @@ export const NavInterim = ({ interim_type }) => (
             </Container>
         </NavInterimContainer>
         <CFDWarning />
+        <WelcomeBanner />
     </InterimNav>
 )
 
@@ -821,6 +823,7 @@ export const NavStatic = ({ is_ppc }) => (
             </LogoLink>
         </StaticWrapper>
         <CFDWarning is_ppc={is_ppc} />
+        <WelcomeBanner />
     </>
 )
 
@@ -1238,6 +1241,7 @@ export const NavSecurity = () => {
                 </StyledNavPartners>
             </NavWrapperPartners>
             <CFDWarning />
+            <WelcomeBanner />
         </>
     )
 }
@@ -1327,7 +1331,7 @@ export const NavSticky = ({ is_ppc, hide_signup_login, no_language }) => {
                     />
                 </MobileWrapper>
             </Section>
-            <CFDWarning no_eu_banner={true} />
+            <WelcomeBanner />
         </>
     )
 }

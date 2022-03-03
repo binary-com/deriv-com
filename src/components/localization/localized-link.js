@@ -143,7 +143,7 @@ InternalLink.propTypes = {
 
 const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
 const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
-const deriv_other_products = ['binary', 'smart_trader']
+const deriv_other_products = ['binary', 'smart_trader', 'binary_bot']
 const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
 // add item to this array if you need to make an internal link open on a new tab without modal window
 // !only for  paths without localisation: add item to this array if you need to make an internal link open on a new tab without modal window
@@ -156,6 +156,7 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (affiliate_links.includes(type)) {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
     } else if (deriv_other_products.includes(type)) {
+        if (type === 'binary_bot') return `${localized_link_url[type]}/${to ? to : ''}?l=${locale}`
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`

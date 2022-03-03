@@ -24,8 +24,9 @@ jobs:
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
+
             - name: Extract, Upload and Download from Crowdin Platform
-              run: branch_name="deriv_com_translations"
+              run: branch_name="deriv-com-translations"
 
                   echo "Setting up Git identity"
                   git config --global user.name "DerivFE"
@@ -38,27 +39,16 @@ jobs:
                   git checkout -b "$branch_name"
 
                   echo "Running the translation script (extract-translations.js)"
-                  cd $(git rev-parse --show-toplevel)/scripts
                   npm run translate:extract
-                  cd $(git rev-parse --show-toplevel)
-
-                  # Uncomment these after testing completed
-                  # echo "Uploading new strings to Crowdin"
-                  # crowdin upload sources -b crowdin
 
                   echo "Downloading new strings to Crowdin"
                   npm run translate:download -T ${{ secrets.CROWDIN_API_KEY }}
+                  if [ -z "$(git status --porcelain)" ]; then
+                    echo "Found no new translation files that need to be merged with crowdin. Not creating a PR."
+                  else
+                    echo "Found updated translation files that need to be merged with crowdin. Creating a PR."
+                    git add -A
+                    git commit -am "Update Translations 📚 - $GIT_TAG_NAME"
 
-                  # Commit the newly downloaded files
-                  cd $(git rev-parse --show-toplevel)
-                  git add .
-                  git commit -m "Update Translations 📚 - $GIT_TAG_NAME"
-
-                  # Force push to this branch in case a previous run created it.
-                  git push --set-upstream origin "$branch_name" -f
-
-                  # Creating PR 
-                  sudo apt install gh
-                  gh auth login --with-token <<< ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-                  gh pr close "$branch_name" || true
-                  gh pr create --fill --base "crowdin" --head "binary-com:$branch_name"
+                    git push origin HEAD:deriv-com-translations --force
+                  fi

@@ -2,15 +2,11 @@ import React, { ReactElement } from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const americas = [
-=======
 export type MarketSymbol = {
     src: string
     text: ReactElement
 }
 export const americas: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
@@ -83,7 +79,58 @@ export const continuous_indices: MarketSymbol[] = [
     },
 ]
 
-export const volatility_indices: MarketSymbol[] = continuous_indices
+// export const volatility_indices: MarketSymbol[] = continuous_indices
+
+export const volatility_indices: MarketSymbol[] = [
+    {
+        src: icons.INDEX10S1NEW,
+        text: <Localize translate_text="Volatility 10 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX25S1NEW,
+        text: <Localize translate_text="Volatility 25 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX50S1NEW,
+        text: <Localize translate_text="Volatility 50 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX75S1NEW,
+        text: <Localize translate_text="Volatility 75 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX100S1NEW,
+        text: <Localize translate_text="Volatility 100 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEXIC200,
+        text: <Localize translate_text="Volatility 200 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEXIC300,
+        text: <Localize translate_text="Volatility 300 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX10NEW,
+        text: <Localize translate_text="Volatility 10 Index" />,
+    },
+    {
+        src: icons.INDEX25NEW,
+        text: <Localize translate_text="Volatility 25 Index" />,
+    },
+    {
+        src: icons.INDEX50NEW,
+        text: <Localize translate_text="Volatility 50 Index" />,
+    },
+    {
+        src: icons.INDEX75NEW,
+        text: <Localize translate_text="Volatility 75 Index" />,
+    },
+    {
+        src: icons.INDEX100NEW,
+        text: <Localize translate_text="Volatility 100 Index" />,
+    },
+]
 
 export const volatility_indices_eu: MarketSymbol[] = [
     {
@@ -97,6 +144,32 @@ export const volatility_indices_eu: MarketSymbol[] = [
 ]
 
 export const crash_boom: MarketSymbol[] = [
+    {
+        src: icons.BOOM1000NEW,
+        text: <Localize translate_text="Boom 1000 Index" />,
+    },
+    {
+        src: icons.BOOM500NEW,
+        text: <Localize translate_text="Boom 500 Index" />,
+    },
+    {
+        src: icons.VBOOMIC300,
+        text: <Localize translate_text="Boom 300 Index " />,
+    },
+    {
+        src: icons.CRASH1000NEW,
+        text: <Localize translate_text="Crash 1000 Index" />,
+    },
+    {
+        src: icons.CRASH500NEW,
+        text: <Localize translate_text="Crash 500 Index" />,
+    },
+    {
+        src: icons.VCRASHIC300,
+        text: <Localize translate_text="Crash 300 Index" />,
+    },
+]
+export const crash_boom_multipliers: MarketSymbol[] = [
     {
         src: icons.BOOM1000NEW,
         text: <Localize translate_text="Boom 1000 Index" />,
@@ -152,7 +225,7 @@ export const europe: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
+        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSSWISS20,
@@ -458,15 +531,10 @@ export const micro_pairs: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const range_break = [
+export const smart_gold_index: MarketSymbol[] = [
     {
-        src: icons.RANGEBREAK100,
-        text: <Localize translate_text="Range Break 100 Index" />,
-    },
-    {
-        src: icons.RANGEBREAK200,
-        text: <Localize translate_text="Range Break 200 Index" />,
+        src: icons.GOLDUSD,
+        text: <Localize translate_text="Smart Gold Index" />,
     },
 ]
 
@@ -493,17 +561,7 @@ export const smart_fx = [
     },
 ]
 
-export const minor_pairs_cfds = [
-=======
-export const smart_gold_index: MarketSymbol[] = [
-    {
-        src: icons.GOLDUSD,
-        text: <Localize translate_text="Smart Gold Index" />,
-    },
-]
-
 export const minor_pairs: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -538,7 +596,7 @@ export const minor_pairs: MarketSymbol[] = [
     },
     {
         src: icons.EURLPN,
-        text: <Localize translate_text="EUR/LPN" />,
+        text: <Localize translate_text="EUR/PLN" />,
     },
     {
         src: icons.EURSEK,
@@ -701,7 +759,7 @@ export const stocks_european_indices: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
+        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSUK100,
@@ -833,7 +891,7 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Goldman Sachs Group" />,
     },
     {
-        src: icons.STOCKSGOLDMANSACHS,
+        src: icons.STOCKSHOME,
         text: <Localize translate_text="Home Depot Inc" />,
     },
     {
@@ -877,7 +935,7 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Moderna Inc" />,
     },
     {
-        src: icons.STOCKSMODERNA,
+        src: icons.STOCKSNESTLE,
         text: <Localize translate_text="Nestle SA" />,
     },
     {
@@ -963,11 +1021,7 @@ export const american_stocks: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const cryptocurrencies_trade_type = [
-=======
 export const cryptocurrencies_trade_type: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
@@ -978,11 +1032,7 @@ export const cryptocurrencies_trade_type: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const cryptocurrencies_cfds = [
-=======
 export const cryptocurrencies_cfds: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.ALGORAND,
         text: <Localize translate_text="ALG/USD" />,
@@ -1274,24 +1324,18 @@ export const swap_free_pairs: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const step_indices = [
-    {
-        src: icons.STEPINDICES,
-        text: <Localize translate_text="Step Index" />,
-=======
 export const basket_indices_cfds: MarketSymbol[] = [
     {
         src: icons.AUDBASKET,
         text: <Localize translate_text="AUD Basket" />,
     },
     {
-        src: icons.GBPBASKET,
-        text: <Localize translate_text="GBP Basket" />,
-    },
-    {
         src: icons.EURBASKET,
         text: <Localize translate_text="EUR Basket" />,
+    },
+    {
+        src: icons.GBPBASKET,
+        text: <Localize translate_text="GBP Basket" />,
     },
     {
         src: icons.USDBASKET,
@@ -1303,6 +1347,12 @@ export const basket_indices_commodities: MarketSymbol[] = [
     {
         src: icons.GOLDBASKET,
         text: <Localize translate_text="Gold Basket" />,
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
+    },
+]
+
+export const step_indices = [
+    {
+        src: icons.STEPINDICES,
+        text: <Localize translate_text="Step Index" />,
     },
 ]

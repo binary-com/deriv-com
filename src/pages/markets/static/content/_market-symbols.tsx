@@ -2,15 +2,11 @@ import React, { ReactElement } from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const americas = [
-=======
 export type MarketSymbol = {
     src: string
     text: ReactElement
 }
 export const americas: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
@@ -229,7 +225,7 @@ export const europe: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
+        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSSWISS20,
@@ -535,43 +531,6 @@ export const micro_pairs: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const range_break = [
-    {
-        src: icons.RANGEBREAK100,
-        text: <Localize translate_text="Range Break 100 Index" />,
-    },
-    {
-        src: icons.RANGEBREAK200,
-        text: <Localize translate_text="Range Break 200 Index" />,
-    },
-]
-
-export const smart_fx = [
-    {
-        src: icons.AUDINDEX,
-        text: <Localize translate_text="AUD Index" />,
-    },
-    {
-        src: icons.EURINDEX,
-        text: <Localize translate_text="EUR Index" />,
-    },
-    {
-        src: icons.GBPINDEX,
-        text: <Localize translate_text="GBP Index" />,
-    },
-    {
-        src: icons.USDINDEX,
-        text: <Localize translate_text="USD Index" />,
-    },
-    {
-        src: icons.GOLDINDEX,
-        text: <Localize translate_text="Gold Index" />,
-    },
-]
-
-export const minor_pairs_cfds = [
-=======
 export const smart_gold_index: MarketSymbol[] = [
     {
         src: icons.GOLDUSD,
@@ -580,7 +539,6 @@ export const smart_gold_index: MarketSymbol[] = [
 ]
 
 export const minor_pairs: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -615,7 +573,7 @@ export const minor_pairs: MarketSymbol[] = [
     },
     {
         src: icons.EURLPN,
-        text: <Localize translate_text="EUR/LPN" />,
+        text: <Localize translate_text="EUR/PLN" />,
     },
     {
         src: icons.EURSEK,
@@ -778,7 +736,7 @@ export const stocks_european_indices: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
+        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSUK100,
@@ -910,7 +868,7 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Goldman Sachs Group" />,
     },
     {
-        src: icons.STOCKSGOLDMANSACHS,
+        src: icons.STOCKSHOME,
         text: <Localize translate_text="Home Depot Inc" />,
     },
     {
@@ -954,7 +912,7 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Moderna Inc" />,
     },
     {
-        src: icons.STOCKSMODERNA,
+        src: icons.STOCKSNESTLE,
         text: <Localize translate_text="Nestle SA" />,
     },
     {
@@ -1040,11 +998,7 @@ export const american_stocks: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const cryptocurrencies_trade_type = [
-=======
 export const cryptocurrencies_trade_type: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
@@ -1055,11 +1009,7 @@ export const cryptocurrencies_trade_type: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const cryptocurrencies_cfds = [
-=======
 export const cryptocurrencies_cfds: MarketSymbol[] = [
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
     {
         src: icons.ALGORAND,
         text: <Localize translate_text="ALG/USD" />,
@@ -1078,7 +1028,7 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="BAT/USD" />,
     },
     {
-        src: icons.BCH,
+        src: icons.BCHNEW,
         text: <Localize translate_text="BCH/USD" />,
     },
     {
@@ -1087,7 +1037,7 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
     },
 
     {
-        src: icons.BTC,
+        src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
     },
     {
@@ -1351,12 +1301,6 @@ export const swap_free_pairs: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/instruments/_market-symbols.tsx
-export const step_indices = [
-    {
-        src: icons.STEPINDICES,
-        text: <Localize translate_text="Step Index" />,
-=======
 export const basket_indices_cfds: MarketSymbol[] = [
     {
         src: icons.AUDBASKET,
@@ -1380,6 +1324,12 @@ export const basket_indices_commodities: MarketSymbol[] = [
     {
         src: icons.GOLDBASKET,
         text: <Localize translate_text="Gold Basket" />,
->>>>>>> 16d3cacddb (nikolai.berestevich/feat:markets):src/pages/markets/static/content/_market-symbols.tsx
+    },
+]
+
+export const step_indices = [
+    {
+        src: icons.STEPINDICES,
+        text: <Localize translate_text="Step Index" />,
     },
 ]

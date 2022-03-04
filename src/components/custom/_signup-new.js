@@ -297,7 +297,7 @@ const SignupNew = ({
                         <StyledLocalizedLink
                             key={0}
                             to="/tnc/security-and-privacy.pdf"
-                            size="12px"
+                            size="12rem"
                             color="red"
                             external="true"
                             rel="noopener noreferrer"

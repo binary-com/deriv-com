@@ -146,6 +146,9 @@ export const Wrapper = styled(Container)`
         ${({ offset_px_mobile }) =>
             offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
     }
+    @media ${device.desktopL} {
+        max-width: 1200px;
+    }
 `
 
 Wrapper.propTypes = {

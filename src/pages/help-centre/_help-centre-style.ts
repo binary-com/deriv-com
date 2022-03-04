@@ -3,7 +3,11 @@ import { Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
-export const ArticleWrapper = styled.div`
+type ArticleWrapperProps = {
+    margin_left?: string
+}
+
+export const ArticleWrapper = styled.div<ArticleWrapperProps>`
     max-width: 71.2rem;
     display: flex;
     flex-direction: column;

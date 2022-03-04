@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer, EU, NonUK, ROW } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, EU, ROW } from 'components/containers'
 import {
     Text,
     Card,
@@ -211,9 +211,9 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             <EU>
                 <Localize translate_text="Check out our other platform" />
             </EU>
-            <NonUK>
+            <ROW>
                 <Localize translate_text="Check out our other platforms" />
-            </NonUK>
+            </ROW>
         </>
     )
     return (
@@ -241,9 +241,9 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             )}
             <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
                 {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
-                <NonUK>{exclude.toLowerCase() !== 'dbot' && <BotCard />}</NonUK>
+                <ROW>{exclude.toLowerCase() !== 'dbot' && <BotCard />}</ROW>
                 {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-                {exclude.toLowerCase() !== 'derivx' && <DerivXCard />}
+                <ROW>{exclude.toLowerCase() !== 'derivx' && <DerivXCard />}</ROW>
             </StyledFlexGridContainer>
         </SectionContainer>
     )

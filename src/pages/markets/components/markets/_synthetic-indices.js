@@ -28,10 +28,7 @@ const StockIndices = ({ simple_step_content }) => {
             <WhyTrade
                 header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
                 text={
-                    <Localize
-                        translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and
-                    liquidity risks."
-                    />
+                    <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
                 }
             >
                 {synthetic_content.map((content, index) => (

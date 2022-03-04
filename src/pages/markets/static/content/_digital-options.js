@@ -11,7 +11,7 @@ import {
     MetalsOptions,
     MinorPairsOptions,
     SmartFX,
-} from '../../instruments/_submarkets.js'
+} from '../../instruments/_index'
 import {
     AmericasDetails,
     AsiaOceaniaDetails,

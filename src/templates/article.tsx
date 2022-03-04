@@ -18,15 +18,12 @@ import {
     SideBarContainer,
     Tag,
     PreviewContainer,
-    SocialComponentsWrapper,
-    LeftSocialComponents,
-    RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
     StickyBreadCrumbsWrapper,
-    StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
+    StyledBreadcrumbsContainer,
     Scrollbar,
     ProgressContainer,
     ProgressBar,
@@ -48,7 +45,8 @@ type ArticlesTemplateProps = {
 }
 
 const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
-    const [is_mobile] = useBrowserResize(992)
+    const [is_mobile] = useBrowserResize(475)
+    const [is_little_mobile] = useBrowserResize(400)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
@@ -129,6 +127,12 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         og_description: og_description ? og_description : meta_description,
     }
 
+    const getTruncateLength = () => {
+        if (is_little_mobile) return 15
+        else if (is_mobile) return 30
+        else return 60
+    }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -143,17 +147,18 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                         <Background>
                             <StickyBreadCrumbsWrapper scroll={visible}>
                                 <BreadcrumbsWrapper scroll={visible}>
-                                    <Flex jc="flex-start" ai="center">
+                                    <StyledBreadcrumbsContainer>
                                         <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                             All articles
                                         </StyledBreadcrumbsLink>
-                                        <StyledImg src={RightArrow} height="16" width="16" />
+                                        <img src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, 30)
+                                                ? truncateString(article_title, getTruncateLength())
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
-                                    </Flex>
+                                        <SocialSharing />
+                                    </StyledBreadcrumbsContainer>
                                 </BreadcrumbsWrapper>
                                 <Scrollbar scroll={visible}>
                                     <ProgressContainer>
@@ -307,12 +312,6 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                     {footer_banner_details && (
                                         <Banner detailsObj={footer_banner_details} />
                                     )}
-                                    <SocialComponentsWrapper>
-                                        <LeftSocialComponents />
-                                        <RightSocialComponents>
-                                            <SocialSharing />
-                                        </RightSocialComponents>
-                                    </SocialComponentsWrapper>
 
                                     {side_banner_data_details && (
                                         <MobileWrapper>

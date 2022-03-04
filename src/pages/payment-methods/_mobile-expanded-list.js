@@ -45,6 +45,8 @@ const StyledItemDiv = styled.div`
 `
 const StyledKeyDiv = styled.div`
     width: 50%;
+    display: flex;
+    justify-content: flex-end;
 
     @media ${device.mobileL} {
         max-width: 120px;
@@ -83,6 +85,10 @@ const StyledButton = styled(Button)`
 const StyledRefLink = styled(Flex)`
     @media ${device.mobileL} {
         justify-content: flex-start;
+    }
+
+    @media ${device.tabletM} {
+        width: 65%;
     }
 `
 

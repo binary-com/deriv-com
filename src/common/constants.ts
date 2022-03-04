@@ -28,11 +28,9 @@ export const domains = [
 ] //deriv-com-git-fork for vercel server, localhost - for developer mode
 
 const getDomainUrl = (): string => {
-    const var_staging_flag = localStorage.getItem('staging_demo')
-    let var_staging = window.location.hostname
-    if (null !== var_staging_flag) {
-        var_staging = 'staging.deriv.com'
-    }
+    const var_staging_flag = isBrowser() ? localStorage.getItem('staging_demo') : null
+    const var_staging =
+        isBrowser() && null === var_staging_flag ? window.location.hostname : 'staging.deriv.com'
     return isBrowser() && var_staging in domain_url_pair
         ? domain_url_pair[var_staging]
         : deriv_com_url

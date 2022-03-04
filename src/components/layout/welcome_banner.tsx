@@ -16,7 +16,7 @@ const countriesBanner = {
     ukMobile: ukbannerMobile,
 }
 
-const BannerWrapper = styled.section<{ country: string; offset_Height: number }>`
+const BannerWrapper = styled.section<{ country: string; offset_height: number }>`
     background-color: #3c77ae;
     width: 90%;
     max-width: 1200px;
@@ -33,7 +33,7 @@ const BannerWrapper = styled.section<{ country: string; offset_Height: number }>
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top right;
-    bottom: ${(props) => props.offset_Height}px;
+    bottom: ${(props) => props.offset_height}px;
 
     @media ${device.tablet} {
         background-image: url(${(props) => countriesBanner[`${props.country}Mobile`]});
@@ -92,7 +92,7 @@ export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
     // const [is_eu_domain, setEUDomain] = useState(null)
     const [country, setCountry] = useState(null)
 
-    const offset_Height = cfd_warning_ref.current?.base.offsetHeight
+    const offset_height = cfd_warning_ref.current?.base.offsetHeight
 
     // using useEffect to set the values to help prevent vercel build error
     useEffect(() => {
@@ -111,7 +111,7 @@ export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
 
     if (country && !is_welcome_banner_dismissed) {
         return (
-            <BannerWrapper country={country} offset_Height={offset_Height}>
+            <BannerWrapper country={country} offset_height={offset_height}>
                 <BannerClose onClick={handleBannerDismiss} />
                 <TextWrapper>
                     <Header as="h3" type="subtitle-1" color="white">

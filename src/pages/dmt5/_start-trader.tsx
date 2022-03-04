@@ -90,7 +90,7 @@ const Section = styled(SectionContainer)`
 `
 const ImageWrapper = styled.div`
     max-width: 79.2rem;
-    width: 79.2rem;
+    width: 100%;
     height: 43.4rem;
     position: relative;
     margin: -3.2rem auto;

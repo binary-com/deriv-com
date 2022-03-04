@@ -1,10 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+<<<<<<< HEAD
 import MarketInstruments from '../../markets/components/sections/_market_instruments'
 import { MajorPairs } from '../../markets/instruments/_submarkets'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
 // import { SmartFXDetails } from '../../markets/static/content/_details'
 import type { MarketInstrumentsElement } from '../../markets/components/sections/_market_instruments'
+=======
+import MarketInstruments from '../../markets/components/sections/_market_instruments.js'
+import { MajorPairs, SmartFX } from '../../markets/instruments/_index'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { SmartFXDetails } from '../../markets/static/content/_details'
+>>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694))
 import { Text } from 'components/elements'
 import { SectionContainer, Show, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'

@@ -20,7 +20,7 @@ import {
     AsianIndices,
     EuropeanIndices,
     JumpIndices,
-} from '../../instruments/_submarkets'
+} from '../../instruments/_index'
 import {
     BasketCommoditiesDetails,
     BasketFXDetails,
@@ -189,9 +189,9 @@ export const stock_cfds: MarketInstrumentsElement = {
             col: 3,
             tablet_col: 2,
             mobile_col: 2,
-            padding: '24px 16px',
-            gap: '0',
-            gap_mobile: '0',
+            padding: '40px 32px',
+            gap: '32px',
+            gap_mobile: '28px 20px',
             mobile_template: true,
         },
     ],

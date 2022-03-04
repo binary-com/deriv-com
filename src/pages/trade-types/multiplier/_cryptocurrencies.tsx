@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+<<<<<<< HEAD
 import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
+=======
+import { CryptocurrenciesTradeType } from '../../markets/instruments/_index'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { NonUK } from 'components/containers/visibility'
+>>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694))
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'

@@ -4,9 +4,23 @@ import {
     CrashBoom,
     ContinuousIndices,
     VolatilityIndices,
+<<<<<<< HEAD
 } from '../../markets/instruments/_submarkets'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
+=======
+    JumpIndices,
+    StepIndices,
+} from '../../markets/instruments/_index'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import {
+    CrashBoomMultipliersDetails,
+    CrashBoomDetailsEU,
+    StepIndicesDetails,
+    JumpIndicesDetails,
+} from 'pages/markets/static/content/_details'
+>>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694))
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
@@ -366,6 +367,16 @@ export const getBaseRef = (ref) => {
     // in some cases element api's are in the ref.current.base and
     // in other cases they are in ref.current
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
+}
+
+export const useCallbackRef = (callback) => {
+    const callback_ref = useRef()
+
+    useEffect(() => {
+        callback_ref.current = callback
+    }, [callback])
+
+    return callback_ref
 }
 
 const uk_subdomain_countries = ['gb']

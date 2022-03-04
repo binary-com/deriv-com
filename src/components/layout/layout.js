@@ -130,13 +130,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-    if (queryParamData()) {
-        return (
-            <Main margin_top={'0'} is_static={is_static}>
-                {children}
-            </Main>
-        )
-    }
     // Allow tracking cookie banner setup
     React.useEffect(() => {
         if (typeof is_eu_country === 'boolean') {
@@ -235,7 +228,14 @@ const Layout = ({
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
-
+    //Handle page layout when redirection from mobile app.
+    if (queryParamData()) {
+        return (
+            <Main margin_top={'0'} is_static={is_static}>
+                {children}
+            </Main>
+        )
+    }
     return (
         <LocationProvider
             has_mounted={has_mounted}

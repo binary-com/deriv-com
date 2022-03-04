@@ -36,7 +36,7 @@ const TabWrapper = styled.div`
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
-const platform = queryParamData() ? queryParamData() : ''
+const platform = queryParamData()
 export const Article = ({
     children,
     header = '',
@@ -57,7 +57,7 @@ export const Article = ({
             />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
-                    to={platform ? '/help-centre/?platform=' + platform : '/help-centre/'}
+                    to={platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
                     has_arrow="true"
                     color="black"
                     size="var(--text-size-s)"

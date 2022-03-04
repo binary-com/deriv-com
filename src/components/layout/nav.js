@@ -664,7 +664,7 @@ export const Nav = ({
         }
     }, [])
 
-    const CFDWarningRef = useRef()
+    const cfd_warning_ref = useRef()
 
     return (
         <>
@@ -690,8 +690,8 @@ export const Nav = ({
                     </MobileWrapper>
                 </StyledNavMain>
             </NavWrapperMain>
-            <CFDWarning ref={CFDWarningRef} />
-            <WelcomeBanner CFDWarningRef={CFDWarningRef} />
+            <CFDWarning ref={cfd_warning_ref} />
+            <WelcomeBanner cfd_warning_ref={cfd_warning_ref} />
         </>
     )
 }

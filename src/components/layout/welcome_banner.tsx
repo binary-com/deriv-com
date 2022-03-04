@@ -16,7 +16,7 @@ const countriesBanner = {
     ukMobile: ukbannerMobile,
 }
 
-const BannerWrapper = styled.section<{ country: string; offsetHeight: number }>`
+const BannerWrapper = styled.section<{ country: string; offset_Height: number }>`
     background-color: #3c77ae;
     width: 90%;
     max-width: 1200px;
@@ -33,7 +33,7 @@ const BannerWrapper = styled.section<{ country: string; offsetHeight: number }>`
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top right;
-    bottom: ${(props) => props.offsetHeight}px;
+    bottom: ${(props) => props.offset_Height}px;
 
     @media ${device.tablet} {
         background-image: url(${(props) => countriesBanner[`${props.country}Mobile`]});
@@ -73,30 +73,30 @@ const BannerClose = styled.div`
         margin-top: 20px;
     }
 `
-type baseProbs = {
+type baseProps = {
     offsetHeight: number
 }
-type currentProbs = {
-    base: baseProbs
+type currentProps = {
+    base: baseProps
 }
-type CFDWarningRefProbs = {
-    current: currentProbs
+type CFDWarningRefProps = {
+    current: currentProps
 }
-type WelcomeBannerProbs = {
-    CFDWarningRef: CFDWarningRefProbs
+type WelcomeBannerProps = {
+    cfd_warning_ref: CFDWarningRefProps
 }
 
-export const WelcomeBanner = ({ CFDWarningRef }: WelcomeBannerProbs) => {
-    const [is_welcome_banner_dismissed, setWelcomeBanner] = useState(null)
+export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
+    const [is_welcome_banner_dismissed, setWelcomeBannerDismissed] = useState(null)
     // const [is_uk_domain, setUkDomain] = useState(null)
     // const [is_eu_domain, setEUDomain] = useState(null)
     const [country, setCountry] = useState(null)
 
-    const offsetHeight = CFDWarningRef.current?.base.offsetHeight
+    const offset_Height = cfd_warning_ref.current?.base.offsetHeight
 
     // using useEffect to set the values to help prevent vercel build error
     useEffect(() => {
-        setWelcomeBanner(localStorage.getItem('is_welcome_banner_dismissed'))
+        setWelcomeBannerDismissed(localStorage.getItem('is_welcome_banner_dismissed'))
         setCountry(localStorage.getItem('current_domain'))
         // commented this part to find a work around for QA to test using the test link
         // setUkDomain(window.location.hostname.includes('uk'))
@@ -105,13 +105,13 @@ export const WelcomeBanner = ({ CFDWarningRef }: WelcomeBannerProbs) => {
     }, [])
 
     const handleBannerDismiss = () => {
-        setWelcomeBanner('yes')
+        setWelcomeBannerDismissed('yes')
         localStorage.setItem('is_welcome_banner_dismissed', 'yes')
     }
 
     if (country && !is_welcome_banner_dismissed) {
         return (
-            <BannerWrapper country={country} offsetHeight={offsetHeight}>
+            <BannerWrapper country={country} offset_Height={offset_Height}>
                 <BannerClose onClick={handleBannerDismiss} />
                 <TextWrapper>
                     <Header as="h3" type="subtitle-1" color="white">

@@ -45,8 +45,8 @@ const ImageWrapper = styled.img`
     height: 48px;
 
     @media ${device.tabletL} {
-        width: 4rem;
-        height: 4rem;
+        width: 40px;
+        height: 40px;
     }
 `
 
@@ -74,14 +74,6 @@ const SecondaryText = styled(Text)`
 const ButtonWrapper = styled(CenteredSection)`
     display: flex;
     justify-content: center;
-`
-const StyledListHeader = styled(Header)`
-    margin-top: 4rem;
-`
-const WhoCanApplyHeader = styled(Header)`
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
 `
 
 type SectionComponentProps = {
@@ -142,23 +134,23 @@ const WhoCanApply = () => {
                                 text={item.text}
                             />
                         ))}
-                        <StyledListHeader as="h4" type="paragraph-1">
+                        <Header as="h4" type="paragraph-1" mt="4rem">
                             {localize('A couple of things to note:')}
-                        </StyledListHeader>
+                        </Header>
                         <StyledUl>
                             <Li>
-                                <WhoCanApplyHeader type="paragraph-2">
+                                <Header as="h4" type="paragraph-1" weight="normal">
                                     {localize(
                                         'You must have a minimum balance in your Deriv account, depending on your country of residence.',
                                     )}
-                                </WhoCanApplyHeader>
+                                </Header>
                             </Li>
                             <Li>
-                                <WhoCanApplyHeader type="paragraph-2">
+                                <Header as="h4" type="paragraph-1" weight="normal">
                                     {localize(
                                         'You can only service Deriv clients in your country of residence.',
                                     )}
-                                </WhoCanApplyHeader>
+                                </Header>
                             </Li>
                         </StyledUl>
                     </WhoCanApplyWrapper>

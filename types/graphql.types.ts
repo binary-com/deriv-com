@@ -610,17 +610,17 @@ export type GatsbyImagePlaceholder =
   | 'BLURRED'
   | 'NONE';
 
-export type Fe = Node & {
+export type Front_End = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<FeData>>>;
+  data?: Maybe<Array<Maybe<Front_EndData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type FeData = {
+export type Front_EndData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Work_Experience?: Maybe<Scalars['String']>;
@@ -636,17 +636,17 @@ export type FeData = {
   Zip_Code?: Maybe<Scalars['String']>;
 };
 
-export type Be = Node & {
+export type Back_End = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<BeData>>>;
+  data?: Maybe<Array<Maybe<Back_EndData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type BeData = {
+export type Back_EndData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
@@ -661,23 +661,22 @@ export type BeData = {
   Zip_Code?: Maybe<Scalars['String']>;
 };
 
-export type Audit = Node & {
+export type Internal_Audit = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<AuditData>>>;
+  data?: Maybe<Array<Maybe<Internal_AuditData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type AuditData = {
+export type Internal_AuditData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Work_Experience?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -685,22 +684,21 @@ export type AuditData = {
   Date_Opened?: Maybe<Scalars['String']>;
 };
 
-export type Business = Node & {
+export type Business_Excellence = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<BusinessData>>>;
+  data?: Maybe<Array<Maybe<Business_ExcellenceData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type BusinessData = {
+export type Business_ExcellenceData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -708,22 +706,21 @@ export type BusinessData = {
   Date_Opened?: Maybe<Scalars['String']>;
 };
 
-export type Testing = Node & {
+export type Software_Testing = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<TestingData>>>;
+  data?: Maybe<Array<Maybe<Software_TestingData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type TestingData = {
+export type Software_TestingData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -731,22 +728,21 @@ export type TestingData = {
   Date_Opened?: Maybe<Scalars['String']>;
 };
 
-export type Trading = Node & {
+export type Trading_Operations = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<TradingData>>>;
+  data?: Maybe<Array<Maybe<Trading_OperationsData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type TradingData = {
+export type Trading_OperationsData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -769,7 +765,6 @@ export type PaymentsData = {
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -792,7 +787,6 @@ export type FinanceData = {
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -815,7 +809,6 @@ export type ComplianceData = {
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -823,22 +816,21 @@ export type ComplianceData = {
   Date_Opened?: Maybe<Scalars['String']>;
 };
 
-export type Ux = Node & {
+export type Product = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<UxData>>>;
+  data?: Maybe<Array<Maybe<ProductData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type UxData = {
+export type ProductData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -846,22 +838,21 @@ export type UxData = {
   Date_Opened?: Maybe<Scalars['String']>;
 };
 
-export type Pm = Node & {
+export type People_Management = Node & {
   id: Scalars['ID'];
   code?: Maybe<Scalars['String']>;
-  data?: Maybe<Array<Maybe<PmData>>>;
+  data?: Maybe<Array<Maybe<People_ManagementData>>>;
   info?: Maybe<Info>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
-export type PmData = {
+export type People_ManagementData = {
   Industry?: Maybe<Scalars['String']>;
   Job_Description?: Maybe<Scalars['String']>;
   Job_Type?: Maybe<Scalars['String']>;
   Job_Opening_Name?: Maybe<Scalars['String']>;
-  State?: Maybe<Scalars['String']>;
   Country?: Maybe<Scalars['String']>;
   _url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
@@ -2664,28 +2655,28 @@ export type Query = {
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  fe?: Maybe<Fe>;
-  allFe: FeConnection;
-  be?: Maybe<Be>;
-  allBe: BeConnection;
-  audit?: Maybe<Audit>;
-  allAudit: AuditConnection;
-  business?: Maybe<Business>;
-  allBusiness: BusinessConnection;
-  testing?: Maybe<Testing>;
-  allTesting: TestingConnection;
-  trading?: Maybe<Trading>;
-  allTrading: TradingConnection;
+  frontEnd?: Maybe<Front_End>;
+  allFrontEnd: Front_EndConnection;
+  backEnd?: Maybe<Back_End>;
+  allBackEnd: Back_EndConnection;
+  internalAudit?: Maybe<Internal_Audit>;
+  allInternalAudit: Internal_AuditConnection;
+  businessExcellence?: Maybe<Business_Excellence>;
+  allBusinessExcellence: Business_ExcellenceConnection;
+  softwareTesting?: Maybe<Software_Testing>;
+  allSoftwareTesting: Software_TestingConnection;
+  tradingOperations?: Maybe<Trading_Operations>;
+  allTradingOperations: Trading_OperationsConnection;
   payments?: Maybe<Payments>;
   allPayments: PaymentsConnection;
   finance?: Maybe<Finance>;
   allFinance: FinanceConnection;
   compliance?: Maybe<Compliance>;
   allCompliance: ComplianceConnection;
-  ux?: Maybe<Ux>;
-  allUx: UxConnection;
-  pm?: Maybe<Pm>;
-  allPm: PmConnection;
+  product?: Maybe<Product>;
+  allProduct: ProductConnection;
+  peopleManagement?: Maybe<People_Management>;
+  allPeopleManagement: People_ManagementConnection;
   cs?: Maybe<Cs>;
   allCs: CsConnection;
   security?: Maybe<Security>;
@@ -2935,10 +2926,10 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryFeArgs = {
+export type QueryFrontEndArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<FeDataFilterListInput>;
+  data?: InputMaybe<Front_EndDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -2946,18 +2937,18 @@ export type QueryFeArgs = {
 };
 
 
-export type QueryAllFeArgs = {
-  filter?: InputMaybe<FeFilterInput>;
-  sort?: InputMaybe<FeSortInput>;
+export type QueryAllFrontEndArgs = {
+  filter?: InputMaybe<Front_EndFilterInput>;
+  sort?: InputMaybe<Front_EndSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
 
 
-export type QueryBeArgs = {
+export type QueryBackEndArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<BeDataFilterListInput>;
+  data?: InputMaybe<Back_EndDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -2965,18 +2956,18 @@ export type QueryBeArgs = {
 };
 
 
-export type QueryAllBeArgs = {
-  filter?: InputMaybe<BeFilterInput>;
-  sort?: InputMaybe<BeSortInput>;
+export type QueryAllBackEndArgs = {
+  filter?: InputMaybe<Back_EndFilterInput>;
+  sort?: InputMaybe<Back_EndSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
 
 
-export type QueryAuditArgs = {
+export type QueryInternalAuditArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<AuditDataFilterListInput>;
+  data?: InputMaybe<Internal_AuditDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -2984,18 +2975,18 @@ export type QueryAuditArgs = {
 };
 
 
-export type QueryAllAuditArgs = {
-  filter?: InputMaybe<AuditFilterInput>;
-  sort?: InputMaybe<AuditSortInput>;
+export type QueryAllInternalAuditArgs = {
+  filter?: InputMaybe<Internal_AuditFilterInput>;
+  sort?: InputMaybe<Internal_AuditSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
 
 
-export type QueryBusinessArgs = {
+export type QueryBusinessExcellenceArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<BusinessDataFilterListInput>;
+  data?: InputMaybe<Business_ExcellenceDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3003,18 +2994,18 @@ export type QueryBusinessArgs = {
 };
 
 
-export type QueryAllBusinessArgs = {
-  filter?: InputMaybe<BusinessFilterInput>;
-  sort?: InputMaybe<BusinessSortInput>;
+export type QueryAllBusinessExcellenceArgs = {
+  filter?: InputMaybe<Business_ExcellenceFilterInput>;
+  sort?: InputMaybe<Business_ExcellenceSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
 
 
-export type QueryTestingArgs = {
+export type QuerySoftwareTestingArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<TestingDataFilterListInput>;
+  data?: InputMaybe<Software_TestingDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3022,18 +3013,18 @@ export type QueryTestingArgs = {
 };
 
 
-export type QueryAllTestingArgs = {
-  filter?: InputMaybe<TestingFilterInput>;
-  sort?: InputMaybe<TestingSortInput>;
+export type QueryAllSoftwareTestingArgs = {
+  filter?: InputMaybe<Software_TestingFilterInput>;
+  sort?: InputMaybe<Software_TestingSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
 
 
-export type QueryTradingArgs = {
+export type QueryTradingOperationsArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<TradingDataFilterListInput>;
+  data?: InputMaybe<Trading_OperationsDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3041,9 +3032,9 @@ export type QueryTradingArgs = {
 };
 
 
-export type QueryAllTradingArgs = {
-  filter?: InputMaybe<TradingFilterInput>;
-  sort?: InputMaybe<TradingSortInput>;
+export type QueryAllTradingOperationsArgs = {
+  filter?: InputMaybe<Trading_OperationsFilterInput>;
+  sort?: InputMaybe<Trading_OperationsSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
@@ -3106,10 +3097,10 @@ export type QueryAllComplianceArgs = {
 };
 
 
-export type QueryUxArgs = {
+export type QueryProductArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<UxDataFilterListInput>;
+  data?: InputMaybe<ProductDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3117,18 +3108,18 @@ export type QueryUxArgs = {
 };
 
 
-export type QueryAllUxArgs = {
-  filter?: InputMaybe<UxFilterInput>;
-  sort?: InputMaybe<UxSortInput>;
+export type QueryAllProductArgs = {
+  filter?: InputMaybe<ProductFilterInput>;
+  sort?: InputMaybe<ProductSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
 
 
-export type QueryPmArgs = {
+export type QueryPeopleManagementArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<PmDataFilterListInput>;
+  data?: InputMaybe<People_ManagementDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -3136,9 +3127,9 @@ export type QueryPmArgs = {
 };
 
 
-export type QueryAllPmArgs = {
-  filter?: InputMaybe<PmFilterInput>;
-  sort?: InputMaybe<PmSortInput>;
+export type QueryAllPeopleManagementArgs = {
+  filter?: InputMaybe<People_ManagementFilterInput>;
+  sort?: InputMaybe<People_ManagementSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
@@ -5318,11 +5309,11 @@ export type ImageSharpSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type FeDataFilterListInput = {
-  elemMatch?: InputMaybe<FeDataFilterInput>;
+export type Front_EndDataFilterListInput = {
+  elemMatch?: InputMaybe<Front_EndDataFilterInput>;
 };
 
-export type FeDataFilterInput = {
+export type Front_EndDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Work_Experience?: InputMaybe<StringQueryOperatorInput>;
@@ -5366,52 +5357,52 @@ export type InfoFacetsFilterInput = {
   field_label?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type FeConnection = {
+export type Front_EndConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<FeEdge>;
-  nodes: Array<Fe>;
+  edges: Array<Front_EndEdge>;
+  nodes: Array<Front_End>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<FeGroupConnection>;
+  group: Array<Front_EndGroupConnection>;
 };
 
 
-export type FeConnectionDistinctArgs = {
-  field: FeFieldsEnum;
+export type Front_EndConnectionDistinctArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeConnectionMaxArgs = {
-  field: FeFieldsEnum;
+export type Front_EndConnectionMaxArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeConnectionMinArgs = {
-  field: FeFieldsEnum;
+export type Front_EndConnectionMinArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeConnectionSumArgs = {
-  field: FeFieldsEnum;
+export type Front_EndConnectionSumArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeConnectionGroupArgs = {
+export type Front_EndConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: FeFieldsEnum;
+  field: Front_EndFieldsEnum;
 };
 
-export type FeEdge = {
-  next?: Maybe<Fe>;
-  node: Fe;
-  previous?: Maybe<Fe>;
+export type Front_EndEdge = {
+  next?: Maybe<Front_End>;
+  node: Front_End;
+  previous?: Maybe<Front_End>;
 };
 
-export type FeFieldsEnum =
+export type Front_EndFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -5559,67 +5550,67 @@ export type FeFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type FeGroupConnection = {
+export type Front_EndGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<FeEdge>;
-  nodes: Array<Fe>;
+  edges: Array<Front_EndEdge>;
+  nodes: Array<Front_End>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<FeGroupConnection>;
+  group: Array<Front_EndGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type FeGroupConnectionDistinctArgs = {
-  field: FeFieldsEnum;
+export type Front_EndGroupConnectionDistinctArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeGroupConnectionMaxArgs = {
-  field: FeFieldsEnum;
+export type Front_EndGroupConnectionMaxArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeGroupConnectionMinArgs = {
-  field: FeFieldsEnum;
+export type Front_EndGroupConnectionMinArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeGroupConnectionSumArgs = {
-  field: FeFieldsEnum;
+export type Front_EndGroupConnectionSumArgs = {
+  field: Front_EndFieldsEnum;
 };
 
 
-export type FeGroupConnectionGroupArgs = {
+export type Front_EndGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: FeFieldsEnum;
+  field: Front_EndFieldsEnum;
 };
 
-export type FeFilterInput = {
+export type Front_EndFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<FeDataFilterListInput>;
+  data?: InputMaybe<Front_EndDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type FeSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<FeFieldsEnum>>>;
+export type Front_EndSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<Front_EndFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type BeDataFilterListInput = {
-  elemMatch?: InputMaybe<BeDataFilterInput>;
+export type Back_EndDataFilterListInput = {
+  elemMatch?: InputMaybe<Back_EndDataFilterInput>;
 };
 
-export type BeDataFilterInput = {
+export type Back_EndDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
@@ -5634,52 +5625,52 @@ export type BeDataFilterInput = {
   Zip_Code?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type BeConnection = {
+export type Back_EndConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<BeEdge>;
-  nodes: Array<Be>;
+  edges: Array<Back_EndEdge>;
+  nodes: Array<Back_End>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<BeGroupConnection>;
+  group: Array<Back_EndGroupConnection>;
 };
 
 
-export type BeConnectionDistinctArgs = {
-  field: BeFieldsEnum;
+export type Back_EndConnectionDistinctArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeConnectionMaxArgs = {
-  field: BeFieldsEnum;
+export type Back_EndConnectionMaxArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeConnectionMinArgs = {
-  field: BeFieldsEnum;
+export type Back_EndConnectionMinArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeConnectionSumArgs = {
-  field: BeFieldsEnum;
+export type Back_EndConnectionSumArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeConnectionGroupArgs = {
+export type Back_EndConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: BeFieldsEnum;
+  field: Back_EndFieldsEnum;
 };
 
-export type BeEdge = {
-  next?: Maybe<Be>;
-  node: Be;
-  previous?: Maybe<Be>;
+export type Back_EndEdge = {
+  next?: Maybe<Back_End>;
+  node: Back_End;
+  previous?: Maybe<Back_End>;
 };
 
-export type BeFieldsEnum =
+export type Back_EndFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -5826,73 +5817,72 @@ export type BeFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type BeGroupConnection = {
+export type Back_EndGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<BeEdge>;
-  nodes: Array<Be>;
+  edges: Array<Back_EndEdge>;
+  nodes: Array<Back_End>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<BeGroupConnection>;
+  group: Array<Back_EndGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type BeGroupConnectionDistinctArgs = {
-  field: BeFieldsEnum;
+export type Back_EndGroupConnectionDistinctArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeGroupConnectionMaxArgs = {
-  field: BeFieldsEnum;
+export type Back_EndGroupConnectionMaxArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeGroupConnectionMinArgs = {
-  field: BeFieldsEnum;
+export type Back_EndGroupConnectionMinArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeGroupConnectionSumArgs = {
-  field: BeFieldsEnum;
+export type Back_EndGroupConnectionSumArgs = {
+  field: Back_EndFieldsEnum;
 };
 
 
-export type BeGroupConnectionGroupArgs = {
+export type Back_EndGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: BeFieldsEnum;
+  field: Back_EndFieldsEnum;
 };
 
-export type BeFilterInput = {
+export type Back_EndFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<BeDataFilterListInput>;
+  data?: InputMaybe<Back_EndDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type BeSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<BeFieldsEnum>>>;
+export type Back_EndSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<Back_EndFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type AuditDataFilterListInput = {
-  elemMatch?: InputMaybe<AuditDataFilterInput>;
+export type Internal_AuditDataFilterListInput = {
+  elemMatch?: InputMaybe<Internal_AuditDataFilterInput>;
 };
 
-export type AuditDataFilterInput = {
+export type Internal_AuditDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Work_Experience?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -5900,52 +5890,52 @@ export type AuditDataFilterInput = {
   Date_Opened?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type AuditConnection = {
+export type Internal_AuditConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<AuditEdge>;
-  nodes: Array<Audit>;
+  edges: Array<Internal_AuditEdge>;
+  nodes: Array<Internal_Audit>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<AuditGroupConnection>;
+  group: Array<Internal_AuditGroupConnection>;
 };
 
 
-export type AuditConnectionDistinctArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditConnectionDistinctArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditConnectionMaxArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditConnectionMaxArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditConnectionMinArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditConnectionMinArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditConnectionSumArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditConnectionSumArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditConnectionGroupArgs = {
+export type Internal_AuditConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: AuditFieldsEnum;
+  field: Internal_AuditFieldsEnum;
 };
 
-export type AuditEdge = {
-  next?: Maybe<Audit>;
-  node: Audit;
-  previous?: Maybe<Audit>;
+export type Internal_AuditEdge = {
+  next?: Maybe<Internal_Audit>;
+  node: Internal_Audit;
+  previous?: Maybe<Internal_Audit>;
 };
 
-export type AuditFieldsEnum =
+export type Internal_AuditFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -5954,7 +5944,6 @@ export type AuditFieldsEnum =
   | 'data___Work_Experience'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -6091,72 +6080,71 @@ export type AuditFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type AuditGroupConnection = {
+export type Internal_AuditGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<AuditEdge>;
-  nodes: Array<Audit>;
+  edges: Array<Internal_AuditEdge>;
+  nodes: Array<Internal_Audit>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<AuditGroupConnection>;
+  group: Array<Internal_AuditGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type AuditGroupConnectionDistinctArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditGroupConnectionDistinctArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditGroupConnectionMaxArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditGroupConnectionMaxArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditGroupConnectionMinArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditGroupConnectionMinArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditGroupConnectionSumArgs = {
-  field: AuditFieldsEnum;
+export type Internal_AuditGroupConnectionSumArgs = {
+  field: Internal_AuditFieldsEnum;
 };
 
 
-export type AuditGroupConnectionGroupArgs = {
+export type Internal_AuditGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: AuditFieldsEnum;
+  field: Internal_AuditFieldsEnum;
 };
 
-export type AuditFilterInput = {
+export type Internal_AuditFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<AuditDataFilterListInput>;
+  data?: InputMaybe<Internal_AuditDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type AuditSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<AuditFieldsEnum>>>;
+export type Internal_AuditSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<Internal_AuditFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type BusinessDataFilterListInput = {
-  elemMatch?: InputMaybe<BusinessDataFilterInput>;
+export type Business_ExcellenceDataFilterListInput = {
+  elemMatch?: InputMaybe<Business_ExcellenceDataFilterInput>;
 };
 
-export type BusinessDataFilterInput = {
+export type Business_ExcellenceDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -6164,52 +6152,52 @@ export type BusinessDataFilterInput = {
   Date_Opened?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type BusinessConnection = {
+export type Business_ExcellenceConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<BusinessEdge>;
-  nodes: Array<Business>;
+  edges: Array<Business_ExcellenceEdge>;
+  nodes: Array<Business_Excellence>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<BusinessGroupConnection>;
+  group: Array<Business_ExcellenceGroupConnection>;
 };
 
 
-export type BusinessConnectionDistinctArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceConnectionDistinctArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessConnectionMaxArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceConnectionMaxArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessConnectionMinArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceConnectionMinArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessConnectionSumArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceConnectionSumArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessConnectionGroupArgs = {
+export type Business_ExcellenceConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: BusinessFieldsEnum;
+  field: Business_ExcellenceFieldsEnum;
 };
 
-export type BusinessEdge = {
-  next?: Maybe<Business>;
-  node: Business;
-  previous?: Maybe<Business>;
+export type Business_ExcellenceEdge = {
+  next?: Maybe<Business_Excellence>;
+  node: Business_Excellence;
+  previous?: Maybe<Business_Excellence>;
 };
 
-export type BusinessFieldsEnum =
+export type Business_ExcellenceFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -6217,7 +6205,6 @@ export type BusinessFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -6354,72 +6341,71 @@ export type BusinessFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type BusinessGroupConnection = {
+export type Business_ExcellenceGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<BusinessEdge>;
-  nodes: Array<Business>;
+  edges: Array<Business_ExcellenceEdge>;
+  nodes: Array<Business_Excellence>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<BusinessGroupConnection>;
+  group: Array<Business_ExcellenceGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type BusinessGroupConnectionDistinctArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceGroupConnectionDistinctArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessGroupConnectionMaxArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceGroupConnectionMaxArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessGroupConnectionMinArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceGroupConnectionMinArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessGroupConnectionSumArgs = {
-  field: BusinessFieldsEnum;
+export type Business_ExcellenceGroupConnectionSumArgs = {
+  field: Business_ExcellenceFieldsEnum;
 };
 
 
-export type BusinessGroupConnectionGroupArgs = {
+export type Business_ExcellenceGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: BusinessFieldsEnum;
+  field: Business_ExcellenceFieldsEnum;
 };
 
-export type BusinessFilterInput = {
+export type Business_ExcellenceFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<BusinessDataFilterListInput>;
+  data?: InputMaybe<Business_ExcellenceDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type BusinessSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<BusinessFieldsEnum>>>;
+export type Business_ExcellenceSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<Business_ExcellenceFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type TestingDataFilterListInput = {
-  elemMatch?: InputMaybe<TestingDataFilterInput>;
+export type Software_TestingDataFilterListInput = {
+  elemMatch?: InputMaybe<Software_TestingDataFilterInput>;
 };
 
-export type TestingDataFilterInput = {
+export type Software_TestingDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -6427,52 +6413,52 @@ export type TestingDataFilterInput = {
   Date_Opened?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type TestingConnection = {
+export type Software_TestingConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<TestingEdge>;
-  nodes: Array<Testing>;
+  edges: Array<Software_TestingEdge>;
+  nodes: Array<Software_Testing>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<TestingGroupConnection>;
+  group: Array<Software_TestingGroupConnection>;
 };
 
 
-export type TestingConnectionDistinctArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingConnectionDistinctArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingConnectionMaxArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingConnectionMaxArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingConnectionMinArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingConnectionMinArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingConnectionSumArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingConnectionSumArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingConnectionGroupArgs = {
+export type Software_TestingConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: TestingFieldsEnum;
+  field: Software_TestingFieldsEnum;
 };
 
-export type TestingEdge = {
-  next?: Maybe<Testing>;
-  node: Testing;
-  previous?: Maybe<Testing>;
+export type Software_TestingEdge = {
+  next?: Maybe<Software_Testing>;
+  node: Software_Testing;
+  previous?: Maybe<Software_Testing>;
 };
 
-export type TestingFieldsEnum =
+export type Software_TestingFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -6480,7 +6466,6 @@ export type TestingFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -6617,72 +6602,71 @@ export type TestingFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type TestingGroupConnection = {
+export type Software_TestingGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<TestingEdge>;
-  nodes: Array<Testing>;
+  edges: Array<Software_TestingEdge>;
+  nodes: Array<Software_Testing>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<TestingGroupConnection>;
+  group: Array<Software_TestingGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type TestingGroupConnectionDistinctArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingGroupConnectionDistinctArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingGroupConnectionMaxArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingGroupConnectionMaxArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingGroupConnectionMinArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingGroupConnectionMinArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingGroupConnectionSumArgs = {
-  field: TestingFieldsEnum;
+export type Software_TestingGroupConnectionSumArgs = {
+  field: Software_TestingFieldsEnum;
 };
 
 
-export type TestingGroupConnectionGroupArgs = {
+export type Software_TestingGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: TestingFieldsEnum;
+  field: Software_TestingFieldsEnum;
 };
 
-export type TestingFilterInput = {
+export type Software_TestingFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<TestingDataFilterListInput>;
+  data?: InputMaybe<Software_TestingDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type TestingSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<TestingFieldsEnum>>>;
+export type Software_TestingSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<Software_TestingFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type TradingDataFilterListInput = {
-  elemMatch?: InputMaybe<TradingDataFilterInput>;
+export type Trading_OperationsDataFilterListInput = {
+  elemMatch?: InputMaybe<Trading_OperationsDataFilterInput>;
 };
 
-export type TradingDataFilterInput = {
+export type Trading_OperationsDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -6690,52 +6674,52 @@ export type TradingDataFilterInput = {
   Date_Opened?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type TradingConnection = {
+export type Trading_OperationsConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<TradingEdge>;
-  nodes: Array<Trading>;
+  edges: Array<Trading_OperationsEdge>;
+  nodes: Array<Trading_Operations>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<TradingGroupConnection>;
+  group: Array<Trading_OperationsGroupConnection>;
 };
 
 
-export type TradingConnectionDistinctArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsConnectionDistinctArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingConnectionMaxArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsConnectionMaxArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingConnectionMinArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsConnectionMinArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingConnectionSumArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsConnectionSumArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingConnectionGroupArgs = {
+export type Trading_OperationsConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: TradingFieldsEnum;
+  field: Trading_OperationsFieldsEnum;
 };
 
-export type TradingEdge = {
-  next?: Maybe<Trading>;
-  node: Trading;
-  previous?: Maybe<Trading>;
+export type Trading_OperationsEdge = {
+  next?: Maybe<Trading_Operations>;
+  node: Trading_Operations;
+  previous?: Maybe<Trading_Operations>;
 };
 
-export type TradingFieldsEnum =
+export type Trading_OperationsFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -6743,7 +6727,6 @@ export type TradingFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -6880,59 +6863,59 @@ export type TradingFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type TradingGroupConnection = {
+export type Trading_OperationsGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<TradingEdge>;
-  nodes: Array<Trading>;
+  edges: Array<Trading_OperationsEdge>;
+  nodes: Array<Trading_Operations>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<TradingGroupConnection>;
+  group: Array<Trading_OperationsGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type TradingGroupConnectionDistinctArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsGroupConnectionDistinctArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingGroupConnectionMaxArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsGroupConnectionMaxArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingGroupConnectionMinArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsGroupConnectionMinArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingGroupConnectionSumArgs = {
-  field: TradingFieldsEnum;
+export type Trading_OperationsGroupConnectionSumArgs = {
+  field: Trading_OperationsFieldsEnum;
 };
 
 
-export type TradingGroupConnectionGroupArgs = {
+export type Trading_OperationsGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: TradingFieldsEnum;
+  field: Trading_OperationsFieldsEnum;
 };
 
-export type TradingFilterInput = {
+export type Trading_OperationsFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<TradingDataFilterListInput>;
+  data?: InputMaybe<Trading_OperationsDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type TradingSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<TradingFieldsEnum>>>;
+export type Trading_OperationsSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<Trading_OperationsFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
@@ -6945,7 +6928,6 @@ export type PaymentsDataFilterInput = {
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -7006,7 +6988,6 @@ export type PaymentsFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -7208,7 +7189,6 @@ export type FinanceDataFilterInput = {
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -7269,7 +7249,6 @@ export type FinanceFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -7471,7 +7450,6 @@ export type ComplianceDataFilterInput = {
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -7532,7 +7510,6 @@ export type ComplianceFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -7725,16 +7702,15 @@ export type ComplianceSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type UxDataFilterListInput = {
-  elemMatch?: InputMaybe<UxDataFilterInput>;
+export type ProductDataFilterListInput = {
+  elemMatch?: InputMaybe<ProductDataFilterInput>;
 };
 
-export type UxDataFilterInput = {
+export type ProductDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -7742,52 +7718,52 @@ export type UxDataFilterInput = {
   Date_Opened?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type UxConnection = {
+export type ProductConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<UxEdge>;
-  nodes: Array<Ux>;
+  edges: Array<ProductEdge>;
+  nodes: Array<Product>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<UxGroupConnection>;
+  group: Array<ProductGroupConnection>;
 };
 
 
-export type UxConnectionDistinctArgs = {
-  field: UxFieldsEnum;
+export type ProductConnectionDistinctArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxConnectionMaxArgs = {
-  field: UxFieldsEnum;
+export type ProductConnectionMaxArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxConnectionMinArgs = {
-  field: UxFieldsEnum;
+export type ProductConnectionMinArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxConnectionSumArgs = {
-  field: UxFieldsEnum;
+export type ProductConnectionSumArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxConnectionGroupArgs = {
+export type ProductConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: UxFieldsEnum;
+  field: ProductFieldsEnum;
 };
 
-export type UxEdge = {
-  next?: Maybe<Ux>;
-  node: Ux;
-  previous?: Maybe<Ux>;
+export type ProductEdge = {
+  next?: Maybe<Product>;
+  node: Product;
+  previous?: Maybe<Product>;
 };
 
-export type UxFieldsEnum =
+export type ProductFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -7795,7 +7771,6 @@ export type UxFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -7932,72 +7907,71 @@ export type UxFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type UxGroupConnection = {
+export type ProductGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<UxEdge>;
-  nodes: Array<Ux>;
+  edges: Array<ProductEdge>;
+  nodes: Array<Product>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<UxGroupConnection>;
+  group: Array<ProductGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type UxGroupConnectionDistinctArgs = {
-  field: UxFieldsEnum;
+export type ProductGroupConnectionDistinctArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxGroupConnectionMaxArgs = {
-  field: UxFieldsEnum;
+export type ProductGroupConnectionMaxArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxGroupConnectionMinArgs = {
-  field: UxFieldsEnum;
+export type ProductGroupConnectionMinArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxGroupConnectionSumArgs = {
-  field: UxFieldsEnum;
+export type ProductGroupConnectionSumArgs = {
+  field: ProductFieldsEnum;
 };
 
 
-export type UxGroupConnectionGroupArgs = {
+export type ProductGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: UxFieldsEnum;
+  field: ProductFieldsEnum;
 };
 
-export type UxFilterInput = {
+export type ProductFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<UxDataFilterListInput>;
+  data?: InputMaybe<ProductDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type UxSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<UxFieldsEnum>>>;
+export type ProductSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<ProductFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type PmDataFilterListInput = {
-  elemMatch?: InputMaybe<PmDataFilterInput>;
+export type People_ManagementDataFilterListInput = {
+  elemMatch?: InputMaybe<People_ManagementDataFilterInput>;
 };
 
-export type PmDataFilterInput = {
+export type People_ManagementDataFilterInput = {
   Industry?: InputMaybe<StringQueryOperatorInput>;
   Job_Description?: InputMaybe<StringQueryOperatorInput>;
   Job_Type?: InputMaybe<StringQueryOperatorInput>;
   Job_Opening_Name?: InputMaybe<StringQueryOperatorInput>;
-  State?: InputMaybe<StringQueryOperatorInput>;
   Country?: InputMaybe<StringQueryOperatorInput>;
   _url?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -8005,52 +7979,52 @@ export type PmDataFilterInput = {
   Date_Opened?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type PmConnection = {
+export type People_ManagementConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<PmEdge>;
-  nodes: Array<Pm>;
+  edges: Array<People_ManagementEdge>;
+  nodes: Array<People_Management>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<PmGroupConnection>;
+  group: Array<People_ManagementGroupConnection>;
 };
 
 
-export type PmConnectionDistinctArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementConnectionDistinctArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmConnectionMaxArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementConnectionMaxArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmConnectionMinArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementConnectionMinArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmConnectionSumArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementConnectionSumArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmConnectionGroupArgs = {
+export type People_ManagementConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: PmFieldsEnum;
+  field: People_ManagementFieldsEnum;
 };
 
-export type PmEdge = {
-  next?: Maybe<Pm>;
-  node: Pm;
-  previous?: Maybe<Pm>;
+export type People_ManagementEdge = {
+  next?: Maybe<People_Management>;
+  node: People_Management;
+  previous?: Maybe<People_Management>;
 };
 
-export type PmFieldsEnum =
+export type People_ManagementFieldsEnum =
   | 'id'
   | 'code'
   | 'data'
@@ -8058,7 +8032,6 @@ export type PmFieldsEnum =
   | 'data___Job_Description'
   | 'data___Job_Type'
   | 'data___Job_Opening_Name'
-  | 'data___State'
   | 'data___Country'
   | 'data____url'
   | 'data___id'
@@ -8195,59 +8168,59 @@ export type PmFieldsEnum =
   | 'internal___owner'
   | 'internal___type';
 
-export type PmGroupConnection = {
+export type People_ManagementGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<PmEdge>;
-  nodes: Array<Pm>;
+  edges: Array<People_ManagementEdge>;
+  nodes: Array<People_Management>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
   max?: Maybe<Scalars['Float']>;
   min?: Maybe<Scalars['Float']>;
   sum?: Maybe<Scalars['Float']>;
-  group: Array<PmGroupConnection>;
+  group: Array<People_ManagementGroupConnection>;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
 
-export type PmGroupConnectionDistinctArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementGroupConnectionDistinctArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmGroupConnectionMaxArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementGroupConnectionMaxArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmGroupConnectionMinArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementGroupConnectionMinArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmGroupConnectionSumArgs = {
-  field: PmFieldsEnum;
+export type People_ManagementGroupConnectionSumArgs = {
+  field: People_ManagementFieldsEnum;
 };
 
 
-export type PmGroupConnectionGroupArgs = {
+export type People_ManagementGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
-  field: PmFieldsEnum;
+  field: People_ManagementFieldsEnum;
 };
 
-export type PmFilterInput = {
+export type People_ManagementFilterInput = {
   id?: InputMaybe<StringQueryOperatorInput>;
   code?: InputMaybe<StringQueryOperatorInput>;
-  data?: InputMaybe<PmDataFilterListInput>;
+  data?: InputMaybe<People_ManagementDataFilterListInput>;
   info?: InputMaybe<InfoFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-export type PmSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<PmFieldsEnum>>>;
+export type People_ManagementSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<People_ManagementFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
@@ -9701,6 +9674,11 @@ export type Unnamed_10_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_10_Query = { teamfocus?: { childImageSharp?: { gatsbyImageData: any } | null } | null, peopleeating?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+
+export type MyQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MyQueryQuery = { backEnd?: { data?: Array<{ City?: string | null, Country?: string | null, Job_Opening_Name?: string | null, Remote_Job?: string | null, id?: string | null } | null> | null } | null };
 
 export type Unnamed_11_QueryVariables = Exact<{ [key: string]: never; }>;
 

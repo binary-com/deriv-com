@@ -13,7 +13,7 @@ const DepartmentPage = (data: FirstDataProps) => {
             {/* <ZohoPage /> */}
             <Hero data={data.data.header} />
             <DeptDescription data={data.data.intro_section} />
-            <OpenPositions data={data.data.open_position} />
+            <OpenPositions data={data.new_position} />
             <StaffReview data={data.data.testimony_section} />
         </Layout>
     )

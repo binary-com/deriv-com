@@ -43,11 +43,21 @@ const StyledHeader = styled(Header)`
 `
 
 type DataProps = {
-    data: OpenPositionsProps[]
+    data: [
+        {
+            City: string
+            Country: string
+            Job_Opening_Name: string
+            Remote_Job?: string
+            id: string
+        },
+    ]
 }
 
 const OpenPositions = (data: DataProps) => {
-    const hidden = data.data == undefined
+    console.log(data, 345)
+
+    const hidden = data == undefined
     return (
         <SectionContainer padding="0">
             <Container fd="column">
@@ -55,13 +65,13 @@ const OpenPositions = (data: DataProps) => {
                     Open positions
                 </Header>
                 {!hidden &&
-                    data.data?.map((item, idx) => {
+                    data.data.map((item, idx) => {
                         return (
                             <PositionLink key={idx} external to={getLink(item.id)} target="_blank">
                                 <JobWrapper>
                                     <StyledVacancies ai="center">
                                         <StyledHeader type="subtitle-1" as="h1">
-                                            {item.title}
+                                            {item?.Job_Opening_Name}
                                         </StyledHeader>
                                     </StyledVacancies>
                                     <Flex ai="center">
@@ -73,7 +83,9 @@ const OpenPositions = (data: DataProps) => {
                                             as="p"
                                             weight="400"
                                         >
-                                            {item.location}
+                                            {item.Remote_Job
+                                                ? item.Remote_Job
+                                                : `${item.City}, ${item.Country}`}
                                         </Header>
                                     </Flex>
                                     <Flex ai="center">

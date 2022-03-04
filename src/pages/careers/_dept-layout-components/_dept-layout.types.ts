@@ -40,4 +40,5 @@ export type DataProps = {
 
 export type FirstDataProps = {
     data: DataProps
+    new_position: object[]
 }

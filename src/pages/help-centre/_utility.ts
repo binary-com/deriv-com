@@ -1,12 +1,7 @@
 import { ArcticlesType } from './_help-articles'
 
-export const convertToHash = (category, label, qparam) => {
-    const categoryFormatter = category.replace(/\s/g, '-').toLowerCase()
-    if (qparam) {
-        return `/help-centre/${categoryFormatter}/?platform=${qparam}#${label}`
-    } else {
-        return `/help-centre/${categoryFormatter}/#${label}`
-    }
+export const convertToHash = (category: string, label: string): string => {
+    return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '/#' + label
 }
 
 export const getAllArticles = (articles: ArcticlesType[]) =>

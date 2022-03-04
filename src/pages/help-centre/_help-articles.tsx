@@ -1,6 +1,21 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-export const articles = [
+
+type ArticlesByCategoryType = {
+    title?: React.ReactElement
+    category?: string
+    sub_category?: React.ReactElement
+    label?: string
+    title_eu?: React.ReactElement
+    label_eu?: string
+}[]
+
+export type ArcticlesType = {
+    category: React.ReactElement
+    articles: ArticlesByCategoryType
+}
+
+export const articles: ArcticlesType[] = [
     {
         category: <Localize translate_text="Account" />,
         articles: [
@@ -180,7 +195,6 @@ export const articles = [
             },
         ],
     },
-
     {
         category: <Localize translate_text="DMT5" />,
         articles: [
@@ -321,7 +335,6 @@ export const articles = [
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'deriv-x-account-information',
             },
-            // TODO: uncomment this once deriv x real is ready
             {
                 title: (
                     <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />

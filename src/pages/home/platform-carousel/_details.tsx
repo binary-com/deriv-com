@@ -18,7 +18,19 @@ const image_query = graphql`
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
             ...fadeIn
         }
+        platforms_mt5_eu: file(relativePath: { eq: "home/platforms_mt5_eu.png" }) {
+            ...fadeIn
+        }
+        platforms_mt5_uk: file(relativePath: { eq: "home/platforms_mt5_uk.png" }) {
+            ...fadeIn
+        }
         platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
+            ...homePageHeroFadeIn
+        }
+        platforms_dtrader_eu: file(relativePath: { eq: "home/platforms_dtrader_eu.png" }) {
+            ...homePageHeroFadeIn
+        }
+        platforms_dtrader_uk: file(relativePath: { eq: "home/platforms_dtrader_uk.png" }) {
             ...homePageHeroFadeIn
         }
         platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {

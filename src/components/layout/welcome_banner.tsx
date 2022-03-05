@@ -92,7 +92,7 @@ export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
     // const [is_eu_domain, setEUDomain] = useState(null)
     const [country, setCountry] = useState(null)
 
-    const offset_height = cfd_warning_ref.current ? cfd_warning_ref.current?.base.offsetHeight : 104
+    const offset_height = cfd_warning_ref ? cfd_warning_ref?.current?.base.offsetHeight : 104
 
     // using useEffect to set the values to help prevent vercel build error
     useEffect(() => {

@@ -98,7 +98,7 @@ export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
         setWelcomeBannerDismissed(localStorage.getItem('is_welcome_banner_dismissed'))
         setCountry(localStorage.getItem('current_domain'))
 
-        if (cfd_warning_ref.current) {
+        if (cfd_warning_ref) {
             setOffsetHeight(cfd_warning_ref?.current?.base.offsetHeight)
         }
         // commented this part to find a work around for QA to test using the test link

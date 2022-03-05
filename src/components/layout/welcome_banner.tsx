@@ -91,13 +91,16 @@ export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
     // const [is_uk_domain, setUkDomain] = useState(null)
     // const [is_eu_domain, setEUDomain] = useState(null)
     const [country, setCountry] = useState(null)
-
-    const offset_height = cfd_warning_ref ? cfd_warning_ref?.current?.base.offsetHeight : 104
+    const [offset_height, setOffsetHeight] = useState(104)
 
     // using useEffect to set the values to help prevent vercel build error
     useEffect(() => {
         setWelcomeBannerDismissed(localStorage.getItem('is_welcome_banner_dismissed'))
         setCountry(localStorage.getItem('current_domain'))
+
+        if (cfd_warning_ref.current) {
+            setOffsetHeight(cfd_warning_ref?.current?.base.offsetHeight)
+        }
         // commented this part to find a work around for QA to test using the test link
         // setUkDomain(window.location.hostname.includes('uk'))
         // setEUDomain(window.location.hostname.includes('eu'))

@@ -25,7 +25,7 @@ const NavSticky = ({ is_ppc_redirect, is_ppc }: NavStickyProps) => {
     }, [])
 
     useEffect(() => {
-        window.addEventListener('scroll', backgroundHandler)
+        window.addEventListener('scroll', backgroundHandler, { passive: true })
         return () => window.removeEventListener('scroll', backgroundHandler)
     }, [])
 

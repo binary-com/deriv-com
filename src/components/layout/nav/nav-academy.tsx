@@ -22,7 +22,7 @@ const NavAcademy = () => {
     }, [is_mounted])
 
     useEffect(() => {
-        window.addEventListener('scroll', scrollHandler)
+        window.addEventListener('scroll', scrollHandler, { passive: true })
         return () => window.removeEventListener('scroll', scrollHandler)
     }, [prev_scroll_position, visible, scrollHandler])
 

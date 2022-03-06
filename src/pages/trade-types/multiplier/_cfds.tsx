@@ -76,7 +76,7 @@ const CFDs = () => {
                     )}
                 </Text>
                 <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms m_top="16px" dtrader />
+                    <AvailablePlatforms m_top="16px" dtrader dbot />
                 </AvailablePlatformsWrapper>
                 <StyledTitle>
                     {localize('Forex pairs available for multipliers trading')}

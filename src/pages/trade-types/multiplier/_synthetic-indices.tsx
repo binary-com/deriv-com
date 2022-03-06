@@ -154,7 +154,7 @@ const SyntheticIndices = () => {
                           )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms dtrader />
+                    <AvailablePlatforms dtrader dbot />
                 </AvailablePlatformsWrapper>
                 <Text weight="bold">
                     {localize('Synthetic indices available for multipliers trading')}

@@ -158,12 +158,9 @@ const Layout = ({
     const residence = client_information_cookie.get('residence')
 
     React.useEffect(() => {
-        const is_redirection_enabled = localStorage['is_redirection_enabled']
         const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
 
-        if (is_redirection_enabled) {
-            handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
-        }
+        handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
     }, [website_status])
 
     const onAccept = () => {

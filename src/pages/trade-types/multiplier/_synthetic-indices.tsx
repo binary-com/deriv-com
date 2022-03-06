@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-    CrashBoom,
+    CrashBoomMultipliers,
     ContinuousIndices,
     VolatilityIndices,
-} from '../../markets/instruments/_submarkets.js'
+    JumpIndices,
+    StepIndices,
+} from '../../markets/instruments/_index'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import {
+    CrashBoomMultipliersDetails,
+    CrashBoomDetailsEU,
+    StepIndicesDetails,
+    JumpIndicesDetails,
+} from 'pages/markets/static/content/_details'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -90,17 +98,6 @@ const AvailablePlatformsWrapper = styled(Flex)`
         padding-bottom: 16px;
     }
 `
-
-const CrashBoomDetails = () => (
-    <DetailsContainer>
-        <Text>
-            <Localize
-                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in  <0>a series of 300 ticks</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-    </DetailsContainer>
-)
 
 const VolatilityIndicesDetails = () => (
     <DetailsContainer>
@@ -206,11 +203,13 @@ const SyntheticIndices = () => {
                                     </Show.Mobile>
                                 </Col>
                                 <MarketsList>
-                                    <CrashBoom />
+                                    <CrashBoomMultipliers />
                                 </MarketsList>
                             </Flex>
                         )}
-                        renderDetails={CrashBoomDetails}
+                        renderDetails={
+                            is_eu_country ? CrashBoomDetailsEU : CrashBoomMultipliersDetails
+                        }
                     />
                 </MarketsWrapper>
                 {!is_eu_country && (
@@ -229,6 +228,44 @@ const SyntheticIndices = () => {
                                 </Flex>
                             )}
                             renderDetails={ContinuousIndicesDetails}
+                        />
+                    </MarketsWrapper>
+                )}
+                {!is_eu_country && (
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col>
+                                        <Title weight="bold" align="center">
+                                            {localize('Jump indices')}
+                                        </Title>
+                                    </Col>
+                                    <MarketsList>
+                                        <JumpIndices />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={JumpIndicesDetails}
+                        />
+                    </MarketsWrapper>
+                )}
+                {!is_eu_country && (
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col>
+                                        <Title weight="bold" align="center">
+                                            {localize('Step indices')}
+                                        </Title>
+                                    </Col>
+                                    <MarketsList>
+                                        <StepIndices />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={StepIndicesDetails}
                         />
                     </MarketsWrapper>
                 )}

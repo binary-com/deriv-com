@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
@@ -343,6 +344,7 @@ export const calculateReadTime = (text) => {
 export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
 
 export const slugify = (text) =>
+    text &&
     text
         .toString()
         .normalize('NFD') // The normalize() method returns the Unicode Normalization Form of a given string.
@@ -360,12 +362,67 @@ export const unslugify = (slug) => {
         })
     }
 }
+export const removeSpecialCharacterUrl = (url) =>
+    url &&
+    slugify(url)
+        .replace(/\?+/g, '') // Replace question mark with empty value
+        .replace(/[/]/g, '-') //Replace '/' with single -
 
+export const queryParams = {
+    get: (key) => {
+        const params = new URLSearchParams(location.search)
+        let param_values = {}
+        //To get the params from the url
+
+        if (typeof key === 'string') {
+            return params.get(key)
+        } else {
+            key.forEach((k) => {
+                param_values[key] = params.get(k)
+            })
+        }
+        return param_values
+    },
+    set: (objects) => {
+        // To set the params from the url
+        const url = new URL(location)
+
+        Object.keys(objects).forEach((k) => {
+            const value = objects[k]
+            url.searchParams.set(k, value)
+        })
+
+        return window.history.replaceState(null, null, url)
+    },
+    delete: (key) => {
+        //To delete the params from the url
+        const url = new URL(location)
+        if (typeof key === 'string') {
+            url.searchParams.delete(key)
+        } else {
+            key.forEach((k) => {
+                url.searchParams.delete(k)
+            })
+        }
+
+        return history.replaceState(null, null, url)
+    },
+}
 export const getBaseRef = (ref) => {
     // this is intended to solve a problem of preact that
     // in some cases element api's are in the ref.current.base and
     // in other cases they are in ref.current
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
+}
+
+export const useCallbackRef = (callback) => {
+    const callback_ref = useRef()
+
+    useEffect(() => {
+        callback_ref.current = callback
+    }, [callback])
+
+    return callback_ref
 }
 
 const uk_subdomain_countries = ['gb']

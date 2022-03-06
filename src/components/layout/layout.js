@@ -79,9 +79,8 @@ const CFDContainer = styled(Container)`
 `
 
 const CFDText = styled(Text)`
-    @media ${device.bp1060} {
-        font-size: 14px;
-    }
+    font-size: 14px;
+
     @media ${device.tablet} {
         font-size: 12px;
     }

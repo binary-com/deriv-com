@@ -47,8 +47,8 @@ export const useWebsiteStatus = () => {
                         setWebsiteStatus({ clients_country, crypto_config })
                     }
                 }
-                setLoading(false)
                 binary_socket.close()
+                setLoading(false)
             }
         }
     }, [website_status])

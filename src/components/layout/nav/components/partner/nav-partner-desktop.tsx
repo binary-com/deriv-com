@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import {
     NavRight,
@@ -99,12 +99,37 @@ const StyledNavRight = styled(NavRight)<any>`
     }
 `
 
+type NavLinkCardTypes = {
+    to: string
+    title: ReactElement
+    active?: string
+    type?: string
+    target?: string
+    external?: string
+    rel?: string
+}
+
+const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
+    const current_page = useActiveLinkState('partners')
+    return (
+        <NavLink>
+            <StyledLink
+                active={current_page === active}
+                activeClassName="active"
+                aria-label={title}
+                {...rest}
+            >
+                {title}
+            </StyledLink>
+        </NavLink>
+    )
+}
+
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    const current_page = useActiveLinkState('partners')
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -123,54 +148,32 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
         <DesktopWrapper>
             <StyledWrapper hide_login_signup={hide_login_signup}>
                 <LeftSide>
-                    <StyledLogoLink to="/" aria-label="Partners">
+                    <StyledLogoLink to="/partners/" aria-label="Partners">
                         <img src={LogoPartner} alt="deriv logo" />
                     </StyledLogoLink>
                 </LeftSide>
 
                 <NavigationBar>
-                    <NavLink>
-                        <StyledLink
-                            active={current_page === 'affiliate'}
-                            activeClassName="active"
-                            to="/partners/affiliate-ib/"
-                            aria-label={localize('Affiliates and IBs')}
-                        >
-                            {localize('Affiliates and IBs')}
-                        </StyledLink>
-                    </NavLink>
-
-                    <NavLink>
-                        <StyledLink
-                            active={current_page === 'payment'}
-                            activeClassName="active"
-                            to="/partners/payment-agent/"
-                            aria-label={localize('Payment agents')}
-                        >
-                            {localize('Payment agents')}
-                        </StyledLink>
-                    </NavLink>
-
-                    <NavLink>
-                        <StyledLink
-                            active={current_page === 'api'}
-                            activeClassName="active"
-                            to=""
-                            type="api"
-                            target="_blank"
-                            external="true"
-                            rel="noopener noreferrer"
-                            aria-label={localize('API')}
-                        >
-                            {localize('API')}
-                        </StyledLink>
-                    </NavLink>
-
-                    <NavLink>
-                        <StyledLink to="/bug-bounty/" aria-label="Bug bounty">
-                            {localize('Bug bounty')}
-                        </StyledLink>
-                    </NavLink>
+                    <NavLinkCard
+                        active="affiliate"
+                        to="/partners/affiliate-ib/"
+                        title={localize('Affiliates and IBs')}
+                    />
+                    <NavLinkCard
+                        active="payment"
+                        to="/partners/payment-agent/"
+                        title={localize('Payment agents')}
+                    />
+                    <NavLinkCard
+                        active="api"
+                        to=""
+                        title={localize('API')}
+                        type="api"
+                        target="_blank"
+                        external="true"
+                        rel="noopener noreferrer"
+                    />
+                    <NavLinkCard to="/bug-bounty/" title={localize('Bug bounty')} />
                 </NavigationBar>
 
                 {!hide_login_signup && (

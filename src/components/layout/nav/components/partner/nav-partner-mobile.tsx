@@ -55,7 +55,7 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                     />
                 )}
 
-                <LogoLink to="/" aria-label="Home">
+                <LogoLink to="/partners/" aria-label="Home">
                     <Logo src={LogoOnly} alt="deriv logo" />
                 </LogoLink>
 

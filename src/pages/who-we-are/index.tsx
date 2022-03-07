@@ -8,7 +8,7 @@ import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-
+import { WelcomeBanner } from 'components/layout'
 const OurValues = Loadable(() => import('./_OurValues'))
 const OurPrinciples = Loadable(() => import('./_OurPrinciples'))
 const OurLeadership = Loadable(() => import('./_OurLeadership'))
@@ -56,6 +56,7 @@ const AboutUs = () => {
             <ImageMarquee />
             <OurOffices />
             <AboutUsBanner />
+            <WelcomeBanner />
         </Layout>
     )
 }

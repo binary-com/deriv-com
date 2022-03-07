@@ -64,7 +64,7 @@ const settings = {
             bottom: 292px;
         }
         @media (max-width: 375px) {
-            bottom: 320px;
+            bottom: 304px;
         }
         @media (max-width: 317px) {
             bottom: 362px;
@@ -129,49 +129,54 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
 const MobilePlatformCarousel = () => {
     const { is_row } = getCountryRule()
     const images = useStaticQuery(image_query)
+    const platforms = is_row ? platform_details_cr : platform_details_eu_uk
 
     return (
         <Carousel {...settings}>
-            {(is_row ? platform_details_cr : platform_details_eu_uk).map((platform, index) => {
-                const image_key = Object.keys(images)[index]
-
-                return (
-                    <CarouselItemWrapper key={index}>
-                        <Flex tabletL={{ mb: '56px' }}>
-                            <MobileImage data={images[image_key]} alt={image_key} height={'55vw'} />
-                        </Flex>
-                        <Flex>
-                            <PlatformDetails
-                                title={platform.title}
-                                icon={platform.icon}
-                                description={platform.description}
-                                learn_more_link={platform.learn_more_link}
-                            />
-                        </Flex>
-                        <Flex
-                            ai="flex-start"
-                            jc="center"
-                            fw="wrap"
-                            width="unset"
-                            tabletL={{ m: '3.2rem 3.8rem' }}
-                            mobileL={{ m: '32px 0 40px' }}
-                        >
-                            {platform.download_links.map((link, idx) => (
-                                <DownloadLink
-                                    key={idx}
-                                    external="true"
-                                    type={link?.link_type}
-                                    to={link?.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img src={getOSIcon(link.type)} alt={link.type} />
-                                </DownloadLink>
-                            ))}
-                        </Flex>
-                    </CarouselItemWrapper>
-                )
-            })}
+            {platforms.map(
+                ({ title, icon, image_key, description, learn_more_link, download_links }) => {
+                    return (
+                        <CarouselItemWrapper key={image_key}>
+                            <Flex tabletL={{ mb: '56px' }}>
+                                <MobileImage
+                                    data={images[image_key]}
+                                    alt={image_key}
+                                    height={'55vw'}
+                                />
+                            </Flex>
+                            <Flex>
+                                <PlatformDetails
+                                    title={title}
+                                    icon={icon}
+                                    description={description}
+                                    learn_more_link={learn_more_link}
+                                />
+                            </Flex>
+                            <Flex
+                                ai="flex-start"
+                                jc="center"
+                                fw="wrap"
+                                width="unset"
+                                tabletL={{ m: '3.2rem 3.8rem' }}
+                                mobileL={{ m: '32px 0 40px' }}
+                            >
+                                {download_links.map((link, id) => (
+                                    <DownloadLink
+                                        key={id}
+                                        external="true"
+                                        type={link?.link_type}
+                                        to={link?.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img src={getOSIcon(link.type)} alt={link.type} />
+                                    </DownloadLink>
+                                ))}
+                            </Flex>
+                        </CarouselItemWrapper>
+                    )
+                },
+            )}
         </Carousel>
     )
 }

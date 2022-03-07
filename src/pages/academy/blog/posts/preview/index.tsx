@@ -261,7 +261,7 @@ const BlogPreview = () => {
                                                 )
                                             })}
                                         </Flex>
-                                        {side_banner_data_details && (
+                                        {side_banner_data_details?.imgSrcDesktop && (
                                             <Banner detailsPreviewObj={side_banner_data_details} />
                                         )}
                                         <DesktopWrapper>
@@ -280,7 +280,7 @@ const BlogPreview = () => {
                                         }}
                                     />
 
-                                    {footer_banner_details && (
+                                    {footer_banner_details?.imgSrcDesktop && (
                                         <Banner detailsPreviewObj={footer_banner_details} />
                                     )}
                                     <SocialComponentsWrapper>

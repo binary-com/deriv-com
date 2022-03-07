@@ -13,7 +13,7 @@ const Home = () => {
     useOpenLiveChat()
 
     return (
-        <Layout is_nav_transparent margin_top="0">
+        <Layout is_nav_transparent type="sticky" margin_top="0">
             <SEO
                 title={localize(
                     'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',

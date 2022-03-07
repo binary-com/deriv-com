@@ -34,25 +34,31 @@ const LanguageWrapper = styled(Container)<MainNavProps>`
 `
 
 const MainNav = ({ is_security }: MainNavProps) => {
+    const links = [
+        {
+            id: 1,
+            to: '/',
+            title: is_security ? localize('Go to Deriv.com') : localize('Deriv website'),
+        },
+        {
+            id: 2,
+            to: '/who-we-are/',
+            title: is_security ? localize('About us') : localize('Who we are'),
+        },
+        { id: 3, to: '/contact_us/', title: localize('Contact us') },
+    ]
+
     return (
         <Wrapper>
             <StyledContainer justify="space-between">
                 <Navigation justify="flex-start">
-                    <Link to="/">
-                        <Header weight="normal" color="grey-19" type="paragraph-2">
-                            {is_security ? localize('Go to Deriv.com') : localize('Deriv website')}
-                        </Header>
-                    </Link>
-                    <Link to="/who-we-are/">
-                        <Header weight="normal" color="grey-19" type="paragraph-2">
-                            {is_security ? localize('About us') : localize('Who we are')}
-                        </Header>
-                    </Link>
-                    <Link to="/contact_us/">
-                        <Header weight="normal" color="grey-19" type="paragraph-2">
-                            {localize('Contact us')}
-                        </Header>
-                    </Link>
+                    {links.map((item) => (
+                        <Link key={item.id} to={item.to}>
+                            <Header weight="normal" color="grey-19" type="paragraph-2">
+                                {item.title}
+                            </Header>
+                        </Link>
+                    ))}
                 </Navigation>
 
                 <Desktop is_security={is_security}>

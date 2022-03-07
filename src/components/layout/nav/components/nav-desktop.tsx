@@ -57,6 +57,13 @@ const Tab = styled.span<TabProps>`
     }
 `
 
+const links = [
+    { id: 1, active: 'trade', title: localize('Trade') },
+    { id: 2, active: 'markets', title: localize('Markets') },
+    { id: 3, active: 'about', title: localize('About us') },
+    { id: 4, active: 'resources', title: localize('Resources') },
+]
+
 const NavDesktop = ({
     base,
     is_ppc,
@@ -107,29 +114,16 @@ const NavDesktop = ({
                 />
 
                 <NavigationBar ref={navigation_bar_ref}>
-                    <NavLink onClick={(e) => handleTabClick('trade', e.target)}>
-                        <Tab aria-label="Trade" active={checkActive('trade')}>
-                            {localize('Trade')}
-                        </Tab>
-                    </NavLink>
-
-                    <NavLink onClick={(e) => handleTabClick('markets', e.target)}>
-                        <Tab aria-label="Markets" active={checkActive('markets')}>
-                            {localize('Markets')}
-                        </Tab>
-                    </NavLink>
-
-                    <NavLink onClick={(e) => handleTabClick('about', e.target)}>
-                        <Tab aria-label="About us" active={checkActive('about')}>
-                            {localize('About us')}
-                        </Tab>
-                    </NavLink>
-
-                    <NavLink onClick={(e) => handleTabClick('resources', e.target)}>
-                        <Tab aria-label="Resources" active={checkActive('resources')}>
-                            {localize('Resources')}
-                        </Tab>
-                    </NavLink>
+                    {links.map((item) => (
+                        <NavLink
+                            key={item.id}
+                            onClick={(e) => handleTabClick(item.active, e.target)}
+                        >
+                            <Tab aria-label={item.title} active={checkActive(item.active)}>
+                                {item.title}
+                            </Tab>
+                        </NavLink>
+                    ))}
                 </NavigationBar>
 
                 <RightSection

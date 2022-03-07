@@ -10,6 +10,7 @@ import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url } from 'common/constants'
+import { localize } from 'components/localization'
 
 type NavCareersProps = {
     is_besquare?: boolean
@@ -78,6 +79,24 @@ const query = graphql`
     }
 `
 
+const links = [
+    { id: 1, active: 'home', title: localize('HOME'), aria_label: 'Careers', to: '/careers/' },
+    {
+        id: 2,
+        active: 'locations',
+        title: localize('LOCATIONS'),
+        aria_label: 'Locations',
+        to: '/careers/locations/',
+    },
+    {
+        id: 3,
+        active: 'besquare',
+        title: localize('BESQUARE'),
+        aria_label: 'BeSquare',
+        to: '/careers/besquare/',
+    },
+]
+
 const NavCareers = ({ is_besquare }: NavCareersProps) => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
@@ -98,33 +117,18 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                             />
                         </StyledLogoLink>
 
-                        <NavLink
-                            active={current_page === 'home'}
-                            activeClassName="active"
-                            to="/careers/"
-                            aria-label="Careers"
-                            partiallyActive
-                        >
-                            HOME
-                        </NavLink>
-                        <NavLink
-                            active={current_page === 'locations'}
-                            activeClassName="active"
-                            to="/careers/locations/"
-                            aria-label="Locations"
-                            partiallyActive
-                        >
-                            LOCATIONS
-                        </NavLink>
-                        <NavLink
-                            active={current_page === 'besquare'}
-                            activeClassName="active"
-                            to="/careers/besquare/"
-                            aria-label="BeSquare"
-                            partiallyActive
-                        >
-                            BESQUARE
-                        </NavLink>
+                        {links.map((item) => (
+                            <NavLink
+                                key={item.id}
+                                active={current_page === item.active}
+                                activeClassName="active"
+                                to={item.to}
+                                partiallyActive
+                                aria-label={item.aria_label}
+                            >
+                                {item.title}
+                            </NavLink>
+                        ))}
                     </LeftSection>
 
                     <RightSection jc="flex-end" ai="center">

@@ -225,7 +225,7 @@ const Layout = ({
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} type={type} />
             break
-        case 'about-us':
+        case 'sticky':
             Navigation = <NavSticky is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break

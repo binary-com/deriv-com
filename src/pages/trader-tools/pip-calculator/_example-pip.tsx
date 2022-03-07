@@ -107,7 +107,7 @@ export const PipSyntheticExample = () => {
                                 <PointerStickMobile />
                                 <PointerTextMobile top ml="-6px">
                                     <Localize
-                                        translate_text="Point value <0>1</0>"
+                                        translate_text="Point value<0>1</0>"
                                         components={[<Sup key={0} />]}
                                     />
                                 </PointerTextMobile>
@@ -257,7 +257,7 @@ export const PipForexExample = () => {
                                 <PointerStickMobile />
                                 <PointerTextMobile top ml="-6px">
                                     <Localize
-                                        translate_text="Point value <0>1</0>"
+                                        translate_text="Point value<0>1</0>"
                                         components={[<Sup key={0} />]}
                                     />
                                 </PointerTextMobile>

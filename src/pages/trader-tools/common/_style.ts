@@ -525,9 +525,8 @@ export const FormulaHighlight = styled(Flex)`
 `
 
 export const FormulaHighlightMobile = styled(Flex)`
-    margin-top: 54px;
-    margin-bottom: 53px;
-    width: 328px;
+    margin-top: ${(props) => (props.mt ? props.mt : '54px')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '53px')};
     height: ${(props) => (props.height ? props.height : '53px')};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
@@ -536,6 +535,13 @@ export const FormulaHighlightMobile = styled(Flex)`
     font-size: 14px;
     font-weight: 600;
     flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
+
+    @media ${device.tablet} {
+        width: 328px;
+    }
+    @media ${device.mobileM} {
+        width: 280px;
+    }
 `
 
 export const FormulaValue = styled.div<FormulaValueTYpe>`
@@ -557,6 +563,10 @@ export const FormulaValueMobile = styled.div`
     min-width: 20px;
     text-align: center;
     margin-bottom: ${(props: FormulaValueTYpe) => (props.mb ? props.mb : '10px')};
+
+    @media ${device.mobileM} {
+        min-width: 16px;
+    }
 `
 
 export const FormulaGreen = styled.span`
@@ -584,7 +594,7 @@ export const PointerContainerMobile = styled.div<PointerContainerType>`
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     align-items: center;
-    max-width: 20px;
+    max-width: 22px;
     white-space: normal;
 `
 

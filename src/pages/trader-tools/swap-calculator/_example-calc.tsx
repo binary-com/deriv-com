@@ -150,7 +150,7 @@ export const SwapSyntheticExample = () => {
                                 <Localize translate_text="1" />
                                 <PointerContainerMobile top>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="22px" />
+                                    <PointerStickMobile height="15px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Contract size <0>1</0>"
@@ -183,7 +183,7 @@ export const SwapSyntheticExample = () => {
                                 <Localize translate_text="( -7.5 " />
                                 <PointerContainerMobile top ml="4px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="22px" />
+                                    <PointerStickMobile height="15px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Swap rate <0>2</0>"
@@ -351,7 +351,7 @@ export const SwapFinancialExample = () => {
                                 <Localize translate_text="100, 000" />
                                 <PointerContainerMobile top>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="22px" />
+                                    <PointerStickMobile height="15px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Contract size <0>1</0>"
@@ -387,7 +387,7 @@ export const SwapFinancialExample = () => {
                                 <Localize translate_text="-0.12 " />
                                 <PointerContainerMobile top ml="4px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="22px" />
+                                    <PointerStickMobile height="15px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Swap rate <0>3</0>"

@@ -6,10 +6,10 @@ import HeroImage from 'images/common/be-square/hero.png'
 import device from 'themes/device'
 
 export const StyledHeaderContainer = styled(HeaderContainer)`
-    padding: 120px 0 80px 120;
+    padding: 120px 0 80px 120px;
 
-    @media ${device.laptopL} {
-        padding: 40px 0 0;
+    @media ${device.desktop} {
+        padding: 40px 0 0 0;
     }
 
     @media ${device.laptop} {
@@ -18,7 +18,12 @@ export const StyledHeaderContainer = styled(HeaderContainer)`
 `
 
 const StyledImageWrapper = styled(ImageWrapper)`
-    right: 120px;
+    right: 150px;
+
+    @media ${device.desktop} {
+        right: 40px;
+    }
+
     @media ${device.laptopL} {
         right: 30px;
     }

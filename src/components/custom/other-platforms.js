@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer, EU, ROW } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, UKEU, ROW } from 'components/containers'
 import {
     Text,
     Card,
@@ -208,9 +208,9 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => {
     const getHeaderText = () => (
         <>
-            <EU>
+            <UKEU>
                 <Localize translate_text="Check out our other platform" />
-            </EU>
+            </UKEU>
             <ROW>
                 <Localize translate_text="Check out our other platforms" />
             </ROW>

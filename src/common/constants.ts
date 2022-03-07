@@ -101,6 +101,7 @@ export const localized_link_url = Object.freeze({
     affiliate_sign_in: affiliate_signin_url,
     affiliate_sign_up: affiliate_signup_url,
     binary: binary_url,
+    binary_bot: binary_bot_url,
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,

@@ -42,11 +42,14 @@ jobs:
                   echo "Running the translation script (extract-translations.js)"
                   npm run translate:extract
 
-                  echo "Downloading new strings to Crowdin"
+                  echo "Uploading source file to Crowdin"
+                  crowdin upload sources -b crowdin -T ${{ secrets.CROWDIN_API_KEY }}
+
+                  echo "Downloading translations from Crowdin"
                   crowdin download -b crowdin -T ${{ secrets.CROWDIN_API_KEY }}
                   crowdin download -b crowdin -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
 
-                  echo "Commiting changes to deriv-com-translations branch"
+                  echo "Committing changes to deriv-com-translations branch"
                   git add -A
                   git commit -am "Update Translations 📚 - $GIT_TAG_NAME"
                   git push origin HEAD:deriv-com-translations --force

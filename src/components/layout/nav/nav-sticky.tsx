@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import useAuth from '../../hooks/use-auth'
 import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './components/nav-mobile'
-import useAuth from './util/useAuth'
 
 type NavStickyProps = {
     is_ppc: boolean

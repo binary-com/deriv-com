@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import useAuth from '../../hooks/use-auth'
 import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './components/nav-mobile'
-import useAuth from './util/useAuth'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const NavAcademy = () => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -16,7 +16,7 @@ import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
-import { CFDWarning } from 'components/layout'
+import { CFDWarning, WelcomeBanner } from 'components/layout'
 import { besquare_signup_url } from 'common/constants'
 
 const query = graphql`
@@ -76,6 +76,7 @@ export const NavCareers = ({ is_besquare }) => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
+    const cfd_warning_ref = useRef()
     const button_component = is_besquare ? (
         <CareerButton
             external="true"
@@ -150,7 +151,8 @@ export const NavCareers = ({ is_besquare }) => {
                     </Wrapper>
                 </StyledNav>
             </NavWrapper>
-            <CFDWarning />
+            <CFDWarning ref={cfd_warning_ref} />
+            <WelcomeBanner cfd_warning_ref={cfd_warning_ref} />
         </>
     )
 }

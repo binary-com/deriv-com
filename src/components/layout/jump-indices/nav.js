@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
-import { CFDWarning } from 'components/layout'
+import { CFDWarning, WelcomeBanner } from 'components/layout'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex, SectionContainer } from 'components/containers'
@@ -78,6 +78,7 @@ const query = graphql`
 `
 const JumpIndiceNav = ({ is_ppc }) => {
     const data = useStaticQuery(query)
+    const cfd_warning_ref = useRef()
     return (
         <>
             <Section>
@@ -97,7 +98,8 @@ const JumpIndiceNav = ({ is_ppc }) => {
                     </LogoWrapper>
                 </ContentContainer>
             </Section>
-            <CFDWarning is_ppc={is_ppc} />
+            <CFDWarning ref={cfd_warning_ref} is_ppc={is_ppc} />
+            <WelcomeBanner cfd_warning_ref={cfd_warning_ref} />
         </>
     )
 }

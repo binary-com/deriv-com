@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { NavWrapperMain, StyledNavMain, NavDesktop, NavMobile } from '../nav'
 import SearchBanner from '../../../pages/academy/components/_search-banner'
 import { Desktop, Mobile } from 'components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { CFDWarning } from 'components/layout'
+import { CFDWarning, WelcomeBanner } from 'components/layout'
 import { isLoggedIn } from 'common/utility'
 
 type NavAcademyProps = {
@@ -57,6 +57,8 @@ const NavAcademy = ({
         return () => window.removeEventListener('scroll', handleScroll)
     }, [prevScrollPos, visible, handleScroll])
 
+    const cfd_warning_ref = useRef()
+
     return (
         <>
             <MainWrapper background={visible}>
@@ -82,7 +84,8 @@ const NavAcademy = ({
                 </StyledNavMain>
             </MainWrapper>
             {is_mounted && <SearchBanner hidden={visible} />}
-            <CFDWarning />
+            <CFDWarning ref={cfd_warning_ref} />
+            <WelcomeBanner cfd_warning_ref={cfd_warning_ref} />
         </>
     )
 }

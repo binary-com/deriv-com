@@ -318,7 +318,7 @@ const TradeTypes = (): React.ReactNode => {
                 tablet={{ mb: '16px' }}
             >
                 <Localize
-                    translate_text="Trade the way you want with {{trade_no}} flexible trade types"
+                    translate_text="Trade the way you want with {{trade_no}} flexible trade types."
                     values={{ trade_no: is_row ? '3' : '2' }}
                 />
             </Header>

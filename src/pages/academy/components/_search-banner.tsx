@@ -64,7 +64,7 @@ const NavWrapper = styled.div`
     height: 7.2rem;
 
     @media ${device.desktopL} {
-        max-width: 1600px;
+        max-width: 1200px;
     }
     @media ${device.tabletL} {
         width: calc(100% - 32px);

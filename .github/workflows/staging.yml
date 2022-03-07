@@ -7,6 +7,10 @@ on:
         paths-ignore:
             - '**.md'
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: staging

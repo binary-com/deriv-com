@@ -4,12 +4,12 @@ import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
 import NavMobile from './components/nav-mobile'
 
-type NavStickyProps = {
+type NavTransparentProps = {
     is_ppc: boolean
     is_ppc_redirect: boolean
 }
 
-const NavSticky = ({ is_ppc_redirect, is_ppc }: NavStickyProps) => {
+const NavTransparent = ({ is_ppc_redirect, is_ppc }: NavTransparentProps) => {
     const [is_logged_in] = useAuth()
     const [prev_scroll_position, setPrevScrollPosition] = useState(0)
     const [visible, setVisible] = useState(true)
@@ -45,4 +45,4 @@ const NavSticky = ({ is_ppc_redirect, is_ppc }: NavStickyProps) => {
     )
 }
 
-export default NavSticky
+export default NavTransparent

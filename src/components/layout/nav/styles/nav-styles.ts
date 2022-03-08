@@ -189,15 +189,4 @@ export const PartnerWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
-
-    .fresnel-between-start-tabletL {
-        display: none;
-    }
-    @media ${device.tabletL} {
-        .fresnel-between-start-tabletL {
-            display: flex;
-            width: 100%;
-            align-items: center;
-        }
-    }
 `

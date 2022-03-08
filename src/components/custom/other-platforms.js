@@ -1,7 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer, EU, NonEU, ROW } from 'components/containers'
+import {
+    SectionContainer,
+    Flex,
+    FlexGridContainer,
+    EU,
+    NonEU,
+    ROW,
+    UK,
+} from 'components/containers'
 import {
     Text,
     Card,
@@ -269,6 +277,18 @@ OtherPlatform.propTypes = {
 }
 
 export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
+    const getDtraderText = () => (
+        <NavCard
+            aria_label="Dtrader"
+            icon={() => <img src={DTrader} alt="" width="32" height="32" />}
+            content={
+                <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+            }
+            title={<Localize translate_text="DTrader" />}
+            onClick={onClick}
+            to="/dtrader/"
+        />
+    )
     return (
         <Flex>
             {!is_ppc && (
@@ -351,21 +371,15 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         />
                     </>
                 </ROW>
+                <EU>{getDtraderText()}</EU>
+                <UK>{getDtraderText()}</UK>
             </Flex>
-            <Flex direction="column" wrap="wrap" jc="flex-start">
-                <EmptySpace />
-                <NavCard
-                    aria_label="Dtrader"
-                    icon={() => <img src={DTrader} alt="" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-                    }
-                    title={<Localize translate_text="DTrader" />}
-                    onClick={onClick}
-                    to="/dtrader/"
-                />
-                <ROW>
-                    <>
+            <ROW>
+                <>
+                    <Flex direction="column" wrap="wrap" jc="flex-start">
+                        <EmptySpace />
+
+                        {getDtraderText()}
                         <NavCard
                             aria_label="Deriv GO"
                             icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
@@ -399,9 +413,9 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
-                    </>
-                </ROW>
-            </Flex>
+                    </Flex>
+                </>
+            </ROW>
         </Flex>
     )
 }

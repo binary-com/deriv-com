@@ -11,7 +11,7 @@ const FirstSectionContainer = styled(SectionContainer)`
     flex-direction: column;
     align-items: center;
     padding: 120px 16px 24px;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         padding: 40px 16px;
     }
 `
@@ -38,8 +38,8 @@ const StyledFirstSectionText = styled(Header)`
 const MakeTrading = () => {
     return (
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
-            {first_section_texts.map((item, index) => (
-                <StyledFirstSectionText as="p" type="unset" key={index} size="24px">
+            {first_section_texts.map((item) => (
+                <StyledFirstSectionText as="p" type="unset" key={item.id} size="24px">
                     {item.text}
                 </StyledFirstSectionText>
             ))}

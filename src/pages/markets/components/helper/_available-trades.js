@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { SectionContainer, Flex, Container } from 'components/containers'
+import { SectionContainer, Flex, Container, NonEU } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
@@ -215,14 +215,17 @@ class AvailableTrades extends React.Component {
                                 active_tab={this.state.active_tab}
                             />
                         )}
-                        {DigitalOptions && (
-                            <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => this.handleTabChange('Options')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
+                        <NonEU>
+                            {DigitalOptions && (
+                                <Card
+                                    name="Options"
+                                    display_name={<Localize translate_text="Options" />}
+                                    onTabChange={() => this.handleTabChange('Options')}
+                                    active_tab={this.state.active_tab}
+                                />
+                            )}
+                        </NonEU>
+
                         {Multipliers && (
                             <Card
                                 name="Multipliers"

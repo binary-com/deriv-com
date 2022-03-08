@@ -1,88 +1,137 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
+import { url } from './utility'
+import { Desktop, Mobile, Container } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
-import { Header } from 'components/elements/typography'
-import device from 'themes/device'
 import FacebookIcon from 'images/svg/blog/facebook.svg'
 import PinterestIcon from 'images/svg/blog/pinterest.svg'
 import TwitterIcon from 'images/svg/blog/twitter.svg'
 import LinkedInIcon from 'images/svg/layout/footer-linkedin.svg'
+import ShareIcon from 'images/svg/academy/share.svg'
 
-const IconWrapper = styled.div`
-    width: 120px;
-`
+const SharingButton = styled.button`
+    width: 32px;
+    height: 32px;
+    background: ${(props) => (props.is_open ? 'var(--color-grey-8)' : 'rgb(255, 255, 255, 0.0)')};
+    background-image: url(${ShareIcon});
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    border: 0 solid rgba(236, 241, 247, 0.5);
+    border-radius: 4px;
 
-const HeaderWrapper = styled.span`
-    margin-right: 16px;
-
-    @media ${device.tablet} {
-        margin: 0 auto 8px;
+    img {
+        width: 24px;
+        height: 24px;
+        margin: 12px 8px 4px 8px;
     }
 `
 
-const StyledFlex = styled(Flex)`
-    @media ${device.tablet} {
-        width: 120px;
-        margin-left: auto;
+const DropDownSharingButtons = styled.div`
+    width: 40px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-white);
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+    position: absolute;
+    right: 12px;
+    top: 60px;
+
+    &::after {
+        border: 5px solid transparent;
+        border-bottom: 14px solid white;
+        content: '';
+        position: absolute;
+        right: 13px;
+        top: -12px;
+        z-index: 2;
+    }
+`
+
+export const SocialWrapper = styled(Container)`
+    justify-content: flex-end;
+
+    img {
+        margin-right: 16px;
+        width: 24px;
+        height: 24px;
     }
 `
 
 const SocialSharing = () => {
-    const url = typeof window !== 'undefined' ? window.location.href : ''
+    const [is_open, setIsOpen] = useState(false)
+    const hideBurger = () => setIsOpen(false)
+    const toggleBurger = () => setIsOpen(!is_open)
+
+    const social_media = [
+        {
+            link: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+            image: FacebookIcon,
+        },
+        {
+            link: `http://www.linkedin.com/shareArticle?mini=true&url=${url}`,
+            image: LinkedInIcon,
+        },
+        {
+            link: `https://www.twitter.com/share?url=${url}`,
+            image: TwitterIcon,
+        },
+        {
+            link: `https://pinterest.com/pin/create/button/?url=${url}&media=&description=`,
+            image: PinterestIcon,
+        },
+    ]
+
     return (
         url && (
-            <Flex>
-                <StyledFlex
-                    jc="flex-end"
-                    ai="center"
-                    tablet_direction="column"
-                    tablet_jc="flex-end"
-                    tablet_ai="flex-end"
-                >
-                    <HeaderWrapper>
-                        <Header type="paragraph-2" weight="normal">
-                            Share this post
-                        </Header>
-                    </HeaderWrapper>
-                    <IconWrapper>
-                        <Flex jc="space-between">
-                            <LocalizedLink
-                                external
-                                to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={FacebookIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={`http://www.linkedin.com/shareArticle?mini=true&url=${url}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={LinkedInIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={`https://www.twitter.com/share?url=${url}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={TwitterIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                            <LocalizedLink
-                                external
-                                to={`https://pinterest.com/pin/create/button/?url=${url}&media=&description=`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={PinterestIcon} width="24px" height="24px" />
-                            </LocalizedLink>
-                        </Flex>
-                    </IconWrapper>
-                </StyledFlex>
-            </Flex>
+            <SocialWrapper>
+                <Desktop>
+                    {social_media.map((account, index) => (
+                        <LocalizedLink
+                            key={index}
+                            external="true"
+                            to={account.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                src={account.image}
+                                alt={account.image_alt}
+                                width="41"
+                                height="41"
+                            />
+                        </LocalizedLink>
+                    ))}
+                </Desktop>
+                <Mobile>
+                    <SharingButton
+                        onClick={toggleBurger}
+                        autoFocus={true}
+                        onMouseLeave={hideBurger}
+                        is_open={is_open}
+                    >
+                        {is_open && (
+                            <DropDownSharingButtons>
+                                {social_media.map((account, index) => (
+                                    <LocalizedLink
+                                        key={index}
+                                        external="true"
+                                        to={account.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img
+                                            src={account.image}
+                                            alt={account.image_alt}
+                                            width="41"
+                                            height="41"
+                                        />
+                                    </LocalizedLink>
+                                ))}
+                            </DropDownSharingButtons>
+                        )}
+                    </SharingButton>
+                </Mobile>
+            </SocialWrapper>
         )
     )
 }

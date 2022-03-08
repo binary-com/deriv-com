@@ -32,6 +32,12 @@ export const EmblaSlideInner = styled.div`
     padding-left: 0;
     margin: 0 auto;
     height: 100%;
+    ${(props) => {
+        if (props.width)
+            return css`
+                width: ${props.width};
+            `
+    }}
 `
 
 export const StyledButtonWrapper = styled.div`
@@ -121,10 +127,16 @@ export const StyledChevron = styled(Chevron)`
 `
 
 export const NavigationContainer = styled(Flex)`
-    position: relative;
-    width: 100%;
-    height: 8px;
-    bottom: ${(props) => props.bottom_offset ?? '40px'};
+    ${({ navigation_css, bottom_offset, height }) => {
+        if (navigation_css) return navigation_css
+        else
+            return css`
+                position: relative;
+                width: 100%;
+                height: ${height ?? '8px'};
+                bottom: ${bottom_offset ?? '40px'};
+            `
+    }}
 `
 
 export const StyledDot = styled.div`
@@ -136,7 +148,7 @@ export const StyledDot = styled.div`
     outline: 0;
     border: 0;
     margin-right: 8px;
-    background-color: var(${(props) => props.color ?? '--color-grey-21'});
+    background-color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-grey-21)')};
 `
 
 export const ChevronRight = styled(StyledChevron)`

@@ -7,6 +7,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const Container = styled.div`
     position: relative;
@@ -45,7 +46,15 @@ const Arrow = styled(Chevron)`
 const Absolute = styled.div`
     position: absolute;
     z-index: -1;
-    top: ${(props) => (props.is_high_nav ? '4.8rem' : '5.5rem')};
+    top: ${(props) => {
+        if (props.is_high_nav) {
+            return '4.8rem'
+        } else if (props.security) {
+            return '10.5rem'
+        } else {
+            return '5.5rem'
+        }
+    }};
     left: -22rem;
     height: auto;
     background-color: var(--color-white);
@@ -60,7 +69,7 @@ const Absolute = styled.div`
         left: 0;
     }
 `
-
+/* stylelint-disable */
 const FadeInDown = keyframes`
     from {
         opacity:0;
@@ -77,6 +86,7 @@ const FadeOutUp = keyframes`
         opacity:0;
     }
 `
+
 const ItemContainer = styled.div`
     background-color: var(--color-white);
     padding: 1.6rem 0.8rem;
@@ -129,6 +139,7 @@ const ResponsiveText = styled(Text)`
         display: none;
     }
 `
+/* stylelint-enable */
 
 const query = graphql`
     query {
@@ -171,10 +182,11 @@ const query = graphql`
     }
 `
 
-const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
+const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security }) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
-
+    const [is_mobile] = useBrowserResize()
+    const icon_size = security && is_mobile ? '20px' : '24px'
     const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
@@ -196,10 +208,11 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
                     <QueryImage
-                        width="24px"
-                        height="24px"
+                        width={icon_size}
+                        height={icon_size}
                         data={data[default_abbreviation]}
                         alt=""
+                        loading="eager"
                     />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
@@ -207,7 +220,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                     <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
                 </Display>
 
-                <Absolute is_high_nav={is_high_nav} is_open={is_open}>
+                <Absolute is_high_nav={is_high_nav} is_open={is_open} security={security}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null
@@ -228,6 +241,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                                         height="24px"
                                         data={data[abbreviation]}
                                         alt=""
+                                        loading="eager"
                                     />
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}
@@ -247,6 +261,7 @@ Dropdown.propTypes = {
     is_high_nav: PropTypes.bool,
     onChange: PropTypes.func,
     option_list: PropTypes.array,
+    security: PropTypes.bool,
 }
 
 export default Dropdown

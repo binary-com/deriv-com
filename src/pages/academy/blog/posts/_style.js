@@ -7,6 +7,7 @@ export const Background = styled.div`
     background: var(--color-grey-8);
     width: 100%;
     height: 100%;
+    position: relative;
 
     @media ${device.laptop} {
         background-image: linear-gradient(var(--color-grey-8) 84%, var(--color-white) 20%);
@@ -33,19 +34,69 @@ export const HeroContainer = styled(Container)`
         flex-direction: column;
     }
 `
-export const BreadcrumbsWrapper = styled(Container)`
-    padding: 24px 0;
+export const StickyBreadCrumbsWrapper = styled(Flex)`
+    background: ${(props) => (props.scroll ? 'var(--color-white)' : 'var(--color-grey-8)')};
+    position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
+    top: ${(props) => (props.scroll ? '70px' : 'unset')};
+    z-index: ${(props) => (props.scroll ? '1' : 'unset')};
+    height: 70px;
+    border-top: 1px solid var(--color-grey-8);
 
-    @media ${device.desktopS} {
-        max-width: 1200px;
-        margin: 0 auto;
+    @media ${device.desktopL} {
+        top: ${(props) => (props.scroll ? '82px' : 'unset')};
+        height: 74px;
     }
 
     @media ${device.laptop} {
-        width: 100%;
-        max-width: 58.8rem;
-        padding: 20px 16px;
-        flex-direction: column;
+        height: 66px;
+        top: 66px;
+    }
+
+    @media ${device.tabletL} {
+        top: ${(props) => (props.scroll ? '55px' : 'unset')};
+        height: 66px;
+    }
+`
+export const BreadcrumbsWrapper = styled(Container)`
+    @media (min-width: 992px) {
+        max-width: 1200px;
+        width: 90%;
+    }
+
+    @media ${device.tabletL} {
+        width: calc(100% - 32px);
+    }
+`
+
+export const StyledBreadcrumbsContainer = styled(Container)`
+    flex-wrap: nowrap;
+
+    @media ${device.tabletL} {
+        width: 972px;
+    }
+
+    @media (min-width: 992px) {
+        width: 1200px;
+    }
+`
+
+export const Scrollbar = styled.div`
+    position: fixed;
+    top: ${(props) => (props.scroll ? '138px' : '14.4rem')};
+    width: 100%;
+    background: var(--color-grey-8);
+
+    @media ${device.desktopL} {
+        top: ${(props) => (props.scroll ? '155px' : '176px')};
+    }
+
+    @media ${device.laptop} {
+        top: ${(props) => (props.scroll ? '128px' : '14.6rem')};
+    }
+
+    @media ${device.tabletL} {
+        top: 114px;
+        top: ${(props) => (props.scroll ? '118px' : '114px')};
     }
 `
 export const ArticleTitle = styled(Header)`
@@ -370,10 +421,17 @@ export const PreviewContainer = styled(Box)`
     }
 `
 export const SocialComponentsWrapper = styled(Flex)`
+    align-items: center;
     justify-content: space-between;
-    border-top: 1px solid var(--color-grey-6);
-    padding-top: 24px;
-    margin: 40px 0;
+    padding-top: 60px;
+    margin: 8px 22px;
+
+    @media ${device.tabletL} {
+        justify-content: flex-end;
+        width: 0;
+        padding-top: 0;
+        margin: 0 auto;
+    }
 `
 export const LeftSocialComponents = styled.div`
     width: 10px;
@@ -414,36 +472,27 @@ export const MobileBreadcrumbsWrapper = styled.div`
 `
 export const StyledBreadcrumbsLink = styled(LocalizedLinkText)`
     font-weight: normal;
+    white-space: nowrap;
     font-size: 14px;
     line-height: 20px;
     color: var(--color-grey-5);
+    padding-right: 13px;
 `
 export const StyledBreadcrumbsTitle = styled(Text)`
+    display: flex;
+    white-space: nowrap;
     font-weight: normal;
     font-size: 14px;
     line-height: 20px;
     color: var(--color-black-3);
-`
-
-export const Scrollbar = styled.div`
-    position: fixed;
-    top: 7.2rem;
-    width: 100%;
-    background: var(--color-grey-8);
-    z-index: 100;
-    @media ${device.laptop} {
-        top: 67px;
-    }
-
-    @media ${device.tabletL} {
-        top: 58px;
-    }
+    padding-left: 13px;
 `
 
 export const ProgressContainer = styled.div`
     height: 4px;
     width: 100%;
     background: var(--color-grey-2);
+    z-index: 1;
 `
 export const ProgressBar = styled.div`
     height: 4px;

@@ -3,21 +3,22 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import Copyright from './copyright'
-import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
+import { Nav, NavStatic, NavPartners, NavInterim, NavSticky, NavSecurity } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
+import NavAcademy from './academy/nav-academy'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser } from 'common/utility'
+import { isBrowser, handleRedirect } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -74,9 +75,8 @@ const CFDContainer = styled(Container)`
 `
 
 const CFDText = styled(Text)`
-    @media ${device.bp1060} {
-        font-size: 14px;
-    }
+    font-size: 14px;
+
     @media ${device.tablet} {
         font-size: 12px;
     }
@@ -117,6 +117,7 @@ const Layout = ({
     interim_type,
     is_ppc,
     is_ppc_redirect,
+    is_nav_transparent,
     margin_top,
     no_live_chat,
     no_login_signup,
@@ -130,13 +131,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-
-    // Every layout change will trigger scroll to top
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
 
     // Allow tracking cookie banner setup
     React.useEffect(() => {
@@ -157,6 +151,21 @@ const Layout = ({
         }
     }, [is_eu_country])
 
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country || ''
+
+    const client_information_cookie = new CookieStorage('client_information')
+    const residence = client_information_cookie.get('residence')
+
+    React.useEffect(() => {
+        const is_redirection_enabled = localStorage['is_redirection_enabled']
+        const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+
+        if (is_redirection_enabled) {
+            handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
+        }
+    }, [website_status])
+
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
@@ -175,7 +184,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'academy':
-            Navigation = <Nav academy_logo={true} no_language={true} />
+            Navigation = <NavAcademy no_language={true} />
             FooterNav = <Footer academy={true} />
             break
         case 'static':
@@ -183,10 +192,13 @@ const Layout = ({
             break
         case 'interim':
             Navigation = <NavInterim interim_type={interim_type} />
-            FooterNav = <Copyright />
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'security':
+            Navigation = <NavSecurity no_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
         case 'ebook':
@@ -214,7 +226,13 @@ const Layout = ({
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = (
+                <Nav
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_ppc={is_ppc}
+                    is_nav_transparent={is_nav_transparent}
+                />
+            )
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
@@ -260,6 +278,7 @@ CFDWarning.propTypes = {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

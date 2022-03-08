@@ -33,7 +33,6 @@ module.exports = {
             options: {
                 failOnError: true,
                 base64Width: 20,
-                forceBase64Format: 'webp',
                 stripMetadata: true,
                 defaultQuality: 50,
             },
@@ -74,6 +73,8 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/academy/blog/posts/preview',
+                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -199,14 +200,6 @@ module.exports = {
         },
         'gatsby-plugin-anchor-links',
         {
-            resolve: `gatsby-plugin-nprogress`,
-            options: {
-                color: `#85ACB0`,
-                showSpinner: false,
-                minimum: 0.4,
-            },
-        },
-        {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
                 id: 'GTM-NF7884S',
@@ -232,5 +225,16 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
+        {
+            resolve: `gatsby-plugin-graphql-codegen`,
+            options: {
+                fileName: `types/graphql.types.ts`,
+                documentPaths: [
+                    './src/**/*.{ts,tsx}',
+                    './src/components/graphql/*',
+                    './node_modules/gatsby-*/**/*.js',
+                ],
+            },
+        },
     ],
 }

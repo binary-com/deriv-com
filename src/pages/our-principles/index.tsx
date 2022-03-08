@@ -61,19 +61,20 @@ const StyledContainer = styled(Container)`
 `
 const TitleSection = styled(SectionContainer)`
     padding: ${(props) => (props.padding ? props.padding : '120px 0 24px 10rem')};
+
     @media ${device.tablet} {
-        padding: 40px 0 24px 0rem;
+        padding: 40px 0 24px 0;
     }
 `
 
 const PrinciplesSection = styled(SectionContainer)`
     padding: ${(props) => (props.padding ? props.padding : '120px 0 24px 10rem')};
-    @media ${device.tablet} {
-        padding: 40px 0 24px 0rem;
-    }
 
+    @media ${device.tablet} {
+        padding: 40px 0 24px 0;
+    }
     @media ${device.mobileM} {
-        padding: 0px 0 24px 0rem;
+        padding: 0 0 24px 0;
     }
 `
 
@@ -87,10 +88,8 @@ const StyledFlex = styled(Flex)`
     align-self: baseline;
 
     @media ${device.tablet} {
-            width: 104px;
+        width: 104px;
     }
-
-}
 `
 
 const OurPrinciples = (): React.ReactNode => {

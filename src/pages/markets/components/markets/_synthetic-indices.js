@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
+import { navigate } from 'gatsby'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
@@ -13,20 +14,21 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 
 const StockIndices = ({ simple_step_content }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu, is_non_eu, is_uk } = getCountryRule()
+
+    if (is_uk) {
+        navigate('/404/')
+    }
 
     return (
         <div>
             <WhyTrade
                 header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
                 text={
-                    <Localize
-                        translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and
-                    liquidity risks."
-                    />
+                    <Localize translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
                 }
             >
                 {synthetic_content.map((content, index) => (
@@ -34,18 +36,18 @@ const StockIndices = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu_country ? synthetic_cfds_eu : synthetic_cfds} />}
+                CFDs={<CFDs market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('synthetic indices')}
-                        options_list={synthetic_options}
-                    />
+                    is_non_eu && (
+                        <DigitalOptions
+                            market_name={localize('synthetic indices')}
+                            options_list={synthetic_options}
+                        />
+                    )
                 }
                 Multipliers={
                     <Multipliers
-                        market_content={
-                            is_eu_country ? synthetic_multiplier_eu : synthetic_multiplier
-                        }
+                        market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
                 name="Synthetic indices"

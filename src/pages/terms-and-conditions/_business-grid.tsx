@@ -7,6 +7,7 @@ import General from 'images/svg/terms/business-general-tc.svg'
 import Partners from 'images/svg/terms/business-partners-tc.svg'
 import PA from 'images/svg/terms/business-pa-tc.svg'
 import API from 'images/svg/terms/business-api-tc.svg'
+import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
 type ColProps = {
@@ -35,7 +36,7 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     </GridCol>
 )
 
-const IconGrid = () => (
+const BusinessGrid = () => (
     <StyledContainer>
         <StyledGrid
             columns="repeat(3, 1fr)"
@@ -75,8 +76,15 @@ const IconGrid = () => (
                 url="/tnc/business-partners-api-user.pdf"
                 link_title={localize('API users')}
             />
+            <Col
+                Icon={BugBounty}
+                title={localize('Bug Bounty Program')}
+                content={localize('Additional terms for participants in our Bug Bounty Program')}
+                url="/tnc/business-partners-bug-bounty.pdf"
+                link_title={localize('Bug Bounty Program')}
+            />
         </StyledGrid>
     </StyledContainer>
 )
 
-export default IconGrid
+export default BusinessGrid

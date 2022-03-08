@@ -148,23 +148,9 @@ PR will be based on crowdin branch if the commits are having text changes
 
 2. Make your changes
 
-3. Extract translation
-
--   Make sure you have the latest Crowdin changes, resolve conflicts if any
-
-    ```sh
-    git pull upstream crowdin
-    ```
-
--   Extract translation text to update `messages.json`
-
-    ```sh
-    npm run translate:extract
-    ```
-
 -   Commit your changes
 
-4. Make pull request
+3. Make pull request
 
 -   Push your changes to your origin, add `-u` flag for the first time push
 
@@ -189,11 +175,29 @@ PR will be based on crowdin branch if the commits are having text changes
 
     -   Set up your Crowdin API KEY in your .bash_profile or .zshrc
 
+1. Extract translation
+
+-   Make sure you have the latest Crowdin changes, resolve conflicts if any
+
+    ```sh
+    git pull upstream crowdin
+    ```
+
+-   Extract translation text to update `messages.json`
+
+    ```sh
+    npm run translate:extract
+    ```
+
+2. Upload translation
+
 -   To upload source text to Crowdin (When task merge to crowdin branch)
 
     ```sh
     npm run translate:upload
     ```
+
+3. Download translation
 
 -   To download/get the latest Crowdin translations
 

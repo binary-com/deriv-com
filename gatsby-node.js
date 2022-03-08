@@ -325,12 +325,12 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
-          alias: {
-            'react': 'preact/compat',
-            'react-dom/test-utils': 'preact/test-utils',
-            'react-dom': 'preact/compat',
-            'react/jsx-runtime': 'preact/jsx-runtime',
-        },
+            alias: {
+                react: 'preact/compat',
+                'react-dom/test-utils': 'preact/test-utils',
+                'react-dom': 'preact/compat',
+                'react/jsx-runtime': 'preact/jsx-runtime',
+            },
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
     })
@@ -339,7 +339,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 // TODO: To be updated to the new shape of the API of the new endpoint
 exports.createPages = async ({ reporter, actions, graphql }) => {
     const { createPage } = actions
-    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
+    const articleTemplate = path.resolve(__dirname, 'src/templates/article.tsx')
 
     // Query our published articles
     const result = await graphql(`

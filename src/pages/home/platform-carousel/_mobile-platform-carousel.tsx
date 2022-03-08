@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import {
     platform_details_cr,
@@ -10,6 +10,7 @@ import {
     ImageTag,
 } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
+import { image_query } from './_details'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
@@ -72,47 +73,6 @@ const settings = {
         }
     `,
 }
-
-const image_query = graphql`
-    query {
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go_m.png" }) {
-            ...fadeIn
-        }
-        platforms_mt5: file(relativePath: { eq: "home/platforms_mt5_m.png" }) {
-            ...fadeIn
-        }
-        platforms_mt5_eu: file(relativePath: { eq: "home/platforms_mt5_eu_m.png" }) {
-            ...fadeIn
-        }
-        platforms_mt5_uk: file(relativePath: { eq: "home/platforms_mt5_uk_m.png" }) {
-            ...fadeIn
-        }
-        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        platforms_dtrader_eu: file(relativePath: { eq: "home/platforms_dtrader_eu_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        platforms_dtrader_uk: file(relativePath: { eq: "home/platforms_dtrader_uk_m.png" }) {
-            ...homePageHeroFadeIn
-        }
-        platforms_derivx: file(relativePath: { eq: "home/platforms_derivx_m.png" }) {
-            ...fadeIn
-        }
-        platforms_dbot: file(relativePath: { eq: "home/platforms_dbot_m.png" }) {
-            ...fadeIn
-        }
-        platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader_m.png" }) {
-            ...fadeIn
-        }
-        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot_m.png" }) {
-            ...fadeIn
-        }
-        platforms_api: file(relativePath: { eq: "home/platforms_api_m.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (

@@ -5289,217 +5289,217 @@ export type Unnamed_45_Query = { platforms_deriv_go?: { childImageSharp?: { gats
 export type Unnamed_46_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_46_Query = { platforms_deriv_go?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_mt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_mt5_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_mt5_uk?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dtrader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dtrader_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dtrader_uk?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_derivx?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_smarttrader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_binary_bot?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_api?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_46_Query = { affiliate?: { childImageSharp?: { gatsbyImageData: any } | null } | null, smart_trader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_47_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_47_Query = { affiliate?: { childImageSharp?: { gatsbyImageData: any } | null } | null, smart_trader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_47_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_48_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_48_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_48_Query = { dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_49_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_49_Query = { dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_49_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_50_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_50_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_50_Query = { dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_51_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_51_Query = { dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_51_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_52_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_52_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_52_Query = { deriv_platform?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_53_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_53_Query = { deriv_platform?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_53_Query = { crypto_hero?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_54_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_54_Query = { crypto_hero?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_54_Query = { forex_ebook_img_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_img_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_55_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_55_Query = { forex_ebook_img_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_img_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_55_Query = { stocks_ebook_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_ebook_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_56_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_56_Query = { stocks_ebook_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_ebook_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_56_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_57_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_57_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_57_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_58_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_58_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_58_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_59_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_59_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_59_Query = { mainHeaderImage?: { childImageSharp?: { gatsbyImageData: any } | null } | null, mainHeaderImageMobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_60_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_60_Query = { mainHeaderImage?: { childImageSharp?: { gatsbyImageData: any } | null } | null, mainHeaderImageMobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_60_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_61_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_61_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_61_Query = { stocks_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_62_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_62_Query = { stocks_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_62_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_63_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_63_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_63_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_64_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_64_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_64_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_65_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_65_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_65_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_66_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_66_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_66_Query = { qr_code?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_67_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_67_Query = { qr_code?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_67_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null, web_and_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_68_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_68_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null, web_and_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_68_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_69_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_69_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_69_Query = { p2p_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_70_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_70_Query = { p2p_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_70_Query = { dmt5_synthetic_calculator?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_71_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_71_Query = { dmt5_synthetic_calculator?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_71_Query = { image?: { childImageSharp?: { gatsbyImageData: any } | null } | null, image_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_72_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_72_Query = { image?: { childImageSharp?: { gatsbyImageData: any } | null } | null, image_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_72_Query = { multiple_income_opportunities?: { childImageSharp?: { gatsbyImageData: any } | null } | null, daily_ib_commission?: { childImageSharp?: { gatsbyImageData: any } | null } | null, marketing_material?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_73_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_73_Query = { multiple_income_opportunities?: { childImageSharp?: { gatsbyImageData: any } | null } | null, daily_ib_commission?: { childImageSharp?: { gatsbyImageData: any } | null } | null, marketing_material?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_73_Query = { payment_agent?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_74_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_74_Query = { payment_agent?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_74_Query = { view_email?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_75_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_75_Query = { view_email?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_75_Query = { margin_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_76_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_76_Query = { margin_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_76_Query = { example?: { childImageSharp?: { gatsbyImageData: any } | null } | null, example_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_77_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_77_Query = { example?: { childImageSharp?: { gatsbyImageData: any } | null } | null, example_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_77_Query = { multiplier_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_take_profit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stop_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_deal_cancellation?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_market_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_78_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_78_Query = { multiplier_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_take_profit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stop_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_deal_cancellation?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_market_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_78_Query = { stake_amount?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_79_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_79_Query = { stake_amount?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_79_Query = { option_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_duration?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_quote?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_80_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_80_Query = { option_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_duration?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_quote?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_80_Query = { margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_81_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_81_Query = { margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_81_Query = { margin_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_info?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_82_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_82_Query = { margin_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_info?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_82_Query = { pip_value_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_83_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_83_Query = { pip_value_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_83_Query = { stop_loss_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_84_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_84_Query = { stop_loss_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_84_Query = { stop_loss_level_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_85_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_85_Query = { stop_loss_level_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_85_Query = { swap_synthetic_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_synthetic_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_86_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_86_Query = { swap_synthetic_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_synthetic_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_86_Query = { antony?: { childImageSharp?: { gatsbyImageData: any } | null } | null, derek?: { childImageSharp?: { gatsbyImageData: any } | null } | null, gary?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jennice?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jeya?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, joanna?: { childImageSharp?: { gatsbyImageData: any } | null } | null, louise?: { childImageSharp?: { gatsbyImageData: any } | null } | null, rakshit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, raunak?: { childImageSharp?: { gatsbyImageData: any } | null } | null, seema?: { childImageSharp?: { gatsbyImageData: any } | null } | null, shyamala?: { childImageSharp?: { gatsbyImageData: any } | null } | null, tom?: { childImageSharp?: { gatsbyImageData: any } | null } | null, waqas?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_87_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_87_Query = { antony?: { childImageSharp?: { gatsbyImageData: any } | null } | null, derek?: { childImageSharp?: { gatsbyImageData: any } | null } | null, gary?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jennice?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jeya?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, joanna?: { childImageSharp?: { gatsbyImageData: any } | null } | null, louise?: { childImageSharp?: { gatsbyImageData: any } | null } | null, rakshit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, raunak?: { childImageSharp?: { gatsbyImageData: any } | null } | null, seema?: { childImageSharp?: { gatsbyImageData: any } | null } | null, shyamala?: { childImageSharp?: { gatsbyImageData: any } | null } | null, tom?: { childImageSharp?: { gatsbyImageData: any } | null } | null, waqas?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_87_Query = { earth?: { childImageSharp?: { gatsbyImageData: any } | null } | null, earth_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_88_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_88_Query = { earth?: { childImageSharp?: { gatsbyImageData: any } | null } | null, earth_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_88_Query = { media1?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media2?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media3?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media4?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media6?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_89_QueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5509,12 +5509,7 @@ export type Unnamed_89_Query = { media1?: { childImageSharp?: { gatsbyImageData:
 export type Unnamed_90_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_90_Query = { media1?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media2?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media3?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media4?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media6?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
-
-export type Unnamed_91_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_91_Query = { about_us_logo?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_90_Query = { about_us_logo?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type ArticleQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;

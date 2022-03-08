@@ -10,7 +10,7 @@ const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
 
-const image_query = graphql`
+export const image_query = graphql`
     query {
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
@@ -19,19 +19,19 @@ const image_query = graphql`
             ...fadeIn
         }
         platforms_mt5_eu: file(relativePath: { eq: "home/platforms_mt5_eu.png" }) {
-            ...fadeIn
+            ...homePageHeroFadeIn
         }
         platforms_mt5_uk: file(relativePath: { eq: "home/platforms_mt5_uk.png" }) {
-            ...fadeIn
+            ...homePageHeroFadeIn
         }
         platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
             ...homePageHeroFadeIn
         }
         platforms_dtrader_eu: file(relativePath: { eq: "home/platforms_dtrader_eu.png" }) {
-            ...homePageHeroFadeIn
+            ...fadeIn
         }
         platforms_dtrader_uk: file(relativePath: { eq: "home/platforms_dtrader_uk.png" }) {
-            ...homePageHeroFadeIn
+            ...fadeIn
         }
         platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
             ...fadeIn

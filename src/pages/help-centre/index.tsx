@@ -3,7 +3,7 @@ import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
-import { articles } from './_help-articles'
+import { all_articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 import { euArticles, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
@@ -14,6 +14,7 @@ import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+import { getCountryRule } from 'components/containers/visibility'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
@@ -144,9 +145,22 @@ const ResponsiveHeader = styled(Header)`
         font-size: 4rem;
     }
 `
+const getArticles = () => {
+    const { is_eu_uk } = getCountryRule()
+    let new_articles = [...all_articles]
+    if (is_eu_uk) {
+        console.log('non-eu', is_eu_uk)
+        new_articles = all_articles.filter(
+            (title) => title.category.props.translate_text !== 'Deriv P2P',
+        )
+        console.log('new_articles', new_articles)
+    }
+    return new_articles
+}
 
 const HelpCentre = () => {
     const { is_eu_country } = React.useContext(DerivStore)
+
     const [data, setData] = useState({
         search: '',
         toggle_search: true,
@@ -156,6 +170,7 @@ const HelpCentre = () => {
     })
 
     useEffect(() => {
+        const articles = getArticles()
         const current_label = getLocationHash()
         const deepClone = (arr) => {
             const out = []
@@ -190,6 +205,10 @@ const HelpCentre = () => {
         setData({ ...data, all_categories, all_articles: translated_articles })
     }, [])
 
+    // const new_array = articles.filter(
+    //     (title) => title.category.props.translate_text === 'Deriv P2P',
+    // )
+    // console.log('p2p', new_array)
     const handleSubmit = (e) => e.preventDefault()
     const clearSearch = () => setData({ ...data, search: '' })
     const handleInputChange = (e) => {
@@ -273,6 +292,26 @@ const HelpCentre = () => {
                         return (
                             <RowDiv wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'} key={id}>
                                 {article.map((item, idx) => {
+                                    if (
+                                        is_eu_country &&
+                                        item.category.props.translate_text === 'Deriv P2P'
+                                    ) {
+                                        const article_array = article.filter(
+                                            (title) => title.category === 'Deriv P2P',
+                                        )
+                                        return (
+                                            <ArticleComponent
+                                                key={idx}
+                                                idx={idx}
+                                                id={id}
+                                                item={item}
+                                                all_categories={data.all_categories}
+                                                toggleArticle={toggleArticle}
+                                                is_eu_country={is_eu_country}
+                                                all_articles={article_array}
+                                            />
+                                        )
+                                    }
                                     if (
                                         is_eu_country &&
                                         item.category.props.translate_text === 'Deriv X'

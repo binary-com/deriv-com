@@ -5,37 +5,9 @@ import { TextWrapper, Title } from '../../static/style/_common'
 import HeroImage from 'images/common/be-square/hero.png'
 import device from 'themes/device'
 
-export const StyledHeaderContainer = styled(HeaderContainer)`
-    padding: 120px 0 80px 120px;
-
-    @media ${device.desktop} {
-        padding: 40px 0 0 0;
-    }
-
-    @media ${device.laptop} {
-        padding: 40px 0 0;
-    }
-`
-
-const StyledImageWrapper = styled(ImageWrapper)`
-    right: 150px;
-
-    @media ${device.desktop} {
-        right: 40px;
-    }
-
-    @media ${device.laptopL} {
-        right: 30px;
-    }
-
-    @media ${device.laptop} {
-        right: 0;
-    }
-`
-
 const Hero = () => (
     <HeroContainer>
-        <StyledHeaderContainer>
+        <HeaderContainer>
             <Title
                 as="h1"
                 color={'white'}
@@ -54,8 +26,8 @@ const Hero = () => (
             >
                 Launch your IT career with our graduate programme
             </TextWrapper>
-        </StyledHeaderContainer>
-        <StyledImageWrapper src={HeroImage} alt="BeSquare students standing with their laptops" />
+        </HeaderContainer>
+        <ImageWrapper src={HeroImage} alt="BeSquare students standing with their laptops" />
     </HeroContainer>
 )
 

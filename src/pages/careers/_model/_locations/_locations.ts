@@ -322,6 +322,7 @@ export const paris = {
     map_img: 'paris_map',
     google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
     has_iframe: false,
+    has_map: true,
 }
 
 export const london = {
@@ -343,6 +344,7 @@ export const london = {
     map_img: 'london_map',
     google_map_link: 'https://goo.gl/maps/DJaQaFd9jqGiPB7e9',
     has_iframe: false,
+    has_map: false,
 }
 export const guernsey = {
     name: 'guernsey',
@@ -366,6 +368,7 @@ export const guernsey = {
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
     has_iframe: false,
+    has_map: false,
 }
 export const all_offices: locationsTypes[] = [
     dubai,

@@ -215,7 +215,7 @@ module.exports = {
         {
             resolve: '@directus/gatsby-source-directus',
             options: {
-                url: 'https://deriv-academy.directus.app',
+                url: 'https://cms.deriv.cloud',
                 auth: {
                     token: process.env.DIRECTUS_AUTH_TOKEN,
                 },

@@ -23,6 +23,8 @@ export type Scalars = {
   DirectusSystemData_JSON: any;
   /** ISO8601 Date values */
   DirectusSystemData_Date: any;
+  /** Represents NULL values */
+  DirectusSystemData_Void: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   DirectusData_JSON: any;
   /** ISO8601 Date values */
@@ -672,6 +674,9 @@ export type DirectusSystemData_Directus_Collections_Meta = {
   accountability?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
   item_duplication_fields?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  sort?: Maybe<Scalars['Int']>;
+  group?: Maybe<Scalars['String']>;
+  collapse: Scalars['String'];
 };
 
 export type DirectusSystemData_Directus_Collections_Schema = {
@@ -691,7 +696,7 @@ export type DirectusSystemData_Directus_Fields_Meta = {
   id: Scalars['Int'];
   collection: Scalars['String'];
   field: Scalars['String'];
-  special?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  special?: Maybe<Array<Maybe<Scalars['String']>>>;
   interface?: Maybe<Scalars['String']>;
   options?: Maybe<Scalars['DirectusSystemData_JSON']>;
   display?: Maybe<Scalars['String']>;
@@ -700,9 +705,11 @@ export type DirectusSystemData_Directus_Fields_Meta = {
   hidden: Scalars['Boolean'];
   sort?: Maybe<Scalars['Int']>;
   width?: Maybe<Scalars['String']>;
-  group?: Maybe<Scalars['Int']>;
   translations?: Maybe<Scalars['DirectusSystemData_JSON']>;
   note?: Maybe<Scalars['String']>;
+  conditions?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  required?: Maybe<Scalars['Boolean']>;
+  group?: Maybe<Scalars['String']>;
 };
 
 export type DirectusSystemData_Directus_Fields_Schema = {
@@ -747,7 +754,7 @@ export type DirectusSystemData_Directus_Relations_Meta = {
   one_collection?: Maybe<Scalars['String']>;
   one_field?: Maybe<Scalars['String']>;
   one_collection_field?: Maybe<Scalars['String']>;
-  one_allowed_collections?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  one_allowed_collections?: Maybe<Array<Maybe<Scalars['String']>>>;
   junction_field?: Maybe<Scalars['String']>;
   sort_field?: Maybe<Scalars['String']>;
   one_deselect_action?: Maybe<Scalars['String']>;
@@ -757,7 +764,7 @@ export type DirectusSystemData_Directus_Users = {
   id?: Maybe<Scalars['ID']>;
   first_name?: Maybe<Scalars['String']>;
   last_name?: Maybe<Scalars['String']>;
-  email: Scalars['String'];
+  email?: Maybe<Scalars['String']>;
   password?: Maybe<Scalars['String']>;
   location?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -771,7 +778,12 @@ export type DirectusSystemData_Directus_Users = {
   role?: Maybe<DirectusSystemData_Directus_Roles>;
   token?: Maybe<Scalars['String']>;
   last_access?: Maybe<Scalars['DirectusSystemData_Date']>;
+  last_access_func?: Maybe<DirectusSystemData_Datetime_Functions>;
   last_page?: Maybe<Scalars['String']>;
+  provider: Scalars['String'];
+  external_identifier?: Maybe<Scalars['String']>;
+  auth_data?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  email_notifications?: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -804,8 +816,10 @@ export type DirectusSystemData_Directus_Files = {
   folder?: Maybe<DirectusSystemData_Directus_Folders>;
   uploaded_by?: Maybe<DirectusSystemData_Directus_Users>;
   uploaded_on: Scalars['DirectusSystemData_Date'];
+  uploaded_on_func?: Maybe<DirectusSystemData_Datetime_Functions>;
   modified_by?: Maybe<DirectusSystemData_Directus_Users>;
   modified_on: Scalars['DirectusSystemData_Date'];
+  modified_on_func?: Maybe<DirectusSystemData_Datetime_Functions>;
   charset?: Maybe<Scalars['String']>;
   filesize?: Maybe<Scalars['Int']>;
   width?: Maybe<Scalars['Int']>;
@@ -878,6 +892,10 @@ export type DirectusSystemData_String_Filter_Operators = {
   _neq?: InputMaybe<Scalars['String']>;
   _contains?: InputMaybe<Scalars['String']>;
   _ncontains?: InputMaybe<Scalars['String']>;
+  _starts_with?: InputMaybe<Scalars['String']>;
+  _nstarts_with?: InputMaybe<Scalars['String']>;
+  _ends_with?: InputMaybe<Scalars['String']>;
+  _nends_with?: InputMaybe<Scalars['String']>;
   _in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   _nin?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   _null?: InputMaybe<Scalars['Boolean']>;
@@ -904,7 +922,12 @@ export type DirectusSystemData_Directus_Users_Filter = {
   role?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
   token?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   last_access?: InputMaybe<DirectusSystemData_Date_Filter_Operators>;
+  last_access_func?: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>;
   last_page?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  provider?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  external_identifier?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  auth_data?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  email_notifications?: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>;
   _and?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Users_Filter>>>;
   _or?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Users_Filter>>>;
 };
@@ -919,8 +942,10 @@ export type DirectusSystemData_Directus_Files_Filter = {
   folder?: InputMaybe<DirectusSystemData_Directus_Folders_Filter>;
   uploaded_by?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
   uploaded_on?: InputMaybe<DirectusSystemData_Date_Filter_Operators>;
+  uploaded_on_func?: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>;
   modified_by?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
   modified_on?: InputMaybe<DirectusSystemData_Date_Filter_Operators>;
+  modified_on_func?: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>;
   charset?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   filesize?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
   width?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
@@ -946,6 +971,17 @@ export type DirectusSystemData_Date_Filter_Operators = {
   _nnull?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type DirectusSystemData_Datetime_Function_Filter_Operators = {
+  year?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  month?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  week?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  day?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  weekday?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  hour?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  minute?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  second?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+};
+
 export type DirectusSystemData_Number_Filter_Operators = {
   _eq?: InputMaybe<Scalars['Float']>;
   _neq?: InputMaybe<Scalars['Float']>;
@@ -966,8 +1002,6 @@ export type DirectusSystemData_Directus_Roles_Filter = {
   description?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   ip_access?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   enforce_tfa?: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>;
-  module_list?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  collection_list?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   admin_access?: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>;
   app_access?: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>;
   users?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
@@ -982,15 +1016,24 @@ export type DirectusSystemData_Boolean_Filter_Operators = {
   _nnull?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type DirectusSystemData_Datetime_Functions = {
+  year?: Maybe<Scalars['Int']>;
+  month?: Maybe<Scalars['Int']>;
+  week?: Maybe<Scalars['Int']>;
+  day?: Maybe<Scalars['Int']>;
+  weekday?: Maybe<Scalars['Int']>;
+  hour?: Maybe<Scalars['Int']>;
+  minute?: Maybe<Scalars['Int']>;
+  second?: Maybe<Scalars['Int']>;
+};
+
 export type DirectusSystemData_Directus_Roles = {
   id?: Maybe<Scalars['ID']>;
   name: Scalars['String'];
   icon: Scalars['String'];
   description?: Maybe<Scalars['String']>;
-  ip_access?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  ip_access?: Maybe<Array<Maybe<Scalars['String']>>>;
   enforce_tfa: Scalars['Boolean'];
-  module_list?: Maybe<Scalars['DirectusSystemData_JSON']>;
-  collection_list?: Maybe<Scalars['DirectusSystemData_JSON']>;
   admin_access: Scalars['Boolean'];
   app_access: Scalars['Boolean'];
   users?: Maybe<Array<Maybe<DirectusSystemData_Directus_Users>>>;
@@ -1006,6 +1049,56 @@ export type DirectusSystemData_Directus_RolesUsersArgs = {
   search?: InputMaybe<Scalars['String']>;
 };
 
+export type DirectusSystemData_Directus_Permissions = {
+  id?: Maybe<Scalars['ID']>;
+  role?: Maybe<DirectusSystemData_Directus_Roles>;
+  collection: Scalars['String'];
+  action: Scalars['String'];
+  permissions?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  validation?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  presets?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  fields?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+
+export type DirectusSystemData_Directus_PermissionsRoleArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusSystemData_Directus_Permissions_Filter = {
+  id?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  role?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
+  collection?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  action?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  permissions?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  validation?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  presets?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  fields?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  _and?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Permissions_Filter>>>;
+  _or?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Permissions_Filter>>>;
+};
+
+export type DirectusSystemData_Directus_Permissions_Aggregated = {
+  group?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  avg?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+  sum?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+  count?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+  min?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+  max?: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>;
+};
+
+export type DirectusSystemData_Directus_Permissions_Aggregated_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
 export type DirectusSystemData_Directus_Presets = {
   id?: Maybe<Scalars['ID']>;
   bookmark?: Maybe<Scalars['String']>;
@@ -1013,11 +1106,11 @@ export type DirectusSystemData_Directus_Presets = {
   role?: Maybe<DirectusSystemData_Directus_Roles>;
   collection?: Maybe<Scalars['String']>;
   search?: Maybe<Scalars['String']>;
-  filters?: Maybe<Scalars['DirectusSystemData_JSON']>;
   layout?: Maybe<Scalars['String']>;
   layout_query?: Maybe<Scalars['DirectusSystemData_JSON']>;
   layout_options?: Maybe<Scalars['DirectusSystemData_JSON']>;
   refresh_interval?: Maybe<Scalars['Int']>;
+  filter?: Maybe<Scalars['DirectusSystemData_JSON']>;
 };
 
 
@@ -1047,13 +1140,30 @@ export type DirectusSystemData_Directus_Presets_Filter = {
   role?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
   collection?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   search?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  filters?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   layout?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   layout_query?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   layout_options?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   refresh_interval?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
+  filter?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   _and?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Presets_Filter>>>;
   _or?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Presets_Filter>>>;
+};
+
+export type DirectusSystemData_Directus_Presets_Aggregated = {
+  group?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  avg?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+  sum?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+  count?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+  min?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+  max?: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>;
+};
+
+export type DirectusSystemData_Directus_Presets_Aggregated_Fields = {
+  id?: Maybe<Scalars['Float']>;
+  refresh_interval?: Maybe<Scalars['Float']>;
 };
 
 export type DirectusSystemData_Directus_Activity = {
@@ -1061,6 +1171,7 @@ export type DirectusSystemData_Directus_Activity = {
   action: Scalars['String'];
   user?: Maybe<DirectusSystemData_Directus_Users>;
   timestamp: Scalars['DirectusSystemData_Date'];
+  timestamp_func?: Maybe<DirectusSystemData_Datetime_Functions>;
   ip: Scalars['String'];
   user_agent?: Maybe<Scalars['String']>;
   collection: Scalars['String'];
@@ -1084,6 +1195,7 @@ export type DirectusSystemData_Directus_Activity_Filter = {
   action?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   user?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
   timestamp?: InputMaybe<DirectusSystemData_Date_Filter_Operators>;
+  timestamp_func?: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>;
   ip?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   user_agent?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   collection?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
@@ -1094,21 +1206,57 @@ export type DirectusSystemData_Directus_Activity_Filter = {
   _or?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Activity_Filter>>>;
 };
 
-export type DirectusSystemData_Directus_Permissions = {
+export type DirectusSystemData_Directus_Activity_Aggregated = {
+  group?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  avg?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+  sum?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+  count?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+  min?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+  max?: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>;
+};
+
+export type DirectusSystemData_Directus_Activity_Aggregated_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type DirectusSystemData_Directus_Files_Aggregated = {
+  group?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  avg?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+  sum?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+  count?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+  min?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+  max?: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>;
+};
+
+export type DirectusSystemData_Directus_Files_Aggregated_Fields = {
+  filesize?: Maybe<Scalars['Float']>;
+  width?: Maybe<Scalars['Float']>;
+  height?: Maybe<Scalars['Float']>;
+  duration?: Maybe<Scalars['Float']>;
+};
+
+export type DirectusSystemData_Directus_Notifications = {
   id?: Maybe<Scalars['ID']>;
-  role?: Maybe<DirectusSystemData_Directus_Roles>;
-  collection: Scalars['String'];
-  action: Scalars['String'];
-  permissions?: Maybe<Scalars['DirectusSystemData_JSON']>;
-  validation?: Maybe<Scalars['DirectusSystemData_JSON']>;
-  presets?: Maybe<Scalars['DirectusSystemData_JSON']>;
-  fields?: Maybe<Scalars['DirectusSystemData_JSON']>;
-  limit?: Maybe<Scalars['Int']>;
+  timestamp: Scalars['DirectusSystemData_Date'];
+  timestamp_func?: Maybe<DirectusSystemData_Datetime_Functions>;
+  status?: Maybe<Scalars['String']>;
+  recipient?: Maybe<DirectusSystemData_Directus_Users>;
+  sender?: Maybe<DirectusSystemData_Directus_Users>;
+  subject: Scalars['String'];
+  message?: Maybe<Scalars['String']>;
+  collection?: Maybe<Scalars['String']>;
+  item?: Maybe<Scalars['String']>;
 };
 
 
-export type DirectusSystemData_Directus_PermissionsRoleArgs = {
-  filter?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
+export type DirectusSystemData_Directus_NotificationsRecipientArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -1116,25 +1264,52 @@ export type DirectusSystemData_Directus_PermissionsRoleArgs = {
   search?: InputMaybe<Scalars['String']>;
 };
 
-export type DirectusSystemData_Directus_Permissions_Filter = {
+
+export type DirectusSystemData_Directus_NotificationsSenderArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusSystemData_Directus_Notifications_Filter = {
   id?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
-  role?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
+  timestamp?: InputMaybe<DirectusSystemData_Date_Filter_Operators>;
+  timestamp_func?: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>;
+  status?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  recipient?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
+  sender?: InputMaybe<DirectusSystemData_Directus_Users_Filter>;
+  subject?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  message?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
   collection?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  action?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  permissions?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  validation?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  presets?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  fields?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
-  limit?: InputMaybe<DirectusSystemData_Number_Filter_Operators>;
-  _and?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Permissions_Filter>>>;
-  _or?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Permissions_Filter>>>;
+  item?: InputMaybe<DirectusSystemData_String_Filter_Operators>;
+  _and?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Notifications_Filter>>>;
+  _or?: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Notifications_Filter>>>;
+};
+
+export type DirectusSystemData_Directus_Notifications_Aggregated = {
+  group?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  avg?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+  sum?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+  count?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+  min?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+  max?: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>;
+};
+
+export type DirectusSystemData_Directus_Notifications_Aggregated_Fields = {
+  id?: Maybe<Scalars['Float']>;
 };
 
 export type DirectusSystemData_Directus_Settings = {
   id?: Maybe<Scalars['ID']>;
   project_name: Scalars['String'];
   project_url?: Maybe<Scalars['String']>;
-  /** Login & Logo Background */
+  /** $t:field_options.directus_settings.project_color_note */
   project_color?: Maybe<Scalars['String']>;
   project_logo?: Maybe<DirectusSystemData_Directus_Files>;
   public_foreground?: Maybe<DirectusSystemData_Directus_Files>;
@@ -1145,6 +1320,11 @@ export type DirectusSystemData_Directus_Settings = {
   storage_asset_transform?: Maybe<Scalars['String']>;
   storage_asset_presets?: Maybe<Scalars['DirectusSystemData_JSON']>;
   custom_css?: Maybe<Scalars['String']>;
+  storage_default_folder?: Maybe<DirectusSystemData_Directus_Folders>;
+  basemaps?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  mapbox_key?: Maybe<Scalars['String']>;
+  module_bar?: Maybe<Scalars['DirectusSystemData_JSON']>;
+  project_descriptor?: Maybe<Scalars['String']>;
 };
 
 
@@ -1177,6 +1357,16 @@ export type DirectusSystemData_Directus_SettingsPublic_BackgroundArgs = {
   search?: InputMaybe<Scalars['String']>;
 };
 
+
+export type DirectusSystemData_Directus_SettingsStorage_Default_FolderArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Folders_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
 export type DirectusSystemData_Auth_Tokens = {
   access_token?: Maybe<Scalars['String']>;
   expires?: Maybe<Scalars['Int']>;
@@ -1192,34 +1382,6 @@ export type DirectusSystemData_Users_Me_Tfa_Generate_Data = {
   otpauth_url?: Maybe<Scalars['String']>;
 };
 
-export type DirectusSystemData_Create_Directus_Presets_Input = {
-  id?: InputMaybe<Scalars['ID']>;
-  bookmark?: InputMaybe<Scalars['String']>;
-  user?: InputMaybe<Scalars['String']>;
-  role?: InputMaybe<Scalars['String']>;
-  collection?: InputMaybe<Scalars['String']>;
-  search?: InputMaybe<Scalars['String']>;
-  filters?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
-  layout?: InputMaybe<Scalars['String']>;
-  layout_query?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
-  layout_options?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
-  refresh_interval?: InputMaybe<Scalars['Int']>;
-};
-
-export type DirectusSystemData_Update_Directus_Presets_Input = {
-  id?: InputMaybe<Scalars['ID']>;
-  bookmark?: InputMaybe<Scalars['String']>;
-  user?: InputMaybe<DirectusSystemData_Update_Directus_Users_Input>;
-  role?: InputMaybe<Scalars['String']>;
-  collection?: InputMaybe<Scalars['String']>;
-  search?: InputMaybe<Scalars['String']>;
-  filters?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
-  layout?: InputMaybe<Scalars['String']>;
-  layout_query?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
-  layout_options?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
-  refresh_interval?: InputMaybe<Scalars['Int']>;
-};
-
 export type DirectusSystemData_Update_Directus_Users_Input = {
   first_name?: InputMaybe<Scalars['String']>;
   last_name?: InputMaybe<Scalars['String']>;
@@ -1231,6 +1393,34 @@ export type DirectusSystemData_Update_Directus_Users_Input = {
   avatar?: InputMaybe<Scalars['String']>;
   language?: InputMaybe<Scalars['String']>;
   theme?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusSystemData_Create_Directus_Presets_Input = {
+  id?: InputMaybe<Scalars['ID']>;
+  bookmark?: InputMaybe<Scalars['String']>;
+  user?: InputMaybe<Scalars['String']>;
+  role?: InputMaybe<Scalars['String']>;
+  collection?: InputMaybe<Scalars['String']>;
+  search?: InputMaybe<Scalars['String']>;
+  layout?: InputMaybe<Scalars['String']>;
+  layout_query?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
+  layout_options?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
+  refresh_interval?: InputMaybe<Scalars['Int']>;
+  filter?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
+};
+
+export type DirectusSystemData_Update_Directus_Presets_Input = {
+  id?: InputMaybe<Scalars['ID']>;
+  bookmark?: InputMaybe<Scalars['String']>;
+  user?: InputMaybe<DirectusSystemData_Update_Directus_Users_Input>;
+  role?: InputMaybe<Scalars['String']>;
+  collection?: InputMaybe<Scalars['String']>;
+  search?: InputMaybe<Scalars['String']>;
+  layout?: InputMaybe<Scalars['String']>;
+  layout_query?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
+  layout_options?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
+  refresh_interval?: InputMaybe<Scalars['Int']>;
+  filter?: InputMaybe<Scalars['DirectusSystemData_JSON']>;
 };
 
 export type DirectusSystemData_Delete_Many = {
@@ -1257,21 +1447,28 @@ export type DirectusSystemData = {
   relations_in_collection?: Maybe<Array<Maybe<DirectusSystemData_Directus_Relations>>>;
   relations_by_name?: Maybe<DirectusSystemData_Directus_Relations>;
   users_me?: Maybe<DirectusSystemData_Directus_Users>;
-  files?: Maybe<Array<Maybe<DirectusSystemData_Directus_Files>>>;
-  files_by_id?: Maybe<DirectusSystemData_Directus_Files>;
   folders?: Maybe<Array<Maybe<DirectusSystemData_Directus_Folders>>>;
   folders_by_id?: Maybe<DirectusSystemData_Directus_Folders>;
-  presets?: Maybe<Array<Maybe<DirectusSystemData_Directus_Presets>>>;
-  presets_by_id?: Maybe<DirectusSystemData_Directus_Presets>;
-  activity?: Maybe<Array<Maybe<DirectusSystemData_Directus_Activity>>>;
-  activity_by_id?: Maybe<DirectusSystemData_Directus_Activity>;
   permissions?: Maybe<Array<Maybe<DirectusSystemData_Directus_Permissions>>>;
   permissions_by_id?: Maybe<DirectusSystemData_Directus_Permissions>;
-  settings?: Maybe<DirectusSystemData_Directus_Settings>;
-  roles?: Maybe<Array<Maybe<DirectusSystemData_Directus_Roles>>>;
-  roles_by_id?: Maybe<DirectusSystemData_Directus_Roles>;
+  permissions_aggregated?: Maybe<Array<Maybe<DirectusSystemData_Directus_Permissions_Aggregated>>>;
+  presets?: Maybe<Array<Maybe<DirectusSystemData_Directus_Presets>>>;
+  presets_by_id?: Maybe<DirectusSystemData_Directus_Presets>;
+  presets_aggregated?: Maybe<Array<Maybe<DirectusSystemData_Directus_Presets_Aggregated>>>;
   users?: Maybe<Array<Maybe<DirectusSystemData_Directus_Users>>>;
   users_by_id?: Maybe<DirectusSystemData_Directus_Users>;
+  activity?: Maybe<Array<Maybe<DirectusSystemData_Directus_Activity>>>;
+  activity_by_id?: Maybe<DirectusSystemData_Directus_Activity>;
+  activity_aggregated?: Maybe<Array<Maybe<DirectusSystemData_Directus_Activity_Aggregated>>>;
+  files?: Maybe<Array<Maybe<DirectusSystemData_Directus_Files>>>;
+  files_by_id?: Maybe<DirectusSystemData_Directus_Files>;
+  files_aggregated?: Maybe<Array<Maybe<DirectusSystemData_Directus_Files_Aggregated>>>;
+  notifications?: Maybe<Array<Maybe<DirectusSystemData_Directus_Notifications>>>;
+  notifications_by_id?: Maybe<DirectusSystemData_Directus_Notifications>;
+  notifications_aggregated?: Maybe<Array<Maybe<DirectusSystemData_Directus_Notifications_Aggregated>>>;
+  roles?: Maybe<Array<Maybe<DirectusSystemData_Directus_Roles>>>;
+  roles_by_id?: Maybe<DirectusSystemData_Directus_Roles>;
+  settings?: Maybe<DirectusSystemData_Directus_Settings>;
 };
 
 
@@ -1307,21 +1504,6 @@ export type DirectusSystemDataRelations_By_NameArgs = {
 };
 
 
-export type DirectusSystemDataFilesArgs = {
-  filter?: InputMaybe<DirectusSystemData_Directus_Files_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusSystemDataFiles_By_IdArgs = {
-  id: Scalars['ID'];
-};
-
-
 export type DirectusSystemDataFoldersArgs = {
   filter?: InputMaybe<DirectusSystemData_Directus_Folders_Filter>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -1333,36 +1515,6 @@ export type DirectusSystemDataFoldersArgs = {
 
 
 export type DirectusSystemDataFolders_By_IdArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type DirectusSystemDataPresetsArgs = {
-  filter?: InputMaybe<DirectusSystemData_Directus_Presets_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusSystemDataPresets_By_IdArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type DirectusSystemDataActivityArgs = {
-  filter?: InputMaybe<DirectusSystemData_Directus_Activity_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusSystemDataActivity_By_IdArgs = {
   id: Scalars['ID'];
 };
 
@@ -1382,8 +1534,17 @@ export type DirectusSystemDataPermissions_By_IdArgs = {
 };
 
 
-export type DirectusSystemDataRolesArgs = {
-  filter?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
+export type DirectusSystemDataPermissions_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusSystemData_Directus_Permissions_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusSystemDataPresetsArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Presets_Filter>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -1392,8 +1553,17 @@ export type DirectusSystemDataRolesArgs = {
 };
 
 
-export type DirectusSystemDataRoles_By_IdArgs = {
+export type DirectusSystemDataPresets_By_IdArgs = {
   id: Scalars['ID'];
+};
+
+
+export type DirectusSystemDataPresets_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusSystemData_Directus_Presets_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
@@ -1411,6 +1581,407 @@ export type DirectusSystemDataUsers_By_IdArgs = {
   id: Scalars['ID'];
 };
 
+
+export type DirectusSystemDataActivityArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Activity_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusSystemDataActivity_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type DirectusSystemDataActivity_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusSystemData_Directus_Activity_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusSystemDataFilesArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Files_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusSystemDataFiles_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type DirectusSystemDataFiles_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusSystemData_Directus_Files_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusSystemDataNotificationsArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Notifications_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusSystemDataNotifications_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type DirectusSystemDataNotifications_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusSystemData_Directus_Notifications_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusSystemDataRolesArgs = {
+  filter?: InputMaybe<DirectusSystemData_Directus_Roles_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusSystemDataRoles_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+export type DirectusData_Author = {
+  id?: Maybe<Scalars['ID']>;
+  /** Name of the author shown on blog posts */
+  name: Scalars['String'];
+  image?: Maybe<DirectusData_Directus_Files>;
+};
+
+
+export type DirectusData_AuthorImageArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Files_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusData_Directus_Files = {
+  id?: Maybe<Scalars['ID']>;
+  storage: Scalars['String'];
+  filename_disk?: Maybe<Scalars['String']>;
+  filename_download: Scalars['String'];
+  title?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  folder?: Maybe<DirectusData_Directus_Folders>;
+  uploaded_by?: Maybe<DirectusData_Directus_Users>;
+  uploaded_on: Scalars['DirectusData_Date'];
+  uploaded_on_func?: Maybe<DirectusData_Datetime_Functions>;
+  modified_by?: Maybe<DirectusData_Directus_Users>;
+  modified_on: Scalars['DirectusData_Date'];
+  modified_on_func?: Maybe<DirectusData_Datetime_Functions>;
+  charset?: Maybe<Scalars['String']>;
+  filesize?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  duration?: Maybe<Scalars['Int']>;
+  embed?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  tags?: Maybe<Scalars['DirectusData_JSON']>;
+  metadata?: Maybe<Scalars['DirectusData_JSON']>;
+  imageFile?: Maybe<File>;
+};
+
+
+export type DirectusData_Directus_FilesFolderArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Folders_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusData_Directus_FilesUploaded_ByArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Users_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusData_Directus_FilesModified_ByArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Users_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusData_Directus_Folders = {
+  id?: Maybe<Scalars['ID']>;
+  name: Scalars['String'];
+  parent?: Maybe<DirectusData_Directus_Folders>;
+};
+
+
+export type DirectusData_Directus_FoldersParentArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Folders_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusData_Directus_Folders_Filter = {
+  id?: InputMaybe<DirectusData_String_Filter_Operators>;
+  name?: InputMaybe<DirectusData_String_Filter_Operators>;
+  parent?: InputMaybe<DirectusData_Directus_Folders_Filter>;
+  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Folders_Filter>>>;
+  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Folders_Filter>>>;
+};
+
+export type DirectusData_String_Filter_Operators = {
+  _eq?: InputMaybe<Scalars['String']>;
+  _neq?: InputMaybe<Scalars['String']>;
+  _contains?: InputMaybe<Scalars['String']>;
+  _ncontains?: InputMaybe<Scalars['String']>;
+  _starts_with?: InputMaybe<Scalars['String']>;
+  _nstarts_with?: InputMaybe<Scalars['String']>;
+  _ends_with?: InputMaybe<Scalars['String']>;
+  _nends_with?: InputMaybe<Scalars['String']>;
+  _in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  _nin?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  _null?: InputMaybe<Scalars['Boolean']>;
+  _nnull?: InputMaybe<Scalars['Boolean']>;
+  _empty?: InputMaybe<Scalars['Boolean']>;
+  _nempty?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type DirectusData_Directus_Users = {
+  id?: Maybe<Scalars['ID']>;
+  first_name?: Maybe<Scalars['String']>;
+  last_name?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
+  location?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  tags?: Maybe<Scalars['DirectusData_JSON']>;
+  avatar?: Maybe<DirectusData_Directus_Files>;
+  language?: Maybe<Scalars['String']>;
+  theme?: Maybe<Scalars['String']>;
+  tfa_secret?: Maybe<Scalars['String']>;
+  status: Scalars['String'];
+  role?: Maybe<DirectusData_Directus_Roles>;
+  token?: Maybe<Scalars['String']>;
+  last_access?: Maybe<Scalars['DirectusData_Date']>;
+  last_access_func?: Maybe<DirectusData_Datetime_Functions>;
+  last_page?: Maybe<Scalars['String']>;
+  provider: Scalars['String'];
+  external_identifier?: Maybe<Scalars['String']>;
+  auth_data?: Maybe<Scalars['DirectusData_JSON']>;
+  email_notifications?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type DirectusData_Directus_UsersAvatarArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Files_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusData_Directus_UsersRoleArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Roles_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusData_Directus_Files_Filter = {
+  id?: InputMaybe<DirectusData_String_Filter_Operators>;
+  storage?: InputMaybe<DirectusData_String_Filter_Operators>;
+  filename_disk?: InputMaybe<DirectusData_String_Filter_Operators>;
+  filename_download?: InputMaybe<DirectusData_String_Filter_Operators>;
+  title?: InputMaybe<DirectusData_String_Filter_Operators>;
+  type?: InputMaybe<DirectusData_String_Filter_Operators>;
+  folder?: InputMaybe<DirectusData_Directus_Folders_Filter>;
+  uploaded_by?: InputMaybe<DirectusData_Directus_Users_Filter>;
+  uploaded_on?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  uploaded_on_func?: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>;
+  modified_by?: InputMaybe<DirectusData_Directus_Users_Filter>;
+  modified_on?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  modified_on_func?: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>;
+  charset?: InputMaybe<DirectusData_String_Filter_Operators>;
+  filesize?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  width?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  height?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  duration?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  embed?: InputMaybe<DirectusData_String_Filter_Operators>;
+  description?: InputMaybe<DirectusData_String_Filter_Operators>;
+  location?: InputMaybe<DirectusData_String_Filter_Operators>;
+  tags?: InputMaybe<DirectusData_String_Filter_Operators>;
+  metadata?: InputMaybe<DirectusData_String_Filter_Operators>;
+  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Files_Filter>>>;
+  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Files_Filter>>>;
+};
+
+export type DirectusData_Directus_Users_Filter = {
+  id?: InputMaybe<DirectusData_String_Filter_Operators>;
+  first_name?: InputMaybe<DirectusData_String_Filter_Operators>;
+  last_name?: InputMaybe<DirectusData_String_Filter_Operators>;
+  email?: InputMaybe<DirectusData_String_Filter_Operators>;
+  password?: InputMaybe<DirectusData_String_Filter_Operators>;
+  location?: InputMaybe<DirectusData_String_Filter_Operators>;
+  title?: InputMaybe<DirectusData_String_Filter_Operators>;
+  description?: InputMaybe<DirectusData_String_Filter_Operators>;
+  tags?: InputMaybe<DirectusData_String_Filter_Operators>;
+  avatar?: InputMaybe<DirectusData_Directus_Files_Filter>;
+  language?: InputMaybe<DirectusData_String_Filter_Operators>;
+  theme?: InputMaybe<DirectusData_String_Filter_Operators>;
+  tfa_secret?: InputMaybe<DirectusData_String_Filter_Operators>;
+  status?: InputMaybe<DirectusData_String_Filter_Operators>;
+  role?: InputMaybe<DirectusData_Directus_Roles_Filter>;
+  token?: InputMaybe<DirectusData_String_Filter_Operators>;
+  last_access?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  last_access_func?: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>;
+  last_page?: InputMaybe<DirectusData_String_Filter_Operators>;
+  provider?: InputMaybe<DirectusData_String_Filter_Operators>;
+  external_identifier?: InputMaybe<DirectusData_String_Filter_Operators>;
+  auth_data?: InputMaybe<DirectusData_String_Filter_Operators>;
+  email_notifications?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
+  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Users_Filter>>>;
+  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Users_Filter>>>;
+};
+
+export type DirectusData_Directus_Roles_Filter = {
+  id?: InputMaybe<DirectusData_String_Filter_Operators>;
+  name?: InputMaybe<DirectusData_String_Filter_Operators>;
+  icon?: InputMaybe<DirectusData_String_Filter_Operators>;
+  description?: InputMaybe<DirectusData_String_Filter_Operators>;
+  ip_access?: InputMaybe<DirectusData_String_Filter_Operators>;
+  enforce_tfa?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
+  admin_access?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
+  app_access?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
+  users?: InputMaybe<DirectusData_Directus_Users_Filter>;
+  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Roles_Filter>>>;
+  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Roles_Filter>>>;
+};
+
+export type DirectusData_Boolean_Filter_Operators = {
+  _eq?: InputMaybe<Scalars['Boolean']>;
+  _neq?: InputMaybe<Scalars['Boolean']>;
+  _null?: InputMaybe<Scalars['Boolean']>;
+  _nnull?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type DirectusData_Date_Filter_Operators = {
+  _eq?: InputMaybe<Scalars['String']>;
+  _neq?: InputMaybe<Scalars['String']>;
+  _gt?: InputMaybe<Scalars['String']>;
+  _gte?: InputMaybe<Scalars['String']>;
+  _lt?: InputMaybe<Scalars['String']>;
+  _lte?: InputMaybe<Scalars['String']>;
+  _null?: InputMaybe<Scalars['Boolean']>;
+  _nnull?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type DirectusData_Datetime_Function_Filter_Operators = {
+  year?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  month?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  week?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  day?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  weekday?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  hour?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  minute?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  second?: InputMaybe<DirectusData_Number_Filter_Operators>;
+};
+
+export type DirectusData_Number_Filter_Operators = {
+  _eq?: InputMaybe<Scalars['Float']>;
+  _neq?: InputMaybe<Scalars['Float']>;
+  _in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  _nin?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  _gt?: InputMaybe<Scalars['Float']>;
+  _gte?: InputMaybe<Scalars['Float']>;
+  _lt?: InputMaybe<Scalars['Float']>;
+  _lte?: InputMaybe<Scalars['Float']>;
+  _null?: InputMaybe<Scalars['Boolean']>;
+  _nnull?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type DirectusData_Directus_Roles = {
+  id?: Maybe<Scalars['ID']>;
+  name: Scalars['String'];
+  icon: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+  ip_access?: Maybe<Array<Maybe<Scalars['String']>>>;
+  enforce_tfa: Scalars['Boolean'];
+  admin_access: Scalars['Boolean'];
+  app_access: Scalars['Boolean'];
+  users?: Maybe<Array<Maybe<DirectusData_Directus_Users>>>;
+};
+
+
+export type DirectusData_Directus_RolesUsersArgs = {
+  filter?: InputMaybe<DirectusData_Directus_Users_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+export type DirectusData_Datetime_Functions = {
+  year?: Maybe<Scalars['Int']>;
+  month?: Maybe<Scalars['Int']>;
+  week?: Maybe<Scalars['Int']>;
+  day?: Maybe<Scalars['Int']>;
+  weekday?: Maybe<Scalars['Int']>;
+  hour?: Maybe<Scalars['Int']>;
+  minute?: Maybe<Scalars['Int']>;
+  second?: Maybe<Scalars['Int']>;
+};
+
+export type DirectusData_Author_Filter = {
+  id?: InputMaybe<DirectusData_String_Filter_Operators>;
+  name?: InputMaybe<DirectusData_String_Filter_Operators>;
+  image?: InputMaybe<DirectusData_Directus_Files_Filter>;
+  _and?: InputMaybe<Array<InputMaybe<DirectusData_Author_Filter>>>;
+  _or?: InputMaybe<Array<InputMaybe<DirectusData_Author_Filter>>>;
+};
+
 export type DirectusData_Blog = {
   id?: Maybe<Scalars['ID']>;
   /** Select "Published" and click on save to publish this blog post */
@@ -1418,12 +1989,15 @@ export type DirectusData_Blog = {
   sort?: Maybe<Scalars['Int']>;
   user_created?: Maybe<DirectusData_Directus_Users>;
   date_created?: Maybe<Scalars['DirectusData_Date']>;
+  date_created_func?: Maybe<DirectusData_Datetime_Functions>;
   user_updated?: Maybe<DirectusData_Directus_Users>;
   date_updated?: Maybe<Scalars['DirectusData_Date']>;
+  date_updated_func?: Maybe<DirectusData_Datetime_Functions>;
   /** Maximum of 60 characters */
   blog_title: Scalars['String'];
   /** This will be shown as the published date for the blog post */
   published_date: Scalars['DirectusData_Date'];
+  published_date_func?: Maybe<DirectusData_Date_Functions>;
   /** This blog will be featured in the Featured section of the blog homepage */
   featured: Scalars['Boolean'];
   /** Has to be in WHOLE numbers, e.g. (5)-minute read */
@@ -1524,282 +2098,12 @@ export type DirectusData_BlogTagsArgs = {
   search?: InputMaybe<Scalars['String']>;
 };
 
-export type DirectusData_Directus_Users = {
-  id?: Maybe<Scalars['ID']>;
-  first_name?: Maybe<Scalars['String']>;
-  last_name?: Maybe<Scalars['String']>;
-  email: Scalars['String'];
-  password?: Maybe<Scalars['String']>;
-  location?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  tags?: Maybe<Scalars['DirectusData_JSON']>;
-  avatar?: Maybe<DirectusData_Directus_Files>;
-  language?: Maybe<Scalars['String']>;
-  theme?: Maybe<Scalars['String']>;
-  tfa_secret?: Maybe<Scalars['String']>;
-  status: Scalars['String'];
-  role?: Maybe<DirectusData_Directus_Roles>;
-  token?: Maybe<Scalars['String']>;
-  last_access?: Maybe<Scalars['DirectusData_Date']>;
-  last_page?: Maybe<Scalars['String']>;
-};
-
-
-export type DirectusData_Directus_UsersAvatarArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Files_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusData_Directus_UsersRoleArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Roles_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-export type DirectusData_Directus_Files = {
-  id?: Maybe<Scalars['ID']>;
-  storage: Scalars['String'];
-  filename_disk?: Maybe<Scalars['String']>;
-  filename_download: Scalars['String'];
-  title?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  folder?: Maybe<DirectusData_Directus_Folders>;
-  uploaded_by?: Maybe<DirectusData_Directus_Users>;
-  uploaded_on: Scalars['DirectusData_Date'];
-  modified_by?: Maybe<DirectusData_Directus_Users>;
-  modified_on: Scalars['DirectusData_Date'];
-  charset?: Maybe<Scalars['String']>;
-  filesize?: Maybe<Scalars['Int']>;
-  width?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['Int']>;
-  duration?: Maybe<Scalars['Int']>;
-  embed?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  location?: Maybe<Scalars['String']>;
-  tags?: Maybe<Scalars['DirectusData_JSON']>;
-  metadata?: Maybe<Scalars['DirectusData_JSON']>;
-  imageFile?: Maybe<File>;
-};
-
-
-export type DirectusData_Directus_FilesFolderArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Folders_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusData_Directus_FilesUploaded_ByArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Users_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusData_Directus_FilesModified_ByArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Users_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-export type DirectusData_Directus_Folders = {
-  id?: Maybe<Scalars['ID']>;
-  name: Scalars['String'];
-  parent?: Maybe<DirectusData_Directus_Folders>;
-};
-
-
-export type DirectusData_Directus_FoldersParentArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Folders_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-export type DirectusData_Directus_Folders_Filter = {
-  id?: InputMaybe<DirectusData_String_Filter_Operators>;
-  name?: InputMaybe<DirectusData_String_Filter_Operators>;
-  parent?: InputMaybe<DirectusData_Directus_Folders_Filter>;
-  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Folders_Filter>>>;
-  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Folders_Filter>>>;
-};
-
-export type DirectusData_String_Filter_Operators = {
-  _eq?: InputMaybe<Scalars['String']>;
-  _neq?: InputMaybe<Scalars['String']>;
-  _contains?: InputMaybe<Scalars['String']>;
-  _ncontains?: InputMaybe<Scalars['String']>;
-  _in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  _nin?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  _null?: InputMaybe<Scalars['Boolean']>;
-  _nnull?: InputMaybe<Scalars['Boolean']>;
-  _empty?: InputMaybe<Scalars['Boolean']>;
-  _nempty?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type DirectusData_Directus_Users_Filter = {
-  id?: InputMaybe<DirectusData_String_Filter_Operators>;
-  first_name?: InputMaybe<DirectusData_String_Filter_Operators>;
-  last_name?: InputMaybe<DirectusData_String_Filter_Operators>;
-  email?: InputMaybe<DirectusData_String_Filter_Operators>;
-  password?: InputMaybe<DirectusData_String_Filter_Operators>;
-  location?: InputMaybe<DirectusData_String_Filter_Operators>;
-  title?: InputMaybe<DirectusData_String_Filter_Operators>;
-  description?: InputMaybe<DirectusData_String_Filter_Operators>;
-  tags?: InputMaybe<DirectusData_String_Filter_Operators>;
-  avatar?: InputMaybe<DirectusData_Directus_Files_Filter>;
-  language?: InputMaybe<DirectusData_String_Filter_Operators>;
-  theme?: InputMaybe<DirectusData_String_Filter_Operators>;
-  tfa_secret?: InputMaybe<DirectusData_String_Filter_Operators>;
-  status?: InputMaybe<DirectusData_String_Filter_Operators>;
-  role?: InputMaybe<DirectusData_Directus_Roles_Filter>;
-  token?: InputMaybe<DirectusData_String_Filter_Operators>;
-  last_access?: InputMaybe<DirectusData_Date_Filter_Operators>;
-  last_page?: InputMaybe<DirectusData_String_Filter_Operators>;
-  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Users_Filter>>>;
-  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Users_Filter>>>;
-};
-
-export type DirectusData_Directus_Files_Filter = {
-  id?: InputMaybe<DirectusData_String_Filter_Operators>;
-  storage?: InputMaybe<DirectusData_String_Filter_Operators>;
-  filename_disk?: InputMaybe<DirectusData_String_Filter_Operators>;
-  filename_download?: InputMaybe<DirectusData_String_Filter_Operators>;
-  title?: InputMaybe<DirectusData_String_Filter_Operators>;
-  type?: InputMaybe<DirectusData_String_Filter_Operators>;
-  folder?: InputMaybe<DirectusData_Directus_Folders_Filter>;
-  uploaded_by?: InputMaybe<DirectusData_Directus_Users_Filter>;
-  uploaded_on?: InputMaybe<DirectusData_Date_Filter_Operators>;
-  modified_by?: InputMaybe<DirectusData_Directus_Users_Filter>;
-  modified_on?: InputMaybe<DirectusData_Date_Filter_Operators>;
-  charset?: InputMaybe<DirectusData_String_Filter_Operators>;
-  filesize?: InputMaybe<DirectusData_Number_Filter_Operators>;
-  width?: InputMaybe<DirectusData_Number_Filter_Operators>;
-  height?: InputMaybe<DirectusData_Number_Filter_Operators>;
-  duration?: InputMaybe<DirectusData_Number_Filter_Operators>;
-  embed?: InputMaybe<DirectusData_String_Filter_Operators>;
-  description?: InputMaybe<DirectusData_String_Filter_Operators>;
-  location?: InputMaybe<DirectusData_String_Filter_Operators>;
-  tags?: InputMaybe<DirectusData_String_Filter_Operators>;
-  metadata?: InputMaybe<DirectusData_String_Filter_Operators>;
-  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Files_Filter>>>;
-  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Files_Filter>>>;
-};
-
-export type DirectusData_Date_Filter_Operators = {
-  _eq?: InputMaybe<Scalars['String']>;
-  _neq?: InputMaybe<Scalars['String']>;
-  _gt?: InputMaybe<Scalars['String']>;
-  _gte?: InputMaybe<Scalars['String']>;
-  _lt?: InputMaybe<Scalars['String']>;
-  _lte?: InputMaybe<Scalars['String']>;
-  _null?: InputMaybe<Scalars['Boolean']>;
-  _nnull?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type DirectusData_Number_Filter_Operators = {
-  _eq?: InputMaybe<Scalars['Float']>;
-  _neq?: InputMaybe<Scalars['Float']>;
-  _in?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  _nin?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  _gt?: InputMaybe<Scalars['Float']>;
-  _gte?: InputMaybe<Scalars['Float']>;
-  _lt?: InputMaybe<Scalars['Float']>;
-  _lte?: InputMaybe<Scalars['Float']>;
-  _null?: InputMaybe<Scalars['Boolean']>;
-  _nnull?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type DirectusData_Directus_Roles_Filter = {
-  id?: InputMaybe<DirectusData_String_Filter_Operators>;
-  name?: InputMaybe<DirectusData_String_Filter_Operators>;
-  icon?: InputMaybe<DirectusData_String_Filter_Operators>;
-  description?: InputMaybe<DirectusData_String_Filter_Operators>;
-  ip_access?: InputMaybe<DirectusData_String_Filter_Operators>;
-  enforce_tfa?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
-  module_list?: InputMaybe<DirectusData_String_Filter_Operators>;
-  collection_list?: InputMaybe<DirectusData_String_Filter_Operators>;
-  admin_access?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
-  app_access?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
-  users?: InputMaybe<DirectusData_Directus_Users_Filter>;
-  _and?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Roles_Filter>>>;
-  _or?: InputMaybe<Array<InputMaybe<DirectusData_Directus_Roles_Filter>>>;
-};
-
-export type DirectusData_Boolean_Filter_Operators = {
-  _eq?: InputMaybe<Scalars['Boolean']>;
-  _neq?: InputMaybe<Scalars['Boolean']>;
-  _null?: InputMaybe<Scalars['Boolean']>;
-  _nnull?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type DirectusData_Directus_Roles = {
-  id?: Maybe<Scalars['ID']>;
-  name: Scalars['String'];
-  icon: Scalars['String'];
-  description?: Maybe<Scalars['String']>;
-  ip_access?: Maybe<Scalars['DirectusData_JSON']>;
-  enforce_tfa: Scalars['Boolean'];
-  module_list?: Maybe<Scalars['DirectusData_JSON']>;
-  collection_list?: Maybe<Scalars['DirectusData_JSON']>;
-  admin_access: Scalars['Boolean'];
-  app_access: Scalars['Boolean'];
-  users?: Maybe<Array<Maybe<DirectusData_Directus_Users>>>;
-};
-
-
-export type DirectusData_Directus_RolesUsersArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Users_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-export type DirectusData_Author = {
-  id?: Maybe<Scalars['ID']>;
-  /** Name of the author shown on blog posts */
-  name: Scalars['String'];
-  image?: Maybe<DirectusData_Directus_Files>;
-};
-
-
-export type DirectusData_AuthorImageArgs = {
-  filter?: InputMaybe<DirectusData_Directus_Files_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-export type DirectusData_Author_Filter = {
-  id?: InputMaybe<DirectusData_String_Filter_Operators>;
-  name?: InputMaybe<DirectusData_String_Filter_Operators>;
-  image?: InputMaybe<DirectusData_Directus_Files_Filter>;
-  _and?: InputMaybe<Array<InputMaybe<DirectusData_Author_Filter>>>;
-  _or?: InputMaybe<Array<InputMaybe<DirectusData_Author_Filter>>>;
+export type DirectusData_Date_Functions = {
+  year?: Maybe<Scalars['Int']>;
+  month?: Maybe<Scalars['Int']>;
+  week?: Maybe<Scalars['Int']>;
+  day?: Maybe<Scalars['Int']>;
+  weekday?: Maybe<Scalars['Int']>;
 };
 
 export type DirectusData_Side_Banners = {
@@ -1910,10 +2214,13 @@ export type DirectusData_Blog_Filter = {
   sort?: InputMaybe<DirectusData_Number_Filter_Operators>;
   user_created?: InputMaybe<DirectusData_Directus_Users_Filter>;
   date_created?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  date_created_func?: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>;
   user_updated?: InputMaybe<DirectusData_Directus_Users_Filter>;
   date_updated?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  date_updated_func?: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>;
   blog_title?: InputMaybe<DirectusData_String_Filter_Operators>;
   published_date?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  published_date_func?: InputMaybe<DirectusData_Date_Function_Filter_Operators>;
   featured?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
   read_time_in_minutes?: InputMaybe<DirectusData_Number_Filter_Operators>;
   blog_description?: InputMaybe<DirectusData_String_Filter_Operators>;
@@ -1935,6 +2242,14 @@ export type DirectusData_Blog_Filter = {
   _or?: InputMaybe<Array<InputMaybe<DirectusData_Blog_Filter>>>;
 };
 
+export type DirectusData_Date_Function_Filter_Operators = {
+  year?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  month?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  week?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  day?: InputMaybe<DirectusData_Number_Filter_Operators>;
+  weekday?: InputMaybe<DirectusData_Number_Filter_Operators>;
+};
+
 export type DirectusData_Blog_Tags_Filter = {
   id?: InputMaybe<DirectusData_Number_Filter_Operators>;
   blog_id?: InputMaybe<DirectusData_Blog_Filter>;
@@ -1953,6 +2268,59 @@ export type DirectusData_Tags_Filter = {
 export type DirectusData_Tags = {
   id?: Maybe<Scalars['ID']>;
   tag_name: Scalars['String'];
+};
+
+export type DirectusData_Blog_Aggregated = {
+  group?: Maybe<Scalars['DirectusData_JSON']>;
+  avg?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+  sum?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+  count?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+  min?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+  max?: Maybe<DirectusData_Blog_Aggregated_Fields>;
+};
+
+export type DirectusData_Blog_Aggregated_Fields = {
+  sort?: Maybe<Scalars['Float']>;
+  /** Has to be in WHOLE numbers, e.g. (5)-minute read */
+  read_time_in_minutes?: Maybe<Scalars['Float']>;
+  /** Add footer banner (optional) */
+  footer_banners?: Maybe<Scalars['Float']>;
+};
+
+export type DirectusData_Blog_Tags_Aggregated = {
+  group?: Maybe<Scalars['DirectusData_JSON']>;
+  avg?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+  sum?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+  count?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+  min?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+  max?: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>;
+};
+
+export type DirectusData_Blog_Tags_Aggregated_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+export type DirectusData_Footer_Banners_Aggregated = {
+  group?: Maybe<Scalars['DirectusData_JSON']>;
+  avg?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+  sum?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+  count?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+  min?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+  max?: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>;
+};
+
+export type DirectusData_Footer_Banners_Aggregated_Fields = {
+  id?: Maybe<Scalars['Float']>;
+  sort?: Maybe<Scalars['Float']>;
 };
 
 export type DirectusData_Homepage_Banners = {
@@ -1998,14 +2366,48 @@ export type DirectusData_Homepage_Banners_Filter = {
   _or?: InputMaybe<Array<InputMaybe<DirectusData_Homepage_Banners_Filter>>>;
 };
 
+export type DirectusData_Homepage_Banners_Aggregated = {
+  group?: Maybe<Scalars['DirectusData_JSON']>;
+  avg?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+  sum?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+  count?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+  min?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+  max?: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>;
+};
+
+export type DirectusData_Homepage_Banners_Aggregated_Fields = {
+  sort?: Maybe<Scalars['Float']>;
+};
+
+export type DirectusData_Side_Banners_Aggregated = {
+  group?: Maybe<Scalars['DirectusData_JSON']>;
+  avg?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+  sum?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+  count?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+  min?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+  max?: Maybe<DirectusData_Side_Banners_Aggregated_Fields>;
+};
+
+export type DirectusData_Side_Banners_Aggregated_Fields = {
+  sort?: Maybe<Scalars['Float']>;
+};
+
 export type DirectusData_Videos = {
   video_id?: Maybe<Scalars['ID']>;
   status: Scalars['String'];
   sort?: Maybe<Scalars['Int']>;
   user_created?: Maybe<DirectusData_Directus_Users>;
   date_created?: Maybe<Scalars['DirectusData_Date']>;
+  date_created_func?: Maybe<DirectusData_Datetime_Functions>;
   user_updated?: Maybe<DirectusData_Directus_Users>;
   date_updated?: Maybe<Scalars['DirectusData_Date']>;
+  date_updated_func?: Maybe<DirectusData_Datetime_Functions>;
   video_file?: Maybe<DirectusData_Directus_Files>;
   video_thumbnail?: Maybe<DirectusData_Directus_Files>;
   /** Add a video duration, e.g. "01:25" */
@@ -2018,6 +2420,7 @@ export type DirectusData_Videos = {
   video_title?: Maybe<Scalars['String']>;
   /** Sets the published date shown on the page */
   published_date: Scalars['DirectusData_Date'];
+  published_date_func?: Maybe<DirectusData_Date_Functions>;
   /** Add a description for your video */
   video_description?: Maybe<Scalars['String']>;
   /** Checking this hides the video for EU */
@@ -2110,8 +2513,10 @@ export type DirectusData_Videos_Filter = {
   sort?: InputMaybe<DirectusData_Number_Filter_Operators>;
   user_created?: InputMaybe<DirectusData_Directus_Users_Filter>;
   date_created?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  date_created_func?: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>;
   user_updated?: InputMaybe<DirectusData_Directus_Users_Filter>;
   date_updated?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  date_updated_func?: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>;
   video_file?: InputMaybe<DirectusData_Directus_Files_Filter>;
   video_thumbnail?: InputMaybe<DirectusData_Directus_Files_Filter>;
   video_duration?: InputMaybe<DirectusData_String_Filter_Operators>;
@@ -2119,6 +2524,7 @@ export type DirectusData_Videos_Filter = {
   video_slug?: InputMaybe<DirectusData_String_Filter_Operators>;
   video_title?: InputMaybe<DirectusData_String_Filter_Operators>;
   published_date?: InputMaybe<DirectusData_Date_Filter_Operators>;
+  published_date_func?: InputMaybe<DirectusData_Date_Function_Filter_Operators>;
   video_description?: InputMaybe<DirectusData_String_Filter_Operators>;
   hide_for_eu?: InputMaybe<DirectusData_Boolean_Filter_Operators>;
   vimeo_id?: InputMaybe<DirectusData_String_Filter_Operators>;
@@ -2136,40 +2542,64 @@ export type DirectusData_Videos_Tags_Filter = {
   _or?: InputMaybe<Array<InputMaybe<DirectusData_Videos_Tags_Filter>>>;
 };
 
+export type DirectusData_Videos_Aggregated = {
+  group?: Maybe<Scalars['DirectusData_JSON']>;
+  avg?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+  sum?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+  count?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+  min?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+  max?: Maybe<DirectusData_Videos_Aggregated_Fields>;
+};
+
+export type DirectusData_Videos_Aggregated_Fields = {
+  sort?: Maybe<Scalars['Float']>;
+};
+
+export type DirectusData_Videos_Tags_Aggregated = {
+  group?: Maybe<Scalars['DirectusData_JSON']>;
+  avg?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+  sum?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+  count?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+  countDistinct?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+  avgDistinct?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+  sumDistinct?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+  min?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+  max?: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>;
+};
+
+export type DirectusData_Videos_Tags_Aggregated_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
 export type DirectusData = {
-  blog?: Maybe<Array<Maybe<DirectusData_Blog>>>;
-  blog_by_id?: Maybe<DirectusData_Blog>;
   author?: Maybe<Array<Maybe<DirectusData_Author>>>;
   author_by_id?: Maybe<DirectusData_Author>;
-  side_banners?: Maybe<Array<Maybe<DirectusData_Side_Banners>>>;
-  side_banners_by_id?: Maybe<DirectusData_Side_Banners>;
-  homepage_banners?: Maybe<Array<Maybe<DirectusData_Homepage_Banners>>>;
-  homepage_banners_by_id?: Maybe<DirectusData_Homepage_Banners>;
-  videos?: Maybe<Array<Maybe<DirectusData_Videos>>>;
-  videos_by_id?: Maybe<DirectusData_Videos>;
-  tags?: Maybe<Array<Maybe<DirectusData_Tags>>>;
-  tags_by_id?: Maybe<DirectusData_Tags>;
+  blog?: Maybe<Array<Maybe<DirectusData_Blog>>>;
+  blog_by_id?: Maybe<DirectusData_Blog>;
+  blog_aggregated?: Maybe<Array<Maybe<DirectusData_Blog_Aggregated>>>;
   blog_tags?: Maybe<Array<Maybe<DirectusData_Blog_Tags>>>;
   blog_tags_by_id?: Maybe<DirectusData_Blog_Tags>;
-  videos_tags?: Maybe<Array<Maybe<DirectusData_Videos_Tags>>>;
-  videos_tags_by_id?: Maybe<DirectusData_Videos_Tags>;
+  blog_tags_aggregated?: Maybe<Array<Maybe<DirectusData_Blog_Tags_Aggregated>>>;
   footer_banners?: Maybe<Array<Maybe<DirectusData_Footer_Banners>>>;
   footer_banners_by_id?: Maybe<DirectusData_Footer_Banners>;
-};
-
-
-export type DirectusDataBlogArgs = {
-  filter?: InputMaybe<DirectusData_Blog_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusDataBlog_By_IdArgs = {
-  id: Scalars['ID'];
+  footer_banners_aggregated?: Maybe<Array<Maybe<DirectusData_Footer_Banners_Aggregated>>>;
+  homepage_banners?: Maybe<Array<Maybe<DirectusData_Homepage_Banners>>>;
+  homepage_banners_by_id?: Maybe<DirectusData_Homepage_Banners>;
+  homepage_banners_aggregated?: Maybe<Array<Maybe<DirectusData_Homepage_Banners_Aggregated>>>;
+  side_banners?: Maybe<Array<Maybe<DirectusData_Side_Banners>>>;
+  side_banners_by_id?: Maybe<DirectusData_Side_Banners>;
+  side_banners_aggregated?: Maybe<Array<Maybe<DirectusData_Side_Banners_Aggregated>>>;
+  tags?: Maybe<Array<Maybe<DirectusData_Tags>>>;
+  tags_by_id?: Maybe<DirectusData_Tags>;
+  videos?: Maybe<Array<Maybe<DirectusData_Videos>>>;
+  videos_by_id?: Maybe<DirectusData_Videos>;
+  videos_aggregated?: Maybe<Array<Maybe<DirectusData_Videos_Aggregated>>>;
+  videos_tags?: Maybe<Array<Maybe<DirectusData_Videos_Tags>>>;
+  videos_tags_by_id?: Maybe<DirectusData_Videos_Tags>;
+  videos_tags_aggregated?: Maybe<Array<Maybe<DirectusData_Videos_Tags_Aggregated>>>;
 };
 
 
@@ -2188,6 +2618,102 @@ export type DirectusDataAuthor_By_IdArgs = {
 };
 
 
+export type DirectusDataBlogArgs = {
+  filter?: InputMaybe<DirectusData_Blog_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusDataBlog_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type DirectusDataBlog_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusData_Blog_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusDataBlog_TagsArgs = {
+  filter?: InputMaybe<DirectusData_Blog_Tags_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusDataBlog_Tags_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type DirectusDataBlog_Tags_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusData_Blog_Tags_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusDataFooter_BannersArgs = {
+  filter?: InputMaybe<DirectusData_Footer_Banners_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusDataFooter_Banners_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type DirectusDataFooter_Banners_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusData_Footer_Banners_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusDataHomepage_BannersArgs = {
+  filter?: InputMaybe<DirectusData_Homepage_Banners_Filter>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+};
+
+
+export type DirectusDataHomepage_Banners_By_IdArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type DirectusDataHomepage_Banners_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusData_Homepage_Banners_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
 export type DirectusDataSide_BannersArgs = {
   filter?: InputMaybe<DirectusData_Side_Banners_Filter>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -2203,8 +2729,17 @@ export type DirectusDataSide_Banners_By_IdArgs = {
 };
 
 
-export type DirectusDataHomepage_BannersArgs = {
-  filter?: InputMaybe<DirectusData_Homepage_Banners_Filter>;
+export type DirectusDataSide_Banners_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusData_Side_Banners_Filter>;
+  limit?: InputMaybe<Scalars['Int']>;
+  search?: InputMaybe<Scalars['String']>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type DirectusDataTagsArgs = {
+  filter?: InputMaybe<DirectusData_Tags_Filter>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -2213,7 +2748,7 @@ export type DirectusDataHomepage_BannersArgs = {
 };
 
 
-export type DirectusDataHomepage_Banners_By_IdArgs = {
+export type DirectusDataTags_By_IdArgs = {
   id: Scalars['ID'];
 };
 
@@ -2233,33 +2768,12 @@ export type DirectusDataVideos_By_IdArgs = {
 };
 
 
-export type DirectusDataTagsArgs = {
-  filter?: InputMaybe<DirectusData_Tags_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+export type DirectusDataVideos_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusData_Videos_Filter>;
   limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
   search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusDataTags_By_IdArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type DirectusDataBlog_TagsArgs = {
-  filter?: InputMaybe<DirectusData_Blog_Tags_Filter>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusDataBlog_Tags_By_IdArgs = {
-  id: Scalars['ID'];
 };
 
 
@@ -2278,18 +2792,12 @@ export type DirectusDataVideos_Tags_By_IdArgs = {
 };
 
 
-export type DirectusDataFooter_BannersArgs = {
-  filter?: InputMaybe<DirectusData_Footer_Banners_Filter>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+export type DirectusDataVideos_Tags_AggregatedArgs = {
+  groupBy?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  filter?: InputMaybe<DirectusData_Videos_Tags_Filter>;
   limit?: InputMaybe<Scalars['Int']>;
-  offset?: InputMaybe<Scalars['Int']>;
-  page?: InputMaybe<Scalars['Int']>;
   search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DirectusDataFooter_Banners_By_IdArgs = {
-  id: Scalars['ID'];
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type Query = {
@@ -5249,37 +5757,37 @@ export type Unnamed_37_Query = { deriv_platform?: { childImageSharp?: { gatsbyIm
 export type Unnamed_38_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_38_Query = { hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_38_Query = { community?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_39_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_39_Query = { market_forex?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_synthetic_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_stocks_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_crypto?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_commodities?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_39_Query = { hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_40_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_40_Query = { hero_platform1?: { childImageSharp?: { gatsbyImageData: any } | null } | null, hero_platform2?: { childImageSharp?: { gatsbyImageData: any } | null } | null, hero_platform3?: { childImageSharp?: { gatsbyImageData: any } | null } | null, hero_platform4?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_40_Query = { market_forex?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_synthetic_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_stocks_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_crypto?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_commodities?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_41_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_41_Query = { dtrader_artboard?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_41_Query = { hero_platform1?: { childImageSharp?: { gatsbyImageData: any } | null } | null, hero_platform2?: { childImageSharp?: { gatsbyImageData: any } | null } | null, hero_platform3?: { childImageSharp?: { gatsbyImageData: any } | null } | null, hero_platform4?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_42_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_42_Query = { trade_type_cfds?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_type_digitaloptions?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_type_multipliers?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_type_spreads?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_42_Query = { dtrader_artboard?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_43_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_43_Query = { dtrader_trade?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_trade?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_trade?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_43_Query = { trade_type_cfds?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_type_digitaloptions?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_type_multipliers?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_type_spreads?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_44_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_44_Query = { platforms_deriv_go?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_mt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dtrader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_derivx?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_smarttrader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_binary_bot?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_api?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_44_Query = { dtrader_trade?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_trade?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_trade?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_45_QueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5289,217 +5797,217 @@ export type Unnamed_45_Query = { platforms_deriv_go?: { childImageSharp?: { gats
 export type Unnamed_46_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_46_Query = { affiliate?: { childImageSharp?: { gatsbyImageData: any } | null } | null, smart_trader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_46_Query = { platforms_deriv_go?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_mt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dtrader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_derivx?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_smarttrader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_binary_bot?: { childImageSharp?: { gatsbyImageData: any } | null } | null, platforms_api?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_47_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_47_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_47_Query = { affiliate?: { childImageSharp?: { gatsbyImageData: any } | null } | null, smart_trader?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_48_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_48_Query = { dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_48_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_49_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_49_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_49_Query = { dbot?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_50_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_50_Query = { dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_50_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_51_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_51_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_51_Query = { dmt5?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_52_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_52_Query = { deriv_platform?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_52_Query = { deriv?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_53_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_53_Query = { crypto_hero?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_53_Query = { deriv_platform?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_54_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_54_Query = { forex_ebook_img_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_img_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_54_Query = { crypto_hero?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_pt?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_hero_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null, crypto_inside_fr?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_55_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_55_Query = { stocks_ebook_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_ebook_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_55_Query = { forex_ebook_img_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_img_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_en?: { childImageSharp?: { gatsbyImageData: any } | null } | null, forex_ebook_inside_es?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_56_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_56_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_56_Query = { stocks_ebook_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_ebook_inside?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_57_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_57_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_57_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_58_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_58_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_58_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_59_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_59_Query = { mainHeaderImage?: { childImageSharp?: { gatsbyImageData: any } | null } | null, mainHeaderImageMobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_59_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_60_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_60_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_60_Query = { mainHeaderImage?: { childImageSharp?: { gatsbyImageData: any } | null } | null, mainHeaderImageMobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_61_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_61_Query = { stocks_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_61_Query = { dbot_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_build_strategy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_maximise_profits?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_track_your_performance?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_get_integrated_help?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dbot_save_your_strategies?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_ipad_iphone?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt_5_mac?: { childImageSharp?: { gatsbyImageData: any } | null } | null, make_smarter?: { childImageSharp?: { gatsbyImageData: any } | null } | null, trade_what_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, how_you_want?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_zero_fees?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_blue_chip?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_62_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_62_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_62_Query = { stocks_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stocks_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_63_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_63_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_63_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_64_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_64_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_64_Query = { login?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_acc?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_login?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_65_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_65_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_65_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_66_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_66_Query = { qr_code?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_66_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_67_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_67_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null, web_and_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_67_Query = { qr_code?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_68_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_68_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_68_Query = { buy_sell?: { childImageSharp?: { gatsbyImageData: any } | null } | null, local_currency?: { childImageSharp?: { gatsbyImageData: any } | null } | null, web_and_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_69_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_69_Query = { p2p_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_69_Query = { p2p_hero_background?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_background_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_hero_img?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_70_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_70_Query = { dmt5_synthetic_calculator?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_70_Query = { p2p_banner?: { childImageSharp?: { gatsbyImageData: any } | null } | null, p2p_banner_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_71_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_71_Query = { image?: { childImageSharp?: { gatsbyImageData: any } | null } | null, image_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_71_Query = { dmt5_synthetic_calculator?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_one?: { childImageSharp?: { gatsbyImageData: any } | null } | null, dmt5_financial_stp_calculator_two?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_72_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_72_Query = { multiple_income_opportunities?: { childImageSharp?: { gatsbyImageData: any } | null } | null, daily_ib_commission?: { childImageSharp?: { gatsbyImageData: any } | null } | null, marketing_material?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_72_Query = { image?: { childImageSharp?: { gatsbyImageData: any } | null } | null, image_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_73_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_73_Query = { payment_agent?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_73_Query = { multiple_income_opportunities?: { childImageSharp?: { gatsbyImageData: any } | null } | null, daily_ib_commission?: { childImageSharp?: { gatsbyImageData: any } | null } | null, marketing_material?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_74_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_74_Query = { view_email?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_74_Query = { payment_agent?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_75_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_75_Query = { margin_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_75_Query = { view_email?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_76_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_76_Query = { example?: { childImageSharp?: { gatsbyImageData: any } | null } | null, example_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_76_Query = { margin_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile_relationship_piechart?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_77_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_77_Query = { multiplier_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_take_profit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stop_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_deal_cancellation?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_market_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_77_Query = { example?: { childImageSharp?: { gatsbyImageData: any } | null } | null, example_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_78_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_78_Query = { stake_amount?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_78_Query = { multiplier_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_take_profit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_stop_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_deal_cancellation?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_market_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_trade_type_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_value_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_79_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_79_Query = { option_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_duration?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_quote?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_79_Query = { stake_amount?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_no_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_loss_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null, multiplier_with_multi_win_eu?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_80_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_80_Query = { margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_80_Query = { option_market?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_trade_type?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_duration?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_stake?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_quote?: { childImageSharp?: { gatsbyImageData: any } | null } | null, option_purchase?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_81_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_81_Query = { margin_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_info?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_81_Query = { margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_margin_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pnl_multipliers_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_82_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_82_Query = { pip_value_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_82_Query = { margin_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_info?: { childImageSharp?: { gatsbyImageData: any } | null } | null, margin_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_83_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_83_Query = { stop_loss_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_83_Query = { pip_value_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, pip_value_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_84_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_84_Query = { stop_loss_level_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_84_Query = { stop_loss_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_pip_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_85_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_85_Query = { swap_synthetic_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_synthetic_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_85_Query = { stop_loss_level_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_level_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stop_loss_amount_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_level_down_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, take_profit_amount_up_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_86_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_86_Query = { antony?: { childImageSharp?: { gatsbyImageData: any } | null } | null, derek?: { childImageSharp?: { gatsbyImageData: any } | null } | null, gary?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jennice?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jeya?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, joanna?: { childImageSharp?: { gatsbyImageData: any } | null } | null, louise?: { childImageSharp?: { gatsbyImageData: any } | null } | null, rakshit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, raunak?: { childImageSharp?: { gatsbyImageData: any } | null } | null, seema?: { childImageSharp?: { gatsbyImageData: any } | null } | null, shyamala?: { childImageSharp?: { gatsbyImageData: any } | null } | null, tom?: { childImageSharp?: { gatsbyImageData: any } | null } | null, waqas?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_86_Query = { swap_synthetic_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_synthetic_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null, swap_forex_formula_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_87_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_87_Query = { earth?: { childImageSharp?: { gatsbyImageData: any } | null } | null, earth_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_87_Query = { antony?: { childImageSharp?: { gatsbyImageData: any } | null } | null, derek?: { childImageSharp?: { gatsbyImageData: any } | null } | null, gary?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jennice?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jeya?: { childImageSharp?: { gatsbyImageData: any } | null } | null, jy?: { childImageSharp?: { gatsbyImageData: any } | null } | null, joanna?: { childImageSharp?: { gatsbyImageData: any } | null } | null, louise?: { childImageSharp?: { gatsbyImageData: any } | null } | null, rakshit?: { childImageSharp?: { gatsbyImageData: any } | null } | null, raunak?: { childImageSharp?: { gatsbyImageData: any } | null } | null, seema?: { childImageSharp?: { gatsbyImageData: any } | null } | null, shyamala?: { childImageSharp?: { gatsbyImageData: any } | null } | null, tom?: { childImageSharp?: { gatsbyImageData: any } | null } | null, waqas?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_88_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_88_Query = { media1?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media2?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media3?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media4?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media6?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_88_Query = { earth?: { childImageSharp?: { gatsbyImageData: any } | null } | null, earth_mobile?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_89_QueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5509,7 +6017,12 @@ export type Unnamed_89_Query = { media1?: { childImageSharp?: { gatsbyImageData:
 export type Unnamed_90_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_90_Query = { about_us_logo?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_90_Query = { media1?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media2?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media3?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media4?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media5?: { childImageSharp?: { gatsbyImageData: any } | null } | null, media6?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+
+export type Unnamed_91_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_91_Query = { about_us_logo?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type ArticleQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;

@@ -366,46 +366,44 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                 <UKEU>{getDtraderText()}</UKEU>
             </Flex>
             <ROW>
-                <>
-                    <Flex direction="column" wrap="wrap" jc="flex-start">
-                        <EmptySpace />
+                <Flex direction="column" wrap="wrap" jc="flex-start">
+                    <EmptySpace />
 
-                        {getDtraderText()}
-                        <NavCard
-                            aria_label="Deriv GO"
-                            icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
-                            }
-                            title={<Localize translate_text="Deriv GO" />}
-                            onClick={onClick}
-                            to="/landing/deriv-go/"
-                        />
-                        <NavCard
-                            aria_label="DBot"
-                            icon={() => <img src={DBot} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                            }
-                            title={<Localize translate_text="DBot" />}
-                            onClick={onClick}
-                            to="/dbot/"
-                        />
-                        <NavCard
-                            aria_label="Binary Bot"
-                            icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
-                            content={
-                                <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
-                            }
-                            title={<Localize translate_text="Binary Bot" />}
-                            to={binary_bot_url}
-                            external="true"
-                            target="_blank"
-                            onClick={onClick}
-                            otherLinkProps={{ rel: 'noopener noreferrer' }}
-                        />
-                    </Flex>
-                </>
+                    {getDtraderText()}
+                    <NavCard
+                        aria_label="Deriv GO"
+                        icon={() => <img src={DerivGo} alt="" width="32" height="32" />}
+                        content={
+                            <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                        }
+                        title={<Localize translate_text="Deriv GO" />}
+                        onClick={onClick}
+                        to="/landing/deriv-go/"
+                    />
+                    <NavCard
+                        aria_label="DBot"
+                        icon={() => <img src={DBot} alt="" width="32" height="32" />}
+                        content={
+                            <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                        }
+                        title={<Localize translate_text="DBot" />}
+                        onClick={onClick}
+                        to="/dbot/"
+                    />
+                    <NavCard
+                        aria_label="Binary Bot"
+                        icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
+                        content={
+                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
+                        }
+                        title={<Localize translate_text="Binary Bot" />}
+                        to={binary_bot_url}
+                        external="true"
+                        target="_blank"
+                        onClick={onClick}
+                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                    />
+                </Flex>
             </ROW>
         </Flex>
     )

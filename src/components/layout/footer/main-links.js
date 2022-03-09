@@ -163,9 +163,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/partners/developers/">{localize('Developers')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/partners/bug-bounty/">{localize('Bug bounty')}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
                             <Link to="/bug-bounty/">{localize('Bug bounty')}</Link>
                         </LinkWrapper>
                     </LinksCol>

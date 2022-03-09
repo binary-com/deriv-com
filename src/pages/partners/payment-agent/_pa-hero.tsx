@@ -43,6 +43,7 @@ const PAHero = () => {
                 external="true"
                 to="mailto:partners@deriv.com"
                 is_mail_link
+                style={{ height: '48px', 'align-items': 'center', 'padding-top': '16px' }}
             >
                 {localize('Send us an email to apply')}
             </LinkButton>

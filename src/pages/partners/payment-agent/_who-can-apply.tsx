@@ -248,7 +248,7 @@ const WhoCanApply = () => {
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >
-                    {localize('Send us an email to apply')}
+                    {localize('Sign up')}
                 </LinkButton>
             </ButtonWrapper>
         </SectionWrapper>

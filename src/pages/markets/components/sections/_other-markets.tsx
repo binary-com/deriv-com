@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Show } from 'components/containers'
-import Box from 'components/containers/box'
 import { Carousel, Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
@@ -145,11 +144,14 @@ const MobileCardWrapper = styled(Flex)`
     }
 `
 const StyledFlex = styled(Flex)`
+    min-width: 282px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
     top: 0;
 
+    &:hover {
+        box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    }
     ${LearnMore} {
         img {
             transform: rotate(0);
@@ -162,7 +164,6 @@ const StyledFlex = styled(Flex)`
 const settings = {
     options: {
         draggable: true,
-        loop: true,
         containScroll: 'trimSnaps',
         slidesToScroll: 1,
         align: 0.5,
@@ -170,14 +171,14 @@ const settings = {
     container_style: {
         maxWidth: '100%',
         margin: '0 auto',
-        // padding: '0 0 0 120px',
         overflow: 'hidden',
     },
     slide_style: {
         width: '282px',
         height: '320px',
         marginRight: '24px',
-        paddingRight: '24px',
+        paddingRight: '50px',
+        paddingLeft: '25px',
         position: 'relative',
     },
     last_slide_no_spacing: false,
@@ -239,27 +240,15 @@ const MarketsWrapper = styled(Flex)`
     padding: 0 0 120px 0;
     max-width: 100%;
 `
-const Wrapper = styled(Box)`
-    width: 100%;
-    height: 19.2rem;
-    border-radius: 16px;
-`
-const CardWrapper = styled(Flex)`
-    left: 2.4rem;
-    top: 4rem;
-`
+
 const StyledHeader = styled(Header)`
-    margin-left: 2rem;
+    margin-left: 120px;
     margin-bottom: 4rem;
 
     @media ${device.laptopM} {
         margin: auto;
         text-align: center;
         margin-bottom: 2rem;
-    }
-
-    @media ${device.laptop} {
-        max-width: 300px;
     }
 `
 const MobileCardContainer = styled(Flex)`
@@ -282,7 +271,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const filteredMarkets = markets.filter((market) => market !== except)
 
     return (
-        <SectionContainer padding="100px 0 0 120px" margin="auto" background="#f9fbff">
+        <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
             <Show.Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">

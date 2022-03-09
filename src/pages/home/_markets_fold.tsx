@@ -116,6 +116,16 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
+        header: <Localize translate_text="Basket indicies" />,
+        description: (
+            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
+        ),
+        img_name: 'market_basket_indicies',
+        to: '/markets/basket-indices/',
+        gradient_start: '#555110',
+        gradient_end: '#151404',
+    },
+    {
         header: <Localize translate_text="Commodities" />,
         description: (
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
@@ -172,6 +182,9 @@ const query = graphql`
             ...fadeIn
         }
         market_crypto: file(relativePath: { eq: "home/market_crypto.png" }) {
+            ...fadeIn
+        }
+        market_basket_indices: file(relativePath: { eq: "home/market_basket_indices.png" }) {
             ...fadeIn
         }
         market_commodities: file(relativePath: { eq: "home/market_commodities.png" }) {

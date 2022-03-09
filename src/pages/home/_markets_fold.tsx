@@ -120,7 +120,7 @@ const market_data = [
         description: (
             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
         ),
-        img_name: 'market_basket_indicies',
+        img_name: 'market_basket_indices',
         to: '/markets/basket-indices/',
         gradient_start: '#555110',
         gradient_end: '#151404',

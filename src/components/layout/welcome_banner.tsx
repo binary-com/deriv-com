@@ -88,9 +88,10 @@ export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
     // using useEffect to set the values to help prevent vercel build error
     useEffect(() => {
         setWelcomeBannerDismissed(localStorage.getItem('is_welcome_banner_dismissed'))
-        setCountry(localStorage.getItem('current_domain'))
+
         // commented this part to find a work around for QA to test using the test link
         // setCountry(window.location.hostname.split('.').slice(0, -2).join('.'))
+        setCountry(localStorage.getItem('current_domain'))
     }, [])
 
     const handleBannerDismiss = () => {

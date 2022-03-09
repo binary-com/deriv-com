@@ -15,7 +15,7 @@ const ReasonHeader = styled(Header)`
 `
 
 const Reason = styled.div`
-    width: 38.4rem;
+    width: 39.4rem;
     margin-top: 4rem;
 
     &:nth-child(2) {
@@ -41,6 +41,17 @@ const Reason = styled.div`
         p {
             text-align: center;
             font-size: 14px;
+        }
+    }
+
+    @media ${device.mobileL} {
+        p {
+            width: 328px;
+        }
+    }
+    @media ${device.mobileS} {
+        p {
+            width: unset;
         }
     }
 `

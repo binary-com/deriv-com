@@ -65,10 +65,22 @@ const Wrapper = styled.div`
 const Content = styled.div`
     display: flex;
     flex-direction: column;
+    text-align: center;
     max-width: ${(props) => props.max_width};
 
     @media (max-width: 749px) {
         margin-top: ${(props) => props.mt_mobile};
+    }
+
+    @media ${device.mobileL} {
+        & h4 {
+            font-size: 16px;
+            text-align: center;
+        }
+        & p {
+            font-size: 14px;
+            text-align: center;
+        }
     }
 `
 
@@ -76,7 +88,15 @@ const GetStartedContent = styled(Content)`
     @media (max-width: 749px) {
         max-width: 360px;
         position: relative;
-        top: -3px;
+    }
+
+    @media ${device.mobileL} {
+        & h4 {
+            text-align: left;
+        }
+        & p {
+            text-align: left;
+        }
     }
 `
 
@@ -105,7 +125,6 @@ const StyledHeader = styled(Header)`
 const SecondaryHeader = styled(StyledHeader)`
     @media ${device.tablet} {
         margin-top: 3.2rem;
-        margin-left: -4.6rem;
     }
     @media ${device.mobileM} {
         margin-left: 0;
@@ -131,7 +150,7 @@ const LineStyle = css`
 `
 const HowToApply = styled(Col)`
     width: 100%;
-    max-width: 42.8rem;
+    max-width: 43.8rem;
     display: flex;
     flex-direction: column;
 
@@ -154,11 +173,14 @@ const ContentWrapper = styled(Wrapper)`
         flex-flow: wrap;
         margin-top: 16px;
     }
+    @media ${device.mobileL} {
+        justify-content: center;
+        text-align: center;
+    }
 `
 
 const HowToApplyContent = styled.div`
     display: flex;
-    padding-bottom: 4 rem;
 
     img {
         margin-right: 1.6rem;
@@ -173,6 +195,10 @@ const StyledLinkButton = styled(LinkButton)`
         width: 216px;
         height: 40px;
     }
+
+    @media ${device.mobileL} {
+        width: 328px;
+    }
 `
 
 const WhoCanApply = () => {
@@ -186,8 +212,8 @@ const WhoCanApply = () => {
                         </StyledHeader>
                         <ContentWrapper>
                             <TradingExpertsImageWrapper src={TradingExperts} alt="" />
-                            <Content max_width="36.4rem" mt_mobile="15px">
-                                <Header as="h4" type="sub-section-title" mb="8px">
+                            <Content max_width="39.4rem" mt_mobile="15px">
+                                <Header as="h4" type="sub-section-title" mb="8px" lh="1.5">
                                     {localize('Trading experts')}
                                 </Header>
                                 <Text>
@@ -199,7 +225,7 @@ const WhoCanApply = () => {
                         </ContentWrapper>
                         <ContentWrapper>
                             <ImageWrapper src={SoftwareDeveloper} alt="" />
-                            <Content max_width="36.4rem" mt_mobile="15px">
+                            <Content max_width="39.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Software developers')}
                                 </Header>
@@ -212,7 +238,7 @@ const WhoCanApply = () => {
                         </ContentWrapper>
                         <ContentWrapper>
                             <ImageWrapper src={CommunityManagers} alt="" />
-                            <Content max_width="36.4rem" mt_mobile="15px">
+                            <Content max_width="39.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Community managers')}
                                 </Header>
@@ -231,13 +257,13 @@ const WhoCanApply = () => {
                         <SecondaryHeader as="h2" mb="40px" size="3.2rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
-                        <Timeline>
-                            <Timeline.Item>
+                        <Timeline paddingBottom="0rem">
+                            <Timeline.Item pb="4rem" pbMobile="2rem">
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
                                         <ApplyImageWrapper src={Apply} alt="" />
                                     </Show.Desktop>
-                                    <GetStartedContent max_width="32.4rem">
+                                    <GetStartedContent max_width="34.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Sign up')}
                                         </Header>
@@ -249,12 +275,12 @@ const WhoCanApply = () => {
                                     </GetStartedContent>
                                 </HowToApplyContent>
                             </Timeline.Item>
-                            <Timeline.Item>
+                            <Timeline.Item pb="4rem" pbMobile="2rem">
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
                                         <ImageWrapper src={Advertise} alt="" />
                                     </Show.Desktop>
-                                    <GetStartedContent max_width="32.4rem">
+                                    <GetStartedContent max_width="35.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Advertise')}
                                         </Header>
@@ -266,18 +292,18 @@ const WhoCanApply = () => {
                                     </GetStartedContent>
                                 </HowToApplyContent>
                             </Timeline.Item>
-                            <Timeline.Item>
+                            <Timeline.Item pb="4rem" pbMobile="0rem">
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
                                         <ImageWrapper src={Earn} alt="" />
                                     </Show.Desktop>
-                                    <GetStartedContent max_width="32.4rem">
+                                    <GetStartedContent max_width="34.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Earn')}
                                         </Header>
                                         <Text>
                                             {localize(
-                                                'Start earning based on your chosen commission plan –– up to 45% of the total net revenue generated by your referred clients.',
+                                                'Start earning based on your chosen commission plan – up to 45% of the total net revenue generated by your referred clients.',
                                             )}
                                         </Text>
                                     </GetStartedContent>

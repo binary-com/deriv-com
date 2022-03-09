@@ -87,7 +87,6 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {localize('Cryptocurrencies')}
                             </Link>
                         </LinkWrapper>
-
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>

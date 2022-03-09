@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useWebsiteStatus } from '../../components/hooks/use-website-status'
-import { isEuCountry, isUK } from '../../common/country-base'
+import { isEUAndNotUK } from '../../common/country-base'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -11,10 +11,8 @@ import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import {
     move_to_dmt5_is_eu_url,
     move_to_dmt5_url,
-    move_to_dmt5_is_uk_url,
     move_to_dtrader_is_eu_url,
     move_to_dtrader_url,
-    move_to_dtrader_is_uk_url,
 } from 'common/constants'
 
 const query = graphql`
@@ -88,20 +86,12 @@ const Favorite = () => {
     const [dtrader_url, setDtrader] = useState(move_to_dtrader_url)
 
     useEffect(() => {
-        const is_eu = isEuCountry(current_client_country)
-        const is_uk = isUK(current_client_country)
-
-        if (is_eu) setDmt5Url(move_to_dmt5_is_eu_url)
-        if (is_uk) setDmt5Url(move_to_dmt5_is_uk_url)
+        if (isEUAndNotUK(current_client_country)) {
+            setDmt5Url(move_to_dmt5_is_eu_url)
+            setDtrader(move_to_dtrader_is_eu_url)
+        }
     }, [website_status])
 
-    useEffect(() => {
-        const is_eu = isEuCountry(current_client_country)
-        const is_uk = isUK(current_client_country)
-
-        if (is_eu) setDtrader(move_to_dtrader_is_eu_url)
-        if (is_uk) setDtrader(move_to_dtrader_is_uk_url)
-    }, [website_status])
     return (
         <StyledContainer>
             <Flex fd="column" mb="120px" tabletL={{ mb: '60px' }}>

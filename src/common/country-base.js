@@ -1,3 +1,5 @@
+const uk_countries = ['gb']
+
 const eu_countries = [
     'it',
     'de',
@@ -27,8 +29,8 @@ const eu_countries = [
     'se',
     'ie',
     'im',
-    'gb',
     'mt',
+    ...uk_countries,
 ]
 
 const p2p_allowed_countries = [
@@ -62,9 +64,16 @@ const p2p_allowed_countries = [
     've',
 ]
 
-export const isEuCountry = (clients_country) => eu_countries.includes(clients_country)
+export const isUK = (country) => uk_countries.includes(country)
+
+export const isEU = (country) => eu_countries.includes(country)
+
+export const isEUAndNotUK = (country) => isEU(country) && !isUK(country)
 
 export const isP2PAllowedCountry = (clients_country) =>
     p2p_allowed_countries.includes(clients_country)
 
-export const isUK = (clients_country) => clients_country === 'gb'
+/**
+ * @deprecated Use isEU instead.
+ */
+export const isEuCountry = (clients_country) => eu_countries.includes(clients_country)

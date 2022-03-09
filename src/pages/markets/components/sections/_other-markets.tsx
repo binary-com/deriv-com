@@ -13,7 +13,7 @@ import StockIndices from 'images/svg/markets/stock-new.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
 import device from 'themes/device'
 type MarketType = {
-    icon: () => ReactElement
+    icon: ReactElement
     title: ReactElement
     content: ReactElement
     to: string
@@ -35,7 +35,7 @@ type OtherMarketsProps = {
 }
 const markets_type: MarketsType = {
     forex: {
-        icon: () => <img src={Forex} alt="" width="64" height="64" />,
+        icon: <img src={Forex} alt="" width="64" height="64" />,
         title: <Localize translate_text="Forex" />,
         content: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
@@ -44,7 +44,7 @@ const markets_type: MarketsType = {
         id: 'marketforexothermarkets',
     },
     synthetic_indices: {
-        icon: () => <img src={SyntheticIndices} alt="" width="64" height="64" />,
+        icon: <img src={SyntheticIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
             <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
@@ -53,7 +53,7 @@ const markets_type: MarketsType = {
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
-        icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
+        icon: <img src={StockIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Stocks & indices" />,
         content: (
             <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
@@ -63,7 +63,7 @@ const markets_type: MarketsType = {
     },
 
     commodities: {
-        icon: () => <img src={Commodities} alt="" width="64" height="64" />,
+        icon: <img src={Commodities} alt="" width="64" height="64" />,
         title: <Localize translate_text="Commodities" />,
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
@@ -73,7 +73,7 @@ const markets_type: MarketsType = {
     },
 
     cryptocurrencies: {
-        icon: () => <img src={Cryptocurrencies} alt="" width="64" height="64" />,
+        icon: <img src={Cryptocurrencies} alt="" width="64" height="64" />,
         title: <Localize translate_text="Cryptocurrencies" />,
         content: (
             <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
@@ -82,7 +82,7 @@ const markets_type: MarketsType = {
         id: 'marketcryptocurrenciesothermarket',
     },
     basket_indices: {
-        icon: () => <img src={Basket} alt="" width="64" height="64" />,
+        icon: <img src={Basket} alt="" width="64" height="64" />,
         title: <Localize translate_text="Basket indices" />,
         content: (
             <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />

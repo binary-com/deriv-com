@@ -19,7 +19,7 @@ const Flex = styled(Box)`
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     align-items: ${(props) => (props.ai ? props.ai : '')};
     flex-direction: ${(props) => (props.direction || props.fd ? props.direction || props.fd : '')};
-
+    box-shadow: ${(props) => (props.shadow ? props.shadow : '')};
     @media ${device.tablet} {
         flex-direction: ${(props) => (props.tablet_direction ? props.tablet_direction : '')};
         align-items: ${(props) => (props.tablet_ai ? props.tablet_ai : '')};

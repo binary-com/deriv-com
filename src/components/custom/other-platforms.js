@@ -8,7 +8,7 @@ import {
     EU,
     NonEU,
     ROW,
-    UK,
+    UKEU,
 } from 'components/containers'
 import {
     Text,
@@ -289,11 +289,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
             to="/dtrader/"
         />
     )
+    const box_shadow = 'inset -1px 0px 0px #F2F3F4;'
     return (
         <Flex>
             {!is_ppc && (
                 <>
-                    <Flex direction="column" wrap="wrap" jc="flex-start">
+                    <Flex direction="column" wrap="wrap" jc="flex-start" shadow={box_shadow}>
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
                             aria_label="CFDs"
@@ -371,8 +372,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         />
                     </>
                 </ROW>
-                <EU>{getDtraderText()}</EU>
-                <UK>{getDtraderText()}</UK>
+                <UKEU>{getDtraderText()}</UKEU>
             </Flex>
             <ROW>
                 <>

@@ -98,7 +98,7 @@ export const WelcomeBanner = ({ cfd_warning_ref }: WelcomeBannerProps) => {
         localStorage.setItem('is_welcome_banner_dismissed', 'yes')
     }
 
-    if (country.includes('eu') && !is_welcome_banner_dismissed) {
+    if (country === 'eu' && !is_welcome_banner_dismissed) {
         return (
             <BannerWrapper offset_height={offset_height}>
                 <BannerClose onClick={handleBannerDismiss} />

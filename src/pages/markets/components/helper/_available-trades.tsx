@@ -19,31 +19,26 @@ const AvailableTrades = ({
 }: AvailableTradesProps) => {
     const [is_mounted] = usePageLoaded(false)
     const is_mobile = 426 < getWindowWidth()
-    return (
-        <>
-            {is_mounted ? (
-                <>
-                    {!is_mobile ? (
-                        <AvailableTradesMobile
-                            CFDs={CFDs}
-                            DigitalOptions={DigitalOptions}
-                            Multipliers={Multipliers}
-                            display_title={display_title}
-                        />
-                    ) : (
-                        <AvailableTradesDesktop
-                            CFDs={CFDs}
-                            DigitalOptions={DigitalOptions}
-                            Multipliers={Multipliers}
-                            display_title={display_title}
-                        />
-                    )}
-                </>
-            ) : (
-                <></>
-            )}
-        </>
-    )
+    if (is_mounted)
+        return (
+            <>
+                {!is_mobile ? (
+                    <AvailableTradesMobile
+                        CFDs={CFDs}
+                        DigitalOptions={DigitalOptions}
+                        Multipliers={Multipliers}
+                        display_title={display_title}
+                    />
+                ) : (
+                    <AvailableTradesDesktop
+                        CFDs={CFDs}
+                        DigitalOptions={DigitalOptions}
+                        Multipliers={Multipliers}
+                        display_title={display_title}
+                    />
+                )}
+            </>
+        )
 }
 
 export default AvailableTrades

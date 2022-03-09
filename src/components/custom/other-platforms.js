@@ -285,7 +285,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         direction="column"
                         wrap="wrap"
                         jc="flex-start"
-                        style={{ boxShadow: 'inset -1px 0px 0px #F2F3F4' }}
+                        style={{ boxShadow: 'inset -1px 0px 0px var(--color-grey-8)' }}
                     >
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard

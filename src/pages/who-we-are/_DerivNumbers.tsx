@@ -124,13 +124,13 @@ const DerivNumbers = () => {
                     height="unset"
                 >
                     {deriv_numbers.map((number) =>
-                        number.map((item) => (
-                            <Flex key={item.id} fd="column" height="unset">
+                        number.map(({ count, title }) => (
+                            <Flex key={count} fd="column" height="unset">
                                 <NumberHeader size="48px" type="unset">
-                                    {item.count}
+                                    {count}
                                 </NumberHeader>
                                 <NumberText size="20px" align="left">
-                                    {item.title}
+                                    {title}
                                 </NumberText>
                             </Flex>
                         )),

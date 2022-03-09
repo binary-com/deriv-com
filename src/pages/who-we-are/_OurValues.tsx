@@ -62,13 +62,13 @@ const OurValues = () => {
                 {localize('Our values are the fabric of our culture')}
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
-                {our_values.map((card, index) => (
-                    <Card key={card.id} index={index} direction="column" ai="start" jc="start">
-                        <img src={card.icon} alt="icon" />
+                {our_values.map(({ title, icon, text }, index) => (
+                    <Card key={+title} index={index} direction="column" ai="start" jc="start">
+                        <img src={icon} alt="icon" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="left" type="unset">
-                            {card.title}
+                            {title}
                         </Header>
-                        <Text size="16px">{card.text}</Text>
+                        <Text size="16px">{text}</Text>
                     </Card>
                 ))}
             </StyledFlex>

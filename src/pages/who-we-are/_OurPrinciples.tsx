@@ -84,8 +84,8 @@ const OurPrinciples = () => {
                 {localize('Our principles are the framework for our decisions')}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
-                {our_principles.map((principle) => (
-                    <div key={principle.id}>
+                {our_principles.map(({ color, title, text }) => (
+                    <div key={+title}>
                         <StyledDivider
                             align="center"
                             height="2px"
@@ -102,10 +102,10 @@ const OurPrinciples = () => {
                             tablet_ai="left"
                         >
                             <StyledDiv>
-                                <ColoredBox bgcolor={principle.color}>{principle.title}</ColoredBox>
+                                <ColoredBox bgcolor={color}>{title}</ColoredBox>
                             </StyledDiv>
                             <StyledText as="p" type="sub-paragraph" weight="400">
-                                {principle.text}
+                                {text}
                             </StyledText>
                         </InsideFlex>
                     </div>

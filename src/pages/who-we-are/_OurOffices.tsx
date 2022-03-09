@@ -109,25 +109,25 @@ const OurOffices = () => {
                 <Desktop>
                     <MapImage data={data['earth']}>
                         {desktop_pins.map((pin) => (
-                            <MapPin key={pin.id} {...pin} />
+                            <MapPin key={+pin.title} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
                     <MapImage data={data['earth_mobile']}>
                         {mobile_pins.map((pin) => (
-                            <MapPin key={pin.id} {...pin} />
+                            <MapPin key={+pin.title} {...pin} />
                         ))}
                     </MapImage>
                 </Mobile>
             </Flex>
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
-                {our_offices_count.map((item) => (
-                    <StyledFlex fd="column" key={item.id}>
-                        <NumberHeader size="32px">{item.count}</NumberHeader>
+                {our_offices_count.map(({ count, title }) => (
+                    <StyledFlex fd="column" key={title}>
+                        <NumberHeader size="32px">{count}</NumberHeader>
                         <NumberText size="16px" align="center">
-                            {item.title}
+                            {title}
                         </NumberText>
                     </StyledFlex>
                 ))}

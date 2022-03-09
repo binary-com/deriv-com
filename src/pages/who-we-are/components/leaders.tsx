@@ -11,15 +11,10 @@ type MouseEvent = MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)
 
 type LeaderType = {
-    id: number
     name: string
     position: string
     link: string
     image: ImageDataLike
-}
-
-type LeaderCardType = {
-    leader: LeaderType
 }
 
 const query = graphql`
@@ -123,7 +118,7 @@ const StyledImageWrapper = styled(ImageWrapper)`
     }
 `
 
-const LeaderCard = ({ leader }: LeaderCardType) => {
+const LeaderCard = ({ image, name, position, link }: LeaderType) => {
     const [is_popup_shown, setIsPopupShown] = useState(false)
 
     const showModal: MouseEvent = () => setIsPopupShown(true)
@@ -137,16 +132,8 @@ const LeaderCard = ({ leader }: LeaderCardType) => {
             height="120px"
             loading="lazy"
         >
-            <QueryImage
-                width="100%"
-                height="100%"
-                data={leader.image}
-                alt="leader"
-                loading="lazy"
-            />
-            {is_popup_shown && (
-                <Modal name={leader.name} position={leader.position} link={leader.link} />
-            )}
+            <QueryImage width="100%" height="100%" data={image} alt="leader" loading="lazy" />
+            {is_popup_shown && <Modal name={name} position={position} link={link} />}
         </StyledImageWrapper>
     )
 }
@@ -155,98 +142,84 @@ const Leaders = () => {
     const leaders_data = useStaticQuery(query)
     const leaders: LeaderType[] = [
         {
-            id: 1,
             name: 'Jean-Yves Sireau',
             position: 'Chief Executive Officer',
             link: 'https://www.linkedin.com/in/jeanyvessireau/',
             image: leaders_data.jy,
         },
         {
-            id: 2,
             name: 'Rakshit Choudhary ',
             position: 'Chief Operating Officer',
             link: 'https://www.linkedin.com/in/rakshit-choudhary-9a67b61b0/',
             image: leaders_data.rakshit,
         },
         {
-            id: 3,
             name: 'Tom Molesworth',
             position: 'Chief Technology Officer',
             link: '',
             image: leaders_data.tom,
         },
         {
-            id: 4,
             name: 'Joanna Frendo',
             position: 'Chief Compliance Officer',
             link: 'https://www.linkedin.com/in/joanna-frendo-4449975/',
             image: leaders_data.joanna,
         },
         {
-            id: 5,
             name: 'Louise Wolf',
             position: 'Chief Financial Officer',
             link: 'https://www.linkedin.com/in/louise-wolf-7b98b460/',
             image: leaders_data.louise,
         },
         {
-            id: 6,
             name: 'Shyamala Siva',
             position: 'Chief Administrative Officer',
             link: 'https://www.linkedin.com/in/shyamala-siva-90043b208/',
             image: leaders_data.shyamala,
         },
         {
-            id: 7,
             name: 'Gary Ross Vytialingam',
             position: 'Chief Risk Officer',
             link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
             image: leaders_data.gary,
         },
         {
-            id: 8,
             name: 'Seema Hallon',
             position: 'Head of People Management',
             link: 'https://www.linkedin.com/in/seema-hallon-6919073/',
             image: leaders_data.seema,
         },
         {
-            id: 9,
             name: 'Derek Swift',
             position: 'Head of Marketing & Global Partnerships',
             link: 'https://www.linkedin.com/in/derek-swift-5787208/',
             image: leaders_data.derek,
         },
         {
-            id: 10,
             name: 'Waqas Awan',
             position: 'Head of Product & Content Design',
             link: 'https://www.linkedin.com/in/waqasawan/',
             image: leaders_data.waqas,
         },
         {
-            id: 11,
             name: 'Raunak Kathuria',
             position: 'Head of Back End Development',
             link: 'https://www.linkedin.com/in/raunakkathuria/',
             image: leaders_data.raunak,
         },
         {
-            id: 12,
             name: 'Jeyavarthini Vairakanan',
             position: 'Head of Customer Support',
             link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
             image: leaders_data.jeya,
         },
         {
-            id: 13,
             name: 'Antony Pradeep Charles',
             position: 'Head of Strategy & Project Management',
             link: 'https://www.linkedin.com/in/antonypradeep/',
             image: leaders_data.antony,
         },
         {
-            id: 14,
             name: 'Jennice Lourdsamy',
             position: 'Head of Accounts',
             link: 'https://www.linkedin.com/in/jennice-lourdsamy-352b897/',
@@ -257,7 +230,7 @@ const Leaders = () => {
     return (
         <>
             {leaders.map((leader: LeaderType) => (
-                <LeaderCard key={leader.id} leader={leader} />
+                <LeaderCard key={leader.name} {...leader} />
             ))}
         </>
     )

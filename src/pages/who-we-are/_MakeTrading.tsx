@@ -38,9 +38,9 @@ const StyledFirstSectionText = styled(Header)`
 const MakeTrading = () => {
     return (
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
-            {first_section_texts.map((item) => (
-                <StyledFirstSectionText as="p" type="unset" key={item.id} size="24px">
-                    {item.text}
+            {first_section_texts.map(({ text }) => (
+                <StyledFirstSectionText as="p" type="unset" key={+text} size="24px">
+                    {text}
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">

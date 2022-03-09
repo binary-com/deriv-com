@@ -35,7 +35,7 @@ export const AsiaOceaniaDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/Oceania region.',
+                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/ Oceania region.',
             )}
         </Text>
         <Text>
@@ -344,7 +344,7 @@ export const AsianIndicesDetails = (): ReactElement => (
     <DetailsContainer>
         <Text>
             {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/Oceania region.',
+                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/ Oceania region.',
             )}
         </Text>
         <Text>

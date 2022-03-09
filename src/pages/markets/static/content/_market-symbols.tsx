@@ -673,56 +673,86 @@ export const stocks_european_indices: MarketSymbol[] = [
 
 export const american_stocks: MarketSymbol[] = [
     {
-        src: icons.STOCKSAIRLINESGROUP,
-        text: <Localize translate_text="American Airlines Group Inc" />,
-    },
-    {
-        src: icons.STOCKSAPPLE,
-        text: <Localize translate_text="Apple" />,
-    },
-    {
         src: icons.STOCKSADIDASSALOMON,
         text: <Localize translate_text="Adidas Salomon" />,
     },
     {
-        src: icons.STOCKSAMERICANINTERNATIONAL,
-        text: <Localize translate_text="American International Group" />,
+        src: icons.STOCKSADVANCEDMICRODEVICES,
+        text: <Localize translate_text="Advanced Micro Devices Inc" />,
     },
     {
-        src: icons.STOCKSAMAZON,
-        text: <Localize translate_text="Amazon.com Inc" />,
+        src: icons.STOCKSAIRBNB,
+        text: <Localize translate_text="Airbnb" />,
     },
     {
-        src: icons.STOCKSBOEING,
-        text: <Localize translate_text="Boeing" />,
+        src: icons.STOCKSAIRBUSSE,
+        text: <Localize translate_text="Airbus SE" />,
+    },
+    {
+        src: icons.STOCKSAIRFRANCE,
+        text: <Localize translate_text="Air France KLM SA" />,
     },
     {
         src: icons.STOCKSALIBABAGROUP,
         text: <Localize translate_text="Alibaba Group Holding Ltd" />,
     },
     {
+        src: icons.STOCKSALPHABET,
+        text: <Localize translate_text="Alphabet Inc Class C" />,
+    },
+    {
+        src: icons.STOCKSAMAZON,
+        text: <Localize translate_text="Amazon.com Inc" />,
+    },
+    {
+        src: icons.STOCKSAIRLINESGROUP,
+        text: <Localize translate_text="American Airlines Group Inc" />,
+    },
+    {
+        src: icons.STOCKSAMERICANINTERNATIONAL,
+        text: <Localize translate_text="American International Group" />,
+    },
+    {
+        src: icons.STOCKSAPPLE,
+        text: <Localize translate_text="Apple" />,
+    },
+    {
         src: icons.STOCKSBANKOFAMERICA,
         text: <Localize translate_text="Bank of America" />,
     },
+
     {
         src: icons.STOCKSBAYERAG,
         text: <Localize translate_text="Bayer AG" />,
     },
     {
+        src: icons.STOCKSBIOGEN,
+        text: <Localize translate_text="Biogen Inc" />,
+    },
+
+    {
         src: icons.STOCKSBMW,
         text: <Localize translate_text="BMW" />,
+    },
+    {
+        src: icons.STOCKSBOEING,
+        text: <Localize translate_text="Boeing" />,
+    },
+    {
+        src: icons.STOCKSCISCO,
+        text: <Localize translate_text="Cisco Systems" />,
     },
     {
         src: icons.STOCKSCITIGROUP,
         text: <Localize translate_text="Citigroup" />,
     },
     {
-        src: icons.STOCKSSALESFORCE,
-        text: <Localize translate_text="Salesforce.com Inc" />,
+        src: icons.STOCKSCOCACOLA,
+        text: <Localize translate_text="Coca-Cola" />,
     },
     {
-        src: icons.STOCKSCISCO,
-        text: <Localize translate_text="Cisco Systems" />,
+        src: icons.STOCKSCONTINENTAL,
+        text: <Localize translate_text="Continental AG" />,
     },
     {
         src: icons.STOCKSDELTAAIRLINES,
@@ -733,8 +763,8 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Deutsche Bank AG" />,
     },
     {
-        src: icons.STOCKSWALTDISNEY,
-        text: <Localize translate_text="Walt Disney Company" />,
+        src: icons.STOCKSLUFTHANSA,
+        text: <Localize translate_text="Deutsche Lufthansa AG" />,
     },
     {
         src: icons.STOCKSEBAY,
@@ -749,20 +779,28 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Fedex" />,
     },
     {
-        src: icons.STOCKSGENERALMOTORSCOMP,
-        text: <Localize translate_text="General Motors Company" />,
+        src: icons.STOCKSFOX,
+        text: <Localize translate_text="Fox Corp Class B" />,
     },
     {
-        src: icons.STOCKSALPHABET,
-        text: <Localize translate_text="Alphabet Inc Class C" />,
+        src: icons.STOCKSGENERALMOTORSCOMP,
+        text: <Localize translate_text="General Motors Company" />,
     },
     {
         src: icons.STOCKSGOLDMANSACHS,
         text: <Localize translate_text="Goldman Sachs Group" />,
     },
     {
+        src: icons.STOCKSGOLDMANSACHS,
+        text: <Localize translate_text="Home Depot Inc" />,
+    },
+    {
         src: icons.STOCKSHPINC,
         text: <Localize translate_text="HP Inc" />,
+    },
+    {
+        src: icons.STOCKSHUGOBOSS,
+        text: <Localize translate_text="Hugo Boss AG Common Stock" />,
     },
     {
         src: icons.STOCKSIBM,
@@ -774,15 +812,11 @@ export const american_stocks: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSJOHNSONJOHNSON,
-        text: <Localize translate_text="Jonhson & Johnson" />,
+        text: <Localize translate_text="Johnson & Johnson" />,
     },
     {
         src: icons.STOCKSJPMORGANCHASE,
         text: <Localize translate_text="JP Morgan Chase" />,
-    },
-    {
-        src: icons.STOCKSCOCACOLA,
-        text: <Localize translate_text="Coca-Cola" />,
     },
     {
         src: icons.STOCKSMASTERCARDINC,
@@ -797,6 +831,14 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Microsoft Corporation" />,
     },
     {
+        src: icons.STOCKSMODERNA,
+        text: <Localize translate_text="Moderna Inc" />,
+    },
+    {
+        src: icons.STOCKSMODERNA,
+        text: <Localize translate_text="Nestle SA" />,
+    },
+    {
         src: icons.STOCKSNETFLIX,
         text: <Localize translate_text="Netflix Inc" />,
     },
@@ -805,33 +847,58 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Nike" />,
     },
     {
+        src: icons.STOCKSNOVARTIS,
+        text: <Localize translate_text="Novartis AG" />,
+    },
+    {
         src: icons.STOCKSNVIDIA,
         text: <Localize translate_text="NVIDIA Corp" />,
-    },
-    {
-        src: icons.STOCKSPFIZER,
-        text: <Localize translate_text="Pfizer" />,
-    },
-    {
-        src: icons.STOCKSPROCTERGAMBLE,
-        text: <Localize translate_text="Procter & Gamble" />,
     },
     {
         src: icons.STOCKSPAYPAL,
         text: <Localize translate_text="Paypal" />,
     },
     {
-        src: icons.STOCKSTEVAPHARMACEUTICAL,
-        text: <Localize translate_text="Teva Pharmaceutical Inds" />,
+        src: icons.STOCKSPEPSICO,
+        text: <Localize translate_text="PepsiCo Inc" />,
+    },
+    {
+        src: icons.STOCKSPFIZER,
+        text: <Localize translate_text="Pfizer" />,
+    },
+    {
+        src: icons.STOCKSPORSCHE,
+        text: <Localize translate_text="Porsche Automobil Holding SE" />,
+    },
+    {
+        src: icons.STOCKSPROCTERGAMBLE,
+        text: <Localize translate_text="Procter & Gamble" />,
+    },
+    {
+        src: icons.STOCKSPUMA,
+        text: <Localize translate_text="Puma SE" />,
+    },
+    {
+        src: icons.STOCKSSALESFORCE,
+        text: <Localize translate_text="Salesforce.com Inc" />,
+    },
+    {
+        src: icons.STOCKSSONY,
+        text: <Localize translate_text="Sony Group Corp" />,
     },
     {
         src: icons.STOCKSTESLA,
         text: <Localize translate_text="Tesla Inc" />,
     },
     {
+        src: icons.STOCKSTEVAPHARMACEUTICAL,
+        text: <Localize translate_text="Teva Pharmaceutical Inds" />,
+    },
+    {
         src: icons.STOCKSTWITTER,
         text: <Localize translate_text="Twitter" />,
     },
+
     {
         src: icons.STOCKSUBER,
         text: <Localize translate_text="Uber Technologies Inc" />,
@@ -844,23 +911,13 @@ export const american_stocks: MarketSymbol[] = [
         src: icons.STOCKSWALMART,
         text: <Localize translate_text="Wal-Mart Stores Inc" />,
     },
-
+    {
+        src: icons.STOCKSWALTDISNEY,
+        text: <Localize translate_text="Walt Disney Company" />,
+    },
     {
         src: icons.STOCKSZOOM,
         text: <Localize translate_text="Zoom Video Communications Inc" />,
-    },
-    {
-        src: icons.STOCKSAIRBNB,
-        text: <Localize translate_text="Airbnb" />,
-    },
-
-    {
-        src: icons.STOCKSBIOGEN,
-        text: <Localize translate_text="Biogen Inc" />,
-    },
-    {
-        src: icons.STOCKSMODERNA,
-        text: <Localize translate_text="Moderna Inc" />,
     },
 ]
 

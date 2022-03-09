@@ -9,11 +9,6 @@ import {
     Title,
 } from '../../static/style/_markets-style'
 import { useBrowserResize } from '../../../../components/hooks/use-browser-resize'
-// import type { Cfds,StockCfds } from '../../static/content/_cfds'
-// import type { SwapFreePairsTable } from 'pages/landing/forex-trading/components/_table-btn'
-// import type { ForexCfds } from 'pages/trade-types/multiplier/_cfds'
-// import type { ForexAndBasketMultiplier, CryptoMultiplier } from '../../static/content/_multipliers'
-// //SwapFreePairsTable| Cfds|StockCfds|ForexCfds|ForexAndBasketMultiplier | CryptoMultiplier|
 type Contentelement = {
     component?: ReactElement
     mobile_title?: ReactElement

@@ -259,7 +259,10 @@ import STOCKSSPAIN35 from 'images/svg/symbols/markets-stocks-and-indices/europea
 import STOCKSUK100 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/uk-100.svg'
 import STOCKSSWISS20 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/swiss-20.svg'
 import STOCKSADIDASSALOMON from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-adidas-salomon.svg'
+import STOCKSADVANCEDMICRODEVICES from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amd.svg'
 import STOCKSAIRBNB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbnb.svg'
+import STOCKSAIRBUSSE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbus.svg'
+import STOCKSAIRFRANCE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airfrance.svg'
 import STOCKSALIBABAGROUP from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alibaba-group-holding-ltd.svg'
 import STOCKSALPHABET from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alphabet-inc-class-c.svg'
 import STOCKSAMAZON from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amazon-com-inc.svg'
@@ -274,29 +277,38 @@ import STOCKSBOEING from 'images/svg/symbols/markets-stocks-and-indices/american
 import STOCKSCISCO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-cisco-systems.svg'
 import STOCKSCITIGROUP from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-citigroup.svg'
 import STOCKSCOCACOLA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-coca-cola.svg'
+import STOCKSCONTINENTAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-continental-ag.svg'
 import STOCKSDELTAAIRLINES from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-delta-air-lines.svg'
 import STOCKSDEUTSCHEBANK from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-bank-ag.svg'
 import STOCKSEBAY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-e-bay-inc.svg'
 import STOCKSFACEBOOK from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-facebook-inc.svg'
 import STOCKSFEDEX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fedex.svg'
+import STOCKSFOX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fox-corp-class-b.svg'
 import STOCKSGENERALMOTORSCOMP from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-general-motors-company.svg'
 import STOCKSGOLDMANSACHS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-goldman-sachs-group.svg'
 import STOCKSHPINC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-hp-inc.svg'
+import STOCKSHUGOBOSS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-hugo-boss.svg'
 import STOCKSIBM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-ibm.svg'
 import STOCKSINTEL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-intel.svg'
 import STOCKSJOHNSONJOHNSON from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jonhson-johnson.svg'
 import STOCKSJPMORGANCHASE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jp-morgan-chase.svg'
+import STOCKSLUFTHANSA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-lufthansa-ag.svg'
 import STOCKSMASTERCARDINC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mastercard-inc.svg'
 import STOCKSMCDONALDS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mc-donalds.svg'
 import STOCKSMICROSOFT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-microsoft-corporation.svg'
 import STOCKSMODERNA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-moderna-inc.svg'
 import STOCKSNETFLIX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-netflix.svg'
 import STOCKSNIKE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nike.svg'
+import STOCKSNOVARTIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-novartis.svg'
 import STOCKSNVIDIA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nvidia-corp.svg'
 import STOCKSPAYPAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-paypal.svg'
 import STOCKSPFIZER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pfizer.svg'
+import STOCKSPEPSICO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pepsico.svg'
+import STOCKSPORSCHE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-porsche.svg'
+import STOCKSPUMA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-puma.svg'
 import STOCKSPROCTERGAMBLE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-procter-gamble.svg'
 import STOCKSSALESFORCE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-salesforce-com-inc.svg'
+import STOCKSSONY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-sony.svg'
 import STOCKSTESLA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-tesla-inc.svg'
 import STOCKSTEVAPHARMACEUTICAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-teva-pharmaceutical-inds.svg'
 import STOCKSTWITTER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-twitter.svg'
@@ -582,6 +594,7 @@ export {
     STOCKSUSTECH100,
     STOCKSWALLSTREET30,
     STOCKSAUS200,
+    STOCKSADVANCEDMICRODEVICES,
     STOCKSJAPAN225,
     STOCKSEUROPE50,
     STOCKSFRANCE40,
@@ -594,6 +607,8 @@ export {
     STOCKSALIBABAGROUP,
     STOCKSALPHABET,
     STOCKSAMAZON,
+    STOCKSAIRBUSSE,
+    STOCKSAIRFRANCE,
     STOCKSAIRLINESGROUP,
     STOCKSAMERICANINTERNATIONAL,
     STOCKSAPPLE,
@@ -605,29 +620,38 @@ export {
     STOCKSCISCO,
     STOCKSCITIGROUP,
     STOCKSCOCACOLA,
+    STOCKSCONTINENTAL,
     STOCKSDELTAAIRLINES,
     STOCKSDEUTSCHEBANK,
     STOCKSEBAY,
     STOCKSFACEBOOK,
     STOCKSFEDEX,
+    STOCKSFOX,
     STOCKSGENERALMOTORSCOMP,
     STOCKSGOLDMANSACHS,
     STOCKSHPINC,
+    STOCKSHUGOBOSS,
     STOCKSIBM,
     STOCKSINTEL,
     STOCKSJOHNSONJOHNSON,
     STOCKSJPMORGANCHASE,
+    STOCKSLUFTHANSA,
     STOCKSMASTERCARDINC,
     STOCKSMCDONALDS,
     STOCKSMICROSOFT,
     STOCKSMODERNA,
     STOCKSNETFLIX,
     STOCKSNIKE,
+    STOCKSNOVARTIS,
     STOCKSNVIDIA,
     STOCKSPAYPAL,
     STOCKSPFIZER,
+    STOCKSPEPSICO,
     STOCKSPROCTERGAMBLE,
+    STOCKSPORSCHE,
+    STOCKSPUMA,
     STOCKSSALESFORCE,
+    STOCKSSONY,
     STOCKSTESLA,
     STOCKSTEVAPHARMACEUTICAL,
     STOCKSTWITTER,

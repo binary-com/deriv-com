@@ -10,15 +10,7 @@ import {
     ROW,
     UKEU,
 } from 'components/containers'
-import {
-    Text,
-    Card,
-    Header,
-    NavCard,
-    CardLink,
-    LocalizedLinkText,
-    Divider,
-} from 'components/elements'
+import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import { getCountryRule } from 'components/containers/visibility'
 import { binary_bot_url } from 'common/constants'
@@ -51,10 +43,6 @@ import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
-
-const MarginDivider = styled(Divider)`
-    margin: 0 0.8rem;
-`
 
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -289,12 +277,16 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
             to="/dtrader/"
         />
     )
-    const box_shadow = 'inset -1px 0px 0px #F2F3F4;'
     return (
         <Flex>
             {!is_ppc && (
                 <>
-                    <Flex direction="column" wrap="wrap" jc="flex-start" shadow={box_shadow}>
+                    <Flex
+                        direction="column"
+                        wrap="wrap"
+                        jc="flex-start"
+                        style={{ boxShadow: 'inset -1px 0px 0px #F2F3F4' }}
+                    >
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
                             aria_label="CFDs"
@@ -331,7 +323,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     </Flex>
                 </>
             )}
-            <MarginDivider width="2px" height="100%" color="grey-8" />
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <StyledText>{localize('Trading platforms')}</StyledText>
                 <NavCard

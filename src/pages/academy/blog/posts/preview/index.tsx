@@ -33,10 +33,17 @@ import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utili
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { cms_assets_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { useWindowSize } from 'components/hooks/use-window-size'
+
+export const getTruncateLength = () => {
+    const size = useWindowSize()
+    if (size.width < 400) return 15
+    else if (size.width < 475) return 30
+    else return 60
+}
 
 const BlogPreview = () => {
-    const [is_mobile] = useBrowserResize(475)
-    const [is_little_mobile] = useBrowserResize(400)
+    const [is_mobile] = useBrowserResize(972)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [isMounted, setMounted] = useState(false)
@@ -116,12 +123,6 @@ const BlogPreview = () => {
         redirectLink: footer_banner_data?.cta_url,
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.id,
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.id,
-    }
-
-    const getTruncateLength = () => {
-        if (is_little_mobile) return 15
-        else if (is_mobile) return 30
-        else return 60
     }
 
     return (

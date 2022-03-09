@@ -80,16 +80,14 @@ const query = graphql`
 `
 
 const links = [
-    { id: 1, active: 'home', title: localize('HOME'), aria_label: 'Careers', to: '/careers/' },
+    { active: 'home', title: localize('HOME'), aria_label: 'Careers', to: '/careers/' },
     {
-        id: 2,
         active: 'locations',
         title: localize('LOCATIONS'),
         aria_label: 'Locations',
         to: '/careers/locations/',
     },
     {
-        id: 3,
         active: 'besquare',
         title: localize('BESQUARE'),
         aria_label: 'BeSquare',
@@ -117,16 +115,16 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                             />
                         </StyledLogoLink>
 
-                        {links.map((item) => (
+                        {links.map(({ to, active, aria_label, title }) => (
                             <NavLink
-                                key={item.id}
-                                active={current_page === item.active}
+                                key={to}
+                                active={current_page === active}
                                 activeClassName="active"
-                                to={item.to}
+                                to={to}
                                 partiallyActive
-                                aria-label={item.aria_label}
+                                aria-label={aria_label}
                             >
-                                {item.title}
+                                {title}
                             </NavLink>
                         ))}
                     </LeftSection>

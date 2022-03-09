@@ -75,7 +75,7 @@ const NavMobile = ({
                 </LogoWrapper>
 
                 <LeftSection>
-                    {!hide_language_switcher && <LanguageSwitcher short_name="true" is_high_nav />}
+                    {!hide_language_switcher && <LanguageSwitcher has_short_name is_high_nav />}
                     {!hide_signup_login &&
                         (is_logged_in ? (
                             <StyledButton onClick={handleGetTrading} primary>

@@ -72,7 +72,7 @@ const NavInterim = ({ interim_type }: NavInterimProps) => (
             </Flex>
 
             <RightSection jc="flex-end" ai="center">
-                <LanguageSwitcher short_name="true" />
+                <LanguageSwitcher has_short_name />
                 <StyledLinkButton secondary to="/">
                     {localize('Explore Deriv.com')}
                 </StyledLinkButton>

@@ -60,7 +60,7 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                 </LogoLink>
 
                 <Flex ml="auto" ai="center" width="auto">
-                    <LanguageSwitcher short_name="true" is_high_nav />
+                    <LanguageSwitcher has_short_name is_high_nav />
                 </Flex>
 
                 {!hide_login_signup && (

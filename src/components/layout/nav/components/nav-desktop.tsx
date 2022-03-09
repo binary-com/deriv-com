@@ -58,10 +58,10 @@ const Tab = styled.span<TabProps>`
 `
 
 const links = [
-    { id: 1, active: 'trade', title: localize('Trade') },
-    { id: 2, active: 'markets', title: localize('Markets') },
-    { id: 3, active: 'about', title: localize('About us') },
-    { id: 4, active: 'resources', title: localize('Resources') },
+    { active: 'trade', title: localize('Trade') },
+    { active: 'markets', title: localize('Markets') },
+    { active: 'about', title: localize('About us') },
+    { active: 'resources', title: localize('Resources') },
 ]
 
 const NavDesktop = ({
@@ -114,13 +114,10 @@ const NavDesktop = ({
                 />
 
                 <NavigationBar ref={navigation_bar_ref}>
-                    {links.map((item) => (
-                        <NavLink
-                            key={item.id}
-                            onClick={(e) => handleTabClick(item.active, e.target)}
-                        >
-                            <Tab aria-label={item.title} active={checkActive(item.active)}>
-                                {item.title}
+                    {links.map(({ active, title }) => (
+                        <NavLink key={active} onClick={(e) => handleTabClick(active, e.target)}>
+                            <Tab aria-label={title} active={checkActive(active)}>
+                                {title}
                             </Tab>
                         </NavLink>
                     ))}

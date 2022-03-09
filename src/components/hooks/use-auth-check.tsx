@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { isLoggedIn } from 'common/utility'
 
-const useAuth = () => {
+const useAuthCheck = () => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -13,4 +13,4 @@ const useAuth = () => {
     return [is_logged_in]
 }
 
-export default useAuth
+export default useAuthCheck

@@ -32,7 +32,7 @@ const SignupButton = styled(Button)`
 `
 
 const Language = ({ hide_component }: LanguageProps) =>
-    !hide_component && <LanguageSwitcher short_name="true" is_high_nav />
+    !hide_component && <LanguageSwitcher has_short_name is_high_nav />
 
 const RightSection = ({
     is_logged_in,
@@ -67,33 +67,32 @@ const RightSection = ({
                 </StyledButton>
             </Wrapper>
         )
-    } else {
-        return (
-            <NavRight
-                move={show_button}
-                hide_signup_login={hide_signup_login}
-                button_ref={button_ref}
-                mounted={mounted}
-                has_scrolled={has_scrolled}
-            >
-                <Language hide_component={hide_language_switcher} />
-
-                {!hide_signup_login && (
-                    <>
-                        <StyledButton id="dm-nav-login-button" onClick={handleLogin} primary>
-                            {localize('Log in')}
-                        </StyledButton>
-
-                        <LocalizedLink id="dm-signup" to={signup_url}>
-                            <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
-                                {localize('Create free demo account')}
-                            </SignupButton>
-                        </LocalizedLink>
-                    </>
-                )}
-            </NavRight>
-        )
     }
+    return (
+        <NavRight
+            move={show_button}
+            hide_signup_login={hide_signup_login}
+            button_ref={button_ref}
+            mounted={mounted}
+            has_scrolled={has_scrolled}
+        >
+            <Language hide_component={hide_language_switcher} />
+
+            {!hide_signup_login && (
+                <>
+                    <StyledButton id="dm-nav-login-button" onClick={handleLogin} primary>
+                        {localize('Log in')}
+                    </StyledButton>
+
+                    <LocalizedLink id="dm-signup" to={signup_url}>
+                        <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
+                            {localize('Create free demo account')}
+                        </SignupButton>
+                    </LocalizedLink>
+                </>
+            )}
+        </NavRight>
+    )
 }
 
 export default RightSection

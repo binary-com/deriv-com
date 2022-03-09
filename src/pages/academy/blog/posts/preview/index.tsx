@@ -16,9 +16,6 @@ import {
     SideBarContainer,
     Tag,
     PreviewContainer,
-    SocialComponentsWrapper,
-    LeftSocialComponents,
-    RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
     StickyBreadCrumbsWrapper,
@@ -38,7 +35,8 @@ import { cms_assets_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const BlogPreview = () => {
-    const [is_mobile] = useBrowserResize(992)
+    const [is_mobile] = useBrowserResize(475)
+    const [is_little_mobile] = useBrowserResize(400)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [isMounted, setMounted] = useState(false)
@@ -120,6 +118,12 @@ const BlogPreview = () => {
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.id,
     }
 
+    const getTruncateLength = () => {
+        if (is_little_mobile) return 15
+        else if (is_mobile) return 30
+        else return 60
+    }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
@@ -136,9 +140,10 @@ const BlogPreview = () => {
                                         <StyledImg src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, 30)
+                                                ? truncateString(article_title, getTruncateLength())
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
+                                        <SocialSharing />
                                     </Flex>
                                 </BreadcrumbsWrapper>
                             </StickyBreadCrumbsWrapper>
@@ -283,13 +288,6 @@ const BlogPreview = () => {
                                     {footer_banner_details?.imgSrcDesktop && (
                                         <Banner detailsPreviewObj={footer_banner_details} />
                                     )}
-                                    <SocialComponentsWrapper>
-                                        <LeftSocialComponents />
-                                        <RightSocialComponents>
-                                            <SocialSharing />
-                                        </RightSocialComponents>
-                                    </SocialComponentsWrapper>
-
                                     {side_banner_data_details && (
                                         <Show.Mobile>
                                             <Flex mt="24px">

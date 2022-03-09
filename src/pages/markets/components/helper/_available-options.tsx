@@ -35,7 +35,7 @@ const Icon = styled.img`
         height: 60px;
     }
 `
-        
+
 const AvailableOptions = ({
     title,
     content,
@@ -43,7 +43,6 @@ const AvailableOptions = ({
     svg,
     mobile_pt,
 }: AvailableOptionsProps) => {
-
     return (
         <StyledFlex mt={remove_title ? '1.6rem' : 0} mobile_pt={mobile_pt}>
             {!remove_title && (

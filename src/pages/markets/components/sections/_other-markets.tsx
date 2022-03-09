@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Show } from 'components/containers'
-import Box from 'components/containers/box'
-import { Header, Text } from 'components/elements'
+import { Carousel, Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
@@ -145,13 +144,14 @@ const MobileCardWrapper = styled(Flex)`
     }
 `
 const StyledFlex = styled(Flex)`
-    height: auto;
-    border-radius: 1.6rem;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    min-width: 282px;
+    border-radius: 8px;
     background-color: var(--color-white);
     top: 0;
-    min-height: 29.6rem;
 
+    &:hover {
+        box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    }
     ${LearnMore} {
         img {
             transform: rotate(0);
@@ -160,6 +160,29 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
+
+const settings = {
+    options: {
+        draggable: true,
+        containScroll: 'trimSnaps',
+        slidesToScroll: 1,
+        align: 0.5,
+    },
+    container_style: {
+        maxWidth: '100%',
+        margin: '0 auto',
+        overflow: 'hidden',
+    },
+    slide_style: {
+        width: '282px',
+        height: '320px',
+        marginRight: '24px',
+        paddingRight: '50px',
+        paddingLeft: '25px',
+        position: 'relative',
+    },
+    last_slide_no_spacing: false,
+}
 const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[market].icon
@@ -168,7 +191,8 @@ const Card = ({ market }: CardProps) => {
         <StyledFlex
             direction="column"
             max_width="28.2rem"
-            width="100%"
+            height="296px"
+            width="282px"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"
             position="relative"
@@ -179,10 +203,12 @@ const Card = ({ market }: CardProps) => {
                 <Icon dynamic_id={markets_type[market].id} width="64px" height="64px" />
             </div>
 
-            <Text weight="bold" mt="1.6rem">
+            <Text size="16px" weight="bold" mt="1.6rem">
                 {localize(markets_type[market].title)}
             </Text>
-            <Text mt="0.8rem">{markets_type[market].content}</Text>
+            <Text size="16px" mt="0.8rem">
+                {markets_type[market].content}
+            </Text>
             <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
@@ -211,29 +237,18 @@ const MobileCard = ({ market }: CardProps) => {
 }
 const MarketsWrapper = styled(Flex)`
     flex-direction: column;
-    margin: auto;
-    max-width: 120rem;
+    padding: 0 0 120px 0;
+    max-width: 100%;
 `
-const Wrapper = styled(Box)`
-    width: 100%;
-    height: 19.2rem;
-    border-radius: 16px;
-`
-const CardWrapper = styled(Flex)`
-    left: 2.4rem;
-    top: 4rem;
-`
+
 const StyledHeader = styled(Header)`
-    margin-left: 2rem;
+    margin-left: 120px;
+    margin-bottom: 4rem;
 
     @media ${device.laptopM} {
         margin: auto;
         text-align: center;
         margin-bottom: 2rem;
-    }
-
-    @media ${device.laptop} {
-        max-width: 300px;
     }
 `
 const MobileCardContainer = styled(Flex)`
@@ -244,39 +259,32 @@ const MobileCardContainer = styled(Flex)`
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const markets = [
+        '',
         'forex',
         'synthetic_indices',
         'stock_indices',
         'commodities',
         'cryptocurrencies',
         'basket_indices',
+        '',
     ]
+    const filteredMarkets = markets.filter((market) => market !== except)
+
     return (
-        <SectionContainer padding="120px 0" margin="auto" background="#f9fbff">
-            <Show.Desktop max_width="laptopM">
+        <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
+            <Show.Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Box position="relative" width="100%" max_width="120rem" height="32rem">
-                        <Wrapper>
-                            <CardWrapper
-                                max_width="120rem"
-                                jc="space-around"
-                                position="absolute"
-                                max_height="320rem"
-                            >
-                                {markets.map((market) =>
-                                    except === market ? null : (
-                                        <Card market={market} key={market} />
-                                    ),
-                                )}
-                            </CardWrapper>
-                        </Wrapper>
-                    </Box>
+                    <Carousel {...settings}>
+                        {filteredMarkets.map((market) => (
+                            <Card market={market} key={market} />
+                        ))}
+                    </Carousel>
                 </MarketsWrapper>
             </Show.Desktop>
-            <Show.Mobile min_width="laptopM">
+            <Show.Mobile min_width="mobileL">
                 <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>

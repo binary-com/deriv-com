@@ -17,7 +17,7 @@ import {
     ContinuousIndicesDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
-    CryptocurrenciesDetails,
+    // CryptocurrenciesDetails,
     JumpIndicesDetails,
     StepIndicesDetails,
     VolatilityIndicesDetailsEU,
@@ -38,6 +38,7 @@ export type ForexAndBasketMultiplier = {
         mobile_col: number
     }
     content: Option[]
+    template?: number
 }
 export type SyntheticMultiplier = {
     has_global_accordion: boolean
@@ -51,6 +52,7 @@ export type SyntheticMultiplier = {
 }
 export type CryptoMultiplier = {
     has_global_accordion: boolean
+    template?: number
     markets_list: {
         col: number
         tablet_col: number
@@ -75,9 +77,10 @@ export const forex_multiplier: ForexAndBasketMultiplier = {
 export const basket_multiplier: ForexAndBasketMultiplier = {
     markets_list: {
         col: 5,
-        tablet_col: 3,
-        mobile_col: 1,
+        tablet_col: 4,
+        mobile_col: 2,
     },
+    template: 2,
     content: [
         {
             title: <Localize translate_text="Commodities Basket" />,
@@ -161,12 +164,13 @@ export const crypto_multiplier: CryptoMultiplier = {
         tablet_col: 4,
         mobile_col: 2,
     },
+    template: 2,
     has_global_accordion: true,
     content: [
         {
             title: <Localize translate_text="Cryptocurrencies" />,
             component: <CryptocurrenciesMultipliers />,
-            details: CryptocurrenciesDetails,
+            // details: CryptocurrenciesDetails,
         },
     ],
 }

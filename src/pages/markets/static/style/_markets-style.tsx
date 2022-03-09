@@ -125,7 +125,7 @@ export const LatestMarketsList = styled(CssGrid)<LatestMarketsListProps>`
     border-left: 1px solid var(--color-grey-22);
     border-right: ${({ has_right_border }) =>
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
-    grid-template-columns: ${({ col }) => `repeat(${col ?? 3}, 1fr)`};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 4}, 1fr)`};
     width: 100%;
     padding: ${({ padding }) => (padding ? padding : '24px')};
     gap: ${({ gap }) => (gap ? gap : '10px')};

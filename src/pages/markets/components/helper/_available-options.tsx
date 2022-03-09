@@ -25,6 +25,17 @@ const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
+const Icon = styled.img`
+    margin-right: 1.6rem;
+    width: 80px;
+    height: 80px;
+
+    @media ${device.tabletL} {
+        width: 60px;
+        height: 60px;
+    }
+`
+
 const AvailableOptions = ({
     title,
     content,
@@ -32,16 +43,6 @@ const AvailableOptions = ({
     svg,
     mobile_pt,
 }: AvailableOptionsProps) => {
-    const Icon = styled.img`
-        margin-right: 1.6rem;
-        width: 80px;
-        height: 80px;
-
-        @media ${device.tabletL} {
-            width: 60px;
-            height: 60px;
-        }
-    `
     return (
         <StyledFlex mt={remove_title ? '1.6rem' : 0} mobile_pt={mobile_pt}>
             {!remove_title && (

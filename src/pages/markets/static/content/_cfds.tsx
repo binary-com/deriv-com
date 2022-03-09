@@ -40,7 +40,8 @@ import { Localize } from 'components/localization'
 
 export const commodities_cfds: MarketInstrumentsElement = {
     markets_list: {
-        col: 5,
+        col: 3,
+        mobile_col: 2,
     },
     content: [
         {
@@ -82,6 +83,12 @@ export const forex_cfds: MarketInstrumentsElement = {
 
 export const synthetic_cfds: MarketInstrumentsElement = {
     has_global_accordion: true,
+    // template: 2,
+    markets_list: {
+        col: 3,
+        tablet_col: 3,
+        mobile_col: 2,
+    },
     content: [
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -116,7 +123,12 @@ export const synthetic_cfds: MarketInstrumentsElement = {
 
 export const synthetic_cfds_eu: MarketInstrumentsElement = {
     has_global_accordion: true,
-    template: 2,
+    // template: 2,
+    markets_list: {
+        col: 3,
+        tablet_col: 3,
+        mobile_col: 2,
+    },
     content: [
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -188,9 +200,10 @@ export const stock_cfds: MarketInstrumentsElement = {
 export const crypto_cfds: MarketInstrumentsElement = {
     markets_list: {
         col: 4,
-        tablet_col: 3,
-        mobile_col: 1,
+        tablet_col: 2,
+        mobile_col: 2,
     },
+    template: 2,
     content: [
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -202,9 +215,10 @@ export const crypto_cfds: MarketInstrumentsElement = {
 export const basket_cfds: MarketInstrumentsElement = {
     markets_list: {
         col: 4,
-        tablet_col: 3,
-        mobile_col: 1,
+        tablet_col: 4,
+        mobile_col: 2,
     },
+    template: 2,
     content: [
         {
             title: <Localize translate_text="Commodities Basket" />,

@@ -5,7 +5,11 @@ import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
 import Hands from 'images/svg/who-we-are/hands.svg'
 
-export const first_section_texts = [
+type FirstSectionTextsType = {
+    text: ReactElement
+}
+
+export const first_section_texts: FirstSectionTextsType[] = [
     {
         text: (
             <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities, and synthetics to millions of registered users across the globe." />
@@ -266,14 +270,19 @@ export const mobile_pins: MapPinType[] = [
     },
 ]
 
-export const our_offices_count = [
+type DerivNumbersType = {
+    count: string
+    title: string
+}
+
+export const our_offices_count: DerivNumbersType[] = [
     { count: localize('750+'), title: localize('employees') },
     { count: localize('50+'), title: localize('nationalities') },
     { count: localize('13'), title: localize('locations') },
     { count: localize('10'), title: localize('countries') },
 ]
 
-export const deriv_numbers = [
+export const deriv_numbers: DerivNumbersType[][] = [
     [
         { count: localize('2.5M+'), title: localize('traders worldwide') },
         { count: localize('USD 26M+'), title: localize('withdrawals last month') },

@@ -121,7 +121,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
             width="fit-content"
             height="640px"
             background="rgba(249, 251, 255, 1)"
-            p="0 20px"
+            p="0 20px 8px"
             m="0 auto"
         >
             <StyledFlex position="relative" m="0 auto" jc="unset">

@@ -79,7 +79,7 @@ const ArrowImg = styled.img`
 const Favorite = () => {
     const data = useStaticQuery(query)
 
-    const [website_status] = useWebsiteStatus()
+    const { 0: website_status, 2: is_loading } = useWebsiteStatus()
     const current_client_country = website_status?.clients_country
 
     const [dmt5_url, setDmt5Url] = useState(move_to_dmt5_url)
@@ -105,7 +105,7 @@ const Favorite = () => {
                             alt="Deriv MT5 favorite"
                             width="100%"
                         />
-                        <LearnMore to={dmt5_url}>
+                        <LearnMore to={dmt5_url} disabled={is_loading}>
                             <Text>Learn more</Text>
                             <ArrowImg src={Arrow} alt="arrow" />
                         </LearnMore>
@@ -116,7 +116,7 @@ const Favorite = () => {
                             alt="Dtrader favorite"
                             width="100%"
                         />
-                        <LearnMore to={dtrader_url}>
+                        <LearnMore to={dtrader_url} disabled={is_loading}>
                             <Text>Learn more</Text>
                             <ArrowImg src={Arrow} alt="arrow" />
                         </LearnMore>

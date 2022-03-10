@@ -105,7 +105,8 @@ const benefitsItems = [
 ]
 
 const Benefits = () => {
-    const [website_status] = useWebsiteStatus()
+    const { 0: website_status, 2: is_loading } = useWebsiteStatus()
+
     const current_client_country = website_status?.clients_country
 
     const [explore_deriv_url, setExploreDerivUrl] = useState(move_to_explore_url)
@@ -145,7 +146,7 @@ const Benefits = () => {
             })}
             <Flex>
                 <BtnWrapper>
-                    <StyledLinkButton to={explore_deriv_url} secondary="true">
+                    <StyledLinkButton to={explore_deriv_url} secondary="true" disabled={is_loading}>
                         Explore Deriv now
                     </StyledLinkButton>
                 </BtnWrapper>

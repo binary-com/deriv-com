@@ -46,8 +46,7 @@ type ArticlesTemplateProps = {
 }
 
 const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
-    const [is_mobile] = useBrowserResize(475)
-    const [is_little_mobile] = useBrowserResize(400)
+    const [is_mobile] = useBrowserResize(992)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
@@ -126,12 +125,6 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         og_img: og_image,
         og_title: og_title ? og_title : meta_title,
         og_description: og_description ? og_description : meta_description,
-    }
-
-    const getTruncateLength = () => {
-        if (is_little_mobile) return 15
-        else if (is_mobile) return 30
-        else return 60
     }
 
     return (

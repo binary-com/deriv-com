@@ -27,6 +27,7 @@ type AvailableTradesProps = {
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
     display_title: ReactElement
+    is_mobile: boolean
 }
 
 type CardContainerProps = {

@@ -24,6 +24,7 @@ const AvailableTrades = ({
             <>
                 {!is_mobile ? (
                     <AvailableTradesMobile
+                        is_mobile={is_mobile}
                         CFDs={CFDs}
                         DigitalOptions={DigitalOptions}
                         Multipliers={Multipliers}
@@ -31,6 +32,7 @@ const AvailableTrades = ({
                     />
                 ) : (
                     <AvailableTradesDesktop
+                        is_mobile={is_mobile}
                         CFDs={CFDs}
                         DigitalOptions={DigitalOptions}
                         Multipliers={Multipliers}

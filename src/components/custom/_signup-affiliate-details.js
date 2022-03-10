@@ -71,7 +71,7 @@ const StyledLocalizedLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 
-const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
+const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
     const residence_list = useResidenceList()
@@ -342,6 +342,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin }) => {
                                     secondary
                                     type="submit"
                                     disabled={!isValid || !dirty || !checksSelected()}
+                                    onClick={() => showModal(true)}
                                 >
                                     {localize('Signup')}
                                 </SignupButton>
@@ -390,6 +391,7 @@ SignupAffiliateDetails.propTypes = {
     last_name: PropTypes.string,
     mobile_number: PropTypes.number,
     password: PropTypes.string,
+    showModal: PropTypes.func,
 }
 
 export default SignupAffiliateDetails

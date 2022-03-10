@@ -198,6 +198,7 @@ const Signup = (props) => {
             handleValidation: handleValidation,
             is_ppc: props.is_ppc,
             is_submitting: is_submitting,
+            showModal: props.showModal,
         }
 
         switch (param) {
@@ -266,6 +267,7 @@ Signup.propTypes = {
     email: PropTypes.string,
     is_ppc: PropTypes.bool,
     onSubmit: PropTypes.func,
+    showModal: PropTypes.func,
     submit_state: PropTypes.string,
 }
 

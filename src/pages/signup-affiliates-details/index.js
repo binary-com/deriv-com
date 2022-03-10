@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex } from '../../components/containers'
+import ModalMessage from '../../components/form/modal-message'
 import Benefits from './_benefits'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
@@ -28,27 +29,40 @@ const StyledMap = styled.img`
     }
 `
 
+const Overlay = styled.div`
+    opacity: ${({ is_popup_shown }) => (is_popup_shown ? 0.4 : 1)};
+`
+
 const affiliateSignupDetails = () => {
+    const [is_popup_shown, setIsPopupShown] = useState(false)
+    const showModal = (status) => setIsPopupShown(status)
+
     return (
-        <Layout type="static" margin_top={'0'}>
-            <SEO
-                title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
-                description={localize(
-                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
-                )}
-            />
-            <StyledFlex jc="center" fd="row" ai="flex-start">
-                <Benefits />
-                <Signup
-                    appearance={Appearances.affiliateSignupDetails}
-                    bgColor="grey-14"
-                    autofocus={true}
-                />
-            </StyledFlex>
-            <StyledDiv>
-                <StyledMap src={Map} alt="map" />
-            </StyledDiv>
-        </Layout>
+        <>
+            <Overlay is_popup_shown={is_popup_shown}>
+                <Layout type="static" margin_top={'0'}>
+                    <SEO
+                        title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
+                        description={localize(
+                            'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
+                        )}
+                    />
+                    <StyledFlex jc="center" fd="row" ai="flex-start">
+                        <Benefits />
+                        <Signup
+                            appearance={Appearances.affiliateSignupDetails}
+                            bgColor="grey-14"
+                            autofocus={true}
+                            showModal={showModal}
+                        />
+                    </StyledFlex>
+                    <StyledDiv>
+                        <StyledMap src={Map} alt="map" />
+                    </StyledDiv>
+                </Layout>
+            </Overlay>
+            {is_popup_shown && <ModalMessage showModal={showModal} />}
+        </>
     )
 }
 

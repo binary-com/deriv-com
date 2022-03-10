@@ -295,7 +295,6 @@ const SignupButton = styled(Button)`
 `
 
 const LinkSignupButton = styled(LinkButton)`
-    white-space: nowrap;
     opacity: 0;
     margin-left: 1.6rem;
     margin-right: 10px;

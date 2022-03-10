@@ -1,11 +1,11 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { QueryImage, Text } from 'components/elements'
+import { Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
+import En from 'images/svg/languages/en.svg'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
@@ -69,7 +69,7 @@ const Absolute = styled.div`
         left: 0;
     }
 `
-/* stylelint-disable */
+
 const FadeInDown = keyframes`
     from {
         opacity:0;
@@ -139,55 +139,27 @@ const ResponsiveText = styled(Text)`
         display: none;
     }
 `
-/* stylelint-enable */
 
-const query = graphql`
-    query {
-        en: file(relativePath: { eq: "flags/en.png" }) {
-            ...fadeIn
-        }
-        es: file(relativePath: { eq: "flags/es.png" }) {
-            ...fadeIn
-        }
-        fr: file(relativePath: { eq: "flags/fr.png" }) {
-            ...fadeIn
-        }
-        id: file(relativePath: { eq: "flags/id.png" }) {
-            ...fadeIn
-        }
-        it: file(relativePath: { eq: "flags/it.png" }) {
-            ...fadeIn
-        }
-        pl: file(relativePath: { eq: "flags/pl.png" }) {
-            ...fadeIn
-        }
-        pt: file(relativePath: { eq: "flags/pt.png" }) {
-            ...fadeIn
-        }
-        ru: file(relativePath: { eq: "flags/ru.png" }) {
-            ...fadeIn
-        }
-        vi: file(relativePath: { eq: "flags/vi.png" }) {
-            ...fadeIn
-        }
-        th: file(relativePath: { eq: "flags/th.png" }) {
-            ...fadeIn
-        }
-        zh: file(relativePath: { eq: "flags/zh.png" }) {
-            ...fadeIn
-        }
-        ac: file(relativePath: { eq: "flags/en.png" }) {
-            ...fadeIn
-        }
-    }
-`
+const image_sets = {
+    en: En,
+    es: En,
+    fr: En,
+    id: En,
+    it: En,
+    pl: En,
+    pt: En,
+    ru: En,
+    vi: En,
+    th: En,
+    zh: En,
+    ac: En,
+}
 
 const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security }) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
     const [is_mobile] = useBrowserResize()
-    const icon_size = security && is_mobile ? '20px' : '24px'
-    const data = useStaticQuery(query)
+    const icon_size = security && is_mobile ? 20 : 24
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
     const toggleVisibility = () => setOpen(!is_open)
@@ -207,10 +179,10 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <QueryImage
+                    <img
                         width={icon_size}
                         height={icon_size}
-                        data={data[default_abbreviation]}
+                        src={image_sets[default_abbreviation]}
                         alt=""
                         loading="eager"
                     />
@@ -236,10 +208,10 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                                     }}
                                     key={idx}
                                 >
-                                    <QueryImage
-                                        width="24px"
-                                        height="24px"
-                                        data={data[abbreviation]}
+                                    <img
+                                        width={24}
+                                        height={24}
+                                        src={image_sets[abbreviation]}
                                         alt=""
                                         loading="eager"
                                     />

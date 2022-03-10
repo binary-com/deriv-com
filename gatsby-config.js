@@ -215,7 +215,7 @@ module.exports = {
         {
             resolve: '@directus/gatsby-source-directus',
             options: {
-                url: 'https://cms.deriv.cloud',
+                url: 'https://deriv-academy.directus.app',
                 auth: {
                     token: process.env.DIRECTUS_AUTH_TOKEN,
                 },
@@ -225,16 +225,5 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
-        {
-            resolve: `gatsby-plugin-graphql-codegen`,
-            options: {
-                fileName: `types/graphql.types.ts`,
-                documentPaths: [
-                    './src/**/*.{ts,tsx}',
-                    './src/components/graphql/*',
-                    './node_modules/gatsby-*/**/*.js',
-                ],
-            },
-        },
     ],
 }

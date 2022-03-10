@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import VideoPlayer from '../components/_video-player'
-import { DirectusData_Videos } from '../../../../types/graphql.types'
 import VideoCard from './_video-card'
 import { VideoDataType } from './index'
+import { DirectusData_Videos } from 'types/graphql.types'
 import { Flex } from 'components/containers'
+import { cms_assets_end_point } from 'common/constants'
 import { slugify, removeSpecialCharacterUrl, queryParams } from 'common/utility'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
@@ -56,7 +57,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
         document.body.style.overflow = show ? 'hidden' : 'unset'
     }, [show])
 
-    const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
+    const play_video_src = `${cms_assets_end_point}${play_video_id}`
 
     const openVideo = (track_id: string, video_title: string): void => {
         setPlayVideoId(track_id)

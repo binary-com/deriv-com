@@ -15,7 +15,6 @@ import { SmartFXDetails } from '../../markets/static/content/_details'
 import { Text } from 'components/elements'
 import { SectionContainer, Show, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -36,7 +35,6 @@ const StyledTitle = styled(Text)`
 
 const CFDs = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const { is_row } = getCountryRule()
 
     const major_pairs: MarketInstrumentsElement = {
         markets_list: {
@@ -86,7 +84,7 @@ const CFDs = () => {
                     )}
                 </Text>
                 <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
+                    <AvailablePlatforms m_top="16px" dtrader />
                 </AvailablePlatformsWrapper>
                 <StyledTitle>
                     {localize('Forex pairs available for multipliers trading')}

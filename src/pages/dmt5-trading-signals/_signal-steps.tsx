@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Tabs from '../trade-types/components/_tabs'
-import { Show } from '../../components/containers'
+import { Mobile, Desktop } from '../../components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
@@ -239,52 +239,52 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.subscriber.step_one_header}
                                     description={content.subscriber.step_one_text}
                                 >
-                                    <Show.Desktop min_width="992">
+                                    <Desktop breakpoint={992}>
                                         <StyledQueryImage
                                             data={data['subscriber_step_1']}
                                             alt="Trade types option market"
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledQueryImage
                                             data={data['subscriber_step_1_mobile']}
                                             alt="Trade types option market"
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
                                     label={content.subscriber.step_two_header}
                                     description={content.subscriber.step_two_text}
                                 >
-                                    <Show.Desktop min_width="992">
+                                    <Desktop breakpoint={992}>
                                         <StyledQueryImage
                                             data={data['subscriber_step_2']}
                                             alt="Trade types option trade type open"
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledQueryImage
                                             data={data['subscriber_step_2_mobile']}
                                             alt="Trade types option trade type open"
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
                                     label={content.subscriber.step_three_header}
                                     description={content.subscriber.step_three_text}
                                 >
-                                    <Show.Desktop min_width="992">
+                                    <Desktop breakpoint={992}>
                                         <StyledQueryImage
                                             data={data['subscriber_step_3']}
                                             alt="Trade types option duration"
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledQueryImage
                                             data={data['subscriber_step_3_mobile']}
                                             alt="Trade types option duration"
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Tabs.Panel>
                             </StyledTabs>
                         </>
@@ -305,52 +305,52 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.provider.step_one_header}
                                     description={content.provider.step_one_text}
                                 >
-                                    <Show.Desktop min_width="992">
+                                    <Desktop breakpoint={992}>
                                         <StyledQueryImage
                                             data={data['provider_step_1']}
                                             alt="Trade types option market"
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledQueryImage
                                             data={data['provider_step_1_mobile']}
                                             alt="Trade types option market"
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
                                     label={content.provider.step_two_header}
                                     description={content.provider.step_two_text}
                                 >
-                                    <Show.Desktop min_width="992">
+                                    <Desktop breakpoint={992}>
                                         <StyledQueryImage
                                             data={data['provider_step_2']}
                                             alt="Trade types option trade type open"
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledQueryImage
                                             data={data['provider_step_2_mobile']}
                                             alt="Trade types option trade type open"
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
                                     label={content.provider.step_three_header}
                                     description={content.provider.step_three_text}
                                 >
-                                    <Show.Desktop min_width="992">
+                                    <Desktop breakpoint={992}>
                                         <StyledQueryImage
                                             data={data['provider_step_3']}
                                             alt="Trade types option duration"
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledQueryImage
                                             data={data['provider_step_3_mobile']}
                                             alt="Trade types option duration"
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Tabs.Panel>
                             </StyledTabs>
                         </>

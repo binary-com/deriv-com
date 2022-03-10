@@ -321,7 +321,7 @@ export const paris = {
     address: address_france,
     map_img: 'paris_map',
     google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
-    has_iframe: false,
+    has_iframe: true,
     has_map: true,
 }
 

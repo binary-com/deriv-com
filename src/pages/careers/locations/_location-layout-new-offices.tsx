@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import CareerContainer from '../_layout-components/_career_container'
 import { locationsTypes } from '../_model/_locations/_locations.types'
-import { Pin } from './_location-layout'
+import { Iframe, Pin } from './_location-layout'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, Header, LinkText, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { zoho_url } from 'common/constants'
+import { map_api_key, zoho_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/careers/map.svg'
 
@@ -198,20 +198,18 @@ const StyledDiv = styled.div`
 const WorkingQueryImage = styled(QueryImage)`
     object-fit: cover;
     max-width: 552px;
-    max-height: 360px;
+    height: 360px;
 
     @media ${device.desktopS} {
-        max-height: unset;
+        height: unset;
     }
     @media ${device.tabletL} {
         max-width: 60%;
         height: unset;
-        max-height: unset;
     }
     @media ${device.tablet} {
         max-width: 100%;
         height: unset;
-        max-height: unset;
     }
 `
 
@@ -254,19 +252,9 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                 <WorkingCard>
                     {location.has_map ? (
                         <WorkingFlex jc="cover">
-                            <LocalizedLink
-                                to={location.google_map_link}
-                                external
-                                rel="noopener noreferrer"
-                                target="_blank"
-                            >
-                                <WorkingQueryImage
-                                    data={images[location.map_img]}
-                                    alt={location.display_name + 'map'}
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </LocalizedLink>
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
+                            />
 
                             <WorkingInformation p="3.2rem 6rem" direction="column">
                                 <StyledDiv>
@@ -274,7 +262,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                                         {`Working at Deriv ${map_office_name}`}
                                     </Header>
                                     <CardText color="black-6">{location.map_text}</CardText>
-                                    <Flex jc="unset" mt="40px">
+                                    <Flex jc="unset" mt="37px">
                                         <Pin src={MapPin} alt="map pin" />
                                         <LinkText
                                             rel="noopener noreferrer"

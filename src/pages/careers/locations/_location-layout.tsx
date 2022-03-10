@@ -211,7 +211,7 @@ const CardText = styled(Text)`
     }
 `
 
-const Iframe = styled.iframe`
+export const Iframe = styled.iframe`
     width: 100%;
     border: 0;
 `

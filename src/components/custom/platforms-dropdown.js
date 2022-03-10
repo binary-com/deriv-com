@@ -20,7 +20,7 @@ const FadeInDown = keyframes`
     }
 `
 const NavDropdown = styled.div`
-    width: ${(props) => (props.is_trade ? '90%' : 'auto')};
+    width: auto;
     max-width: 1200px;
     left: ${(props) => (props.offset && !props.is_trade ? props.offset + 'px !important' : 'none')};
     position: absolute;

@@ -89,38 +89,38 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 type TabList = {
-    title: ReactElement
+    title: JSX.Element
     tab_name: string
     route_to: string
 }
 const tabList: TabList[] = [
     {
-        title: <Localize translate_text="Forex" />,
+        title: (<Localize translate_text="Forex" />) as JSX.Element,
         tab_name: 'forex',
         route_to: '/markets/forex/',
     },
     {
-        title: <Localize translate_text="Synthetic indices" />,
+        title: (<Localize translate_text="Synthetic indices" />) as JSX.Element,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },
     {
-        title: <Localize translate_text="Stocks & indices" />,
+        title: (<Localize translate_text="Stocks & indices" />) as JSX.Element,
         tab_name: 'stock',
         route_to: '/markets/stock/',
     },
     {
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: (<Localize translate_text="Cryptocurrencies" />) as JSX.Element,
         tab_name: 'cryptocurrencies',
         route_to: '/markets/cryptocurrencies/',
     },
     {
-        title: <Localize translate_text="Basket indices" />,
+        title: (<Localize translate_text="Basket indices" />) as JSX.Element,
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/',
     },
     {
-        title: <Localize translate_text="Commodities" />,
+        title: (<Localize translate_text="Commodities" />) as JSX.Element,
         tab_name: 'commodities',
         route_to: '/markets/commodities/',
     },

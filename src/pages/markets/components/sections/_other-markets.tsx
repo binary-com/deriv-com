@@ -290,7 +290,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 </StyledHeader>
                 <MobileCardContainer direction="column">
                     {markets.map((market) =>
-                        except === market ? null : <MobileCard market={market} key={market} />,
+                        except === market || market === '' ? null : (
+                            <MobileCard market={market} key={market} />
+                        ),
                     )}
                 </MobileCardContainer>
             </Show.Mobile>

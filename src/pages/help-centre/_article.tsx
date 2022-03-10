@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
-
+import { queryParamData } from 'common/utility'
 export type ArticleProps = {
     children?: React.ReactNode
     header?: string
@@ -36,6 +36,7 @@ const TabWrapper = styled.div`
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
+const platform = queryParamData()
 export const Article = ({
     children,
     header = '',
@@ -56,7 +57,7 @@ export const Article = ({
             />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
-                    to="/help-centre/"
+                    to={platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
                     has_arrow="true"
                     color="black"
                     size="var(--text-size-s)"

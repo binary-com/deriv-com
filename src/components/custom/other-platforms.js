@@ -341,7 +341,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             aria_label="Derivx"
                             icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
                             }
                             title={<Localize translate_text="Deriv X" />}
                             onClick={onClick}

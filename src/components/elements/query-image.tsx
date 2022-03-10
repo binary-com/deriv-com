@@ -8,9 +8,10 @@ export interface ImageWrapperProps extends GatsbyImageProps {
     width: string
     height: string
     disable_transition: boolean
+    loading: 'eager' | 'lazy'
 }
 
-const GatsbyImageWrapper = styled(GatsbyImage)<ImageWrapperProps>`
+const ImageWrapper = styled.div<ImageWrapperProps>`
     & .gatsby-image-wrapper {
         width: ${(props) => props.width || '100%'};
         height: ${(props) => props.height};
@@ -28,22 +29,26 @@ const GatsbyImageWrapper = styled(GatsbyImage)<ImageWrapperProps>`
 `
 
 const QueryImage = ({
+    alt,
     data,
     disable_transition = false,
     height,
     width,
+    loading,
     ...props
 }: ImageWrapperProps) => {
     const image = getImage(data)
     if (data) {
         return (
-            <GatsbyImageWrapper
-                image={image}
+            <ImageWrapper
+                loading={loading}
                 width={width}
                 height={height}
                 disable_transition={disable_transition}
                 {...props}
-            />
+            >
+                <GatsbyImage alt={alt} image={image} loading={loading} />
+            </ImageWrapper>
         )
     }
     return null

@@ -18,7 +18,6 @@ import {
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -141,7 +140,6 @@ const ContinuousIndicesDetails = () => (
 
 const SyntheticIndices = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const { is_row } = getCountryRule()
 
     return (
         <SectionContainer padding="4rem 0 8rem">
@@ -156,7 +154,7 @@ const SyntheticIndices = () => {
                           )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
+                    <AvailablePlatforms dtrader />
                 </AvailablePlatformsWrapper>
                 <Text weight="bold">
                     {localize('Synthetic indices available for multipliers trading')}

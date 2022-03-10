@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import ClientGrid from './_clients-grid'
 import BusinessGrid from './_business-grid'
+import ClientGrid from './_clients-grid'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Tabs } from 'components/elements'
@@ -17,7 +17,7 @@ const TermsAndConditions = () => {
             <SEO
                 title={localize('Terms and conditions | Legal policies | Deriv')}
                 description={localize(
-                    'Read our terms and conditions to know Deriv manages data feeds, security, privacy, and more.',
+                    'Read our terms and conditions to know how Deriv manages data feeds, security, privacy, and more.',
                 )}
             />
             <Section>

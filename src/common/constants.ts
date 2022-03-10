@@ -109,6 +109,7 @@ export const localized_link_url = Object.freeze({
     affiliate_sign_in: affiliate_signin_url,
     affiliate_sign_up: affiliate_signup_url,
     binary: binary_url,
+    binary_bot: binary_bot_url,
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,
@@ -139,5 +140,6 @@ export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom
 export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
 export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
-export const cms_assets_end_point = 'https://cms.deriv.cloud/assets/'
+export const cms_end_point = 'https://deriv-academy.directus.app'
+export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 62

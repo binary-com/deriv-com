@@ -91,7 +91,7 @@ export const Desktop = ({
     const [is_mobile] = useBrowserResize(breakpoint_size)
     const is_loaded = deviceRenderer()
 
-    const desktop_view = is_mobile ? <></> : <>{children}</>
+    const desktop_view = is_mobile ? <></> : <div className={className}>{children}</div>
 
     return is_loaded ? (
         desktop_view

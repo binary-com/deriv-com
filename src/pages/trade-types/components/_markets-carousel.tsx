@@ -58,11 +58,12 @@ Item.propTypes = {
 }
 
 type MarketsCarouselProps = {
-    children: React.ReactNode[]
+    children: React.ReactNode[] | React.ReactNode
 }
 
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
-    const flex_width = children.length > 1 ? '0 0 50%' : '0 0 100%'
+    const child = React.Children.toArray(children)
+    const flex_width = child.length > 1 ? '0 0 50%' : '0 0 100%'
     const carousel_props = {
         options: {
             align: 'start',
@@ -87,7 +88,7 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
         <>
             <Wrapper>
                 <Background />
-                <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
+                <Carousel {...carousel_props}>{child.map((child) => child)}</Carousel>
             </Wrapper>
             <Show.Mobile min_width={'bp680'}>
                 <MobileBackground>

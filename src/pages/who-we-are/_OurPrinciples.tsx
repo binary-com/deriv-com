@@ -76,6 +76,7 @@ const ColoredBox = styled(Box)`
     color: #333333;
     font-size: 24px;
     line-height: 36px;
+    margin-right: 20px;
 
     @media ${device.tabletL} {
         font-size: 18px;

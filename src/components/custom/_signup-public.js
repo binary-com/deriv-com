@@ -10,9 +10,9 @@ import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import device from 'themes/device.js'
 // SVG
-import Apple from 'images/svg/custom/apple.svg'
-import Facebook from 'images/svg/custom/facebook-blue.svg'
-import Google from 'images/svg/custom/google.svg'
+import Apple from 'images/svg/custom/apple-40.svg'
+import Facebook from 'images/svg/custom/facebook-40.svg'
+import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 
 const query = graphql`
@@ -29,12 +29,12 @@ const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding: 41px 0 40px;
+        padding: 0 0 40px;
     }
 `
 const Wrapper = styled.div`
     border-radius: 8px;
-    background-image: linear-gradient(73deg, #ff6444, #ff444f);
+    background: linear-gradient(241.92deg, #d74b56 12.96%, #d1632f 86.33%);
     background-repeat: round;
     position: relative;
     display: flex;
@@ -155,57 +155,15 @@ const MobileSocialWrapper = styled(SocialWrapper)`
     }
 `
 const SocialButton = styled(Button)`
-    width: 110px;
-    line-height: 27px;
-    padding: 5px;
-    border-radius: 4px;
-    justify-content: center;
     display: flex;
-    background-color: var(--color-white);
-    border: solid 1px var(--color-grey-7);
-    height: 4rem;
-    margin: 0 0.8rem;
+    padding: 0;
+    margin: 0 1rem;
+    border: none;
 
-    &:nth-of-type(1) {
-        margin-left: 0;
-    }
-    img {
-        padding-right: 5px;
-        object-fit: contain;
-    }
     @media ${device.tabletL} {
-        width: 114px;
-        height: 48px;
-        padding: 0;
         justify-content: center;
-        align-items: center;
-
-        img {
-            margin-top: 12px;
-            width: 30px;
-        }
-    }
-    @media (max-width: 500px) {
-        width: 100%;
-        height: 40px;
-        padding: 0;
-        line-height: 14px;
-
-        img {
-            margin-top: 3px;
-            padding-right: 0;
-        }
     }
 `
-const SocialButtonText = styled.div`
-    display: flex;
-
-    span {
-        display: block;
-        width: 100%;
-    }
-`
-
 const StyledHeader = styled(Header)`
     width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
@@ -387,7 +345,6 @@ const SignupPublic = ({
                                             autoFocus={autofocus}
                                             autoComplete="off"
                                             required
-                                            border="unset"
                                             height="40px"
                                             focus_border="var(--color-grey-7)"
                                         />
@@ -412,7 +369,7 @@ const SignupPublic = ({
                                     handleChangeCheckbox={handleChange}
                                 />
                                 <SocialWrapper jc="unset" ai="center">
-                                    <SignInText>{localize('Or sign in with')}</SignInText>
+                                    <SignInText>{localize('Or sign up with')}</SignInText>
                                     <SocialButton
                                         onClick={handleSocialSignup}
                                         provider="google"
@@ -421,10 +378,7 @@ const SignupPublic = ({
                                         type="button"
                                         social
                                     >
-                                        <SocialButtonText>
-                                            <img src={Google} alt="google" width="24" height="24" />
-                                            <span>Google</span>
-                                        </SocialButtonText>
+                                        <img src={Google} alt="google" width="40" height="40" />
                                     </SocialButton>
                                     <SocialButton
                                         onClick={handleSocialSignup}
@@ -434,15 +388,7 @@ const SignupPublic = ({
                                         type="button"
                                         social
                                     >
-                                        <SocialButtonText>
-                                            <img
-                                                src={Facebook}
-                                                alt="facebook"
-                                                width="24"
-                                                height="24"
-                                            />
-                                            <span>Facebook</span>
-                                        </SocialButtonText>
+                                        <img src={Facebook} alt="facebook" width="40" height="40" />
                                     </SocialButton>
                                     <SocialButton
                                         onClick={handleSocialSignup}
@@ -452,10 +398,7 @@ const SignupPublic = ({
                                         type="button"
                                         social
                                     >
-                                        <SocialButtonText>
-                                            <img src={Apple} alt="apple" width="24" height="24" />
-                                            <span>Apple</span>
-                                        </SocialButtonText>
+                                        <img src={Apple} alt="apple" width="40" height="40" />
                                     </SocialButton>
                                 </SocialWrapper>
                             </StyledFormWrapper>
@@ -580,14 +523,7 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <span>
-                                                <img
-                                                    src={Google}
-                                                    alt="google"
-                                                    width="24"
-                                                    height="24"
-                                                />
-                                            </span>
+                                            <img src={Google} alt="google" width="40" height="40" />
                                         </SocialButton>
                                         <SocialButton
                                             onClick={handleSocialSignup}
@@ -597,14 +533,12 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <span>
-                                                <img
-                                                    src={Facebook}
-                                                    alt="facebook"
-                                                    width="24"
-                                                    height="24"
-                                                />
-                                            </span>
+                                            <img
+                                                src={Facebook}
+                                                alt="facebook"
+                                                width="40"
+                                                height="40"
+                                            />
                                         </SocialButton>
                                         <SocialButton
                                             onClick={handleSocialSignup}
@@ -614,14 +548,7 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <span>
-                                                <img
-                                                    src={Apple}
-                                                    alt="apple"
-                                                    width="24"
-                                                    height="24"
-                                                />
-                                            </span>
+                                            <img src={Apple} alt="apple" width="40" height="40" />
                                         </SocialButton>
                                     </Flex>
                                 </MobileSocialWrapper>

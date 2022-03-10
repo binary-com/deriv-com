@@ -55,6 +55,9 @@
         "webpack": "^5.65.0"
     },
     "devDependencies": {
+        "@graphql-codegen/cli": "^2.6.2",
+        "@graphql-codegen/typescript": "^2.4.5",
+        "@graphql-codegen/typescript-operations": "^2.3.2",
         "@storybook/addon-actions": "^6.4.9",
         "@storybook/addon-essentials": "^6.4.9",
         "@storybook/addon-links": "^6.4.9",
@@ -75,7 +78,6 @@
         "eslint-plugin-react": "^7.28.0",
         "eslint-webpack-plugin": "^3.1.1",
         "gatsby-plugin-eslint": "^4.0.2",
-        "gatsby-plugin-graphql-codegen": "^3.1.1",
         "gatsby-plugin-styled-components": "^5.4.0",
         "gh-pages": "^3.2.3",
         "husky": "^7.0.4",
@@ -117,7 +119,9 @@
         "pre-commit-lint": "lint-staged",
         "type-check": "tsc --noEmit",
         "storybook": "start-storybook -p 6006",
-        "build:storybook": "build-storybook -c .storybook -o public/storybook"
+        "build:storybook": "build-storybook -c .storybook -o public/storybook",
+        "codegen": "graphql-codegen --config codegen.yml",
+        "codegen:watch": "graphql-codegen --config codegen.yml --watch"
     },
     "repository": {
         "type": "git",

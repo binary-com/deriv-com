@@ -10,6 +10,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
+import { cms_assets_end_point } from 'common/constants'
 import { unslugify, slugify } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
@@ -108,7 +109,7 @@ const SearchPage = () => {
     // video player states
     const [show, setShow] = useState(false)
     const [play_video_id, setPlayVideoId] = useState('')
-    const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
+    const play_video_src = `${cms_assets_end_point}${play_video_id}`
 
     useEffect(() => {
         const video_track = academy_data.videos.find(

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
 import { SectionContainer, Container, Flex, Box, Desktop, Mobile } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 import Malta from 'images/svg/contact/malta.svg'
 import Dubai from 'images/svg/contact/dubai.svg'
 import Paraguay from 'images/svg/contact/paraguay.svg'
@@ -230,7 +230,7 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Desktop min_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <p>Level 3, W Business Centre,</p>
                                         <p>Triq Dun Karm, Birkirkara,</p>
                                         <p>BKR 9033</p>
@@ -276,7 +276,7 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Desktop min_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <p>Office 1902, Jumeirah Business</p>
                                         <p> Center 1, JLT Cluster G</p>
                                     </Desktop>
@@ -323,7 +323,7 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Desktop min_width="mobileL">
+                                            <Desktop breakpoint={size.mobileL}>
                                                 <p>C-13, iTech Tower, Jalan Impact,</p>
                                                 <p>Cyber 6, Cyberjaya 63000,</p>
                                                 <p>Selangor</p>
@@ -360,7 +360,7 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Desktop min_width="mobileL">
+                                            <Desktop breakpoint={size.mobileL}>
                                                 <p>F16, Level 1, Paragon Labuan,</p>
                                                 <p>Jalan Tun Mustapha,</p>
                                                 <p>Labuan 87000, Sabah</p>
@@ -395,7 +395,7 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Desktop min_width="mobileL">
+                                            <Desktop breakpoint={size.mobileL}>
                                                 <p>E-5-6, Soho Ipoh 2,</p>
                                                 <p>Jalan Sultan Idris Shah,</p>
                                                 <p>Ipoh 30000, Perak</p>
@@ -432,7 +432,7 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Desktop min_width="mobileL">
+                                            <Desktop breakpoint={size.mobileL}>
                                                 <p>67-1 &amp; 69-1, Jalan KLJ 6,</p>
                                                 <p>Taman Kota Laksamana Jaya,</p>
                                                 <p>Melaka 75200</p>
@@ -480,7 +480,7 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Desktop min_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <p>Edificio Atrium, Piso 2,</p>
                                         <p>Guido Spano Esq. Doctor Morra,</p>
                                         <p>Asunción 1849</p>
@@ -601,7 +601,7 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Desktop min_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <p>Level 2, 25/1-3 Vera Khoruzhey</p>
                                         <p>Street, Minsk 220123</p>
                                     </Desktop>

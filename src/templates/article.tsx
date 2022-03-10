@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { graphql } from 'gatsby'
-import { ArticleQuery } from '../../types/graphql.types'
 import {
     ArticleTitle,
     Background,
@@ -31,6 +30,7 @@ import {
 import Banner from '../pages/academy/components/_banner'
 import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
+import { ArticleQuery } from 'types/graphql.types'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'

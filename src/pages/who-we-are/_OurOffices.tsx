@@ -108,15 +108,15 @@ const OurOffices = () => {
             <Flex>
                 <Desktop>
                     <MapImage data={data['earth']}>
-                        {desktop_pins.map((pin) => (
-                            <MapPin key={+pin.title} {...pin} />
+                        {desktop_pins.map((pin, idx) => (
+                            <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
                     <MapImage data={data['earth_mobile']}>
-                        {mobile_pins.map((pin) => (
-                            <MapPin key={+pin.title} {...pin} />
+                        {mobile_pins.map((pin, idx) => (
+                            <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Mobile>

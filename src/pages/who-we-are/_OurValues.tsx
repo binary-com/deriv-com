@@ -63,7 +63,7 @@ const OurValues = () => {
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
                 {our_values.map(({ title, icon, text }, index) => (
-                    <Card key={+title} index={index} direction="column" ai="start" jc="start">
+                    <Card key={index} index={index} direction="column" ai="start" jc="start">
                         <img src={icon} alt="icon" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="left" type="unset">
                             {title}

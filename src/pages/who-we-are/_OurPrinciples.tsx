@@ -84,8 +84,8 @@ const OurPrinciples = () => {
                 {localize('Our principles are the framework for our decisions')}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
-                {our_principles.map(({ color, title, text }) => (
-                    <div key={+title}>
+                {our_principles.map(({ color, title, text }, idx) => (
+                    <div key={idx}>
                         <StyledDivider
                             align="center"
                             height="2px"

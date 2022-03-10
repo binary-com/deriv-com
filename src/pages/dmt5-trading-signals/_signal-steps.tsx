@@ -239,7 +239,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.subscriber.step_one_header}
                                     description={content.subscriber.step_one_text}
                                 >
-                                    <Desktop breakpoint={992}>
+                                    <Desktop>
                                         <StyledQueryImage
                                             data={data['subscriber_step_1']}
                                             alt="Trade types option market"
@@ -256,7 +256,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.subscriber.step_two_header}
                                     description={content.subscriber.step_two_text}
                                 >
-                                    <Desktop breakpoint={992}>
+                                    <Desktop>
                                         <StyledQueryImage
                                             data={data['subscriber_step_2']}
                                             alt="Trade types option trade type open"
@@ -273,7 +273,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.subscriber.step_three_header}
                                     description={content.subscriber.step_three_text}
                                 >
-                                    <Desktop breakpoint={992}>
+                                    <Desktop>
                                         <StyledQueryImage
                                             data={data['subscriber_step_3']}
                                             alt="Trade types option duration"
@@ -305,7 +305,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.provider.step_one_header}
                                     description={content.provider.step_one_text}
                                 >
-                                    <Desktop breakpoint={992}>
+                                    <Desktop>
                                         <StyledQueryImage
                                             data={data['provider_step_1']}
                                             alt="Trade types option market"
@@ -322,7 +322,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.provider.step_two_header}
                                     description={content.provider.step_two_text}
                                 >
-                                    <Desktop breakpoint={992}>
+                                    <Desktop>
                                         <StyledQueryImage
                                             data={data['provider_step_2']}
                                             alt="Trade types option trade type open"
@@ -339,7 +339,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     label={content.provider.step_three_header}
                                     description={content.provider.step_three_text}
                                 >
-                                    <Desktop breakpoint={992}>
+                                    <Desktop>
                                         <StyledQueryImage
                                             data={data['provider_step_3']}
                                             alt="Trade types option duration"

@@ -131,6 +131,7 @@ const Endpoint = () => {
 
         // handle website status changes
         const new_website_status = { ...website_status, clients_country: values.clients_country }
+        localStorage.setItem('manual_clients_country', values.clients_country)
         setWebsiteStatus(new_website_status)
         actions.setSubmitting(false)
         handleStatus(actions.setStatus, 'Config has been updated')

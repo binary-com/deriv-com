@@ -11,6 +11,8 @@ export const useWebsiteStatus = () => {
         expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
 
+    const manual_clients_country = localStorage.getItem('manual_clients_country')
+
     const [is_loading, setLoading] = useState(true)
 
     useLayoutEffect(() => {
@@ -32,7 +34,7 @@ export const useWebsiteStatus = () => {
                 setLoading(false)
                 binary_socket.close()
             }
-        } else {
+        } else if (!manual_clients_country) {
             const binary_socket = BinarySocketBase.init()
             binary_socket.onopen = () => {
                 binary_socket.send(JSON.stringify({ website_status: 1 }))
@@ -50,6 +52,8 @@ export const useWebsiteStatus = () => {
                 binary_socket.close()
                 setLoading(false)
             }
+        } else {
+            setLoading(false)
         }
     }, [website_status])
 

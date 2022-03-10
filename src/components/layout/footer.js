@@ -10,7 +10,7 @@ import BottomSocialSection from './footer/bottom-social-wrapper'
 import { DerivStore } from 'store'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
-const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footerlinks }) => {
+const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -19,7 +19,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footerlinks }) => {
             <Container>
                 <FooterGrid>
                     <LogoSection type={type} />
-                    {!no_footerlinks && (
+                    {!no_footer_links && (
                         <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     )}
                     <DisclaimerSection is_academy={academy} />
@@ -34,7 +34,7 @@ Footer.propTypes = {
     academy: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
-    no_footerlinks: PropTypes.bool,
+    no_footer_links: PropTypes.bool,
     type: PropTypes.string,
 }
 

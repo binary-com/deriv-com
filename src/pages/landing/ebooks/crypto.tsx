@@ -58,7 +58,7 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
 
     const data = useStaticQuery(query)
     return (
-        <Layout type="landing-page" is_ppc_redirect={true} no_languageSwitcher={true}>
+        <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
                 title={localize('Cryptocurrencies Ebook')}
                 description={localize('Trade Cryptocurrencies on our Deriv platform.')}

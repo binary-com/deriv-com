@@ -139,7 +139,7 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
                 <TabList ref={ref}>
                     {tabList.map((item, index) => {
                         return (
-                            <TabButton selected={route_from === item.tab_name} key={index}>
+                            <TabButton selected={route_from == item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>
                                     <TextWrapper>{item.title}</TextWrapper>
                                 </StyledLink>

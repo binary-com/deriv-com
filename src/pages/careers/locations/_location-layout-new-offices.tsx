@@ -252,7 +252,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                     {location.has_map ? (
                         <WorkingFlex jc="cover">
                             <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
+                                src={`https://www.google.com/maps/embed/v1/place?q=${location.map}&key=${map_api_key}`}
                             />
 
                             <WorkingInformation p="3.2rem 6rem" direction="column">

@@ -278,9 +278,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
                     <Carousel {...settings}>
-                        {filteredMarkets.map((market) => (
-                            <Card market={market} key={market} />
-                        ))}
+                        {filteredMarkets.map((market) =>
+                            market === '' ? <div></div> : <Card market={market} key={market} />,
+                        )}
                     </Carousel>
                 </MarketsWrapper>
             </Show.Desktop>

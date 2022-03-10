@@ -1,0 +1,19 @@
+overwrite: true
+schema: http://localhost:8000/___graphql
+documents:
+    - ./src/**/*.{ts,tsx}
+    - ./src/components/graphql/*
+generates:
+    ./src/types/graphql.types.ts:
+        plugins:
+            - typescript
+            - typescript-operations
+        config:
+            avoidOptionals: true
+            maybeValue: 'T'
+            namingConvention:
+                enumValues: 'keep'
+# Uncomment to reformat types with prettier.
+#   hooks:
+#     afterOneFileWrite:
+#       - prettier --write

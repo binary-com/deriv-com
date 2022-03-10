@@ -8,7 +8,6 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Text, Header, LinkText, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_url } from 'common/constants'
-import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/careers/map.svg'
 
 const StyledBackground = styled(BackgroundImage)`

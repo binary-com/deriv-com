@@ -1,8 +1,8 @@
-import React, { ReactElement, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
-import { Localize, LocalizedLink } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 type NavTabProps = {
@@ -89,38 +89,38 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 type TabList = {
-    title: JSX.Element
+    title: string
     tab_name: string
     route_to: string
 }
 const tabList: TabList[] = [
     {
-        title: (<Localize translate_text="Forex" />) as JSX.Element,
+        title: localize('Forex'),
         tab_name: 'forex',
         route_to: '/markets/forex/',
     },
     {
-        title: (<Localize translate_text="Synthetic indices" />) as JSX.Element,
+        title: localize('Synthetic indices'),
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },
     {
-        title: (<Localize translate_text="Stocks & indices" />) as JSX.Element,
+        title: localize('Stocks & indices'),
         tab_name: 'stock',
         route_to: '/markets/stock/',
     },
     {
-        title: (<Localize translate_text="Cryptocurrencies" />) as JSX.Element,
+        title: localize('Cryptocurrencies'),
         tab_name: 'cryptocurrencies',
         route_to: '/markets/cryptocurrencies/',
     },
     {
-        title: (<Localize translate_text="Basket indices" />) as JSX.Element,
+        title: localize('Basket indices'),
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/',
     },
     {
-        title: (<Localize translate_text="Commodities" />) as JSX.Element,
+        title: localize('Commodities'),
         tab_name: 'commodities',
         route_to: '/markets/commodities/',
     },
@@ -131,7 +131,7 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
 
     useEffect(() => {
         ref.current.scrollLeft = route_offset
-    }, [ref.current])
+    })
 
     return (
         <TabsContainer>

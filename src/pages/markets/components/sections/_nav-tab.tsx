@@ -55,7 +55,6 @@ const TabButton = styled.button<TabButtonProps>`
                 font-weight: bold;
             }
         `}
-
     &:hover,
     &:focus,
     &:active {

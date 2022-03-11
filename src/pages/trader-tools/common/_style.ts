@@ -535,13 +535,7 @@ export const FormulaHighlightMobile = styled(Flex)`
     font-size: 14px;
     font-weight: 600;
     flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
-
-    @media ${device.tablet} {
-        width: 328px;
-    }
-    @media ${device.mobileM} {
-        width: 280px;
-    }
+    width: calc(100% - 16px);
 `
 
 export const FormulaValue = styled.div<FormulaValueTYpe>`

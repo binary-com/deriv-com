@@ -205,7 +205,7 @@ const Layout = ({
             break
         case 'landing-page':
             Navigation = <NavInterim landing_type />
-            FooterNav = <Footer no_footer_links={true} />
+            FooterNav = <Footer no_footer_links />
             break
         case 'jump-indices':
             Navigation = <JumpIndicesNav />

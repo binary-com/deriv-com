@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Carousel from './_testimonial-carousel'
 import { Header, Text } from 'components/elements'
@@ -105,267 +105,127 @@ const testimonial_slides = [
     {
         id: 'angeh',
         name: 'Angeh',
-        quote: (
-            <Localize translate_text="Weekend trades, fast deposits & withdrawals, plus synthetics trading - what’s better than this?" />
-        ),
+        quote: 'Weekend trades, fast deposits & withdrawals, plus synthetics trading - what’s better than this?',
     },
     {
         id: 'osilva',
         name: 'O.Silva',
-        quote: (
-            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
-        ),
+        quote: 'Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!',
     },
     {
         id: 'montana',
         name: 'Montana',
-        quote: (
-            <Localize translate_text="Deriv P2P makes withdrawals and deposits simple, it’s the best user-friendly app." />
-        ),
+        quote: 'Deriv P2P makes withdrawals and deposits simple, it’s the best user-friendly app.',
     },
     {
         id: 'sammy',
         name: 'Sammy',
-        quote: <Localize translate_text="Deriv P2P is a great app, I love it!" />,
+        quote: 'Deriv P2P is a great app, I love it!',
     },
     {
         id: 'amina',
         name: 'Amina',
-        quote: <Localize translate_text="Deriv GO is amazingly easy to use." />,
+        quote: 'Deriv GO is amazingly easy to use.',
     },
     {
         id: 'gladys',
         name: 'Gladys',
-        quote: (
-            <Localize translate_text="My experience so far is just awesome! You can do instant buying and selling, and I hope to continue enjoying using Deriv P2P. Keep up the good work!" />
-        ),
+        quote: 'My experience so far is just awesome! You can do instant buying and selling, and I hope to continue enjoying using Deriv P2P. Keep up the good work!',
     },
     {
         id: 'john',
         name: 'John',
-        quote: (
-            <Localize translate_text="I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!" />
-        ),
+        quote: 'I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!',
     },
     {
         id: 'frank',
         name: 'Frank',
-        quote: <Localize translate_text="Excellent and reliable services; tested and trusted!" />,
+        quote: 'Excellent and reliable services; tested and trusted!',
     },
     {
         id: 'aaron',
         name: 'Aaron',
-        quote: (
-            <Localize translate_text="Deriv has multiple withdrawal methods, including Deriv P2P, which is fast and convenient. Their support team is available any time and responds very quickly to any queries." />
-        ),
+        quote: 'Deriv has multiple withdrawal methods, including Deriv P2P, which is fast and convenient. Their support team is available any time and responds very quickly to any queries.',
     },
     {
         id: 'ovictor',
         name: 'O. Victor',
-        quote: (
-            <Localize translate_text="Deriv GO is a very nice app – payments have been swift and easy. I would highly recommend it." />
-        ),
+        quote: 'Deriv GO is a very nice app – payments have been swift and easy. I would highly recommend it.',
     },
     {
         id: 'isaac',
         name: 'Isaac',
-        quote: (
-            <Localize translate_text="Deriv is the most reliable broker - excellent customer support and fast payments. It’s a great platform for commodities, forex, and synthetics trading." />
-        ),
+        quote: 'Deriv is the most reliable broker - excellent customer support and fast payments. It’s a great platform for commodities, forex, and synthetics trading.',
     },
     {
         id: 'simon',
         name: 'Simon',
-        quote: (
-            <Localize translate_text="Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!" />
-        ),
+        quote: 'Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!',
     },
     {
         id: 'allan',
         name: 'Allan',
-        quote: (
-            <Localize translate_text="Deriv P2P is good. It’s easy to deposit and withdraw for small traders." />
-        ),
+        quote: 'Deriv P2P is good. It’s easy to deposit and withdraw for small traders.',
     },
     {
         id: 'francoise',
         name: 'Francoise',
-        quote: (
-            <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
-        ),
+        quote: "It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas.",
     },
     {
         id: 'katleho',
         name: 'Katleho',
-        quote: (
-            <Localize translate_text="Wow! Deriv GO is so perfect, it's convenient and reliable. I highly recommend using the app." />
-        ),
+        quote: "Wow! Deriv GO is so perfect, it's convenient and reliable. I highly recommend using the app.",
     },
     {
         id: 'jackline',
         name: 'Jackline',
-        quote: (
-            <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
-        ),
+        quote: "I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!",
     },
     {
         id: 'freeman',
         name: 'Freeman',
-        quote: <Localize translate_text="Deriv P2P is a flawless innovation." />,
+        quote: 'Deriv P2P is a flawless innovation.',
     },
     {
         id: 'vikas',
         name: 'Vikas',
-        quote: (
-            <Localize translate_text="It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!" />
-        ),
+        quote: "It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!",
     },
     {
         id: 'moyz',
         name: 'Moyz',
-        quote: (
-            <Localize translate_text="Deriv GO is really good! I've been looking for an app like this which is easy to use." />
-        ),
+        quote: "Deriv GO is really good! I've been looking for an app like this which is easy to use.",
     },
     {
         id: 'ls',
         name: 'LS',
-        quote: (
-            <Localize translate_text="Deriv is the best forex broker I have ever come across!" />
-        ),
+        quote: 'Deriv is the best forex broker I have ever come across!',
     },
 ]
 
-const testimonial_slides_eu = [
-    {
-        id: 'angeh',
-        name: 'Angeh',
-        quote: (
-            <Localize translate_text="Weekend trades, fast deposits & withdrawals, plus synthetics trading - what’s better than this?" />
-        ),
-    },
-    {
-        id: 'osilva',
-        name: 'O.Silva',
-        quote: (
-            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
-        ),
-    },
-    {
-        id: 'john',
-        name: 'John',
-        quote: (
-            <Localize translate_text="I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!" />
-        ),
-    },
-    {
-        id: 'frank',
-        name: 'Frank',
-        quote: <Localize translate_text="Excellent and reliable services; tested and trusted!" />,
-    },
-    {
-        id: 'isaac',
-        name: 'Isaac',
-        quote: (
-            <Localize translate_text="Deriv is the most reliable broker - excellent customer support and fast payments. It’s a great platform for commodities, forex, and synthetics trading." />
-        ),
-    },
-    {
-        id: 'simon',
-        name: 'Simon',
-        quote: (
-            <Localize translate_text="Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!" />
-        ),
-    },
-    {
-        id: 'francoise',
-        name: 'Francoise',
-        quote: (
-            <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
-        ),
-    },
-    {
-        id: 'jackline',
-        name: 'Jackline',
-        quote: (
-            <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
-        ),
-    },
-    {
-        id: 'vikas',
-        name: 'Vikas',
-        quote: (
-            <Localize translate_text="It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!" />
-        ),
-    },
-    {
-        id: 'ls',
-        name: 'LS',
-        quote: (
-            <Localize translate_text="Deriv is the best forex broker I have ever come across!" />
-        ),
-    },
-]
+const filtered_testimonial = (unavailable_testimonial) =>
+    testimonial_slides.filter(({ quote }) => {
+        const lowered_quote = quote.toLowerCase()
+        let show = true
+        unavailable_testimonial.forEach(
+            (unavailable) => lowered_quote.includes(unavailable) && (show = false),
+        )
+        return show
+    })
 
-const testimonial_slides_uk = [
-    {
-        id: 'osilva',
-        name: 'O.Silva',
-        quote: (
-            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
-        ),
-    },
-    {
-        id: 'john',
-        name: 'John',
-        quote: (
-            <Localize translate_text="I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!" />
-        ),
-    },
-    {
-        id: 'frank',
-        name: 'Frank',
-        quote: <Localize translate_text="Excellent and reliable services; tested and trusted!" />,
-    },
-    {
-        id: 'francoise',
-        name: 'Francoise',
-        quote: (
-            <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
-        ),
-    },
-    {
-        id: 'jackline',
-        name: 'Jackline',
-        quote: (
-            <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
-        ),
-    },
-    {
-        id: 'vikas',
-        name: 'Vikas',
-        quote: (
-            <Localize translate_text="It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!" />
-        ),
-    },
-    {
-        id: 'ls',
-        name: 'LS',
-        quote: (
-            <Localize translate_text="Deriv is the best forex broker I have ever come across!" />
-        ),
-    },
-]
+const unavailable_testimonial_eu = ['p2p', 'deriv go']
+const unavailable_testimonial_uk = ['p2p', 'synthetic', 'deriv go']
 
 type ClientSideProps = {
-    quote: ReactElement
+    quote: string
     name: string
 }
 
 const ClientSlide = ({ quote, name }: ClientSideProps) => (
     <Flex direction="column" height="100%" jc="space-between" max_width="588px">
         <ClientTestimonial type="subtitle-1" weight="normal" lh={'36px'} className="flexi-item">
-            {quote}
+            <Localize translate_text={quote} />
         </ClientTestimonial>
         <Flex direction="column" height="fit-content">
             <ClientName size={'16px'} weight={700}>
@@ -453,8 +313,8 @@ const WhatOurClientsSay = () => {
                             <Carousel>
                                 {(
                                     (is_row && testimonial_slides) ||
-                                    (is_eu && testimonial_slides_eu) ||
-                                    (is_uk && testimonial_slides_uk)
+                                    (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
+                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk))
                                 ).map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />
                                 ))}

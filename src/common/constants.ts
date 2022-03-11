@@ -30,7 +30,7 @@ export const domains = [
 const getDomainUrl = (): string => {
     const staging_flag = isBrowser() ? localStorage.getItem('staging_demo') : null
     const current_url =
-        isBrowser() && null === staging_flag ? window.location.hostname : 'staging.deriv.com'
+        isBrowser() && staging_flag === null  ? window.location.hostname : 'staging.deriv.com'
     return isBrowser() && current_url in domain_url_pair
         ? domain_url_pair[current_url]
         : deriv_com_url

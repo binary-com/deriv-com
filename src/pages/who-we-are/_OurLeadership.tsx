@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
@@ -112,16 +112,8 @@ const ModalFlex = styled(Flex)`
         top: 93px;
     }
 `
-type MouseEvent = React.MouseEventHandler<HTMLDivElement> &
-    ((event: MouseEventHandler<HTMLDivElement>) => void)
-type StyledImageWrapperPropsType = ImageWrapperProps & {
-    onMouseOver: MouseEvent
-    onMouseLeave: MouseEvent
-    tabindex: string
-    width: string
-    height: string
-}
-const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
+
+const StyledImageWrapper = styled(ImageWrapper)<ImageWrapperProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,9 +151,11 @@ type ModalPropsType = {
     position: string
     link?: string
 }
+
 type StyledLogoType = {
     link: string
 }
+
 const StyledLogo = styled.img<StyledLogoType>`
     width: 32px;
     height: 32px;
@@ -195,51 +189,35 @@ const Modal = ({ name, position, link }: ModalPropsType) => {
         </ModalFlex>
     )
 }
-type LeaderType = {
+
+type LeaderData = {
     name: string
     position: string
     link: string
     image: ImageDataLike
 }
 
-type LeaderProps = {
-    leader: LeaderType
-    key: number
-}
-const Leader = ({ leader }: LeaderProps) => {
-    const [isPopupShown, setIsPopupShown] = React.useState(false)
-    const showModal: MouseEvent = () => {
-        setIsPopupShown(true)
-    }
-    const dontShowModal: MouseEvent = () => {
-        setIsPopupShown(false)
-    }
+const Leader = ({ name, position, link, image }: LeaderData) => {
+    const [isPopupShown, setIsPopupShown] = useState(false)
+
     return (
         <StyledImageWrapper
-            onMouseOver={showModal}
-            onMouseLeave={dontShowModal}
+            onMouseOver={() => setIsPopupShown(true)}
+            onMouseLeave={() => setIsPopupShown(false)}
             width="120px"
             height="120px"
-            tabindex="1"
+            tabIndex={1}
             loading="lazy"
         >
-            <QueryImage
-                width="100%"
-                height="100%"
-                data={leader.image}
-                alt="leader"
-                loading="lazy"
-            />
-            {isPopupShown && (
-                <Modal name={leader.name} position={leader.position} link={leader.link} />
-            )}
+            <QueryImage width="100%" height="100%" data={image} alt="leader" loading="lazy" />
+            {isPopupShown && <Modal name={name} position={position} link={link} />}
         </StyledImageWrapper>
     )
 }
 
 const OurLeadership = () => {
     const leaders_data = useStaticQuery(query)
-    const leaders: LeaderType[] = [
+    const leaders: LeaderData[] = [
         {
             name: 'Jean-Yves Sireau',
             position: 'Chief Executive Officer',
@@ -343,8 +321,8 @@ const OurLeadership = () => {
                 mobile_column_gap="24px"
                 mobile_row_gap="6px"
             >
-                {leaders.map((leader: LeaderType, index: number) => (
-                    <Leader leader={leader} key={index} />
+                {leaders.map((leader) => (
+                    <Leader key={leader.name} {...leader} />
                 ))}
             </StyledCssGrid>
         </StyledSectionContainer>

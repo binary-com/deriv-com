@@ -1,28 +1,18 @@
-import React, { MouseEventHandler, ReactElement } from 'react'
+import React, { HTMLAttributes, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 
-export type QueryImageProps = {
-    alt: ReactElement | string
-    className?: string
-    data: ImageDataLike | IGatsbyImageData
-    height?: string
+export interface ImageWrapperProps extends HTMLAttributes<HTMLDivElement> {
     width?: string
-    max_width?: string
+    height?: string
     loading?: 'eager' | 'lazy'
     disable_transition?: boolean
-    onMouseOver?: MouseEventHandler<HTMLDivElement>
-    onMouseOut?: MouseEventHandler<HTMLDivElement>
-    onClick?: MouseEventHandler<HTMLDivElement>
 }
 
-export type ImageWrapperProps = {
-    width: string
-    height: string
-    className?: string
-    loading: 'eager' | 'lazy'
-    disable_transition: boolean
+export interface QueryImageProps extends ImageWrapperProps {
+    data?: ImageDataLike
+    alt: string | ReactElement
 }
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`
@@ -44,13 +34,11 @@ export const ImageWrapper = styled.div<ImageWrapperProps>`
 
 const QueryImage = ({
     alt,
-    className,
     data,
     disable_transition = false,
     height,
-    loading = 'lazy',
-    onClick,
     width,
+    loading = 'lazy',
     ...props
 }: QueryImageProps) => {
     const image = getImage(data)
@@ -60,11 +48,10 @@ const QueryImage = ({
                 loading={loading}
                 width={width}
                 height={height}
-                className={className}
                 disable_transition={disable_transition}
-                onClick={onClick}
+                {...props}
             >
-                <GatsbyImage image={image} alt={alt as string} loading={loading} {...props} />
+                <GatsbyImage alt={alt as string} image={image} loading={loading} />
             </ImageWrapper>
         )
     }

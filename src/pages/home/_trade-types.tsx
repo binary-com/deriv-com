@@ -11,7 +11,7 @@ import { getCountryRule } from 'components/containers/visibility'
 
 type TradeTypesProps = {
     image_url: string
-    image_alt: ReactElement
+    image_alt: string
     header: ReactElement
     desc: ReactElement
     link: string
@@ -44,54 +44,50 @@ const query = graphql`
 const items_details_cr: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
-        desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+        image_alt: localize('CFDs'),
+        header: localize('CFDs'),
+        desc: localize(
+            'Trade with leverage and low spreads for better returns on successful trades.',
         ),
         link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
+        link_text: localize('More on CFDs'),
     },
     {
         image_url: 'trade_type_multipliers',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
-        desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
-        ),
+        image_alt: localize('Multipliers'),
+        header: localize('Multipliers'),
+        desc: localize('Multiply your potential profit without risking more than your stake.'),
         link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
+        link_text: localize('More on multipliers'),
     },
     {
         image_url: 'trade_type_digitaloptions',
-        image_alt: <Localize translate_text="Options" />,
-        header: <Localize translate_text="Options" />,
-        desc: <Localize translate_text="Earn fixed payouts by predicting asset price movements." />,
+        image_alt: localize('Options'),
+        header: localize('Options'),
+        desc: localize('Earn fixed payouts by predicting asset price movements.'),
         link: '/trade-types/options/',
-        link_text: <Localize translate_text="More on options" />,
+        link_text: localize('More on options'),
     },
 ]
 
 const items_details_eu_uk: TradeTypesProps[] = [
     {
         image_url: 'trade_type_cfds',
-        image_alt: <Localize translate_text="CFDs" />,
-        header: <Localize translate_text="CFDs" />,
-        desc: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+        image_alt: localize('CFDs'),
+        header: localize('CFDs'),
+        desc: localize(
+            'Trade with leverage and low spreads for better returns on successful trades.',
         ),
         link: '/trade-types/cfds/',
-        link_text: <Localize translate_text="More on CFDs" />,
+        link_text: localize('More on CFDs'),
     },
     {
         image_url: 'trade_type_multipliers',
-        image_alt: <Localize translate_text="Multipliers" />,
-        header: <Localize translate_text="Multipliers" />,
-        desc: (
-            <Localize translate_text="Multiply your potential profit without risking more than your stake." />
-        ),
+        image_alt: localize('Multipliers'),
+        header: localize('Multipliers'),
+        desc: localize('Multiply your potential profit without risking more than your stake.'),
         link: '/trade-types/multiplier/',
-        link_text: <Localize translate_text="More on multipliers" />,
+        link_text: localize('More on multipliers'),
     },
 ]
 

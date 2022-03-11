@@ -24,18 +24,25 @@ export const Background = ({
     ...props
 }) => {
     const image = getImage(data)
-    const bgImage = convertToBgImage(image)
+    const bg_image = convertToBgImage(image)
 
     if (is_unstyled) {
         return (
-            <BackgroundImage Tag="div" {...bgImage} {...props}>
+            <BackgroundImage Tag="div" {...bg_image} {...props}>
                 {children}
             </BackgroundImage>
         )
     }
 
     return (
-        <StyledBackground Tag="div" style={style} dark={dark} fluid={fluid} {...bgImage} {...props}>
+        <StyledBackground
+            Tag="div"
+            style={style}
+            dark={dark}
+            fluid={fluid}
+            {...bg_image}
+            {...props}
+        >
             {children}
         </StyledBackground>
     )

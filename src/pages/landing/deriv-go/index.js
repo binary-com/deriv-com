@@ -1,10 +1,11 @@
 import React from 'react'
+import PageNotFound from '../../404'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
 import Banner from './_banner.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
-import { SEO } from 'components/containers'
+import { SEO, UKEU, ROW } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
 
@@ -44,16 +45,23 @@ const items = [
 ]
 const DerivGo = () => {
     return (
-        <Layout>
-            <SEO title="Deriv Go | Deriv" />
-            <Banner />
-            <WhatIsDerivGo />
-            <WhyTradeDerivGo />
-            <DerivGoContent reverse P2P={items} />
-            <StartDerivGo />
-            <FooterBanner />
-            <OtherApps />
-        </Layout>
+        <>
+            <ROW>
+                <Layout>
+                    <SEO title="Deriv Go | Deriv" />
+                    <Banner />
+                    <WhatIsDerivGo />
+                    <WhyTradeDerivGo />
+                    <DerivGoContent reverse P2P={items} />
+                    <StartDerivGo />
+                    <FooterBanner />
+                    <OtherApps />
+                </Layout>
+            </ROW>
+            <UKEU>
+                <PageNotFound />
+            </UKEU>
+        </>
     )
 }
 

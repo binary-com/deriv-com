@@ -16,6 +16,7 @@ import { getCountryRule } from 'components/containers/visibility'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
@@ -461,6 +462,16 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                     to="/markets/cryptocurrencies/"
                 />
             )}
+            <NavCard
+                aria_label="Basket indices"
+                icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
+                }
+                title={<Localize translate_text="Basket indices" />}
+                onClick={onClick}
+                to="/markets/basket-indices/"
+            />
             <NavCard
                 aria_label="Commodities"
                 icon={() => <img src={Commodities} alt="" width="32" height="32" />}

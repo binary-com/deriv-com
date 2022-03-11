@@ -40,7 +40,7 @@ const NavAcademy = ({
 
     useEffect(() => {
         is_mounted && handleScroll()
-    }, [is_mounted])
+    })
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())

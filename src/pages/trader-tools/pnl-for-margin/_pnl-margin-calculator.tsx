@@ -53,9 +53,10 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { size } from 'themes/device'
 
 const PnlMarginCalculator = () => {
     const query = graphql`
@@ -403,7 +404,7 @@ const PnlMarginCalculator = () => {
 
                                 return (
                                     <>
-                                        <Show.Desktop max_width="mobileL">
+                                        <Desktop breakpoint={size.mobileL}>
                                             <CalculatorForm>
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
@@ -642,9 +643,9 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
                                                 </CalculatorBody>
                                             </CalculatorForm>
-                                        </Show.Desktop>
+                                        </Desktop>
 
-                                        <Show.Mobile min_width="mobileL">
+                                        <Mobile breakpoint={size.mobileL}>
                                             <PnlCalculatorFormMobile>
                                                 <PnlHeaderOverflow>
                                                     <PnlCalculatorHeaderMobile>
@@ -845,7 +846,7 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
                                                 </CalculatorBody>
                                             </PnlCalculatorFormMobile>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </>
                                 )
                             }}
@@ -912,18 +913,18 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_level_formula}
                                             alt={localize('stop loss level formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_level_formula_mobile}
                                             alt={localize('stop loss level formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -940,18 +941,18 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_pip_formula}
                                             alt={localize('stop loss pip formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_pip_formula_mobile}
                                             alt={localize('stop loss pip formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1047,18 +1048,18 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_level_formula}
                                             alt={localize('take profit level formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_level_formula_mobile}
                                             alt={localize('take profit level formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1075,18 +1076,18 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_pip_formula}
                                             alt={localize('take profit pip formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_pip_formula_mobile}
                                             alt={localize('take profit pip formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>

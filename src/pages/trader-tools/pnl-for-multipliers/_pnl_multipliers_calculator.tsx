@@ -44,9 +44,10 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { size } from 'themes/device'
 
 type ErrorHandlersKeyType =
     | 'commissionErrorHandler'
@@ -609,7 +610,7 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Show.Desktop max_width="mobileL">
+                                            <Desktop breakpoint={size.mobileL}>
                                                 <CalculatorForm>
                                                     <CalculatorHeader>
                                                         <Flex>
@@ -817,9 +818,9 @@ const PnlMultipliersCalculator = () => {
                                                         </Flex>
                                                     </CalculatorBody>
                                                 </CalculatorForm>
-                                            </Show.Desktop>
+                                            </Desktop>
 
-                                            <Show.Mobile min_width="mobileL">
+                                            <Mobile breakpoint={size.mobileL}>
                                                 <CalculatorForm>
                                                     <CalculatorHeader>
                                                         <Flex fd="column">
@@ -997,7 +998,7 @@ const PnlMultipliersCalculator = () => {
                                                         </Flex>
                                                     </CalculatorBody>
                                                 </CalculatorForm>
-                                            </Show.Mobile>
+                                            </Mobile>
                                         </>
                                     )
                                 }}
@@ -1048,18 +1049,18 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the stop loss level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss amount of 7.54 USD in Up direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_level_up_formula}
                                             alt={localize('stop loss level up formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_level_up_formula_mobile}
                                             alt={localize('stop loss level up formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1089,18 +1090,18 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the take profit level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit amount of 7.54 USD in Down direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_level_down_formula}
                                             alt={localize('take profit level down formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_level_down_formula_mobile}
                                             alt={localize('take profit level down formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1247,7 +1248,7 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Show.Desktop max_width="mobileL">
+                                            <Desktop breakpoint={size.mobileL}>
                                                 <CalculatorForm>
                                                     <CalculatorHeader>
                                                         <Flex>
@@ -1457,9 +1458,9 @@ const PnlMultipliersCalculator = () => {
                                                         </Flex>
                                                     </CalculatorBody>
                                                 </CalculatorForm>
-                                            </Show.Desktop>
+                                            </Desktop>
 
-                                            <Show.Mobile min_width="mobileL">
+                                            <Mobile breakpoint={size.mobileL}>
                                                 <CalculatorForm>
                                                     <CalculatorHeader>
                                                         <Flex fd="column">
@@ -1639,7 +1640,7 @@ const PnlMultipliersCalculator = () => {
                                                         </Flex>
                                                     </CalculatorBody>
                                                 </CalculatorForm>
-                                            </Show.Mobile>
+                                            </Mobile>
                                         </>
                                     )
                                 }}
@@ -1690,18 +1691,18 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the take profit amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit level of 3400 in Up direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_amount_up_formula}
                                             alt={localize('take profit amount up formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.take_profit_amount_up_formula_mobile}
                                             alt={localize('take profit amount up formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>
@@ -1731,18 +1732,18 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the stop loss amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss level of 3400 in Down direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Desktop breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_amount_down_formula}
                                             alt={localize('stop loss amount down formula')}
                                         />
-                                    </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    </Desktop>
+                                    <Mobile breakpoint={size.mobileL}>
                                         <QueryImage
                                             data={data.stop_loss_amount_down_formula_mobile}
                                             alt={localize('stop loss amount down formula')}
                                         />
-                                    </Show.Mobile>
+                                    </Mobile>
                                     <FormulaText>
                                         <StyledOl>
                                             <li>

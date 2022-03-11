@@ -5,6 +5,11 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import device from 'themes/device'
 
+type ItemsType = {
+    title: string | React.ReactElement
+    subtitle: React.ReactElement
+}
+
 const StyledSectionContainer = styled(SectionContainer)`
     border-bottom: solid 1px var(--color-grey-2);
     padding-top: 40px;
@@ -61,7 +66,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const items = [
+const items: ItemsType[] = [
     {
         title: <Localize translate_text="Up to x1000" />,
         subtitle: <Localize translate_text="potential profit" />,

@@ -8,6 +8,12 @@ import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
 
+type TradeDataType = {
+    icon: string
+    title: React.ReactElement
+    subtitle: React.ReactElement
+}
+
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 32px;
@@ -38,7 +44,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const trade_data = [
+const trade_data: TradeDataType[] = [
     {
         icon: Icon24_7,
         title: <Localize translate_text="24/7 trading" />,
@@ -71,17 +77,17 @@ const WhyTradeDerivGo = () => {
                         {localize('Why trade with Deriv GO')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px" mr="8px">
-                        {trade_data.map((index) => {
+                        {trade_data.map((card, index) => {
                             return (
-                                <Card key={index.title}>
+                                <Card key={index}>
                                     <div>
-                                        <img src={index.icon} width={72} height={72} alt="" />
+                                        <img src={card.icon} width={72} height={72} alt="" />
                                     </div>
                                     <Header as="h3" type="heading-3" align="center" mt="24px">
-                                        {index.title}
+                                        {card.title}
                                     </Header>
                                     <StyledText align="center" mt="8px">
-                                        {index.subtitle}
+                                        {card.subtitle}
                                     </StyledText>
                                 </Card>
                             )

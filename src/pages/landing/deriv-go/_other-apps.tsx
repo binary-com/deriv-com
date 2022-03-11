@@ -9,6 +9,13 @@ import DMT5 from 'images/svg/deriv-go/dmt5.svg'
 import DerivX from 'images/svg/deriv-go/dx.svg'
 import device from 'themes/device'
 
+type OtherAppsType = {
+    icon: string
+    title: React.ReactElement
+    content: React.ReactElement
+    url: React.ReactElement
+}
+
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
 `
@@ -75,7 +82,7 @@ const Card = styled(Flex)`
     }
 `
 
-const other_apps = [
+const other_apps: OtherAppsType[] = [
     {
         icon: DMT5,
         title: <Localize translate_text="DMT5" />,
@@ -113,17 +120,17 @@ const OtherApps = () => {
                         {localize('Check out our other apps')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
-                        {other_apps.map((index) => {
+                        {other_apps.map((card, index) => {
                             return (
-                                <Card key={index.title}>
+                                <Card key={index}>
                                     <div>
-                                        <img src={index.icon} alt="" />
+                                        <img src={card.icon} alt="" />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
-                                        {index.title}
+                                        {card.title}
                                     </Header>
-                                    <StyledText>{index.content}</StyledText>
-                                    <div>{index.url}</div>
+                                    <StyledText>{card.content}</StyledText>
+                                    <div>{card.url}</div>
                                 </Card>
                             )
                         })}

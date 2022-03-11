@@ -6,6 +6,22 @@ import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
+export type ItemsTye = {
+    title: React.ReactElement
+    subtitle: React.ReactElement
+    image_name: string
+    image_alt: string
+}
+
+type DerivGoContentProps = {
+    P2P?: ItemsTye[]
+    reverse?: boolean
+}
+
+type FlexProps = {
+    margin_right: string
+}
+
 const StyledContainer = styled(Container)`
     flex-direction: column;
     max-width: 996px;
@@ -13,7 +29,7 @@ const StyledContainer = styled(Container)`
         max-width: 360px;
     }
 `
-const Content = styled(Flex)`
+const Content = styled(Flex)<FlexProps>`
     width: 100%;
     max-width: 38.4rem;
     flex-direction: column;
@@ -40,7 +56,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const Row = styled(Flex)`
+const Row = styled(Flex)<FlexProps>`
     align-items: center;
 
     & .content-wrapper {
@@ -70,7 +86,7 @@ const query = graphql`
         }
     }
 `
-const DerivGoContent = ({ P2P, reverse, two_title }) => {
+const DerivGoContent = ({ P2P, reverse }: DerivGoContentProps) => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer
@@ -80,7 +96,7 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
         >
             <StyledContainer>
                 {P2P.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row
                             fd={!is_even ? 'row' : 'row-reverse'}
@@ -92,14 +108,6 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                                     {item.title}
                                 </StyledHeader>
                                 <StyledText>{item.subtitle}</StyledText>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader as="h3" type="heading-3" mt="2.4rem">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <StyledText>{item.second_subtitle}</StyledText>
-                                    </>
-                                )}
                             </Content>
                             <QueryImage
                                 data={data[item.image_name]}
@@ -118,7 +126,6 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
 DerivGoContent.propTypes = {
     P2P: PropTypes.array,
     reverse: PropTypes.bool,
-    two_title: PropTypes.bool,
 }
 
 export default DerivGoContent

@@ -1,14 +1,15 @@
 import React from 'react'
-import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
-import Banner from './_banner.js'
+import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load'
+import Banner from './_banner'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
+import { ItemsTye } from './_deriv-go-content'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
 
-const items = [
+const items: ItemsTye[] = [
     {
         title: <Localize translate_text="Multiply your profit and limit your loss" />,
         subtitle: (

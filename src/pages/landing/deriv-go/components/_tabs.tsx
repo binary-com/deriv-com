@@ -1,11 +1,41 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css, keyframes } from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 
-const TabContent = styled.div`
+type TabProps = {
+    is_reverse?: boolean
+    selected?: boolean
+}
+
+interface TabPanelProps {
+    children?: ReactNode
+    className?: string
+}
+
+type TabsTYpe = {
+    children: {
+        props: {
+            label: string
+            description: string
+        }
+    }
+    is_reverse: boolean
+    className?: string
+    max_width?: string
+}
+
+type TabContentType = {
+    tabindex: string
+}
+
+type FlexProps = {
+    ai: string
+}
+
+const TabContent = styled.div<TabContentType>`
     flex: 1;
     width: 100%;
 
@@ -36,7 +66,7 @@ const TabButton = styled(Flex)`
     }
 `
 
-const TabList = styled.div`
+const TabList = styled.div<TabProps>`
     max-width: 100%;
     ${(props) =>
         props.is_reverse
@@ -95,7 +125,7 @@ const Content = styled(Flex)`
     }
 `
 
-const CarouselDot = styled.div`
+const CarouselDot = styled.div<TabProps>`
     height: 12px;
     align-self: center;
     width: 12px;
@@ -108,7 +138,7 @@ const CarouselDot = styled.div`
         display: none;
     }
 `
-const CarouselContainer = styled.div`
+const CarouselContainer = styled.div<FlexProps>`
     height: 80px;
     align-self: center;
     margin-right: 36px;
@@ -133,7 +163,7 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children, className }) => (
+const TabPanel = ({ children, className }: TabPanelProps) => (
     <TabContent className={className} role="tabpanel" tabindex="0">
         {children}
     </TabContent>
@@ -144,7 +174,7 @@ TabPanel.propTypes = {
     className: PropTypes.string,
 }
 
-const Tabs = ({ children, is_reverse, className, max_width }) => {
+const Tabs = ({ children, is_reverse, className, max_width }: TabsTYpe) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
 
     useEffect(() => {

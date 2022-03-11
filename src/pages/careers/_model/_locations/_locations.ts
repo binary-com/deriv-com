@@ -12,7 +12,7 @@ import {
     address_france,
     address_guernsey,
 } from './_contact-details'
-import { locationsTypes } from './_locations.types'
+import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
@@ -23,7 +23,7 @@ import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
 
-export const cyberjaya: locationsTypes = {
+export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
     link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
@@ -51,7 +51,7 @@ export const cyberjaya: locationsTypes = {
     has_iframe: true,
 }
 
-export const malta: locationsTypes = {
+export const malta: LocationsType = {
     name: 'malta',
     link: '/careers/locations/malta/',
     display_name: 'Malta',
@@ -78,7 +78,7 @@ export const malta: locationsTypes = {
     has_iframe: true,
 }
 
-export const dubai: locationsTypes = {
+export const dubai: LocationsType = {
     name: 'dubai',
     link: '/careers/locations/dubai/',
     display_name: 'Dubai',
@@ -105,7 +105,7 @@ export const dubai: locationsTypes = {
     has_iframe: true,
 }
 
-export const labuan: locationsTypes = {
+export const labuan: LocationsType = {
     name: 'labuan',
     link: '/careers/locations/labuan/',
     display_name: 'Labuan',
@@ -133,7 +133,7 @@ export const labuan: locationsTypes = {
     has_iframe: true,
 }
 
-export const asuncion: locationsTypes = {
+export const asuncion: LocationsType = {
     name: 'asuncion',
     link: '/careers/locations/asuncion/',
     display_name: 'Asunción',
@@ -160,7 +160,7 @@ export const asuncion: locationsTypes = {
     has_iframe: true,
 }
 
-export const melaka: locationsTypes = {
+export const melaka: LocationsType = {
     name: 'melaka',
     link: '/careers/locations/melaka/',
     display_name: 'Melaka',
@@ -188,7 +188,7 @@ export const melaka: locationsTypes = {
     has_iframe: true,
 }
 
-export const ipoh: locationsTypes = {
+export const ipoh: LocationsType = {
     name: 'ipoh',
     link: '/careers/locations/ipoh/',
     display_name: 'Ipoh',
@@ -215,7 +215,7 @@ export const ipoh: locationsTypes = {
     has_iframe: true,
 }
 
-export const cyprus: locationsTypes = {
+export const cyprus: LocationsType = {
     name: 'cyprus',
     link: '/careers/locations/cyprus/',
     display_name: 'Limassol',
@@ -243,7 +243,7 @@ export const cyprus: locationsTypes = {
     has_iframe: true,
 }
 
-export const rwanda: locationsTypes = {
+export const rwanda: LocationsType = {
     name: 'rwanda',
     link: '/careers/locations/rwanda/',
     display_name: 'Kigali',
@@ -272,7 +272,7 @@ export const rwanda: locationsTypes = {
     has_iframe: false,
 }
 
-export const minsk: locationsTypes = {
+export const minsk: LocationsType = {
     name: 'minsk',
     link: '/careers/locations/minsk/',
     display_name: 'Minsk',
@@ -301,7 +301,7 @@ export const minsk: locationsTypes = {
     has_iframe: false,
 }
 
-export const paris: locationsTypes = {
+export const paris: LocationsType = {
     name: 'paris',
     link: '/careers/locations/paris/',
     display_name: 'Paris',
@@ -322,7 +322,7 @@ export const paris: locationsTypes = {
     has_iframe: false,
 }
 
-export const guernsey: locationsTypes = {
+export const guernsey: LocationsType = {
     name: 'guernsey',
     link: '/careers/locations/guernsey/',
     display_name: 'Guernsey',
@@ -346,7 +346,7 @@ export const guernsey: locationsTypes = {
     has_iframe: false,
 }
 
-export const all_offices: locationsTypes[] = [
+export const all_offices: LocationsType[] = [
     dubai,
     malta,
     cyprus,

@@ -1,9 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import { HeroContainer, HeaderContainer, ImageWrapper } from '../../static/style/_hero'
 import { TextWrapper, Title } from '../../static/style/_common'
 import HeroImage from 'images/common/be-square/hero.png'
-import device from 'themes/device'
 
 const Hero = () => (
     <HeroContainer>

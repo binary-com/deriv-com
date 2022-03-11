@@ -26,10 +26,6 @@ export const HeaderContainer = styled(Container)`
     @media ${device.desktop} {
         padding: 40px 0 0 0;
     }
-
-    @media ${device.laptop} {
-        padding: 40px 0 0;
-    }
 `
 
 export const ImageWrapper = styled.img`

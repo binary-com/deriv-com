@@ -84,7 +84,7 @@ const validation = {
         return nameValidation(input, localize('First Name'), 6, 50, true)
     },
     firstName: (input) => {
-        return nameValidation(input, localize('First Name'), 2, 5, false)
+        return nameValidation(input, localize('First Name'), 2, 50, false)
     },
     lastName: (input) => {
         return nameValidation(input, localize('Last Name'), 2, 50, false)

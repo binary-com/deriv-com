@@ -107,7 +107,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                     address: address_line_1 || address_line_2 || '',
                     mobileNumber: phone || '',
                     password: '',
-                    plan: '',
                     currency: '',
                 }}
                 validate={(values) => resetSignupAffiliateDetails(values)}
@@ -342,7 +341,10 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                     secondary
                                     type="submit"
                                     disabled={!isValid || !dirty || !checksSelected()}
-                                    onClick={() => showModal(true)}
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        showModal(true)
+                                    }}
                                 >
                                     {localize('Signup')}
                                 </SignupButton>
@@ -387,7 +389,6 @@ SignupAffiliateDetails.propTypes = {
     handleSocialSignup: PropTypes.func,
     handleValidation: PropTypes.func,
     is_ppc: PropTypes.bool,
-    is_submitting: PropTypes.bool,
     last_name: PropTypes.string,
     mobile_number: PropTypes.number,
     password: PropTypes.string,

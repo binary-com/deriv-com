@@ -12,6 +12,7 @@
         "commander": "^8.3.0",
         "crc-32": "^1.2.0",
         "dayjs": "^1.10.7",
+        "detect-element-overflow": "^1.2.0",
         "embla-carousel-react": "^6.0.2",
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",

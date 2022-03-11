@@ -123,7 +123,7 @@ const SignupAffiliate = ({
                 type="submit"
                 secondary="true"
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
-                id="dm-new-signup"
+                id="dm-new-signup-affiliate"
             >
                 {localize('Create partner account')}
             </EmailButton>
@@ -150,7 +150,6 @@ SignupAffiliate.propTypes = {
     email_error_msg: PropTypes.string,
     handleInputChange: PropTypes.func,
     handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
     handleValidation: PropTypes.func,
     is_ppc: PropTypes.bool,
     is_submitting: PropTypes.bool,

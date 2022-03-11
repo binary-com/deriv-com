@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { HTMLAttributes, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { GatsbyImageProps, ImageDataLike } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 
-export interface ImageWrapperProps extends GatsbyImageProps {
-    data?: ImageDataLike
-    width: string
-    height: string
-    disable_transition: boolean
-    loading: 'eager' | 'lazy'
+export interface ImageWrapperProps extends HTMLAttributes<HTMLDivElement> {
+    width?: string
+    height?: string
+    loading?: 'eager' | 'lazy'
+    disable_transition?: boolean
 }
 
-const ImageWrapper = styled.div<ImageWrapperProps>`
+export interface QueryImageProps extends ImageWrapperProps {
+    data?: ImageDataLike
+    alt: string | ReactElement
+}
+
+export const ImageWrapper = styled.div<ImageWrapperProps>`
     & .gatsby-image-wrapper {
         width: ${(props) => props.width || '100%'};
         height: ${(props) => props.height};
@@ -34,9 +38,9 @@ const QueryImage = ({
     disable_transition = false,
     height,
     width,
-    loading,
+    loading = 'lazy',
     ...props
-}: ImageWrapperProps) => {
+}: QueryImageProps) => {
     const image = getImage(data)
     if (data) {
         return (
@@ -47,7 +51,7 @@ const QueryImage = ({
                 disable_transition={disable_transition}
                 {...props}
             >
-                <GatsbyImage alt={alt} image={image} loading={loading} />
+                <GatsbyImage alt={alt as string} image={image} loading={loading} />
             </ImageWrapper>
         )
     }

@@ -23,7 +23,7 @@ export type DerivStoreType = {
     is_uk_country: boolean
     LC_API: { open_chat_window: () => void }
     setFirstLoadOpenLc: React.Dispatch<React.SetStateAction<boolean>>
-    setWebsiteStatus: Dispatch<WebsiteStatusType>
+    setWebsiteStatus: Dispatch<WebsiteStatusType | void>
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType

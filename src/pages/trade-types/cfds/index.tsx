@@ -13,20 +13,13 @@ const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
 const CFD = () => {
-    const meta_attributes = {
-        og_title: localize('CFD trading | Trade types | Deriv'),
-        og_description: localize(
-            'Trade CFDs on multiple markets and enjoy high leverage and risk management tools, giving you a chance to amplify your potential profits and limit your losses.',
-        ),
-    }
     return (
         <Layout>
             <SEO
-                title={localize('CFD trading | Trade types | Deriv')}
+                title={localize('Margin trading | Trade types | Deriv')}
                 description={localize(
-                    'Trade CFDs on multiple markets and enjoy high leverage and risk management tools, giving you a chance to amplify your potential profits and limit your losses.',
+                    'Learn about CFD trading and margin on Deriv. Start trading with leverage in forex, synthetic indices, and other popular financial markets.',
                 )}
-                meta_attributes={meta_attributes}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>

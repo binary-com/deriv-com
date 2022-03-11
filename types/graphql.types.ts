@@ -65,6 +65,7 @@ export type File = Node & {
   birthtimeMs?: Maybe<Scalars['Float']>;
   blksize?: Maybe<Scalars['Int']>;
   blocks?: Maybe<Scalars['Int']>;
+  url?: Maybe<Scalars['String']>;
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars['String']>;
   /** Returns all children nodes filtered by type ImageSharp */
@@ -2352,6 +2353,7 @@ export type QueryFileArgs = {
   birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
   blksize?: InputMaybe<IntQueryOperatorInput>;
   blocks?: InputMaybe<IntQueryOperatorInput>;
+  url?: InputMaybe<StringQueryOperatorInput>;
   publicURL?: InputMaybe<StringQueryOperatorInput>;
   childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
   childImageSharp?: InputMaybe<ImageSharpFilterInput>;
@@ -2814,6 +2816,7 @@ export type FileFieldsEnum =
   | 'birthtimeMs'
   | 'blksize'
   | 'blocks'
+  | 'url'
   | 'publicURL'
   | 'childrenImageSharp'
   | 'childrenImageSharp___fixed___base64'
@@ -3118,6 +3121,7 @@ export type FileFilterInput = {
   birthtimeMs?: InputMaybe<FloatQueryOperatorInput>;
   blksize?: InputMaybe<IntQueryOperatorInput>;
   blocks?: InputMaybe<IntQueryOperatorInput>;
+  url?: InputMaybe<StringQueryOperatorInput>;
   publicURL?: InputMaybe<StringQueryOperatorInput>;
   childrenImageSharp?: InputMaybe<ImageSharpFilterListInput>;
   childImageSharp?: InputMaybe<ImageSharpFilterInput>;
@@ -5254,7 +5258,7 @@ export type Unnamed_38_Query = { hero_background?: { childImageSharp?: { gatsbyI
 export type Unnamed_39_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_39_Query = { market_forex?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_synthetic_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_stocks_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_crypto?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_commodities?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
+export type Unnamed_39_Query = { market_forex?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_synthetic_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_stocks_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_crypto?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_basket_indices?: { childImageSharp?: { gatsbyImageData: any } | null } | null, market_commodities?: { childImageSharp?: { gatsbyImageData: any } | null } | null };
 
 export type Unnamed_40_QueryVariables = Exact<{ [key: string]: never; }>;
 

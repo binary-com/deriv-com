@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
-import { LocalizedLink, Localize, localize } from 'components/localization'
+import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device.js'
@@ -116,6 +116,16 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
+        header: <Localize translate_text="Basket indicies" />,
+        description: (
+            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
+        ),
+        img_name: 'market_basket_indices',
+        to: '/markets/basket-indices/',
+        gradient_start: '#555110',
+        gradient_end: '#151404',
+    },
+    {
         header: <Localize translate_text="Commodities" />,
         description: (
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
@@ -172,6 +182,9 @@ const query = graphql`
             ...fadeIn
         }
         market_crypto: file(relativePath: { eq: "home/market_crypto.png" }) {
+            ...fadeIn
+        }
+        market_basket_indices: file(relativePath: { eq: "home/market_basket_indices.png" }) {
             ...fadeIn
         }
         market_commodities: file(relativePath: { eq: "home/market_commodities.png" }) {
@@ -255,22 +268,14 @@ const CarouselItem = ({
 const MarketsFold = () => {
     const data = useStaticQuery(query)
     const { is_uk } = getCountryRule()
-    const [is_not_big_screen] = useBrowserResize(1979)
     const [is_mobile] = useBrowserResize()
-    const { is_row } = getCountryRule()
-
-    const getMaxWidth = () => {
-        if (is_mobile) return '100%'
-        if (is_not_big_screen) return '1172px'
-        else return '1600px'
-    }
-
+    const [is_not_big_screen] = useBrowserResize(1979)
     const settings = {
         options: {
             loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
-            align: is_mobile ? 0.04 : 'start',
+            align: is_mobile ? 0.04 : 'center',
         },
         container_style: {
             maxWidth: '100%',
@@ -278,7 +283,6 @@ const MarketsFold = () => {
         },
         embla_style: {
             minHeight: is_mobile ? '364px' : 'auto',
-            maxWidth: getMaxWidth(),
         },
         slide_style: {
             width: is_not_big_screen ? '282px' : '400px',
@@ -288,7 +292,7 @@ const MarketsFold = () => {
         },
         navigation_style: {
             bottom_offset: '-24px',
-            nav_color: 'red',
+            nav_color: '--color-red',
         },
     }
 
@@ -297,11 +301,11 @@ const MarketsFold = () => {
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
-                        {localize('Markets')}
+                        Markets
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={is_row ? true : false}
+                    has_autoplay={true}
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >

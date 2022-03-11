@@ -5,7 +5,7 @@ import { MajorPairs, SmartFX } from '../../markets/instruments/_index'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { SmartFXDetails } from '../../markets/static/content/_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Show, Flex } from 'components/containers'
+import { SectionContainer, Desktop, Mobile, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
@@ -84,12 +84,12 @@ const CFDs = () => {
                 <MarketInstruments market_content={major_pairs} />
                 {!is_eu_country && (
                     <>
-                        <Show.Desktop>
+                        <Desktop>
                             <MarketInstruments market_content={forex_cfds_desktop} />
-                        </Show.Desktop>
-                        <Show.Mobile>
+                        </Desktop>
+                        <Mobile>
                             <MarketInstruments market_content={forex_cfds_mobile} />
-                        </Show.Mobile>
+                        </Mobile>
                     </>
                 )}
             </Flex>

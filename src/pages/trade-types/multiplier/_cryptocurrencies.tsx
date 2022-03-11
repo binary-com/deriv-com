@@ -5,7 +5,7 @@ import MarketsAccordion from '../../markets/components/helper/_markets_accordion
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { NonUK } from 'components/containers/visibility'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex, CssGrid, Desktop, Mobile } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -120,16 +120,16 @@ const Cryptocurrencies = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="auto" align="center">
                                                 {localize('Crypto pairs')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="auto" align="center">
                                                 {localize('Crypto pairs')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <CryptocurrenciesTradeType />

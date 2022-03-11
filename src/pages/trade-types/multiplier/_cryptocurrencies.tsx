@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CryptocurrenciesTradeType } from '../../markets/instruments/_index'
-import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
 import { NonUK } from 'components/containers/visibility'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
@@ -16,7 +16,7 @@ const StyledText = styled(Text)`
 `
 
 const Col = styled(Flex)`
-    max-width: 162px;
+    max-width: 130px;
 
     @media ${device.tabletL} {
         max-width: 180px;
@@ -112,7 +112,7 @@ const Cryptocurrencies = () => {
                         <AvailablePlatforms dtrader />
                     </AvailablePlatformsWrapper>
                     <Text weight="bold">
-                        {localize('Instruments available for multipliers trading')}
+                        {localize('Cryptocurrencies available for multipliers trading')}
                     </Text>
 
                     <MarketsWrapper direction="column">
@@ -122,12 +122,12 @@ const Cryptocurrencies = () => {
                                     <Col>
                                         <Show.Desktop>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Crypto pairs')}
+                                                {localize('Cryptocurrencies')}
                                             </Title>
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Crypto pairs')}
+                                                {localize('Cryptocurrencies')}
                                             </Title>
                                         </Show.Mobile>
                                     </Col>

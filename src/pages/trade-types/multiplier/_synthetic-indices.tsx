@@ -7,8 +7,8 @@ import {
     JumpIndices,
     StepIndices,
 } from '../../markets/instruments/_index'
-import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
 import {
     CrashBoomMultipliersDetails,
     CrashBoomDetailsEU,
@@ -30,7 +30,6 @@ const StyledText = styled(Text)`
 
 const Col = styled(Flex)`
     max-width: 13.2rem;
-
     @media ${device.tabletL} {
         max-width: 15rem;
     }
@@ -50,7 +49,6 @@ const MarketsList = styled(CssGrid)`
     padding: 2.4rem 0.7rem;
     grid-row-gap: 1.6rem;
     grid-template-columns: repeat(3, 1fr);
-
     @media ${device.tabletL} {
         grid-template-columns: repeat(2, 1fr);
 
@@ -64,7 +62,6 @@ const MarketsList = styled(CssGrid)`
             line-height: 1.5;
         }
     }
-
     @media ${device.tabletS} {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -72,7 +69,6 @@ const MarketsList = styled(CssGrid)`
 
 const Title = styled(Text)`
     text-align: center;
-
     @media ${device.tabletL} {
         font-weight: 600;
     }
@@ -84,7 +80,6 @@ const DetailsContainer = styled(Flex)`
     ${Text} {
         font-size: 1.4rem;
         margin-top: 1.6rem;
-
         @media ${device.tabletL} {
             margin-top: 1rem;
         }
@@ -93,7 +88,6 @@ const DetailsContainer = styled(Flex)`
 const AvailablePlatformsWrapper = styled(Flex)`
     border-bottom: 1px solid var(--color-grey-21);
     padding-bottom: 40px;
-
     @media ${device.tabletL} {
         margin-bottom: 24px;
         padding-bottom: 16px;
@@ -149,11 +143,11 @@ const SyntheticIndices = () => {
                 <StyledText mb="12px" align="center">
                     {is_eu_country
                         ? localize(
-                              'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from tight spreads and fixed generation intervals.',
-                          )
+                            'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from tight spreads and fixed generation intervals.',
+                        )
                         : localize(
-                              'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.',
-                          )}
+                            'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on synthetic indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.',
+                        )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
                     <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />

@@ -1,10 +1,24 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { convertToHash } from './_utility'
 import { Text, Header, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+
+type TopicsType = {
+    category: string
+    label: string
+    title: string | React.ReactElement
+}
+
+type SearchSuccessProps = {
+    suggested_topics: TopicsType[] | string[]
+    max_length: number
+}
+
+type SearchErrorProps = {
+    search: string
+}
 
 export const Li = styled(Text).attrs({
     as: 'li',
@@ -73,7 +87,7 @@ const StyledLink = styled(LocalizedLinkText)`
         text-decoration: underline;
     }
 `
-export const SearchSuccess = ({ suggested_topics, max_length }) => (
+export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessProps) => (
     <>
         <Header as="h3" type="section-title" color="black">
             {localize('Topic suggestions')}
@@ -90,13 +104,8 @@ export const SearchSuccess = ({ suggested_topics, max_length }) => (
         ))}
     </>
 )
-SearchSuccess.propTypes = {
-    max_length: PropTypes.number,
-    onClick: PropTypes.func,
-    suggested_topics: PropTypes.array,
-}
 
-export const SearchError = ({ search }) => (
+export const SearchError = ({ search }: SearchErrorProps) => (
     <>
         <ErrorHeader
             as="h5"
@@ -119,6 +128,3 @@ export const SearchError = ({ search }) => (
         </Ul>
     </>
 )
-SearchError.propTypes = {
-    search: PropTypes.string,
-}

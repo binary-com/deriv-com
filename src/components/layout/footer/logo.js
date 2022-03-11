@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SocialWrapperComponent from './social-wrapper'
 import { DerivLogoWrapper, StyledLogo } from './common/style.js'
-import { Desktop, EU } from 'components/containers'
+import { Desktop, UKEU } from 'components/containers'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import DerivLogo from 'images/svg/layout/deriv-footer.svg'
 import { isUKOrMXAccount } from 'common/utility'
@@ -22,7 +22,7 @@ const LogoSection = ({ type }) => {
     return (
         <DerivLogoWrapper>
             <StyledLogo src={DerivLogo} alt="logo" width="147" height="25" />
-            <EU>
+            <UKEU>
                 <Desktop>
                     <SocialWrapperComponent
                         is_career_page={type === 'careers'}
@@ -39,7 +39,7 @@ const LogoSection = ({ type }) => {
                         }
                     />
                 </Desktop>
-            </EU>
+            </UKEU>
         </DerivLogoWrapper>
     )
 }

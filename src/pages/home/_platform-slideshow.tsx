@@ -46,7 +46,7 @@ const query = graphql`
     }
 `
 
-const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
+const StyledImage = styled(QueryImage) <{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
     animation: fade 1s ease-in-out;

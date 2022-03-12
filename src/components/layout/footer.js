@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Container } from '../containers'
+import { Mobile } from '../containers/show'
 import { LocationContext } from './location-context'
 import { DefaultFooter, FooterGrid } from './footer/common/style.js'
 import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
+import BottomSocialSection from './footer/bottom-social-wrapper'
 import { DerivStore } from 'store'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
@@ -20,6 +22,9 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy }) => {
                     <LogoSection type={type} />
                     <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     <DisclaimerSection is_academy={academy} />
+                    <Mobile>
+                        <BottomSocialSection type={type} />
+                    </Mobile>
                 </FooterGrid>
             </Container>
         </DefaultFooter>

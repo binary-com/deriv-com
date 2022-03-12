@@ -8,6 +8,7 @@ import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
+import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device.js'
 // SVG
 import Apple from 'images/svg/custom/apple-40.svg'
@@ -18,6 +19,12 @@ import Arrow from 'images/svg/custom/chevron-right.svg'
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "sign-up/banner-phone.png" }) {
+            ...fadeIn
+        }
+        deriv_platform_eu: file(relativePath: { eq: "sign-up/banner-phone-eu.png" }) {
+            ...fadeIn
+        }
+        deriv_platform_uk: file(relativePath: { eq: "sign-up/banner-phone-uk.png" }) {
             ...fadeIn
         }
     }
@@ -303,6 +310,7 @@ const SignupPublic = ({
     is_submitting,
 }) => {
     const data = useStaticQuery(query)
+    const { is_row, is_eu, is_uk } = getCountryRule()
     const [is_checked, setChecked] = useState(false)
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -405,7 +413,11 @@ const SignupPublic = ({
                         </SignupFormWrapper>
                         <BackgroundWrapper direction="row" ai="center">
                             <QueryImage
-                                data={data['deriv_platform']}
+                                data={
+                                    (is_row && data['deriv_platform']) ||
+                                    (is_eu && data['deriv_platform_eu']) ||
+                                    (is_uk && data['deriv_platform_uk'])
+                                }
                                 alt="DTrader platform black theme"
                                 width="225px"
                             />
@@ -439,7 +451,11 @@ const SignupPublic = ({
                         <MobileBackground>
                             <MobilePlatform>
                                 <QueryImage
-                                    data={data['deriv_platform']}
+                                    data={
+                                        (is_row && data['deriv_platform']) ||
+                                        (is_eu && data['deriv_platform_eu']) ||
+                                        (is_uk && data['deriv_platform_uk'])
+                                    }
                                     alt="DTrader platform black theme"
                                     width="100%"
                                 />

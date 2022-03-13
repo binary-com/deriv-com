@@ -133,11 +133,11 @@ export const platform_details_cr: TPlatformDetails[] = [
     },
 ]
 
-export const platform_details_eu_uk: TPlatformDetails[] = [
+export const platform_details_eu: TPlatformDetails[] = [
     {
         title: 'Deriv MT5',
         icon: DMT5Icon,
-        image_key: 'platforms_mt5',
+        image_key: 'platforms_mt5_eu',
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: [
@@ -150,7 +150,31 @@ export const platform_details_eu_uk: TPlatformDetails[] = [
     {
         title: 'DTrader',
         icon: DTraderIcon,
-        image_key: 'platforms_dtrader',
+        image_key: 'platforms_dtrader_eu',
+        description: <Localize translate_text="Our flagship app for trading multipliers." />,
+        learn_more_link: '/dtrader/',
+        download_links: [{ type: 'browser', link_type: 'deriv_app' }],
+    },
+]
+
+export const platform_details_uk: TPlatformDetails[] = [
+    {
+        title: 'Deriv MT5',
+        icon: DMT5Icon,
+        image_key: 'platforms_mt5_uk',
+        description: <Localize translate_text="The all-in-one CFD trading platform." />,
+        learn_more_link: '/dmt5/',
+        download_links: [
+            { type: 'browser', link_type: 'mt5' },
+            { type: 'app_store', url: dmt5_macos_url },
+            { type: 'linux', url: dmt5_linux_url },
+            { type: 'google_play', url: dmt5_android_url },
+        ],
+    },
+    {
+        title: 'DTrader',
+        icon: DTraderIcon,
+        image_key: 'platforms_dtrader_uk',
         description: <Localize translate_text="Our flagship app for trading multipliers." />,
         learn_more_link: '/dtrader/',
         download_links: [{ type: 'browser', link_type: 'deriv_app' }],
@@ -158,13 +182,13 @@ export const platform_details_eu_uk: TPlatformDetails[] = [
 ]
 
 export const getPlatformDetails = (no_of_copies) => {
-    const { is_row } = getCountryRule()
+    const { is_row, is_eu, is_uk } = getCountryRule()
     const new_details = []
     let current_index = 0
 
     for (let index = 0; index < no_of_copies; index++) {
         // prettier-ignore
-        (is_row ? platform_details_cr : platform_details_eu_uk).forEach((p) => {
+        (is_row && platform_details_cr ||is_eu && platform_details_eu || is_uk && platform_details_uk).forEach((p) => {
             new_details.push({ ...p, id: current_index })
             current_index++
         })

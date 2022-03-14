@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react'
 import { useCookieState } from './use-cookie-state'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import { getDateFromToday } from 'common/utility'
+import { getDateFromToday, isBrowser } from 'common/utility'
 
 const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
 const COOKIE_EXPIRY_DAYS = 7
@@ -10,6 +10,8 @@ export const useWebsiteStatus = () => {
     const [website_status, setWebsiteStatus] = useCookieState(null, WEBSITE_STATUS_COUNTRY_KEY, {
         expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
+
+    const manual_clients_country = isBrowser() && localStorage.getItem('manual_clients_country')
 
     const [is_loading, setLoading] = useState(true)
 
@@ -32,7 +34,7 @@ export const useWebsiteStatus = () => {
                 setLoading(false)
                 binary_socket.close()
             }
-        } else {
+        } else if (!manual_clients_country) {
             const binary_socket = BinarySocketBase.init()
             binary_socket.onopen = () => {
                 binary_socket.send(JSON.stringify({ website_status: 1 }))
@@ -50,6 +52,8 @@ export const useWebsiteStatus = () => {
                 binary_socket.close()
                 setLoading(false)
             }
+        } else {
+            setLoading(false)
         }
     }, [website_status])
 

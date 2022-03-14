@@ -158,7 +158,6 @@ export const OptionsRow = styled(Flex)<OptionsRowProps>`
 
     @media ${device.tabletL} {
         flex-direction: column;
-        align-items: flex-start;
         margin-top: ${({ is_first_child }) => (is_first_child ? '0' : '24px')};
     }
 

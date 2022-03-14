@@ -11,7 +11,7 @@ import {
 import MarketInstruments from '../sections/_market_instruments'
 import type { Options } from '../../static/content/_digital-options'
 import { SectionContainer } from 'components/containers'
-import { Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
 type DigitalOptionsProps = {
@@ -61,9 +61,9 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
                         ))}
                     </Show.Eu>  */}
                 </Descriptions>
-                <Text weight="bold" mt="4.0rem">
+                <Header as="h3" type="paragraph-1" weight="bold" mt="4.0rem">
                     {localize('Instruments available for options trading')}
-                </Text>
+                </Header>
                 <MarketInstruments market_content={options_list.market_instruments} />
             </ContentWrapper>
         </SectionContainer>

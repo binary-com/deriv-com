@@ -5,7 +5,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { DerivStore } from 'store'
 import { eu_domains, uk_domains } from 'common/constants'
 import { getClientInformation, getDomain } from 'common/utility'
-import { eu_countries_uk_excluded } from 'common/country-base'
+import { eu_countries } from 'common/country-base'
 
 type ResponsiveContainerProps = {
     children: ReactElement
@@ -74,6 +74,7 @@ export const getCountryRule = () => {
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
     const { is_eu_country, is_uk_country } = useContext<StoreDataType>(DerivStore)
     const { residence } = getClientInformation(getDomain())
+    const eu_countries_uk_excluded = eu_countries.filter((country: string) => country !== 'gb')
     const is_eu_residence = eu_countries_uk_excluded.includes(residence)
     const is_uk_residence = residence === 'gb'
 

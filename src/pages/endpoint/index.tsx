@@ -8,7 +8,7 @@ import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
-import { trimSpaces } from 'common/utility'
+import { trimSpaces, isBrowser } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
@@ -29,7 +29,6 @@ const StyledInput = styled(Input)`
     & ~ label {
         transform: translate(-0.6rem, -2rem) scale(0.7);
         color: var(--color-black-3);
-        background-color: var(--color-${(props) => props.background || 'grey-1'});
         @media ${device.tabletL} {
             top: 9px;
         }
@@ -121,6 +120,7 @@ const Endpoint = () => {
         // reset website status values
         setWebsiteStatus()
         handleStatus(setStatus, 'Config has been reset successfully')
+        isBrowser() && localStorage.removeItem('manual_clients_country')
         // TODO: if there is a change requires reload in the future
         // window.location.reload()
     }
@@ -131,6 +131,7 @@ const Endpoint = () => {
 
         // handle website status changes
         const new_website_status = { ...website_status, clients_country: values.clients_country }
+        isBrowser() && localStorage.setItem('manual_clients_country', values.clients_country)
         setWebsiteStatus(new_website_status)
         actions.setSubmitting(false)
         handleStatus(actions.setStatus, 'Config has been updated')

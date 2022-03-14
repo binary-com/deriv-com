@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { graphql } from 'gatsby'
-import { ArticleQuery } from '../../types/graphql.types'
 import {
     ArticleTitle,
     Background,
@@ -18,15 +17,12 @@ import {
     SideBarContainer,
     Tag,
     PreviewContainer,
-    SocialComponentsWrapper,
-    LeftSocialComponents,
-    RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
     StickyBreadCrumbsWrapper,
-    StyledImg,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
+    StyledBreadcrumbsContainer,
     Scrollbar,
     ProgressContainer,
     ProgressBar,
@@ -34,6 +30,7 @@ import {
 import Banner from '../pages/academy/components/_banner'
 import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
+import { ArticleQuery } from 'types/graphql.types'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
@@ -42,6 +39,7 @@ import { convertDate, getMinRead, truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { getTruncateLength } from 'pages/academy/blog/posts/preview'
 
 type ArticlesTemplateProps = {
     data: ArticleQuery
@@ -143,17 +141,18 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                         <Background>
                             <StickyBreadCrumbsWrapper scroll={visible}>
                                 <BreadcrumbsWrapper scroll={visible}>
-                                    <Flex jc="flex-start" ai="center">
+                                    <StyledBreadcrumbsContainer>
                                         <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                             All articles
                                         </StyledBreadcrumbsLink>
-                                        <StyledImg src={RightArrow} height="16" width="16" />
+                                        <img src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, 30)
+                                                ? truncateString(article_title, getTruncateLength())
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
-                                    </Flex>
+                                        <SocialSharing />
+                                    </StyledBreadcrumbsContainer>
                                 </BreadcrumbsWrapper>
                                 <Scrollbar scroll={visible}>
                                     <ProgressContainer>
@@ -307,12 +306,6 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                     {footer_banner_details && (
                                         <Banner detailsObj={footer_banner_details} />
                                     )}
-                                    <SocialComponentsWrapper>
-                                        <LeftSocialComponents />
-                                        <RightSocialComponents>
-                                            <SocialSharing />
-                                        </RightSocialComponents>
-                                    </SocialComponentsWrapper>
 
                                     {side_banner_data_details && (
                                         <MobileWrapper>

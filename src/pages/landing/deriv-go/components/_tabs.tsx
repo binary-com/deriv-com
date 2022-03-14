@@ -15,7 +15,7 @@ interface TabPanelProps {
     className?: string
 }
 
-type TabsTYpe = {
+type TabsProps = {
     children: {
         props: {
             label: string
@@ -174,7 +174,7 @@ TabPanel.propTypes = {
     className: PropTypes.string,
 }
 
-const Tabs = ({ children, is_reverse, className, max_width }: TabsTYpe) => {
+const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
 
     useEffect(() => {

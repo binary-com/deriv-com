@@ -1,15 +1,16 @@
 import React from 'react'
+import PageNotFound from '../../404'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load'
 import Banner from './_banner'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
-import { ItemsTye } from './_deriv-go-content'
-import { SEO } from 'components/containers'
+import { ItemsType } from './_deriv-go-content'
+import { SEO, UKEU, ROW } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
 
-const items: ItemsTye[] = [
+const items: ItemsType[] = [
     {
         title: <Localize translate_text="Multiply your profit and limit your loss" />,
         subtitle: (
@@ -45,16 +46,23 @@ const items: ItemsTye[] = [
 ]
 const DerivGo = () => {
     return (
-        <Layout>
-            <SEO title="Deriv Go | Deriv" />
-            <Banner />
-            <WhatIsDerivGo />
-            <WhyTradeDerivGo />
-            <DerivGoContent reverse P2P={items} />
-            <StartDerivGo />
-            <FooterBanner />
-            <OtherApps />
-        </Layout>
+        <>
+            <ROW>
+                <Layout>
+                    <SEO title="Deriv Go | Deriv" />
+                    <Banner />
+                    <WhatIsDerivGo />
+                    <WhyTradeDerivGo />
+                    <DerivGoContent reverse P2P={items} />
+                    <StartDerivGo />
+                    <FooterBanner />
+                    <OtherApps />
+                </Layout>
+            </ROW>
+            <UKEU>
+                <PageNotFound />
+            </UKEU>
+        </>
     )
 }
 

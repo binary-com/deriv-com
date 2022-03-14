@@ -6,7 +6,7 @@ import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
-export type ItemsTye = {
+export type ItemsType = {
     title: React.ReactElement
     subtitle: React.ReactElement
     image_name: string
@@ -14,7 +14,7 @@ export type ItemsTye = {
 }
 
 type DerivGoContentProps = {
-    P2P?: ItemsTye[]
+    P2P?: ItemsType[]
     reverse?: boolean
 }
 

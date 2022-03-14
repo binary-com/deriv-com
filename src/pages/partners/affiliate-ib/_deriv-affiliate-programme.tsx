@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Card, CardWrapper } from './_partner-card'
 import { Table, TRAP, TRAPREVERSE, TC } from './_table'
@@ -191,8 +191,18 @@ const Turnover: AffiliateType = [
     },
 ]
 const DerivAffiliateProgramme = () => {
+    useEffect(() => {
+        const anchor = window.location.hash.slice(1)
+        if (anchor) {
+            const el = document.getElementById(anchor)
+            const top = window.scrollY + el.getBoundingClientRect().top - 50
+            window.scrollTo({ top, behavior: 'smooth' })
+            history.replaceState({}, document.title, '.')
+        }
+    }, [])
+
     return (
-        <StyledSection>
+        <StyledSection id="deriv-ap">
             <ContentContainer direction="column">
                 <TitleWrapper>
                     <Header size="4.8rem" align="center" as="h3" mb="1.2rem">

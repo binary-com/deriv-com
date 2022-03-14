@@ -329,7 +329,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         />
                     </InputWrapper>
                     <AgreementLabel
-                        isChecked={is_checked}
+                        is_checked={is_checked}
                         handleChangeCheckbox={handleChange}
                         color={color}
                     />

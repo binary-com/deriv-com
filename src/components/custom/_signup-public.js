@@ -373,7 +373,7 @@ const SignupPublic = ({
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
-                                    isChecked={is_checked}
+                                    is_checked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                 />
                                 <SocialWrapper jc="unset" ai="center">
@@ -523,7 +523,7 @@ const SignupPublic = ({
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
-                                    isChecked={is_checked}
+                                    is_checked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">

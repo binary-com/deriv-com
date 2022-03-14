@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
@@ -28,7 +28,7 @@ const DropdownInput = styled.input`
     }
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: ${(props) => (props.is_affiliate ? '1.6rem' : '1.75rem')};
     }
 
     @media ${device.mobileL} {
@@ -44,6 +44,7 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
+    is_affiliate,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
@@ -77,6 +78,10 @@ const DropdownSearch = ({
         }
     }
 
+    useEffect(() => {
+        setDropdownItems([...items])
+    }, [items])
+
     return (
         <>
             <DropdownContainer
@@ -88,11 +93,16 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
-                    <StyledLabel active={is_open || (!is_open && selected_item)}>
+                    <StyledLabel
+                        active={is_open || (!is_open && selected_item)}
+                        is_affiliate={is_affiliate}
+                        error={error}
+                    >
                         {label}
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
+                        is_affiliate={is_affiliate}
                         tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
@@ -115,7 +125,7 @@ const DropdownSearch = ({
                     selected_option={selected_item}
                 />
             </DropdownContainer>
-            <BottomLabel contractSize={contractSize} error={error} />
+            <BottomLabel contractSize={contractSize} error={error} is_affiliate={is_affiliate} />
         </>
     )
 }
@@ -125,6 +135,7 @@ DropdownSearch.propTypes = {
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
+    is_affiliate: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),

@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
+import AffiliateDatePicker from '../elements/affiliate-date-picker'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
@@ -146,6 +147,11 @@ const StyledInput = styled.input`
 
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
+    ${(props) =>
+        props.is_affiliate &&
+        css`
+            padding-bottom: 0.8rem;
+        `}
     font-size: 1.2rem;
     min-height: 16px;
 `
@@ -173,15 +179,18 @@ const Input = ({
     label_color,
     disabled,
     id,
+    is_affiliate,
+    is_date,
     error,
     background,
     tablet_background,
     handleError,
     maxLength,
+    setFieldValue,
+    setFieldTouched,
     ...props
 }) => {
     let current_input = useRef(null)
-
     return (
         <RelativeWrapper>
             <InputWrapper
@@ -192,18 +201,38 @@ const Input = ({
                 error={error}
                 className="input-wrapper"
             >
-                <StyledInput
-                    id={id}
-                    background={background}
-                    maxLength={maxLength}
-                    error={error}
-                    disabled={disabled}
-                    height={height}
-                    showLabel={label}
-                    {...props}
-                    ref={(ip) => (current_input = ip)}
-                />
-                {label && (
+                {is_date ? (
+                    <AffiliateDatePicker
+                        id={id}
+                        is_affiliate={is_affiliate}
+                        background={background}
+                        maxLength={maxLength}
+                        error={error}
+                        disabled={disabled}
+                        height={height}
+                        label={label}
+                        setFieldValue={setFieldValue}
+                        setFieldTouched={setFieldTouched}
+                        tablet_background={tablet_background}
+                        htmlFor={id}
+                        label_color={label_color}
+                        {...props}
+                        ref={(ip) => (current_input = ip)}
+                    />
+                ) : (
+                    <StyledInput
+                        id={id}
+                        background={background}
+                        maxLength={maxLength}
+                        error={error}
+                        disabled={disabled}
+                        height={height}
+                        showLabel={label}
+                        {...props}
+                        ref={(ip) => (current_input = ip)}
+                    />
+                )}
+                {label && !is_date && (
                     <StyledLabel
                         tablet_background={tablet_background}
                         error={error}
@@ -214,7 +243,7 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh="1.4" align="left" color="red-1" is_affiliate={is_affiliate}>
                 {error}
             </ErrorMessages>
             {error && (
@@ -240,10 +269,14 @@ Input.propTypes = {
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
+    is_affiliate: PropTypes.bool,
+    is_date: PropTypes.bool,
     label: PropTypes.string,
     label_color: PropTypes.string,
     label_hover_color: PropTypes.string,
     maxLength: PropTypes.string,
+    setFieldTouched: PropTypes.func,
+    setFieldValue: PropTypes.func,
     tablet_background: PropTypes.string,
     width: PropTypes.string,
 }

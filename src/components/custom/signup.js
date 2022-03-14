@@ -14,12 +14,16 @@ import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
 import SignupSimple from 'components/custom/_signup-simple'
+import SignupAffiliate from 'components/custom/_signup-affiliate'
+import SignupAffiliateDetails from 'components/custom/_signup-affiliate-details'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
+import { affiliate_app_id } from 'common/constants'
 
 const Form = styled.form`
     height: 100%;
+    z-index: 1;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 
     @media ${device.mobileL} {
@@ -50,10 +54,11 @@ export const Appearances = {
     lightFlat: 'lightFlat',
     public: 'public',
     newSignup: 'newSignup',
+    affiliateSignup: 'affiliateSignup',
 }
 
 const Signup = (props) => {
-    const [email, setEmail] = useState('')
+    const [user_data, setUserData] = useState({})
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
@@ -79,8 +84,11 @@ const Signup = (props) => {
     }
 
     const handleInputChange = (e) => {
-        const { value } = e.target
-        setEmail(value)
+        const { value, name } = e.target
+        setUserData({
+            ...user_data,
+            [name]: value,
+        })
         handleValidation(value)
     }
 
@@ -102,6 +110,7 @@ const Signup = (props) => {
     }
 
     const handleEmailSignup = (e) => {
+        const { email } = user_data
         e.preventDefault()
         setSubmitting(true)
         const formatted_email = email.replace(/\s/g, '')
@@ -112,6 +121,11 @@ const Signup = (props) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
+
+        if (props.appearance === Appearances.affiliateSignup) {
+            window.localStorage.setItem('config.app_id', affiliate_app_id)
+        }
+
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {
@@ -145,7 +159,10 @@ const Signup = (props) => {
     }
 
     const clearEmail = () => {
-        setEmail('')
+        setUserData({
+            ...user_data,
+            email: '',
+        })
         setEmailErrorMsg('')
     }
     const handleSocialSignup = (e) => {
@@ -161,10 +178,19 @@ const Signup = (props) => {
     }
 
     const renderSwitch = (param) => {
+        const { email, first_name, last_name, date, country, address, mobile_number, password } =
+            user_data
         const parameters = {
             autofocus: props.autofocus,
             clearEmail: clearEmail,
-            email: email,
+            email,
+            first_name,
+            last_name,
+            date,
+            country,
+            address,
+            mobile_number,
+            password,
             email_error_msg: email_error_msg,
             handleInputChange: handleInputChange,
             handleLogin: handleLogin,
@@ -172,6 +198,7 @@ const Signup = (props) => {
             handleValidation: handleValidation,
             is_ppc: props.is_ppc,
             is_submitting: is_submitting,
+            showModal: props.showModal,
         }
 
         switch (param) {
@@ -179,6 +206,10 @@ const Signup = (props) => {
                 return <SignupSimple {...parameters}></SignupSimple>
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
+            case Appearances.affiliateSignup:
+                return <SignupAffiliate {...parameters}></SignupAffiliate>
+            case Appearances.affiliateSignupDetails:
+                return <SignupAffiliateDetails {...parameters}></SignupAffiliateDetails>
             case Appearances.public:
                 return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:
@@ -236,6 +267,7 @@ Signup.propTypes = {
     email: PropTypes.string,
     is_ppc: PropTypes.bool,
     onSubmit: PropTypes.func,
+    showModal: PropTypes.func,
     submit_state: PropTypes.string,
 }
 

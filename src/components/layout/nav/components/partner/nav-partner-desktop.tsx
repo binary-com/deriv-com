@@ -93,9 +93,9 @@ const StyledNavRight = styled(NavRight)<any>`
         cursor: pointer;
     }
     > a:last-child {
-        pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
-        cursor: ${(props) => (props.move ? 'pointer' : 'default')};
-        opacity: ${(props) => (props.move ? 1 : 0)};
+        pointer-events: ${({ move }) => (move ? 'visible' : 'none')};
+        cursor: ${({ move }) => (move ? 'pointer' : 'default')};
+        opacity: ${({ move }) => (move ? 1 : 0)};
     }
 `
 

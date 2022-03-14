@@ -5,7 +5,7 @@ import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Timeline } from 'components/elements'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import { affiliate_signup_url } from 'common/constants'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/partners/software-developer.svg'
@@ -239,7 +239,7 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Desktop breakpoint={size.bp749}>
+                                    <Desktop breakpoint={'bp749'}>
                                         <ApplyImageWrapper src={Apply} alt="" />
                                     </Desktop>
                                     <GetStartedContent max_width="32.4rem">
@@ -256,7 +256,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Desktop breakpoint={size.bp749}>
+                                    <Desktop breakpoint={'bp749'}>
                                         <ImageWrapper src={Advertise} alt="" />
                                     </Desktop>
                                     <GetStartedContent max_width="32.4rem">
@@ -273,7 +273,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Desktop breakpoint={size.bp749}>
+                                    <Desktop breakpoint={'bp749'}>
                                         <ImageWrapper src={Earn} alt="" />
                                     </Desktop>
                                     <GetStartedContent max_width="32.4rem">

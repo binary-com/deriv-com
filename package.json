@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
-        "@artsy/fresnel": "^3.2.1",
+        "@artsy/fresnel": "^1.7.0",
         "@directus/gatsby-source-directus": "^9.4.2",
         "@livechat/customer-sdk": "^3.1.0",
         "@loadable/component": "^5.15.2",
@@ -27,7 +27,7 @@
         "gatsby-plugin-react-helmet": "^4.7.1",
         "gatsby-plugin-robots-txt": "^1.6.2",
         "gatsby-plugin-sharp": "^3.7.1",
-        "gatsby-plugin-sitemap": "^3.3.0",
+        "gatsby-plugin-sitemap": "^4.10.0",
         "gatsby-plugin-svgr": "^3.0.0-beta.0",
         "gatsby-plugin-use-query-params": "^1.0.1",
         "gatsby-source-filesystem": "^3.7.1",
@@ -100,8 +100,8 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
-        "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
+        "build": "gatsby build --log-pages",
+        "develop": "gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.{js,jsx,ts,tsx}','./*.js'} --fix",

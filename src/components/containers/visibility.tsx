@@ -73,7 +73,9 @@ const deviceRenderer = (): boolean => {
 export const getCountryRule = () => {
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
     const { is_eu_country, is_uk_country } = useContext<StoreDataType>(DerivStore)
-    const { residence } = getClientInformation(getDomain())
+    const { residence } = getClientInformation(getDomain()) || {
+        residence: '',
+    }
     const eu_countries_uk_excluded = eu_countries.filter((country: string) => country !== 'gb')
     const is_eu_residence = eu_countries_uk_excluded.includes(residence)
     const is_uk_residence = residence === 'gb'

@@ -54,7 +54,7 @@ const SignupSimple = ({
             <Container>
                 <StyledHeader weight="bold">
                     {localize('Ready to join us?')}
-                    <br></br>
+                    <br />
                     {localize('Sign up for your demo account now.')}
                 </StyledHeader>
                 <InputGroup>

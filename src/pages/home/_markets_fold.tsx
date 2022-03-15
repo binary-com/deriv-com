@@ -6,6 +6,7 @@ import { Flex, SectionContainer } from 'components/containers'
 import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device.js'
 import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
 
@@ -254,15 +255,23 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_uk } = getCountryRule()
-    const [is_not_big_screen] = useBrowserResize(1979)
-    const [is_mobile] = useBrowserResize()
-    const { is_row } = getCountryRule()
+    const { is_uk, is_non_uk } = getCountryRule()
+    const size = useWindowSize()
+    const is_not_big_screen = size.width < 1980 && size.width >= 768
+    const is_mobile = size.width < 768
 
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
         if (is_not_big_screen) return '1172px'
         else return '1600px'
+    }
+
+    const getAutoPlay = () => {
+        if (is_mobile) return true
+        else {
+            if (is_non_uk) return true
+            return false
+        }
     }
 
     const settings = {
@@ -301,7 +310,7 @@ const MarketsFold = () => {
                     </Header>
                 </Flex>
                 <Carousel
-                    has_autoplay={is_row ? true : false}
+                    has_autoplay={getAutoPlay()}
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
@@ -343,6 +344,7 @@ export const calculateReadTime = (text) => {
 export const getMinRead = (text) => calculateReadTime(text).toString() + ' ' + localize('min read')
 
 export const slugify = (text) =>
+    text &&
     text
         .toString()
         .normalize('NFD') // The normalize() method returns the Unicode Normalization Form of a given string.
@@ -360,7 +362,52 @@ export const unslugify = (slug) => {
         })
     }
 }
+export const removeSpecialCharacterUrl = (url) =>
+    url &&
+    slugify(url)
+        .replace(/\?+/g, '') // Replace question mark with empty value
+        .replace(/[/]/g, '-') //Replace '/' with single -
 
+export const queryParams = {
+    get: (key) => {
+        const params = new URLSearchParams(location.search)
+        let param_values = {}
+        //To get the params from the url
+
+        if (typeof key === 'string') {
+            return params.get(key)
+        } else {
+            key.forEach((k) => {
+                param_values[key] = params.get(k)
+            })
+        }
+        return param_values
+    },
+    set: (objects) => {
+        // To set the params from the url
+        const url = new URL(location)
+
+        Object.keys(objects).forEach((k) => {
+            const value = objects[k]
+            url.searchParams.set(k, value)
+        })
+
+        return window.history.replaceState(null, null, url)
+    },
+    delete: (key) => {
+        //To delete the params from the url
+        const url = new URL(location)
+        if (typeof key === 'string') {
+            url.searchParams.delete(key)
+        } else {
+            key.forEach((k) => {
+                url.searchParams.delete(k)
+            })
+        }
+
+        return history.replaceState(null, null, url)
+    },
+}
 export const getBaseRef = (ref) => {
     // this is intended to solve a problem of preact that
     // in some cases element api's are in the ref.current.base and
@@ -368,7 +415,16 @@ export const getBaseRef = (ref) => {
     return ref?.current?.base?.style ? ref?.current?.base : ref?.current
 }
 
-const uk_subdomain_countries = ['gb']
+export const useCallbackRef = (callback) => {
+    const callback_ref = useRef()
+
+    useEffect(() => {
+        callback_ref.current = callback
+    }, [callback])
+
+    return callback_ref
+}
+
 const eu_subdomain_countries = ['nl']
 
 const redirect = (subdomain) => {
@@ -383,23 +439,11 @@ const redirectToDeriv = (full_domain) => {
 export const handleDerivRedirect = (country, subdomain) => {
     if (eu_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-    } else if (uk_subdomain_countries.includes(country)) {
-        redirect(subdomain.includes('staging') ? 'staging-uk' : 'uk')
     }
 }
 
-const handleUKRedirect = (country, subdomain, full_domain) => {
-    if (eu_subdomain_countries.includes(country)) {
-        redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
-    } else if (!uk_subdomain_countries.includes(country)) {
-        redirectToDeriv(full_domain)
-    }
-}
-
-const handleEURedirect = (country, subdomain, full_domain) => {
-    if (uk_subdomain_countries.includes(country)) {
-        redirect(subdomain.includes('staging') ? 'staging-uk' : 'uk')
-    } else if (!eu_subdomain_countries.includes(country)) {
+const handleEURedirect = (country, full_domain) => {
+    if (!eu_subdomain_countries.includes(country)) {
         redirectToDeriv(full_domain)
     }
 }
@@ -408,13 +452,19 @@ export const handleRedirect = (subdomain, residence, current_client_country, ful
     const country = residence ? residence : current_client_country
 
     const eu_domains = ['eu', 'staging-eu']
-    const uk_domains = ['uk', 'staging-uk']
 
     if (eu_domains.includes(subdomain)) {
-        handleEURedirect(country, subdomain, full_domain)
-    } else if (uk_domains.includes(subdomain)) {
-        handleUKRedirect(country, subdomain, full_domain)
+        handleEURedirect(country, full_domain)
     } else {
         handleDerivRedirect(country, subdomain)
     }
+}
+
+export const queryParamData = () => {
+    if (isBrowser()) {
+        const queryParams = new URLSearchParams(window.location.search)
+        const platform_name = queryParams.get('platform')
+        const platform_list = ['derivgo', 'p2p']
+        return platform_list.includes(platform_name) ? platform_name : ''
+    } else return ''
 }

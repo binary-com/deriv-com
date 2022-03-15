@@ -11,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect } from 'common/utility'
+import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -19,7 +19,6 @@ import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
-
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -131,7 +130,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-
     // Allow tracking cookie banner setup
     React.useEffect(() => {
         if (typeof is_eu_country === 'boolean') {
@@ -158,12 +156,9 @@ const Layout = ({
     const residence = client_information_cookie.get('residence')
 
     React.useEffect(() => {
-        const is_redirection_enabled = localStorage['is_redirection_enabled']
         const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
 
-        if (is_redirection_enabled) {
-            handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
-        }
+        handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
     }, [website_status])
 
     const onAccept = () => {
@@ -236,7 +231,14 @@ const Layout = ({
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
-
+    //Handle page layout when redirection from mobile app.
+    if (queryParamData()) {
+        return (
+            <Main margin_top={'0'} is_static={is_static}>
+                {children}
+            </Main>
+        )
+    }
     return (
         <LocationProvider
             has_mounted={has_mounted}

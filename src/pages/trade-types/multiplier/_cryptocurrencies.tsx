@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets.js'
+import { CryptocurrenciesTradeType } from '../../markets/instruments/_index'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { NonUK } from 'components/containers/visibility'

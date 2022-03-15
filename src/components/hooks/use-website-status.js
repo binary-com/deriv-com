@@ -61,8 +61,9 @@ export const useWebsiteStatus = () => {
 }
 
 export const useWebsiteStatusApi = () => {
-    // For proper redirection process, this apil call will give us the accurate clients's ip address
-    // Due to the ability to change client's country code via endpoint, it's messing up the redirection flow
+    // For proper redirection process, this api call will give us the accurate clients's ip address
+    // Due to the flexibility to change client's country code via endpoint, it's messing up the redirection flow
+    // Therefore we need a direct call from the API
     const [website_status_api, setWebsiteStatusApi] = useState(null)
 
     const binary_socket = BinarySocketBase.init()

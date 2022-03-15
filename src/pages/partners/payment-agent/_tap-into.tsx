@@ -14,6 +14,7 @@ const query = graphql`
 `
 const WrapContainer = styled(Container)`
     flex-wrap: wrap;
+    margin: 0 7.2rem;
 
     @media (max-width: 1310px) {
         justify-content: center;
@@ -27,6 +28,7 @@ const WrapContainer = styled(Container)`
 
 const Wrapper = styled.div`
     width: 100%;
+    height: 280px;
     max-width: 48.6rem;
 `
 
@@ -35,21 +37,22 @@ const TapInto = () => {
     return (
         <SectionContainer>
             <WrapContainer justify="flex-end">
-                <Flex direction="column" mr="2.4rem" max_width="58.8rem">
-                    <Header as="h3" size="var(--text-size-header-1)" mb="1.6rem">
+                <Flex direction="column" mr="2.4rem" max_width="48.6rem">
+                    <Header as="h3" type="page-title" mb="1.6rem">
                         {localize('Tap into an established and growing market')}
                     </Header>
-                    <Text size="var(--text-size-m)">
+                    <Header as="h4" type="subtitle-2" weight="normal">
                         {localize(
                             'Reach hundreds of traders on our platform looking for ways to fund their accounts through local bank wires and e-payment methods.',
                         )}
-                    </Text>
+                    </Header>
                 </Flex>
                 <Wrapper>
                     <QueryImage
                         data={data['payment_agent']}
                         alt={localize('Girl talking to a group of people')}
                         width="100%"
+                        height="28rem"
                     />
                 </Wrapper>
             </WrapContainer>

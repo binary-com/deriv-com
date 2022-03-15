@@ -39,7 +39,6 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 `
 
 const ImageWrapper = styled.img`
-    margin-right: 1.6rem;
     width: 48px;
     height: 48px;
 `
@@ -241,7 +240,7 @@ const WhoCanApply = () => {
                                     <Show.Desktop max_width="bp749">
                                         <ApplyImageWrapper src={Apply} alt="" />
                                     </Show.Desktop>
-                                    <GetStartedContent max_width="32.4rem">
+                                    <GetStartedContent max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Sign up')}
                                         </Header>

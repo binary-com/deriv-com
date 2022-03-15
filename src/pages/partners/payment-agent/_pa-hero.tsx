@@ -7,7 +7,7 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 const MainHeader = styled(Header)`
-    max-width: 80rem;
+    max-width: 99.6rem;
     margin-bottom: 1.6rem;
 
     @media ${device.mobileM} {
@@ -23,7 +23,7 @@ const MiddleHeader = styled(Header)`
 const PAHero = () => {
     return (
         <Hero>
-            <MainHeader as="h1" type="display-title" color="white" align="center" lh="1.25">
+            <MainHeader as="h1" type="main-landing-title" color="white" align="center" lh="1.25">
                 {localize('Become a payment agent on Deriv')}
             </MainHeader>
             <MiddleHeader

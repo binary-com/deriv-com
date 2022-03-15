@@ -13,7 +13,7 @@ import {
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Header, Text, Timeline } from 'components/elements'
+import { Header, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
@@ -30,6 +30,8 @@ const HeaderHowToApply = styled(SecondaryHeader)`
     }
 `
 const HowToApply = styled(Col)`
+    max-width: 48.6rem;
+
     @media ${device.laptop} {
         padding-left: 1.6rem;
     }
@@ -52,7 +54,7 @@ const ImageWrapper = styled.img`
 
 const WhoCanApplyWrapper = styled(Col)`
     width: 100%;
-    max-width: 42.8rem;
+    max-width: 48.8rem;
     display: flex;
     flex-direction: column;
 `
@@ -65,10 +67,6 @@ const StyledUl = styled.ul`
 
 const Li = styled.li`
     margin-top: 0.8rem;
-`
-
-const SecondaryText = styled(Text)`
-    max-width: 32.4rem;
 `
 
 const ButtonWrapper = styled(CenteredSection)`
@@ -108,11 +106,13 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     return (
         <Wrapper>
             <ImageWrapper src={img_src} alt="" />
-            <Content max_width="36.4rem">
-                <Header as="h4" type="sub-section-title">
+            <Content max_width="48.8rem">
+                <Header as="h4" type="sub-section-title" pb="8px">
                     {header}
                 </Header>
-                <Text>{text}</Text>
+                <Header as="h4" type="paragraph-1" weight="normal">
+                    {text}
+                </Header>
             </Content>
         </Wrapper>
     )
@@ -167,40 +167,40 @@ const WhoCanApply = () => {
                                 <HowToApplyContent>
                                     <ImageWrapper src={Email} alt="" />
                                     <Content margin-top="0 px" max_width="36.4rem">
-                                        <Header as="h4" type="sub-section-title">
+                                        <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Drop us an email')}
                                         </Header>
-                                        <Text>
+                                        <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize('Send us an email with the following:')}
-                                        </Text>
+                                        </Header>
                                         <StyledUl>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Your name, email address, and contact number',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Your website address (if you have one)',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Payment methods you will accept from clients',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'The commission you will charge clients on deposits and withdrawals',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                         </StyledUl>
                                     </Content>
@@ -209,30 +209,30 @@ const WhoCanApply = () => {
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <ImageWrapper src={Reply} alt="" />
-                                    <Content max_width="36.4rem">
-                                        <Header as="h4" type="sub-section-title">
+                                    <Content max_width="38.2rem">
+                                        <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Wait for our reply')}
                                         </Header>
-                                        <SecondaryText>
+                                        <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
                                                 'We’ll review your application and get in touch for further information and next steps.',
                                             )}
-                                        </SecondaryText>
+                                        </Header>
                                     </Content>
                                 </HowToApplyContent>
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <ImageWrapper src={Listed} alt="" />
-                                    <Content max_width="36.4rem">
-                                        <Header as="h4" type="sub-section-title">
+                                    <Content max_width="38.2rem">
+                                        <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Get listed')}
                                         </Header>
-                                        <SecondaryText>
+                                        <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
                                                 'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
                                             )}
-                                        </SecondaryText>
+                                        </Header>
                                     </Content>
                                 </HowToApplyContent>
                             </Timeline.Item>

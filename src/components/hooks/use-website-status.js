@@ -66,21 +66,23 @@ export const useWebsiteStatusApi = () => {
     // Therefore we need a direct call from the API
     const [website_status_api, setWebsiteStatusApi] = useState(null)
 
-    const binary_socket = BinarySocketBase.init()
-    binary_socket.onopen = () => {
-        binary_socket.send(JSON.stringify({ website_status: 1 }))
-    }
-
-    binary_socket.onmessage = (msg) => {
-        const response = JSON.parse(msg.data)
-
-        if (!response.error) {
-            const { clients_country } = response.website_status
-
-            setWebsiteStatusApi({ clients_country })
+    useLayoutEffect(() => {
+        const binary_socket = BinarySocketBase.init()
+        binary_socket.onopen = () => {
+            binary_socket.send(JSON.stringify({ website_status: 1 }))
         }
-        binary_socket.close()
-    }
+
+        binary_socket.onmessage = (msg) => {
+            const response = JSON.parse(msg.data)
+
+            if (!response.error) {
+                const { clients_country } = response.website_status
+
+                setWebsiteStatusApi({ clients_country })
+            }
+            binary_socket.close()
+        }
+    }, [website_status_api])
 
     return website_status_api
 }

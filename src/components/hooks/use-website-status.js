@@ -59,3 +59,27 @@ export const useWebsiteStatus = () => {
 
     return [website_status, setWebsiteStatus, is_loading]
 }
+
+export const useWebsiteStatusApi = () => {
+    // For proper redirection process, this apil call will give us the accurate clients's ip address
+    // Due to the ability to change client's country code via endpoint, it's messing up the redirection flow
+    const [website_status_api, setWebsiteStatusApi] = useState(null)
+
+    const binary_socket = BinarySocketBase.init()
+    binary_socket.onopen = () => {
+        binary_socket.send(JSON.stringify({ website_status: 1 }))
+    }
+
+    binary_socket.onmessage = (msg) => {
+        const response = JSON.parse(msg.data)
+
+        if (!response.error) {
+            const { clients_country } = response.website_status
+
+            setWebsiteStatusApi({ clients_country })
+        }
+        binary_socket.close()
+    }
+
+    return website_status_api
+}

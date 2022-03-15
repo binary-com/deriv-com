@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -18,7 +18,7 @@ import { Text } from 'components/elements'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
-import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -128,6 +128,7 @@ const Layout = ({
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
+    const [is_redirection_applied, setRedirectionApplied] = useState(false)
 
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
@@ -149,17 +150,21 @@ const Layout = ({
         }
     }, [is_eu_country])
 
-    const [website_status] = useWebsiteStatus()
-    const current_client_country = website_status?.clients_country || ''
+    // Check client's account and ip and apply the necessary redirection
+    if (!is_redirection_applied) {
+        const website_status = useWebsiteStatusApi()
 
-    const client_information_cookie = new CookieStorage('client_information')
-    const residence = client_information_cookie.get('residence')
+        React.useEffect(() => {
+            if (website_status) {
+                const current_client_country = website_status?.clients_country || ''
+                const client_information_cookie = new CookieStorage('client_information')
+                const residence = client_information_cookie.get('residence')
 
-    React.useEffect(() => {
-        const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
-
-        handleRedirect(subdomain, residence, current_client_country, window.location.hostname)
-    }, [website_status])
+                setRedirectionApplied(true)
+                handleRedirect(residence, current_client_country, window.location.hostname)
+            }
+        }, [website_status])
+    }
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

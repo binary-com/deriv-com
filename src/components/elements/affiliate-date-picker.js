@@ -11,7 +11,7 @@ const DayPickerWrapper = styled.div`
 
     .react-date-picker {
         display: block;
-        font-size: var(--text-size-s);
+        font-size: 14px;
         padding: 1rem 1rem 1rem 0.8rem;
         height: 40px;
     }
@@ -83,7 +83,7 @@ const DayPickerWrapper = styled.div`
 const StyledLabel = styled.label`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
-    font-size: var(--text-size-xs);
+    font-size: 14px;
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
@@ -93,7 +93,6 @@ const StyledLabel = styled.label`
     padding: 0 0.4rem;
     background: none;
     @media ${device.tabletL} {
-        font-size: var(--text-size-s);
         top: 1.8rem;
     }
 `

@@ -1,11 +1,11 @@
-import React, { ReactElement, useEffect, useState, useContext } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { DerivStore } from 'store'
 import { eu_domains, uk_domains } from 'common/constants'
 import { getClientInformation, getDomain } from 'common/utility'
 import { eu_countries } from 'common/country-base'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 type ResponsiveContainerProps = {
     children: ReactElement
@@ -15,11 +15,6 @@ type ResponsiveContainerProps = {
 
 type LayerProps = {
     breakpoint?: number
-}
-
-type StoreDataType = {
-    is_eu_country?: boolean
-    is_uk_country?: boolean
 }
 
 const DEFAULT_BREAKPOINT = size.tabletL
@@ -71,12 +66,16 @@ const deviceRenderer = (): boolean => {
 }
 
 export const getCountryRule = () => {
+    const [website_status] = useWebsiteStatus()
+    const user_ip_country = website_status?.clients_country || ''
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
-    const { is_eu_country, is_uk_country } = useContext<StoreDataType>(DerivStore)
     const { residence } = getClientInformation(getDomain()) || {
         residence: '',
     }
     const eu_countries_uk_excluded = eu_countries.filter((country: string) => country !== 'gb')
+
+    const is_eu_country = eu_countries_uk_excluded.includes(user_ip_country)
+    const is_uk_country = user_ip_country === 'gb'
     const is_eu_residence = eu_countries_uk_excluded.includes(residence)
     const is_uk_residence = residence === 'gb'
 

@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Desktop, Mobile } from 'components/containers'
+import { Box, Flex, Desktop, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 import { localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
-import { getWindowWidth } from 'common/utility'
 
 const query = graphql`
     query {
@@ -88,16 +87,12 @@ const StyledMobileQueryImage = styled(QueryImage)`
 `
 const Hero = () => {
     const data = useStaticQuery(query)
-    const title =
-        getWindowWidth() > 576 ? (
-            localize('Who we are')
-        ) : (
-            <>
-                {localize('Who')}
-                <br></br>
-                {localize('we are')}
-            </>
-        )
+    const title = (
+        <Flex tabletS={{ fd: 'column' }}>
+            <Box mr="3.8rem">{localize('Who')}</Box>
+            <div>{localize('we are')}</div>
+        </Flex>
+    )
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
@@ -108,6 +103,7 @@ const Hero = () => {
                             data={data['about_us_logo']}
                             alt="example"
                             width="unset"
+                            loading="eager"
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>{title}</DesktopHeader>

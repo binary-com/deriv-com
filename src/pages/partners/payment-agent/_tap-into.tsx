@@ -56,6 +56,7 @@ const TapInto = () => {
                         data={data['payment_agent']}
                         alt={localize('Girl talking to a group of people')}
                         width="100%"
+                        loading="eager"
                     />
                 </Wrapper>
             </WrapContainer>

@@ -65,8 +65,8 @@ const DayPickerWrapper = styled.div`
         transform: translate(-0.6rem, -2rem) scale(0.7);
         padding: 5px 4px;
         margin: -5px 0;
-        ${({ is_date_field, currentValue }) => {
-            return is_date_field || currentValue
+        ${({ is_date_field, current_value }) => {
+            return is_date_field || current_value
                 ? css`
                       transform: translate(-0.6rem, -2.2rem) scale(0.7);
                       color: var(
@@ -87,7 +87,7 @@ const StyledLabel = styled.label`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: ${({ is_affiliate }) => (is_affiliate ? '1.8rem' : '1.2rem')};
+    top: ${({ top_shift }) => (top_shift ? top_shift : '1.2rem')};
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
@@ -106,13 +106,13 @@ const AffiliateDatePicker = (props) => {
         label,
         label_color,
         tablet_background,
-        is_affiliate,
-        labelFocusColor,
+        top_shift,
+        label_focus_color,
     } = props
 
-    const [maxDate, setMaxDate] = useState()
+    const [max_date, setMaxDate] = useState()
     const [is_date_field, selectDateField] = useState(false)
-    const [currentValue, onChange] = useState(maxDate)
+    const [current_value, onChange] = useState(max_date)
 
     useEffect(() => {
         setMaxDate(dayjs().subtract(18, 'year').toDate())
@@ -131,21 +131,21 @@ const AffiliateDatePicker = (props) => {
     return (
         <DayPickerWrapper
             is_date_field={is_date_field}
-            currentValue={currentValue}
-            labelFocusColor={labelFocusColor}
+            current_value={current_value}
+            label_focus_color={label_focus_color}
             error={error}
         >
             <DatePicker
                 onChange={onDateChange}
-                value={currentValue}
+                value={current_value}
                 format={'dd/MM/yyyy'}
                 formatShortWeekday={(locale, date) => dayjs(date).format('dd').substring(0, 1)}
                 formatMonth={(locale, date) => dayjs(date).format('MMM')}
                 formatMonthYear={(locale, date) => dayjs(date).format('MMM YYYY')}
                 onFocus={() => selectDateField(true)}
                 onBlur={onBlur}
-                maxDate={maxDate}
-                activeStartDate={maxDate}
+                maxDate={max_date}
+                activeStartDate={max_date}
                 showLeadingZeros={false}
                 clearIcon={null}
             />
@@ -154,7 +154,7 @@ const AffiliateDatePicker = (props) => {
                 error={error}
                 htmlFor={id}
                 label_color={label_color}
-                is_affiliate={is_affiliate}
+                top_shift={top_shift}
                 is_date_field={is_date_field}
             >
                 {label}
@@ -166,14 +166,14 @@ const AffiliateDatePicker = (props) => {
 AffiliateDatePicker.propTypes = {
     error: PropTypes.string,
     id: PropTypes.string,
-    is_affiliate: PropTypes.bool,
     label: PropTypes.string,
     label_color: PropTypes.string,
-    labelFocusColor: PropTypes.string,
+    label_focus_color: PropTypes.string,
     placeholder: PropTypes.string,
     setFieldTouched: PropTypes.func,
     setFieldValue: PropTypes.func,
     tablet_background: PropTypes.string,
+    top_shift: PropTypes.string,
 }
 
 export default AffiliateDatePicker

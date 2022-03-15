@@ -147,11 +147,7 @@ const StyledInput = styled.input`
 
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
-    ${(props) =>
-        props.is_affiliate &&
-        css`
-            padding-bottom: 0.8rem;
-        `}
+    padding-bottom: ${({ error_shift }) => (error_shift ? error_shift : 0)};
     font-size: 1.2rem;
     min-height: 16px;
 `
@@ -174,12 +170,12 @@ const Input = ({
     label,
     height,
     border,
+    error_shift,
     focus_border,
     label_hover_color,
     label_color,
     disabled,
     id,
-    is_affiliate,
     is_date,
     error,
     background,
@@ -204,7 +200,7 @@ const Input = ({
                 {is_date ? (
                     <AffiliateDatePicker
                         id={id}
-                        is_affiliate={is_affiliate}
+                        top_shift="1.8rem"
                         background={background}
                         maxLength={maxLength}
                         error={error}
@@ -243,7 +239,7 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="left" color="red-1" is_affiliate={is_affiliate}>
+            <ErrorMessages lh="1.4" align="left" color="red-1" error_shift={error_shift}>
                 {error}
             </ErrorMessages>
             {error && (
@@ -265,11 +261,11 @@ Input.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     disabled: PropTypes.bool,
     error: PropTypes.string,
+    error_shift: PropTypes.string,
     focus_border: PropTypes.string,
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
-    is_affiliate: PropTypes.bool,
     is_date: PropTypes.bool,
     label: PropTypes.string,
     label_color: PropTypes.string,

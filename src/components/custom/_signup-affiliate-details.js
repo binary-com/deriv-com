@@ -18,7 +18,8 @@ import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device.js'
 
 const StyledContentFlex = styled(Flex)`
-    width: 486px;
+    width: fit-content;
+    max-width: 486px;
     height: auto;
     background-color: var(--color-white);
     border-radius: 0.6rem;
@@ -31,7 +32,8 @@ const StyledContentFlex = styled(Flex)`
     }
 `
 const Line = styled.div`
-    width: 126.5px;
+    max-width: 126.5px;
+    width: fit-content;
     height: 1px;
     background-color: var(--color-grey-8);
     @media ${device.mobileL} {
@@ -47,18 +49,13 @@ const InputGroup = styled.div`
     }
 `
 const SignupButton = styled(Button)`
-    width: 81px;
-    font-size: 14px;
     margin-top: 40px;
     @media ${device.mobileL} {
         margin-top: 32px;
     }
-    @media ${device.mobileL} {
-        font-size: 12px;
-    }
 `
 const StyledLinkText = styled(LinkText)`
-    font-size: '14px';
+    font-size: 14px;
     @media ${device.mobileL} {
         font-size: 12px;
     }
@@ -66,9 +63,10 @@ const StyledLinkText = styled(LinkText)`
 const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
 `
-const StyledLocalizedLink = styled(LocalizedLink)`
+const StyledLink = styled(LocalizedLink)`
     color: var(--color-red);
     text-decoration: none;
+    line-height: 18px;
 `
 
 const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
@@ -229,7 +227,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                         <DropdownSearchWrapper key={item.id}>
                                             <DropdownSearch
                                                 id={item.id}
-                                                is_affiliate
+                                                tabletL_size="1.6rem"
                                                 selected_item={values.country}
                                                 default_item={''}
                                                 error={item.touch && item.error}
@@ -254,12 +252,10 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                                     {...field}
                                                     id={item.id}
                                                     is_date={item.name === 'date'}
-                                                    is_affiliate
+                                                    error_shift="0.8rem"
                                                     type={item.type}
                                                     border="solid 1px var(--color-grey-7)"
-                                                    labelColor="grey-5"
-                                                    labelHoverColor="grey-5"
-                                                    labelFocusColor="black"
+                                                    label_focus_color="black"
                                                     background="white"
                                                     error={item.touch && item.error}
                                                     label={localize(item.label)}
@@ -317,22 +313,25 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                     )}
                                 ></AgreementLabel>
                                 <AgreementLabel
-                                    is_affiliate
                                     is_checked={is_terms_checked}
                                     handleChangeCheckbox={handleTermsChange}
-                                    link_text={localize(
-                                        'I have read and accepted Deriv’s <0>General business terms</0> and ',
-                                    )}
                                 >
-                                    <StyledLocalizedLink
+                                    {localize('I have read and accepted Deriv’s')}
+                                    <StyledLink
+                                        external="true"
+                                        to="/terms-and-conditions/#business-partners"
+                                        target="_blank"
+                                    >
+                                        {localize(' General business terms ')}
+                                    </StyledLink>
+                                    {localize('and')}
+                                    <StyledLink
                                         external="true"
                                         to="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
                                         target="_blank"
-                                        rel="noopener noreferrer"
-                                        secondary
                                     >
-                                        Affiliates and introducing brokers’ terms.
-                                    </StyledLocalizedLink>
+                                        {localize(' Affiliates and introducing brokers’ terms.')}
+                                    </StyledLink>
                                 </AgreementLabel>
                             </Flex>
                             <Flex fd="column" ai="center">

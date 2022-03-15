@@ -24,9 +24,6 @@ const StyledDiv = styled.div`
 const StyledMap = styled.img`
     width: 100%;
     overflow: initial;
-    @media ${device.laptop} {
-        width: 100%;
-    }
 `
 
 const Overlay = styled.div`
@@ -34,8 +31,8 @@ const Overlay = styled.div`
 `
 
 const affiliateSignupDetails = () => {
-    const [is_popup_shown, setIsPopupShown] = useState(false)
-    const showModal = (status) => setIsPopupShown(status)
+    const [is_popup_shown, setPopupShown] = useState(false)
+    const showModal = (status) => setPopupShown(status)
 
     return (
         <>

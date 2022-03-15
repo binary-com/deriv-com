@@ -203,8 +203,7 @@ export const Arrow = styled(Chevron)`
 `
 
 export const StyledLabel = styled.label`
-    color: ${(props) =>
-        props.is_affiliate && props.error ? 'var(--color-red-1)' : 'var(--color-grey-5)'};
+    color: ${(props) => (props.error ? 'var(--color-red-1)' : 'var(--color-grey-5)')};
     background: var(--color-white);
     font-size: var(--text-size-xs);
     position: absolute;
@@ -228,9 +227,7 @@ export const StyledLabel = styled.label`
     ${(props) =>
         props.active &&
         css`
-            color: ${props.is_affiliate && props.error
-                ? 'var(--color-red-1)'
-                : 'var(--color-green)'};
+            color: ${props.error ? 'var(--color-red-1)' : 'var(--color-green)'};
             transform: translate(-0.6rem, -2.2rem) scale(0.7);
             @media ${device.tabletL} {
                 top: 9px;
@@ -305,10 +302,10 @@ ItemList.propTypes = {
     selected_option: PropTypes.any,
 }
 
-export const BottomLabel = ({ error, contractSize, is_affiliate }) => {
+export const BottomLabel = ({ error, contractSize, line_height }) => {
     return (
         <StyledDiv>
-            <ErrorMessages lh={is_affiliate ? '0.2' : '1.2'} align="left" color="red-1">
+            <ErrorMessages lh={line_height ? line_height : '1.2'} align="left" color="red-1">
                 {error}
             </ErrorMessages>
 
@@ -324,7 +321,7 @@ export const BottomLabel = ({ error, contractSize, is_affiliate }) => {
 BottomLabel.propTypes = {
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    is_affiliate: PropTypes.bool,
+    line_height: PropTypes.string,
 }
 
 const Dropdown = ({

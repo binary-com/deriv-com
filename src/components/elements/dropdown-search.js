@@ -28,7 +28,7 @@ const DropdownInput = styled.input`
     }
 
     @media ${device.tabletL} {
-        font-size: ${(props) => (props.is_affiliate ? '1.6rem' : '1.75rem')};
+        font-size: ${({ tabletL_size }) => (tabletL_size ? tabletL_size : '1.75rem')};
     }
 
     @media ${device.mobileL} {
@@ -44,7 +44,7 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
-    is_affiliate,
+    tabletL_size,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
@@ -93,16 +93,12 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
-                    <StyledLabel
-                        active={is_open || (!is_open && selected_item)}
-                        is_affiliate={is_affiliate}
-                        error={error}
-                    >
+                    <StyledLabel active={is_open || (!is_open && selected_item)} error={error}>
                         {label}
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
-                        is_affiliate={is_affiliate}
+                        tabletL_size={tabletL_size}
                         tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
@@ -125,7 +121,7 @@ const DropdownSearch = ({
                     selected_option={selected_item}
                 />
             </DropdownContainer>
-            <BottomLabel contractSize={contractSize} error={error} is_affiliate={is_affiliate} />
+            <BottomLabel contractSize={contractSize} error={error} line_height="0.2" />
         </>
     )
 }
@@ -135,11 +131,11 @@ DropdownSearch.propTypes = {
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
-    is_affiliate: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     selected_item: PropTypes.any,
+    tabletL_size: PropTypes.string,
 }
 
 export default DropdownSearch

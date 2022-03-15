@@ -9,7 +9,8 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const StyledFlex = styled(Flex)`
-    height: 450px;
+    height: fit-content;
+    max-height: 450px;
     background-color: var(--color-white);
     border-radius: 6px;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
@@ -17,7 +18,6 @@ const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
         margin: 0 auto;
         padding: 40px 16px 0;
-        width: 360px;
         min-width: 360px;
         height: 392px;
     }
@@ -102,8 +102,8 @@ const SignupAffiliate = ({
                     name="email"
                     type="text"
                     border="solid 1px var(--color-grey-7)"
-                    labelColor="grey-5"
-                    labelHoverColor="grey-5"
+                    label_color="grey-5"
+                    label_hover_color="grey-5"
                     background="white"
                     error={email_error_msg}
                     value={email}

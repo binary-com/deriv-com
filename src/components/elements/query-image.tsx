@@ -64,7 +64,6 @@ const QueryImage = ({
                 disable_transition={disable_transition}
                 onClick={onClick}
             >
-                <div style={{ width: '90px' }}></div>
                 <GatsbyImage image={image} alt={alt as string} loading={loading} {...props} />
             </ImageWrapper>
         )

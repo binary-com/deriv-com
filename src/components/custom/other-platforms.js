@@ -147,7 +147,9 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
     <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
-            content={[localize('Trade CFDs on a customisable, easy-to-use trading platform.')]}
+            content={[
+                localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
+            ]}
             cover_background="var(--color-black)"
             cover_content={localize('Discover Deriv X now')}
             title={localize('Deriv X')}
@@ -407,6 +409,7 @@ NavPlatform.propTypes = {
 
 export const NavMarket = ({ onClick, is_ppc }) => {
     const { is_non_uk } = getCountryRule()
+    const { is_non_eu } = getCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
@@ -454,16 +457,18 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                     to="/markets/cryptocurrencies/"
                 />
             )}
-            <NavCard
-                aria_label="Basket indices"
-                icon={() => <img src={Basket} alt="" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
-                }
-                title={<Localize translate_text="Basket indices" />}
-                onClick={onClick}
-                to="/markets/basket-indices/"
-            />
+            {is_non_eu && is_non_uk && (
+                <NavCard
+                    aria_label="Basket indices"
+                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
+                    }
+                    title={<Localize translate_text="Basket indices" />}
+                    onClick={onClick}
+                    to="/markets/basket-indices/"
+                />
+            )}
             <NavCard
                 aria_label="Commodities"
                 icon={() => <img src={Commodities} alt="" width="32" height="32" />}

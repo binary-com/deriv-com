@@ -795,14 +795,14 @@ export const NavInterim = ({ interim_type, landing_type }) => (
                         </LogoLinkMobile>
                     </MobileWrapper>
                 </Flex>
-                <Auto jc="flex-end" ai="center">
-                    {!landing_type && <LanguageSwitcher short_name="true" />}
-                    {!landing_type && (
+                {!landing_type && (
+                    <Auto jc="flex-end" ai="center">
+                        <LanguageSwitcher short_name="true" />
                         <LeftButton secondary to="/">
                             {localize('Explore Deriv.com')}
                         </LeftButton>
-                    )}
-                </Auto>
+                    </Auto>
+                )}
             </Container>
         </NavInterimContainer>
         <CFDWarning />

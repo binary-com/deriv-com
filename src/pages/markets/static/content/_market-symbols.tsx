@@ -1286,12 +1286,12 @@ export const basket_indices_cfds: MarketSymbol[] = [
         text: <Localize translate_text="AUD Basket" />,
     },
     {
-        src: icons.GBPBASKET,
-        text: <Localize translate_text="GBP Basket" />,
-    },
-    {
         src: icons.EURBASKET,
         text: <Localize translate_text="EUR Basket" />,
+    },
+    {
+        src: icons.GBPBASKET,
+        text: <Localize translate_text="GBP Basket" />,
     },
     {
         src: icons.USDBASKET,

@@ -13,7 +13,7 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize, queryParamData } from 'common/utility'
 import { DerivStore } from 'store'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
@@ -298,7 +298,7 @@ const HelpCentre = () => {
                     })}
                 </ArticleSection>
             </Container>
-            <Desktop breakpoint={size.tabletS}>
+            <Desktop breakpoint={'tabletS'}>
                 <Community />
             </Desktop>
             <DidntFindYourAnswerBanner />

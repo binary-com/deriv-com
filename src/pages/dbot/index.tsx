@@ -15,6 +15,7 @@ import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { MetaAttributesType } from 'types/page.types'
+import { ROW, UKEU } from 'components/containers/visibility'
 const DBotVideo = Loadable(() => import('./_dbot-video'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
@@ -129,7 +130,7 @@ class Dbot extends React.Component<StateType> {
     render() {
         return (
             <>
-                <NonEU>
+                <ROW>
                     <Layout>
                         <SEO
                             title={localize('DBot | Trading robot | Deriv')}
@@ -175,10 +176,10 @@ class Dbot extends React.Component<StateType> {
                             )}
                         />
                     </Layout>
-                </NonEU>
-                <EU>
+                </ROW>
+                <UKEU>
                     <PageNotFound />
-                </EU>
+                </UKEU>
             </>
         )
     }

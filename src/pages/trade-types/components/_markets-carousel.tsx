@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { SmallContainer } from './_style'
 import { Mobile } from 'components/containers'
 import { Carousel } from 'components/elements'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 
 const Background = styled.div`
     width: 100%;
@@ -90,7 +90,7 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
                 <Background />
                 <Carousel {...carousel_props}>{child.map((child) => child)}</Carousel>
             </Wrapper>
-            <Mobile breakpoint={size.bp680}>
+            <Mobile breakpoint={'bp680'}>
                 <MobileBackground>
                     <SmallContainer fd="column">{children}</SmallContainer>
                     <GreenBG />

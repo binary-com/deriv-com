@@ -6,7 +6,7 @@ import { StyledLinkButton } from './_trading-cfd-increases'
 import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -50,7 +50,7 @@ const MindWhenTrading = () => {
                     )}
                 </Text>
             </SmallContainer>
-            <Desktop breakpoint={size.bp680}>
+            <Desktop breakpoint={'bp680'}>
                 <SmallContainer direction="column" ai="flex-start">
                     <ImageWrapper>
                         <QueryImage
@@ -60,7 +60,7 @@ const MindWhenTrading = () => {
                     </ImageWrapper>
                 </SmallContainer>
             </Desktop>
-            <Mobile breakpoint={size.bp680}>
+            <Mobile breakpoint={'bp680'}>
                 <ImageWrapper>
                     <QueryImage
                         data={data['margin_mobile_relationship_piechart']}

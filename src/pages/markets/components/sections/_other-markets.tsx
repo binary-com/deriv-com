@@ -242,10 +242,14 @@ const MarketsWrapper = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
-    margin-left: 120px;
+    padding-left: 120px;
     margin-bottom: 4rem;
-
+    @media (min-width: 1440px) {
+        padding: auto;
+        text-align: center;
+    }
     @media ${device.laptopM} {
+        padding-left: 0;
         margin: auto;
         text-align: center;
         margin-bottom: 2rem;

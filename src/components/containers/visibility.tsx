@@ -44,6 +44,9 @@ const domainBasedCheck = () => {
         }
     }, [])
 
+    console.log({
+        is_eu_domain,
+    })
     return { is_eu_domain }
 }
 

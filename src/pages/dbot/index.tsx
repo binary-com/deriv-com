@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
-import { SEO } from 'components/containers'
+import { SEO, ROW, UKEU } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot/dbot-icon.svg'
@@ -15,7 +15,6 @@ import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { MetaAttributesType } from 'types/page.types'
-import { ROW, UKEU } from 'components/containers/visibility'
 const DBotVideo = Loadable(() => import('./_dbot-video'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))

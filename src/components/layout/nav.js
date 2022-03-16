@@ -1174,7 +1174,7 @@ export const NavSecurity = () => {
                                     {localize('Go to Deriv.com')}
                                 </Header>
                             </HomeLink>
-                            <HomeLink to="/story/">
+                            <HomeLink to="/who-we-are/">
                                 <Header weight="normal" color="grey-19" type="paragraph-2">
                                     {localize('About us')}
                                 </Header>

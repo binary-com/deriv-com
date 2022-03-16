@@ -71,7 +71,7 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
             <Flex max_height="550px" mb="24px">
                 <StyledQueryImage
                     height="100%"
-                    data={images[selected_platform.image_key]}
+                    data={images[selected_platform?.image_key]}
                     alt="test"
                 />
             </Flex>

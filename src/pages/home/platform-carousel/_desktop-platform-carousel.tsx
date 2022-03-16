@@ -5,6 +5,7 @@ import PlatformSlider from './_platform-slider'
 import { no_slide_sets, getPlatformDetails, getSlideStartingIndex } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
+import { getCountryRule } from 'components/containers/visibility'
 
 const StyledDesktopCarousel = styled(Flex)`
     @media ${device.desktopL} {
@@ -14,14 +15,9 @@ const StyledDesktopCarousel = styled(Flex)`
 `
 const DesktopPlatformCarousel = () => {
     const [slide_index, setSlideIndex] = useState(getSlideStartingIndex())
-    const [platform_details, setPlatformDetails] = useState([])
+    const { is_eu, is_uk } = getCountryRule()
 
-    useEffect(() => {
-        console.log({
-            lol_the_sslides: getPlatformDetails(no_slide_sets()),
-        })
-        setPlatformDetails(getPlatformDetails(no_slide_sets()))
-    }, [getPlatformDetails])
+    const platform_details = getPlatformDetails(no_slide_sets(), is_eu, is_uk)
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">

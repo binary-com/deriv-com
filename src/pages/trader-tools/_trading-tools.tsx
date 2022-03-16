@@ -142,7 +142,7 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                         <React.Fragment key={item.image_alt}>
                             <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
                                 <Column>
-                                    <Desktop>
+                                    <Desktop className={'fresnel-container'}>
                                         <QueryImage
                                             data={data[item.image_name]}
                                             alt={item.image_alt}
@@ -150,7 +150,7 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                             loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                     </Desktop>
-                                    <Mobile>
+                                    <Mobile className={'fresnel-container'}>
                                         <QueryImage
                                             data={data[item.image_name + '_mobile']}
                                             alt={item.image_alt}
@@ -172,7 +172,7 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                         {item.title}
                                     </Header>
                                     <Text>{item.subtitle}</Text>
-                                    <Desktop>
+                                    <Desktop className={'fresnel-container'}>
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}
                                         </StyledLinkButton>

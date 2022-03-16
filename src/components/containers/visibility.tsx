@@ -7,7 +7,7 @@ import { eu_domains, uk_domains } from 'common/constants'
 
 type ResponsiveContainerProps = {
     children: ReactElement
-    breakpoint?: number | string
+    breakpoint?: number | keyof typeof size
     className?: string
 }
 

@@ -21,20 +21,24 @@ type SelectedSlideProps = {
 }
 
 const SelectedSlide = ({ selected_slide }: SelectedSlideProps) => {
-    const { title, icon, description, learn_more_link } = selected_slide
-    return (
-        <SelectedZone position="absolute" height="152px" background="white" p="16px">
-            <ImageTag src={icon} alt={title} />
-            <Flex fd="column" jc="start" ml="8px">
-                <PlatformContent
-                    title={title}
-                    description={description}
-                    learn_more_link={learn_more_link}
-                    is_from_slider
-                />
-            </Flex>
-        </SelectedZone>
-    )
+    if (selected_slide) {
+        const { title, icon, description, learn_more_link } = selected_slide
+        return (
+            <SelectedZone position="absolute" height="152px" background="white" p="16px">
+                <ImageTag src={icon} alt={title} />
+                <Flex fd="column" jc="start" ml="8px">
+                    <PlatformContent
+                        title={title}
+                        description={description}
+                        learn_more_link={learn_more_link}
+                        is_from_slider
+                    />
+                </Flex>
+            </SelectedZone>
+        )
+    }
+
+    return <></>
 }
 
 const Shadow = styled.div<{ location: 'start' | 'end' }>`

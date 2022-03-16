@@ -100,19 +100,17 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
 }
 
 const MobilePlatformCarousel = () => {
-    const { is_row, is_eu, is_uk } = getCountryRule()
+    const { is_eu, is_uk } = getCountryRule()
     const images = useStaticQuery(image_query)
 
     const carouselData = () => {
-        if (is_row) {
-            return platform_details_cr
-        }
         if (is_eu) {
             return platform_details_eu
         }
         if (is_uk) {
             return platform_details_uk
         }
+        return platform_details_cr
     }
 
     return (

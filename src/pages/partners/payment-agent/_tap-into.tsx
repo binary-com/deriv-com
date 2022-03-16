@@ -24,11 +24,14 @@ const WrapContainer = styled(Container)`
             margin-bottom: 2.4rem;
         }
     }
+
+    @media (max-width: 500px) {
+        margin: 0 1.6rem;
+    }
 `
 
 const Wrapper = styled.div`
     width: 100%;
-    height: 280px;
     max-width: 48.6rem;
 `
 

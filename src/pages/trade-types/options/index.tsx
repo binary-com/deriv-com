@@ -21,9 +21,9 @@ const meta_attributes = {
 }
 
 const Options = () => {
-    const { is_eu, is_uk } = getCountryRule()
+    const { is_row } = getCountryRule()
 
-    return !is_eu || !is_uk ? (
+    return is_row ? (
         <Layout>
             <SEO
                 title={localize('Options trading | Trade types | Deriv')}

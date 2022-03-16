@@ -209,10 +209,11 @@ export const StyledLabel = styled.label`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.2rem;
+    top: ${({ label_position }) => (label_position ? label_position + 'rem' : '1.2rem')};
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding: 0 0.4rem;
+    padding: ${({ label_position }) =>
+        label_position ? label_position / 2 + 'rem 0.4rem;' : '0 0.4rem;'};
 
     @media ${device.tabletL} {
         font-size: 1.6rem;

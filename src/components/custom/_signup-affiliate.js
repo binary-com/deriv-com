@@ -10,7 +10,7 @@ import device from 'themes/device.js'
 
 const StyledFlex = styled(Flex)`
     height: fit-content;
-    max-height: 450px;
+    min-height: 450px;
     background-color: var(--color-white);
     border-radius: 6px;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);

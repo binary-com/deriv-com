@@ -200,7 +200,7 @@ const Input = ({
                 {is_date ? (
                     <AffiliateDatePicker
                         id={id}
-                        top_shift="1.8rem"
+                        top_shift="1.5rem"
                         background={background}
                         maxLength={maxLength}
                         error={error}

@@ -14,7 +14,8 @@ import CurrencySelect from '../form/currency-select'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { localize } from 'components/localization'
+import { StyledLink } from 'components/elements/link'
 import device from 'themes/device.js'
 
 const StyledContentFlex = styled(Flex)`
@@ -32,7 +33,7 @@ const StyledContentFlex = styled(Flex)`
     }
 `
 const Line = styled.div`
-    max-width: 126.5px;
+    min-width: 126.5px;
     width: fit-content;
     height: 1px;
     background-color: var(--color-grey-8);
@@ -54,19 +55,15 @@ const SignupButton = styled(Button)`
         margin-top: 32px;
     }
 `
+// style for confirm links
 const StyledLinkText = styled(LinkText)`
-    font-size: 14px;
+    /* font-size: 14px; */
     @media ${device.mobileL} {
         font-size: 12px;
     }
 `
 const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
-`
-const StyledLink = styled(LocalizedLink)`
-    color: var(--color-red);
-    text-decoration: none;
-    line-height: 18px;
 `
 
 const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
@@ -227,7 +224,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                         <DropdownSearchWrapper key={item.id}>
                                             <DropdownSearch
                                                 id={item.id}
-                                                tabletL_size="1.6rem"
+                                                label_position={0.8}
                                                 selected_item={values.country}
                                                 default_item={''}
                                                 error={item.touch && item.error}
@@ -313,24 +310,21 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                     )}
                                 ></AgreementLabel>
                                 <AgreementLabel
+                                    is_affiliate
                                     is_checked={is_terms_checked}
                                     handleChangeCheckbox={handleTermsChange}
+                                    link_text={localize(
+                                        'I have read and accepted Deriv’s <0>General business terms</0> and ',
+                                    )}
                                 >
-                                    {localize('I have read and accepted Deriv’s')}
                                     <StyledLink
                                         external="true"
-                                        to="/terms-and-conditions/#business-partners"
-                                        target="_blank"
-                                    >
-                                        {localize(' General business terms ')}
-                                    </StyledLink>
-                                    {localize('and')}
-                                    <StyledLink
-                                        external="true"
+                                        size="1.5rem"
                                         to="/tnc/business-partners-affiliates-and-introducing-brokers.pdf"
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                     >
-                                        {localize(' Affiliates and introducing brokers’ terms.')}
+                                        Affiliates and introducing brokers’ terms.
                                     </StyledLink>
                                 </AgreementLabel>
                             </Flex>
@@ -358,7 +352,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                     <StyledLinkText
                                         id="dm-new-login-button"
                                         ml="6px"
-                                        size="16px"
+                                        size="1.6rem"
                                         color="red"
                                         onClick={handleLogin}
                                     >

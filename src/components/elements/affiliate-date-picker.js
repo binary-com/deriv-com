@@ -83,7 +83,7 @@ const DayPickerWrapper = styled.div`
 const StyledLabel = styled.label`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
-    font-size: 14px;
+    font-size: 1.5rem;
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
@@ -144,7 +144,7 @@ const AffiliateDatePicker = (props) => {
                 onFocus={() => selectDateField(true)}
                 onBlur={onBlur}
                 maxDate={max_date}
-                activeStartDate={max_date}
+                defaultActiveStartDate={max_date}
                 showLeadingZeros={false}
                 clearIcon={null}
             />

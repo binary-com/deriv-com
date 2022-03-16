@@ -28,7 +28,7 @@ const DropdownInput = styled.input`
     }
 
     @media ${device.tabletL} {
-        font-size: ${({ tabletL_size }) => (tabletL_size ? tabletL_size : '1.75rem')};
+        font-size: '1.75rem';
     }
 
     @media ${device.mobileL} {
@@ -44,7 +44,7 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
-    tabletL_size,
+    label_position,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
@@ -93,12 +93,16 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
-                    <StyledLabel active={is_open || (!is_open && selected_item)} error={error}>
+                    <StyledLabel
+                        active={is_open || (!is_open && selected_item)}
+                        error={error}
+                        label_position={label_position}
+                    >
                         {label}
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
-                        tabletL_size={tabletL_size}
+                        label_position={label_position}
                         tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
@@ -133,9 +137,9 @@ DropdownSearch.propTypes = {
     has_short_name: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    label_position: PropTypes.number,
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     selected_item: PropTypes.any,
-    tabletL_size: PropTypes.string,
 }
 
 export default DropdownSearch

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 
 const query = graphql`
     query {
@@ -14,11 +14,8 @@ const query = graphql`
 `
 const WrapContainer = styled(Container)`
     flex-wrap: wrap;
-    margin: 0 7.2rem;
 
     @media (max-width: 1310px) {
-        justify-content: center;
-
         ${Flex} {
             margin-right: 0;
             margin-bottom: 2.4rem;
@@ -39,7 +36,7 @@ const TapInto = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer>
-            <WrapContainer justify="flex-end">
+            <WrapContainer justify="center">
                 <Flex direction="column" mr="2.4rem" max_width="48.6rem">
                     <Header as="h3" type="page-title" mb="1.6rem">
                         {localize('Tap into an established and growing market')}

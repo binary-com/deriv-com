@@ -2,7 +2,6 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { eu_domains, uk_domains } from 'common/constants'
 import { getClientInformation, getDomain } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
@@ -33,22 +32,18 @@ const MobileLayer = styled.div<LayerProps>`
 
 const domainBasedCheck = () => {
     const [is_eu_domain, setEuDomain] = useState(false)
-    const [is_uk_domain, setUkDomain] = useState(false)
+    const eu_domains = ['fix-staging-eu']
 
     useEffect(() => {
         if (window) {
-            const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
-
-            if (eu_domains.includes(subdomain)) {
+            if (eu_domains.includes(window.location.hostname)) {
                 setEuDomain(true)
-            }
-            if (uk_domains.includes(subdomain)) {
-                setUkDomain(true)
+                console.log(is_eu_domain)
             }
         }
     }, [])
 
-    return { is_eu_domain, is_uk_domain }
+    return { is_eu_domain }
 }
 
 const getBreakPoint = (breakpoint?: number) => {
@@ -68,7 +63,7 @@ const deviceRenderer = (): boolean => {
 export const getCountryRule = () => {
     const [website_status] = useWebsiteStatus()
     const user_ip_country = website_status?.clients_country || ''
-    const { is_eu_domain, is_uk_domain } = domainBasedCheck()
+    const { is_eu_domain } = domainBasedCheck()
     const { residence } = getClientInformation(getDomain()) || {
         residence: '',
     }
@@ -80,11 +75,13 @@ export const getCountryRule = () => {
     const is_uk_residence = residence === 'gb'
 
     const is_eu = is_eu_residence || (!residence && is_eu_country) || is_eu_domain
-    const is_uk = is_uk_residence || (!residence && is_uk_country) || is_uk_domain
+    const is_uk = is_uk_residence || (!residence && is_uk_country)
     const is_non_uk = !is_uk
     const is_non_eu = !is_eu
     const is_eu_uk = !(!is_eu && !is_uk)
     const is_row = !is_eu_uk
+
+    console.log({ is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row })
 
     return { is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row }
 }

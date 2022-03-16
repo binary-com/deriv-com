@@ -160,11 +160,11 @@ const InterestFreeTrading = () => {
                     <Localize translate_text="interest" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
-                    <CheckedText>Synthetic indices</CheckedText>
-                    <CheckedText>Basket indices</CheckedText>
                     <CheckedText>Forex</CheckedText>
+                    <CheckedText>Synthetic indices</CheckedText>
                     <CheckedText>Stock indices</CheckedText>
                     <CheckedText>Cryptocurrencies</CheckedText>
+                    <CheckedText>Basket indices</CheckedText>
                     <CheckedText>Commodities</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>

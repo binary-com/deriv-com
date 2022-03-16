@@ -37,11 +37,11 @@ const domainBasedCheck = () => {
         if (window) {
             if (window.location.hostname.includes('fix-staging-eu')) {
                 setEuDomain(true)
-                console.log(is_eu_domain)
             }
         }
     }, [])
 
+    console.log(is_eu_domain)
     return { is_eu_domain }
 }
 

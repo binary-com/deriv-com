@@ -32,11 +32,10 @@ const MobileLayer = styled.div<LayerProps>`
 
 const domainBasedCheck = () => {
     const [is_eu_domain, setEuDomain] = useState(false)
-    const eu_domains = ['fix-staging-eu']
 
     useEffect(() => {
         if (window) {
-            if (eu_domains.includes(window.location.hostname)) {
+            if (window.location.hostname.includes('fix-staging-eu')) {
                 setEuDomain(true)
                 console.log(is_eu_domain)
             }
@@ -81,7 +80,7 @@ export const getCountryRule = () => {
     const is_eu_uk = !(!is_eu && !is_uk)
     const is_row = !is_eu_uk
 
-    console.log({ is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row })
+    // console.log({ is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row })
 
     return { is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row }
 }

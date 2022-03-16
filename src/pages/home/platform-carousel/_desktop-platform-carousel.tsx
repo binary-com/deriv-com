@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
 import PlatformSlider from './_platform-slider'
@@ -14,7 +14,14 @@ const StyledDesktopCarousel = styled(Flex)`
 `
 const DesktopPlatformCarousel = () => {
     const [slide_index, setSlideIndex] = useState(getSlideStartingIndex())
-    const platform_details = getPlatformDetails(no_slide_sets())
+    const [platform_details, setPlatformDetails] = useState([])
+
+    useEffect(() => {
+        console.log({
+            lol_the_sslides: getPlatformDetails(no_slide_sets()),
+        })
+        setPlatformDetails(getPlatformDetails(no_slide_sets()))
+    }, [getPlatformDetails])
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">

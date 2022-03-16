@@ -38,10 +38,12 @@ const domainBasedCheck = () => {
             if (window.location.hostname.includes('fix-staging-eu')) {
                 setEuDomain(true)
             }
+            if (window.location.hostname === 'localhost') {
+                setEuDomain(true)
+            }
         }
     }, [])
 
-    console.log(is_eu_domain)
     return { is_eu_domain }
 }
 

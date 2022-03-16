@@ -7,7 +7,7 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const StartTrading = Loadable(() => import('./_start-trading'))
@@ -21,9 +21,9 @@ const meta_attributes = {
 }
 
 const Options = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu, is_uk } = getCountryRule()
 
-    return !is_eu_country ? (
+    return !is_eu || !is_uk ? (
         <Layout>
             <SEO
                 title={localize('Options trading | Trade types | Deriv')}

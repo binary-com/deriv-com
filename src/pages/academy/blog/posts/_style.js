@@ -282,7 +282,8 @@ export const PreviewContainer = styled(Box)`
     & hr {
         margin: 32px 0;
     }
-    & ul {
+    & ul,
+    ol {
         margin-left: 16px;
         margin-bottom: 16px;
         list-style-type: disc;
@@ -299,6 +300,10 @@ export const PreviewContainer = styled(Box)`
                 margin-bottom: 0;
             }
         }
+    }
+    & ol {
+        list-style-type: decimal;
+        margin-left: 20px;
     }
     li > strong {
         display: inline-block;
@@ -388,7 +393,8 @@ export const PreviewContainer = styled(Box)`
         & p {
             font-size: 14px;
         }
-        & ul {
+        & ul,
+        ol {
             > li {
                 font-size: 14px;
                 line-height: 20px;

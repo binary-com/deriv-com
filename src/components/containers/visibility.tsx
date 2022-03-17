@@ -7,7 +7,7 @@ import { getClientInformation, getDomain } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
-type CountryRuleType = 'is_eu' | 'is_uk' | 'is_non_uk' | 'is_non_eu' | 'is_eu_uk' | 'is_row'
+type CountryRuleType = 'is_eu' | 'is_uk' | 'is_non_uk' | 'is_non_eu' | 'is_uk_eu' | 'is_row'
 
 type ResponsiveContainerProps = {
     children: ReactElement
@@ -90,10 +90,10 @@ export const getCountryRule = () => {
     const is_uk = is_uk_residence || (!residence && is_uk_country) || is_uk_domain
     const is_non_uk = !is_uk
     const is_non_eu = !is_eu
-    const is_eu_uk = !(!is_eu && !is_uk)
-    const is_row = !is_eu_uk
+    const is_uk_eu = !(!is_eu && !is_uk)
+    const is_row = !is_uk_eu
 
-    return { is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row }
+    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row }
 }
 
 export const Desktop = ({
@@ -162,7 +162,7 @@ export const NonUK = ({ children }: ResponsiveContainerProps) => (
 )
 
 export const UKEU = ({ children }: ResponsiveContainerProps) => (
-    <CountryBasedContent country_rule="is_eu_uk">{children}</CountryBasedContent>
+    <CountryBasedContent country_rule="is_uk_eu">{children}</CountryBasedContent>
 )
 
 export const ROW = ({ children }: ResponsiveContainerProps) => (

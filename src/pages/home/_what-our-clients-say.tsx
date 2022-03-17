@@ -390,7 +390,7 @@ const WhatOurClientsSay = () => {
         if (is_eu) {
             return testimonial_slides_eu
         } else if (is_uk) {
-            testimonial_slides_uk
+            return testimonial_slides_uk
         }
         return testimonial_slides
     }

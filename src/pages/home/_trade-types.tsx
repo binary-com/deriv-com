@@ -282,7 +282,7 @@ const TradeTypes = (): React.ReactNode => {
         if (is_eu) {
             return items_details_eu
         } else if (is_uk) {
-            items_details_uk
+            return items_details_uk
         }
         return items_details_cr
     }

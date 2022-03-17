@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { ReactElement, useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
+import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
 
 type NavTabProps = {
@@ -88,44 +89,64 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 type TabList = {
-    title: string
+    title: ReactElement
     tab_name: string
     route_to: string
 }
-const tabList: TabList[] = [
+const tab_list: TabList[] = [
     {
-        title: localize('Forex'),
+        title: <Localize translate_text="Forex" />,
         tab_name: 'forex',
         route_to: '/markets/forex/',
     },
     {
-        title: localize('Synthetic indices'),
+        title: <Localize translate_text="Synthetic indices" />,
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/',
     },
     {
-        title: localize('Stocks & indices'),
+        title: <Localize translate_text="Stocks & indices" />,
         tab_name: 'stock',
         route_to: '/markets/stock/',
     },
     {
-        title: localize('Cryptocurrencies'),
+        title: <Localize translate_text="Cryptocurrencies" />,
         tab_name: 'cryptocurrencies',
         route_to: '/markets/cryptocurrencies/',
     },
     {
-        title: localize('Basket indices'),
+        title: <Localize translate_text="Basket Indices" />,
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/',
     },
     {
-        title: localize('Commodities'),
+        title: <Localize translate_text="Commodities" />,
+        tab_name: 'commodities',
+        route_to: '/markets/commodities/',
+    },
+]
+
+const tab_list_uk = [
+    {
+        title: <Localize translate_text="Forex" />,
+        tab_name: 'forex',
+        route_to: '/markets/forex/',
+    },
+    {
+        title: <Localize translate_text="Stocks & indices" />,
+        tab_name: 'stock',
+        route_to: '/markets/stock/',
+    },
+    {
+        title: <Localize translate_text="Commodities" />,
         tab_name: 'commodities',
         route_to: '/markets/commodities/',
     },
 ]
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
+    const { is_uk } = getCountryRule()
+
     const ref = useRef(null)
 
     useEffect(() => {
@@ -136,7 +157,7 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
         <TabsContainer>
             <Flex direction="column">
                 <TabList ref={ref}>
-                    {tabList.map((item, index) => {
+                    {(is_uk ? tab_list_uk : tab_list).map((item, index) => {
                         return (
                             <TabButton selected={route_from == item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>

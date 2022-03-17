@@ -136,8 +136,6 @@ const CountryBasedContent = ({ country_rule, children }: CountryBasedContentProp
     const rules = getCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
-    console.log(rules)
-
     useLayoutEffect(() => {
         setLoaded(true)
     }, [rules])

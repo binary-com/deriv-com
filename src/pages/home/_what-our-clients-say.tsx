@@ -386,6 +386,15 @@ const WhatOurClientsSay = () => {
         })
     }, [document])
 
+    const testimonialSlides = () => {
+        if (is_eu) {
+            return testimonial_slides_eu
+        } else if (is_uk) {
+            testimonial_slides_uk
+        }
+        return testimonial_slides
+    }
+
     return (
         <StyledContainer>
             <ClientContainer padding="5rem 0 0">
@@ -451,11 +460,7 @@ const WhatOurClientsSay = () => {
                             }}
                         >
                             <Carousel>
-                                {(
-                                    (is_row && testimonial_slides) ||
-                                    (is_eu && testimonial_slides_eu) ||
-                                    (is_uk && testimonial_slides_uk)
-                                ).map(({ id, name, quote }) => (
+                                {testimonialSlides().map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />
                                 ))}
                             </Carousel>

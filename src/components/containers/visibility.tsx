@@ -86,8 +86,6 @@ export const getCountryRule = () => {
     const is_eu_uk = !(!is_eu && !is_uk)
     const is_row = !is_eu_uk
 
-    console.log({ is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row })
-
     return { is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row }
 }
 

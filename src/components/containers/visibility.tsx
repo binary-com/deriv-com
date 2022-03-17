@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -7,10 +7,17 @@ import { getClientInformation, getDomain } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
+type CountryRuleType = 'is_eu' | 'is_uk' | 'is_non_uk' | 'is_non_eu' | 'is_eu_uk' | 'is_row'
+
 type ResponsiveContainerProps = {
     children: ReactElement
     breakpoint?: number
     className?: string
+}
+
+type CountryBasedContentProps = {
+    children: ReactElement
+    country_rule: CountryRuleType
 }
 
 type LayerProps = {
@@ -125,38 +132,39 @@ export const Mobile = ({
     )
 }
 
-export const EU = ({ children }: ResponsiveContainerProps) => {
-    const { is_eu } = getCountryRule()
+const CountryBasedContent = ({ country_rule, children }: CountryBasedContentProps) => {
+    const rules = getCountryRule()
+    const [is_loaded, setLoaded] = useState(false)
 
-    return is_eu ? <>{children}</> : null
+    useLayoutEffect(() => {
+        setLoaded(true)
+    }, [rules])
+
+    const condition = rules[country_rule]
+
+    return is_loaded && condition ? <>{children}</> : null
 }
 
-export const NonEU = ({ children }: ResponsiveContainerProps) => {
-    const { is_non_eu } = getCountryRule()
+export const EU = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_eu">{children}</CountryBasedContent>
+)
 
-    return is_non_eu ? <>{children}</> : null
-}
+export const NonEU = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_non_eu">{children}</CountryBasedContent>
+)
 
-export const UK = ({ children }: ResponsiveContainerProps) => {
-    const { is_uk } = getCountryRule()
+export const UK = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_uk">{children}</CountryBasedContent>
+)
 
-    return is_uk ? <>{children}</> : null
-}
+export const NonUK = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_non_uk">{children}</CountryBasedContent>
+)
 
-export const NonUK = ({ children }: ResponsiveContainerProps) => {
-    const { is_non_uk } = getCountryRule()
+export const UKEU = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_eu_uk">{children}</CountryBasedContent>
+)
 
-    return is_non_uk ? <>{children}</> : null
-}
-
-export const UKEU = ({ children }: ResponsiveContainerProps) => {
-    const { is_eu_uk } = getCountryRule()
-
-    return is_eu_uk ? <>{children}</> : null
-}
-
-export const ROW = ({ children }: ResponsiveContainerProps) => {
-    const { is_row } = getCountryRule()
-
-    return is_row ? <>{children}</> : null
-}
+export const ROW = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_row">{children}</CountryBasedContent>
+)

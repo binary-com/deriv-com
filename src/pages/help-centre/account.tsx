@@ -22,9 +22,9 @@ const StyledLink = styled(ExternalLink)`
     }
 `
 
-const WhoCanOpenAnAccount = ({ text, label, is_mounted }: ArticleProps) => (
+const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'In line with our Group practice, we set the following criteria for client sign ups:',
@@ -43,9 +43,9 @@ const WhoCanOpenAnAccount = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ChangingPersonalDetails = ({ text, label, is_mounted }: ArticleProps) => (
+const ChangingPersonalDetails = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
@@ -70,9 +70,9 @@ const ChangingPersonalDetails = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ChangeAccountCurrency = ({ text, label, is_mounted }: ArticleProps) => (
+const ChangeAccountCurrency = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize("How can I change my account's currency?")}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'Once you have made a deposit or created a DMT5 account, you can only change your currency by contacting Customer Support.',
@@ -81,13 +81,9 @@ const ChangeAccountCurrency = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const RecoveringPassword = ({ text, label, is_mounted }: ArticleProps) => (
+const RecoveringPassword = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize(
-                'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
-            )}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
@@ -106,9 +102,9 @@ const RecoveringPassword = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const CloseAccount = ({ text, label, is_mounted }: ArticleProps) => (
+const CloseAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="To close your account, go to <0>Deactivate account.</0> "
@@ -132,11 +128,9 @@ const CloseAccount = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const UnsubscribeEmail = ({ text, label, is_mounted }: ArticleProps) => (
+const UnsubscribeEmail = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize('How do I unsubscribe from marketing emails?')}
-        </StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
                 translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
@@ -156,9 +150,9 @@ const UnsubscribeEmail = ({ text, label, is_mounted }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DormantFee = ({ text, label, is_mounted }: ArticleProps) => (
+const DormantFee = ({ text }: ArticleProps) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
                 'A dormant fee is an amount charged to any account that has not placed a transaction over a continuous period of 12 months.',

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SocialWrapperComponent from './social-wrapper'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
-import { Show } from 'components/containers'
+import { Mobile, UKEU, ROW } from 'components/containers'
 import { isUKOrMXAccount } from 'common/utility'
 import {
     fb_non_eu_url,
@@ -22,17 +22,17 @@ const BottomSocialSection = ({ type }) => {
 
     return (
         <>
-            <Show.NonEU>
+            <ROW>
                 <SocialWrapperComponent
                     is_career_page={type === 'careers'}
                     fb_url={fb_non_eu_url}
                     instagram_url={instagram_non_eu_url}
                     twitter_url={twitter_non_eu_url}
                 />
-            </Show.NonEU>
+            </ROW>
 
-            <Show.Eu>
-                <Show.Mobile>
+            <UKEU>
+                <Mobile>
                     <SocialWrapperComponent
                         is_career_page={type === 'careers'}
                         fb_url={isUKOrMXAccount(current_client_country) ? fb_uk_url : fb_eu_url}
@@ -47,8 +47,8 @@ const BottomSocialSection = ({ type }) => {
                                 : twitter_eu_url
                         }
                     />
-                </Show.Mobile>
-            </Show.Eu>
+                </Mobile>
+            </UKEU>
         </>
     )
 }

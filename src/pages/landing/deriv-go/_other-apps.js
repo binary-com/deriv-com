@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
+import { getCountryRule } from 'components/containers/visibility'
 // svg
 import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
@@ -105,25 +106,34 @@ const other_apps = [
 ]
 
 const OtherApps = () => {
+    const { is_eu_uk } = getCountryRule()
+
     return (
         <div>
             <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
                 <Container fd="column">
-                    <StyledHeader as="h2" type="heading-2" align="center">
-                        {localize('Check out our other apps')}
-                    </StyledHeader>
+                    {is_eu_uk ? (
+                        <StyledHeader as="h2" type="heading-2" align="center">
+                            {localize('Check out our other app')}
+                        </StyledHeader>
+                    ) : (
+                        <StyledHeader as="h2" type="heading-2" align="center">
+                            {localize('Check out our other apps')}
+                        </StyledHeader>
+                    )}
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
-                        {other_apps.map((index) => {
+                        {other_apps.map((item, index) => {
+                            if (is_eu_uk && index == 1) return
                             return (
-                                <Card key={index.title}>
+                                <Card key={item.title}>
                                     <div>
-                                        <img src={index.icon} alt="" />
+                                        <img src={item.icon} alt="" />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
-                                        {index.title}
+                                        {item.title}
                                     </Header>
-                                    <StyledText>{index.content}</StyledText>
-                                    <div>{index.url}</div>
+                                    <StyledText>{item.content}</StyledText>
+                                    <div>{item.url}</div>
                                 </Card>
                             )
                         })}

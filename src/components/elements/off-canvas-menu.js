@@ -2,10 +2,11 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { Flex, NonEU } from 'components/containers'
+import { Flex, ROW } from 'components/containers'
+import { DerivStore } from 'store'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
-import { deriv_status_page_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -30,6 +31,7 @@ import Options from 'images/svg/custom/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
+import BugBounty from 'images/svg/menu/bug-bounty.svg'
 import Regulatory from 'images/svg/menu/regulatory.svg'
 import SecureTrading from 'images/svg/menu/secure-trading.svg'
 import Smarttrader from 'images/svg/custom/smarttrader.svg'
@@ -122,6 +124,7 @@ const content_style = {
 }
 
 export const OffCanvasMenuWrapper = (props) => {
+    const { is_uk_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -156,7 +159,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         to="/trade-types/cfds/"
                                     />
                                 </Flex>
-                                <NonEU>
+                                <ROW>
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
@@ -171,7 +174,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             to="/trade-types/options/"
                                         />
                                     </Flex>
-                                </NonEU>
+                                </ROW>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Multipliers"
@@ -199,27 +202,27 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
                                 }
-                                title={<Localize translate_text="DMT5" />}
+                                title={<Localize translate_text="Deriv MT5" />}
                                 onClick={handleArrowClick}
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        <NonEU>
+                        <ROW>
                             <Flex mb="2rem">
                                 <NavCard
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
                                     to="/derivx/"
                                 />
                             </Flex>
-                        </NonEU>
+                        </ROW>
 
                         <Flex mb="2rem">
                             <NavCard
@@ -233,7 +236,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <NonEU>
+                        <ROW>
                             <>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -288,21 +291,21 @@ export const OffCanvasMenuWrapper = (props) => {
                                             <img src={BinaryBot} alt="" width="32" height="32" />
                                         )}
                                         content={
-                                            <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
+                                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
                                         }
                                         title={<Localize translate_text="BinaryBot" />}
                                         onClick={handleArrowClick}
-                                        to="https://bot.deriv.com/"
+                                        to={binary_bot_url}
                                         external="true"
                                         target="_blank"
                                         otherLinkProps={{ rel: 'noopener noreferrer' }}
                                     />
                                 </Flex>
                             </>
-                        </NonEU>
+                        </ROW>
                     </AccordionItem>
                     <AccordionItem
-                        header="Markets"
+                        header={localize('Markets')}
                         header_style={header_style}
                         style={content_style}
                     >
@@ -318,7 +321,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets/forex/"
                             />
                         </Flex>
-                        {!props.is_ppc && (
+                        {!props.is_ppc && !is_uk_country && (
                             <Flex mb="3.2rem">
                                 <NavCard
                                     aria_label="Synthetic indices"
@@ -348,20 +351,22 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets/stock/"
                             />
                         </Flex>
-                        <Flex mb="3.2rem">
-                            <NavCard
-                                aria_label="Cryptocurrencies"
-                                icon={() => (
-                                    <img src={Cryptocurrencies} alt="" width="32" height="32" />
-                                )}
-                                content={localize(
-                                    'Trade with leverage on the price movement of popular crypto-fiat pairs.',
-                                )}
-                                title={localize('Cryptocurrencies')}
-                                onClick={handleArrowClick}
-                                to="/markets/cryptocurrencies/"
-                            />
-                        </Flex>
+                        {!is_uk_country && (
+                            <Flex mb="3.2rem">
+                                <NavCard
+                                    aria_label="Cryptocurrencies"
+                                    icon={() => (
+                                        <img src={Cryptocurrencies} alt="" width="32" height="32" />
+                                    )}
+                                    content={localize(
+                                        'Trade with leverage on the price movement of popular crypto-fiat pairs.',
+                                    )}
+                                    title={localize('Cryptocurrencies')}
+                                    onClick={handleArrowClick}
+                                    to="/markets/cryptocurrencies/"
+                                />
+                            </Flex>
+                        )}
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"
@@ -543,6 +548,12 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('API')}</span>
                         </StyledLink>
+                        <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={BugBounty} alt="" width="32" height="32" />
+                            </div>
+                            <span>{localize('Bug bounty')}</span>
+                        </StyledLink>
                     </AccordionItem>
                 </Accordion>
             </OffCanvasMenuContainer>
@@ -602,6 +613,12 @@ export const OffCanvasMenuPartner = (props) => {
                         <img src={API} alt="" width="32" height="32" />
                     </div>
                     <span>{localize('API')}</span>
+                </StyledLink>
+                <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
+                    <div>
+                        <img src={BugBounty} alt="" width="32" height="32" />
+                    </div>
+                    <span>{localize('Bug bounty')}</span>
                 </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

@@ -5,7 +5,7 @@ import Banner from './_banner.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
-import { SEO, UKEU, ROW } from 'components/containers'
+import { SEO, ROW, getCountryRule } from 'components/containers/visibility'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
 
@@ -43,25 +43,25 @@ const items = [
         image_alt: 'risk management trading',
     },
 ]
+
+const { is_eu_uk } = getCountryRule()
+
 const DerivGo = () => {
-    return (
-        <>
-            <ROW>
-                <Layout>
-                    <SEO title="Deriv Go | Deriv" />
-                    <Banner />
-                    <WhatIsDerivGo />
-                    <WhyTradeDerivGo />
-                    <DerivGoContent reverse P2P={items} />
-                    <StartDerivGo />
-                    <FooterBanner />
-                    <OtherApps />
-                </Layout>
-            </ROW>
-            <UKEU>
-                <PageNotFound />
-            </UKEU>
-        </>
+    return is_eu_uk ? (
+        <PageNotFound />
+    ) : (
+        <ROW>
+            <Layout>
+                <SEO title="Deriv Go | Deriv" />
+                <Banner />
+                <WhatIsDerivGo />
+                <WhyTradeDerivGo />
+                <DerivGoContent reverse P2P={items} />
+                <StartDerivGo />
+                <FooterBanner />
+                <OtherApps />
+            </Layout>
+        </ROW>
     )
 }
 

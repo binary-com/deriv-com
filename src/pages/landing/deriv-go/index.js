@@ -46,6 +46,9 @@ const items = [
 const DerivGo = () => {
     return (
         <>
+            <UKEU>
+                <PageNotFound />
+            </UKEU>
             <ROW>
                 <Layout>
                     <SEO title="Deriv Go | Deriv" />
@@ -58,9 +61,6 @@ const DerivGo = () => {
                     <OtherApps />
                 </Layout>
             </ROW>
-            <UKEU>
-                <PageNotFound />
-            </UKEU>
         </>
     )
 }

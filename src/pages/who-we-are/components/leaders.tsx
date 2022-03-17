@@ -6,6 +6,7 @@ import Modal from './modal'
 import { Flex } from 'components/containers'
 import { QueryImage, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 type MouseEvent = MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)
@@ -120,6 +121,7 @@ const StyledImageWrapper = styled(ImageWrapper)`
 
 const LeaderCard = ({ image, name, position, link }: LeaderType) => {
     const [is_popup_shown, setIsPopupShown] = useState(false)
+    const [is_mobile] = useBrowserResize()
 
     const showModal: MouseEvent = () => setIsPopupShown(true)
     const dontShowModal: MouseEvent = () => setIsPopupShown(false)
@@ -128,8 +130,8 @@ const LeaderCard = ({ image, name, position, link }: LeaderType) => {
         <StyledImageWrapper
             onMouseOver={showModal}
             onMouseLeave={dontShowModal}
-            width="120px"
-            height="120px"
+            width={is_mobile ? '98px' : '120px'}
+            height={is_mobile ? '98px' : '120px'}
             loading="lazy"
         >
             <QueryImage width="100%" height="100%" data={image} alt="leader" loading="lazy" />

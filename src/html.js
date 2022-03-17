@@ -14,7 +14,7 @@ export default function HTML(props) {
                 />
 
                 <Partytown
-                    forward={['dataLayer.push']}
+                    forward={['dataLayer.push', '__lc']}
                     resolveUrl={(url) => {
                         if (url.pathname.includes('debug/bootstrap')) {
                             var proxyUrl = new URL(

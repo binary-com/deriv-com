@@ -28,7 +28,6 @@ const StyledContentFlex = styled(Flex)`
     z-index: 1;
     @media ${device.mobileL} {
         width: 100%;
-        min-width: 360px;
         padding: 40px 16px;
     }
 `
@@ -38,7 +37,7 @@ const Line = styled.div`
     height: 1px;
     background-color: var(--color-grey-8);
     @media ${device.mobileL} {
-        width: 97.5px;
+        min-width: 97.5px;
     }
 `
 const InputGroup = styled.div`
@@ -57,7 +56,6 @@ const SignupButton = styled(Button)`
 `
 // style for confirm links
 const StyledLinkText = styled(LinkText)`
-    /* font-size: 14px; */
     @media ${device.mobileL} {
         font-size: 12px;
     }

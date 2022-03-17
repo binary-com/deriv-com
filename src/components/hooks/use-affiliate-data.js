@@ -20,8 +20,8 @@ export const useAffiliateData = () => {
                     binary_socket.onmessage = (msg) => {
                         const response = JSON.parse(msg.data)
                         if (!response.error) {
-                            const affiliate_data = response
-                            setAffiliateData(affiliate_data.get_settings)
+                            const affiliate_data_response = response
+                            setAffiliateData(affiliate_data_response.get_settings)
                         }
                         binary_socket.close()
                     }

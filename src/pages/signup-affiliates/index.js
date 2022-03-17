@@ -22,6 +22,9 @@ const StyledFlex = styled(Flex)`
         margin-top: 81px;
         order: 2;
     }
+    @media ${device.mobileS} {
+        margin-left: 8px;
+    }
 `
 const StyledDiv = styled.div`
     height: 100%;

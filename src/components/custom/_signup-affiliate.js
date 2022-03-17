@@ -18,19 +18,19 @@ const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
         margin: 0 auto;
         padding: 40px 16px 0;
-        min-width: 360px;
-        height: 392px;
+        min-height: 392px;
     }
 `
-const StyledNoteFlex = styled(Flex)`
-    min-width: 328px;
+const StyledNote = styled.div`
+    padding: 8px 0;
+    margin: 24px 0 16px;
     height: 36px;
     border-radius: 4px;
     background-color: rgba(248, 248, 249, 1);
 
-    @media ${device.mobileL} {
-        height: 34px;
-        padding: 8px 26px;
+    @media ${device.mobileS} {
+        height: 54px;
+        padding: 8px 7px;
     }
 `
 const InputGroup = styled.div`
@@ -51,6 +51,9 @@ const LoginText = styled(Header)`
     @media ${device.tabletL} {
         display: flex;
         justify-content: center;
+    }
+    @media ${device.mobileS} {
+        font-size: 10px;
     }
 `
 const StyledLinkText = styled(LinkText)`
@@ -84,8 +87,15 @@ const SignupAffiliate = ({
                 {localize('Enter your email address to begin')}
             </Header>
             {!is_ppc && (
-                <StyledNoteFlex fd="row" p="8px 14px" mt="24px" mb="16px">
-                    <Header as="p" type="paragraph-2" weight="normal" notedBox color="grey-5">
+                <StyledNote>
+                    <Header
+                        as="p"
+                        type="paragraph-2"
+                        weight="normal"
+                        align="center"
+                        notedBox
+                        color="grey-5"
+                    >
                         {localize('Want to sign up as a trader?')}
                         <LocalizedLinkText to="/signup">
                             <StyledLinkText id="dm-new-login-button" size="14px" color="grey-5">
@@ -94,7 +104,7 @@ const SignupAffiliate = ({
                             </StyledLinkText>
                         </LocalizedLinkText>
                     </Header>
-                </StyledNoteFlex>
+                </StyledNote>
             )}
             <InputGroup>
                 <Input
@@ -131,7 +141,7 @@ const SignupAffiliate = ({
                 <div>{localize('Already have a Deriv or Binary.com affiliate account?')}</div>
                 <StyledLinkText
                     id="dm-new-login-button"
-                    size="14px"
+                    size="1.4rem"
                     color="red"
                     ml="3px"
                     onClick={handleLogin}

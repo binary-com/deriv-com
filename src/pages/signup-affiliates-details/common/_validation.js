@@ -1,16 +1,16 @@
 import React from 'react'
-import { affiliate_validation_regex } from 'common/constants'
 import { localize, Localize } from 'components/localization'
+
+export const affiliate_validation_regex = {
+    alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
+    user_name: /^\w+$/,
+    phone: /^\+?((-|\s)*\d)*$/,
+    password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
+}
 
 const validation_is_exceed_number = (input, maxDigit) => {
     const max_digit = maxDigit || 15
-    if (input.includes('.') && input.length > max_digit + 1) {
-        return false
-    }
-    if (!input.includes('.') && input.length > max_digit) {
-        return false
-    }
-    return true
+    return !(input.includes('.') && input.length > max_digit + 1)
 }
 
 const validation_is_lack_number = (input, minDigit) => input.length + 1 > minDigit

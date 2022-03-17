@@ -10,13 +10,6 @@ export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
 export const affiliate_app_id = 30971
 
-export const affiliate_validation_regex = {
-    alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
-    user_name: /^[a-zA-Z0-9_]+$/,
-    phone: /^\+?((-|\s)*[0-9])*$/,
-    password: /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]*$/,
-}
-
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
     [deriv_me_url]: deriv_me_url,

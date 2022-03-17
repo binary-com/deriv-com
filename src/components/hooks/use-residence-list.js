@@ -17,13 +17,13 @@ export const useResidenceList = () => {
                 const response = JSON.parse(msg.data)
 
                 if (!response.error) {
-                    const residence_list = response.residence_list.map((el) => {
+                    const residence_list_response = response.residence_list.map((el) => {
                         const country = {}
                         country.name = el.text
                         country.display_name = el.text
                         return country
                     })
-                    setResidenceList(residence_list)
+                    setResidenceList(residence_list_response)
                 }
 
                 binary_socket.close()

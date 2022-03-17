@@ -277,8 +277,16 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 
 const TradeTypes = (): React.ReactNode => {
     const { is_row, is_eu, is_uk } = getCountryRule()
-    const items_details_by_region =
-        (is_row && items_details_cr) || (is_eu && items_details_eu) || (is_uk && items_details_uk)
+
+    const items_details_by_region = () => {
+        if (is_eu) {
+            return items_details_eu
+        } else if (is_uk) {
+            items_details_uk
+        }
+        return items_details_cr
+    }
+
     const [is_not_big_screen] = useBrowserResize(1979)
     const settings = {
         options: {
@@ -326,7 +334,7 @@ const TradeTypes = (): React.ReactNode => {
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {items_details_by_region.map((item) => {
+                        {items_details_by_region().map((item) => {
                             return (
                                 <Flex key={item.image_url} ai="flex-start">
                                     <TradeItems items_details={item} />
@@ -338,7 +346,7 @@ const TradeTypes = (): React.ReactNode => {
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {items_details_by_region.map((item) => {
+                    {items_details_by_region().map((item) => {
                         return (
                             <Flex key={item.link} ai="flex-start">
                                 <TradeItems items_details={item} />

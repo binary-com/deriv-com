@@ -161,7 +161,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
 //         <Card
 //             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
 //             content={[
-//                 localize('Trade CFDs on a customisable, easy-to-use trading platform.'),
+//                 localize('A highly customisable and easy-to-use CFD trading platform'),
 //             ]}
 //             cover_background="var(--color-black)"
 //             cover_content={localize('Discover Deriv X now')}
@@ -330,7 +330,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             aria_label="Derivx"
                             icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
+                                <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
                             }
                             title={<Localize translate_text="Deriv X" />}
                             onClick={onClick}

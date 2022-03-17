@@ -57,7 +57,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />
+                    <Localize translate_text="Start trading basket indices on Deriv in 3 simple steps" />
                 }
                 content={simple_step_content}
                 sign_up

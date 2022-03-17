@@ -71,7 +71,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch {}
+            } catch { }
 
             sendTags(api)
         },
@@ -144,6 +144,15 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 }
 
+export const onServiceWorkerUpdateReady = () => {
+    const answer = window.confirm(
+        `This application has been updated. ` +
+        `Reload to display the latest version?`
+    )
+
+    if (answer === true) window.location.reload()
+}
+
 export const onRouteUpdate = () => {
     checkDomain()
 
@@ -168,6 +177,10 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
+
+    navigator.serviceWorker.register('/sw.js').then((reg) => {
+        reg.update();
+    });
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

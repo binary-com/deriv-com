@@ -1,5 +1,5 @@
 import React from 'react'
-import PageNotFound from '../../404'
+import PageNotFound from '../404'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
 import Banner from './_banner.js'
 import OtherApps from './_other-apps'

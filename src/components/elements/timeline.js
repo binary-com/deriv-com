@@ -58,7 +58,7 @@ const StyledItem = styled.div`
     padding-bottom: ${(props) => props.pb};
 
     @media ${device.mobileL} {
-        padding-bottom: ${(props) => props.pbMobile};
+        padding-bottom: ${(props) => props.pb_mobile};
     }
 `
 const Oval = () => {
@@ -73,11 +73,11 @@ Oval.propTypes = {
     children: PropTypes.number,
 }
 
-const Timeline = ({ paddingBottom, children, ...props }) => {
+const Timeline = ({ padding_bottom, children, ...props }) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
-                <FlexWrapper key={idx} is_border={children.length !== idx + 1} pb={paddingBottom}>
+                <FlexWrapper key={idx} is_border={children.length !== idx + 1} pb={padding_bottom}>
                     <Oval></Oval>
                     <ContentWrapper>
                         <div>{child}</div>
@@ -113,7 +113,7 @@ TimelineTick.Item = Item
 
 Timeline.propTypes = {
     children: PropTypes.node,
-    paddingBottom: PropTypes.string,
+    padding_bottom: PropTypes.string,
     props: PropTypes.any,
 }
 

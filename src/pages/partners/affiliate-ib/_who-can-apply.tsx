@@ -269,8 +269,8 @@ const WhoCanApply = () => {
                         <SecondaryHeader as="h2" mb="40px" size="3.2rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
-                        <Timeline paddingBottom="0rem">
-                            <Timeline.Item pb="4rem" pbMobile="2rem">
+                        <Timeline padding_bottom="0rem">
+                            <Timeline.Item pb="4rem" pb_mobile="2rem">
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
                                         <ApplyImageWrapper src={Apply} alt="" />
@@ -287,7 +287,7 @@ const WhoCanApply = () => {
                                     </GetStartedContent>
                                 </HowToApplyContent>
                             </Timeline.Item>
-                            <Timeline.Item pb="4rem" pbMobile="2rem">
+                            <Timeline.Item pb="4rem" pb_mobile="2rem">
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
                                         <ImageWrapper src={Advertise} alt="" />
@@ -304,7 +304,7 @@ const WhoCanApply = () => {
                                     </GetStartedContent>
                                 </HowToApplyContent>
                             </Timeline.Item>
-                            <Timeline.Item pb="4rem" pbMobile="0rem">
+                            <Timeline.Item pb="4rem" pb_mobile="0rem">
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
                                         <ImageWrapper src={Earn} alt="" />

@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import AvailablePlatforms from '../helper/_available-platforms'
 import AvailableOptions from '../helper/_available-options'
@@ -11,8 +12,15 @@ import {
 } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
 import { SectionContainer, Show } from 'components/containers'
-import { Text } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
+
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
 
 const DigitalOptions = ({ market_name, options_list }) => (
     <SectionContainer padding="4rem 0 8rem">
@@ -47,9 +55,9 @@ const DigitalOptions = ({ market_name, options_list }) => (
                     ))}
                 </Show.Eu>
             </Descriptions>
-            <Text weight="bold" mt="4.0rem">
+            <StyledHeader as="h3" type="sub-section-title" mt="4rem">
                 {localize('Instruments available for options trading')}
-            </Text>
+            </StyledHeader>
             <MarketInstruments market_content={options_list.market_instruments} />
         </ContentWrapper>
     </SectionContainer>

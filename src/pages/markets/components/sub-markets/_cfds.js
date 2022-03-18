@@ -17,7 +17,9 @@ const StyledSection = styled(SectionContainer)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: 16px;
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
 `
 
 const CFDs = ({ market_content, market_tab_name }) => {
@@ -47,7 +49,7 @@ const CFDs = ({ market_content, market_tab_name }) => {
                         <AvailablePlatforms dmt5 derivx />
                     )}
                 </Descriptions>
-                <StyledHeader as="h3" mt="4rem">
+                <StyledHeader as="h3" type="sub-section-title" mt="4rem">
                     {localize('Instruments available for CFD trading')}
                 </StyledHeader>
                 <MarketInstruments market_content={market_content} />

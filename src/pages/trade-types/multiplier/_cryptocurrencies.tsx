@@ -4,10 +4,16 @@ import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { NonUK } from 'components/containers/visibility'
-import { Text } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
@@ -111,9 +117,9 @@ const Cryptocurrencies = () => {
                     <AvailablePlatformsWrapper mb="40px">
                         <AvailablePlatforms dtrader />
                     </AvailablePlatformsWrapper>
-                    <Text weight="bold">
+                    <StyledHeader as="h3" type="sub-section-title" mt="4rem">
                         {localize('Instruments available for multipliers trading')}
-                    </Text>
+                    </StyledHeader>
 
                     <MarketsWrapper direction="column">
                         <MarketsAccordion

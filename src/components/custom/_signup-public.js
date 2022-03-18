@@ -406,7 +406,7 @@ const SignupPublic = ({
                         <BackgroundWrapper direction="row" ai="center">
                             <QueryImage
                                 data={data['deriv_platform']}
-                                alt="DTrader platform black theme"
+                                alt="forex trading on mobile"
                                 width="225px"
                             />
                             <LinkFlex

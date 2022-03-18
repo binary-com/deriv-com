@@ -1,4 +1,4 @@
-/* Partytown 0.3.5 - MIT builder.io */
+/* Partytown 0.5.0 - MIT builder.io */
 !function(win, doc, nav, top, useAtomics, config, libPath, timeout, scripts, sandbox, mainForwardFn, isReady) {
     function ready() {
         if (!isReady) {
@@ -10,10 +10,10 @@
                     top.dispatchEvent(new CustomEvent("pt1", {
                         detail: win
                     }));
-                } else if (scripts.length) {
+                } else {
                     timeout = setTimeout(fallback, 1e4);
                     doc.addEventListener("pt0", clearFallback);
-                    useAtomics ? loadSandbox(1) : nav.serviceWorker ? nav.serviceWorker.register(libPath + "partytown-sw.js", {
+                    useAtomics ? loadSandbox(1) : nav.serviceWorker ? nav.serviceWorker.register(libPath + (config.swPath || "partytown-sw.js"), {
                         scope: libPath
                     }).then((function(swRegistration) {
                         if (swRegistration.active) {
@@ -26,8 +26,6 @@
                             console.warn(swRegistration);
                         }
                     }), console.error) : fallback();
-                } else {
-                    0 === scripts.length && console.debug("No Partytown scripts found");
                 }
             } else {
                 console.warn('Partytown config.lib url must start with "/"');
@@ -40,7 +38,7 @@
             sandbox.setAttribute("style", "display:block;width:0;height:0;border:0;visibility:hidden");
             sandbox.setAttribute("aria-hidden", !0);
         }
-        sandbox.src = libPath + "partytown-" + (isAtomics ? "atomics.js" : "sandbox-sw.html?" + Date.now());
+        sandbox.src = libPath + "partytown-" + (isAtomics ? "atomics.js?v=0.5.0" : "sandbox-sw.html?" + Date.now());
         doc.body.appendChild(sandbox);
     }
     function fallback(i, script) {
@@ -71,4 +69,4 @@
         win.addEventListener("DOMContentLoaded", ready);
         win.addEventListener("load", ready);
     }
-}(window, document, navigator, top, top.crossOriginIsolated);
+}(window, document, navigator, top, window.crossOriginIsolated);

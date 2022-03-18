@@ -17,9 +17,7 @@ const StyledSection = styled(SectionContainer)`
 `
 
 const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
+    font-size: 16px;
 `
 
 const CFDs = ({ market_content, market_tab_name }) => {

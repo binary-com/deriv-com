@@ -14,12 +14,9 @@ import MarketInstruments from '../sections/_market_instruments'
 import { SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
+    font-size: 16px;
 `
 
 const DigitalOptions = ({ market_name, options_list }) => (
@@ -31,12 +28,12 @@ const DigitalOptions = ({ market_name, options_list }) => (
                 </StyledText>
                 <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
             </Descriptions>
-            <StyledText font_size="16px" weight="bold" mt="4.0rem">
+            <StyledHeader font_size="16px" weight="bold" mt="4.0rem">
                 <Localize
                     translate_text="Option trades available on {{market_name}}"
                     values={{ market_name }}
                 />
-            </StyledText>
+            </StyledHeader>
             <Descriptions margin_top="24px">
                 {options_list.options.map((option, index) => (
                     <OptionsRow wrap={option[0].wrap} key={index} is_first_child={!index}>

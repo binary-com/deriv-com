@@ -10,9 +10,7 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
+    font-size: 16px;
 `
 
 const StyledText = styled(Text)`

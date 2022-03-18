@@ -7,12 +7,9 @@ import MarketInstruments from '../sections/_market_instruments'
 import { SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
+    font-size: 16px;
 `
 
 const Multipliers = ({ market_content, is_crypto }) => (

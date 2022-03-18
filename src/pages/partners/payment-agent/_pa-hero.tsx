@@ -8,7 +8,6 @@ import device from 'themes/device'
 
 const MainHeader = styled(Header)`
     max-width: 99.6rem;
-    margin-bottom: 1.6rem;
 
     @media ${device.mobileM} {
         font-size: 5rem;
@@ -26,13 +25,7 @@ const PAHero = () => {
             <MainHeader as="h1" type="main-landing-title" color="white" align="center" lh="1.25">
                 {localize('Become a payment agent on Deriv')}
             </MainHeader>
-            <MiddleHeader
-                as="h4"
-                type="sub-section-title"
-                color="white"
-                align="center"
-                weight="normal"
-            >
+            <MiddleHeader as="h4" type="subtitle-1" color="white" align="center" weight="normal">
                 {localize(
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}

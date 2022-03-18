@@ -28,9 +28,7 @@ const StyledSection = styled(Container)`
     }
 `
 
-const SectionWrapper = styled(SectionContainer)`
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-`
+const SectionWrapper = styled(SectionContainer)``
 
 const StyledSectionWrapper = styled(SectionWrapper)`
     @media ${device.tabletL} {

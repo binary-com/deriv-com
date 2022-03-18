@@ -25,7 +25,7 @@ import device from 'themes/device'
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
-        margin-top: 3.2rem;
+        margin-top: 40px;
         text-align: left;
     }
 `
@@ -62,7 +62,7 @@ const WhoCanApplyWrapper = styled(Col)`
 const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
-    padding-left: 1.8rem;
+    padding-left: 1.6rem;
 `
 
 const Li = styled.li`
@@ -119,7 +119,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
 }
 const WhoCanApply = () => {
     return (
-        <SectionWrapper padding="8rem 0">
+        <SectionWrapper padding="0">
             <StyledSection>
                 <Flex>
                     <WhoCanApplyWrapper>
@@ -240,7 +240,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding="3.4rem 0 0">
+            <ButtonWrapper padding="0 0 4rem 0">
                 <LinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary

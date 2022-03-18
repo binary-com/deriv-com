@@ -38,7 +38,7 @@ const TapInto = () => {
         <SectionContainer>
             <WrapContainer justify="center">
                 <Flex direction="column" mr="2.4rem" max_width="48.6rem">
-                    <Header as="h3" type="page-title" mb="1.6rem">
+                    <Header as="h3" type="heading-2" mb="1.6rem">
                         {localize('Tap into an established and growing market')}
                     </Header>
                     <Header as="h4" type="subtitle-2" weight="normal">

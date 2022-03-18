@@ -15,10 +15,7 @@ const StyledSection = styled(SectionContainer)`
     border-radius: 10px;
     max-width: 1200px;
     padding-bottom: 80px;
-    margin-top: 100px;
-    @media (max-width: 1230px) {
-        padding: 0 24px 80px;
-    }
+
     @media ${device.tabletL} {
         width: 90%;
         padding-bottom: 40px;
@@ -42,8 +39,8 @@ const MainWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         background-size: 280px 189px, cover;
-        height: 538px;
-        width: 310px;
+        height: 536px;
+        width: 328px;
         max-width: 378px;
         background-position: bottom -1px center;
         margin-bottom: 8px;
@@ -88,7 +85,7 @@ const StyledHeader = styled(Header)`
 const Subtitle = styled(Header)`
     @media (max-width: 1100px) {
         margin-bottom: 24px;
-        padding: 0 20px 0 8px;
+        padding: 0 25px 0 8px;
     }
 `
 const BannerText = styled(Header)`

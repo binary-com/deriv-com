@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import AvailablePlatforms from '../helper/_available-platforms.js'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments.js'
+import { Header } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -13,6 +14,10 @@ const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 24px 0 40px;
     }
+`
+
+const StyledHeader = styled(Header)`
+    font-size: 16px;
 `
 
 const CFDs = ({ market_content, market_tab_name }) => {
@@ -42,9 +47,9 @@ const CFDs = ({ market_content, market_tab_name }) => {
                         <AvailablePlatforms dmt5 derivx />
                     )}
                 </Descriptions>
-                <StyledText font_size={'16px'} weight="bold" mt="4rem">
+                <StyledHeader as="h3" mt="4rem">
                     {localize('Instruments available for CFD trading')}
-                </StyledText>
+                </StyledHeader>
                 <MarketInstruments market_content={market_content} />
             </ContentWrapper>
         </StyledSection>

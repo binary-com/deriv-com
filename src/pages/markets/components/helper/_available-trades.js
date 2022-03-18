@@ -202,7 +202,7 @@ class AvailableTrades extends React.Component {
         const { CFDs, DigitalOptions, Multipliers, display_title } = this.props
         return (
             <StyledSection>
-                <StyledHeader size="var(--text-size-header-1)" align="center">
+                <StyledHeader as="h2" size="var(--text-size-header-1)" align="center">
                     {display_title}
                 </StyledHeader>
                 <StyledContainer direction="column">

@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -76,19 +76,19 @@ const PlatformSlideshow = () => {
             { key: 'hero4', image: data.hero_platform4 },
         ]) ||
         (is_eu && [
-            { key: 'hero1', image: data.hero_platform1_eu },
-            { key: 'hero2', image: data.hero_platform2_eu },
+            { key: 'hero5', image: data.hero_platform1_eu },
+            { key: 'hero6', image: data.hero_platform2_eu },
         ]) ||
         (is_uk && [
-            { key: 'hero1', image: data.hero_platform1_uk },
-            { key: 'hero2', image: data.hero_platform2_uk },
+            { key: 'hero7', image: data.hero_platform1_uk },
+            { key: 'hero8', image: data.hero_platform2_uk },
         ])
 
     const setNextImage = useCallback(() => {
         setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
     }, [slide_images])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const slideshow_timer = setInterval(() => {
             setNextImage()
         }, 5000)

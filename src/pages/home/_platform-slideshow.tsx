@@ -1,11 +1,19 @@
 import React, { useCallback, useState, useEffect } from 'react'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
-import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 import { getCountryRule } from 'components/containers/visibility'
+
+const ImagePlaceHolder = styled.div`
+    width: 690px;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
 
 const query = graphql`
     query {
@@ -106,7 +114,7 @@ const PlatformSlideshow = () => {
             <Slides images={slide_images} active_index={active_index} />
         </Flex>
     ) : (
-        <></>
+        <ImagePlaceHolder />
     )
 }
 

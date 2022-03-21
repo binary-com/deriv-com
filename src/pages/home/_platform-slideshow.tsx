@@ -11,7 +11,8 @@ const ImagePlaceHolder = styled.div`
     width: 690px;
 
     @media ${device.tabletL} {
-        display: none;
+        width: 100%;
+        height: 360px;
     }
 `
 

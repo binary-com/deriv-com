@@ -68,7 +68,7 @@ const PlatformSlideshow = () => {
     const data = useStaticQuery(query)
     const { is_eu, is_uk } = getCountryRule()
 
-    const slide_images = useCallback(() => {
+    const slide_images = () => {
         if (is_eu) {
             return [
                 { key: 'hero1_eu', image: data.hero_platform1_eu },
@@ -87,14 +87,13 @@ const PlatformSlideshow = () => {
             { key: 'hero3', image: data.hero_platform3 },
             { key: 'hero4', image: data.hero_platform4 },
         ]
-    }, [is_eu, is_uk])
+    }
+
+    const setNextImage = useCallback(() => {
+        setActiveIndex((prevIndex) => (prevIndex >= slide_images().length - 1 ? 0 : prevIndex + 1))
+    }, [slide_images, is_eu, is_uk])
 
     useEffect(() => {
-        const setNextImage = useCallback(() => {
-            setActiveIndex((prevIndex) =>
-                prevIndex >= slide_images().length - 1 ? 0 : prevIndex + 1,
-            )
-        }, [slide_images])
         const slideshow_timer = setInterval(() => {
             setNextImage()
         }, 5000)

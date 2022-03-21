@@ -24,7 +24,7 @@ export const HeaderContainer = styled(Container)`
     align-items: flex-start;
 
     @media ${device.desktop} {
-        padding: 40px 0 0 0;
+        padding: 40px 0 0 20px;
     }
 `
 

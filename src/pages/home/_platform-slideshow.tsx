@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState, useEffect } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -93,7 +93,7 @@ const PlatformSlideshow = () => {
         setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
     }, [slide_images])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const slideshow_timer = setInterval(() => {
             setNextImage()
         }, 5000)

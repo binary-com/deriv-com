@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PageNotFound from '../../404'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
 import Banner from './_banner.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
-import { SEO, UKEU, ROW } from 'components/containers'
+import { SEO } from 'components/containers'
+import { getCountryRule } from 'components/containers/visibility'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
 
@@ -44,9 +45,16 @@ const items = [
     },
 ]
 const DerivGo = () => {
-    return (
-        <>
-            <ROW>
+    const { is_row } = getCountryRule()
+    const [is_loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        setLoaded(true)
+    }, [getCountryRule])
+
+    if (is_loaded) {
+        if (is_row) {
+            return (
                 <Layout>
                     <SEO title="Deriv Go | Deriv" />
                     <Banner />
@@ -57,12 +65,13 @@ const DerivGo = () => {
                     <FooterBanner />
                     <OtherApps />
                 </Layout>
-            </ROW>
-            <UKEU>
-                <PageNotFound />
-            </UKEU>
-        </>
-    )
+            )
+        }
+
+        return <PageNotFound />
+    }
+
+    return <></>
 }
 
 export default WithIntl()(DerivGo)

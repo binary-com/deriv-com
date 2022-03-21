@@ -63,7 +63,7 @@ const StyledContainer = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
-    margin: 15.4rem 0 1.2rem;
+    margin: 13.4rem 0 1.2rem;
     font-size: 48px;
     @media ${device.tabletL} {
         font-size: 24px;
@@ -170,13 +170,13 @@ const InterestFreeTrading = () => {
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
-                    <Localize translate_text="Access markets with swap-free trading" />
+                    <Localize translate_text="Trade on the world markets without commission" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="Enjoy interest-free trading with no swap charges on overnight positions for forex, basket indices, stocks and stock indices, commodities, cryptocurrencies, and synthetic indices." />
+                    <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
                 </StyledRightText>
                 <StyledLinkButton secondary="true" type="mt5" external="true" target="_blank">
-                    <Localize translate_text="Choose swap-free trading now" />
+                    <Localize translate_text="Trade without commission" />
                 </StyledLinkButton>
             </StyledFlex>
         </StyledContainer>

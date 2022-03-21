@@ -90,10 +90,10 @@ export const getCountryRule = () => {
     const is_uk = is_uk_residence || (!residence && is_uk_country) || is_uk_domain
     const is_non_uk = !is_uk
     const is_non_eu = !is_eu
-    const is_eu_uk = !(!is_eu && !is_uk)
-    const is_row = !is_eu_uk
+    const is_uk_eu = !(!is_eu && !is_uk)
+    const is_row = !is_uk_eu
 
-    return { is_eu, is_uk, is_non_uk, is_non_eu, is_eu_uk, is_row }
+    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row }
 }
 
 export const Desktop = ({

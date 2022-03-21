@@ -8,13 +8,14 @@ import SellingPoints from './_selling-points'
 import WhyTradeDerivX from './_why-trade-derivx'
 import StartDerivX from './_start-derivx'
 import Accounts from './_accounts'
-import { SEO, UKEU, ROW } from 'components/containers'
+import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, Localize, localize } from 'components/localization'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDerivX from 'images/svg/deriv-x/derivx-footer.svg'
 import BackgroundPatternDerivXMobile from 'images/svg/deriv-x/derivx-footer-mobile.svg'
+import { getCountryRule } from 'components/containers/visibility'
 
 const query = graphql`
     query {
@@ -30,6 +31,13 @@ const DerivX = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }, [setMobile])
 
+    const { is_row } = getCountryRule()
+    const [is_loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        setLoaded(true)
+    }, [getCountryRule])
+
     useEffect(() => {
         handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
@@ -39,9 +47,9 @@ const DerivX = () => {
         }
     }, [handleResizeWindow])
 
-    return (
-        <>
-            <ROW>
+    if (is_loaded) {
+        if (is_row) {
+            return (
                 <Layout>
                     <SEO
                         title={localize(
@@ -72,12 +80,13 @@ const DerivX = () => {
                         )}
                     />
                 </Layout>
-            </ROW>
-            <UKEU>
-                <PageNotFound />
-            </UKEU>
-        </>
-    )
+            )
+        }
+
+        return <PageNotFound />
+    }
+
+    return <></>
 }
 
 export default WithIntl()(DerivX)

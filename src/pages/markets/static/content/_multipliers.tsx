@@ -11,12 +11,7 @@ import {
     MajorPairs,
     StepIndices,
     VolatilityIndicesEU,
-<<<<<<< HEAD:src/pages/markets/static/content/_multipliers.tsx
 } from '../../instruments/_submarkets'
-=======
-    SmartFX,
-} from '../../instruments/_index'
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/static/content/_multipliers.js
 import {
     BasketFXDetails,
     BasketCommoditiesDetails,

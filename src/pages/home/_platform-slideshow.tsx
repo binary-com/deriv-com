@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { Suspense, useCallback, useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -102,9 +102,15 @@ const PlatformSlideshow = () => {
     }, [slide_images])
 
     return (
-        <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
-            <Slides images={slide_images()} active_index={active_index} />
-        </Flex>
+        <Suspense fallback={''}>
+            <Flex
+                max_width="690px"
+                max_height="626px"
+                tablet={{ max_height: '360px', ai: 'center' }}
+            >
+                <Slides images={slide_images()} active_index={active_index} />
+            </Flex>
+        </Suspense>
     )
 }
 

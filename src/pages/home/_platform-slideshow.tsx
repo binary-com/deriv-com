@@ -89,13 +89,11 @@ const PlatformSlideshow = () => {
         ]
     }
 
-    const setNextImage = useCallback(() => {
-        setActiveIndex((prevIndex) => (prevIndex >= slide_images().length - 1 ? 0 : prevIndex + 1))
-    }, [slide_images])
-
     useEffect(() => {
         const slideshow_timer = setInterval(() => {
-            setNextImage()
+            setActiveIndex((prevIndex) =>
+                prevIndex >= slide_images().length - 1 ? 0 : prevIndex + 1,
+            )
         }, 5000)
 
         return () => clearInterval(slideshow_timer)

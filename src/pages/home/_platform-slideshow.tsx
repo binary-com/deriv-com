@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react'
+import React, { useCallback, useLayoutEffect, useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -65,8 +65,13 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
+    const [is_be_loaded, setBeLoaded] = useState(false)
     const data = useStaticQuery(query)
     const { is_row, is_eu, is_uk } = getCountryRule()
+
+    useEffect(() => {
+        setBeLoaded(true)
+    }, [is_row, is_eu, is_uk])
 
     const slide_images =
         (is_row && [
@@ -96,10 +101,12 @@ const PlatformSlideshow = () => {
         return () => clearInterval(slideshow_timer)
     }, [slide_images])
 
-    return (
+    return is_be_loaded ? (
         <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
             <Slides images={slide_images} active_index={active_index} />
         </Flex>
+    ) : (
+        <></>
     )
 }
 

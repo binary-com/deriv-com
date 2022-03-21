@@ -37,6 +37,10 @@ const SelectedSlide = ({ selected_slide }: SelectedSlideProps) => {
     )
 }
 
+const SelectedSlideDiv = styled(Flex)`
+    box-shadow: rgba(131, 131, 131, 0.15) 0 16px 20px, rgba(131, 131, 131, 0.15) 0 0 20px;
+`
+
 const Shadow = styled.div<{ location: 'start' | 'end' }>`
     position: absolute;
     left: 0;
@@ -102,7 +106,11 @@ type PlatformSliderProps = {
     platform_details: TPlatformDetails[]
 }
 
-const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
+export const PlatformSliderCarousel = ({
+    slide_index,
+    onSelectSlide,
+    platform_details,
+}: PlatformSliderProps) => {
     const [viewportRef, embla] = useEmblaCarousel({
         startIndex: getSlideStartingIndex(),
         loop: getSlideStartingIndex() > 2 ? true : false,
@@ -155,4 +163,58 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
     )
 }
 
-export default PlatformSlider
+export const PlatformSliderDiv = ({
+    slide_index,
+    onSelectSlide,
+    platform_details,
+}: PlatformSliderProps) => {
+    const clickHandler = (index) => {
+        onSelectSlide(index)
+    }
+
+    return (
+        <Box
+            width="fit-content"
+            height="640px"
+            background="rgba(249, 251, 255, 1)"
+            p="0 20px"
+            m="0 auto"
+        >
+            <StyledFlex position="relative" m="0 auto" jc="unset">
+                <Flex ai="center" jc="center" fd="column">
+                    {platform_details.map((item, index) => {
+                        return index == slide_index ? (
+                            <SelectedSlideDiv
+                                key={item.learn_more_link}
+                                onClick={() => clickHandler(index)}
+                                height="152px"
+                                background="white"
+                                p="16px"
+                            >
+                                <ImageTag src={item.icon} alt={item.title} />
+                                <Flex fd="column" jc="start" ml="8px">
+                                    <PlatformContent
+                                        title={item.title}
+                                        description={item.description}
+                                        learn_more_link={item.learn_more_link}
+                                        is_from_slider
+                                    />
+                                </Flex>
+                            </SelectedSlideDiv>
+                        ) : (
+                            <Flex
+                                height="152px"
+                                p="16px"
+                                onClick={() => clickHandler(index)}
+                                key={item.learn_more_link}
+                            >
+                                <ImageTag src={item.icon} />
+                                <Header type="subtitle-1">{item.title}</Header>
+                            </Flex>
+                        )
+                    })}
+                </Flex>
+            </StyledFlex>
+        </Box>
+    )
+}

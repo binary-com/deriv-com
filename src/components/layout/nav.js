@@ -655,6 +655,7 @@ export const Nav = ({
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
+        handleTransparentNavScroll()
         window.addEventListener('scroll', handleTransparentNavScroll, { passive: true })
 
         let checkCookieChange = setInterval(() => {

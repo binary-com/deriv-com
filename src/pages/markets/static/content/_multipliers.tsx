@@ -11,12 +11,7 @@ import {
     MajorPairs,
     StepIndices,
     VolatilityIndicesEU,
-<<<<<<< HEAD:src/pages/markets/static/content/_multipliers.tsx
 } from '../../instruments/_submarkets'
-=======
-    SmartFX,
-} from '../../instruments/_index'
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/static/content/_multipliers.js
 import {
     BasketFXDetails,
     BasketCommoditiesDetails,
@@ -46,6 +41,21 @@ export type ForexAndBasketMultiplier = {
     content: Option[]
     template?: number
 }
+
+export const forex_multiplier_eu = {
+    markets_list: {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 2,
+    },
+    content: [
+        {
+            title: <Localize translate_text="Major pairs" />,
+            component: <MajorPairs />,
+        },
+    ],
+}
+
 export type SyntheticMultiplier = {
     has_global_accordion: boolean
     markets_list: {

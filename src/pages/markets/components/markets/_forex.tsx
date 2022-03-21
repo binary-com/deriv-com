@@ -4,12 +4,13 @@ import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { forex_content, forex_content_eu } from '../../static/content/_forex'
 import { forex_cfds } from '../../static/content/_cfds'
-import { forex_multiplier } from '../../static/content/_multipliers'
+import { forex_multiplier, forex_multiplier_eu } from '../../static/content/_multipliers'
 import { forex_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
+import { getCountryRule } from 'components/containers/visibility'
 import { Localize, localize } from 'components/localization'
 import { DerivStore } from 'store'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
@@ -21,7 +22,8 @@ type ForexProps = {
     simple_step_content: SimpleStepsContent[]
 }
 const Forex = ({ simple_step_content }: ForexProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    // const { is_eu_country } = React.useContext(DerivStore)
+    const { is_row, is_uk_eu } = getCountryRule()
     return (
         <>
             <WhyTrade
@@ -30,20 +32,27 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-                {(!is_eu_country ? forex_content : forex_content_eu).map((content, index) => (
-                    <StyledBox
-                        key={index}
-                        text={content.text}
-                        icon={<img src={content.src} alt="" />}
-                    />
-                ))}
+            {(is_uk_eu ? forex_content_eu : forex_content).map((content, index) => (
+                <StyledBox key={index} text={content.text} icon={<img src={content.src} alt="" />} />
+            ))}
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_content={forex_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions market_name={localize('forex')} options_list={forex_options} />
+                    is_row && (
+                        <DigitalOptions
+                            market_name={localize('forex')}
+                            options_list={forex_options}
+                        />
+                    )
                 }
-                Multipliers={<Multipliers market_content={forex_multiplier} />}
+                
+                Multipliers={
+                    <Multipliers
+                        market_content={is_uk_eu ? forex_multiplier_eu : forex_multiplier}
+                    />
+                }
+                // name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
             <SimpleSteps

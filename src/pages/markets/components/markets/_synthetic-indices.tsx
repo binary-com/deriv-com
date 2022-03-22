@@ -52,6 +52,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 }
                 Multipliers={
                     <Multipliers
+                        is_crypto
                         market_content={
                             is_eu_country ? synthetic_multiplier_eu : synthetic_multiplier
                         }

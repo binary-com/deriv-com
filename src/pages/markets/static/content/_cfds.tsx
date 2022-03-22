@@ -83,6 +83,7 @@ export const forex_cfds: MarketInstrumentsElement = {
 
 export const synthetic_cfds: MarketInstrumentsElement = {
     has_global_accordion: true,
+    // template: 2,
     markets_list: {
         col: 3,
         tablet_col: 3,

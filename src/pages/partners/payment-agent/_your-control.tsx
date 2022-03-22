@@ -42,7 +42,7 @@ const Card = styled(Flex)`
 const CardText = styled(Text)`
     margin-left: 16px;
     @media ${device.laptopM} {
-        font-size: 16px;
+        font-size: 14px;
     }
     @media ${device.tabletL} {
         width: 100%;

@@ -33,7 +33,7 @@ const HowToApply = styled(Col)`
     max-width: 48.6rem;
 
     @media ${device.laptop} {
-        padding-left: 1.6rem;
+        padding-left: 16px;
     }
 `
 const HowToApplyContent = styled.div`
@@ -42,7 +42,7 @@ const HowToApplyContent = styled.div`
 `
 
 const ImageWrapper = styled.img`
-    margin-right: 1.6rem;
+    margin: 0 16px;
     width: 48px;
     height: 48px;
 
@@ -62,7 +62,7 @@ const WhoCanApplyWrapper = styled(Col)`
 const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
-    padding-left: 1.6rem;
+    padding-left: 16px;
 `
 
 const Li = styled.li`
@@ -240,7 +240,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding="0 0 4rem 0">
+            <ButtonWrapper padding="0 0 40px 0">
                 <LinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary

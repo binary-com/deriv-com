@@ -14,7 +14,7 @@ const StyledSection = styled(SectionContainer)`
     margin: 0 auto;
     border-radius: 10px;
     max-width: 1200px;
-    padding-bottom: 80px;
+    padding: 0 0 80px 0;
 
     @media ${device.tabletL} {
         width: 90%;

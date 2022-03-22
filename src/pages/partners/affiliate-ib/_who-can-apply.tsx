@@ -109,9 +109,9 @@ const SecondaryHeader = styled(StyledHeader)`
         margin-left: -4.6rem;
     }
     @media ${device.mobileM} {
-        margin-left: 0;
-        margin-top: 32px;
-        margin-bottom: 16px;
+        margin-left: -12px;
+        margin-top: 40px;
+        margin-bottom: 24px;
     }
 `
 const Flex = styled.div`

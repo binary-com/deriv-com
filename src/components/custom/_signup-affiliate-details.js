@@ -102,6 +102,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                     password: '',
                     currency: '',
                 }}
+                validateOnBlur={false}
                 validate={(values) => resetSignupAffiliateDetails(values)}
                 onSubmit={(values, { setFieldValue }) => submitValues(values, setFieldValue)}
             >
@@ -255,6 +256,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                                     error={item.touch && item.error}
                                                     label={localize(item.label)}
                                                     placeholder={item.placeholder}
+                                                    password_icon={item.name === 'password'}
                                                     handleError={(current_input) => {
                                                         setFieldValue(item.name, '', false)
                                                         setFieldError(item.name, '')
@@ -337,7 +339,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                         showModal(true)
                                     }}
                                 >
-                                    {localize('Signup')}
+                                    {localize('Sign up')}
                                 </SignupButton>
                                 <Header
                                     as="p"

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
@@ -6,6 +6,7 @@ import AffiliateDatePicker from '../elements/affiliate-date-picker'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
+import EyeIcon from 'images/svg/signup-affiliate-details/eye.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;
@@ -53,7 +54,7 @@ const InputWrapper = styled.div`
         `}
 `
 
-const StyledError = styled.img`
+const StyledIcon = styled.img`
     position: absolute;
     right: 0.8rem;
     top: 1.2rem;
@@ -184,8 +185,15 @@ const Input = ({
     maxLength,
     setFieldValue,
     setFieldTouched,
+    password_icon,
     ...props
 }) => {
+    const [is_password_visible, setPasswordVisible] = useState(false)
+
+    useEffect(() => {
+        !is_password_visible ? (current_input.type = 'password') : (current_input.type = 'text')
+    }, [is_password_visible])
+
     let current_input = useRef(null)
     return (
         <RelativeWrapper>
@@ -242,8 +250,15 @@ const Input = ({
             <ErrorMessages lh="1.4" align="left" color="red-1" error_shift={error_shift}>
                 {error}
             </ErrorMessages>
+            {!error && password_icon && (
+                <StyledIcon
+                    src={EyeIcon}
+                    alt="eye icon"
+                    onClick={() => setPasswordVisible(!is_password_visible)}
+                />
+            )}
             {error && (
-                <StyledError
+                <StyledIcon
                     src={CrossIcon}
                     alt="error icon"
                     onClick={() => {
@@ -271,6 +286,7 @@ Input.propTypes = {
     label_color: PropTypes.string,
     label_hover_color: PropTypes.string,
     maxLength: PropTypes.string,
+    password_icon: PropTypes.boolean,
     setFieldTouched: PropTypes.func,
     setFieldValue: PropTypes.func,
     tablet_background: PropTypes.string,

@@ -40,7 +40,7 @@ const ModalMessage = ({ showModal }) => {
                 )}
             </Header>
             <Button id="dm-new-signup-confirm" secondary onClick={() => showModal(false)}>
-                {localize('Got It')}
+                {localize('Got it')}
             </Button>
         </ModalFlex>
     )

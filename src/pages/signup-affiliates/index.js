@@ -53,7 +53,7 @@ const affiliateSignup = () => {
     }
 
     return (
-        <Layout type="static" margin_top={'0'}>
+        <Layout type="static" margin_top={'0'} nav_label="Partners">
             <SEO
                 title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
                 description={localize(

@@ -4,7 +4,7 @@ import { localize, Localize } from 'components/localization'
 export const affiliate_validation_regex = {
     alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
     user_name: /^\w+$/,
-    phone: /^\+?((-|\s)*\d)*$/,
+    phone: /^\+?[^-]((-|\s)*\d)*$/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
 }
 
@@ -105,7 +105,7 @@ const validation = {
         return phoneValidation(input, localize('Mobile number'), 9, 35)
     },
     password: (input) => {
-        return passwordValidation(input, localize('Password'), 2, 50)
+        return passwordValidation(input, localize('Password'), 6, 50)
     },
     currency: (input) => (!input ? localize('Currency is required') : null),
 }

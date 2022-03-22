@@ -807,25 +807,39 @@ export const NavInterim = ({ interim_type }) => (
     </InterimNav>
 )
 
-export const NavStatic = ({ is_ppc }) => (
-    <>
-        <StaticWrapper>
-            <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
-                <Flex ai="center">
+export const NavStatic = ({ is_ppc, nav_label }) =>
+    nav_label ? (
+        <>
+            <StaticWrapper>
+                <Flex ai="center" max_width="31rem">
                     <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
                     <Line />
-                    <img
-                        src={LogoCombinedShape}
-                        alt="logo combined shape nav static"
-                        width={120}
-                        height={17}
-                    />
+                    <Header as="p" type="sub-section-title" color="white" weight="normal">
+                        {nav_label}
+                    </Header>
                 </Flex>
-            </LogoLink>
-        </StaticWrapper>
-        <CFDWarning is_ppc={is_ppc} />
-    </>
-)
+            </StaticWrapper>
+            <CFDWarning is_ppc={is_ppc} />
+        </>
+    ) : (
+        <>
+            <StaticWrapper>
+                <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
+                    <Flex ai="center">
+                        <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
+                        <Line />
+                        <img
+                            src={LogoCombinedShape}
+                            alt="logo combined shape nav static"
+                            width={120}
+                            height={17}
+                        />
+                    </Flex>
+                </LogoLink>
+            </StaticWrapper>
+            <CFDWarning is_ppc={is_ppc} />
+        </>
+    )
 
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);
@@ -1255,6 +1269,7 @@ function moveButton(is_visible = false) {
 NavStatic.propTypes = {
     is_ppc: PropTypes.bool,
     is_static: PropTypes.bool,
+    nav_label: PropTypes.string,
 }
 
 NavPartners.propTypes = {

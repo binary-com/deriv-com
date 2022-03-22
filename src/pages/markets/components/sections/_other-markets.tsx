@@ -87,7 +87,7 @@ const markets_type: MarketsType = {
         content: (
             <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
         ),
-        to: '/markets/basket_indices/',
+        to: '/markets/basket-indices/',
         id: 'marketbasket_indicesothermarket',
     },
 }

@@ -111,6 +111,18 @@ export const DailyResetIndicesDetails = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Bull Market</0>: Conditions where prices are rising or expected to rise. "
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Bear Market</0>: Conditions where prices are falling or expected to fall."
+                components={[<strong key={0} />]}
+            />
+        </Text>
     </DetailsContainer>
 )
 

@@ -121,7 +121,6 @@ const Endpoint = () => {
         // reset website status values
         setWebsiteStatus()
         handleStatus(setStatus, 'Config has been reset successfully')
-        isBrowser() && localStorage.removeItem('manual_clients_country')
         // TODO: if there is a change requires reload in the future
         // window.location.reload()
     }

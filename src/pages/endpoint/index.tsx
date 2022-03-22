@@ -121,7 +121,6 @@ const Endpoint = () => {
         // reset website status values
         setWebsiteStatus()
         handleStatus(setStatus, 'Config has been reset successfully')
-        isBrowser() && localStorage.removeItem('manual_clients_country')
         // TODO: if there is a change requires reload in the future
         // window.location.reload()
     }
@@ -132,12 +131,11 @@ const Endpoint = () => {
 
         // handle website status changes
         const new_website_status = { ...website_status, clients_country: values.clients_country }
-        isBrowser() && localStorage.setItem('manual_clients_country', values.clients_country)
         setWebsiteStatus(new_website_status)
         actions.setSubmitting(false)
         handleStatus(actions.setStatus, 'Config has been updated')
         // TODO: if there is a change requires reload in the future
-        // window.location.reload()
+        window.location.reload()
     }
 
     return (

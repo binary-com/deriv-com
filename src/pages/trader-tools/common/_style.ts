@@ -17,7 +17,7 @@ type PnlCalculatorTabItemProps = {
     disabled?: ReactNode
 }
 
-type FormulaValueTYpe = {
+type FormulaValueType = {
     width?: string
     mb?: string
     ml?: string
@@ -27,6 +27,7 @@ type PointerContainerType = {
     width?: string
     ml?: string
     top?: boolean
+    mw?: string
 }
 
 type PointerStickType = {
@@ -36,6 +37,9 @@ type PointerStickType = {
 type PointerTextType = {
     ml?: string
     top?: boolean
+}
+type FormulaWrapperType = {
+    ml?: string
 }
 
 export const Hero = styled(Flex)`
@@ -538,7 +542,7 @@ export const FormulaHighlightMobile = styled(Flex)`
     width: calc(100% - 16px);
 `
 
-export const FormulaValue = styled.div<FormulaValueTYpe>`
+export const FormulaValue = styled.div<FormulaValueType>`
     display: inline-block;
     min-width: ${(props) => (props.width ? props.width : '55px')};
     text-align: center;
@@ -550,13 +554,14 @@ export const FormulaValueSwapSynthetic = styled.div`
     display: inline-block;
     min-width: 40px;
     text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
 `
 
 export const FormulaValueMobile = styled.div`
     display: inline-block;
     min-width: 20px;
     text-align: center;
-    margin-bottom: ${(props: FormulaValueTYpe) => (props.mb ? props.mb : '10px')};
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
 
     @media ${device.mobileM} {
         min-width: 16px;
@@ -588,7 +593,7 @@ export const PointerContainerMobile = styled.div<PointerContainerType>`
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     align-items: center;
-    max-width: 22px;
+    max-width: ${(props) => (props.mw ? 'props.mw' : '22px')};
     white-space: normal;
 `
 
@@ -651,10 +656,10 @@ export const FormulaTopWrapper = styled.div`
     display: block;
 `
 
-export const FormulaBottomWrapper = styled.div`
+export const FormulaBottomWrapper = styled.div<FormulaWrapperType>`
     display: block;
     margin-top: 10px;
-    margin-left: 210px;
+    margin-left: ${(props) => (props.ml ? props.ml : '210px')};
 `
 
 export const PnlBottomWrapper = styled.div`

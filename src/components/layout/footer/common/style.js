@@ -145,7 +145,7 @@ export const DisclaimerParagraph = styled(Text)`
         width: 90%;
         margin: 16px auto 0;
         font-size: 12px;
-        line-height: 18px;
+        line-height: ${(props) => (props.line_height ? '21px' : '18px')};
     }
 `
 export const shared_css = css`
@@ -159,7 +159,6 @@ export const shared_css = css`
     }
     @media ${device.tabletL} {
         font-size: 12px;
-        line-height: 21px;
     }
 `
 export const StaticAsset = styled.a`

@@ -28,7 +28,12 @@ const StyledSection = styled(Container)`
     }
 `
 
-const SectionWrapper = styled(SectionContainer)``
+const SectionWrapper = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding-top: 40px;
+        padding-bottom: 0;
+    }
+`
 
 const StyledSectionWrapper = styled(SectionWrapper)`
     @media ${device.tabletL} {

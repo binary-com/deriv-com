@@ -72,6 +72,10 @@ const Li = styled.li`
 const ButtonWrapper = styled(CenteredSection)`
     display: flex;
     justify-content: center;
+
+    @media ${device.tabletL} {
+        padding-bottom: 40px;
+    }
 `
 
 type SectionComponentProps = {

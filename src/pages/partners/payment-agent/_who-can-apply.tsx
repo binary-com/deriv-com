@@ -119,7 +119,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
 }
 const WhoCanApply = () => {
     return (
-        <SectionWrapper padding="0">
+        <SectionWrapper padding="80px 0">
             <StyledSection>
                 <Flex>
                     <WhoCanApplyWrapper>
@@ -240,7 +240,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding="0 0 40px 0">
+            <ButtonWrapper padding="0 0 80px 0">
                 <LinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary

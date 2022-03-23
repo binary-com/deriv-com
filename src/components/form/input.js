@@ -191,7 +191,9 @@ const Input = ({
     const [is_password_visible, setPasswordVisible] = useState(false)
 
     useEffect(() => {
-        !is_password_visible ? (current_input.type = 'password') : (current_input.type = 'text')
+        !is_password_visible && password_icon
+            ? (current_input.type = 'password')
+            : (current_input.type = 'text')
     }, [is_password_visible])
 
     let current_input = useRef(null)

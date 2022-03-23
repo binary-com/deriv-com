@@ -4,6 +4,7 @@ import {
     BasketIndicesCommodities,
     ContinuousIndices,
     CrashBoom,
+    CrashBoomMultipliers,
     CrashBoomEU,
     CryptocurrenciesMultipliers,
     JumpIndices,
@@ -15,8 +16,8 @@ import {
     BasketFXDetails,
     BasketCommoditiesDetails,
     ContinuousIndicesDetails,
-    CrashBoomDetails,
     CrashBoomDetailsEU,
+    CrashBoomDetailsMultipliers,
     // CryptocurrenciesDetails,
     JumpIndicesDetails,
     StepIndicesDetails,
@@ -112,8 +113,8 @@ export const synthetic_multiplier: SyntheticMultiplier = {
             mobile_title: (
                 <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
             ),
-            component: <CrashBoom />,
-            details: CrashBoomDetails,
+            component: <CrashBoomMultipliers />,
+            details: CrashBoomDetailsMultipliers,
         },
         {
             title: <Localize translate_text="Jump indices" />,

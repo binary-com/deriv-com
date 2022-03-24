@@ -150,6 +150,8 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
+                gcm_sender_id: '370236002280',
+                gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
@@ -200,13 +202,6 @@ module.exports = {
         },
         'gatsby-plugin-anchor-links',
         {
-            resolve: 'gatsby-plugin-google-tagmanager',
-            options: {
-                id: 'GTM-NF7884S',
-                includeInDevelopment: false,
-            },
-        },
-        {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
@@ -225,16 +220,5 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
-        {
-            resolve: `gatsby-plugin-graphql-codegen`,
-            options: {
-                fileName: `types/graphql.types.ts`,
-                documentPaths: [
-                    './src/**/*.{ts,tsx}',
-                    './src/components/graphql/*',
-                    './node_modules/gatsby-*/**/*.js',
-                ],
-            },
-        },
     ],
 }

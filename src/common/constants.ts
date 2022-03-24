@@ -4,6 +4,7 @@ const deriv_com_url = 'deriv.com'
 const deriv_me_url = 'deriv.me'
 const deriv_be_url = 'deriv.be'
 const staging_deriv_be_url = 'staging.deriv.be'
+const staging_deriv_url = 'staging.deriv.com'
 
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
@@ -14,6 +15,7 @@ const domain_url_pair = {
     [deriv_me_url]: deriv_me_url,
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
+    [staging_deriv_url]: staging_deriv_url,
 }
 
 export const domains = [
@@ -132,5 +134,6 @@ export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom
 export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
 export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
-export const cms_assets_end_point = 'https://cms.deriv.cloud/assets/'
+export const cms_end_point = 'https://deriv-academy.directus.app'
+export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 62

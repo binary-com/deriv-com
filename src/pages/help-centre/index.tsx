@@ -11,7 +11,7 @@ import { SEO, Show, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { getLocationHash, sanitize } from 'common/utility'
+import { getLocationHash, sanitize, queryParamData } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 // Icons
@@ -144,7 +144,7 @@ const ResponsiveHeader = styled(Header)`
         font-size: 4rem;
     }
 `
-
+const param = queryParamData()
 const HelpCentre = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [data, setData] = useState({
@@ -290,6 +290,7 @@ const HelpCentre = () => {
                                             all_categories={data.all_categories}
                                             toggleArticle={toggleArticle}
                                             is_eu_country={is_eu_country}
+                                            param={param}
                                         />
                                     )
                                 })}

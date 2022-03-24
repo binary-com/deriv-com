@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
-import { Show, SEO } from 'components/containers'
+import { Desktop, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
@@ -108,9 +108,9 @@ const Dtrader = () => {
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('Trade volatility indices with DTrader at Deriv')}
             />
-            <Show.Desktop>
+            <Desktop>
                 <DNumber items={items} justify="space-around" />
-            </Show.Desktop>
+            </Desktop>
             <DHowItWorks
                 Video={DtraderVideo}
                 title={<Localize translate_text="Make a trade in 3 easy steps" />}

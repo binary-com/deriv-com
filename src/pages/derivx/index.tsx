@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import { DBanner } from '../dmt5/_lazy-load'
+import PageNotFound from '../404'
 import Hero from './_hero'
 import WhatIsDeriv from './_what-is-derivx'
 import SellingPoints from './_selling-points'
@@ -14,6 +15,7 @@ import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDerivX from 'images/svg/deriv-x/derivx-footer.svg'
 import BackgroundPatternDerivXMobile from 'images/svg/deriv-x/derivx-footer-mobile.svg'
+import { getCountryRule } from 'components/containers/visibility'
 
 const query = graphql`
     query {
@@ -29,6 +31,13 @@ const DerivX = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }, [setMobile])
 
+    const { is_row } = getCountryRule()
+    const [is_loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        setLoaded(true)
+    }, [getCountryRule])
+
     useEffect(() => {
         handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
@@ -38,34 +47,46 @@ const DerivX = () => {
         }
     }, [handleResizeWindow])
 
-    return (
-        <Layout>
-            <SEO
-                title={localize('Deriv X - a multi-asset CFD trading platform available on Deriv')}
-                description={localize(
-                    'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
-                )}
-            />
-            <Hero />
-            <SellingPoints />
-            <WhatIsDeriv />
-            <WhyTradeDerivX />
-            <StartDerivX />
-            <Accounts />
-            <StaticQuery
-                query={query}
-                render={(data) => (
-                    <DBanner
-                        background_pattern={
-                            is_mobile ? BackgroundPatternDerivXMobile : BackgroundPatternDerivX
-                        }
-                        title={<Localize translate_text="Get trading with Deriv X" />}
-                        data={data}
+    if (is_loaded) {
+        if (is_row) {
+            return (
+                <Layout>
+                    <SEO
+                        title={localize(
+                            'Deriv X - a multi-asset CFD trading platform available on Deriv',
+                        )}
+                        description={localize(
+                            'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
+                        )}
                     />
-                )}
-            />
-        </Layout>
-    )
+                    <Hero />
+                    <SellingPoints />
+                    <WhatIsDeriv />
+                    <WhyTradeDerivX />
+                    <StartDerivX />
+                    <Accounts />
+                    <StaticQuery
+                        query={query}
+                        render={(data) => (
+                            <DBanner
+                                background_pattern={
+                                    is_mobile
+                                        ? BackgroundPatternDerivXMobile
+                                        : BackgroundPatternDerivX
+                                }
+                                title={<Localize translate_text="Get trading with Deriv X" />}
+                                data={data}
+                            />
+                        )}
+                    />
+                </Layout>
+            )
+        }
+
+        return <PageNotFound />
+    }
+
+    return <></>
 }
 
 export default WithIntl()(DerivX)

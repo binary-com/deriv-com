@@ -152,18 +152,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Title>{localize('PARTNER')}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/partners/affiliate-ib/">
-                                {localize('Affiliates and IBs')}
-                            </Link>
+                            <Link to="/partners/affiliate-ib/">{localize('Affiliates & IBs')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/partners/payment-agent/">{localize('Payment agents')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/partners/developers/">{localize('Developers')}</Link>
-                        </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/partners/bug-bounty/">{localize('Bug bounty')}</Link>
+                            <Link to="https://api.deriv.com/">{localize('API')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/bug-bounty/">{localize('Bug bounty')}</Link>

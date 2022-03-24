@@ -18,6 +18,14 @@ const General = () => (
             )}
         </TextPrimary>
         <HeaderPrimary as="h5" type="main-paragraph">
+            {localize('Is the Deriv Payment Agent Programme the same as Deriv P2P (DP2P)?')}
+        </HeaderPrimary>
+        <TextPrimary>
+            {localize(
+                'No, it isn’t. DP2P is a peer-to-peer service for our clients to make deposits and withdrawals using their local currency. As our payment agent, you can use the DP2P platform to offer your services to Deriv clients in your country.',
+            )}
+        </TextPrimary>
+        <HeaderPrimary as="h5" type="main-paragraph">
             {localize('Why do clients need a payment agent?')}
         </HeaderPrimary>
         <TextPrimary>

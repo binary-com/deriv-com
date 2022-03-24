@@ -19,42 +19,43 @@ const Card = styled(Flex)`
     width: auto;
     justify-content: flex-start;
     align-items: center;
-
     @media ${device.laptop} {
         height: 120px;
     }
-
     @media ${device.tabletL} {
-        flex-direction: column;
-        padding: 24px;
+        padding: 24px 24px 32px 24px;
+        align-items: center;
         width: 328px;
-        min-height: 184px;
-        height: auto;
+        min-height: 96px;
+        height: 120px;
     }
     @media ${device.mobileM} {
-        width: 100%;
+        height: 100%;
+    }
+
+    img {
+        width: 48px;
+        height: 48px;
     }
 `
 
 const CardText = styled(Text)`
     margin-left: 16px;
-
     @media ${device.laptopM} {
-        font-size: 16px;
+        font-size: 14px;
     }
-
     @media ${device.tabletL} {
         width: 100%;
         max-width: unset;
         margin: 16px 0 0;
-        text-align: center;
+        padding-left: 16px;
     }
 `
 
 const StyledText = styled(Text)`
     @media ${device.tablet} {
         font-size: 16px;
-        margin: 16px 0 24px;
+        margin: 16px 36px 24px 36px;
     }
 `
 
@@ -72,7 +73,7 @@ const cardItems: CardItemType[] = [
     {
         img_src: LoudSpeaker,
         card_text: (
-            <Localize translate_text="Choose which countries to service, and promote your services your way." />
+            <Localize translate_text="Promote your services to Deriv clients in your country." />
         ),
     },
     {
@@ -100,9 +101,9 @@ const YourControl = () => {
                     column_gap="2.4rem"
                     row_gap="2.4rem"
                     tablet_columns="1fr"
-                    tablet_row_gap="16px"
+                    tablet_row_gap="24px"
                     mobile_columns="1fr"
-                    mobile_row_gap="16px"
+                    mobile_row_gap="24px"
                 >
                     {cardItems.map((item, index) => (
                         <Card key={`key-${index}`}>

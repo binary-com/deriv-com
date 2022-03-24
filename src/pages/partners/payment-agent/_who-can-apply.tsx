@@ -13,7 +13,7 @@ import {
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Header, Text, Timeline } from 'components/elements'
+import { Header, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
@@ -25,13 +25,15 @@ import device from 'themes/device'
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
-        margin-top: 3.2rem;
-        margin-left: -4.6rem;
+        margin-top: 40px;
+        text-align: left;
     }
 `
 const HowToApply = styled(Col)`
+    max-width: 48.6rem;
+
     @media ${device.laptop} {
-        padding-left: 4rem;
+        padding-left: 16px;
     }
 `
 const HowToApplyContent = styled.div`
@@ -40,14 +42,19 @@ const HowToApplyContent = styled.div`
 `
 
 const ImageWrapper = styled.img`
-    margin-right: 1.6rem;
+    margin: 0 16px;
     width: 48px;
     height: 48px;
+
+    @media ${device.tabletL} {
+        width: 40px;
+        height: 40px;
+    }
 `
 
 const WhoCanApplyWrapper = styled(Col)`
     width: 100%;
-    max-width: 42.8rem;
+    max-width: 48.8rem;
     display: flex;
     flex-direction: column;
 `
@@ -55,21 +62,22 @@ const WhoCanApplyWrapper = styled(Col)`
 const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
-    padding-left: 1.8rem;
+    padding-left: 16px;
 `
 
 const Li = styled.li`
     margin-top: 0.8rem;
 `
 
-const SecondaryText = styled(Text)`
-    max-width: 32.4rem;
-`
-
 const ButtonWrapper = styled(CenteredSection)`
     display: flex;
     justify-content: center;
+
+    @media ${device.tabletL} {
+        padding-bottom: 40px;
+    }
 `
+
 type SectionComponentProps = {
     img_src: string
     header: ReactElement
@@ -102,18 +110,20 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     return (
         <Wrapper>
             <ImageWrapper src={img_src} alt="" />
-            <Content max_width="36.4rem">
-                <Header as="h4" type="sub-section-title">
+            <Content max_width="48.8rem">
+                <Header as="h4" type="sub-section-title" pb="8px">
                     {header}
                 </Header>
-                <Text>{text}</Text>
+                <Header as="h4" type="paragraph-1" weight="normal">
+                    {text}
+                </Header>
             </Content>
         </Wrapper>
     )
 }
 const WhoCanApply = () => {
     return (
-        <SectionWrapper padding="8rem 0">
+        <SectionWrapper padding="80px 0">
             <StyledSection>
                 <Flex>
                     <WhoCanApplyWrapper>
@@ -128,6 +138,25 @@ const WhoCanApply = () => {
                                 text={item.text}
                             />
                         ))}
+                        <Header as="h4" type="paragraph-1" mt="4rem">
+                            {localize('A couple of things to note:')}
+                        </Header>
+                        <StyledUl>
+                            <Li>
+                                <Header as="h4" type="paragraph-1" weight="normal">
+                                    {localize(
+                                        'You must have a minimum balance in your Deriv account, depending on your country of residence.',
+                                    )}
+                                </Header>
+                            </Li>
+                            <Li>
+                                <Header as="h4" type="paragraph-1" weight="normal">
+                                    {localize(
+                                        'You can only service Deriv clients in your country of residence.',
+                                    )}
+                                </Header>
+                            </Li>
+                        </StyledUl>
                     </WhoCanApplyWrapper>
                 </Flex>
                 <Separator />
@@ -135,47 +164,47 @@ const WhoCanApply = () => {
                 <Flex>
                     <HowToApply>
                         <HeaderHowToApply as="h2" mb="4rem" size="3.6rem">
-                            {localize('How to apply')}
+                            {localize('Get started easily')}
                         </HeaderHowToApply>
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <ImageWrapper src={Email} alt="" />
                                     <Content margin-top="0 px" max_width="36.4rem">
-                                        <Header as="h4" type="sub-section-title">
+                                        <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Drop us an email')}
                                         </Header>
-                                        <Text>
+                                        <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize('Send us an email with the following:')}
-                                        </Text>
+                                        </Header>
                                         <StyledUl>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Your name, email address, and contact number',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Your website address (if you have one)',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Payment methods you will accept from clients',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                             <Li>
-                                                <Text>
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'The commission you will charge clients on deposits and withdrawals',
                                                     )}
-                                                </Text>
+                                                </Header>
                                             </Li>
                                         </StyledUl>
                                     </Content>
@@ -184,30 +213,30 @@ const WhoCanApply = () => {
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <ImageWrapper src={Reply} alt="" />
-                                    <Content max_width="36.4rem">
-                                        <Header as="h4" type="sub-section-title">
+                                    <Content max_width="38.2rem">
+                                        <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Wait for our reply')}
                                         </Header>
-                                        <SecondaryText>
+                                        <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
                                                 'We’ll review your application and get in touch for further information and next steps.',
                                             )}
-                                        </SecondaryText>
+                                        </Header>
                                     </Content>
                                 </HowToApplyContent>
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <ImageWrapper src={Listed} alt="" />
-                                    <Content max_width="36.4rem">
-                                        <Header as="h4" type="sub-section-title">
+                                    <Content max_width="38.2rem">
+                                        <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Get listed')}
                                         </Header>
-                                        <SecondaryText>
+                                        <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
                                                 'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
                                             )}
-                                        </SecondaryText>
+                                        </Header>
                                     </Content>
                                 </HowToApplyContent>
                             </Timeline.Item>
@@ -215,7 +244,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding="3.4rem 0 0">
+            <ButtonWrapper padding="0 0 80px 0">
                 <LinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary
@@ -223,7 +252,7 @@ const WhoCanApply = () => {
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >
-                    {localize('Send us an email to apply')}
+                    {localize('Sign up')}
                 </LinkButton>
             </ButtonWrapper>
         </SectionWrapper>

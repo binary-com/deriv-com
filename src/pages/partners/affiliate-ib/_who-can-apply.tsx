@@ -29,7 +29,10 @@ const StyledSection = styled(Container)`
 `
 
 const SectionWrapper = styled(SectionContainer)`
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    @media ${device.tabletL} {
+        padding-top: 40px;
+        padding-bottom: 0;
+    }
 `
 
 const StyledSectionWrapper = styled(SectionWrapper)`
@@ -39,7 +42,6 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 `
 
 const ImageWrapper = styled.img`
-    margin-right: 1.6rem;
     width: 48px;
     height: 48px;
 `
@@ -103,7 +105,6 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         font-size: 24px;
-        text-align: center;
     }
 `
 
@@ -113,9 +114,9 @@ const SecondaryHeader = styled(StyledHeader)`
         margin-left: -4.6rem;
     }
     @media ${device.mobileM} {
-        margin-left: 0;
-        margin-top: 32px;
-        margin-bottom: 16px;
+        margin-left: -12px;
+        margin-top: 40px;
+        margin-bottom: 24px;
     }
 `
 const Flex = styled.div`
@@ -242,7 +243,7 @@ const WhoCanApply = () => {
                                     <Show.Desktop max_width="bp749">
                                         <ApplyImageWrapper src={Apply} alt="" />
                                     </Show.Desktop>
-                                    <GetStartedContent max_width="32.4rem">
+                                    <GetStartedContent max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Sign up')}
                                         </Header>

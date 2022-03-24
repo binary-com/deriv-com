@@ -9,7 +9,7 @@ import {
     CryptocurrenciesMultipliers,
     VolatilityIndicesEU,
     SmartFX,
-} from '../../instruments/_submarkets'
+} from '../../instruments/_index'
 import {
     CrashBoomMultipliersDetails,
     CrashBoomDetailsEU,

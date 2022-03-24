@@ -34,7 +34,7 @@ const OurPlatforms = () => {
                         mobileM={{ max_width: '328px' }}
                     >
                         <Localize
-                            translate_text="Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind"
+                            translate_text="Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind."
                             values={{ platforms_no: is_row ? '8' : '2' }}
                         />
                     </Header>

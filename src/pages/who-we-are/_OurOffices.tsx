@@ -7,6 +7,7 @@ import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/con
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
+import { all_countries, all_offices } from 'pages/careers/_model/_locations/_locations'
 
 const query = graphql`
     query {
@@ -177,7 +178,7 @@ const OurOffices = () => {
                     <MapImage data={data['earth']}>
                         {desktop_pins.map((pin) => (
                             <MapPin
-                                key={pin.title}
+                                key={pin.link}
                                 left={pin.left}
                                 top={pin.top}
                                 title={pin.title}
@@ -190,7 +191,7 @@ const OurOffices = () => {
                     <MapImage data={data['earth_mobile']}>
                         {mobile_pins.map((pin) => (
                             <MapPin
-                                key={pin.title}
+                                key={pin.link}
                                 left={pin.left}
                                 top={pin.top}
                                 title={pin.title}
@@ -215,13 +216,13 @@ const OurOffices = () => {
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('13')}</NumberHeader>
+                    <NumberHeader size="32px">{localize(all_offices.length)}</NumberHeader>
                     <NumberText size="16px" align="center">
                         {localize('locations')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('10')}</NumberHeader>
+                    <NumberHeader size="32px">{localize(all_countries.length)}</NumberHeader>
                     <NumberText size="16px" align="center">
                         {localize('countries')}
                     </NumberText>

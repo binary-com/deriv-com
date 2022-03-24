@@ -34,8 +34,6 @@ const address_malta = [
 
 const address_melaka = ['67-1 & 69-1, Jalan KLJ 6, Taman Kota', 'Laksamana Jaya, Melaka 75200']
 
-const address_uk = ['1 Butterwick, London, United Kingdom']
-
 const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigali']
 
 export {
@@ -50,6 +48,5 @@ export {
     address_melaka,
     address_rwanda,
     address_france,
-    address_uk,
     address_guernsey,
 }

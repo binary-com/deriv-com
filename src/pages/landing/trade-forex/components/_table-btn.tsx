@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MarketInstruments from '../../../markets/components/sections/_market_instruments.js'
-import { SwapFreePairs } from '../../../markets/instruments/_submarkets.js'
+import { SwapFreePairs } from '../../../markets/instruments/_index'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'

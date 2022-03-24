@@ -8,7 +8,7 @@ import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
-import { trimSpaces, isBrowser } from 'common/utility'
+import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
@@ -30,7 +30,7 @@ const StyledInput = styled(Input)`
         transform: translate(-0.6rem, -2rem) scale(0.7);
         color: var(--color-black-3);
         background-color: ${({ background }) =>
-            background ? `var(--color-${background})` : 'var(--color-grey-1)'};
+        background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
         @media ${device.tabletL} {
             top: 9px;

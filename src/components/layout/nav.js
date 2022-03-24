@@ -38,6 +38,7 @@ import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
 import { CFDWarning } from 'components/layout'
+import { DerivStore } from 'store'
 
 const query = graphql`
     query {
@@ -436,6 +437,7 @@ export const NavMobile = ({
     no_language,
 }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    const { hide_branding } = React.useContext(DerivStore)
 
     return (
         <Wrapper width="95%">
@@ -446,13 +448,15 @@ export const NavMobile = ({
             )}
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
-                <Flex>
-                    <img src={LogoOnly} alt="logo only" width={115} />
-                    <LogoDescription ai="center">
-                        <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
-                    </LogoDescription>
-                </Flex>
+                {!hide_branding && (
+                    <Flex>
+                        <img src={LogoOnly} alt="logo only" width={115} />
+                        <LogoDescription ai="center">
+                            <Line />
+                            <img src={LogoCombinedShape} alt="logo combined shape" />
+                        </LogoDescription>
+                    </Flex>
+                )}
             </LogoLinkMobileMain>
             <MobileRightMain>
                 {!no_language && <LanguageSwitcher short_name="true" is_high_nav />}

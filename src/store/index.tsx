@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
+import { config } from '../../config.js'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
 import { useLivechat } from 'components/hooks/use-livechat'
@@ -27,6 +28,7 @@ export type DerivStoreType = {
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
+    hide_branding: boolean
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
@@ -40,6 +42,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)
     const [is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc] = useLivechat()
+    const [hide_branding, setHideBranding] = useState(false)
 
     useEffect(() => {
         if (website_status) {
@@ -52,6 +55,10 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
             }
         }
     }, [website_status])
+
+    useEffect(() => {
+        setHideBranding(config.hide_branding)
+    }, [config])
 
     return (
         <DerivStore.Provider
@@ -69,6 +76,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 user_country,
                 website_status_loading,
                 website_status,
+                hide_branding,
             }}
         >
             {children}

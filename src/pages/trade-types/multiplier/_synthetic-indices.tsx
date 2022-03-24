@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-    CrashBoomMultipliers,
     ContinuousIndices,
     VolatilityIndices,
     JumpIndices,
@@ -15,6 +14,7 @@ import {
     StepIndicesDetails,
     JumpIndicesDetails,
 } from 'pages/markets/static/content/_details'
+import CrashBoomMultipliers from 'pages/markets/instruments/_crash-boom-multipliers.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'

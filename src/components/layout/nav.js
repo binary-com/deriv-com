@@ -1037,9 +1037,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     active={current_page === 'affiliate'}
                                     activeClassName="active"
                                     to="/partners/affiliate-ib/"
-                                    aria-label={localize('Affiliates and IBs')}
+                                    aria-label={localize('Affiliates & IBs')}
                                 >
-                                    {localize('Affiliates and IBs')}
+                                    {localize('Affiliates & IBs')}
                                 </StyledLink>
                             </NavLink>
                             <NavLink>
@@ -1097,9 +1097,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
-                                    style={{ width: '18rem' }}
+                                    style={{ width: '20.2rem' }}
                                 >
-                                    <span>{localize('Affiliate & IB sign up')}</span>
+                                    <span>{localize('Create free demo account')}</span>
                                 </LinkSignupButton>
                             </StyledNavRight>
                         )}

@@ -5,6 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^3.2.1",
+        "@builder.io/partytown": "^0.5.0",
         "@directus/gatsby-source-directus": "^9.4.2",
         "@livechat/customer-sdk": "^3.1.0",
         "@loadable/component": "^5.15.2",
@@ -18,7 +19,6 @@
         "gatsby": "^4.9.3",
         "gatsby-background-image": "^1.6.0",
         "gatsby-plugin-anchor-links": "^1.2.1",
-        "gatsby-plugin-google-tagmanager": "^4.9.0",
         "gatsby-plugin-image": "^2.9.1",
         "gatsby-plugin-manifest": "^4.9.1",
         "gatsby-plugin-page-progress": "^2.2.1",

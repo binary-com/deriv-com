@@ -1,0 +1,10 @@
+[context.production.environment]
+  GATSBY_ENV = "production"
+# deploy preview
+[context.deploy-preview.environment]
+  GATSBY_ENV = "deploy" # TEST: should be deploy or something other than production
+# branch-deploy (other than previews)
+[context.branch-deploy.environment]
+  GATSBY_ENV = "development"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"

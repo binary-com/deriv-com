@@ -29,8 +29,7 @@ const StyledInput = styled(Input)`
     & ~ label {
         transform: translate(-0.6rem, -2rem) scale(0.7);
         color: var(--color-black-3);
-        background-color: ${({ background }) =>
-            background ? `var(--color-${background})` : 'var(--color-grey-1)'};
+        background-color: var(--color-${(props) => props.background || 'grey-1'});
         @media ${device.tabletL} {
             top: 9px;
         }

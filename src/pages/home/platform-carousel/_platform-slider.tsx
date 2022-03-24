@@ -39,6 +39,7 @@ const SelectedSlide = ({ selected_slide }: SelectedSlideProps) => {
 
 const SelectedSlideDiv = styled(Flex)`
     box-shadow: rgba(131, 131, 131, 0.15) 0 16px 20px, rgba(131, 131, 131, 0.15) 0 0 20px;
+    cursor: pointer;
 `
 
 const Shadow = styled.div<{ location: 'start' | 'end' }>`
@@ -181,7 +182,7 @@ export const PlatformSliderDiv = ({
             m="0 auto"
         >
             <StyledFlex position="relative" m="0 auto" jc="unset">
-                <Flex ai="center" jc="center" fd="column">
+                <Flex ai="center" jc="start" fd="column">
                     {platform_details.map((item, index) => {
                         return index == slide_index ? (
                             <SelectedSlideDiv
@@ -207,6 +208,7 @@ export const PlatformSliderDiv = ({
                                 p="16px"
                                 onClick={() => clickHandler(index)}
                                 key={item.learn_more_link}
+                                style={{ cursor: 'pointer' }}
                             >
                                 <ImageTag src={item.icon} />
                                 <Header type="subtitle-1">{item.title}</Header>

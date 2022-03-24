@@ -17,9 +17,9 @@ const LanguageSwitch = ({ i18n, is_high_nav, short_name, security }) => {
     const [language, setLanguage] = React.useState(i18n.language)
     const client_information = useClientInformation()
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
         setLanguage(i18n.language)
-    }, [i18n.language])
+    })
 
     React.useEffect(() => {
         if (!Cookies.get('lang_is_fixed')) {

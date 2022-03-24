@@ -9,9 +9,9 @@ const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const General = () => (
     <>
-        <Header as="h5" type="main-paragraph">
+        <HeaderPrimary as="h5" type="main-paragraph">
             {localize('What is the Deriv Payment Agent Programme?')}
-        </Header>
+        </HeaderPrimary>
         <TextPrimary>
             {localize(
                 'It is a partnership arrangement where a payment agent is authorised to process deposits and withdrawals for our clients.',

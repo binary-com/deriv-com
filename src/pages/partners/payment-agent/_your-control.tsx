@@ -12,8 +12,8 @@ import WithdrawDeposit from 'images/svg/partners/pa-withdraw-deposit.svg'
 
 const Card = styled(Flex)`
     padding: 24px 32px;
-    border-radius: 4px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(14, 14, 14, 0.1);
     background: var(--color-white);
     height: 12rem;
     width: auto;
@@ -58,6 +58,13 @@ const StyledText = styled(Text)`
         margin: 16px 36px 24px 36px;
     }
 `
+const YourControlContainer = styled(SectionContainer)`
+    background: var(--color-grey-8);
+
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
+`
 
 type CardItemType = {
     img_src: string
@@ -87,7 +94,7 @@ const cardItems: CardItemType[] = [
 ]
 const YourControl = () => {
     return (
-        <SectionContainer background="grey-8">
+        <YourControlContainer>
             <Container direction="column">
                 <Header as="h3" size="var(--text-size-header-1)" align="center">
                     {localize('You are in control')}
@@ -113,7 +120,7 @@ const YourControl = () => {
                     ))}
                 </CssGrid>
             </Container>
-        </SectionContainer>
+        </YourControlContainer>
     )
 }
 

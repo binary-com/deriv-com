@@ -7,20 +7,7 @@ import { DerivProvider } from './src/store'
 
 export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
     setHeadComponents([
-        <Partytown
-            key="partytown"
-            resolveUrl={function (url) {
-                if (url.hostname === 'connect.facebook.net') {
-                    if (typeof window !== 'undefined') {
-                        var proxyUrl = new URL(`${window.location.origin}/proxy`)
-                        proxyUrl.searchParams.append('url', url.href)
-                        return proxyUrl
-                    }
-                }
-                return url
-            }}
-            forward={['dataLayer.push', 'fbq']}
-        />,
+        <Partytown key="partytown" forward={['dataLayer.push']} />,
         <script
             key="gtm"
             dangerouslySetInnerHTML={{

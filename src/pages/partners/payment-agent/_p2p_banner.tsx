@@ -26,7 +26,7 @@ const MainWrapper = styled(Flex)`
     height: 350px;
     background-image: url(${banner}), url(${bannerBG});
     background-repeat: no-repeat, no-repeat;
-    background-size: 530px 281px, cover;
+    background-size: 486px 280px, cover;
     background-position: bottom right;
     @media ${device.laptopM} {
         height: 360px;
@@ -77,11 +77,15 @@ const LeftChild = styled(Flex)`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 32px;
+        line-height: 40px;
     }
 `
 
 const Subtitle = styled(Header)`
+    min-width: 588px;
+
     @media (max-width: 1100px) {
+        min-width: 264px;
         margin-bottom: 24px;
     }
 `
@@ -107,11 +111,11 @@ const P2PBanner = () => {
                         >
                             {localize('Looking for Deriv P2P instead?')}
                         </StyledHeader>
-                        <Subtitle as="h4" type="subtitle-2" weight="none" color="white" mb="24px">
+                        <Subtitle as="h4" type="subtitle-1" weight="none" color="white" mb="24px">
                             <Localize
                                 translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."
                                 components={[
-                                    <Header key={0} as="span" type="subtitle-2" color="red" />,
+                                    <Header key={0} as="span" type="subtitle-1" color="red" />,
                                 ]}
                             />
                         </Subtitle>

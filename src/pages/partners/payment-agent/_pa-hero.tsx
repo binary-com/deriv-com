@@ -10,7 +10,8 @@ const MainHeader = styled(Header)`
     max-width: 99.6rem;
 
     @media ${device.mobileM} {
-        font-size: 5rem;
+        font-size: 40px;
+        line-height: 50px;
     }
 `
 

@@ -47,7 +47,7 @@ const TapInto = () => {
                     </Header>
                     <Text size="var(--text-size-m)">
                         {localize(
-                            'Reach hundreds of traders on our platform looking for ways to fund their accounts through local bank wires and e-payment methods.',
+                            'Reach hundreds of traders on our platform looking for ways to fund their accountdasdas through local bank wires and e-payment methods.',
                         )}
                     </Text>
                 </Flex>

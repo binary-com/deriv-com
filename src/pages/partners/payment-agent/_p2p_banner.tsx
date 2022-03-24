@@ -18,7 +18,7 @@ const StyledSection = styled(SectionContainer)`
 
     @media ${device.tabletL} {
         width: 90%;
-        padding-bottom: 40px;
+        padding-bottom: 0;
     }
 `
 const MainWrapper = styled(Flex)`
@@ -38,12 +38,10 @@ const MainWrapper = styled(Flex)`
         background-size: 433px 305px, cover;
     }
     @media ${device.tabletL} {
-        background-size: 280px 189px, cover;
         height: 536px;
         width: 328px;
-        max-width: 378px;
-        background-position: bottom -1px center;
-        margin-bottom: 8px;
+        background-size: 296px 180px, cover;
+        background-position: bottom center;
     }
 `
 const LeftWrapper = styled(Flex)`
@@ -56,7 +54,7 @@ const LeftWrapper = styled(Flex)`
         padding: 55px 0 55px 32px;
     }
     @media ${device.tabletL} {
-        padding: 40px 21px 0 29px;
+        padding: 40px 32px 0;
         justify-content: center;
         align-items: flex-start;
     }
@@ -78,19 +76,13 @@ const LeftChild = styled(Flex)`
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 26px;
+        font-size: 32px;
     }
 `
 
 const Subtitle = styled(Header)`
     @media (max-width: 1100px) {
         margin-bottom: 24px;
-        padding: 0 25px 0 8px;
-    }
-`
-const BannerText = styled(Header)`
-    @media (max-width: 1100px) {
-        margin-bottom: 16px;
     }
 `
 
@@ -110,20 +102,16 @@ const P2PBanner = () => {
                             color="white"
                             mb="16px"
                             tabletL={{
-                                mb: '8px',
                                 max_width: '378px',
-                                pr: '20px',
-                                pb: '8px',
-                                pl: '8px',
                             }}
                         >
                             {localize('Looking for Deriv P2P instead?')}
                         </StyledHeader>
-                        <Subtitle as="h4" type="subtitle-2" weight="none" color="white" mb="3rem">
+                        <Subtitle as="h4" type="subtitle-2" weight="none" color="white" mb="24px">
                             <Localize
                                 translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."
                                 components={[
-                                    <BannerText key={0} as="span" type="subtitle-2" color="red" />,
+                                    <Header key={0} as="span" type="subtitle-2" color="red" />,
                                 ]}
                             />
                         </Subtitle>
@@ -134,7 +122,7 @@ const P2PBanner = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             tabletL={{
-                                ml: '10px',
+                                pb: '30px',
                             }}
                         >
                             Learn more

@@ -15,6 +15,7 @@ import Advertise from 'images/svg/partners/advertise.svg'
 import Earn from 'images/svg/partners/earn.svg'
 
 type ContentProps = {
+    min_width?: string
     max_width?: string
     mt_mobile?: string
 }
@@ -66,12 +67,17 @@ const Col = styled.section`
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
-    margin-top: 4rem;
+    margin-top: 24px;
+
+    @media ${device.tabletL} {
+        margin-top: 16px;
+    }
 `
 
 const Content = styled.div<ContentProps>`
     display: flex;
     flex-direction: column;
+    min-width: ${(props) => props.min_width};
     max-width: ${(props) => props.max_width};
 
     @media (max-width: 749px) {

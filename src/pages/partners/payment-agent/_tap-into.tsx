@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Container, SectionContainer, Show, Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -21,9 +22,6 @@ const WrapContainer = styled(Container)`
             margin-bottom: 2.4rem;
         }
     }
-    @media (max-width: 500px) {
-        margin: 0 1.6rem;
-    }
 `
 
 const Wrapper = styled.div`
@@ -31,10 +29,16 @@ const Wrapper = styled.div`
     max-width: 48.6rem;
 `
 
+const TapIntoContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 40px 0 36px;
+    }
+`
+
 const TapInto = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer>
+        <TapIntoContainer>
             <WrapContainer justify="center">
                 <Flex direction="column" mr="2.4rem" max_width="48.6rem">
                     <Header as="h3" type="heading-2" mb="1.6rem">
@@ -65,7 +69,7 @@ const TapInto = () => {
                     </Show.Mobile>
                 </Wrapper>
             </WrapContainer>
-        </SectionContainer>
+        </TapIntoContainer>
     )
 }
 

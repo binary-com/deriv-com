@@ -55,7 +55,6 @@ const TapInto = () => {
                         <QueryImage
                             data={data['payment_agent']}
                             alt={localize('Girl talking to a group of people')}
-                            width="100%"
                             height="28rem"
                         />
                     </Show.Desktop>
@@ -63,7 +62,6 @@ const TapInto = () => {
                         <QueryImage
                             data={data['payment_agent']}
                             alt={localize('Girl talking to a group of people')}
-                            width="100%"
                             height="220px"
                         />
                     </Show.Mobile>

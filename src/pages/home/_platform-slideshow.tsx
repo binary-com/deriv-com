@@ -1,11 +1,21 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
-import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 import { getCountryRule } from 'components/containers/visibility'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
+
+const ImagePlaceHolder = styled.div`
+    width: 690px;
+
+    @media ${device.tabletL} {
+        width: 100%;
+        height: 360px;
+    }
+`
 
 const query = graphql`
     query {
@@ -65,8 +75,16 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
+    const [is_be_loaded, setBeLoaded] = useState(false)
     const data = useStaticQuery(query)
     const { is_row, is_eu, is_uk } = getCountryRule()
+    const [website_status] = useWebsiteStatus()
+
+    useEffect(() => {
+        if (website_status) {
+            setBeLoaded(true)
+        }
+    }, [website_status])
 
     const slide_images =
         (is_row && [
@@ -96,10 +114,12 @@ const PlatformSlideshow = () => {
         return () => clearInterval(slideshow_timer)
     }, [slide_images])
 
-    return (
-        <Flex max_width="690px" height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
+    return is_be_loaded ? (
+        <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
             <Slides images={slide_images} active_index={active_index} />
         </Flex>
+    ) : (
+        <ImagePlaceHolder />
     )
 }
 

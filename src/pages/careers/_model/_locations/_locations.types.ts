@@ -1,4 +1,4 @@
-export type locationsTypes = {
+export type LocationsType = {
     name: string
     link: string
     display_name: string

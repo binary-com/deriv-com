@@ -5,7 +5,7 @@ import './src/components/localization/config'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
     setHeadComponents([
         <Partytown key="partytown" forward={['dataLayer.push']} />,
         <script
@@ -23,6 +23,17 @@ export const onRenderBody = ({ setHeadComponents }) => {
                                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
                                 })(window,document,'script','dataLayer','GTM-NF7884S');
                             }
+                        `,
+            }}
+        />,
+    ])
+    setPreBodyComponents([
+        <noscript
+            key="noscript-gtm"
+            dangerouslySetInnerHTML={{
+                __html: `
+                            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF7884S" height="0" width="0"
+                                style="display:none;visibility:hidden"></iframe>
                         `,
             }}
         />,

@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import AvailablePlatforms from '../helper/_available-platforms.js'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
@@ -7,10 +6,6 @@ import MarketInstruments from '../sections/_market_instruments'
 import { SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
-
-const StyledHeader = styled(Header)`
-    font-size: 16px;
-`
 
 const Multipliers = ({ market_content, is_crypto }) => (
     <SectionContainer padding="4rem 0 8rem">
@@ -27,9 +22,9 @@ const Multipliers = ({ market_content, is_crypto }) => (
                 </StyledText>
                 <AvailablePlatforms dtrader />
             </Descriptions>
-            <StyledHeader as="h3" type="sub-section-title" mt="4rem">
+            <Header as="h3" type="paragraph-1" mt="4rem">
                 {localize('Instruments available for multipliers trading')}
-            </StyledHeader>
+            </Header>
             <MarketInstruments market_content={market_content} />
             <Show.Eu>
                 {market_content.eu_content?.map((text, index) => (

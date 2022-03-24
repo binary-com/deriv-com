@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import AvailablePlatforms from '../helper/_available-platforms'
 import AvailableOptions from '../helper/_available-options'
@@ -15,10 +14,6 @@ import { SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
-const StyledHeader = styled(Header)`
-    font-size: 16px;
-`
-
 const DigitalOptions = ({ market_name, options_list }) => (
     <SectionContainer padding="4rem 0 8rem">
         <ContentWrapper>
@@ -28,12 +23,12 @@ const DigitalOptions = ({ market_name, options_list }) => (
                 </StyledText>
                 <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
             </Descriptions>
-            <StyledHeader font_size="16px" weight="bold" mt="4.0rem">
+            <Header as="h3" type="paragraph-1" mt="4.0rem">
                 <Localize
                     translate_text="Option trades available on {{market_name}}"
                     values={{ market_name }}
                 />
-            </StyledHeader>
+            </Header>
             <Descriptions margin_top="24px">
                 {options_list.options.map((option, index) => (
                     <OptionsRow wrap={option[0].wrap} key={index} is_first_child={!index}>
@@ -52,9 +47,9 @@ const DigitalOptions = ({ market_name, options_list }) => (
                     ))}
                 </Show.Eu>
             </Descriptions>
-            <StyledHeader as="h3" type="sub-section-title" mt="4rem">
+            <Header as="h3" type="heading-3" mt="4rem">
                 {localize('Instruments available for options trading')}
-            </StyledHeader>
+            </Header>
             <MarketInstruments market_content={options_list.market_instruments} />
         </ContentWrapper>
     </SectionContainer>

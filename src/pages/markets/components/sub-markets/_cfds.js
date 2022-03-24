@@ -16,10 +16,6 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const StyledHeader = styled(Header)`
-    font-size: 16px;
-`
-
 const CFDs = ({ market_content, market_tab_name }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -47,9 +43,9 @@ const CFDs = ({ market_content, market_tab_name }) => {
                         <AvailablePlatforms dmt5 derivx />
                     )}
                 </Descriptions>
-                <StyledHeader as="h3" type="sub-section-title" mt="4rem">
+                <Header as="h3" type="paragraph-1" mt="4rem">
                     {localize('Instruments available for CFD trading')}
-                </StyledHeader>
+                </Header>
                 <MarketInstruments market_content={market_content} />
             </ContentWrapper>
         </StyledSection>

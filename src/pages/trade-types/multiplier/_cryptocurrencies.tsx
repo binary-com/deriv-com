@@ -9,10 +9,6 @@ import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
-const StyledHeader = styled(Header)`
-    font-size: 16px;
-`
-
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
         text-align: left;
@@ -115,9 +111,9 @@ const Cryptocurrencies = () => {
                     <AvailablePlatformsWrapper mb="40px">
                         <AvailablePlatforms dtrader />
                     </AvailablePlatformsWrapper>
-                    <StyledHeader as="h3" type="sub-section-title" mt="4rem">
+                    <Header as="h3" type="paragraph-1" mt="4rem">
                         {localize('Instruments available for multipliers trading')}
-                    </StyledHeader>
+                    </Header>
 
                     <MarketsWrapper direction="column">
                         <MarketsAccordion

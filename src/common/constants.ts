@@ -4,6 +4,7 @@ const deriv_com_url = 'deriv.com'
 const deriv_me_url = 'deriv.me'
 const deriv_be_url = 'deriv.be'
 const staging_deriv_be_url = 'staging.deriv.be'
+const staging_deriv_url = 'staging.deriv.com'
 
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
@@ -14,6 +15,7 @@ const domain_url_pair = {
     [deriv_me_url]: deriv_me_url,
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
+    [staging_deriv_url]: staging_deriv_url,
 }
 
 export const domains = [

@@ -144,7 +144,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
-                header={localize('Financial disclosure report')}
+                header={localize('Financial Disclosures Annual Report 2020')}
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}

@@ -18,7 +18,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { CFDWarning } from 'components/layout'
 import { besquare_signup_url } from 'common/constants'
-
+import { DerivStore } from 'store'
 const query = graphql`
     query {
         deriv: file(relativePath: { eq: "logo.png" }) {
@@ -76,6 +76,7 @@ export const NavCareers = ({ is_besquare }) => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
+    const { hide_branding } = React.useContext(DerivStore)
     const button_component = is_besquare ? (
         <CareerButton
             external="true"
@@ -107,15 +108,17 @@ export const NavCareers = ({ is_besquare }) => {
                 <StyledNav>
                     <Wrapper offset_px_mobile={4}>
                         <CareerNavLeft>
-                            <CareerLogo to={'/'} aria-label={'Home'}>
-                                <QueryImage
-                                    data={data['deriv']}
-                                    alt={'Deriv'}
-                                    width="16.4rem"
-                                    height="auto"
-                                    loading="eager"
-                                />
-                            </CareerLogo>
+                            {!hide_branding && (
+                                <CareerLogo to={'/'} aria-label={'Home'}>
+                                    <QueryImage
+                                        data={data['deriv']}
+                                        alt={'Deriv'}
+                                        width="16.4rem"
+                                        height="auto"
+                                        loading="eager"
+                                    />
+                                </CareerLogo>
+                            )}
                             <CareerLink
                                 active={current_page === 'home'}
                                 activeClassName="active"

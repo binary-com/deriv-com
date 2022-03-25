@@ -438,7 +438,6 @@ export const NavMobile = ({
 }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     const { hide_branding } = React.useContext(DerivStore)
-
     return (
         <Wrapper width="95%">
             {is_canvas_menu_open ? (
@@ -507,7 +506,7 @@ export const NavDesktop = ({
     const [active_dropdown_ref, setActiveDropdownRef] = useState(null)
     const [show_button, showButton, hideButton] = moveButton()
     const current_page = useActiveLinkState('main')
-
+    const { hide_branding } = React.useContext(DerivStore)
     const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
 
     const buttonHandleScroll = useCallback(() => {
@@ -550,23 +549,25 @@ export const NavDesktop = ({
                 />
             )}
             <Wrapper>
-                <NavLeftMain>
-                    <LogoLink
-                        to={!is_ppc_redirect ? base || '/' : '/landing'}
-                        aria-label={localize('Home')}
-                    >
-                        <QueryImage
-                            data={data['deriv']}
-                            alt={localize('Deriv')}
-                            max_width="16.4rem"
-                            width="100%"
-                            height="auto"
-                            loading="eager"
-                        />
-                    </LogoLink>
-                    <Line />
-                    <img src={LogoCombinedShape} alt="logo combined shape" />
-                </NavLeftMain>
+                {!hide_branding && (
+                    <NavLeftMain>
+                        <LogoLink
+                            to={!is_ppc_redirect ? base || '/' : '/landing'}
+                            aria-label={localize('Home')}
+                        >
+                            <QueryImage
+                                data={data['deriv']}
+                                alt={localize('Deriv')}
+                                max_width="16.4rem"
+                                width="100%"
+                                height="auto"
+                                loading="eager"
+                            />
+                        </LogoLink>
+                        <Line />
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
+                    </NavLeftMain>
+                )}
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
                         <StyledButton aria-label={localize('Trade')} active={checkActive('trade')}>
@@ -761,76 +762,99 @@ const NavInterimContainer = styled.div`
     position: relative;
 `
 
-export const NavInterim = ({ interim_type }) => (
-    <InterimNav>
-        <NavInterimContainer>
-            <Container jc="space-between" p="2.4rem 0">
-                <Flex ai="center" jc="flex-start">
-                    <DesktopWrapper>
-                        <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
-                            <Flex ai="center">
-                                <img src={Logo} alt="logo" width="190" height="27" />
-                                <img
-                                    src={LogoCombinedShape}
-                                    alt="logo combined shape desktop"
-                                    width="120"
-                                    height="17"
-                                />
-                            </Flex>
-                        </StyledLogo>
-                    </DesktopWrapper>
-                    <MobileWrapper>
-                        <LogoLinkMobile
-                            to={`/interim/${interim_type}`}
-                            aria-label={localize('Home')}
-                        >
-                            <Flex>
-                                <img src={LogoOnly} alt="logo only 2" width="115" height="27" />
-                                <LogoDescription ai="center">
-                                    <Line />
-                                    <img
-                                        src={LogoCombinedShape}
-                                        alt="logo combined shape mobile"
-                                        width="120"
-                                        height="17"
-                                    />
-                                </LogoDescription>
-                            </Flex>
-                        </LogoLinkMobile>
-                    </MobileWrapper>
-                </Flex>
-                <Auto jc="flex-end" ai="center">
-                    <LanguageSwitcher short_name="true" />
-                    <LeftButton secondary to="/">
-                        {localize('Explore Deriv.com')}
-                    </LeftButton>
-                </Auto>
-            </Container>
-        </NavInterimContainer>
-        <CFDWarning />
-    </InterimNav>
-)
-
-export const NavStatic = ({ is_ppc }) => (
-    <>
-        <StaticWrapper>
-            <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
-                <Flex ai="center">
-                    <img src={LogoOnly} alt="logo only nav static" width={160} height={27} />
-                    <Line />
-                    <img
-                        src={LogoCombinedShape}
-                        alt="logo combined shape nav static"
-                        width={120}
-                        height={17}
-                    />
-                </Flex>
-            </LogoLink>
-        </StaticWrapper>
-        <CFDWarning is_ppc={is_ppc} />
-    </>
-)
-
+export const NavInterim = ({ interim_type }) => {
+    const { hide_branding } = React.useContext(DerivStore)
+    return (
+        <InterimNav>
+            <NavInterimContainer>
+                <Container jc="space-between" p="2.4rem 0">
+                    <Flex ai="center" jc="flex-start">
+                        <DesktopWrapper>
+                            <StyledLogo
+                                to={`/interim/${interim_type}`}
+                                aria-label={localize('Home')}
+                            >
+                                {!hide_branding && (
+                                    <Flex ai="center">
+                                        <img src={Logo} alt="logo" width="190" height="27" />
+                                        <img
+                                            src={LogoCombinedShape}
+                                            alt="logo combined shape desktop"
+                                            width="120"
+                                            height="17"
+                                        />
+                                    </Flex>
+                                )}
+                            </StyledLogo>
+                        </DesktopWrapper>
+                        <MobileWrapper>
+                            <LogoLinkMobile
+                                to={`/interim/${interim_type}`}
+                                aria-label={localize('Home')}
+                            >
+                                {!hide_branding && (
+                                    <Flex>
+                                        <img
+                                            src={LogoOnly}
+                                            alt="logo only 2"
+                                            width="115"
+                                            height="27"
+                                        />
+                                        <LogoDescription ai="center">
+                                            <Line />
+                                            <img
+                                                src={LogoCombinedShape}
+                                                alt="logo combined shape mobile"
+                                                width="120"
+                                                height="17"
+                                            />
+                                        </LogoDescription>
+                                    </Flex>
+                                )}
+                            </LogoLinkMobile>
+                        </MobileWrapper>
+                    </Flex>
+                    <Auto jc="flex-end" ai="center">
+                        <LanguageSwitcher short_name="true" />
+                        <LeftButton secondary to="/">
+                            {localize('Explore Deriv.com')}
+                        </LeftButton>
+                    </Auto>
+                </Container>
+            </NavInterimContainer>
+            <CFDWarning />
+        </InterimNav>
+    )
+}
+export const NavStatic = ({ is_ppc }) => {
+    const { hide_branding } = React.useContext(DerivStore)
+    return (
+        <>
+            <StaticWrapper>
+                <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
+                    {!hide_branding && (
+                        <Flex ai="center">
+                            <img
+                                src={LogoOnly}
+                                alt="logo only nav static"
+                                width={160}
+                                height={27}
+                            />
+                            <Line />
+                            <img
+                                src={LogoCombinedShape}
+                                alt="logo combined shape nav static"
+                                width={120}
+                                height={17}
+                            />
+                        </Flex>
+                    )}
+                </LogoLink>
+            </StaticWrapper>
+            <CFDWarning is_ppc={is_ppc} />
+        </>
+    )
+}
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -982,7 +1006,7 @@ export const NavPartners = ({ no_login_signup }) => {
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
     const current_page = useActiveLinkState('partners')
-
+    const { hide_branding } = React.useContext(DerivStore)
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -1035,7 +1059,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     <StyledNavWrapperPartner no_login_signup>
                         <NavLeftPartners>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
-                                <img src={LogoPartner} alt="logo partner" />
+                                {!hide_branding && <img src={LogoPartner} alt="logo partner" />}
                             </NavLogoLink>
                         </NavLeftPartners>
                         <StyledNavCenter>
@@ -1127,9 +1151,11 @@ export const NavPartners = ({ no_login_signup }) => {
 
                         <Mobile>
                             <Flex ai="center">
-                                <LogoLinkMobile to="/partners/" aria-label={localize('Home')}>
-                                    <ResLogo src={LogoOnly} alt="reslogo" />
-                                </LogoLinkMobile>
+                                {!hide_branding && (
+                                    <LogoLinkMobile to="/partners/" aria-label={localize('Home')}>
+                                        <ResLogo src={LogoOnly} alt="reslogo" />
+                                    </LogoLinkMobile>
+                                )}
                                 <Flex ml="auto" ai="center" width="auto">
                                     <LanguageSwitcher short_name="true" is_high_nav />
                                 </Flex>
@@ -1166,7 +1192,7 @@ export const NavPartners = ({ no_login_signup }) => {
 // Note: When using layout component for security page, please add type='security' and padding_top='10rem'
 export const NavSecurity = () => {
     const button_ref = useRef(null)
-
+    const { hide_branding } = React.useContext(DerivStore)
     return (
         <>
             <NavWrapperPartners>
@@ -1200,7 +1226,9 @@ export const NavSecurity = () => {
                     <StyledNavWrapper>
                         <NavLeftPartners>
                             <NavLogoLink to="/" aria-label={localize('Bug bounty')}>
-                                <img src={LogoBugBounty} alt="logo bug bounty" />
+                                {!hide_branding && (
+                                    <img src={LogoBugBounty} alt="logo bug bounty" />
+                                )}
                             </NavLogoLink>
                         </NavLeftPartners>
                         <SecurityNavRight button_ref={button_ref} mounted={true}>
@@ -1219,10 +1247,12 @@ export const NavSecurity = () => {
                         <Mobile>
                             <Flex ai="center" jc="space-between">
                                 <LogoLinkMobileSecurity to="/" aria-label={localize('Bug bounty')}>
-                                    <SecurityLogoInMobile
-                                        src={LogoBugBounty}
-                                        alt="logo bug bounty"
-                                    />
+                                    {!hide_branding && (
+                                        <SecurityLogoInMobile
+                                            src={LogoBugBounty}
+                                            alt="logo bug bounty"
+                                        />
+                                    )}
                                 </LogoLinkMobileSecurity>
 
                                 <LinkButton

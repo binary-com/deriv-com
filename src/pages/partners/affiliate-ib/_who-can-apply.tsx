@@ -116,10 +116,6 @@ const StyledHeader = styled(Header)`
 
 const SecondaryHeader = styled(StyledHeader)`
     @media ${device.tablet} {
-        margin-top: 3.2rem;
-        margin-left: -4.6rem;
-    }
-    @media ${device.mobileM} {
         margin-left: -12px;
         margin-top: 40px;
         margin-bottom: 24px;

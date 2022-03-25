@@ -52,8 +52,8 @@ const ImageWrapper = styled.img<ImageWrapperProps>`
     margin-left: ${(props) => (props.left_margin ? props.left_margin : '16px')};
 
     @media ${device.tabletL} {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
     }
 `
 
@@ -171,7 +171,7 @@ const WhoCanApply = () => {
                         <HeaderHowToApply as="h2" mb="24px" size="3.6rem">
                             {localize('Get started easily')}
                         </HeaderHowToApply>
-                        <Timeline pb="24px">
+                        <Timeline pb="24px" pl="18px">
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <ImageWrapper src={Email} alt="" left_margin="8px" />
@@ -184,56 +184,28 @@ const WhoCanApply = () => {
                                         </Header>
                                         <StyledUl>
                                             <Li>
-                                                <Header
-                                                    as="h4"
-                                                    type="paragraph-1"
-                                                    weight="normal"
-                                                    tabletL={{
-                                                        width: '226px',
-                                                    }}
-                                                >
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Your name, email address, and contact number',
                                                     )}
                                                 </Header>
                                             </Li>
                                             <Li>
-                                                <Header
-                                                    as="h4"
-                                                    type="paragraph-1"
-                                                    weight="normal"
-                                                    tabletL={{
-                                                        width: '226px',
-                                                    }}
-                                                >
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Your website address (if you have one)',
                                                     )}
                                                 </Header>
                                             </Li>
                                             <Li>
-                                                <Header
-                                                    as="h4"
-                                                    type="paragraph-1"
-                                                    weight="normal"
-                                                    tabletL={{
-                                                        width: '226px',
-                                                    }}
-                                                >
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'Payment methods you will accept from clients',
                                                     )}
                                                 </Header>
                                             </Li>
                                             <Li>
-                                                <Header
-                                                    as="h4"
-                                                    type="paragraph-1"
-                                                    weight="normal"
-                                                    wtabletL={{
-                                                        width: '226px',
-                                                    }}
-                                                >
+                                                <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
                                                         'The commission you will charge clients on deposits and withdrawals',
                                                     )}

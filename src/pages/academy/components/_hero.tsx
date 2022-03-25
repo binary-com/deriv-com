@@ -1,10 +1,19 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
+
+type HeroProps = {
+    cta_text: string
+    description: string
+    href: string
+    imageAlt: string
+    imageData: ImageDataLike
+    title: string
+}
 
 const StyledBackground = styled(BackgroundImage)`
     width: 100%;
@@ -47,7 +56,7 @@ const Wrapper = styled(Flex)`
     }
 `
 
-const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
+const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroProps) => {
     const button_text = cta_text ? cta_text : 'Learn more'
 
     return (
@@ -92,16 +101,6 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }) => {
             </StyledBackground>
         </>
     )
-}
-
-Hero.propTypes = {
-    cta_text: PropTypes.string,
-    description: PropTypes.any,
-    heroImage: PropTypes.any,
-    href: PropTypes.string,
-    imageAlt: PropTypes.string,
-    imageData: PropTypes.any,
-    title: PropTypes.any,
 }
 
 export default Hero

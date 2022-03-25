@@ -762,7 +762,7 @@ const NavInterimContainer = styled.div`
     position: relative;
 `
 
-export const NavInterim = ({ interim_type }) => {
+export const NavInterim = ({ interim_type, landing_type }) => {
     const { hide_branding } = React.useContext(DerivStore)
     return (
         <InterimNav>
@@ -792,33 +792,28 @@ export const NavInterim = ({ interim_type }) => {
                                 to={`/interim/${interim_type}`}
                                 aria-label={localize('Home')}
                             >
-                                {!hide_branding && (
-                                    <Flex>
+                                <Flex>
+                                    <img src={LogoOnly} alt="logo only 2" width="115" height="27" />
+                                    <LogoDescription ai="center">
+                                        <Line />
                                         <img
-                                            src={LogoOnly}
-                                            alt="logo only 2"
-                                            width="115"
-                                            height="27"
+                                            src={LogoCombinedShape}
+                                            alt="logo combined shape mobile"
+                                            width="120"
+                                            height="17"
                                         />
-                                        <LogoDescription ai="center">
-                                            <Line />
-                                            <img
-                                                src={LogoCombinedShape}
-                                                alt="logo combined shape mobile"
-                                                width="120"
-                                                height="17"
-                                            />
-                                        </LogoDescription>
-                                    </Flex>
-                                )}
+                                    </LogoDescription>
+                                </Flex>
                             </LogoLinkMobile>
                         </MobileWrapper>
                     </Flex>
                     <Auto jc="flex-end" ai="center">
-                        <LanguageSwitcher short_name="true" />
-                        <LeftButton secondary to="/">
-                            {localize('Explore Deriv.com')}
-                        </LeftButton>
+                        {!landing_type && <LanguageSwitcher short_name="true" />}
+                        {!landing_type && (
+                            <LeftButton secondary to="/">
+                                {localize('Explore Deriv.com')}
+                            </LeftButton>
+                        )}
                     </Auto>
                 </Container>
             </NavInterimContainer>
@@ -826,6 +821,7 @@ export const NavInterim = ({ interim_type }) => {
         </InterimNav>
     )
 }
+
 export const NavStatic = ({ is_ppc }) => {
     const { hide_branding } = React.useContext(DerivStore)
     return (
@@ -1204,7 +1200,7 @@ export const NavSecurity = () => {
                                     {localize('Go to Deriv.com')}
                                 </Header>
                             </HomeLink>
-                            <HomeLink to="/story/">
+                            <HomeLink to="/who-we-are/">
                                 <Header weight="normal" color="grey-19" type="paragraph-2">
                                     {localize('About us')}
                                 </Header>
@@ -1297,6 +1293,7 @@ NavPartners.propTypes = {
 
 NavInterim.propTypes = {
     interim_type: PropTypes.string,
+    landing_type: PropTypes.bool,
 }
 
 const Section = styled(SectionContainer)`

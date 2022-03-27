@@ -8,9 +8,7 @@
     ],
     "overrides": [
         {
-            "files": [
-                "*.{ts,tsx}"
-            ],
+            "files": ["*.{ts,tsx}"],
             "parser": "@typescript-eslint/parser",
             "extends": [
                 "eslint:recommended",
@@ -29,10 +27,9 @@
             }
         }
     ],
-    "plugins": [
-        "@typescript-eslint"
-    ],
+    "plugins": ["@typescript-eslint", "deprecation"],
     "rules": {
+        "deprecation/deprecation": "warn",
         "strict": 0,
         "camelcase": 0,
         "no-console": "warn",
@@ -67,9 +64,7 @@
         "import/no-extraneous-dependencies": [
             0,
             {
-                "extensions": [
-                    ".jsx"
-                ]
+                "extensions": [".jsx"]
             }
         ],
         "import/no-useless-path-segments": "error",
@@ -77,13 +72,7 @@
         "import/order": [
             "error",
             {
-                "groups": [
-                    "builtin",
-                    "external",
-                    "parent",
-                    "sibling",
-                    "index"
-                ],
+                "groups": ["builtin", "external", "parent", "sibling", "index"],
                 "newlines-between": "never"
             }
         ],
@@ -104,15 +93,8 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": [
-                    "src"
-                ],
-                "extensions": [
-                    ".js",
-                    ".jsx",
-                    ".ts",
-                    ".tsx"
-                ]
+                "paths": ["src"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
             }
         },
         "react": {

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import InitialLoader from 'components/elements/dot-loader'
 import { localize, WithIntl } from 'components/localization'
-import { SEO, Container, Show } from 'components/containers'
+import { SEO, Container, Mobile } from 'components/containers'
 import { DerivStore } from 'store'
 
 type CoverMinimizeButtonTypes = {
@@ -46,9 +46,9 @@ const LiveChatPage = () => {
                 no_index
             />
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
-            <Show.Mobile>
+            <Mobile>
                 <CoverMinimizeButton loading={loading} />
-            </Show.Mobile>
+            </Mobile>
         </Layout>
     )
 }

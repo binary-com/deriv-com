@@ -166,12 +166,6 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/labuan',
     },
     {
-        left: '45.8%',
-        top: '28%',
-        title: <Localize translate_text="London" />,
-        link: '/careers/locations/london',
-    },
-    {
         left: '47.4%',
         top: '30.9%',
         title: <Localize translate_text="Paris" />,
@@ -245,12 +239,6 @@ export const mobile_pins: MapPinType[] = [
         top: '54.7%',
         title: <Localize translate_text="Labuan" />,
         link: '/careers/locations/labuan',
-    },
-    {
-        left: '44.3%',
-        top: '24%',
-        title: <Localize translate_text="London" />,
-        link: '/careers/locations/london',
     },
     {
         left: '45.9%',

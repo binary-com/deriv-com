@@ -106,13 +106,13 @@ const other_apps = [
 ]
 
 const OtherApps = () => {
-    const { is_eu_uk } = getCountryRule()
+    const { is_uk_eu } = getCountryRule()
 
     return (
         <div>
             <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
                 <Container fd="column">
-                    {is_eu_uk ? (
+                    {is_uk_eu ? (
                         <StyledHeader as="h2" type="heading-2" align="center">
                             {localize('Check out our other app')}
                         </StyledHeader>
@@ -123,7 +123,7 @@ const OtherApps = () => {
                     )}
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
                         {other_apps.map((item, index) => {
-                            if (is_eu_uk && index == 1) return
+                            if (is_uk_eu && index == 1) return
                             return (
                                 <Card key={item.title}>
                                     <div>

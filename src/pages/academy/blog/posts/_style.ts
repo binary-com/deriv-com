@@ -3,6 +3,9 @@ import { Box, Flex, Container } from 'components/containers'
 import { LocalizedLinkText, Header, Text } from 'components/elements'
 import device from 'themes/device'
 
+type ScrollbarProps = {
+    scroll: boolean
+}
 export const Background = styled.div`
     background: var(--color-grey-8);
     width: 100%;
@@ -80,7 +83,7 @@ export const StyledBreadcrumbsContainer = styled(Container)`
     }
 `
 
-export const Scrollbar = styled.div`
+export const Scrollbar = styled.div<ScrollbarProps>`
     position: fixed;
     top: ${(props) => (props.scroll ? '138px' : '14.4rem')};
     width: 100%;
@@ -282,7 +285,8 @@ export const PreviewContainer = styled(Box)`
     & hr {
         margin: 32px 0;
     }
-    & ul {
+    & ul,
+    ol {
         margin-left: 16px;
         margin-bottom: 16px;
         list-style-type: disc;
@@ -299,6 +303,10 @@ export const PreviewContainer = styled(Box)`
                 margin-bottom: 0;
             }
         }
+    }
+    & ol {
+        list-style-type: decimal;
+        margin-left: 20px;
     }
     li > strong {
         display: inline-block;
@@ -388,7 +396,8 @@ export const PreviewContainer = styled(Box)`
         & p {
             font-size: 14px;
         }
-        & ul {
+        & ul,
+        ol {
             > li {
                 font-size: 14px;
                 line-height: 20px;

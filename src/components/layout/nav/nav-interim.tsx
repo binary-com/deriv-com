@@ -18,7 +18,8 @@ import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 
 type NavInterimProps = {
-    interim_type: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
+    interim_type?: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
+    landing_type?: boolean
 }
 
 const LogoWrapper = styled(LogoLink)`
@@ -45,7 +46,7 @@ const RightSection = styled(Flex)`
     }
 `
 
-const NavInterim = ({ interim_type }: NavInterimProps) => (
+const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => (
     <NavTemplate nav_height="8.6rem">
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
@@ -72,10 +73,12 @@ const NavInterim = ({ interim_type }: NavInterimProps) => (
             </Flex>
 
             <RightSection jc="flex-end" ai="center">
-                <LanguageSwitcher has_short_name />
-                <StyledLinkButton secondary to="/">
-                    {localize('Explore Deriv.com')}
-                </StyledLinkButton>
+                {!landing_type && <LanguageSwitcher has_short_name />}
+                {!landing_type && (
+                    <StyledLinkButton secondary to="/">
+                        {localize('Explore Deriv.com')}
+                    </StyledLinkButton>
+                )}
             </RightSection>
         </Container>
     </NavTemplate>

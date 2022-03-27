@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import { Nav, NavStatic, NavPartners, NavInterim, NavSticky } from './nav'
+import { getCountryRule } from '../containers/visibility'
+import { Nav, NavStatic, NavPartners, NavInterim, NavSticky, NavSecurity } from './nav'
 import JumpIndicesNav from './jump-indices/nav'
 import NavAcademy from './academy/nav-academy'
 import { NavCareers } from './nav-careers'
@@ -11,14 +12,13 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser } from 'common/utility'
-import { DerivStore } from 'store'
+import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
-
+import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -74,9 +74,8 @@ const CFDContainer = styled(Container)`
 `
 
 const CFDText = styled(Text)`
-    @media ${device.bp1060} {
-        font-size: 14px;
-    }
+    font-size: 14px;
+
     @media ${device.tablet} {
         font-size: 12px;
     }
@@ -86,8 +85,9 @@ const CFDText = styled(Text)`
 `
 
 export const CFDWarning = ({ is_ppc }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-    if (is_ppc || is_eu_country) {
+    const { is_uk_eu } = getCountryRule()
+
+    if (is_ppc || is_uk_eu) {
         return (
             <CFDWrapper>
                 <CFDContainer>
@@ -117,34 +117,28 @@ const Layout = ({
     interim_type,
     is_ppc,
     is_ppc_redirect,
+    is_nav_transparent,
     margin_top,
     no_live_chat,
     no_login_signup,
     type,
 }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_uk_eu } = getCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
+    const [is_redirection_applied, setRedirectionApplied] = useState(false)
 
     const is_static = type === 'static'
-
-    // Every layout change will trigger scroll to top
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.scrollTo(0, 0)
-        }
-    }, [])
-
     // Allow tracking cookie banner setup
     React.useEffect(() => {
-        if (typeof is_eu_country === 'boolean') {
+        if (typeof is_uk_eu === 'boolean') {
             const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
-            if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+            if (is_uk_eu && !tracking_status) setShowCookieBanner(true)
             const allow_tracking =
-                (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
+                (!is_uk_eu || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
             if (allow_tracking) {
                 window.onload = () => {
@@ -155,7 +149,23 @@ const Layout = ({
             }
             setMounted(true)
         }
-    }, [is_eu_country])
+    }, [is_uk_eu])
+
+    // Check client's account and ip and apply the necessary redirection
+    if (!is_redirection_applied) {
+        const website_status = useWebsiteStatusApi()
+
+        React.useEffect(() => {
+            if (website_status) {
+                const current_client_country = website_status?.clients_country || ''
+                const client_information_cookie = new CookieStorage('client_information')
+                const residence = client_information_cookie.get('residence')
+
+                setRedirectionApplied(true)
+                handleRedirect(residence, current_client_country, window.location.hostname)
+            }
+        }, [website_status])
+    }
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
@@ -175,7 +185,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'academy':
-            Navigation = <NavAcademy academy_logo={true} no_language={true} />
+            Navigation = <NavAcademy no_language={true} />
             FooterNav = <Footer academy={true} />
             break
         case 'static':
@@ -188,13 +198,17 @@ const Layout = ({
             Navigation = <NavPartners no_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
+        case 'security':
+            Navigation = <NavSecurity no_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
         case 'ebook':
             Navigation = <Nav hide_signup_login={true} />
             FooterNav = <Footer />
             break
         case 'landing-page':
-            Navigation = <Nav hide_signup_login={true} no_language={true} />
-            FooterNav = <Footer />
+            Navigation = <NavInterim landing_type />
+            FooterNav = <Footer no_footer_links />
             break
         case 'jump-indices':
             Navigation = <JumpIndicesNav />
@@ -213,11 +227,24 @@ const Layout = ({
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = (
+                <Nav
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_ppc={is_ppc}
+                    is_nav_transparent={is_nav_transparent}
+                />
+            )
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
-
+    //Handle page layout when redirection from mobile app.
+    if (queryParamData()) {
+        return (
+            <Main margin_top={'0'} is_static={is_static}>
+                {children}
+            </Main>
+        )
+    }
     return (
         <LocationProvider
             has_mounted={has_mounted}
@@ -259,6 +286,7 @@ CFDWarning.propTypes = {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

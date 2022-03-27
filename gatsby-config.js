@@ -33,7 +33,6 @@ module.exports = {
             options: {
                 failOnError: true,
                 base64Width: 20,
-                forceBase64Format: 'webp',
                 stripMetadata: true,
                 defaultQuality: 50,
             },
@@ -75,6 +74,7 @@ module.exports = {
                     '/signup-success',
                     '/**/signup-success',
                     '/academy/blog/posts/preview',
+                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -150,6 +150,8 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
+                gcm_sender_id: '370236002280',
+                gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
@@ -215,7 +217,7 @@ module.exports = {
         {
             resolve: '@directus/gatsby-source-directus',
             options: {
-                url: 'https://cms.deriv.cloud',
+                url: 'https://deriv-academy.directus.app',
                 auth: {
                     token: process.env.DIRECTUS_AUTH_TOKEN,
                 },

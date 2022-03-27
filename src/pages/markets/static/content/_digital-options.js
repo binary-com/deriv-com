@@ -4,19 +4,21 @@ import {
     AsiaOceania,
     ContinuousIndices,
     DailyResetIndices,
-    Energy,
+    EnergyOptions,
     Europe,
+    JumpIndices,
     MajorPairs,
-    Metals,
-    MinorPairs,
+    MetalsOptions,
+    MinorPairsOptions,
     SmartFX,
-} from '../../instruments/_submarkets.js'
+} from '../../instruments/_index'
 import {
     AmericasDetails,
     AsiaOceaniaDetails,
     ContinuousIndicesDetails,
     DailyResetIndicesDetails,
     EuropeDetails,
+    JumpIndicesDetails,
     SmartFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
@@ -213,11 +215,11 @@ export const commodities_options = {
         content: [
             {
                 title: <Localize translate_text="Metals" />,
-                component: <Metals />,
+                component: <MetalsOptions />,
             },
             {
                 title: <Localize translate_text="Energy" />,
-                component: <Energy />,
+                component: <EnergyOptions />,
             },
         ],
         markets_list: {
@@ -241,7 +243,7 @@ export const forex_options = {
             },
             {
                 title: <Localize translate_text="Minor pairs" />,
-                component: <MinorPairs />,
+                component: <MinorPairsOptions />,
             },
             {
                 title: <Localize translate_text="SmartFX" />,
@@ -314,6 +316,11 @@ export const synthetic_options = {
                 title: <Localize translate_text="Continuous indices" />,
                 component: <ContinuousIndices />,
                 details: ContinuousIndicesDetails,
+            },
+            {
+                title: <Localize translate_text="Jump indices" />,
+                component: <JumpIndices />,
+                details: JumpIndicesDetails,
             },
             {
                 title: <Localize translate_text="Daily reset indices" />,

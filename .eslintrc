@@ -30,11 +30,9 @@
         }
     ],
     "plugins": [
-        "@typescript-eslint",
-        "deprecation"
+        "@typescript-eslint"
     ],
     "rules": {
-        "deprecation/deprecation": "warn",
         "strict": 0,
         "camelcase": 0,
         "no-console": "warn",

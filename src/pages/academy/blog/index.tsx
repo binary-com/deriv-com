@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
 import AllArticles from './_all-articles'
+import { AllArticlesQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -45,10 +45,16 @@ const Hero = styled(Flex)`
     }
 `
 
-const ArticlesPage = ({ data }) => {
+type ArticlesPageProps = {
+    data: AllArticlesQuery
+}
+
+export type ArticleDataType = AllArticlesQuery['directus']['blog']
+
+const ArticlesPage = ({ data }: ArticlesPageProps) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
 
-    let article_data
+    let article_data = data.directus.blog
 
     // We need to include the !is_uk_country check together with is_eu_country because 'gb'
     // is a valid country code for both EU and UK in our country base.
@@ -60,8 +66,6 @@ const ArticlesPage = ({ data }) => {
         article_data = data.directus.blog.filter(
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )
-    } else {
-        article_data = data.directus.blog
     }
 
     const meta_attributes = {
@@ -112,13 +116,10 @@ const ArticlesPage = ({ data }) => {
     )
 }
 
-ArticlesPage.propTypes = {
-    data: PropTypes.object,
-}
 export default WithIntl()(ArticlesPage)
 
 export const query = graphql`
-    query AllArticlesQuery {
+    query AllArticles {
         directus {
             blog(
                 filter: { status: { _eq: "published" }, test_data: { _eq: false } }
@@ -130,7 +131,7 @@ export const query = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(width: 600, aspectRatio: 1.6666666667)
                         }
                     }
                 }

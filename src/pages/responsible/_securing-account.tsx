@@ -96,7 +96,10 @@ const SecureAccount = () => {
                                     components={[
                                         <LocalizedLinkText
                                             key={0}
-                                            to="https://app.deriv.com/account/two-factor-authentication"
+                                            type="deriv_app"
+                                            external="true"
+                                            rel="noopener noreferrer"
+                                            to="/account/two-factor-authentication"
                                             color="red"
                                             size={14}
                                             has_no_end_slash={true}

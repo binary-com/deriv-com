@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { desktop_pins, mobile_pins, MapPinType } from './_data'
 import { localize, LocalizedLink } from 'components/localization'
-import { SectionContainer, CssGrid, Show, Flex } from 'components/containers'
+import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
+import { all_countries, all_offices } from 'pages/careers/_model/_locations/_locations'
 
 const query = graphql`
     query {
@@ -173,11 +174,11 @@ const OurOffices = () => {
             </StyledHeader>
 
             <Flex>
-                <Show.Desktop max_width="tabletL">
+                <Desktop>
                     <MapImage data={data['earth']}>
                         {desktop_pins.map((pin) => (
                             <MapPin
-                                key={pin.title}
+                                key={pin.link}
                                 left={pin.left}
                                 top={pin.top}
                                 title={pin.title}
@@ -185,12 +186,12 @@ const OurOffices = () => {
                             />
                         ))}
                     </MapImage>
-                </Show.Desktop>
-                <Show.Mobile min_width="tabletL">
+                </Desktop>
+                <Mobile>
                     <MapImage data={data['earth_mobile']}>
                         {mobile_pins.map((pin) => (
                             <MapPin
-                                key={pin.title}
+                                key={pin.link}
                                 left={pin.left}
                                 top={pin.top}
                                 title={pin.title}
@@ -198,7 +199,7 @@ const OurOffices = () => {
                             />
                         ))}
                     </MapImage>
-                </Show.Mobile>
+                </Mobile>
             </Flex>
 
             <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
@@ -215,13 +216,13 @@ const OurOffices = () => {
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('13')}</NumberHeader>
+                    <NumberHeader size="32px">{localize(all_offices.length)}</NumberHeader>
                     <NumberText size="16px" align="center">
                         {localize('locations')}
                     </NumberText>
                 </StyledFlex>
                 <StyledFlex fd="column">
-                    <NumberHeader size="32px">{localize('10')}</NumberHeader>
+                    <NumberHeader size="32px">{localize(all_countries.length)}</NumberHeader>
                     <NumberText size="16px" align="center">
                         {localize('countries')}
                     </NumberText>

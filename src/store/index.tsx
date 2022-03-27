@@ -10,12 +10,12 @@ type DerivProviderProps = {
 
 type WebsiteStatusType = {
     clients_country: string
-    crypto_config: any
+    crypto_config: unknown
 }
 
 export type DerivStoreType = {
     academy_data: AcademyDataType
-    crypto_config: any
+    crypto_config: unknown
     is_eu_country: boolean
     is_livechat_interactive: boolean
     is_loading_lc: boolean
@@ -23,7 +23,7 @@ export type DerivStoreType = {
     is_uk_country: boolean
     LC_API: { open_chat_window: () => void }
     setFirstLoadOpenLc: React.Dispatch<React.SetStateAction<boolean>>
-    setWebsiteStatus: Dispatch<WebsiteStatusType>
+    setWebsiteStatus: Dispatch<WebsiteStatusType | void>
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType

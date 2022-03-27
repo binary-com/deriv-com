@@ -8,7 +8,7 @@ import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
-import { trimSpaces } from 'common/utility'
+import { trimSpaces, isBrowser } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
@@ -135,7 +135,7 @@ const Endpoint = () => {
         actions.setSubmitting(false)
         handleStatus(actions.setStatus, 'Config has been updated')
         // TODO: if there is a change requires reload in the future
-        // window.location.reload()
+        window.location.reload()
     }
 
     return (

@@ -4,6 +4,7 @@ import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
 import Hands from 'images/svg/who-we-are/hands.svg'
+import { all_offices, all_countries } from 'pages/careers/_model/_locations/_locations'
 
 type FirstSectionTextsType = {
     text: ReactElement
@@ -170,12 +171,6 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/labuan',
     },
     {
-        left: '45.8%',
-        top: '28%',
-        title: <Localize translate_text="London" />,
-        link: '/careers/locations/london',
-    },
-    {
         left: '47.4%',
         top: '30.9%',
         title: <Localize translate_text="Paris" />,
@@ -251,12 +246,6 @@ export const mobile_pins: MapPinType[] = [
         link: '/careers/locations/labuan',
     },
     {
-        left: '44.3%',
-        top: '24%',
-        title: <Localize translate_text="London" />,
-        link: '/careers/locations/london',
-    },
-    {
         left: '45.9%',
         top: '26.9%',
         title: <Localize translate_text="Paris" />,
@@ -278,8 +267,8 @@ type DerivNumbersType = {
 export const our_offices_count: DerivNumbersType[] = [
     { count: localize('750+'), title: localize('employees') },
     { count: localize('50+'), title: localize('nationalities') },
-    { count: localize('13'), title: localize('locations') },
-    { count: localize('10'), title: localize('countries') },
+    { count: localize(all_offices.length), title: localize('locations') },
+    { count: localize(all_countries.length), title: localize('countries') },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [

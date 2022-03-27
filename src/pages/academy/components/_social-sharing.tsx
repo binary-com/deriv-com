@@ -9,7 +9,17 @@ import TwitterIcon from 'images/svg/blog/twitter.svg'
 import LinkedInIcon from 'images/svg/layout/footer-linkedin.svg'
 import ShareIcon from 'images/svg/academy/share.svg'
 
-const SharingButton = styled.button`
+type SharingButtonInterface = {
+    is_open: boolean
+}
+
+type SocialMediaType = {
+    image_alt?: string
+    link: string
+    image: string
+}
+
+const SharingButton = styled.button<SharingButtonInterface>`
     width: 32px;
     height: 32px;
     background: ${(props) => (props.is_open ? 'var(--color-grey-8)' : 'rgb(255, 255, 255, 0.0)')};
@@ -62,7 +72,7 @@ const SocialSharing = () => {
     const hideBurger = () => setIsOpen(false)
     const toggleBurger = () => setIsOpen(!is_open)
 
-    const social_media = [
+    const social_media: Array<SocialMediaType> = [
         {
             link: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
             image: FacebookIcon,

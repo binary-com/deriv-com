@@ -3,6 +3,9 @@ import { Box, Flex, Container } from 'components/containers'
 import { LocalizedLinkText, Header, Text } from 'components/elements'
 import device from 'themes/device'
 
+type ScrollbarProps = {
+    scroll: boolean
+}
 export const Background = styled.div`
     background: var(--color-grey-8);
     width: 100%;
@@ -80,7 +83,7 @@ export const StyledBreadcrumbsContainer = styled(Container)`
     }
 `
 
-export const Scrollbar = styled.div`
+export const Scrollbar = styled.div<ScrollbarProps>`
     position: fixed;
     top: ${(props) => (props.scroll ? '138px' : '14.4rem')};
     width: 100%;

@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useLayoutEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -73,7 +73,7 @@ const deviceRenderer = (): boolean => {
 }
 
 export const getCountryRule = () => {
-    const [website_status] = useWebsiteStatus()
+    const { 0: website_status, 2: is_loading } = useWebsiteStatus()
     const user_ip_country = website_status?.clients_country || ''
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
     const { residence } = getClientInformation(getDomain()) || {
@@ -93,7 +93,7 @@ export const getCountryRule = () => {
     const is_uk_eu = !(!is_eu && !is_uk)
     const is_row = !is_uk_eu
 
-    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row }
+    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row, is_loading }
 }
 
 export const Desktop = ({
@@ -134,15 +134,12 @@ export const Mobile = ({
 
 const CountryBasedContent = ({ country_rule, children }: CountryBasedContentProps) => {
     const rules = getCountryRule()
-    const [is_loaded, setLoaded] = useState(false)
 
-    useLayoutEffect(() => {
-        setLoaded(true)
-    }, [rules])
+    const { is_loading } = rules
 
     const condition = rules[country_rule]
 
-    return is_loaded && condition ? <>{children}</> : <></>
+    return !is_loading && condition ? <>{children}</> : <></>
 }
 
 export const EU = ({ children }: ResponsiveContainerProps) => (

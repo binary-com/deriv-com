@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import Loadable from '@loadable/component'
+import { navigate } from 'gatsby'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { crypto_cfds } from '../../static/content/_cfds'
@@ -12,8 +13,9 @@ import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import { DerivStore } from 'store'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
+import { getCountryRule, NonUK } from 'components/containers/visibility'
+
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
@@ -28,11 +30,12 @@ type CryptoContent = {
 }
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
-    const { is_eu_country } = React.useContext(DerivStore)
+    
+    const { is_uk_eu, is_uk } = getCountryRule()
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,
-            text: is_eu_country ? (
+            text: is_uk_eu ? (
                 <Localize translate_text="1:2 leverage" />
             ) : (
                 <Localize translate_text="1:100 leverage" />
@@ -52,8 +55,12 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         },
     ]
 
+    if (is_uk) {
+        navigate('/404/')
+    }
+
     return (
-        <>
+        <NonUK>
             <WhyTrade
                 header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
                 text={
@@ -83,7 +90,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 sign_up
             />
             <OtherMarkets except="cryptocurrencies" />
-        </>
+        </NonUK>
     )
 }
 

@@ -34,7 +34,7 @@ import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { cms_assets_end_point } from 'common/constants'
+import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const BlogPreview = () => {
@@ -44,7 +44,7 @@ const BlogPreview = () => {
     const [isMounted, setMounted] = useState(false)
     const [data, setData] = useState(null)
     const [id, setId] = useState(null)
-    const end_point_url = 'https://cms.deriv.cloud/items/blog/'
+    const end_point_url = `${cms_end_point}/items/blog/`
 
     useEffect(() => {
         setMounted(true)

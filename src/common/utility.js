@@ -450,7 +450,7 @@ const handleEURedirect = (country, full_domain) => {
 }
 
 export const handleRedirect = (residence, current_client_country, full_domain) => {
-    const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+    const subdomain = getSubDomain()
     const country = residence ? residence : current_client_country
 
     const eu_domains = ['eu', 'staging-eu']
@@ -469,4 +469,8 @@ export const queryParamData = () => {
         const platform_list = ['derivgo', 'p2p']
         return platform_list.includes(platform_name) ? platform_name : ''
     } else return ''
+}
+
+export const getSubDomain = () => {
+    return isBrowser() && /:\/\/([^/]+)/.exec(window.location.href)[1].split('.')[0]
 }

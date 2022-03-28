@@ -17,6 +17,9 @@ const query = graphql`
         derek: file(relativePath: { eq: "who-we-are/derek.jpg" }) {
             ...fadeIn
         }
+        edwin: file(relativePath: { eq: "who-we-are/edwin.jpg" }) {
+            ...fadeIn
+        }
         gary: file(relativePath: { eq: "who-we-are/gary.jpg" }) {
             ...fadeIn
         }
@@ -30,6 +33,9 @@ const query = graphql`
             ...fadeIn
         }
         joanna: file(relativePath: { eq: "who-we-are/joanna.jpg" }) {
+            ...fadeIn
+        }
+        kaveh: file(relativePath: { eq: "who-we-are/kaveh.jpg" }) {
             ...fadeIn
         }
         louise: file(relativePath: { eq: "who-we-are/louise.jpg" }) {
@@ -277,12 +283,6 @@ const OurLeadership = () => {
             image: leaders_data.shyamala,
         },
         {
-            name: 'Gary Ross Vytialingam',
-            position: 'Chief Risk Officer',
-            link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
-            image: leaders_data.gary,
-        },
-        {
             name: 'Seema Hallon',
             position: 'Head of People Management',
             link: 'https://www.linkedin.com/in/seema-hallon-6919073/',
@@ -296,27 +296,45 @@ const OurLeadership = () => {
         },
         {
             name: 'Waqas Awan',
-            position: 'Head of Product & Content Design',
+            position: 'Vice President - Product',
             link: 'https://www.linkedin.com/in/waqasawan/',
             image: leaders_data.waqas,
         },
         {
             name: 'Raunak Kathuria',
-            position: 'Head of Back End Development',
+            position: 'Vice President - Engineering',
             link: 'https://www.linkedin.com/in/raunakkathuria/',
             image: leaders_data.raunak,
         },
         {
+            name: 'Edwin Raspe',
+            position: 'Vice President - IT Operations',
+            link: 'https://my.linkedin.com/in/edwin-raspe-210a722/',
+            image: leaders_data.edwin,
+        },
+        {
+            name: 'Kaveh Mousavi',
+            position: 'Vice President - Engineering',
+            link: 'https://de.linkedin.com/in/kavehmz/',
+            image: leaders_data.kaveh,
+        },
+        {
             name: 'Jeyavarthini Vairakanan',
-            position: 'Head of Customer Support',
+            position: 'Vice President - Customer Support',
             link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
             image: leaders_data.jeya,
         },
         {
             name: 'Antony Pradeep Charles',
-            position: 'Head of Strategy & Project Management',
+            position: 'Vice President - Strategy & Project Management',
             link: 'https://www.linkedin.com/in/antonypradeep/',
             image: leaders_data.antony,
+        },
+        {
+            name: 'Gary Ross Vytialingam',
+            position: 'Chief Risk Officer',
+            link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
+            image: leaders_data.gary,
         },
         {
             name: 'Jennice Lourdsamy',

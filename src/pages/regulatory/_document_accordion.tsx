@@ -144,7 +144,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
-                header={localize('Financial Disclosures Annual Report 2020')}
+                header={localize('Financial disclosure report')}
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -163,11 +163,11 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/Financial-Disclosures-Report.pdf"
+                        href="/regulatory/Financial Disclosures Annual Report 2020.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />
-                        <span>{localize('Financial disclosure report')}</span>
+                        <span>{localize('Financial Disclosures Annual Report 2020')}</span>
                     </FlexText_Pillar>
                 </Flex>
             </AccordionItem>

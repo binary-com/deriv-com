@@ -77,7 +77,6 @@ const Wrapper = styled.div`
 const Content = styled.div<ContentProps>`
     display: flex;
     flex-direction: column;
-    min-width: ${(props) => props.min_width};
     max-width: ${(props) => props.max_width};
 
     @media (max-width: 749px) {

@@ -115,7 +115,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     return (
         <Wrapper>
             <ImageWrapper src={img_src} alt="" left_margin="0px" />
-            <Content min_width="280px" max_width="48.8rem">
+            <Content max_width="48.8rem">
                 <Header as="h4" type="sub-section-title" pb="8px">
                     {header}
                 </Header>
@@ -237,14 +237,7 @@ const WhoCanApply = () => {
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             {localize('Get listed')}
                                         </Header>
-                                        <Header
-                                            as="h4"
-                                            type="paragraph-1"
-                                            weight="normal"
-                                            tabletL={{
-                                                width: '226px',
-                                            }}
-                                        >
+                                        <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize(
                                                 'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
                                             )}

@@ -22,7 +22,6 @@ const HeaderPrimary = styled(Header)`
 `
 
 const TextPrimary = styled(Text)`
-    min-width: 280px;
     margin-top: 8px;
     font-size: 16px;
     line-height: 24px;

@@ -25,7 +25,7 @@ const Card = styled(Flex)`
     @media ${device.tabletL} {
         padding: 24px 24px 32px 24px;
         align-items: center;
-        width: 328px;
+        width: calc(100% - 16px);
         min-height: 96px;
         height: 120px;
     }

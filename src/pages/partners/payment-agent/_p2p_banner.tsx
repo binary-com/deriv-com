@@ -39,9 +39,12 @@ const MainWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         height: 536px;
-        width: 328px;
+        width: 100%;
         background-size: 296px 180px, cover;
         background-position: bottom center;
+    }
+    @media (max-width: 355px) {
+        height: 580px;
     }
 `
 const LeftWrapper = styled(Flex)`
@@ -87,6 +90,9 @@ const Subtitle = styled(Header)`
     @media (max-width: 1100px) {
         min-width: 264px;
         margin-bottom: 24px;
+    }
+    @media (max-width: 355px) {
+        min-width: calc(100% - 16px);
     }
 `
 

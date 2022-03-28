@@ -757,7 +757,7 @@ const NavInterimContainer = styled.div`
     position: relative;
 `
 
-export const NavInterim = ({ interim_type }) => (
+export const NavInterim = ({ interim_type, landing_type }) => (
     <InterimNav>
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
@@ -796,10 +796,12 @@ export const NavInterim = ({ interim_type }) => (
                     </MobileWrapper>
                 </Flex>
                 <Auto jc="flex-end" ai="center">
-                    <LanguageSwitcher short_name="true" />
-                    <LeftButton secondary to="/">
-                        {localize('Explore Deriv.com')}
-                    </LeftButton>
+                    {!landing_type && <LanguageSwitcher short_name="true" />}
+                    {!landing_type && (
+                        <LeftButton secondary to="/">
+                            {localize('Explore Deriv.com')}
+                        </LeftButton>
+                    )}
                 </Auto>
             </Container>
         </NavInterimContainer>
@@ -1188,7 +1190,7 @@ export const NavSecurity = () => {
                                     {localize('Go to Deriv.com')}
                                 </Header>
                             </HomeLink>
-                            <HomeLink to="/story/">
+                            <HomeLink to="/who-we-are/">
                                 <Header weight="normal" color="grey-19" type="paragraph-2">
                                     {localize('About us')}
                                 </Header>
@@ -1278,6 +1280,7 @@ NavPartners.propTypes = {
 
 NavInterim.propTypes = {
     interim_type: PropTypes.string,
+    landing_type: PropTypes.bool,
 }
 
 const Section = styled(SectionContainer)`

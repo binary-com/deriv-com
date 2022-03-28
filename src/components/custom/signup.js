@@ -13,7 +13,6 @@ import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
-import SignupSimple from 'components/custom/_signup-simple'
 import SignupAffiliate from 'components/custom/_signup-affiliate'
 import SignupAffiliateDetails from 'components/custom/_signup-affiliate-details'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
@@ -202,8 +201,6 @@ const Signup = (props) => {
         }
 
         switch (param) {
-            case Appearances.simple:
-                return <SignupSimple {...parameters}></SignupSimple>
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
             case Appearances.affiliateSignup:

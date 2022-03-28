@@ -67,6 +67,7 @@ const AgreementLabel = ({
                             external="true"
                             rel="noopener noreferrer"
                             color="red"
+                            target="__blank"
                         />,
                     ]}
                 />

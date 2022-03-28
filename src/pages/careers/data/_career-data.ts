@@ -685,11 +685,6 @@ const career_data = {
                     location: 'Asunción, Paraguay',
                     id: '590522000037933936',
                 },
-                {
-                    title: 'Head of Internal Audit',
-                    location: 'London, United Kingdom',
-                    id: '590522000037962151',
-                },
             ],
             testimony_section: {
                 image: 'internal_audit_review',

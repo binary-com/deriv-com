@@ -17,6 +17,9 @@ const query = graphql`
         derek: file(relativePath: { eq: "who-we-are/derek.jpg" }) {
             ...fadeIn
         }
+        edwin: file(relativePath: { eq: "who-we-are/edwin.jpg" }) {
+            ...fadeIn
+        }
         gary: file(relativePath: { eq: "who-we-are/gary.jpg" }) {
             ...fadeIn
         }
@@ -30,6 +33,9 @@ const query = graphql`
             ...fadeIn
         }
         joanna: file(relativePath: { eq: "who-we-are/joanna.jpg" }) {
+            ...fadeIn
+        }
+        kaveh: file(relativePath: { eq: "who-we-are/kaveh.jpg" }) {
             ...fadeIn
         }
         louise: file(relativePath: { eq: "who-we-are/louise.jpg" }) {
@@ -74,7 +80,6 @@ const StyledCssGrid = styled(CssGrid)`
     @media ${device.tablet} {
         max-width: unset;
         padding: 0;
-        grid-template-columns: ;
     }
     @media (max-width: 359px) {
         grid-template-columns: repeat(3, 88px);
@@ -242,85 +247,97 @@ const OurLeadership = () => {
     const leaders: LeaderType[] = [
         {
             name: 'Jean-Yves Sireau',
-            position: 'Chief Executive Officer',
+            position: localize('Chief Executive Officer'),
             link: 'https://www.linkedin.com/in/jeanyvessireau/',
             image: leaders_data.jy,
         },
         {
             name: 'Rakshit Choudhary ',
-            position: 'Chief Operating Officer',
+            position: localize('Chief Operating Officer'),
             link: 'https://www.linkedin.com/in/rakshit-choudhary-9a67b61b0/',
             image: leaders_data.rakshit,
         },
         {
             name: 'Tom Molesworth',
-            position: 'Chief Technology Officer',
+            position: localize('Chief Technology Officer'),
             link: '',
             image: leaders_data.tom,
         },
         {
             name: 'Joanna Frendo',
-            position: 'Chief Compliance Officer',
+            position: localize('Chief Compliance Officer'),
             link: 'https://www.linkedin.com/in/joanna-frendo-4449975/',
             image: leaders_data.joanna,
         },
         {
             name: 'Louise Wolf',
-            position: 'Chief Financial Officer',
+            position: localize('Chief Financial Officer'),
             link: 'https://www.linkedin.com/in/louise-wolf-7b98b460/',
             image: leaders_data.louise,
         },
         {
             name: 'Shyamala Siva',
-            position: 'Chief Administrative Officer',
+            position: localize('Chief Administrative Officer'),
             link: 'https://www.linkedin.com/in/shyamala-siva-90043b208/',
             image: leaders_data.shyamala,
         },
         {
-            name: 'Gary Ross Vytialingam',
-            position: 'Chief Risk Officer',
-            link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
-            image: leaders_data.gary,
-        },
-        {
             name: 'Seema Hallon',
-            position: 'Head of People Management',
+            position: localize('Head of People Management'),
             link: 'https://www.linkedin.com/in/seema-hallon-6919073/',
             image: leaders_data.seema,
         },
         {
             name: 'Derek Swift',
-            position: 'Head of Marketing & Global Partnerships',
+            position: localize('Head of Marketing & Global Partnerships'),
             link: 'https://www.linkedin.com/in/derek-swift-5787208/',
             image: leaders_data.derek,
         },
         {
             name: 'Waqas Awan',
-            position: 'Head of Product & Content Design',
+            position: localize('Vice President of Product'),
             link: 'https://www.linkedin.com/in/waqasawan/',
             image: leaders_data.waqas,
         },
         {
             name: 'Raunak Kathuria',
-            position: 'Head of Back End Development',
+            position: localize('Vice President of Engineering'),
             link: 'https://www.linkedin.com/in/raunakkathuria/',
             image: leaders_data.raunak,
         },
         {
+            name: 'Edwin Raspe',
+            position: localize('Vice President of IT Operations'),
+            link: 'https://my.linkedin.com/in/edwin-raspe-210a722/',
+            image: leaders_data.edwin,
+        },
+        {
+            name: 'Kaveh Mousavi Zamani',
+            position: localize('Vice President of Engineering'),
+            link: 'https://de.linkedin.com/in/kavehmz/',
+            image: leaders_data.kaveh,
+        },
+        {
             name: 'Jeyavarthini Vairakanan',
-            position: 'Head of Customer Support',
+            position: localize('Vice President of Customer Support'),
             link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
             image: leaders_data.jeya,
         },
         {
             name: 'Antony Pradeep Charles',
-            position: 'Head of Strategy & Project Management',
+            position: localize('Vice President of Strategy & Project Management'),
             link: 'https://www.linkedin.com/in/antonypradeep/',
             image: leaders_data.antony,
         },
         {
+            name: 'Gary Ross Vytialingam',
+            position: localize('Chief Risk Officer'),
+            link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
+            image: leaders_data.gary,
+        },
+        {
             name: 'Jennice Lourdsamy',
-            position: 'Head of Accounts',
+            position: localize('Head of Accounts'),
             link: 'https://www.linkedin.com/in/jennice-lourdsamy-352b897/',
             image: leaders_data.jennice,
         },

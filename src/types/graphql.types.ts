@@ -6463,10 +6463,6 @@ export type Unnamed_17_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
-    thumbnail_london: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
     thumbnail_guernsey: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
@@ -6542,38 +6538,6 @@ export type Unnamed_19_Query = {
 }
 
 export type Unnamed_20_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_20_Query = {
-    __typename?: 'Query'
-    london: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    living_in_london: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    london_grid_1: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    london_grid_2: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    london_grid_3: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    london_grid_4: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    london_map: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
 
 export type Unnamed_21_QueryVariables = Exact<{ [key: string]: never }>
 

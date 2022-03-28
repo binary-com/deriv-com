@@ -113,9 +113,14 @@ export const onInitialClientRender = () => {
     }
 }
 
-export const onClientEntry = () => {
+export const onClientEntry = async () => {
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
+
+    if (typeof IntersectionObserver === 'undefined') {
+        await import('intersection-observer')
+    }
+
     if (isLive()) {
         pushwooshInit(push_woosh)
     }

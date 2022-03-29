@@ -10,7 +10,7 @@ import {
     live_chat_key,
     domains,
 } from './constants'
-import { isUK } from 'common/country-base'
+import { isUK, eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
 export const trimSpaces = (value) => value?.trim()
@@ -425,7 +425,7 @@ export const useCallbackRef = (callback) => {
     return callback_ref
 }
 
-const eu_subdomain_countries = ['nl']
+const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`

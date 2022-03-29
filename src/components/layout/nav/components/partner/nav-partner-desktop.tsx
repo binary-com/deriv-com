@@ -67,7 +67,7 @@ const LinkSignupButton = styled(LinkButton)`
     margin-left: 1.6rem;
     margin-right: 10px;
 `
-const StyledNavRight = styled(NavRight)<any>`
+const StyledNavRight = styled(NavRight)`
     margin-left: auto;
     transform: translateX(
         ${(props) => {
@@ -126,7 +126,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 }
 
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
-    const button_ref = useRef(null)
+    const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)

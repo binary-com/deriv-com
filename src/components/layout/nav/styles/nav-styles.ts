@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 
 type NavRightProps = {
-    button_ref: any
+    button_ref: HTMLButtonElement
     mounted: boolean
     move?: boolean
     has_scrolled: boolean

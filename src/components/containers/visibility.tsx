@@ -57,10 +57,8 @@ const domainBasedCheck = () => {
 const getBreakPoint = (breakpoint: ResponsiveContainerProps['breakpoint']) => {
     if (typeof breakpoint === 'number') {
         return breakpoint
-    } else if (typeof breakpoint === 'string') {
-        return size[breakpoint] ?? DEFAULT_BREAKPOINT
     } else {
-        return DEFAULT_BREAKPOINT
+        return size[breakpoint] ?? DEFAULT_BREAKPOINT
     }
 }
 
@@ -93,6 +91,8 @@ export const Desktop = ({
     breakpoint = DEFAULT_BREAKPOINT,
     className = '',
 }: ResponsiveContainerProps) => {
+    console.log('type', typeof breakpoint)
+    console.log('ctype', typeof className)
     const breakpoint_size = getBreakPoint(breakpoint)
     const [is_mobile] = useBrowserResize(breakpoint_size)
     const is_loaded = deviceRenderer()

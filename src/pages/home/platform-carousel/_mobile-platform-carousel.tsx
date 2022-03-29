@@ -1,14 +1,16 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import {
     platform_details_cr,
-    platform_details_eu_uk,
+    platform_details_eu,
+    platform_details_uk,
     getOSIcon,
     PlatformContent,
     ImageTag,
 } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
+import { image_query } from './_details'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
@@ -72,35 +74,6 @@ const settings = {
     `,
 }
 
-const image_query = graphql`
-    query {
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
-            ...fadeIn
-        }
-        platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
-            ...fadeIn
-        }
-        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
-            ...homePageHeroFadeIn
-        }
-        platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
-            ...fadeIn
-        }
-        platforms_dbot: file(relativePath: { eq: "home/platforms_dbot.png" }) {
-            ...fadeIn
-        }
-        platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader.png" }) {
-            ...fadeIn
-        }
-        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
-            ...fadeIn
-        }
-        platforms_api: file(relativePath: { eq: "home/platforms_api.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (
         <>
@@ -127,14 +100,23 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
 }
 
 const MobilePlatformCarousel = () => {
-    const { is_row } = getCountryRule()
+    const { is_eu, is_uk } = getCountryRule()
     const images = useStaticQuery(image_query)
-    const platforms = is_row ? platform_details_cr : platform_details_eu_uk
+
+    const carouselData = () => {
+        if (is_eu) {
+            return platform_details_eu
+        }
+        if (is_uk) {
+            return platform_details_uk
+        }
+        return platform_details_cr
+    }
 
     return (
         <Carousel {...settings}>
-            {platforms.map(
-                ({ title, icon, image_key, description, learn_more_link, download_links }) => {
+            {carouselData().map(
+                ({ image_key, title, icon, description, learn_more_link, download_links }) => {
                     return (
                         <CarouselItemWrapper key={image_key}>
                             <Flex tabletL={{ mb: '56px' }}>
@@ -160,9 +142,9 @@ const MobilePlatformCarousel = () => {
                                 tabletL={{ m: '3.2rem 3.8rem' }}
                                 mobileL={{ m: '32px 0 40px' }}
                             >
-                                {download_links.map((link, id) => (
+                                {download_links.map((link) => (
                                     <DownloadLink
-                                        key={id}
+                                        key={link.type}
                                         external="true"
                                         type={link?.link_type}
                                         to={link?.url}

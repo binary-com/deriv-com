@@ -40,6 +40,7 @@ type ArticleComponentProps = {
     all_categories: CategoryType
     toggleArticle: (arg: string) => void
     is_eu_country: boolean
+    param: string
 }
 
 const ArticleDiv = styled.div`
@@ -149,6 +150,7 @@ const ArticleComponent = ({
     all_categories,
     toggleArticle,
     is_eu_country,
+    param,
 }: ArticleComponentProps) => {
     return (
         <ArticleDiv key={idx}>
@@ -176,6 +178,7 @@ const ArticleComponent = ({
                                     to={convertToHash(
                                         item.category.props.translate_text,
                                         label_type,
+                                        param,
                                     )}
                                 >
                                     {title_type}

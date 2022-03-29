@@ -11,7 +11,7 @@ import { map_api_key, zoho_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/careers/map.svg'
 
-const Pin = styled.img`
+export const Pin = styled.img`
     width: 12px;
     height: 16px;
     margin-right: 10px;
@@ -211,7 +211,7 @@ const CardText = styled(Text)`
     }
 `
 
-const Iframe = styled.iframe`
+export const Iframe = styled.iframe`
     width: 100%;
     border: 0;
 `

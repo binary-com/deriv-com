@@ -1,18 +1,40 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
-import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
 import { getCountryRule } from 'components/containers/visibility'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
+
+const ImagePlaceHolder = styled.div`
+    width: 690px;
+
+    @media ${device.tabletL} {
+        width: 100%;
+        height: 360px;
+    }
+`
 
 const query = graphql`
     query {
         hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
             ...homePageHeroFadeIn
         }
+        hero_platform1_eu: file(relativePath: { eq: "home/hero_platform1_eu.png" }) {
+            ...homePageHeroFadeIn
+        }
+        hero_platform1_uk: file(relativePath: { eq: "home/hero_platform1_uk.png" }) {
+            ...homePageHeroFadeIn
+        }
         hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
+            ...homePageHeroFadeIn
+        }
+        hero_platform2_eu: file(relativePath: { eq: "home/hero_platform2_eu.png" }) {
+            ...homePageHeroFadeIn
+        }
+        hero_platform2_uk: file(relativePath: { eq: "home/hero_platform2_uk.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
@@ -53,20 +75,32 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
+    const [is_be_loaded, setBeLoaded] = useState(false)
     const data = useStaticQuery(query)
-    const { is_row } = getCountryRule()
+    const { is_row, is_eu, is_uk } = getCountryRule()
+    const [website_status] = useWebsiteStatus()
 
-    const slide_images = is_row
-        ? [
-              { key: 'hero1', image: data.hero_platform1 },
-              { key: 'hero2', image: data.hero_platform2 },
-              { key: 'hero3', image: data.hero_platform3 },
-              { key: 'hero4', image: data.hero_platform4 },
-          ]
-        : [
-              { key: 'hero2', image: data.hero_platform2 },
-              { key: 'hero3', image: data.hero_platform3 },
-          ]
+    useEffect(() => {
+        if (website_status) {
+            setBeLoaded(true)
+        }
+    }, [website_status])
+
+    const slide_images =
+        (is_row && [
+            { key: 'hero1', image: data.hero_platform1 },
+            { key: 'hero2', image: data.hero_platform2 },
+            { key: 'hero3', image: data.hero_platform3 },
+            { key: 'hero4', image: data.hero_platform4 },
+        ]) ||
+        (is_eu && [
+            { key: 'hero1', image: data.hero_platform1_eu },
+            { key: 'hero2', image: data.hero_platform2_eu },
+        ]) ||
+        (is_uk && [
+            { key: 'hero1', image: data.hero_platform1_uk },
+            { key: 'hero2', image: data.hero_platform2_uk },
+        ])
 
     const setNextImage = useCallback(() => {
         setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
@@ -80,10 +114,12 @@ const PlatformSlideshow = () => {
         return () => clearInterval(slideshow_timer)
     }, [slide_images])
 
-    return (
+    return is_be_loaded ? (
         <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
             <Slides images={slide_images} active_index={active_index} />
         </Flex>
+    ) : (
+        <ImagePlaceHolder />
     )
 }
 

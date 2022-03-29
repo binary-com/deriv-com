@@ -223,8 +223,8 @@ const Leader = ({ leader }: LeaderProps) => {
         <StyledImageWrapper
             onMouseOver={showModal}
             onMouseLeave={dontShowModal}
-            width="120px"
-            height="120px"
+            width="100%"
+            height="100%"
             tabindex="1"
             loading="lazy"
         >

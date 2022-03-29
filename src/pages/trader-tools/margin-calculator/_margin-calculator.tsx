@@ -40,6 +40,7 @@ import {
     FormulaContainer,
     FormulaHighlight,
     FormulaValue,
+    FormulaValueSwapSynthetic,
     FormulaGreen,
     PointerContainer,
     PointerDot,
@@ -414,22 +415,22 @@ const MarginCalculator = () => {
                                     </FormulaContainer>
                                 </Show.Desktop>
                                 <Show.Mobile>
-                                    <FormulaContainerMobile>
-                                        <FormulaHighlightMobile>
+                                    <FormulaContainerMobile height="178px">
+                                        <FormulaHighlightMobile height="82px">
                                             <FormulaValueMobile>
                                                 <Localize translate_text="(2" />
                                                 <PointerContainerMobile>
                                                     <PointerDotMobile />
-                                                    <PointerStickMobile />
+                                                    <PointerStickMobile height="28px" />
                                                     <PointerTextMobile>
                                                         <Localize translate_text="Volume" />
                                                     </PointerTextMobile>
                                                 </PointerContainerMobile>
                                             </FormulaValueMobile>
 
-                                            <FormulaValueMobile>
+                                            <FormulaValueSwapSynthetic>
                                                 <FormulaGreen> x </FormulaGreen>
-                                            </FormulaValueMobile>
+                                            </FormulaValueSwapSynthetic>
 
                                             <FormulaValueMobile>
                                                 <Localize translate_text="100,000" />
@@ -445,9 +446,9 @@ const MarginCalculator = () => {
                                                 </PointerContainerMobile>
                                             </FormulaValueMobile>
 
-                                            <FormulaValueMobile>
+                                            <FormulaValueSwapSynthetic>
                                                 <FormulaGreen>x</FormulaGreen>
-                                            </FormulaValueMobile>
+                                            </FormulaValueSwapSynthetic>
 
                                             <FormulaValueMobile>
                                                 <Localize translate_text="1.10)" />
@@ -468,23 +469,23 @@ const MarginCalculator = () => {
                                                 <Localize translate_text="100" />
                                                 <PointerContainerMobile top ml="4px">
                                                     <PointerDotMobile />
-                                                    <PointerStickMobile />
+                                                    <PointerStickMobile height="28px" />
                                                     <PointerTextMobile top>
                                                         <Localize translate_text="Leverage" />
                                                     </PointerTextMobile>
                                                 </PointerContainerMobile>
                                             </FormulaValueMobile>
 
-                                            <FormulaValueMobile>
+                                            <FormulaValueSwapSynthetic>
                                                 <FormulaGreen>=</FormulaGreen>
-                                            </FormulaValueMobile>
+                                            </FormulaValueSwapSynthetic>
 
                                             <FormulaValueMobile>
                                                 <Localize
                                                     translate_text="<0>2,200</0>"
                                                     components={[<FormulaGreen key={0} />]}
                                                 />
-                                                <PointerContainerMobile ml="16px">
+                                                <PointerContainerMobile ml="5px">
                                                     <PointerDotMobile />
                                                     <PointerStickMobile />
                                                     <PointerTextMobile>

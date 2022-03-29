@@ -333,9 +333,9 @@ export const SwapFinancialExample = () => {
                         <FormulaTopWrapper>
                             <FormulaValueMobile>
                                 <Localize translate_text="2" />
-                                <PointerContainerMobile ml="3px">
+                                <PointerContainerMobile>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="42px" />
+                                    <PointerStickMobile height="32px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Volume" />
                                     </PointerTextMobile>
@@ -348,9 +348,9 @@ export const SwapFinancialExample = () => {
 
                             <FormulaValueMobile>
                                 <Localize translate_text="100, 000" />
-                                <PointerContainerMobile top>
+                                <PointerContainerMobile mw="32px" top ml="-30px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="15px" />
+                                    <PointerStickMobile height="32px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Contract size <0>1</0>"
@@ -366,9 +366,9 @@ export const SwapFinancialExample = () => {
 
                             <FormulaValueMobile>
                                 <Localize translate_text="0.00001" />
-                                <PointerContainerMobile>
+                                <PointerContainerMobile ml="10px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="42px" />
+                                    <PointerStickMobile />
                                     <PointerTextMobile>
                                         <Localize
                                             translate_text="Point value<0>2</0>"
@@ -384,9 +384,9 @@ export const SwapFinancialExample = () => {
 
                             <FormulaValueMobile>
                                 <Localize translate_text="-0.12 " />
-                                <PointerContainerMobile top ml="4px">
+                                <PointerContainerMobile mw="32px" ml="-8px" top>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="15px" />
+                                    <PointerStickMobile height="32px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Swap rate <0>3</0>"
@@ -395,9 +395,6 @@ export const SwapFinancialExample = () => {
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
-                        </FormulaTopWrapper>
-
-                        <FormulaBottomWrapper>
                             <FormulaValueMobile>
                                 <FormulaGreen>=</FormulaGreen>
                             </FormulaValueMobile>
@@ -415,7 +412,7 @@ export const SwapFinancialExample = () => {
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
-                        </FormulaBottomWrapper>
+                        </FormulaTopWrapper>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
             </Show.Mobile>

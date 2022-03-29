@@ -68,10 +68,10 @@ const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionPro
                 )}
             </LogoLink>
 
-            {!hide_get_trading && (
+            {!hide_get_trading && !hide_branding && (
                 <>
-                    {!hide_branding && <Line />}
-                    {!hide_branding && <img src={GetTrading} alt="get trading" />}
+                    <Line />
+                    <img src={GetTrading} alt="get trading" />
                 </>
             )}
         </Wrapper>

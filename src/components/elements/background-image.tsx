@@ -20,7 +20,6 @@ interface BackgroundProps extends IBackgroundImageProps {
     data: ImageDataLike | IGatsbyImageData
     is_unstyled?: boolean
     style?: CSSProperties
-    loading?: string
 }
 
 export const Background = ({

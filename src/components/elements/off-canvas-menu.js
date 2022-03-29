@@ -294,7 +294,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         content={
                                             <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
                                         }
-                                        title={<Localize translate_text="BinaryBot" />}
+                                        title={<Localize translate_text="Binary Bot" />}
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
                                         external="true"

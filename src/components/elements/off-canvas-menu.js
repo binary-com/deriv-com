@@ -250,7 +250,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         }
                                         title={<Localize translate_text="Deriv GO" />}
                                         onClick={handleArrowClick}
-                                        to="/landing/deriv-go/"
+                                        to="/deriv-go/"
                                     />
                                 </Flex>
                                 <Flex mb="2rem">

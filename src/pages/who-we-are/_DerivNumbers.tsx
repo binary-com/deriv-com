@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { deriv_numbers } from './_data'
 import { localize } from 'components/localization'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -31,7 +32,6 @@ const StyledFlex = styled(Flex)`
 
 const TitleSection = styled(Flex)`
     max-width: 46rem;
-    flex-direction: column;
 
     @media ${device.laptop} {
         margin-bottom: 8rem;
@@ -106,7 +106,7 @@ const DerivNumbers = () => {
     return (
         <StyledSection>
             <StyledFlex>
-                <TitleSection>
+                <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="left" type="unset">
                         {localize('Deriv in numbers')}
                     </TitleHeader>
@@ -123,38 +123,18 @@ const DerivNumbers = () => {
                     row_gap="4rem"
                     height="unset"
                 >
-                    <Flex fd="column" height="unset">
-                        <NumberHeader size="48px" type="unset">
-                            {localize('2.5M+')}
-                        </NumberHeader>
-                        <NumberText size="20px" align="left">
-                            {localize('traders worldwide')}
-                        </NumberText>
-                    </Flex>
-                    <Flex fd="column" height="unset">
-                        <NumberHeader size="48px" type="unset">
-                            {localize('USD 26M+')}
-                        </NumberHeader>
-                        <NumberText size="20px" align="left">
-                            {localize('withdrawals last month')}
-                        </NumberText>
-                    </Flex>
-                    <Flex fd="column" height="unset">
-                        <NumberHeader size="48px" type="unset">
-                            {localize('114M+')}
-                        </NumberHeader>
-                        <NumberText size="20px" align="left">
-                            {localize('trades last month')}
-                        </NumberText>
-                    </Flex>
-                    <Flex fd="column" height="unset">
-                        <NumberHeader size="48px" type="unset">
-                            {localize('USD 10B+')}
-                        </NumberHeader>
-                        <NumberText size="20px" align="left">
-                            {localize('total trade turnover')}
-                        </NumberText>
-                    </Flex>
+                    {deriv_numbers.map((number) =>
+                        number.map(({ count, title }) => (
+                            <Flex key={count} fd="column" height="unset">
+                                <NumberHeader size="48px" type="unset">
+                                    {count}
+                                </NumberHeader>
+                                <NumberText size="20px" align="left">
+                                    {title}
+                                </NumberText>
+                            </Flex>
+                        )),
+                    )}
                 </NumberSection>
             </StyledFlex>
         </StyledSection>

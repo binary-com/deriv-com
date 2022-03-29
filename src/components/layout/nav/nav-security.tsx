@@ -10,7 +10,7 @@ import { Container } from 'components/containers'
 import device from 'themes/device'
 import LogoBugBounty from 'images/svg/layout/logo-bug-bounty.svg'
 import { CFDWarning } from 'components/layout'
-
+import { DerivStore } from 'store'
 const Wrapper = styled(Container)`
     height: 7.2rem;
     padding: 1.2rem 0;
@@ -35,16 +35,18 @@ const Logo = styled.img`
 `
 
 const NavSecurity = () => {
+    const { hide_branding } = React.useContext(DerivStore)
     return (
         <>
             <PartnerWrapper>
                 <MainNav is_security />
                 <PartnerNavigationBarWrapper>
                     <Wrapper jc="space-between">
-                        <StyledLogoLink to="/" aria-label="Bug bounty">
-                            <Logo src={LogoBugBounty} alt="logo bug bounty" />
-                        </StyledLogoLink>
-
+                        {!hide_branding && (
+                            <StyledLogoLink to="/" aria-label="Bug bounty">
+                                <Logo src={LogoBugBounty} alt="logo bug bounty" />
+                            </StyledLogoLink>
+                        )}
                         <SubmissionButton
                             to="mailto:security@deriv.com"
                             is_mail_link

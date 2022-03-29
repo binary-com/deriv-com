@@ -17,7 +17,7 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
-
+import { DerivStore } from 'store'
 type NavMobileProps = {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
@@ -52,7 +52,7 @@ const NavMobile = ({
     hide_signup_login,
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
-
+    const { hide_branding } = React.useContext(DerivStore)
     return (
         <MobileWrapper>
             <Wrapper width="95%">
@@ -65,15 +65,15 @@ const NavMobile = ({
                         onClick={openOffCanvasMenu}
                     />
                 )}
-
-                <LogoWrapper to="/" aria-label="Home">
-                    <img src={LogoOnly} alt="deriv logo" width={115} />
-                    <LogoDescription ai="center">
-                        <Line />
-                        <img src={GetTrading} alt="get trading" />
-                    </LogoDescription>
-                </LogoWrapper>
-
+                {!hide_branding && (
+                    <LogoWrapper to="/" aria-label="Home">
+                        <img src={LogoOnly} alt="deriv logo" width={115} />
+                        <LogoDescription ai="center">
+                            <Line />
+                            <img src={GetTrading} alt="get trading" />
+                        </LogoDescription>
+                    </LogoWrapper>
+                )}
                 <LeftSection>
                     {!hide_language_switcher && <LanguageSwitcher has_short_name is_high_nav />}
                     {!hide_signup_login &&

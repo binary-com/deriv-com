@@ -11,7 +11,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url } from 'common/constants'
 import { localize } from 'components/localization'
-
+import { DerivStore } from 'store'
 type NavCareersProps = {
     is_besquare?: boolean
 }
@@ -99,22 +99,23 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
-
+    const { hide_branding } = React.useContext(DerivStore)
     return (
         <NavTemplate>
             <NavWrapper>
                 <Wrapper offset_px_mobile={4}>
                     <LeftSection>
-                        <StyledLogoLink to="/" aria-label="Home">
-                            <QueryImage
-                                data={data['deriv']}
-                                alt="Deriv"
-                                width="16.4rem"
-                                height="auto"
-                                loading="eager"
-                            />
-                        </StyledLogoLink>
-
+                        {!hide_branding && (
+                            <StyledLogoLink to="/" aria-label="Home">
+                                <QueryImage
+                                    data={data['deriv']}
+                                    alt="Deriv"
+                                    width="16.4rem"
+                                    height="auto"
+                                    loading="eager"
+                                />
+                            </StyledLogoLink>
+                        )}
                         {links.map(({ to, active, aria_label, title }) => (
                             <NavLink
                                 key={to}

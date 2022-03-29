@@ -15,7 +15,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
-
+import { DerivStore } from 'store'
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
 }
@@ -130,7 +130,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-
+    const { hide_branding } = React.useContext(DerivStore)
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -148,9 +148,11 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
         <DesktopWrapper>
             <StyledWrapper hide_login_signup={hide_login_signup}>
                 <LeftSide>
-                    <StyledLogoLink to="/partners/" aria-label="Partners">
-                        <img src={LogoPartner} alt="deriv logo" />
-                    </StyledLogoLink>
+                    {!hide_branding && (
+                        <StyledLogoLink to="/partners/" aria-label="Partners">
+                            <img src={LogoPartner} alt="deriv logo" />
+                        </StyledLogoLink>
+                    )}
                 </LeftSide>
 
                 <NavigationBar>

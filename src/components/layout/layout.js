@@ -4,11 +4,16 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
 import { getCountryRule } from '../containers/visibility'
-import { Nav, NavStatic, NavPartners, NavInterim, NavSticky, NavSecurity } from './nav'
-import JumpIndicesNav from './jump-indices/nav'
-import NavAcademy from './academy/nav-academy'
-import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
+import NavAcademy from './nav/nav-academy'
+import NavStatic from './nav/nav-static'
+import Nav from './nav/nav'
+import NavTransparent from './nav/nav-transparent'
+import NavCareers from './nav/nav-careers'
+import NavPartners from './nav/nav-partner'
+import NavInterim from './nav/nav-interim'
+import NavSecurity from './nav/nav-security'
+import NavJumpIndice from './nav/nav-jump-indices'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
@@ -42,7 +47,6 @@ const CFDWrapper = styled.section`
     bottom: 0;
     box-shadow: inset 0 1px 0 0 var(--color-grey-21);
     z-index: 100;
-
     @media (max-width: 826px) {
         padding: 0.8rem 0;
         height: 12.4rem;
@@ -117,7 +121,6 @@ const Layout = ({
     interim_type,
     is_ppc,
     is_ppc_redirect,
-    is_nav_transparent,
     margin_top,
     no_live_chat,
     no_login_signup,
@@ -186,7 +189,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'academy':
-            Navigation = <NavAcademy no_language={true} />
+            Navigation = <NavAcademy />
             FooterNav = <Footer academy={true} />
             break
         case 'static':
@@ -196,15 +199,15 @@ const Layout = ({
             Navigation = <NavInterim interim_type={interim_type} />
             break
         case 'partners':
-            Navigation = <NavPartners no_login_signup={no_login_signup} />
+            Navigation = <NavPartners hide_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
         case 'security':
-            Navigation = <NavSecurity no_login_signup={no_login_signup} />
+            Navigation = <NavSecurity />
             FooterNav = <Footer />
             break
         case 'ebook':
-            Navigation = <Nav hide_signup_login={true} />
+            Navigation = <Nav hide_signup_login />
             FooterNav = <Footer />
             break
         case 'landing-page':
@@ -212,7 +215,7 @@ const Layout = ({
             FooterNav = <Footer no_footer_links />
             break
         case 'jump-indices':
-            Navigation = <JumpIndicesNav />
+            Navigation = <NavJumpIndice />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         case 'besquare':
@@ -223,18 +226,12 @@ const Layout = ({
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} type={type} />
             break
-        case 'about-us':
-            Navigation = <NavSticky is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+        case 'transparent':
+            Navigation = <NavTransparent is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         default:
-            Navigation = (
-                <Nav
-                    is_ppc_redirect={is_ppc_redirect}
-                    is_ppc={is_ppc}
-                    is_nav_transparent={is_nav_transparent}
-                />
-            )
+            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
@@ -287,7 +284,6 @@ CFDWarning.propTypes = {
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
-    is_nav_transparent: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

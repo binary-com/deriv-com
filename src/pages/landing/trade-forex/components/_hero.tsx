@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
-import { Flex, Container, Show } from 'components/containers'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
@@ -139,20 +139,20 @@ const Hero = ({ title, content }: HeroDataProps) => {
 
     return (
         <div>
-            <Show.Desktop min_width="800">
+            <Desktop>
                 <HeroComponent
                     title={title}
                     content={content}
                     background_data={data['p2p_hero_background']}
                 />
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <HeroComponent
                     title={title}
                     content={content}
                     background_data={data['p2p_hero_background_mobile']}
                 />
-            </Show.Mobile>
+            </Mobile>
         </div>
     )
 }

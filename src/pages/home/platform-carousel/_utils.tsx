@@ -56,7 +56,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
         description: <Localize translate_text="Our best trading experience on your mobile." />,
-        learn_more_link: '/landing/deriv-go/',
+        learn_more_link: '/deriv-go/',
         download_links: [
             { type: 'app_store', url: deriv_go_ios_url },
             { type: 'google_play', url: deriv_go_playstore_url },

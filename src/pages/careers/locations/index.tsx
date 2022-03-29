@@ -179,9 +179,6 @@ const query = graphql`
         thumbnail_paris: file(relativePath: { eq: "careers/thumbnail_paris.jpg" }) {
             ...fadeIn
         }
-        thumbnail_london: file(relativePath: { eq: "careers/thumbnail_london.jpg" }) {
-            ...fadeIn
-        }
         thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.jpg" }) {
             ...fadeIn
         }

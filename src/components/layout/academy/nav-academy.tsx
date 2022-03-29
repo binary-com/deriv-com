@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
 import { NavWrapperMain, StyledNavMain, NavDesktop, NavMobile } from '../nav'
 import SearchBanner from '../../../pages/academy/components/_search-banner'
@@ -38,9 +38,9 @@ const NavAcademy = ({
         setVisible(currentScrollPos > 72)
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         is_mounted && handleScroll()
-    }, [is_mounted])
+    })
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())

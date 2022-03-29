@@ -23,7 +23,7 @@ Each commit message will consist of **type** and **subject**:
 Must be one of the following:
 
 -   **build**: Changes that affect the build system or external dependencies (example scopes: gatsby config, gatsby browser, gatsby node, or gatsby ssr)
--   **chores**: Add or Changes on packages or external dependencies
+-   **chore**: Add or Changes on packages or external dependencies
 -   **ci**: Changes to our CI configuration files and scripts (example scopes: Docker, nginx conf)
 -   **docs**: Documentation only changes
 -   **feat**: A new feature

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Container, SectionContainer, Show, Flex } from 'components/containers'
+import { Container, SectionContainer, Desktop, Mobile, Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -51,20 +51,20 @@ const TapInto = () => {
                     </Header>
                 </Flex>
                 <Wrapper>
-                    <Show.Desktop>
+                    <Desktop>
                         <QueryImage
                             data={data['payment_agent']}
                             alt={localize('Girl talking to a group of people')}
                             height="28rem"
                         />
-                    </Show.Desktop>
-                    <Show.Mobile>
+                    </Desktop>
+                    <Mobile>
                         <QueryImage
                             data={data['payment_agent']}
                             alt={localize('Girl talking to a group of people')}
                             height="220px"
                         />
-                    </Show.Mobile>
+                    </Mobile>
                 </Wrapper>
             </WrapContainer>
         </TapIntoContainer>

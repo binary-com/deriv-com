@@ -9,12 +9,20 @@ const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const General = () => (
     <>
-        <Header as="h5" type="main-paragraph">
+        <HeaderPrimary as="h5" type="main-paragraph">
             {localize('What is the Deriv Payment Agent Programme?')}
-        </Header>
+        </HeaderPrimary>
         <TextPrimary>
             {localize(
                 'It is a partnership arrangement where a payment agent is authorised to process deposits and withdrawals for our clients.',
+            )}
+        </TextPrimary>
+        <HeaderPrimary as="h5" type="main-paragraph">
+            {localize('Is the Deriv Payment Agent Programme the same as Deriv P2P (DP2P)?')}
+        </HeaderPrimary>
+        <TextPrimary>
+            {localize(
+                'No, it isn’t. DP2P is a peer-to-peer service for our clients to make deposits and withdrawals using their local currency. As our payment agent, you can use the DP2P platform to offer your services to Deriv clients in your country.',
             )}
         </TextPrimary>
         <HeaderPrimary as="h5" type="main-paragraph">

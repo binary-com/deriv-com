@@ -5,17 +5,31 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText } from 'components/elements'
 import { affiliate_signup_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
+import device from 'themes/device'
 
 const ItemContainer = styled(SectionContainer)`
     padding: 0;
 `
 
 const HeaderPrimary = styled(Header)`
-    margin-top: 3.2rem;
+    margin-top: 16px;
+    font-size: 16px;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `
 
 const TextPrimary = styled(Text)`
-    margin-top: 1.6rem;
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 24px;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `
 
 const TextSecondary = styled(Text)`
@@ -36,6 +50,7 @@ const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
     padding-left: 1.8rem;
+    line-height: 20px;
 `
 
 const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`

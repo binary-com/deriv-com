@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Container } from '../containers'
+import { Mobile } from '../containers/show'
 import { LocationContext } from './location-context'
 import { DefaultFooter, FooterGrid } from './footer/common/style.js'
 import LogoSection from './footer/logo'
@@ -23,7 +24,9 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }) => 
                         <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     )}
                     <DisclaimerSection is_academy={academy} />
-                    <BottomSocialSection type={type} />
+                    <Mobile>
+                        <BottomSocialSection type={type} />
+                    </Mobile>
                 </FooterGrid>
             </Container>
         </DefaultFooter>

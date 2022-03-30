@@ -33,7 +33,6 @@ const StyledHeader = styled(Header)`
         max-width: 602px;
     }
 `
-
 const StyledFlex = styled(Flex)`
     @media (max-width: 930px) {
         flex-direction: column;
@@ -41,7 +40,6 @@ const StyledFlex = styled(Flex)`
         width: unset;
     }
 `
-
 const Card = styled(Flex)`
     max-width: 384px;
     padding: 32px 44px 32px 32px;
@@ -64,13 +62,13 @@ const OurValues = () => {
                 {localize('Our values are the fabric of our culture')}
             </StyledHeader>
             <StyledFlex width="820px" wrap="wrap">
-                {our_values.map((card, index) => (
-                    <Card key={card.title} index={index} direction="column" ai="start" jc="start">
-                        <img src={card.icon} alt="" />
+                {our_values.map(({ title, icon, text }, index) => (
+                    <Card key={index} index={index} direction="column" ai="start" jc="start">
+                        <img src={icon} alt="icon" />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="left" type="unset">
-                            {card.title}
+                            {title}
                         </Header>
-                        <Text size="16px">{card.text} </Text>
+                        <Text size="16px">{text}</Text>
                     </Card>
                 ))}
             </StyledFlex>

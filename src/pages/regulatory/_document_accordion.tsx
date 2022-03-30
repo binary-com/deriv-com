@@ -163,7 +163,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/Financial Disclosures Annual Report 2020.pdf"
+                        href="/regulatory/Financial_Disclosures_Annual_Report_2020.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import NewEmail from '../../images/svg/signup-affiliate-details/new-email.svg'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -27,17 +26,15 @@ const ModalFlex = styled(Flex)`
     }
 `
 
-const ModalMessage = ({ showModal }) => {
+const ModalMessage = ({ showModal, src, title, message }) => {
     return (
         <ModalFlex ai="center" direction="column" height="unset">
-            <img src={NewEmail} alt="modal-message-icon" />
+            <img src={src} alt="modal-message-icon" />
             <Header as="h3" type="subtitle-2" align="center" weight="bold" mt="18px">
-                {localize('Thanks for signing up!')}
+                {title}
             </Header>
             <Header as="p" type="paragraph-1" align="center" weight="normal" mt="8px" mb="24px">
-                {localize(
-                    'Please check your inbox. We’ve sent you an email with the details you need.',
-                )}
+                {message}
             </Header>
             <Button id="dm-new-signup-confirm" secondary onClick={() => showModal(false)}>
                 {localize('Got it')}
@@ -47,7 +44,10 @@ const ModalMessage = ({ showModal }) => {
 }
 
 ModalMessage.propTypes = {
+    message: PropTypes.string,
     showModal: PropTypes.func,
+    src: PropTypes.string,
+    title: PropTypes.string,
 }
 
 export default ModalMessage

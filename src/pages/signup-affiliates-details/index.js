@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex } from '../../components/containers'
 import ModalMessage from '../../components/form/modal-message'
+import NewEmail from '../../images/svg/signup-affiliate-details/new-email.svg'
+import ErrorEmail from '../../images/svg/signup-affiliate-details/error.svg'
 import Benefits from './_benefits'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
@@ -32,6 +34,7 @@ const Overlay = styled.div`
 
 const affiliateSignupDetails = () => {
     const [is_popup_shown, setPopupShown] = useState(false)
+    const [is_error_message, setErrorMessage] = useState(false)
     const showModal = (status) => setPopupShown(status)
 
     return (
@@ -51,6 +54,7 @@ const affiliateSignupDetails = () => {
                             bgColor="grey-14"
                             autofocus={true}
                             showModal={showModal}
+                            setErrorMessage={setErrorMessage}
                         />
                     </StyledFlex>
                     <StyledDiv>
@@ -58,7 +62,24 @@ const affiliateSignupDetails = () => {
                     </StyledDiv>
                 </Layout>
             </Overlay>
-            {is_popup_shown && <ModalMessage showModal={showModal} />}
+            {is_popup_shown &&
+                (is_error_message ? (
+                    <ModalMessage
+                        showModal={showModal}
+                        src={ErrorEmail}
+                        title={localize('Sorry, an error occured')}
+                        message={localize('Account was not created')}
+                    />
+                ) : (
+                    <ModalMessage
+                        showModal={showModal}
+                        src={NewEmail}
+                        title={localize('')}
+                        message={localize(
+                            'Please check your inbox. We’ve sent you an email with the details you need.',
+                        )}
+                    />
+                ))}
         </>
     )
 }

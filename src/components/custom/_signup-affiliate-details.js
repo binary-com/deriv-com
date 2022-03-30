@@ -64,7 +64,7 @@ const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
 `
 
-const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
+const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMessage }) => {
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
     const residence_list = useResidenceList()
@@ -78,8 +78,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
     const handleTermsChange = (event) => {
         setTermsChecked(event.currentTarget.checked)
     }
-
-    const checksSelected = () => is_pep_checked && is_terms_checked
 
     const submitValues = (values, callback) => {
         Object.keys(values).forEach((el) => {
@@ -117,6 +115,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                     isValid,
                     dirty,
                 }) => {
+                    const fieldsSelected = () =>
+                        !(is_pep_checked && is_terms_checked) || !isValid || !dirty
+
                     const form_inputs = [
                         {
                             id: 'dm-first-name-input',
@@ -318,18 +319,28 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                 </AgreementLabel>
                             </Flex>
                             <Flex fd="column" ai="center">
-                                <SignupButton
-                                    id="dm-new-signup"
-                                    secondary
-                                    type="submit"
-                                    disabled={!isValid || !dirty || !checksSelected()}
-                                    onClick={(e) => {
-                                        e.preventDefault()
-                                        showModal(true)
+                                <div
+                                    onClick={() => {
+                                        if (fieldsSelected()) {
+                                            showModal(true)
+                                            setErrorMessage(true)
+                                        }
                                     }}
                                 >
-                                    {localize('Sign up')}
-                                </SignupButton>
+                                    <SignupButton
+                                        id="dm-new-signup"
+                                        secondary
+                                        type="submit"
+                                        disabled={fieldsSelected()}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            showModal(true)
+                                            setErrorMessage(false)
+                                        }}
+                                    >
+                                        {localize('Sign up')}
+                                    </SignupButton>
+                                </div>
                                 <Header
                                     as="p"
                                     type="paragraph-1"
@@ -374,6 +385,7 @@ SignupAffiliateDetails.propTypes = {
     last_name: PropTypes.string,
     mobile_number: PropTypes.number,
     password: PropTypes.string,
+    setErrorMessage: PropTypes.func,
     showModal: PropTypes.func,
 }
 

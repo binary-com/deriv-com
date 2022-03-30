@@ -6,7 +6,7 @@ import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'commo
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Input, Button } from 'components/form'
-import { Header, Text } from 'components/elements'
+import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
@@ -158,6 +158,12 @@ const StyledText = styled(Text)`
     }
     @media ${device.tabletL} {
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
+    }
+`
+
+const StyledLocalizedLink = styled(LocalizedLinkText)`
+    @media ${device.tabletL} {
+        font-size: 10px;
     }
 `
 
@@ -342,6 +348,22 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                     >
                         {localize('Get your free ebook now!')}
                     </EmailButton>
+                    <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
+                        <Localize
+                            translate_text="By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
+                            components={[
+                                <StyledLocalizedLink
+                                    key={0}
+                                    to="/tnc/security-and-privacy.pdf"
+                                    size="1.2rem"
+                                    color="red"
+                                    external="true"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                />,
+                            ]}
+                        />
+                    </Header>
                 </InputGroupForm>
                 <SignupWithContainer>
                     <Line color={color} />

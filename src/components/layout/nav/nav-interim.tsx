@@ -52,9 +52,9 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => {
         <NavTemplate nav_height="8.6rem">
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
-                    <DesktopWrapper>
-                        <LogoWrapper to={`/interim/${interim_type}/`} aria-label="Home">
-                            {!hide_branding && (
+                    {!hide_branding && (
+                        <DesktopWrapper>
+                            <LogoWrapper to={`/interim/${interim_type}/`} aria-label="Home">
                                 <Flex ai="center">
                                     <img src={Logo} alt="deriv logo" width="190" height="27" />
                                     <img
@@ -64,13 +64,12 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => {
                                         height="17"
                                     />
                                 </Flex>
-                            )}
-                        </LogoWrapper>
-                    </DesktopWrapper>
-
-                    <MobileWrapper>
-                        <LogoLinkMobile to={`/interim/${interim_type}/`} aria-label="Home">
-                            {!hide_branding && (
+                            </LogoWrapper>
+                        </DesktopWrapper>
+                    )}
+                    {!hide_branding && (
+                        <MobileWrapper>
+                            <LogoLinkMobile to={`/interim/${interim_type}/`} aria-label="Home">
                                 <Flex>
                                     <img src={LogoOnly} alt="deriv logo" width="115" height="27" />
                                     <LogoDescription ai="center">
@@ -83,9 +82,9 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => {
                                         />
                                     </LogoDescription>
                                 </Flex>
-                            )}
-                        </LogoLinkMobile>
-                    </MobileWrapper>
+                            </LogoLinkMobile>
+                        </MobileWrapper>
+                    )}
                 </Flex>
 
                 <RightSection jc="flex-end" ai="center">

@@ -115,9 +115,7 @@ const StyledHeader = styled(Header)`
 
 const SecondaryHeader = styled(StyledHeader)`
     @media ${device.tablet} {
-        margin-left: -12px;
-        margin-top: 40px;
-        margin-bottom: 24px;
+        margin: 40px 0 24px -12px;
     }
 `
 const Flex = styled.div`

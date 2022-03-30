@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { localize } from 'components/localization'
 import { Flex, NonUK, ROW, Desktop } from 'components/containers'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url, deriv_api_url } from 'common/constants'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
     return (
@@ -158,7 +158,15 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/partners/payment-agent/">{localize('Payment agents')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="https://api.deriv.com/">{localize('API')}</Link>
+                            <Link
+                                to={deriv_api_url}
+                                type="api"
+                                external="true"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {localize('API')}
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/bug-bounty/">{localize('Bug bounty')}</Link>

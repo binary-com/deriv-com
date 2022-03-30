@@ -32,6 +32,7 @@ const DayPickerWrapper = styled.div`
     }
     .react-date-picker__inputGroup__input {
         outline: none;
+        caret-color: transparent;
     }
     .react-date-picker__inputGroup__input:invalid {
         background: none;
@@ -143,6 +144,7 @@ const AffiliateDatePicker = (props) => {
                 formatMonthYear={(locale, date) => dayjs(date).format('MMM YYYY')}
                 onFocus={() => selectDateField(true)}
                 onBlur={onBlur}
+                onKeyDown={(e) => e.preventDefault()}
                 maxDate={max_date}
                 defaultActiveStartDate={max_date}
                 showLeadingZeros={false}

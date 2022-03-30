@@ -337,7 +337,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal }) => {
                                     align="center"
                                     mt="8px"
                                 >
-                                    {localize('Already have an account?')}
+                                    {localize('Already have an affiliate account?')}
                                     <StyledLinkText
                                         id="dm-new-login-button"
                                         ml="6px"

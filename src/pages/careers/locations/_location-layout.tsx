@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import CareerContainer from '../_layout-components/_career_container'
-import { locationsTypes } from '../_model/_locations/_locations.types'
+import { LocationsType } from '../_model/_locations/_locations.types'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
@@ -47,14 +48,29 @@ const SecondStyledHeader = styled(Header)`
     margin-bottom: 0 24px;
 `
 
+const HeroBadge = styled(QueryImage)`
+    position: absolute;
+    left: 20%;
+    width: 94px;
+    height: 160px;
+
+    @media ${device.mobileL} {
+        transform-origin: top;
+        transform: scale(0.75);
+    }
+`
+
 type HeroProps = {
     display_name: string
-    img_data: string
+    img_data: ImageDataLike
+    badge_data?: ImageDataLike
+    badge_alt?: string
 }
 
-const Hero = ({ display_name, img_data }: HeroProps) => {
+const Hero = ({ display_name, img_data, badge_data, badge_alt }: HeroProps) => {
     return (
         <StyledBackground data={img_data} alt={display_name}>
+            {badge_data && <HeroBadge data={badge_data} alt={badge_alt} />}
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <LinkButton
@@ -335,8 +351,8 @@ const MapQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
-    location: locationsTypes
-    images: locationsTypes
+    location: LocationsType
+    images: ImageDataLike
 }
 
 export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
@@ -345,7 +361,12 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
 
     return (
         <>
-            <Hero display_name={display_name} img_data={images[location.name]} />
+            <Hero
+                display_name={display_name}
+                img_data={images[location.name]}
+                badge_data={images[location.badge]}
+                badge_alt={location.badge_alt}
+            />
             <FirstSection>
                 <SecondStyledHeader
                     color="black-6"

@@ -146,7 +146,9 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
     <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
-            content={[localize('Trade CFDs on a customisable, easy-to-use trading platform.')]}
+            content={[
+                localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
+            ]}
             cover_background="var(--color-black)"
             cover_content={localize('Discover Deriv X now')}
             title={localize('Deriv X')}
@@ -367,7 +369,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         }
                         title={<Localize translate_text="Deriv GO" />}
                         onClick={onClick}
-                        to="/deriv-go/"
+                        to="/landing/deriv-go/"
                     />
                     <NavCard
                         aria_label="DBot"

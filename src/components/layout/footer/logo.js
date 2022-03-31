@@ -15,6 +15,7 @@ import {
     twitter_eu_url,
 } from 'common/constants'
 import { DerivStore } from 'store'
+
 const LogoSection = ({ type }) => {
     const [website_status] = useWebsiteStatus()
     const current_client_country = website_status?.clients_country || ''

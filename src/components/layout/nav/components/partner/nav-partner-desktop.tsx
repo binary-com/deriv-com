@@ -16,6 +16,7 @@ import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import { DerivStore } from 'store'
+
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
 }

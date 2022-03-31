@@ -17,6 +17,7 @@ import Logo from 'images/svg/layout/logo-deriv.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import { DerivStore } from 'store'
+
 type NavInterimProps = {
     interim_type?: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
     landing_type?: boolean
@@ -53,37 +54,43 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => {
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
                     {!hide_branding && (
-                        <DesktopWrapper>
-                            <LogoWrapper to={`/interim/${interim_type}/`} aria-label="Home">
-                                <Flex ai="center">
-                                    <img src={Logo} alt="deriv logo" width="190" height="27" />
-                                    <img
-                                        src={GetTrading}
-                                        alt="get trading"
-                                        width="120"
-                                        height="17"
-                                    />
-                                </Flex>
-                            </LogoWrapper>
-                        </DesktopWrapper>
-                    )}
-                    {!hide_branding && (
-                        <MobileWrapper>
-                            <LogoLinkMobile to={`/interim/${interim_type}/`} aria-label="Home">
-                                <Flex>
-                                    <img src={LogoOnly} alt="deriv logo" width="115" height="27" />
-                                    <LogoDescription ai="center">
-                                        <Line />
+                        <>
+                            <DesktopWrapper>
+                                <LogoWrapper to={`/interim/${interim_type}/`} aria-label="Home">
+                                    <Flex ai="center">
+                                        <img src={Logo} alt="deriv logo" width="190" height="27" />
                                         <img
                                             src={GetTrading}
                                             alt="get trading"
                                             width="120"
                                             height="17"
                                         />
-                                    </LogoDescription>
-                                </Flex>
-                            </LogoLinkMobile>
-                        </MobileWrapper>
+                                    </Flex>
+                                </LogoWrapper>
+                            </DesktopWrapper>
+
+                            <MobileWrapper>
+                                <LogoLinkMobile to={`/interim/${interim_type}/`} aria-label="Home">
+                                    <Flex>
+                                        <img
+                                            src={LogoOnly}
+                                            alt="deriv logo"
+                                            width="115"
+                                            height="27"
+                                        />
+                                        <LogoDescription ai="center">
+                                            <Line />
+                                            <img
+                                                src={GetTrading}
+                                                alt="get trading"
+                                                width="120"
+                                                height="17"
+                                            />
+                                        </LogoDescription>
+                                    </Flex>
+                                </LogoLinkMobile>
+                            </MobileWrapper>
+                        </>
                     )}
                 </Flex>
 

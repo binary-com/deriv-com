@@ -11,6 +11,7 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import { DerivStore } from 'store'
+
 type NavPartnerMobileProps = {
     hide_login_signup: boolean
 }

@@ -8,6 +8,7 @@ import { QueryImage } from 'components/elements'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device.js'
 import { DerivStore } from 'store'
+
 const ContentContainer = styled(Container)`
     justify-content: space-between;
     height: 100%;

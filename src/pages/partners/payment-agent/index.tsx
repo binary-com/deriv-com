@@ -10,6 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
+const P2PBanner = Loadable(() => import('./_p2p_banner'))
 
 const meta_attributes = {
     og_title: localize('Payment agents | Partners | Deriv'),
@@ -35,6 +36,7 @@ const PaymentAgent = () => {
             <TapInto />
             <YourControl />
             <WhoCanApply />
+            <P2PBanner />
             <Faq />
         </Layout>
     )

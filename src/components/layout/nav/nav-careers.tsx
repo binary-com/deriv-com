@@ -12,6 +12,7 @@ import device from 'themes/device'
 import { besquare_signup_url } from 'common/constants'
 import { localize } from 'components/localization'
 import { DerivStore } from 'store'
+
 type NavCareersProps = {
     is_besquare?: boolean
 }

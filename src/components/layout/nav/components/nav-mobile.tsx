@@ -18,6 +18,7 @@ import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import { DerivStore } from 'store'
+
 type NavMobileProps = {
     is_ppc?: boolean
     is_ppc_redirect?: boolean

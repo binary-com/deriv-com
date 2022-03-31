@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import { DerivStore } from 'store'
+
 type NavStaticProps = {
     is_ppc: boolean
 }

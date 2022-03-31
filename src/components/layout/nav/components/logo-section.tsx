@@ -6,6 +6,7 @@ import { QueryImage } from 'components/elements'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+
 type LogoSectionProps = {
     is_ppc_redirect?: boolean
     base?: string

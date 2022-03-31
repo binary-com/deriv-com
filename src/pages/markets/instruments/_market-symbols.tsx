@@ -2,15 +2,11 @@ import React, { ReactElement } from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
-<<<<<<< HEAD:src/pages/markets/static/content/_market-symbols.tsx
 export type MarketSymbol = {
     src: string
     text: ReactElement
 }
 export const americas: MarketSymbol[] = [
-=======
-export const americas = [
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/instruments/_market-symbols.tsx
     {
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
@@ -535,24 +531,10 @@ export const micro_pairs: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/static/content/_market-symbols.tsx
 export const smart_gold_index: MarketSymbol[] = [
     {
         src: icons.GOLDUSD,
         text: <Localize translate_text="Smart Gold Index" />,
-    },
-]
-
-export const minor_pairs: MarketSymbol[] = [
-=======
-export const range_break = [
-    {
-        src: icons.RANGEBREAK100,
-        text: <Localize translate_text="Range Break 100 Index" />,
-    },
-    {
-        src: icons.RANGEBREAK200,
-        text: <Localize translate_text="Range Break 200 Index" />,
     },
 ]
 
@@ -579,8 +561,7 @@ export const smart_fx = [
     },
 ]
 
-export const minor_pairs_cfds = [
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/instruments/_market-symbols.tsx
+export const minor_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -1040,11 +1021,7 @@ export const american_stocks: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/static/content/_market-symbols.tsx
 export const cryptocurrencies_trade_type: MarketSymbol[] = [
-=======
-export const cryptocurrencies_trade_type = [
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/instruments/_market-symbols.tsx
     {
         src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
@@ -1055,11 +1032,7 @@ export const cryptocurrencies_trade_type = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/static/content/_market-symbols.tsx
 export const cryptocurrencies_cfds: MarketSymbol[] = [
-=======
-export const cryptocurrencies_cfds = [
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/instruments/_market-symbols.tsx
     {
         src: icons.ALGORAND,
         text: <Localize translate_text="ALG/USD" />,
@@ -1351,7 +1324,6 @@ export const swap_free_pairs: MarketSymbol[] = [
     },
 ]
 
-<<<<<<< HEAD:src/pages/markets/static/content/_market-symbols.tsx
 export const basket_indices_cfds: MarketSymbol[] = [
     {
         src: icons.AUDBASKET,
@@ -1375,11 +1347,12 @@ export const basket_indices_commodities: MarketSymbol[] = [
     {
         src: icons.GOLDBASKET,
         text: <Localize translate_text="Gold Basket" />,
-=======
+    },
+]
+
 export const step_indices = [
     {
         src: icons.STEPINDICES,
         text: <Localize translate_text="Step Index" />,
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/instruments/_market-symbols.tsx
     },
 ]

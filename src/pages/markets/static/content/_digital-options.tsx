@@ -10,15 +10,9 @@ import {
     Europe,
     MajorPairs,
     MetalsOptions,
-<<<<<<< HEAD:src/pages/markets/static/content/_digital-options.tsx
     MinorOptionsPairs,
-    JumpIndices,
 } from '../../instruments/_submarkets'
-=======
-    MinorPairsOptions,
-    SmartFX,
-} from '../../instruments/_index'
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694)):src/pages/markets/static/content/_digital-options.js
+import { JumpIndices } from '../../instruments/_index'
 import {
     AmericasDetails,
     AsiaOceaniaDetails,

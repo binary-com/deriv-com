@@ -91,11 +91,12 @@ export const CrashBoomDetails = () => (
         </CrashText>
     </DetailsContainer>
 )
-export const CrashBoomDetailsMultipliers = () => (
+
+export const CrashBoomMultipliersDetails = () => (
     <DetailsContainer>
         <CrashText>
             <Localize
-                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000 or 500 ticks</0>."
+                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000, or 500 ticks</0>."
                 components={[<strong key={0} />]}
             />
         </CrashText>
@@ -189,40 +190,40 @@ export const RangeBreakIndicesDetails = (): ReactElement => (
         </Text>
     </DetailsContainer>
 )
-// export const SmartFXDetails = (): ReactElement => (
-//     <DetailsContainer>
-//         <Text>
-//             <Localize
-//                 translate_text="<0>AUD Index</0> measures the value of the Australian dollar against a basket of five global currencies (USD, EUR, GBP, JPY, CAD), each weighted by 20%."
-//                 components={[<strong key={0} />]}
-//             />
-//         </Text>
-//         <Text>
-//             <Localize
-//                 translate_text="<0>EUR Index</0> measures the value of the Euro against a basket of five global currencies (USD, AUD, GBP, JPY, CAD), each weighted by 20%."
-//                 components={[<strong key={0} />]}
-//             />
-//         </Text>
-//         <Text>
-//             <Localize
-//                 translate_text="<0>GBP Index</0> measures the value of the British Pound against a basket of five global currencies (USD, EUR, AUD, JPY, CAD), each weighted by 20%."
-//                 components={[<strong key={0} />]}
-//             />
-//         </Text>
-//         <Text>
-//             <Localize
-//                 translate_text="<0>USD Index</0> measures the value of the US dollar against a basket of five global currencies (EUR, GBP, JPY, CAD, AUD), each weighted by 20%."
-//                 components={[<strong key={0} />]}
-//             />
-//         </Text>
-//         <Text>
-//             <Localize
-//                 translate_text="<0>Gold Index</0> measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%."
-//                 components={[<strong key={0} />]}
-//             />
-//         </Text>
-//     </DetailsContainer>
-// )
+export const SmartFXDetails = (): ReactElement => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="<0>AUD Index</0> measures the value of the Australian dollar against a basket of five global currencies (USD, EUR, GBP, JPY, CAD), each weighted by 20%."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>EUR Index</0> measures the value of the Euro against a basket of five global currencies (USD, AUD, GBP, JPY, CAD), each weighted by 20%."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>GBP Index</0> measures the value of the British Pound against a basket of five global currencies (USD, EUR, AUD, JPY, CAD), each weighted by 20%."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>USD Index</0> measures the value of the US dollar against a basket of five global currencies (EUR, GBP, JPY, CAD, AUD), each weighted by 20%."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Gold Index</0> measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
 
 export const BasketFXDetails = () => (
     <DetailsContainer>

@@ -143,32 +143,13 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     </StyledLink>
 )
 
-<<<<<<< HEAD
-// TODO: Enable when ready for real account released
-// export const DerivXCard = ({ is_selected, word_break_cover }) => (
-//     <StyledLink ariaLabel="Deriv X" to="/derivx/">
-//         <Card
-//             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
-//             content={[
-//                 localize('A highly customisable and easy-to-use CFD trading platform'),
-//             ]}
-//             cover_background="var(--color-black)"
-//             cover_content={localize('Discover Deriv X now')}
-//             title={localize('Deriv X')}
-//             is_inline_icon
-//             min_height="12.4rem"
-//             is_selected={is_selected}
-//             width="100%"
-//             word_break_cover={word_break_cover}
-//         />
-//     </StyledLink>
-// )
-=======
 export const DerivXCard = ({ is_selected, word_break_cover }) => (
     <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
-            content={[localize('Trade CFDs on a customisable, easy-to-use trading platform.')]}
+            content={[
+                localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
+            ]}
             cover_background="var(--color-black)"
             cover_content={localize('Discover Deriv X now')}
             title={localize('Deriv X')}
@@ -180,7 +161,6 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
         />
     </StyledLink>
 )
->>>>>>> 9eefe37cb5 (fix: dbot appearing for uk region (#2717))
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
@@ -390,7 +370,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         }
                         title={<Localize translate_text="Deriv GO" />}
                         onClick={onClick}
-                        to="/deriv-go/"
+                        to="/landing/deriv-go/"
                     />
                     <NavCard
                         aria_label="DBot"

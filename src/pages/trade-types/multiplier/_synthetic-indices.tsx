@@ -1,26 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-    CrashBoom,
+    CrashBoomMultipliers,
     ContinuousIndices,
     VolatilityIndices,
-<<<<<<< HEAD
-} from '../../markets/instruments/_submarkets'
-import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
-=======
     JumpIndices,
     StepIndices,
 } from '../../markets/instruments/_index'
-import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
 import {
     CrashBoomMultipliersDetails,
     CrashBoomDetailsEU,
     StepIndicesDetails,
     JumpIndicesDetails,
 } from 'pages/markets/static/content/_details'
->>>>>>> 61dc2eea08 (MohammadH/ Refactor Instruments (#2694))
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -36,7 +30,6 @@ const StyledText = styled(Text)`
 
 const Col = styled(Flex)`
     max-width: 13.2rem;
-
     @media ${device.tabletL} {
         max-width: 15rem;
     }
@@ -56,7 +49,6 @@ const MarketsList = styled(CssGrid)`
     padding: 2.4rem 0.7rem;
     grid-row-gap: 1.6rem;
     grid-template-columns: repeat(3, 1fr);
-
     @media ${device.tabletL} {
         grid-template-columns: repeat(2, 1fr);
 
@@ -70,7 +62,6 @@ const MarketsList = styled(CssGrid)`
             line-height: 1.5;
         }
     }
-
     @media ${device.tabletS} {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -78,7 +69,6 @@ const MarketsList = styled(CssGrid)`
 
 const Title = styled(Text)`
     text-align: center;
-
     @media ${device.tabletL} {
         font-weight: 600;
     }
@@ -90,7 +80,6 @@ const DetailsContainer = styled(Flex)`
     ${Text} {
         font-size: 1.4rem;
         margin-top: 1.6rem;
-
         @media ${device.tabletL} {
             margin-top: 1rem;
         }
@@ -99,23 +88,11 @@ const DetailsContainer = styled(Flex)`
 const AvailablePlatformsWrapper = styled(Flex)`
     border-bottom: 1px solid var(--color-grey-21);
     padding-bottom: 40px;
-
     @media ${device.tabletL} {
         margin-bottom: 24px;
         padding-bottom: 16px;
     }
 `
-
-const CrashBoomDetails = () => (
-    <DetailsContainer>
-        <Text>
-            <Localize
-                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in  <0>a series of 300 ticks</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-    </DetailsContainer>
-)
 
 const VolatilityIndicesDetails = () => (
     <DetailsContainer>
@@ -222,11 +199,13 @@ const SyntheticIndices = () => {
                                     </Show.Mobile>
                                 </Col>
                                 <MarketsList>
-                                    <CrashBoom />
+                                    <CrashBoomMultipliers />
                                 </MarketsList>
                             </Flex>
                         )}
-                        renderDetails={CrashBoomDetails}
+                        renderDetails={
+                            is_eu_country ? CrashBoomDetailsEU : CrashBoomMultipliersDetails
+                        }
                     />
                 </MarketsWrapper>
                 {!is_eu_country && (
@@ -236,7 +215,7 @@ const SyntheticIndices = () => {
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
                                         <Title weight="bold" align="center">
-                                            {localize('Volatility indices')}
+                                            {localize('Continuous indices')}
                                         </Title>
                                     </Col>
                                     <MarketsList>
@@ -245,6 +224,44 @@ const SyntheticIndices = () => {
                                 </Flex>
                             )}
                             renderDetails={ContinuousIndicesDetails}
+                        />
+                    </MarketsWrapper>
+                )}
+                {!is_eu_country && (
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col>
+                                        <Title weight="bold" align="center">
+                                            {localize('Jump indices')}
+                                        </Title>
+                                    </Col>
+                                    <MarketsList>
+                                        <JumpIndices />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={JumpIndicesDetails}
+                        />
+                    </MarketsWrapper>
+                )}
+                {!is_eu_country && (
+                    <MarketsWrapper direction="column">
+                        <MarketsAccordion
+                            renderTitle={() => (
+                                <Flex jc="flex-start" ai="center">
+                                    <Col>
+                                        <Title weight="bold" align="center">
+                                            {localize('Step indices')}
+                                        </Title>
+                                    </Col>
+                                    <MarketsList>
+                                        <StepIndices />
+                                    </MarketsList>
+                                </Flex>
+                            )}
+                            renderDetails={StepIndicesDetails}
                         />
                     </MarketsWrapper>
                 )}

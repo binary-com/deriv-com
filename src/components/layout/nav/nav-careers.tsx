@@ -9,7 +9,7 @@ import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
-import { besquare_signup_url } from 'common/constants'
+import { besquare_signup_url, zoho_career_url } from 'common/constants'
 import { localize } from 'components/localization'
 
 type NavCareersProps = {
@@ -137,8 +137,7 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 ml="2.4rem"
-                                to={is_besquare ? besquare_signup_url : '/'}
-                                type={is_besquare && 'zoho'}
+                                to={is_besquare ? besquare_signup_url : zoho_career_url}
                             >
                                 {is_besquare ? 'Apply now' : 'Explore jobs'}
                             </StyledLinkButton>

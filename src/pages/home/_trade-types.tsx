@@ -194,6 +194,11 @@ const ImageWrapper = styled(Flex)`
     }
 `
 
+const Image = styled(QueryImage)`
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    image-rendering: -webkit-optimize-contrast;
+`
+
 const ContentWrapper = styled(Flex)<{ $visibility }>`
     flex-direction: column;
     display: ${(props) => (props.$visibility ? 'flex' : 'none')};
@@ -251,7 +256,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             $visibility={details_visible && !is_mobile}
         >
             <ImageWrapper mb="24px">
-                <QueryImage
+                <Image
                     data={data[items_details.image_url]}
                     alt={items_details.image_alt}
                     width="100%"

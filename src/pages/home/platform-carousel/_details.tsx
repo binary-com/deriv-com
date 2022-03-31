@@ -54,6 +54,8 @@ export const image_query = graphql`
 const StyledQueryImage = styled(QueryImage)`
     .gatsby-image-wrapper [data-main-image] {
         object-fit: contain !important;
+        /* stylelint-disable-next-line value-no-vendor-prefix */
+        image-rendering: -webkit-optimize-contrast;
     }
 `
 

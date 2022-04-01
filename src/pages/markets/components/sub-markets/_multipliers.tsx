@@ -15,7 +15,7 @@ type MultipliersProps = {
     market_content: ForexAndBasketMultiplier | CryptoMultiplier | SyntheticMultiplier
     is_crypto?: boolean
 }
-const Multipliers = ({ market_content, is_crypto }: MultipliersProps) => (
+const Multipliers = ({ market_content }: MultipliersProps) => (
     <SectionContainer padding="4rem 0 8rem">
         <ContentWrapper>
             <Descriptions>

@@ -1,28 +1,17 @@
 import React from 'react'
-import { isBrowser } from 'common/utility'
+import { isBrowser, addScript } from 'common/utility'
 import { DerivStore } from 'store'
-
 export const url = isBrowser() ? window.location.href : ''
 
 export const addScriptForCIO = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     const site_id = process.env.GATSBY_ENV_CIO_SITE_ID
 
-    let cio_url = 'https://assets.customer.io/assets/track.js'
-    if (is_eu_country) {
-        cio_url = 'https://assets.customer.io/assets/track-eu.js'
-    }
+    let cio_url
 
-    const addScript = (settings) => {
-        const script = document.createElement('script')
-        const { async, text, src, id } = settings
-
-        if (async) script.async = settings['async']
-        if (text) script.text = settings['text']
-        if (src) script.src = settings['src']
-        if (id) script.id = settings['id']
-        document.body.appendChild(script)
-    }
+    is_eu_country
+        ? (cio_url = 'https://assets.customer.io/assets/track-eu.js')
+        : (cio_url = 'https://assets.customer.io/assets/track.js')
 
     addScript({
         text: `

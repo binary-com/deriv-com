@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { handleTag } from 'pages/academy/components/utility'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -34,6 +35,7 @@ const StyledCategories = styled(Header)`
     color: var(--color-blue-9);
     padding: 2px 8px 0;
     margin: 0 8px 8px 0;
+    cursor: pointer;
 `
 
 const ArticleCard = ({ items }: ArticleCardProps) => {
@@ -70,7 +72,12 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
                 <Flex jc="flex-start" height="auto" fw="wrap" mt="8px">
                     {items.tags &&
                         items.tags.slice(0, 4).map((tag) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
+                            <StyledCategories
+                                as="h4"
+                                type="paragraph-2"
+                                key={tag.id}
+                                onClick={() => handleTag(tag?.tags_id?.tag_name)}
+                            >
                                 {tag?.tags_id?.tag_name}
                             </StyledCategories>
                         ))}

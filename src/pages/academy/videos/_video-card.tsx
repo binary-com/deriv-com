@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
 import { VideoDataType } from './index'
+import { handleTag } from 'pages/academy/components/utility'
 import { Header, QueryImage } from 'components/elements'
-import { convertDate } from 'common/utility'
+import { convertDate, slugify } from 'common/utility'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
@@ -68,6 +69,7 @@ const StyledCategories = styled(Header)`
     background-color: var(--color-brown);
     color: var(--color-orange-2);
     margin: 0 8px 8px 0;
+    cursor: pointer;
 `
 
 const PlayButtonOval = styled.div`
@@ -116,17 +118,41 @@ const VideoCard = ({ item, openVideo }: VideoCardProps) => {
     const first_2_tags = item.tags?.slice(0, 2)
     const another_tags_number = item.tags.length > 2 ? `+${item.tags.length - 2}` : ''
     const converted_date = convertDate(item.published_date)
+
+    const ref_item = React.useRef<HTMLDivElement>()
+
+    const redirectionVideo = (e) => {
+        const clicked_element = e.target as HTMLElement
+
+        const class_list = clicked_element.getAttribute('class')
+
+        class_list && class_list.includes('tag-item')
+            ? handleTag(clicked_element.innerHTML)
+            : openVideo(item.video_file.id, slugify(item.video_title))
+    }
+
+    React.useEffect(() => {
+        if (ref_item) {
+            ref_item.current.addEventListener('click', redirectionVideo)
+        }
+    }, [ref_item])
+
     return (
         // the extra div surrounding the videocard is to get around Safari's different
         // interpretation of height: 100%
         <div>
-            <VideoCardWrapper onClick={openVideo}>
+            <VideoCardWrapper ref={ref_item}>
                 <ImageWrapper>
                     <ImageOverlay />
                     <CategoriesContainer jc="flex-start" fw="wrap">
                         {item.tags &&
                             first_2_tags.map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag?.tags_id?.id}>
+                                <StyledCategories
+                                    as="h4"
+                                    type="paragraph-2"
+                                    key={tag?.tags_id?.id}
+                                    className={'tag-item'}
+                                >
                                     {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}

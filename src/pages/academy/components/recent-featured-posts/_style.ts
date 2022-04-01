@@ -188,6 +188,7 @@ export const StyledCategories = styled(Text)`
     color: var(--color-yellow-3);
     padding: 2px 8px 0;
     margin: 0 8px 8px -10px;
+    cursor: pointer;
 `
 
 export const BottomDescription = styled(Flex)`

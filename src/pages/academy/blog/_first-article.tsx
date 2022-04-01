@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
+import { redirectionLink } from '../components/utility'
 import { ItemType } from './_all-articles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
 import { getMinRead } from 'common/utility'
 
 const StyledFlex = styled(Flex)`
@@ -16,6 +16,7 @@ const StyledFlex = styled(Flex)`
     cursor: pointer;
     width: 100vw;
     max-width: 1200px;
+    margin-top: 96px;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
@@ -52,19 +53,22 @@ const FirstContentWrapper = styled(Flex)`
     }
 `
 
-const RedirectLink = styled(LocalizedLink)`
-    text-decoration: none;
-    margin-top: 96px;
-`
-
 type FirstArticleProps = {
     item: ItemType
 }
 
 const FirstArticle = ({ item }: FirstArticleProps) => {
+    const ref_item = React.useRef<HTMLDivElement>()
+
+    React.useEffect(() => {
+        if (ref_item) {
+            ref_item.current.addEventListener('click', (e) => redirectionLink(e, ref_item))
+        }
+    }, [ref_item])
+
     return (
-        <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
-            <StyledFlex jc="flex-start">
+        <div ref={ref_item} data-link={`/academy/blog/posts/${item.slug}/`}>
+            <StyledFlex jc="flex-start" style>
                 <StandardImgWrapper
                     width="592px"
                     border_radius="6px 0 0 6px"
@@ -82,12 +86,17 @@ const FirstArticle = ({ item }: FirstArticleProps) => {
                     <Flex jc="flex-start" height="auto" fw="wrap">
                         {item?.tags &&
                             item.tags.slice(0, 2).map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag?.id}>
+                                <StyledCategories
+                                    as="h4"
+                                    type="paragraph-2"
+                                    key={tag?.id}
+                                    className={'tag-item'}
+                                >
                                     {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}
                         {item?.tags.length > 2 && (
-                            <StyledCategories as="h4" type="paragraph-2">
+                            <StyledCategories as="h4" type="paragraph-2" className={'tag-item'}>
                                 {`+${item.tags.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
@@ -109,7 +118,7 @@ const FirstArticle = ({ item }: FirstArticleProps) => {
                     </Header>
                 </FirstContentWrapper>
             </StyledFlex>
-        </RedirectLink>
+        </div>
     )
 }
 

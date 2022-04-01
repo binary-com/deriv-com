@@ -1,5 +1,6 @@
 import React from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { redirectionLink } from './components/utility'
 import Clock from './components/recent-featured-posts/images/clock.svg'
 import Dot from './components/recent-featured-posts/images/dot.svg'
 import {
@@ -54,6 +55,13 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
 
     const recents = recent_data.slice(1)
     const headline_recent = recent_data[0]
+    const ref_item = React.useRef<HTMLDivElement>()
+
+    React.useEffect(() => {
+        if (ref_item) {
+            ref_item.current.addEventListener('click', (e) => redirectionLink(e, ref_item))
+        }
+    }, [ref_item])
 
     return (
         <StyledContainer m="20px auto 0" fd="column" ai="center">
@@ -72,7 +80,10 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                 <Tabs.Panel label={localize('Recent articles')}>
                     <ArticleContentWrapper>
                         <LeftContent>
-                            <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}/`}>
+                            <div
+                                ref={ref_item}
+                                data-link={`/academy/blog/posts/${headline_recent.slug}/`}
+                            >
                                 <MainArticle>
                                     <BackgroundImageWrapper>
                                         <BackgroundImageContainer>
@@ -97,7 +108,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                                             {headline_recent.tags.slice(0, 3).map((article) => {
                                                 return (
                                                     <TagWrapper key={article?.id}>
-                                                        <StyledCategories>
+                                                        <StyledCategories className={'tag-item'}>
                                                             {article.tags_id?.tag_name}
                                                         </StyledCategories>
                                                     </TagWrapper>
@@ -123,7 +134,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                                         {getMinRead(headline_recent?.blog_post)}
                                     </BottomDescription>
                                 </MainArticle>
-                            </RedirectLink>
+                            </div>
                         </LeftContent>
                         <RightContent>
                             {recents.map((article) => {
@@ -171,7 +182,10 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                     <Tabs.Panel label={localize('Featured articles')}>
                         <ArticleContentWrapper>
                             <LeftContent>
-                                <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}/`}>
+                                <div
+                                    ref={ref_item}
+                                    data-link={`/academy/blog/posts/${headline_featured.slug}/`}
+                                >
                                     <MainArticle>
                                         <BackgroundImageWrapper>
                                             <BackgroundImageContainer>
@@ -198,7 +212,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                                                     .map((article) => {
                                                         return (
                                                             <TagWrapper key={article.id}>
-                                                                <StyledCategories>
+                                                                <StyledCategories
+                                                                    className={'tag-item'}
+                                                                >
                                                                     {article.tags_id?.tag_name}
                                                                 </StyledCategories>
                                                             </TagWrapper>
@@ -224,7 +240,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
                                             {getMinRead(headline_featured?.blog_post)}
                                         </BottomDescription>
                                     </MainArticle>
-                                </RedirectLink>
+                                </div>
                             </LeftContent>
                             <RightContent>
                                 {featureds.map((article) => {

@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { VideoBannerProps } from '../../_video-banner'
 import VideoPlayer from '../_video-player'
+import { handleTag } from '../utility'
 import VideoCarousel from './_VideoCarousel'
 import { convertDate, getVideoObject } from 'common/utility'
 import { Flex, Container } from 'components/containers'
@@ -66,6 +67,7 @@ const PlayerIcon = styled.img`
     transform: translate(-40%, -50%);
 `
 const TagParentWrapper = styled(Flex)`
+    cursor: pointer;
     @media ${device.tabletL} {
         margin-bottom: 8px;
     }
@@ -151,7 +153,11 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                         <TagParentWrapper height="22px" jc="flex-start">
                             {types.slice(0, 2).map((t) => (
                                 <TagWrapper key={t} ai="center" width="auto" p="1px 8px" mr="8px">
-                                    <Header type="paragraph-2" color="orange-2">
+                                    <Header
+                                        type="paragraph-2"
+                                        color="orange-2"
+                                        onClick={() => handleTag(t)}
+                                    >
                                         {t}
                                     </Header>
                                 </TagWrapper>

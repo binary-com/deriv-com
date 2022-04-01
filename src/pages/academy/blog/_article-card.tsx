@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
+import { redirectionLink } from '../components/utility'
 import { ItemType } from './_all-articles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
 import { getMinRead } from 'common/utility'
 import device from 'themes/device'
 
@@ -40,6 +40,7 @@ const StyledCategories = styled(Header)`
     color: var(--color-blue-9);
     padding: 2px 8px 0;
     margin: 0 8px 8px 0;
+    cursor: pointer;
 `
 
 const ContentWrapper = styled.div`
@@ -50,17 +51,22 @@ const ContentWrapper = styled.div`
         padding: 16px;
     }
 `
-const RedirectLink = styled(LocalizedLink)`
-    text-decoration: none;
-`
 
 type ArticleCardProps = {
     item: ItemType
 }
 
 const ArticleCard = ({ item }: ArticleCardProps) => {
+    const ref_item = React.useRef<HTMLDivElement>()
+
+    React.useEffect(() => {
+        if (ref_item) {
+            ref_item.current.addEventListener('click', (e) => redirectionLink(e, ref_item))
+        }
+    }, [ref_item])
+
     return (
-        <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
+        <div ref={ref_item} data-link={`/academy/blog/posts/${item.slug}/`}>
             <ArticleCardWrapper>
                 <StandardImgWrapper
                     width="384px"
@@ -79,7 +85,12 @@ const ArticleCard = ({ item }: ArticleCardProps) => {
                     <Flex jc="flex-start" height="auto" fw="wrap">
                         {item.tags &&
                             item.tags.slice(0, 2).map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
+                                <StyledCategories
+                                    as="h4"
+                                    type="paragraph-2"
+                                    key={tag.id}
+                                    className={'tag-item'}
+                                >
                                     {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}
@@ -106,8 +117,7 @@ const ArticleCard = ({ item }: ArticleCardProps) => {
                     </Header>
                 </ContentWrapper>
             </ArticleCardWrapper>
-        </RedirectLink>
+        </div>
     )
 }
-
 export default ArticleCard

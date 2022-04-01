@@ -20,7 +20,7 @@ import {
     AsianIndices,
     EuropeanIndices,
     JumpIndices,
-} from '../../instruments/_index'
+} from '../../instruments/_submarkets'
 import {
     BasketCommoditiesDetails,
     BasketFXDetails,

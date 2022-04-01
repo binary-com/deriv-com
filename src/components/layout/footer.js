@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { LocationContext } from './location-context'
-import { DefaultFooter, FooterGrid } from './footer/common/style.js'
+import { DefaultFooter, FooterGrid, EuLogoWrapper } from './footer/common/style.js'
 import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
 import BottomSocialSection from './footer/bottom-social-wrapper'
-import { Container, NonEU, Mobile, Desktop } from 'components/containers'
+import { Container, NonEU, UKEU, Mobile, Desktop } from 'components/containers'
 import { DerivStore } from 'store'
 
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
@@ -25,15 +25,24 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }) => 
                     )}
                     <DisclaimerSection is_academy={academy} />
                     <Mobile>
-                        <BottomSocialSection type={type} />
-                    </Mobile>
-                    <Desktop>
-                        <NonEU>
+                        <UKEU>
                             <BottomSocialSection type={type} />
-                        </NonEU>
-                    </Desktop>
+                        </UKEU>
+                    </Mobile>
+                    <EuLogoWrapper>
+                        <Desktop grid-area="eulogowrapper">
+                            <NonEU>
+                                <BottomSocialSection type={type} />
+                            </NonEU>
+                        </Desktop>
+                    </EuLogoWrapper>
                 </FooterGrid>
             </Container>
+            <Mobile>
+                <NonEU>
+                    <BottomSocialSection type={type} />
+                </NonEU>
+            </Mobile>
         </DefaultFooter>
     )
 }

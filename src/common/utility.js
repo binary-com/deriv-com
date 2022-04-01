@@ -306,11 +306,12 @@ export const redirectToTradingPlatform = () =>
 // Function to manually add external js files.
 export const addScript = (settings) => {
     const script = document.createElement('script')
+    const { async, text, src, id } = settings
 
-    Object.keys(settings).forEach((key) => {
-        script.setAttribute(key, settings[key])
-    })
-
+    if (async) script.async = settings['async']
+    if (text) script.text = settings['text']
+    if (src) script.src = settings['src']
+    if (id) script.id = settings['id']
     document.body.appendChild(script)
 }
 

@@ -67,17 +67,12 @@ const DropdownSearchWrapper = styled.div`
 const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMessage }) => {
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
+    const [is_eu_checked, setEuChecked] = useState(false)
     const residence_list = useResidenceList()
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()
 
-    const handlePepChange = (event) => {
-        setPepChecked(event.currentTarget.checked)
-    }
-
-    const handleTermsChange = (event) => {
-        setTermsChecked(event.currentTarget.checked)
-    }
+    const handleCheckChange = (event, func) => func(event.currentTarget.checked)
 
     const submitValues = (values, callback) => {
         Object.keys(values).forEach((el) => {
@@ -294,7 +289,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                             <Flex fd="column">
                                 <AgreementLabel
                                     is_checked={is_pep_checked}
-                                    handleChangeCheckbox={handlePepChange}
+                                    handleChangeCheckbox={(e) =>
+                                        handleCheckChange(e, setPepChecked)
+                                    }
                                     link_text={localize(
                                         'I declare that I am not a politically exposed person.',
                                     )}
@@ -302,7 +299,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                 <AgreementLabel
                                     is_affiliate
                                     is_checked={is_terms_checked}
-                                    handleChangeCheckbox={handleTermsChange}
+                                    handleChangeCheckbox={(e) =>
+                                        handleCheckChange(e, setTermsChecked)
+                                    }
                                     link_text={localize(
                                         'I have read and accepted Deriv’s <0>General business terms</0> and ',
                                     )}
@@ -317,6 +316,13 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                         Affiliates and introducing brokers’ terms.
                                     </StyledLink>
                                 </AgreementLabel>
+                                <AgreementLabel
+                                    is_checked={is_eu_checked}
+                                    handleChangeCheckbox={(e) => handleCheckChange(e, setEuChecked)}
+                                    link_text={localize(
+                                        'Are you going to promote in EU and/or UK?',
+                                    )}
+                                ></AgreementLabel>
                             </Flex>
                             <Flex fd="column" ai="center">
                                 <div
@@ -334,6 +340,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                         disabled={fieldsSelected()}
                                         onClick={(e) => {
                                             e.preventDefault()
+                                            submitValues(values, setFieldValue)
                                             showModal(true)
                                             setErrorMessage(false)
                                         }}

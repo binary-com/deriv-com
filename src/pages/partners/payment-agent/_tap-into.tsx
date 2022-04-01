@@ -1,9 +1,10 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { Container, SectionContainer, Desktop, Mobile, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -16,17 +17,9 @@ const WrapContainer = styled(Container)`
     flex-wrap: wrap;
 
     @media (max-width: 1310px) {
-        justify-content: center;
-
         ${Flex} {
             margin-right: 0;
             margin-bottom: 2.4rem;
-        }
-        ${Header} {
-            text-align: center;
-        }
-        ${Text} {
-            text-align: center;
         }
     }
 `
@@ -36,31 +29,45 @@ const Wrapper = styled.div`
     max-width: 48.6rem;
 `
 
+const TapIntoContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 40px 0 36px;
+    }
+`
+
 const TapInto = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer>
-            <WrapContainer justify="flex-end">
-                <Flex direction="column" mr="2.4rem" max_width="58.8rem">
-                    <Header as="h3" size="var(--text-size-header-1)" mb="1.6rem">
+        <TapIntoContainer>
+            <WrapContainer justify="center">
+                <Flex direction="column" mr="2.4rem" max_width="48.6rem">
+                    <Header as="h3" type="heading-2" mb="1.6rem">
                         {localize('Tap into an established and growing market')}
                     </Header>
-                    <Text size="var(--text-size-m)">
+                    <Header as="h4" type="subtitle-2" weight="normal">
                         {localize(
                             'Reach hundreds of traders on our platform looking for ways to fund their accounts through local bank wires and e-payment methods.',
                         )}
-                    </Text>
+                    </Header>
                 </Flex>
                 <Wrapper>
-                    <QueryImage
-                        data={data['payment_agent']}
-                        alt={localize('Girl talking to a group of people')}
-                        width="100%"
-                        loading="eager"
-                    />
+                    <Desktop>
+                        <QueryImage
+                            data={data['payment_agent']}
+                            alt={localize('Girl talking to a group of people')}
+                            height="28rem"
+                        />
+                    </Desktop>
+                    <Mobile>
+                        <QueryImage
+                            data={data['payment_agent']}
+                            alt={localize('Girl talking to a group of people')}
+                            height="220px"
+                        />
+                    </Mobile>
                 </Wrapper>
             </WrapContainer>
-        </SectionContainer>
+        </TapIntoContainer>
     )
 }
 

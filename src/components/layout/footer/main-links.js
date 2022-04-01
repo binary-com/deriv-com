@@ -152,9 +152,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Title>{localize('PARTNER')}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/partners/affiliate-ib/">
-                                {localize('Affiliates and IBs')}
-                            </Link>
+                            <Link to="/partners/affiliate-ib/">{localize('Affiliates & IBs')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/partners/payment-agent/">{localize('Payment agents')}</Link>
@@ -163,8 +161,8 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link
                                 to=""
                                 type="api"
-                                target="_blank"
                                 external="true"
+                                target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 {localize('API')}

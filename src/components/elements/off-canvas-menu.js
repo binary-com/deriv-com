@@ -527,7 +527,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={AffiliateIb} alt="" width="32" height="32" />
                             </div>
-                            <span>{localize('Affiliates and IBs')}</span>
+                            <span>{localize('Affiliates & IBs')}</span>
                         </StyledLink>
                         <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                             <div>
@@ -593,7 +593,7 @@ export const OffCanvasMenuPartner = (props) => {
                     <div>
                         <img src={AffiliateIb} alt="affiliate ib" width="32" height="32" />
                     </div>
-                    <span>{localize('Affiliates and IBs')}</span>
+                    <span>{localize('Affiliates & IBs')}</span>
                 </StyledLink>
                 <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                     <div>

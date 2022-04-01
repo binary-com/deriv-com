@@ -32,9 +32,13 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
                 }
             >
-            {(is_uk_eu ? forex_content_eu : forex_content).map((content, index) => (
-                <StyledBox key={index} text={content.text} icon={<img src={content.src} alt="" />} />
-            ))}
+                {(is_uk_eu ? forex_content_eu : forex_content).map((content, index) => (
+                    <StyledBox
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt="" />}
+                    />
+                ))}
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_content={forex_cfds} />}
@@ -46,7 +50,6 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                         />
                     )
                 }
-                
                 Multipliers={
                     <Multipliers
                         market_content={is_uk_eu ? forex_multiplier_eu : forex_multiplier}

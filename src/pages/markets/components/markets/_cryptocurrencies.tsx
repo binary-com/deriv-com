@@ -30,7 +30,6 @@ type CryptoContent = {
 }
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
-    
     const { is_uk_eu, is_uk } = getCountryRule()
     const crypto_content: CryptoContent[] = [
         {

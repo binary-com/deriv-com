@@ -24,18 +24,18 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }) => 
                         <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     )}
                     <DisclaimerSection is_academy={academy} />
-                    <Mobile>
-                        <UKEU>
+                    <UKEU>
+                        <Mobile>
                             <BottomSocialSection type={type} />
-                        </UKEU>
-                    </Mobile>
-                    <EuLogoWrapper>
-                        <Desktop grid-area="eulogowrapper">
-                            <NonEU>
+                        </Mobile>
+                    </UKEU>
+                    <NonEU>
+                        <EuLogoWrapper>
+                            <Desktop grid-area="eulogowrapper">
                                 <BottomSocialSection type={type} />
-                            </NonEU>
-                        </Desktop>
-                    </EuLogoWrapper>
+                            </Desktop>
+                        </EuLogoWrapper>
+                    </NonEU>
                 </FooterGrid>
             </Container>
             <Mobile>

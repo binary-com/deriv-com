@@ -6,7 +6,7 @@ import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
 import BottomSocialSection from './footer/bottom-social-wrapper'
-import { Container, NonEU, UKEU, Mobile, Desktop } from 'components/containers'
+import { Container, NonEU, UKEU, NonUK, Mobile, Desktop } from 'components/containers'
 import { DerivStore } from 'store'
 
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
@@ -31,18 +31,20 @@ const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }) => 
                     </UKEU>
                     <NonEU>
                         <EuLogoWrapper>
-                            <Desktop grid-area="eulogowrapper">
+                            <Desktop>
                                 <BottomSocialSection type={type} />
                             </Desktop>
                         </EuLogoWrapper>
                     </NonEU>
                 </FooterGrid>
             </Container>
-            <Mobile>
-                <NonEU>
-                    <BottomSocialSection type={type} />
-                </NonEU>
-            </Mobile>
+            <NonEU>
+                <NonUK>
+                    <Mobile>
+                        <BottomSocialSection type={type} />
+                    </Mobile>
+                </NonUK>
+            </NonEU>
         </DefaultFooter>
     )
 }

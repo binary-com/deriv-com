@@ -262,7 +262,7 @@ const OtherMarkets = ({ except }) => {
         <SectionContainer margin="auto" background="white">
             <Show.Desktop max_width="laptopM">
                 <MarketsWrapper tablet_jc="center">
-                    <StyledHeader as="h3" type="section-title" align="left">
+                    <StyledHeader as="h2" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
                     <Box position="relative" width="100%" max_width="120rem" height="32rem">
@@ -282,7 +282,7 @@ const OtherMarkets = ({ except }) => {
                 </MarketsWrapper>
             </Show.Desktop>
             <Show.Mobile min_width="laptopM">
-                <StyledHeader as="h3" type="section-title" align="left">
+                <StyledHeader as="h2" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">

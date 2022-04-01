@@ -46,7 +46,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                 DigitalOptions={
                     <DigitalOptions
                         market_type="basket-indices"
-                        market_name={localize('forex')}
+                        market_name={localize('basket indices')}
                         options_list={basket_options}
                     />
                 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQueryParam, StringParam } from 'use-query-params'
 import { addScriptForCIO } from '../components/utility'
 import AcademyNav from './_academy-nav'
@@ -6,7 +6,6 @@ import Subscribe from './_subscribe'
 import { SectionContainer, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { isBrowser } from 'common/utility'
-import { DerivStore } from 'store'
 import { LinkButton } from 'components/form/'
 
 const Subscription = () => {

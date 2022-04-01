@@ -119,7 +119,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: MatchesDiffers,
                     text: (
                         <Localize
-                            translate_text="<0>Matches/Differs:</0> Predict the last digit of the contract’s last tick."
+                            translate_text="<0>Matches/Differs:</0> Predict what number will be the last digit of the last tick of a contract."
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -174,7 +174,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     title: <Localize translate_text="Asians" />,
                     svg: Asians,
                     text: (
-                        <Localize translate_text="Predict whether the last tick will be higher or lower than the average of the ticks at the end of the contract period." />
+                        <Localize translate_text="Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period." />
                     ),
                     mobile_pt: '2.4rem',
                 },
@@ -195,7 +195,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: HighClose,
                     text: (
                         <Localize
-                            translate_text="<0>High-Close:</0> Your win or loss will be equal to the multiplier times the difference between the highest tick and the close over the duration of the contract."
+                            translate_text="<0>High-Close:</0> When you purchase a ‘High-Close’ contract, your win or loss will be equal to the multiplier times the difference between the high and the close over the duration of the contract."
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -204,7 +204,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: HighLow,
                     text: (
                         <Localize
-                            translate_text="<0>High-Low:</0> Your win or loss will be equal to the multiplier times the difference between the highest tick and lowest tick over the duration of the contract."
+                            translate_text="<0>High-Low:</0> When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract."
                             components={[<strong key={0} />]}
                         />
                     ),
@@ -214,7 +214,7 @@ const getOptions = (is_synthetic_options: boolean) => {
                     svg: CloseLow,
                     text: (
                         <Localize
-                            translate_text="<0>Close-Low:</0> Your win or loss will be equal to the multiplier times the difference between the close and lowest tick over the duration of the contract."
+                            translate_text="<0>Close-Low:</0> When you purchase a ‘Close-Low’ contract, your win or loss will be equal to the multiplier times the difference between the close and the low over the duration of the contract."
                             components={[<strong key={0} />]}
                         />
                     ),

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
 import { redirectionLink } from '../components/utility'
@@ -57,9 +57,9 @@ type ArticleCardProps = {
 }
 
 const ArticleCard = ({ item }: ArticleCardProps) => {
-    const ref_item = React.useRef<HTMLDivElement>()
+    const ref_item = useRef<HTMLDivElement>()
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (ref_item) {
             ref_item.current.addEventListener('click', (e) => redirectionLink(e, ref_item))
         }

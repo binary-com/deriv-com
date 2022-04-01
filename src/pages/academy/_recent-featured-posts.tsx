@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { redirectionLink } from './components/utility'
 import Clock from './components/recent-featured-posts/images/clock.svg'
@@ -55,9 +55,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }: RecentFeaturedPosts
 
     const recents = recent_data.slice(1)
     const headline_recent = recent_data[0]
-    const ref_item = React.useRef<HTMLDivElement>()
+    const ref_item = useRef<HTMLDivElement>()
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (ref_item) {
             ref_item.current.addEventListener('click', (e) => redirectionLink(e, ref_item))
         }

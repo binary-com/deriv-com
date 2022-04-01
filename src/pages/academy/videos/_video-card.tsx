@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
 import { VideoDataType } from './index'
@@ -119,7 +119,7 @@ const VideoCard = ({ item, openVideo }: VideoCardProps) => {
     const another_tags_number = item.tags.length > 2 ? `+${item.tags.length - 2}` : ''
     const converted_date = convertDate(item.published_date)
 
-    const ref_item = React.useRef<HTMLDivElement>()
+    const ref_item = useRef<HTMLDivElement>()
 
     const redirectionVideo = (e) => {
         const clicked_element = e.target as HTMLElement
@@ -131,7 +131,7 @@ const VideoCard = ({ item, openVideo }: VideoCardProps) => {
             : openVideo(item.video_file.id, slugify(item.video_title))
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (ref_item) {
             ref_item.current.addEventListener('click', redirectionVideo)
         }

@@ -3,7 +3,7 @@ import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/u
 
 export const useLivechat = () => {
     const [is_loading_lc, setLoadingLc] = useState(false)
-    const [first_load_open_lc, setFirstLoadOpenLc] = useState(false)
+    const [first_load_open_lc, setFirstLoadOpenLc] = useState(true) // By default, we want the live chat to open on the first load
     const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = useState(false)

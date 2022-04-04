@@ -56,8 +56,6 @@ import {
 import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { size } from 'themes/device'
-
 const PnlMarginCalculator = () => {
     const query = graphql`
         query {
@@ -404,7 +402,7 @@ const PnlMarginCalculator = () => {
 
                                 return (
                                     <>
-                                        <Desktop breakpoint={size.mobileL}>
+                                        <Desktop breakpoint={'mobileL'}>
                                             <CalculatorForm>
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
@@ -645,7 +643,7 @@ const PnlMarginCalculator = () => {
                                             </CalculatorForm>
                                         </Desktop>
 
-                                        <Mobile breakpoint={size.mobileL}>
+                                        <Mobile breakpoint={'mobileL'}>
                                             <PnlCalculatorFormMobile>
                                                 <PnlHeaderOverflow>
                                                     <PnlCalculatorHeaderMobile>
@@ -913,13 +911,13 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Desktop breakpoint={size.mobileL}>
+                                    <Desktop breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.stop_loss_level_formula}
                                             alt={localize('stop loss level formula')}
                                         />
                                     </Desktop>
-                                    <Mobile breakpoint={size.mobileL}>
+                                    <Mobile breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.stop_loss_level_formula_mobile}
                                             alt={localize('stop loss level formula')}
@@ -941,13 +939,13 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Desktop breakpoint={size.mobileL}>
+                                    <Desktop breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.stop_loss_pip_formula}
                                             alt={localize('stop loss pip formula')}
                                         />
                                     </Desktop>
-                                    <Mobile breakpoint={size.mobileL}>
+                                    <Mobile breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.stop_loss_pip_formula_mobile}
                                             alt={localize('stop loss pip formula')}
@@ -1048,13 +1046,13 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Desktop breakpoint={size.mobileL}>
+                                    <Desktop breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.take_profit_level_formula}
                                             alt={localize('take profit level formula')}
                                         />
                                     </Desktop>
-                                    <Mobile breakpoint={size.mobileL}>
+                                    <Mobile breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.take_profit_level_formula_mobile}
                                             alt={localize('take profit level formula')}
@@ -1076,13 +1074,13 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Desktop breakpoint={size.mobileL}>
+                                    <Desktop breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.take_profit_pip_formula}
                                             alt={localize('take profit pip formula')}
                                         />
                                     </Desktop>
-                                    <Mobile breakpoint={size.mobileL}>
+                                    <Mobile breakpoint={'mobileL'}>
                                         <QueryImage
                                             data={data.take_profit_pip_formula_mobile}
                                             alt={localize('take profit pip formula')}

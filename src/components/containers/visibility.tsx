@@ -7,7 +7,7 @@ import { eu_domains, uk_domains } from 'common/constants'
 
 type ResponsiveContainerProps = {
     children: ReactElement
-    breakpoint?: number
+    breakpoint?: number | keyof typeof size
     className?: string
 }
 
@@ -54,8 +54,12 @@ const domainBasedCheck = () => {
     return { is_eu_domain, is_uk_domain }
 }
 
-const getBreakPoint = (breakpoint?: number) => {
-    return breakpoint ?? DEFAULT_BREAKPOINT
+const getBreakPoint = (breakpoint: ResponsiveContainerProps['breakpoint']) => {
+    if (typeof breakpoint === 'number') {
+        return breakpoint
+    } else {
+        return size[breakpoint] ?? DEFAULT_BREAKPOINT
+    }
 }
 
 const deviceRenderer = (): boolean => {

@@ -225,7 +225,7 @@ export const europe: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
+        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSSWISS20,
@@ -759,7 +759,7 @@ export const stocks_european_indices: MarketSymbol[] = [
     },
     {
         src: icons.STOCKSGERMANY30,
-        text: <Localize translate_text="Germany 30" />,
+        text: <Localize translate_text="Germany 40" />,
     },
     {
         src: icons.STOCKSUK100,
@@ -891,7 +891,7 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Goldman Sachs Group" />,
     },
     {
-        src: icons.STOCKSGOLDMANSACHS,
+        src: icons.STOCKSHOME,
         text: <Localize translate_text="Home Depot Inc" />,
     },
     {
@@ -935,7 +935,7 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Moderna Inc" />,
     },
     {
-        src: icons.STOCKSMODERNA,
+        src: icons.STOCKSNESTLE,
         text: <Localize translate_text="Nestle SA" />,
     },
     {

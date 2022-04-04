@@ -6,7 +6,7 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 
 const SymbolWrapper = styled(Flex)`
-    padding: 16px 5px 16px 16px;
+    /* padding: 16px 5px 16px 16px; */
     justify-content: flex-start;
 
     @media ${device.tabletL} {

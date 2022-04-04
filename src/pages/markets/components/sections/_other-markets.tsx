@@ -267,9 +267,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         'forex',
         'synthetic_indices',
         'stock_indices',
-        'commodities',
         'cryptocurrencies',
         'basket_indices',
+        'commodities',
         '',
     ]
     const filteredMarkets = markets.filter((market) => market !== except)

@@ -33,13 +33,9 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                         )}
                     </StyledText>
                     <StyledText align="center" mt="16px" font_size="14px">
-                        {is_eu_country
-                            ? localize(
-                                  'On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss.',
-                              )
-                            : localize(
-                                  'On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss.',
-                              )}
+                        {localize(
+                            'On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss.',
+                        )}
                     </StyledText>
                     {market_tab_name && market_tab_name === 'stock-indices' ? (
                         <AvailablePlatforms dmt5 />

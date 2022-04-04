@@ -18,7 +18,7 @@ import {
     ContinuousIndicesDetails,
     CrashBoomDetailsEU,
     CrashBoomDetailsMultipliers,
-    // CryptocurrenciesDetails,
+    CryptocurrenciesDetails,
     JumpIndicesDetails,
     StepIndicesDetails,
     VolatilityIndicesDetailsEU,
@@ -186,7 +186,7 @@ export const crypto_multiplier: CryptoMultiplier = {
         {
             title: <Localize translate_text="Cryptocurrencies" />,
             component: <CryptocurrenciesMultipliers />,
-            // details: CryptocurrenciesDetails,
+            details: CryptocurrenciesDetails,
         },
     ],
 }

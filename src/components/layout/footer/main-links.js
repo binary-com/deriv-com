@@ -138,12 +138,12 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/terms-and-conditions/#clients">
-                                {localize('Terms and conditions')}
+                                {localize('Terms & conditions')}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/responsible/">
-                                {localize('Secure and responsible trading')}
+                                {localize('Secure & responsible trading')}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>

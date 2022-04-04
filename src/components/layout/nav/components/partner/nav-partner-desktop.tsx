@@ -157,7 +157,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     <NavLinkCard
                         active="affiliate"
                         to="/partners/affiliate-ib/"
-                        title={localize('Affiliates & IBs')}
+                        title={localize('Affiliates and IBs')}
                     />
                     <NavLinkCard
                         active="payment"

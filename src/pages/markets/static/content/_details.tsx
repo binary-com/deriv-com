@@ -151,7 +151,7 @@ export const EuropeDetails = (index: number): ReactElement => {
         </Text>,
         <Text key={4}>
             <Localize
-                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 40</0> follows the stock performance of the 40 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -399,7 +399,7 @@ export const EuropeanIndicesDetails = (): ReactElement => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 40</0> follows the stock performance of the 40 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>

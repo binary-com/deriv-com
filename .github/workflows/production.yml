@@ -94,6 +94,16 @@ jobs:
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
 
+            - name: Verify nginx image
+              run: |
+                  nginx_test=`docker run --rm -it --entrypoint bash ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging -c "nginx -t" | grep -ow "test is successful"`
+                  if [[ $nginx_test == "test is successful" ]];then
+                    echo "Image validation successful"
+                    else
+                    echo "Image validation unsuccessful"
+                    exit 1
+                  fi
+
             - name: Pushing Image to docker hub 🐳
               run: |
                   echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin

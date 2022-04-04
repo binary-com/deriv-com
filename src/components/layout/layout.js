@@ -155,7 +155,10 @@ const Layout = ({
 
     const website_status = useWebsiteStatusApi()
     React.useEffect(() => {
-        if (process.env.NODE_ENV !== 'development') {
+        if (
+            process.env.NODE_ENV !== 'development' &&
+            !window.location.hostname.includes('binary.sx')
+        ) {
             if (!is_redirection_applied && website_status) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')

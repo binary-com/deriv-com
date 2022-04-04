@@ -7,7 +7,8 @@ import type {
     CryptoMultiplier,
     SyntheticMultiplier,
 } from '../../static/content/_multipliers'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Show } from 'components/containers'
+import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 
 type MultipliersProps = {
@@ -30,13 +31,13 @@ const Multipliers = ({ market_content, is_crypto }: MultipliersProps) => (
             </StyledText>
             <MarketInstruments market_content={market_content} />
             {/* deprecated?? */}
-            {/* <Show.Eu>
+            <Show.Eu>
                 {market_content.eu_content?.map((text, index) => (
                     <Text key={index} mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
                         {text}
                     </Text>
                 ))}
-            </Show.Eu> */}
+            </Show.Eu>
         </ContentWrapper>
     </SectionContainer>
 )

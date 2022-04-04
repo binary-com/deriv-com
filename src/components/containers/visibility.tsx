@@ -91,8 +91,6 @@ export const Desktop = ({
     breakpoint = DEFAULT_BREAKPOINT,
     className = '',
 }: ResponsiveContainerProps) => {
-    console.log('type', typeof breakpoint)
-    console.log('ctype', typeof className)
     const breakpoint_size = getBreakPoint(breakpoint)
     const [is_mobile] = useBrowserResize(breakpoint_size)
     const is_loaded = deviceRenderer()

@@ -287,6 +287,7 @@ import STOCKSFOX from 'images/svg/symbols/markets-stocks-and-indices/american-st
 import STOCKSGENERALMOTORSCOMP from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-general-motors-company.svg'
 import STOCKSGOLDMANSACHS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-goldman-sachs-group.svg'
 import STOCKSHPINC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-hp-inc.svg'
+import STOCKSHOME from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-home-depot.svg'
 import STOCKSHUGOBOSS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-hugo-boss.svg'
 import STOCKSIBM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-ibm.svg'
 import STOCKSINTEL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-intel.svg'
@@ -297,6 +298,7 @@ import STOCKSMASTERCARDINC from 'images/svg/symbols/markets-stocks-and-indices/a
 import STOCKSMCDONALDS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mc-donalds.svg'
 import STOCKSMICROSOFT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-microsoft-corporation.svg'
 import STOCKSMODERNA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-moderna-inc.svg'
+import STOCKSNESTLE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nestle.svg'
 import STOCKSNETFLIX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-netflix.svg'
 import STOCKSNIKE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nike.svg'
 import STOCKSNOVARTIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-novartis.svg'
@@ -630,6 +632,7 @@ export {
     STOCKSGENERALMOTORSCOMP,
     STOCKSGOLDMANSACHS,
     STOCKSHPINC,
+    STOCKSHOME,
     STOCKSHUGOBOSS,
     STOCKSIBM,
     STOCKSINTEL,
@@ -640,6 +643,7 @@ export {
     STOCKSMCDONALDS,
     STOCKSMICROSOFT,
     STOCKSMODERNA,
+    STOCKSNESTLE,
     STOCKSNETFLIX,
     STOCKSNIKE,
     STOCKSNOVARTIS,

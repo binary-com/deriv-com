@@ -1,13 +1,31 @@
 import React, { ReactElement, useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
-import { size } from 'themes/device'
+import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { DerivStore } from 'store'
 import { eu_domains, uk_domains } from 'common/constants'
 
+export const sizes = {
+    mobileS: 320,
+    mobileM: 375,
+    mobileL: 425,
+    tabletS: 576,
+    bp680: 680,
+    bp749: 749,
+    tablet: 768,
+    bp769: 769,
+    tabletL: 992,
+    laptop: 1024,
+    bp1060: 1060,
+    laptopM: 1200,
+    laptopL: 1440,
+    desktopS: 1680,
+    desktop: 1980,
+}
+
 type ResponsiveContainerProps = {
     children: ReactElement
-    breakpoint?: number | keyof typeof size
+    breakpoint?: number | SizeType
     className?: string
 }
 

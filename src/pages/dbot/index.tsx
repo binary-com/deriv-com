@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
-import { SEO, UKEU, ROW } from 'components/containers'
+import { SEO, ROW, UKEU } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot/dbot-icon.svg'
@@ -14,14 +14,30 @@ import { isBrowser } from 'common/utility'
 import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
-const DBotVideo = Loadable(() => import('./_dbot-video.js'))
+import { MetaAttributesType } from 'types/page.types'
+const DBotVideo = Loadable(() => import('./_dbot-video'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
-import { DerivStore } from 'store'
 
-const meta_attributes = {
+type ItemType = {
+    title: string | ReactElement
+    subtitle: ReactElement
+}
+
+type TradingType = {
+    title: ReactElement
+    subtitle: ReactElement
+    image_name: string
+    image_alt: string
+}
+
+type StateType = {
+    is_mobile: boolean
+}
+
+const meta_attributes: MetaAttributesType = {
     og_title: localize('DBot Trading | Auto Trading Robot | Deriv'),
     og_description: localize(
         'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
@@ -35,7 +51,7 @@ const query = graphql`
         }
     }
 `
-const items = [
+const items: ItemType[] = [
     { title: '3', subtitle: <Localize translate_text="pre-built strategies included" /> },
     {
         title: <Localize translate_text="FREE" />,
@@ -46,7 +62,7 @@ const items = [
 const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
-const trading = [
+const trading: TradingType[] = [
     {
         title: <Localize translate_text="Start with a popular strategy" />,
         subtitle: (
@@ -96,9 +112,8 @@ const trading = [
         image_alt: localize('Save your bots'),
     },
 ]
-class Dbot extends Component {
-    static contextType = DerivStore
-    state = { is_mobile: false }
+class Dbot extends React.Component<StateType> {
+    state: StateType = { is_mobile: false }
 
     handleResizeWindow = () => {
         this.setState({

@@ -46,7 +46,6 @@ const StyledFlex = styled(Flex)`
 const PictureFlex = styled(Flex)`
     width: 373px;
     margin: 32px 0 32px 100px;
-    flex-direction: 'column';
     @media ${device.laptop} {
         margin: 32px 0 32px 50px;
     }

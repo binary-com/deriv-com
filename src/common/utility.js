@@ -455,7 +455,7 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
 
     const eu_domains = ['eu', 'staging-eu']
 
-    if (eu_domains.includes(subdomain)) {
+    if (eu_domains.some((e) => subdomain.includes(e))) {
         handleEURedirect(country, full_domain)
     } else {
         handleDerivRedirect(country, subdomain)

@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
 export const useLivechat = () => {
-    const [is_loading_lc, setLoadingLc] = useState(false)
-    const [first_load_open_lc, setFirstLoadOpenLc] = useState(true) // By default, we want the live chat to open on the first load
     const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = useState(false)
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const is_livechat_query = url_params.get('is_livechat_open')
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
@@ -21,8 +21,8 @@ export const useLivechat = () => {
 
     useEffect(() => {
         let cookie_interval = null
-        if (isBrowser() && first_load_open_lc) {
-            setLoadingLc(true)
+        let script_timeout = null
+        if (isBrowser()) {
             const domain = getDomain()
 
             /* this function runs every second to determine logged in status*/
@@ -34,23 +34,33 @@ export const useLivechat = () => {
             })()
             cookie_interval = setInterval(checkCookie, 1000)
 
-            loadLiveChatScript(() => {
-                window.LiveChatWidget.on('ready', () => {
-                    setLiveChatInteractive(true)
-                    window.LC_API.open_chat_window()
-                    setLoadingLc(false)
+            // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
+            script_timeout = setTimeout(() => {
+                loadLiveChatScript(() => {
+                    window.LiveChatWidget.on('ready', () => {
+                        setLiveChatInteractive(true)
+                        if (is_livechat_query?.toLowerCase() === 'true') {
+                            window.LC_API.open_chat_window()
+                        }
+                    })
                 })
-            })
+            }, 2000)
         }
-
-        return () => clearInterval(cookie_interval)
-    }, [first_load_open_lc])
+        return () => {
+            clearInterval(cookie_interval)
+            clearTimeout(script_timeout)
+        }
+    }, [])
 
     useEffect(() => {
-        if (isBrowser() && first_load_open_lc) {
+        if (isBrowser()) {
             const domain = getDomain()
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
+                    // we open and close the window to trigger the widget to listen for new events
+                    window.LC_API.open_chat_window()
+                    window.LC_API.hide_chat_window()
+
                     const utm_data = getUTMData(domain)
                     const client_information = getClientInformation(domain)
                     const url_params = new URLSearchParams(window.location.search)
@@ -118,5 +128,5 @@ export const useLivechat = () => {
         }
     }, [is_logged_in, is_livechat_interactive])
 
-    return [is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc]
+    return [is_livechat_interactive, LC_API]
 }

@@ -184,7 +184,7 @@ export const crypto_multiplier: CryptoMultiplier = {
     has_global_accordion: true,
     content: [
         {
-            title: <Localize translate_text="Cryptocurrencies" />,
+            title: <Localize translate_text="Crypto pairs" />,
             component: <CryptocurrenciesMultipliers />,
             details: CryptocurrenciesDetails,
         },

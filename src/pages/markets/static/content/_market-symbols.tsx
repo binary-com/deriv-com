@@ -1028,7 +1028,7 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="BAT/USD" />,
     },
     {
-        src: icons.BCH,
+        src: icons.BCHNEW,
         text: <Localize translate_text="BCH/USD" />,
     },
     {
@@ -1037,7 +1037,7 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
     },
 
     {
-        src: icons.BTC,
+        src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
     },
     {

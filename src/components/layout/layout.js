@@ -152,7 +152,6 @@ const Layout = ({
     }, [is_uk_eu])
 
     // Check client's account and ip and apply the necessary redirection
-
     const website_status = useWebsiteStatusApi()
     React.useEffect(() => {
         if (!is_redirection_applied && website_status) {

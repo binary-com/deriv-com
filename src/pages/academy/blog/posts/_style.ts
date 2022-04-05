@@ -246,6 +246,7 @@ export const Tag = styled(Flex)`
     align-items: center;
     margin-right: 16px;
     margin-bottom: 16px;
+    cursor: pointer;
     @media ${device.laptop} {
         height: 20px;
         margin-right: 8px;

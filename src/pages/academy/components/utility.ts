@@ -1,15 +1,13 @@
-import React from 'react'
 import { isBrowser, addScript } from 'common/utility'
-import { DerivStore } from 'store'
+
 export const url = isBrowser() ? window.location.href : ''
 
-export const addScriptForCIO = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
+export const addScriptForCIO = (is_eu) => {
     const site_id = process.env.GATSBY_ENV_CIO_SITE_ID
 
     let cio_url
 
-    is_eu_country
+    is_eu
         ? (cio_url = 'https://assets.customer.io/assets/track-eu.js')
         : (cio_url = 'https://assets.customer.io/assets/track.js')
 

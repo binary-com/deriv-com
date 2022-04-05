@@ -11,7 +11,7 @@ import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
 import { DerivStore } from 'store'
-
+import { getCountryRule } from 'components/containers/visibility'
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
     align-items: initial;
@@ -172,10 +172,10 @@ const Subscribe = () => {
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
 
     const { user_country } = React.useContext(DerivStore)
-
+    const { is_eu } = getCountryRule()
     useEffect(() => {
         if (!window._cio) {
-            addScriptForCIO()
+            addScriptForCIO(is_eu)
         }
         const url = 'https://assets.customer.io/assets/track.js'
         fetch(url, {

@@ -206,7 +206,7 @@ export const crypto_cfds: MarketInstrumentsElement = {
     template: 2,
     content: [
         {
-            title: <Localize translate_text="Cryptocurrencies" />,
+            title: <Localize translate_text="Crypto pairs" />,
             component: <CryptocurrenciesCFDs />,
         },
     ],

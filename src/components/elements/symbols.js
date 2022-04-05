@@ -325,6 +325,7 @@ import ZM from 'images/svg/symbols/zm.svg'
 import BNB from 'images/svg/symbols/binance_coin_flag.svg'
 import BTC from 'images/svg/symbols/bitcoin_flag.svg'
 import BCH from 'images/svg/symbols/btc_cash_flag.svg'
+import BCHNEW from 'images/svg/symbols/btc_cash_flag-new.svg'
 import DASH from 'images/svg/symbols/dash_flag.svg'
 import EOS from 'images/svg/symbols/eos_flag.svg'
 import ETH from 'images/svg/symbols/eth_flag.svg'
@@ -370,6 +371,7 @@ export {
     BAT,
     BAY,
     BCHUSD,
+    BCHNEW,
     BIIB,
     BMW,
     BTCLTC,

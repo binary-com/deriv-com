@@ -7,9 +7,11 @@ export const addScriptForCIO = (is_eu) => {
 
     let cio_url
 
-    is_eu
-        ? (cio_url = 'https://assets.customer.io/assets/track-eu.js')
-        : (cio_url = 'https://assets.customer.io/assets/track.js')
+    if (is_eu) {
+        cio_url = 'https://assets.customer.io/assets/track-eu.js'
+    } else {
+        cio_url = 'https://assets.customer.io/assets/track.js'
+    }
 
     addScript({
         text: `

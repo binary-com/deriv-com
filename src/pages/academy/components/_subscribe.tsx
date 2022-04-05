@@ -12,6 +12,7 @@ import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
 import { DerivStore } from 'store'
 import { getCountryRule } from 'components/containers/visibility'
+
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
     align-items: initial;
@@ -170,9 +171,9 @@ const Subscribe = () => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-
     const { user_country } = React.useContext(DerivStore)
     const { is_eu } = getCountryRule()
+
     useEffect(() => {
         if (!window._cio) {
             addScriptForCIO(is_eu)

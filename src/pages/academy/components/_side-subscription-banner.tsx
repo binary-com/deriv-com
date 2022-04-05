@@ -12,6 +12,7 @@ import device from 'themes/device.js'
 import { DerivStore } from 'store'
 import EmailSubscriptionSVG from 'images/svg/blog/articles/blog-article-email-subscription.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
+import { getCountryRule } from 'components/containers/visibility'
 
 const SubscribeBannerWrapper = styled(Flex)`
     max-width: 282px;
@@ -126,12 +127,12 @@ const SideSubscriptionBanner = () => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-
     const { user_country } = React.useContext(DerivStore)
+    const { is_eu } = getCountryRule()
 
     useEffect(() => {
         if (!window._cio) {
-            addScriptForCIO()
+            addScriptForCIO(is_eu)
         }
         const url = 'https://assets.customer.io/assets/track.js'
         fetch(url, {

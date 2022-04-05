@@ -349,7 +349,7 @@ export const synthetic_options: Options = {
         has_global_accordion: true,
         content: [
             {
-                title: <Localize translate_text="Volatility indices" />,
+                title: <Localize translate_text="Continuous indices" />,
                 component: <ContinuousIndices />,
                 details: ContinuousIndicesDetails,
             },

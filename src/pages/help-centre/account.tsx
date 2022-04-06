@@ -6,7 +6,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledList = styled.ul`
     list-style: unset;

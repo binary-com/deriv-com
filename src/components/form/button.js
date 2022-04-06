@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Paddings, Margins } from 'themes/function'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 export const SharedButtonStyle = css`
     border-radius: 4px;

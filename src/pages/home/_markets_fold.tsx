@@ -7,7 +7,7 @@ import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
 
 const FoldWrapper = styled(SectionContainer)`

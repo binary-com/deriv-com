@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { LinkButton } from 'components/form'

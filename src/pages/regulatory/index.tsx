@@ -24,7 +24,7 @@ import Labuan from 'images/common/regulatory/labuan.png'
 import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import SVG from 'images/svg/regulatory/svg.svg'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type BoxProps = {
     padding?: string

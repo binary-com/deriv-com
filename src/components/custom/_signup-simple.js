@@ -5,7 +5,7 @@ import { Input, Button } from 'components/form'
 import { Container } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const Wrapper = styled.div`
     padding: 4rem 0;

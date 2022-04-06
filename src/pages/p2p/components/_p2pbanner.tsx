@@ -5,7 +5,7 @@ import { Flex, Container, Show } from 'components/containers'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { Background } from 'components/elements/background-image'
 
 type P2PBannerProps = {

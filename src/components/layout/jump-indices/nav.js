@@ -7,7 +7,7 @@ import { CFDWarning } from 'components/layout'
 import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 export const Section = styled(SectionContainer)`
     background-color: var(--color-black);

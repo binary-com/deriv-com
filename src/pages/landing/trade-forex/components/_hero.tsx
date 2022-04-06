@@ -7,7 +7,7 @@ import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const BackgroundWrapper = styled(Background)`
     background-size: cover;

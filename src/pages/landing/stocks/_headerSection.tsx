@@ -8,7 +8,7 @@ import StocksHeaderOverlayBelowSectionBg from 'images/svg/stock-indices/stocksHe
 import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
 import Show from 'components/containers/show'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { LinkButton } from 'components/form'
 
 const query = graphql`

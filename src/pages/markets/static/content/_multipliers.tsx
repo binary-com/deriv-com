@@ -17,7 +17,7 @@ import {
     BasketCommoditiesDetails,
     ContinuousIndicesDetails,
     CrashBoomDetailsEU,
-    CrashBoomDetailsMultipliers,
+    CrashBoomMultipliersDetails,
     CryptocurrenciesDetails,
     JumpIndicesDetails,
     StepIndicesDetails,
@@ -129,7 +129,7 @@ export const synthetic_multiplier: SyntheticMultiplier = {
                 <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
             ),
             component: <CrashBoomMultipliers />,
-            details: CrashBoomDetailsMultipliers,
+            details: CrashBoomMultipliersDetails,
         },
         {
             title: <Localize translate_text="Jump indices" />,

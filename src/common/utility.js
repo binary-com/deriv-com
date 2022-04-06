@@ -308,9 +308,12 @@ export const addScript = (settings) => {
     const script = document.createElement('script')
 
     Object.keys(settings).forEach((key) => {
-        script.setAttribute(key, settings[key])
+        if (key === 'text') {
+            script.text = settings['text']
+        } else {
+            script.setAttribute(key, settings[key])
+        }
     })
-
     document.body.appendChild(script)
 }
 

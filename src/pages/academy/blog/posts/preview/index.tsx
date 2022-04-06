@@ -160,7 +160,7 @@ const BlogPreview = () => {
                                     <InfoText size="14px" mt="16px">
                                         {getMinRead(post_data?.blog_post)}
                                     </InfoText>
-                                    <Mobile breakpoint={'laptop'}>
+                                    <Mobile breakpoint="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">
                                             <Flex
                                                 fw="wrap"
@@ -183,7 +183,7 @@ const BlogPreview = () => {
                                         </SideBarContainer>
                                     </Mobile>
 
-                                    <Desktop breakpoint={'laptop'}>
+                                    <Desktop breakpoint="laptop">
                                         {post_data?.author && (
                                             <Flex ai="center" mt="40px" jc="flex-start">
                                                 <>
@@ -223,7 +223,7 @@ const BlogPreview = () => {
 
                         <BodyContainer>
                             <LeftBodyContainerWrapper>
-                                <Mobile breakpoint={'laptop'}>
+                                <Mobile breakpoint="laptop">
                                     {post_data?.author && (
                                         <Flex ai="center" jc="flex-start">
                                             <>
@@ -246,7 +246,7 @@ const BlogPreview = () => {
                                         </Flex>
                                     )}
                                 </Mobile>
-                                <Desktop breakpoint={'laptop'}>
+                                <Desktop breakpoint="laptop">
                                     <SideBarContainer fd="column" height="auto">
                                         <Flex
                                             jc="flex-start"

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
 
 const TabsContainer = styled(Flex)`
@@ -128,7 +128,7 @@ const tab_list_uk = [
 ]
 
 const NavTab = ({ route_from, route_offset }) => {
-    const { is_uk_country } = React.useContext(DerivStore)
+    const { is_uk } = getCountryRule()
 
     const ref = useRef(null)
 
@@ -140,7 +140,7 @@ const NavTab = ({ route_from, route_offset }) => {
         <TabsContainer>
             <Flex direction="column">
                 <TabList ref={ref}>
-                    {(is_uk_country ? tab_list_uk : tab_list).map((item, index) => {
+                    {(is_uk ? tab_list_uk : tab_list).map((item, index) => {
                         return (
                             <TabButton selected={route_from == item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>

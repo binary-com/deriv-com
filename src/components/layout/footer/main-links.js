@@ -94,7 +94,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 <Link to="/derivx/">{localize('DerivX')}</Link>
                             </LinkWrapper>
                             <LinkWrapper>
-                                <Link to="/landing/deriv-go/">{localize('Deriv GO')}</Link>
+                                <Link to="/deriv-go/">{localize('Deriv GO')}</Link>
                             </LinkWrapper>
                         </ROW>
                         <LinkWrapper>
@@ -138,12 +138,12 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/terms-and-conditions/#clients">
-                                {localize('Terms and conditions')}
+                                {localize('Terms & conditions')}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/responsible/">
-                                {localize('Secure and responsible trading')}
+                                {localize('Secure & responsible trading')}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
@@ -163,8 +163,8 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link
                                 to=""
                                 type="api"
-                                target="_blank"
                                 external="true"
+                                target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 {localize('API')}

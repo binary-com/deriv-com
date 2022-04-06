@@ -57,7 +57,7 @@ const ForexEbook = (props: ForexEbookProps) => {
     }
     const data = useStaticQuery(query)
     return (
-        <Layout type="ebook" is_ppc_redirect={true}>
+        <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
                 title={localize('Forex Ebook')}
                 description={localize('Trade Forex CFDs on our Deriv platform.')}

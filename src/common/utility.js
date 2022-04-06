@@ -10,7 +10,7 @@ import {
     live_chat_key,
     domains,
 } from './constants'
-import { isUK } from 'common/country-base'
+import { isUK, eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
 
 export const trimSpaces = (value) => value?.trim()
@@ -425,15 +425,16 @@ export const useCallbackRef = (callback) => {
     return callback_ref
 }
 
-const eu_subdomain_countries = ['nl']
+const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
-    window.location.host = redirection_url
+    window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
 const redirectToDeriv = (full_domain) => {
-    window.location.host = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
+    const final_url = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
+    window.location.href = `https://${final_url}`
 }
 
 export const handleDerivRedirect = (country, subdomain) => {
@@ -448,12 +449,13 @@ const handleEURedirect = (country, full_domain) => {
     }
 }
 
-export const handleRedirect = (subdomain, residence, current_client_country, full_domain) => {
+export const handleRedirect = (residence, current_client_country, full_domain) => {
+    const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
     const country = residence ? residence : current_client_country
 
     const eu_domains = ['eu', 'staging-eu']
 
-    if (eu_domains.includes(subdomain)) {
+    if (eu_domains.some((e) => subdomain.includes(e))) {
         handleEURedirect(country, full_domain)
     } else {
         handleDerivRedirect(country, subdomain)

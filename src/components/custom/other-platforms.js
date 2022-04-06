@@ -367,7 +367,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         }
                         title={<Localize translate_text="Deriv GO" />}
                         onClick={onClick}
-                        to="/landing/deriv-go/"
+                        to="/deriv-go/"
                     />
                     <NavCard
                         aria_label="DBot"

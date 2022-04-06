@@ -108,6 +108,7 @@ const Hero = () => {
                             data={data['about_us_logo']}
                             alt="example"
                             width="unset"
+                            loading="eager"
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>{title}</DesktopHeader>

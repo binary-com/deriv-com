@@ -12,7 +12,8 @@ import {
     CssGrid,
     CssGridColumn,
     SmallContainer,
-    Show,
+    Desktop,
+    Mobile,
 } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
@@ -50,11 +51,11 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const Mobile = styled(Show.Mobile)`
+const MobileWrapper = styled(Mobile)`
     display: flex;
 `
 
-const Desktop = styled(Show.Desktop)`
+const DesktopWrapper = styled(Desktop)`
     display: flex;
 `
 const Box = styled.div<BoxProps>`
@@ -207,19 +208,19 @@ const Regulatory = (locale: RegulatoryProps) => {
                         mobile_columns="1fr"
                     >
                         <ResponsiveGrid align="flex-start">
-                            <Mobile>
+                            <MobileWrapper>
                                 <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
-                            </Mobile>
+                            </MobileWrapper>
                             <Img src={Labuan} alt="Labuan Financial Services Authority " />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <Desktop>
+                            <DesktopWrapper>
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
-                            </Desktop>
+                            </DesktopWrapper>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
                                     translate_text="Deriv (FX) Ltd - F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia - is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>)."
@@ -242,22 +243,22 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </CssGridColumn>
 
                         <ResponsiveGrid align="flex-start">
-                            <Mobile>
+                            <MobileWrapper>
                                 <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
-                            </Mobile>
+                            </MobileWrapper>
                             <Img
                                 src={FSC}
                                 alt="British Virgin Islands Financial Services Commission"
                             />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <Desktop>
+                            <DesktopWrapper>
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
-                            </Desktop>
+                            </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
                                     translate_text="Deriv (BVI) Ltd - Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands - is licensed by the British Virgin Islands Financial Services Commission (<0>licence no. SIBA/L/18/1114</0>)."
@@ -280,11 +281,11 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </CssGridColumn>
 
                         <ResponsiveGrid align="flex-start">
-                            <Mobile>
+                            <MobileWrapper>
                                 <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (V) Ltd')}
                                 </StyledHeader>
-                            </Mobile>
+                            </MobileWrapper>
                             <Img src={Vanuatu} alt="Vanuata Financial Services Commission" />
                             <Img
                                 src={VanuatuFMA}
@@ -293,11 +294,11 @@ const Regulatory = (locale: RegulatoryProps) => {
                             />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <Desktop>
+                            <DesktopWrapper>
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (V) Ltd')}
                                 </StyledHeader>
-                            </Desktop>
+                            </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
                                     translate_text="Deriv (V) Ltd (<0>view licence</0>) - 1276, Kumul Highway, Port Vila, Vanuatu - is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
@@ -327,19 +328,19 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </CssGridColumn>
 
                         <ResponsiveGrid align="flex-start">
-                            <Mobile>
+                            <MobileWrapper>
                                 <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
-                            </Mobile>
+                            </MobileWrapper>
                             <img src={SVG} alt="Deriv SVG" />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <Desktop>
+                            <DesktopWrapper>
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
-                            </Desktop>
+                            </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 {localize(
                                     'Deriv (SVG) LLC is located in Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company no. 273 LLC 2020).',
@@ -353,19 +354,19 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </CssGridColumn>
 
                         <ResponsiveGrid align="flex-start">
-                            <Mobile>
+                            <MobileWrapper>
                                 <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
-                            </Mobile>
+                            </MobileWrapper>
                             <Img src={Deriv} alt="Deriv Limited" />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <Desktop>
+                            <DesktopWrapper>
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
-                            </Desktop>
+                            </DesktopWrapper>
                             <Text mt="0.8rem">
                                 {localize(
                                     'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
@@ -387,19 +388,19 @@ const Regulatory = (locale: RegulatoryProps) => {
                         mobile_columns="1fr"
                     >
                         <ResponsiveGrid align="flex-start">
-                            <Mobile>
+                            <MobileWrapper>
                                 <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('The Financial Commission')}
                                 </StyledHeader>
-                            </Mobile>
+                            </MobileWrapper>
                             <Img src={TFC} alt="TFC" />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <Desktop>
+                            <DesktopWrapper>
                                 <StyledHeader as="h4" type="sub-section-title">
                                     {localize('The Financial Commission')}
                                 </StyledHeader>
-                            </Desktop>
+                            </DesktopWrapper>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
                                     translate_text="We are registered with the Financial Commission, an international independent organisation dedicated to resolving disputes within the financial services industry (<0>view membership</0>)."

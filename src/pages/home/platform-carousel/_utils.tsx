@@ -56,7 +56,7 @@ export const platform_details_cr: TPlatformDetails[] = [
         icon: DerivGOIcon,
         image_key: 'platforms_deriv_go',
         description: <Localize translate_text="Our best trading experience on your mobile." />,
-        learn_more_link: '/landing/deriv-go/',
+        learn_more_link: '/deriv-go/',
         download_links: [
             { type: 'app_store', url: deriv_go_ios_url },
             { type: 'google_play', url: deriv_go_playstore_url },
@@ -181,14 +181,23 @@ export const platform_details_uk: TPlatformDetails[] = [
     },
 ]
 
-export const getPlatformDetails = (no_of_copies) => {
-    const { is_row, is_eu, is_uk } = getCountryRule()
+export const getPlatformDetails = (no_of_copies, is_eu, is_uk) => {
     const new_details = []
     let current_index = 0
 
+    const getPlatformDetails = () => {
+        if (is_eu) {
+            return platform_details_eu
+        } else if (is_uk) {
+            return platform_details_uk
+        }
+
+        return platform_details_cr
+    }
+
     for (let index = 0; index < no_of_copies; index++) {
         // prettier-ignore
-        (is_row && platform_details_cr ||is_eu && platform_details_eu || is_uk && platform_details_uk).forEach((p) => {
+        getPlatformDetails().forEach((p) => {
             new_details.push({ ...p, id: current_index })
             current_index++
         })

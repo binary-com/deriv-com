@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
@@ -68,7 +68,15 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
     const [is_eu_checked, setEuChecked] = useState(false)
+    const [disabled, setDisabled] = useState(true)
     const residence_list = useResidenceList()
+
+    useEffect(() => {
+        if (residence_list.length > 0) {
+            setDisabled(false)
+        }
+    }, [residence_list])
+
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()
 
@@ -218,6 +226,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                     setFieldValue('country', value)
                                                 }
                                                 onBlur={handleBlur}
+                                                disabled={disabled}
                                             />
                                         </DropdownSearchWrapper>
                                     ) : (
@@ -256,6 +265,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                     autoFocus={autofocus}
                                                     autoComplete="off"
                                                     required={item.required}
+                                                    disabled={disabled}
                                                 />
                                             )}
                                         </Field>

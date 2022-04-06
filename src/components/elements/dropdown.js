@@ -48,6 +48,7 @@ export const DropdownContainer = styled.ul`
     border-radius: 4px;
     height: 40px;
     margin-bottom: ${(props) => props.mb ?? '0'};
+    opacity: ${(props) => (props.disabled ? 0.32 : 1)};
 
     /* ul has no focus attributes, it needs to pass on active props instead */
     ${(props) =>
@@ -57,7 +58,11 @@ export const DropdownContainer = styled.ul`
         `}
 
     &:hover {
-        border-color: var(--color-grey-5);
+        ${(props) =>
+            !props.disabled &&
+            css`
+                border-color: var(--color-grey-5);
+            `}
     }
 
     ${(props) =>

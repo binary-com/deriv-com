@@ -17,6 +17,11 @@ const DropdownInput = styled.input`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    &:disabled {
+        background-color: var(--color-white);
+    }
+
     ${(props) =>
         props.has_short_name &&
         css`
@@ -45,6 +50,7 @@ const DropdownSearch = ({
     onChange,
     selected_item,
     label_position,
+    disabled,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
@@ -90,6 +96,7 @@ const DropdownSearch = ({
                 has_short_name={has_short_name}
                 error={error}
                 mb="36px"
+                disabled={disabled}
                 {...props}
             >
                 <Flex>
@@ -113,6 +120,7 @@ const DropdownSearch = ({
                         value={input_value}
                         is_active={is_open}
                         placeholder={label}
+                        disabled={disabled}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open ? 'true' : 'false'} />
                 </Flex>
@@ -133,6 +141,7 @@ const DropdownSearch = ({
 DropdownSearch.propTypes = {
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_item: PropTypes.any,
+    disabled: PropTypes.bool,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
     items: PropTypes.array,

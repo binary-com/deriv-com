@@ -15,13 +15,13 @@ type MultipliersProps = {
     market_content: ForexAndBasketMultiplier | CryptoMultiplier | SyntheticMultiplier
     is_crypto?: boolean
 }
-const Multipliers = ({ market_content, is_crypto }: MultipliersProps) => (
+const Multipliers = ({ market_content }: MultipliersProps) => (
     <SectionContainer padding="4rem 0 8rem">
         <ContentWrapper>
             <Descriptions>
                 <StyledText align="center">
                     {localize(
-                        'Multipliers allow you to increase your potential profit and limit your potential loss. If the market moves in your favour, your profit is amplified by the chosen multiplier, and if the market moves against your prediction, you won’t lose more than your initial stake.',
+                        'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
                     )}
                 </StyledText>
                 <AvailablePlatforms dtrader />

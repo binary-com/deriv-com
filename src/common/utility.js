@@ -429,7 +429,7 @@ const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb'
 
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
-    window.location.href = `https://${redirection_url}`
+    window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
 const redirectToDeriv = (full_domain) => {

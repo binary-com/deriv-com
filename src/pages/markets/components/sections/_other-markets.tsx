@@ -11,7 +11,9 @@ import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
+import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
+
 type MarketType = {
     icon: () => ReactElement
     title: ReactElement
@@ -262,6 +264,9 @@ const MobileCardContainer = styled(Flex)`
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
+    const { is_uk } = getCountryRule()
+    const { is_eu } = getCountryRule()
+
     const markets = [
         '',
         'forex',
@@ -272,7 +277,22 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         'commodities',
         '',
     ]
-    const filteredMarkets = markets.filter((market) => market !== except)
+
+    const eu_markets = [
+        '',
+        'forex',
+        'synthetic_indices',
+        'stock_indices',
+        'cryptocurrencies',
+        'commodities',
+        '',
+    ]
+
+    const uk_markets = ['', 'forex', 'stock_indices', 'commodities', '']
+
+    const filteredMarkets = (is_eu ? eu_markets : is_uk ? uk_markets : markets).filter(
+        (market) => market !== except,
+    )
 
     return (
         <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">

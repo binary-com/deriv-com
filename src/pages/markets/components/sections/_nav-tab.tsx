@@ -126,6 +126,34 @@ const tab_list: TabList[] = [
     },
 ]
 
+const tab_list_eu: TabList[] = [
+    {
+        title: <Localize translate_text="Forex" />,
+        tab_name: 'forex',
+        route_to: '/markets/forex/',
+    },
+    {
+        title: <Localize translate_text="Synthetic indices" />,
+        tab_name: 'synthetic',
+        route_to: '/markets/synthetic/',
+    },
+    {
+        title: <Localize translate_text="Stocks & indices" />,
+        tab_name: 'stock',
+        route_to: '/markets/stock/',
+    },
+    {
+        title: <Localize translate_text="Cryptocurrencies" />,
+        tab_name: 'cryptocurrencies',
+        route_to: '/markets/cryptocurrencies/',
+    },
+    {
+        title: <Localize translate_text="Commodities" />,
+        tab_name: 'commodities',
+        route_to: '/markets/commodities/',
+    },
+]
+
 const tab_list_uk = [
     {
         title: <Localize translate_text="Forex" />,
@@ -146,6 +174,7 @@ const tab_list_uk = [
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
     const { is_uk } = getCountryRule()
+    const { is_eu } = getCountryRule()
 
     const ref = useRef(null)
 
@@ -157,7 +186,7 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
         <TabsContainer>
             <Flex direction="column">
                 <TabList ref={ref}>
-                    {(is_uk ? tab_list_uk : tab_list).map((item, index) => {
+                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
                         return (
                             <TabButton selected={route_from == item.tab_name} key={index}>
                                 <StyledLink to={item.route_to}>

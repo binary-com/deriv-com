@@ -157,13 +157,13 @@ const Layout = ({
     // Check client's account and ip and apply the necessary redirection
     if (!is_redirection_applied) {
         const website_status = useWebsiteStatusApi()
+        setRedirectionApplied(true)
 
         if (website_status) {
             const current_client_country = website_status?.clients_country || ''
             const client_information_cookie = new CookieStorage('client_information')
             const residence = client_information_cookie.get('residence')
 
-            setRedirectionApplied(true)
             handleRedirect(residence, current_client_country, window.location.hostname)
         }
     }

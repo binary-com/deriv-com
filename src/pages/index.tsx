@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react'
-import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
-import MarketsFold from './home/_markets_fold'
+import React from 'react'
+import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes, MarketsFold } from './home/_lazy-load'
+//import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
@@ -23,31 +23,27 @@ const Home = () => {
         }
     }
     return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Layout type="transparent" margin_top="0">
-                <SEO
-                    title={localize(
-                        'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
-                    )}
-                    description={localize(
-                        'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
-                    )}
-                    has_organization_schema
-                />
-                <Hero />
-                {has_scrolled ? (
-                    <>
-                        <MarketsFold />
-                        <TradeTypes />
-                        <OurPlatforms />
-                        <WhatOurClientsSay />
-                    </>
-                ) : (
-                    <>loading</>
+        <Layout type="transparent" margin_top="0">
+            <SEO
+                title={localize(
+                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
                 )}
-                <Signup appearance={Appearances.public} />
-            </Layout>
-        </Suspense>
+                description={localize(
+                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
+                )}
+                has_organization_schema
+            />
+            <Hero />
+            <MarketsFold />
+            {has_scrolled && (
+                <>
+                    <TradeTypes />
+                    <OurPlatforms />
+                    <WhatOurClientsSay />
+                    <Signup appearance={Appearances.public} />
+                </>
+            )}
+        </Layout>
     )
 }
 

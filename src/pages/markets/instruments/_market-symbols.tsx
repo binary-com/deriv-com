@@ -596,7 +596,7 @@ export const minor_pairs: MarketSymbol[] = [
     },
     {
         src: icons.EURLPN,
-        text: <Localize translate_text="EUR/LPN" />,
+        text: <Localize translate_text="EUR/PLN" />,
     },
     {
         src: icons.EURSEK,

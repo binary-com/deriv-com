@@ -47,7 +47,7 @@ const InputWrapper = styled.div`
             }
         `}
     ${(props) =>
-        props.disabled &&
+        props.is_disabled &&
         css`
             opacity: 0.32;
             pointer-events: none;
@@ -56,13 +56,17 @@ const InputWrapper = styled.div`
 
 const StyledIcon = styled.img`
     position: absolute;
-    right: 0.8rem;
+    right: ${(props) => (props.password_icon ? '2.8rem' : '0.8rem')};
     top: 1.2rem;
     height: 1.6rem;
     width: 1.6rem;
-    cursor: pointer;
+    ${(props) =>
+        !props.is_disabled &&
+        css`
+            cursor: pointer;
+        `}
     @media ${device.tablet} {
-        right: 2rem;
+        right: ${(props) => (props.password_icon ? '4rem' : '2rem')};
         top: 1.6rem;
     }
     @media ${device.desktopL} {
@@ -175,7 +179,7 @@ const Input = ({
     focus_border,
     label_hover_color,
     label_color,
-    disabled,
+    is_disabled,
     id,
     is_date,
     error,
@@ -201,7 +205,7 @@ const Input = ({
                 border={border}
                 focus_border={focus_border}
                 label_hover_color={label_hover_color}
-                disabled={disabled}
+                is_disabled={is_disabled}
                 error={error}
                 className="input-wrapper"
             >
@@ -212,7 +216,7 @@ const Input = ({
                         background={background}
                         maxLength={maxLength}
                         error={error}
-                        disabled={disabled}
+                        is_disabled={is_disabled}
                         height={height}
                         label={label}
                         setFieldValue={setFieldValue}
@@ -229,7 +233,7 @@ const Input = ({
                         background={background}
                         maxLength={maxLength}
                         error={error}
-                        disabled={disabled}
+                        is_disabled={is_disabled}
                         height={height}
                         showLabel={label}
                         {...props}
@@ -250,11 +254,13 @@ const Input = ({
             <ErrorMessages lh="1.4" align="left" color="red-1" error_shift={error_shift}>
                 {error}
             </ErrorMessages>
-            {!error && password_icon && (
+            {password_icon && (
                 <StyledIcon
                     src={EyeIcon}
+                    is_disabled={is_disabled}
+                    password_icon={password_icon}
                     alt="eye icon"
-                    onClick={() => setPasswordVisible(!is_password_visible)}
+                    onClick={() => (!is_disabled ? setPasswordVisible(!is_password_visible) : null)}
                 />
             )}
             {error && (
@@ -274,7 +280,6 @@ Input.propTypes = {
     background: PropTypes.string,
     border: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    disabled: PropTypes.bool,
     error: PropTypes.string,
     error_shift: PropTypes.string,
     focus_border: PropTypes.string,
@@ -282,6 +287,7 @@ Input.propTypes = {
     height: PropTypes.any,
     id: PropTypes.string,
     is_date: PropTypes.bool,
+    is_disabled: PropTypes.bool,
     label: PropTypes.string,
     label_color: PropTypes.string,
     label_hover_color: PropTypes.string,

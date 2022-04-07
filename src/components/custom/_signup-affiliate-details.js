@@ -68,7 +68,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
     const [is_eu_checked, setEuChecked] = useState(false)
-    const [disabled, setDisabled] = useState(true)
+    const [is_disabled, setDisabled] = useState(true)
     const residence_list = useResidenceList()
 
     useEffect(() => {
@@ -226,7 +226,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                     setFieldValue('country', value)
                                                 }
                                                 onBlur={handleBlur}
-                                                disabled={disabled}
+                                                is_disabled={is_disabled}
                                             />
                                         </DropdownSearchWrapper>
                                     ) : (
@@ -265,7 +265,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                     autoFocus={autofocus}
                                                     autoComplete="off"
                                                     required={item.required}
-                                                    disabled={disabled}
+                                                    is_disabled={is_disabled}
                                                 />
                                             )}
                                         </Field>
@@ -347,7 +347,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                         id="dm-new-signup"
                                         secondary
                                         type="submit"
-                                        disabled={fieldsSelected()}
+                                        is_disabled={fieldsSelected()}
                                         onClick={(e) => {
                                             e.preventDefault()
                                             submitValues(values, setFieldValue)

@@ -30,12 +30,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link to="/careers/">{localize('Careers')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link
-                                to={deriv_life_url}
-                                external="true"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <Link to={deriv_life_url} target="_blank" rel="noopener noreferrer">
                                 {localize('Deriv life')}
                             </Link>
                         </LinkWrapper>

@@ -421,7 +421,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to={deriv_life_url}
-                            external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}

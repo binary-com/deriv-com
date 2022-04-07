@@ -517,7 +517,6 @@ export const NavCompany = ({ onClick }) => (
             title={localize('Deriv life')}
             onClick={onClick}
             to={deriv_life_url}
-            external="true"
             target="_blank"
             rel="noopener noreferrer"
         />

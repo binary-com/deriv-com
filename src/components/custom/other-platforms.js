@@ -5,7 +5,7 @@ import { SectionContainer, Flex, FlexGridContainer, UKEU, ROW } from 'components
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import { getCountryRule } from 'components/containers/visibility'
-import { binary_bot_url } from 'common/constants'
+import { binary_bot_url, deriv_life_url } from 'common/constants'
 import device from 'themes/device'
 // icons
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -21,6 +21,7 @@ import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
+import DerivLife from 'images/svg/menu/deriv-life.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import CFD from 'images/svg/custom/margin-trading-nav.svg'
@@ -510,6 +511,15 @@ export const NavCompany = ({ onClick }) => (
             title={localize('Careers')}
             onClick={onClick}
             to="/careers/"
+        />
+        <CardLink
+            icon={() => <img src={DerivLife} alt="" width="24" height="24" />}
+            title={localize('Deriv life')}
+            onClick={onClick}
+            to={deriv_life_url}
+            external="true"
+            target="_blank"
+            rel="noopener noreferrer"
         />
     </Flex>
 )

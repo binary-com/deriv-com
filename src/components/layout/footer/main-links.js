@@ -36,7 +36,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Deriv Life')}
+                                {localize('Deriv life')}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>

@@ -23,8 +23,8 @@ export const HeaderContainer = styled(Container)`
     padding: 120px 0 80px 120px;
     align-items: flex-start;
 
-    @media ${device.laptop} {
-        padding: 40px 0 0;
+    @media ${device.desktop} {
+        padding: 40px 0 0 20px;
     }
 `
 
@@ -33,9 +33,22 @@ export const ImageWrapper = styled.img`
     width: 100%;
     position: relative;
     top: 90px;
+    right: 150px;
+
+    @media ${device.desktop} {
+        right: 40px;
+    }
+
+    @media ${device.laptopL} {
+        right: 30px;
+    }
 
     @media ${device.laptopM} {
         max-width: 550px;
+    }
+
+    @media ${device.laptop} {
+        right: 0;
     }
     @media ${device.tablet} {
         max-width: 328px;

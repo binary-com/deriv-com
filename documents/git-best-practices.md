@@ -15,7 +15,8 @@ We have a set of precise rules over how our git commit messages can be formatted
 Each commit message will consist of **type** and **subject**:
 
 ```sh
-<type>|<...other_types>: <subject>
+<type>|<...other_types>:<space><subject>
+For example  "fix: hero image padding"
 ```
 
 ### Type
@@ -23,7 +24,7 @@ Each commit message will consist of **type** and **subject**:
 Must be one of the following:
 
 -   **build**: Changes that affect the build system or external dependencies (example scopes: gatsby config, gatsby browser, gatsby node, or gatsby ssr)
--   **chores**: Add or Changes on packages or external dependencies
+-   **chore**: Add or Changes on packages or external dependencies
 -   **ci**: Changes to our CI configuration files and scripts (example scopes: Docker, nginx conf)
 -   **docs**: Documentation only changes
 -   **feat**: A new feature

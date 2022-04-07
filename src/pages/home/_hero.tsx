@@ -139,7 +139,9 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             >
                                 {text}
                             </Header>
-                            <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
+                            <VerticalCarousel
+                                contents={!is_ppc && !is_uk ? contents : contents_ppc}
+                            />
                             <Box tabletL={{ mt: '-8px' }}>
                                 <HeroButton
                                     id="dm-hero-signup"

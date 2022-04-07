@@ -275,7 +275,8 @@ const HelpCentre = () => {
                                 {article.map((item, idx) => {
                                     if (
                                         is_eu_country &&
-                                        item.category.props.translate_text === 'Deriv X'
+                                        (item.category.props.translate_text === 'Deriv X' ||
+                                            item.category.props.translate_text === 'Deriv P2P')
                                     ) {
                                         return <React.Fragment key={idx}></React.Fragment>
                                     }

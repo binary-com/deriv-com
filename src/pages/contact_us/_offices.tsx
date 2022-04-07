@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
-import { SectionContainer, Container, Flex, Box, Show } from 'components/containers'
+import { SectionContainer, Container, Flex, Box, Desktop, Mobile } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import Malta from 'images/svg/contact/malta.svg'
@@ -230,17 +230,17 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Show.Desktop min_width="mobileL">
+                                    <Desktop>
                                         <p>Level 3, W Business Centre,</p>
                                         <p>Triq Dun Karm, Birkirkara,</p>
                                         <p>BKR 9033</p>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledMobileAddress>
                                             Level 3, W Business Centre,Triq Dun Karm, Birkirkara,
                                             BKR 9033
                                         </StyledMobileAddress>
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -276,15 +276,15 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Show.Desktop min_width="mobileL">
+                                    <Desktop>
                                         <p>Office 1902, Jumeirah Business</p>
                                         <p> Center 1, JLT Cluster G</p>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledMobileAddress>
                                             Office 1902, Jumeirah Business Center 1, JLT Cluster G
                                         </StyledMobileAddress>
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -323,17 +323,17 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Show.Desktop min_width="mobileL">
+                                            <Desktop>
                                                 <p>C-13, iTech Tower, Jalan Impact,</p>
                                                 <p>Cyber 6, Cyberjaya 63000,</p>
                                                 <p>Selangor</p>
-                                            </Show.Desktop>
-                                            <Show.Mobile>
+                                            </Desktop>
+                                            <Mobile>
                                                 <StyledMobileAddress>
                                                     C-13, iTech Tower, Jalan Impact, Cyber 6,
                                                     Cyberjaya 63000, Selangor
                                                 </StyledMobileAddress>
-                                            </Show.Mobile>
+                                            </Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -360,15 +360,15 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Show.Desktop min_width="mobileL">
+                                            <Desktop>
                                                 <p>F16, Level 1, Paragon Labuan,</p>
                                                 <p>Jalan Tun Mustapha,</p>
                                                 <p>Labuan 87000, Sabah</p>
-                                            </Show.Desktop>
-                                            <Show.Mobile>
+                                            </Desktop>
+                                            <Mobile>
                                                 <p>F16, Level 1, Paragon Labuan,</p>
                                                 <p>Jalan Tun Mustapha, Labuan 87000, Sabah</p>
-                                            </Show.Mobile>
+                                            </Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -395,17 +395,17 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Show.Desktop min_width="mobileL">
+                                            <Desktop>
                                                 <p>E-5-6, Soho Ipoh 2,</p>
                                                 <p>Jalan Sultan Idris Shah,</p>
                                                 <p>Ipoh 30000, Perak</p>
-                                            </Show.Desktop>
-                                            <Show.Mobile>
+                                            </Desktop>
+                                            <Mobile>
                                                 <StyledMobileAddress>
                                                     E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah,
                                                     Ipoh 30000, Perak
                                                 </StyledMobileAddress>
-                                            </Show.Mobile>
+                                            </Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -432,15 +432,15 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            <Show.Desktop min_width="mobileL">
+                                            <Desktop>
                                                 <p>67-1 &amp; 69-1, Jalan KLJ 6,</p>
                                                 <p>Taman Kota Laksamana Jaya,</p>
                                                 <p>Melaka 75200</p>
-                                            </Show.Desktop>
-                                            <Show.Mobile>
+                                            </Desktop>
+                                            <Mobile>
                                                 <p>67-1 & 69-1, Jalan KLJ 6, Taman Kota</p>
                                                 <p>Laksamana Jaya, Melaka 75200</p>
-                                            </Show.Mobile>
+                                            </Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -480,18 +480,18 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Show.Desktop min_width="mobileL">
+                                    <Desktop>
                                         <p>Edificio Atrium, Piso 2,</p>
                                         <p>Guido Spano Esq. Doctor Morra,</p>
                                         <p>Asunción 1849</p>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <StyledMobileAddress>
                                             <p>Edificio Atrium, Piso 2,</p>
                                             <p>Guido Spano Esq. Doctor Morra,</p>
                                             <p>Asunción 1849</p>
                                         </StyledMobileAddress>
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -601,13 +601,13 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    <Show.Desktop min_width="mobileL">
+                                    <Desktop>
                                         <p>Level 2, 25/1-3 Vera Khoruzhey</p>
                                         <p>Street, Minsk 220123</p>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         Level 2, 25/1-3 Vera Khoruzhey Street, Minsk 220123
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>

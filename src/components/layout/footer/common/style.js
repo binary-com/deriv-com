@@ -35,6 +35,10 @@ export const DefaultFooter = styled.footer`
 
     @media ${device.mobileL} {
         padding-bottom: 6rem;
+
+        @media ${device.tabletL} {
+            padding-bottom: 0;
+        }
     }
 `
 export const FooterGrid = styled(CssGrid)`
@@ -139,8 +143,9 @@ export const DisclaimerParagraph = styled(Text)`
 
     @media ${device.tabletL} {
         width: 90%;
-        margin: 2rem auto 0;
-        font-size: var(--text-size-sm);
+        margin: 16px auto 0;
+        font-size: 12px;
+        line-height: ${(props) => (props.line_height ? '21px' : '18px')};
     }
 `
 export const shared_css = css`
@@ -153,7 +158,7 @@ export const shared_css = css`
         text-decoration: underline;
     }
     @media ${device.tabletL} {
-        font-size: var(--text-size-sm);
+        font-size: 12px;
     }
 `
 export const StaticAsset = styled.a`
@@ -172,8 +177,8 @@ export const RiskWarning = styled.div`
         border-top: 2px solid var(--color-grey-27);
         border-left: none;
         width: 90%;
-        margin: 4rem auto 0;
-        padding: 1rem;
+        margin: 24px 16px 0;
+        padding: 0 8px 16px;
 
         p {
             padding: 0;
@@ -187,7 +192,7 @@ export const BoldLink = styled(StyledLink)`
     color: var(--color-black-3);
     font-size: var(--text-size-xs);
     @media ${device.tabletL} {
-        font-size: var(--text-size-sm);
+        font-size: 12px;
     }
 `
 export const CopyrightWrapper = styled(Flex)`

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer, Show } from 'components/containers'
+import { Container, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
@@ -190,14 +190,14 @@ const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => 
                                 <StyledHeader type="heading-3" mb="1rem">
                                     {item.title}
                                 </StyledHeader>
-                                <Show.Desktop>
+                                <Desktop>
                                     <Text size="var(--text-size-m)" pb="2rem">
                                         {item.subtitle1}
                                     </Text>
-                                </Show.Desktop>
-                                <Show.Mobile>
+                                </Desktop>
+                                <Mobile>
                                     <Text pb="2rem">{item.subtitle_mobile1}</Text>
-                                </Show.Mobile>
+                                </Mobile>
                                 {two_title && (
                                     <>
                                         <StyledHeader type="heading-3">

@@ -13,19 +13,18 @@ import TightSpread from 'images/svg/markets/tight-spread.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission.svg'
 import Leverage from 'images/svg/markets/leverage.svg'
-import { DerivStore } from 'store'
-import { NonUK } from 'components/containers/visibility'
+import { getCountryRule, NonUK } from 'components/containers/visibility'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Cryptocurrencies = ({ simple_step_content }) => {
-    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+    const { is_uk_eu, is_uk } = getCountryRule()
     const crypto_content = [
         {
             src: Leverage,
-            text: is_eu_country ? (
+            text: is_uk_eu ? (
                 <Localize translate_text="1:2 leverage" />
             ) : (
                 <Localize translate_text="1:100 leverage" />
@@ -45,7 +44,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
         },
     ]
 
-    if (is_uk_country) {
+    if (is_uk) {
         navigate('/404/')
     }
 

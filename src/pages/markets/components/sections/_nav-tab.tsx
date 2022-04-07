@@ -115,7 +115,7 @@ const tab_list: TabList[] = [
         route_to: '/markets/cryptocurrencies/',
     },
     {
-        title: <Localize translate_text="Basket Indices" />,
+        title: <Localize translate_text="Basket indices" />,
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/',
     },

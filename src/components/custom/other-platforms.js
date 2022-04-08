@@ -8,6 +8,7 @@ import { getCountryRule } from 'components/containers/visibility'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'

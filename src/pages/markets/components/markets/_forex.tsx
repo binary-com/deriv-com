@@ -41,7 +41,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu ? forex_cfds_eu : forex_cfds} />}
+                CFDs={<CFDs market_content={is_uk_eu ? forex_cfds_eu : forex_cfds} />}
                 DigitalOptions={
                     is_row && (
                         <DigitalOptions

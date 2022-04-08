@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { ReactElement } from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'

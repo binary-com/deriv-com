@@ -1,10 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
+import AffiliateDatePicker from '../elements/affiliate-date-picker'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
+import EyeIcon from 'images/svg/signup-affiliate-details/eye.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;
@@ -45,22 +47,26 @@ const InputWrapper = styled.div`
             }
         `}
     ${(props) =>
-        props.disabled &&
+        props.is_disabled &&
         css`
             opacity: 0.32;
             pointer-events: none;
         `}
 `
 
-const StyledError = styled.img`
+const StyledIcon = styled.img`
     position: absolute;
-    right: 0.8rem;
+    right: ${(props) => (props.password_icon ? '2.8rem' : '0.8rem')};
     top: 1.2rem;
     height: 1.6rem;
     width: 1.6rem;
-    cursor: pointer;
+    ${(props) =>
+        !props.is_disabled &&
+        css`
+            cursor: pointer;
+        `}
     @media ${device.tablet} {
-        right: 2rem;
+        right: ${(props) => (props.password_icon ? '4rem' : '2rem')};
         top: 1.6rem;
     }
     @media ${device.desktopL} {
@@ -146,6 +152,7 @@ const StyledInput = styled.input`
 
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
+    padding-bottom: ${({ error_shift }) => (error_shift ? error_shift : 0)};
     font-size: 1.2rem;
     min-height: 16px;
 `
@@ -168,42 +175,72 @@ const Input = ({
     label,
     height,
     border,
+    error_shift,
     focus_border,
     label_hover_color,
     label_color,
-    disabled,
+    is_disabled,
     id,
+    is_date,
     error,
     background,
     tablet_background,
     handleError,
     maxLength,
+    setFieldValue,
+    setFieldTouched,
+    password_icon,
     ...props
 }) => {
-    let current_input = useRef(null)
+    const [is_password_visible, setPasswordVisible] = useState(false)
 
+    useEffect(() => {
+        current_input.type = !is_password_visible && password_icon ? 'password' : 'text'
+    }, [is_password_visible])
+
+    let current_input = useRef(null)
     return (
         <RelativeWrapper>
             <InputWrapper
                 border={border}
                 focus_border={focus_border}
                 label_hover_color={label_hover_color}
-                disabled={disabled}
+                is_disabled={is_disabled}
                 error={error}
                 className="input-wrapper"
             >
-                <StyledInput
-                    id={id}
-                    background={background}
-                    maxLength={maxLength}
-                    error={error}
-                    disabled={disabled}
-                    height={height}
-                    showLabel={label}
-                    {...props}
-                    ref={(ip) => (current_input = ip)}
-                />
-                {label && (
+                {is_date ? (
+                    <AffiliateDatePicker
+                        id={id}
+                        top_shift="1.5rem"
+                        background={background}
+                        maxLength={maxLength}
+                        error={error}
+                        is_disabled={is_disabled}
+                        height={height}
+                        label={label}
+                        setFieldValue={setFieldValue}
+                        setFieldTouched={setFieldTouched}
+                        tablet_background={tablet_background}
+                        htmlFor={id}
+                        label_color={label_color}
+                        {...props}
+                        ref={(ip) => (current_input = ip)}
+                    />
+                ) : (
+                    <StyledInput
+                        id={id}
+                        background={background}
+                        maxLength={maxLength}
+                        error={error}
+                        is_disabled={is_disabled}
+                        height={height}
+                        showLabel={label}
+                        {...props}
+                        ref={(ip) => (current_input = ip)}
+                    />
+                )}
+                {label && !is_date && (
                     <StyledLabel
                         tablet_background={tablet_background}
                         error={error}
@@ -214,11 +251,20 @@ const Input = ({
                     </StyledLabel>
                 )}
             </InputWrapper>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh="1.4" align="left" color="red-1" error_shift={error_shift}>
                 {error}
             </ErrorMessages>
+            {password_icon && (
+                <StyledIcon
+                    src={EyeIcon}
+                    is_disabled={is_disabled}
+                    password_icon={password_icon}
+                    alt="eye icon"
+                    onClick={() => (!is_disabled ? setPasswordVisible(!is_password_visible) : null)}
+                />
+            )}
             {error && (
-                <StyledError
+                <StyledIcon
                     src={CrossIcon}
                     alt="error icon"
                     onClick={() => {
@@ -234,16 +280,21 @@ Input.propTypes = {
     background: PropTypes.string,
     border: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    disabled: PropTypes.bool,
     error: PropTypes.string,
+    error_shift: PropTypes.string,
     focus_border: PropTypes.string,
     handleError: PropTypes.func,
     height: PropTypes.any,
     id: PropTypes.string,
+    is_date: PropTypes.bool,
+    is_disabled: PropTypes.bool,
     label: PropTypes.string,
     label_color: PropTypes.string,
     label_hover_color: PropTypes.string,
     maxLength: PropTypes.string,
+    password_icon: PropTypes.boolean,
+    setFieldTouched: PropTypes.func,
+    setFieldValue: PropTypes.func,
     tablet_background: PropTypes.string,
     width: PropTypes.string,
 }

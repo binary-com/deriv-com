@@ -720,21 +720,13 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [blog_post_url, setBlogPostURL] = useState(false)
     const { is_eu, is_uk } = getCountryRule()
 
-    const eu_retricted_categories = ['deriv x', 'dbot', 'deriv go', 'options']
-
-    const uk_restricted_categories = [
-        ...eu_retricted_categories,
-        'synthetic indices',
-        'cryptocurrencies',
-    ]
-
     // Filter out restricted categories from the combined filter type array based on geolocation
     useEffect(() => {
         combined_filter_type.forEach((type) => {
             type.items = type.items.filter((obj) => {
-                if (is_eu) return !eu_retricted_categories.includes(obj.title.toLowerCase())
-                if (is_uk) return !uk_restricted_categories.includes(obj.title.toLowerCase())
-                else return type
+                if (is_eu) return obj.is_visible_eu
+                if (is_uk) return obj.is_visible_uk
+                return obj
             })
         })
     }, [is_uk, is_eu])

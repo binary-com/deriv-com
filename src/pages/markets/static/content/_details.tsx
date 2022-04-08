@@ -85,6 +85,16 @@ export const CrashBoomDetails = () => (
     <DetailsContainer>
         <CrashText>
             <Localize
+                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000, 500 or 300 ticks</0>."
+                components={[<strong key={0} />]}
+            />
+        </CrashText>
+    </DetailsContainer>
+)
+export const CrashBoomDetailsMultipliers = () => (
+    <DetailsContainer>
+        <CrashText>
+            <Localize
                 translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000 or 500 ticks</0>."
                 components={[<strong key={0} />]}
             />
@@ -108,18 +118,6 @@ export const DailyResetIndicesDetails = () => (
         <Text>
             <Localize
                 translate_text="These indices replicate markets with <0>bullish and bearish trends</0> with constant volatility. The Bull Market and Bear Market indices start at 00:00 GMT each day, replicating bullish and bearish markets respectively."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>Bull Market</0>: Conditions where prices are rising or expected to rise. "
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>Bear Market</0>: Conditions where prices are falling or expected to fall."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -289,7 +287,7 @@ export const VolatilityIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 200%, and 300%.',
             )}
         </Text>
         <Text>
@@ -300,7 +298,7 @@ export const VolatilityIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 200 (1s), and 300 (1s)</0>."
                 components={[<strong key={0} />]}
             />
         </Text>

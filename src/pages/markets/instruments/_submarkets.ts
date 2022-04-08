@@ -4,6 +4,7 @@ import BasketIndicesCfds from './_basket_indices_cfds'
 import BasketIndicesCommodities from './_basket_indices_commodities'
 import ContinuousIndices from './_continuous-indices'
 import CrashBoom from './_crash-boom'
+import CrashBoomMultipliers from './_crash-boom-multipliers'
 import CrashBoomEU from './_crash-boom-eu'
 import DailyResetIndices from './_daily-reset-indices'
 import Energy from './_energy'
@@ -39,6 +40,7 @@ export {
     ContinuousIndices,
     CrashBoom,
     CrashBoomEU,
+    CrashBoomMultipliers,
     CryptocurrenciesMultipliers,
     CryptocurrenciesCFDs,
     CryptocurrenciesTradeType,

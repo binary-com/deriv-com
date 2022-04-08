@@ -347,7 +347,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                         id="dm-new-signup"
                                         secondary
                                         type="submit"
-                                        is_disabled={fieldsSelected()}
+                                        disabled={fieldsSelected()}
                                         onClick={(e) => {
                                             e.preventDefault()
                                             submitValues(values, setFieldValue)

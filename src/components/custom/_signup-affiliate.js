@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from '../containers'
-import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
@@ -71,87 +70,77 @@ const SignupAffiliate = ({
     handleValidation,
     is_ppc,
     is_submitting,
-}) => {
-    const [is_checked, setChecked] = useState(false)
-
-    const handleChange = (event) => {
-        setChecked(event.currentTarget.checked)
-    }
-
-    return (
-        <StyledFlex jc="flex-start" fd="column" p="40px">
-            <Header as="h4" type="heading-3" mb="8px">
-                {localize('Sign up')}
-            </Header>
-            <Header as="p" type="subtitle-1" weight="normal">
-                {localize('Enter your email address to begin')}
-            </Header>
-            {!is_ppc && (
-                <StyledNote>
-                    <Header
-                        as="p"
-                        type="paragraph-2"
-                        weight="normal"
-                        align="center"
-                        notedBox
-                        color="grey-5"
-                    >
-                        {localize('Want to sign up as a trader?')}
-                        <LocalizedLinkText to="/signup">
-                            <StyledLinkText id="dm-new-login-button" size="14px" color="grey-5">
-                                {' '}
-                                Create a Deriv account
-                            </StyledLinkText>
-                        </LocalizedLinkText>
-                    </Header>
-                </StyledNote>
-            )}
-            <InputGroup>
-                <Input
-                    id="dm-email-input"
-                    name="email"
-                    type="text"
-                    border="solid 1px var(--color-grey-7)"
-                    label_color="grey-5"
-                    label_hover_color="grey-5"
-                    background="white"
-                    error={email_error_msg}
-                    value={email}
-                    label={localize('Email')}
-                    placeholder={'Email'}
-                    handleError={clearEmail}
-                    onChange={handleInputChange}
-                    onBlur={handleValidation}
-                    autoFocus={autofocus}
-                    autoComplete="off"
-                    required
-                />
-            </InputGroup>
-            <AgreementLabel is_checked={is_checked} handleChangeCheckbox={handleChange} />
-            <EmailButton
-                isChecked={is_checked}
-                type="submit"
-                secondary="true"
-                disabled={is_submitting || !is_checked || email_error_msg || !email}
-                id="dm-new-signup-affiliate"
-            >
-                {localize('Create partner account')}
-            </EmailButton>
-            <LoginText as="p" align="center" weight="normal" type="paragraph-2">
-                <div>{localize('Already have a Deriv or Binary.com affiliate account?')}</div>
-                <StyledLinkText
-                    id="dm-new-login-button"
-                    size="1.4rem"
-                    color="red"
-                    ml="3px"
-                    onClick={handleLogin}
+}) => (
+    <StyledFlex jc="flex-start" fd="column" p="40px">
+        <Header as="h4" type="heading-3" mb="8px">
+            {localize('Sign up')}
+        </Header>
+        <Header as="p" type="subtitle-1" weight="normal">
+            {localize('Enter your email address to begin')}
+        </Header>
+        {!is_ppc && (
+            <StyledNote>
+                <Header
+                    as="p"
+                    type="paragraph-2"
+                    weight="normal"
+                    align="center"
+                    notedBox
+                    color="grey-5"
                 >
-                    {localize('Log in')}
-                </StyledLinkText>
-            </LoginText>
-        </StyledFlex>
-    )
-}
+                    {localize('Want to sign up as a trader?')}
+                    <LocalizedLinkText to="/signup">
+                        <StyledLinkText id="dm-new-login-button" size="14px" color="grey-5">
+                            {' '}
+                            Create a Deriv account
+                        </StyledLinkText>
+                    </LocalizedLinkText>
+                </Header>
+            </StyledNote>
+        )}
+        <InputGroup>
+            <Input
+                id="dm-email-input"
+                name="email"
+                type="text"
+                border="solid 1px var(--color-grey-7)"
+                label_color="grey-5"
+                label_hover_color="grey-5"
+                background="white"
+                error={email_error_msg}
+                value={email}
+                label={localize('Email')}
+                placeholder={'Email'}
+                handleError={clearEmail}
+                onChange={handleInputChange}
+                onBlur={handleValidation}
+                autoFocus={autofocus}
+                autoComplete="off"
+                required
+            />
+        </InputGroup>
+        <EmailButton
+            type="submit"
+            secondary="true"
+            disabled={is_submitting || email_error_msg || !email}
+            id="dm-new-signup-affiliate"
+        >
+            {localize('Create partner account')}
+        </EmailButton>
+        <LoginText as="p" align="center" weight="normal" type="paragraph-2">
+            <div>{localize('Already have a Deriv or Binary.com affiliate account?')}</div>
+            <StyledLinkText
+                id="dm-new-login-button"
+                size="1.4rem"
+                color="red"
+                ml="3px"
+                onClick={handleLogin}
+            >
+                {localize('Log in')}
+            </StyledLinkText>
+        </LoginText>
+    </StyledFlex>
+)
 
 SignupAffiliate.propTypes = {
     autofocus: PropTypes.bool,

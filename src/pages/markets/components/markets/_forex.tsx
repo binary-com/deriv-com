@@ -23,7 +23,7 @@ type ForexProps = {
 }
 const Forex = ({ simple_step_content }: ForexProps) => {
     // const { is_eu_country } = React.useContext(DerivStore)
-    const { is_row, is_uk_eu } = getCountryRule()
+    const { is_row, is_uk_eu, is_eu } = getCountryRule()
     return (
         <>
             <WhyTrade

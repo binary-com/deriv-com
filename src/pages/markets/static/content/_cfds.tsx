@@ -80,6 +80,23 @@ export const forex_cfds: MarketInstrumentsElement = {
         },
     ],
 }
+export const forex_cfds_eu: MarketInstrumentsElement = {
+    markets_list: {
+        col: 5,
+        tablet_col: 3,
+        mobile_col: 2,
+    },
+    content: [
+        {
+            title: <Localize translate_text="Major pairs" />,
+            component: <MajorPairs />,
+        },
+        {
+            title: <Localize translate_text="Minor pairs" />,
+            component: <MinorPairs />,
+        },
+    ],
+}
 
 export const synthetic_cfds: MarketInstrumentsElement = {
     has_global_accordion: true,
@@ -206,7 +223,7 @@ export const crypto_cfds: MarketInstrumentsElement = {
     template: 2,
     content: [
         {
-            title: <Localize translate_text="Cryptocurrencies" />,
+            title: <Localize translate_text="Crypto pairs" />,
             component: <CryptocurrenciesCFDs />,
         },
     ],

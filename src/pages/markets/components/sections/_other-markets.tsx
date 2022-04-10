@@ -162,13 +162,12 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
-
 const settings = {
     options: {
         draggable: true,
         containScroll: 'trimSnaps',
         slidesToScroll: 1,
-        align: 0.5,
+        align: 1,
     },
     container_style: {
         maxWidth: '100%',
@@ -185,6 +184,7 @@ const settings = {
     },
     last_slide_no_spacing: false,
 }
+
 const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[market].icon

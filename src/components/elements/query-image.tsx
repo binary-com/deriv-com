@@ -1,12 +1,19 @@
 import React, { MouseEventHandler, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
+import type { ImageDataLike } from 'gatsby-plugin-image'
+
+type queryImageDataLike = {
+    __typename?: 'File'
+    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: ImageDataLike }
+}
+
+type dataLike = queryImageDataLike | ImageDataLike
 
 export type QueryImageProps = {
     alt: ReactElement | string
     className?: string
-    data: ImageDataLike | IGatsbyImageData
+    data: dataLike
     height?: string
     width?: string
     max_width?: string
@@ -53,7 +60,13 @@ const QueryImage = ({
     width,
     ...props
 }: QueryImageProps) => {
-    const image = getImage(data)
+    let image = null
+    if ('__typename' in data) {
+        image = getImage(data.childImageSharp.gatsbyImageData)
+    } else {
+        image = getImage(data as ImageDataLike)
+    }
+
     if (data) {
         return (
             <ImageWrapper

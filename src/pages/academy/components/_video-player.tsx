@@ -104,7 +104,7 @@ const VideoPlayer = ({ video_src, closeVideo }: VideoPlayerProps) => {
         return () => document.removeEventListener('keydown', handleKeyboardEvent, false)
     }, [])
 
-    const handleKeyboardEvent = (e: React.KeyboardEvent) => {
+    const handleKeyboardEvent = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeVideo()
         }

@@ -33,15 +33,9 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
         style={style}
         is_reviews={is_reviews}
     >
-        {color === 'black' ? (
-            <ChevronLeft black="true" />
-        ) : color === 'red' ? (
-            <ChevronLeft red="true" />
-        ) : color === 'custom' ? (
-            <ChevronLeft custom="true" />
-        ) : (
-            <ChevronLeft />
-        )}
+        {(color === 'black' && <ChevronLeft black="true" />) ||
+            (color === 'red' && <ChevronLeft red="true" />) ||
+            (color === 'custom' && <ChevronLeft custom="true" />) || <ChevronLeft />}
     </StyledButtonWrapper>
 )
 
@@ -69,15 +63,9 @@ export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
         style={style}
         is_reviews={is_reviews}
     >
-        {color === 'black' ? (
-            <ChevronRight black="true" />
-        ) : color === 'red' ? (
-            <ChevronRight red="true" />
-        ) : color === 'custom' ? (
-            <ChevronRight custom="true" />
-        ) : (
-            <ChevronRight />
-        )}
+        {(color === 'black' && <ChevronRight black="true" />) ||
+            (color === 'red' && <ChevronRight red="true" />) ||
+            (color === 'custom' && <ChevronRight custom="true" />) || <ChevronRight />}
     </StyledButtonWrapper>
 )
 

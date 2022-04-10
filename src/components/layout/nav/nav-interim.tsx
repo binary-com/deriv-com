@@ -62,7 +62,7 @@ const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => (
                 <MobileWrapper>
                     <LogoLinkMobile to={`/interim/${interim_type}/`} aria-label="Home">
                         <Flex>
-                            <img src={LogoOnly} alt="deriv logo" width="160" height="27" />
+                            <img src={LogoOnly} alt="deriv logo" width="115" />
                             <LogoDescription ai="center">
                                 <Line />
                                 <img src={GetTrading} alt="get trading" width="120" height="17" />

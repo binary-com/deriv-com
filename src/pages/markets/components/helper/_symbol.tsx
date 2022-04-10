@@ -1,19 +1,27 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { SymbolContainer } from '../../static/style/_markets-style'
+import type { MarketSymbol } from '../../static/content/_market-symbols'
 import { Text } from 'components/elements'
 
-type SymbolProps = {
-    instruments_type: { src: string; text: ReactElement }[]
-}
-
-const Symbol = ({ instruments_type }: SymbolProps) => (
+//TODO: refactor this component to always use instruments_type
+type SymbolProps = MarketSymbol & { instruments_type?: MarketSymbol[] }
+const Symbol = ({ instruments_type, src, text }: SymbolProps) => (
     <React.Fragment>
-        {instruments_type.map((symbol, index) => (
-            <SymbolContainer key={index}>
-                <img src={symbol.src} alt="" />
-                <Text>{symbol.text}</Text>
+        {instruments_type ? (
+            <React.Fragment>
+                {instruments_type.map((symbol, index) => (
+                    <SymbolContainer key={index}>
+                        <img src={symbol.src} />
+                        <Text>{symbol.text}</Text>
+                    </SymbolContainer>
+                ))}
+            </React.Fragment>
+        ) : (
+            <SymbolContainer>
+                <img src={src} />
+                <Text>{text}</Text>
             </SymbolContainer>
-        ))}
+        )}
     </React.Fragment>
 )
 

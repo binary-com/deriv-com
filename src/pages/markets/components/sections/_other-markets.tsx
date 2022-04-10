@@ -301,7 +301,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Carousel {...settings}>
+                    <Carousel has_autoplay autoplay_interval={4000} {...settings}>
                         {filteredMarkets.map((market) =>
                             market === '' ? <div></div> : <Card market={market} key={market} />,
                         )}

@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
-import { NonUK } from 'components/containers/visibility'
+import { Desktop, Mobile, NonUK } from 'components/containers/visibility'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -120,16 +120,16 @@ const CryptoPairs = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="auto" align="center">
                                                 {localize('Crypto Pairs')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="auto" align="center">
                                                 {localize('Crypto Pairs')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <CryptocurrenciesTradeType />

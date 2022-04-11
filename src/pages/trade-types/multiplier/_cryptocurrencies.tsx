@@ -91,7 +91,7 @@ const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="Crypto pairs contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade."
+                translate_text="Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -105,14 +105,14 @@ const Cryptocurrencies = () => {
                 <Flex max_width="79.2rem" m="0 auto" direction="column">
                     <StyledText mb="12px" align="center">
                         {localize(
-                            'Trade crypto pairs with multipliers and take advantage of 24/7 trading, including weekends and holidays.',
+                            'Trade cryptocurrencies with multipliers and take advantage of 24/7 trading, including weekends and holidays.',
                         )}
                     </StyledText>
                     <AvailablePlatformsWrapper mb="40px">
                         <AvailablePlatforms dtrader />
                     </AvailablePlatformsWrapper>
                     <Text weight="bold">
-                        {localize('Crypto pairs available for multipliers trading')}
+                        {localize('Cryptocurrencies available for multipliers trading')}
                     </Text>
 
                     <MarketsWrapper direction="column">

@@ -95,7 +95,6 @@ export const Hero = () => {
                     <UK>
                         <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, commodities, stocks, and stock indices." />
                     </UK>
-
                     <ROW>
                         <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, stock indices, and cryptocurrencies." />
                     </ROW>

@@ -16,9 +16,9 @@ import {
     JumpIndicesDetails,
 } from 'pages/markets/static/content/_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { Desktop, Mobile, getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -161,16 +161,16 @@ const SyntheticIndices = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col max_width="13.2rem">
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Volatility indices')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Volatility indices')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <VolatilityIndices />
@@ -187,16 +187,16 @@ const SyntheticIndices = () => {
                         renderTitle={() => (
                             <Flex jc="flex-start" ai="center">
                                 <Col max_width="13.2rem">
-                                    <Show.Desktop>
+                                    <Desktop>
                                         <Title weight="bold" max_width="9.7rem" align="center">
                                             {localize('Crash/Boom')}
                                         </Title>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <Title weight="bold" max_width="9.7rem" align="center">
                                             {localize('Crash/ Boom')}
                                         </Title>
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Col>
                                 <MarketsList>
                                     <CrashBoomMultipliers />

@@ -60,9 +60,6 @@ const non_uk_available_markets = [
         description: localize(
             'Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks.',
         ),
-        uk_eu_description: localize(
-            'Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks.',
-        ),
         learn_more_path: '/markets/synthetic/',
     },
     {
@@ -84,9 +81,6 @@ const non_uk_available_markets = [
         img_alt: 'stock indices',
         text: localize('Stock indices'),
         description: localize(
-            'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
-        ),
-        uk_eu_description: localize(
             'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
         ),
         learn_more_path: '/markets/stock/',
@@ -138,7 +132,7 @@ const AvailableMarkets = () => {
                                         </MobileCardHeader>
                                         <Text>
                                             {is_uk_eu
-                                                ? market.uk_eu_description
+                                                ? market.uk_eu_description || market.description
                                                 : market.description}
                                         </Text>
                                         <LearnMore
@@ -171,7 +165,7 @@ const AvailableMarkets = () => {
                                         </MobileCardHeader>
                                         <Text>
                                             {is_uk_eu
-                                                ? market.uk_eu_description
+                                                ? market.uk_eu_description || market.description
                                                 : market.description}
                                         </Text>
                                         <LearnMore

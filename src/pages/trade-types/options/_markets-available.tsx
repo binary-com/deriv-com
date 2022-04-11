@@ -93,26 +93,6 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={Commodities} alt="" width="64" height="64" />
-
-                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        "Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy.",
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/commodities/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
                                     <img src={StockIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
@@ -149,6 +129,26 @@ const MarketsAvailable = () => {
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/basket-indices/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img src={Commodities} alt="" width="64" height="64" />
+
+                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        "Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy.",
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/commodities/"
                                 />
                             </Card>
                         </MarketsItem>

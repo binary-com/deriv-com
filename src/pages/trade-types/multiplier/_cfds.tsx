@@ -46,6 +46,7 @@ const CFDs = () => {
         ],
     }
 
+    // TODO: to rename component names to basket indices
     const forex_cfds_desktop: MarketInstrumentsElement = {
         template: 2,
         content: [

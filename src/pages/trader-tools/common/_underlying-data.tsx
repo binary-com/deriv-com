@@ -838,34 +838,35 @@ export const financialItemLists = [
         icon: <img src={PLATINUMUSD} alt="platinum usd" />,
         market: 'commodities',
     },
+    // TODO: to rename variable names to basket indices
     {
         name: 'AUDINDEX',
         display_name: 'AUD Index',
         icon: <img src={AUDINDEX} alt="aud index" />,
-        market: 'basket_indices',
+        market: 'smartfx',
     },
     {
         name: 'GBPINDEX',
         display_name: 'GBP Index',
         icon: <img src={GBPINDEX} alt="gbp index" />,
-        market: 'basket_indices',
+        market: 'smartfx',
     },
     {
         name: 'EURINDEX',
         display_name: 'EUR Index',
         icon: <img src={EURINDEX} alt="eur index" />,
-        market: 'basket_indices',
+        market: 'smartfx',
     },
     {
         name: 'USDINDEX',
         display_name: 'USD Index',
         icon: <img src={USDINDEX} alt="usd index" />,
-        market: 'basket_indices',
+        market: 'smartfx',
     },
     {
         name: 'GOLDINDEX',
         display_name: 'Gold Index',
         icon: <img src={GOLDUSD} alt="gold index" />,
-        market: 'basket_indices',
+        market: 'smartfx',
     },
 ]

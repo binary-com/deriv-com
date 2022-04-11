@@ -90,13 +90,13 @@ export const Hero = () => {
                     mt="1.6rem"
                 >
                     <EU>
-                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, stock indices, and cryptocurrencies." />
+                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks, stock & indices, cryptocurrencies and commodities." />
                     </EU>
                     <UK>
-                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, commodities, stocks, and stock indices." />
+                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stock & indices and commodities." />
                     </UK>
                     <ROW>
-                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, stock indices, and cryptocurrencies." />
+                        <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
                     </ROW>
                 </MarketSubHeader>
             </StyledContainer>

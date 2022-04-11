@@ -10,6 +10,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
+import BasketIndices from 'images/svg/trade-types/basket-indices.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -126,6 +127,28 @@ const MarketsAvailable = () => {
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/stock/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img src={BasketIndices} alt="" width="64" height="64" />
+
+                                    <StyledText weight="bold">
+                                        {localize('Basket indices')}
+                                    </StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        'In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world.',
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/basket-indices/"
                                 />
                             </Card>
                         </MarketsItem>

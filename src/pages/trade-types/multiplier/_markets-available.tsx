@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MarketsCarousel from '../components/_markets-carousel'
 import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Flex, NonUK, UK } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
@@ -34,6 +34,35 @@ const StyledText = styled(Text)`
     }
 `
 
+const non_uk_available_markets = [
+    {
+        name: 'Forex',
+        img_src: Forex,
+        img_alt: 'forex',
+        text: localize('Forex'),
+        description: localize(
+            'Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake.',
+        ),
+        learn_more_path: '/markets/forex/',
+    },
+    {
+        name: 'Synthetic Indices',
+        img_src: SyntheticIndices,
+        img_alt: 'synthetic indices',
+        text: localize('Synthetic indices'),
+        description: localize(
+            'Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk.',
+        ),
+        learn_more_path: '/markets/synthetic/',
+    },
+]
+
+const uk_restricted_markets = ['Synthetic Indices']
+
+const uk_available_markets = non_uk_available_markets.filter(
+    (el) => !uk_restricted_markets.includes(el.name),
+)
+
 const MarketsAvailable = () => {
     return (
         <>
@@ -43,50 +72,64 @@ const MarketsAvailable = () => {
                         {localize('Markets available for multipliers trading')}
                     </Header>
                 </SmallContainer>
-                <MarketsCarousel>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img src={Forex} alt="" width="64" height="64" />
+                <NonUK>
+                    <MarketsCarousel>
+                        {non_uk_available_markets.map((market) => {
+                            return (
+                                <MarketsCarousel.Item key={market.name}>
+                                    <MarketsItem>
+                                        <Card>
+                                            <MobileCardHeader>
+                                                <img
+                                                    src={market.img_src}
+                                                    alt={market.img_alt}
+                                                    width="64"
+                                                    height="64"
+                                                />
 
-                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/forex/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img src={SyntheticIndices} alt="" width="64" height="64" />
+                                                <StyledText weight="bold">{market.text}</StyledText>
+                                            </MobileCardHeader>
+                                            <Text>{market.description}</Text>
+                                            <LearnMore
+                                                text={<Localize translate_text="Learn more" />}
+                                                to={market.learn_more_path}
+                                            />
+                                        </Card>
+                                    </MarketsItem>
+                                </MarketsCarousel.Item>
+                            )
+                        })}
+                    </MarketsCarousel>
+                </NonUK>
+                <UK>
+                    <MarketsCarousel>
+                        {uk_available_markets.map((market) => {
+                            return (
+                                <MarketsCarousel.Item key={market.name}>
+                                    <MarketsItem>
+                                        <Card>
+                                            <MobileCardHeader>
+                                                <img
+                                                    src={market.img_src}
+                                                    alt={market.img_alt}
+                                                    width="64"
+                                                    height="64"
+                                                />
 
-                                    <StyledText weight="bold">
-                                        {localize('Synthetic indices')}
-                                    </StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/synthetic/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                </MarketsCarousel>
+                                                <StyledText weight="bold">{market.text}</StyledText>
+                                            </MobileCardHeader>
+                                            <Text>{market.description}</Text>
+                                            <LearnMore
+                                                text={<Localize translate_text="Learn more" />}
+                                                to={market.learn_more_path}
+                                            />
+                                        </Card>
+                                    </MarketsItem>
+                                </MarketsCarousel.Item>
+                            )
+                        })}
+                    </MarketsCarousel>
+                </UK>
             </SectionContainer>
         </>
     )

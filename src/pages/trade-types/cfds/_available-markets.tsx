@@ -71,33 +71,35 @@ const AvailableMarkets = () => {
                         </Card>
                     </MarketsItem>
                 </MarketsCarousel.Item>
-                <MarketsCarousel.Item>
-                    <MarketsItem>
-                        <Card>
-                            <MobileCardHeader>
-                                <img
-                                    src={SyntheticIndices}
-                                    alt="synthetic indices"
-                                    width="64"
-                                    height="64"
-                                />
+                {is_uk && (
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img
+                                        src={SyntheticIndices}
+                                        alt="synthetic indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
-                                <StyledText weight="bold">
-                                    {localize('Synthetic indices')}
-                                </StyledText>
-                            </MobileCardHeader>
-                            <Text>
-                                {localize(
-                                    'Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks.',
-                                )}
-                            </Text>
-                            <LearnMore
-                                text={<Localize translate_text="Learn more" />}
-                                to="/markets/synthetic/"
-                            />
-                        </Card>
-                    </MarketsItem>
-                </MarketsCarousel.Item>
+                                    <StyledText weight="bold">
+                                        {localize('Synthetic indices')}
+                                    </StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        'Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks.',
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/synthetic/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                )}
                 <MarketsCarousel.Item>
                     <MarketsItem>
                         <Card>

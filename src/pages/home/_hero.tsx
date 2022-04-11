@@ -80,9 +80,9 @@ const Hero = ({ is_ppc }: HeroProps) => {
     const text =
         !is_ppc && !is_uk
             ? localize(
-                  'Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.',
+                  'Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices and commodities.',
               )
-            : localize('Trade forex, stocks & indices, and commodities.')
+            : localize('Trade forex, stocks & indices, basket indices and commodities.')
 
     return (
         <HeroWrapper>

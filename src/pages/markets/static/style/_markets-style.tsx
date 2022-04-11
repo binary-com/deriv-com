@@ -107,6 +107,7 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
     grid-template-columns: ${({ col }) => `repeat(${col ?? 3}, 1fr)`};
     width: 100%;
+    height: fit-content;
     padding: 24px;
     gap: ${({ gap }) => (gap ? gap : '10px')};
 
@@ -127,6 +128,7 @@ export const LatestMarketsList = styled(CssGrid)<LatestMarketsListProps>`
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
     grid-template-columns: ${({ col }) => `repeat(${col ?? 4}, 1fr)`};
     width: 100%;
+    height: fit-content;
     padding: ${({ padding }) => (padding ? padding : '24px')};
     gap: ${({ gap }) => (gap ? gap : '10px')};
 
@@ -179,6 +181,7 @@ export const StyledText = styled(Text)<StyledTextProps>`
 
 export const SymbolContainer = styled(Flex)`
     width: fit-content;
+    height: fit-content;
     align-items: center;
     justify-content: flex-start;
 

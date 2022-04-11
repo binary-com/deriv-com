@@ -3,7 +3,6 @@ import {
     BasketIndicesCfds,
     BasketIndicesCommodities,
     ContinuousIndices,
-    CrashBoom,
     CrashBoomMultipliers,
     CrashBoomEU,
     CryptocurrenciesMultipliers,

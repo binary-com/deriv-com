@@ -5,8 +5,9 @@ import Globe2 from '../../static/video/globe.webm'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { useLazyVideo } from 'components/hooks/use-lazy-video'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
+import { EU, UK, ROW } from 'components/containers/visibility'
 
 const BackgroundWrapper = styled.div`
     position: relative;
@@ -76,7 +77,7 @@ export const Hero = () => {
             </Video>
             <StyledContainer direction="column">
                 <Header as="h1" type="display-title" color="white" lh="1.15" align="center">
-                    {localize('Markets to trade on Deriv')}
+                    <Localize translate_text="Markets to trade on Deriv" />
                 </Header>
                 <MarketSubHeader
                     as="h4"
@@ -88,9 +89,15 @@ export const Hero = () => {
                     align="center"
                     mt="1.6rem"
                 >
-                    {localize(
-                        'Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities.',
-                    )}
+                    <EU>
+                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities." />
+                    </EU>
+                    <UK>
+                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
+                    </UK>
+                    <ROW>
+                        <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                    </ROW>
                 </MarketSubHeader>
             </StyledContainer>
         </BackgroundWrapper>

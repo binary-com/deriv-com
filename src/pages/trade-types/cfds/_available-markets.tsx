@@ -74,12 +74,12 @@ const available_markets = [
         learn_more_path: '/markets/stock/',
     },
     {
-        name: 'Cryptocurrencies',
+        name: 'Crypto Pairs',
         img_src: Cryptocurrencies,
         img_alt: 'cryptocurrencies',
-        text: localize('Cryptocurrencies'),
+        text: localize('Crypto Pairs'),
         description: localize(
-            'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
+            'Trade on the world’s most popular crypto pairs and potentially profit from correctly anticipating price movements.',
         ),
         learn_more_path: '/markets/cryptocurrencies/',
     },
@@ -108,7 +108,7 @@ const available_markets = [
     },
 ]
 
-const uk_restricted_markets = ['Synthetic Indices', 'Cryptocurrencies', 'Basket Indices']
+const uk_restricted_markets = ['Synthetic Indices', 'Crypto Pairs', 'Basket Indices']
 const eu_restricted_markets = ['Basket Indices']
 
 const uk_available_markets = available_markets.filter(

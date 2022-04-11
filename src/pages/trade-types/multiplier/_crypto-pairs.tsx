@@ -87,7 +87,7 @@ const AvailablePlatformsWrapper = styled(Flex)`
     }
 `
 
-const CryptocurrenciesDetails = () => (
+const CryptoPairsDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
@@ -98,21 +98,21 @@ const CryptocurrenciesDetails = () => (
     </DetailsContainer>
 )
 
-const Cryptocurrencies = () => {
+const CryptoPairs = () => {
     return (
         <NonUK>
             <SectionContainer padding="4rem 0 8rem">
                 <Flex max_width="79.2rem" m="0 auto" direction="column">
                     <StyledText mb="12px" align="center">
                         {localize(
-                            'Trade cryptocurrencies with multipliers and take advantage of 24/7 trading, including weekends and holidays.',
+                            'Trade crypto pairs with multipliers and take advantage of 24/7 trading, including weekends and holidays.',
                         )}
                     </StyledText>
                     <AvailablePlatformsWrapper mb="40px">
                         <AvailablePlatforms dtrader />
                     </AvailablePlatformsWrapper>
                     <Text weight="bold">
-                        {localize('Cryptocurrencies available for multipliers trading')}
+                        {localize('Crypto pairs available for multipliers trading')}
                     </Text>
 
                     <MarketsWrapper direction="column">
@@ -122,12 +122,12 @@ const Cryptocurrencies = () => {
                                     <Col>
                                         <Show.Desktop>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Cryptocurrencies')}
+                                                {localize('Crypto Pairs')}
                                             </Title>
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Cryptocurrencies')}
+                                                {localize('Crypto Pairs')}
                                             </Title>
                                         </Show.Mobile>
                                     </Col>
@@ -136,7 +136,7 @@ const Cryptocurrencies = () => {
                                     </MarketsList>
                                 </Flex>
                             )}
-                            renderDetails={CryptocurrenciesDetails}
+                            renderDetails={CryptoPairsDetails}
                         />
                     </MarketsWrapper>
                 </Flex>
@@ -145,4 +145,4 @@ const Cryptocurrencies = () => {
     )
 }
 
-export default Cryptocurrencies
+export default CryptoPairs

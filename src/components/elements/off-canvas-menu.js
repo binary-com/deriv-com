@@ -368,18 +368,20 @@ export const OffCanvasMenuWrapper = (props) => {
                                 />
                             </Flex>
                         )}
-                        <Flex>
-                            <NavCard
-                                aria_label="Basket indices"
-                                icon={() => <img src={Basket} alt="" width="32" height="32" />}
-                                content={localize(
-                                    'Trade weighted indices that measure the value of a currency against a basket of major currencies.',
-                                )}
-                                title={localize('Basket indices')}
-                                onClick={handleArrowClick}
-                                to="/markets/basket-indices/"
-                            />
-                        </Flex>
+                        <ROW>
+                            <Flex>
+                                <NavCard
+                                    aria_label="Basket indices"
+                                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                                    content={localize(
+                                        'Trade weighted indices that measure the value of a currency against a basket of major currencies.',
+                                    )}
+                                    title={localize('Basket indices')}
+                                    onClick={handleArrowClick}
+                                    to="/markets/basket-indices/"
+                                />
+                            </Flex>
+                        </ROW>
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"

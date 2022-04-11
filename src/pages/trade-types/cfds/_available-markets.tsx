@@ -64,27 +64,24 @@ const available_markets = [
         learn_more_path: '/markets/synthetic/',
     },
     {
-        name: 'Commodities',
-        img_src: Commodities,
-        img_alt: 'commodities',
-        text: localize('Commodities'),
-        description: localize(
-            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
-        ),
-        uk_eu_description: localize(
-            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
-        ),
-        learn_more_path: '/markets/commodities/',
-    },
-    {
         name: 'Stock Indices',
         img_src: StockIndices,
         img_alt: 'stock indices',
-        text: localize('Stock indices'),
+        text: localize('Stocks & indices'),
         description: localize(
             'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
         ),
         learn_more_path: '/markets/stock/',
+    },
+    {
+        name: 'Cryptocurrencies',
+        img_src: Cryptocurrencies,
+        img_alt: 'cryptocurrencies',
+        text: localize('Cryptocurrencies'),
+        description: localize(
+            'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
+        ),
+        learn_more_path: '/markets/cryptocurrencies/',
     },
     {
         name: 'Basket Indices',
@@ -97,14 +94,17 @@ const available_markets = [
         learn_more_path: '/markets/basket-indices/',
     },
     {
-        name: 'Cryptocurrencies',
-        img_src: Cryptocurrencies,
-        img_alt: 'cryptocurrencies',
-        text: localize('Cryptocurrencies'),
+        name: 'Commodities',
+        img_src: Commodities,
+        img_alt: 'commodities',
+        text: localize('Commodities'),
         description: localize(
-            'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
+            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
         ),
-        learn_more_path: '/markets/cryptocurrencies/',
+        uk_eu_description: localize(
+            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
+        ),
+        learn_more_path: '/markets/commodities/',
     },
 ]
 

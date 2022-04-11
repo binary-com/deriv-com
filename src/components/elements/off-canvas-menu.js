@@ -9,6 +9,7 @@ import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/ele
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
@@ -215,7 +216,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
@@ -367,6 +368,20 @@ export const OffCanvasMenuWrapper = (props) => {
                                 />
                             </Flex>
                         )}
+                        <ROW>
+                            <Flex>
+                                <NavCard
+                                    aria_label="Basket indices"
+                                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                                    content={localize(
+                                        'Trade weighted indices that measure the value of a currency against a basket of major currencies.',
+                                    )}
+                                    title={localize('Basket indices')}
+                                    onClick={handleArrowClick}
+                                    to="/markets/basket-indices/"
+                                />
+                            </Flex>
+                        </ROW>
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"

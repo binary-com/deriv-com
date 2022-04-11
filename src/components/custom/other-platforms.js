@@ -8,6 +8,7 @@ import { getCountryRule } from 'components/containers/visibility'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
@@ -146,7 +147,9 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
     <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
-            content={[localize('Trade CFDs on a customisable, easy-to-use trading platform.')]}
+            content={[
+                localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
+            ]}
             cover_background="var(--color-black)"
             cover_content={localize('Discover Deriv X now')}
             title={localize('Deriv X')}
@@ -330,7 +333,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             aria_label="Derivx"
                             icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
+                                <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
                             }
                             title={<Localize translate_text="Deriv X" />}
                             onClick={onClick}
@@ -367,7 +370,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         }
                         title={<Localize translate_text="Deriv GO" />}
                         onClick={onClick}
-                        to="/deriv-go/"
+                        to="/landing/deriv-go/"
                     />
                     <NavCard
                         aria_label="DBot"
@@ -406,6 +409,7 @@ NavPlatform.propTypes = {
 
 export const NavMarket = ({ onClick, is_ppc }) => {
     const { is_non_uk } = getCountryRule()
+    const { is_non_eu } = getCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
@@ -451,6 +455,18 @@ export const NavMarket = ({ onClick, is_ppc }) => {
                     title={<Localize translate_text="Cryptocurrencies" />}
                     onClick={onClick}
                     to="/markets/cryptocurrencies/"
+                />
+            )}
+            {is_non_eu && is_non_uk && (
+                <NavCard
+                    aria_label="Basket indices"
+                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
+                    }
+                    title={<Localize translate_text="Basket indices" />}
+                    onClick={onClick}
+                    to="/markets/basket-indices/"
                 />
             )}
             <NavCard

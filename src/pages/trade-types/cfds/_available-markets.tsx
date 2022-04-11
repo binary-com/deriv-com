@@ -6,12 +6,12 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import { getCountryRule } from 'components/containers/visibility'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
 import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
-import { DerivStore, DerivStoreType } from 'store'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -39,7 +39,7 @@ const StyledText = styled(Text)`
 `
 
 const AvailableMarkets = () => {
-    const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const { is_uk, is_uk_eu } = getCountryRule()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -58,7 +58,7 @@ const AvailableMarkets = () => {
                                 <StyledText weight="bold">{localize('Forex')}</StyledText>
                             </MobileCardHeader>
                             <Text>
-                                {is_eu_country ? (
+                                {is_uk_eu ? (
                                     <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
                                 ) : (
                                     <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
@@ -143,33 +143,35 @@ const AvailableMarkets = () => {
                         </Card>
                     </MarketsItem>
                 </MarketsCarousel.Item>
-                <MarketsCarousel.Item>
-                    <MarketsItem>
-                        <Card>
-                            <MobileCardHeader>
-                                <img
-                                    src={Cryptocurrencies}
-                                    alt="cryptocurrencies"
-                                    width="64"
-                                    height="64"
-                                />
+                {is_uk && (
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="cryptocurrencies"
+                                        width="64"
+                                        height="64"
+                                    />
 
-                                <StyledText weight="bold">
-                                    {localize('Cryptocurrencies')}
-                                </StyledText>
-                            </MobileCardHeader>
-                            <Text>
-                                {localize(
-                                    'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
-                                )}
-                            </Text>
-                            <LearnMore
-                                text={<Localize translate_text="Learn more" />}
-                                to="/markets/cryptocurrencies/"
-                            />
-                        </Card>
-                    </MarketsItem>
-                </MarketsCarousel.Item>
+                                    <StyledText weight="bold">
+                                        {localize('Cryptocurrencies')}
+                                    </StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/cryptocurrencies/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                )}
             </MarketsCarousel>
         </SectionContainer>
     )

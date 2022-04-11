@@ -14,7 +14,7 @@ const LinkText = styled(LocalizedLinkText)`
 
 export const scope_content = [
     {
-        title: localize('Important businesses'),
+        title: <Localize translate_text="Important businesses" />,
         list_icon: 'tick',
         description: '',
         check_list: [
@@ -57,7 +57,7 @@ export const scope_content = [
         ],
     },
     {
-        title: localize('General businesses'),
+        title: <Localize translate_text="General businesses" />,
         list_icon: 'tick',
         description: '',
         check_list: [

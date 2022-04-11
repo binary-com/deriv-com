@@ -2,12 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import MarketInstruments from '../../markets/components/sections/_market_instruments'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
-// import { SmartFXDetails } from '../../markets/static/content/_details'
 import type { MarketInstrumentsElement } from '../../markets/components/sections/_market_instruments'
-import { MajorPairs, SmartFX } from '../../markets/instruments/_index'
-import { SmartFXDetails } from '../../markets/static/content/_details'
+import { MajorPairs } from '../../markets/instruments/_index'
 import { Text } from 'components/elements'
-import { SectionContainer, Show, Flex } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
@@ -46,29 +44,6 @@ const CFDs = () => {
         ],
     }
 
-    const forex_cfds_desktop: MarketInstrumentsElement = {
-        template: 2,
-        content: [
-            {
-                title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
-                details: SmartFXDetails,
-                col: 3,
-                tablet_col: 2,
-            },
-        ],
-    }
-
-    const forex_cfds_mobile: MarketInstrumentsElement = {
-        content: [
-            {
-                title: <Localize translate_text="SmartFX" />,
-                component: <SmartFX />,
-                details: SmartFXDetails,
-            },
-        ],
-    }
-
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="720px" m="0 auto" direction="column">
@@ -86,16 +61,6 @@ const CFDs = () => {
                     {localize('Forex pairs available for multipliers trading')}
                 </StyledTitle>
                 <MarketInstruments market_content={major_pairs} />
-                {!is_eu_country && (
-                    <>
-                        <Show.Desktop>
-                            <MarketInstruments market_content={forex_cfds_desktop} />
-                        </Show.Desktop>
-                        <Show.Mobile>
-                            <MarketInstruments market_content={forex_cfds_mobile} />
-                        </Show.Mobile>
-                    </>
-                )}
             </Flex>
         </SectionContainer>
     )

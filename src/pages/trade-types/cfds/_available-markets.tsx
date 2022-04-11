@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import MarketsCarousel from '../components/_markets-carousel'
 import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
-import { SectionContainer, Flex, NonUK, UK } from 'components/containers'
+import { SectionContainer, Flex, ROW, UK, EU } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { getCountryRule } from 'components/containers/visibility'
@@ -11,6 +11,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
+import BasketIndices from 'images/svg/trade-types/basket-indices.svg'
 import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 
 const MobileCardHeader = styled(Flex)`
@@ -38,7 +39,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const non_uk_available_markets = [
+const available_markets = [
     {
         name: 'Forex',
         img_src: Forex,
@@ -63,23 +64,10 @@ const non_uk_available_markets = [
         learn_more_path: '/markets/synthetic/',
     },
     {
-        name: 'Commodities',
-        img_src: Commodities,
-        img_alt: 'commodities',
-        text: localize('Commodities'),
-        description: localize(
-            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
-        ),
-        uk_eu_description: localize(
-            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
-        ),
-        learn_more_path: '/markets/commodities/',
-    },
-    {
         name: 'Stock Indices',
         img_src: StockIndices,
         img_alt: 'stock indices',
-        text: localize('Stock indices'),
+        text: localize('Stocks & indices'),
         description: localize(
             'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
         ),
@@ -95,12 +83,39 @@ const non_uk_available_markets = [
         ),
         learn_more_path: '/markets/cryptocurrencies/',
     },
+    {
+        name: 'Basket Indices',
+        img_src: BasketIndices,
+        img_alt: 'basket indices',
+        text: localize('Basket indices'),
+        description: localize(
+            'In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world.',
+        ),
+        learn_more_path: '/markets/basket-indices/',
+    },
+    {
+        name: 'Commodities',
+        img_src: Commodities,
+        img_alt: 'commodities',
+        text: localize('Commodities'),
+        description: localize(
+            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
+        ),
+        uk_eu_description: localize(
+            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
+        ),
+        learn_more_path: '/markets/commodities/',
+    },
 ]
 
-const uk_restricted_markets = ['Synthetic Indices', 'Cryptocurrencies']
+const uk_restricted_markets = ['Synthetic Indices', 'Cryptocurrencies', 'Basket Indices']
+const eu_restricted_markets = ['Basket Indices']
 
-const uk_available_markets = non_uk_available_markets.filter(
+const uk_available_markets = available_markets.filter(
     (el) => !uk_restricted_markets.includes(el.name),
+)
+const eu_available_markets = available_markets.filter(
+    (el) => !eu_restricted_markets.includes(el.name),
 )
 
 const AvailableMarkets = () => {
@@ -113,9 +128,10 @@ const AvailableMarkets = () => {
                     {localize('Markets available for CFD trading')}
                 </Header>
             </SmallContainer>
-            <NonUK>
+            {/* TODO: refactor to make it more DRY */}
+            <ROW>
                 <MarketsCarousel>
-                    {non_uk_available_markets.map((market) => {
+                    {available_markets.map((market) => {
                         return (
                             <MarketsCarousel.Item key={market.name}>
                                 <MarketsItem>
@@ -145,7 +161,7 @@ const AvailableMarkets = () => {
                         )
                     })}
                 </MarketsCarousel>
-            </NonUK>
+            </ROW>
             <UK>
                 <MarketsCarousel>
                     {uk_available_markets.map((market) => {
@@ -179,6 +195,39 @@ const AvailableMarkets = () => {
                     })}
                 </MarketsCarousel>
             </UK>
+            <EU>
+                <MarketsCarousel>
+                    {eu_available_markets.map((market) => {
+                        return (
+                            <MarketsCarousel.Item key={market.name}>
+                                <MarketsItem>
+                                    <Card>
+                                        <MobileCardHeader>
+                                            <img
+                                                src={market.img_src}
+                                                alt={market.img_alt}
+                                                width="64"
+                                                height="64"
+                                            />
+
+                                            <StyledText weight="bold">{market.text}</StyledText>
+                                        </MobileCardHeader>
+                                        <Text>
+                                            {is_uk_eu
+                                                ? market.uk_eu_description || market.description
+                                                : market.description}
+                                        </Text>
+                                        <LearnMore
+                                            text={<Localize translate_text="Learn more" />}
+                                            to={market.learn_more_path}
+                                        />
+                                    </Card>
+                                </MarketsItem>
+                            </MarketsCarousel.Item>
+                        )
+                    })}
+                </MarketsCarousel>
+            </EU>
         </SectionContainer>
     )
 }

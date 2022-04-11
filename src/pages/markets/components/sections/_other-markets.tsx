@@ -162,13 +162,12 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
-
 const settings = {
     options: {
         draggable: true,
         containScroll: 'trimSnaps',
         slidesToScroll: 1,
-        align: 0.5,
+        align: 1,
     },
     container_style: {
         maxWidth: '100%',
@@ -185,6 +184,7 @@ const settings = {
     },
     last_slide_no_spacing: false,
 }
+
 const Card = ({ market }: CardProps) => {
     const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[market].icon
@@ -301,7 +301,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Carousel {...settings}>
+                    <Carousel has_autoplay autoplay_interval={4000} {...settings}>
                         {filteredMarkets.map((market) =>
                             market === '' ? <div></div> : <Card market={market} key={market} />,
                         )}

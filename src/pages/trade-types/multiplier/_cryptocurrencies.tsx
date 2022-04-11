@@ -112,7 +112,7 @@ const Cryptocurrencies = () => {
                         <AvailablePlatforms dtrader />
                     </AvailablePlatformsWrapper>
                     <Text weight="bold">
-                        {localize('Cryptocurrencies available for multipliers trading')}
+                        {localize('Instruments available for multipliers trading')}
                     </Text>
 
                     <MarketsWrapper direction="column">

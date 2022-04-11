@@ -249,19 +249,14 @@ export const Tag = styled(Flex)`
     cursor: pointer;
 
     &:hover {
-        color: var(--color-blue-14);
-        background-color: var(--color-blue-15);
+        color: var(--color-blue-12);
+        background-color: var(--color-blue-13);
     }
 
     @media ${device.laptop} {
         height: 20px;
         margin-right: 8px;
         font-size: 12px;
-
-        &:hover {
-            color: var(--color-blue-12);
-            background-color: var(--color-blue-13);
-        }
     }
 `
 const SharedHeadingStyles = css`

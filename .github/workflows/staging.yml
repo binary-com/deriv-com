@@ -94,7 +94,8 @@ jobs:
             - name: Verify nginx image
               run: |
                   set -e
-                  #docker run --rm -it --entrypoint sh ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging -c "nginx -t"
+                  docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging nginx -t
+                  echo "docker image validated successfully"
 
             - name: Pushing Image to docker hub 🐳
               run: |

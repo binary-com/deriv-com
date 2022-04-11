@@ -87,18 +87,18 @@ const AvailablePlatformsWrapper = styled(Flex)`
     }
 `
 
-const CryptoPairsDetails = () => (
+const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade."
+                translate_text="Crypto pairs contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade."
                 components={[<strong key={0} />]}
             />
         </Text>
     </DetailsContainer>
 )
 
-const CryptoPairs = () => {
+const Cryptocurrencies = () => {
     return (
         <NonUK>
             <SectionContainer padding="4rem 0 8rem">
@@ -136,7 +136,7 @@ const CryptoPairs = () => {
                                     </MarketsList>
                                 </Flex>
                             )}
-                            renderDetails={CryptoPairsDetails}
+                            renderDetails={CryptocurrenciesDetails}
                         />
                     </MarketsWrapper>
                 </Flex>
@@ -145,4 +145,4 @@ const CryptoPairs = () => {
     )
 }
 
-export default CryptoPairs
+export default Cryptocurrencies

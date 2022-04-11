@@ -7,7 +7,7 @@ import device from 'themes/device'
 //SVG
 import ForexIcon from 'images/svg/trade-types/market-forex.svg'
 import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
-import CryptoIcon from 'images/svg/markets/cryptocurrencies.svg'
+import CryptocurrencyIcon from 'images/svg/markets/cryptocurrencies.svg'
 
 type CardProps = {
     active_tab: string
@@ -17,7 +17,7 @@ type CardProps = {
 }
 
 type AvailableTradesProps = {
-    CryptoPairs: React.ElementType
+    Cryptocurrencies: React.ElementType
     display_title: React.ReactNode
     Forex: React.ElementType
     SyntheticIndices: React.ElementType
@@ -201,8 +201,8 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {active_tab === 'Synthetic Indices' && (
                     <TabIcon src={SyntheticIcon} alt="" name={name} active_tab={active_tab} />
                 )}
-                {active_tab === 'Crypto Pairs' && (
-                    <TabIcon src={CryptoIcon} alt="" name={name} active_tab={active_tab} />
+                {active_tab === 'Cryptocurrencies' && (
+                    <TabIcon src={CryptocurrencyIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}
@@ -216,7 +216,7 @@ const AvailableTrades = ({
     display_title,
     Forex,
     SyntheticIndices,
-    CryptoPairs,
+    Cryptocurrencies,
 }: AvailableTradesProps) => {
     const [active_tab, setActiveTab] = useState('Forex')
 
@@ -248,11 +248,11 @@ const AvailableTrades = ({
                             active_tab={active_tab}
                         />
                     )}
-                    {CryptoPairs && (
+                    {Cryptocurrencies && (
                         <Card
-                            name="Crypto Pairs"
-                            display_name={<Localize translate_text="Crypto Pairs" />}
-                            onTabChange={() => handleTabChange('Crypto Pairs')}
+                            name="Cryptocurrencies"
+                            display_name={<Localize translate_text="Cryptocurrencies" />}
+                            onTabChange={() => handleTabChange('Cryptocurrencies')}
                             active_tab={active_tab}
                         />
                     )}
@@ -260,7 +260,7 @@ const AvailableTrades = ({
                 <ContentWrapper>
                     {active_tab === 'Forex' && <Forex />}
                     {active_tab === 'Synthetic Indices' && <SyntheticIndices />}
-                    {active_tab === 'Crypto Pairs' && <CryptoPairs />}
+                    {active_tab === 'Cryptocurrencies' && <Cryptocurrencies />}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>

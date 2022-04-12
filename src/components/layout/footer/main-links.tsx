@@ -2,7 +2,7 @@ import React from 'react'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style'
 import { localize } from 'components/localization'
 import { Flex, NonUK, ROW, Desktop } from 'components/containers'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url, deriv_life_url } from 'common/constants'
 
 type MainLinksSectionProps = {
     is_ppc?: boolean
@@ -32,6 +32,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }: MainLinksSectionProps) =>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/careers/">{localize('Careers')}</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to={deriv_life_url} target="_blank" rel="noopener noreferrer">
+                                {localize('Deriv life')}
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                     {!is_ppc && (
@@ -80,6 +85,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }: MainLinksSectionProps) =>
                                 </Link>
                             </LinkWrapper>
                         </NonUK>
+                        <ROW>
+                            <LinkWrapper>
+                                <Link to="/markets/basket-indices/">
+                                    {localize('Basket indices')}
+                                </Link>
+                            </LinkWrapper>
+                        </ROW>
                         <LinkWrapper>
                             <Link to="/markets/commodities/">{localize('Commodities')}</Link>
                         </LinkWrapper>

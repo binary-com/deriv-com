@@ -838,6 +838,7 @@ export const financialItemLists = [
         icon: <img src={PLATINUMUSD} alt="platinum usd" />,
         market: 'commodities',
     },
+    // TODO: to rename variable names to basket indices
     {
         name: 'AUDINDEX',
         display_name: 'AUD Index',

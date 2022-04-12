@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
-export const americas = [
+export type MarketSymbol = {
+    src: string
+    text: ReactElement
+}
+export const americas: MarketSymbol[] = [
     {
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
@@ -17,7 +21,7 @@ export const americas = [
     },
 ]
 
-export const asia_oceania = [
+export const asia_oceania: MarketSymbol[] = [
     {
         src: icons.STOCKSAUS200,
         text: <Localize translate_text="Australia 200" />,
@@ -32,179 +36,181 @@ export const asia_oceania = [
     },
 ]
 
-export const continuous_indices = [
+export const continuous_indices: MarketSymbol[] = [
     {
-        src: icons.INDEX10S1,
+        src: icons.INDEX10S1NEW,
         text: <Localize translate_text="Volatility 10 (1s) Index" />,
     },
     {
-        src: icons.INDEX25S1,
+        src: icons.INDEX25S1NEW,
         text: <Localize translate_text="Volatility 25 (1s) Index" />,
     },
     {
-        src: icons.INDEX50S1,
+        src: icons.INDEX50S1NEW,
         text: <Localize translate_text="Volatility 50 (1s) Index" />,
     },
     {
-        src: icons.INDEX75S1,
+        src: icons.INDEX75S1NEW,
         text: <Localize translate_text="Volatility 75 (1s) Index" />,
     },
     {
-        src: icons.INDEX100S1,
+        src: icons.INDEX100S1NEW,
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
-        src: icons.INDEX10,
+        src: icons.INDEX10NEW,
         text: <Localize translate_text="Volatility 10 Index" />,
     },
     {
-        src: icons.INDEX25,
+        src: icons.INDEX25NEW,
         text: <Localize translate_text="Volatility 25 Index" />,
     },
     {
-        src: icons.INDEX50,
+        src: icons.INDEX50NEW,
         text: <Localize translate_text="Volatility 50 Index" />,
     },
     {
-        src: icons.INDEX75,
+        src: icons.INDEX75NEW,
         text: <Localize translate_text="Volatility 75 Index" />,
     },
     {
-        src: icons.INDEX100,
+        src: icons.INDEX100NEW,
         text: <Localize translate_text="Volatility 100 Index" />,
     },
 ]
 
-export const volatility_indices = [
+// export const volatility_indices: MarketSymbol[] = continuous_indices
+
+export const volatility_indices: MarketSymbol[] = [
     {
-        src: icons.INDEX10S1,
+        src: icons.INDEX10S1NEW,
         text: <Localize translate_text="Volatility 10 (1s) Index" />,
     },
     {
-        src: icons.INDEX25S1,
+        src: icons.INDEX25S1NEW,
         text: <Localize translate_text="Volatility 25 (1s) Index" />,
     },
     {
-        src: icons.INDEX50S1,
+        src: icons.INDEX50S1NEW,
         text: <Localize translate_text="Volatility 50 (1s) Index" />,
     },
     {
-        src: icons.INDEX75S1,
+        src: icons.INDEX75S1NEW,
         text: <Localize translate_text="Volatility 75 (1s) Index" />,
     },
     {
-        src: icons.INDEX100S1,
+        src: icons.INDEX100S1NEW,
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
-        src: icons.INDEX200S1,
+        src: icons.VINDEXIC200,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
     },
     {
-        src: icons.INDEX300S1,
+        src: icons.VINDEXIC300,
         text: <Localize translate_text="Volatility 300 (1s) Index" />,
     },
     {
-        src: icons.INDEX10,
+        src: icons.INDEX10NEW,
         text: <Localize translate_text="Volatility 10 Index" />,
     },
     {
-        src: icons.INDEX25,
+        src: icons.INDEX25NEW,
         text: <Localize translate_text="Volatility 25 Index" />,
     },
     {
-        src: icons.INDEX50,
+        src: icons.INDEX50NEW,
         text: <Localize translate_text="Volatility 50 Index" />,
     },
     {
-        src: icons.INDEX75,
+        src: icons.INDEX75NEW,
         text: <Localize translate_text="Volatility 75 Index" />,
     },
     {
-        src: icons.INDEX100,
+        src: icons.INDEX100NEW,
         text: <Localize translate_text="Volatility 100 Index" />,
     },
 ]
 
-export const volatility_indices_eu = [
+export const volatility_indices_eu: MarketSymbol[] = [
     {
-        src: icons.INDEX200S1,
+        src: icons.VINDEXIC200,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
     },
     {
-        src: icons.INDEX300S1,
+        src: icons.VINDEXIC300,
         text: <Localize translate_text="Volatility 300 (1s) Index" />,
     },
 ]
 
-export const crash_boom = [
+export const crash_boom: MarketSymbol[] = [
     {
-        src: icons.BOOM1000,
+        src: icons.BOOM1000NEW,
         text: <Localize translate_text="Boom 1000 Index" />,
     },
     {
-        src: icons.BOOM500,
+        src: icons.BOOM500NEW,
         text: <Localize translate_text="Boom 500 Index" />,
     },
     {
-        src: icons.BOOM300,
-        text: <Localize translate_text="Boom 300 Index" />,
+        src: icons.VBOOMIC300,
+        text: <Localize translate_text="Boom 300 Index " />,
     },
     {
-        src: icons.CRASH1000,
+        src: icons.CRASH1000NEW,
         text: <Localize translate_text="Crash 1000 Index" />,
     },
     {
-        src: icons.CRASH500,
+        src: icons.CRASH500NEW,
         text: <Localize translate_text="Crash 500 Index" />,
     },
     {
-        src: icons.CRASH300,
+        src: icons.VCRASHIC300,
         text: <Localize translate_text="Crash 300 Index" />,
     },
 ]
-export const crash_boom_multipliers = [
+export const crash_boom_multipliers: MarketSymbol[] = [
     {
-        src: icons.BOOM1000,
+        src: icons.BOOM1000NEW,
         text: <Localize translate_text="Boom 1000 Index" />,
     },
     {
-        src: icons.BOOM500,
+        src: icons.BOOM500NEW,
         text: <Localize translate_text="Boom 500 Index" />,
     },
     {
-        src: icons.CRASH1000,
+        src: icons.CRASH1000NEW,
         text: <Localize translate_text="Crash 1000 Index" />,
     },
     {
-        src: icons.CRASH500,
+        src: icons.CRASH500NEW,
         text: <Localize translate_text="Crash 500 Index" />,
     },
 ]
 
-export const crash_boom_eu = [
+export const crash_boom_eu: MarketSymbol[] = [
     {
-        src: icons.BOOM300,
-        text: <Localize translate_text="Boom 300 Index" />,
+        src: icons.VCRASHIC300,
+        text: <Localize translate_text="Crash 300 Index" />,
     },
     {
-        src: icons.CRASH300,
-        text: <Localize translate_text="Crash 300 Index" />,
+        src: icons.VBOOMIC300,
+        text: <Localize translate_text="Boom 300 Index" />,
     },
 ]
 
-export const daily_reset_indices = [
+export const daily_reset_indices: MarketSymbol[] = [
     {
-        src: icons.MARKETBEAR,
+        src: icons.MARKETBEARNEW,
         text: <Localize translate_text="Bear Market Index" />,
     },
     {
-        src: icons.MARKETBULL,
+        src: icons.MARKETBULLNEW,
         text: <Localize translate_text="Bull Market Index" />,
     },
 ]
 
-export const europe = [
+export const europe: MarketSymbol[] = [
     {
         src: icons.STOCKSNETHERLAND25,
         text: <Localize translate_text="Netherland 25" />,
@@ -218,7 +224,7 @@ export const europe = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY40,
+        src: icons.STOCKSGERMANY30,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -231,7 +237,7 @@ export const europe = [
     },
 ]
 
-export const exotic_pairs = [
+export const exotic_pairs: MarketSymbol[] = [
     {
         src: icons.AUDSGD,
         text: <Localize translate_text="AUD/SGD" />,
@@ -256,6 +262,11 @@ export const exotic_pairs = [
         src: icons.EURZAR,
         text: <Localize translate_text="EUR/ZAR" />,
     },
+    // {
+    //     src: icons.EURTRY,
+    //     text: <Localize translate_text="EUR/TRY" />,
+    // },
+
     {
         src: icons.GBPSGD,
         text: <Localize translate_text="GBP/SGD" />,
@@ -268,6 +279,10 @@ export const exotic_pairs = [
         src: icons.NZDCHF,
         text: <Localize translate_text="NZD/CHF" />,
     },
+    // {
+    //     src: icons.GBPTRY,
+    //     text: <Localize translate_text="GBP/TRY" />,
+    // },
     {
         src: icons.NZDSGD,
         text: <Localize translate_text="NZD/SGD" />,
@@ -296,9 +311,13 @@ export const exotic_pairs = [
         src: icons.USDTHB,
         text: <Localize translate_text="USD/THB" />,
     },
+    // {
+    //     src: icons.USDTRY,
+    //     text: <Localize translate_text="USD/TRY" />,
+    // },
 ]
 
-export const major_pairs = [
+export const major_pairs: MarketSymbol[] = [
     {
         src: icons.AUDJPY,
         text: <Localize translate_text="AUD/JPY" />,
@@ -357,7 +376,7 @@ export const major_pairs = [
     },
 ]
 
-export const metals_cfds = [
+export const metals: MarketSymbol[] = [
     {
         src: icons.ALUMINIUMUSD,
         text: <Localize translate_text="Aluminium/USD" />,
@@ -403,8 +422,7 @@ export const metals_cfds = [
         text: <Localize translate_text="Zinc/USD" />,
     },
 ]
-
-export const metals_options = [
+export const metals_options: MarketSymbol[] = [
     {
         src: icons.GOLDUSD,
         text: <Localize translate_text="Gold/USD" />,
@@ -418,12 +436,23 @@ export const metals_options = [
         text: <Localize translate_text="Platinum/USD" />,
     },
     {
-        src: icons.SILVERUSD,
-        text: <Localize translate_text="Silver/USD" />,
+        src: icons.SILVEREUR,
+        text: <Localize translate_text="Silver/EUR" />,
     },
 ]
 
-export const micro_pairs = [
+export const range_break: MarketSymbol[] = [
+    {
+        src: icons.RANGEBREAK100,
+        text: <Localize translate_text="Range Break 100 Index" />,
+    },
+    {
+        src: icons.RANGEBREAK200,
+        text: <Localize translate_text="Range Break 200 Index" />,
+    },
+]
+
+export const micro_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -502,14 +531,10 @@ export const micro_pairs = [
     },
 ]
 
-export const range_break = [
+export const smart_gold_index: MarketSymbol[] = [
     {
-        src: icons.RANGEBREAK100,
-        text: <Localize translate_text="Range Break 100 Index" />,
-    },
-    {
-        src: icons.RANGEBREAK200,
-        text: <Localize translate_text="Range Break 200 Index" />,
+        src: icons.GOLDUSD,
+        text: <Localize translate_text="Smart Gold Index" />,
     },
 ]
 
@@ -536,7 +561,7 @@ export const smart_fx = [
     },
 ]
 
-export const minor_pairs_cfds = [
+export const minor_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -555,7 +580,6 @@ export const minor_pairs_cfds = [
     },
     {
         src: icons.CADJPY,
-
         text: <Localize translate_text="CAD/JPY" />,
     },
     {
@@ -571,7 +595,7 @@ export const minor_pairs_cfds = [
         text: <Localize translate_text="EUR/NZD" />,
     },
     {
-        src: icons.EURPLN,
+        src: icons.EURLPN,
         text: <Localize translate_text="EUR/PLN" />,
     },
     {
@@ -635,8 +659,7 @@ export const minor_pairs_cfds = [
         text: <Localize translate_text="USD/ZAR" />,
     },
 ]
-
-export const minor_pairs_options = [
+export const minor_options_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -695,7 +718,7 @@ export const minor_pairs_options = [
     },
 ]
 
-export const stocks_american_indices = [
+export const stocks_american_indices: MarketSymbol[] = [
     {
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
@@ -710,7 +733,7 @@ export const stocks_american_indices = [
     },
 ]
 
-export const stocks_asian_indices = [
+export const stocks_asian_indices: MarketSymbol[] = [
     {
         src: icons.STOCKSAUS200,
         text: <Localize translate_text="Australia 200" />,
@@ -721,7 +744,7 @@ export const stocks_asian_indices = [
     },
 ]
 
-export const stocks_european_indices = [
+export const stocks_european_indices: MarketSymbol[] = [
     {
         src: icons.STOCKSNETHERLAND25,
         text: <Localize translate_text="Netherland 25" />,
@@ -735,7 +758,7 @@ export const stocks_european_indices = [
         text: <Localize translate_text="France 40" />,
     },
     {
-        src: icons.STOCKSGERMANY40,
+        src: icons.STOCKSGERMANY30,
         text: <Localize translate_text="Germany 40" />,
     },
     {
@@ -748,21 +771,21 @@ export const stocks_european_indices = [
     },
 ]
 
-export const american_stocks = [
+export const american_stocks: MarketSymbol[] = [
     {
         src: icons.STOCKSADIDASSALOMON,
         text: <Localize translate_text="Adidas Salomon" />,
     },
     {
-        src: icons.STOCKSAMD,
-        text: <Localize translate_text="Advanced Micro Devices, Inc." />,
+        src: icons.STOCKSADVANCEDMICRODEVICES,
+        text: <Localize translate_text="Advanced Micro Devices Inc" />,
     },
     {
         src: icons.STOCKSAIRBNB,
-        text: <Localize translate_text="Airbnb Inc" />,
+        text: <Localize translate_text="Airbnb" />,
     },
     {
-        src: icons.STOCKSAIRBUS,
+        src: icons.STOCKSAIRBUSSE,
         text: <Localize translate_text="Airbus SE" />,
     },
     {
@@ -797,10 +820,16 @@ export const american_stocks = [
         src: icons.STOCKSBANKOFAMERICA,
         text: <Localize translate_text="Bank of America" />,
     },
+
     {
         src: icons.STOCKSBAYERAG,
         text: <Localize translate_text="Bayer AG" />,
     },
+    {
+        src: icons.STOCKSBIOGEN,
+        text: <Localize translate_text="Biogen Inc" />,
+    },
+
     {
         src: icons.STOCKSBMW,
         text: <Localize translate_text="BMW" />,
@@ -810,16 +839,8 @@ export const american_stocks = [
         text: <Localize translate_text="Boeing" />,
     },
     {
-        src: icons.STOCKSBIOGEN,
-        text: <Localize translate_text="Biogen Inc" />,
-    },
-    {
         src: icons.STOCKSCISCO,
         text: <Localize translate_text="Cisco Systems" />,
-    },
-    {
-        src: icons.STOCKSCONTINENTALAG,
-        text: <Localize translate_text="Continental AG" />,
     },
     {
         src: icons.STOCKSCITIGROUP,
@@ -830,12 +851,20 @@ export const american_stocks = [
         text: <Localize translate_text="Coca-Cola" />,
     },
     {
+        src: icons.STOCKSCONTINENTAL,
+        text: <Localize translate_text="Continental AG" />,
+    },
+    {
         src: icons.STOCKSDELTAAIRLINES,
         text: <Localize translate_text="Delta Air Lines" />,
     },
     {
         src: icons.STOCKSDEUTSCHEBANK,
         text: <Localize translate_text="Deutsche Bank AG" />,
+    },
+    {
+        src: icons.STOCKSLUFTHANSA,
+        text: <Localize translate_text="Deutsche Lufthansa AG" />,
     },
     {
         src: icons.STOCKSEBAY,
@@ -850,8 +879,8 @@ export const american_stocks = [
         text: <Localize translate_text="Fedex" />,
     },
     {
-        src: icons.STOCKSFOXCORPCLASSB,
-        text: <Localize translate_text="Fox Corporation B" />,
+        src: icons.STOCKSFOX,
+        text: <Localize translate_text="Fox Corp Class B" />,
     },
     {
         src: icons.STOCKSGENERALMOTORSCOMP,
@@ -862,16 +891,16 @@ export const american_stocks = [
         text: <Localize translate_text="Goldman Sachs Group" />,
     },
     {
+        src: icons.STOCKSHOME,
+        text: <Localize translate_text="Home Depot Inc" />,
+    },
+    {
         src: icons.STOCKSHPINC,
         text: <Localize translate_text="HP Inc" />,
     },
     {
-        src: icons.STOCKSHOMEDEPOTINC,
-        text: <Localize translate_text="Home Depot Inc" />,
-    },
-    {
-        src: icons.STOCKSHUGOBOSSAGCOMMONSTOCK,
-        text: <Localize translate_text="Hugo Boss AG" />,
+        src: icons.STOCKSHUGOBOSS,
+        text: <Localize translate_text="Hugo Boss AG Common Stock" />,
     },
     {
         src: icons.STOCKSIBM,
@@ -883,15 +912,11 @@ export const american_stocks = [
     },
     {
         src: icons.STOCKSJOHNSONJOHNSON,
-        text: <Localize translate_text="Jonhson & Johnson" />,
+        text: <Localize translate_text="Johnson & Johnson" />,
     },
     {
         src: icons.STOCKSJPMORGANCHASE,
         text: <Localize translate_text="JP Morgan Chase" />,
-    },
-    {
-        src: icons.STOCKSDEUTSCHELUFTHANSAAG,
-        text: <Localize translate_text="Lufthansa AG" />,
     },
     {
         src: icons.STOCKSMASTERCARDINC,
@@ -910,7 +935,7 @@ export const american_stocks = [
         text: <Localize translate_text="Moderna Inc" />,
     },
     {
-        src: icons.STOCKSNESTLESA,
+        src: icons.STOCKSNESTLE,
         text: <Localize translate_text="Nestle SA" />,
     },
     {
@@ -922,7 +947,7 @@ export const american_stocks = [
         text: <Localize translate_text="Nike" />,
     },
     {
-        src: icons.STOCKSNOVARTISAG,
+        src: icons.STOCKSNOVARTIS,
         text: <Localize translate_text="Novartis AG" />,
     },
     {
@@ -930,27 +955,27 @@ export const american_stocks = [
         text: <Localize translate_text="NVIDIA Corp" />,
     },
     {
+        src: icons.STOCKSPAYPAL,
+        text: <Localize translate_text="Paypal" />,
+    },
+    {
+        src: icons.STOCKSPEPSICO,
+        text: <Localize translate_text="PepsiCo Inc" />,
+    },
+    {
         src: icons.STOCKSPFIZER,
         text: <Localize translate_text="Pfizer" />,
+    },
+    {
+        src: icons.STOCKSPORSCHE,
+        text: <Localize translate_text="Porsche Automobil Holding SE" />,
     },
     {
         src: icons.STOCKSPROCTERGAMBLE,
         text: <Localize translate_text="Procter & Gamble" />,
     },
     {
-        src: icons.STOCKSPAYPAL,
-        text: <Localize translate_text="Paypal" />,
-    },
-    {
-        src: icons.STOCKSPEPSICOINC,
-        text: <Localize translate_text="PepsiCo Inc" />,
-    },
-    {
-        src: icons.STOCKSPORSCHEAUTOMOBILHOLDINGSE,
-        text: <Localize translate_text="Porsche Automobil Holding SE" />,
-    },
-    {
-        src: icons.STOCKSPUMASE,
+        src: icons.STOCKSPUMA,
         text: <Localize translate_text="Puma SE" />,
     },
     {
@@ -958,21 +983,22 @@ export const american_stocks = [
         text: <Localize translate_text="Salesforce.com Inc" />,
     },
     {
-        src: icons.SONYGROUPCORP,
-        text: <Localize translate_text="Sony Corporation" />,
-    },
-    {
-        src: icons.STOCKSTEVAPHARMACEUTICAL,
-        text: <Localize translate_text="Teva Pharmaceutical Inds" />,
+        src: icons.STOCKSSONY,
+        text: <Localize translate_text="Sony Group Corp" />,
     },
     {
         src: icons.STOCKSTESLA,
         text: <Localize translate_text="Tesla Inc" />,
     },
     {
+        src: icons.STOCKSTEVAPHARMACEUTICAL,
+        text: <Localize translate_text="Teva Pharmaceutical Inds" />,
+    },
+    {
         src: icons.STOCKSTWITTER,
         text: <Localize translate_text="Twitter" />,
     },
+
     {
         src: icons.STOCKSUBER,
         text: <Localize translate_text="Uber Technologies Inc" />,
@@ -982,12 +1008,12 @@ export const american_stocks = [
         text: <Localize translate_text="Visa" />,
     },
     {
-        src: icons.STOCKSWALTDISNEY,
-        text: <Localize translate_text="Walt Disney Company" />,
-    },
-    {
         src: icons.STOCKSWALMART,
         text: <Localize translate_text="Wal-Mart Stores Inc" />,
+    },
+    {
+        src: icons.STOCKSWALTDISNEY,
+        text: <Localize translate_text="Walt Disney Company" />,
     },
     {
         src: icons.STOCKSZOOM,
@@ -995,7 +1021,7 @@ export const american_stocks = [
     },
 ]
 
-export const cryptocurrencies_trade_type = [
+export const cryptocurrencies_trade_type: MarketSymbol[] = [
     {
         src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
@@ -1006,30 +1032,36 @@ export const cryptocurrencies_trade_type = [
     },
 ]
 
-export const cryptocurrencies_cfds = [
+export const cryptocurrencies_cfds: MarketSymbol[] = [
+    {
+        src: icons.ALGORAND,
+        text: <Localize translate_text="ALG/USD" />,
+    },
     {
         src: icons.ADAUSD,
         text: <Localize translate_text="ADA/USD" />,
     },
     {
-        src: icons.ALGUSD,
-        text: <Localize translate_text="ALG/USD" />,
-    },
-    {
-        src: icons.AVAUSD,
+        src: icons.AVALANCHE,
         text: <Localize translate_text="AVA/USD" />,
     },
+
     {
-        src: icons.BATUSD,
+        src: icons.BAT,
         text: <Localize translate_text="BAT/USD" />,
     },
     {
-        src: icons.BCHUSD,
+        src: icons.BCH,
         text: <Localize translate_text="BCH/USD" />,
     },
     {
         src: icons.BNBUSD,
         text: <Localize translate_text="BNB/USD" />,
+    },
+
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="BTC/USD" />,
     },
     {
         src: icons.BTCETH,
@@ -1038,10 +1070,6 @@ export const cryptocurrencies_cfds = [
     {
         src: icons.BTCLTC,
         text: <Localize translate_text="BTC/LTC" />,
-    },
-    {
-        src: icons.BTCUSD,
-        text: <Localize translate_text="BTC/USD" />,
     },
     {
         src: icons.BTCXAG,
@@ -1060,20 +1088,20 @@ export const cryptocurrencies_cfds = [
         text: <Localize translate_text="DOT/USD" />,
     },
     {
-        src: icons.DSHUSD,
+        src: icons.DSHUSD1,
         text: <Localize translate_text="DSH/USD" />,
     },
     {
-        src: icons.EOSUSD,
+        src: icons.EOSUSD1,
         text: <Localize translate_text="EOS/USD" />,
-    },
-    {
-        src: icons.ETHUSD,
-        text: <Localize translate_text="ETH/USD" />,
     },
     {
         src: icons.ETCUSD,
         text: <Localize translate_text="ETC/USD" />,
+    },
+    {
+        src: icons.ETHUSD,
+        text: <Localize translate_text="ETH/USD" />,
     },
     {
         src: icons.FILUSD,
@@ -1124,15 +1152,15 @@ export const cryptocurrencies_cfds = [
         text: <Localize translate_text="UNI/USD" />,
     },
     {
-        src: icons.XLMUSD,
-        text: <Localize translate_text="XLM/USD" />,
-    },
-    {
         src: icons.XMRUSD,
         text: <Localize translate_text="XMR/USD" />,
     },
     {
-        src: icons.XRPUSD,
+        src: icons.XLMUSD,
+        text: <Localize translate_text="XLM/USD" />,
+    },
+    {
+        src: icons.XRPUSD1,
         text: <Localize translate_text="XRP/USD" />,
     },
     {
@@ -1145,7 +1173,7 @@ export const cryptocurrencies_cfds = [
     },
 ]
 
-export const cryptocurrencies_multipliers = [
+export const cryptocurrencies_multipliers: MarketSymbol[] = [
     {
         src: icons.BTCUSD,
         text: <Localize translate_text="BTC/USD" />,
@@ -1155,71 +1183,69 @@ export const cryptocurrencies_multipliers = [
         text: <Localize translate_text="ETH/USD" />,
     },
 ]
-
-export const jump_indices = [
+export const jump_indices: MarketSymbol[] = [
     {
-        src: icons.JUMP10,
+        src: icons.JUMP10NEW,
         text: <Localize translate_text="Jump 10 Index" />,
     },
     {
-        src: icons.JUMP25,
+        src: icons.JUMP25NEW,
         text: <Localize translate_text="Jump 25 Index" />,
     },
     {
-        src: icons.JUMP50,
+        src: icons.JUMP50NEW,
         text: <Localize translate_text="Jump 50 Index" />,
     },
     {
-        src: icons.JUMP75,
+        src: icons.JUMP75NEW,
         text: <Localize translate_text="Jump 75 Index" />,
     },
     {
-        src: icons.JUMP100,
+        src: icons.JUMP100NEW,
         text: <Localize translate_text="Jump 100 Index" />,
     },
 ]
 
-export const energy_options = [
+export const energy: MarketSymbol[] = [
     {
-        src: icons.OILUSD,
-        text: <Localize translate_text="Oil/USD" />,
-    },
-]
-
-export const energy_cfds = [
-    {
-        src: icons.BRENTCRUDEOILUK,
+        src: icons.POUNDBRENT,
         text: <Localize translate_text="Brent crude oil" />,
     },
     {
-        src: icons.WTIOILUS,
+        src: icons.USDBRENT,
         text: <Localize translate_text="West Texas Intermediate" />,
     },
 ]
 
-export const volatility_indices_trade_type_eu = [
+export const energy_options: MarketSymbol[] = [
     {
-        src: icons.INDEX200S1,
-        text: <Localize translate_text="Volatility 200 (1s) Index" />,
+        src: icons.USDBRENT,
+        text: <Localize translate_text="Oil/USD" />,
+    },
+]
+export const volatility_indices_trade_type_eu: MarketSymbol[] = [
+    {
+        src: icons.VOLATILITY200EU,
+        text: <Localize translate_text="Volatility 200 Index" />,
     },
     {
-        src: icons.INDEX300S1,
-        text: <Localize translate_text="Volatility 300 (1s) Index" />,
+        src: icons.VOLATILITY300EU,
+        text: <Localize translate_text="Volatility 300 Index" />,
     },
 ]
 
-export const crash_boom_trade_type_eu = [
+export const crash_boom_trade_type_eu: MarketSymbol[] = [
     {
-        src: icons.CRASH300,
+        src: icons.CRASH300EU,
         text: <Localize translate_text="Crash 300 Index" />,
     },
     {
-        src: icons.BOOM300,
+        src: icons.BOOM300EU,
         text: <Localize translate_text="Boom 300 Index " />,
     },
 ]
 
-export const swap_free_pairs = [
+export const swap_free_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
         text: <Localize translate_text="AUD/CAD" />,
@@ -1295,6 +1321,32 @@ export const swap_free_pairs = [
     {
         src: icons.USDJPY,
         text: <Localize translate_text="USD/JPY" />,
+    },
+]
+
+export const basket_indices_cfds: MarketSymbol[] = [
+    {
+        src: icons.AUDBASKET,
+        text: <Localize translate_text="AUD Basket" />,
+    },
+    {
+        src: icons.EURBASKET,
+        text: <Localize translate_text="EUR Basket" />,
+    },
+    {
+        src: icons.GBPBASKET,
+        text: <Localize translate_text="GBP Basket" />,
+    },
+    {
+        src: icons.USDBASKET,
+        text: <Localize translate_text="USD Basket" />,
+    },
+]
+
+export const basket_indices_commodities: MarketSymbol[] = [
+    {
+        src: icons.GOLDBASKET,
+        text: <Localize translate_text="Gold Basket" />,
     },
 ]
 

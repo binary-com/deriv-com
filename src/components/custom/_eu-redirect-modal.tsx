@@ -1,4 +1,4 @@
-import React, { Ref, useEffect, useState, Dispatch, SetStateAction, MouseEventHandler } from 'react'
+import React, { Ref, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
@@ -9,13 +9,13 @@ import Close from 'images/svg/custom/close-2.svg'
 
 type EURedirectProps = {
     aria_label?: string
-    closeModal?: Dispatch<SetStateAction<boolean>>
-    is_open: Dispatch<SetStateAction<boolean>>
+    closeModal?: () => void
+    is_open: boolean | (() => void)
     ref?: Ref<HTMLAnchorElement>
     rel?: string
     target?: string
     to?: string
-    toggle: MouseEventHandler<HTMLAnchorElement> | MouseEventHandler<HTMLDivElement>
+    toggle: boolean | (() => void)
 }
 
 const ModalWrapper = styled.div`
@@ -127,7 +127,7 @@ const EURedirect = ({
                         <Text weight="bold">
                             <Localize translate_text="Redirect notice" />
                         </Text>
-                        <CloseButton src={Close} alt="close-2" onClick={toggle} />
+                        <CloseButton src={Close} alt="close-2" onClick={() => toggle} />
                     </Action>
 
                     <div>
@@ -147,7 +147,7 @@ const EURedirect = ({
                             ref={ref}
                             href={to}
                             aria-label={aria_label}
-                            onClick={toggle}
+                            onClick={() => toggle}
                         >
                             <Text size="var(--text-size-xs)" weight="bold" color="white">
                                 <Localize translate_text="Proceed" />
@@ -155,7 +155,7 @@ const EURedirect = ({
                         </Proceed>
                     </Flex>
                 </ModalCard>
-                <Background onClick={toggle} />
+                <Background onClick={() => toggle} />
             </ModalWrapper>
         )
     )
@@ -167,5 +167,5 @@ export const useModal = (is_open = false) => {
     const toggleModal = () => setShowModal(!show_modal)
     const closeModal = () => setShowModal(false)
 
-    return [show_modal, toggleModal, closeModal]
+    return [show_modal, toggleModal, closeModal] as const
 }

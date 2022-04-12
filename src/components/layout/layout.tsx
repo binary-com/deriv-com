@@ -283,11 +283,11 @@ const Layout = ({
                 toggle={toggleModal}
                 is_open={show_modal}
                 closeModal={closeModal}
-                to={modal_payload.to}
-                target={modal_payload.target}
-                rel={modal_payload.rel}
-                ref={modal_payload.ref}
-                aria_label={modal_payload.aria_label}
+                to={modal_payload['to']}
+                target={modal_payload['target']}
+                rel={modal_payload['rel']}
+                ref={modal_payload['ref']}
+                aria_label={modal_payload['aria_label']}
             />
         </LocationProvider>
     )

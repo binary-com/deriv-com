@@ -4,6 +4,7 @@ import { Header, Text } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import { UK, EU, ROW } from 'components/containers/visibility'
 
 const Section = styled(SectionContainer)`
     display: flex;
@@ -37,9 +38,21 @@ const WhatIsTrader = () => {
                 {localize('What is Deriv MT5')}
             </StyledHeader>
             <StyledText max_width="79.2rem" align="center">
-                {localize(
-                    'Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
-                )}
+                <ROW>
+                    {localize(
+                        'Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, basket indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
+                    )}
+                </ROW>
+                <EU>
+                    {localize(
+                        'Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.',
+                    )}
+                </EU>
+                <UK>
+                    {localize(
+                        `Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, stocks, stock indices, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.`,
+                    )}
+                </UK>
             </StyledText>
         </Section>
     )

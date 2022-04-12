@@ -8,6 +8,7 @@ import { localize, Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
+import { getCountryRule } from 'components/containers/visibility'
 
 type CardContentType = {
     header: React.ReactElement
@@ -118,6 +119,8 @@ const StyledText = styled(Text)`
     }
 `
 const WhyTrader = () => {
+    const { is_eu, is_uk } = getCountryRule()
+
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
@@ -138,7 +141,17 @@ const WhyTrader = () => {
                             >
                                 {card.header}
                             </StyledCardHeader>
-                            <StyledText>{card.text}</StyledText>
+                            {card.key == 1 && is_eu ? (
+                                <StyledText>
+                                    <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place." />
+                                </StyledText>
+                            ) : card.key == 1 && is_uk ? (
+                                <StyledText>
+                                    <Localize translate_text="Trade forex, stocks, stock indices, and commodities in one place." />
+                                </StyledText>
+                            ) : (
+                                <StyledText>{card.text}</StyledText>
+                            )}
                         </Card>
                     )
                 })}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { dubai } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
@@ -29,11 +30,16 @@ const query = graphql`
         map_dubai: file(relativePath: { eq: "careers/maps/map-dubai.png" }) {
             ...fadeIn
         }
+        dubai_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/dubai_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 
 const Dubai = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery<ImageDataLike>(query)
 
     return (
         <Layout type="careers">

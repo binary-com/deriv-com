@@ -103,6 +103,8 @@ export const dubai: LocationsType = {
     address: address_dubai,
     google_map_link: 'https://goo.gl/maps/UMNHYdEBdsAg7Ax29',
     has_iframe: true,
+    badge: 'dubai_great_place_to_work_badge',
+    badge_alt: 'Dubai Great Place to Work 2022 Certification Badge',
 }
 
 export const labuan: LocationsType = {

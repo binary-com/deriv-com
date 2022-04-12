@@ -2,8 +2,7 @@ const { defaults } = require('jest-config')
 module.exports = {
     transform: {
         '^.+\\.[jt]sx?$': '<rootDir>/jest-preprocess.js',
-        '^.+\\.js$': 'babel-jest',
-        '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'jest-transform-stub',
+        '^.+\\.svg$': '<rootDir>/svgTransform.js',
     },
     moduleNameMapper: {
         '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
@@ -24,5 +23,5 @@ module.exports = {
     },
     testURL: `http://localhost`,
     setupFiles: [`<rootDir>/loadershim.js`],
-    // moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'svg'],
+    testEnvironment: 'jsdom',
 }

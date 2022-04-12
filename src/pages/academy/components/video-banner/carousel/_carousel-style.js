@@ -65,7 +65,7 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled(Chevron)`
+export const StyledChevron = styled((props) => <Chevron {...props} />)`
     height: 24px;
     width: 24px;
     ${(props) => {

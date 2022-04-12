@@ -79,6 +79,7 @@ const NewSignup = () => {
                 )}
             />
             <Wrapper>
+                <div>ddd</div>
                 {submit_state !== 'success' && (
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />

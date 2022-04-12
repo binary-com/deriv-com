@@ -37,4 +37,7 @@ module.exports = {
     moduleDirectories: ['node_modules', 'bower_components'],
     setupFiles: [`<rootDir>/loadershim.js`],
     setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
+    // automock: true,
+    clearMocks: true,
+    // unmockedModulePathPatterns: ['<rootDir>/src/common/utility.js'],
 }

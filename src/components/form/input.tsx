@@ -1,15 +1,63 @@
-import React, { useRef } from 'react'
-import PropTypes from 'prop-types'
+import React, { useRef, ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
 
+type InputProps = {
+    background?: string
+    border?: string
+    children?: ReactNode
+    disabled?: boolean
+    error?: string
+    focus_border?: string
+    handleError?: (urrent_input: React.MutableRefObject<HTMLInputElement>) => void
+    height?: string
+    id?: string
+    label?: string
+    label_color?: string
+    label_hover_color?: string
+    maxLength?: number
+    tablet_background?: string
+    width?: string
+}
+
+type InputWrapperType = {
+    border?: string
+    label_hover_color?: string
+    focus_border?: string
+    error?: string
+    disabled?: boolean
+}
+
+type StyledInputType = {
+    input_background?: string
+    inputColor?: string
+    showLabel?: string
+    label_focus_color?: string
+    background?: string
+    label?: string
+    error?: string
+}
+
+type ValidType = {
+    background?: string
+}
+
+type StyledLabelType = {
+    label_color?: string
+    tablet_background?: string
+    error?: string
+    htmlFor?: string
+}
+interface MutableRefObject<T> {
+    current: T
+}
 const RelativeWrapper = styled.div`
     position: relative;
 `
-const InputWrapper = styled.div`
+const InputWrapper = styled.div<InputWrapperType>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
@@ -68,7 +116,7 @@ const StyledError = styled.img`
     }
 `
 
-const StyledInput = styled.input`
+const StyledInput = styled.input<StyledInputType>`
     background: ${({ input_background }) =>
         input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
@@ -129,7 +177,7 @@ const StyledInput = styled.input`
     &:valid {
         ${(props) =>
             props.value &&
-            css`
+            css<ValidType>`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
                     color: var(--color-black-3);
@@ -150,7 +198,7 @@ const ErrorMessages = styled(Text)`
     min-height: 16px;
 `
 
-const StyledLabel = styled.label`
+const StyledLabel = styled.label<StyledLabelType>`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);
@@ -179,8 +227,8 @@ const Input = ({
     handleError,
     maxLength,
     ...props
-}) => {
-    let current_input = useRef(null)
+}: InputProps) => {
+    const current_input = useRef<React.MutableRefObject<HTMLInputElement>>(null)
 
     return (
         <RelativeWrapper>
@@ -201,7 +249,7 @@ const Input = ({
                     height={height}
                     showLabel={label}
                     {...props}
-                    ref={(ip) => (current_input = ip)}
+                    ref={() => current_input}
                 />
                 {label && (
                     <StyledLabel
@@ -222,30 +270,12 @@ const Input = ({
                     src={CrossIcon}
                     alt="error icon"
                     onClick={() => {
-                        handleError(current_input)
+                        handleError(current_input.current)
                     }}
                 />
             )}
         </RelativeWrapper>
     )
-}
-
-Input.propTypes = {
-    background: PropTypes.string,
-    border: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    disabled: PropTypes.bool,
-    error: PropTypes.string,
-    focus_border: PropTypes.string,
-    handleError: PropTypes.func,
-    height: PropTypes.any,
-    id: PropTypes.string,
-    label: PropTypes.string,
-    label_color: PropTypes.string,
-    label_hover_color: PropTypes.string,
-    maxLength: PropTypes.string,
-    tablet_background: PropTypes.string,
-    width: PropTypes.string,
 }
 
 export default Input

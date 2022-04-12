@@ -63,7 +63,7 @@ const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities with leverage." />
+            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
         show_eu: true,

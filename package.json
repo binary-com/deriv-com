@@ -90,6 +90,8 @@
         "husky": "^7.0.4",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.5.1",
+        "jest-chain": "^1.1.5",
+        "jest-extended": "^2.0.0",
         "lint-staged": "^12.1.5",
         "npm-force-resolutions": "0.0.10",
         "prettier": "^2.5.1",

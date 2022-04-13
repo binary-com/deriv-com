@@ -9,7 +9,7 @@ type DefaultFooterProps = {
     has_banner_cookie: boolean
 }
 
-type DisclaimerParagraph = {
+type DisclaimerParagraphProps = {
     no_margin: boolean
     line_height: boolean
 }
@@ -147,7 +147,7 @@ export const DisclaimerWrapper = styled.div`
     grid-area: disclaimer;
     background: var(--color-grey-25);
 `
-export const DisclaimerParagraph = styled(Text)<DisclaimerParagraph>`
+export const DisclaimerParagraph = styled(Text)<DisclaimerParagraphProps>`
     font-size: var(--text-size-xs);
     margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
 

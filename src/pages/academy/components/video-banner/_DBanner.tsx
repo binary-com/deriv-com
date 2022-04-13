@@ -93,6 +93,10 @@ const AllVideosButton = styled(LinkButton)`
     }
 `
 
+const StyledContainer = styled(Container)`
+    z-index: 5;
+`
+
 const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: VideoBannerProps) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
@@ -137,7 +141,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                     </BackgroundImageContainer>
                 </BackgroundImageWrapper>
                 <GradientWrapper />
-                <Container direction="column" jc="flex-start" style={{ zIndex: 5 }}>
+                <StyledContainer direction="column" jc="flex-start">
                     <Flex direction="column" jc="flex-start" height="auto">
                         <PlayerIconWrapper
                             ai="center"
@@ -205,7 +209,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                     <AllVideosButton tertiary_light="true" to="/academy/videos/">
                         See all videos
                     </AllVideosButton>
-                </Container>
+                </StyledContainer>
             </ParentWrapper>
             {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
         </>

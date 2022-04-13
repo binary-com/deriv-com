@@ -6,7 +6,6 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
-import XLSXIcon from 'images/svg/regulatory/excel.svg'
 import { DerivStore } from 'store'
 
 type DocumentAccordionProps = { locale: { language: string } }
@@ -76,41 +75,21 @@ const RTS27_28 = () => (
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
+                href="/regulatory/RTS28-2021.pdf"
+                m="1.6rem 2.4rem"
+            >
+                <img src={PDFIcon} alt="pdf icon black" />
+                <span>{localize('RTS28 2021')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
                 href="/regulatory/RTS28-2020.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
                 <span>{localize('RTS28 2020')}</span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2019.pdf"
-                m="1.6rem 2.4rem"
-            >
-                <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2019')}</span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS27-2020.xlsx"
-                m="1.6rem 2.4rem"
-            >
-                <img src={XLSXIcon} alt="excel" />
-                <span>{localize('RTS27 2020')}</span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS27-2019.xlsx"
-                m="1.6rem 2.4rem"
-            >
-                <img src={XLSXIcon} alt="excel" />
-                <span>{localize('RTS27 2019')}</span>
             </FlexText>
         </EdgeFlex>
     </>

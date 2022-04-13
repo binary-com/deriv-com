@@ -9,7 +9,6 @@ interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     background?: string
     border?: string
     children?: ReactNode
-    disabled?: boolean
     error?: string
     focus_border?: string
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
@@ -18,9 +17,7 @@ interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     label?: string
     label_color?: string
     label_hover_color?: string
-    maxLength?: number
     tablet_background?: string
-    width?: string
 }
 
 type InputWrapperProps = {

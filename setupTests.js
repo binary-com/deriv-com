@@ -17,4 +17,9 @@ jest.mock('common/utility', () => ({
     getDomain: jest.fn(() => 'binary.sx'),
     getClientInformation: jest.fn(() => {}),
     queryParamData: jest.fn(() => ''),
+    getWindowWidth: jest.fn(() => '1920'),
+    getLocalizedUrl: jest.fn(() => 'https://binary.sx/en/signup'),
+    replaceLocale: jest.fn(() => 'https://binary.sx/en/signup?lang=zh-cn'),
+    getLanguage: jest.fn(() => null),
+    isNullUndefined: jest.fn(() => true),
 }))

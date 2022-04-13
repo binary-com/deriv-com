@@ -121,7 +121,7 @@
         "start-80": "sudo gatsby develop -p 80",
         "serve": "gatsby serve",
         "test": "npm run eslint && npm run stylelint",
-        "test:unit": "jest --passWithNoTests",
+        "test:unit": "jest --passWithNoTests --detectOpenHandles",
         "translate:download": "crowdin download -b crowdin && crowdin download -b crowdin -l zh-CN",
         "translate:extract": "cd scripts && node extract-translations.js && cd ..",
         "translate:upload": "crowdin upload sources -b crowdin",

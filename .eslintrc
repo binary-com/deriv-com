@@ -25,6 +25,13 @@
                 "ecmaVersion": 2020,
                 "sourceType": "module" // Allows for the use of imports
             }
+        },
+        {
+            "files": ["app/module1/*.js"],
+            "excludedFiles": "*.spec.js",
+            "rules": {
+                "quotes": [2, "single"]
+            }
         }
     ],
     "plugins": ["@typescript-eslint", "jest"],
@@ -86,10 +93,10 @@
         "jest/no-focused-tests": "error",
         "jest/no-identical-title": "error",
         "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error",
-        "react/jsx-uses-react": "off",
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-uses-vars": "off"
+        "jest/valid-expect": "error"
+        // "react/jsx-uses-react": "off",
+        // "react/react-in-jsx-scope": "off",
+        // "react/jsx-uses-vars": "off"
     },
     "env": {
         "es6": true,
@@ -108,6 +115,6 @@
         "react": {
             "version": "17"
         }
-    },
-    "ignorePatterns": ["*.spec.ts", "*.test.ts", "*.spec.js", "*.test.js"]
+    }
+    // "ignorePatterns": ["*.spec.ts", "*.test.ts", "*.spec.js", "*.test.js"]
 }

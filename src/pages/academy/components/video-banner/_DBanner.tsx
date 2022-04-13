@@ -12,7 +12,6 @@ import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
 const ParentWrapper = styled(Flex)`
-    overflow: hidden;
     margin: 80px 0;
     position: relative;
     height: auto;
@@ -93,10 +92,6 @@ const AllVideosButton = styled(LinkButton)`
     }
 `
 
-const StyledContainer = styled(Container)`
-    z-index: 5;
-`
-
 const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: VideoBannerProps) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
@@ -141,7 +136,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                     </BackgroundImageContainer>
                 </BackgroundImageWrapper>
                 <GradientWrapper />
-                <StyledContainer direction="column" jc="flex-start">
+                <Container direction="column" jc="flex-start" style={{ zIndex: 5 }}>
                     <Flex direction="column" jc="flex-start" height="auto">
                         <PlayerIconWrapper
                             ai="center"
@@ -209,7 +204,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                     <AllVideosButton tertiary_light="true" to="/academy/videos/">
                         See all videos
                     </AllVideosButton>
-                </StyledContainer>
+                </Container>
             </ParentWrapper>
             {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
         </>

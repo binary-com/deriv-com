@@ -1,9 +1,8 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import { useStaticQuery } from 'gatsby'
 import { LocaleContextWrapper } from '../../../components/localization/locale-context'
 import { DerivProvider } from '../../../store/index'
-import { useStaticQuery } from 'gatsby'
 import NewSignup from '../index.tsx'
 
 beforeEach(() => {

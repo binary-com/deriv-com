@@ -6,15 +6,17 @@ import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url, deriv_life_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
+import DerivLife from 'images/svg/menu/deriv-life.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
@@ -215,7 +217,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
@@ -249,7 +251,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         }
                                         title={<Localize translate_text="Deriv GO" />}
                                         onClick={handleArrowClick}
-                                        to="/landing/deriv-go/"
+                                        to="/deriv-go/"
                                     />
                                 </Flex>
                                 <Flex mb="2rem">
@@ -293,7 +295,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         content={
                                             <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
                                         }
-                                        title={<Localize translate_text="BinaryBot" />}
+                                        title={<Localize translate_text="Binary Bot" />}
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
                                         external="true"
@@ -367,6 +369,20 @@ export const OffCanvasMenuWrapper = (props) => {
                                 />
                             </Flex>
                         )}
+                        <ROW>
+                            <Flex>
+                                <NavCard
+                                    aria_label="Basket indices"
+                                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                                    content={localize(
+                                        'Trade weighted indices that measure the value of a currency against a basket of major currencies.',
+                                    )}
+                                    title={localize('Basket indices')}
+                                    onClick={handleArrowClick}
+                                    to="/markets/basket-indices/"
+                                />
+                            </Flex>
+                        </ROW>
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"
@@ -417,6 +433,17 @@ export const OffCanvasMenuWrapper = (props) => {
                             <SpanSvg>
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
+                        </StyledLink>
+                        <StyledLink
+                            to={deriv_life_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={DerivLife} alt="" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Deriv life')}</Span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

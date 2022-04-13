@@ -39,11 +39,12 @@ const Faq = () => {
         marginBottom: '4rem',
     }
     const item_style = {
-        padding: '4rem',
+        padding: '8px 24px 24px',
         background: 'var(--color-grey-4)',
     }
     const header_style = {
         padding: '1.6rem 4rem',
+        borderRadius: '8px',
         border: 'none',
     }
     return (

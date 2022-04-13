@@ -20,6 +20,7 @@ const checkDomain = () => {
     )
 }
 
+// console.log();
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
     const domain = getDomain()

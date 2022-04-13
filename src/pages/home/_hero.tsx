@@ -48,7 +48,7 @@ const HeroWrapper = styled.section`
         flex-wrap: wrap;
         justify-content: flex-start;
         padding: calc(7rem + 40px) 0 46px;
-        min-height: 847px;
+        min-height: 846px;
     }
 `
 const HeroButton = styled(LinkButton)`

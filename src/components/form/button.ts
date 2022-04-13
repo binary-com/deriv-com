@@ -3,14 +3,13 @@ import styled, { css } from 'styled-components'
 import { Paddings, Margins } from 'themes/function'
 import device from 'themes/device.js'
 
-type ButtonProps = {
+interface ButtonProps extends React.ComponentPropsWithoutRef<'button'>, SharedButtonStyleProps {
     children: ReactNode
     onClick?: () => void
-    type?: string
     loading?: string
 }
 
-type SharedButtonStyleType = {
+type SharedButtonStyleProps = {
     width?: string
     primary?: string
     secondary?: string
@@ -23,7 +22,7 @@ type SharedButtonStyleType = {
     provider?: string
 }
 
-export const SharedButtonStyle = css<SharedButtonStyleType>`
+export const SharedButtonStyle = css<SharedButtonStyleProps>`
     border-radius: 4px;
     padding: 10px 16px;
     font-size: 14px;
@@ -85,7 +84,7 @@ export const SharedButtonStyle = css<SharedButtonStyleType>`
                 }
             `
         if (props.social)
-            return css<SharedButtonStyleType>`
+            return css<SharedButtonStyleProps>`
                 background: ${(props) => {
                     if (props.provider === 'google') return 'var(--color-white)'
                     if (props.provider === 'facebook') return 'var(--color-blue)'

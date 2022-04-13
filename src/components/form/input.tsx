@@ -5,14 +5,14 @@ import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
 
-type InputProps = {
+interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     background?: string
     border?: string
     children?: ReactNode
     disabled?: boolean
     error?: string
     focus_border?: string
-    handleError?: (urrent_input: React.MutableRefObject<HTMLInputElement>) => void
+    handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
     height?: string
     id?: string
     label?: string
@@ -23,7 +23,7 @@ type InputProps = {
     width?: string
 }
 
-type InputWrapperType = {
+type InputWrapperProps = {
     border?: string
     label_hover_color?: string
     focus_border?: string
@@ -31,7 +31,7 @@ type InputWrapperType = {
     disabled?: boolean
 }
 
-type StyledInputType = {
+type StyledInputProps = {
     input_background?: string
     inputColor?: string
     showLabel?: string
@@ -41,23 +41,21 @@ type StyledInputType = {
     error?: string
 }
 
-type ValidType = {
+type ValidProps = {
     background?: string
 }
 
-type StyledLabelType = {
+type StyledLabelProps = {
     label_color?: string
     tablet_background?: string
     error?: string
     htmlFor?: string
 }
-interface MutableRefObject<T> {
-    current: T
-}
+
 const RelativeWrapper = styled.div`
     position: relative;
 `
-const InputWrapper = styled.div<InputWrapperType>`
+const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
@@ -116,7 +114,7 @@ const StyledError = styled.img`
     }
 `
 
-const StyledInput = styled.input<StyledInputType>`
+const StyledInput = styled.input<StyledInputProps>`
     background: ${({ input_background }) =>
         input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
@@ -177,7 +175,7 @@ const StyledInput = styled.input<StyledInputType>`
     &:valid {
         ${(props) =>
             props.value &&
-            css<ValidType>`
+            css<ValidProps>`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
                     color: var(--color-black-3);
@@ -198,7 +196,7 @@ const ErrorMessages = styled(Text)`
     min-height: 16px;
 `
 
-const StyledLabel = styled.label<StyledLabelType>`
+const StyledLabel = styled.label<StyledLabelProps>`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);
@@ -228,7 +226,7 @@ const Input = ({
     maxLength,
     ...props
 }: InputProps) => {
-    const current_input = useRef<React.MutableRefObject<HTMLInputElement>>(null)
+    const current_input = useRef(null)
 
     return (
         <RelativeWrapper>
@@ -270,7 +268,7 @@ const Input = ({
                     src={CrossIcon}
                     alt="error icon"
                     onClick={() => {
-                        handleError(current_input.current)
+                        handleError(current_input)
                     }}
                 />
             )}

@@ -1,7 +1,8 @@
 import React from 'react'
-import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes, MarketsFold } from './home/_lazy-load'
+import { Signup, MarketsFold } from './home/_lazy-load'
 //import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
+import UseHandleLazyLoad from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -11,17 +12,6 @@ import { Appearances } from 'components/custom/signup'
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
-    const [has_scrolled, setScrolled] = React.useState(false)
-    React.useEffect(() => {
-        window.addEventListener('scroll', onScroll)
-        return () => window.removeEventListener('scroll', onScroll)
-    }, [])
-
-    const onScroll = () => {
-        if (!has_scrolled) {
-            setScrolled(true)
-        }
-    }
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -35,14 +25,8 @@ const Home = () => {
             />
             <Hero />
             <MarketsFold />
-            {has_scrolled && (
-                <>
-                    <TradeTypes />
-                    <OurPlatforms />
-                    <WhatOurClientsSay />
-                    <Signup appearance={Appearances.public} />
-                </>
-            )}
+            <UseHandleLazyLoad />
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

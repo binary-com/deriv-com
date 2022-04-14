@@ -21,7 +21,6 @@ type TradeTypesProps = {
 type TradeItemsProps = {
     items_details: TradeTypesProps
 }
-
 const query = graphql`
     query {
         trade_type_cfds: file(relativePath: { eq: "home/trade_type_cfds.png" }) {

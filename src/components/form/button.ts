@@ -82,12 +82,12 @@ export const SharedButtonStyle = css<SharedButtonStyleProps>`
             `
         if (props.social)
             return css<SharedButtonStyleProps>`
-                background: ${(props) => {
-                    if (props.provider === 'google') return 'var(--color-white)'
-                    if (props.provider === 'facebook') return 'var(--color-blue)'
+                background: ${({ provider }) => {
+                    if (provider === 'google') return 'var(--color-white)'
+                    if (provider === 'facebook') return 'var(--color-blue)'
                 }};
-                border: ${(props) =>
-                    props.provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
+                border: ${({ provider }) =>
+                    provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
 
                 svg {
                     width: 2.2rem;

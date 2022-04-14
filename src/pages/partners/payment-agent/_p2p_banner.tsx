@@ -78,9 +78,16 @@ const LeftChild = styled(Flex)`
     }
 `
 
-const StyledHeader = styled(Header)`
+const StyledH3 = styled.h3`
+    font-weight: bold;
+    color: white;
     font-size: 32px;
     line-height: 40px;
+    margin-bottom: 16px;
+
+    @media ${device.tabletL} {
+        max-width: 378px;
+    }
 `
 
 const Subtitle = styled(Header)`
@@ -105,16 +112,7 @@ const P2PBanner = () => {
             <MainWrapper>
                 <LeftWrapper>
                     <LeftChild>
-                        <StyledHeader
-                            as="h3"
-                            color="white"
-                            mb="16px"
-                            tabletL={{
-                                max_width: '378px',
-                            }}
-                        >
-                            {localize('Looking for Deriv P2P instead?')}
-                        </StyledHeader>
+                        <StyledH3>{localize('Looking for Deriv P2P instead?')}</StyledH3>
                         <Subtitle as="h4" type="subtitle-1" weight="none" color="white" mb="24px">
                             <Localize
                                 translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."

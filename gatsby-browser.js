@@ -1,4 +1,3 @@
-// import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
@@ -20,7 +19,6 @@ const checkDomain = () => {
     )
 }
 
-// console.log();
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
     const domain = getDomain()

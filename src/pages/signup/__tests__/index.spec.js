@@ -24,7 +24,7 @@ const contextValue = {
 }
 
 describe('NewSignUp', () => {
-    it('it should contain ddd', () => {
+    it('it should contain Got', () => {
         render(
             <DerivProvider value={{ contextValue }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
@@ -32,7 +32,7 @@ describe('NewSignUp', () => {
                 </LocaleContextWrapper>
             </DerivProvider>,
         )
-        const Element = screen.getByText(/ddd/i)
+        const Element = screen.getByText(/Got/i)
         expect(Element).toBeInTheDocument()
     })
 })

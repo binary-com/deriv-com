@@ -20,6 +20,7 @@ import { CookieStorage } from 'common/storage'
 import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
+import UKAccountClosureModal from 'components/elements/uk_account_closure_modal'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
@@ -272,6 +273,7 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
+            <UKAccountClosureModal />
         </LocationProvider>
     )
 }

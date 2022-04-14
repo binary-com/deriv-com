@@ -8,7 +8,9 @@ jest.mock('common/utility', () => ({
     isBrowser: jest.fn(() => true),
     getDateFromToday: jest.fn(() => '2020-01-01'),
     getDomain: jest.fn(() => 'binary.sx'),
-    getClientInformation: jest.fn(() => {}),
+    getClientInformation: jest.fn(() => {
+        return {}
+    }),
     queryParamData: jest.fn(() => ''),
     getWindowWidth: jest.fn(() => '1920'),
     getLocalizedUrl: jest.fn(() => 'https://binary.sx/en/signup'),

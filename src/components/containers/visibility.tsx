@@ -102,8 +102,8 @@ export const getCountryRule = () => {
     const is_uk_eu = !(!is_eu && !is_uk)
     const is_row = !is_uk_eu
     const is_dev =
-        (window && process.env.NODE_ENV === 'development') ||
-        (window && window.location.hostname.includes('binary.sx'))
+        (isBrowser() && process.env.NODE_ENV === 'development') ||
+        (isBrowser() && window.location.hostname.includes('binary.sx'))
 
     return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row, is_dev }
 }

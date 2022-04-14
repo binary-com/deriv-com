@@ -261,7 +261,7 @@ const Layout = ({
                 />
             )}
             {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
-            {FooterNav}
+            {0 && FooterNav}
             <EURedirect
                 toggle={toggleModal}
                 is_open={show_modal}

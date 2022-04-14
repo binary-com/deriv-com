@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device.js'
-import Close from 'images/svg/custom/close-2.svg'
+import CloseSVG from 'images/svg/custom/close-2.svg'
 
-const ModalWrapper = styled.div`
+const Container = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
@@ -17,28 +17,38 @@ const ModalWrapper = styled.div`
     align-items: center;
     z-index: 200;
 `
-const ModalCard = styled.div`
+
+const Card = styled.div`
     position: relative;
     z-index: 210;
     display: flex;
     flex-direction: column;
-    border-radius: 6px;
+    border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 60rem;
+    max-height: 80rem;
     background: var(--color-white);
     padding: 2.4rem;
 
     @media ${device.mobileL} {
         width: 80%;
+        max-height: 80%;
     }
 `
-const CloseButton = styled.img`
-    &:hover {
-        cursor: pointer;
-    }
+
+const HeaderContainer = styled(Flex)`
+    justify-content: space-between;
+    align-items: center;
 `
-const Background = styled.div`
+
+const ContentContainer = styled.div`
+    overflow: scroll;
+`
+
+const FooterContainer = styled(Flex)``
+
+const Backdrop = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -47,11 +57,14 @@ const Background = styled.div`
     background-color: var(--color-black);
     opacity: 0.4;
 `
-const Action = styled(Flex)`
-    justify-content: space-between;
-    align-items: center;
+
+const CloseButton = styled.img`
+    &:hover {
+        cursor: pointer;
+    }
 `
-const shared_css = css`
+
+const button_style = css`
     border-radius: 6px;
     padding: 1rem 1.6rem;
     transition: all 0.25s;
@@ -59,8 +72,9 @@ const shared_css = css`
     cursor: pointer;
     text-decoration: none;
 `
-const Positive = styled.a`
-    ${shared_css}
+
+const PositiveButton = styled.a`
+    ${button_style}
     border: 2px solid var(--color-red);
     color: var(--color-white);
     background: var(--color-red);
@@ -70,8 +84,9 @@ const Positive = styled.a`
         border-color: var(--color-red-3);
     }
 `
-const Negative = styled.span`
-    ${shared_css}
+
+const NegativeButton = styled.span`
+    ${button_style}
     border: 2px solid var(--color-grey-5);
     color: var(--color-black);
     background: transparent;
@@ -90,7 +105,6 @@ export type ModalRefType = {
 type ModalPropType = {
     title?: React.ReactNode
     message?: React.ReactNode
-    content?: React.ReactNode
     positive?: React.ReactNode
     onPositive?: () => void
     negative?: React.ReactNode
@@ -102,14 +116,14 @@ const Modal = (
     {
         title,
         message,
-        content,
         positive,
         onPositive,
         negative,
         onNegative,
         is_dismissible = true,
-    }: ModalPropType,
-    ref,
+        children,
+    }: React.PropsWithChildren<ModalPropType>,
+    ref: React.Ref<ModalRefType>,
 ) => {
     const [is_open, setIsOpen] = useState(false)
 
@@ -126,6 +140,10 @@ const Modal = (
     }
 
     useEffect(() => {
+        document.body.style.overflow = is_open ? 'hidden' : 'unset'
+    }, [is_open])
+
+    useEffect(() => {
         document.addEventListener('keydown', handleEscape, false)
 
         return () => {
@@ -133,59 +151,61 @@ const Modal = (
         }
     }, [])
 
-    const renderCloseButton = () => (
-        <CloseButton src={Close} alt="close-2" onClick={() => setIsOpen(false)} />
-    )
-
-    const renderTitle = () => (
+    const Title = () => (
         <Header type="paragraph-1" mb="2.4rem">
             {title}
         </Header>
     )
 
-    const renderMessage = () => (
+    const Message = () => (
         <Header type="paragraph-2" weight="regular">
             {message}
         </Header>
     )
 
-    const renderNegative = () => (
-        <Negative onClick={() => (onNegative ? onNegative?.() : setIsOpen(false))}>
+    const Close = () => (
+        <CloseButton src={CloseSVG} alt="close-2" onClick={() => setIsOpen(false)} />
+    )
+
+    const Negative = () => (
+        <NegativeButton onClick={() => (onNegative ? onNegative?.() : setIsOpen(false))}>
             <Header type="paragraph-2" weight="bold">
                 {negative}
             </Header>
-        </Negative>
+        </NegativeButton>
     )
 
-    const renderPositive = () => (
-        <Positive onClick={() => onPositive?.()}>
+    const Positive = () => (
+        <PositiveButton onClick={() => onPositive?.()}>
             <Header type="paragraph-2" weight="bold" color="white">
                 {positive}
             </Header>
-        </Positive>
+        </PositiveButton>
     )
 
     return (
         is_open && (
-            <ModalWrapper>
-                <ModalCard>
-                    <Action>
-                        {title && renderTitle()}
-                        {is_dismissible && renderCloseButton()}
-                    </Action>
-                    <div>{message && renderMessage()}</div>
-                    {content}
+            <Container>
+                <Card>
+                    <HeaderContainer>
+                        {title && <Title />}
+                        {is_dismissible && <Close />}
+                    </HeaderContainer>
+                    <ContentContainer>
+                        {message && <Message />}
+                        {children}
+                    </ContentContainer>
                     {(positive || negative) && (
-                        <Flex jc="flex-end" mt="2.4rem">
-                            {negative && renderNegative()}
-                            {positive && renderPositive()}
-                        </Flex>
+                        <FooterContainer jc="flex-end" mt="2.4rem">
+                            {negative && <Negative />}
+                            {positive && <Positive />}
+                        </FooterContainer>
                     )}
-                </ModalCard>
-                <Background onClick={is_dismissible ? () => setIsOpen(false) : null} />
-            </ModalWrapper>
+                </Card>
+                <Backdrop onClick={is_dismissible ? () => setIsOpen(false) : null} />
+            </Container>
         )
     )
 }
 
-export default forwardRef(Modal)
+export default forwardRef<ModalRefType, React.PropsWithChildren<ModalPropType>>(Modal)

@@ -134,7 +134,7 @@ export const Mobile = ({
     )
 }
 
-export const Development = ({ children }: { children: React.ReactNode }) => {
+export const Dev = ({ children }: { children: React.ReactNode }) => {
     if (process.env.NODE_ENV === 'development' || window.location.hostname.includes('binary.sx')) {
         return <>{children}</>
     }

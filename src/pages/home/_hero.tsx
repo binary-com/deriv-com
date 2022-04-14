@@ -77,19 +77,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
     const { is_uk } = getCountryRule()
 
-    // const text = (
-    //     !is_ppc &&
-    //     !is_uk &&
-    //     localize(
-    //         'Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities.',
-    //     )
-    // )(
-    //     is_eu &&
-    //         localize(
-    //             'Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.',
-    //         ),
-    // )(is_row && localize('Trade forex, stocks & indices, and commodities.'))
-
     return (
         <HeroWrapper>
             <BackgroundImage is_unstyled data={data.hero_background} loading="eager">

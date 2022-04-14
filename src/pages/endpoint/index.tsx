@@ -1,8 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
+import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
-import { WithIntl } from 'components/localization'
+import { WithIntl, localize } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -13,6 +14,7 @@ import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
+import { Development } from 'components/containers/visibility'
 
 type ValuesType = {
     server_url?: string
@@ -95,6 +97,9 @@ const endpointValidation = (values: ValuesType) => {
 }
 
 const Endpoint = () => {
+    const [eu_is_checked, setChecked] = React.useState(
+        localStorage.getItem('is_eu') === 'true' ? true : false,
+    )
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
     const [reset_loading, setResetLoading] = React.useState(false)
@@ -138,6 +143,15 @@ const Endpoint = () => {
         handleStatus(actions.setStatus, 'Config has been updated')
         // TODO: if there is a change requires reload in the future
         window.location.reload()
+    }
+
+    const handleCheck = (event) => {
+        setChecked(event.currentTarget.checked)
+    }
+
+    if (process.env.NODE_ENV === 'development' || window.location.hostname.includes('binary.sx')) {
+        eu_is_checked === true && localStorage.setItem('is_eu', 'true')
+        eu_is_checked === false && localStorage.setItem('is_eu', 'false')
     }
 
     return (
@@ -224,6 +238,15 @@ const Endpoint = () => {
                                     background="white"
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
+                                <Development>
+                                    <AgreementLabel
+                                        isChecked={eu_is_checked}
+                                        handleChangeCheckbox={handleCheck}
+                                        link_text={localize(
+                                            'Enable EU content (No need to submit the form)',
+                                        )}
+                                    />
+                                </Development>
                             </InputGroup>
                             <Text align="center" color="green">
                                 {status?.message && status.message}

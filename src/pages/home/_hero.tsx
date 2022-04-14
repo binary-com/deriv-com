@@ -8,8 +8,8 @@ import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
-import { Localize, localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { Localize } from 'components/localization'
+import { getCountryRule, EU, UK, ROW } from 'components/containers/visibility'
 
 const query = graphql`
     query {
@@ -75,14 +75,20 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_uk, is_uk_eu } = getCountryRule()
+    const { is_uk } = getCountryRule()
 
-    const text =
-        !is_ppc && !is_uk_eu
-            ? localize(
-                  'Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities.',
-              )
-            : localize('Trade forex, stocks & indices, and commodities.')
+    // const text = (
+    //     !is_ppc &&
+    //     !is_uk &&
+    //     localize(
+    //         'Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities.',
+    //     )
+    // )(
+    //     is_eu &&
+    //         localize(
+    //             'Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.',
+    //         ),
+    // )(is_row && localize('Trade forex, stocks & indices, and commodities.'))
 
     return (
         <HeroWrapper>
@@ -137,7 +143,15 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 min_height="auto"
                                 weight="normal"
                             >
-                                {text}
+                                <EU>
+                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
+                                </EU>
+                                <UK>
+                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
+                                </UK>
+                                <ROW>
+                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                                </ROW>
                             </Header>
                             <VerticalCarousel
                                 contents={!is_ppc && !is_uk ? contents : contents_ppc}

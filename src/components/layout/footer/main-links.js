@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { localize } from 'components/localization'
 import { Flex, NonUK, ROW, Desktop } from 'components/containers'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url, deriv_life_url } from 'common/constants'
 
 const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
     return (
@@ -28,6 +28,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/careers/">{localize('Careers')}</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to={deriv_life_url} target="_blank" rel="noopener noreferrer">
+                                {localize('Deriv life')}
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                     {!is_ppc && (
@@ -76,6 +81,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 </Link>
                             </LinkWrapper>
                         </NonUK>
+                        <ROW>
+                            <LinkWrapper>
+                                <Link to="/markets/basket-indices/">
+                                    {localize('Basket indices')}
+                                </Link>
+                            </LinkWrapper>
+                        </ROW>
                         <LinkWrapper>
                             <Link to="/markets/commodities/">{localize('Commodities')}</Link>
                         </LinkWrapper>
@@ -138,12 +150,12 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/terms-and-conditions/#clients">
-                                {localize('Terms and conditions')}
+                                {localize('Terms & conditions')}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/responsible/">
-                                {localize('Secure and responsible trading')}
+                                {localize('Secure & responsible trading')}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
@@ -163,8 +175,8 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link
                                 to=""
                                 type="api"
-                                target="_blank"
                                 external="true"
+                                target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 {localize('API')}

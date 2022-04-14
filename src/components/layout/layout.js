@@ -125,6 +125,7 @@ const Layout = ({
     no_live_chat,
     no_login_signup,
     type,
+    nav_label,
 }) => {
     const { is_uk_eu } = getCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
@@ -192,7 +193,7 @@ const Layout = ({
             FooterNav = <Footer academy={true} />
             break
         case 'static':
-            Navigation = <NavStatic is_ppc={is_ppc} />
+            Navigation = <NavStatic is_ppc={is_ppc} nav_label={nav_label} />
             break
         case 'interim':
             Navigation = <NavInterim interim_type={interim_type} />
@@ -286,6 +287,7 @@ Layout.propTypes = {
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    nav_label: PropTypes.string,
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,

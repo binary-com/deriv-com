@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { eu_domains, uk_domains } from 'common/constants'
-import { getClientInformation, getDomain } from 'common/utility'
+import { getClientInformation, getDomain, isBrowser } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
@@ -13,7 +13,14 @@ type ResponsiveContainerProps = {
     className?: string
 }
 
-type CountryRuleType = 'is_eu' | 'is_uk' | 'is_non_uk' | 'is_non_eu' | 'is_uk_eu' | 'is_row'
+type CountryRuleType =
+    | 'is_eu'
+    | 'is_uk'
+    | 'is_non_uk'
+    | 'is_non_eu'
+    | 'is_uk_eu'
+    | 'is_row'
+    | 'is_dev'
 
 type CountryBasedContentProps = {
     children: ReactElement
@@ -74,7 +81,7 @@ const deviceRenderer = (): boolean => {
 
 export const getCountryRule = () => {
     const [website_status] = useWebsiteStatus()
-    const is_eu_localstorage = localStorage.getItem('is_eu')
+    const is_eu_localstorage = isBrowser() && localStorage.getItem('is_eu')
     const user_ip_country = website_status?.clients_country || ''
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
     const { residence } = getClientInformation(getDomain()) || {
@@ -94,8 +101,10 @@ export const getCountryRule = () => {
     const is_non_eu = !is_eu
     const is_uk_eu = !(!is_eu && !is_uk)
     const is_row = !is_uk_eu
+    const is_dev =
+        process.env.NODE_ENV === 'development' || window.location.hostname.includes('binary.sx')
 
-    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row }
+    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row, is_dev }
 }
 
 export const Desktop = ({
@@ -134,13 +143,6 @@ export const Mobile = ({
     )
 }
 
-export const Dev = ({ children }: { children: React.ReactNode }) => {
-    if (process.env.NODE_ENV === 'development' || window.location.hostname.includes('binary.sx')) {
-        return <>{children}</>
-    }
-    return null
-}
-
 const CountryBasedContent = ({ country_rule, children }: CountryBasedContentProps) => {
     const rules = getCountryRule()
     const [is_loaded, setLoaded] = useState(false)
@@ -176,4 +178,8 @@ export const UKEU = ({ children }: ResponsiveContainerProps) => (
 
 export const ROW = ({ children }: ResponsiveContainerProps) => (
     <CountryBasedContent country_rule="is_row">{children}</CountryBasedContent>
+)
+
+export const Dev = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_dev">{children}</CountryBasedContent>
 )

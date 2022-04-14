@@ -1,4 +1,4 @@
-import React, { useRef, ReactNode } from 'react'
+import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
@@ -8,7 +8,6 @@ import CrossIcon from 'images/svg/help/cross.svg'
 interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     background?: string
     border?: string
-    children?: ReactNode
     error?: string
     focus_border?: string
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void

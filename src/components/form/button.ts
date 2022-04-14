@@ -1,11 +1,8 @@
-import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { Paddings, Margins } from 'themes/function'
 import device from 'themes/device.js'
 
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'>, SharedButtonStyleProps {
-    children: ReactNode
-    onClick?: () => void
     loading?: string
 }
 

@@ -56,6 +56,7 @@ const LoginText = styled(Header)`
     }
 `
 const StyledLinkText = styled(LinkText)`
+    margin-left: 3px;
     @media ${device.tabletL} {
         font-size: 12px;
     }
@@ -91,8 +92,7 @@ const SignupAffiliate = ({
                     {localize('Want to sign up as a trader?')}
                     <LocalizedLinkText to="/signup">
                         <StyledLinkText id="dm-new-login-button" size="14px" color="grey-5">
-                            {' '}
-                            Create a Deriv account
+                            {localize('Create a Deriv account')}
                         </StyledLinkText>
                     </LocalizedLinkText>
                 </Header>
@@ -133,7 +133,6 @@ const SignupAffiliate = ({
                 id="dm-new-login-button"
                 size="1.4rem"
                 color="red"
-                ml="3px"
                 onClick={handleLogin}
             >
                 {localize('Log in')}

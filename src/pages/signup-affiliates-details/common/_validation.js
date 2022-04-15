@@ -3,7 +3,7 @@ import { localize, Localize } from 'components/localization'
 
 export const affiliate_validation_regex = {
     alphabet: /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
-    phone: /^\+?[^\D]((-|\s)*\d)*$/,
+    phone: /^\+?[^-]((-|\s)*\d)*$/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
 }
 

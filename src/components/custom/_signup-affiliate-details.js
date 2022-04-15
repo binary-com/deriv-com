@@ -67,7 +67,6 @@ const DropdownSearchWrapper = styled.div`
 const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMessage }) => {
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
-    const [is_eu_checked, setEuChecked] = useState(false)
     const [is_disabled, setDisabled] = useState(true)
     const residence_list = useResidenceList()
 
@@ -326,13 +325,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                         Affiliates and introducing brokers’ terms.
                                     </StyledLink>
                                 </AgreementLabel>
-                                <AgreementLabel
-                                    is_checked={is_eu_checked}
-                                    handleChangeCheckbox={(e) => handleCheckChange(e, setEuChecked)}
-                                    link_text={localize(
-                                        'Are you going to promote in EU and/or UK?',
-                                    )}
-                                ></AgreementLabel>
                             </Flex>
                             <Flex fd="column" ai="center">
                                 <div

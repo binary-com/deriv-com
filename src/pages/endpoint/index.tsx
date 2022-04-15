@@ -118,7 +118,7 @@ const Endpoint = () => {
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
     const [is_eu_content, setIsEuContent] = useLocalStorageState(
-        localStorage.getItem('config.is_eu_content') === 'true' ? true : false,
+        isBrowser() && localStorage.getItem('config.is_eu_content') === 'true' ? true : false,
         'config.is_eu_content',
     )
     const [reset_loading, setResetLoading] = React.useState(false)

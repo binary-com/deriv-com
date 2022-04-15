@@ -154,7 +154,6 @@ const StyledFlex = styled(Flex)`
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-        width: 282px;
         height: 316px;
         border-radius: 0 0 8px 8px;
     }

@@ -8,6 +8,7 @@ import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
+import { getCountryRule } from 'components/containers/visibility'
 
 const ImageWrapper = styled.div`
     width: 124px;
@@ -150,6 +151,8 @@ CheckedText.propTypes = {
 }
 
 const InterestFreeTrading = () => {
+    const { is_uk, is_eu, is_row } = getCountryRule()
+
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
@@ -161,10 +164,15 @@ const InterestFreeTrading = () => {
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
-                    <CheckedText>Synthetic indices</CheckedText>
-                    <CheckedText>Stocks & indices</CheckedText>
-                    <CheckedText>Cryptocurrencies</CheckedText>
-                    <CheckedText>Basket indices</CheckedText>
+                    {is_uk && <CheckedText>Stocks & indices</CheckedText>}
+                    {(is_eu || is_row) && (
+                        <>
+                            <CheckedText>Synthetic indices</CheckedText>
+                            <CheckedText>Stocks & indices</CheckedText>
+                            <CheckedText>Cryptocurrencies</CheckedText>
+                        </>
+                    )}
+                    {is_row && <CheckedText>Basket indices</CheckedText>}
                     <CheckedText>Commodities</CheckedText>
                 </TextWrapperFlex>
             </InterestCardFlex>

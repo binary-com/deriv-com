@@ -1,9 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Formik, Form } from 'formik'
-import AgreementLabel from 'components/custom/_agreement-label'
+import { Formik, Form, Field } from 'formik'
 import device from 'themes/device'
-import { WithIntl, localize } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -20,6 +19,7 @@ type ValuesType = {
     server_url?: string
     app_id?: string
     clients_country?: string
+    is_eu_content?: boolean
 }
 
 type ActionsType = {
@@ -67,6 +67,23 @@ const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
 
+const CheckboxContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+`
+
+const StyledCheckbox = styled(Field)`
+    height: 16px;
+    width: 16px;
+`
+
+const StyledSpan = styled.div`
+    font-size: 15px;
+    padding-left: 5px;
+`
+
 const endpointValidation = (values: ValuesType) => {
     const errors: ValuesType = {}
 
@@ -97,12 +114,13 @@ const endpointValidation = (values: ValuesType) => {
 }
 
 const Endpoint = () => {
-    const [eu_is_checked, setChecked] = React.useState(
-        isBrowser() && localStorage.getItem('is_eu') === 'true' ? true : false,
-    )
     const { is_dev } = getCountryRule()
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
+    const [is_eu_content, setIsEuContent] = useLocalStorageState(
+        localStorage.getItem('config.is_eu_content') === 'true' ? true : false,
+        'config.is_eu_content',
+    )
     const [reset_loading, setResetLoading] = React.useState(false)
     const { website_status, setWebsiteStatus, website_status_loading } =
         React.useContext(DerivStore)
@@ -120,6 +138,8 @@ const Endpoint = () => {
         setResetLoading(true)
         setServerUrl()
         setAppId()
+        setIsEuContent()
+
         // adding the default storage values
         setTimeout(() => {
             setServerUrl(default_server_url)
@@ -136,6 +156,9 @@ const Endpoint = () => {
         actions.setSubmitting(true)
         setServerUrl(values.server_url)
         setAppId(values.app_id)
+        if (is_dev && isBrowser()) {
+            setIsEuContent(values.is_eu_content)
+        }
 
         // handle website status changes
         const new_website_status = { ...website_status, clients_country: values.clients_country }
@@ -144,14 +167,6 @@ const Endpoint = () => {
         handleStatus(actions.setStatus, 'Config has been updated')
         // TODO: if there is a change requires reload in the future
         window.location.reload()
-    }
-
-    const handleCheck = (event) => {
-        setChecked(event.currentTarget.checked)
-    }
-
-    if (is_dev && isBrowser()) {
-        eu_is_checked ? localStorage.setItem('is_eu', 'true') : localStorage.removeItem('is_eu')
     }
 
     return (
@@ -179,6 +194,7 @@ const Endpoint = () => {
                         clients_country: website_status?.clients_country
                             ? website_status?.clients_country
                             : '',
+                        is_eu_content: is_eu_content ? is_eu_content : false,
                     }}
                     enableReinitialize={true}
                     validate={endpointValidation}
@@ -239,13 +255,18 @@ const Endpoint = () => {
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
                                 <Dev>
-                                    <AgreementLabel
-                                        isChecked={eu_is_checked}
-                                        handleChangeCheckbox={handleCheck}
-                                        link_text={localize(
-                                            'Enable EU content (No need to submit the form)',
-                                        )}
-                                    />
+                                    <CheckboxContainer>
+                                        <StyledCheckbox
+                                            name="is_eu_content"
+                                            value={values.is_eu_content}
+                                            checked={values.is_eu_content === true ? true : false}
+                                            disabled={website_status_loading}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            type="checkbox"
+                                        />
+                                        <StyledSpan>Show EU Content</StyledSpan>
+                                    </CheckboxContainer>
                                 </Dev>
                             </InputGroup>
                             <Text align="center" color="green">

@@ -98,8 +98,8 @@ const LearnMore = styled(LocalizedLink)`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
     height: 40px;
-    border-radius: 23px;
-    background-color: var(--color-grey-18);
+    border-radius: 100px;
+    background-color: var(--color-white);
     position: absolute;
     bottom: -20px;
     margin-left: auto;
@@ -111,6 +111,7 @@ const LearnMore = styled(LocalizedLink)`
     align-items: center;
     text-decoration: none;
     transition: opacity 0.1s linear;
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
 
     ${Text} {
         font-weight: bold;
@@ -153,6 +154,9 @@ const StyledFlex = styled(Flex)`
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+        width: 282px;
+        height: 316px;
+        border-radius: 0 0 8px 8px;
     }
     ${LearnMore} {
         img {
@@ -176,7 +180,7 @@ const settings = {
     },
     slide_style: {
         width: '282px',
-        height: '320px',
+        height: '350px',
         marginRight: '24px',
         paddingRight: '50px',
         paddingLeft: '25px',
@@ -239,7 +243,7 @@ const MobileCard = ({ market }: CardProps) => {
 }
 const MarketsWrapper = styled(Flex)`
     flex-direction: column;
-    padding: 0 0 120px 0;
+    padding: 0 0 80px 0;
     max-width: 100%;
 `
 

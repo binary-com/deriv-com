@@ -9,6 +9,7 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 
 type ContentType = {
     header?: React.ReactElement
@@ -62,7 +63,7 @@ const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies with leverage." />
+            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
         show_eu: true,
@@ -134,6 +135,7 @@ const StyledText = styled(Text)`
 
 const Flexibility = () => {
     const { is_eu_country } = React.useContext(DerivStore)
+    const { is_uk } = getCountryRule()
 
     const chosen_content = is_eu_country ? eucontent : content
 
@@ -169,7 +171,13 @@ const Flexibility = () => {
                                     </StyledHeader>
                                     {item.icon}
                                 </Flex>
-                                <StyledText>{item.text}</StyledText>
+                                {is_eu_country && is_uk ? (
+                                    <StyledText>
+                                        <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
+                                    </StyledText>
+                                ) : (
+                                    <StyledText>{item.text}</StyledText>
+                                )}
                             </ClientCard>
                         )
                     )

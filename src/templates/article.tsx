@@ -30,6 +30,7 @@ import {
 import Banner from '../pages/academy/components/_banner'
 import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
+import { handleTag } from 'pages/academy/components/utility'
 import { ArticleQuery } from 'types/graphql.types'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -182,7 +183,12 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                             >
                                                 {post_data?.tags.map((tag) => {
                                                     return (
-                                                        <Tag key={tag?.tags_id?.id}>
+                                                        <Tag
+                                                            key={tag?.tags_id?.id}
+                                                            onClick={() =>
+                                                                handleTag(tag?.tags_id?.tag_name)
+                                                            }
+                                                        >
                                                             {tag?.tags_id?.tag_name}
                                                         </Tag>
                                                     )
@@ -278,7 +284,12 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                         >
                                             {post_data?.tags.map((tag) => {
                                                 return (
-                                                    <Tag key={tag?.tags_id?.id}>
+                                                    <Tag
+                                                        key={tag?.tags_id?.id}
+                                                        onClick={() =>
+                                                            handleTag(tag?.tags_id?.tag_name)
+                                                        }
+                                                    >
                                                         {tag?.tags_id?.tag_name}
                                                     </Tag>
                                                 )

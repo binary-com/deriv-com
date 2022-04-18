@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
 import { getCountryRule } from '../containers/visibility'
+import { isTestlink } from '../../common/utility'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
@@ -24,6 +25,7 @@ import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
+
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -126,7 +128,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const { is_uk_eu, is_dev } = getCountryRule()
+    const { is_uk_eu } = getCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -159,7 +161,7 @@ const Layout = ({
         const website_status = useWebsiteStatusApi()
 
         React.useEffect(() => {
-            if (website_status && !is_dev) {
+            if (website_status && !isTestlink()) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
                 const residence = client_information_cookie.get('residence')
@@ -167,7 +169,7 @@ const Layout = ({
                 setRedirectionApplied(true)
                 handleRedirect(residence, current_client_country, window.location.hostname)
             }
-            if (is_dev) {
+            if (isTestlink()) {
                 const testlink_url = isBrowser() && localStorage.getItem('config.testlink_url')
                 if (testlink_url === 'deriv.com' || testlink_url === 'eu.deriv.com') {
                     setRedirectionApplied(true)

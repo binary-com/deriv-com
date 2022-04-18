@@ -3,9 +3,10 @@ import { CookieStorage } from './storage'
 export const getCookiesObject = (cookies) => {
     const cookies_objects = {}
 
-    cookies.forEach((cookie_name) => {
+    cookies.forEach((cookie_name, cookie_domain) => {
         const cookie_object = new CookieStorage(
             cookie_name.includes('utm') ? 'utm_data' : cookie_name,
+            cookie_domain,
         )
         cookies_objects[cookie_name] = cookie_object
     })

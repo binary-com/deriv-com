@@ -111,7 +111,7 @@ InScriptStore.prototype = {
     },
 }
 
-const State = new InScriptStore()
+const State = new InScriptStore({})
 State.prototype = InScriptStore.prototype
 /**
  * Shorthand function to get values from response object of State
@@ -207,10 +207,10 @@ if (isBrowser()) {
     }
 
     if (!LocalStore) {
-        LocalStore = new InScriptStore()
+        LocalStore = new InScriptStore({})
     }
     if (!SessionStore) {
-        SessionStore = new InScriptStore()
+        SessionStore = new InScriptStore({})
     }
 }
 

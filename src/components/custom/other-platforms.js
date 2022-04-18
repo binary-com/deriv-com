@@ -97,8 +97,8 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink aria_label="DTrader" to="/dtrader/">
         <Card
             cover_background="var(--color-red)"
-            cover_content={localize('Discover DTrader now')}
-            title={localize('DTrader')}
+            cover_content={<Localize translate_text="Discover DTrader now" />}
+            title={<Localize translate_text="DTrader" />}
             Icon={() => <StyledDTrader src={DTrader} width="72" height="72" alt="" />}
             content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
             is_inline_icon
@@ -114,8 +114,8 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
     <StyledLink aria_label="DBot" to="/dbot/">
         <Card
             cover_background="var(--color-orange)"
-            cover_content={localize('Discover DBot now')}
-            title={localize('DBot')}
+            cover_content={<Localize translate_text="Discover DBot now" />}
+            title={<Localize translate_text="DBot" />}
             Icon={() => <StyledDbot src={DBot} width="72" height="72" alt="" />}
             content={[localize('Automated trading at your fingertips. No coding needed.')]}
             is_inline_icon
@@ -131,8 +131,8 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
-            cover_content={localize('Discover Deriv MT5 now')}
-            title={localize('Deriv MT5')}
+            cover_content={<Localize translate_text="Discover Deriv MT5 now" />}
+            title={<Localize translate_text="Deriv MT5" />}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
             content={[localize('Trade on Deriv MT5, the all-in-one CFD trading platform.')]}
             is_inline_icon
@@ -152,8 +152,8 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
                 localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
             ]}
             cover_background="var(--color-black)"
-            cover_content={localize('Discover Deriv X now')}
-            title={localize('Deriv X')}
+            cover_content={<Localize translate_text="Discover Deriv X now" />}
+            title={<Localize translate_text="Deriv X" />}
             is_inline_icon
             min_height="12.4rem"
             is_selected={is_selected}
@@ -174,8 +174,8 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     >
         <Card
             cover_background="var(--color-blue-3)"
-            cover_content={localize('Discover SmartTrader now')}
-            title={localize('SmartTrader')}
+            cover_content={<Localize translate_text="Discover SmartTrader now" />}
+            title={<Localize translate_text="SmartTrader" />}
             Icon={() => <StyledSmarttrader src={Smarttrader} alt="" height="72" width="72" />}
             content={[
                 <Localize
@@ -280,7 +280,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         jc="flex-start"
                         style={{ boxShadow: 'inset -1px 0px 0px var(--color-grey-8)' }}
                     >
-                        <StyledText>{localize('Trade types')}</StyledText>
+                        <StyledText>{<Localize translate_text="Trade types" />}</StyledText>
                         <NavCard
                             aria_label="CFDs"
                             icon={() => <img src={CFD} alt="" width="32" height="32" />}
@@ -317,7 +317,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                 </>
             )}
             <Flex direction="column" wrap="wrap" jc="flex-start">
-                <StyledText>{localize('Trading platforms')}</StyledText>
+                <StyledText>{<Localize translate_text="Trading platforms" />}</StyledText>
                 <NavCard
                     aria_label="Deriv MT5"
                     icon={() => <img src={DMT5} alt="" width="32" height="32" />}
@@ -493,44 +493,44 @@ export const NavCompany = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <img src={Story} alt="" width="24" height="24" />}
-            title={localize('Who we are')}
+            title={<Localize translate_text="Who we are" />}
             onClick={onClick}
             to="/who-we-are/"
         />
         <CardLink
             icon={() => <img src={RegulatoryInfo} alt="" width="24" height="24" />}
-            title={localize('Regulatory information')}
+            title={<Localize translate_text="Regulatory information" />}
             onClick={onClick}
             to="/regulatory/"
         />
         <CardLink
             icon={() => <img src={Choose} alt="" width="24" height="24" />}
-            title={localize('Why choose us')}
+            title={<Localize translate_text="Why choose us" />}
             onClick={onClick}
             to="/why-choose-us/"
         />
         <CardLink
             icon={() => <img src={Partner} alt="" width="24" height="24" />}
-            title={localize('Partnership programmes')}
+            title={<Localize translate_text="Partnership programmes" />}
             onClick={onClick}
             to="/partners/"
         />
 
         <CardLink
             icon={() => <img src={Contact} alt="" width="24" height="24" />}
-            title={localize('Contact us')}
+            title={<Localize translate_text="Contact us" />}
             onClick={onClick}
             to="/contact_us/"
         />
         <CardLink
             icon={() => <img src={Career} alt="" width="24" height="24" />}
-            title={localize('Careers')}
+            title={<Localize translate_text="Careers" />}
             onClick={onClick}
             to="/careers/"
         />
         <CardLink
             icon={() => <img src={DerivLife} alt="" width="24" height="24" />}
-            title={localize('Deriv life')}
+            title={<Localize translate_text="Deriv life" />}
             onClick={onClick}
             to={deriv_life_url}
             target="_blank"
@@ -547,13 +547,13 @@ export const NavResources = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <img src={Help} alt="" width="24" height="24" />}
-            title={localize('Help centre')}
+            title={<Localize translate_text="Help centre" />}
             onClick={onClick}
             to="/help-centre/"
         />
         <CardLink
             icon={() => <img src={Community} alt="" width="24" height="24" />}
-            title={localize('Community')}
+            title={<Localize translate_text="Community" />}
             onClick={onClick}
             to=""
             type="community"
@@ -563,25 +563,25 @@ export const NavResources = ({ onClick }) => (
         />
         <CardLink
             icon={() => <img src={TraderTool} alt="" width="24" height="24" />}
-            title={localize('Traders’ tools')}
+            title={<Localize translate_text="Traders’ tools" />}
             onClick={onClick}
             to="/trader-tools/"
         />
         <CardLink
             icon={() => <img src={Payment} alt="" width="24" height="24" />}
-            title={localize('Payment methods')}
+            title={<Localize translate_text="Payment methods" />}
             onClick={onClick}
             to="/payment-methods/"
         />
         <CardLink
             icon={() => <img src={Signals} alt="" width="24" height="24" />}
-            title={localize('DMT5 Signals')}
+            title={<Localize translate_text="DMT5 Signals" />}
             onClick={onClick}
             to="/dmt5-trading-signals/#signal-subscriber/"
         />
         <CardLink
             icon={() => <img src={Blog} alt="" width="24" height="24" />}
-            title={localize('Academy')}
+            title={<Localize translate_text="Academy" />}
             onClick={onClick}
             to="/academy/"
         />

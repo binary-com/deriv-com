@@ -5,14 +5,14 @@ type LocationProviderProps = {
     has_mounted?: boolean
     setModalPayload?: Dispatch<SetStateAction<boolean>>
     show_cookie_banner?: boolean
-    toggleModal?: boolean | (() => void)
+    toggleModal?: () => void
 }
 
 export const LocationContext = React.createContext(null) // undefined => true
 
 export const LocationProvider = ({
-    has_mounted,
-    show_cookie_banner,
+    has_mounted = false,
+    show_cookie_banner = false,
     children,
     setModalPayload,
     toggleModal,

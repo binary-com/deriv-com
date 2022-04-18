@@ -17,7 +17,13 @@ type FooterProps = {
     type?: string
 }
 
-const Footer = ({ type, is_ppc, is_ppc_redirect, academy, no_footer_links }: FooterProps) => {
+const Footer = ({
+    type = '',
+    is_ppc = false,
+    is_ppc_redirect = false,
+    academy = false,
+    no_footer_links = false,
+}: FooterProps) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
     const { is_eu_country } = React.useContext(DerivStore)
 

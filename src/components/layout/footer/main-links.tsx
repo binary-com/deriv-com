@@ -9,7 +9,7 @@ type MainLinksSectionProps = {
     is_ppc_redirect?: boolean
 }
 
-const MainLinksSection = ({ is_ppc, is_ppc_redirect }: MainLinksSectionProps) => {
+const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
     return (
         <LinksWrapper>
             <Desktop>

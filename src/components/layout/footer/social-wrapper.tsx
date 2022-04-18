@@ -29,10 +29,10 @@ type SocialMediaComponentProps = {
 }
 
 const SocialWrapperComponent = ({
-    is_career_page,
-    fb_url,
-    instagram_url,
-    twitter_url,
+    is_career_page = false,
+    fb_url = '',
+    instagram_url = '',
+    twitter_url = '',
 }: SocialWrapperComponentProps) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
@@ -66,7 +66,7 @@ const SocialWrapperComponent = ({
     return <SocialMediaComponent social_accounts={accounts} />
 }
 
-const SocialMediaComponent = ({ social_accounts }: SocialMediaComponentProps) => (
+const SocialMediaComponent = ({ social_accounts = [] }: SocialMediaComponentProps) => (
     <SocialWrapper>
         {social_accounts.map((account, index) => (
             <LocalizedLink

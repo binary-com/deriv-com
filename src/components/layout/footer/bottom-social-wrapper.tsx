@@ -19,7 +19,7 @@ type BottomSocialSectionProps = {
     type?: string
 }
 
-const BottomSocialSection = ({ type }: BottomSocialSectionProps) => {
+const BottomSocialSection = ({ type = '' }: BottomSocialSectionProps) => {
     const [website_status] = useWebsiteStatus()
     const current_client_country = website_status?.clients_country || ''
 

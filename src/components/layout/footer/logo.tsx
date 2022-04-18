@@ -20,7 +20,7 @@ type LogoSectionProps = {
     type?: string
 }
 
-const LogoSection = ({ type }: LogoSectionProps) => {
+const LogoSection = ({ type = '' }: LogoSectionProps) => {
     const { is_eu, is_uk } = getCountryRule()
 
     return (

@@ -10,12 +10,12 @@ import Close from 'images/svg/custom/close-2.svg'
 type EURedirectProps = {
     aria_label?: string
     closeModal?: () => void
-    is_open: boolean | (() => void)
+    is_open: boolean
     ref?: Ref<HTMLAnchorElement>
     rel?: string
     target?: string
     to?: string
-    toggle: boolean | (() => void)
+    toggle: () => void
 }
 
 const ModalWrapper = styled.div`
@@ -99,11 +99,11 @@ const EURedirect = ({
     toggle,
     is_open,
     closeModal,
-    to,
-    target,
-    rel,
+    to = '',
+    target = '',
+    rel = '',
     ref,
-    aria_label,
+    aria_label = '',
 }: EURedirectProps) => {
     const handleEscape = (e) => {
         if (e.keyCode === 27) {

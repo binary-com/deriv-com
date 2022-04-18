@@ -34,7 +34,6 @@ type LayoutProps = {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     margin_top?: number | string
-    nav_type?: string
     no_live_chat?: boolean
     no_login_signup?: boolean
     type?: string
@@ -139,12 +138,12 @@ const Main = styled.main<MainType>`
 const Layout = ({
     children,
     interim_type,
-    is_ppc,
-    is_ppc_redirect,
-    margin_top,
-    no_live_chat,
-    no_login_signup,
-    type,
+    is_ppc = false,
+    is_ppc_redirect = false,
+    margin_top = '',
+    no_live_chat = false,
+    no_login_signup = false,
+    type = '',
 }: LayoutProps) => {
     const { is_uk_eu } = getCountryRule()
     const [has_mounted, setMounted] = React.useState(false)

@@ -7,7 +7,7 @@ module.exports = {
     testURL: 'http://localhost:8000',
 
     // Indicates whether the coverage information should be collected while executing the test
-    collectCoverage: false,
+    collectCoverage: true,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
     collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/node_modules/**'],
@@ -56,7 +56,7 @@ module.exports = {
     testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
 
     // An array of directory names to be searched recursively up from the requiring module's location
-    moduleDirectories: ['node_modules', 'bower_components'],
+    moduleDirectories: ['node_modules'],
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
     setupFiles: [`<rootDir>/loadershim.js`],

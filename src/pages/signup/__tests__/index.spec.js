@@ -5,6 +5,24 @@ import { LocaleContextWrapper } from '../../../components/localization/locale-co
 import { DerivProvider } from '../../../store/index'
 import NewSignup from '../index.tsx'
 
+// mock all functions that are required in signup page
+jest.mock('common/utility', () => ({
+    __esModule: true,
+    isBrowser: jest.fn(() => true),
+    getDateFromToday: jest.fn(() => '2020-01-01'),
+    getDomain: jest.fn(() => 'binary.sx'),
+    getClientInformation: jest.fn(() => {
+        return {}
+    }),
+    queryParamData: jest.fn(() => ''),
+    getWindowWidth: jest.fn(() => '1920'),
+    getLocalizedUrl: jest.fn(() => 'https://binary.sx/en/signup'),
+    replaceLocale: jest.fn(() => 'https://binary.sx/en/signup?lang=zh-cn'),
+    getLanguage: jest.fn(() => null),
+    isNullUndefined: jest.fn(() => true),
+}))
+
+// mock the qraphql query used in seo.js
 beforeEach(() => {
     useStaticQuery.mockReturnValue({
         site: {
@@ -19,14 +37,10 @@ beforeEach(() => {
     })
 })
 
-const contextValue = {
-    is_eu_country: true,
-}
-
 describe('NewSignUp', () => {
     it('it should contain Got', () => {
         render(
-            <DerivProvider value={{ contextValue }}>
+            <DerivProvider value={{ is_eu_country: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
                     <NewSignup />,
                 </LocaleContextWrapper>

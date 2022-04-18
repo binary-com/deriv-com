@@ -24,7 +24,6 @@ import {
     metals_options,
     micro_pairs,
     range_break,
-    smart_fx,
     step_indices,
     swap_free_pairs,
     volatility_indices_eu,
@@ -101,8 +100,6 @@ export const MinorPairsCFDS = () => <Symbol instruments_type={minor_pairs_cfds} 
 export const MinorPairsOptions = () => <Symbol instruments_type={minor_pairs_options} />
 
 export const RangeBreak = () => <Symbol instruments_type={range_break} />
-
-export const SmartFX = () => <Symbol instruments_type={smart_fx} />
 
 export const StepIndices = () => <Symbol instruments_type={step_indices} />
 

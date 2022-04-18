@@ -357,7 +357,10 @@ const Dropdown = ({
                 >
                     <Symbol>
                         {selected_option ? (
-                            <Text>{selected_option.display_name}</Text>
+                            <Text>
+                                {(typeof selected_option === 'string' && selected_option) ||
+                                    selected_option.display_name}
+                            </Text>
                         ) : (
                             <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         )}

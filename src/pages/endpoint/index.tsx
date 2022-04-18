@@ -5,7 +5,7 @@ import device from 'themes/device'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, SEO } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Dropdown, Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces, isBrowser } from 'common/utility'
@@ -20,6 +20,7 @@ type ValuesType = {
     app_id?: string
     clients_country?: string
     is_eu_content?: boolean
+    testlink_url?: { name: string; display_name: string; key: string; icon: string }
 }
 
 type ActionsType = {
@@ -113,6 +114,12 @@ const endpointValidation = (values: ValuesType) => {
     return errors
 }
 
+const testlink_urls = [
+    { name: '', display_name: 'No Redirection', key: '0', icon: '' },
+    { name: 'deriv.com', display_name: 'deriv.com', key: '1', icon: '' },
+    { name: 'eu.deriv.com', display_name: 'eu.deriv.com', key: '2', icon: '' },
+]
+
 const Endpoint = () => {
     const { is_dev } = getCountryRule()
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
@@ -124,6 +131,10 @@ const Endpoint = () => {
     const [reset_loading, setResetLoading] = React.useState(false)
     const { website_status, setWebsiteStatus, website_status_loading } =
         React.useContext(DerivStore)
+    const [testlink_url, setTestlinkUrl] = useLocalStorageState(
+        testlink_urls[0],
+        'config.testlink_url',
+    )
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 
@@ -139,6 +150,7 @@ const Endpoint = () => {
         setServerUrl()
         setAppId()
         setIsEuContent()
+        setTestlinkUrl()
 
         // adding the default storage values
         setTimeout(() => {
@@ -159,6 +171,7 @@ const Endpoint = () => {
         if (is_dev && isBrowser()) {
             setIsEuContent(values.is_eu_content)
         }
+        setTestlinkUrl(values.testlink_url.name)
 
         // handle website status changes
         const new_website_status = { ...website_status, clients_country: values.clients_country }
@@ -195,6 +208,7 @@ const Endpoint = () => {
                             ? website_status?.clients_country
                             : '',
                         is_eu_content: is_eu_content || false,
+                        testlink_url: testlink_url ? testlink_url : '',
                     }}
                     enableReinitialize={true}
                     validate={endpointValidation}
@@ -255,18 +269,35 @@ const Endpoint = () => {
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
                                 <Dev>
-                                    <CheckboxContainer>
-                                        <StyledCheckbox
-                                            name="is_eu_content"
-                                            value={values.is_eu_content}
-                                            checked={values.is_eu_content === true ? true : false}
-                                            disabled={website_status_loading}
-                                            onChange={handleChange}
+                                    <>
+                                        <Dropdown
+                                            option_list={testlink_urls}
+                                            id="Test Link Domain"
+                                            label="Test Link Domain"
+                                            default_option="No Redirection"
+                                            selected_option={values.testlink_url}
+                                            onChange={(value) => {
+                                                setFieldValue('testlink_url', value)
+                                            }}
                                             onBlur={handleBlur}
-                                            type="checkbox"
+                                            autoComplete="off"
+                                            data-lpignore="true"
                                         />
-                                        <StyledSpan>Show EU Content</StyledSpan>
-                                    </CheckboxContainer>
+                                        <CheckboxContainer>
+                                            <StyledCheckbox
+                                                name="is_eu_content"
+                                                value={values.is_eu_content}
+                                                checked={
+                                                    values.is_eu_content === true ? true : false
+                                                }
+                                                disabled={website_status_loading}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                type="checkbox"
+                                            />
+                                            <StyledSpan>Show EU Content</StyledSpan>
+                                        </CheckboxContainer>
+                                    </>
                                 </Dev>
                             </InputGroup>
                             <Text align="center" color="green">

@@ -126,7 +126,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const { is_uk_eu } = getCountryRule()
+    const { is_uk_eu, is_dev } = getCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -159,13 +159,20 @@ const Layout = ({
         const website_status = useWebsiteStatusApi()
 
         React.useEffect(() => {
-            if (website_status) {
+            if (website_status && !is_dev) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
                 const residence = client_information_cookie.get('residence')
 
                 setRedirectionApplied(true)
                 handleRedirect(residence, current_client_country, window.location.hostname)
+            }
+            if (is_dev) {
+                const testlink_url = isBrowser() && localStorage.getItem('config.testlink_url')
+                if (testlink_url === 'deriv.com' || testlink_url === 'eu.deriv.com') {
+                    setRedirectionApplied(true)
+                    handleRedirect(testlink_url)
+                }
             }
         }, [website_status])
     }

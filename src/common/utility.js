@@ -449,6 +449,10 @@ const handleEURedirect = (country, full_domain) => {
     }
 }
 
+const handleTestlinkRedirect = (domain) => {
+    window.location.href = `https://${domain + window.location.pathname}`
+}
+
 export const handleRedirect = (residence, current_client_country, full_domain) => {
     const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
     const country = residence ? residence : current_client_country
@@ -457,6 +461,8 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
 
     if (eu_domains.some((e) => subdomain.includes(e)) && !isTestlink()) {
         handleEURedirect(country, full_domain)
+    } else if (isTestlink()) {
+        handleTestlinkRedirect(residence)
     } else {
         handleDerivRedirect(country, subdomain)
     }

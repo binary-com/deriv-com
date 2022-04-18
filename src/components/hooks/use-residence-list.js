@@ -21,6 +21,7 @@ export const useResidenceList = () => {
                         const country = {}
                         country.name = el.text
                         country.display_name = el.text
+                        country.value = el.value
                         return country
                     })
                     setResidenceList(residence_list_response)

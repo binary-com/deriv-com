@@ -9,17 +9,17 @@ const handleLazyVideos = () => {
         const lazyVideoObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (video) {
                 if (video.isIntersecting) {
-                    for (let source in video.target.children) {
+                    for (const source in video.target.children) {
                         const videoSource = video.target.children[source]
                         if (
                             typeof videoSource.tagName === 'string' &&
                             videoSource.tagName === 'SOURCE'
                         ) {
-                            videoSource.src = videoSource.dataset.src
+                            videoSource['src'] = videoSource['dataset'].src
                         }
                     }
 
-                    video.target.load()
+                    video.target['load()']
                     video.target.classList.remove('lazy')
                     lazyVideoObserver.unobserve(video.target)
                 }

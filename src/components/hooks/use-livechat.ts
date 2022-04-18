@@ -3,7 +3,7 @@ import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/u
 
 export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
-    const LC_API = (isBrowser() && window.LC_API) || {}
+    const LC_API = (isBrowser() && window['LC_API']) || {}
     const [is_logged_in, setLoggedIn] = useState(false)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
@@ -37,10 +37,10 @@ export const useLivechat = () => {
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
             script_timeout = setTimeout(() => {
                 loadLiveChatScript(() => {
-                    window.LiveChatWidget.on('ready', () => {
+                    window['LiveChatWidget'].on('ready', () => {
                         setLiveChatInteractive(true)
                         if (is_livechat_query?.toLowerCase() === 'true') {
-                            window.LC_API.open_chat_window()
+                            window['LC_API'].open_chat_window()
                         }
                     })
                 })
@@ -56,10 +56,10 @@ export const useLivechat = () => {
         if (isBrowser()) {
             const domain = getDomain()
             if (is_livechat_interactive) {
-                window.LiveChatWidget.on('ready', () => {
+                window['LiveChatWidget'].on('ready', () => {
                     // we open and close the window to trigger the widget to listen for new events
-                    window.LC_API.open_chat_window()
-                    window.LC_API.hide_chat_window()
+                    window['LC_API'].open_chat_window()
+                    window['LC_API'].hide_chat_window()
 
                     const utm_data = getUTMData(domain)
                     const client_information = getClientInformation(domain)
@@ -92,35 +92,35 @@ export const useLivechat = () => {
                         utm_campaign: utm_campaign ?? '',
                     }
 
-                    window.LiveChatWidget.call('set_session_variables', session_variables)
+                    window['LiveChatWidget'].call('set_session_variables', session_variables)
 
                     if (is_logged_in) {
                         if (email) {
-                            window.LiveChatWidget.call('set_customer_email', email)
+                            window['LiveChatWidget'].call('set_customer_email', email)
                         }
                         if (first_name && last_name) {
-                            window.LiveChatWidget.call(
+                            window['LiveChatWidget'].call(
                                 'set_customer_name',
                                 `${first_name} ${last_name}`,
                             )
                         }
                     } else {
                         // clear name and email fields after chat has ended
-                        window.LC_API.on_chat_ended = () => {
-                            window.LiveChatWidget.call('set_customer_email', ' ')
-                            window.LiveChatWidget.call('set_customer_name', ' ')
+                        window['LC_API'].on_chat_ended = () => {
+                            window['LiveChatWidget'].call('set_customer_email', ' ')
+                            window['LiveChatWidget'].call('set_customer_name', ' ')
                         }
                     }
 
                     const is_livechat_query = url_params.get('is_livechat_open')
                     if (is_livechat_query?.toLowerCase() === 'true') {
-                        window.LC_API.open_chat_window()
+                        window['LC_API'].open_chat_window()
                     }
 
                     // open chat widget when there is an incoming greeting/announcement
-                    window.LiveChatWidget.on('new_event', (event) => {
+                    window['LiveChatWidget'].on('new_event', (event) => {
                         if (event.greeting) {
-                            window.LC_API.open_chat_window()
+                            window['LC_API'].open_chat_window()
                         }
                     })
                 })

@@ -1,6 +1,6 @@
 // Should move this component to a proper directory.
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ModalRefType } from './modal'
 import { Localize } from 'components/localization'
 import { Modal, Header } from 'components/elements'
@@ -28,7 +28,7 @@ const UKAccountClosureModal = () => {
     const cookie_key = 'uk_account_closure_modal_shown'
     const cookie = new CookieStorage(cookie_key)
 
-    React.useEffect(() => is_uk && !cookie.get(cookie_key) && modalRef.current.show(), [is_uk])
+    useEffect(() => is_uk && !cookie.get(cookie_key) && modalRef.current.show(), [is_uk])
 
     const handlePositive = () => {
         cookie.set(cookie_key, true)

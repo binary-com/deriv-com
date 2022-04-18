@@ -44,7 +44,9 @@ const HeaderContainer = styled(Flex)`
 
 const ContentContainer = styled.div`
     overflow: scroll;
-    scroll-padding-right: 19px;
+    @media ${device.mobileL} {
+        padding-right: 1.9rem;
+    }
 `
 
 const FooterContainer = styled(Flex)``

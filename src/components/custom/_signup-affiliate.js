@@ -81,14 +81,7 @@ const SignupAffiliate = ({
         </Header>
         {!is_ppc && (
             <StyledNote>
-                <Header
-                    as="p"
-                    type="paragraph-2"
-                    weight="normal"
-                    align="center"
-                    notedBox
-                    color="grey-5"
-                >
+                <Header as="p" type="paragraph-2" weight="normal" align="center" color="grey-5">
                     {localize('Want to sign up as a trader?')}
                     <LocalizedLinkText to="/signup">
                         <StyledLinkText id="dm-new-login-button" size="14px" color="grey-5">

@@ -207,17 +207,17 @@ const StyledLabel = styled.label<StyledLabelProps>`
 `
 
 const Input = ({
-    label,
-    height,
-    border,
-    focus_border,
+    label = '',
+    height = '',
+    border = '',
+    focus_border = '',
     label_hover_color,
-    label_color,
+    label_color = '',
     disabled,
-    id,
-    error,
-    background,
-    tablet_background,
+    id = '',
+    error = '',
+    background = '',
+    tablet_background = '',
     handleError,
     maxLength,
     ...props

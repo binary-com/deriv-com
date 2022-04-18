@@ -194,7 +194,7 @@ const Endpoint = () => {
                         clients_country: website_status?.clients_country
                             ? website_status?.clients_country
                             : '',
-                        is_eu_content: is_eu_content ? is_eu_content : false,
+                        is_eu_content: is_eu_content || false,
                     }}
                     enableReinitialize={true}
                     validate={endpointValidation}

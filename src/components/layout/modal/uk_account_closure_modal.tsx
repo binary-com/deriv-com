@@ -1,7 +1,5 @@
-// Should move this component to a proper directory.
-
 import React, { useEffect } from 'react'
-import { ModalRefType } from './modal'
+import { ModalRefType } from 'components/elements/modal'
 import { Localize } from 'components/localization'
 import { Modal, Header } from 'components/elements'
 import { getCountryRule } from 'components/containers/visibility'

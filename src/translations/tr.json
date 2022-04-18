@@ -153,7 +153,11 @@
     "276341434": "Yeniden markalaşma uygulamamızın bir parçası olarak, affiliate oturum açma URL'niz değişecektir.                                                       ",
     "276645072": "2. Google Hesabınızı seçin ve Google Drive'ınıza erişmek için DBOT'un gerekli iznini verin.",
     "278499050": "Deriv hesabınıza para yatırmak ve bu hesaptan para çekmek için yerel para biriminizi kullanın.",
+<<<<<<< HEAD
     "281247370": "Marjin Hesaplayıcısı",
+=======
+    "281247370": "Marj Hesaplayıcısı",
+>>>>>>> 3cddf36455 (chore: translate download)
     "287556583": "DMT5'teki bir sözleşmenin pip değeri şu formüle göre hesaplanır:",
     "288004682": "Gizli ücret veya komisyon yok.",
     "288719886": "Çek Cumhuriyeti",

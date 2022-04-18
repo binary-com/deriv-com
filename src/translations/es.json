@@ -178,7 +178,11 @@
     "318433321": "Instrumentos disponibles para el trading con opciones",
     "318815297": "Opere como prefiera",
     "319934137": "Índices<0></0>europeos",
+<<<<<<< HEAD
     "320565687": "La <0>Cesta de Oro</0> mide el valor del oro frente a una cesta de cinco divisas mundiales (EUR, GBP, JPY, AUD, USD), cada una ponderada en un 20%.",
+=======
+    "320565687": "<0>Cesta de Oro</0> evalúa el valor del oro frente a una cesta de cinco monedas mundiales (EUR, GBP, JPY, AUD, USD), cada una ponderada en un 20%.",
+>>>>>>> 3cddf36455 (chore: translate download)
     "322580327": "Puede chatear con el trader con el que está tratando a través del chat de la aplicación para resolver la disputa. Si ambas partes no pueden llegar a un acuerdo, puede comunicarse con nosotros a través del servicio de disputas en la aplicación. Nos pondremos en contacto con las partes pertinentes y trabajaremos para resolver la disputa lo antes posible.",
     "323564058": "Pagos simplificados. Una forma rápida y fiable de depositar fondos en su moneda local.",
     "325128398": "3. Duración",
@@ -217,7 +221,11 @@
     "374195444": "¿Puedo comenzar a promocionar Deriv.com inmediatamente?",
     "375025635": "Si selecciona \"Toca\", gana el contrato si el mercado toca la barrera especificada en cualquier momento durante el plazo del contrato.",
     "376677604": "Todo esto está disponible en nuestra plataforma DMT5",
+<<<<<<< HEAD
     "378043056": "Cada uno de estos índices representa el rendimiento de las principales empresas que cotizan en bolsa en un mercado financiero en la región de Asia y Oceanía.",
+=======
+    "378043056": "Cada uno de estos índices representa el rendimiento de las principales empresas que cotizan en bolsa en un mercado financiero de la región de Asia y Oceanía.",
+>>>>>>> 3cddf36455 (chore: translate download)
     "378788991": "Nuevos índices sintéticos ahora están disponibles en DTrader y Deriv MT5 (DMT5)",
     "379730266": "El pago de comisiones para todos los activos se convertirá a su moneda de depósito según el tipo de cambio más reciente.",
     "383145223": "Acciones Ebook",
@@ -310,7 +318,11 @@
     "501620507": "¿Cómo esto afectará a mis clientes?",
     "501763239": "Pares mayores",
     "502554477": "¿Cuáles son las diferencias entre la cuenta de índices sintéticos, la financiera y financiera STP de DMT5?",
+<<<<<<< HEAD
     "506797447": "La <0>Cesta de Euro</0> mide el valor del euro frente a una cesta de cinco divisas mundiales (USD, AUD, GBP, JPY, CAD), cada una ponderada en un 20%.",
+=======
+    "506797447": "<0>Cesta de Euro</0> evalúa el valor del euro frente a una cesta de cinco divisas mundiales (USD, AUD, GBP, JPY, CAD), cada una de ellas ponderada en un 20%.",
+>>>>>>> 3cddf36455 (chore: translate download)
     "509964491": "Opere incluso cuando la mayoría de los mercados financieros estén cerrados",
     "510309290": "Deriv X: Nuestra aplicación de operaciones con CFDs desarrollada por DevExperts (<0>Android app</0>, <1>iOS app</1>)",
     "515292031": "¿Deriv.com admite desarrolladores de API?",

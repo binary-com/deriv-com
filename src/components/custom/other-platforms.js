@@ -531,9 +531,14 @@ export const NavCompany = ({ onClick }) => (
         <CardLink
             icon={() => <img src={DerivLife} alt="" width="24" height="24" />}
             title={<Localize translate_text="Deriv life" />}
+<<<<<<< HEAD
             to=""
             type="derivlife"
             external={true}
+=======
+            onClick={onClick}
+            to={deriv_life_url}
+>>>>>>> 3cddf36455 (chore: translate download)
             target="_blank"
             rel="noopener noreferrer"
         />

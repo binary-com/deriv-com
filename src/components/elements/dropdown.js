@@ -48,6 +48,7 @@ export const DropdownContainer = styled.ul`
     border-radius: 4px;
     height: 40px;
     margin-bottom: ${(props) => props.mb ?? '0'};
+    opacity: ${(props) => (props.is_disabled ? 0.32 : 1)};
 
     /* ul has no focus attributes, it needs to pass on active props instead */
     ${(props) =>
@@ -57,7 +58,11 @@ export const DropdownContainer = styled.ul`
         `}
 
     &:hover {
-        border-color: var(--color-grey-5);
+        ${(props) =>
+            !props.is_disabled &&
+            css`
+                border-color: var(--color-grey-5);
+            `}
     }
 
     ${(props) =>
@@ -203,16 +208,17 @@ export const Arrow = styled(Chevron)`
 `
 
 export const StyledLabel = styled.label`
-    color: grey;
+    color: ${(props) => (props.error ? 'var(--color-red-1)' : 'var(--color-grey-5)')};
     background: var(--color-white);
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.2rem;
+    top: ${({ label_position }) => (label_position ? label_position + 'rem' : '1.2rem')};
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding: 0 0.4rem;
+    padding: ${({ label_position }) =>
+        label_position ? label_position / 2 + 'rem 0.4rem;' : '0 0.4rem;'};
 
     @media ${device.tabletL} {
         font-size: 1.6rem;
@@ -227,9 +233,8 @@ export const StyledLabel = styled.label`
     ${(props) =>
         props.active &&
         css`
-            color: var(--color-green);
+            color: ${props.error ? 'var(--color-red-1)' : 'var(--color-green)'};
             transform: translate(-0.6rem, -2.2rem) scale(0.7);
-
             @media ${device.tabletL} {
                 top: 9px;
             }
@@ -303,10 +308,10 @@ ItemList.propTypes = {
     selected_option: PropTypes.any,
 }
 
-export const BottomLabel = ({ error, contractSize }) => {
+export const BottomLabel = ({ error, contractSize, line_height }) => {
     return (
         <StyledDiv>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
+            <ErrorMessages lh={line_height ? line_height : '1.2'} align="left" color="red-1">
                 {error}
             </ErrorMessages>
 
@@ -322,6 +327,7 @@ export const BottomLabel = ({ error, contractSize }) => {
 BottomLabel.propTypes = {
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    line_height: PropTypes.string,
 }
 
 const Dropdown = ({

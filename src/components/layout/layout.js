@@ -171,7 +171,7 @@ const Layout = ({
             }
             if (isTestlink()) {
                 const testlink_url = isBrowser() && localStorage.getItem('config.testlink_url')
-                if (testlink_url === 'deriv.com' || testlink_url === 'eu.deriv.com') {
+                if (testlink_url) {
                     setRedirectionApplied(true)
                     handleRedirect(testlink_url)
                 }

@@ -115,7 +115,6 @@ const endpointValidation = (values: ValuesType) => {
 }
 
 const testlink_urls = [
-    { name: '', display_name: 'No Redirection', key: '0', icon: '' },
     { name: 'deriv.com', display_name: 'deriv.com', key: '1', icon: '' },
     { name: 'eu.deriv.com', display_name: 'eu.deriv.com', key: '2', icon: '' },
 ]
@@ -131,10 +130,7 @@ const Endpoint = () => {
     const [reset_loading, setResetLoading] = React.useState(false)
     const { website_status, setWebsiteStatus, website_status_loading } =
         React.useContext(DerivStore)
-    const [testlink_url, setTestlinkUrl] = useLocalStorageState(
-        testlink_urls[0],
-        'config.testlink_url',
-    )
+    const [testlink_url, setTestlinkUrl] = useLocalStorageState(null, 'config.testlink_url')
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 
@@ -208,7 +204,7 @@ const Endpoint = () => {
                             ? website_status?.clients_country
                             : '',
                         is_eu_content: is_eu_content || false,
-                        testlink_url: testlink_url ? testlink_url : '',
+                        testlink_url: testlink_url || null,
                     }}
                     enableReinitialize={true}
                     validate={endpointValidation}

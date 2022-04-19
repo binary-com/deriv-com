@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
@@ -163,6 +162,9 @@ const Signup = (props) => {
     }
 
     const handleAffiliateSignup = (e) => {
+        e.preventDefault()
+        // find a way to access user token
+        const token = 'tmdaw4uGUCYGFJK'
         const {
             first_name,
             last_name,
@@ -173,8 +175,10 @@ const Signup = (props) => {
             non_pep_declaration,
             tnc_accepted,
         } = user_data
+
         const req_affiliate = {
             affiliate_account_add: 1,
+            // email as username is failing
             // username: window.localStorage.getItem('affiliate_email'),
             username: first_name,
             first_name,
@@ -189,32 +193,28 @@ const Signup = (props) => {
             non_pep_declaration,
             tnc_accepted,
         }
-        console.log(req_affiliate)
-        e.preventDefault()
+
         const binary_socket = BinarySocketBase.init()
+
         binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify(req_affiliate))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
-            console.log(response)
-            // setSubmitting(false)
-            if (response.error) {
-                // binary_socket.close()
-                // setSubmitStatus('error')
-                // setSubmitErrorMsg(response.error.message)
-                // handleValidation(formatted_email)
-            } else {
-                // setSubmitStatus('success')
-                if (props.onSubmit) {
-                    // props.onSubmit(submit_status || 'success', email)
+            binary_socket.send(JSON.stringify({ authorize: token }))
+            binary_socket.onmessage = () => {
+                binary_socket.send(JSON.stringify(req_affiliate))
+                binary_socket.onmessage = (msg) => {
+                    const response = JSON.parse(msg.data)
+                    if (response.error) {
+                        binary_socket.close()
+                        props.showModal(true)
+                        props.setErrorMessage(response.error.message)
+                        setSubmitStatus('error')
+                    } else {
+                        binary_socket.close()
+                        props.showModal(true)
+                    }
                 }
             }
-
-            binary_socket.close()
         }
     }
-
     const clearEmail = () => {
         setEmail('')
         setEmailErrorMsg('')

@@ -1,13 +1,9 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import { Flex } from '../containers'
-import {
-    getSignupAffiliateValue,
-    resetSignupAffiliateDetails,
-} from '../../pages/signup-affiliates-details/common/_utility'
+import { resetSignupAffiliateDetails } from '../../pages/signup-affiliates-details/common/_utility'
 import { DropdownSearch } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
 import { useAffiliateData } from '../hooks/use-affiliate-data'
@@ -65,16 +61,11 @@ const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
 `
 
-const SignupAffiliateDetails = ({
-    autofocus,
-    handleLogin,
-    setUserData,
-    showModal,
-    setErrorMessage,
-}) => {
+const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
     const [non_pep_declaration, setNonPepDeclaration] = useState(0)
     const [tnc_accepted, setTncAccepted] = useState(0)
     const [disabled, setDisabled] = useState(true)
+    const [is_eu_checked, setEuChecked] = useState(false)
     const residence_list = useResidenceList()
 
     useEffect(() => {
@@ -87,12 +78,6 @@ const SignupAffiliateDetails = ({
         useAffiliateData()
 
     const handleCheckChange = (event, func) => func(event.currentTarget.checked ? 1 : 0)
-
-    const submitValues = (values, callback) => {
-        Object.keys(values).forEach((el) => {
-            callback(el, getSignupAffiliateValue(values[el]))
-        })
-    }
 
     return (
         <StyledContentFlex jc="flex-start" fd="column" p="40px">
@@ -111,8 +96,6 @@ const SignupAffiliateDetails = ({
                 }}
                 validateOnBlur={false}
                 validate={(values) => resetSignupAffiliateDetails(values)}
-                // onSubmit={(values, { setFieldValue }) => submitValues(values, setFieldValue)}
-                // onSubmit={(e) => e.preventDefault()}
             >
                 {({
                     values,
@@ -342,30 +325,20 @@ const SignupAffiliateDetails = ({
                                 ></AgreementLabel>
                             </Flex>
                             <Flex fd="column" ai="center">
-                                <div
-                                    onClick={() => {
-                                        if (fieldsSelected()) {
-                                            // showModal(true)
-                                            // setErrorMessage(true)
-                                        }
-                                    }}
-                                >
+                                <div>
                                     <SignupButton
                                         id="dm-new-signup"
                                         secondary
                                         type="submit"
-                                        // disabled={fieldsSelected()}
+                                        disabled={fieldsSelected()}
                                         onClick={() => {
+                                            /*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
                                             const { residence_list, ...user_data } = values
                                             setUserData({
                                                 ...user_data,
                                                 non_pep_declaration,
                                                 tnc_accepted,
                                             })
-                                            // e.preventDefault()
-                                            // submitValues(values, setFieldValue)
-                                            // showModal(true)
-                                            // setErrorMessage(false)
                                         }}
                                     >
                                         {localize('Sign up')}
@@ -413,9 +386,10 @@ SignupAffiliateDetails.propTypes = {
     handleValidation: PropTypes.func,
     is_ppc: PropTypes.bool,
     last_name: PropTypes.string,
-    phone: PropTypes.number,
     password: PropTypes.string,
+    phone: PropTypes.number,
     setErrorMessage: PropTypes.func,
+    setUserData: PropTypes.func,
     showModal: PropTypes.func,
 }
 

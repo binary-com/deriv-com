@@ -38,7 +38,7 @@ beforeEach(() => {
 })
 
 describe('NewSignUp', () => {
-    it('it should contain Got', () => {
+    it('should contain Got', () => {
         render(
             <DerivProvider value={{ is_eu_country: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>

@@ -169,13 +169,6 @@ const Layout = ({
                 setRedirectionApplied(true)
                 handleRedirect(residence, current_client_country, window.location.hostname)
             }
-            if (isTestlink()) {
-                const testlink_url = isBrowser() && localStorage.getItem('config.testlink_url')
-                if (testlink_url) {
-                    setRedirectionApplied(true)
-                    handleRedirect(testlink_url)
-                }
-            }
         }, [website_status])
     }
 

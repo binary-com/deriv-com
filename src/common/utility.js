@@ -449,20 +449,17 @@ const handleEURedirect = (country, full_domain) => {
     }
 }
 
-const handleTestlinkRedirect = (domain) => {
-    window.location.href = `https://${domain + window.location.pathname}`
-}
-
 export const handleRedirect = (residence, current_client_country, full_domain) => {
     const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
     const country = residence ? residence : current_client_country
 
     const eu_domains = ['eu', 'staging-eu']
 
-    const testlink_base_domain = isBrowser() && localStorage.getItem('config.testlink_url')
+    const test_link_base_domain =
+        isBrowser() && localStorage.getItem('config.test_link_base_domain')
 
-    if (testlink_base_domain && isTestlink()) {
-        handleTestlinkRedirect(residence)
+    if (isTestlink() && !test_link_base_domain) {
+        navigate('/endpoint')
     }
 
     if (eu_domains.some((e) => subdomain.includes(e))) {

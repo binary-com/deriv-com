@@ -15,11 +15,15 @@ import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
 import { Dev } from 'components/containers/visibility'
 
+type TestLinkBaseDomain = { name: string; display_name: string; key: string; icon: string }
+
+type TestLinkBaseDomainList = TestLinkBaseDomain[]
+
 type ValuesType = {
     server_url?: string
     app_id?: string
     clients_country?: string
-    testlink_url?: { name: string; display_name: string; key: string; icon: string }
+    test_link_base_domain?: TestLinkBaseDomain
 }
 
 type ActionsType = {
@@ -96,7 +100,7 @@ const endpointValidation = (values: ValuesType) => {
     return errors
 }
 
-const testlink_urls = [
+const test_link_base_domain_list: TestLinkBaseDomainList = [
     { name: 'deriv.com', display_name: 'deriv.com', key: '1', icon: '' },
     { name: 'eu.deriv.com', display_name: 'eu.deriv.com', key: '2', icon: '' },
 ]
@@ -107,7 +111,10 @@ const Endpoint = () => {
     const [reset_loading, setResetLoading] = React.useState(false)
     const { website_status, setWebsiteStatus, website_status_loading } =
         React.useContext(DerivStore)
-    const [testlink_url, setTestlinkUrl] = useLocalStorageState(null, 'config.testlink_url')
+    const [test_link_base_domain, setTestLinkBaseDomain] = useLocalStorageState(
+        null,
+        'config.test_link_base_domain',
+    )
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 
@@ -122,7 +129,7 @@ const Endpoint = () => {
         setResetLoading(true)
         setServerUrl()
         setAppId()
-        setTestlinkUrl()
+        setTestLinkBaseDomain()
 
         // adding the default storage values
         setTimeout(() => {
@@ -140,7 +147,7 @@ const Endpoint = () => {
         actions.setSubmitting(true)
         setServerUrl(values.server_url)
         setAppId(values.app_id)
-        setTestlinkUrl(values.testlink_url.name)
+        setTestLinkBaseDomain(values.test_link_base_domain.name)
 
         // handle website status changes
         const new_website_status = { ...website_status, clients_country: values.clients_country }
@@ -176,7 +183,7 @@ const Endpoint = () => {
                         clients_country: website_status?.clients_country
                             ? website_status?.clients_country
                             : '',
-                        testlink_url: testlink_url || null,
+                        test_link_base_domain: test_link_base_domain || null,
                     }}
                     enableReinitialize={true}
                     validate={endpointValidation}
@@ -238,13 +245,13 @@ const Endpoint = () => {
                                 />
                                 <Dev>
                                     <Dropdown
-                                        option_list={testlink_urls}
+                                        option_list={test_link_base_domain_list}
                                         id="Base Domain URL"
                                         label="Base Domain URL"
                                         default_option="No Redirection"
-                                        selected_option={values.testlink_url}
+                                        selected_option={values.test_link_base_domain}
                                         onChange={(value) => {
-                                            setFieldValue('testlink_url', value)
+                                            setFieldValue('test_link_base_domain', value)
                                         }}
                                         onBlur={handleBlur}
                                         autoComplete="off"

@@ -81,7 +81,6 @@ const deviceRenderer = (): boolean => {
 
 export const getCountryRule = () => {
     const [website_status] = useWebsiteStatus()
-    const is_eu_localstorage = isBrowser() && localStorage.getItem('config.is_eu_content')
     const user_ip_country = website_status?.clients_country || ''
     const { is_eu_domain, is_uk_domain } = domainBasedCheck()
     const { residence } = getClientInformation(getDomain()) || {
@@ -94,8 +93,7 @@ export const getCountryRule = () => {
     const is_eu_residence = eu_countries_uk_excluded.includes(residence)
     const is_uk_residence = residence === 'gb'
 
-    const is_eu =
-        is_eu_residence || (!residence && is_eu_country) || is_eu_domain || is_eu_localstorage
+    const is_eu = is_eu_residence || (!residence && is_eu_country) || is_eu_domain
     const is_uk = is_uk_residence || (!residence && is_uk_country) || is_uk_domain
     const is_non_uk = !is_uk
     const is_non_eu = !is_eu

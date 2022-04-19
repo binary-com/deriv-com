@@ -459,10 +459,14 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
 
     const eu_domains = ['eu', 'staging-eu']
 
-    if (eu_domains.some((e) => subdomain.includes(e)) && !isTestlink()) {
-        handleEURedirect(country, full_domain)
-    } else if (isTestlink()) {
+    const testlink_base_domain = isBrowser() && localStorage.getItem('config.testlink_url')
+
+    if (testlink_base_domain && isTestlink()) {
         handleTestlinkRedirect(residence)
+    }
+
+    if (eu_domains.some((e) => subdomain.includes(e))) {
+        handleEURedirect(country, full_domain)
     } else {
         handleDerivRedirect(country, subdomain)
     }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form } from 'formik'
 import device from 'themes/device'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -8,18 +8,17 @@ import { Container, SEO } from 'components/containers'
 import { Dropdown, Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
-import { trimSpaces, isBrowser } from 'common/utility'
+import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
-import { Dev, getCountryRule } from 'components/containers/visibility'
+import { Dev } from 'components/containers/visibility'
 
 type ValuesType = {
     server_url?: string
     app_id?: string
     clients_country?: string
-    is_eu_content?: boolean
     testlink_url?: { name: string; display_name: string; key: string; icon: string }
 }
 
@@ -68,23 +67,6 @@ const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
 
-const CheckboxContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 16px;
-`
-
-const StyledCheckbox = styled(Field)`
-    height: 16px;
-    width: 16px;
-`
-
-const StyledSpan = styled.div`
-    font-size: 15px;
-    padding-left: 5px;
-`
-
 const endpointValidation = (values: ValuesType) => {
     const errors: ValuesType = {}
 
@@ -120,13 +102,8 @@ const testlink_urls = [
 ]
 
 const Endpoint = () => {
-    const { is_dev } = getCountryRule()
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
-    const [is_eu_content, setIsEuContent] = useLocalStorageState(
-        isBrowser() && localStorage.getItem('config.is_eu_content') === 'true' ? true : false,
-        'config.is_eu_content',
-    )
     const [reset_loading, setResetLoading] = React.useState(false)
     const { website_status, setWebsiteStatus, website_status_loading } =
         React.useContext(DerivStore)
@@ -145,7 +122,6 @@ const Endpoint = () => {
         setResetLoading(true)
         setServerUrl()
         setAppId()
-        setIsEuContent()
         setTestlinkUrl()
 
         // adding the default storage values
@@ -164,9 +140,6 @@ const Endpoint = () => {
         actions.setSubmitting(true)
         setServerUrl(values.server_url)
         setAppId(values.app_id)
-        if (is_dev && isBrowser()) {
-            setIsEuContent(values.is_eu_content)
-        }
         setTestlinkUrl(values.testlink_url.name)
 
         // handle website status changes
@@ -203,7 +176,6 @@ const Endpoint = () => {
                         clients_country: website_status?.clients_country
                             ? website_status?.clients_country
                             : '',
-                        is_eu_content: is_eu_content || false,
                         testlink_url: testlink_url || null,
                     }}
                     enableReinitialize={true}
@@ -265,35 +237,19 @@ const Endpoint = () => {
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
                                 <Dev>
-                                    <>
-                                        <Dropdown
-                                            option_list={testlink_urls}
-                                            id="Test Link Domain"
-                                            label="Test Link Domain"
-                                            default_option="No Redirection"
-                                            selected_option={values.testlink_url}
-                                            onChange={(value) => {
-                                                setFieldValue('testlink_url', value)
-                                            }}
-                                            onBlur={handleBlur}
-                                            autoComplete="off"
-                                            data-lpignore="true"
-                                        />
-                                        <CheckboxContainer>
-                                            <StyledCheckbox
-                                                name="is_eu_content"
-                                                value={values.is_eu_content}
-                                                checked={
-                                                    values.is_eu_content === true ? true : false
-                                                }
-                                                disabled={website_status_loading}
-                                                onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                type="checkbox"
-                                            />
-                                            <StyledSpan>Show EU Content</StyledSpan>
-                                        </CheckboxContainer>
-                                    </>
+                                    <Dropdown
+                                        option_list={testlink_urls}
+                                        id="Base Domain URL"
+                                        label="Base Domain URL"
+                                        default_option="No Redirection"
+                                        selected_option={values.testlink_url}
+                                        onChange={(value) => {
+                                            setFieldValue('testlink_url', value)
+                                        }}
+                                        onBlur={handleBlur}
+                                        autoComplete="off"
+                                        data-lpignore="true"
+                                    />
                                 </Dev>
                             </InputGroup>
                             <Text align="center" color="green">

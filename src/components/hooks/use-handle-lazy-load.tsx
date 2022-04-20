@@ -9,7 +9,7 @@ const UseHandleLazyLoad = () => {
     const [is_large_screen, setLargeScreen] = useState(false)
     useEffect(() => {
         window.addEventListener('scroll', onScroll)
-        if (window.innerHeight >= 895) {
+        if (window.innerHeight >= 8950) {
             setLargeScreen(true)
         }
         return () => window.removeEventListener('scroll', onScroll)

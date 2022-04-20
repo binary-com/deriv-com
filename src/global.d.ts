@@ -7,7 +7,7 @@ interface Window {
         on_chat_ended: () => void
     }
     LiveChatWidget: {
-        on: (x, y) => void
-        call: (x, y) => void
+        on: (x: string, y: (e) => void) => void
+        call: (x: string, y: string) => void
     }
 }

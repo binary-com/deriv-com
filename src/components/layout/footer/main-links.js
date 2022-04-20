@@ -41,7 +41,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             <Link
                                 to={''}
                                 type="derivlife"
-                                external="true"
+                                external={true}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

@@ -444,6 +444,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={DerivLife} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Deriv life" />}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="" width="16" height="16" />
+                            </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

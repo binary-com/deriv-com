@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
+import { LocalizedLink, LanguageSwitcher, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -37,13 +37,21 @@ const MainNav = ({ is_security }: MainNavProps) => {
     const links = [
         {
             to: '/',
-            title: is_security ? localize('Go to Deriv.com') : localize('Deriv website'),
+            title: is_security ? (
+                <Localize translate_text="Go to Deriv.com" />
+            ) : (
+                <Localize translate_text="Deriv website" />
+            ),
         },
         {
             to: '/who-we-are/',
-            title: is_security ? localize('About us') : localize('Who we are'),
+            title: is_security ? (
+                <Localize translate_text="About us" />
+            ) : (
+                <Localize translate_text="Who we are" />
+            ),
         },
-        { to: '/contact_us/', title: localize('Contact us') },
+        { to: '/contact_us/', title: <Localize translate_text="Contact us" /> },
     ]
 
     return (

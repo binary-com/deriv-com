@@ -52,11 +52,16 @@ export type ModalPayloadType = {
     target: string
     aria_label: string
 }
+declare global {
+    interface Window {
+        dataLayer: []
+    }
+}
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
 
-const has_dataLayer = isBrowser() && window['dataLayer']
+const has_dataLayer = isBrowser() && window.dataLayer
 
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)

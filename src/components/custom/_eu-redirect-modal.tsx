@@ -127,7 +127,7 @@ const EURedirect = ({
                         <Text weight="bold">
                             <Localize translate_text="Redirect notice" />
                         </Text>
-                        <CloseButton src={Close} alt="close-2" onClick={() => toggle} />
+                        <CloseButton src={Close} alt="close-2" onClick={toggle} />
                     </Action>
 
                     <div>
@@ -147,7 +147,7 @@ const EURedirect = ({
                             ref={ref}
                             href={to}
                             aria-label={aria_label}
-                            onClick={() => toggle}
+                            onClick={toggle}
                         >
                             <Text size="var(--text-size-xs)" weight="bold" color="white">
                                 <Localize translate_text="Proceed" />
@@ -155,7 +155,7 @@ const EURedirect = ({
                         </Proceed>
                     </Flex>
                 </ModalCard>
-                <Background onClick={() => toggle} />
+                <Background onClick={toggle} />
             </ModalWrapper>
         )
     )

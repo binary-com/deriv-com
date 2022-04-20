@@ -26,7 +26,7 @@ const WhyTradeCFD = () => {
                         <Text weight="bold" mb="0.8rem" mt="1.6rem">
                             {is_eu_country
                                 ? localize('Tight spreads')
-                                : localize('High leverage, tight spreads')}
+                                : localize('High leverage, tight forex spreads')}
                         </Text>
                         <Text mb="4rem">
                             {is_eu_country

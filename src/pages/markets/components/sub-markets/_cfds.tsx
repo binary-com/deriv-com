@@ -4,6 +4,7 @@ import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
+import { Header } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -27,7 +28,7 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
         <StyledSection padding="4rem 0 8rem">
             <ContentWrapper>
                 <Descriptions>
-                    <StyledText align="center" font_size="14px">
+                    <Header as="h3" type="paragraph-1" mt="4rem">
                         {is_eu_country
                             ? localize(
                                   'CFD trading allows you to make a potential profit from the price movement of the underlying asset without purchasing it.',
@@ -35,7 +36,7 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                             : localize(
                                   'CFD trading allows you to trade on the price movement of an asset without buying or owning the underlying asset.',
                               )}
-                    </StyledText>
+                    </Header>
                     <StyledText align="center" mt="16px" font_size="14px">
                         {is_eu_country
                             ? localize(

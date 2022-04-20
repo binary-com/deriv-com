@@ -53,7 +53,7 @@ const stocks: Stock[] = [
     },
     {
         src: ResponsiveWebsite,
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        text: <Localize translate_text="Responsive, easy-to-use online trading platforms" />,
     },
     {
         src: FriendlySupport,

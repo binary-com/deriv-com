@@ -227,7 +227,7 @@ const AvailableTrades = ({
 
     return (
         <StyledSection>
-            <StyledHeader size="var(--text-size-header-1)" align="center" as="h2">
+            <StyledHeader as="h2" size="var(--text-size-header-1)" align="center">
                 {display_title}
             </StyledHeader>
             <StyledContainer direction="column">

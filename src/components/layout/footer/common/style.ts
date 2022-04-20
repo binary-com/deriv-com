@@ -155,7 +155,7 @@ export const DisclaimerParagraph = styled(Text)<DisclaimerParagraphProps>`
         width: 90%;
         margin: 16px auto 0;
         font-size: 12px;
-        line-height: ${(props) => (props.line_height ? '21px' : '18px')};
+        line-height: ${(props) => (props.has_line_height ? '21px' : '18px')};
     }
 `
 export const shared_css = css`

@@ -1,20 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
-declare global {
-    interface Window {
-        LC_API: {
-            open_chat_window: () => void
-            hide_chat_window: () => void
-            on_chat_ended: () => void
-        }
-        LiveChatWidget: {
-            on: (x, y) => void
-            call: (x, y) => void
-        }
-    }
-}
-
 export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}

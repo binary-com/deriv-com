@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react'
 import { getClientInformation, getDomain, getLanguage, isBrowser } from 'common/utility'
-declare global {
-    interface Window {
-        dataLayer: [loggedIn: boolean, language: () => string]
-    }
-}
+
 const useGTMData = () => {
     const [gtm_data, setGTMData] = React.useState(null)
     const domain = getDomain()

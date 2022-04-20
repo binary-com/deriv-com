@@ -23,19 +23,19 @@ jest.mock('common/utility', () => ({
 }))
 
 // mock the qraphql query used in seo.js
-beforeEach(() => {
-    useStaticQuery.mockReturnValue({
-        site: {
-            siteMetadata: {
-                title: `Gatsby Starter Blog`,
-                description: `A starter blog demonstrating what Gatsby can do.`,
-                social: {
-                    twitter: `kylemathews`,
-                },
+// beforeEach(() => {
+useStaticQuery.mockReturnValue({
+    site: {
+        siteMetadata: {
+            title: `Gatsby Starter Blog`,
+            description: `A starter blog demonstrating what Gatsby can do.`,
+            social: {
+                twitter: `kylemathews`,
             },
         },
-    })
+    },
 })
+// })
 
 describe('NewSignUp', () => {
     it('should contain Got', () => {

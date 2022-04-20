@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react'
+import React, { useState, ReactNode, Ref } from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
@@ -42,6 +42,14 @@ type LayoutProps = {
 type MainType = {
     is_static?: boolean
     margin_top?: number | string
+}
+
+export type ModalPayloadType = {
+    to: string
+    ref: Ref<HTMLAnchorElement>
+    rel: string
+    target: string
+    aria_label: string
 }
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -149,7 +157,7 @@ const Layout = ({
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
-    const [modal_payload, setModalPayload] = React.useState({})
+    const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
 
@@ -285,11 +293,11 @@ const Layout = ({
                 toggle={toggleModal}
                 is_open={show_modal}
                 closeModal={closeModal}
-                to={modal_payload['to']}
-                target={modal_payload['target']}
-                rel={modal_payload['rel']}
-                ref={modal_payload['ref']}
-                aria_label={modal_payload['aria_label']}
+                to={modal_payload.to}
+                target={modal_payload.target}
+                rel={modal_payload.rel}
+                ref={modal_payload.ref}
+                aria_label={modal_payload.aria_label}
             />
         </LocationProvider>
     )

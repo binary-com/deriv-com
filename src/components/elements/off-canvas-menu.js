@@ -6,7 +6,7 @@ import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
 import { LocalizedLink, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
-import { deriv_status_page_url, binary_bot_url, deriv_life_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Basket from 'images/svg/custom/basket-nav.svg'
@@ -435,7 +435,9 @@ export const OffCanvasMenuWrapper = (props) => {
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink
-                            to={deriv_life_url}
+                            to={''}
+                            external={true}
+                            type="derivlife"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -444,6 +446,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={DerivLife} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Deriv life" />}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="" width="16" height="16" />
+                            </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

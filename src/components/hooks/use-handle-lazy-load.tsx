@@ -5,58 +5,64 @@ import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
 
 const UseHandleLazyLoad = () => {
-    const containerRef = useRef(null)
     const [isVisible, setIsVisible] = useState(false)
-    const callbackFunction = (entries) => {
+    const handleIntersect = (entries, observer) => {
         const [entry] = entries
-        setIsVisible(entry.isIntersecting)
-    }
-
-    const options = {
-        root: document.getElementById('market-fold'),
-        rootMargin: '0px',
-        threshold: 0.5,
+        if (entry.isIntersecting) {
+            setIsVisible(entry.isIntersecting)
+            observer.disconnect()
+        }
     }
     useEffect(() => {
-        const observer = new IntersectionObserver(callbackFunction, options)
-        if (containerRef.current) observer.observe(containerRef.current)
-        return () => {
-            if (containerRef.current) observer.unobserve(containerRef.current)
+        createObserver()
+    }, [])
+
+    const createObserver = () => {
+        const target = document.querySelector('#market-fold')
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
         }
-    }, [containerRef, options])
+
+        const observer = new IntersectionObserver(handleIntersect, options)
+        observer.observe(target)
+    }
 
     return (
-        <div ref={containerRef}>
-            <TradeTypes
-                fallback={
-                    <div>
-                        <img
-                            src={TRADE_DUMMY}
-                            style={{ marginLeft: '331px' }}
-                            alt="trade-type-dummy"
-                        />
-                    </div>
-                }
-            />
-            <OurPlatforms
-                fallback={
-                    <div>
-                        <img
-                            src={PLATFORM_DUMMY}
-                            style={{ marginLeft: '331px' }}
-                            alt="platform-dummy"
-                        />
-                    </div>
-                }
-            />
-            <WhatOurClientsSay
-                fallback={
-                    <div>
-                        <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
-                    </div>
-                }
-            />
-        </div>
+        isVisible && (
+            <>
+                <TradeTypes
+                    fallback={
+                        <div>
+                            <img
+                                src={TRADE_DUMMY}
+                                style={{ marginLeft: '331px' }}
+                                alt="trade-type-dummy"
+                            />
+                        </div>
+                    }
+                />
+                <OurPlatforms
+                    fallback={
+                        <div>
+                            <img
+                                src={PLATFORM_DUMMY}
+                                style={{ marginLeft: '331px' }}
+                                alt="platform-dummy"
+                            />
+                        </div>
+                    }
+                />
+                <WhatOurClientsSay
+                    fallback={
+                        <div>
+                            <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
+                        </div>
+                    }
+                />
+            </>
+        )
     )
 }
 

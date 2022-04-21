@@ -41,7 +41,7 @@ const ImageWrapper = styled.div`
     padding: 2.4rem 10.2rem;
     max-width: 60rem;
     width: 100%;
-    margin: 0 10rem;
+    margin: 0 auto;
 
     @media ${device.laptopL} {
         padding: 2.4rem 0;

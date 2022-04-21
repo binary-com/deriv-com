@@ -298,7 +298,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
             <Show.Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
-                    <StyledHeader as="h2" type="section-title" align="left">
+                    <StyledHeader as="h2" type="heading-3" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
                     <Carousel has_autoplay autoplay_interval={4000} {...settings}>
@@ -309,7 +309,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 </MarketsWrapper>
             </Show.Desktop>
             <Show.Mobile min_width="mobileL">
-                <StyledHeader as="h2" type="section-title" align="left">
+                <StyledHeader as="h2" type="heading-3" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">

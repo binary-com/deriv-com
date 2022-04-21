@@ -184,7 +184,7 @@ const PnlMarginCalculator = () => {
                     </SwapTabSelector>
                 </Flex>
 
-                <ContentContainer mb="4.0rem">
+                <ContentContainer mb="4.0rem" mr="auto">
                     <FormWrapper>
                         <Formik
                             innerRef={formik_ref}

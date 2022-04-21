@@ -500,7 +500,7 @@ const PnlMultipliersCalculator = () => {
                 </Flex>
 
                 {tab === 'Level' ? (
-                    <ContentContainer mb="4.0rem">
+                    <ContentContainer mb="4.0rem" mr="auto">
                         <FormWrapper>
                             <Formik
                                 enableReinitialize

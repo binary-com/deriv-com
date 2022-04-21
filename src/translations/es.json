@@ -84,7 +84,7 @@
     "161870324": "Elija las mejores tarifas y haga un pedido, o cree un anuncio con las tarifas que desee.",
     "163040015": "Únese a los programas de afiliados e IB de Deriv y acceda a la oportunidad de ser afiliado de un proveedor confiable de trading online.",
     "166309424": "Cero cargos con pagos mensuales y diarios puntuales.",
-    "170598749": "índices de cestas",
+    "170598749": "Índices de cestas",
     "171302334": "Entonces, en este escenario, establecería su cantidad de stop loss en <0>-7,23 USD</0>.",
     "171586173": "Descubra oportunidades de trabajo en las oficinas de Deriv en todo el mundo.",
     "171638706": "Variables",
@@ -179,10 +179,14 @@
     "318815297": "Opere como prefiera",
     "319934137": "Índices<0></0>europeos",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "320565687": "La <0>Cesta de Oro</0> mide el valor del oro frente a una cesta de cinco divisas mundiales (EUR, GBP, JPY, AUD, USD), cada una ponderada en un 20%.",
 =======
     "320565687": "<0>Cesta de Oro</0> evalúa el valor del oro frente a una cesta de cinco monedas mundiales (EUR, GBP, JPY, AUD, USD), cada una ponderada en un 20%.",
 >>>>>>> 3cddf36455 (chore: translate download)
+=======
+    "320565687": "La <0>Cesta de Oro</0> mide el valor del oro frente a una cesta de cinco divisas mundiales (EUR, GBP, JPY, AUD, USD), cada una ponderada en un 20%.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "322580327": "Puede chatear con el trader con el que está tratando a través del chat de la aplicación para resolver la disputa. Si ambas partes no pueden llegar a un acuerdo, puede comunicarse con nosotros a través del servicio de disputas en la aplicación. Nos pondremos en contacto con las partes pertinentes y trabajaremos para resolver la disputa lo antes posible.",
     "323564058": "Pagos simplificados. Una forma rápida y fiable de depositar fondos en su moneda local.",
     "325128398": "3. Duración",
@@ -222,10 +226,14 @@
     "375025635": "Si selecciona \"Toca\", gana el contrato si el mercado toca la barrera especificada en cualquier momento durante el plazo del contrato.",
     "376677604": "Todo esto está disponible en nuestra plataforma DMT5",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "378043056": "Cada uno de estos índices representa el rendimiento de las principales empresas que cotizan en bolsa en un mercado financiero en la región de Asia y Oceanía.",
 =======
     "378043056": "Cada uno de estos índices representa el rendimiento de las principales empresas que cotizan en bolsa en un mercado financiero de la región de Asia y Oceanía.",
 >>>>>>> 3cddf36455 (chore: translate download)
+=======
+    "378043056": "Cada uno de estos índices representa el rendimiento de las principales empresas que cotizan en bolsa en un mercado financiero en la región de Asia y Oceanía.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "378788991": "Nuevos índices sintéticos ahora están disponibles en DTrader y Deriv MT5 (DMT5)",
     "379730266": "El pago de comisiones para todos los activos se convertirá a su moneda de depósito según el tipo de cambio más reciente.",
     "383145223": "Acciones Ebook",
@@ -319,10 +327,14 @@
     "501763239": "Pares mayores",
     "502554477": "¿Cuáles son las diferencias entre la cuenta de índices sintéticos, la financiera y financiera STP de DMT5?",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "506797447": "La <0>Cesta de Euro</0> mide el valor del euro frente a una cesta de cinco divisas mundiales (USD, AUD, GBP, JPY, CAD), cada una ponderada en un 20%.",
 =======
     "506797447": "<0>Cesta de Euro</0> evalúa el valor del euro frente a una cesta de cinco divisas mundiales (USD, AUD, GBP, JPY, CAD), cada una de ellas ponderada en un 20%.",
 >>>>>>> 3cddf36455 (chore: translate download)
+=======
+    "506797447": "La <0>Cesta de Euro</0> mide el valor del euro frente a una cesta de cinco divisas mundiales (USD, AUD, GBP, JPY, CAD), cada una ponderada en un 20%.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "509964491": "Opere incluso cuando la mayoría de los mercados financieros estén cerrados",
     "510309290": "Deriv X: Nuestra aplicación de operaciones con CFDs desarrollada por DevExperts (<0>Android app</0>, <1>iOS app</1>)",
     "515292031": "¿Deriv.com admite desarrolladores de API?",
@@ -590,8 +602,13 @@
     "867582421": "Centro de ayuda | Preguntas frecuentes | Cuenta | Deriv",
     "868154618": "Cuentas",
     "868499940": "Comience a operar con Deriv",
+<<<<<<< HEAD
     "871486196": "Opere con forex, índices sintéticos, acciones, índices bursátiles, criptomonedas y materias primas en un solo lugar.",
     "874573741": "Opere con forex, acciones, índices bursátiles y materias primas en un solo lugar. ",
+=======
+    "871486196": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place.",
+    "874573741": "Trade forex, stocks, stock indices, and commodities in one place.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "874881951": "Explore las oportunidades de trabajo disponibles en nuestra oficina de Dubái. Encuentre su papel en TI, marketing y recursos humanos.",
     "875766134": "Importando desde su computadora",
     "876581050": "Eslovaquia",
@@ -771,7 +788,11 @@
     "1150953111": "Spreads más bajos",
     "1151456638": "Valoramos a las personas que trabajan en equipo y que colaboran libremente en todos los departamentos con humildad y visión de futuro.",
     "1151925602": "Prediga si el último dígito del último tick de un contrato será mayor o menor que un número específico.",
+<<<<<<< HEAD
     "1152332043": "Opere con forex, índices sintéticos, acciones, índices bursátiles, criptomonedas y materias primas con apalancamiento.",
+=======
+    "1152332043": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "1158101648": "Importar desde su Google Drive",
     "1161300179": "Del mismo modo, puede realizar retiros de su cuenta de Deriv \"vendiendo\" fondos de Deriv a otros traders a cambio del pago en su moneda local (o cualquier moneda admitida).",
     "1161999797": "Opere con forex, sintéticos, acciones e índices, criptomonedas y materias primas.",
@@ -797,6 +818,10 @@
     "1190588251": "Tratamos a todos los clientes de forma equitativa, gestionamos las reclamaciones con integridad y ofrecemos precios competitivos sin costos ocultos y sin barreras artificiales en los retiros de los clientes.",
     "1191682103": "Sin subscripción. Inicie sesión con sus credenciales de <0>Binary.com</0>.",
     "1195213035": "Si desea reanudar el trading cuando expire su autoexclusión y una vez que haya realizado una solicitud para eliminar la autoexclusión, habrá un período de reflexión de 24 horas antes de que se le permita el acceso a nuestro sitio.",
+<<<<<<< HEAD
+=======
+    "1195630948": "INICIO",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "1196310280": "Intel",
     "1197939158": "No aceptar",
     "1198781410": "Hemos diseñado una experiencia comercial extremadamente intuitiva, centrada en el cliente y optimizada para convertir a los visitantes en clientes. También le proporcionaremos las herramientas y materiales creativos que necesita para dirigir el tráfico a Deriv.",
@@ -912,6 +937,10 @@
     "1391632806": "Los traders se califican en función de su tasa de finalización y la velocidad de los intercambios.",
     "1393006010": "Los fundamentos de la negociación de CFD",
     "1394697594": "21.000",
+<<<<<<< HEAD
+=======
+    "1394889813": "UBICACIONES",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "1396179592": "Comisión",
     "1396417530": "Índice del Mercado Bajista",
     "1399001016": "Supongamos que desea calcular la cantidad de take profit cuando desea abrir una posición para el Índice de Volatlidad 100 con un precio de 3.376,24 USD y una cantidad de inversión de 10 USD, un valor multiplicador de x100 y un nivel de take profit de 3.400 en dirección ascendente.",
@@ -1034,6 +1063,7 @@
     "1592543050": "Hasta 10.000$",
     "1593723948": "1. Cree su cuenta Deriv",
     "1595539912": "Tiempo de procesamiento",
+    "1599328252": "Head of Back End Development",
     "1599891822": "Cantidad de stop loss en dirección descendente",
     "1601324523": "5 - 10.000",
     "1601498870": "Artículos recientes",
@@ -1739,7 +1769,11 @@
     "-958645192": "Escritorio",
     "-1416247163": "Financiera STP",
     "-1186393596": "Opere con pares de divisas mayores, menores y exóticos con spreads ajustados y volúmenes de negociación más altos, directamente al mercado.",
+<<<<<<< HEAD
     "-128552689": "Opere con forex, acciones, índices bursátiles y criptomonedas con apalancamiento.",
+=======
+    "-128552689": "Trade forex, stocks, stock indices, and commodities on leverage.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-1542970945": "Opere en los mercados mundiales sin comisiones",
     "-507449979": " Opere sin comisiones",
     "-747943809": "Calcule el margen que necesita para abrir y mantener sus posiciones con nuestra calculadora de margen.",
@@ -1756,7 +1790,11 @@
     "-2037995236": "Cree una cuenta de dinero real Deriv MT5 según su preferencia de operación.",
     "-915577324": "Cómo empezar con una cuenta Deriv MT5",
     "-1495699367": "Qué es Deriv MT5",
+<<<<<<< HEAD
     "-136910883": "Deriv MT5 (DMT5) le da acceso a múltiples clases de activos — forex, índices sintéticos, acciones, índices, criptodivisas y materias primas — en una sola plataforma. Con acceso exclusivo a innovadores tipos de operaciones, Deriv lleva la experiencia de MT5 en nuestra plataforma a un nivel superior tanto para los nuevos traders como para los expertos.",
+=======
+    "-136910883": "Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-1058362536": "Registro rápido de la cuenta demo",
     "-356516643": "Practique con una cuenta demo con fondos virtuales ilimitados.",
     "-1627231267": "Múltiples activos en una sola plataforma",
@@ -2103,6 +2141,10 @@
     "-1823217929": "Por qué operar acciones e índices en Deriv",
     "-1848791211": "Opere con acciones globales de sus marcas domésticas favoritas e índices bursátiles internacionales en Deriv. Nuestras acciones e índices ofrecen acciones y canastas de activos a precios competitivos que puede operar fuera del horario habitual de los principales mercados de valores.",
     "-75763689": "Por qué operar índices sintéticos en Deriv",
+<<<<<<< HEAD
+=======
+    "-1635665985": "Los índices sintéticos propios de Deriv simulan los movimientos del mercado en el mundo real. Respaldados por un generador de números aleatorios criptográficamente seguro, estos índices están disponibles para operar 24/7 y no se ven afectados por los horarios regulares del mercado, los eventos globales o los riesgos de mercado                     y de liquidez.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-89087875": "Conozca los mercados con los que puede operar en línea con Deriv, incluyendo forex, índices sintéticos, acciones e índices, criptodivisas, cestas de índices y materias primas.",
     "-1770464254": "Las operaciones con acciones e índices le permiten beneficiarse de los movimientos de precios en un mercado sin comprar los activos subyacentes.",
     "-1252607893": "Las operaciones con criptomonedas le brindan la oportunidad de beneficiarse al predecir correctamente los movimientos de precios de las criptomonedas sin comprarlas.",
@@ -2752,10 +2794,22 @@
     "-654476117": "114M+",
     "-608807773": "operaciones el mes pasado",
     "-2022759357": "Hacer que las operaciones sean accesibles a cualquier persona en cualquier lugar",
+<<<<<<< HEAD
+=======
+    "-1277783292": "Director de Operaciones",
+    "-216767904": "Director de Administración",
+    "-515732698": "Director de Riesgos",
+    "-197772643": "Jefe de Marketing y Asociaciones Globales",
+    "-1982114134": "Head of Product & Content Design",
+    "-950913833": "Head of Customer Support",
+    "-824819024": "Head of Strategy & Project Management",
+    "-864130274": "Responsable de Cuentas",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-1855417261": "Nuestro equipo directivo",
     "-418008452": "Nuestros principios son el marco de nuestras decisiones",
     "-3618456": "Conozca más sobre nuestros principios",
     "-426017727": "Quiénes",
+<<<<<<< HEAD
     "-1277783292": "Director de Operaciones",
     "-216767904": "Director de Administración",
     "-197772643": "Jefe de Marketing y Asociaciones Globales",
@@ -2763,6 +2817,10 @@
     "-871474425": "Vicepresidente de Operaciones Informáticas",
     "-515732698": "Director de Riesgos",
     "-864130274": "Responsable de Cuentas",
+=======
+    "-290006480": "Vicepresidente de Productos",
+    "-871474425": "Vicepresidente de Operaciones Informáticas",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-234962411": "Quiénes Somos | Una Plataforma de Operaciones en Línea | Deriv.com",
     "-355907358": "Deriv.com, una marca de Binary.com, es una plataforma pionera y galardonada de trading online en el mercado comercial.",
     "-599033718": "Deriv no usa su dinero para sus intereses comerciales y se le permite retirar su dinero en cualquier momento. Todo su dinero está segregado y almacenado en instituciones financieras seguras. De esta manera, en el improbable caso de que Deriv se vuelva insolvente, todo su dinero le será devuelto porque nunca se mezcla con el nuestro.",

@@ -52,9 +52,9 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                         <AvailablePlatforms dmt5 derivx />
                     )}
                 </Descriptions>
-                <StyledText font_size="14px" weight="bold" mt="4rem">
+                <Header as="h3" type="paragraph-1" weight="bold" mt="4.0rem">
                     {localize('Instruments available for CFD trading')}
-                </StyledText>
+                </Header>
                 <MarketInstruments market_content={market_content} />
             </ContentWrapper>
         </StyledSection>

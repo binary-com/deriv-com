@@ -163,11 +163,11 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/Financial_Disclosures_Annual_Report_2020.pdf"
+                        href="/regulatory/Financial_Disclosures_Annual_Report_2021.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />
-                        <span>{localize('Financial Disclosures Annual Report 2020')}</span>
+                        <span>{localize('Financial Disclosures Annual Report 2021')}</span>
                     </FlexText_Pillar>
                 </Flex>
             </AccordionItem>

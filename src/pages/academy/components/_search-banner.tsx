@@ -10,6 +10,7 @@ import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { useAcademyTags } from 'components/hooks/use-academy-tags'
 import { LocalizedLink } from 'components/localization'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { getCountryRule } from 'components/containers/visibility'
 import { slugify, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
@@ -64,7 +65,7 @@ const NavWrapper = styled.div`
     height: 7.2rem;
 
     @media ${device.desktopL} {
-        max-width: 1600px;
+        max-width: 1200px;
     }
     @media ${device.tabletL} {
         width: calc(100% - 32px);
@@ -717,6 +718,18 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
+    const { is_eu, is_uk } = getCountryRule()
+
+    // Filter out restricted categories from the combined filter type array based on geolocation
+    useEffect(() => {
+        combined_filter_type.forEach((type) => {
+            type.items = type.items.filter((obj) => {
+                if (is_eu) return obj.is_visible_eu
+                if (is_uk) return obj.is_visible_uk
+                return obj
+            })
+        })
+    }, [is_uk, is_eu])
 
     useEffect(() => {
         const currentLocation = window.location.pathname.split('/').slice(0, 4).join('/') + '/'
@@ -735,6 +748,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         setModal(!modal_opened)
     }
 
+    // Grey out any categories that don't have any results for respective videos/blog
     const handleGreyed = (category) => {
         if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
             if (video_tags.includes(category)) return false

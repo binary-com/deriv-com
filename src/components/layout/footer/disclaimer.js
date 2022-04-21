@@ -7,7 +7,7 @@ import {
     RiskWarning,
     BoldLink,
 } from './common/style'
-import { Mobile, Desktop, EU, NonEU } from 'components/containers'
+import { Mobile, Desktop, UKEU, ROW } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { loss_percent } from 'common/constants'
 
@@ -15,7 +15,7 @@ const DisclaimerSection = ({ is_academy }) => {
     return (
         <>
             <DisclaimerWrapper>
-                <NonEU>
+                <ROW>
                     <DisclaimerParagraph>
                         <Localize
                             translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
@@ -54,8 +54,8 @@ const DisclaimerSection = ({ is_academy }) => {
                             ]}
                         />
                     </DisclaimerParagraph>
-                </NonEU>
-                <EU>
+                </ROW>
+                <UKEU>
                     <DisclaimerParagraph>
                         <Localize
                             translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union. It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request."
@@ -69,7 +69,7 @@ const DisclaimerSection = ({ is_academy }) => {
                             ]}
                         />
                     </DisclaimerParagraph>
-                </EU>
+                </UKEU>
                 <DisclaimerParagraph>
                     {localize(
                         'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
@@ -89,7 +89,7 @@ const DisclaimerSection = ({ is_academy }) => {
                 )}
                 <RiskWarning>
                     <Desktop>
-                        <NonEU>
+                        <ROW>
                             <DisclaimerParagraph no_margin>
                                 <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                             </DisclaimerParagraph>
@@ -101,8 +101,8 @@ const DisclaimerSection = ({ is_academy }) => {
                                     ]}
                                 />
                             </DisclaimerParagraph>
-                        </NonEU>
-                        <EU>
+                        </ROW>
+                        <UKEU>
                             <DisclaimerParagraph no_margin>
                                 <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                             </DisclaimerParagraph>
@@ -115,24 +115,24 @@ const DisclaimerSection = ({ is_academy }) => {
                             <DisclaimerParagraph>
                                 <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                             </DisclaimerParagraph>
-                        </EU>
+                        </UKEU>
                     </Desktop>
                     <Mobile>
-                        <EU>
-                            <DisclaimerParagraph no_margin>
+                        <UKEU>
+                            <DisclaimerParagraph no_margin line_height>
                                 <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                             </DisclaimerParagraph>
-                            <DisclaimerParagraph>
+                            <DisclaimerParagraph line_height>
                                 <Localize
                                     translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
                                     values={{ loss_percent }}
                                 />
                             </DisclaimerParagraph>
-                            <DisclaimerParagraph>
+                            <DisclaimerParagraph line_height>
                                 <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                             </DisclaimerParagraph>
-                        </EU>
-                        <NonEU>
+                        </UKEU>
+                        <ROW>
                             <DisclaimerParagraph no_margin>
                                 <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                             </DisclaimerParagraph>
@@ -144,7 +144,7 @@ const DisclaimerSection = ({ is_academy }) => {
                                     ]}
                                 />
                             </DisclaimerParagraph>
-                        </NonEU>
+                        </ROW>
                     </Mobile>
                 </RiskWarning>
             </DisclaimerWrapper>

@@ -19,14 +19,13 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 16px;
     }
 `
-
 const StyledDivider = styled(Divider)`
     margin: 0;
+
     @media (min-width: 824px) {
         width: 792px;
     }
 `
-
 const StyledFlex = styled(Flex)`
     margin-bottom: 40px;
     max-width: 792px;
@@ -37,14 +36,12 @@ const StyledFlex = styled(Flex)`
         margin-bottom: 24px;
     }
 `
-
 const InsideFlex = styled(Flex)`
     @media ${device.tablet} {
         display: block;
         margin-top: 18px;
     }
 `
-
 const StyledText = styled(Header)`
     max-width: 551px;
     margin: 16px 0;
@@ -53,7 +50,6 @@ const StyledText = styled(Header)`
         font-size: 14px;
     }
 `
-
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;
     width: auto;
@@ -61,11 +57,9 @@ const StyledLinkButton = styled(LinkButton)`
     position: relative;
     white-space: nowrap;
 `
-
 const StyledDiv = styled.div`
     width: 241px;
 `
-
 const ColoredBox = styled(Box)`
     align-self: left;
     width: fit-content;
@@ -90,8 +84,8 @@ const OurPrinciples = () => {
                 {localize('Our principles are the framework for our decisions')}
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
-                {our_principles.map((principle) => (
-                    <div key={principle.title}>
+                {our_principles.map(({ color, title, text }, idx) => (
+                    <div key={idx}>
                         <StyledDivider
                             align="center"
                             height="2px"
@@ -108,10 +102,10 @@ const OurPrinciples = () => {
                             tablet_ai="left"
                         >
                             <StyledDiv>
-                                <ColoredBox bgcolor={principle.color}>{principle.title}</ColoredBox>
+                                <ColoredBox bgcolor={color}>{title}</ColoredBox>
                             </StyledDiv>
                             <StyledText as="p" type="sub-paragraph" weight="400">
-                                {principle.text}
+                                {text}
                             </StyledText>
                         </InsideFlex>
                     </div>

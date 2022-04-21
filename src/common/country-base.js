@@ -1,4 +1,4 @@
-const eu_countries = [
+export const eu_countries = [
     'it',
     'de',
     'fr',

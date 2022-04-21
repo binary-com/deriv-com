@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets.js'
-import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
-import { NonUK } from 'components/containers/visibility'
+import { CryptocurrenciesTradeType } from '../../markets/instruments/_submarkets'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
+import { Desktop, Mobile, NonUK } from 'components/containers/visibility'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -16,7 +16,7 @@ const StyledText = styled(Text)`
 `
 
 const Col = styled(Flex)`
-    max-width: 162px;
+    max-width: 130px;
 
     @media ${device.tabletL} {
         max-width: 180px;
@@ -120,16 +120,16 @@ const Cryptocurrencies = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col>
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Crypto pairs')}
+                                                {localize('Crypto Pairs')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="auto" align="center">
-                                                {localize('Crypto pairs')}
+                                                {localize('Crypto Pairs')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <CryptocurrenciesTradeType />

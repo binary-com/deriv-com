@@ -7,6 +7,10 @@ on:
         paths-ignore:
             - '**.md'
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: staging
@@ -86,6 +90,11 @@ jobs:
               #   tagRegex: "staging(.*)"
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+            
+            - name: Verify nginx image
+              run: |
+                  set -e
+                  #docker run --rm -it --entrypoint sh ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging -c "nginx -t"
 
             - name: Pushing Image to docker hub 🐳
               run: |

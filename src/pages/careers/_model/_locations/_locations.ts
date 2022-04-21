@@ -10,10 +10,9 @@ import {
     address_rwanda,
     address_belarus,
     address_france,
-    address_uk,
     address_guernsey,
 } from './_contact-details'
-import { locationsTypes } from './_locations.types'
+import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
@@ -22,10 +21,9 @@ import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
-import UKFlagIcon from 'images/svg/careers/flag_uk.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
 
-export const cyberjaya = {
+export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
     link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
@@ -53,7 +51,7 @@ export const cyberjaya = {
     has_iframe: true,
 }
 
-export const malta = {
+export const malta: LocationsType = {
     name: 'malta',
     link: '/careers/locations/malta/',
     display_name: 'Malta',
@@ -80,7 +78,7 @@ export const malta = {
     has_iframe: true,
 }
 
-export const dubai = {
+export const dubai: LocationsType = {
     name: 'dubai',
     link: '/careers/locations/dubai/',
     display_name: 'Dubai',
@@ -105,9 +103,11 @@ export const dubai = {
     address: address_dubai,
     google_map_link: 'https://goo.gl/maps/UMNHYdEBdsAg7Ax29',
     has_iframe: true,
+    badge: 'dubai_great_place_to_work_badge',
+    badge_alt: 'Dubai Great Place to Work 2022 Certification Badge',
 }
 
-export const labuan = {
+export const labuan: LocationsType = {
     name: 'labuan',
     link: '/careers/locations/labuan/',
     display_name: 'Labuan',
@@ -135,7 +135,7 @@ export const labuan = {
     has_iframe: true,
 }
 
-export const asuncion = {
+export const asuncion: LocationsType = {
     name: 'asuncion',
     link: '/careers/locations/asuncion/',
     display_name: 'Asunción',
@@ -162,7 +162,7 @@ export const asuncion = {
     has_iframe: true,
 }
 
-export const melaka = {
+export const melaka: LocationsType = {
     name: 'melaka',
     link: '/careers/locations/melaka/',
     display_name: 'Melaka',
@@ -190,7 +190,7 @@ export const melaka = {
     has_iframe: true,
 }
 
-export const ipoh = {
+export const ipoh: LocationsType = {
     name: 'ipoh',
     link: '/careers/locations/ipoh/',
     display_name: 'Ipoh',
@@ -217,7 +217,7 @@ export const ipoh = {
     has_iframe: true,
 }
 
-export const cyprus = {
+export const cyprus: LocationsType = {
     name: 'cyprus',
     link: '/careers/locations/cyprus/',
     display_name: 'Limassol',
@@ -245,7 +245,7 @@ export const cyprus = {
     has_iframe: true,
 }
 
-export const rwanda = {
+export const rwanda: LocationsType = {
     name: 'rwanda',
     link: '/careers/locations/rwanda/',
     display_name: 'Kigali',
@@ -274,7 +274,7 @@ export const rwanda = {
     has_iframe: false,
 }
 
-export const minsk = {
+export const minsk: LocationsType = {
     name: 'minsk',
     link: '/careers/locations/minsk/',
     display_name: 'Minsk',
@@ -303,7 +303,7 @@ export const minsk = {
     has_iframe: false,
 }
 
-export const paris = {
+export const paris: LocationsType = {
     name: 'paris',
     link: '/careers/locations/paris/',
     display_name: 'Paris',
@@ -315,36 +315,17 @@ export const paris = {
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It is going to bring together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
-    map: 'cnWCUN529qw38Yce6',
+    map: 'ChIJ71ubXstv5kcRgI6dxotwI4Y',
     map_text:
         'Deriv (France) is going to be the heart of our research and development. We’re going to create an elite think tank in this centre that will help create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
     google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
-    has_iframe: false,
+    has_iframe: true,
+    has_map: true,
 }
 
-export const london = {
-    name: 'london',
-    link: '/careers/locations/london/',
-    display_name: 'London',
-    map_office_name: '(UK)',
-    country: 'United Kingdom',
-    flagIcon: UKFlagIcon,
-    thumbnail: 'thumbnail_london',
-    first_p:
-        'We’re looking for experts in law, finance, and risk management to build our London team of senior strategists. Deriv (UK) will have three crucial functions: ensuring regulatory and statutory compliance in all areas of company operations within the UK jurisdiction, making financial plans to support company growth, and mitigating risks.',
-    first_img: 'living_in_london',
-    grid_images: ['london_grid_1', 'london_grid_2', 'london_grid_3', 'london_grid_4'],
-    map: 'DJaQaFd9jqGiPB7e9',
-    map_text:
-        'Working at Deriv (UK) will give you the chance to collaborate with talented professionals on exciting challenges. We value an analytical mindset, a can-do approach, and leadership skills. This is a chance to participate in devising road plans and shaping policies for a global company. A career in the fintech industry never gets boring. Join our London team if you are ready for a mighty adventure.',
-    address: address_uk,
-    map_img: 'london_map',
-    google_map_link: 'https://goo.gl/maps/DJaQaFd9jqGiPB7e9',
-    has_iframe: false,
-}
-export const guernsey = {
+export const guernsey: LocationsType = {
     name: 'guernsey',
     link: '/careers/locations/guernsey/',
     display_name: 'Guernsey',
@@ -366,8 +347,10 @@ export const guernsey = {
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
     has_iframe: false,
+    has_map: false,
 }
-export const all_offices: locationsTypes[] = [
+
+export const all_offices: LocationsType[] = [
     dubai,
     malta,
     cyprus,
@@ -375,7 +358,6 @@ export const all_offices: locationsTypes[] = [
     labuan,
     ipoh,
     melaka,
-    london,
     paris,
     guernsey,
     asuncion,
@@ -395,6 +377,7 @@ export const locations = {
     rwanda: `${rwanda.display_name}, ${rwanda.country}`,
     belarus: `${minsk.display_name}, ${minsk.country}`,
     france: `${paris.display_name}, ${paris.country}`,
-    uk: `${london.display_name}, ${london.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
 }
+
+export const all_countries: string[] = [...new Set(all_offices.map((office) => office.country))]

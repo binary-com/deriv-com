@@ -22,6 +22,9 @@ jobs:
               with:
                   node-version: '14.x'
 
+            - run: npm i -g @crowdin/cli
+            - run: npm ci
+
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
 
@@ -32,14 +35,10 @@ jobs:
                   git config --global user.name "DerivFE"
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
 
-                  echo "Installing Crowdin CLI"
-                  sudo npm i -g @crowdin/cli
-
                   echo "Checking out new branch [$branch_name]"
                   git checkout -b "$branch_name"
 
                   echo "Running the translation script (extract-translations.js)"
-                  cd $(git rev-parse --show-toplevel)/scripts
                   npm run translate:extract
                   cd $(git rev-parse --show-toplevel)
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import MarketInstruments from '../../../markets/components/sections/_market_instruments.js'
-import { SwapFreePairs } from '../../../markets/instruments/_submarkets.js'
+import MarketInstruments from '../../../markets/components/sections/_market_instruments'
+import { SwapFreePairs } from '../../../markets/instruments/_submarkets'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
@@ -63,10 +63,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
                 <StyledText width="100%" size="1.7rem">
                     {text}
                 </StyledText>
-                <MarketInstruments
-                    market_content={swap_free_pairs}
-                    background="var(--color-white)"
-                />
+                <MarketInstruments market_content={swap_free_pairs} />
                 <TryButton
                     m="4.2rem 0 40px"
                     target="_blank"

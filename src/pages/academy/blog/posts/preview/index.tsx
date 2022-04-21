@@ -16,9 +16,6 @@ import {
     SideBarContainer,
     Tag,
     PreviewContainer,
-    SocialComponentsWrapper,
-    LeftSocialComponents,
-    RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
     StickyBreadCrumbsWrapper,
@@ -33,18 +30,27 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
+import { handleTag } from 'pages/academy/components/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { cms_assets_end_point } from 'common/constants'
+import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { useWindowSize } from 'components/hooks/use-window-size'
+
+export const getTruncateLength = () => {
+    const size = useWindowSize()
+    if (size.width < 400) return 15
+    else if (size.width < 475) return 30
+    else return 60
+}
 
 const BlogPreview = () => {
-    const [is_mobile] = useBrowserResize(992)
+    const [is_mobile] = useBrowserResize(972)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [isMounted, setMounted] = useState(false)
     const [data, setData] = useState(null)
     const [id, setId] = useState(null)
-    const end_point_url = 'https://cms.deriv.cloud/items/blog/'
+    const end_point_url = `${cms_end_point}/items/blog/`
 
     useEffect(() => {
         setMounted(true)
@@ -136,9 +142,10 @@ const BlogPreview = () => {
                                         <StyledImg src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, 30)
+                                                ? truncateString(article_title, getTruncateLength())
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
+                                        <SocialSharing />
                                     </Flex>
                                 </BreadcrumbsWrapper>
                             </StickyBreadCrumbsWrapper>
@@ -166,7 +173,14 @@ const BlogPreview = () => {
                                                     return (
                                                         <>
                                                             {tag?.tags_id?.id && (
-                                                                <Tag key={tag?.tags_id?.id}>
+                                                                <Tag
+                                                                    key={tag?.tags_id?.id}
+                                                                    onClick={() =>
+                                                                        handleTag(
+                                                                            tag?.tags_id?.tag_name,
+                                                                        )
+                                                                    }
+                                                                >
                                                                     {tag?.tags_id?.tag_name}
                                                                 </Tag>
                                                             )}
@@ -253,7 +267,14 @@ const BlogPreview = () => {
                                                 return (
                                                     <>
                                                         {tag?.tags_id?.id && (
-                                                            <Tag key={tag?.tags_id?.id}>
+                                                            <Tag
+                                                                key={tag?.tags_id?.id}
+                                                                onClick={() =>
+                                                                    handleTag(
+                                                                        tag?.tags_id?.tag_name,
+                                                                    )
+                                                                }
+                                                            >
                                                                 {tag?.tags_id?.tag_name}
                                                             </Tag>
                                                         )}
@@ -261,7 +282,7 @@ const BlogPreview = () => {
                                                 )
                                             })}
                                         </Flex>
-                                        {side_banner_data_details && (
+                                        {side_banner_data_details?.imgSrcDesktop && (
                                             <Banner detailsPreviewObj={side_banner_data_details} />
                                         )}
                                         <DesktopWrapper>
@@ -280,16 +301,9 @@ const BlogPreview = () => {
                                         }}
                                     />
 
-                                    {footer_banner_details && (
+                                    {footer_banner_details?.imgSrcDesktop && (
                                         <Banner detailsPreviewObj={footer_banner_details} />
                                     )}
-                                    <SocialComponentsWrapper>
-                                        <LeftSocialComponents />
-                                        <RightSocialComponents>
-                                            <SocialSharing />
-                                        </RightSocialComponents>
-                                    </SocialComponentsWrapper>
-
                                     {side_banner_data_details && (
                                         <Show.Mobile>
                                             <Flex mt="24px">

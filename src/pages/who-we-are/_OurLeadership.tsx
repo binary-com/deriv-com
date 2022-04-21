@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
@@ -7,54 +7,6 @@ import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import type { ImageWrapperProps } from 'components/elements/query-image'
 import device from 'themes/device'
-import Linkedin from 'images/svg/who-we-are/linkedin.svg'
-
-const query = graphql`
-    query {
-        antony: file(relativePath: { eq: "who-we-are/antony.jpg" }) {
-            ...fadeIn
-        }
-        derek: file(relativePath: { eq: "who-we-are/derek.jpg" }) {
-            ...fadeIn
-        }
-        gary: file(relativePath: { eq: "who-we-are/gary.jpg" }) {
-            ...fadeIn
-        }
-        jennice: file(relativePath: { eq: "who-we-are/jennice.jpg" }) {
-            ...fadeIn
-        }
-        jeya: file(relativePath: { eq: "who-we-are/jeya.jpg" }) {
-            ...fadeIn
-        }
-        jy: file(relativePath: { eq: "who-we-are/jy.jpg" }) {
-            ...fadeIn
-        }
-        joanna: file(relativePath: { eq: "who-we-are/joanna.jpg" }) {
-            ...fadeIn
-        }
-        louise: file(relativePath: { eq: "who-we-are/louise.jpg" }) {
-            ...fadeIn
-        }
-        rakshit: file(relativePath: { eq: "who-we-are/rakshit.jpg" }) {
-            ...fadeIn
-        }
-        raunak: file(relativePath: { eq: "who-we-are/raunak.jpg" }) {
-            ...fadeIn
-        }
-        seema: file(relativePath: { eq: "who-we-are/seema.jpg" }) {
-            ...fadeIn
-        }
-        shyamala: file(relativePath: { eq: "who-we-are/shyamala.jpg" }) {
-            ...fadeIn
-        }
-        tom: file(relativePath: { eq: "who-we-are/tom.jpg" }) {
-            ...fadeIn
-        }
-        waqas: file(relativePath: { eq: "who-we-are/waqas.jpg" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -74,7 +26,6 @@ const StyledCssGrid = styled(CssGrid)`
     @media ${device.tablet} {
         max-width: unset;
         padding: 0;
-        grid-template-columns: ;
     }
     @media (max-width: 359px) {
         grid-template-columns: repeat(3, 88px);
@@ -92,6 +43,7 @@ const StyledHeader = styled(Header)`
         padding-bottom: 24px;
     }
 `
+
 const ModalFlex = styled(Flex)`
     position: absolute;
     top: 130px;
@@ -325,6 +277,7 @@ const OurLeadership = () => {
             image: leaders_data.jennice,
         },
     ]
+          
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
@@ -343,9 +296,7 @@ const OurLeadership = () => {
                 mobile_column_gap="24px"
                 mobile_row_gap="6px"
             >
-                {leaders.map((leader: LeaderType, index: number) => (
-                    <Leader leader={leader} key={index} />
-                ))}
+                <Leaders />
             </StyledCssGrid>
         </StyledSectionContainer>
     )

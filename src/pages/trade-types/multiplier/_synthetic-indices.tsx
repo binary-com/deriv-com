@@ -6,9 +6,9 @@ import {
     VolatilityIndices,
     JumpIndices,
     StepIndices,
-} from '../../markets/instruments/_submarkets.js'
-import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
-import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+} from '../../markets/instruments/_index'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms'
 import {
     CrashBoomMultipliersDetails,
     CrashBoomDetailsEU,
@@ -16,8 +16,9 @@ import {
     JumpIndicesDetails,
 } from 'pages/markets/static/content/_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+import { Desktop, Mobile, getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -29,7 +30,6 @@ const StyledText = styled(Text)`
 
 const Col = styled(Flex)`
     max-width: 13.2rem;
-
     @media ${device.tabletL} {
         max-width: 15rem;
     }
@@ -49,7 +49,6 @@ const MarketsList = styled(CssGrid)`
     padding: 2.4rem 0.7rem;
     grid-row-gap: 1.6rem;
     grid-template-columns: repeat(3, 1fr);
-
     @media ${device.tabletL} {
         grid-template-columns: repeat(2, 1fr);
 
@@ -63,7 +62,6 @@ const MarketsList = styled(CssGrid)`
             line-height: 1.5;
         }
     }
-
     @media ${device.tabletS} {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -71,7 +69,6 @@ const MarketsList = styled(CssGrid)`
 
 const Title = styled(Text)`
     text-align: center;
-
     @media ${device.tabletL} {
         font-weight: 600;
     }
@@ -83,7 +80,6 @@ const DetailsContainer = styled(Flex)`
     ${Text} {
         font-size: 1.4rem;
         margin-top: 1.6rem;
-
         @media ${device.tabletL} {
             margin-top: 1rem;
         }
@@ -92,7 +88,6 @@ const DetailsContainer = styled(Flex)`
 const AvailablePlatformsWrapper = styled(Flex)`
     border-bottom: 1px solid var(--color-grey-21);
     padding-bottom: 40px;
-
     @media ${device.tabletL} {
         margin-bottom: 24px;
         padding-bottom: 16px;
@@ -140,6 +135,7 @@ const ContinuousIndicesDetails = () => (
 
 const SyntheticIndices = () => {
     const { is_eu_country } = React.useContext(DerivStore)
+    const { is_row } = getCountryRule()
 
     return (
         <SectionContainer padding="4rem 0 8rem">
@@ -154,7 +150,7 @@ const SyntheticIndices = () => {
                           )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms dtrader />
+                    <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
                 </AvailablePlatformsWrapper>
                 <Text weight="bold">
                     {localize('Synthetic indices available for multipliers trading')}
@@ -165,16 +161,16 @@ const SyntheticIndices = () => {
                             renderTitle={() => (
                                 <Flex jc="flex-start" ai="center">
                                     <Col max_width="13.2rem">
-                                        <Show.Desktop>
+                                        <Desktop>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Volatility indices')}
                                             </Title>
-                                        </Show.Desktop>
-                                        <Show.Mobile>
+                                        </Desktop>
+                                        <Mobile>
                                             <Title weight="bold" max_width="9.7rem" align="center">
                                                 {localize('Volatility indices')}
                                             </Title>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     </Col>
                                     <MarketsList>
                                         <VolatilityIndices />
@@ -191,16 +187,16 @@ const SyntheticIndices = () => {
                         renderTitle={() => (
                             <Flex jc="flex-start" ai="center">
                                 <Col max_width="13.2rem">
-                                    <Show.Desktop>
+                                    <Desktop>
                                         <Title weight="bold" max_width="9.7rem" align="center">
                                             {localize('Crash/Boom')}
                                         </Title>
-                                    </Show.Desktop>
-                                    <Show.Mobile>
+                                    </Desktop>
+                                    <Mobile>
                                         <Title weight="bold" max_width="9.7rem" align="center">
                                             {localize('Crash/ Boom')}
                                         </Title>
-                                    </Show.Mobile>
+                                    </Mobile>
                                 </Col>
                                 <MarketsList>
                                     <CrashBoomMultipliers />

@@ -577,8 +577,13 @@
     "867582421": "Pusat bantuan | Pertanyaan umum | Akun | Deriv",
     "868154618": "Akun",
     "868499940": "Mulai bertrading dengan Deriv",
+<<<<<<< HEAD
     "871486196": "Trading forex, indeks sintetis, saham, indeks saham, mata uang kripto, dan komoditas dalam satu tempat.",
     "874573741": "Trading forex, saham, indeks saham, dan komoditas dalam satu tempat.",
+=======
+    "871486196": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place.",
+    "874573741": "Trade forex, stocks, stock indices, and commodities in one place.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "874881951": "Jelajahi lowongan kerja yang tersedia di kantor kami di Dubai. Temukan tugas Anda dalam IT, marketing, dan hrd.",
     "875766134": "Mengimpor dari komputer Anda",
     "876581050": "Slovakia",
@@ -758,7 +763,11 @@
     "1150953111": "Spread ketat",
     "1151456638": "Kami menghargai pemain tim yang berkolaborasi secara bebas lintas departemen dengan kerendahan hati dan ambisi.",
     "1151925602": "Menganalisa apakah digit akhir pada akhir kontrak adalah lebih tinggi atau lebih rendah dari analisa Anda.",
+<<<<<<< HEAD
     "1152332043": "Trading forex, indeks sintetis, saham, indeks saham, mata uang kripto, dan komoditas dengan leverage.",
+=======
+    "1152332043": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "1158101648": "Mengimpor dari Google Drive Anda",
     "1161300179": "Demikian pula, Anda dapat melakukan penarikan dari akun Deriv dengan 'menjual' dana Deriv kepada sesama trader sebagai imbalan atas pembayaran dalam mata uang lokal (atau mata uang yang tersedia).",
     "1161999797": "Trading forex, sintetis, saham & indeks, mata uang kripto, dan komoditas.",
@@ -1022,6 +1031,7 @@
     "1592543050": "Hingga $10.000",
     "1593723948": "1. Daftar akun Deriv",
     "1595539912": "Waktu pemrosesan",
+    "1599328252": "Head of Back End Development",
     "1599891822": "Jumlah batas kerugian arah Turun",
     "1601324523": "5-10.000",
     "1601498870": "Artikel terbaru",
@@ -1727,9 +1737,15 @@
     "-958645192": "Desktop",
     "-1416247163": "Finansial STP",
     "-1186393596": "Trading pasangan mata uang mayor, minor, eksotis dengan spread ketat dan volume trading yang lebih tinggi pada pasar.",
+<<<<<<< HEAD
     "-128552689": "Trading forex, saham, indeks saham, dan komoditas dengan leverage.",
     "-1542970945": "Trading di pasar dunia tanpa komisi",
     "-507449979": "Trading tanpa komisi",
+=======
+    "-128552689": "Trade forex, stocks, stock indices, and commodities on leverage.",
+    "-1542970945": "Trade on the world markets without commission",
+    "-507449979": "Trade without commission",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-747943809": "Hitung margin yang Anda butuhkan untuk membuka dan menahan posisi Anda menggunakan kalkulator margin yang kami sediakan.",
     "-729599084": "Kalkulator trading margin DMT5",
     "-1199560191": "Coba kalkulator margin kami",
@@ -1744,7 +1760,11 @@
     "-2037995236": "Daftar akun uang riil Deriv MT5 berdasarkan pilihan trading Anda.",
     "-915577324": "Cara memulai akun Deriv MT5",
     "-1495699367": "Apa itu Deriv MT5",
+<<<<<<< HEAD
     "-136910883": "Deriv MT5 (DMT5) memberi Anda akses ke berbagai jenis aset — forex, indeks sintetis, saham, indeks saham, mata uang kripto, dan komoditas — dalam satu platform. Dengan akses eksklusif ke berbagai jenis trading inovatif, Deriv memberi pengalaman MT5 ke tingkat yang lebih tinggi bagi trader pemula maupun trader berpengalaman pada platform kami.",
+=======
+    "-136910883": "Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-1058362536": "Pendaftaran akun demo cepat",
     "-356516643": "Berlatih menggunakan akun demo yang memiliki dana virtual tanpa batasan.",
     "-1627231267": "Tersedia berbagai aset pada satu platform",
@@ -2091,6 +2111,10 @@
     "-1823217929": "Mengapa bertrading saham & indeks di Deriv",
     "-1848791211": "Bertrading saham global pada merek favorit dan indeks bursa saham internasional di Deriv. Indeks & saham yang kami tawarkan memiliki ekuitas harga yang kompetitif dan memberi Anda keranjang aset yang dapat Anda tradingkan di luar jam reguler pasar saham utama.",
     "-75763689": "Mengapa bertrading indeks sintetis di Deriv",
+<<<<<<< HEAD
+=======
+    "-1635665985": "Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and\n                    liquidity risks.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-89087875": " Pelajari tentang pasar yang dapat Anda tradingkan secara online di Deriv, termasuk forex, indeks sintetis, saham & indeks, mata uang kripto, indeks basket dan komoditas.",
     "-1770464254": "Trading saham & indeks memungkinkan Anda untuk mendapatkan keuntungan dari pergerakan harga pada pasar tanpa perlu membeli aset dasar.",
     "-1252607893": "Trading kripto memberi Anda kesempatan untuk memperoleh keuntungan dengan menganalisa pergerakan harga mata uang kripto dengan tepat tanpa harus membelinya.",
@@ -2740,10 +2764,19 @@
     "-654476117": "114JT+",
     "-608807773": "trading bulan lalu",
     "-2022759357": "Membuat trading dapat diakses oleh siapa saja, di mana saja",
+    "-1277783292": "Chief Operating Officer",
+    "-216767904": "Chief Administrative Officer",
+    "-515732698": "Chief Risk Officer",
+    "-197772643": "Head of Marketing & Global Partnerships",
+    "-1982114134": "Head of Product & Content Design",
+    "-950913833": "Head of Customer Support",
+    "-824819024": "Head of Strategy & Project Management",
+    "-864130274": "Head of Accounts",
     "-1855417261": "Pimpinan kami",
     "-418008452": "Prinsip merupakan kerangka kerja dalam mengambil keputusan",
     "-3618456": "Pelajari lebih lanjut tentang prinsip kami",
     "-426017727": "Siapa",
+<<<<<<< HEAD
     "-1277783292": "Kepala Petugas Operasi",
     "-216767904": "Kepala Petugas Administrasi",
     "-197772643": "Direktur Pemasaran & Kemitraan Global",
@@ -2751,6 +2784,10 @@
     "-871474425": "Wakil Presiden Teknologi Informasi",
     "-515732698": "Kepala Petugas Risiko",
     "-864130274": "Direktur Akuntan",
+=======
+    "-290006480": "Vice President of Product",
+    "-871474425": "Vice President of IT Operations",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-234962411": "Siapa kami | Platform Trading Online | Deriv.com",
     "-355907358": "Deriv.com - Merupakan merek dari Binary.com, pelopor dan pemenang penghargaan platform trading online pada pasar trading.",
     "-599033718": "Deriv tidak menggunakan dana Anda untuk kepentingan bisnis dan Anda diperbolehkan untuk menarik dana Anda setiap saat. Seluruh dana Anda dipisahkan dan disimpan pada lembaga keuangan yang aman. Dengan demikian, jika Deriv mengalami kebangkrutan maka saldo Anda akan dikembalikan berhubung dana tersebut tidak kami gabungkan dengan biaya operasional.",

@@ -577,8 +577,13 @@
     "867582421": "Centrum pomocy | Często zadawane pytania | Konto | Deriv",
     "868154618": "Konta",
     "868499940": "Rozpocznij handlowanie z Deriv",
+<<<<<<< HEAD
     "871486196": "Inwestuj w waluty, wskaźniki syntetyczne, akcje, wskaźniki giełdowe, kryptowaluty i towary w jednym miejscu.",
     "874573741": "Inwestuj w forex, akcje, indeksy giełdowe i towary w jednym miejscu.",
+=======
+    "871486196": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place.",
+    "874573741": "Trade forex, stocks, stock indices, and commodities in one place.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "874881951": "Przeglądaj oferty pracy w naszym biurze w Dubaju. Znajdź odpowiednie dla siebie stanowisko w dziedzinie IT, marketingu i zasobów ludzkich.",
     "875766134": "Importowanie z Twojego komputera",
     "876581050": "Słowacja",
@@ -758,7 +763,11 @@
     "1150953111": "Wąski zakres spreadów",
     "1151456638": "Cenimy osoby, które lubią pracować w sespole i swobodnie współpracują z różnymi działami z pokorą i ambicją.",
     "1151925602": "Prognozuj, czy ostatnia cyfra ostatniej zmiany ceny kontraktu będzie większa czy mniejsza od określonej liczby.",
+<<<<<<< HEAD
     "1152332043": "Inwestuj w waluty, wskaźniki syntetyczne, akcje, wskaźniki giełdowe, kryptowaluty i towary, korzystając z dźwigni.",
+=======
+    "1152332043": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "1158101648": "Importowanie z Google Drive",
     "1161300179": "Możesz też dokonywać wypłat z konta Deriv, „sprzedając” fundusze Deriv innym inwestorom w zamian za zapłatę w lokalnej walucie (lub dowolnej innej obsługiwanej walucie).",
     "1161999797": "Inwestuj w forex, syntetyki, akcje, wskaźniki, kryptowaluty i towary.",
@@ -1021,6 +1030,7 @@
     "1592543050": "Do 10 000 $",
     "1593723948": "1. Utwórz swoje konto Deriv",
     "1595539912": "Czas przetwarzania",
+    "1599328252": "Head of Back End Development",
     "1599891822": "Kwota „stop stratom” z kierunkiem spadkowym",
     "1601324523": "5-10 000",
     "1601498870": "Ostatnie artykuły",
@@ -1726,9 +1736,15 @@
     "-958645192": "Komputery stacjonarne",
     "-1416247163": "Finansowe STP",
     "-1186393596": "Inwestuj w główne i drugorzędne oraz egzotyczne pary walutowe o niskich spreadach i wyższych wolumenach zakładów, bezpośrednio na rynku.",
+<<<<<<< HEAD
     "-128552689": "Inwestuj w forex, akcje, indeksy giełdowe i towary z wykorzystaniem dźwigni finansowej.",
     "-1542970945": "Handluj na rynkach światowych bez prowizji",
     "-507449979": "Handel bez prowizji",
+=======
+    "-128552689": "Trade forex, stocks, stock indices, and commodities on leverage.",
+    "-1542970945": "Trade on the world markets without commission",
+    "-507449979": "Trade without commission",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-747943809": "Nasz kalkulator pozwala obliczyć depozyt zabezpieczający potrzebny do otwarcia i utrzymania pozycji.",
     "-729599084": "Kalkulator depozytu zabezpieczającego dla DMT5",
     "-1199560191": "Wypróbuj nasz kalkulator depozytu zabezpieczającego",
@@ -1743,7 +1759,11 @@
     "-2037995236": "Utwórz konto Deriv MT5 z prawdziwymi pieniędzmi w oparciu o swoje preferencje inwestycyjne.",
     "-915577324": "Jak rozpocząć korzystanie z konta Deriv MT5",
     "-1495699367": "Czym jest Deriv MT5",
+<<<<<<< HEAD
     "-136910883": "Deriv MT5 (DMT5) zapewnia dostęp do różnych klas aktywów — walut, wskaźników syntetycznych, akcji, wskaźników giełdowych, kryptowalut i towarów — na jednej platformie. Deriv zapewnia wyłączny dostęp do innowacyjnych rodzajów zakładów i zapewnia doświadczenie MT5 na najwyższym poziomie zarówno dla nowych, jak i doświadczonych inwestorów, korzystających z naszej platformy.",
+=======
+    "-136910883": "Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-1058362536": "Szybka rejestracja konta demo",
     "-356516643": "Ćwicz przy użyciu konta demonstracyjnego z nieograniczonymi środkami wirtualnymi.",
     "-1627231267": "Wiele aktywów na jednej platformie",
@@ -2739,10 +2759,19 @@
     "-654476117": "114 mln+",
     "-608807773": "zakładów w ubiegłym miesiącu",
     "-2022759357": "Spraw, aby handel był dostępny dla każdego i wszędzie",
+    "-1277783292": "Chief Operating Officer",
+    "-216767904": "Chief Administrative Officer",
+    "-515732698": "Chief Risk Officer",
+    "-197772643": "Head of Marketing & Global Partnerships",
+    "-1982114134": "Head of Product & Content Design",
+    "-950913833": "Head of Customer Support",
+    "-824819024": "Head of Strategy & Project Management",
+    "-864130274": "Head of Accounts",
     "-1855417261": "Nasze kierownictwo",
     "-418008452": "Nasze zasady stanowią ramy dla naszych decyzji",
     "-3618456": "Dowiedz się więcej o naszych zasadach",
     "-426017727": "Kim",
+<<<<<<< HEAD
     "-1277783292": "Główny specjalista ds. operacyjnych",
     "-216767904": "Główny specjalista ds. administracyjnych",
     "-197772643": "Dyrektor ds. marketingu i partnerstw globalnych",
@@ -2750,6 +2779,10 @@
     "-871474425": "Wiceprezes ds. operacji IT",
     "-515732698": "Główny specjalista ds. ryzyka",
     "-864130274": "Dyrektor ds. księgowości",
+=======
+    "-290006480": "Vice President of Product",
+    "-871474425": "Vice President of IT Operations",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-234962411": "Kim jesteśmy | Platforma do handlowania on-line | Deriv",
     "-355907358": "Deriv.com - Marka Binary.com, pionierskiej i uhonorowanej nagrodami platformy do inwestowania on-line na rynkach handlowych.",
     "-599033718": "Deriv nie obraca Twoimi pieniędzmi w celach biznesowych i możesz je wypłacić w dowolnej chwili. Wszystkie Twoje pieniądze są przechowywane oddzielnie w bezpiecznych instytucjach finansowych. Dzięki temu nawet w mało prawdopodobnej sytuacji niewypłacalności Deriv wszystkie Twoje pieniądze zostaną Ci zwrócone, gdyż nigdy nie były przechowywane razem z naszymi środkami.",

@@ -577,8 +577,13 @@
     "867582421": "Centro assistenza | Domande più frequenti | Conto | Deriv",
     "868154618": "Conti",
     "868499940": "Inizia a fare trading con Deriv",
+<<<<<<< HEAD
     "871486196": "Fai trading su forex, indici sintetici, azioni, indici azionari, criptovalute e materie prime da un'unica piattaforma.",
     "874573741": "Fai trading su forex, azioni, indici azionari e materie prime da un'unica piattaforma.",
+=======
+    "871486196": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place.",
+    "874573741": "Trade forex, stocks, stock indices, and commodities in one place.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "874881951": "Scopri le opportunità di lavoro presso il nostro ufficio di Dubai nel settore IT, marketing e delle risorse umane.",
     "875766134": "Importare dal tuo computer",
     "876581050": "Slovacchia",
@@ -758,7 +763,11 @@
     "1150953111": "Spread ridotti",
     "1151456638": "Apprezziamo i collaboratori che lavorano autonomamente nei vari dipartimenti con umiltà e ambizione.",
     "1151925602": "Prevedi se l'ultima cifra dell'ultimo tick di un contratto sarà superiore o inferiore a un dato numero.",
+<<<<<<< HEAD
     "1152332043": "Fai trading su forex, indici sintetici, azioni, indici azionari, criptovalute e materie prime con leva.",
+=======
+    "1152332043": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "1158101648": "Importazione da Google Drive in corso",
     "1161300179": "Allo stesso modo, puoi prelevare fondi dal conto Deriv \"vendendoli\" ad altri trader in cambio di pagamenti nella tua valuta locale (o in una valuta disponibile).",
     "1161999797": "Fai trading su Forex, indici sintetici, azioni e indici, criptovalute e materie prime.",
@@ -899,6 +908,10 @@
     "1391632806": "I trader vengono valutati in base al tasso di completamento delle operazioni e alla velocità degli scambi.",
     "1393006010": "Le basi del trading con CFD",
     "1394697594": "21.000",
+<<<<<<< HEAD
+=======
+    "1394889813": "SEDI",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "1396179592": "Commissioni",
     "1396417530": "Indice mercato ribassista",
     "1399001016": "Supponiamo tu voglia calcolare l'import di take profit all'apertura di una posizione per indice di volatilità 100 al prezzo di 3376,24 USD con una puntata di 10 USD, un moltiplicatore di x100 e un take profit di 3400 USD in crescita.",
@@ -1021,6 +1034,7 @@
     "1592543050": "Fino a $10.000",
     "1593723948": "1. Crea un conto Deriv",
     "1595539912": "Tempo di esecuzione",
+    "1599328252": "Head of Back End Development",
     "1599891822": "Importo stop loss in decrescita",
     "1601324523": "5 - 10.000",
     "1601498870": "Articoli recenti",
@@ -1296,7 +1310,11 @@
     "2010744433": "Ci impegniamo a fornire assistenza tramite chat live 24/7. Gli agenti verranno formati per essere in grado di rispondere alle domande più rilevanti sul servizio.",
     "2015114251": "Qual è il minimo/massimo che posso depositare sul conto Deriv X?",
     "2017042641": "2 - 3 giorni lavorativi",
+<<<<<<< HEAD
     "2018198484": "Il trading su criptovalute ti permette di ottenere profitti dalle oscillazioni dei prezzi anche se non possiedi le monete digitali sottostanti. In altre parole, guadagni se prevedi correttamente in che direzione si muove l'oscillazione del prezzo.",
+=======
+    "2018198484": "Il trading su criptovalute ti permette di ottenere profitti dalle oscillazioni dei prezzi anche se non possiedi le monete digitali sottostanti. In altre parole, guadagni se prevedi correttamente in che direzione di muove l'oscillazione del prezzo.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "2019140039": "Perché fare trading con indici paniere su Deriv",
     "2019968401": "Perché fare trading con Deriv X",
     "2023310659": "Valute",
@@ -1726,9 +1744,15 @@
     "-958645192": "Desktop",
     "-1416247163": "Finanziario STP",
     "-1186393596": "Fai trading sulle coppie valutarie maggiori, minori ed esotiche con spread ridotti e volumi di trade più ampi, direttamente sul mercato.",
+<<<<<<< HEAD
     "-128552689": "Fai trading su forex, azioni, indici azionari e materie prime con leva.",
     "-1542970945": "Fai trading sui mercati mondiali senza commissioni",
     "-507449979": "Fai trading senza commissioni",
+=======
+    "-128552689": "Trade forex, stocks, stock indices, and commodities on leverage.",
+    "-1542970945": "Trade on the world markets without commission",
+    "-507449979": "Trade without commission",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-747943809": "Calcola il margine necessario per aprire e mantenere aperte le posizioni usando il nostro calcolatore di margine.",
     "-729599084": "Calcolatore per il trading a margine di DMT5",
     "-1199560191": "Prova il nostro calcolatore di margini",
@@ -1743,7 +1767,11 @@
     "-2037995236": "Crea un conto reale Deriv MT5 in base alle tue preferenze di trading.",
     "-915577324": "Come iniziare a usare un conto Deriv MT5",
     "-1495699367": "Cos'è Deriv MT5?",
+<<<<<<< HEAD
     "-136910883": "Deriv MT5 (DMT5) ti dà accesso a diverse categorie di asset - Forex, indici azionari, azioni, criptovalute, e materie prime - su una sola piattaforma. Deriv porta l'esperienza MT5 a un livello superiore sia per i trader alle prime armi che per i trader più esperti, grazie all'accesso esclusivo a tipi di trade innovativi.",
+=======
+    "-136910883": "Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-1058362536": "Registrazione veloce per il conto di prova",
     "-356516643": "Fai esperienza con un conto di prova precaricato con fondi virtuali illimitati.",
     "-1627231267": "Diversi asset su una sola piattaforma",
@@ -2739,10 +2767,19 @@
     "-654476117": "114M+",
     "-608807773": "trade nel mese scorso",
     "-2022759357": "Trading per tutti, ovunque",
+    "-1277783292": "Chief Operating Officer",
+    "-216767904": "Chief Administrative Officer",
+    "-515732698": "Chief Risk Officer",
+    "-197772643": "Head of Marketing & Global Partnerships",
+    "-1982114134": "Head of Product & Content Design",
+    "-950913833": "Head of Customer Support",
+    "-824819024": "Head of Strategy & Project Management",
+    "-864130274": "Head of Accounts",
     "-1855417261": "Il nostro direttivo",
     "-418008452": "I nostri principi sono la cornice delle nostre decisioni",
     "-3618456": "Scopri di più sui nostri principi",
     "-426017727": "Chi",
+<<<<<<< HEAD
     "-1277783292": "Direttore Operativo",
     "-216767904": "Direttore Amministrativo",
     "-197772643": "Responsabile del Marketing e delle Partnership Globale",
@@ -2750,6 +2787,10 @@
     "-871474425": "Vicepresidente della Attività Informatica",
     "-515732698": "Direttore Rischi",
     "-864130274": "Responsabile della Contabilità",
+=======
+    "-290006480": "Vice President of Product",
+    "-871474425": "Vice President of IT Operations",
+>>>>>>> 30042762f6 (chore: update translation (#2967))
     "-234962411": "Chi siamo | Una piattaforma di trading online | Deriv.com",
     "-355907358": "Deriv.com: marchio di Binary.com, è una pluri-premiata piattaforma di trading online all'avanguardia e attiva nel mercato dei trade.",
     "-599033718": "Deriv non utilizza il denaro dei clienti per i propri interessi ed è possibile prelevarlo in qualsiasi momento. Il tuo denaro è detenuto presso istituzioni finanziarie sicure separatamente dal nostro: in questo modo, nell'ipotesi improbabile in cui Deriv risultasse insolvente, potresti ottenere indietro il tuo denaro.",

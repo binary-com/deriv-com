@@ -369,7 +369,7 @@ const SideSubscriptionBanner = () => {
                         {submit_status === true && (
                             <>
                                 <AgreementLabel
-                                    isChecked={is_checked}
+                                    is_checked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                     color="#C2C2C2"
                                     link_text={localize('Send me marketing materials too!')}

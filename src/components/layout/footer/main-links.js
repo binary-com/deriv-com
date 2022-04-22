@@ -39,7 +39,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
-                                to={''}
+                                to=""
                                 type="derivlife"
                                 external={true}
                                 target="_blank"

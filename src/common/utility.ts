@@ -391,7 +391,7 @@ export const queryParams = {
     },
     set: (objects) => {
         // To set the params from the url
-        const url = new URL(location)
+        const url = new URL(location.href)
 
         Object.keys(objects).forEach((k) => {
             const value = objects[k]
@@ -402,7 +402,7 @@ export const queryParams = {
     },
     delete: (key) => {
         //To delete the params from the url
-        const url = new URL(location)
+        const url = new URL(location.href)
         if (typeof key === 'string') {
             url.searchParams.delete(key)
         } else {

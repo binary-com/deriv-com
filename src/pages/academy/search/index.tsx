@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { matchSorter } from 'match-sorter'
-import ReactPaginate from 'react-paginate'
 import { useQueryParams, StringParam } from 'use-query-params'
 import VideoParentWrapper from './_video-parent-wrapper'
-import ArticleCard from './_article-card'
+import {
+    GetPaginatedArticles,
+    getPaginationItemCountText,
+    getTotalArticleText,
+} from './_pagination'
 import { Container, SEO, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -28,53 +31,6 @@ const AllArticleButton = styled(LinkButton)`
 
     @media ${device.tablet} {
         margin-top: 0;
-    }
-`
-const ArticlePaginationWrapper = styled(Flex)`
-    flex-direction: column;
-
-    .pagination-buttons {
-        display: flex;
-        justify-content: center;
-        margin-top: 4rem;
-
-        @media (max-width: 768px) {
-            font-size: 2.4rem;
-        }
-
-        li {
-            width: 32px;
-            height: 32px;
-            border: 1px solid #dfe3e8;
-            border-radius: 4px;
-            margin: 0 4px;
-
-            a {
-                cursor: pointer;
-                width: 100%;
-                height: 100%;
-                font-size: 14px;
-                line-height: 20px;
-                color: var(--color-black-3);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            @media ${device.tablet} {
-                margin: 0 1rem;
-            }
-        }
-        li:hover {
-            color: var(--color-blue);
-        }
-    }
-    .pagination-active {
-        border: 1px solid var(--color-black-3) !important;
-    }
-    .pagination-disabled {
-        background: #f2f3f4;
-        opacity: 0.5;
     }
 `
 const StyledTitle = styled.span`
@@ -158,51 +114,6 @@ const SearchPage = () => {
         }
     }, [query])
 
-    // pagination functions
-    const handlePageChange = ({ selected }) => {
-        setPageNumber(selected)
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-
-    const getPaginatedArticles = () =>
-        !items_type ? (
-            <Flex fd="column" mt="24px">
-                {article_result.slice(0, 5).map((items, index) => {
-                    return <ArticleCard key={index} items={items} />
-                })}
-            </Flex>
-        ) : (
-            <>
-                <ArticlePaginationWrapper>
-                    <Flex fd="column" mt="24px">
-                        {article_result
-                            .slice(pages_visited, pages_visited + items_per_page)
-                            .map((items, index) => {
-                                return <ArticleCard key={index} items={items} />
-                            })}
-                    </Flex>
-                    {page_count > 1 && (
-                        <ReactPaginate
-                            previousLabel={'<'}
-                            breakLabel={'...'}
-                            nextLabel={'>'}
-                            pageCount={page_count}
-                            onPageChange={handlePageChange}
-                            containerClassName={'pagination-buttons'}
-                            previousLinkClassName={'previous-button'}
-                            breakClassName={'break-button'}
-                            nextLinkClassName={'next-button'}
-                            disabledClassName={'pagination-disabled'}
-                            activeClassName={'pagination-active'}
-                        />
-                    )}
-                </ArticlePaginationWrapper>
-            </>
-        )
-
-    const getTotalArticleText = () =>
-        total_article > 4 ? `1-5 of ${total_article} results` : `${total_article} results`
-
     // filter functions
     const filteredBaseOnType = (obj) => {
         const article_arr = []
@@ -284,13 +195,6 @@ const SearchPage = () => {
         } else return total_video
     }
 
-    const getPaginationItemCountText = () =>
-        `${pages_visited + 1} - ${
-            pages_visited + items_per_page < total_article
-                ? pages_visited + items_per_page
-                : total_article
-        } of ${total_article} results`
-
     // This is a temporary solution without adding slug to the combined_filter_type
     // array from the constant file. This can be refactored in the future but
     // requires a change in the logic for both SearchBanner and search page.
@@ -357,17 +261,28 @@ const SearchPage = () => {
                                 </Header>
                                 {items_type ? (
                                     <Header as="span" type="paragraph-2" align="right">
-                                        {getPaginationItemCountText()}
+                                        {getPaginationItemCountText(
+                                            pages_visited,
+                                            items_per_page,
+                                            total_article,
+                                        )}
                                     </Header>
                                 ) : (
                                     <Header as="span" type="paragraph-2" align="right">
-                                        {getTotalArticleText()}
+                                        {getTotalArticleText(total_article)}
                                     </Header>
                                 )}
                             </StyledHeaderWrapper>
 
                             {article_result.length !== 0 ? (
-                                getPaginatedArticles()
+                                <GetPaginatedArticles
+                                    setPageNumber={setPageNumber}
+                                    items_type={items_type}
+                                    article_result={article_result}
+                                    pages_visited={pages_visited}
+                                    items_per_page={items_per_page}
+                                    page_count={page_count}
+                                />
                             ) : (
                                 <Flex m="16px 0">
                                     <Header

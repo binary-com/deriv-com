@@ -61,7 +61,7 @@ const DisclaimerSection = ({ is_academy }) => {
                             translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara
                             BKR 9033, Malta, is licensed in Malta and regulated by the Malta Financial Services Authority,
                             Triq l-Imdina, Zone 1, Central Business District, Birkirkara CBD 1010, Malta, under the
-                            Investments Services Act to provide investment services in the European Union. (<0>licence no. IS/70156</0>)."
+                            Investments Services Act to provide investment services in the European Union (<0>licence no. IS/70156</0>)."
                             components={[
                                 <StaticAsset
                                     key={0}
@@ -70,16 +70,6 @@ const DisclaimerSection = ({ is_academy }) => {
                                     rel="noopener noreferrer"
                                 />,
                             ]}
-                        />
-                    </DisclaimerParagraph>
-                    <DisclaimerParagraph>
-                        <Localize
-                            translate_text="Authorised by the Financial Conduct Authority and with deemed variation of permission.
-                            Subject to regulation by the Financial Conduct Authority. The nature and extent of consumer
-                            protections may differ from those for firms based in the UK. Details of the Financial Services
-                            Contracts Regime, which allows EEA-based firms to operate in the UK for a limited period to
-                            carry on activities which are necessary for the performance of pre-existing contracts, are
-                            available on the Financial Conduct Authority’s website."
                         />
                     </DisclaimerParagraph>
                 </EU>

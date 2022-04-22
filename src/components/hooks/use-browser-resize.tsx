@@ -12,14 +12,15 @@ export const useBrowserResize = (maxSize) => {
     }
 
     useEffect(() => {
-        if (!isBrowser()) return () => false
-        const handleResize = () => setWidth(window.innerWidth)
-        handleResizeWindow()
-        window.addEventListener('resize', handleResize)
-
-        return () => {
-            window.removeEventListener('resize', handleResize)
+        if (isBrowser()) {
+            const handleResize = () => setWidth(window.innerWidth)
             handleResizeWindow()
+            window.addEventListener('resize', handleResize)
+
+            return () => {
+                window.removeEventListener('resize', handleResize)
+                handleResizeWindow()
+            }
         }
     })
 

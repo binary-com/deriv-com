@@ -184,6 +184,7 @@ const Signup = (props) => {
             first_name,
             last_name,
             country: value,
+            // no separate address field for current version of form
             address_city: address,
             address_line_1: address,
             address_postcode: address,

@@ -74,7 +74,7 @@ const affiliateSignupDetails = () => {
                     <ModalMessage
                         showModal={showModal}
                         src={NewEmail}
-                        title={localize('')}
+                        title={localize('Thanks for signing up!')}
                         message={localize(
                             'Please check your inbox. We’ve sent you an email with the details you need.',
                         )}

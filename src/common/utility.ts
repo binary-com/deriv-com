@@ -123,28 +123,22 @@ export const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.sli
 
 export const getCryptoDecimals = (input) =>
     input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
-// convert to arrow function
-// export function debounce(func, wait, immediate) {
-//     let timeout
-//     return function () {
-//         const context = this
 
-//         const args = arguments
-//         console.log('con', context)
-//         console.log('arg', args)
+export const debounce = (func, wait, immediate) => {
+    let timeout
+    return () => {
+        const later = function () {
+            timeout = null
+            if (!immediate) func.apply(this, func, wait, immediate)
+        }
 
-//         const later = function () {
-//             timeout = null
-//             if (!immediate) func.apply(context, args)
-//         }
+        const callNow = immediate && !timeout
 
-//         const callNow = immediate && !timeout
-
-//         clearTimeout(timeout)
-//         timeout = setTimeout(later, wait)
-//         if (callNow) func.apply(context, args)
-//     }
-// }
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+        if (callNow) func.apply(this, func, wait, immediate)
+    }
+}
 
 // This function is created to back traverse an array of style values
 export const responsiveFallback = (prop, start_from, fallback) => {
@@ -370,9 +364,7 @@ export const removeSpecialCharacterUrl = (url) =>
     slugify(url)
         .replace(/\?+/g, '') // Replace question mark with empty value
         .replace(/[/]/g, '-') //Replace '/' with single -
-// const ss = {
-//     URl = '',
-// }
+
 // make an object, include all the missing parameters and try to fix it
 export const queryParams = {
     get: (key) => {

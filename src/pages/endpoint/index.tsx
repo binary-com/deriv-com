@@ -13,6 +13,7 @@ import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
+import { Dev, ROW, UKEU } from 'components/containers/visibility'
 
 type ValuesType = {
     server_url?: string
@@ -224,6 +225,20 @@ const Endpoint = () => {
                                     background="white"
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
+                                <Dev>
+                                    <>
+                                        <ROW>
+                                            <Text align="center" color="red">
+                                                The testlink&rsquo;s current domain is deriv.com
+                                            </Text>
+                                        </ROW>
+                                        <UKEU>
+                                            <Text align="center" color="red">
+                                                The testlink&rsquo;s current domain is eu.deriv.com
+                                            </Text>
+                                        </UKEU>
+                                    </>
+                                </Dev>
                             </InputGroup>
                             <Text align="center" color="green">
                                 {status?.message && status.message}

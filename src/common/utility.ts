@@ -402,9 +402,7 @@ export const queryParams = {
     },
     delete: (key) => {
         //To delete the params from the url
-        const d = document.location
-        const w = window.location
-        const url = new URL(d)
+        const url = new URL(location)
         if (typeof key === 'string') {
             url.searchParams.delete(key)
         } else {

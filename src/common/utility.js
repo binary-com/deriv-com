@@ -456,7 +456,7 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
     const eu_domains = ['eu', 'staging-eu']
 
     if (isTestlink()) {
-        navigate('/endpoint')
+        return false
     } else if (eu_domains.some((e) => subdomain.includes(e))) {
         handleEURedirect(country, full_domain)
     } else {

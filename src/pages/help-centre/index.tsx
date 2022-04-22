@@ -197,13 +197,19 @@ const HelpCentre = () => {
         setData({ ...data, search: sanitize(e.target.value) })
     }
 
-    const filtered_articles = matchSorter(data.all_articles, data.search.trim(), {
-        keys: ['title', 'sub_category'],
-    })
-
     const splitted_articles = is_eu_country
         ? euArticles(splitArticles(articles, 3))
         : splitArticles(articles, 3)
+
+    const articles_by_domain = is_eu_country
+        ? data.all_articles
+              .filter((el) => el.category !== 'Deriv X')
+              .filter((el) => el.category !== 'Deriv P2P')
+        : data.all_articles
+
+    const filtered_articles = matchSorter(articles_by_domain, data.search.trim(), {
+        keys: ['title', 'sub_category'],
+    })
 
     const has_results = !!filtered_articles.length
 
@@ -273,14 +279,6 @@ const HelpCentre = () => {
                         return (
                             <RowDiv wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'} key={id}>
                                 {article.map((item, idx) => {
-                                    if (
-                                        is_eu_country &&
-                                        (item.category.props.translate_text === 'Deriv X' ||
-                                            item.category.props.translate_text === 'Deriv P2P')
-                                    ) {
-                                        return <React.Fragment key={idx}></React.Fragment>
-                                    }
-
                                     return (
                                         <ArticleComponent
                                             key={idx}

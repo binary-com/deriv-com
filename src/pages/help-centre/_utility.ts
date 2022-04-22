@@ -22,7 +22,10 @@ export const splitArticles = (array: ArcticlesType[], length: number): string[] 
         return result
     }, [])
 
-export const euArticles = (array: string[]): [string, string[], string[], string[]] => {
-    const second_array = [...array[1], array[2][0]]
-    return [array[0], second_array, [array[2][1]], [array[2][2]]]
+export const euArticles = (array: string[]): [string, string[], string[]] => {
+    const second_array = [
+        ...array[1].filter((el) => el.category.props.translate_text !== 'Deriv X'),
+        array[2][0],
+    ]
+    return [array[0], second_array, [array[2][2]]]
 }

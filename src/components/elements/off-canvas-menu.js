@@ -430,9 +430,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Career} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Careers" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
                         </StyledLink>
                         <StyledLink
                             to={deriv_life_url}

@@ -3,7 +3,7 @@ name: Release Translation
 on:
     push:
         branches:
-          - 'master'
+          - master
         paths-ignore:
             - '**.md'
 

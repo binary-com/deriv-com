@@ -181,7 +181,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                     <Box padding="0 0 4rem">
                         <Text lh="1.55" max_width="79.2rem">
                             {localize(
-                                'Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of countries that have access to Deriv.com via EU passporting rights.',
+                                'Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of the EU countries that have access to Deriv.com via EU passporting rights.',
                             )}
                         </Text>
                     </Box>

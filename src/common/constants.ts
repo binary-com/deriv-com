@@ -136,4 +136,4 @@ export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
-export const loss_percent = 62
+export const loss_percent = 65

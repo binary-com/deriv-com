@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { matchSorter } from 'match-sorter'
 import { useQueryParams, StringParam } from 'use-query-params'
+import { matchSorter } from 'match-sorter'
 import VideoParentWrapper from './_video-parent-wrapper'
 import {
     GetPaginatedArticles,
@@ -42,16 +42,18 @@ const SearchPage = () => {
     const { academy_data } = useContext(DerivStore)
     const [full_article_link, setFullArticleLink] = useState('')
     const [full_video_link, setFullVideoLink] = useState('')
-    const [total_article, setTotalArticle] = useState(0)
-    const [total_video, setTotalVideo] = useState(0)
-    const [article_result, setArticleResult] = useState([])
-    const [video_result, setVideoResult] = useState([])
+    const [search_result, setSearchResult] = useState({
+        total_article: 0,
+        total_video: 0,
+        article_result: [],
+        video_result: [],
+    })
 
     // pagination states
     const [page_number, setPageNumber] = useState(0)
     const items_per_page = 10
     const pages_visited = page_number * items_per_page
-    const page_count = Math.ceil(article_result.length / items_per_page)
+    const page_count = Math.ceil(search_result.article_result.length / items_per_page)
 
     // query params
     const [query, setQuery] = useQueryParams({
@@ -115,25 +117,29 @@ const SearchPage = () => {
     }, [query])
 
     // filter functions
-    const filteredBaseOnType = (obj) => {
-        const article_arr = []
-        const video_arr = []
+    const filteredBaseOnType = useCallback(
+        (obj) => {
+            const article_arr = []
+            const video_arr = []
 
-        obj.forEach((items) => {
-            if (items.blog_title) {
-                article_arr.push(items)
-            } else if (items.video_title) {
-                video_arr.push(items)
-            }
-        })
+            obj.forEach((items) => {
+                if (items.blog_title) {
+                    article_arr.push(items)
+                } else if (items.video_title) {
+                    video_arr.push(items)
+                }
+            })
 
-        // slice video result to two as for default
-        items_type ? setVideoResult(video_arr) : setVideoResult(video_arr.slice(0, 2))
-
-        setArticleResult(article_arr)
-        setTotalArticle(article_arr.length)
-        setTotalVideo(video_arr.length)
-    }
+            setSearchResult({
+                // slice video result to two as for default
+                video_result: items_type ? video_arr : video_arr.slice(0, 2),
+                article_result: article_arr,
+                total_article: article_arr.length,
+                total_video: video_arr.length,
+            })
+        },
+        [setSearchResult],
+    )
 
     const getFilterResult = (type: string) => {
         let result = []
@@ -189,10 +195,10 @@ const SearchPage = () => {
 
     const getTotalSearchCount = () => {
         if (!items_type) {
-            return total_article + total_video
+            return search_result.total_article + search_result.total_video
         } else if (items_type === 'article') {
-            return total_article
-        } else return total_video
+            return search_result.total_article
+        } else return search_result.total_video
     }
 
     // This is a temporary solution without adding slug to the combined_filter_type
@@ -264,21 +270,21 @@ const SearchPage = () => {
                                         {getPaginationItemCountText(
                                             pages_visited,
                                             items_per_page,
-                                            total_article,
+                                            search_result.total_article,
                                         )}
                                     </Header>
                                 ) : (
                                     <Header as="span" type="paragraph-2" align="right">
-                                        {getTotalArticleText(total_article)}
+                                        {getTotalArticleText(search_result.total_article)}
                                     </Header>
                                 )}
                             </StyledHeaderWrapper>
 
-                            {article_result.length !== 0 ? (
+                            {search_result.article_result.length !== 0 ? (
                                 <GetPaginatedArticles
                                     setPageNumber={setPageNumber}
                                     items_type={items_type}
-                                    article_result={article_result}
+                                    article_result={search_result.article_result}
                                     pages_visited={pages_visited}
                                     items_per_page={items_per_page}
                                     page_count={page_count}
@@ -296,7 +302,7 @@ const SearchPage = () => {
                                 </Flex>
                             )}
 
-                            {full_article_link && !items_type && total_article > 4 && (
+                            {full_article_link && !items_type && search_result.total_article > 4 && (
                                 <AllArticleButton tertiary="true" to={full_article_link}>
                                     All article results
                                 </AllArticleButton>
@@ -315,18 +321,18 @@ const SearchPage = () => {
                                 </Header>
                                 <Header as="span" type="paragraph-2" align="right">
                                     <>
-                                        {total_video > 1 && !items_type
-                                            ? `1-2 of ${total_video} results`
-                                            : `${total_video} results`}
+                                        {search_result.total_video > 1 && !items_type
+                                            ? `1-2 of ${search_result.total_video} results`
+                                            : `${search_result.total_video} results`}
                                     </>
                                 </Header>
                             </StyledHeaderWrapper>
 
-                            {video_result.length != 0 ? (
+                            {search_result.video_result.length != 0 ? (
                                 <>
                                     <VideoParentWrapper
                                         closeVideo={closeVideo}
-                                        currentVideoItems={video_result}
+                                        currentVideoItems={search_result.video_result}
                                         openVideo={openVideo}
                                         show={show}
                                         video_src={play_video_src}
@@ -345,7 +351,7 @@ const SearchPage = () => {
                                 </Flex>
                             )}
 
-                            {full_video_link && !items_type && total_video > 1 && (
+                            {full_video_link && !items_type && search_result.total_video > 1 && (
                                 <AllArticleButton tertiary="true" to={full_video_link}>
                                     All video results
                                 </AllArticleButton>

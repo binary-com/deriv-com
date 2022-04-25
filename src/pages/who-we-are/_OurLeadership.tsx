@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import type { ImageDataLike } from 'gatsby-plugin-image'
-import { localize, Localize, LocalizedLink } from 'components/localization'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { Header, QueryImage, ImageWrapper } from 'components/elements'
-import type { ImageWrapperProps } from 'components/elements/query-image'
+import Leaders from './components/leaders'
+import { localize } from 'components/localization'
+import { SectionContainer, CssGrid } from 'components/containers'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -18,7 +16,6 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const StyledCssGrid = styled(CssGrid)`
     max-width: 996px;
-
     @media (max-width: 1100px) {
         max-width: 90%;
         padding: 0 40px;
@@ -33,7 +30,6 @@ const StyledCssGrid = styled(CssGrid)`
         grid-row-gap: 4px;
     }
 `
-
 const StyledHeader = styled(Header)`
     padding-bottom: 40px;
     @media ${device.laptop} {
@@ -44,240 +40,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const ModalFlex = styled(Flex)`
-    position: absolute;
-    top: 130px;
-    background-color: white;
-    padding: 8px 16px 6px;
-    z-index: 1;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0 4px 15px;
-    white-space: pre;
-    width: fit-content;
-    @media ${device.tablet} {
-        top: 124px;
-    }
-    @media ${device.tabletS} {
-        top: 108px;
-    }
-    @media ${device.mobileL} {
-        top: 93px;
-    }
-`
-type MouseEvent = React.MouseEventHandler<HTMLDivElement> &
-    ((event: MouseEventHandler<HTMLDivElement>) => void)
-type StyledImageWrapperPropsType = ImageWrapperProps & {
-    onMouseOver: MouseEvent
-    onMouseLeave: MouseEvent
-    tabindex: string
-    width: string
-    height: string
-}
-const StyledImageWrapper = styled(ImageWrapper)<StyledImageWrapperPropsType>`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding-bottom: 20px;
-    @media ${device.tabletS} {
-        width: 104px;
-        height: 114px;
-    }
-
-    @media ${device.tabletL} {
-        &:nth-child(3n-2) {
-            ${ModalFlex} {
-                left: 0;
-            }
-        }
-        &:nth-child(3n) {
-            ${ModalFlex} {
-                align-self: right;
-                right: 0;
-            }
-        }
-    }
-    @media ${device.tabletS} {
-        padding-bottom: 10px;
-    }
-    @media ${device.mobileL} {
-        width: 88px;
-        height: 98px;
-    }
-`
-
-type ModalPropsType = {
-    name: string
-    position: React.ReactElement
-    link?: string
-}
-type StyledLogoType = {
-    link: string
-}
-const StyledLogo = styled.img<StyledLogoType>`
-    width: 32px;
-    height: 32px;
-    filter: grayscale(100%);
-
-    &:hover {
-        filter: ${(props) => (props.link ? 'unset' : 'grayscale(100%)')};
-    }
-`
-
-const Modal = ({ name, position, link }: ModalPropsType) => {
-    return (
-        <ModalFlex
-            ai="center"
-            direction="column"
-            width="unset"
-            height="unset"
-            padding="0px 16px 5px"
-        >
-            <Header type="unset" as="h4" padding="0" align="center" size="14px">
-                {name}
-            </Header>
-            <Header as="h4" padding="0" type="sub-paragraph" weight="normal" align="center">
-                {position}
-            </Header>
-            {link && (
-                <LocalizedLink external="true" to={link} target="_blank" rel="noopener noreferrer">
-                    <StyledLogo width="32px" height="32px" src={Linkedin} alt="" link={link} />
-                </LocalizedLink>
-            )}
-        </ModalFlex>
-    )
-}
-type LeaderType = {
-    name: string
-    position: React.ReactElement
-    link: string
-    image: ImageDataLike
-}
-
-type LeaderProps = {
-    leader: LeaderType
-    key: number
-}
-const Leader = ({ leader }: LeaderProps) => {
-    const [isPopupShown, setIsPopupShown] = React.useState(false)
-    const showModal: MouseEvent = () => {
-        setIsPopupShown(true)
-    }
-    const dontShowModal: MouseEvent = () => {
-        setIsPopupShown(false)
-    }
-    return (
-        <StyledImageWrapper
-            onMouseOver={showModal}
-            onMouseLeave={dontShowModal}
-            width="120px"
-            height="120px"
-            tabindex="1"
-            loading="lazy"
-        >
-            <QueryImage
-                width="100%"
-                height="100%"
-                data={leader.image}
-                alt="leader"
-                loading="lazy"
-            />
-            {isPopupShown && (
-                <Modal name={leader.name} position={leader.position} link={leader.link} />
-            )}
-        </StyledImageWrapper>
-    )
-}
-
 const OurLeadership = () => {
-    const leaders_data = useStaticQuery(query)
-    const leaders: LeaderType[] = [
-        {
-            name: 'Jean-Yves Sireau',
-            position: <Localize translate_text="Chief Executive Officer" />,
-            link: 'https://www.linkedin.com/in/jeanyvessireau/',
-            image: leaders_data.jy,
-        },
-        {
-            name: 'Rakshit Choudhary ',
-            position: <Localize translate_text="Chief Operating Officer" />,
-            link: 'https://www.linkedin.com/in/rakshit-choudhary-9a67b61b0/',
-            image: leaders_data.rakshit,
-        },
-        {
-            name: 'Tom Molesworth',
-            position: <Localize translate_text="Chief Technology Officer" />,
-            link: '',
-            image: leaders_data.tom,
-        },
-        {
-            name: 'Joanna Frendo',
-            position: <Localize translate_text="Chief Compliance Officer" />,
-            link: 'https://www.linkedin.com/in/joanna-frendo-4449975/',
-            image: leaders_data.joanna,
-        },
-        {
-            name: 'Louise Wolf',
-            position: <Localize translate_text="Chief Financial Officer" />,
-            link: 'https://www.linkedin.com/in/louise-wolf-7b98b460/',
-            image: leaders_data.louise,
-        },
-        {
-            name: 'Shyamala Siva',
-            position: <Localize translate_text="Chief Administrative Officer" />,
-            link: 'https://www.linkedin.com/in/shyamala-siva-90043b208/',
-            image: leaders_data.shyamala,
-        },
-        {
-            name: 'Gary Ross Vytialingam',
-            position: <Localize translate_text="Chief Risk Officer" />,
-            link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',
-            image: leaders_data.gary,
-        },
-        {
-            name: 'Seema Hallon',
-            position: <Localize translate_text="Head of People Management" />,
-            link: 'https://www.linkedin.com/in/seema-hallon-6919073/',
-            image: leaders_data.seema,
-        },
-        {
-            name: 'Derek Swift',
-            position: <Localize translate_text="Head of Marketing & Global Partnerships" />,
-            link: 'https://www.linkedin.com/in/derek-swift-5787208/',
-            image: leaders_data.derek,
-        },
-        {
-            name: 'Waqas Awan',
-            position: <Localize translate_text="Head of Product & Content Design" />,
-            link: 'https://www.linkedin.com/in/waqasawan/',
-            image: leaders_data.waqas,
-        },
-        {
-            name: 'Raunak Kathuria',
-            position: <Localize translate_text="Head of Back End Development" />,
-            link: 'https://www.linkedin.com/in/raunakkathuria/',
-            image: leaders_data.raunak,
-        },
-        {
-            name: 'Jeyavarthini Vairakanan',
-            position: <Localize translate_text="Head of Customer Support" />,
-            link: 'https://www.linkedin.com/in/jeyavarthini-vairakanan-812b7a121/',
-            image: leaders_data.jeya,
-        },
-        {
-            name: 'Antony Pradeep Charles',
-            position: <Localize translate_text="Head of Strategy & Project Management" />,
-            link: 'https://www.linkedin.com/in/antonypradeep/',
-            image: leaders_data.antony,
-        },
-        {
-            name: 'Jennice Lourdsamy',
-            position: <Localize translate_text="Head of Accounts" />,
-            link: 'https://www.linkedin.com/in/jennice-lourdsamy-352b897/',
-            image: leaders_data.jennice,
-        },
-    ]
-          
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
@@ -301,5 +64,4 @@ const OurLeadership = () => {
         </StyledSectionContainer>
     )
 }
-
 export default OurLeadership

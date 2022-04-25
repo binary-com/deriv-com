@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
-import { VideoDataType } from './index'
+import { VideosType } from 'components/hooks/use-academy-data'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
@@ -108,8 +108,8 @@ const ContentWrapper = styled.div`
 `
 
 type VideoCardProps = {
-    item: VideoDataType[0]
-    openVideo: (track_id: string, video_title: string) => void
+    item: VideosType
+    openVideo: React.MouseEventHandler<HTMLDivElement>
 }
 
 const VideoCard = ({ item, openVideo }: VideoCardProps) => {
@@ -126,7 +126,11 @@ const VideoCard = ({ item, openVideo }: VideoCardProps) => {
                     <CategoriesContainer jc="flex-start" fw="wrap">
                         {item.tags &&
                             first_2_tags.map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag?.tags_id?.id}>
+                                <StyledCategories
+                                    as="h4"
+                                    type="paragraph-2"
+                                    key={tag?.tags_id?.tag_name}
+                                >
                                     {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}

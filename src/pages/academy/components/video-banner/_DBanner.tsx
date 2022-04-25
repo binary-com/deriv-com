@@ -129,10 +129,6 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                         <GatsbyImage
                             image={getImage(video_thumbnail.imageFile)}
                             alt={thumbnail_img}
-                            width="100%"
-                            height="100%"
-                            layout="fullWidth"
-                            transformOptions={{ fit: 'cover', cropFocus: 'attention' }}
                         />
                     </BackgroundImageContainer>
                 </BackgroundImageWrapper>

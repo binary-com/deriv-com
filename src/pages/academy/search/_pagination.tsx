@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ArticleCard from './_article-card'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
+import { BlogType } from 'components/hooks/use-academy-data'
 
 const ArticlePaginationWrapper = styled(Flex)`
     flex-direction: column;
@@ -56,7 +57,7 @@ const ArticlePaginationWrapper = styled(Flex)`
 type GetPaginatedArticlesProps = {
     setPageNumber: React.Dispatch<React.SetStateAction<number>>
     items_type: string
-    article_result: any[]
+    article_result: BlogType[]
     pages_visited: number
     items_per_page: number
     page_count: number

@@ -313,7 +313,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">
-                    {markets.map((market) =>
+                    {filteredMarkets.map((market) =>
                         except === market || market === '' ? null : (
                             <MobileCard market={market} key={market} />
                         ),

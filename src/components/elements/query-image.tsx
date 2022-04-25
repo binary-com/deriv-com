@@ -61,7 +61,7 @@ const QueryImage = ({
     ...props
 }: QueryImageProps) => {
     let image = null
-    if ('__typename' in data) {
+    if (data && '__typename' in data) {
         image = getImage(data.childImageSharp.gatsbyImageData)
     } else {
         image = getImage(data as ImageDataLike)

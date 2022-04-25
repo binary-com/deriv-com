@@ -33,11 +33,19 @@ const LightButton = styled(LinkButton)`
     border: solid 1px #6e6e6e;
     padding-top: 12px;
     height: 40px;
+
+    @media ${device.mobileL} {
+        width: 328px;
+    }
 `
 const RedButton = styled(LinkButton)`
     border-radius: 4px;
     padding-top: 12px;
     height: 40px;
+
+    @media ${device.mobileL} {
+        width: 328px;
+    }
 `
 
 const PartnerCTA = () => {

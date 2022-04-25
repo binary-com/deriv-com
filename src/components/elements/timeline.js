@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types'
+import device from 'themes/device'
 
 const Checkmark = styled.span`
     display: inline-block;
@@ -32,6 +33,7 @@ const ContentWrapper = styled.div`
     margin-top: 0;
     margin-left: 2rem;
 `
+
 const OvalWrapper = styled.div`
     width: 24px;
     height: 24px;
@@ -50,6 +52,14 @@ const FlexWrapper = styled.div`
     border-left: ${(props) => (props.is_border ? 'var(--color-red) dashed 1px' : 'unset')};
     position: relative;
     padding-bottom: ${(props) => (props.pb ? props.pb : '4rem')};
+`
+
+const StyledItem = styled.div`
+    padding-bottom: ${(props) => props.pb};
+
+    @media ${device.mobileL} {
+        padding-bottom: ${(props) => props.pbMobile};
+    }
 `
 const Oval = () => {
     return (
@@ -97,7 +107,7 @@ export const TimelineTick = ({ pb, color, children, ...props }) => {
     )
 }
 
-const Item = ({ children, ...props }) => <div {...props}>{children}</div>
+const Item = ({ children, ...props }) => <StyledItem {...props}>{children}</StyledItem>
 Timeline.Item = Item
 TimelineTick.Item = Item
 

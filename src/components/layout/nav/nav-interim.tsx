@@ -47,7 +47,7 @@ const RightSection = styled(Flex)`
 `
 
 const NavInterim = ({ interim_type, landing_type }: NavInterimProps) => (
-    <NavTemplate nav_height="8.6rem">
+    <NavTemplate>
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
                 <DesktopWrapper>

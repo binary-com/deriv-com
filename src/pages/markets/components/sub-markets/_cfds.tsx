@@ -29,9 +29,9 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                 <Descriptions>
                     <StyledText align="center" font_size="14px">
                         {is_eu_country ? (
-                            <Localize translate_text=" CFD trading allows you to make a potential profit from the price movement of the underlying asset without purchasing it." />
+                            <Localize translate_text="CFD trading allows you to make a potential profit from the price movement of the underlying asset without purchasing it." />
                         ) : (
-                            <Localize translate_text=" CFD trading allows you to trade on the price movement of an asset without buying or owning the underlying asset." />
+                            <Localize translate_text="CFD trading allows you to trade on the price movement of an asset without buying or owning the underlying asset." />
                         )}
                     </StyledText>
                     <StyledText align="center" mt="16px" font_size="14px">

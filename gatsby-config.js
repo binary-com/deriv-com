@@ -19,6 +19,13 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-react-helmet',
+        {
+            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            options: {
+                siteUrl: `${site_url}`,
+                noQueryString: true,
+            },
+        },
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',

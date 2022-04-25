@@ -435,6 +435,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink
+                            external
                             to={deriv_life_url}
                             target="_blank"
                             rel="noopener noreferrer"

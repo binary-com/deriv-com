@@ -41,9 +41,9 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
             setUkCountry(!!isUK(website_status.clients_country))
             setP2PAllowedCountry(isP2PAllowedCountry(website_status.clients_country))
             setUserCountry(website_status.clients_country)
-            if (!crypto_config) {
-                setCryptoConfig(website_status.crypto_config)
-            }
+            // if (!crypto_config) {
+            //     setCryptoConfig(website_status.crypto_config)
+            // }
         }
     }, [website_status])
 

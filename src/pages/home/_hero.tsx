@@ -85,7 +85,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
             : localize('Trade forex, stocks & indices, and commodities.')
 
     return (
-        <HeroWrapper>
+        <HeroWrapper id="hero-element">
             <BackgroundImage is_unstyled data={data.hero_background} loading="eager">
                 <Container fd="column" ai="flex-start">
                     <Flex

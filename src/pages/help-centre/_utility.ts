@@ -1,5 +1,7 @@
 import { ArcticlesType } from './_help-articles'
 
+export const eu_discards = ['Deriv X', 'Deriv P2P']
+
 export const convertToHash = (category, label, qparam) => {
     const categoryFormatter = category.replace(/\s/g, '-').toLowerCase()
     if (qparam) {
@@ -24,7 +26,7 @@ export const splitArticles = (array: ArcticlesType[], length: number): string[] 
 
 export const euArticles = (array: string[]): [string, string[], string[]] => {
     const second_array = [
-        ...array[1].filter((el) => el.category.props.translate_text !== 'Deriv X'),
+        ...array[1].filter((el) => el.category.props.translate_text !== eu_discards[0]),
         array[2][0],
     ]
     return [array[0], second_array, [array[2][2]]]

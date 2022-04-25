@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
-import { euArticles, getAllArticles, splitArticles } from './_utility'
+import { euArticles, eu_discards, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -203,8 +203,8 @@ const HelpCentre = () => {
 
     const articles_by_domain = is_eu_country
         ? data.all_articles
-              .filter((el) => el.category !== 'Deriv X')
-              .filter((el) => el.category !== 'Deriv P2P')
+              .filter((el) => el.category !== eu_discards[0])
+              .filter((el) => el.category !== eu_discards[1])
         : data.all_articles
 
     const filtered_articles = matchSorter(articles_by_domain, data.search.trim(), {

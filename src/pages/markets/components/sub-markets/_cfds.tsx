@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -28,22 +28,18 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
             <ContentWrapper>
                 <Descriptions>
                     <StyledText align="center" font_size="14px">
-                        {is_eu_country
-                            ? localize(
-                                  'CFD trading allows you to make a potential profit from the price movement of the underlying asset without purchasing it.',
-                              )
-                            : localize(
-                                  'CFD trading allows you to trade on the price movement of an asset without buying or owning the underlying asset.',
-                              )}
+                        {is_eu_country ? (
+                            <Localize translate_text=" CFD trading allows you to make a potential profit from the price movement of the underlying asset without purchasing it." />
+                        ) : (
+                            <Localize translate_text=" CFD trading allows you to trade on the price movement of an asset without buying or owning the underlying asset." />
+                        )}
                     </StyledText>
                     <StyledText align="center" mt="16px" font_size="14px">
-                        {is_eu_country
-                            ? localize(
-                                  'On Deriv, trading CFDs on leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
-                              )
-                            : localize(
-                                  'On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss.',
-                              )}
+                        {is_eu_country ? (
+                            <Localize translate_text="On Deriv, trading CFDs on leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss." />
+                        ) : (
+                            <Localize translate_text="On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss." />
+                        )}
                     </StyledText>
                     {market_tab_name && market_tab_name === 'stock-indices' ? (
                         <AvailablePlatforms dmt5 />
@@ -52,7 +48,7 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                     )}
                 </Descriptions>
                 <StyledText font_size="14px" weight="bold" mt="4rem">
-                    {localize('Instruments available for CFD trading')}
+                    <Localize translate_text="Instruments available for CFD trading" />
                 </StyledText>
                 <MarketInstruments market_content={market_content} />
             </ContentWrapper>

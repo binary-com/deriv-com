@@ -67,6 +67,15 @@ const query = graphql`
                 slug
                 published_date
                 featured
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(width: 600, aspectRatio: 1.6666666667)
+                        }
+                    }
+                }
                 tags {
                     id
                     tags_id {

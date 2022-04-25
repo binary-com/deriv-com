@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import { convertDate } from 'common/utility'
-import ArticleIcon from 'images/svg/blog/article-icon.svg'
 import StarIcon from 'images/svg/blog/star-icon.svg'
 import { BlogType } from 'components/hooks/use-academy-data'
+import device from 'themes/device'
 
 type ArticleCardProps = {
     items: BlogType
@@ -17,9 +17,14 @@ const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 
-const IconWrapper = styled.img`
-    width: 24px;
-    height: 24px;
+const IconWrapper = styled(QueryImage)`
+    width: 161.45px;
+    height: 96px;
+
+    @media ${device.tabletL} {
+        width: 121px;
+        height: 72px;
+    }
 `
 const StarIconWrapper = styled.img`
     width: 16px;
@@ -41,7 +46,11 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
 
     return (
         <Flex mb="40px" jc="flex-start" tablet={{ mb: '24px' }}>
-            <IconWrapper src={ArticleIcon} alt="article icon" />
+            <IconWrapper
+                data={items.main_image.imageFile}
+                alt="article icon"
+                className="standard-query-img"
+            />
             <Flex max-width="auto" ml="14px" fd="column">
                 <Flex jc="space-between" tablet={{ fd: 'column', jc: 'flex-start' }}>
                     <StyledLink to={article_link}>

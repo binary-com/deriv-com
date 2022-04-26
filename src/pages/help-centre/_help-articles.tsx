@@ -63,6 +63,18 @@ export const articles: ArcticlesType[] = [
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'what-is-dormant-fee',
             },
+            {
+                title: <Localize translate_text="How can I change my personal details?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'change-my-personal-details',
+            },
+            {
+                title: <Localize translate_text="How can I change the currency of my account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'change-the-currency-of-my-account',
+            },
         ],
     },
     {

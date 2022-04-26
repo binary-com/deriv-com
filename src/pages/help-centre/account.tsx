@@ -8,13 +8,14 @@ import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device.js'
 
-const StyledList = styled.ul`
-    list-style: unset;
-    padding-left: 2rem;
+const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
+    list-style: ${(props) => props.listStyle};
+    padding-left: ${(props) => props.paddingLeft};
 `
-const StyledListItem = styled.li`
+
+const StyledListItem = styled.li<{ marginTop: string }>`
     color: var(--color-black-3);
-    margin-top: 1.6rem;
+    margin-top: ${(props) => props.marginTop};
 `
 const StyledLink = styled(ExternalLink)`
     @media ${device.tabletL} {
@@ -30,11 +31,11 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
                 'In line with our Group practice, we set the following criteria for client sign ups:',
             )}
         </Text>
-        <StyledList>
-            <StyledListItem>
+        <StyledList listStyle="circle" paddingLeft="2rem">
+            <StyledListItem marginTop="1.6rem">
                 {localize('Clients have to be at least 18 years of age.')}
             </StyledListItem>
-            <StyledListItem>
+            <StyledListItem marginTop="1.6rem">
                 {localize(
                     'Clients cannot be a resident in Belarus, Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, Rwanda, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
                 )}
@@ -165,6 +166,148 @@ const DormantFee = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
+const ChangeMyPersonalDetails = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="You can do so on the <0>Personal details</0> page. If you’re unable to update your details, please <1>contact us via live chat</1>. We may need you to send us some documents for verification."
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/personal-details`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <StyledLink
+                        to={'/contact_us/?is_livechat'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const ChangeTheCurrencyOfMyAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            {localize(
+                'While the currencies of your virtual and cryptocurrency accounts are fixed, you can change the currency of your fiat account by following the steps below.',
+            )}
+        </Text>
+        <StyledText>
+            {localize(
+                'If you haven’t made a deposit or added a real MT5 account, follow these steps:',
+            )}
+        </StyledText>
+        <StyledList listStyle="numbers" paddingLeft="5rem">
+            <StyledListItem marginTop="1.6rem">
+                <Text>
+                    <Localize
+                        translate_text="Click on your account balance and click <0>Add or manage account.</0>"
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    <Localize
+                        translate_text="Select <0>Fiat currencies,</0> choose the currency you want, and click <0>Change currency.</0>"
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
+            </StyledListItem>
+        </StyledList>
+        <StyledText>
+            <Localize
+                translate_text="Need help? Please <0>contact us via live chat.</0>"
+                components={[
+                    <StyledLink
+                        to={'/contact_us/?is_livechat'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </StyledText>
+        <StyledText>
+            {localize(
+                'If you have made a deposit or have added a real MT5 account, follow these steps:',
+            )}
+        </StyledText>
+        <StyledList listStyle="numbers" paddingLeft="5rem">
+            <StyledListItem marginTop="1.6rem">
+                <Text>{localize('If you have open positions, close them first.')}</Text>
+                <StyledList listStyle="circle" paddingLeft="5rem">
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>
+                            <Localize
+                                translate_text="For your Deriv real account, go to <0>Reports</0> to close or sell your open positions."
+                                components={[<strong key={0} />]}
+                            />
+                        </Text>
+                    </StyledListItem>
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>
+                            {localize(
+                                'For your Deriv MT5 and Deriv X real accounts, log in to close any open positions.',
+                            )}
+                        </Text>
+                    </StyledListItem>
+                </StyledList>
+            </StyledListItem>
+            <StyledListItem marginTop="1.6rem">
+                <Text>{localize('Then, withdraw your funds.')}</Text>
+                <StyledList listStyle="circle" paddingLeft="5rem">
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>
+                            <Localize
+                                translate_text="For your Deriv real account, go to <0>Cashier</0> to withdraw your funds."
+                                components={[<strong key={0} />]}
+                            />
+                        </Text>
+                    </StyledListItem>
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>
+                            {localize(
+                                'For your Deriv MT5 and Deriv X real accounts, go to your dashboard to withdraw your funds.',
+                            )}
+                        </Text>
+                    </StyledListItem>
+                </StyledList>
+            </StyledListItem>
+            <StyledListItem marginTop="1.6rem">
+                <Text>
+                    <Localize
+                        translate_text="<0>Contact us via live chat</0> and we’ll help you change the currency of your account."
+                        components={[
+                            <StyledLink
+                                to={'/contact_us/?is_livechat'}
+                                target="_blank"
+                                external="true"
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                </Text>
+            </StyledListItem>
+        </StyledList>
+    </ArticleWrapper>
+)
+
 const AccountArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
@@ -210,6 +353,16 @@ const AccountArticle = () => {
                 <DormantFee
                     text={localize('What is a dormant fee?')}
                     label="what-is-dormant-fee"
+                    is_mounted={is_mounted}
+                />
+                <ChangeMyPersonalDetails
+                    text={localize('How can I change my personal details?')}
+                    label="change-my-personal-details"
+                    is_mounted={is_mounted}
+                />
+                <ChangeTheCurrencyOfMyAccount
+                    text={localize('How can I change the currency of my account?')}
+                    label="change-the-currency-of-my-account"
                     is_mounted={is_mounted}
                 />
             </Article>

@@ -35,7 +35,13 @@ export const EmblaSlideInner = styled.div`
     height: 100%;
 `
 
-export const StyledButtonWrapper = styled.div`
+type StyledButtonWrapperProps = {
+    disabled?: boolean
+    is_reviews?: boolean
+    left?: boolean
+}
+
+export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     position: absolute;
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.92' : '1')};
@@ -65,7 +71,13 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled(Chevron)`
+type StyledChevronProps = {
+    red?: boolean
+    black?: boolean
+    custom?: boolean
+}
+
+export const StyledChevron = styled(Chevron)<StyledChevronProps>`
     height: 24px;
     width: 24px;
     ${(props) => {
@@ -136,7 +148,12 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div`
+
+type IconWrapperProps = {
+    disabled: boolean
+}
+
+export const IconWrapper = styled.div<IconWrapperProps>`
     width: 32px;
     height: 32px;
     border-radius: 50%;

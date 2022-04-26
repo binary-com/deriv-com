@@ -86,8 +86,8 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
 
     const settings = {
         options: {
-            align: 'start',
-            draggable: 'false',
+            align: 0,
+            draggable: false,
         },
         container_style: {
             maxWidth: '100%',
@@ -97,11 +97,9 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
         slide_style: {
             width: '372px',
             marginRight: '24px',
-            position: 'relative',
         },
         slide_mobile_style: {
             width: '100%',
-            position: 'relative',
             paddingRight: '16px',
         },
         view_port: {

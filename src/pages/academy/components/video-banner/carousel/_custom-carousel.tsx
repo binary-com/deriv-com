@@ -1,6 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, {
+    useState,
+    useEffect,
+    useCallback,
+    ReactNode,
+    CSSProperties,
+    MouseEventHandler,
+} from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import PropTypes from 'prop-types'
+import type { EmblaOptionsType } from 'embla-carousel-react'
 import {
     Embla,
     EmblaContainer,
@@ -25,51 +32,81 @@ import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 import { Header } from 'components/elements'
 import { Flex } from 'components/containers'
 
-export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
+type ChevronStyleProps = {
+    chevron_color: string
+    chevron_left: CSSProperties
+    chevron_right: CSSProperties
+    is_displayed_on_mobile: boolean
+}
+
+type CustomCarouselProps = {
+    autoplay_interval?: number
+    chevron_style?: ChevronStyleProps
+    children: ReactNode[]
+    container_style?: CSSProperties
+    custom_blog_video_nav?: boolean
+    custom_blog_video_nav_style?: CSSProperties & {
+        custom_chevron_color?: string
+        custom_is_displayed_on_mobile?: boolean
+    }
+    has_autoplay?: boolean
+    navigation_style?: {
+        nav_color?: string
+        bottom_offset?: string
+    }
+    options?: EmblaOptionsType
+    slide_mobile_style?: CSSProperties
+    slide_style?: CSSProperties
+    vertical_container?: CSSProperties
+    view_port?: CSSProperties
+}
+
+type ButtonProps = {
+    chevron_style?: ChevronStyleProps
+    enabled: boolean
+    onClick?: MouseEventHandler<HTMLDivElement>
+    color: string
+    is_reviews: boolean
+    style: CSSProperties
+}
+
+export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: ButtonProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
-        left
         style={style}
         is_reviews={is_reviews}
+        left
     >
-        {(color === 'black' && <ChevronLeft black="true" />) ||
-            (color === 'red' && <ChevronLeft red="true" />) ||
-            (color === 'custom' && <ChevronLeft custom="true" />) || <ChevronLeft />}
+        {(color === 'black' && <ChevronLeft black />) ||
+            (color === 'red' && <ChevronLeft red />) ||
+            (color === 'custom' && <ChevronLeft custom />) || <ChevronLeft />}
     </StyledButtonWrapper>
 )
 
-PrevButton.propTypes = {
-    chevron_style: PropTypes.object,
-    enabled: PropTypes.bool,
-    onClick: PropTypes.func,
+type NavigationButtonProps = {
+    color: string
+    is_enabled: boolean
+    onClick: MouseEventHandler<HTMLDivElement>
 }
 
 // TODO: will remove later,not using this for now
-export const NavigationButton = ({ color, is_enabled, onClick }) => (
+export const NavigationButton = ({ color, is_enabled, onClick }: NavigationButtonProps) => (
     <StyledDot onClick={onClick} color={is_enabled ? color : null} />
 )
 
-NavigationButton.propTypes = {
-    color: PropTypes.string,
-    is_enabled: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
-export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
+export const NextButton = ({ color, enabled, is_reviews, onClick, style }: ButtonProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
         style={style}
         is_reviews={is_reviews}
     >
-        {(color === 'black' && <ChevronRight black="true" />) ||
-            (color === 'red' && <ChevronRight red="true" />) ||
-            (color === 'custom' && <ChevronRight custom="true" />) || <ChevronRight />}
+        {(color === 'black' && <ChevronRight black />) ||
+            (color === 'red' && <ChevronRight red />) ||
+            (color === 'custom' && <ChevronRight custom />) || <ChevronRight />}
     </StyledButtonWrapper>
 )
-
-NextButton.propTypes = PrevButton.propTypes
 
 export const CustomCarousel = ({
     autoplay_interval,
@@ -77,7 +114,6 @@ export const CustomCarousel = ({
     children,
     container_style,
     has_autoplay,
-    navigation_style,
     options,
     slide_style,
     slide_mobile_style,
@@ -85,7 +121,7 @@ export const CustomCarousel = ({
     view_port,
     custom_blog_video_nav,
     custom_blog_video_nav_style,
-}) => {
+}: CustomCarouselProps) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -154,7 +190,8 @@ export const CustomCarousel = ({
     const { chevron_color, chevron_left, chevron_right, is_displayed_on_mobile } =
         chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
-    const { nav_color, bottom_offset } = navigation_style || {}
+    // navigation_style must be imported through props
+    // const { nav_color, bottom_offset } = navigation_style || {}
 
     const { custom_chevron_color, custom_is_displayed_on_mobile } =
         custom_blog_video_nav_style || {}
@@ -237,7 +274,7 @@ export const CustomCarousel = ({
                     </>
                 )}
                 {/*  TODO: will remove later,not using this for now */}
-                {nav_color && (
+                {/* {nav_color && (
                     <NavigationContainer bottom_offset={bottom_offset}>
                         {children.map((child, idx) => (
                             <NavigationButton
@@ -248,24 +285,8 @@ export const CustomCarousel = ({
                             />
                         ))}
                     </NavigationContainer>
-                )}
+                )} */}
             </Embla>
         </div>
     )
-}
-
-CustomCarousel.propTypes = {
-    autoplay_interval: PropTypes.number,
-    chevron_style: PropTypes.object,
-    children: PropTypes.array,
-    container_style: PropTypes.object,
-    custom_blog_video_nav: PropTypes.bool,
-    custom_blog_video_nav_style: PropTypes.object,
-    has_autoplay: PropTypes.bool,
-    navigation_style: PropTypes.object,
-    options: PropTypes.object,
-    slide_mobile_style: PropTypes.object,
-    slide_style: PropTypes.object,
-    vertical_container: PropTypes.object,
-    view_port: PropTypes.object,
 }

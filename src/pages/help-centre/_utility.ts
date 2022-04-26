@@ -1,6 +1,15 @@
 import { ArcticlesType } from './_help-articles'
 
 export const eu_discards = ['Deriv X', 'Deriv P2P']
+const countryDomainFilter = (array) => {
+    array.forEach((el, key) => {
+        eu_discards.forEach((discard) => {
+            if (el.category.props.translate_text === discard) {
+                delete array[key]
+            }
+        })
+    })
+}
 
 export const convertToHash = (category, label, qparam) => {
     const categoryFormatter = category.replace(/\s/g, '-').toLowerCase()
@@ -25,9 +34,8 @@ export const splitArticles = (array: ArcticlesType[], length: number): string[] 
     }, [])
 
 export const euArticles = (array: string[]): [string, string[], string[]] => {
-    const second_array = [
-        ...array[1].filter((el) => el.category.props.translate_text !== eu_discards[0]),
-        array[2][0],
-    ]
+    const second_array = [...array[1], array[2][0]]
+    countryDomainFilter(second_array)
+
     return [array[0], second_array, [array[2][2]]]
 }

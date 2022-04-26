@@ -152,7 +152,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </Text>
                         <Text mt="2rem">
                             {localize(
-                                'Clients in the European Union who wish to trade can have accounts under Deriv Investments (Europe) Limited.',
+                                'Clients in the European Union who wish to trade financial instruments can have accounts under Deriv Investments (Europe) Limited.',
                             )}
                         </Text>
                     </Box>
@@ -270,7 +270,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments, including cryptocurrencies can have DMT5 Financial STP accounts under Deriv (BVI) Ltd.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments, including cryptocurrencies, can have DMT5 Financial STP accounts under Deriv (BVI) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>

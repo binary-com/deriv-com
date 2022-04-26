@@ -28,6 +28,10 @@ export const domain_config = {
             hostname: 'deriv.be',
             app_id: deriv_be_app_id,
         },
+        {
+            hostname: 'eu.deriv.com',
+            app_id: deriv_com_app_id,
+        },
     ],
     staging: {
         hostname: 'staging.deriv.com',

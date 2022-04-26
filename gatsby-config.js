@@ -140,8 +140,8 @@ module.exports = {
                 description:
                     'Deriv gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 start_url: '/',
-                background_color: '#0e0e0e',
-                theme_color: '#ff444f',
+                background_color: '#000000',
+                theme_color: '#000000',
                 display: 'standalone',
                 icon: './favicons/favicon-512x512.png',
                 icons: [

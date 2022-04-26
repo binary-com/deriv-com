@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StandardImgWrapper } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import { convertDate } from 'common/utility'
 import StarIcon from 'images/svg/blog/star-icon.svg'
 import { BlogType } from 'components/hooks/use-academy-data'
-import device from 'themes/device'
+import { Desktop, Mobile } from 'components/containers/visibility'
 
 type ArticleCardProps = {
     items: BlogType
@@ -17,15 +18,6 @@ const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 
-const IconWrapper = styled(QueryImage)`
-    width: 161.45px;
-    height: 96px;
-
-    @media ${device.tabletL} {
-        width: 121px;
-        height: 72px;
-    }
-`
 const StarIconWrapper = styled.img`
     width: 16px;
     height: 16px;
@@ -46,13 +38,30 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
 
     return (
         <Flex mb="40px" jc="flex-start" tablet={{ mb: '24px' }}>
-            <IconWrapper
-                data={items.main_image.imageFile}
-                alt="article icon"
-                className="standard-query-img"
-            />
+            <Desktop>
+                <StandardImgWrapper width="161px" height="96px" border_radius="6px">
+                    <QueryImage
+                        data={items.main_image.imageFile}
+                        alt={items.main_image.description || ''}
+                        className="standard-query-img"
+                    />
+                </StandardImgWrapper>
+            </Desktop>
             <Flex max-width="auto" ml="14px" fd="column">
-                <Flex jc="space-between" tablet={{ fd: 'column', jc: 'flex-start' }}>
+                <Mobile>
+                    <StandardImgWrapper
+                        tabletL_width="120px"
+                        tabletL_height="72px"
+                        tabletL_border_radius="4px"
+                    >
+                        <QueryImage
+                            data={items.main_image.imageFile}
+                            alt={items.main_image.description || ''}
+                            className="standard-query-img"
+                        />
+                    </StandardImgWrapper>
+                </Mobile>
+                <Flex jc="space-between" tablet={{ fd: 'column', jc: 'flex-start', mt: '8px' }}>
                     <StyledLink to={article_link}>
                         <Header type="paragraph-1" width="auto">
                             {items.blog_title}

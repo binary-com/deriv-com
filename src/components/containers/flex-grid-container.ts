@@ -1,9 +1,15 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Container from './container'
 import device from 'themes/device'
 
-const FlexGridContainer = styled(Container)`
+type FlexGridContainerProps = {
+    content_width?: string | number
+    gap?: string
+    grid?: string | number
+    justify?: string
+}
+
+const FlexGridContainer = styled(Container)<FlexGridContainerProps>`
     flex-wrap: wrap;
     align-items: stretch;
     align-content: stretch;
@@ -37,10 +43,3 @@ const FlexGridContainer = styled(Container)`
 `
 
 export default FlexGridContainer
-
-FlexGridContainer.propTypes = {
-    content_width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    gap: PropTypes.string,
-    grid: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    justify: PropTypes.string,
-}

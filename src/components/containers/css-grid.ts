@@ -1,9 +1,26 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Box from './box'
 import device from 'themes/device'
 
-const CssGrid = styled(Box)`
+type CssGridProps = {
+    align?: string
+    bgcolor?: string
+    column_gap?: string
+    columns?: string
+    justify?: string
+    margin?: string
+    row_gap?: string
+}
+
+type CssGridColumnProps = {
+    align?: string
+    bgcolor?: string
+    height?: string
+    justify?: string
+    padding?: string
+}
+
+const CssGrid = styled(Box)<CssGridProps>`
     display: grid;
     height: ${(props) => props.height || '100%'};
     margin: ${(props) => props.margin || '0'};
@@ -44,7 +61,7 @@ const CssGrid = styled(Box)`
     }
 `
 
-export const CssGridColumn = styled.div`
+export const CssGridColumn = styled.div<CssGridColumnProps>`
     padding: ${(props) => props.padding || '0'};
     align-self: ${(props) => props.align || 'stretch'};
     justify-self: ${(props) => props.justify || 'initial'};
@@ -53,20 +70,3 @@ export const CssGridColumn = styled.div`
 `
 
 export default CssGrid
-
-CssGrid.propTypes = {
-    align: PropTypes.string,
-    bgcolor: PropTypes.string,
-    column_gap: PropTypes.string,
-    columns: PropTypes.string,
-    justify: PropTypes.string,
-    margin: PropTypes.string,
-    row_gap: PropTypes.string,
-}
-CssGridColumn.propTypes = {
-    align: PropTypes.string,
-    bgcolor: PropTypes.string,
-    height: PropTypes.string,
-    justify: PropTypes.string,
-    padding: PropTypes.string,
-}

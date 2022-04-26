@@ -1,10 +1,35 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/og_deriv.png'
+
+type SEOProps = {
+    description?: string
+    has_organization_schema?: boolean
+    meta?: []
+    meta_attributes?: {
+        og_title?: string
+        og_description?: string
+        og_type?: string
+        og_img?: string
+        og_img_width?: string
+        og_img_height?: string
+    }
+    no_index?: boolean
+    title: string
+}
+
+type QueryProps = {
+    site: {
+        siteMetadata?: {
+            description?: string
+            author?: string
+            siteUrl?: string
+        }
+    }
+}
 
 const non_localized_links = [
     '/careers',
@@ -17,9 +42,15 @@ const non_localized_links = [
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
-const SEO = ({ description, meta, title, no_index, has_organization_schema, meta_attributes }) => {
-    let queries = []
-    queries = useStaticQuery(
+const SEO = ({
+    description,
+    meta,
+    title,
+    no_index,
+    has_organization_schema,
+    meta_attributes,
+}: SEOProps) => {
+    const queries: QueryProps = useStaticQuery(
         graphql`
             query {
                 site {
@@ -194,19 +225,6 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 })}
         </Helmet>
     )
-}
-
-SEO.defaultProps = {
-    meta: [],
-}
-
-SEO.propTypes = {
-    description: PropTypes.string,
-    has_organization_schema: PropTypes.bool,
-    meta: PropTypes.arrayOf(PropTypes.object),
-    meta_attributes: PropTypes.object,
-    no_index: PropTypes.bool,
-    title: PropTypes.string.isRequired,
 }
 
 export default SEO

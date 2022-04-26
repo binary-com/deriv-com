@@ -2,7 +2,14 @@ import styled, { css } from 'styled-components'
 import Box, { generateResponsiveStyles } from './box'
 import device from 'themes/device'
 
-export const flexStyles = ({ jc, ai, fw, fd }) => css`
+type flexStylesProps = {
+    jc?: string
+    ai?: string
+    fw?: string
+    fd?: string
+}
+
+export const flexStyles = ({ jc, ai, fw, fd }: flexStylesProps) => css`
     justify-content: ${jc};
     align-items: ${ai};
     flex-wrap: ${fw};

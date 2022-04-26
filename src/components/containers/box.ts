@@ -18,7 +18,7 @@ export const mediaqueries = Object.keys(size)
 export const generateResponsiveStyles = (stylesGenerator) => (props) => {
     return Object.keys(mediaqueries).reduce((rules, mq) => {
         if (!props[mq]) return rules
-        const styles = mediaqueries[mq]`        
+        const styles = mediaqueries[mq]`
         ${stylesGenerator(props[mq])}
         `
         return [...rules, styles]

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { Flex, SectionContainer, Show } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Carousel, Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
@@ -296,7 +296,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
 
     return (
         <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
-            <Show.Desktop max_width="mobileL">
+            <Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
@@ -307,19 +307,19 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                         )}
                     </Carousel>
                 </MarketsWrapper>
-            </Show.Desktop>
-            <Show.Mobile min_width="mobileL">
+            </Desktop>
+            <Mobile min_width="mobileL">
                 <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">
-                    {markets.map((market) =>
+                    {filteredMarkets.map((market) =>
                         except === market || market === '' ? null : (
                             <MobileCard market={market} key={market} />
                         ),
                     )}
                 </MobileCardContainer>
-            </Show.Mobile>
+            </Mobile>
         </SectionContainer>
     )
 }

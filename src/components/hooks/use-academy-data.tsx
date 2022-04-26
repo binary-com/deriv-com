@@ -64,9 +64,6 @@ const query = graphql`
         directus {
             blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 id
-                slug
-                published_date
-                featured
                 main_image {
                     id
                     description
@@ -76,6 +73,9 @@ const query = graphql`
                         }
                     }
                 }
+                slug
+                published_date
+                featured
                 tags {
                     id
                     tags_id {

@@ -114,6 +114,7 @@ export const CustomCarousel = ({
     children,
     container_style,
     has_autoplay,
+    navigation_style,
     options,
     slide_style,
     slide_mobile_style,
@@ -190,8 +191,8 @@ export const CustomCarousel = ({
     const { chevron_color, chevron_left, chevron_right, is_displayed_on_mobile } =
         chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
-    // navigation_style must be imported through props
-    // const { nav_color, bottom_offset } = navigation_style || {}
+
+    const { nav_color, bottom_offset } = navigation_style || {}
 
     const { custom_chevron_color, custom_is_displayed_on_mobile } =
         custom_blog_video_nav_style || {}
@@ -274,7 +275,7 @@ export const CustomCarousel = ({
                     </>
                 )}
                 {/*  TODO: will remove later,not using this for now */}
-                {/* {nav_color && (
+                {nav_color && (
                     <NavigationContainer bottom_offset={bottom_offset}>
                         {children.map((child, idx) => (
                             <NavigationButton
@@ -285,7 +286,7 @@ export const CustomCarousel = ({
                             />
                         ))}
                     </NavigationContainer>
-                )} */}
+                )}
             </Embla>
         </div>
     )

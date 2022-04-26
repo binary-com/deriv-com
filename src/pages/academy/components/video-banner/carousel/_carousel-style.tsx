@@ -101,7 +101,7 @@ export const StyledChevron = styled(Chevron)<StyledChevronProps>`
             const red_color = 'fill: var(--color-red);'
             const default_color = 'fill: var(--color-white);'
 
-            return props.black ? black_color : props.red ? red_color : default_color
+            return (props.black && black_color) || (props.red && red_color) || default_color
         }}
     }
 `

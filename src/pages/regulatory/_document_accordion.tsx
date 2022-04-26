@@ -132,7 +132,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 <Text>
                     {is_eu_country
                         ? localize(
-                              'Deriv Investments (Europe) Limited has prepared the Pillar III disclosure report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
+                              'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
                           )
                         : localize(
                               'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
@@ -142,11 +142,11 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/Financial_Disclosures_Annual_Report_2020.pdf"
+                        href="/regulatory/Financial_Disclosures_Annual_Report_2021.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />
-                        <span>{localize('Financial Disclosures Annual Report 2020')}</span>
+                        <span>{localize('Financial Disclosures Annual Report 2021')}</span>
                     </FlexText_Pillar>
                 </Flex>
             </AccordionItem>

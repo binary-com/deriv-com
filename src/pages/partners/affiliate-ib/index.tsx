@@ -10,7 +10,6 @@ import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { MetaAttributesType } from 'types/page.types'
 
@@ -171,9 +170,7 @@ const AffiliateIb = () => {
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
-                    to={affiliate_signup_url}
-                    external="true"
-                    target="_blank"
+                    to="/signup-affiliates/"
                     type="affiliate_sign_up"
                     secondary
                 >

@@ -117,7 +117,7 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Basket indices" />,
+        header: <Localize translate_text="Basket indicies" />,
         description: (
             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
         ),

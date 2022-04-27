@@ -25,22 +25,36 @@ const StarIconWrapper = styled.img`
     padding-top: 2px;
 `
 
+const DesktopSection = styled.div`
+    @media (max-width: 475px) {
+        display: none;
+    }
+`
+
+const MobileSection = styled.div`
+    @media (min-width: 475px) {
+        display: none;
+    }
+`
+
 const ArticleCard = ({ items }: ArticleCardProps) => {
     const article_link = `/academy/blog/posts/${items.slug}/`
 
     return (
         <Flex mb="40px" jc="flex-start" tablet={{ mb: '24px' }}>
-            <Desktop>
+            <DesktopSection>
                 <StandardImgWrapper width="161px" height="96px" border_radius="6px">
                     <QueryImage
                         data={items.main_image.imageFile}
                         alt={items.main_image.description || ''}
                         className="standard-query-img"
+                        width="161px"
+                        height="96px"
                     />
                 </StandardImgWrapper>
-            </Desktop>
+            </DesktopSection>
             <Flex max-width="auto" ml="14px" fd="column">
-                <Mobile>
+                <MobileSection>
                     <StandardImgWrapper
                         tabletL_width="120px"
                         tabletL_height="72px"
@@ -52,7 +66,7 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
                             className="standard-query-img"
                         />
                     </StandardImgWrapper>
-                </Mobile>
+                </MobileSection>
                 <Flex jc="space-between" tablet={{ fd: 'column', jc: 'flex-start', mt: '8px' }}>
                     <StyledLink to={article_link}>
                         <Header type="paragraph-1" width="auto">

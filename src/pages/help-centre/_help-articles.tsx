@@ -32,7 +32,7 @@ export const articles: ArcticlesType[] = [
                 label: 'changing-your-personal-details',
             },
             {
-                title: <Localize translate_text="How can I change my account's currency?" />,
+                title: <Localize translate_text="How can I change the currency of my account?" />,
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'change-account-currency',
@@ -64,16 +64,74 @@ export const articles: ArcticlesType[] = [
                 label: 'what-is-dormant-fee',
             },
             {
-                title: <Localize translate_text="How can I change my personal details?" />,
+                title: <Localize translate_text="Can I change my email address?" />,
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,
-                label: 'change-my-personal-details',
+                label: 'change-my-email-address',
             },
             {
                 title: <Localize translate_text="How can I change the currency of my account?" />,
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'change-the-currency-of-my-account',
+            },
+            {
+                title: <Localize translate_text="Can I open a corporate or business account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'open-a-corporate-or-business-account',
+            },
+            {
+                title: <Localize translate_text="Do I need to pay taxes on my trades/profits?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'pay-taxes-on-my-trades-profits',
+            },
+            {
+                title: <Localize translate_text="Can I open more than one Deriv account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'open-more-than-one-deriv-account',
+            },
+            {
+                title: <Localize translate_text="How do I create an API token?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'create-an-API-token',
+            },
+            {
+                title: (
+                    <Localize translate_text="How can I set self-exclusion limits on my account?" />
+                ),
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'self-exclusion-limits-on-my-account',
+            },
+            {
+                title: (
+                    <Localize translate_text="How can I adjust or remove my self-exclusion limits?" />
+                ),
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'remove-self-exclusion-limits',
+            },
+            {
+                title: <Localize translate_text="How can I reactivate my Deriv account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'reactivate-my-Deriv-account',
+            },
+            {
+                title: <Localize translate_text="When do I need to verify my account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'need-to-verify-my-account',
+            },
+            {
+                title: <Localize translate_text="How do I verify my account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'How-do-I-verify-my-account',
             },
         ],
     },

@@ -27,146 +27,48 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'In line with our Group practice, we set the following criteria for client sign ups:',
-            )}
+            {localize("Here are some possible reasons you aren't able to create an account:")}
         </Text>
-        <StyledList listStyle="circle" paddingLeft="2rem">
-            <StyledListItem marginTop="1.6rem">
-                {localize('Clients have to be at least 18 years of age.')}
+        <StyledList listStyle="disc" paddingLeft="5rem">
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('You’re below 18 years old.')}</Text>
             </StyledListItem>
-            <StyledListItem marginTop="1.6rem">
-                {localize(
-                    'Clients cannot be a resident in Belarus, Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, Rwanda, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
-                )}
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('You may already have a Deriv account.')}</Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize("Our services aren't available in your country of residence.")}
+                </Text>
             </StyledListItem>
         </StyledList>
+        <StyledText>
+            <Localize
+                translate_text="You may refer to <0>our terms</0> for more information. If you need help getting into your account, <1>contact us via live chat.</1>"
+                components={[
+                    <StyledLink
+                        to={'/tnc/general-terms.pdf'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <StyledLink
+                        to={'/contact_us/?is_livechat'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                ]}
+            />
+        </StyledText>
     </ArticleWrapper>
 )
 
 const ChangingPersonalDetails = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
-                components={[
-                    <strong key={0} />,
-                    <StyledLink
-                        to={`${deriv_app_url}/account/personal-details`}
-                        external="true"
-                        weight="bold"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
-        </Text>
-        <StyledText>
-            {localize(
-                'If the account has been fully authenticated, you can submit a ticket requesting the desired changes. Please attach your proof of identity and address.',
-            )}
-        </StyledText>
-    </ArticleWrapper>
-)
-
-const ChangeAccountCurrency = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'Once you have made a deposit or created a DMT5 account, you can only change your currency by contacting Customer Support.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-
-const RecoveringPassword = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="If you’ve forgotten your Google/Facebook/Apple account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
-                components={[
-                    <StyledLink
-                        to="/reset-password/"
-                        weight="bold"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
-
-const CloseAccount = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="To close your account, go to <0>Deactivate account.</0> "
-                components={[
-                    <StyledLink
-                        to={`${deriv_app_url}/account/deactivate-account`}
-                        external="true"
-                        target="_blank"
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </Text>
-        <StyledText>
-            {localize(
-                'Before closing your Deriv account, close all your open positions and withdraw all the funds in your trading accounts, including DMT5.',
-            )}
-        </StyledText>
-    </ArticleWrapper>
-)
-
-const UnsubscribeEmail = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
-                components={[
-                    <strong key={0} />,
-                    <StyledLink
-                        to={`${deriv_app_url}/account/personal-details`}
-                        target="_blank"
-                        external="true"
-                        weight="bold"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
-        </Text>
-    </ArticleWrapper>
-)
-
-const DormantFee = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            {localize(
-                'A dormant fee is an amount charged to any account that has not placed a transaction over a continuous period of 12 months.',
-            )}
-        </Text>
-        <StyledText>
-            {localize(
-                'This does not apply if the client is under self-exclusion, either by their own choice or as a decision by the Company.',
-            )}
-        </StyledText>
-    </ArticleWrapper>
-)
-
-const ChangeMyPersonalDetails = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
@@ -195,7 +97,7 @@ const ChangeMyPersonalDetails = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ChangeTheCurrencyOfMyAccount = ({ text }: ArticleProps) => (
+const ChangeAccountCurrency = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
@@ -308,6 +210,442 @@ const ChangeTheCurrencyOfMyAccount = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
+const RecoveringPassword = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            {localize(
+                'If you created your Deriv account using Apple/Google/Facebook, try resetting your Apple/Google/Facebook password. After that, you should be able to log in to Deriv as usual.',
+            )}
+        </Text>
+        <StyledText>
+            {localize(
+                "If you'd like to log in using your email address instead, follow these steps:",
+            )}
+        </StyledText>
+        <StyledList listStyle="numbers" paddingLeft="5rem">
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    <Localize
+                        translate_text="Hit <0>Forgot password?</0> on the <1>login page.</1>"
+                        components={[
+                            <StyledLink
+                                to={'/reset-password'}
+                                target="_blank"
+                                external="true"
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <StyledLink
+                                to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
+                                target="_blank"
+                                external="true"
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={1}
+                            />,
+                        ]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize(
+                        'Enter the same email address you use for your Apple/Google/Facebook account.',
+                    )}
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize(
+                        "We'll email you a verification link. Click that link and set a new password for your Deriv account.",
+                    )}
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize(
+                        "Now, you'll be able to log in to your Deriv account using your email address and password.",
+                    )}
+                </Text>
+            </StyledListItem>
+        </StyledList>
+    </ArticleWrapper>
+)
+
+const CloseAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="Click <0>here</0> to close your account."
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/deactivate-account`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const UnsubscribeEmail = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text='You can unsubscribe by going to the <0>Personal details</0> page. Uncheck the checkbox that says "Get updates about Deriv products, services and events." at the bottom of the page, and click <1>Submit.</1>'
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/personal-details`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <strong key={1} />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const DormantFee = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="It's a fee that we charge for accounts that have been inactive for the last 12 months. Refer to <0>our terms</0> for more info."
+                components={[
+                    <StyledLink
+                        to={'/tnc/general-terms.pdf'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const ChangeMyEmailAddress = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="Yes. <0>Contact us via live chat</0> Localize and we'll help you with it."
+                components={[
+                    <StyledLink
+                        to={'/contact_us/?is_livechat'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const OpenACorporateOrBusinessAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="Yes. <0>Contact us via live chat</0>, and we'll help you through it. We'll need the following information:"
+                components={[
+                    <StyledLink
+                        to={'/contact_us/?is_livechat'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+
+        <StyledList listStyle="disc" paddingLeft="5rem">
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    <Text>{localize('Name of entity')}</Text>
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('Certificate of incorporation')}</Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('Memorandum and articles of association')}</Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('List of directors')}</Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('List of shareholders')}</Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize(
+                        'Authorisation to manage the account (if your business has more than one director)',
+                    )}
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize(
+                        'Passport and utility bill/bank statement of the person managing the account and of each director and shareholder (if your business has more than 1)',
+                    )}
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize('Utility bill/bank statement containing the address of the business')}
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('Source of wealth documentation')}</Text>
+            </StyledListItem>
+        </StyledList>
+        <StyledText>
+            {localize('We may request more information during the signup process.')}
+        </StyledText>
+    </ArticleWrapper>
+)
+
+const PayTaxesOnMyTradesProfits = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="It depends on the laws in your country of residence. Please get professional advice on whether you're required to pay taxes on <0>your profits</0>."
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/reports/profit`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const CreateAnAPIToken = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="You can create an API token <0>here</0>. Give your token a name, select the scope, and click <1>Create</1>."
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/api-token`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <strong key={1} />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const OpenMoreThanOneDerivAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="As per <0>our terms</0>, we only allow one account per client, which you can open in the currency of your choice (either fiat or crypto). If you want to trade with other currencies, you can add multiple cryptocurrency accounts to your profile."
+                components={[
+                    <StyledLink
+                        to={'/tnc/general-terms.pdf'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const SelfExclusionLimitsOnMyAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="You can do so on the <0>Self-exclusion</0> page."
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/self-exclusion`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="If you're residing in the EU or UK, <0>contact us via live chat</0>, and we'll help you with it."
+                components={[
+                    <StyledLink
+                        to={'/contact_us/?is_livechat_open=true'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="If you reside in any other country, you can adjust or remove your limits on the <1>Self-exclusion</1> page. If you’re unable to change your limits, <0>let us know via live chat</0>."
+                components={[
+                    <StyledLink
+                        to={'/contact_us/?is_livechat_open=true'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <StyledLink
+                        to={`${deriv_app_url}/account/self-exclusion`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const ReactivateMyDerivAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="You may reactivate your account by <1>logging in</1> with your email address and password. If you're unable to do so, please <0>contact us via live chat</0>, and we'll help you further."
+                components={[
+                    <StyledLink
+                        to={'/contact_us/?is_livechat_open=true'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                    <StyledLink
+                        to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const NeedToVerifyMyAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>{localize('We’ll prompt you to verify your account when it’s needed.')}</Text>
+    </ArticleWrapper>
+)
+
+const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>{localize('When we prompt you to verify your account, follow these steps:')}</Text>
+        <StyledList listStyle="numbers" paddingLeft="5rem">
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    <Localize
+                        translate_text="<0>Log in</0> to your Deriv account."
+                        components={[
+                            <StyledLink
+                                to={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
+                                target="_blank"
+                                external="true"
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    <Localize
+                        translate_text="Go to <0>Settings</0> > <1>Proof of identity</1> or <1>Proof of address</1>."
+                        components={[
+                            <StyledLink
+                                to={`${deriv_app_url}/account/personal-details`}
+                                target="_blank"
+                                external="true"
+                                weight="bold"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                            <strong key={1} />,
+                        ]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>
+                    {localize('Follow the instructions on the screen to verify your account.')}
+                </Text>
+            </StyledListItem>
+        </StyledList>
+
+        <StyledText>
+            <Localize
+                translate_text="<0>Note:</0> The <0>Proof of identity</0> and <0>Proof of address</0> pages will not be available if your account doesn’t need verification at this time."
+                components={[<strong key={0} />]}
+            />
+        </StyledText>
+    </ArticleWrapper>
+)
+
 const AccountArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
@@ -329,7 +667,7 @@ const AccountArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <ChangeAccountCurrency
-                    text={localize("How can I change my account's currency?")}
+                    text={localize('How can I change the currency of my account?')}
                     label="change-account-currency"
                     is_mounted={is_mounted}
                 />
@@ -355,14 +693,54 @@ const AccountArticle = () => {
                     label="what-is-dormant-fee"
                     is_mounted={is_mounted}
                 />
-                <ChangeMyPersonalDetails
-                    text={localize('How can I change my personal details?')}
-                    label="change-my-personal-details"
+                <ChangeMyEmailAddress
+                    text={localize('Can I change my email address?')}
+                    label="change-my-email-address"
                     is_mounted={is_mounted}
                 />
-                <ChangeTheCurrencyOfMyAccount
-                    text={localize('How can I change the currency of my account?')}
-                    label="change-the-currency-of-my-account"
+                <OpenACorporateOrBusinessAccount
+                    text={localize('Can I open a corporate or business account?')}
+                    label="open-a-corporate-or-business-account"
+                    is_mounted={is_mounted}
+                />
+                <PayTaxesOnMyTradesProfits
+                    text={localize('Do I need to pay taxes on my trades/profits?')}
+                    label="pay-taxes-on-my-trades-profits"
+                    is_mounted={is_mounted}
+                />
+                <OpenMoreThanOneDerivAccount
+                    text={localize('Can I open more than one Deriv account?')}
+                    label="open-more-than-one-deriv-account"
+                    is_mounted={is_mounted}
+                />
+                <CreateAnAPIToken
+                    text={localize('How do I create an API token?')}
+                    label="create-an-API-token"
+                    is_mounted={is_mounted}
+                />
+                <SelfExclusionLimitsOnMyAccount
+                    text={localize('How can I set self-exclusion limits on my account?')}
+                    label="self-exclusion-limits-on-my-account"
+                    is_mounted={is_mounted}
+                />
+                <RemoveSelfExclusionLimits
+                    text={localize('How can I adjust or remove my self-exclusion limits?')}
+                    label="remove-self-exclusion-limits"
+                    is_mounted={is_mounted}
+                />
+                <ReactivateMyDerivAccount
+                    text={localize('How can I reactivate my Deriv account?')}
+                    label="reactivate-my-Deriv-account"
+                    is_mounted={is_mounted}
+                />
+                <NeedToVerifyMyAccount
+                    text={localize('When do I need to verify my account?')}
+                    label="need-to-verify-my-account"
+                    is_mounted={is_mounted}
+                />
+                <HowDoIVerifyMyAccount
+                    text={localize('How do I verify my account?')}
+                    label="How-do-I-verify-my-account"
                     is_mounted={is_mounted}
                 />
             </Article>

@@ -7,7 +7,6 @@ import { LocalizedLink } from 'components/localization'
 import { convertDate } from 'common/utility'
 import StarIcon from 'images/svg/blog/star-icon.svg'
 import { BlogType } from 'components/hooks/use-academy-data'
-import { Desktop, Mobile } from 'components/containers/visibility'
 
 type ArticleCardProps = {
     items: BlogType

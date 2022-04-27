@@ -24,14 +24,6 @@ const StarIconWrapper = styled.img`
     margin-left: 8px;
     padding-top: 2px;
 `
-const StyledCategories = styled(Header)`
-    width: fit-content;
-    border-radius: 8px;
-    background-color: var(--color-blue-10);
-    color: var(--color-blue-9);
-    padding: 2px 8px 0;
-    margin: 0 8px 8px 0;
-`
 
 const ArticleCard = ({ items }: ArticleCardProps) => {
     const article_link = `/academy/blog/posts/${items.slug}/`
@@ -85,19 +77,6 @@ const ArticleCard = ({ items }: ArticleCardProps) => {
                 <Header type="paragraph-1" weight="normal">
                     {items.blog_description}
                 </Header>
-                <Flex jc="flex-start" height="auto" fw="wrap" mt="8px">
-                    {items.tags &&
-                        items.tags.slice(0, 4).map((tag) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
-                                {tag?.tags_id?.tag_name}
-                            </StyledCategories>
-                        ))}
-                    {items.tags.length > 4 && (
-                        <StyledCategories as="h4" type="paragraph-2">
-                            {`+${items.tags.slice(4).length.toString()}`}
-                        </StyledCategories>
-                    )}
-                </Flex>
             </Flex>
         </Flex>
     )

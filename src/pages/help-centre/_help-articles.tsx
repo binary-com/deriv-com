@@ -236,14 +236,16 @@ export const articles: ArcticlesType[] = [
         category: <Localize translate_text="Deposits and withdrawals" />,
         articles: [
             {
-                title: <Localize translate_text="What payment methods do you support?" />,
+                title: (
+                    <Localize translate_text="What payment methods can I use for deposits and withdrawals?" />
+                ),
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Payment methods" />,
                 label: 'payment-methods',
             },
             {
                 title: (
-                    <Localize translate_text="How long does it take to process deposits and withdrawals?" />
+                    <Localize translate_text="How long does it take for my deposits and withdrawals to be processed?" />
                 ),
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Cashier limits" />,
@@ -259,22 +261,22 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="My withdrawal verification link expired. What should I do?" />
+                    <Localize translate_text="My withdrawal verification link has expired. What should I do?" />
                 ),
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'expired-verification-link',
             },
             {
-                title: <Localize translate_text="How can I lift my withdrawal limits?" />,
+                title: (
+                    <Localize translate_text="How can I remove the withdrawal limit on my account?" />
+                ),
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'lift-withdrawal-limits',
             },
             {
-                title: (
-                    <Localize translate_text="Why does my credit card deposit keep getting declined?" />
-                ),
+                title: <Localize translate_text="Why did my credit card deposit get declined?" />,
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'credit-card-deposit-declined',
@@ -287,11 +289,41 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="Why can't I withdraw funds to my Maestro/Mastercard?" />
+                    <Localize translate_text="Why can't I withdraw using Maestro or Mastercard?" />
                 ),
                 category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'withdraw-to-maestro-mastercard',
+            },
+            {
+                title: (
+                    <Localize translate_text="What conversion rates do you use for deposits and withdrawals?" />
+                ),
+                category: 'Deposits and withdrawals',
+                sub_category: <Localize translate_text="Withdrawals" />,
+                label: 'What-conversion-rates-do-you-use-for-deposits-and-withdrawals',
+            },
+            {
+                title: <Localize translate_text="How can I cancel my withdrawal?" />,
+                category: 'Deposits and withdrawals',
+                sub_category: <Localize translate_text="Withdrawals" />,
+                label: 'How-can-I-cancel-my-withdrawal',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can I deposit with my friend's/family member's debit/credit card or e-wallet?" />
+                ),
+                category: 'Deposits and withdrawals',
+                sub_category: <Localize translate_text="Withdrawals" />,
+                label: 'deposit-with-friends-and-family-card',
+            },
+            {
+                title: (
+                    <Localize translate_text="Why can't I see any payment methods on the Withdrawal page?" />
+                ),
+                category: 'Deposits and withdrawals',
+                sub_category: <Localize translate_text="Withdrawals" />,
+                label: 'payment-methods-on-the-Withdrawal-page',
             },
         ],
     },

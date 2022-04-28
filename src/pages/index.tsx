@@ -18,7 +18,7 @@ const Home = () => {
     const target = '#market-fold'
     const options = {
         root: null,
-        rootMargin: '-50px',
+        rootMargin: '0px',
         threshold: 0.1,
     }
     const templates: ReactNode = (

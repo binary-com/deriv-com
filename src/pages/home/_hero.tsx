@@ -8,8 +8,8 @@ import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
-import { Localize } from 'components/localization'
-import { getCountryRule, EU, UK, ROW } from 'components/containers/visibility'
+import { Localize, localize } from 'components/localization'
+import { getCountryRule } from 'components/containers/visibility'
 
 const query = graphql`
     query {
@@ -77,6 +77,13 @@ const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
     const { is_uk } = getCountryRule()
 
+    const text =
+        !is_ppc && !is_uk
+            ? localize(
+                  'Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities.',
+              )
+            : localize('Trade forex, stocks & indices, and commodities.')
+
     return (
         <HeroWrapper>
             <BackgroundImage is_unstyled data={data.hero_background} loading="eager">
@@ -130,15 +137,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 min_height="auto"
                                 weight="normal"
                             >
-                                <EU>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
-                                </EU>
-                                <UK>
-                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
-                                </UK>
-                                <ROW>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                                </ROW>
+                                {text}
                             </Header>
                             <VerticalCarousel
                                 contents={!is_ppc && !is_uk ? contents : contents_ppc}

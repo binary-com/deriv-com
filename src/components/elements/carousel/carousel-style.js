@@ -135,6 +135,11 @@ export const NavigationContainer = styled(Flex)`
                 width: 100%;
                 height: ${height ?? '8px'};
                 bottom: ${bottom_offset ?? '40px'};
+                padding-left: 102px;
+                justify-content: left;
+                @media ${device.tabletS} {
+                    padding-left: 16px;
+                }
             `
     }}
 `

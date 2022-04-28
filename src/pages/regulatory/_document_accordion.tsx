@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import kid_data from './data/_kid_data'
+import { kid_data, kid_data_eu } from './data/_kid_data'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
@@ -164,7 +164,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Text>
                 <Flex>
                     <EdgeFlex mt="1.8rem">
-                        {kid_data.map((data, idx) => (
+                        {(is_eu_country ? kid_data_eu : kid_data).map((data, idx) => (
                             <FlexText
                                 key={idx}
                                 color="red"

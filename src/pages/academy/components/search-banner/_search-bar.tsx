@@ -215,40 +215,22 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const handleNavigation = (e: React.KeyboardEvent) => {
         if (result_opened) {
-            switch (e.key) {
-                case 'Enter':
-                    if (focus_index !== -1) {
-                        navigate(redirect_link_arr[focus_index])
-                    }
-
-                    break
-                case 'ArrowUp':
-                    e.preventDefault()
-                    if (focus_index == -1) {
-                        updateFocusIndex(5)
-
-                        if (redirect_link_arr.length < 5) {
-                            updateFocusIndex(redirect_link_arr.length - 1)
-                        }
-                    }
-                    if (focus_index > -1) {
-                        updateFocusIndex(focus_index - 1)
-                    }
-                    break
-                case 'ArrowDown':
-                    e.preventDefault()
-                    if (focus_index < 6 - 1) {
-                        updateFocusIndex(focus_index + 1)
-                    }
-                    if (focus_index == 5) {
-                        updateFocusIndex(-1)
-                    }
-                    if (redirect_link_arr.length < 5) {
-                        if (focus_index == redirect_link_arr.length - 1) {
-                            updateFocusIndex(-1)
-                        }
-                    }
-                    break
+            if (e.key === 'Enter') {
+                focus_index !== -1 && navigate(redirect_link_arr[focus_index])
+            }
+            if (e.key === 'ArrowUp') {
+                e.preventDefault()
+                focus_index === -1 && updateFocusIndex(5)
+                redirect_link_arr.length < 5 && updateFocusIndex(redirect_link_arr.length - 1)
+                focus_index > -1 && updateFocusIndex(focus_index - 1)
+            }
+            if (e.key === 'ArrowDown') {
+                e.preventDefault()
+                focus_index < 6 - 1 && updateFocusIndex(focus_index + 1)
+                focus_index == 5 && updateFocusIndex(-1)
+                redirect_link_arr.length < 5 &&
+                    focus_index == redirect_link_arr.length - 1 &&
+                    updateFocusIndex(-1)
             }
         }
         if (e.key === 'Escape') {

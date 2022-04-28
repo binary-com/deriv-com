@@ -21,4 +21,6 @@ export type LocationsType = {
     // has_map check is for the new offices with ready office addresses
     // can be deprecated once all new offices have ready physical addresses
     has_map?: boolean
+    badge?: string
+    badge_alt?: string
 }

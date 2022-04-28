@@ -22,6 +22,7 @@ import Timeline from './timeline'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
 import VideoPlayer from './video-player'
+import Modal from './modal'
 
 export {
     Accordion,
@@ -57,4 +58,5 @@ export {
     Timeline,
     Ul,
     VideoPlayer,
+    Modal,
 }

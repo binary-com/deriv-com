@@ -1,3 +1,4 @@
+import { navigate } from 'gatsby'
 import { isBrowser, addScript } from 'common/utility'
 
 export const url = isBrowser() ? window.location.href : ''
@@ -28,4 +29,7 @@ export const addScriptForCIO = (is_eu) => {
             //If your account is in the EU, use:
             s.parentNode.insertBefore(t, s);`,
     })
+}
+export const handleTag = (tag_name) => {
+    navigate(`/academy/search?category=${encodeURI(`${tag_name}`)}`)
 }

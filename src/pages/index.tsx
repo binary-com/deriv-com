@@ -18,8 +18,8 @@ const Home = () => {
     const target = '#market-fold'
     const options = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.5,
+        rootMargin: '-50px',
+        threshold: 0.1,
     }
     const templates: ReactNode = (
         <>
@@ -52,6 +52,14 @@ const Home = () => {
                     </div>
                 }
             />
+            <Signup
+                appearance={Appearances.public}
+                fallback={
+                    <div>
+                        <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
+                    </div>
+                }
+            />
         </>
     )
     return (
@@ -68,7 +76,6 @@ const Home = () => {
             <Hero />
             <MarketsFold />
             <UseHandleLazyLoad lazytemplates={templates} targetId={target} options={options} />
-            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

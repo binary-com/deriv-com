@@ -6,6 +6,8 @@ type templateProps = {
 }
 const UseHandleLazyLoad = ({ lazytemplates, targetId, options }: templateProps) => {
     const [isVisible, setIsVisible] = useState(false)
+    const [is_large_screen, setLargeScreen] = useState(false)
+
     const handleIntersect = (entries, observer) => {
         const [entry] = entries
         if (typeof entry.isVisible === 'undefined') {
@@ -21,6 +23,9 @@ const UseHandleLazyLoad = ({ lazytemplates, targetId, options }: templateProps) 
     }
     useEffect(() => {
         createObserver()
+        if (window.innerHeight >= 895) {
+            setLargeScreen(true)
+        }
     }, [])
 
     const createObserver = () => {
@@ -29,7 +34,7 @@ const UseHandleLazyLoad = ({ lazytemplates, targetId, options }: templateProps) 
         observer.observe(target)
     }
 
-    return isVisible && <>{lazytemplates}</>
+    return (isVisible || is_large_screen) && <>{lazytemplates}</>
 }
 
 export default UseHandleLazyLoad

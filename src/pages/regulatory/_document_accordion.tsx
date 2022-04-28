@@ -120,6 +120,8 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
 
     const { is_eu_country } = React.useContext(DerivStore)
 
+    const kid = is_eu_country ? kid_data_eu : kid_data
+
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
@@ -164,7 +166,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Text>
                 <Flex>
                     <EdgeFlex mt="1.8rem">
-                        {(is_eu_country ? kid_data_eu : kid_data).map((data, idx) => (
+                        {kid.map((data, idx) => (
                             <FlexText
                                 key={idx}
                                 color="red"

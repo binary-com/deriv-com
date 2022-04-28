@@ -217,14 +217,14 @@ export const articles: ArcticlesType[] = [
                 label: 'how-to-automate-trading-strategy',
             },
             {
-                title: <Localize translate_text="What are my trading limits?" />,
+                title: <Localize translate_text="What are the trading limits on my account?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="How to trade" />,
                 label: 'trading-limits',
             },
             {
                 title: (
-                    <Localize translate_text="What contracts are available for trading on weekends?" />
+                    <Localize translate_text="What assets are available for trading on weekends?" />
                 ),
                 category: 'Trading',
                 sub_category: <Localize translate_text="How to trade" />,

@@ -370,7 +370,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </Flex>
                         )}
                         <ROW>
-                            <Flex>
+                            <Flex mb="3.2rem">
                                 <NavCard
                                     aria_label="Basket indices"
                                     icon={() => <img src={Basket} alt="" width="32" height="32" />}

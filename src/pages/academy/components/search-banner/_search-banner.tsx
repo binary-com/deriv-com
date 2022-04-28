@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { combined_filter_type } from '../../common/_constants'
 import { ParentWrapper, StyledLink, MobileWrapper, MainWrapper } from './_search-styled'
-import Nav from './_search-nav'
+import SearchNav from './_search-nav'
 import SearchBar from './_search-bar'
 import TopicItemsAccordion from './_topic-items-accordion'
 import { Container, Flex } from 'components/containers'
@@ -133,7 +133,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     return (
         <ParentWrapper overlay={modal_opened}>
             <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
-                <Nav
+                <SearchNav
                     setModal={setModal}
                     openModal={openModal}
                     Chevron={Chevron}

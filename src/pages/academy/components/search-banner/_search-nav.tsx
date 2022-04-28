@@ -38,7 +38,7 @@ const LogoWrapper = styled.img`
     height: 24px;
 `
 
-const Nav = ({ setModal, openModal, Chevron, modal_opened }: NavProps) => {
+const SearchNav = ({ setModal, openModal, Chevron, modal_opened }: NavProps) => {
     return (
         <NavWrapper>
             <Flex ai="center" jc="space-between">
@@ -78,4 +78,4 @@ const Nav = ({ setModal, openModal, Chevron, modal_opened }: NavProps) => {
     )
 }
 
-export default Nav
+export default SearchNav

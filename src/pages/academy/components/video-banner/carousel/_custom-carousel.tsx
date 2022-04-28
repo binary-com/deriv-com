@@ -163,7 +163,7 @@ export const CustomCarousel = ({
         [embla, stop],
     )
     const onSlideClick = useCallback(
-        (index, event) => {
+        (_index, event) => {
             if (!embla || !embla.clickAllowed()) return
             event.preventDefault()
         },
@@ -277,7 +277,7 @@ export const CustomCarousel = ({
                 {/*  TODO: will remove later,not using this for now */}
                 {nav_color && (
                     <NavigationContainer bottom_offset={bottom_offset}>
-                        {children.map((child, idx) => (
+                        {children.map((_child, idx) => (
                             <NavigationButton
                                 key={idx}
                                 color={nav_color}

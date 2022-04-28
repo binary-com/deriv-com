@@ -3,17 +3,10 @@ import styled, { css } from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 
-type queryImageDataLike = {
-    __typename?: 'File'
-    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: ImageDataLike }
-}
-
-type dataLike = queryImageDataLike | ImageDataLike
-
 export type QueryImageProps = {
     alt: ReactElement | string
     className?: string
-    data: dataLike
+    data: ImageDataLike
     height?: string
     width?: string
     max_width?: string
@@ -60,13 +53,7 @@ const QueryImage = ({
     width,
     ...props
 }: QueryImageProps) => {
-    let image = null
-    if (data && '__typename' in data) {
-        image = getImage(data.childImageSharp.gatsbyImageData)
-    } else {
-        image = getImage(data as ImageDataLike)
-    }
-
+    const image = getImage(data)
     if (data) {
         return (
             <ImageWrapper

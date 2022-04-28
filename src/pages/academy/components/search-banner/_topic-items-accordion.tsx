@@ -6,6 +6,13 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 
+type TopicItemsAccordionProps = {
+    items?: TopicType
+    setModal?: React.Dispatch<React.SetStateAction<boolean>>
+    handleGreyed: (category: string) => void
+    handleHref: (category: string) => void
+}
+
 const DetailsWrapper = styled(Flex)`
     height: auto;
     overflow: hidden;
@@ -16,13 +23,6 @@ const DetailsWrapper = styled(Flex)`
         max-height: ${(props) => (props.is_expanded ? '110px' : '0')};
     }
 `
-
-type TopicItemsAccordionProps = {
-    items?: TopicType
-    setModal?: React.Dispatch<React.SetStateAction<boolean>>
-    handleGreyed: (category: string) => void
-    handleHref: (category: string) => void
-}
 
 const TopicItemsAccordion = ({
     items,

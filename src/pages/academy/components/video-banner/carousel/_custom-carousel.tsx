@@ -70,6 +70,12 @@ type ButtonProps = {
     style: CSSProperties
 }
 
+type NavigationButtonProps = {
+    color: string
+    is_enabled: boolean
+    onClick: MouseEventHandler<HTMLDivElement>
+}
+
 export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: ButtonProps) => (
     <StyledButtonWrapper
         onClick={onClick}
@@ -83,12 +89,6 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: Butto
             (color === 'custom' && <ChevronLeft custom />) || <ChevronLeft />}
     </StyledButtonWrapper>
 )
-
-type NavigationButtonProps = {
-    color: string
-    is_enabled: boolean
-    onClick: MouseEventHandler<HTMLDivElement>
-}
 
 // TODO: will remove later,not using this for now
 export const NavigationButton = ({ color, is_enabled, onClick }: NavigationButtonProps) => (

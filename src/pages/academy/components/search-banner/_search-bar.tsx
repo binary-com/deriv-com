@@ -208,7 +208,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         is_mobile_separator && setHideMobileTopic(false)
     }
 
-    const handleSearchClick = (e) => {
+    const handleSearchClick = (e: React.MouseEvent) => {
         e.preventDefault()
         navigate(`/academy/search?q=${encodeURI(search_input)}`)
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
-import { VideosType } from 'components/hooks/use-academy-data'
+import { VideoDataType } from './index'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
@@ -108,7 +108,7 @@ const ContentWrapper = styled.div`
 `
 
 type VideoCardProps = {
-    item: VideosType
+    item: VideoDataType[0]
     openVideo: React.MouseEventHandler<HTMLDivElement>
 }
 
@@ -147,7 +147,7 @@ const VideoCard = ({ item, openVideo }: VideoCardProps) => {
                     </VideoDuration>
                     <StandardImgWrapper width="384px" height="230.40px">
                         <QueryImage
-                            data={item.video_thumbnail.imageFile}
+                            data={item.video_thumbnail.imageFile.childImageSharp.gatsbyImageData}
                             alt={item.video_description}
                             className="standard-query-img"
                         />

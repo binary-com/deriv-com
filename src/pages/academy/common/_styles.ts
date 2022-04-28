@@ -2,6 +2,22 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
+type VideoGridProps = {
+    margin?: string
+}
+
+type StandardImgWrapperProps = {
+    width?: string
+    height?: string
+    border_radius?: string
+    tabletL_width?: string
+    tabletL_height?: string
+    tabletL_border_radius?: string
+    mobileL_width?: string
+    mobileL_height?: string
+    mobileL_border_radius?: string
+}
+
 export const ContainedImg = styled.img`
     object-fit: contain;
 `
@@ -22,10 +38,6 @@ export const Container = styled(Flex)`
     }
 `
 
-type VideoGridProps = {
-    margin?: string
-}
-
 export const VideoGrid = styled.div<VideoGridProps>`
     display: grid;
     width: 100%;
@@ -37,18 +49,6 @@ export const VideoGrid = styled.div<VideoGridProps>`
     grid-template-rows: auto;
     justify-content: center;
 `
-
-type StandardImgWrapperProps = {
-    width?: string
-    height?: string
-    border_radius?: string
-    tabletL_width?: string
-    tabletL_height?: string
-    tabletL_border_radius?: string
-    mobileL_width?: string
-    mobileL_height?: string
-    mobileL_border_radius?: string
-}
 
 export const StandardImgWrapper = styled.div<StandardImgWrapperProps>`
     width: ${(props) => (props.width ? props.width : '100%')};

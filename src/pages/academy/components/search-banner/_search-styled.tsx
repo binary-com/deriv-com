@@ -3,6 +3,10 @@ import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
+type StyledChevronProps = {
+    expanded?: boolean
+}
+
 const overlay_css = css`
     position: fixed;
     top: 0;
@@ -125,10 +129,6 @@ export const MobileWrapper = styled.div`
         width: 100%;
     }
 `
-
-type StyledChevronProps = {
-    expanded?: boolean
-}
 
 export const StyledChevron = styled.img<StyledChevronProps>`
     height: 16px;

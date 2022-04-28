@@ -7,6 +7,10 @@ import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import { getMinRead } from 'common/utility'
 
+type FirstArticleProps = {
+    item: ItemType
+}
+
 const StyledFlex = styled(Flex)`
     border-radius: 8px;
     height: 300px;
@@ -57,10 +61,6 @@ const RedirectLink = styled(LocalizedLink)`
     margin-top: 96px;
 `
 
-type FirstArticleProps = {
-    item: ItemType
-}
-
 const FirstArticle = ({ item }: FirstArticleProps) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
@@ -71,7 +71,7 @@ const FirstArticle = ({ item }: FirstArticleProps) => {
                     tabletL_border_radius="6px 6px 0 0"
                 >
                     <QueryImage
-                        data={item.main_image.imageFile}
+                        data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
                         alt={item.main_image.description || ''}
                         width="100%"
                         className="standard-query-img"

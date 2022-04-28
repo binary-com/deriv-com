@@ -9,6 +9,10 @@ import { getMinRead } from 'common/utility'
 import EyeIcon from 'images/svg/eye.svg'
 import device from 'themes/device'
 
+type MarketNewsProps = {
+    data: MarketNewsDataType
+}
+
 const MarketsNewsWrapper = styled.div`
     display: grid;
     grid-template-columns: auto auto auto;
@@ -60,10 +64,6 @@ const StyledContainer = styled(Container)`
 //     return 'Market News'
 // }
 
-type MarketNewsProps = {
-    data: MarketNewsDataType
-}
-
 const MarketNews = ({ data }: MarketNewsProps) => {
     return (
         <StyledContainer>
@@ -88,7 +88,10 @@ const MarketNews = ({ data }: MarketNewsProps) => {
                                         mobileL_height="70px"
                                     >
                                         <QueryImage
-                                            data={post.main_image.imageFile}
+                                            data={
+                                                post.main_image.imageFile.childImageSharp
+                                                    .gatsbyImageData
+                                            }
                                             alt={post.main_image.description || ''}
                                             className="standard-query-img"
                                         />

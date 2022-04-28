@@ -8,6 +8,10 @@ import { LocalizedLink } from 'components/localization'
 import { getMinRead } from 'common/utility'
 import device from 'themes/device'
 
+type ArticleCardProps = {
+    item: ItemType
+}
+
 const ArticleCardWrapper = styled(Flex)`
     box-sizing: border-box;
     max-width: 384px;
@@ -54,10 +58,6 @@ const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 
-type ArticleCardProps = {
-    item: ItemType
-}
-
 const ArticleCard = ({ item }: ArticleCardProps) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
@@ -69,7 +69,7 @@ const ArticleCard = ({ item }: ArticleCardProps) => {
                     tabletL_border_radius="unset"
                 >
                     <QueryImage
-                        data={item.main_image.imageFile}
+                        data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
                         alt={item.main_image.description || ''}
                         className="standard-query-img"
                     />

@@ -14,6 +14,10 @@ import { slugify, isBrowser } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 
+type SearchBannerProps = {
+    hidden?: boolean
+}
+
 export const fadeKeyframes = css`
     animation: fade 0.4s ease-in-out;
     @keyframes fade {
@@ -66,10 +70,6 @@ const TopicItemWrapper = styled(Flex)`
 const TopicMobileParentWrapper = styled(Flex)`
     display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
 `
-
-type SearchBannerProps = {
-    hidden?: boolean
-}
 
 const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [is_mobile] = useBrowserResize(768)

@@ -4,6 +4,22 @@ import device from 'themes/device'
 import { LocalizedLinkText } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
+type StyledButtonWrapperProps = {
+    disabled?: boolean
+    is_reviews?: boolean
+    left?: boolean
+}
+
+type StyledChevronProps = {
+    red?: boolean
+    black?: boolean
+    custom?: boolean
+}
+
+type IconWrapperProps = {
+    disabled: boolean
+}
+
 export const Embla = styled.div`
     position: relative;
     overflow: hidden;
@@ -35,12 +51,6 @@ export const EmblaSlideInner = styled.div`
     height: 100%;
 `
 
-type StyledButtonWrapperProps = {
-    disabled?: boolean
-    is_reviews?: boolean
-    left?: boolean
-}
-
 export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     position: absolute;
     bottom: 50%;
@@ -70,12 +80,6 @@ export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
         cursor: pointer;
     }
 `
-
-type StyledChevronProps = {
-    red?: boolean
-    black?: boolean
-    custom?: boolean
-}
 
 export const StyledChevron = styled(Chevron)<StyledChevronProps>`
     height: 24px;
@@ -148,10 +152,6 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-
-type IconWrapperProps = {
-    disabled: boolean
-}
 
 export const IconWrapper = styled.div<IconWrapperProps>`
     width: 32px;

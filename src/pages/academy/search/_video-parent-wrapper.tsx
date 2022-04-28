@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { VideoGrid } from '../common/_styles'
 import VideoCard from '../videos/_video-card'
 import VideoPlayer from '../components/_video-player'
+import { VideoDataType } from '../videos'
 import { slugify } from 'common/utility'
-import { VideosType } from 'components/hooks/use-academy-data'
 
 type VideoParentWrapperProps = {
     closeVideo: () => void
-    currentVideoItems: VideosType[]
+    currentVideoItems: VideoDataType[0][]
     openVideo: (id: string, title: string) => void
     show: boolean
     video_src: string

@@ -8,6 +8,11 @@ type VideoWrapperProps = {
     show: boolean
 }
 
+type VideoPlayerProps = {
+    video_src: string
+    closeVideo: () => void
+}
+
 const VideoWrapper = styled.div<VideoWrapperProps>`
     position: fixed;
     top: 0;
@@ -63,11 +68,6 @@ const VidPlayer = styled.video`
         max-height: 900px;
     }
 `
-
-type VideoPlayerProps = {
-    video_src: string
-    closeVideo: () => void
-}
 
 const VideoPlayer = ({ video_src, closeVideo }: VideoPlayerProps) => {
     const vidRef = useRef()

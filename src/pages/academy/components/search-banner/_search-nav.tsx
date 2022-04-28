@@ -8,6 +8,13 @@ import device from 'themes/device'
 import { Header } from 'components/elements'
 import AcademyLogo from 'images/svg/blog/academy-text.svg'
 
+type NavProps = {
+    setModal?: React.Dispatch<React.SetStateAction<boolean>>
+    openModal: () => void
+    Chevron: string
+    modal_opened: boolean
+}
+
 const TopicSectionWrapper = styled(Flex)`
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -30,13 +37,6 @@ const LogoWrapper = styled.img`
     width: 186px;
     height: 24px;
 `
-
-type NavProps = {
-    setModal?: React.Dispatch<React.SetStateAction<boolean>>
-    openModal: () => void
-    Chevron: string
-    modal_opened: boolean
-}
 
 const Nav = ({ setModal, openModal, Chevron, modal_opened }: NavProps) => {
     return (

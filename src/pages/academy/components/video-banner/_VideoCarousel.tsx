@@ -11,6 +11,10 @@ import { convertDate, getVideoObject } from 'common/utility'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
+type VideoCarouselProps = {
+    carousel_items: NonFeaturedVideoListDataType
+}
+
 const SmallDetailsWrapper = styled(Flex)`
     @media ${device.tabletL} {
         padding-top: 0;
@@ -64,10 +68,6 @@ const PlayerIcon = styled.img`
         height: 10px;
     }
 `
-
-type VideoCarouselProps = {
-    carousel_items: NonFeaturedVideoListDataType
-}
 
 const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
     const [show, setShow] = useState(false)

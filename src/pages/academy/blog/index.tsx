@@ -12,6 +12,12 @@ import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
+type ArticlesPageProps = {
+    data: AllArticlesQuery
+}
+
+export type ArticleDataType = AllArticlesQuery['directus']['blog']
+
 const SmallContainer = styled(Container)`
     width: 62%;
     max-width: 734px;
@@ -44,12 +50,6 @@ const Hero = styled(Flex)`
         width: calc(100% - 32px);
     }
 `
-
-type ArticlesPageProps = {
-    data: AllArticlesQuery
-}
-
-export type ArticleDataType = AllArticlesQuery['directus']['blog']
 
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
     const { is_eu_country, is_uk_country } = React.useContext(DerivStore)

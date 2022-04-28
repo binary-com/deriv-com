@@ -6,6 +6,15 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { BlogType } from 'components/hooks/use-academy-data'
 
+type GetPaginatedArticlesProps = {
+    setPageNumber: React.Dispatch<React.SetStateAction<number>>
+    items_type: string
+    article_result: BlogType[]
+    pages_visited: number
+    items_per_page: number
+    page_count: number
+}
+
 const ArticlePaginationWrapper = styled(Flex)`
     flex-direction: column;
 
@@ -53,15 +62,6 @@ const ArticlePaginationWrapper = styled(Flex)`
         opacity: 0.5;
     }
 `
-
-type GetPaginatedArticlesProps = {
-    setPageNumber: React.Dispatch<React.SetStateAction<number>>
-    items_type: string
-    article_result: BlogType[]
-    pages_visited: number
-    items_per_page: number
-    page_count: number
-}
 
 export const GetPaginatedArticles = ({
     setPageNumber,

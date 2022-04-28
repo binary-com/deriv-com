@@ -133,6 +133,36 @@ export const articles: ArcticlesType[] = [
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'How-do-I-verify-my-account',
             },
+            {
+                title: <Localize translate_text="What documents do I need to verify my account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'documents-do-I-need-to-verify-my-account',
+            },
+            {
+                title: <Localize translate_text="Why do I need to verify my account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'Why-do-I-need-to-verify-my-account',
+            },
+            {
+                title: <Localize translate_text="Can I trade without verifying my account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'Can-I-trade-without-verifying-my-account',
+            },
+            {
+                title: <Localize translate_text="How long does verification take?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'How-long-does-verification-take',
+            },
+            {
+                title: <Localize translate_text="Why were my documents declined?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'Why-were-my-documents-declined',
+            },
         ],
     },
     {

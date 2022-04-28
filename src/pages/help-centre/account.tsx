@@ -646,6 +646,129 @@ const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
+const DocumentsDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>{localize('You’ll need the following documents to verify your account:')}</Text>
+        <StyledList listStyle="disc" paddingLeft="5rem">
+            <StyledListItem marginTop="1.6rem">
+                <Text>
+                    <Localize
+                        translate_text="<0>Proof of identity</0>"
+                        components={[<strong key={1} />]}
+                    />
+                </Text>
+                <Text>
+                    {localize(
+                        "You’ll need a valid government-issued identity document such as a national ID card, passport, or driver's licence. Your document must clearly show your name, photo, and date of birth.",
+                    )}
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1.6rem">
+                <Text>
+                    <Localize
+                        translate_text="<0>Proof of address</0>"
+                        components={[<strong key={1} />]}
+                    />
+                </Text>
+                <Text>
+                    {localize(
+                        'You’ll need a bank statement, credit card statement, tax statement, or utility bill. Your document must be issued within the last 6 months. It must contain your name, address, the name of the company that issued the document, and the issue date.',
+                    )}
+                </Text>
+            </StyledListItem>
+        </StyledList>
+    </ArticleWrapper>
+)
+
+const WhyDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            {localize(
+                "Our regulators require us to verify your account in accordance with anti-money laundering (AML) and Know Your Customer (KYC) laws. If we have prompted you to upload your documents to verify your account, it means that you'll only be able to continue using our services after your account is verified.",
+            )}
+        </Text>
+    </ArticleWrapper>
+)
+
+const CanITradeWithoutVerifyingMyAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>{localize('If you’re in the EU or UK:')}</Text>
+        <Text>{localize('No, you must verify your account before trading.')}</Text>
+
+        <StyledText>{localize('If you’re in any other country:')}</StyledText>
+        <Text>
+            {localize(
+                'Yes, as long as you haven’t opened a Deriv MT5 Financial STP account, you can still trade without verifying your account.',
+            )}
+        </Text>
+    </ArticleWrapper>
+)
+
+const HowLongDoesVerificationTake = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            {localize(
+                'We try to review your verification documents within the same day. In some cases, due to high traffic, it may take up to 3 business days. You’ll get a confirmation email from us once the review is complete. You can also check the status of your documents at',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Settings > Proof of identity</0>"
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/proof-of-identity`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Setting > Proof of address</0>"
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/proof-of-address`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
+const WhyWereMyDocumentsDeclined = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="We may have declined your documents because they were unclear, invalid, expired, had cropped edges, or showed details that did not match your Deriv profile. If you need help, please <0>contact us via live chat</0>."
+                components={[
+                    <StyledLink
+                        to={'/contact_us/?is_livechat_open=true'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+
 const AccountArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
@@ -741,6 +864,31 @@ const AccountArticle = () => {
                 <HowDoIVerifyMyAccount
                     text={localize('How do I verify my account?')}
                     label="How-do-I-verify-my-account"
+                    is_mounted={is_mounted}
+                />
+                <DocumentsDoINeedToVerifyMyAccount
+                    text={localize('What documents do I need to verify my account?')}
+                    label="documents-do-I-need-to-verify-my-account"
+                    is_mounted={is_mounted}
+                />
+                <WhyDoINeedToVerifyMyAccount
+                    text={localize('Why do I need to verify my account?')}
+                    label="Why-do-I-need-to-verify-my-account"
+                    is_mounted={is_mounted}
+                />
+                <CanITradeWithoutVerifyingMyAccount
+                    text={localize('Can I trade without verifying my account?')}
+                    label="Can-I-trade-without-verifying-my-account"
+                    is_mounted={is_mounted}
+                />
+                <HowLongDoesVerificationTake
+                    text={localize('How long does verification take?')}
+                    label="How-long-does-verification-take"
+                    is_mounted={is_mounted}
+                />
+                <WhyWereMyDocumentsDeclined
+                    text={localize('Why were my documents declined?')}
+                    label="Why-were-my-documents-declined"
                     is_mounted={is_mounted}
                 />
             </Article>

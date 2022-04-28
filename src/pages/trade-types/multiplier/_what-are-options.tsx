@@ -11,9 +11,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { DerivStore } from 'store'
-import { useWebsiteStatus } from 'components/hooks/use-website-status'
-import { isUK } from 'common/country-base'
+import { getCountryRule } from 'components/containers/visibility'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -161,9 +159,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_eu_country } = React.useContext(DerivStore)
-    const [website_status] = useWebsiteStatus()
-    const current_client_country = website_status?.clients_country || ''
+    const { is_uk, is_uk_eu } = getCountryRule()
 
     return (
         <>
@@ -179,7 +175,7 @@ const WhatAreOptions = () => {
             </StyledSectionContainerHead>
             <StyledSectionContainer padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
-                    {is_eu_country ? (
+                    {is_uk_eu ? (
                         <Flex fd="column">
                             <Row mb="2rem">
                                 <RowColumn isHeader>
@@ -389,11 +385,10 @@ const WhatAreOptions = () => {
                 </SmallContainer>
             </StyledSectionContainer>
 
-            {isUK(current_client_country) ? (
+            {is_uk ? (
                 <AvailableTrades
                     display_title={localize('Instruments available to trade on Multipliers')}
                     Forex={CFDs}
-                    SyntheticIndices={SyntheticIndices}
                 />
             ) : (
                 <AvailableTrades
@@ -465,12 +460,12 @@ const WhatAreOptions = () => {
                                 <img src={Seven} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {is_eu_country
+                                {is_uk_eu
                                     ? localize('Trade anytime')
                                     : localize('Trade 24/7, 365 days a year')}
                             </Text>
                             <Text>
-                                {is_eu_country
+                                {is_uk_eu
                                     ? localize(
                                           'Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays.',
                                       )

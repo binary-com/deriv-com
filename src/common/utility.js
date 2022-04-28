@@ -429,7 +429,7 @@ const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb'
 
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
-    window.location.href = `https://${redirection_url}`
+    window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
 const redirectToDeriv = (full_domain) => {
@@ -455,7 +455,9 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
 
     const eu_domains = ['eu', 'staging-eu']
 
-    if (eu_domains.includes(subdomain)) {
+    if (isTestlink()) {
+        return false
+    } else if (eu_domains.some((e) => subdomain.includes(e))) {
         handleEURedirect(country, full_domain)
     } else {
         handleDerivRedirect(country, subdomain)
@@ -470,3 +472,5 @@ export const queryParamData = () => {
         return platform_list.includes(platform_name) ? platform_name : ''
     } else return ''
 }
+
+export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))

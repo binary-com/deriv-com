@@ -30,6 +30,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
+import { handleTag } from 'pages/academy/components/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
@@ -172,7 +173,14 @@ const BlogPreview = () => {
                                                     return (
                                                         <>
                                                             {tag?.tags_id?.id && (
-                                                                <Tag key={tag?.tags_id?.id}>
+                                                                <Tag
+                                                                    key={tag?.tags_id?.id}
+                                                                    onClick={() =>
+                                                                        handleTag(
+                                                                            tag?.tags_id?.tag_name,
+                                                                        )
+                                                                    }
+                                                                >
                                                                     {tag?.tags_id?.tag_name}
                                                                 </Tag>
                                                             )}
@@ -259,7 +267,14 @@ const BlogPreview = () => {
                                                 return (
                                                     <>
                                                         {tag?.tags_id?.id && (
-                                                            <Tag key={tag?.tags_id?.id}>
+                                                            <Tag
+                                                                key={tag?.tags_id?.id}
+                                                                onClick={() =>
+                                                                    handleTag(
+                                                                        tag?.tags_id?.tag_name,
+                                                                    )
+                                                                }
+                                                            >
                                                                 {tag?.tags_id?.tag_name}
                                                             </Tag>
                                                         )}

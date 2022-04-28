@@ -4,17 +4,19 @@ import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
-import { LocalizedLink, localize, Localize } from 'components/localization'
+import { LocalizedLink, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Basket from 'images/svg/custom/basket-nav.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
+import DerivLife from 'images/svg/menu/deriv-life.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
@@ -138,14 +140,14 @@ export const OffCanvasMenuWrapper = (props) => {
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
-                        header={localize('Trade')}
+                        header={<Localize translate_text="Trade" />}
                         header_style={header_style}
                         style={content_style}
                     >
                         {!props.is_ppc && (
                             <>
                                 <Text color="grey-5" mb="8px" size="14px">
-                                    {localize('Trade types')}
+                                    {<Localize translate_text="Trade types" />}
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -195,7 +197,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
 
                         <Text color="grey-5" mb="8px" size="14px">
-                            {localize('Trading platforms')}
+                            {<Localize translate_text="Trading platforms" />}
                         </Text>
                         <Flex mb="2rem">
                             <NavCard
@@ -215,7 +217,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     aria_label="Derivx"
                                     icon={() => <img src={DerivX} alt="" width="32" height="32" />}
                                     content={
-                                        <Localize translate_text="Trade CFDs on a customisable, easy-to-use trading platform." />
+                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
@@ -305,7 +307,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </ROW>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Markets')}
+                        header={<Localize translate_text="Markets" />}
                         header_style={header_style}
                         style={content_style}
                     >
@@ -313,10 +315,10 @@ export const OffCanvasMenuWrapper = (props) => {
                             <NavCard
                                 aria_label="Forex"
                                 icon={() => <img src={Forex} alt="" width="32" height="32" />}
-                                content={localize(
-                                    'Trade the world’s largest financial market with popular forex pairs.',
-                                )}
-                                title={localize('Forex')}
+                                content={
+                                    <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
+                                }
+                                title={<Localize translate_text="Forex" />}
                                 onClick={handleArrowClick}
                                 to="/markets/forex/"
                             />
@@ -328,10 +330,10 @@ export const OffCanvasMenuWrapper = (props) => {
                                     icon={() => (
                                         <img src={SyntheticIndices} alt="" width="32" height="32" />
                                     )}
-                                    content={localize(
-                                        'Enjoy synthetic markets that emulate real-world market movements.',
-                                    )}
-                                    title={localize('Synthetic indices')}
+                                    content={
+                                        <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+                                    }
+                                    title={<Localize translate_text="Synthetic indices" />}
                                     onClick={handleArrowClick}
                                     to="/markets/synthetic/"
                                 />
@@ -343,10 +345,10 @@ export const OffCanvasMenuWrapper = (props) => {
                                 icon={() => (
                                     <img src={StockIndices} alt="" width="32" height="32" />
                                 )}
-                                content={localize(
-                                    'Predict broader market trends and diversify your risk with stocks & indices.',
-                                )}
-                                title={localize('Stocks & indices')}
+                                content={
+                                    <Localize translate_text="Predict broader market trends and diversify your risk with stocks & indices." />
+                                }
+                                title={<Localize translate_text="Stocks & indices" />}
                                 onClick={handleArrowClick}
                                 to="/markets/stock/"
                             />
@@ -358,30 +360,44 @@ export const OffCanvasMenuWrapper = (props) => {
                                     icon={() => (
                                         <img src={Cryptocurrencies} alt="" width="32" height="32" />
                                     )}
-                                    content={localize(
-                                        'Trade with leverage on the price movement of popular crypto-fiat pairs.',
-                                    )}
-                                    title={localize('Cryptocurrencies')}
+                                    content={
+                                        <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                                    }
+                                    title={<Localize translate_text="Cryptocurrencies" />}
                                     onClick={handleArrowClick}
                                     to="/markets/cryptocurrencies/"
                                 />
                             </Flex>
                         )}
+                        <ROW>
+                            <Flex>
+                                <NavCard
+                                    aria_label="Basket indices"
+                                    icon={() => <img src={Basket} alt="" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="Trade weighted indices that measure the value of a currency against a basket of major currencies." />
+                                    }
+                                    title={<Localize translate_text="Basket indices" />}
+                                    onClick={handleArrowClick}
+                                    to="/markets/basket-indices/"
+                                />
+                            </Flex>
+                        </ROW>
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"
                                 icon={() => <img src={Commodities} alt="" width="32" height="32" />}
-                                content={localize(
-                                    "Trade natural resources that are central to the world's economy.",
-                                )}
-                                title={localize('Commodities')}
+                                content={
+                                    <Localize translate_text="Trade natural resources that are central to the world's economy." />
+                                }
+                                title={<Localize translate_text="Commodities" />}
                                 onClick={handleArrowClick}
                                 to="/markets/commodities/"
                             />
                         </Flex>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('About us')}
+                        header={<Localize translate_text="About us" />}
                         header_style={header_style}
                         style={content_style}
                     >
@@ -389,38 +405,54 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={Story} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Who we are')}</span>
+                            <span>{<Localize translate_text="Who we are" />}</span>
                         </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Partner} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Partnership programmes')}</span>
+                            <span>{<Localize translate_text="Partnership programmes" />}</span>
                         </StyledLink>
                         <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Choose} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Why choose us')}</span>
+                            <span>{<Localize translate_text="Why choose us" />}</span>
                         </StyledLink>
                         <StyledLink to="/contact_us/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Contact} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Contact us')}</span>
+                            <span>{<Localize translate_text="Contact us" />}</span>
                         </StyledLink>
                         <StyledLink to="/careers/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Career} alt="" width="24" height="24" />
                             </div>
-                            <Span>{localize('Careers')}</Span>
+                            <Span>{<Localize translate_text="Careers" />}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
+                        <StyledLink
+                            to=""
+                            external={true}
+                            type="derivlife"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={DerivLife} alt="" width="24" height="24" />
+                            </div>
+                            <Span>{<Localize translate_text="Deriv life" />}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Resources')}
+                        header={<Localize translate_text="Resources" />}
                         header_style={header_style}
                         style={content_style}
                     >
@@ -428,7 +460,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={Help} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Help centre')}</span>
+                            <span>{<Localize translate_text="Help centre" />}</span>
                         </StyledLink>
                         <StyledLink
                             to=""
@@ -441,7 +473,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={Community} alt="" width="24" height="24" />
                             </div>
-                            <Span>{localize('Community')}</Span>
+                            <Span>{<Localize translate_text="Community" />}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
@@ -450,13 +482,13 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={Trade} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Traders’ tools')}</span>
+                            <span>{<Localize translate_text="Traders’ tools" />}</span>
                         </StyledLink>
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Payment} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Payment methods')}</span>
+                            <span>{<Localize translate_text="Payment methods" />}</span>
                         </StyledLink>
                         <StyledLink
                             to="/dmt5-trading-signals/#signal-subscriber/"
@@ -467,7 +499,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <img src={Signals} alt="" width="24" height="24" />
                                 </SvgWrapper>
                             </div>
-                            <span>{localize('DMT5 Signals')}</span>
+                            <span>{<Localize translate_text="DMT5 Signals" />}</span>
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}
@@ -479,7 +511,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={Status} alt="" width="24" height="24" />
                             </div>
-                            <Span>{localize('Status page')}</Span>
+                            <Span>{<Localize translate_text="Status page" />}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
@@ -488,14 +520,14 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={Blog} alt="" width="24" height="24" />
                             </div>
-                            <Span>{localize('Academy')}</Span>
+                            <Span>{<Localize translate_text="Academy" />}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Legal')}
+                        header={<Localize translate_text="Legal" />}
                         header_style={header_style}
                         style={content_style}
                     >
@@ -503,23 +535,25 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={Regulatory} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Regulatory information')}</span>
+                            <span>{<Localize translate_text="Regulatory information" />}</span>
                         </StyledLink>
                         <StyledLink to="/terms-and-conditions/#clients" onClick={handleArrowClick}>
                             <div>
                                 <img src={Terms} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Terms and conditions')}</span>
+                            <span>{<Localize translate_text="Terms and conditions" />}</span>
                         </StyledLink>
                         <StyledLink to="/responsible/" onClick={handleArrowClick}>
                             <div>
                                 <img src={SecureTrading} alt="" width="24" height="24" />
                             </div>
-                            <span>{localize('Secure and responsible trading')}</span>
+                            <span>
+                                {<Localize translate_text="Secure and responsible trading" />}
+                            </span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Partner')}
+                        header={<Localize translate_text="Partner" />}
                         header_style={header_style}
                         style={content_style}
                     >
@@ -527,13 +561,13 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={AffiliateIb} alt="" width="32" height="32" />
                             </div>
-                            <span>{localize('Affiliates and IBs')}</span>
+                            <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                         </StyledLink>
                         <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                             <div>
                                 <img src={PaymentAgent} alt="" width="32" height="32" />
                             </div>
-                            <span>{localize('Payment agents')}</span>
+                            <span>{<Localize translate_text="Payment agents" />}</span>
                         </StyledLink>
                         <StyledLink
                             to=""
@@ -546,13 +580,13 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={API} alt="" width="32" height="32" />
                             </div>
-                            <span>{localize('API')}</span>
+                            <span>{<Localize translate_text="API" />}</span>
                         </StyledLink>
                         <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                             <div>
                                 <img src={BugBounty} alt="" width="32" height="32" />
                             </div>
-                            <span>{localize('Bug bounty')}</span>
+                            <span>{<Localize translate_text="Bug bounty" />}</span>
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>
@@ -593,13 +627,13 @@ export const OffCanvasMenuPartner = (props) => {
                     <div>
                         <img src={AffiliateIb} alt="affiliate ib" width="32" height="32" />
                     </div>
-                    <span>{localize('Affiliates and IBs')}</span>
+                    <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                 </StyledLink>
                 <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                     <div>
                         <img src={PaymentAgent} alt="" width="32" height="32" />
                     </div>
-                    <span>{localize('Payment agents')}</span>
+                    <span>{<Localize translate_text="Payment agents" />}</span>
                 </StyledLink>
                 <StyledLink
                     to=""
@@ -612,13 +646,13 @@ export const OffCanvasMenuPartner = (props) => {
                     <div>
                         <img src={API} alt="" width="32" height="32" />
                     </div>
-                    <span>{localize('API')}</span>
+                    <span>{<Localize translate_text="API" />}</span>
                 </StyledLink>
                 <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                     <div>
                         <img src={BugBounty} alt="" width="32" height="32" />
                     </div>
-                    <span>{localize('Bug bounty')}</span>
+                    <span>{<Localize translate_text="Bug bounty" />}</span>
                 </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

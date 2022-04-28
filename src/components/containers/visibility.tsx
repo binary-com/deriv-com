@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { eu_domains, uk_domains } from 'common/constants'
-import { getClientInformation, getDomain } from 'common/utility'
+import { getClientInformation, getDomain, isBrowser, isTestlink } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
@@ -13,7 +13,14 @@ type ResponsiveContainerProps = {
     className?: string
 }
 
-type CountryRuleType = 'is_eu' | 'is_uk' | 'is_non_uk' | 'is_non_eu' | 'is_uk_eu' | 'is_row'
+type CountryRuleType =
+    | 'is_eu'
+    | 'is_uk'
+    | 'is_non_uk'
+    | 'is_non_eu'
+    | 'is_uk_eu'
+    | 'is_row'
+    | 'is_dev'
 
 type CountryBasedContentProps = {
     children: ReactElement
@@ -92,8 +99,9 @@ export const getCountryRule = () => {
     const is_non_eu = !is_eu
     const is_uk_eu = !(!is_eu && !is_uk)
     const is_row = !is_uk_eu
+    const is_dev = (isBrowser() && process.env.NODE_ENV === 'development') || isTestlink()
 
-    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row }
+    return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row, is_dev }
 }
 
 export const Desktop = ({
@@ -167,4 +175,8 @@ export const UKEU = ({ children }: ResponsiveContainerProps) => (
 
 export const ROW = ({ children }: ResponsiveContainerProps) => (
     <CountryBasedContent country_rule="is_row">{children}</CountryBasedContent>
+)
+
+export const Dev = ({ children }: ResponsiveContainerProps) => (
+    <CountryBasedContent country_rule="is_dev">{children}</CountryBasedContent>
 )

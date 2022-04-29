@@ -135,7 +135,7 @@ const StyledInput = styled.input<StyledInputProps>`
     font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
-    width: ${(props) => (props.password_icon ? '90%' : '100%')};
+    width: ${({ icon_width }) => `calc(100% - ${icon_width}px)`};
     display: block;
     border: none;
     border-radius: 4px;
@@ -149,7 +149,6 @@ const StyledInput = styled.input<StyledInputProps>`
     }
     @media ${device.mobileL} {
         font-size: 14px;
-        width: ${(props) => (props.password_icon ? '85%' : '100%')};
 
         & ~ label {
             font-size: 1.5rem;
@@ -292,7 +291,7 @@ const Input = ({
                         disabled={disabled}
                         height={height}
                         showLabel={label}
-                        password_icon={password_icon}
+                        icon_width={password_icon ? 40 : 0}
                         {...props}
                         ref={(ip) => (current_input.current = ip)}
                     />

@@ -2137,12 +2137,15 @@
     "-75763689": "Mengapa bertrading indeks sintetis di Deriv",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "-1635665985": "Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and\n                    liquidity risks.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
 =======
     "-1635665985": "Indeks sintetis Deriv mensimulasikan pergerakan pasar dunia nyata. Menggunakan generator nomor acak yang aman secara kriptografis, indeks ini tersedia 24/7 dan tidak terpengaruh oleh jam operasi, acara global, atau pasar dan\n                    risiko likuiditas.",
 >>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
+=======
+>>>>>>> fa126d4131 (chore: hotfix fix (#3003))
     "-89087875": " Pelajari tentang pasar yang dapat Anda tradingkan secara online di Deriv, termasuk forex, indeks sintetis, saham & indeks, mata uang kripto, indeks basket dan komoditas.",
     "-1770464254": "Trading saham & indeks memungkinkan Anda untuk mendapatkan keuntungan dari pergerakan harga pada pasar tanpa perlu membeli aset dasar.",
     "-1252607893": "Trading kripto memberi Anda kesempatan untuk memperoleh keuntungan dengan menganalisa pergerakan harga mata uang kripto dengan tepat tanpa harus membelinya.",

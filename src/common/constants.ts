@@ -8,7 +8,7 @@ const staging_deriv_be_url = 'staging.deriv.be'
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
-// find a way to get affiliate id
+// TODO: find a way to get affiliate id
 export const affiliate_app_id = 31621
 
 const domain_url_pair = {

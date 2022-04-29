@@ -68,7 +68,7 @@ const affiliateSignupDetails = () => {
                         showModal={showModal}
                         src={ErrorEmail}
                         title={localize('Sorry, an error occured')}
-                        message={error_message}
+                        message={localize(error_message)}
                     />
                 ) : (
                     <ModalMessage

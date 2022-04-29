@@ -64,10 +64,10 @@ const Signup = (props) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
-    const [is_affiliate_signup, setAffiliateSignup] = useState('')
+    const [is_affiliate_signup, setIsAffiliateSignup] = useState('')
 
     useEffect(() => {
-        setAffiliateSignup(props.appearance === Appearances.affiliateSignupDetails)
+        setIsAffiliateSignup(props.appearance === Appearances.affiliateSignupDetails)
     }, [])
 
     const validateEmail = (email_address) => {
@@ -163,7 +163,7 @@ const Signup = (props) => {
 
     const handleAffiliateSignup = (e) => {
         e.preventDefault()
-        // find a way to access user token
+        // TODO: find a way to access user token
         const token = 'tmdaw4uGUCYGFJK'
         const {
             first_name,

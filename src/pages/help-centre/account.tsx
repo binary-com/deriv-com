@@ -36,7 +36,7 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
             </StyledListItem>
             <StyledListItem>
                 {localize(
-                    'Clients cannot be a resident in Belarus, Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, Rwanda, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+                    'We do not offer our services in Belarus, Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, Rwanda, the UAE, the UK, the USA or any country that has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
                 )}
             </StyledListItem>
         </StyledList>

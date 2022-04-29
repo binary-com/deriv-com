@@ -331,14 +331,14 @@ export const articles: ArcticlesType[] = [
         category: <Localize translate_text="DMT5" />,
         articles: [
             {
-                title: <Localize translate_text="What is DMT5?" />,
+                title: <Localize translate_text="What is Deriv MetaTrader 5 (Deriv MT5)?" />,
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'what-is-dmt5',
             },
             {
                 title: (
-                    <Localize translate_text="What are the major differences between DTrader and DMT5?" />
+                    <Localize translate_text="What are the main differences between your digital options and CFD platforms?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Platforms" />,
@@ -346,7 +346,7 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?" />
+                    <Localize translate_text="What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Accounts" />,
@@ -356,7 +356,7 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="How can I withdraw funds from my DMT5 real money account?" />
+                    <Localize translate_text="How can I withdraw funds from my Deriv MT5 real money account?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Withdraw" />,
@@ -364,25 +364,145 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="Why are my DMT5 login details different from my Deriv login details?" />
+                    <Localize translate_text="Why are my Deriv MT5 login details different from my Deriv login details?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Login" />,
                 label: 'login-credentials',
             },
             {
-                title: <Localize translate_text="How can I reset my DMT5 account password?" />,
+                title: <Localize translate_text="How can I change my Deriv MT5 password?" />,
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Reset password" />,
                 label: 'reset-dmt5-password',
             },
             {
                 title: (
-                    <Localize translate_text="How can I deposit funds into my DMT5 real money account?" />
+                    <Localize translate_text="How can I deposit funds into my Deriv MT5 real money account?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'deposit-to-dmt5',
+            },
+            {
+                title: <Localize translate_text="How do I log in to my Deriv MT5 account?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'log-in-to-my-Deriv-MT5-account',
+            },
+            {
+                title: (
+                    <Localize translate_text="How do I set an investor password for my Deriv MT5 account?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'investor-password-for-my-Deriv-MT5-account',
+            },
+            {
+                title: <Localize translate_text="What is the name of my Deriv MT5 server?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'name-of-my-Deriv-MT5-server',
+            },
+            {
+                title: (
+                    <Localize translate_text="What is the minimum amount to open a position on Deriv MT5?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'minimum-amount-to-open-a-position-on-Deriv-MT5',
+            },
+            {
+                title: (
+                    <Localize translate_text="Why do my Deriv MT5 positions always start with a loss?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'Deriv-MT5-positions-always-start-with-a-loss',
+            },
+            {
+                title: <Localize translate_text="Do you offer swap-free Deriv MT5 accounts?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'swap-free-Deriv-MT5-accounts',
+            },
+            {
+                title: <Localize translate_text="How can I reactivate my Deriv MT5 account?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'reactivate-my-Deriv-MT5-account',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can I change the leverage on my Deriv MT5 account?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'leverage-on-my-Deriv-MT5-account',
+            },
+            {
+                title: <Localize translate_text="What time is shown in the MT5 terminal?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'What-time-is-shown-in-the-MT5-terminal',
+            },
+            {
+                title: <Localize translate_text="How can I download my Deriv MT5 history?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'download-my-Deriv-MT5-history',
+            },
+            {
+                title: <Localize translate_text="Can I delete my Deriv MT5 account history?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'delete-my-Deriv-MT5-account-history',
+            },
+            {
+                title: (
+                    <Localize translate_text="For how long can I use my Deriv MT5 demo account?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'For-how-long-can-I-use-my-Deriv-MT5-demo-account',
+            },
+            {
+                title: (
+                    <Localize translate_text="Will my inactive Deriv MT5 account be deactivated even though I still have a balance?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'Will-my-inactive-Deriv-MT5-account-be-deactivated',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can I change the currency of my Deriv MT5 account?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'Can-I-change-the-currency-of-my-Deriv-MT5-account',
+            },
+            {
+                title: (
+                    <Localize translate_text="Can I change the server for my Deriv MT5 account?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'Can-I-change-the-server-for-my-Deriv-MT5-account',
+            },
+            {
+                title: <Localize translate_text="Do you offer micro forex pairs on Deriv MT5?" />,
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'offer-micro-forex-pairs-on-Deriv-MT5',
+            },
+            {
+                title: (
+                    <Localize translate_text="What is the minimum volume for micro forex pairs?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'What-is-the-minimum-volume-for-micro-forex-pairs',
             },
         ],
     },

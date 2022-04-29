@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import Modal from './modal'
+<<<<<<< HEAD
 import { Localize } from 'components/localization'
+=======
+import { localize, Localize } from 'components/localization'
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
 import { Flex } from 'components/containers'
 import { QueryImage, ImageWrapper } from 'components/elements'
 import device from 'themes/device'

@@ -85,9 +85,12 @@
     "163040015": "Deriv affiliate ve IB programlarına katılın ve güvenilir bir online ticaret sağlayıcısıyla ortak olma şansı elde edin.",
     "166309424": "Aylık ve günlük hızlı ödemelerle sıfır masraf\n\n",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "170598749": " Sepet Endeksleri",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "171302334": "Öyleyse bu senaryoda, zarar durdur miktarınızı <0>-7.23 USD</0> olarak ayarlarsınız.",
     "171586173": "Dünyanın dört bir yanındaki ofis konumlarımızda Deriv'deki kariyer fırsatlarını keşfedin.",
     "171638706": "Değişkenler",
@@ -158,10 +161,14 @@
     "276645072": "2. Google Hesabınızı seçin ve Google Drive'ınıza erişmek için DBOT'un gerekli iznini verin.",
     "278499050": "Deriv hesabınıza para yatırmak ve bu hesaptan para çekmek için yerel para biriminizi kullanın.",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "281247370": "Marjin Hesaplayıcısı",
 =======
     "281247370": "Marj Hesaplayıcısı",
 >>>>>>> 3cddf36455 (chore: translate download)
+=======
+    "281247370": "Marjin Hesaplayıcısı",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "287556583": "DMT5'teki bir sözleşmenin pip değeri şu formüle göre hesaplanır:",
     "288004682": "Gizli ücret veya komisyon yok.",
     "288719886": "Çek Cumhuriyeti",
@@ -186,10 +193,14 @@
     "318815297": "İstediğiniz gibi ticaret yapın",
     "319934137": "Avrupa<0></0> endeksleri",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "320565687": "<0>Altın Sepeti</0> altının değerini, her biri 20% ağırlıkta, beş küresel para birimi (EUR, GBP, JPY, AUD, USD) sepetine karşı karşılaştırır.",
 =======
     "320565687": "<0>Altın Sepeti</0> altının değerini, her biri 20% ağırlıkta, beş küresel para birimi (EUR, GBP, JPY, AUD, USD) sepetine karşı ölçer.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "320565687": "<0>Altın Sepeti</0> altının değerini, her biri 20% ağırlıkta, beş küresel para birimi (EUR, GBP, JPY, AUD, USD) sepetine karşı karşılaştırır.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "322580327": "Anlaşmazlığı çözmek için uygulama içi sohbet ile ilgilendiğiniz tüccarla sohbet edebilirsiniz. Her iki taraf da bir anlaşmaya varamazsa, uygulama içi anlaşmazlık aracı aracılığıyla bize ulaşabilirsiniz. İlgili taraflarla iletişim kuracağız ve anlaşmazlığı mümkün olduğunca çabuk çözmek için çalışacağız.",
     "323564058": "Ödemeler basitleştirildi. Yerel para biriminize para yatırmanın hızlı ve güvenilir yolu.",
     "325128398": "3. Süre",
@@ -245,10 +256,14 @@
     "396609660": "Formu Deriv MT5 hesap kimlik bilgilerinizle doldurun. 0>Broker</0> alanına hesap sunucunuzun adını girin:<1/><0>-Deriv-Demo</0> sinyaliniz yalnızca demo hesapları için ise <1/><0>-Deriv-Server</0> veya sinyaliniz sadece gerçek hesaplar için ise <0>Deriv-Server-02</0>\n(Hesap sunucusu adını size ait <2>Deriv MT5 pano</2> üzerinde bulabilirsiniz.)",
     "396992773": "Deriv, sundukları varlıklar, para çekme ve mevduat kolaylığı ve diğer hizmetler açısından dünyanın en iyi Brokeridir. Bize en iyisini vermeye devam edin, Deriv!",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "397235089": "Forex, sentetik endeksler, hisse senetleri, hisse senetleri & endeksleri, kriptopara birimleri ve emtialar dahil olmak üzere Deriv ile online ticaret yapabileceğiniz piyasalar hakkında bilgi edinin. ",
 =======
     "397235089": "Forex, sentetik endeksler, hisse senetleri, hisse senetleri & endeksleri, kriptopara birimleri and emtialar dahil olmak üzere Deriv ile online ticaret yapabileceğiniz piyasalar hakkında bilgi edinin. ",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "397235089": "Forex, sentetik endeksler, hisse senetleri, hisse senetleri & endeksleri, kriptopara birimleri ve emtialar dahil olmak üzere Deriv ile online ticaret yapabileceğiniz piyasalar hakkında bilgi edinin. ",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "398319738": "DMT5 nedir?",
     "400968378": "konumlar",
     "406075956": "‘Odd’ seçeneğini seçerseniz, son tikin son basamağı tek sayı ise (örn 1, 3, 5, 7 veya 9) ödemeyi kazanırsınız.\n",
@@ -326,10 +341,14 @@
     "501763239": "Ana çiftler",
     "502554477": "DMT5 Sentetik Endeksler, Finansal ve Finansal STP hesapları arasındaki farklar nelerdir?",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "506797447": "0>EUR Sepeti</0> her biri %20 ağırlıkla, beş küresel para birimini (USD, AUD, GBP, JPY, CAD) Euro değerine karşı ölçer.",
 =======
     "506797447": "0>EUR Sepeti</0> beş küresel para birimi (USD, AUD, GBP, JPY, CAD) ile Euro değerini ölçer, her biri %20 ağırlıkla.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "506797447": "0>EUR Sepeti</0> her biri %20 ağırlıkla, beş küresel para birimini (USD, AUD, GBP, JPY, CAD) Euro değerine karşı ölçer.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "509964491": "Çoğu finans piyasası kapalı olduğunda bile ticaret yapın",
     "510309290": "Deriv X: DevExperts tarafından CFD Ticaret Uygulamamız (<0>Android app</0>, <1>iOS app</1>)",
     "515292031": "Deriv.com, API geliştiricileri destekliyor mu?",
@@ -479,10 +498,14 @@
     "712547410": "toplam ticaret cirosu",
     "712967511": "CFD'ler karmaşık araçlardır ve kaldıraç nedeniyle hızla para kaybetme riski yüksektir. <0>{{loss_percent}} Bireysel yatırımcı hesaplarının %'si bu sunucu ile CFD ticareti yaparken para kaybeder.</0> CFD'lerin nasıl çalıştığını anlayıp anlamadığınızı ve paranızı kaybetme riskini göze alıp alamayacağınızı düşünmelisiniz.\n",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "714478782": "<0>AUD Sepeti</0>  Avustralya dolarının değerini, her biri %20 ağırlıkta, beş küresel para birimi (USD, EUR, GBP, JPY, CAD) sepetine karşı karşılaştırır.",
 =======
     "714478782": "<0>AUD Sepeti</0>  Avustralya dolarının değerini, her biri 20% ağırlıkta, beş küresel para birimi (USD, EUR, GBP, JPY, CAD) sepetine karşı karşılaştırır.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "714478782": "<0>AUD Sepeti</0>  Avustralya dolarının değerini, her biri %20 ağırlıkta, beş küresel para birimi (USD, EUR, GBP, JPY, CAD) sepetine karşı karşılaştırır.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "715753532": "Cyberjaya, Malezya'daki Deriv iş fırsatlarına göz atarak bizimle pozisyonunuzu keşfedin.",
     "717379127": "Pek çok grafik görünümleri, 90'den fazla gösterge ve 13 çizim aracının keyfini çıkarın.",
     "717722142": "Hesap bilgilerinizi (hesap türü ve oturum açma numaraları) <0>Deriv X kontrol paneli</0> üzerinde görüntüleyebilirsiniz.",
@@ -602,12 +625,17 @@
     "868154618": "Hesaplar",
     "868499940": "Deriv ile ticaret yapmaya başlayın",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "871486196": "Tek bir yerde forex, sentetik endeksler, hisse senetleri, hisse senedi endeksleri, kriptopara birimleri, ve emtia ticareti yapın.",
     "874573741": "Tek bir yerde forex, hisse senetleri, hisse senedi endeksleri, ve emtia ticareti yapın.",
 =======
     "871486196": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place.",
     "874573741": "Trade forex, stocks, stock indices, and commodities in one place.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "871486196": "Tek bir yerde forex, sentetik endeksler, hisse senetleri, hisse senedi endeksleri, kriptopara birimleri, ve emtia ticareti yapın.",
+    "874573741": "Tek bir yerde forex, hisse senetleri, hisse senedi endeksleri, ve emtia ticareti yapın.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "874881951": "Dubai ofisimizde bulunan iş fırsatlarına göz atın. BT, pazarlama ve insan kaynaklarında rolünüzü keşfedin.",
     "875766134": "Bilgisayarınızdan içe aktarma",
     "876581050": "Slovakya",
@@ -788,10 +816,14 @@
     "1151456638": "Departmanlar arasında alçakgönüllülük ve tutku ile birlikte işbirliği yapan ekip oyuncularına değer veriyoruz.",
     "1151925602": "Bir sözleşmenin son tikinin son hanesinin belirli bir sayıdan daha yüksek veya daha düşük olup olmayacağını tahmin edin.",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "1152332043": "Kaldıraçlı forex, sentetik endeksler, hisse senetleri, hisse senedi endeksleri, kriptopara birimleri ve emtia ticareti yapın.",
 =======
     "1152332043": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "1152332043": "Kaldıraçlı forex, sentetik endeksler, hisse senetleri, hisse senedi endeksleri, kriptopara birimleri ve emtia ticareti yapın.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "1158101648": "Google Drive'ınızdan içe aktarma",
     "1161300179": "Benzer şekilde, yerel para biriminizle (veya desteklenen herhangi bir para birimiyle) ödeme karşılığında Deriv fonlarını diğer yatırımcılara 'satarak' Deriv hesabınızdan para çekebilirsiniz.\n\n",
     "1161999797": "Forex, sentetikler, hisse senetleri ve endeksleri, kripto paralar ve emtialar ile ticaret yapın",
@@ -1068,7 +1100,6 @@
     "1592543050": "$10,000'a kadar",
     "1593723948": "1. Deriv hesabınızı oluşturun",
     "1595539912": "İşleme süresi",
-    "1599328252": "Head of Back End Development",
     "1599891822": "Aşağı yönde zarar durdur tutarı",
     "1601324523": "5-10,000\n",
     "1601498870": "Son Makaleler",
@@ -1775,12 +1806,16 @@
     "-1416247163": "Finansal STP\n\n\n\n\n",
     "-1186393596": "Sıkı spreadler ve daha yüksek ticaret hacimleri ile majör, minör ve egzotik döviz çiftleri ile doğrudan piyasada ticaret yapın.",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-128552689": "Kaldıraçlı olarak forex, hisse senetleri, hisse senedi endeksleri, ve emtia ticareti yapın. ",
     "-1542970945": "Komisyon olmadan dünya piyasalarında ticaret yapın. ",
     "-507449979": "Komisyonsuz ticaret yapın. ",
     "-747943809": "Marjin hesaplayıcımızla pozisyonlarınızı açmak ve tutmak için ihtiyacınız olan marjini hesaplayın.",
     "-729599084": "DMT5 marjin işlem hesaplayıcısı",
     "-1199560191": "Marjin hesaplayıcımızı deneyin",
+<<<<<<< HEAD
 =======
     "-128552689": "Trade forex, stocks, stock indices, and commodities on leverage.",
     "-1542970945": "Trade on the world markets without commission",
@@ -1789,6 +1824,8 @@
     "-729599084": "DMT5 marjı işlem hesaplayıcısı",
     "-1199560191": "Marj hesaplayıcımızı deneyin",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1419811135": "Swap ücretinizi hesaplayın ve bir gecelik sözleşmeyi sürdürmek için tam olarak ne ödemeniz beklendiğini veya ne kazanacağınızı bilin.",
     "-2061765962": "DMT5 swap işlem hesaplayıcısı",
     "-1210185536": "Swap hesaplayıcımızı deneyin",
@@ -1801,10 +1838,14 @@
     "-915577324": "Bir Deriv MT5 hesabına nasıl başlanır",
     "-1495699367": "Deriv MT5 nedir",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "-136910883": "Deriv MT5 (DMT5) tek bir platformda birden fazla varlık sınıflarına (forex, sentetik endeksler, hise senetleri, hisse senedi endeksleri, kriptopara birimleri, ve emtialar) erişmenizi sağlar. Yenilikçi ticaret türlerine özel erişim ile Deriv, MT5 deneyimini platformumuzdaki hem yeni hem de deneyimli tüccarlar için üstün bir seviyeye getiriyor. ",
 =======
     "-136910883": "Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "-136910883": "Deriv MT5 (DMT5) tek bir platformda birden fazla varlık sınıflarına (forex, sentetik endeksler, hise senetleri, hisse senedi endeksleri, kriptopara birimleri, ve emtialar) erişmenizi sağlar. Yenilikçi ticaret türlerine özel erişim ile Deriv, MT5 deneyimini platformumuzdaki hem yeni hem de deneyimli tüccarlar için üstün bir seviyeye getiriyor. ",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1058362536": "Hızlı demo hesabına kaydolma",
     "-356516643": "Sınırsız sanal fonla önceden yüklenmiş bir demo hesabıyla pratik yapın.",
     "-1627231267": "Tek bir platformda birden fazla varlık",
@@ -2151,6 +2192,10 @@
     "-1823217929": "Neden Deriv'de hisse senedi ve endeks ticareti yapmalı?",
     "-1848791211": "Deriv'de en favori tanınmış markaların ve uluslararası borsa endekslerinin küresel hisse senetlerini takas edin. Hisse senetlerimiz ve endekslerimiz, büyük hisse senedi piyasalarının normal saatleri dışında ticaret yapabileceğiniz rekabetçi fiyatlı hisse senetleri ve varlık sepetleri sunar.",
     "-75763689": "Neden Deriv'de sentetik endeksler ticareti yapmalı",
+<<<<<<< HEAD
+=======
+    "-1635665985": "Deriv'in tescilli sentetik endeksleri, gerçek dünya piyasa hareketlerini simüle ediyor. Kriptografik olarak güvenli bir rastgele sayı üreticisi tarafından desteklenen bu endeksler 7/24 ticaret yapmak için kullanılabilir ve düzenli piyasa saatleri, küresel olaylar veya piyasadan ve likidite risklerinden etkilenmezler.                                                                            ",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-89087875": "Deriv ile, forex, sentetik endeksler, hisse senedi & endeksleri, kriptopara birimleri, sepet endeksleri, ve emtialar da dahil olmak üzere çevrimiçi ticaret yapabileceğiniz piyasalar hakkında bilgi edinin. ",
     "-1770464254": "Hisse senetleri ve endeksler ticareti, bir piyasadaki fiyat hareketlerinden temel varlıkları satın almadan kâr etmenizi sağlar.",
     "-1252607893": "Kripto ticareti, size onları satın almadan kripto para birimlerinin fiyat hareketlerini doğru şekilde tahmin ederek faydalanma fırsatı sunar.",
@@ -2800,19 +2845,14 @@
     "-654476117": "114M+\n",
     "-608807773": "geçen ay gerçekleşen ticaret",
     "-2022759357": "Ticareti herkes için her yerden erişilebilir hale getirmek",
-    "-1277783292": "Chief Operating Officer",
-    "-216767904": "Chief Administrative Officer",
-    "-515732698": "Chief Risk Officer",
-    "-197772643": "Head of Marketing & Global Partnerships",
-    "-1982114134": "Head of Product & Content Design",
-    "-950913833": "Head of Customer Support",
-    "-824819024": "Head of Strategy & Project Management",
-    "-864130274": "Head of Accounts",
     "-1855417261": "Liderliğimiz",
     "-418008452": "İlkelerimiz kararlarımızın çerçevesidir.",
     "-3618456": "İlkelerimiz hakkında daha fazla bilgi edinin",
     "-426017727": "Kim",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1277783292": "Baş Operasyon Sorumlusu",
     "-216767904": "Baş İdari Sorumlu",
     "-197772643": "Pazarlama & Global Ortaklıklar Sorumlusu",
@@ -2820,10 +2860,13 @@
     "-871474425": "IT Operasyonları Başkan Yardımcısı",
     "-515732698": "Risk Uzmanı",
     "-864130274": "Müşteri Direktörü",
+<<<<<<< HEAD
 =======
     "-290006480": "Vice President of Product",
     "-871474425": "Vice President of IT Operations",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-234962411": "Biz Kimiz | Online Ticaret Platformu | Deriv.com",
     "-355907358": "Deriv.com - Bir Binary.com markası, ticaret piyasasında öncü ve ödüllü bir online ticaret platformudur.",
     "-599033718": "Deriv paranızı ticari çıkarları için kullanmaz ve paranızı istediğiniz zaman çekmenize izin verilir. Tüm paranız ayrılır ve güvenli finansal kurumlarda tutulur. Bu sayede, Deriv'in beklenmedik bir şekilde iflas etmesi durumunda, tüm paranız size iade edilecektir, çünkü paranız asla bizimkiyle birleştirilmez. ",

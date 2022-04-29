@@ -21,7 +21,7 @@ const Home = () => {
         rootMargin: '0px',
         threshold: 0.1,
     }
-    const templates: ReactNode = (
+    const lazy_components: ReactNode = (
         <>
             <TradeTypes
                 fallback={
@@ -79,7 +79,7 @@ const Home = () => {
             </div>
         </>
     )
-    const lazyTemplate = useHandleLazyLoad(templates, target, options, common_fallback)
+    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options, common_fallback)
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

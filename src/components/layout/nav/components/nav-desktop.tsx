@@ -6,7 +6,7 @@ import LogoSection from './logo-section'
 import RightSection from './right-section'
 import device from 'themes/device'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 
@@ -58,10 +58,10 @@ const Tab = styled.span<TabProps>`
 `
 
 const links = [
-    { active: 'trade', title: localize('Trade') },
-    { active: 'markets', title: localize('Markets') },
-    { active: 'about', title: localize('About us') },
-    { active: 'resources', title: localize('Resources') },
+    { active: 'trade', title: <Localize translate_text="Trade" /> },
+    { active: 'markets', title: <Localize translate_text="Markets" /> },
+    { active: 'about', title: <Localize translate_text="About us" /> },
+    { active: 'resources', title: <Localize translate_text="Resources" /> },
 ]
 
 const NavDesktop = ({

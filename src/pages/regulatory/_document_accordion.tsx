@@ -6,7 +6,6 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
-import XLSXIcon from 'images/svg/regulatory/excel.svg'
 import { DerivStore } from 'store'
 
 type DocumentAccordionProps = { locale: { language: string } }
@@ -76,41 +75,21 @@ const RTS27_28 = () => (
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
+                href="/regulatory/RTS28-2021.pdf"
+                m="1.6rem 2.4rem"
+            >
+                <img src={PDFIcon} alt="pdf icon black" />
+                <span>{localize('RTS28 2021')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
                 href="/regulatory/RTS28-2020.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
                 <span>{localize('RTS28 2020')}</span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2019.pdf"
-                m="1.6rem 2.4rem"
-            >
-                <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2019')}</span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS27-2020.xlsx"
-                m="1.6rem 2.4rem"
-            >
-                <img src={XLSXIcon} alt="excel" />
-                <span>{localize('RTS27 2020')}</span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS27-2019.xlsx"
-                m="1.6rem 2.4rem"
-            >
-                <img src={XLSXIcon} alt="excel" />
-                <span>{localize('RTS27 2019')}</span>
             </FlexText>
         </EdgeFlex>
     </>
@@ -153,7 +132,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 <Text>
                     {is_eu_country
                         ? localize(
-                              'Deriv Investments (Europe) Limited has prepared the Pillar III disclosure report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
+                              'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
                           )
                         : localize(
                               'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
@@ -163,11 +142,11 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/Financial_Disclosures_Annual_Report_2020.pdf"
+                        href="/regulatory/Financial_Disclosures_Annual_Report_2021.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />
-                        <span>{localize('Financial Disclosures Annual Report 2020')}</span>
+                        <span>{localize('Financial Disclosures Annual Report 2021')}</span>
                     </FlexText_Pillar>
                 </Flex>
             </AccordionItem>

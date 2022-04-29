@@ -62,24 +62,7 @@ const Home = () => {
             />
         </>
     )
-
-    const common_fallback: ReactNode = (
-        <>
-            <div>
-                <img src={TRADE_DUMMY} style={{ marginLeft: '331px' }} alt="trade-type-dummy" />
-            </div>
-            <div>
-                <img src={PLATFORM_DUMMY} style={{ marginLeft: '331px' }} alt="platform-dummy" />
-            </div>
-            <div>
-                <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
-            </div>
-            <div>
-                <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
-            </div>
-        </>
-    )
-    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options, common_fallback)
+    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

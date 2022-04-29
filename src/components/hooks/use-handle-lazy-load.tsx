@@ -1,11 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 
-export const useHandleLazyLoad = (
-    lazyTemplates: ReactNode,
-    targetId: string,
-    options: object,
-    common_fallback: ReactNode,
-) => {
+export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, options: object) => {
     const [is_visible, setIsVisible] = useState(false)
     const [is_large_screen, setLargeScreen] = useState(false)
 
@@ -35,5 +30,11 @@ export const useHandleLazyLoad = (
         observer.observe(target)
     }
 
-    return is_visible || is_large_screen ? <>{lazyTemplates}</> : <>{common_fallback}</>
+    return is_visible || is_large_screen ? (
+        <>{lazyTemplates}</>
+    ) : (
+        <>
+            <span>laoding</span>
+        </>
+    )
 }

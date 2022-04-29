@@ -1,9 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
+
+type DNumbersProps = {
+    items: {
+        title: string
+        subtitle: string
+    }[]
+    justify: string
+}
 
 const NumberWrapper = styled.div`
     display: flex;
@@ -28,7 +35,7 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const DNumbers = ({ items, justify }) => {
+const DNumbers = ({ items, justify }: DNumbersProps) => {
     return (
         <SectionContainer padding="4rem">
             <StyledContainer justify={justify || 'space-between'}>
@@ -45,8 +52,4 @@ const DNumbers = ({ items, justify }) => {
     )
 }
 
-DNumbers.propTypes = {
-    items: PropTypes.array,
-    justify: PropTypes.string,
-}
 export default DNumbers

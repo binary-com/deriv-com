@@ -1,12 +1,30 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
+
+type DHeroProps = {
+    background_alt: string
+    background_image_name: string
+    background_svg: string
+    background_svg2: string
+    content: string | object
+    d_height: string
+    go_to_live_demo: boolean
+    image_name: string
+    is_mobile: boolean
+    is_ppc: boolean
+    join_us_for_free: boolean
+    laptop_height: string
+    laptopM_height: string
+    Logo: string
+    tabletL_height: string
+    title: string
+}
 
 const Wrapper = styled(Flex)`
     position: relative;
@@ -221,7 +239,7 @@ const DHero = ({
     laptopM_height,
     laptop_height,
     tabletL_height,
-}) => {
+}: DHeroProps) => {
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
 
@@ -340,25 +358,6 @@ const DHero = ({
             </LottieWrapper>
         </Wrapper>
     )
-}
-
-DHero.propTypes = {
-    background_alt: PropTypes.string,
-    background_image_name: PropTypes.string,
-    background_svg: PropTypes.func,
-    background_svg2: PropTypes.func,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    d_height: PropTypes.string,
-    go_to_live_demo: PropTypes.bool,
-    image_name: PropTypes.string,
-    is_mobile: PropTypes.bool,
-    is_ppc: PropTypes.bool,
-    join_us_for_free: PropTypes.bool,
-    laptop_height: PropTypes.string,
-    laptopM_height: PropTypes.string,
-    Logo: PropTypes.any,
-    tabletL_height: PropTypes.string,
-    title: PropTypes.string,
 }
 
 export default DHero

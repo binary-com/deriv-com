@@ -7,6 +7,11 @@ type CheckboxProps = {
     secondary?: boolean
     id?: string
     bg?: string
+    // style: {
+    //     border: string
+    //     clip: string
+    //     position: string
+    // }
 }
 
 type StyledCheckboxProps = {

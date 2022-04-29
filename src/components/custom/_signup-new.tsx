@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
@@ -12,6 +11,23 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
+
+type SignupNewProps = {
+    autofocus: boolean
+    clearEmail: () => void
+    email: string
+    email_error_msg: string
+    handleInputChange: () => void
+    handleLogin: () => void
+    handleSocialSignup: () => void
+    handleValidation: () => void
+    is_ppc: boolean
+    is_submitting: boolean
+}
+
+type SocialButtonProps = {
+    bgColor: string
+}
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -110,7 +126,7 @@ const SignupWithContainer = styled.div`
     }
 `
 
-const SocialButton = styled(Button)`
+const SocialButton = styled(Button)<SocialButtonProps>`
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -212,7 +228,7 @@ const SignupNew = ({
     handleValidation,
     is_ppc,
     is_submitting,
-}) => {
+}: SignupNewProps) => {
     const [is_checked, setChecked] = useState(false)
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -321,7 +337,7 @@ const SignupNew = ({
                     data-provider="google"
                     id="dm-signup-google"
                     type="button"
-                    social
+                    social=""
                 >
                     <img src={Google} alt="google" width="24" height="24" />
                     <SocialText>Google</SocialText>
@@ -332,7 +348,7 @@ const SignupNew = ({
                     data-provider="facebook"
                     id="dm-signup-facebook"
                     type="button"
-                    social
+                    social=""
                 >
                     <img src={Facebook} alt="facebook" width="24" height="24" />
                     <SocialText>Facebook</SocialText>
@@ -343,7 +359,7 @@ const SignupNew = ({
                     data-provider="apple"
                     id="dm-signup-apple"
                     type="button"
-                    social
+                    social=""
                 >
                     <img src={Apple} alt="apple" width="24" height="24" />
                     <SocialText>Apple</SocialText>
@@ -363,19 +379,6 @@ const SignupNew = ({
             </LoginText>
         </SignupContent>
     )
-}
-
-SignupNew.propTypes = {
-    autofocus: PropTypes.bool,
-    clearEmail: PropTypes.func,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_ppc: PropTypes.bool,
-    is_submitting: PropTypes.bool,
 }
 
 export default SignupNew

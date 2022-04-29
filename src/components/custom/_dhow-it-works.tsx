@@ -1,11 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
+type DHowItWorksProps = {
+    title: object
+    Video: any
+}
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: left;
@@ -14,7 +17,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const DHowItWorks = ({ Video, title }) => {
+const DHowItWorks = ({ Video, title }: DHowItWorksProps) => {
     return (
         <SectionContainer>
             <Container justify="center" direction="column">
@@ -30,8 +33,4 @@ const DHowItWorks = ({ Video, title }) => {
     )
 }
 
-DHowItWorks.propTypes = {
-    title: PropTypes.object,
-    Video: PropTypes.object,
-}
 export default DHowItWorks

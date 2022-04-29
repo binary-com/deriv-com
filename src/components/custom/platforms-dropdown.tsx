@@ -1,12 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
-import {
-    NavPlatform,
-    NavCompany,
-    NavResources,
-    NavMarket,
-} from 'components/custom/other-platforms.js'
+import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/custom/other-platforms'
 import { Container, Show, Flex } from 'components/containers'
 
 const FadeInDown = keyframes`

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -9,6 +8,18 @@ import device from 'themes/device.js'
 // SVG
 import Facebook from 'images/svg/custom/facebook.svg'
 import Google from 'images/svg/custom/google.svg'
+
+type SignupDefaultProps = {
+    autofocus: boolean
+    clearEmail: () => void
+    email: string
+    email_error_msg: string
+    handleInputChange: () => void
+    handleLogin: () => void
+    handleSocialSignup: () => void
+    handleValidation: () => void
+    is_submitting: boolean
+}
 
 const Wrapper = styled.div`
     width: 80%;
@@ -64,7 +75,7 @@ const SignupDefault = ({
     handleSocialSignup,
     handleLogin,
     is_submitting,
-}) => {
+}: SignupDefaultProps) => {
     return (
         <Wrapper>
             <Header as="h3" weight="bold">
@@ -105,7 +116,7 @@ const SignupDefault = ({
                     data-provider="google"
                     id="dm-signup-google"
                     type="button"
-                    social
+                    social=""
                 >
                     <span>
                         <img src={Google} alt="google" width="22" height="23" />
@@ -117,7 +128,7 @@ const SignupDefault = ({
                     data-provider="facebook"
                     id="dm-signup-facebook"
                     type="button"
-                    social
+                    social=""
                 >
                     <span>
                         <img src={Facebook} alt="facebook" width="12" height="22" />
@@ -139,18 +150,6 @@ const SignupDefault = ({
             </NoteText>
         </Wrapper>
     )
-}
-
-SignupDefault.propTypes = {
-    autofocus: PropTypes.bool,
-    clearEmail: PropTypes.func,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_submitting: PropTypes.bool,
 }
 
 export default SignupDefault

@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { ReactElement, JSXElementConstructor } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
+type DBannerProps = {
+    background_pattern?: string | (() => void)
+    data: object
+    image_alt?: string | ReactElement<any, string | JSXElementConstructor<any>>
+    title?: string | object
+}
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -112,7 +117,7 @@ const StyledHeader = styled(Header)`
         max-width: 329px;
     }
 `
-const DBanner = ({ title, data, background_pattern, image_alt }) => {
+const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) => {
     return (
         <Wrapper>
             <ImageContainer>
@@ -137,13 +142,6 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
             </TextWrapper>
         </Wrapper>
     )
-}
-
-DBanner.propTypes = {
-    background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    data: PropTypes.object.isRequired,
-    image_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default DBanner

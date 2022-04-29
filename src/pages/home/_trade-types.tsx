@@ -226,6 +226,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
     ${Text} {
         font-weight: bold;
         color: var(--color-red);
+        white-space: nowrap;
     }
 
     @media ${device.tablet} {

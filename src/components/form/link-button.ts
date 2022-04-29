@@ -3,7 +3,11 @@ import { SharedButtonStyle } from './button'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
-const LinkButton = styled(LocalizedLink)`
+type LinkButtonProps = {
+    hero?: string
+}
+
+const LinkButton = styled(LocalizedLink)<LinkButtonProps>`
     ${SharedButtonStyle}
     text-align: center;
     text-decoration: none;

@@ -22,19 +22,13 @@ const query = graphql`
         hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform1_eu: file(relativePath: { eq: "home/hero_platform1_eu.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform1_uk: file(relativePath: { eq: "home/hero_platform1_uk.png" }) {
+        hero_platform1_uk_and_eu: file(relativePath: { eq: "home/hero_platform1_uk_and_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform2_eu: file(relativePath: { eq: "home/hero_platform2_eu.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform2_uk: file(relativePath: { eq: "home/hero_platform2_uk.png" }) {
+        hero_platform2_uk_and_eu: file(relativePath: { eq: "home/hero_platform2_uk_and_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
@@ -94,12 +88,12 @@ const PlatformSlideshow = () => {
             { key: 'hero4', image: data.hero_platform4 },
         ]) ||
         (is_eu && [
-            { key: 'hero1', image: data.hero_platform1_eu },
-            { key: 'hero2', image: data.hero_platform2_eu },
+            { key: 'hero1', image: data.hero_platform1_uk_and_eu },
+            { key: 'hero2', image: data.hero_platform2_uk_and_eu },
         ]) ||
         (is_uk && [
-            { key: 'hero1', image: data.hero_platform1_uk },
-            { key: 'hero2', image: data.hero_platform2_uk },
+            { key: 'hero1', image: data.hero_platform1_uk_and_eu },
+            { key: 'hero2', image: data.hero_platform2_uk_and_eu },
         ])
 
     const setNextImage = useCallback(() => {

@@ -1,9 +1,25 @@
 import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
 import { Paddings, Margins } from 'themes/function'
 import device from 'themes/device.js'
 
-export const SharedButtonStyle = css`
+interface ButtonProps extends React.ComponentPropsWithoutRef<'button'>, SharedButtonStyleProps {
+    loading?: string
+}
+
+type SharedButtonStyleProps = {
+    width?: string
+    primary?: string
+    secondary?: string
+    tertiary?: string
+    tertiary_light?: string
+    flat?: string
+    social?: string
+    white?: string
+    hero?: string
+    provider?: string
+}
+
+export const SharedButtonStyle = css<SharedButtonStyleProps>`
     border-radius: 4px;
     padding: 10px 16px;
     font-size: 14px;
@@ -65,13 +81,13 @@ export const SharedButtonStyle = css`
                 }
             `
         if (props.social)
-            return css`
-                background: ${(props) => {
-                    if (props.provider === 'google') return 'var(--color-white)'
-                    if (props.provider === 'facebook') return 'var(--color-blue)'
+            return css<SharedButtonStyleProps>`
+                background: ${({ provider }) => {
+                    if (provider === 'google') return 'var(--color-white)'
+                    if (provider === 'facebook') return 'var(--color-blue)'
                 }};
-                border: ${(props) =>
-                    props.provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
+                border: ${({ provider }) =>
+                    provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
 
                 svg {
                     width: 2.2rem;
@@ -126,7 +142,7 @@ export const SharedButtonStyle = css`
     ${Margins}
 `
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
     ${SharedButtonStyle}
 
     &:hover {
@@ -149,11 +165,5 @@ const Button = styled.button`
             `
     }}
 `
-
-Button.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-    onClick: PropTypes.func,
-    type: PropTypes.string,
-}
 
 export default Button

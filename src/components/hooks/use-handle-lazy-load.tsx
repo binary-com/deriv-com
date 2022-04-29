@@ -1,11 +1,12 @@
 import React, { ReactNode, useEffect, useState } from 'react'
-type templateProps = {
-    lazytemplates?: ReactNode
-    targetId?: string
-    options?: object
-}
-const UseHandleLazyLoad = ({ lazytemplates, targetId, options }: templateProps) => {
-    const [isVisible, setIsVisible] = useState(false)
+
+export const useHandleLazyLoad = (
+    lazyTemplates: ReactNode,
+    targetId: string,
+    options: object,
+    common_fallback: ReactNode,
+) => {
+    const [is_visible, setIsVisible] = useState(false)
     const [is_large_screen, setLargeScreen] = useState(false)
 
     const handleIntersect = (entries, observer) => {
@@ -34,7 +35,5 @@ const UseHandleLazyLoad = ({ lazytemplates, targetId, options }: templateProps) 
         observer.observe(target)
     }
 
-    return (isVisible || is_large_screen) && <>{lazytemplates}</>
+    return is_visible || is_large_screen ? <>{lazyTemplates}</> : <>{common_fallback}</>
 }
-
-export default UseHandleLazyLoad

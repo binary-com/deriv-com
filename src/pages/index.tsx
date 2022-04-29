@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { Signup, OurPlatforms, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
-import UseHandleLazyLoad from 'components/hooks/use-handle-lazy-load'
+import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -62,6 +62,24 @@ const Home = () => {
             />
         </>
     )
+
+    const common_fallback: ReactNode = (
+        <>
+            <div>
+                <img src={TRADE_DUMMY} style={{ marginLeft: '331px' }} alt="trade-type-dummy" />
+            </div>
+            <div>
+                <img src={PLATFORM_DUMMY} style={{ marginLeft: '331px' }} alt="platform-dummy" />
+            </div>
+            <div>
+                <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
+            </div>
+            <div>
+                <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
+            </div>
+        </>
+    )
+    const lazyTemplate = useHandleLazyLoad(templates, target, options, common_fallback)
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -75,7 +93,7 @@ const Home = () => {
             />
             <Hero />
             <MarketsFold />
-            <UseHandleLazyLoad lazytemplates={templates} targetId={target} options={options} />
+            {lazyTemplate}
         </Layout>
     )
 }

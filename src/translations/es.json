@@ -84,7 +84,6 @@
     "161870324": "Elija las mejores tarifas y haga un pedido, o cree un anuncio con las tarifas que desee.",
     "163040015": "Únese a los programas de afiliados e IB de Deriv y acceda a la oportunidad de ser afiliado de un proveedor confiable de trading online.",
     "166309424": "Cero cargos con pagos mensuales y diarios puntuales.",
-    "170598749": "Índices de cestas",
     "171302334": "Entonces, en este escenario, establecería su cantidad de stop loss en <0>-7,23 USD</0>.",
     "171586173": "Descubra oportunidades de trabajo en las oficinas de Deriv en todo el mundo.",
     "171638706": "Variables",
@@ -603,12 +602,17 @@
     "868154618": "Cuentas",
     "868499940": "Comience a operar con Deriv",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "871486196": "Opere con forex, índices sintéticos, acciones, índices bursátiles, criptomonedas y materias primas en un solo lugar.",
     "874573741": "Opere con forex, acciones, índices bursátiles y materias primas en un solo lugar. ",
 =======
     "871486196": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place.",
     "874573741": "Trade forex, stocks, stock indices, and commodities in one place.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "871486196": "Opere con forex, índices sintéticos, acciones, índices bursátiles, criptomonedas y materias primas en un solo lugar.",
+    "874573741": "Opere con forex, acciones, índices bursátiles y materias primas en un solo lugar. ",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "874881951": "Explore las oportunidades de trabajo disponibles en nuestra oficina de Dubái. Encuentre su papel en TI, marketing y recursos humanos.",
     "875766134": "Importando desde su computadora",
     "876581050": "Eslovaquia",
@@ -789,10 +793,14 @@
     "1151456638": "Valoramos a las personas que trabajan en equipo y que colaboran libremente en todos los departamentos con humildad y visión de futuro.",
     "1151925602": "Prediga si el último dígito del último tick de un contrato será mayor o menor que un número específico.",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "1152332043": "Opere con forex, índices sintéticos, acciones, índices bursátiles, criptomonedas y materias primas con apalancamiento.",
 =======
     "1152332043": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "1152332043": "Opere con forex, índices sintéticos, acciones, índices bursátiles, criptomonedas y materias primas con apalancamiento.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "1158101648": "Importar desde su Google Drive",
     "1161300179": "Del mismo modo, puede realizar retiros de su cuenta de Deriv \"vendiendo\" fondos de Deriv a otros traders a cambio del pago en su moneda local (o cualquier moneda admitida).",
     "1161999797": "Opere con forex, sintéticos, acciones e índices, criptomonedas y materias primas.",
@@ -1069,7 +1077,6 @@
     "1592543050": "Hasta 10.000$",
     "1593723948": "1. Cree su cuenta Deriv",
     "1595539912": "Tiempo de procesamiento",
-    "1599328252": "Head of Back End Development",
     "1599891822": "Cantidad de stop loss en dirección descendente",
     "1601324523": "5 - 10.000",
     "1601498870": "Artículos recientes",
@@ -1776,10 +1783,14 @@
     "-1416247163": "Financiera STP",
     "-1186393596": "Opere con pares de divisas mayores, menores y exóticos con spreads ajustados y volúmenes de negociación más altos, directamente al mercado.",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "-128552689": "Opere con forex, acciones, índices bursátiles y criptomonedas con apalancamiento.",
 =======
     "-128552689": "Trade forex, stocks, stock indices, and commodities on leverage.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "-128552689": "Opere con forex, acciones, índices bursátiles y criptomonedas con apalancamiento.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1542970945": "Opere en los mercados mundiales sin comisiones",
     "-507449979": " Opere sin comisiones",
     "-747943809": "Calcule el margen que necesita para abrir y mantener sus posiciones con nuestra calculadora de margen.",
@@ -1797,10 +1808,14 @@
     "-915577324": "Cómo empezar con una cuenta Deriv MT5",
     "-1495699367": "Qué es Deriv MT5",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "-136910883": "Deriv MT5 (DMT5) le da acceso a múltiples clases de activos — forex, índices sintéticos, acciones, índices, criptodivisas y materias primas — en una sola plataforma. Con acceso exclusivo a innovadores tipos de operaciones, Deriv lleva la experiencia de MT5 en nuestra plataforma a un nivel superior tanto para los nuevos traders como para los expertos.",
 =======
     "-136910883": "Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "-136910883": "Deriv MT5 (DMT5) le da acceso a múltiples clases de activos — forex, índices sintéticos, acciones, índices, criptodivisas y materias primas — en una sola plataforma. Con acceso exclusivo a innovadores tipos de operaciones, Deriv lleva la experiencia de MT5 en nuestra plataforma a un nivel superior tanto para los nuevos traders como para los expertos.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1058362536": "Registro rápido de la cuenta demo",
     "-356516643": "Practique con una cuenta demo con fondos virtuales ilimitados.",
     "-1627231267": "Múltiples activos en una sola plataforma",
@@ -2801,6 +2816,7 @@
     "-608807773": "operaciones el mes pasado",
     "-2022759357": "Hacer que las operaciones sean accesibles a cualquier persona en cualquier lugar",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "-1277783292": "Director de Operaciones",
     "-216767904": "Director de Administración",
@@ -2811,10 +2827,13 @@
     "-824819024": "Head of Strategy & Project Management",
     "-864130274": "Responsable de Cuentas",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1855417261": "Nuestro equipo directivo",
     "-418008452": "Nuestros principios son el marco de nuestras decisiones",
     "-3618456": "Conozca más sobre nuestros principios",
     "-426017727": "Quiénes",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "-1277783292": "Director de Operaciones",
     "-216767904": "Director de Administración",
@@ -2827,6 +2846,15 @@
     "-290006480": "Vicepresidente de Productos",
     "-871474425": "Vicepresidente de Operaciones Informáticas",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "-1277783292": "Director de Operaciones",
+    "-216767904": "Director de Administración",
+    "-197772643": "Jefe de Marketing y Asociaciones Globales",
+    "-290006480": "Vicepresidente de Productos",
+    "-871474425": "Vicepresidente de Operaciones Informáticas",
+    "-515732698": "Director de Riesgos",
+    "-864130274": "Responsable de Cuentas",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-234962411": "Quiénes Somos | Una Plataforma de Operaciones en Línea | Deriv.com",
     "-355907358": "Deriv.com, una marca de Binary.com, es una plataforma pionera y galardonada de trading online en el mercado comercial.",
     "-599033718": "Deriv no usa su dinero para sus intereses comerciales y se le permite retirar su dinero en cualquier momento. Todo su dinero está segregado y almacenado en instituciones financieras seguras. De esta manera, en el improbable caso de que Deriv se vuelva insolvente, todo su dinero le será devuelto porque nunca se mezcla con el nuestro.",

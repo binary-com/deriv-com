@@ -578,12 +578,17 @@
     "868154618": "Contas",
     "868499940": "Comece a negociar com Deriv",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "871486196": "Negocie forex, índices sintéticos, ações, índices de ações, criptomoedas e commodities em um só lugar.",
     "874573741": "Negocie forex, ações, índices de ações e commodities em um só lugar.",
 =======
     "871486196": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities in one place.",
     "874573741": "Trade forex, stocks, stock indices, and commodities in one place.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "871486196": "Negocie forex, índices sintéticos, ações, índices de ações, criptomoedas e commodities em um só lugar.",
+    "874573741": "Negocie forex, ações, índices de ações e commodities em um só lugar.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "874881951": "Procure oportunidades de trabalho disponíveis em nosso escritório em Dubai. Encontre seu papel em TI, marketing ou recursos humanos.",
     "875766134": "Importando de seu computador",
     "876581050": "Eslováquia",
@@ -764,10 +769,14 @@
     "1151456638": "Valorizamos pessoas pro-ativas que colaboram livremente entre departamentos com humildade e ambição.",
     "1151925602": "Preveja se o último dígito do último tick de um contrato será maior ou menor que um número específico.\n",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "1152332043": "Negocie forex, índices sintéticos, ações, índices de ações, criptomoedas e commodities com alavancagem.",
 =======
     "1152332043": "Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "1152332043": "Negocie forex, índices sintéticos, ações, índices de ações, criptomoedas e commodities com alavancagem.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "1158101648": "Importando do seu Google Drive",
     "1161300179": "Da mesma forma, você pode fazer retiradas de sua conta de Deriv 'vendendo' fundos da Deriv para outros traders em troca de pagamento em sua moeda local (ou outra moeda suportada)",
     "1161999797": "Negocie forex, sintéticos, ações e índices, criptomoedas e commodities.",
@@ -1030,7 +1039,6 @@
     "1592543050": "Até $10,000",
     "1593723948": "1. Crie sua conta Deriv",
     "1595539912": "Tempo de processamento",
-    "1599328252": "Head of Back End Development",
     "1599891822": "Quantidade de stop loss na direção para baixo",
     "1601324523": "5-10,000",
     "1601498870": "Artigos recentes",
@@ -1737,6 +1745,7 @@
     "-1416247163": "Financeira STP",
     "-1186393596": "Negocie pares de moedas principais, secundárias e exóticas com spreads estreitos e volumes de negociação mais altos, direto para o mercado.",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "-128552689": "Negocie forex, ações, índices de ações e commodities com alavancagem.",
     "-1542970945": "Negocie em mercados mundiais sem comissão",
     "-507449979": "Negocie sem comissão ",
@@ -1745,6 +1754,11 @@
     "-1542970945": "Trade on the world markets without commission",
     "-507449979": "Trade without commission",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "-128552689": "Negocie forex, ações, índices de ações e commodities com alavancagem.",
+    "-1542970945": "Negocie em mercados mundiais sem comissão",
+    "-507449979": "Negocie sem comissão ",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-747943809": "Calcule a margem necessária para abrir e manter suas posições com nossa calculadora de margem.",
     "-729599084": "DMT5 calculadora de margem",
     "-1199560191": "\nExperimente nossa calculadora de margem",
@@ -1760,10 +1774,14 @@
     "-915577324": "Como começar com uma conta Deriv MT5",
     "-1495699367": "O que é Deriv MT5",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "-136910883": "Deriv MT5 (DMT5) lhe dá acesso a múltiplas classes de ativos - forex, índices sintéticos, ações, índices de ações, criptomoedas e commodities - em uma única plataforma. Com acesso exclusivo a tipos de negociação inovadores, a Deriv leva a experiência do MT5 a um nível superior tanto para negociadores novos como para experientes em nossa plataforma.",
 =======
     "-136910883": "Deriv MT5 (DMT5) gives you access to multiple asset classes — forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform.",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+    "-136910883": "Deriv MT5 (DMT5) lhe dá acesso a múltiplas classes de ativos - forex, índices sintéticos, ações, índices de ações, criptomoedas e commodities - em uma única plataforma. Com acesso exclusivo a tipos de negociação inovadores, a Deriv leva a experiência do MT5 a um nível superior tanto para negociadores novos como para experientes em nossa plataforma.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1058362536": "Criação de conta demo rápida",
     "-356516643": "Pratique com uma conta de demonstração pré-carregada com fundos virtuais ilimitados.",
     "-1627231267": "Vários ativos em uma única plataforma",
@@ -2110,6 +2128,10 @@
     "-1823217929": "Por que negociar ações e índices na Deriv",
     "-1848791211": "Negocie ações globais de suas marcas domésticas favoritas e índices internacionais do mercado de ações na Deriv. Nossos ações e índices oferecem ações com preços competitivos e cestas de ativos que você pode negociar fora do horário normal dos principais mercados de ações.",
     "-75763689": "Por que negociar índices sintéticos na Deriv",
+<<<<<<< HEAD
+=======
+    "-1635665985": "Os índices sintéticos proprietários da Deriv simulam os movimentos do mercado do mundo real. Apoiados por um gerador de números aleatórios criptograficamente seguro, esses índices estão disponíveis para negociação 24/7 e não são afetados pelo horário regular do mercado, eventos globais ou mercado e\n                    riscos de liquidez.",
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-89087875": "Conheça os mercados que você pode negociar online na Deriv, incluindo forex, índices sintéticos, ações e índices de ações, criptomoedas, cestas de índices e commodities.",
     "-1770464254": "A negociação de ações & índices permite lucrar com os movimentos de preços em um mercado sem comprar os ativos subjacentes.",
     "-1252607893": "A negociação com criptomoedas oferece a oportunidade de se beneficiar da previsão correta dos movimentos de preços sem precisar adquirir a mesma.",
@@ -2759,19 +2781,14 @@
     "-654476117": "114M+",
     "-608807773": "negociações no mês passado",
     "-2022759357": "Tornar negociações acessível a qualquer pessoa, em qualquer lugar",
-    "-1277783292": "Chief Operating Officer",
-    "-216767904": "Chief Administrative Officer",
-    "-515732698": "Chief Risk Officer",
-    "-197772643": "Head of Marketing & Global Partnerships",
-    "-1982114134": "Head of Product & Content Design",
-    "-950913833": "Head of Customer Support",
-    "-824819024": "Head of Strategy & Project Management",
-    "-864130274": "Head of Accounts",
     "-1855417261": "Forte liderança",
     "-418008452": "Nossos princípios são a estrutura das nossas decisões",
     "-3618456": "Saiba mais sobre nossos princípios",
     "-426017727": "Quem",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-1277783292": "Chefe de Operações",
     "-216767904": "Diretor Administrativo",
     "-197772643": "Chefe de Marketing e Parcerias Globais",
@@ -2779,10 +2796,13 @@
     "-871474425": "Vice-presidente de Operações de TI",
     "-515732698": "Diretor de Risco",
     "-864130274": "Chefe de Contabilidade",
+<<<<<<< HEAD
 =======
     "-290006480": "Vice President of Product",
     "-871474425": "Vice President of IT Operations",
 >>>>>>> 30042762f6 (chore: update translation (#2967))
+=======
+>>>>>>> baef9dcdac (Kevin/crowdin hotfix (#2978))
     "-234962411": "Quem somos | Uma Plataforma de Negociação Online | Deriv.com",
     "-355907358": "Deriv.com - Uma marca Binary.com, é uma plataforma de negociação online pioneira e premiada no mercado de negociações.",
     "-599033718": "\nDeriv não usa seu dinheiro para interesses comerciais e você tem permissão para sacar seu dinheiro a qualquer momento. Todo o seu dinheiro é segregado e mantido em instituições financeiras seguras. Desta forma, no caso improvável de Deriv tornar-se insolvente, todo o seu dinheiro será devolvido a você, porque nunca é fundido com o nosso.",

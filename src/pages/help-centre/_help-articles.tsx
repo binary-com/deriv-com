@@ -626,6 +626,12 @@ export const articles: ArcticlesType[] = [
                 sub_category: <Localize translate_text="Contracts" />,
                 label: 'contracts-on-dtrader',
             },
+            {
+                title: <Localize translate_text="Can I download the chart on DTrader?" />,
+                category: 'DTrader',
+                sub_category: <Localize translate_text="Contracts" />,
+                label: 'download-the-chart-on-DTrader',
+            },
         ],
     },
     {
@@ -800,6 +806,14 @@ export const articles: ArcticlesType[] = [
                 category: 'Security',
                 sub_category: <Localize translate_text="Verification" />,
                 label: 'documents-declined',
+            },
+            {
+                title: (
+                    <Localize translate_text="I lost my phone. How can I disable two-factor authentication (2FA)?" />
+                ),
+                category: 'Security',
+                sub_category: <Localize translate_text="Verification" />,
+                label: 'disable-two-factor-authentication',
             },
         ],
     },

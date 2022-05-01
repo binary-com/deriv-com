@@ -748,16 +748,76 @@ export const articles: ArcticlesType[] = [
                 label: 'how-secure-deriv-p2p',
             },
             {
-                title: <Localize translate_text="What payment methods can I use with Deriv P2P?" />,
+                title: <Localize translate_text="Do I need a Deriv account to use Deriv P2P?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'need-Deriv-account-to-use-Deriv-P2P',
+            },
+            {
+                title: (
+                    <Localize translate_text="Why is my Deriv P2P balance different from my Deriv account balance?" />
+                ),
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'Deriv-P2P-balance-different-from-my-Deriv-account-balance',
+            },
+            {
+                title: (
+                    <Localize translate_text="Where can I see the terms of use for Deriv P2P?" />
+                ),
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'the-terms-of-use-for-Deriv-P2P',
+            },
+            {
+                title: <Localize translate_text="Why is my Deriv P2P account blocked?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'Deriv-P2P-account-blocked',
+            },
+            {
+                title: (
+                    <Localize translate_text="What payment methods can I use to exchange with other traders?" />
+                ),
                 category: 'Deriv P2P',
                 sub_category: <Localize translate_text="Payment" />,
                 label: 'payment-methods',
             },
             {
-                title: <Localize translate_text="Can I increase my daily buy or sell limit?" />,
+                title: <Localize translate_text="How do I create an ad?" />,
                 category: 'Deriv P2P',
-                sub_category: <Localize translate_text="Limit" />,
-                label: 'buy-or-sell-limit',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'create-an-ad',
+            },
+            {
+                title: <Localize translate_text="Where can I see my ads?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'see-my-ads',
+            },
+            {
+                title: <Localize translate_text="How do I make an order?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'make-an-order',
+            },
+            {
+                title: <Localize translate_text="Where can I see my orders?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'see-my-orders',
+            },
+            {
+                title: <Localize translate_text="What does ‘completion rate’ mean?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'completion-rate',
+            },
+            {
+                title: <Localize translate_text="Why can't I see my ad in the Buy/Sell tab?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'cannot-see-ads',
             },
             {
                 title: (
@@ -769,7 +829,23 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="How do I get in touch with the counterparty of my transaction?" />
+                    <Localize translate_text="How do I check my available balance for Deriv P2P?" />
+                ),
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Balance" />,
+                label: 'available-balance-for-Deriv-P2P',
+            },
+            {
+                title: (
+                    <Localize translate_text="How do I ensure my Deriv P2P transactions are successful?" />
+                ),
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Transaction" />,
+                label: 'Deriv-P2P-transactions-are-successful',
+            },
+            {
+                title: (
+                    <Localize translate_text="How do I get in touch with the trader I’m dealing with?" />
                 ),
                 category: 'Deriv P2P',
                 sub_category: <Localize translate_text="Transaction" />,
@@ -777,11 +853,11 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="Why is my Deriv P2P balance different from my Deriv account balance?" />
+                    <Localize translate_text="Can I increase my daily buy or sell limit on Deriv P2P?" />
                 ),
                 category: 'Deriv P2P',
-                sub_category: <Localize translate_text="Balance" />,
-                label: 'different-account-balance',
+                sub_category: <Localize translate_text="Limit" />,
+                label: 'buy-or-sell-limit',
             },
         ],
     },

@@ -151,6 +151,9 @@ const Regulatory = (locale: RegulatoryProps) => {
                             />
                         </Text>
                         <Text mt="2rem">
+                            <Localize translate_text="Authorised by the Financial Conduct Authority and with deemed variation of permission. Subject to regulation by the Financial Conduct Authority. The nature and extent of consumer protections may differ from those for firms based in the UK. Details of the Financial Services Contracts Regime, which allows EEA-based firms to operate in the UK for a limited period to carry on activities which are necessary for the performance of pre-existing contracts, are available on the Financial Conduct Authority's website." />
+                        </Text>
+                        <Text mt="2rem">
                             {localize(
                                 'Clients in the European Union who wish to trade financial instruments can have accounts under Deriv Investments (Europe) Limited.',
                             )}

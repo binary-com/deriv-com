@@ -893,4 +893,22 @@ export const articles: ArcticlesType[] = [
             },
         ],
     },
+
+    {
+        category: <Localize translate_text="About Deriv" />,
+        articles: [
+            {
+                title: <Localize translate_text="Is Deriv regulated?" />,
+                category: 'About Deriv',
+                sub_category: <Localize translate_text="Regulation" />,
+                label: 'Deriv-regulated',
+            },
+            {
+                title: <Localize translate_text="Where is my money held?" />,
+                category: 'About Deriv',
+                sub_category: <Localize translate_text="Finance" />,
+                label: 'money-held',
+            },
+        ],
+    },
 ]

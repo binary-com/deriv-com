@@ -20,12 +20,6 @@ export const articles: ArcticlesType[] = [
         category: <Localize translate_text="Account" />,
         articles: [
             {
-                title: <Localize translate_text="Why can't I create an account?" />,
-                category: 'account',
-                sub_category: <Localize translate_text="Opening an account" />,
-                label: 'who-can-open-an-account',
-            },
-            {
                 title: <Localize translate_text="How can I change my personal details?" />,
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,
@@ -36,6 +30,18 @@ export const articles: ArcticlesType[] = [
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'change-account-currency',
+            },
+            {
+                title: <Localize translate_text="Can I change my email address?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'change-my-email-address',
+            },
+            {
+                title: <Localize translate_text="Why can't I create an account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Opening an account" />,
+                label: 'who-can-open-an-account',
             },
             {
                 title: (
@@ -62,18 +68,6 @@ export const articles: ArcticlesType[] = [
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'what-is-dormant-fee',
-            },
-            {
-                title: <Localize translate_text="Can I change my email address?" />,
-                category: 'account',
-                sub_category: <Localize translate_text="Managing your account" />,
-                label: 'change-my-email-address',
-            },
-            {
-                title: <Localize translate_text="How can I change the currency of my account?" />,
-                category: 'account',
-                sub_category: <Localize translate_text="Managing your account" />,
-                label: 'change-the-currency-of-my-account',
             },
             {
                 title: <Localize translate_text="Can I open a corporate or business account?" />,
@@ -162,6 +156,12 @@ export const articles: ArcticlesType[] = [
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,
                 label: 'Why-were-my-documents-declined',
+            },
+            {
+                title: <Localize translate_text="How can I change the currency of my account?" />,
+                category: 'account',
+                sub_category: <Localize translate_text="Managing your account" />,
+                label: 'change-the-currency-of-my-account',
             },
         ],
     },

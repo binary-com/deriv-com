@@ -208,7 +208,12 @@ export const Arrow = styled(Chevron)`
 `
 
 export const StyledLabel = styled.label`
-    color: ${(props) => (props.error ? 'var(--color-red-1)' : 'var(--color-grey-5)')};
+    color: ${(props) =>
+        props.disabled
+            ? 'var(--color-grey-2)'
+            : props.error
+            ? 'var(--color-red-1)'
+            : 'var(--color-grey-5)'};
     background: var(--color-white);
     font-size: var(--text-size-xs);
     position: absolute;

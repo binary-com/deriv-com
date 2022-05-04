@@ -68,7 +68,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
     const [is_pep_checked, setPepChecked] = useState(false)
     const [is_terms_checked, setTermsChecked] = useState(false)
     const [is_eu_checked, setEuChecked] = useState(false)
-    const [is_disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(true)
     const residence_list = useResidenceList()
 
     useEffect(() => {
@@ -226,7 +226,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                     setFieldValue('country', value)
                                                 }
                                                 onBlur={handleBlur}
-                                                is_disabled={is_disabled}
+                                                disabled={disabled}
                                             />
                                         </DropdownSearchWrapper>
                                     ) : (
@@ -256,7 +256,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                         setFieldError(item.name, '')
                                                         setFieldTouched(item.name, false, false)
                                                         if (item.name !== 'date') {
-                                                            current_input.focus()
+                                                            current_input.current.focus()
                                                         }
                                                     }}
                                                     onBlur={handleBlur}
@@ -265,7 +265,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                     autoFocus={autofocus}
                                                     autoComplete="off"
                                                     required={item.required}
-                                                    is_disabled={is_disabled}
+                                                    disabled={disabled}
                                                 />
                                             )}
                                         </Field>

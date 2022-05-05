@@ -35,12 +35,8 @@
 #  (just to make this file easier to understand)
 # ================================================
 
-#  habib-binary
-#  kevinw-deriv
-#  njazuli-deriv
+#  habib-deriv
 #  prince-deriv
-#  sean-binary
-#  suthesan-deriv
 #  yashim-deriv
 
 ######################################################################################################
@@ -61,7 +57,7 @@
 # (in case no pattern matches a path in a PR - this should be treated as a bug and result in adding the path to CODEOWNERS)
 # ==============================================================
 
-*                                                               @habib-binary @sean-binary @prince-deriv
+*                                                               @habib-deriv @prince-deriv
 
 
 
@@ -69,42 +65,49 @@
 #  deriv-com/translations
 # ==============================================================
 
-/src/translations/*                                             @suthesan-deriv @habib-binary @sean-binary @prince-deriv
-/crowdin/*                                                      @suthesan-deriv @habib-binary @sean-binary @prince-deriv
-/scripts/*                                                      @suthesan-deriv @habib-binary @sean-binary @prince-deriv
+/src/translations/*                                             @habib-deriv @prince-deriv
+/crowdin/*                                                      @habib-deriv @prince-deriv
+/scripts/*                                                      @habib-deriv @prince-deriv
 
 
 # ==============================================================
 #  deriv-com/config
 # ==============================================================
 
-/*                                                              @habib-binary @sean-binary @yashim-deriv @prince-deriv
-/.github/**/*                                                   @habib-binary @sean-binary @yashim-deriv @prince-deriv
-/.husky/*                                                       @habib-binary @sean-binary @yashim-deriv @prince-deriv
+/*                                                              @habib-deriv @yashim-deriv @prince-deriv
+/.github/**/*                                                   @habib-deriv @yashim-deriv @prince-deriv
+/.husky/*                                                       @habib-deriv @yashim-deriv @prince-deriv
 
 
 # ==============================================================
 #  deriv-com/shared-components
 # ==============================================================
 
-/src/common/**/*                                                @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
-/src/components/**/*                                            @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
-/src/themes/**/*                                                @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
+/src/common/**/*                                                @habib-deriv @yashim-deriv @prince-deriv
+/src/components/**/*                                            @habib-deriv @yashim-deriv @prince-deriv
+/src/themes/**/*                                                @habib-deriv @yashim-deriv @prince-deriv
 
 
 # ==============================================================
 #  deriv-com/shared-assets
 # ==============================================================
 
-/src/images/**/*                                                @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
-/src/lotties/**/*                                               @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
-/static/**/*                                                    @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
-/documents/**/*                                                 @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
-/favicons/**/*                                                  @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv @prince-deriv
+/src/images/**/*                                                @habib-deriv @yashim-deriv @prince-deriv
+/src/lotties/**/*                                               @habib-deriv @yashim-deriv @prince-deriv
+/static/**/*                                                    @habib-deriv @yashim-deriv @prince-deriv
+/documents/**/*                                                 @habib-deriv @yashim-deriv @prince-deriv
+/favicons/**/*                                                  @habib-deriv @yashim-deriv @prince-deriv
 
 
 # ==============================================================
 #  deriv-com/pages
 # ==============================================================
 
-/src/pages/**/*                                                 @habib-binary @sean-binary @njazuli-deriv @suthesan-deriv @kevinw-deriv @yashim-deriv @prince-deriv
+/src/pages/**/*                                                 @habib-deriv @yashim-deriv @prince-deriv
+
+
+# ==============================================================
+#  deriv-com/academy
+# ==============================================================
+
+/src/pages/academy/**/*                                         @mohammad-rework

@@ -2,7 +2,7 @@ import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'rea
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import CloseSVG from 'images/svg/custom/close-2.svg'
 
 const Container = styled.div`

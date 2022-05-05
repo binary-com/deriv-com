@@ -9,7 +9,7 @@ import { Localize, localize } from 'components/localization'
 import { LocalizedLinkText, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { DerivStore } from 'store'
 import { getCountryRule } from 'components/containers/visibility'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container, Show } from 'components/containers'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
@@ -137,7 +137,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                     ]}
                 />
             </StyledText>
-            <Show.Desktop min_width="992">
+            <Desktop>
                 <Background
                     style={{ height: '340px', backgroundPosition: '20% 20%' }}
                     data={data['p2p_banner']}
@@ -160,8 +160,8 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                         </InformationWrapper>
                     </Wrapper>
                 </Background>
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <Background
                     style={{ height: '402px', backgroundPosition: '40% 50%' }}
                     data={data['p2p_banner_mobile']}
@@ -184,7 +184,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                         </InformationWrapper>
                     </Wrapper>
                 </Background>
-            </Show.Mobile>
+            </Mobile>
         </div>
     )
 }

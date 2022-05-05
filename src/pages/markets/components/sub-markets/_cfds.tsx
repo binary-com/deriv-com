@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'

@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
-import { size } from 'themes/device'
+import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { eu_domains, uk_domains } from 'common/constants'
 import { getClientInformation, getDomain, isBrowser, isTestlink } from 'common/utility'
@@ -9,7 +9,7 @@ import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 type ResponsiveContainerProps = {
     children: ReactElement
-    breakpoint?: number | keyof typeof size
+    breakpoint?: number | SizeType
     className?: string
 }
 

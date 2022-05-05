@@ -8,7 +8,7 @@ import { Localize, localize } from 'components/localization'
 import { LocalizedLinkText, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { DerivStore } from 'store'
 
 const SignupFormWrapper = styled(Flex)`
@@ -218,7 +218,7 @@ const Subscribe = () => {
             t.async = true;
             t.id    = 'cio-tracker';
             t.setAttribute('data-site-id', '${site_id}');
-            t.src = '${cio_url}' 
+            t.src = '${cio_url}'
             //If your account is in the EU, use:
             s.parentNode.insertBefore(t, s);`,
         })

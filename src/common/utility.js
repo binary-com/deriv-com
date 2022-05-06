@@ -9,6 +9,7 @@ import {
     live_chat_redirection_link,
     live_chat_key,
     domains,
+    eu_domains,
 } from './constants'
 import { isUK, eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -430,17 +431,8 @@ export const useCallbackRef = (callback) => {
 
 const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
-export const isEuDomain = () => {
-    if (isBrowser()) {
-        if (
-            window.location.hostname === 'eu.deriv.com' ||
-            window.location.hostname === 'staging-eu.deriv.com'
-        ) {
-            return true
-        }
-    }
-    return false
-}
+export const isEuDomain = () =>
+    !!(isBrowser() && eu_domains.includes(window.location.hostname.split('.')[0]))
 
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
@@ -467,8 +459,6 @@ const handleEURedirect = (country, full_domain) => {
 export const handleRedirect = (residence, current_client_country, full_domain) => {
     const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
     const country = residence ? residence : current_client_country
-
-    const eu_domains = ['eu', 'staging-eu']
 
     if (isTestlink()) {
         return false

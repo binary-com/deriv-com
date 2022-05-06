@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
-import Cookies from 'js-cookie'
 import { getLanguage, isChoosenLanguage, queryParams } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
@@ -90,7 +89,6 @@ const Signup = (props) => {
         const token = queryParams.get('t')
 
         if (!token) {
-            Cookies.remove('affiliate_tracking')
             delete cookies_value.utm_campaign
             delete cookies_value.utm_medium
             cookies_value.utm_source = 'null' //passing null as the cookies takes the affiliates token value when signed up without affiliate token

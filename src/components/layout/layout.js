@@ -156,7 +156,7 @@ const Layout = ({
     }, [is_uk_eu])
 
     // Check client's account and ip and apply the necessary redirection
-    if (!is_redirection_applied) {
+    if (!is_redirection_applied && window.location.hostname !== 'eu.deriv.com') {
         const website_status = useWebsiteStatusApi()
 
         React.useEffect(() => {

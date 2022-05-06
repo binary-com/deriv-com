@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type StepProps = {
     image_name?: string

@@ -431,9 +431,6 @@ export const useCallbackRef = (callback) => {
 
 const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
-export const isEuDomain = () =>
-    !!(isBrowser() && eu_domains.includes(window.location.hostname.split('.')[0]))
-
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
     window.location.href = `https://${redirection_url + window.location.pathname}`
@@ -456,16 +453,19 @@ const handleEURedirect = (country, full_domain) => {
     }
 }
 
+const getSubdomain = () => isBrowser() && window.location.hostname.split('.').slice(0, -2).join('.')
+
+export const isEuDomain = () => !!eu_domains.includes.getSubdomain()
+
 export const handleRedirect = (residence, current_client_country, full_domain) => {
-    const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
     const country = residence ? residence : current_client_country
 
     if (isTestlink()) {
         return false
-    } else if (eu_domains.some((e) => subdomain.includes(e))) {
+    } else if (eu_domains.some((e) => getSubdomain().includes(e))) {
         handleEURedirect(country, full_domain)
     } else {
-        handleDerivRedirect(country, subdomain)
+        handleDerivRedirect(country, getSubdomain())
     }
 }
 

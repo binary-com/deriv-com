@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { getLanguage, isChoosenLanguage } from '../../common/utility'
+import { getLanguage, isChoosenLanguage, queryParams } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
@@ -93,10 +93,17 @@ const Signup = (props) => {
 
     const getVerifyEmailRequest = (formatted_email) => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
-
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
+        const token = queryParams.get('t')
+
+        if (token == null) {
+            Cookies.remove('affiliate_tracking')
+            cookies_value.utm_campaign = 'null'
+            cookies_value.utm_medium = 'null'
+            cookies_value.utm_source = 'null'
+        }
 
         return {
             verify_email: formatted_email,

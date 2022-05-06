@@ -7,7 +7,7 @@ import { Container } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
-import WhatsAppIcon from 'images/svg/help/whatsapp.svg'
+import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);
@@ -59,7 +59,7 @@ const WhatsAppButton = styled.button`
     }
 `
 
-const WhatsappIcon = styled.img`
+const WhatsAppIcon = styled.img`
     margin: -3px 8px -3px 0;
 `
 
@@ -85,8 +85,8 @@ export const DidntFindYourAnswerBanner = () => {
                     </Button>
                 )}
                 <WhatsAppButton>
-                    <WhatsappIcon
-                        src={WhatsAppIcon}
+                    <WhatsAppIcon
+                        src={WhatsAppSVG}
                         alt={localize('whatsappicon')}
                         height="16"
                         width="16"

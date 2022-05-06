@@ -84,14 +84,12 @@ const Signup = (props) => {
     }
 
     const getVerifyEmailRequest = (formatted_email) => {
-        const affiliate_token = Cookies.getJSON('affiliate_tracking')
-
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
         const token = queryParams.get('t')
 
-        if (token == null) {
+        if (!token) {
             Cookies.remove('affiliate_tracking')
             cookies_value.utm_campaign = 'null' //passing null as the cookies takes the affiliates token value when signed up without affiliate token
             cookies_value.utm_medium = 'null'
@@ -102,7 +100,7 @@ const Signup = (props) => {
             verify_email: formatted_email,
             type: 'account_opening',
             url_parameters: {
-                ...(affiliate_token && { affiliate_token: affiliate_token }),
+                ...(token && { affiliate_token: token }),
                 ...(cookies_value && { ...cookies_value }),
             },
         }

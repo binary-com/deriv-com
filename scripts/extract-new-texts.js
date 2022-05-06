@@ -76,13 +76,17 @@ exec("git rev-parse --abbrev-ref HEAD", (err, stdout, stderr) => {
           // Localization File Content Generator
           let locale_content = `/* eslint-disable  */ \n  new_texts = [\n`
 
+          // Log to avoid duplicates in untranslated list
+          const unstranslated = []
+
           // Hash the messages and set the key-value pair for json
           for (let i = 0; i < messages.length; i++) {
             const hashed_value = getKeyHash(messages[i]);
             const message = messages[i];
 
             // Newly added texts are included in a new json file to be pushed to crowdin branch
-            if (!langs[hashed_value]) {
+            if (!langs[hashed_value] && !unstranslated.includes(message)) {
+                unstranslated.push(message)
                 locale_content += `<Localize translate_text="${message}"/>,\n`
             }
           }

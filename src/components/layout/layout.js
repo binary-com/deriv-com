@@ -160,7 +160,8 @@ const Layout = ({
         const website_status = useWebsiteStatusApi()
 
         React.useEffect(() => {
-            if (website_status && window.location.hostname !== 'eu.deriv.com') {
+            const eu_domain = isBrowser() && window.location.hostname === 'eu.deriv.com'
+            if (website_status && !eu_domain) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
                 const residence = client_information_cookie.get('residence')

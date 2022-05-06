@@ -93,7 +93,7 @@ const Signup = (props) => {
 
         if (token == null) {
             Cookies.remove('affiliate_tracking')
-            cookies_value.utm_campaign = 'null'
+            cookies_value.utm_campaign = 'null' //passing null as the cookies takes the affiliates token value when signed up without affiliate token
             cookies_value.utm_medium = 'null'
             cookies_value.utm_source = 'null'
         }

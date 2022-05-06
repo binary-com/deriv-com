@@ -7,6 +7,7 @@ import { Container } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
+import WhatsAppIcon from 'images/svg/help/whatsapp.svg'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);
@@ -40,6 +41,27 @@ const MiddleText = styled(Text)`
         font-weight: bold;
     }
 `
+const WhatsAppButton = styled.button`
+    background-color: var(--color-green-3);
+    border: 2px solid var(--color-green-3);
+    color: var(--color-white);
+    font-size: var(--text-size-xs);
+    border-radius: 4px;
+    height: fit-content;
+    padding: 10px 16px;
+    font-weight: bold;
+    margin-left: 16px;
+
+    &:hover {
+        background-color: var(--color-red);
+        border: 2px solid var(--color-red);
+        color: var(--color-white);
+    }
+`
+
+const WhatsappIcon = styled.img`
+    margin: -3px 8px -3px 0;
+`
 
 export const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
@@ -62,6 +84,15 @@ export const DidntFindYourAnswerBanner = () => {
                         {localize('Chat')}
                     </Button>
                 )}
+                <WhatsAppButton>
+                    <WhatsappIcon
+                        src={WhatsAppIcon}
+                        alt={localize('whatsappicon')}
+                        height="16"
+                        width="16"
+                    />
+                    {localize('WhatsApp')}
+                </WhatsAppButton>
             </DFYASection>
         </DFYAWrapper>
     )

@@ -156,11 +156,11 @@ const Layout = ({
     }, [is_uk_eu])
 
     // Check client's account and ip and apply the necessary redirection
-    if (!is_redirection_applied && window.location.hostname !== 'eu.deriv.com') {
+    if (!is_redirection_applied) {
         const website_status = useWebsiteStatusApi()
 
         React.useEffect(() => {
-            if (website_status) {
+            if (website_status && window.location.hostname !== 'eu.deriv.com') {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
                 const residence = client_information_cookie.get('residence')

@@ -29,16 +29,20 @@ const VideoCardWrapper = styled.div`
     }
 
     @media ${device.mobileL} {
-        width: 100%;
+        max-width: 328px;
+        width: 328px;
     }
 `
 
 const ImageWrapper = styled.div`
     position: relative;
     z-index: 1;
+    width: 384px;
+    height: 230px;
 
     @media ${device.mobileL} {
-        width: 100%;
+        width: 328px;
+        height: 196px;
     }
 `
 

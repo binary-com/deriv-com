@@ -122,6 +122,9 @@ export const LogoLinkMobile = styled(LocalizedLink)`
         cursor: pointer;
         margin-left: 2rem;
     }
+    @media ${device.tabletS} {
+        margin-left: 0;
+    }
 `
 
 export const LogoLink = styled(LocalizedLink)<LogoLinkProps>`

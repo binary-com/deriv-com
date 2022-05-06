@@ -5,7 +5,7 @@ import { Input, Button, LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
-import device from 'themes/device.js'
+import device from 'themes/device'
 // SVG
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'

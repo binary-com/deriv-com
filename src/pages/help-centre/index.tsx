@@ -7,7 +7,7 @@ import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 import { euArticles, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
-import { SEO, Show, Container } from 'components/containers'
+import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -299,9 +299,9 @@ const HelpCentre = () => {
                     })}
                 </ArticleSection>
             </Container>
-            <Show.Desktop max_width={'tabletS'}>
+            <Desktop breakpoint={'tabletS'}>
                 <Community />
-            </Show.Desktop>
+            </Desktop>
             <DidntFindYourAnswerBanner />
         </Layout>
     )

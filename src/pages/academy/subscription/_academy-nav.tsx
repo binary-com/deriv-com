@@ -4,7 +4,7 @@ import { LocalizedLink, localize } from 'components/localization'
 import DerivLogo from 'images/svg/layout/logo-deriv-only.svg'
 import AcademyLogo from 'images/svg/academy/academy-logo.svg'
 import { Flex } from 'components/containers'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const Nav = styled.nav`
     background-color: var(--color-black);

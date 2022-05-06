@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { Flex, SectionContainer, Show } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Carousel, Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
@@ -98,8 +98,8 @@ const LearnMore = styled(LocalizedLink)`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
     height: 40px;
-    border-radius: 23px;
-    background-color: var(--color-grey-18);
+    border-radius: 100px;
+    background-color: var(--color-white);
     position: absolute;
     bottom: -20px;
     margin-left: auto;
@@ -111,6 +111,7 @@ const LearnMore = styled(LocalizedLink)`
     align-items: center;
     text-decoration: none;
     transition: opacity 0.1s linear;
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
 
     ${Text} {
         font-weight: bold;
@@ -153,6 +154,8 @@ const StyledFlex = styled(Flex)`
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+        height: 316px;
+        border-radius: 0 0 8px 8px;
     }
     ${LearnMore} {
         img {
@@ -176,7 +179,7 @@ const settings = {
     },
     slide_style: {
         width: '282px',
-        height: '320px',
+        height: '350px',
         marginRight: '24px',
         paddingRight: '50px',
         paddingLeft: '25px',
@@ -239,7 +242,7 @@ const MobileCard = ({ market }: CardProps) => {
 }
 const MarketsWrapper = styled(Flex)`
     flex-direction: column;
-    padding: 0 0 120px 0;
+    padding: 0 0 80px 0;
     max-width: 100%;
 `
 
@@ -296,7 +299,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
 
     return (
         <SectionContainer padding="100px 0" margin="auto" background="#f9fbff">
-            <Show.Desktop max_width="mobileL">
+            <Desktop max_width="mobileL">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
@@ -307,19 +310,19 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                         )}
                     </Carousel>
                 </MarketsWrapper>
-            </Show.Desktop>
-            <Show.Mobile min_width="mobileL">
+            </Desktop>
+            <Mobile min_width="mobileL">
                 <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">
-                    {markets.map((market) =>
+                    {filteredMarkets.map((market) =>
                         except === market || market === '' ? null : (
                             <MobileCard market={market} key={market} />
                         ),
                     )}
                 </MobileCardContainer>
-            </Show.Mobile>
+            </Mobile>
         </SectionContainer>
     )
 }

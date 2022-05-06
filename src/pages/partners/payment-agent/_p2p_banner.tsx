@@ -13,7 +13,7 @@ const StyledSection = styled(SectionContainer)`
     justify-content: center;
     margin: 0 auto;
     border-radius: 10px;
-    max-width: 1200px;
+    max-width: 120rem;
     padding: 0 0 80px 0;
 
     @media ${device.tabletL} {
@@ -23,10 +23,10 @@ const StyledSection = styled(SectionContainer)`
 `
 const MainWrapper = styled(Flex)`
     border-radius: 10px;
-    height: 350px;
+    height: 35rem;
     background-image: url(${banner}), url(${bannerBG});
     background-repeat: no-repeat, no-repeat;
-    background-size: 486px 280px, cover;
+    background-size: 48.6rem 28rem, cover;
     background-position: bottom right;
     @media ${device.laptopM} {
         height: 360px;
@@ -39,7 +39,7 @@ const MainWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         height: 536px;
-        width: 100%;
+        max-width: 360px;
         background-size: 296px 180px, cover;
         background-position: bottom center;
     }
@@ -50,6 +50,7 @@ const MainWrapper = styled(Flex)`
 const LeftWrapper = styled(Flex)`
     padding: 56px 0 56px 102px;
     justify-content: flex-start;
+
     @media ${device.laptopM} {
         padding: 55px 0 55px 60px;
     }
@@ -64,7 +65,7 @@ const LeftWrapper = styled(Flex)`
 `
 const LeftChild = styled(Flex)`
     flex-direction: column;
-    max-width: 490px;
+    max-width: 49rem;
 
     @media ${device.laptopM} {
         max-width: 514px;
@@ -77,15 +78,20 @@ const LeftChild = styled(Flex)`
     }
 `
 
-const StyledHeader = styled(Header)`
+const StyledH3 = styled.h3`
+    font-weight: bold;
+    color: white;
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 16px;
+
     @media ${device.tabletL} {
-        font-size: 32px;
-        line-height: 40px;
+        max-width: 378px;
     }
 `
 
 const Subtitle = styled(Header)`
-    min-width: 588px;
+    min-width: 58.8rem;
 
     @media (max-width: 1100px) {
         min-width: 264px;
@@ -106,17 +112,7 @@ const P2PBanner = () => {
             <MainWrapper>
                 <LeftWrapper>
                     <LeftChild>
-                        <StyledHeader
-                            as="h3"
-                            type="heading-3"
-                            color="white"
-                            mb="16px"
-                            tabletL={{
-                                max_width: '378px',
-                            }}
-                        >
-                            {localize('Looking for Deriv P2P instead?')}
-                        </StyledHeader>
+                        <StyledH3>{localize('Looking for Deriv P2P instead?')}</StyledH3>
                         <Subtitle as="h4" type="subtitle-1" weight="none" color="white" mb="24px">
                             <Localize
                                 translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."

@@ -12,7 +12,7 @@ import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
 import { DerivStore } from 'store'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 export const query = graphql`
     query {

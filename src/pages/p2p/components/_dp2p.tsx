@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer, Show } from 'components/containers'
+import { Container, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
@@ -164,12 +164,12 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader as="h2">{item.title}</StyledHeader>
-                                <Show.Desktop>
+                                <Desktop>
                                     <Text>{item.subtitle}</Text>
-                                </Show.Desktop>
-                                <Show.Mobile>
+                                </Desktop>
+                                <Mobile>
                                     <Text>{item.subtitle_mobile}</Text>
-                                </Show.Mobile>
+                                </Mobile>
                             </Content>
                             <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
                                 <QueryImage

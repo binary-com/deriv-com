@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { LinkButton } from 'components/form'

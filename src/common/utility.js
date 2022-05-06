@@ -430,6 +430,18 @@ export const useCallbackRef = (callback) => {
 
 const eu_subdomain_countries = eu_countries.filter((country) => country !== 'gb')
 
+export const isEuDomain = () => {
+    if (isBrowser()) {
+        if (
+            window.location.hostname === 'eu.deriv.com' ||
+            window.location.hostname === 'staging-eu.deriv.com'
+        ) {
+            return true
+        }
+    }
+    return false
+}
+
 const redirect = (subdomain) => {
     const redirection_url = `${subdomain}.deriv.com`
     window.location.href = `https://${redirection_url + window.location.pathname}`

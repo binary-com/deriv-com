@@ -78,8 +78,6 @@ export const DidntFindYourAnswerBanner = () => {
                         onClick={() => {
                             LC_API.open_chat_window()
                         }}
-                        weight="bold"
-                        color="black"
                     >
                         {localize('Chat')}
                     </Button>

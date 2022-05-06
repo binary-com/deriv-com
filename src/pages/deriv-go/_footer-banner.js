@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Flex, Container } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
-import device, { size } from 'themes/device.js'
+import device, { size } from 'themes/device'
 import BannerBg from 'images/common/deriv-go/banner.png'
 import BannerMobileBg from 'images/common/deriv-go/banner-m.png'
 import {

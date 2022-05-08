@@ -82,6 +82,12 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                     // exec(`git checkout ${target_branch}`, handleProcess)
                     break
                 case 5:
+                    // Create Crowdin folder if not existing
+                    const dir = 'src/crowdin/'
+                    if (!fs.existsSync(dir)) {
+                        fs.mkdirSync(dir)
+                    }
+
                     // Generate new list for crowdiwn translations
                     fs.writeFileSync(file_path, text_file, 'utf8', (err) => console.log(err))
 

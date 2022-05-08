@@ -20,6 +20,7 @@ const showMessage = (err) => {
 
 const handleProcess = (err, stdout, stderr) => {
     if (stdout && current_step === 0) {
+        console.log(stdout)
         console.log('Crowdin Extractor Script: Please commit/stash unstaged files')
     } else {
         if (err) {

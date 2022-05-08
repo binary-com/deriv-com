@@ -12,6 +12,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
 
         let current_step = 0
         let text_file = ''
+        const unix = +new Date()
         const crowdin_branch = 'my-crowdin'
 
         const steps_messages = [
@@ -19,6 +20,8 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
             'Generate texts to be translated',
             `Switched to ${crowdin_branch}`,
             `Fetched latest: ${crowdin_branch}`,
+            `Create branch for texts to translate`,
+            `Create PR to ${crowdin_branch}`,
             `Back to ${target_branch}`,
         ]
 
@@ -68,12 +71,12 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                     break
                 case 3:
                     exec(`git pull origin ${crowdin_branch}`, handleProcess)
-
-                    console.log('file copy?')
-                    console.log(text_file)
                     break
                 case 4:
-                    exec(`git checkout ${target_branch}`, handleProcess)
+                    exec(`git checkout -b translation-${unix}`, handleProcess)
+                    console.log('file copy?')
+                    console.log(text_file)
+                    // exec(`git checkout ${target_branch}`, handleProcess)
                     break
 
                 default:
@@ -81,10 +84,6 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
             }
         }
 
-        if (target_branch) {
-            runProcess()
-        } else {
-            console.log('Target branch is required!')
-        }
+        runProcess()
     }
 })

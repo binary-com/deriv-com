@@ -25,7 +25,8 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
             `Fetched latest: ${crowdin_branch}`,
             `Create branch for texts to translate`,
             `Create PR to ${crowdin_branch}`,
-            `Back to ${target_branch}`,
+            `Translation Branch (${translate_branch}) is now ready to get merged to crowdin, \n
+             please make sure you are creating the PR against the crowdin branch and check that all the changes are only the files inside src/crowdin`,
         ]
 
         const showMessage = (err) => {
@@ -103,6 +104,8 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                                                 const pr_url = `https://github.com/binary-com/deriv-com/compare/crowdin...${remote_user}:translation-1652007782914?expand=1`
 
                                                 open(pr_url)
+                                                current_step++
+                                                runProcess()
                                             } else {
                                                 console.log('Cannot fetch remote user')
                                             }
@@ -113,6 +116,10 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                         },
                     )
 
+                    break
+                case 6:
+                    // Back to the Default branch
+                    exec(`git checkout ${target_branch}`, handleProcess)
                     break
                 default:
                     break

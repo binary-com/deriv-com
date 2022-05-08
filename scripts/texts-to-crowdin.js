@@ -6,41 +6,48 @@ const crowdin_branch = 'my-crowdin'
 const target_branch = process.argv[2]
 
 const steps_messages = [
-    `[1] Generate texts to be translated`,
-    `[2] Switched to ${crowdin_branch}`,
-    `[3] Fetched latest: ${crowdin_branch}`,
-    `[4] Back to ${target_branch}`,
+    `Generate texts to be translated`,
+    `Switched to ${crowdin_branch}`,
+    `Fetched latest: ${crowdin_branch}`,
+    `Back to ${target_branch}`,
 ]
 
 const showMessage = (err) => {
     const status = err ? 'x' : '✓'
 
-    console.log(`${steps_messages[current_step]} ${status}`)
+    console.log(`[${status}] ${steps_messages[current_step]}`)
 }
 
 const handleProcess = (err, stdout, stderr) => {
-    if (err) {
-        showMessage(err)
-        console.log(err)
+    if (stdout && current_step === 0) {
+        console.log('Crowdin Extractor Script: Please commit/stash unstaged files')
     } else {
-        showMessage()
-        current_step++
-        runProcess()
+        if (err) {
+            showMessage(err)
+            console.log(err)
+        } else {
+            showMessage()
+            current_step++
+            runProcess()
+        }
     }
 }
 
 const runProcess = () => {
     switch (current_step) {
         case 0:
-            exec(`git checkout ${crowdin_branch}`, handleProcess)
+            exec(`git update-index --refresh`, handleProcess)
             break
         case 1:
-            exec(`git checkout ${crowdin_branch}`, handleProcess)
+            exec(`npm run translate:generate`, handleProcess)
             break
         case 2:
-            exec(`git pull origin ${crowdin_branch}`, handleProcess)
+            exec(`git checkout ${crowdin_branch}`, handleProcess)
             break
         case 3:
+            exec(`git pull origin ${crowdin_branch}`, handleProcess)
+            break
+        case 4:
             exec(`git checkout ${target_branch}`, handleProcess)
             break
 

@@ -85,7 +85,13 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
 
                     exec(
                         `git add ${file_path} && git commit -m 'chore: added new texts to be translated' && git push origin ${translate_branch}`,
-                        () => {},
+                        (err, stdout, stderr) => {
+                            if (err) {
+                                console.log(err)
+                            } else {
+                                console.log(stdout)
+                            }
+                        },
                     )
 
                     break

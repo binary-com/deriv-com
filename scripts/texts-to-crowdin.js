@@ -60,8 +60,9 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
 
                         text_file = data
 
-                        exec(`git stash && git clean -df`)
-                        exec(`git checkout ${crowdin_branch}`, handleProcess)
+                        exec(`git stash && git clean -df`, () => {
+                            exec(`git checkout ${crowdin_branch}`, handleProcess)
+                        })
                     })
 
                     break

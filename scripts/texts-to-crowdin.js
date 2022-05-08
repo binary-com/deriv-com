@@ -11,6 +11,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
         const target_branch = stdout.trim()
 
         let current_step = 0
+        let text_file = ''
         const crowdin_branch = 'my-crowdin'
 
         const steps_messages = [
@@ -51,27 +52,28 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                     exec(`npm run translate:generate`, handleProcess)
                     break
                 case 2:
-                    setTimeout(() => {
-                        console.log('FETCHING!!')
-                        fs.readFile(`src/crowdin/${target_branch}.js`, 'utf8', (err, data) => {
-                            if (err) {
-                                console.error(err)
-                                return
-                            }
+                    fs.readFile(`src/crowdin/${target_branch}.js`, 'utf8', (err, data) => {
+                        if (err) {
+                            console.error(err)
+                            return
+                        }
 
-                            console.log(data)
+                        text_file = data
 
-                            // exec(`git checkout ${crowdin_branch}`, handleProcess)
-                        })
-                    }, 5000)
+                        exec(`git stash && git clean -df`)
+                        exec(`git checkout ${crowdin_branch}`, handleProcess)
+                    })
 
                     break
-                // case 3:
-                //     exec(`git pull origin ${crowdin_branch}`, handleProcess)
-                //     break
-                // case 4:
-                //     exec(`git checkout ${target_branch}`, handleProcess)
-                //     break
+                case 3:
+                    exec(`git pull origin ${crowdin_branch}`, handleProcess)
+
+                    console.log('file copy?')
+                    console.log(text_file)
+                    break
+                case 4:
+                    exec(`git checkout ${target_branch}`, handleProcess)
+                    break
 
                 default:
                     break

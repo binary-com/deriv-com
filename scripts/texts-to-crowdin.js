@@ -53,7 +53,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                 case 2:
                     setTimeout(() => {
                         console.log('FETCHING!!')
-                        fs.readFile(`../src/crowdin/${target_branch}.js`, 'utf8', (err, data) => {
+                        fs.readFile(`src/crowdin/${target_branch}.js`, 'utf8', (err, data) => {
                             if (err) {
                                 console.error(err)
                                 return

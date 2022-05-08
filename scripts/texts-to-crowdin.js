@@ -14,7 +14,8 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
         const crowdin_branch = 'my-crowdin'
 
         const steps_messages = [
-            `Generate texts to be translated`,
+            'Branch Check',
+            'Generate texts to be translated',
             `Switched to ${crowdin_branch}`,
             `Fetched latest: ${crowdin_branch}`,
             `Back to ${target_branch}`,
@@ -62,12 +63,12 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                     })
 
                     break
-                case 3:
-                    exec(`git pull origin ${crowdin_branch}`, handleProcess)
-                    break
-                case 4:
-                    exec(`git checkout ${target_branch}`, handleProcess)
-                    break
+                // case 3:
+                //     exec(`git pull origin ${crowdin_branch}`, handleProcess)
+                //     break
+                // case 4:
+                //     exec(`git checkout ${target_branch}`, handleProcess)
+                //     break
 
                 default:
                     break

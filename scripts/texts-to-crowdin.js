@@ -23,11 +23,11 @@ const handleProcess = (err, stdout, stderr) => {
     } else {
         showMessage()
         current_step++
-        process()
+        runProcess()
     }
 }
 
-const process = () => {
+const runProcess = () => {
     switch (current_step) {
         case 0:
             exec(`git checkout ${crowdin_branch}`, handleProcess)
@@ -42,7 +42,7 @@ const process = () => {
 }
 
 if (target_branch) {
-    process()
+    runProcess()
 } else {
     console.log('Target branch is required!')
 }

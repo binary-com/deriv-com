@@ -6,8 +6,10 @@ const crowdin_branch = 'my-crowdin'
 const target_branch = process.argv[2]
 
 const steps_messages = [
-    `[1] Switched to ${crowdin_branch}`,
-    `[2] Fetched latest: ${crowdin_branch}`,
+    `[1] Generate texts to be translated`,
+    `[2] Switched to ${crowdin_branch}`,
+    `[3] Fetched latest: ${crowdin_branch}`,
+    `[4] Back to ${target_branch}`,
 ]
 
 const showMessage = (err) => {
@@ -33,7 +35,13 @@ const runProcess = () => {
             exec(`git checkout ${crowdin_branch}`, handleProcess)
             break
         case 1:
+            exec(`git checkout ${crowdin_branch}`, handleProcess)
+            break
+        case 2:
             exec(`git pull origin ${crowdin_branch}`, handleProcess)
+            break
+        case 3:
+            exec(`git checkout ${target_branch}`, handleProcess)
             break
 
         default:

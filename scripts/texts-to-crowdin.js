@@ -84,7 +84,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                     fs.writeFileSync(file_path, text_file, 'utf8', (err) => console.log(err))
 
                     exec(
-                        `git add ${file_path}; git commit -m 'chore: added new texts to be translated';git push origin ${translate_branch}`,
+                        `git add ${file_path}; git commit -m 'chore: added new texts to be translated'`,
                         (err, stdout, stderr) => {
                             if (err) {
                                 console.log(err)

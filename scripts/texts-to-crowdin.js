@@ -25,8 +25,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
             `Fetched latest: ${crowdin_branch}`,
             `Create branch for texts to translate`,
             `Create PR to ${crowdin_branch}`,
-            `Translation Branch (${translate_branch}) is now ready to get merged to crowdin, \n
-             please make sure you are creating the PR against the crowdin branch and check that all the changes are only the files inside src/crowdin`,
+            `Translation Branch (${translate_branch}) is now ready to get merged to crowdin, \nplease make sure you are creating the PR against the crowdin branch and check that all the changes are only the files inside src/crowdin`,
         ]
 
         const showMessage = (err) => {

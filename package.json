@@ -114,6 +114,7 @@
         "translate:extract": "cd scripts && node extract-translations.js && cd ..",
         "translate:upload": "crowdin upload sources -b crowdin",
         "translate:generate": "cd scripts && node extract-new-texts.js && cd ..",
+        "translate:crowdin": "node scripts/texts-to-crowdin.js",
         "deploy": "npm run build && gh-pages -d public -b master",
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name",

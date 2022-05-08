@@ -1,6 +1,7 @@
 /* eslint-disable  */
 const { exec } = require('child_process')
 const fs = require('fs')
+const open = require('open')
 
 exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
     if (err) {
@@ -83,13 +84,31 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                     // Generate new list for crowdiwn translations
                     fs.writeFileSync(file_path, text_file, 'utf8', (err) => console.log(err))
 
+                    // Auto Popup PR link
                     exec(
-                        `git add ${file_path}; git commit -m 'chore: added new texts to be translated'`,
+                        `git add ${file_path}; git commit -m 'chore: added new texts to be translated';git push origin ${translate_branch}`,
                         (err, stdout, stderr) => {
                             if (err) {
                                 console.log(err)
                             } else {
-                                console.log(stdout)
+                                exec(
+                                    'git config --get remote.origin.url',
+                                    (err, stdout, stderr) => {
+                                        if (err) {
+                                            console.log(err)
+                                        } else {
+                                            const remote_user = stdout.split('/')[3]
+
+                                            if (remote_user) {
+                                                const pr_url = `https://github.com/binary-com/deriv-com/compare/crowdin...${remote_user}:translation-1652007782914?expand=1`
+
+                                                open(pr_url)
+                                            } else {
+                                                console.log('Cannot fetch remote user')
+                                            }
+                                        }
+                                    },
+                                )
                             }
                         },
                     )

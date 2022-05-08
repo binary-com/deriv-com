@@ -51,16 +51,19 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                     exec(`npm run translate:generate`, handleProcess)
                     break
                 case 2:
-                    fs.readFile(`../src/crowdin/${target_branch}.js`, 'utf8', (err, data) => {
-                        if (err) {
-                            console.error(err)
-                            return
-                        }
+                    setTimeout(() => {
+                        console.log('FETCHING!!')
+                        fs.readFile(`../src/crowdin/${target_branch}.js`, 'utf8', (err, data) => {
+                            if (err) {
+                                console.error(err)
+                                return
+                            }
 
-                        console.log(data)
+                            console.log(data)
 
-                        // exec(`git checkout ${crowdin_branch}`, handleProcess)
-                    })
+                            // exec(`git checkout ${crowdin_branch}`, handleProcess)
+                        })
+                    }, 5000)
 
                     break
                 // case 3:

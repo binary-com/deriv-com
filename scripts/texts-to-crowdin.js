@@ -14,7 +14,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
         let current_step = 0
         let text_file = ''
         const unix = +new Date()
-        const crowdin_branch = 'my-crowdin'
+        const crowdin_branch = 'crowdin'
         const translate_branch = `translation-${unix}`
         const file_path = `src/crowdin/${target_branch}.js`
 

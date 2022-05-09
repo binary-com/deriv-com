@@ -29,9 +29,9 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
         ]
 
         const showMessage = (err) => {
-            const status = err ? 'x' : '✓'
+            const status = err ? '\x1b[31m x' : '\x1b[32m ✓'
 
-            console.log(`[${status}] ${steps_messages[current_step]}`)
+            console.log(`[${status}] \x1b[0m ${steps_messages[current_step]}`)
         }
 
         const handleProcess = (err, stdout, stderr) => {

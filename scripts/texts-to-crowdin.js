@@ -36,7 +36,9 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
 
         const handleProcess = (err, stdout, stderr) => {
             if (stdout && current_step === 0) {
-                console.log('Crowdin Extractor Script: Please commit/stash unstaged files')
+                console.log(
+                    '\x1b[33mCrowdin Extractor Script: \x1b[31mPlease commit/stash unstaged files',
+                )
             } else {
                 if (err) {
                     showMessage(err)

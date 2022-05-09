@@ -73,7 +73,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
 
                     break
                 case 3:
-                    exec(`git pull origin ${crowdin_branch}`, handleProcess)
+                    exec(`git pull upstream ${crowdin_branch}`, handleProcess)
                     break
                 case 4:
                     exec(`git checkout -b ${translate_branch}`, handleProcess)

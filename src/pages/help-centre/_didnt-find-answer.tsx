@@ -14,7 +14,7 @@ const DFYAWrapper = styled.section`
 `
 const DFYASection = styled(Container)`
     padding: 3.5rem 0;
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         flex-wrap: wrap;
 
         ${Button} {
@@ -35,7 +35,7 @@ const StyledIcon = styled.img`
     }
 `
 const MiddleText = styled(Text)`
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         margin: 1.6rem 0;
         text-align: center;
         font-weight: bold;

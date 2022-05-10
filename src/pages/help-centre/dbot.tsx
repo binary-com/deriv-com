@@ -55,6 +55,13 @@ const ImageWrapper = styled.div`
             width: 37rem !important;
         }
     }
+    @media ${device.mobileM} {
+        margin: 0 auto;
+
+        & > img {
+            width: 30rem !important;
+        }
+    }
 `
 
 const ImageWrapperRemove = styled.div`

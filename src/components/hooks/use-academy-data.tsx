@@ -59,6 +59,8 @@ export const useAcademyData = (): [AcademyDataType] => {
     return [academy_data]
 }
 
+// tests will here
+
 const query = graphql`
     query StoreQuery {
         directus {

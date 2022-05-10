@@ -26,7 +26,7 @@ const StyledBackground = styled(BackgroundImage)`
     padding: 40px 40px 0 0;
     position: relative;
 
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
         width: 100%;
         height: 304px;
         padding: 40px 16px 0 16px;
@@ -34,17 +34,16 @@ const StyledBackground = styled(BackgroundImage)`
     }
 `
 const Wrapper = styled.div`
-    padding: 80px 0 0 102px;
+    padding: 40px 16px 0 16px;
     z-index: 1;
     flex-direction: column;
-    margin: 0 auto;
 
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
     }
 
-    @media ${device.tabletS} {
-        padding: 40px 16px 0 16px;
+    @media screen and (min-width: 970px) {
+        padding: 80px 0 0 102px;
     }
 `
 const Container = styled(Flex)`
@@ -56,10 +55,10 @@ const Container = styled(Flex)`
     flex-direction: row;
 
     @media ${device.laptopM} {
-        flex-direction: column;
+        flex-direction: row;
     }
 
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
         flex-direction: column;
     }
 `
@@ -69,14 +68,7 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
     return (
         <Container>
             <Wrapper>
-                <Header
-                    color="white"
-                    type="heading-2"
-                    size="48px"
-                    weight="700px"
-                    mb="8px"
-                    tabletL={{ max_width: '320px' }}
-                >
+                <Header color="white" type="heading-2" size="48px" weight="700px" mb="8px">
                     {title}
                 </Header>
                 <Header
@@ -85,8 +77,7 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
                     weight="regular"
                     type="subtitle-2"
                     size="20px"
-                    mb="32px"
-                    tabletL={{ max_width: '320px' }}
+                    mb="20px"
                 >
                     {description}
                 </Header>

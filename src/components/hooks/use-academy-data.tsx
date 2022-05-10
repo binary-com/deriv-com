@@ -97,7 +97,7 @@ const query = graphql`
                     imageFile {
                         id
                         childImageSharp {
-                            gatsbyImageData(width: 382, aspectRatio: 1.6666666667)
+                            gatsbyImageData(width: 382, aspectRatio: 1.82)
                         }
                     }
                 }

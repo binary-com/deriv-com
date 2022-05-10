@@ -14,7 +14,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
         let current_step = 0
         let text_file = ''
         const unix = +new Date()
-        const crowdin_branch = 'crowdin'
+        const crowdin_branch = 'translation'
         const translate_branch = `translation-${unix}`
         const file_path = `src/crowdin/${target_branch}.js`
 
@@ -108,7 +108,7 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout, stderr) => {
                                             const remote_user = stdout.split('/')[3]
 
                                             if (remote_user) {
-                                                const pr_url = `https://github.com/binary-com/deriv-com/compare/crowdin...${remote_user}:${translate_branch}?expand=1`
+                                                const pr_url = `https://github.com/binary-com/deriv-com/compare/${crowdin_branch}...${remote_user}:${translate_branch}?expand=1`
                                                 open(pr_url)
                                                 current_step++
                                                 runProcess()

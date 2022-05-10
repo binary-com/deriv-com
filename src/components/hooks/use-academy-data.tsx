@@ -83,8 +83,6 @@ const query = graphql`
                 blog_title
                 blog_description
             }
-        }
-        directus {
             videos(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 video_title
                 published_date

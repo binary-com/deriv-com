@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer, UKEU, ROW } from 'components/containers'
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
@@ -37,6 +37,50 @@ import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
+
+type CardProps = {
+    is_selected?: boolean
+    word_break_cover?: boolean
+}
+
+interface BotCardProps extends CardProps {}
+
+interface DerivXCardProps extends CardProps {}
+
+interface DMT5CardProps extends CardProps {
+    is_ppc_redirect?: boolean
+}
+
+interface SmarttraderCardProps extends CardProps {}
+
+interface TraderCardProps extends CardProps {}
+
+type OtherPlatformProps = {
+    exclude?: string
+    header?: string
+    is_nav?: boolean
+    is_ppc_redirect?: boolean
+    subHeader?: string
+}
+
+type NavPlatformProps = {
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+    onClick?: () => void
+}
+
+type NavMarketProps = {
+    is_ppc?: boolean
+    onClick?: () => void
+}
+
+type NavCompanyProps = {
+    onClick?: () => void
+}
+
+type NavResourcesProps = {
+    onClick?: () => void
+}
 
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -93,7 +137,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
     }
 `
 
-export const TraderCard = ({ is_selected, word_break_cover }) => (
+export const TraderCard = ({ is_selected, word_break_cover }: TraderCardProps) => (
     <StyledLink aria_label="DTrader" to="/dtrader/">
         <Card
             cover_background="var(--color-red)"
@@ -110,7 +154,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const BotCard = ({ is_selected, word_break_cover }) => (
+export const BotCard = ({ is_selected, word_break_cover }: BotCardProps) => (
     <StyledLink aria_label="DBot" to="/dbot/">
         <Card
             cover_background="var(--color-orange)"
@@ -127,7 +171,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
+export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }: DMT5CardProps) => (
     <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
@@ -144,7 +188,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     </StyledLink>
 )
 
-export const DerivXCard = ({ is_selected, word_break_cover }) => (
+export const DerivXCard = ({ is_selected, word_break_cover }: DerivXCardProps) => (
     <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
@@ -163,7 +207,7 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
+export const SmarttraderCard = ({ is_selected, word_break_cover }: SmarttraderCardProps) => (
     <StyledLink
         aria_label="SmartTrader"
         to="trading"
@@ -195,7 +239,13 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => {
+export const OtherPlatform = ({
+    header,
+    subHeader,
+    exclude,
+    is_nav,
+    is_ppc_redirect,
+}: OtherPlatformProps) => {
     const getHeaderText = () => (
         <>
             <UKEU>
@@ -239,25 +289,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
     )
 }
 
-const cardProptypes = {
-    is_selected: PropTypes.bool,
-    word_break_cover: PropTypes.bool,
-}
-BotCard.propTypes = { ...cardProptypes }
-DerivXCard.propTypes = { ...cardProptypes }
-DMT5Card.propTypes = { ...cardProptypes }
-SmarttraderCard.propTypes = { ...cardProptypes }
-TraderCard.propTypes = { ...cardProptypes }
-
-OtherPlatform.propTypes = {
-    exclude: PropTypes.string,
-    header: PropTypes.string,
-    is_nav: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    subHeader: PropTypes.string,
-}
-
-export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
+export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformProps) => {
     const getDtraderText = () => (
         <NavCard
             aria_label="Dtrader"
@@ -402,13 +434,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
     )
 }
 
-NavPlatform.propTypes = {
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
-export const NavMarket = ({ onClick, is_ppc }) => {
+export const NavMarket = ({ onClick, is_ppc }: NavMarketProps) => {
     const { is_non_uk } = getCountryRule()
     const { is_non_eu } = getCountryRule()
 
@@ -484,12 +510,7 @@ export const NavMarket = ({ onClick, is_ppc }) => {
     )
 }
 
-NavMarket.propTypes = {
-    is_ppc: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
-export const NavCompany = ({ onClick }) => (
+export const NavCompany = ({ onClick }: NavCompanyProps) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <img src={Story} alt="" width="24" height="24" />}
@@ -540,11 +561,7 @@ export const NavCompany = ({ onClick }) => (
     </Flex>
 )
 
-NavCompany.propTypes = {
-    onClick: PropTypes.func,
-}
-
-export const NavResources = ({ onClick }) => (
+export const NavResources = ({ onClick }: NavResourcesProps) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <img src={Help} alt="" width="24" height="24" />}
@@ -588,9 +605,5 @@ export const NavResources = ({ onClick }) => (
         />
     </Flex>
 )
-
-NavResources.propTypes = {
-    onClick: PropTypes.func,
-}
 
 export default OtherPlatform

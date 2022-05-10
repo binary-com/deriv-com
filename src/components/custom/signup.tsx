@@ -16,7 +16,21 @@ import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 
-const Form = styled.form`
+type SignupProps = {
+    appearance?: keyof typeof Appearances
+    autofocus?: boolean
+    bgColor?: string
+    email?: string
+    is_ppc?: boolean
+    onSubmit?: (submit_status, email) => void
+    submit_state?: string
+}
+
+type FormProps = {
+    bgColor?: string
+}
+
+const Form = styled.form<FormProps>`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 
@@ -50,7 +64,7 @@ export const Appearances = {
     newSignup: 'newSignup',
 }
 
-const Signup = (props) => {
+const Signup = (props: SignupProps) => {
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -223,16 +237,6 @@ const Signup = (props) => {
             {renderSwitch(props.appearance)}
         </Form>
     )
-}
-
-Signup.propTypes = {
-    appearance: PropTypes.oneOf(Object.keys(Appearances)),
-    autofocus: PropTypes.bool,
-    bgColor: PropTypes.string,
-    email: PropTypes.string,
-    is_ppc: PropTypes.bool,
-    onSubmit: PropTypes.func,
-    submit_state: PropTypes.string,
 }
 
 export default Signup

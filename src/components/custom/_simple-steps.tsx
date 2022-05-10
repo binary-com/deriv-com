@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
@@ -8,6 +7,16 @@ import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
+
+type SimpleStepsProps = {
+    content: { header: ReactElement; icon: HTMLImageElement; text: ReactElement }[]
+    header: object
+    sign_up?: boolean
+}
+
+type ClientCardProps = {
+    order?: string
+}
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
@@ -53,7 +62,7 @@ const TitleHeader = styled(Header)`
     }
 `
 
-const ClientCard = styled.article`
+const ClientCard = styled.article<ClientCardProps>`
     margin: 0 0 0 2rem;
     background-color: var(--color-white);
     border-radius: 4px;
@@ -69,7 +78,7 @@ const ClientCard = styled.article`
 
     @media (max-width: 1185px) {
         margin: 2rem;
-        order: ${(props) => (props.order ? props.order : '')};
+        order: ${({ order }) => (order ? order : '')};
     }
     @media ${device.tabletL} {
         width: 100%;
@@ -119,7 +128,7 @@ const StyledLinkButton = styled(LinkButton)`
     white-space: nowrap;
 `
 
-const SimpleSteps = ({ header, content, sign_up }) => (
+const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => (
     <StyledSection>
         <Show.Desktop>
             <BackgroundPattern src={Pattern} alt="pattern" />
@@ -156,9 +165,5 @@ const SimpleSteps = ({ header, content, sign_up }) => (
         )}
     </StyledSection>
 )
-SimpleSteps.propTypes = {
-    content: PropTypes.array.isRequired,
-    header: PropTypes.object.isRequired,
-    sign_up: PropTypes.bool,
-}
+
 export default SimpleSteps

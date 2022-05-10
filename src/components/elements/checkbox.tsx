@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
 import styled from 'styled-components'
 import device from 'themes/device.js'
 
@@ -7,11 +7,9 @@ type CheckboxProps = {
     secondary?: boolean
     id?: string
     bg?: string
-    // style: {
-    //     border: string
-    //     clip: string
-    //     position: string
-    // }
+    style: CSSProperties
+    className: string
+    onChange: (event) => void
 }
 
 type StyledCheckboxProps = {

@@ -12,13 +12,13 @@ import Google from 'images/svg/custom/google.svg'
 type SignupFlatProps = {
     autofocus: boolean
     clearEmail: () => void
-    dark: boolean
+    dark?: boolean
     email: string
     email_error_msg: string
-    handleInputChange: () => void
-    handleLogin: () => void
-    handleSocialSignup: () => void
-    handleValidation: () => void
+    handleInputChange: (event) => void
+    handleLogin: (event) => void
+    handleSocialSignup: (event) => void
+    handleValidation: (event) => void
     is_submitting: boolean
 }
 
@@ -181,7 +181,7 @@ const SignupFlat = ({
                             data-provider="google"
                             id="dm-signup-google"
                             type="button"
-                            social=""
+                            social
                         >
                             <span>
                                 <img src={Google} alt="google" width="22" height="23" />
@@ -194,7 +194,7 @@ const SignupFlat = ({
                             data-provider="facebook"
                             id="dm-signup-facebook"
                             type="button"
-                            social=""
+                            social
                         >
                             <span>
                                 <img src={Facebook} alt="facebook" width="12" height="22" />

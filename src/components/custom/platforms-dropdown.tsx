@@ -1,8 +1,26 @@
+import { AnyNsRecord } from 'dns'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/custom/other-platforms'
 import { Container, Show, Flex } from 'components/containers'
+
+type PlatformsDropdownProps = {
+    active_dropdown: string
+    current_ref: {
+        offsetWidth: any
+        offsetLeft: any
+    }
+    is_ppc: boolean
+    is_ppc_redirect: boolean
+    parent: string
+    setActiveDropdown: () => void
+}
+
+type NavDropdownProps = {
+    offset: string
+    is_trade: boolean
+    offset_arrow: string
+}
 
 const FadeInDown = keyframes`
     from {
@@ -14,10 +32,10 @@ const FadeInDown = keyframes`
         transform: translateY(7.2rem) rotateY(0);
     }
 `
-const NavDropdown = styled.div`
+const NavDropdown = styled.div<NavDropdownProps>`
     width: auto;
     max-width: 1200px;
-    left: ${(props) => (props.offset && !props.is_trade ? props.offset + 'px !important' : 'none')};
+    left: ${({ offset, is_trade }) => (offset && !is_trade ? offset + 'px !important' : 'none')};
     position: absolute;
     padding: 2.2rem 0.8rem;
     z-index: -1;
@@ -38,7 +56,7 @@ const NavDropdown = styled.div`
         content: ' ';
         position: absolute;
         top: -9px;
-        left: ${(props) => (props.offset_arrow ? props.offset_arrow + 'px !important' : 'none')};
+        left: ${({ offset_arrow }) => (offset_arrow ? offset_arrow + 'px !important' : 'none')};
         border-top: none;
         border-right: 15px solid transparent;
         border-left: 15px solid transparent;
@@ -69,7 +87,7 @@ const PlatformsDropdown = ({
     parent,
     setActiveDropdown,
     active_dropdown,
-}) => {
+}: PlatformsDropdownProps) => {
     const dropdownContainerRef = useRef(null)
     const is_trade = active_dropdown === 'trade'
     const current_offset = current_ref.offsetWidth / 2 - 15
@@ -120,15 +138,6 @@ const PlatformsDropdown = ({
             </Flex>
         </Show.Desktop>
     )
-}
-
-PlatformsDropdown.propTypes = {
-    active_dropdown: PropTypes.string,
-    current_ref: PropTypes.object,
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
-    parent: PropTypes.string,
-    setActiveDropdown: PropTypes.func,
 }
 
 export default React.memo(PlatformsDropdown)

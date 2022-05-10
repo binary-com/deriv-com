@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
@@ -6,8 +6,8 @@ import { Header, Text } from 'components/elements'
 
 type DNumbersProps = {
     items: {
-        title: string
-        subtitle: string
+        title: string | ReactElement
+        subtitle: string | ReactElement
     }[]
     justify: string
 }

@@ -18,6 +18,10 @@ interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     label_hover_color?: string
     tablet_background?: string
     inputColor?: string
+    input_background?: string
+    label_focus_color?: string
+    labelSize?: string
+    labelTop?: string
 }
 
 type InputWrapperProps = {

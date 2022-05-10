@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
@@ -17,16 +17,16 @@ type SignupNewProps = {
     clearEmail: () => void
     email: string
     email_error_msg: string
-    handleInputChange: () => void
-    handleLogin: () => void
-    handleSocialSignup: () => void
-    handleValidation: () => void
+    handleInputChange: (event) => void
+    handleLogin: (event) => void
+    handleSocialSignup: (event) => void
+    handleValidation: (event) => void
     is_ppc: boolean
     is_submitting: boolean
 }
 
 type SocialButtonProps = {
-    bgColor: string
+    bgColor?: string
 }
 
 const SignupContent = styled.div`
@@ -154,8 +154,8 @@ const SocialButton = styled(Button)<SocialButtonProps>`
         }
     }
 `
-
-const SocialWrapper = styled.div`
+//ask prince how does this work
+const SocialWrapper = styled.div<CSSProperties>`
     width: 100%;
     margin-top: 2.4rem;
     display: flex;
@@ -301,6 +301,7 @@ const SignupNew = ({
                 isChecked={is_checked}
                 type="submit"
                 secondary="true"
+                //where is the string type coming from ?
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
                 id="dm-new-signup"
             >
@@ -337,7 +338,7 @@ const SignupNew = ({
                     data-provider="google"
                     id="dm-signup-google"
                     type="button"
-                    social=""
+                    social
                 >
                     <img src={Google} alt="google" width="24" height="24" />
                     <SocialText>Google</SocialText>
@@ -348,7 +349,7 @@ const SignupNew = ({
                     data-provider="facebook"
                     id="dm-signup-facebook"
                     type="button"
-                    social=""
+                    social
                 >
                     <img src={Facebook} alt="facebook" width="24" height="24" />
                     <SocialText>Facebook</SocialText>
@@ -359,7 +360,7 @@ const SignupNew = ({
                     data-provider="apple"
                     id="dm-signup-apple"
                     type="button"
-                    social=""
+                    social
                 >
                     <img src={Apple} alt="apple" width="24" height="24" />
                     <SocialText>Apple</SocialText>

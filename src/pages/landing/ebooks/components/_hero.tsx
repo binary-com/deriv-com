@@ -5,7 +5,7 @@ import { HeaderAndHeroProps } from './_types'
 import { Flex, Box } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 type HeroProps = HeaderAndHeroProps & {

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 // Icons
 import Close from 'images/svg/custom/close-2.svg'
 

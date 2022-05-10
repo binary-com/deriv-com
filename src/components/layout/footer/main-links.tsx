@@ -2,7 +2,7 @@ import React from 'react'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style'
 import { Localize } from 'components/localization'
 import { Flex, NonUK, ROW, Desktop } from 'components/containers'
-import { deriv_status_page_url, binary_bot_url, deriv_life_url } from 'common/constants'
+import { deriv_status_page_url, binary_bot_url } from 'common/constants'
 
 type MainLinksSectionProps = {
     is_ppc?: boolean
@@ -42,7 +42,13 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             <Link to="/careers/">{<Localize translate_text="Careers" />}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to={deriv_life_url} target="_blank" rel="noopener noreferrer">
+                            <Link
+                                to=""
+                                type="derivlife"
+                                external={true}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 {<Localize translate_text="Deriv life" />}
                             </Link>
                         </LinkWrapper>

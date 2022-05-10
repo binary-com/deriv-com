@@ -10,7 +10,6 @@ import { LocationContext } from 'components/layout/location-context'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url, zoho_career_url } from 'common/constants'
-import { localize } from 'components/localization'
 
 type NavCareersProps = {
     is_besquare?: boolean
@@ -80,16 +79,16 @@ const query = graphql`
 `
 
 const links = [
-    { active: 'home', title: localize('HOME'), aria_label: 'Careers', to: '/careers/' },
+    { active: 'home', title: 'HOME', aria_label: 'Careers', to: '/careers/' },
     {
         active: 'locations',
-        title: localize('LOCATIONS'),
+        title: 'LOCATIONS',
         aria_label: 'Locations',
         to: '/careers/locations/',
     },
     {
         active: 'besquare',
-        title: localize('BESQUARE'),
+        title: 'BESQUARE',
         aria_label: 'BeSquare',
         to: '/careers/besquare/',
     },

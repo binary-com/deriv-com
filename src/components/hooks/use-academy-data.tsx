@@ -65,6 +65,8 @@ const query = graphql`
             blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 id
                 main_image {
+                    id
+                    description
                     imageFile {
                         childImageSharp {
                             gatsbyImageData(width: 600)

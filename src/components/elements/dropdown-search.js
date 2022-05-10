@@ -104,6 +104,7 @@ const DropdownSearch = ({
                         active={is_open || (!is_open && selected_item)}
                         error={error}
                         label_position={label_position}
+                        disabled={disabled}
                     >
                         {label}
                     </StyledLabel>

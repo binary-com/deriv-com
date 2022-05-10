@@ -5,7 +5,6 @@ import ReactPaginate from 'react-paginate'
 import { useQueryParams, StringParam } from 'use-query-params'
 import VideoParentWrapper from './_video-parent-wrapper'
 import ArticleCard from './_article-card'
-import { useAcademyBlogData } from './_use-academy-blog-data'
 import { Container, SEO, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -133,7 +132,7 @@ const SearchPage = () => {
     }
 
     // combined data
-    const combined_data = [...useAcademyBlogData(), ...academy_data.videos]
+    const combined_data = [...academy_data.blog, ...academy_data.videos]
 
     useEffect(() => {
         if (search_query && !items_type) {

@@ -202,9 +202,7 @@ const HelpCentre = () => {
         : splitArticles(articles, 3)
 
     const articles_by_domain = is_eu_country
-        ? data.all_articles
-              .filter((el) => el.category !== eu_discards[0])
-              .filter((el) => el.category !== eu_discards[1])
+        ? data.all_articles.filter((el) => !eu_discards.includes(el.category))
         : data.all_articles
 
     const filtered_articles = matchSorter(articles_by_domain, data.search.trim(), {

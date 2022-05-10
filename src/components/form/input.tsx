@@ -249,7 +249,9 @@ const Input = ({
     const [is_password_visible, setPasswordVisible] = useState(false)
 
     useEffect(() => {
-        current_input.current.type = !is_password_visible && password_icon ? 'password' : 'text'
+        if (current_input.current) {
+            current_input.current.type = !is_password_visible && password_icon ? 'password' : 'text'
+        }
     }, [is_password_visible])
 
     return (

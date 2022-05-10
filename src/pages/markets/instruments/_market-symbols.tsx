@@ -538,29 +538,6 @@ export const smart_gold_index: MarketSymbol[] = [
     },
 ]
 
-export const smart_fx = [
-    {
-        src: icons.AUDINDEX,
-        text: <Localize translate_text="AUD Index" />,
-    },
-    {
-        src: icons.EURINDEX,
-        text: <Localize translate_text="EUR Index" />,
-    },
-    {
-        src: icons.GBPINDEX,
-        text: <Localize translate_text="GBP Index" />,
-    },
-    {
-        src: icons.USDINDEX,
-        text: <Localize translate_text="USD Index" />,
-    },
-    {
-        src: icons.GOLDINDEX,
-        text: <Localize translate_text="Gold Index" />,
-    },
-]
-
 export const minor_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,

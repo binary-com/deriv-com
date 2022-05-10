@@ -260,22 +260,37 @@ export const mobile_pins: MapPinType[] = [
 ]
 
 type DerivNumbersType = {
-    count: string
-    title: string
+    count: ReactElement
+    title: ReactElement
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: localize('750+'), title: localize('employees') },
-    { count: localize('50+'), title: localize('nationalities') },
-    { count: localize(all_offices.length), title: localize('locations') },
-    { count: localize(all_countries.length), title: localize('countries') },
+    { count: <Localize translate_text="750+" />, title: <Localize translate_text="employees" /> },
+    {
+        count: <Localize translate_text="50+" />,
+        title: <Localize translate_text="nationalities" />,
+    },
+    { count: localize(all_offices.length), title: <Localize translate_text="locations" /> },
+    { count: localize(all_countries.length), title: <Localize translate_text="countries" /> },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [
     [
-        { count: localize('2.5M+'), title: localize('traders worldwide') },
-        { count: localize('USD 26M+'), title: localize('withdrawals last month') },
-        { count: localize('114M+'), title: localize('trades last month') },
-        { count: localize('USD 10B+'), title: localize('total trade turnover') },
+        {
+            count: <Localize translate_text="2.5M+" />,
+            title: <Localize translate_text="traders worldwide" />,
+        },
+        {
+            count: <Localize translate_text="USD 26M+" />,
+            title: <Localize translate_text="withdrawals last month" />,
+        },
+        {
+            count: <Localize translate_text="114M+" />,
+            title: <Localize translate_text="trades last month" />,
+        },
+        {
+            count: <Localize translate_text="USD 10B+" />,
+            title: <Localize translate_text="total trade turnover" />,
+        },
     ],
 ]

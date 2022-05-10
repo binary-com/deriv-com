@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { ReactComponent as Macbook } from 'images/svg/dtrader/macbook.svg'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form'
 

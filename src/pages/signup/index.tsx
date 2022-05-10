@@ -4,7 +4,7 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { Header, Text } from 'components/elements'
 import Graph from 'images/svg/landing/graph.svg'
 

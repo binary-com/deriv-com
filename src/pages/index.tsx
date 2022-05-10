@@ -5,7 +5,7 @@ import Hero from './home/_hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 
 const Home = () => {
@@ -29,8 +29,6 @@ const Home = () => {
             <OurPlatforms />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
-            <Localize translate_text="new-text: hello" />
-            <Localize translate_text="new-text: world" />
         </Layout>
     )
 }

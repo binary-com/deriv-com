@@ -138,7 +138,7 @@ export const NavigationContainer = styled(Flex)`
                 padding-left: 16px;
                 justify-content: left;
 
-                @media screen and (min-width: 970px) {
+                @media screen and (min-width: 785px) {
                     padding-left: 102px;
                 }
             `

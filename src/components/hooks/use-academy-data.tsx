@@ -63,7 +63,7 @@ export const useAcademyData = (): [AcademyDataType] => {
 const query = graphql`
     query StoreQuery {
         directus {
-            blog(filter: { status: { _eq: "published" } }, sort: "-published_date", limit: 100) {
+            blog(filter: { status: { _eq: "published" } }, sort: "-published_date", limit: 80) {
                 id
                 main_image {
                     id

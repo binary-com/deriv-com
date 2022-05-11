@@ -82,16 +82,6 @@ const query = graphql`
                 video_description
                 video_duration
                 featured
-                video_thumbnail {
-                    id
-                    title
-                    imageFile {
-                        id
-                        childImageSharp {
-                            gatsbyImageData(width: 382, aspectRatio: 1.82)
-                        }
-                    }
-                }
                 video_file {
                     id
                 }

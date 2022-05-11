@@ -1,5 +1,9 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import {
+    AcademyVideoImageDataType,
+    useAcademyVideoImageData,
+} from 'components/hooks/use-academy-video-image-data'
+import {
     AcademyBlogImageDataType,
     useAcademyBlogImageData,
 } from 'components/hooks/use-academy-blog-image-data'
@@ -19,6 +23,7 @@ type WebsiteStatusType = {
 export type DerivStoreType = {
     academy_data: AcademyDataType
     academy_blog_image_data: AcademyBlogImageDataType
+    academy_video_image_data: AcademyVideoImageDataType
     crypto_config: unknown
     is_eu_country: boolean
     is_p2p_allowed_country: boolean
@@ -35,6 +40,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
     const [academy_data] = useAcademyData()
     const [academy_blog_image_data] = useAcademyBlogImageData()
+    const [academy_video_image_data] = useAcademyVideoImageData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
@@ -58,6 +64,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
             value={{
                 academy_data,
                 academy_blog_image_data,
+                academy_video_image_data,
                 crypto_config,
                 is_eu_country,
                 is_p2p_allowed_country,

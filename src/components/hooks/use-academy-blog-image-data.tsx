@@ -25,7 +25,7 @@ export const useAcademyBlogImageData = (): [AcademyBlogImageDataType] => {
 }
 
 const query = graphql`
-    query ImageQuery {
+    query BlogImageQuery {
         directus {
             blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 main_image {

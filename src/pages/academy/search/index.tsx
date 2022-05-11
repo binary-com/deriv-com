@@ -83,7 +83,8 @@ const StyledTitle = styled.span`
 
 const SearchPage = () => {
     // search result states
-    const { academy_data, academy_blog_image_data } = useContext(DerivStore)
+    const { academy_data, academy_blog_image_data, academy_video_image_data } =
+        useContext(DerivStore)
     const [full_article_link, setFullArticleLink] = useState('')
     const [full_video_link, setFullVideoLink] = useState('')
     const [total_article, setTotalArticle] = useState(0)
@@ -136,7 +137,11 @@ const SearchPage = () => {
         Object.assign({}, item, academy_blog_image_data.blog[i]),
     )
 
-    const combined_data = [...combined_academy_blog_data, ...academy_data.videos]
+    const combined_academy_video_data = academy_data.videos.map((item, i) =>
+        Object.assign({}, item, academy_video_image_data.videos[i]),
+    )
+
+    const combined_data = [...combined_academy_blog_data, ...combined_academy_video_data]
 
     useEffect(() => {
         if (search_query && !items_type) {

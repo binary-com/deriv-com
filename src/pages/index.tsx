@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
@@ -12,6 +13,7 @@ const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
 
+    const block_eu = window.location.hostname === 'eu.deriv.com' // To block eu.deriv.com domain for search engines
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -23,6 +25,11 @@ const Home = () => {
                 )}
                 has_organization_schema
             />
+            {block_eu && (
+                <Helmet>
+                    <meta name="robots" content="noindex, nofollow" />
+                </Helmet>
+            )}
             <Hero />
             <MarketsFold />
             <TradeTypes />

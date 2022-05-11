@@ -1,3 +1,5 @@
+export type SizeType = keyof typeof size
+
 export const size = Object.freeze({
     mobileS: 320,
     mobileM: 375,

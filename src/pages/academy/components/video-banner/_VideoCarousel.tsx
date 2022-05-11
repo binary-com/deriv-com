@@ -140,9 +140,10 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
                                     onClick={(e) => handleOpenVideo(e, video_url)}
                                 >
                                     <StandardImgWrapper
-                                        width="174px"
-                                        height="100%"
-                                        tabletL_width="142px"
+                                        width="160px"
+                                        height="96px"
+                                        tabletL_width="120px"
+                                        tabletL_height="72px"
                                         border_radius="unset"
                                         tabletL_border_radius="unset"
                                     >

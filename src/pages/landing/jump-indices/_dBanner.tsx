@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const SectionWrapper = styled(SectionContainer)`
     background: var(--color-white);

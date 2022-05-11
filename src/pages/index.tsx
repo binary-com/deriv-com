@@ -13,7 +13,10 @@ const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
 
-    const block_eu = window.location.hostname === 'eu.deriv.com' // To block eu.deriv.com domain for search engines
+    const block_eu =
+        window.location.hostname === 'eu.deriv.com' || // To block eu.deriv.com domain for search engines
+        window.location.hostname === 'staging.deriv.com'
+
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

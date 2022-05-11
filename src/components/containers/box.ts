@@ -1,3 +1,4 @@
+/* eslint-disable prefer-spread */
 import styled, { css } from 'styled-components'
 import { Margins, Paddings } from '../../themes/function'
 import { size } from 'themes/device'
@@ -9,7 +10,7 @@ export const mediaqueries = Object.keys(size)
     .reduce((accumulator, label) => {
         accumulator[label] = (...args) => css`
             @media (max-width: ${size[label]}px) {
-                ${css(...args)};
+                ${css.apply(null, args)};
             }
         `
         return accumulator

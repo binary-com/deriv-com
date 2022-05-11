@@ -55,6 +55,7 @@ export type VideoThumbnailType = {
 export const useAcademyData = (): [AcademyDataType] => {
     let academy_data = useStaticQuery(query)
     academy_data = academy_data?.directus
+    console.log(academy_data)
 
     return [academy_data]
 }
@@ -62,11 +63,10 @@ export const useAcademyData = (): [AcademyDataType] => {
 const query = graphql`
     query StoreQuery {
         directus {
-            blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
+            blog(filter: { status: { _eq: "published" } }, sort: "-published_date", limit: 100) {
                 id
                 main_image {
                     id
-                    description
                     imageFile {
                         childImageSharp {
                             gatsbyImageData(width: 600)

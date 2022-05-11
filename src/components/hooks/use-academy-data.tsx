@@ -1,5 +1,6 @@
-import { useStaticQuery, graphql } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
+import { useAcademyBlog } from 'components/hooks/use-academy-blog'
+import { useAcademyVideos } from 'components/hooks/use-academy-videos'
 
 export type AcademyDataType = {
     blog: BlogType[]
@@ -51,64 +52,9 @@ export type VideoThumbnailType = {
     title?: string
 }
 
-// This hook is used to fetch data from Directus during build time
 export const useAcademyData = (): [AcademyDataType] => {
-    let academy_data = useStaticQuery(query)
-    academy_data = academy_data?.directus
-    console.log(academy_data)
+    const [academy_blog] = useAcademyBlog()
+    const [academy_videos] = useAcademyVideos()
 
-    return [academy_data]
+    return [{ ...academy_blog, ...academy_videos }]
 }
-
-const query = graphql`
-    query StoreQuery {
-        directus {
-            blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
-                blog_title
-                published_date
-                blog_description
-                slug
-                featured
-                main_image {
-                    id
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(width: 600)
-                        }
-                    }
-                }
-                tags {
-                    id
-                    tags_id {
-                        tag_name
-                    }
-                }
-            }
-            videos(filter: { status: { _eq: "published" } }, sort: "-published_date") {
-                video_title
-                published_date
-                video_description
-                video_duration
-                featured
-                video_thumbnail {
-                    id
-                    title
-                    imageFile {
-                        id
-                        childImageSharp {
-                            gatsbyImageData(width: 382, aspectRatio: 1.82)
-                        }
-                    }
-                }
-                video_file {
-                    id
-                }
-                tags {
-                    tags_id {
-                        tag_name
-                    }
-                }
-            }
-        }
-    }
-`

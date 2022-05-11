@@ -366,7 +366,7 @@ type TopicItemsAccordionProps = {
 
 const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const [is_mobile_separator] = useBrowserResize(992)
-    const { academy_data, academy_blog_image_data } = useContext(DerivStore)
+    const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
 
@@ -377,12 +377,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    const combined_academy_blog_data = academy_data.blog.map((item, i) =>
-        Object.assign({}, item, academy_blog_image_data.blog[i]),
-    )
-
-    const combined_data = [...combined_academy_blog_data, ...academy_data.videos]
-
+    const combined_data = [...academy_data.blog, ...academy_data.videos]
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(e.target.value)

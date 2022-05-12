@@ -29,6 +29,7 @@ import device from 'themes/device'
 
 type BoxProps = {
     padding?: string
+    maxwidth?: string
 }
 
 type RegulatoryProps = {
@@ -63,6 +64,7 @@ const Box = styled.div<BoxProps>`
     flex-direction: column;
     align-items: center;
     padding: ${(props) => props.padding || '4rem 0 0'};
+    max-width: ${(props) => props.maxwidth || '100%'};
 
     ${Text} {
         @media ${device.tabletS} {
@@ -113,16 +115,23 @@ const Regulatory = (locale: RegulatoryProps) => {
                     </ResponsiveHeader>
                     <StyledHeader
                         as="h5"
-                        type="main-paragraph"
+                        type="paragraph-1"
                         align="center"
                         weight="normal"
                         padding="1.6rem 0 2rem"
+                        maxwidth="792px"
                     >
                         {localize(
-                            'The services offered on Deriv.com and Binary.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv.com and Binary.com in their registered jurisdictions.',
+                            'The services offered on Deriv.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv.com in their registered jurisdictions.',
                         )}
                     </StyledHeader>
-                    <StyledHeader as="h5" type="main-paragraph" align="center" weight="normal">
+                    <StyledHeader
+                        as="h5"
+                        type="paragraph-1"
+                        align="center"
+                        weight="normal"
+                        maxwidth="792px"
+                    >
                         {localize(
                             'Since 1999, the group has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements.',
                         )}
@@ -135,10 +144,13 @@ const Regulatory = (locale: RegulatoryProps) => {
                     <StyledHeader as="h3" type="section-title" align="center" mb="4rem" lh="4rem">
                         {localize('Deriv Investments (Europe) Limited')}
                     </StyledHeader>
-                    <Box>
-                        <Text>
+                    <Box padding="16px 0" maxwidth="792px">
+                        <Header as="h3" type="paragraph-1" align="center" weight="normal">
                             <Localize
-                                translate_text="Deriv Investments (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union. It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK."
+                                translate_text="Deriv Investments (Europe) Limited – W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta
+                                – is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under
+                                the Investments Services Act to provide investment services in the European Union.
+                                "
                                 components={[
                                     <LinkText
                                         key={0}
@@ -149,17 +161,12 @@ const Regulatory = (locale: RegulatoryProps) => {
                                     />,
                                 ]}
                             />
-                        </Text>
-                        <Text mt="2rem">
-                            {localize(
-                                'Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request.',
-                            )}
-                        </Text>
-                        <Text mt="2rem">
+                        </Header>
+                        <Header as="h3" type="paragraph-1" align="center" weight="normal" mt="2rem">
                             {localize(
                                 'Clients in the European Union who wish to trade investment products can have accounts under Deriv Investments (Europe) Limited.',
                             )}
-                        </Text>
+                        </Header>
                     </Box>
                 </SmallContainer>
             </SectionContainer>
@@ -184,11 +191,17 @@ const Regulatory = (locale: RegulatoryProps) => {
             <SectionContainer padding="2.4rem 0 0">
                 <SmallContainer fd="column">
                     <Box padding="0 0 4rem">
-                        <Text lh="1.55" max_width="79.2rem">
+                        <StyledHeader
+                            as="h5"
+                            type="paragraph-1"
+                            align="center"
+                            weight="normal"
+                            maxwidth="792px"
+                        >
                             {localize(
-                                'Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of EU countries that have access to Deriv.com via EU passporting rights.',
+                                'Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of the EU countries that have access to Deriv.com via EU passporting rights.',
                             )}
-                        </Text>
+                        </StyledHeader>
                     </Box>
                 </SmallContainer>
             </SectionContainer>

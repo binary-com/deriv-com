@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
+import { isBrowser } from 'common/utility'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -13,9 +14,11 @@ const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
 
+    // To block eu.deriv.com domain for search engines
     const block_eu =
-        window.location.hostname === 'eu.deriv.com' || // To block eu.deriv.com domain for search engines
-        window.location.hostname === 'staging.deriv.com'
+        isBrowser() &&
+        (window.location.hostname === 'eu.deriv.com' ||
+            window.location.hostname === 'staging.deriv.com') // qa testing
 
     return (
         <Layout type="transparent" margin_top="0">

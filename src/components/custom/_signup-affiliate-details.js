@@ -70,7 +70,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
     const [is_eu_checked, setEuChecked] = useState(false)
     const [disabled, setDisabled] = useState(true)
     const residence_list = useResidenceList()
-    const [is_checked, setChecked] = useState(false)
 
     useEffect(() => {
         if (residence_list.length > 0) {
@@ -120,7 +119,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                     dirty,
                 }) => {
                     const fieldsSelected = () =>
-                        !(is_pep_checked && is_terms_checked && is_checked) || !isValid || !dirty
+                        !(is_pep_checked && is_terms_checked) || !isValid || !dirty
 
                     const form_inputs = [
                         {
@@ -333,10 +332,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                     link_text={localize(
                                         'Are you going to promote in EU and/or UK?',
                                     )}
-                                ></AgreementLabel>
-                                <AgreementLabel
-                                    is_checked={is_checked}
-                                    handleChangeCheckbox={(e) => handleCheckChange(e, setChecked)}
                                 ></AgreementLabel>
                             </Flex>
                             <Flex fd="column" ai="center">

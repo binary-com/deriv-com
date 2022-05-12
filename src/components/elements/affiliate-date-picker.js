@@ -155,7 +155,6 @@ const AffiliateDatePicker = (props) => {
                 label_color={label_color}
                 top_shift={top_shift}
                 is_date_field={is_date_field}
-                la
             >
                 {label}
             </StyledLabel>

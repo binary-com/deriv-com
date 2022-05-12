@@ -405,17 +405,24 @@ const ib_dmt5_financial: DMT5Type = {
             list: [
                 {
                     details: (
-                        <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 5 in commission based on the following formula:" />
+                        <Localize translate_text="For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_one',
                     iconAlt: <Localize translate_text="DMT5 Financial calculated first" />,
                 },
                 {
                     details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
+                        <Localize translate_text="For metals, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_two',
                     iconAlt: <Localize translate_text="DMT5 Financial calculated second" />,
+                },
+                {
+                    details: (
+                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
+                    ),
+                    icon: 'dmt5_financial_calculator_three',
+                    iconAlt: <Localize translate_text="DMT5 Financial calculated thirth" />,
                 },
             ],
             notes: [

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import Subscribe from '../components/_subscribe'
 import AllVideos from './_all-videos'
 import { AllVideosQuery } from 'types/graphql.types'
@@ -82,6 +83,12 @@ const VideosPage = ({ data }: VideosPageProps) => {
                 )}
                 meta_attributes={meta_attributes}
             />
+            <Helmet>
+                <meta
+                    httpEquiv="Content-Security-Policy"
+                    content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"
+                />
+            </Helmet>
             <Flex pt="40px">
                 <Hero jc="center" ai="center">
                     <SmallContainer>

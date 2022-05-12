@@ -70,9 +70,7 @@ const DayPickerWrapper = styled.div`
             return is_date_field || current_value
                 ? css`
                       transform: translate(-0.6rem, -2.2rem) scale(0.7);
-                      color: var(
-                          --color-${({ error, labelFocusColor }) => (error ? 'red-1' : labelFocusColor)}
-                      );
+                      color: var(--color-${({ error }) => (error ? 'red-1' : 'green')});
                   `
                 : css`
                       transform: translate(0rem, 0rem) scale(1);
@@ -157,6 +155,7 @@ const AffiliateDatePicker = (props) => {
                 label_color={label_color}
                 top_shift={top_shift}
                 is_date_field={is_date_field}
+                la
             >
                 {label}
             </StyledLabel>

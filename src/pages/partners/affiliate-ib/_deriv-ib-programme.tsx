@@ -218,23 +218,19 @@ const ib_dmt5_synthetic: DMT5Type = {
                 {
                     title: <Localize key={0} translate_text="Asset" />,
                     list: [
-                        <Localize key={1} translate_text="Crash 300 Index" />,
-                        <Localize key={2} translate_text="Crash 500 Index" />,
-                        <Localize key={3} translate_text="Crash 1000 Index" />,
-                        <Localize key={4} translate_text="Boom 300 Index" />,
-                        <Localize key={5} translate_text="Boom 500 Index" />,
-                        <Localize key={6} translate_text="Boom 1000 Index" />,
+                        <Localize key={1} translate_text="Crash 500 Index" />,
+                        <Localize key={2} translate_text="Crash 1000 Index" />,
+                        <Localize key={3} translate_text="Boom 500 Index" />,
+                        <Localize key={4} translate_text="Boom 1000 Index" />,
                     ],
                 },
                 {
                     title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
                     list: [
-                        <Localize key={1} translate_text="1" />,
-                        <Localize key={2} translate_text="0.35" />,
-                        <Localize key={3} translate_text="0.25" />,
-                        <Localize key={4} translate_text="1" />,
-                        <Localize key={5} translate_text="0.35" />,
-                        <Localize key={6} translate_text="0.25" />,
+                        <Localize key={1} translate_text="0.35" />,
+                        <Localize key={2} translate_text="0.25" />,
+                        <Localize key={3} translate_text="0.35" />,
+                        <Localize key={4} translate_text="0.25" />,
                     ],
                 },
             ],
@@ -256,8 +252,6 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="Volatility 75 (1s) Index" />,
                         <Localize key={9} translate_text="Volatility 100 Index" />,
                         <Localize key={10} translate_text="Volatility 100 (1s) Index" />,
-                        <Localize key={11} translate_text="Volatility 200 (1s) Index" />,
-                        <Localize key={12} translate_text="Volatility 300 (1s) Index" />,
                     ],
                 },
                 {
@@ -273,8 +267,6 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="5" />,
                         <Localize key={9} translate_text="7.5" />,
                         <Localize key={10} translate_text="7.5" />,
-                        <Localize key={11} translate_text="10" />,
-                        <Localize key={12} translate_text="15" />,
                     ],
                 },
             ],
@@ -413,24 +405,17 @@ const ib_dmt5_financial: DMT5Type = {
             list: [
                 {
                     details: (
-                        <Localize translate_text="For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:" />
+                        <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 5 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_one',
                     iconAlt: <Localize translate_text="DMT5 Financial calculated first" />,
                 },
                 {
                     details: (
-                        <Localize translate_text="For metals, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:" />
+                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_two',
                     iconAlt: <Localize translate_text="DMT5 Financial calculated second" />,
-                },
-                {
-                    details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 20 in commission based on the following formula:" />
-                    ),
-                    icon: 'dmt5_financial_calculator_three',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated thirth" />,
                 },
             ],
             notes: [
@@ -438,6 +423,9 @@ const ib_dmt5_financial: DMT5Type = {
                     title: <Localize translate_text="Please note:" />,
                     desc: {
                         firstText: (
+                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
+                        ),
+                        secondText: (
                             <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
                         ),
                     },
@@ -500,7 +488,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
                 },
                 {
                     details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 20 in commission based on the following formula:" />
+                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_stp_calculator_two',
                     iconAlt: <Localize translate_text="DMT5 Financial STP calculated second" />,

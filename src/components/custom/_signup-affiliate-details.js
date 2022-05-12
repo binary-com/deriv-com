@@ -129,8 +129,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                             error: errors.firstName,
                             value: values.firstName,
                             touch: touched.firstName,
-                            label: localize('First Name'),
-                            placeholder: 'First Name',
+                            label: localize('First name'),
+                            placeholder: 'First name',
                             required: true,
                         },
                         {
@@ -140,8 +140,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                             error: errors.lastName,
                             value: values.lastName,
                             touch: touched.lastName,
-                            label: localize('Last Name'),
-                            placeholder: 'Last Name',
+                            label: localize('Last name'),
+                            placeholder: 'Last name',
                             required: true,
                         },
                         {
@@ -151,8 +151,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                             error: errors.date,
                             value: values.date,
                             touch: touched.date,
-                            label: localize('Date of Birth'),
-                            placeholder: 'Date of Birth',
+                            label: localize('Date of birth'),
+                            placeholder: 'Date of birth',
                             required: true,
                         },
                         {

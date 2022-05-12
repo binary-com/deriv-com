@@ -11,7 +11,7 @@ import {
 } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import { image_query } from './_details'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
 import { getCountryRule } from 'components/containers/visibility'

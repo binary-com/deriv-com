@@ -5,7 +5,7 @@ import { HeaderAndHeroProps } from './_types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type HeaderImageProps = {
     imgWidth: number

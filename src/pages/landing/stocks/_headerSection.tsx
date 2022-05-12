@@ -7,7 +7,7 @@ import StocksHeaderOverlayBgMobile from 'images/svg/stock-indices/stocksHeaderOv
 import StocksHeaderOverlayBelowSectionBg from 'images/svg/stock-indices/stocksHeaderOverlayBelowSectionBg.svg'
 import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'

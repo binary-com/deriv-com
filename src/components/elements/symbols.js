@@ -10,7 +10,6 @@ import AMZN from 'images/svg/symbols/amzn.svg'
 import AUDBASKET from 'images/svg/symbols/aud-basket.svg'
 import AUDCAD from 'images/svg/symbols/aud-cad.svg'
 import AUDCHF from 'images/svg/symbols/aud-chf.svg'
-import AUDINDEX from 'images/svg/symbols/aud-index.svg'
 import AUDJPY from 'images/svg/symbols/aud-jpy.svg'
 import AUDNZD from 'images/svg/symbols/aud-nzd.svg'
 import AUDSGD from 'images/svg/symbols/aud-sgd.svg'
@@ -74,7 +73,6 @@ import EURCHF from 'images/svg/symbols/eur-chf.svg'
 import EURGBP from 'images/svg/symbols/eur-gbp.svg'
 import EURHKD from 'images/svg/symbols/eur-hkd.svg'
 import EURILS from 'images/svg/symbols/eur-ils.svg'
-import EURINDEX from 'images/svg/symbols/eur-index.svg'
 import EURJPY from 'images/svg/symbols/eur-jpy.svg'
 import EURLPN from 'images/svg/symbols/eur-lpn.svg'
 import EURMXN from 'images/svg/symbols/eur-mxn.svg'
@@ -95,7 +93,6 @@ import GBPAUD from 'images/svg/symbols/gbp-aud.svg'
 import GBPBASKET from 'images/svg/symbols/gbp-basket.svg'
 import GBPCAD from 'images/svg/symbols/gbp-cad.svg'
 import GBPCHF from 'images/svg/symbols/gbp-chf.svg'
-import GBPINDEX from 'images/svg/symbols/gbp-index.svg'
 import GBPJPY from 'images/svg/symbols/gbp-jpy.svg'
 import GBPNOK from 'images/svg/symbols/gbp-nok.svg'
 import GBPNZD from 'images/svg/symbols/gbp-nzd.svg'
@@ -105,7 +102,6 @@ import GBPTRY from 'images/svg/symbols/gbp-try.svg'
 import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
 import GM from 'images/svg/symbols/gm.svg'
 import GOLDBASKET from 'images/svg/symbols/gold-basket.svg'
-import GOLDINDEX from 'images/svg/symbols/gold-index.svg'
 import GOLDEUR from 'images/svg/symbols/gold-eur.svg'
 import GOLDUSD from 'images/svg/symbols/gold-usd.svg'
 import GOOGL from 'images/svg/symbols/googl.svg'
@@ -221,7 +217,6 @@ import USDCHF from 'images/svg/symbols/usd-chf.svg'
 import USDCNH from 'images/svg/symbols/usd-cnh.svg'
 import USDHKD from 'images/svg/symbols/usd-hkd.svg'
 import USDILS from 'images/svg/symbols/usd-ils.svg'
-import USDINDEX from 'images/svg/symbols/usd-index.svg'
 import USDJPY from 'images/svg/symbols/usd-jpy.svg'
 import USDMXN from 'images/svg/symbols/usd-mxn.svg'
 import USDNOK from 'images/svg/symbols/usd-nok.svg'
@@ -358,7 +353,6 @@ export {
     AUDBASKET,
     AUDCAD,
     AUDCHF,
-    AUDINDEX,
     AUDJPY,
     AUDNZD,
     AUDSGD,
@@ -423,7 +417,6 @@ export {
     EURGBP,
     EURHKD,
     EURILS,
-    EURINDEX,
     EURJPY,
     EURLPN,
     EURMXN,
@@ -444,7 +437,6 @@ export {
     GBPBASKET,
     GBPCAD,
     GBPCHF,
-    GBPINDEX,
     GBPJPY,
     GBPNOK,
     GBPNZD,
@@ -454,7 +446,6 @@ export {
     GBPUSD,
     GM,
     GOLDBASKET,
-    GOLDINDEX,
     GOLDEUR,
     GOLDUSD,
     GOOGL,
@@ -571,7 +562,6 @@ export {
     USDCHF,
     USDHKD,
     USDILS,
-    USDINDEX,
     USDJPY,
     USDMXN,
     USDNOK,

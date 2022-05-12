@@ -28,7 +28,7 @@ import SocialSharing from '../../../components/_social-sharing'
 import SideSubscriptionBanner from '../../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
+import { SEO, Desktop, Mobile, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
 import { handleTag } from 'pages/academy/components/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -161,7 +161,7 @@ const BlogPreview = () => {
                                     <InfoText size="14px" mt="16px">
                                         {getMinRead(post_data?.blog_post)}
                                     </InfoText>
-                                    <Show.Mobile min_width="laptop">
+                                    <Mobile breakpoint="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">
                                             <Flex
                                                 fw="wrap"
@@ -189,9 +189,9 @@ const BlogPreview = () => {
                                                 })}
                                             </Flex>
                                         </SideBarContainer>
-                                    </Show.Mobile>
+                                    </Mobile>
 
-                                    <Show.Desktop max_width="laptop">
+                                    <Desktop breakpoint="laptop">
                                         {post_data?.author && (
                                             <Flex ai="center" mt="40px" jc="flex-start">
                                                 <>
@@ -215,7 +215,7 @@ const BlogPreview = () => {
                                                 </Box>
                                             </Flex>
                                         )}
-                                    </Show.Desktop>
+                                    </Desktop>
                                 </HeroLeftWrapper>
                                 <HeroRightWrapper>
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
@@ -231,7 +231,7 @@ const BlogPreview = () => {
 
                         <BodyContainer>
                             <LeftBodyContainerWrapper>
-                                <Show.Mobile min_width="laptop">
+                                <Mobile breakpoint="laptop">
                                     {post_data?.author && (
                                         <Flex ai="center" jc="flex-start">
                                             <>
@@ -253,8 +253,8 @@ const BlogPreview = () => {
                                             </Box>
                                         </Flex>
                                     )}
-                                </Show.Mobile>
-                                <Show.Desktop max_width="laptop">
+                                </Mobile>
+                                <Desktop breakpoint="laptop">
                                     <SideBarContainer fd="column" height="auto">
                                         <Flex
                                             jc="flex-start"
@@ -289,7 +289,7 @@ const BlogPreview = () => {
                                             <SideSubscriptionBanner />
                                         </DesktopWrapper>
                                     </SideBarContainer>
-                                </Show.Desktop>
+                                </Desktop>
                             </LeftBodyContainerWrapper>
                             <RightBodyContainerWrapper>
                                 <Flex fd="column" margin="0 auto" ai="center">
@@ -305,13 +305,13 @@ const BlogPreview = () => {
                                         <Banner detailsPreviewObj={footer_banner_details} />
                                     )}
                                     {side_banner_data_details && (
-                                        <Show.Mobile>
+                                        <Mobile>
                                             <Flex mt="24px">
                                                 <Banner
                                                     detailsPreviewObj={side_banner_data_details}
                                                 />
                                             </Flex>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     )}
                                     <MobileWrapper>
                                         <SideSubscriptionBanner />

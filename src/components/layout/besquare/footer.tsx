@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     ButtonWrapper,
@@ -137,10 +136,6 @@ const BeSquareFooter = () => {
             </FooterSection>
         </React.Fragment>
     )
-}
-
-BeSquareFooter.propTypes = {
-    has_besquare_banner: PropTypes.boolean,
 }
 
 export default BeSquareFooter

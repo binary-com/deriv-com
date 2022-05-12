@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const SectionWrapper = styled(SectionContainer)`
     background: white;

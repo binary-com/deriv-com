@@ -17,9 +17,12 @@ export const useRecursiveTimeout = (callback, delay, start_delay = 0) => {
         const tick = () => {
             if (!isRunning) return clearTimeout(id)
             savedCallback.current()
-            requestAnimationFrame(() => (id = setTimeout(tick, delay)))
+            requestAnimationFrame(() => (id = window.setTimeout(tick, delay)))
         }
-        setTimeout(() => requestAnimationFrame(() => (id = setTimeout(tick, delay))), start_delay)
+        setTimeout(
+            () => requestAnimationFrame(() => (id = window.setTimeout(tick, delay))),
+            start_delay,
+        )
 
         return () => {
             if (id) clearTimeout(id)

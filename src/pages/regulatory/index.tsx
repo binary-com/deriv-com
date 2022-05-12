@@ -25,7 +25,7 @@ import Labuan from 'images/common/regulatory/labuan.png'
 import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import SVG from 'images/svg/regulatory/svg.svg'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type BoxProps = {
     padding?: string
@@ -119,7 +119,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         padding="1.6rem 0 2rem"
                     >
                         {localize(
-                            'The services offered on Deriv.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv.com in their registered jurisdictions.',
+                            'The services offered on Deriv.com and Binary.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv.com and Binary.com in their registered jurisdictions.',
                         )}
                     </StyledHeader>
                     <StyledHeader as="h5" type="main-paragraph" align="center" weight="normal">
@@ -138,7 +138,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                     <Box>
                         <Text>
                             <Localize
-                                translate_text="Deriv Investments (Europe) Limited — W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta — is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
+                                translate_text="Deriv Investments (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union. It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK."
                                 components={[
                                     <LinkText
                                         key={0}
@@ -151,11 +151,13 @@ const Regulatory = (locale: RegulatoryProps) => {
                             />
                         </Text>
                         <Text mt="2rem">
-                            <Localize translate_text="Authorised by the Financial Conduct Authority and with deemed variation of permission. Subject to regulation by the Financial Conduct Authority. The nature and extent of consumer protections may differ from those for firms based in the UK. Details of the Financial Services Contracts Regime, which allows EEA-based firms to operate in the UK for a limited period to carry on activities which are necessary for the performance of pre-existing contracts, are available on the Financial Conduct Authority's website." />
+                            {localize(
+                                'Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request.',
+                            )}
                         </Text>
                         <Text mt="2rem">
                             {localize(
-                                'Clients in the European Union who wish to trade financial instruments can have accounts under Deriv Investments (Europe) Limited.',
+                                'Clients in the European Union who wish to trade investment products can have accounts under Deriv Investments (Europe) Limited.',
                             )}
                         </Text>
                     </Box>
@@ -184,7 +186,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                     <Box padding="0 0 4rem">
                         <Text lh="1.55" max_width="79.2rem">
                             {localize(
-                                'Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of the EU countries that have access to Deriv.com via EU passporting rights.',
+                                'Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of EU countries that have access to Deriv.com via EU passporting rights.',
                             )}
                         </Text>
                     </Box>
@@ -221,7 +223,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (FX) Ltd — F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia — is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>)."
+                                    translate_text="Deriv (FX) Ltd - F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia - is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>)."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -259,7 +261,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (BVI) Ltd — Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands — is licensed by the British Virgin Islands Financial Services Commission (<0>licence no. SIBA/L/18/1114</0>)."
+                                    translate_text="Deriv (BVI) Ltd - Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands - is licensed by the British Virgin Islands Financial Services Commission (<0>licence no. SIBA/L/18/1114</0>)."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -273,7 +275,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments, including cryptocurrencies, can have DMT5 Financial STP accounts under Deriv (BVI) Ltd.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments and cryptocurrencies can have DMT5 Financial STP accounts under Deriv (BVI) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -299,7 +301,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) — 1276, Kumul Highway, Port Vila, Vanuatu — is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
+                                    translate_text="Deriv (V) Ltd - 1276, Kumul Highway, Port Vila, Vanuatu - is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -367,7 +369,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             </DesktopWrapper>
                             <Text mt="0.8rem">
                                 {localize(
-                                    'Deriv Limited — 13 Castle Street, St. Helier, JE2 3BT, Jersey — is the holding company for the above subsidiaries.',
+                                    'Deriv Limited - 13 Castle Street, St. Helier, JE2 3BT, Jersey - is the holding company for the above subsidiaries.',
                                 )}
                             </Text>
                         </CssGridColumn>

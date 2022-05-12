@@ -221,17 +221,17 @@ module.exports = {
                 offset: -100,
             },
         },
-        {
-            resolve: '@directus/gatsby-source-directus',
-            options: {
-                url: 'https://cms.deriv.cloud',
-                auth: {
-                    token: process.env.DIRECTUS_AUTH_TOKEN,
-                },
-                dev: {
-                    refresh: '5s',
-                },
-            },
-        },
+        // {
+        //     resolve: '@directus/gatsby-source-directus',
+        //     options: {
+        //         url: 'https://cms.deriv.cloud',
+        //         auth: {
+        //             token: process.env.DIRECTUS_AUTH_TOKEN,
+        //         },
+        //         dev: {
+        //             refresh: '5s',
+        //         },
+        //     },
+        // },
     ],
 }

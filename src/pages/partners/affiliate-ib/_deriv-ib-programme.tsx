@@ -427,7 +427,7 @@ const ib_dmt5_financial: DMT5Type = {
                 },
                 {
                     details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
+                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 20 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_three',
                     iconAlt: <Localize translate_text="DMT5 Financial calculated thirth" />,
@@ -500,7 +500,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
                 },
                 {
                     details: (
-                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 10 in commission based on the following formula:" />
+                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 20 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_stp_calculator_two',
                     iconAlt: <Localize translate_text="DMT5 Financial STP calculated second" />,

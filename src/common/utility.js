@@ -458,7 +458,7 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
 
     const eu_domains = ['eu', 'staging-eu']
 
-    if (isTestlink()) {
+    if (isLocalhost() || isTestlink()) {
         return false
     } else if (eu_domains.some((e) => subdomain.includes(e))) {
         handleEURedirect(country, full_domain)
@@ -475,5 +475,7 @@ export const queryParamData = () => {
         return platform_list.includes(platform_name) ? platform_name : ''
     } else return ''
 }
+
+export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))

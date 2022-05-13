@@ -9,7 +9,7 @@ export const affiliate_validation_regex = {
 
 const validation_is_exceed_number = (input, max_digit) => {
     const max_digit_value = max_digit || 15
-    return !(input.includes('.') && input.length > max_digit_value + 1)
+    return !(input.length > max_digit_value + 1)
 }
 
 const validation_is_lack_number = (input, min_digit) => input.length + 1 > min_digit
@@ -78,10 +78,10 @@ const passwordValidation = (input, field_name, min_digit, max_digit) => {
 
 const validation = {
     firstName: (input) => {
-        return nameValidation(input, localize('First Name'), 2, 50)
+        return nameValidation(input, localize('First name'), 2, 50)
     },
     lastName: (input) => {
-        return nameValidation(input, localize('Last Name'), 2, 50)
+        return nameValidation(input, localize('Last name'), 2, 50)
     },
     date: (input) => {
         return dateValidation(input, localize('Date'))

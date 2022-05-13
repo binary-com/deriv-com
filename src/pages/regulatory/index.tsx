@@ -194,7 +194,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         <StyledHeader
                             as="h5"
                             type="paragraph-1"
-                            align="center"
+                            align="left"
                             weight="normal"
                             maxwidth="792px"
                         >

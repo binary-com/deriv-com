@@ -7,7 +7,7 @@ import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
 
 const FoldWrapper = styled(SectionContainer)`
@@ -117,7 +117,7 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Basket indicies" />,
+        header: <Localize translate_text="Basket indices" />,
         description: (
             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
         ),

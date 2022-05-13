@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Checkbox, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledLabel = styled.label`
     display: flex;

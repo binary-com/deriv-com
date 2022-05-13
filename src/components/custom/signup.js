@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
-import Cookies from 'js-cookie'
-import { getLanguage, isChoosenLanguage } from '../../common/utility'
+import { getLanguage, isChoosenLanguage, queryParams } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
@@ -13,16 +12,12 @@ import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
-import SignupAffiliate from 'components/custom/_signup-affiliate'
-import SignupAffiliateDetails from 'components/custom/_signup-affiliate-details'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device.js'
-import { affiliate_app_id } from 'common/constants'
+import device from 'themes/device'
 
 const Form = styled.form`
     height: 100%;
-    z-index: 1;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 
     @media ${device.mobileL} {
@@ -53,11 +48,10 @@ export const Appearances = {
     lightFlat: 'lightFlat',
     public: 'public',
     newSignup: 'newSignup',
-    affiliateSignup: 'affiliateSignup',
 }
 
 const Signup = (props) => {
-    const [user_data, setUserData] = useState({})
+    const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
@@ -83,33 +77,34 @@ const Signup = (props) => {
     }
 
     const handleInputChange = (e) => {
-        const { value, name } = e.target
-        setUserData({
-            ...user_data,
-            [name]: value,
-        })
+        const { value } = e.target
+        setEmail(value)
         handleValidation(value)
     }
 
     const getVerifyEmailRequest = (formatted_email) => {
-        const affiliate_token = Cookies.getJSON('affiliate_tracking')
-
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
+        const token = queryParams.get('t')
+
+        if (!token) {
+            delete cookies_value.utm_campaign
+            delete cookies_value.utm_medium
+            cookies_value.utm_source = 'null' //passing null as the cookies takes the affiliates token value when signed up without affiliate token
+        }
 
         return {
             verify_email: formatted_email,
             type: 'account_opening',
             url_parameters: {
-                ...(affiliate_token && { affiliate_token: affiliate_token }),
+                ...(token && { affiliate_token: token }),
                 ...(cookies_value && { ...cookies_value }),
             },
         }
     }
 
     const handleEmailSignup = (e) => {
-        const { email } = user_data
         e.preventDefault()
         setSubmitting(true)
         const formatted_email = email.replace(/\s/g, '')
@@ -120,11 +115,6 @@ const Signup = (props) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
-
-        if (props.appearance === Appearances.affiliateSignup) {
-            window.localStorage.setItem('config.app_id', affiliate_app_id)
-        }
-
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {
@@ -158,10 +148,7 @@ const Signup = (props) => {
     }
 
     const clearEmail = () => {
-        setUserData({
-            ...user_data,
-            email: '',
-        })
+        setEmail('')
         setEmailErrorMsg('')
     }
     const handleSocialSignup = (e) => {
@@ -177,19 +164,10 @@ const Signup = (props) => {
     }
 
     const renderSwitch = (param) => {
-        const { email, first_name, last_name, date, country, address, mobile_number, password } =
-            user_data
         const parameters = {
             autofocus: props.autofocus,
             clearEmail: clearEmail,
-            email,
-            first_name,
-            last_name,
-            date,
-            country,
-            address,
-            mobile_number,
-            password,
+            email: email,
             email_error_msg: email_error_msg,
             handleInputChange: handleInputChange,
             handleLogin: handleLogin,
@@ -197,17 +175,11 @@ const Signup = (props) => {
             handleValidation: handleValidation,
             is_ppc: props.is_ppc,
             is_submitting: is_submitting,
-            showModal: props.showModal,
-            setErrorMessage: props.setErrorMessage,
         }
 
         switch (param) {
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
-            case Appearances.affiliateSignup:
-                return <SignupAffiliate {...parameters}></SignupAffiliate>
-            case Appearances.affiliateSignupDetails:
-                return <SignupAffiliateDetails {...parameters}></SignupAffiliateDetails>
             case Appearances.public:
                 return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:
@@ -265,8 +237,6 @@ Signup.propTypes = {
     email: PropTypes.string,
     is_ppc: PropTypes.bool,
     onSubmit: PropTypes.func,
-    setErrorMessage: PropTypes.func,
-    showModal: PropTypes.func,
     submit_state: PropTypes.string,
 }
 

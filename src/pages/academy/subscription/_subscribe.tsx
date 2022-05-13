@@ -4,7 +4,7 @@ import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import Email1 from 'images/svg/academy/email1.svg'
 import Email2 from 'images/svg/academy/email2.svg'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { localize } from 'components/localization'
 
 const Icon = styled.img`

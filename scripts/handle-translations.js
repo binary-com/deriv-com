@@ -28,13 +28,13 @@ const handleProcess = (data) => {
     const branch_name_convention = 'translation-'
 
     // Branch name check
-    // if (!branch_name.startsWith(branch_name_convention)) {
-    //     console.log(
-    //         `\x1b[31mInvalid branch name: \x1b[33m${branch_name}\x1b[31m \nBranch that requires translation should start with: \x1b[32m${branch_name_convention}[your-branch-name]\n `,
-    //     )
+    if (!branch_name.startsWith(branch_name_convention)) {
+        console.log(
+            `\x1b[31mInvalid branch name: \x1b[33m${branch_name}\x1b[31m \nBranch that requires translation should start with: \x1b[32m${branch_name_convention}[your-branch-name]\n `,
+        )
 
-    //     return false
-    // }
+        return false
+    }
 
     switch (action) {
         case 'push':

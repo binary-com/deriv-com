@@ -16,7 +16,7 @@ import { Input, Button } from 'components/form'
 import { Header, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledContentFlex = styled(Flex)`
     width: fit-content;

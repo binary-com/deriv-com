@@ -130,13 +130,9 @@ const BasketIndices = () => {
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <StyledText mb="12px" align="center">
-                    {is_eu_country
-                        ? localize(
-                              'Trade basket indices with multipliers and benefit from high leverage to amplify your potential gains multiple times.',
-                          )
-                        : localize(
-                              'Trade basket indices with multipliers and benefit from high leverage to amplify your potential gains multiple times.',
-                          )}
+                    {localize(
+                        'Trade basket indices with multipliers and benefit from high leverage to amplify your potential gains multiple times.',
+                    )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
                     <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />

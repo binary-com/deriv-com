@@ -6,6 +6,7 @@ import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
 import CFDs from './_cfds'
 import SyntheticIndices from './_synthetic-indices'
 import Cryptocurrencies from './_cryptocurrencies'
+import BasketIndices from './__basket_indices'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -396,6 +397,7 @@ const WhatAreOptions = () => {
                     Forex={CFDs}
                     SyntheticIndices={SyntheticIndices}
                     Cryptocurrencies={Cryptocurrencies}
+                    BasketIndices={BasketIndices}
                 />
             )}
 

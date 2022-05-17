@@ -1,11 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
-import AffiliateDatePicker from '../elements/affiliate-date-picker'
+import AffiliateInput from './affiliate-input'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
-import EyeIcon from 'images/svg/signup-affiliate-details/eye.svg'
 
 interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     background?: string
@@ -24,7 +23,6 @@ interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     label_color?: string
     label_hover_color?: string
     tablet_background?: string
-    password_icon?: boolean
 }
 
 type InputWrapperProps = {
@@ -54,11 +52,6 @@ type StyledLabelProps = {
     tablet_background?: string
     error?: string
     htmlFor?: string
-}
-
-type StyledIconProps = {
-    disabled?: boolean
-    password_icon?: boolean
 }
 
 const RelativeWrapper = styled.div`
@@ -107,19 +100,15 @@ const InputWrapper = styled.div<InputWrapperProps>`
         `}
 `
 
-const StyledIcon = styled.img<StyledIconProps>`
+const StyledError = styled.img`
     position: absolute;
-    right: ${(props) => (props.password_icon ? '2.8rem' : '0.8rem')};
+    right: 0.8rem;
     top: 1.2rem;
     height: 1.6rem;
     width: 1.6rem;
-    ${(props) =>
-        !props.disabled &&
-        css`
-            cursor: pointer;
-        `}
+    cursor: pointer;
     @media ${device.tablet} {
-        right: ${(props) => (props.password_icon ? '4rem' : '2rem')};
+        right: 2rem;
         top: 1.6rem;
     }
     @media ${device.desktopL} {
@@ -242,17 +231,9 @@ const Input = ({
     maxLength,
     setFieldValue,
     setFieldTouched,
-    password_icon,
     ...props
 }: InputProps) => {
-    let current_input = useRef<HTMLInputElement>(null)
-    const [is_password_visible, setPasswordVisible] = useState(false)
-
-    useEffect(() => {
-        if (current_input.current) {
-            current_input.current.type = !is_password_visible && password_icon ? 'password' : 'text'
-        }
-    }, [is_password_visible])
+    const current_input = useRef(null)
 
     return (
         <RelativeWrapper>
@@ -265,7 +246,7 @@ const Input = ({
                 className="input-wrapper"
             >
                 {is_date ? (
-                    <AffiliateDatePicker
+                    <AffiliateInput
                         id={id}
                         top_shift="1.5rem"
                         background={background}
@@ -280,7 +261,7 @@ const Input = ({
                         htmlFor={id}
                         label_color={label_color}
                         {...props}
-                        ref={(ip) => (current_input = ip)}
+                        ref={(ip) => (current_input.current = ip)}
                     />
                 ) : (
                     <StyledInput
@@ -309,17 +290,8 @@ const Input = ({
             <ErrorMessages lh="1.4" align="left" color="red-1" error_shift={error_shift}>
                 {error}
             </ErrorMessages>
-            {password_icon && (
-                <StyledIcon
-                    src={EyeIcon}
-                    disabled={disabled}
-                    password_icon={password_icon}
-                    alt="eye icon"
-                    onClick={() => (!disabled ? setPasswordVisible(!is_password_visible) : null)}
-                />
-            )}
             {error && (
-                <StyledIcon
+                <StyledError
                     src={CrossIcon}
                     alt="error icon"
                     onClick={() => {

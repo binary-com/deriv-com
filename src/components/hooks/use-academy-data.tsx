@@ -10,6 +10,7 @@ export type BlogType = {
     blog_description: string
     blog_title: string
     featured: boolean
+    visibility: string
     id: string
     main_image: MainImageType
     published_date: string
@@ -76,6 +77,7 @@ const query = graphql`
                 slug
                 published_date
                 featured
+                visibility
                 tags {
                     id
                     tags_id {

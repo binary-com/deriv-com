@@ -10,7 +10,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -52,17 +52,17 @@ type ArticlesPageProps = {
 export type ArticleDataType = AllArticlesQuery['directus']['blog']
 
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
-    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+    const { is_eu, is_uk } = getCountryRule()
 
     let article_data = data.directus.blog
 
     // We need to include the !is_uk_country check together with is_eu_country because 'gb'
     // is a valid country code for both EU and UK in our country base.
-    if (is_eu_country && !is_uk_country) {
+    if (is_eu && !is_uk) {
         article_data = data.directus.blog.filter(
             (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
         )
-    } else if (is_uk_country) {
+    } else if (is_uk) {
         article_data = data.directus.blog.filter(
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )

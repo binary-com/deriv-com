@@ -8,6 +8,7 @@ import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
+console.log(QueryImage)
 const Container = styled.div`
     position: relative;
 
@@ -186,6 +187,9 @@ const query = graphql`
             ...fadeIn
         }
         ac: file(relativePath: { eq: "flags/en.png" }) {
+            ...fadeIn
+        }
+        tr: file(relativePath: { eq: "flags/tr.png" }) {
             ...fadeIn
         }
     }

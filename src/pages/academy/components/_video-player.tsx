@@ -125,8 +125,9 @@ const VideoPlayer = ({ video_src, closeVideo }: VideoPlayerProps) => {
                                 onClick={() => closeVideo()}
                             />
                         </StyledFlex>
-                        {video_src ===
-                        'https://deriv-academy.directus.app/assets/9ba36532-5a4c-43da-b0e4-83aa3c2d63b0' ? (
+                        {video_src &&
+                        video_src ===
+                            'https://deriv-academy.directus.app/assets/9ba36532-5a4c-43da-b0e4-83aa3c2d63b0' ? (
                             <>
                                 <Desktop>
                                     <Vimeo

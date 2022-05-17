@@ -29,6 +29,11 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        dmt5_financial_calculator_three: file(
+            relativePath: { eq: "affiliate-and-ib/dmt5-financial-calculator-three.png" }
+        ) {
+            ...fadeIn
+        }
         dmt5_financial_stp_calculator_one: file(
             relativePath: { eq: "affiliate-and-ib/dmt5-financial-stp-calculator-one.png" }
         ) {

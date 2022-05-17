@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
-import AffiliateDatePicker from '../elements/affiliate-date-picker'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
@@ -238,12 +237,10 @@ const Input = ({
     tablet_background = '',
     handleError,
     maxLength,
-    setFieldValue,
-    setFieldTouched,
     password_icon,
     ...props
 }: InputProps) => {
-    let current_input = useRef<HTMLInputElement>(null)
+    const current_input = useRef<HTMLInputElement>(null)
     const [is_password_visible, setPasswordVisible] = useState(false)
 
     useEffect(() => {
@@ -262,37 +259,18 @@ const Input = ({
                 error={error}
                 className="input-wrapper"
             >
-                {is_date ? (
-                    <AffiliateDatePicker
-                        id={id}
-                        top_shift="1.5rem"
-                        background={background}
-                        maxLength={maxLength}
-                        error={error}
-                        disabled={disabled}
-                        height={height}
-                        label={label}
-                        setFieldValue={setFieldValue}
-                        setFieldTouched={setFieldTouched}
-                        tablet_background={tablet_background}
-                        htmlFor={id}
-                        label_color={label_color}
-                        {...props}
-                        ref={(ip) => (current_input = ip)}
-                    />
-                ) : (
-                    <StyledInput
-                        id={id}
-                        background={background}
-                        maxLength={maxLength}
-                        error={error}
-                        disabled={disabled}
-                        height={height}
-                        showLabel={label}
-                        {...props}
-                        ref={(ip) => (current_input.current = ip)}
-                    />
-                )}
+                <StyledInput
+                    id={id}
+                    background={background}
+                    maxLength={maxLength}
+                    error={error}
+                    disabled={disabled}
+                    height={height}
+                    showLabel={label}
+                    {...props}
+                    ref={(ip) => (current_input.current = ip)}
+                />
+
                 {label && !is_date && (
                     <StyledLabel
                         tablet_background={tablet_background}

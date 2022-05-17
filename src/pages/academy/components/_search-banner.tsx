@@ -378,19 +378,17 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    let filtered_academy_data = academy_data.blog
+    let combined_data = [...academy_data.blog, ...academy_data.videos]
 
     if (is_eu) {
-        filtered_academy_data = academy_data.blog.filter(
+        combined_data = combined_data.filter(
             (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
         )
     } else if (is_uk) {
-        filtered_academy_data = academy_data.blog.filter(
+        combined_data = combined_data.filter(
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )
     }
-
-    const combined_data = [...filtered_academy_data, ...academy_data.videos]
 
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -33,6 +33,7 @@ export type TagsType = {
 
 export type VideosType = {
     featured: boolean
+    visibility: string
     published_date: string
     tags: TagsType[]
     video_description: string
@@ -93,6 +94,7 @@ const query = graphql`
                 video_description
                 video_duration
                 featured
+                visibility
                 video_thumbnail {
                     id
                     title

@@ -69,6 +69,10 @@ const VideosPage = ({ data }: VideosPageProps) => {
         )
     }
 
+    console.log({
+        video_data,
+    })
+
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',
         og_description: 'Our products and services explained in detail.',
@@ -121,7 +125,7 @@ export default WithIntl()(VideosPage)
 export const query = graphql`
     query AllVideos {
         directus {
-            videos(filter: { status: { _eq: "published" } }, sort: "- published_date") {
+            videos(filter: {}, sort: "- published_date") {
                 video_id
                 video_slug
                 video_title

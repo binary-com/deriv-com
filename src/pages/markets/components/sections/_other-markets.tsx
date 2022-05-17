@@ -97,11 +97,11 @@ const markets_type: MarketsType = {
 const LearnMore = styled(LocalizedLink)`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
-    height: 40px;
+    height: 35px;
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -20px;
+    bottom: -30px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -196,7 +196,7 @@ const Card = ({ market }: CardProps) => {
         <StyledFlex
             direction="column"
             max_width="28.2rem"
-            height="296px"
+            height="326px"
             width="282px"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"
@@ -211,10 +211,10 @@ const Card = ({ market }: CardProps) => {
             <Text size="16px" weight="bold" mt="1.6rem">
                 {localize(markets_type[market].title)}
             </Text>
-            <Text size="16px" mt="0.8rem">
+            <Text size="15px" mt="0.8rem">
                 {markets_type[market].content}
             </Text>
-            <LearnMore to={markets_type[market].to} visibility={button_visibility}>
+            <LearnMore size="13px" to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>

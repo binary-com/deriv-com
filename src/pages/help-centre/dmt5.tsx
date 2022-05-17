@@ -297,7 +297,7 @@ const NameOfMyDerivMT5Server = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
             <Localize
-                translate_text="You can find your <0>Deriv MT5 server</0> name on your Deriv MT5 dashboard. Look for <1>server</1> in between the broker name and login ID."
+                translate_text="You can find your Deriv MT5 server name on your <0>Deriv MT5 dashboard</0>. Look for <1>server</1> in between the broker name and login ID."
                 components={[
                     <ExternalLink
                         to={'/mt5'}
@@ -318,7 +318,7 @@ const MinimumAmountToOpenaPositionOnDerivMT5 = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
             <Localize
-                translate_text="You can find your <0>Deriv MT5 server</0> name on your Deriv MT5 dashboard. Look for <1>server</1> in between the broker name and login ID."
+                translate_text="The minimum amount you’ll need to open a position on Deriv MT5 depends on the margin required for each asset. You can calculate the margin required using our <0>margin calculator</0>."
                 components={[
                     <ExternalLink
                         to={'/mt5'}

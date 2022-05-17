@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import Vimeo from '@u-wave/react-vimeo'
-import { Flex } from 'components/containers'
+import { Desktop, Mobile, Flex } from 'components/containers'
 import CloseIcon from 'images/svg/close.svg'
 import device from 'themes/device'
 
@@ -127,13 +127,20 @@ const VideoPlayer = ({ video_src, closeVideo }: VideoPlayerProps) => {
                         </StyledFlex>
                         {video_src ===
                         'https://deriv-academy.directus.app/assets/9ba36532-5a4c-43da-b0e4-83aa3c2d63b0' ? (
-                            <Vimeo
-                                video="710693590"
-                                width="1515px"
-                                controls
-                                autoplay
-                                ref={vidRef}
-                            />
+                            <>
+                                <Desktop>
+                                    <Vimeo
+                                        video="710693590"
+                                        width="1515px"
+                                        controls
+                                        autoplay
+                                        ref={vidRef}
+                                    />
+                                </Desktop>
+                                <Mobile>
+                                    <Vimeo video="710693590" controls autoplay ref={vidRef} />
+                                </Mobile>
+                            </>
                         ) : (
                             <VidPlayer
                                 controls

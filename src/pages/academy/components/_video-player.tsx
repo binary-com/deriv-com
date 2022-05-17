@@ -131,7 +131,8 @@ const VideoPlayer = ({ video_src, closeVideo }: VideoPlayerProps) => {
                                 <Desktop>
                                     <Vimeo
                                         video="710693590"
-                                        width="1515px"
+                                        width="1600px"
+                                        height="900px"
                                         controls
                                         autoplay
                                         ref={vidRef}

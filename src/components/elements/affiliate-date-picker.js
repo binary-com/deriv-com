@@ -16,8 +16,8 @@ const DayPickerWrapper = styled.div`
         height: 40px;
     }
     .react-date-picker__wrapper {
-        border: none;
-        border-radius: 5px;
+        border: 'solid 1px var(--color-grey-7)' !important;
+        border-radius: 4px;
     }
     .react-date-picker__calendar {
         width: 280px;
@@ -112,7 +112,7 @@ const AffiliateDatePicker = (props) => {
 
     const [max_date, setMaxDate] = useState()
     const [is_date_field, selectDateField] = useState(false)
-    const [current_value, onChange] = useState(max_date)
+    const [current_value, onChange] = useState()
 
     useEffect(() => {
         setMaxDate(dayjs().subtract(18, 'year').toDate())
@@ -149,6 +149,8 @@ const AffiliateDatePicker = (props) => {
                 defaultActiveStartDate={max_date}
                 showLeadingZeros={false}
                 clearIcon={null}
+                wrapperClassName="react-date-picker__wrapper"
+                placeholderText="Date of Birth"
             />
             <StyledLabel
                 tablet_background={tablet_background}

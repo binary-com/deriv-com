@@ -7,6 +7,7 @@ import {
     getSignupAffiliateValue,
     resetSignupAffiliateDetails,
 } from '../../pages/signup-affiliates-details/common/_utility'
+import AffiliateDatePicker from '../elements/affiliate-date-picker'
 import { DropdownSearch } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
 import { useAffiliateData } from '../hooks/use-affiliate-data'
@@ -230,7 +231,25 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                 disabled={disabled}
                                             />
                                         </DropdownSearchWrapper>
+                                    ) : item.name === 'date' ? (
+                                        <AffiliateDatePicker
+                                            id={item.id}
+                                            top_shift="1.5rem"
+                                            error={item.touch && item.error}
+                                            disabled={disabled}
+                                            label={item.label}
+                                            setFieldValue={setFieldValue}
+                                            setFieldTouched={setFieldTouched}
+                                            placeholder={item.placeholder}
+                                            handleError={() => {
+                                                setFieldValue(item.name, '', false)
+                                                setFieldError(item.name, '')
+                                                setFieldTouched(item.name, false, false)
+                                            }}
+                                            htmlFor={item.id}
+                                        />
                                     ) : (
+                                        //if(item.name === 'date' || item.name ==='Country of residence')
                                         <Field
                                             name={item.name}
                                             key={item.id}
@@ -242,7 +261,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                                 <Input
                                                     {...field}
                                                     id={item.id}
-                                                    is_date={item.name === 'date'}
                                                     error_shift="0.8rem"
                                                     type={item.type}
                                                     border="solid 1px var(--color-grey-7)"

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import Vimeo from '@u-wave/react-vimeo'
 import { Flex } from 'components/containers'
 import CloseIcon from 'images/svg/close.svg'
 import device from 'themes/device'
@@ -124,17 +125,22 @@ const VideoPlayer = ({ video_src, closeVideo }: VideoPlayerProps) => {
                                 onClick={() => closeVideo()}
                             />
                         </StyledFlex>
-                        <VidPlayer
-                            controls
-                            disablePictureInPicture
-                            controlsList="nodownload"
-                            autoPlay
-                            onClick={(event) => event.stopPropagation()}
-                            ref={vidRef}
-                        >
-                            <source src={video_src} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </VidPlayer>
+                        {video_src ===
+                        'https://deriv-academy.directus.app/assets/9ba36532-5a4c-43da-b0e4-83aa3c2d63b0' ? (
+                            <Vimeo video="710693590" autoplay width={1500} />
+                        ) : (
+                            <VidPlayer
+                                controls
+                                disablePictureInPicture
+                                controlsList="nodownload"
+                                autoPlay
+                                onClick={(event) => event.stopPropagation()}
+                                ref={vidRef}
+                            >
+                                <source src={video_src} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </VidPlayer>
+                        )}
                     </Flex>
                 </VidDivWrapper>
             </VidPlayerWrapper>

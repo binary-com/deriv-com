@@ -81,17 +81,13 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
                 <Text>All videos</Text>
             </Flex>
             <VideoGrid margin="8rem 0">
-                {video_data.map((item) => {
-                    return (
-                        <VideoCard
-                            key={item.video_id}
-                            item={item}
-                            openVideo={() =>
-                                openVideo(item.video_file.id, slugify(item.video_title))
-                            }
-                        />
-                    )
-                })}
+                {video_data.map((item) => (
+                    <VideoCard
+                        key={item.video_id}
+                        item={item}
+                        openVideo={() => openVideo(item.video_file.id, slugify(item.video_title))}
+                    />
+                ))}
             </VideoGrid>
             {show && <VideoPlayer video_src={play_video_src} closeVideo={closeVideo} />}
         </Container>

@@ -8,7 +8,6 @@ import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
-console.log(QueryImage)
 const Container = styled.div`
     position: relative;
 

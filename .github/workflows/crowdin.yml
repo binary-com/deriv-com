@@ -1,0 +1,29 @@
+name: Translation Push
+
+on:
+    push:
+        branch:
+            - 'translation-*'
+
+jobs:
+    push-translation:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '14.x'
+            - run: npm i -g @crowdin/cli
+            - run: npm ci
+            - name: Extract, Upload and Download from Crowdin Platform
+              run: 
+                  echo "Setting up Git identity"
+                  git config --global user.name "DerivFE"
+                  git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+
+                  echo "Running the translation script (extract-translations.js)"
+                  npm run translate:extract
+                 
+                  echo "Uploading new strings to Crowdin"
+                  npm run translation:push -T ${{ secrets.CROWDIN_API_KEY }}
+                

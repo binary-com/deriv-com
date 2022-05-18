@@ -97,10 +97,11 @@ const markets_type: MarketsType = {
 const LearnMore = styled(LocalizedLink)`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
+    height: 40px;
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -25px;
+    bottom: -33px;
     margin-left: auto;
     margin-right: auto;
     left: 0;

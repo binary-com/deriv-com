@@ -41,7 +41,6 @@ const Line = styled.div`
         min-width: 97.5px;
     }
 `
-
 const InputGroup = styled.div`
     width: 100%;
     position: relative;

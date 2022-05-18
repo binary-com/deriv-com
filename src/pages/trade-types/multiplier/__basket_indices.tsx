@@ -135,12 +135,12 @@ const BasketIndices = () => {
                     )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
+                    <AvailablePlatforms m_top="16px" dtrader />
                 </AvailablePlatformsWrapper>
                 <Text weight="bold">
                     {localize('Instruments available for multipliers trading')}
                 </Text>
-                {is_eu_country && (
+                {
                     <MarketsWrapper direction="column">
                         <MarketsAccordion
                             renderTitle={() => (
@@ -165,7 +165,7 @@ const BasketIndices = () => {
                             renderDetails={BasketCommoditiesDetails}
                         />
                     </MarketsWrapper>
-                )}
+                }
 
                 <MarketsWrapper direction="column">
                     <MarketsAccordion

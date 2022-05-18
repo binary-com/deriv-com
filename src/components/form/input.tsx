@@ -16,7 +16,6 @@ interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     handleError?: (current_input: React.RefObject<HTMLInputElement>) => void
     height?: string
     id?: string
-    is_date?: boolean
     label?: string
     label_color?: string
     label_hover_color?: string
@@ -231,7 +230,6 @@ const Input = ({
     label_color = '',
     disabled,
     id = '',
-    is_date,
     error = '',
     background = '',
     tablet_background = '',
@@ -271,7 +269,7 @@ const Input = ({
                     ref={(ip) => (current_input.current = ip)}
                 />
 
-                {label && !is_date && (
+                {label && (
                     <StyledLabel
                         tablet_background={tablet_background}
                         error={error}

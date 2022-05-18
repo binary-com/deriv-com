@@ -16,7 +16,7 @@ const DayPickerWrapper = styled.div`
         height: 40px;
     }
     .react-date-picker__wrapper {
-        border: 'solid 1px var(--color-grey-7)' !important;
+        border: none;
         border-radius: 4px;
     }
     .react-date-picker__calendar {
@@ -84,7 +84,7 @@ const DayPickerWrapper = styled.div`
 const StyledLabel = styled.label`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     position: absolute;
     pointer-events: none;
     left: 0.8rem;

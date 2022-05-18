@@ -41,52 +41,15 @@ const Line = styled.div`
         min-width: 97.5px;
     }
 `
-const InputWrapper = styled.div`
+const AffiliateInputWrapper = styled.div`
     position: relative;
+    border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
+    border-radius: 4px;
+    border-color: var(--color-grey-7);
 `
-// const InputWrappers = styled.div`
-//     /* prettier-ignore */
-//     position:relative;
-//     width: 100%;
-//     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
-//     border-radius: 4px;
-//     @media ${device.tabletL} {
-//         height: 5rem;
-//     }
-
-//     &:hover {
-//         border-color: var(--color-grey-5);
-
-//         & > label {
-//             color: ${({ label_hover_color }) =>
-//                 label_hover_color ? `var(--color-${label_hover_color})` : 'var(--color-black-3)'};
-//         }
-//     }
-//     &:focus-within {
-//         border-color: ${({ focus_border }) =>
-//             focus_border ? `var(--color-${focus_border})` : 'var(--color-green)'};
-//     }
-
-//     ${(props) =>
-//         !props.error &&
-//         css`
-//             border-color: var(--color-grey-7);
-//         `}
-//     ${(props) =>
-//         props.error &&
-//         css`
-//             border-color: var(--color-red-1) !important;
-//             & > label {
-//                 color: var(--color-red-1) !important;
-//             }
-//         `}
-//     ${(props) =>
-//         props.disabled &&
-//         css`
-//             opacity: 0.32;
-//             pointer-events: none;
-//         `}
-// `
+const AffiliateDatePickerWrapper = styled.div`
+    margin-bottom: 16px;
+`
 
 const InputGroup = styled.div`
     width: 100%;
@@ -279,24 +242,26 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                             />
                                         </DropdownSearchWrapper>
                                     ) : item.name === 'date' ? (
-                                        <InputWrapper>
-                                            <AffiliateDatePicker
-                                                id={item.id}
-                                                top_shift="1.5rem"
-                                                error={item.touch && item.error}
-                                                disabled={disabled}
-                                                label={item.label}
-                                                setFieldValue={setFieldValue}
-                                                setFieldTouched={setFieldTouched}
-                                                placeholder={item.placeholder}
-                                                handleError={() => {
-                                                    setFieldValue(item.name, '', false)
-                                                    setFieldError(item.name, '')
-                                                    setFieldTouched(item.name, false, false)
-                                                }}
-                                                htmlFor={item.id}
-                                            />
-                                        </InputWrapper>
+                                        <AffiliateDatePickerWrapper>
+                                            <AffiliateInputWrapper>
+                                                <AffiliateDatePicker
+                                                    id={item.id}
+                                                    top_shift="1.5rem"
+                                                    error={item.touch && item.error}
+                                                    disabled={disabled}
+                                                    label={item.label}
+                                                    setFieldValue={setFieldValue}
+                                                    setFieldTouched={setFieldTouched}
+                                                    placeholder={item.placeholder}
+                                                    handleError={() => {
+                                                        setFieldValue(item.name, '', false)
+                                                        setFieldError(item.name, '')
+                                                        setFieldTouched(item.name, false, false)
+                                                    }}
+                                                    htmlFor={item.id}
+                                                />
+                                            </AffiliateInputWrapper>
+                                        </AffiliateDatePickerWrapper>
                                     ) : (
                                         <Field
                                             name={item.name}

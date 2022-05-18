@@ -41,15 +41,6 @@ const Line = styled.div`
         min-width: 97.5px;
     }
 `
-// const AffiliateInputWrapper = styled.div`
-//     position: relative;
-//     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
-//     border-radius: 4px;
-//     border-color: var(--color-grey-7);
-// `
-// const AffiliateDatePickerWrapper = styled.div`
-//     margin-bottom: 16px;
-// `
 
 const InputGroup = styled.div`
     width: 100%;

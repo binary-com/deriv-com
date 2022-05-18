@@ -12,7 +12,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { getCountryRule } from 'components/containers/visibility'
+import { getCountryRule , EU, UK, ROW } from 'components/containers/visibility'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -386,7 +386,31 @@ const WhatAreOptions = () => {
                 </SmallContainer>
             </StyledSectionContainer>
 
-            <Trades is_uk={is_uk} is_uk_eu={is_uk_eu} />
+            <UK>
+                <AvailableTrades
+                    display_title={localize('Instruments available to trade on Multipliers')}
+                    Forex={CFDs}
+                />
+            </UK>
+
+            <EU>
+                <AvailableTrades
+                    display_title={localize('Instruments available to trade on Multipliers')}
+                    Forex={CFDs}
+                    SyntheticIndices={SyntheticIndices}
+                    Cryptocurrencies={Cryptocurrencies}
+                />
+            </EU>
+
+            <ROW>
+                <AvailableTrades
+                    display_title={localize('Instruments available to trade on Multipliers')}
+                    Forex={CFDs}
+                    SyntheticIndices={SyntheticIndices}
+                    Cryptocurrencies={Cryptocurrencies}
+                    BasketIndices={BasketIndices}
+                />
+            </ROW>
 
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
@@ -489,31 +513,31 @@ const WhatAreOptions = () => {
     )
 }
 
-const Trades = ({ is_uk, is_uk_eu }: { is_uk: boolean; is_uk_eu: boolean }) => {
-    if (is_uk)
-        return (
-            <AvailableTrades
-                display_title={localize('Instruments available to trade on Multipliers')}
-                Forex={CFDs}
-            />
-        )
-    if (is_uk_eu)
-        return (
-            <AvailableTrades
-                display_title={localize('Instruments available to trade on Multipliers')}
-                Forex={CFDs}
-                SyntheticIndices={SyntheticIndices}
-                Cryptocurrencies={Cryptocurrencies}
-            />
-        )
-    return (
-        <AvailableTrades
-            display_title={localize('Instruments available to trade on Multipliers')}
-            Forex={CFDs}
-            SyntheticIndices={SyntheticIndices}
-            Cryptocurrencies={Cryptocurrencies}
-            BasketIndices={BasketIndices}
-        />
-    )
-}
+// const Trades = ({ is_uk, is_uk_eu }: { is_uk: boolean; is_uk_eu: boolean }) => {
+//     if (is_uk)
+//         return (
+//             <AvailableTrades
+//                 display_title={localize('Instruments available to trade on Multipliers')}
+//                 Forex={CFDs}
+//             />
+//         )
+//     if (is_uk_eu)
+//         return (
+//             <AvailableTrades
+//                 display_title={localize('Instruments available to trade on Multipliers')}
+//                 Forex={CFDs}
+//                 SyntheticIndices={SyntheticIndices}
+//                 Cryptocurrencies={Cryptocurrencies}
+//             />
+//         )
+//     return (
+//         <AvailableTrades
+//             display_title={localize('Instruments available to trade on Multipliers')}
+//             Forex={CFDs}
+//             SyntheticIndices={SyntheticIndices}
+//             Cryptocurrencies={Cryptocurrencies}
+//             BasketIndices={BasketIndices}
+//         />
+//     )
+// }
 export default WhatAreOptions

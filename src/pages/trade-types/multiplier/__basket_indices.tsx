@@ -7,7 +7,7 @@ import AvailablePlatforms from '../../markets/components/helper/_available-platf
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Desktop, Mobile, getCountryRule } from 'components/containers/visibility'
+import { Desktop, Mobile, getCountryRule , EU, UK, ROW } from 'components/containers/visibility'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 

@@ -97,11 +97,10 @@ const markets_type: MarketsType = {
 const LearnMore = styled(LocalizedLink)`
     opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
-    height: 35px;
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -30px;
+    bottom: -25px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -211,10 +210,10 @@ const Card = ({ market }: CardProps) => {
             <Text size="16px" weight="bold" mt="1.6rem">
                 {localize(markets_type[market].title)}
             </Text>
-            <Text size="15px" mt="0.8rem">
+            <Text size="16px" mt="0.8rem">
                 {markets_type[market].content}
             </Text>
-            <LearnMore size="13px" to={markets_type[market].to} visibility={button_visibility}>
+            <LearnMore to={markets_type[market].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
                 <img src={Arrow} alt="" />
             </LearnMore>

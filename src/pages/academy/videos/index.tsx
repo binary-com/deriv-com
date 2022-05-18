@@ -59,7 +59,7 @@ const VideosPage = ({ data }: VideosPageProps) => {
 
     // We need to include the !is_uk_country check together with is_eu_country because 'gb'
     // is a valid country code for both EU and UK in our country base.
-    if (is_eu && !is_uk) {
+    if (is_eu) {
         video_data = data.directus.videos.filter(
             (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
         )

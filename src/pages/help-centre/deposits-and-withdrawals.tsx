@@ -88,7 +88,7 @@ const ExpiredVerificationLink = ({ text }: ArticleProps) => (
                 translate_text="You can get a new link on the Cashier page. Go to <0>Withdrawal</0> and click Verify my request. We'll email you a new link; please remember to use it within 1 hour."
                 components={[
                     <ExternalLink
-                        to="/cashier/withdrawal"
+                        to="https://app.deriv.com/cashier/withdrawal"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}

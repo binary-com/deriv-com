@@ -23,7 +23,6 @@ jest.mock('common/utility', () => ({
 }))
 
 // mock the qraphql query used in seo.js
-// beforeEach(() => {
 useStaticQuery.mockReturnValue({
     site: {
         siteMetadata: {
@@ -35,10 +34,9 @@ useStaticQuery.mockReturnValue({
         },
     },
 })
-// })
 
 describe('NewSignUp', () => {
-    it('should contain Got', () => {
+    it('must contain create demo account Button', () => {
         render(
             <DerivProvider value={{ is_eu_country: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
@@ -46,7 +44,9 @@ describe('NewSignUp', () => {
                 </LocaleContextWrapper>
             </DerivProvider>,
         )
-        const Element = screen.getByText(/Got/i)
-        expect(Element).toBeInTheDocument()
+        const singup_button = screen.getByRole('button', {
+            name: /Create demo account/i,
+        })
+        expect(singup_button).toBeInTheDocument()
     })
 })

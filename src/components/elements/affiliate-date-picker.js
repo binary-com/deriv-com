@@ -112,7 +112,7 @@ const AffiliateDatePicker = (props) => {
 
     const [max_date, setMaxDate] = useState()
     const [is_date_field, selectDateField] = useState(false)
-    const [current_value, onChange] = useState()
+    const [current_value, onChange] = useState(max_date)
 
     useEffect(() => {
         setMaxDate(dayjs().subtract(18, 'year').toDate())
@@ -149,8 +149,6 @@ const AffiliateDatePicker = (props) => {
                 defaultActiveStartDate={max_date}
                 showLeadingZeros={false}
                 clearIcon={null}
-                wrapperClassName="react-date-picker__wrapper"
-                placeholderText="Date of Birth"
             />
             <StyledLabel
                 tablet_background={tablet_background}

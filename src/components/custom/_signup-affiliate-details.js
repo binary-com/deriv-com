@@ -72,7 +72,7 @@ const StyledLinkText = styled(LinkText)`
     }
 `
 const DropdownSearchWrapper = styled.div`
-    margin-bottom: -16px;
+    margin-bottom: -20px;
 `
 
 const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMessage }) => {

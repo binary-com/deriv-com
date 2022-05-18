@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react'
 import { isBrowser } from 'common/utility'
 import { size } from 'themes/device'
 
-export const useBrowserResize = (maxSize: number) => {
+export const useBrowserResize = (maxSize?: number) => {
     const [is_mobile, setMobile] = useState(false)
     const [width, setWidth] = useState(isBrowser() ? window.innerWidth : 0)
     const breakpoint = maxSize ? maxSize : size.tablet
 
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? !!(width <= breakpoint) : false)
+        setMobile(isBrowser() ? width <= breakpoint : false)
     }
 
     useEffect(() => {

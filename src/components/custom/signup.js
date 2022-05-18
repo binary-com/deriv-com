@@ -99,7 +99,10 @@ const Signup = (props) => {
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
         const token = queryParams.get('t')
-
+        if (token && cookies_value.utm_campaign == 'CellXpert') {
+            cookies_value.utm_campaign = 'CellXpert'
+            cookies_value.utm_medium = 'affiliate'
+        }
         if (!token) {
             delete cookies_value.utm_campaign
             delete cookies_value.utm_medium

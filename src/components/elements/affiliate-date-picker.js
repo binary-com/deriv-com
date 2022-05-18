@@ -42,6 +42,29 @@ const DayPickerWrapper = styled.div`
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
     border-color: var(--color-grey-7);
+    @media ${device.tabletL} {
+        height: 5rem;
+    }
+
+    ${(props) =>
+        !props.error &&
+        css`
+            border-color: var(--color-grey-7);
+        `}
+    ${(props) =>
+        props.error &&
+        css`
+            border-color: var(--color-red-1) !important;
+            & > label {
+                color: var(--color-red-1) !important;
+            }
+        `}
+    ${(props) =>
+        props.disabled &&
+        css`
+            opacity: 0.32;
+            pointer-events: none;
+        `}
 
     .react-date-picker {
         display: block;
@@ -114,6 +137,18 @@ const DayPickerWrapper = styled.div`
                   `
         }}
     }
+    &:hover {
+        border-color: var(--color-grey-5);
+
+        & > label {
+            color: ${({ label_hover_color }) =>
+                label_hover_color ? `var(--color-${label_hover_color})` : 'var(--color-black-3)'};
+        }
+    }
+    &:focus-within {
+        border-color: ${({ focus_border }) =>
+            focus_border ? `var(--color-${focus_border})` : 'var(--color-green)'};
+    }
 `
 const StyledLabel = styled.label`
     color: ${({ label_color }) =>
@@ -144,6 +179,7 @@ const AffiliateDatePicker = (props) => {
         label_focus_color,
         error_shift,
         handleError,
+        disabled,
     } = props
 
     const [max_date, setMaxDate] = useState()
@@ -171,6 +207,7 @@ const AffiliateDatePicker = (props) => {
                 current_value={current_value}
                 label_focus_color={label_focus_color}
                 error={error}
+                disabled={disabled}
             >
                 <DatePicker
                     onChange={onDateChange}
@@ -215,6 +252,7 @@ const AffiliateDatePicker = (props) => {
 }
 
 AffiliateDatePicker.propTypes = {
+    disabled: PropTypes.bool,
     error: PropTypes.string,
     error_shift: PropTypes.string,
     handleError: PropTypes.func,

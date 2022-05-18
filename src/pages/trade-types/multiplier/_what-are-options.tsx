@@ -386,20 +386,7 @@ const WhatAreOptions = () => {
                 </SmallContainer>
             </StyledSectionContainer>
 
-            {is_uk ? (
-                <AvailableTrades
-                    display_title={localize('Instruments available to trade on Multipliers')}
-                    Forex={CFDs}
-                />
-            ) : (
-                <AvailableTrades
-                    display_title={localize('Instruments available to trade on Multipliers')}
-                    Forex={CFDs}
-                    SyntheticIndices={SyntheticIndices}
-                    Cryptocurrencies={Cryptocurrencies}
-                    BasketIndices={BasketIndices}
-                />
-            )}
+            <Trades is_uk={is_uk} is_uk_eu={is_uk_eu} />
 
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
@@ -502,4 +489,31 @@ const WhatAreOptions = () => {
     )
 }
 
+const Trades = ({ is_uk, is_uk_eu }: { is_uk: boolean; is_uk_eu: boolean }) => {
+    if (is_uk)
+        return (
+            <AvailableTrades
+                display_title={localize('Instruments available to trade on Multipliers')}
+                Forex={CFDs}
+            />
+        )
+    if (is_uk_eu)
+        return (
+            <AvailableTrades
+                display_title={localize('Instruments available to trade on Multipliers')}
+                Forex={CFDs}
+                SyntheticIndices={SyntheticIndices}
+                Cryptocurrencies={Cryptocurrencies}
+            />
+        )
+    return (
+        <AvailableTrades
+            display_title={localize('Instruments available to trade on Multipliers')}
+            Forex={CFDs}
+            SyntheticIndices={SyntheticIndices}
+            Cryptocurrencies={Cryptocurrencies}
+            BasketIndices={BasketIndices}
+        />
+    )
+}
 export default WhatAreOptions

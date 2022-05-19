@@ -72,19 +72,21 @@ const WhyIb = ({ text }: ArticleProps) => (
                 <Text>{localize("You'll have a dedicated account manager to help you.")}</Text>
             </StyledListItem>
         </StyledList>
-        <Localize
-            translate_text="Find out more about our IB programme <0>here</0>."
-            components={[
-                <ExternalLink
-                    to={'https://deriv.com/partners/affiliate-ib/'}
-                    target="_blank"
-                    external="true"
-                    weight="bold"
-                    rel="noopener noreferrer"
-                    key={0}
-                />,
-            ]}
-        />
+        <Text>
+            <Localize
+                translate_text="Find out more about our IB programme <0>here</0>."
+                components={[
+                    <ExternalLink
+                        to={'https://deriv.com/partners/affiliate-ib/'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
     </ArticleWrapper>
 )
 

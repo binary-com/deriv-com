@@ -21,7 +21,7 @@ const WhatAreMultipliers = ({ text }: ArticleProps) => (
                 translate_text="Multipliers (also known as multiplier options) is a trade type that gives you an opportunity to amplify your profit without risking more than your stake. To find out more, visit <0>the Multipliers page</0>."
                 components={[
                     <StyledLink
-                        to={'/multipliers/'}
+                        to={'/trade-types/multiplier'}
                         target="_blank"
                         external="true"
                         weight="bold"

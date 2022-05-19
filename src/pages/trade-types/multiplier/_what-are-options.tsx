@@ -12,7 +12,6 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { getCountryRule } from 'components/containers/visibility'
-// Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
 import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'

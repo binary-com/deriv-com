@@ -8,7 +8,7 @@ import device from 'themes/device'
 import ForexIcon from 'images/svg/trade-types/market-forex.svg'
 import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
 import CryptocurrencyIcon from 'images/svg/markets/cryptocurrencies.svg'
-import BasketIndecesIcon from 'images/svg/markets/basket_indeces_new.svg'
+import BasketIndecesIcon from 'images/svg/markets/basket_indices_new.svg'
 
 type CardProps = {
     active_tab: string

@@ -8,7 +8,7 @@ export const useBrowserResize = (maxSize?: number) => {
     const breakpoint = maxSize ? maxSize : size.tablet
 
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? width <= breakpoint : false)
+        setMobile(isBrowser() && width <= breakpoint)
     }
 
     useEffect(() => {

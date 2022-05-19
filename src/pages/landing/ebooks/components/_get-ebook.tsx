@@ -342,7 +342,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         type="submit"
                         secondary="true"
                         disabled={
-                            (is_submitting || !is_checked || email_error_msg || !email) && true
+                            is_submitting || !is_checked || Boolean(email_error_msg) || !email
                         }
                     >
                         {localize('Get your free ebook now!')}

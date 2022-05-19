@@ -517,7 +517,6 @@ const AvailableBalanceForDerivP2P = ({ text }: ArticleProps) => (
                             '/help-centre/deriv-p2p/#Deriv-P2P-balance-different-from-my-Deriv-account-balance'
                         }
                         target="_blank"
-                        external="true"
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}

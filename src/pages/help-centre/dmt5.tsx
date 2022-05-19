@@ -531,7 +531,7 @@ const DMT5Article = () => {
                 />
                 <DifferenceDMT5DTrader
                     text={localize(
-                        'What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?',
+                        'What are the main differences between your digital options and CFD platforms?',
                     )}
                     label="differences-of-dtrader-and-dmt5"
                     is_mounted={is_mounted}
@@ -545,7 +545,7 @@ const DMT5Article = () => {
                 ) : (
                     <DifferentAccounts
                         text={localize(
-                            'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+                            'What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?',
                         )}
                         label="differences-of-dmt5-accounts"
                         is_mounted={is_mounted}

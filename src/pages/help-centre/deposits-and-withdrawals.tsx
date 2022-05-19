@@ -31,7 +31,7 @@ const PaymentMethods = ({ text }: ArticleProps) => (
                         key={0}
                     />,
                     <ExternalLink
-                        to="/cashier/"
+                        to="https://app.deriv.com/cashier/"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

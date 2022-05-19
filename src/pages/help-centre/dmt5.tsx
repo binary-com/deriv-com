@@ -202,7 +202,7 @@ const ResetDMT5Password = ({ text }: ArticleProps) => (
                         translate_text="Go to your <0>Deriv MT5 dashboard</0>."
                         components={[
                             <ExternalLink
-                                to={'/mt5'}
+                                to={'https://app.deriv.com/mt5'}
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -259,7 +259,7 @@ const LogInToMyDerivMT5Account = ({ text }: ArticleProps) => (
                 translate_text="You can log in to your Deriv MT5 account via the MT5 desktop app, web terminal, or mobile app. You'll need the login ID and server name from <0>your Deriv MT5 dashboard</0>. Please remember to use your Deriv MT5 password to log in to Deriv MT5."
                 components={[
                     <ExternalLink
-                        to={'/mt5'}
+                        to={'https://app.deriv.com/mt5'}
                         external="true"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -279,7 +279,7 @@ const InvestorPasswordForMyDerivMT5Account = ({ text }: ArticleProps) => (
                 translate_text="You can set the investor password on your <0>Deriv MT5 dashboard</0>. Click <1>Password</1> on your Deriv MT5 account, and select <1>Investor password</1> to set a new password."
                 components={[
                     <ExternalLink
-                        to={'/mt5'}
+                        to={'https://app.deriv.com/mt5'}
                         external="true"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -300,7 +300,7 @@ const NameOfMyDerivMT5Server = ({ text }: ArticleProps) => (
                 translate_text="You can find your Deriv MT5 server name on your <0>Deriv MT5 dashboard</0>. Look for <1>server</1> in between the broker name and login ID."
                 components={[
                     <ExternalLink
-                        to={'/mt5'}
+                        to={'https://app.deriv.com/mt5'}
                         external="true"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -321,7 +321,7 @@ const MinimumAmountToOpenaPositionOnDerivMT5 = ({ text }: ArticleProps) => (
                 translate_text="The minimum amount you’ll need to open a position on Deriv MT5 depends on the margin required for each asset. You can calculate the margin required using our <0>margin calculator</0>."
                 components={[
                     <ExternalLink
-                        to={'/mt5'}
+                        to={'/trader-tools/margin-calculator'}
                         external="true"
                         target="_blank"
                         rel="noopener noreferrer"

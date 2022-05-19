@@ -68,17 +68,10 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
     return (
         <Container>
             <Wrapper>
-                <Header color="white" type="heading-2" size="48px" weight="700px" mb="8px">
+                <Header color="white" type="heading-2" weight="700" mb="8px">
                     {title}
                 </Header>
-                <Header
-                    as="p"
-                    color="white"
-                    weight="regular"
-                    type="subtitle-2"
-                    size="20px"
-                    mb="20px"
-                >
+                <Header as="p" color="white" weight="400" type="subtitle-2" size="20px" mb="20px">
                     {description}
                 </Header>
                 <Flex jc="left" height="unset">

@@ -16,7 +16,7 @@ type SignupNewProps = {
     autofocus: boolean
     clearEmail: () => void
     email: string
-    email_error_msg: string
+    email_error_msg: boolean
     handleInputChange: (event) => void
     handleLogin: (event) => void
     handleSocialSignup: (event) => void
@@ -154,7 +154,6 @@ const SocialButton = styled(Button)<SocialButtonProps>`
         }
     }
 `
-//ask prince how does this work
 const SocialWrapper = styled.div<CSSProperties>`
     width: 100%;
     margin-top: 2.4rem;
@@ -301,7 +300,6 @@ const SignupNew = ({
                 isChecked={is_checked}
                 type="submit"
                 secondary="true"
-                //where is the string type coming from ?
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
                 id="dm-new-signup"
             >
@@ -331,7 +329,7 @@ const SignupNew = ({
                 <Line />
             </SignupWithContainer>
 
-            <SocialWrapper justify="space-between" gap="0" grid="2">
+            <SocialWrapper gap="0" grid="2">
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="google"

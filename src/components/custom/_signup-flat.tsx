@@ -14,7 +14,7 @@ type SignupFlatProps = {
     clearEmail: () => void
     dark?: boolean
     email: string
-    email_error_msg: string
+    email_error_msg: boolean
     handleInputChange: (event) => void
     handleLogin: (event) => void
     handleSocialSignup: (event) => void

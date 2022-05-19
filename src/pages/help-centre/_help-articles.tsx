@@ -635,7 +635,7 @@ export const articles: ArcticlesType[] = [
                 label: 'markets-on-dtrader',
             },
             {
-                title: <Localize translate_text="What contract types can I use on DTrader?" />,
+                title: <Localize translate_text="What contract types do you offer on DTrader?" />,
                 category: 'DTrader',
                 sub_category: <Localize translate_text="Contracts" />,
                 label: 'contracts-on-dtrader',

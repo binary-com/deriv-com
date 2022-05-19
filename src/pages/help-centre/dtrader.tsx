@@ -136,7 +136,7 @@ const DTraderArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <DTraderContracts
-                    text={localize('What contract types can I use on DTrader?')}
+                    text={localize('What contract types do you offer on DTrader?')}
                     label="contracts-on-dtrader"
                     is_mounted={is_mounted}
                 />

@@ -14,7 +14,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
 `
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     @media ${device.mobileL} {
         font-size: 32px;
         padding: 0 35px;

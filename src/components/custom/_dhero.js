@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const Wrapper = styled.div`
     position: relative;
@@ -38,7 +38,7 @@ const HeroContent = styled.div`
     flex-direction: column;
     justify-content: flex-start;
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     color: var(--color-white);
     display: flex;
     margin-top: 0;

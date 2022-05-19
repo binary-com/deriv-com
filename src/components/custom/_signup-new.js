@@ -5,7 +5,7 @@ import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { DerivStore } from 'store'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
@@ -31,7 +31,7 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     @media ${device.tabletL} {
         font-size: 3rem;
         margin-bottom: 3rem;

@@ -20,6 +20,7 @@ import { CookieStorage } from 'common/storage'
 import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
+import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
@@ -155,17 +156,20 @@ const Layout = ({
     }, [is_uk_eu])
 
     // Check client's account and ip and apply the necessary redirection
-    const website_status = useWebsiteStatusApi()
-    React.useEffect(() => {
-        if (!is_redirection_applied && website_status) {
-            const current_client_country = website_status?.clients_country || ''
-            const client_information_cookie = new CookieStorage('client_information')
-            const residence = client_information_cookie.get('residence')
+    if (!is_redirection_applied) {
+        const website_status = useWebsiteStatusApi()
 
-            setRedirectionApplied(true)
-            handleRedirect(residence, current_client_country, window.location.hostname)
-        }
-    }, [website_status])
+        React.useEffect(() => {
+            if (website_status) {
+                const current_client_country = website_status?.clients_country || ''
+                const client_information_cookie = new CookieStorage('client_information')
+                const residence = client_information_cookie.get('residence')
+
+                setRedirectionApplied(true)
+                handleRedirect(residence, current_client_country, window.location.hostname)
+            }
+        }, [website_status])
+    }
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
@@ -269,6 +273,7 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
+            <UKAccountClosureModal />
         </LocationProvider>
     )
 }

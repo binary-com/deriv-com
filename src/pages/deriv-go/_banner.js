@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Flex, Container } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
-import device, { size } from 'themes/device.js'
+import device, { size } from 'themes/device'
 import DerivGoBg from 'images/common/deriv-go/hero-bg.png'
 import DerivGoMobileBg from 'images/common/deriv-go/hero-mobile-bg.png'
 import {
@@ -46,12 +46,12 @@ const MainWrapper = styled(Flex)`
     }
 `
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     @media ${device.tabletL} {
         width: auto;
     }
 `
-const StyledSubTitle = styled(Header)`
+const StyledSubTitle = styled((props) => <Header {...props} />)`
     margin-top: 24px;
     @media ${device.laptopM} {
         margin-top: 8px;

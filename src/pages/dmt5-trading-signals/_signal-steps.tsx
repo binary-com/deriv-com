@@ -6,7 +6,7 @@ import { Mobile, Desktop } from '../../components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const Container = styled.section`
     width: 100%;

@@ -9,7 +9,7 @@ import CriticalIcon from 'images/svg/bug-bounty/critical.svg'
 export const vulnerability_types_content = [
     {
         icon: CriticalIcon,
-        title: localize('Critical'),
+        title: <Localize translate_text="Critical" />,
         profit_condition: (
             <Localize
                 translate_text="<0>*</0>We may pay higher for critical bug reports on a case-to-case basis."
@@ -18,7 +18,7 @@ export const vulnerability_types_content = [
         ),
         profit_table: [
             {
-                title: localize('Important business'),
+                title: <Localize translate_text="Important business" />,
                 content: (
                     <Localize
                         translate_text="Up to $10,000<0>*</0>"
@@ -27,7 +27,7 @@ export const vulnerability_types_content = [
                 ),
             },
             {
-                title: localize('General business'),
+                title: <Localize translate_text="General business" />,
                 content: (
                     <Localize
                         translate_text="Up to $5,000<0>*</0>"
@@ -36,7 +36,7 @@ export const vulnerability_types_content = [
                 ),
             },
             {
-                title: localize('Edge business'),
+                title: <Localize translate_text="Edge business" />,
                 content: (
                     <Localize
                         translate_text="Up to $2,500<0>*</0>"
@@ -60,19 +60,19 @@ export const vulnerability_types_content = [
     },
     {
         icon: HighIcon,
-        title: localize('High'),
+        title: <Localize translate_text="High" />,
         profit_table: [
             {
-                title: localize('Important business'),
-                content: localize('Up to $5,000'),
+                title: <Localize translate_text="Important business" />,
+                content: <Localize translate_text="Up to $5,000" />,
             },
             {
-                title: localize('General business'),
-                content: localize('Up to $2,500'),
+                title: <Localize translate_text="General business" />,
+                content: <Localize translate_text="Up to $2,500" />,
             },
             {
-                title: localize('Edge business'),
-                content: localize('Up to $1,000'),
+                title: <Localize translate_text="Edge business" />,
+                content: <Localize translate_text="Up to $1,000" />,
             },
         ],
         description: localize(
@@ -91,19 +91,19 @@ export const vulnerability_types_content = [
     },
     {
         icon: MediumIcon,
-        title: localize('Medium'),
+        title: <Localize translate_text="Medium" />,
         profit_table: [
             {
-                title: localize('Important business'),
-                content: localize('Up to $500'),
+                title: <Localize translate_text="Important business" />,
+                content: <Localize translate_text="Up to $500" />,
             },
             {
-                title: localize('General business'),
-                content: localize('Up to $250'),
+                title: <Localize translate_text="General business" />,
+                content: <Localize translate_text="Up to $250" />,
             },
             {
-                title: localize('Edge business'),
-                content: localize('Up to $100'),
+                title: <Localize translate_text="Edge business" />,
+                content: <Localize translate_text="Up to $100" />,
             },
         ],
         description: localize(
@@ -124,7 +124,7 @@ export const vulnerability_types_content = [
     },
     {
         icon: LowIcon,
-        title: localize('Low'),
+        title: <Localize translate_text="Low" />,
         profit: (
             <Localize
                 translate_text="We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis."

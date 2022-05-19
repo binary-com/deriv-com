@@ -28,7 +28,7 @@ const SmallContainer = styled(Container)`
         padding: 0;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     @media ${device.mobileL} {
         font-size: 32px;
         padding: 0 35px;

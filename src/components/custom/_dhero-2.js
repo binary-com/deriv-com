@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const Wrapper = styled(Flex)`
     position: relative;
@@ -56,7 +56,7 @@ const HeroContent = styled(Flex)`
         }
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     color: var(--color-white);
     display: flex;
     align-items: center;
@@ -72,7 +72,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const HeroHeader = styled(Header)`
+const HeroHeader = styled((props) => <Header {...props} />)`
     @media (max-width: 1315px) {
         font-size: 4.8rem;
     }

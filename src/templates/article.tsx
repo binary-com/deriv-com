@@ -30,10 +30,11 @@ import {
 import Banner from '../pages/academy/components/_banner'
 import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
+import { handleTag } from 'pages/academy/components/utility'
 import { ArticleQuery } from 'types/graphql.types'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
+import { SEO, Desktop, Mobile, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { convertDate, getMinRead, truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -172,7 +173,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                     <InfoText size="14px" mt="16px">
                                         {getMinRead(post_data?.blog_post)}
                                     </InfoText>
-                                    <Show.Mobile min_width="laptop">
+                                    <Mobile breakpoint="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">
                                             <Flex
                                                 fw="wrap"
@@ -182,16 +183,21 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                             >
                                                 {post_data?.tags.map((tag) => {
                                                     return (
-                                                        <Tag key={tag?.tags_id?.id}>
+                                                        <Tag
+                                                            key={tag?.tags_id?.id}
+                                                            onClick={() =>
+                                                                handleTag(tag?.tags_id?.tag_name)
+                                                            }
+                                                        >
                                                             {tag?.tags_id?.tag_name}
                                                         </Tag>
                                                     )
                                                 })}
                                             </Flex>
                                         </SideBarContainer>
-                                    </Show.Mobile>
+                                    </Mobile>
 
-                                    <Show.Desktop max_width="laptop">
+                                    <Desktop breakpoint="laptop">
                                         {post_data?.author && (
                                             <Flex ai="center" mt="40px" jc="flex-start">
                                                 <>
@@ -221,7 +227,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                                 </Box>
                                             </Flex>
                                         )}
-                                    </Show.Desktop>
+                                    </Desktop>
                                 </HeroLeftWrapper>
                                 <HeroRightWrapper>
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
@@ -237,7 +243,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
 
                         <BodyContainer>
                             <LeftBodyContainerWrapper>
-                                <Show.Mobile min_width="laptop">
+                                <Mobile breakpoint="laptop">
                                     {post_data?.author && (
                                         <Flex ai="center" jc="flex-start">
                                             <>
@@ -266,8 +272,8 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                             </Box>
                                         </Flex>
                                     )}
-                                </Show.Mobile>
-                                <Show.Desktop max_width="laptop">
+                                </Mobile>
+                                <Desktop breakpoint="laptop">
                                     <SideBarContainer fd="column" height="auto">
                                         <Flex
                                             jc="flex-start"
@@ -278,7 +284,12 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                         >
                                             {post_data?.tags.map((tag) => {
                                                 return (
-                                                    <Tag key={tag?.tags_id?.id}>
+                                                    <Tag
+                                                        key={tag?.tags_id?.id}
+                                                        onClick={() =>
+                                                            handleTag(tag?.tags_id?.tag_name)
+                                                        }
+                                                    >
                                                         {tag?.tags_id?.tag_name}
                                                     </Tag>
                                                 )
@@ -291,7 +302,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                             <SideSubscriptionBanner />
                                         </DesktopWrapper>
                                     </SideBarContainer>
-                                </Show.Desktop>
+                                </Desktop>
                             </LeftBodyContainerWrapper>
                             <RightBodyContainerWrapper>
                                 <Flex fd="column" margin="0 auto" ai="center">

@@ -20,6 +20,7 @@ jest.mock('common/utility', () => ({
     replaceLocale: jest.fn(() => 'https://binary.sx/en/signup?lang=zh-cn'),
     getLanguage: jest.fn(() => null),
     isNullUndefined: jest.fn(() => true),
+    isLocalhost: jest.fn(() => true),
 }))
 
 // mock the qraphql query used in seo.js

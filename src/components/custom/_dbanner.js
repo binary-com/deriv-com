@@ -5,7 +5,7 @@ import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const Wrapper = styled.div`
     position: relative;
@@ -101,7 +101,7 @@ const DemoButton = styled.div`
         margin: unset;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     max-width: 84rem;
     @media ${device.laptopM} {
         font-size: 4rem;

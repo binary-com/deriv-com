@@ -9,7 +9,7 @@ import { localize } from 'components/localization'
 import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import { getCountryRule } from 'components/containers/visibility'
-import device from 'themes/device.js'
+import device from 'themes/device'
 // SVG
 import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
@@ -171,7 +171,7 @@ const SocialButton = styled(Button)`
         justify-content: center;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
     @media ${device.tablet} {

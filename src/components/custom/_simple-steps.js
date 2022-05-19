@@ -40,13 +40,13 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     @media ${device.tabletL} {
         font-size: 16px;
     }
 `
 
-const TitleHeader = styled(Header)`
+const TitleHeader = styled((props) => <Header {...props} />)`
     @media ${device.tabletL} {
         font-size: 32px;
         line-height: 1.5;

@@ -30,7 +30,7 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled((props) => <Chevron {...props} />)`
+const Arrow = styled(() => <Chevron />)`
     ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
     transition: transform 0.25s;
 

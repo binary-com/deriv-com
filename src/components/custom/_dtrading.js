@@ -43,7 +43,7 @@ const ImageWrapper = styled.div`
         margin: 2rem auto;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     line-height: 1.25;
 
     @media ${device.tabletL} {

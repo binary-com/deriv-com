@@ -8,7 +8,7 @@ import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
 
-const StyledHeader = styled(Header)`
+const StyledHeader = styled((props) => <Header {...props} />)`
     @media ${device.mobileL} {
         font-size: 32px;
         padding: 0 35px;

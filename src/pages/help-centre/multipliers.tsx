@@ -61,9 +61,9 @@ const MultipliersArticle = () => {
     return (
         <div>
             <Article
-                header="DTrader"
-                title={localize('Help centre | Frequently asked questions | DTrader | Deriv')}
-                description={localize('Frequently asked questions - DTrader')}
+                header="Multipliers"
+                title={localize('Help centre | Frequently asked questions | Multipliers | Deriv')}
+                description={localize('Frequently asked questions - Multipliers')}
             >
                 <WhatAreMultipliers
                     text={localize('What are multipliers?')}

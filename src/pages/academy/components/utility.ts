@@ -37,19 +37,16 @@ export const handleTag = (tag_name) => {
 
 export const dataFilter = (data) => {
     const { is_eu, is_uk } = getCountryRule()
-    let filtered_data
+    let filtered_data = data
 
     if (is_eu) {
         filtered_data = data.filter(
             (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
         )
-        return filtered_data
     } else if (is_uk) {
         filtered_data = data.filter(
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )
-        return filtered_data
-    } else {
-        return data
     }
+    return filtered_data
 }

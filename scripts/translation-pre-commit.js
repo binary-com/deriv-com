@@ -24,7 +24,7 @@ const handleProcess = () => {
     const strings_path = 'crowdin/messages.json'
 
     // Detect Auto Translation Process
-    if (!branch_name.startsWith(branch_name_convention)) {
+    if (branch_name.startsWith(branch_name_convention)) {
         console.log(
             `\x1b[32mInvalid branch name: \x1b[33m${branch_name}\x1b[32m Auto Extract Strings \n `,
         )

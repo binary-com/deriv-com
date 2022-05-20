@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
-import QueryImage from 'components/elements/query-image'
+import QueryImageCarousel from 'components/elements/quer-image-carousel'
 import device from 'themes/device'
 import { getCountryRule } from 'components/containers/visibility'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
@@ -19,7 +19,10 @@ const ImagePlaceHolder = styled.div`
 
 const query = graphql`
     query {
-        hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
+        sprite_hero: file(relativePath: { eq: "home/hero_bg.png" }) {
+            ...homePageHeroFadeIn
+        }
+        combined_hero: file(relativePath: { eq: "home/MergedImages-new.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform1_eu: file(relativePath: { eq: "home/hero_platform1_eu.png" }) {
@@ -46,7 +49,7 @@ const query = graphql`
     }
 `
 
-const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
+const StyledImage = styled(QueryImageCarousel)<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
     display: ${({ $is_hidden }) => ($is_hidden ? 'none' : 'block')};
     animation: fade 1s ease-in-out;
@@ -62,7 +65,6 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
             }
         }
     }
-
     @keyframes fade {
         0% {
             opacity: 0;
@@ -88,10 +90,9 @@ const PlatformSlideshow = () => {
 
     const slide_images =
         (is_row && [
-            { key: 'hero1', image: data.hero_platform1 },
-            { key: 'hero2', image: data.hero_platform2 },
-            { key: 'hero3', image: data.hero_platform3 },
-            { key: 'hero4', image: data.hero_platform4 },
+            { key: 'hero1', image: data.sprite_hero },
+            { key: 'hero2', image: data.sprite_hero },
+            { key: 'hero3', image: data.sprite_hero },
         ]) ||
         (is_eu && [
             { key: 'hero1', image: data.hero_platform1_eu },
@@ -136,6 +137,7 @@ const Slides = ({ images, active_index }: SlidesProps) => {
                 return (
                     <StyledImage
                         key={key}
+                        keyName={key}
                         data={image}
                         alt="platform devices"
                         width="100%"

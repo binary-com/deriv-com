@@ -32,6 +32,5 @@ jobs:
                   npm run translate:extract
             - name: Push New Strings
               run: 
-                  echo "Uploading new strings to Crowdin[${{ steps.extract_branch.outputs.branch }}]"
                   crowdin upload sources -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
                 

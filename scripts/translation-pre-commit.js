@@ -26,7 +26,7 @@ const handleProcess = () => {
     // Detect Auto Translation Process
     if (branch_name.startsWith(branch_name_convention)) {
         console.log(
-            `\x1b[33m${branch_name} \x1b[32m requires translation, auto extracting strings \n`,
+            `\x1b[33m${branch_name}\x1b[32m requires translation, auto extracting strings \n \x1b[0m`,
         )
 
         runProcess({

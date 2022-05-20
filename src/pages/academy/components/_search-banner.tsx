@@ -4,6 +4,7 @@ import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { combined_filter_type } from '../common/_constants'
 import type { TopicType } from '../common/_constants'
+import { dataFilter } from './utility'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
@@ -369,7 +370,6 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const { academy_data } = useContext(DerivStore)
     const [search_input, setSearchInput] = useState('')
     const [search_query, setSearchQuery] = useState('')
-    const { is_eu, is_uk } = getCountryRule()
 
     const [search_input_touched, setSearchInputTouched] = useState(false)
     const [result_opened, setSuggestionBoxOpened] = useState(false)
@@ -378,17 +378,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    let combined_data = [...academy_data.blog, ...academy_data.videos]
-
-    if (is_eu) {
-        combined_data = combined_data.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
-        )
-    } else if (is_uk) {
-        combined_data = combined_data.filter(
-            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
-        )
-    }
+    const combined_data = dataFilter([...academy_data.blog, ...academy_data.videos])
 
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

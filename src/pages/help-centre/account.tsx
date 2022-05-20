@@ -779,11 +779,6 @@ const AccountArticle = () => {
                 title={localize('Help centre | Frequently asked questions | Account | Deriv')}
                 description={localize('Frequently asked questions - Account')}
             >
-                <WhoCanOpenAnAccount
-                    text={localize("Why can't I create an account?")}
-                    label="who-can-open-an-account"
-                    is_mounted={is_mounted}
-                />
                 <ChangingPersonalDetails
                     text={localize('How can I change my personal details?')}
                     label="changing-your-personal-details"
@@ -792,6 +787,16 @@ const AccountArticle = () => {
                 <ChangeAccountCurrency
                     text={localize('How can I change the currency of my account?')}
                     label="change-account-currency"
+                    is_mounted={is_mounted}
+                />
+                <ChangeMyEmailAddress
+                    text={localize('Can I change my email address?')}
+                    label="change-my-email-address"
+                    is_mounted={is_mounted}
+                />
+                <WhoCanOpenAnAccount
+                    text={localize("Why can't I create an account?")}
+                    label="who-can-open-an-account"
                     is_mounted={is_mounted}
                 />
                 <RecoveringPassword
@@ -814,11 +819,6 @@ const AccountArticle = () => {
                 <DormantFee
                     text={localize('What is a dormant fee?')}
                     label="what-is-dormant-fee"
-                    is_mounted={is_mounted}
-                />
-                <ChangeMyEmailAddress
-                    text={localize('Can I change my email address?')}
-                    label="change-my-email-address"
                     is_mounted={is_mounted}
                 />
                 <OpenACorporateOrBusinessAccount

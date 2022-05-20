@@ -35,8 +35,6 @@ export const handleTag = (tag_name) => {
     navigate(`/academy/search?category=${encodeURI(`${tag_name}`)}`)
 }
 
-// We need to include the !is_uk_country check together with is_eu_country because 'gb'
-// is a valid country code for both EU and UK in our country base.
 export const dataFilter = (data) => {
     const { is_eu, is_uk } = getCountryRule()
     let filtered_data = data

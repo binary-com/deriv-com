@@ -72,7 +72,7 @@ const WhyIb = ({ text }: ArticleProps) => (
                 <Text>{localize("You'll have a dedicated account manager to help you.")}</Text>
             </StyledListItem>
         </StyledList>
-        <Text>
+        <Text style={{ marginTop: '1rem' }}>
             <Localize
                 translate_text="Find out more about our IB programme <0>here</0>."
                 components={[

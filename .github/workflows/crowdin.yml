@@ -21,15 +21,17 @@ jobs:
                   node-version: '14.x'
             - run: npm i -g @crowdin/cli
             - run: npm ci
-            - name: Extract, Upload and Download from Crowdin Platform
+            - name: Git Setup
               run: 
                   echo "Setting up Git identity"
                   git config --global user.name "DerivFE"
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
-
+            - name: Extract Strings
+              run:   
                   echo "Running the translation script (extract-translations.js)"
                   npm run translate:extract
-                 
+            - name: Push New Strings
+                  run: 
                   echo "Uploading new strings to Crowdin[${{ steps.extract_branch.outputs.branch }}]"
                   npm run translation:push -T ${{ secrets.CROWDIN_API_KEY }}
                 

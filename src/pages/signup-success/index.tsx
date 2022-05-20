@@ -5,7 +5,7 @@ import { getLanguage } from '../../common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Box } from 'components/containers'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 
 const Wrapper = styled.section`

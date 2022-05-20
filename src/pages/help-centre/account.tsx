@@ -6,7 +6,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledList = styled.ul`
     list-style: unset;
@@ -36,7 +36,7 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
             </StyledListItem>
             <StyledListItem>
                 {localize(
-                    'Clients cannot be a resident in Belarus, Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, Rwanda, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+                    'We do not offer our services in Belarus, Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, Rwanda, the UAE, the UK, the USA or any country that has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
                 )}
             </StyledListItem>
         </StyledList>
@@ -86,11 +86,10 @@ const RecoveringPassword = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
+                translate_text="If you’ve forgotten your Google/Facebook/Apple account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
                 components={[
                     <StyledLink
                         to="/reset-password/"
-                        external="true"
                         weight="bold"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -193,7 +192,7 @@ const AccountArticle = () => {
                 />
                 <RecoveringPassword
                     text={localize(
-                        'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
+                        'I forgot my Google/Facebook/Apple account password. How can I log in to my Deriv account?',
                     )}
                     label="recovering-your-password"
                     is_mounted={is_mounted}

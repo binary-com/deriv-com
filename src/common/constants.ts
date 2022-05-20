@@ -46,6 +46,7 @@ export const deriv_app_url = `https://app.${getDomainUrl()}`
 export const deriv_api_url = `https://api.${getDomainUrl()}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
+export const deriv_life_url = `https://derivlife.com/`
 export const deriv_mt5_app_url = `${deriv_app_url}/mt5`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
@@ -112,6 +113,7 @@ export const localized_link_url = Object.freeze({
     smart_trader: smarttrader_url,
     zoho: zoho_url,
     domain_full_url: domain_full_url,
+    derivlife: deriv_life_url,
     'terms_and_conditions/#clients': domain_full_url,
     'terms_and_conditions/#business-partners': domain_full_url,
 })
@@ -134,4 +136,4 @@ export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
-export const loss_percent = 62
+export const loss_percent = 65

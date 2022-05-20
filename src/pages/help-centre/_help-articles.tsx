@@ -39,7 +39,7 @@ export const articles: ArcticlesType[] = [
             },
             {
                 title: (
-                    <Localize translate_text="I forgot my Google/Facebook account password. How can I log in to my Deriv account?" />
+                    <Localize translate_text="I forgot my Google/Facebook/Apple account password. How can I log in to my Deriv account?" />
                 ),
                 category: 'account',
                 sub_category: <Localize translate_text="Managing your account" />,

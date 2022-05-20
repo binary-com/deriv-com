@@ -15,7 +15,8 @@ We have a set of precise rules over how our git commit messages can be formatted
 Each commit message will consist of **type** and **subject**:
 
 ```sh
-<type>|<...other_types>: <subject>
+<type>|<...other_types>:<space><subject>
+For example  "fix: hero image padding"
 ```
 
 ### Type

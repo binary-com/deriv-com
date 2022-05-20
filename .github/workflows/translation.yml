@@ -1,0 +1,56 @@
+name: Release Translation
+
+on:
+    push:
+        tags:
+            - 'translation*'
+        paths-ignore:
+            - '**.md'
+
+jobs:
+    release-translation:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+              with:
+                  ref: crowdin
+                  token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '14.x'
+
+            - run: npm i -g @crowdin/cli
+            - run: npm ci
+
+            - uses: olegtarasov/get-tag@v2.1
+              id: tagName
+
+            - name: Extract, Upload and Download from Crowdin Platform
+              run: branch_name="deriv-com-translations"
+
+                  echo "Setting up Git identity"
+                  git config --global user.name "DerivFE"
+                  git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+
+                  echo "Checking out new branch [$branch_name]"
+                  git checkout -b "$branch_name"
+
+                  echo "Running the translation script (extract-translations.js)"
+                  npm run translate:extract
+                  cd $(git rev-parse --show-toplevel)
+
+                  echo "Downloading new strings to Crowdin"
+                  npm run translate:download -T ${{ secrets.CROWDIN_API_KEY }}
+                  cd $(git rev-parse --show-toplevel)
+                  git add .
+                  git commit -m "Update Translations 📚 - $GIT_TAG_NAME"
+
+                  git push origin HEAD:deriv-com-translations --force
+
+                  sudo apt install gh
+                  gh auth login --with-token <<< ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+                  gh pr close "$branch_name" || true
+                  gh pr create --fill --base "crowdin" --head "binary-com:$branch_name"

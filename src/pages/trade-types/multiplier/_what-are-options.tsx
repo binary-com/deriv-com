@@ -160,7 +160,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_eu, is_row, is_uk_eu } = getCountryRule()
+    const { is_non_uk, is_row, is_uk_eu } = getCountryRule()
 
     return (
         <>
@@ -389,8 +389,8 @@ const WhatAreOptions = () => {
             <AvailableTrades
                 display_title={localize('Instruments available to trade on Multipliers')}
                 Forex={CFDs}
-                SyntheticIndices={is_row || is_eu ? SyntheticIndices : null}
-                Cryptocurrencies={is_row || is_eu ? Cryptocurrencies : null}
+                SyntheticIndices={is_non_uk ? SyntheticIndices : null}
+                Cryptocurrencies={is_non_uk ? Cryptocurrencies : null}
                 BasketIndices={is_row ? BasketIndices : null}
             />
 

@@ -162,7 +162,7 @@ const IbProgrammeArticle = () => {
                 />
                 <WhyIb
                     text={localize('Why should I join your introducing broker (IB) programme?')}
-                    label="why-bi"
+                    label="why-ib"
                     is_mounted={is_mounted}
                 />
                 <HowMuchCommission

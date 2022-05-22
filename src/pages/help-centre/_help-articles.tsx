@@ -11,12 +11,14 @@ type ArticlesByCategoryType = {
 }[]
 
 export type ArcticlesType = {
+    section: string
     category: React.ReactElement
     articles: ArticlesByCategoryType
 }
 
 export const articles: ArcticlesType[] = [
     {
+        section: 'General',
         category: <Localize translate_text="Account" />,
         articles: [
             {
@@ -166,6 +168,7 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'General',
         category: <Localize translate_text="Trading" />,
         articles: [
             {
@@ -233,6 +236,7 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'General',
         category: <Localize translate_text="Deposits and withdrawals" />,
         articles: [
             {
@@ -328,6 +332,198 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'General',
+        category: <Localize translate_text="Security" />,
+        articles: [
+            {
+                title: <Localize translate_text="Do I need to verify my Deriv account?" />,
+                category: 'Security',
+                sub_category: <Localize translate_text="Verification" />,
+                label: 'verify-account',
+            },
+            {
+                title: <Localize translate_text="How long does verification take?" />,
+                category: 'Security',
+                sub_category: <Localize translate_text="Verification" />,
+                label: 'verification-duration',
+            },
+            {
+                title: <Localize translate_text="Why were my documents declined?" />,
+                category: 'Security',
+                sub_category: <Localize translate_text="Verification" />,
+                label: 'documents-declined',
+            },
+            {
+                title: (
+                    <Localize translate_text="I lost my phone. How can I disable two-factor authentication (2FA)?" />
+                ),
+                category: 'Security',
+                sub_category: <Localize translate_text="Verification" />,
+                label: 'disable-two-factor-authentication',
+            },
+        ],
+    },
+
+    {
+        section: 'General',
+        category: <Localize translate_text="Affiliate programme" />,
+        articles: [
+            {
+                title: <Localize translate_text="How do I sign up as an affiliate?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'affiliate-sign-up',
+            },
+            {
+                title: <Localize translate_text="Why should I join your affiliate programme?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'why-affiliate',
+            },
+            {
+                title: <Localize translate_text="What type of commission plans do you offer?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'commission-plans',
+            },
+            {
+                title: <Localize translate_text="Who can apply as an affiliate?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'who-can-apply',
+            },
+            {
+                title: <Localize translate_text="Is it free to join your affiliate programme?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'is-it-free',
+            },
+            {
+                title: <Localize translate_text="What is a referred client?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'referred-client',
+            },
+            {
+                title: (
+                    <Localize translate_text="I forgot my affiliate password. What should I do?" />
+                ),
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'forgot-password',
+            },
+            {
+                title: <Localize translate_text="Where can I find my referral link?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'referral-link',
+            },
+            {
+                title: <Localize translate_text="How do I change my affiliate payment method?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'payment-method',
+            },
+            {
+                title: (
+                    <Localize translate_text="How and when will I receive my commission payout?" />
+                ),
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'commission-payout',
+            },
+            {
+                title: <Localize translate_text="How do I see my earnings?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'see-earnings',
+            },
+            {
+                title: <Localize translate_text="What type of reports will I have access to?" />,
+                category: 'Affiliate programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'reports-access',
+            },
+        ],
+    },
+    {
+        section: 'General',
+        category: <Localize translate_text="IB programme" />,
+        articles: [
+            {
+                title: (
+                    <Localize translate_text="How do I sign up as an introducing broker (IB)?" />
+                ),
+                category: 'IB programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'ib-sign-up',
+            },
+            {
+                title: (
+                    <Localize translate_text="Why should I join your introducing broker (IB) programme?" />
+                ),
+                category: 'IB programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'why-ib',
+            },
+            {
+                title: <Localize translate_text="How much do you pay in commission?" />,
+                category: 'IB programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'how-much-commission',
+            },
+            {
+                title: (
+                    <Localize translate_text="Are there any charges for joining your introducing broker programme?" />
+                ),
+                category: 'IB programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'chargers-ib',
+            },
+            {
+                title: (
+                    <Localize translate_text="How and when will I receive my IB commission payout?" />
+                ),
+                category: 'IB programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'receive-commission',
+            },
+            {
+                title: <Localize translate_text="When can I withdraw my commission?" />,
+                category: 'IB programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'withdraw-commission',
+            },
+            {
+                title: (
+                    <Localize translate_text="Are there any conditions that I should meet before I can withdraw my commission?" />
+                ),
+                category: 'IB programme',
+                sub_category: <Localize translate_text="Partners" />,
+                label: 'withdraw-condition',
+            },
+        ],
+    },
+    {
+        section: 'General',
+        category: <Localize translate_text="About Deriv" />,
+        articles: [
+            {
+                title: <Localize translate_text="Is Deriv regulated?" />,
+                category: 'About Deriv',
+                sub_category: <Localize translate_text="Regulation" />,
+                label: 'Deriv-regulated',
+            },
+            {
+                title: <Localize translate_text="Where is my money held?" />,
+                category: 'About Deriv',
+                sub_category: <Localize translate_text="Finance" />,
+                label: 'money-held',
+            },
+        ],
+    },
+    {
+        section: 'Platforms',
         category: <Localize translate_text="DMT5" />,
         articles: [
             {
@@ -507,6 +703,7 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'Platforms',
         category: <Localize translate_text="Deriv X" />,
         articles: [
             {
@@ -620,6 +817,7 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'Platforms',
         category: <Localize translate_text="DTrader" />,
         articles: [
             {
@@ -649,6 +847,7 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'Platforms',
         category: <Localize translate_text="Multipliers" />,
         articles: [
             {
@@ -666,6 +865,7 @@ export const articles: ArcticlesType[] = [
         ],
     },
     {
+        section: 'Platforms',
         category: <Localize translate_text="DBot" />,
         articles: [
             {
@@ -762,8 +962,8 @@ export const articles: ArcticlesType[] = [
             },
         ],
     },
-
     {
+        section: 'Platforms',
         category: <Localize translate_text="Deriv P2P" />,
         articles: [
             {
@@ -889,196 +1089,6 @@ export const articles: ArcticlesType[] = [
                 category: 'Deriv P2P',
                 sub_category: <Localize translate_text="Limit" />,
                 label: 'buy-or-sell-limit',
-            },
-        ],
-    },
-
-    {
-        category: <Localize translate_text="Security" />,
-        articles: [
-            {
-                title: <Localize translate_text="Do I need to verify my Deriv account?" />,
-                category: 'Security',
-                sub_category: <Localize translate_text="Verification" />,
-                label: 'verify-account',
-            },
-            {
-                title: <Localize translate_text="How long does verification take?" />,
-                category: 'Security',
-                sub_category: <Localize translate_text="Verification" />,
-                label: 'verification-duration',
-            },
-            {
-                title: <Localize translate_text="Why were my documents declined?" />,
-                category: 'Security',
-                sub_category: <Localize translate_text="Verification" />,
-                label: 'documents-declined',
-            },
-            {
-                title: (
-                    <Localize translate_text="I lost my phone. How can I disable two-factor authentication (2FA)?" />
-                ),
-                category: 'Security',
-                sub_category: <Localize translate_text="Verification" />,
-                label: 'disable-two-factor-authentication',
-            },
-        ],
-    },
-
-    {
-        category: <Localize translate_text="Affiliate programme" />,
-        articles: [
-            {
-                title: <Localize translate_text="How do I sign up as an affiliate?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'affiliate-sign-up',
-            },
-            {
-                title: <Localize translate_text="Why should I join your affiliate programme?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'why-affiliate',
-            },
-            {
-                title: <Localize translate_text="What type of commission plans do you offer?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'commission-plans',
-            },
-            {
-                title: <Localize translate_text="Who can apply as an affiliate?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'who-can-apply',
-            },
-            {
-                title: <Localize translate_text="Is it free to join your affiliate programme?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'is-it-free',
-            },
-            {
-                title: <Localize translate_text="What is a referred client?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'referred-client',
-            },
-            {
-                title: (
-                    <Localize translate_text="I forgot my affiliate password. What should I do?" />
-                ),
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'forgot-password',
-            },
-            {
-                title: <Localize translate_text="Where can I find my referral link?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'referral-link',
-            },
-            {
-                title: <Localize translate_text="How do I change my affiliate payment method?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'payment-method',
-            },
-            {
-                title: (
-                    <Localize translate_text="How and when will I receive my commission payout?" />
-                ),
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'commission-payout',
-            },
-            {
-                title: <Localize translate_text="How do I see my earnings?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'see-earnings',
-            },
-            {
-                title: <Localize translate_text="What type of reports will I have access to?" />,
-                category: 'Affiliate programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'reports-access',
-            },
-        ],
-    },
-
-    {
-        category: <Localize translate_text="IB programme" />,
-        articles: [
-            {
-                title: (
-                    <Localize translate_text="How do I sign up as an introducing broker (IB)?" />
-                ),
-                category: 'IB programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'ib-sign-up',
-            },
-            {
-                title: (
-                    <Localize translate_text="Why should I join your introducing broker (IB) programme?" />
-                ),
-                category: 'IB programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'why-ib',
-            },
-            {
-                title: <Localize translate_text="How much do you pay in commission?" />,
-                category: 'IB programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'how-much-commission',
-            },
-            {
-                title: (
-                    <Localize translate_text="Are there any charges for joining your introducing broker programme?" />
-                ),
-                category: 'IB programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'chargers-ib',
-            },
-            {
-                title: (
-                    <Localize translate_text="How and when will I receive my IB commission payout?" />
-                ),
-                category: 'IB programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'receive-commission',
-            },
-            {
-                title: <Localize translate_text="When can I withdraw my commission?" />,
-                category: 'IB programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'withdraw-commission',
-            },
-            {
-                title: (
-                    <Localize translate_text="Are there any conditions that I should meet before I can withdraw my commission?" />
-                ),
-                category: 'IB programme',
-                sub_category: <Localize translate_text="Partners" />,
-                label: 'withdraw-condition',
-            },
-        ],
-    },
-
-    {
-        category: <Localize translate_text="About Deriv" />,
-        articles: [
-            {
-                title: <Localize translate_text="Is Deriv regulated?" />,
-                category: 'About Deriv',
-                sub_category: <Localize translate_text="Regulation" />,
-                label: 'Deriv-regulated',
-            },
-            {
-                title: <Localize translate_text="Where is my money held?" />,
-                category: 'About Deriv',
-                sub_category: <Localize translate_text="Finance" />,
-                label: 'money-held',
             },
         ],
     },

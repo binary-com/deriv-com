@@ -45,7 +45,7 @@ const MainWrapper = styled(Flex)`
             ? 'inset 0 -1px 0 rgba(14, 14, 14, 0.1)'
             : '0 5px 10px rgba(14, 14, 14, 0.1)'};
     position: fixed;
-    z-index: 4;
+    z-index: 10;
     height: 7.2rem;
     top: ${(props) => (props.background ? '0' : '72px')};
 

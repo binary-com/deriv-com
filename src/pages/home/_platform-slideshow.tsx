@@ -89,12 +89,12 @@ const PlatformSlideshow = () => {
             { key: 'hero3', image: data.sprite_hero },
         ]) ||
         (is_eu && [
-            { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-            { key: 'hero2', image: data.hero_platform2_uk_and_eu },
+            { key: 'hero1', image: data.sprite_hero },
+            { key: 'hero2', image: data.sprite_hero },
         ]) ||
         (is_uk && [
-            { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-            { key: 'hero2', image: data.hero_platform2_uk_and_eu },
+            { key: 'hero1', image: data.sprite_hero },
+            { key: 'hero2', image: data.sprite_hero },
         ])
 
     const setNextImage = useCallback(() => {

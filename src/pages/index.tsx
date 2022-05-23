@@ -12,8 +12,6 @@ const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
 
-    localize('TODO: translate me')
-
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

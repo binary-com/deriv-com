@@ -100,12 +100,12 @@ const Signup = (props) => {
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
         const token = queryParams.get('t')
         let account_status = 'account_opening'
-        const affiliateUrl = window.location.pathname.match('/signup-affiliates/')
+        const affiliate_url = window.location.pathname.match('/signup-affiliates/')
 
         if (token && cookies_value.utm_campaign === 'CellXpert') {
             cookies_value.utm_medium = 'affiliate'
         }
-        if (affiliateUrl) {
+        if (affiliate_url) {
             account_status = 'partner_account_opening'
             delete cookies_value.utm_campaign
             delete cookies_value.utm_medium

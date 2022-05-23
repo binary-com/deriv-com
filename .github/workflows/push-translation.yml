@@ -2,8 +2,9 @@ name: Translation Push
 
 on:
     push:
-        branch:
+        branches:
             - 'translation-*'
+            - 'master-*'
 
 jobs:
     push-translation:

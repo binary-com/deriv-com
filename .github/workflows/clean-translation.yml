@@ -2,7 +2,7 @@ name: Crowdin Branch Clean-Up
 
 on:
     push:
-        branch:
+        branches:
             - 'translation-*'
 
 jobs:

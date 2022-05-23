@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
-import WhatAreMultiplier from './_what-are-options'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -12,6 +11,7 @@ const HowMultiplierWorks = Loadable(() => import('./_how-options-works'))
 const ThingsInMind = Loadable(() => import('./_things-in-mind'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
+const WhatAreMultiplier = Loadable(() => import('./_what-are-options'))
 
 const meta_attributes = {
     og_title: localize('Multipliers trading | Trade types | Deriv'),

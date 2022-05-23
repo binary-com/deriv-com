@@ -4,10 +4,11 @@ on:
     push:
         branch:
             - 'translation-*'
+
 jobs:
-  crowdin-branch-delete:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
+    crowdin-branch-delete:
+        if: github.event.pull_request.merged == true
+        runs-on: ubuntu-latest
         steps:
             - name: Extract branch name
               shell: bash
@@ -29,7 +30,8 @@ jobs:
             - name: Delete Crowdin Branch 🗑️
               run:  
                   crowdin branch delete -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
-                
+                    
 
-    
+        
 
+     

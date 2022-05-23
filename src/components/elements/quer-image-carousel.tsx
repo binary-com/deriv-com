@@ -57,17 +57,17 @@ export const ImageWrapper = styled.div<ImageWrapperProps>`
     .gatsby-image-wrapper img {
         height: 700px !important;
     }
-    .gatsby-image-wrapper .hero1 {
+    .hero1 img {
         background: url(${(props) => props.bimage}) 120px 35px;
         background-repeat: no-repeat;
         background-size: 1911px;
     }
-    .gatsby-image-wrapper .hero2 {
+    .hero2 img {
         background: url(${(props) => props.bimage}) -590px 35px;
         background-repeat: no-repeat;
         background-size: 1911px;
     }
-    .gatsby-image-wrapper .hero3 {
+    .hero3 img {
         background: url(${(props) => props.bimage}) -1280px 35px;
         background-repeat: no-repeat;
         background-size: 1911px;
@@ -88,12 +88,6 @@ const QueryImageCarousel = ({
 }: QueryImageProps) => {
     const image = getImage(data)
     const heroe_data = useStaticQuery(query)
-    //console.log('heroe_data heroe_data heroe_data1', heroe_data)
-    console.log(
-        'background_hero',
-        heroe_data.background_hero.childImageSharp.gatsbyImageData.images.fallback.src,
-    )
-    console.log('key', keyName)
     if (data) {
         return (
             <ImageWrapper

@@ -106,7 +106,6 @@ const QueryImageCarousel = ({
                 onClick={onClick}
             >
                 <GatsbyImage
-                    key={keyName}
                     class={keyName}
                     image={image}
                     alt={alt as string}

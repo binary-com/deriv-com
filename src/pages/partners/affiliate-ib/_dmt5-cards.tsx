@@ -114,6 +114,7 @@ const AccordionWrapper = styled.div`
 const TableWrapper = styled(Table)`
     margin: 0 auto 1.6rem;
     grid-auto-rows: 1fr;
+    grid-template-columns: 60% 40%;
 `
 const StyledTrap = styled(TRAP)<CardProps>`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};

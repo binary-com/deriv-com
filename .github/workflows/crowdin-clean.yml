@@ -2,13 +2,9 @@ name: Crowdin Branch Clean-Up
 
 on:
   pull_request:
-    branch: 
-      - translation-*
     types: [closed]
-
 jobs:
   crowdin-branch-delete:
-    if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
         steps:
             - name: Extract branch name

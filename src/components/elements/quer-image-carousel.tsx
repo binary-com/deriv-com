@@ -93,6 +93,7 @@ const QueryImageCarousel = ({
         'background_hero',
         heroe_data.background_hero.childImageSharp.gatsbyImageData.images.fallback.src,
     )
+    console.log('key', keyName)
     if (data) {
         return (
             <ImageWrapper

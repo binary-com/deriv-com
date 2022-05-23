@@ -5,7 +5,7 @@ import { SectionContainer, Flex, FlexGridContainer, UKEU, ROW } from 'components
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import { getCountryRule } from 'components/containers/visibility'
-import { binary_bot_url } from 'common/constants'
+import { binary_bot_url, deriv_life_url } from 'common/constants'
 import device from 'themes/device'
 // icons
 import Basket from 'images/svg/custom/basket-nav.svg'
@@ -531,9 +531,8 @@ export const NavCompany = ({ onClick }) => (
         <CardLink
             icon={() => <img src={DerivLife} alt="" width="24" height="24" />}
             title={<Localize translate_text="Deriv life" />}
-            to=""
-            type="derivlife"
-            external={true}
+            onClick={onClick}
+            to={deriv_life_url}
             target="_blank"
             rel="noopener noreferrer"
         />

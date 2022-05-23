@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import Modal from './modal'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { QueryImage, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
@@ -128,7 +128,7 @@ const StyledImageWrapper = styled(ImageWrapper)`
 
 const LeaderCard = ({ image, name, position, link }: LeaderType) => {
     const [is_popup_shown, setIsPopupShown] = useState(false)
-    const [is_mobile] = useBrowserResize()
+    const [is_mobile] = useBrowserResize(768)
 
     const showModal: MouseEvent = () => setIsPopupShown(true)
     const dontShowModal: MouseEvent = () => setIsPopupShown(false)

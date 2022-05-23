@@ -10,7 +10,6 @@ import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url, zoho_career_url } from 'common/constants'
-import { localize } from 'components/localization'
 
 type NavCareersProps = {
     is_besquare?: boolean

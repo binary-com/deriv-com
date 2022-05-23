@@ -1,10 +1,12 @@
 name: Crowdin Branch Clean-Up
 
 on:
-  pull_request:
-    types: [closed]
+    push:
+        branch:
+            - 'translation-*'
 jobs:
   crowdin-branch-delete:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
         steps:
             - name: Extract branch name

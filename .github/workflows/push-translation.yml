@@ -27,8 +27,9 @@ jobs:
                   echo "Setting up Git identity"
                   git config --global user.name "DerivFE"
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
-            - name: Push New Strings ⬆️
+            - name: Push New Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+                  crowdin upload translations -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
                 
 

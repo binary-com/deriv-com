@@ -29,8 +29,7 @@ jobs:
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
             - name: Push Translation Data ⬆️
               run:  
-                  crowdin upload sources -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
-              run:      
+                  crowdin upload sources -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}     
                   crowdin upload translations -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
                 
 

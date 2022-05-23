@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
@@ -16,7 +16,7 @@ import SignupAffiliate from 'components/custom/_signup-affiliate'
 import SignupAffiliateDetails from 'components/custom/_signup-affiliate-details'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { affiliate_app_id } from 'common/constants'
+// import { affiliate_app_id } from 'common/constants'
 import device from 'themes/device'
 
 const Form = styled.form`
@@ -53,14 +53,21 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
     affiliateSignup: 'affiliateSignup',
+    affiliateSignupDetails: 'affiliateSignupDetails',
 }
 
 const Signup = (props) => {
+    const [email, setEmail] = useState('')
     const [user_data, setUserData] = useState({})
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
+    const [is_affiliate_signup, setIsAffiliateSignup] = useState('')
+
+    useEffect(() => {
+        setIsAffiliateSignup(props.appearance === Appearances.affiliateSignupDetails)
+    }, [])
 
     const validateEmail = (email_address) => {
         const error_message =
@@ -82,11 +89,8 @@ const Signup = (props) => {
     }
 
     const handleInputChange = (e) => {
-        const { value, name } = e.target
-        setUserData({
-            ...user_data,
-            [name]: value,
-        })
+        const { value } = e.target
+        setEmail(value)
         handleValidation(value)
     }
 
@@ -95,6 +99,18 @@ const Signup = (props) => {
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
         const token = queryParams.get('t')
+        let account_status = 'account_opening'
+        const affiliate_url = window.location.pathname.match('/signup-affiliates/')
+
+        if (token && cookies_value.utm_campaign === 'CellXpert') {
+            cookies_value.utm_medium = 'affiliate'
+        }
+        if (affiliate_url) {
+            account_status = 'partner_account_opening'
+            delete cookies_value.utm_campaign
+            delete cookies_value.utm_medium
+            cookies_value.utm_source = 'null'
+        }
 
         if (!token) {
             delete cookies_value.utm_campaign
@@ -104,7 +120,7 @@ const Signup = (props) => {
 
         return {
             verify_email: formatted_email,
-            type: 'account_opening',
+            type: account_status,
             url_parameters: {
                 ...(token && { affiliate_token: token }),
                 ...(cookies_value && { ...cookies_value }),
@@ -113,7 +129,6 @@ const Signup = (props) => {
     }
 
     const handleEmailSignup = (e) => {
-        const { email } = user_data
         e.preventDefault()
         setSubmitting(true)
         const formatted_email = email.replace(/\s/g, '')
@@ -126,7 +141,7 @@ const Signup = (props) => {
         const verify_email_req = getVerifyEmailRequest(formatted_email)
 
         if (props.appearance === Appearances.affiliateSignup) {
-            window.localStorage.setItem('config.app_id', affiliate_app_id)
+            window.localStorage.setItem('affiliate_email', formatted_email)
         }
 
         const binary_socket = BinarySocketBase.init()
@@ -160,12 +175,63 @@ const Signup = (props) => {
             navigate(success_link, { replace: true })
         }
     }
+    const handleAffiliateSignup = (e) => {
+        e.preventDefault()
+        // TODO: find a way to access user token
+        const token = 'tmdaw4uGUCYGFJK'
+        const {
+            first_name,
+            last_name,
+            country: { value },
+            address,
+            phone,
+            password,
+            non_pep_declaration,
+            tnc_accepted,
+        } = user_data
 
+        const req_affiliate = {
+            affiliate_account_add: 1,
+            // email as username is failing
+            // username: window.localStorage.getItem('affiliate_email'),
+            username: first_name,
+            first_name,
+            last_name,
+            country: value,
+            // no separate address field for current version of form
+            address_city: address,
+            address_line_1: address,
+            address_postcode: address,
+            address_state: address,
+            phone,
+            password,
+            non_pep_declaration,
+            tnc_accepted,
+        }
+
+        const binary_socket = BinarySocketBase.init()
+
+        binary_socket.onopen = () => {
+            binary_socket.send(JSON.stringify({ authorize: token }))
+            binary_socket.onmessage = () => {
+                binary_socket.send(JSON.stringify(req_affiliate))
+                binary_socket.onmessage = (msg) => {
+                    const response = JSON.parse(msg.data)
+                    if (response.error) {
+                        binary_socket.close()
+                        props.showModal(true)
+                        props.setErrorMessage(response.error.message)
+                        setSubmitStatus('error')
+                    } else {
+                        binary_socket.close()
+                        props.showModal(true)
+                    }
+                }
+            }
+        }
+    }
     const clearEmail = () => {
-        setUserData({
-            ...user_data,
-            email: '',
-        })
+        setEmail('')
         setEmailErrorMsg('')
     }
     const handleSocialSignup = (e) => {
@@ -181,24 +247,16 @@ const Signup = (props) => {
     }
 
     const renderSwitch = (param) => {
-        const { email, first_name, last_name, date, country, address, mobile_number, password } =
-            user_data
         const parameters = {
             autofocus: props.autofocus,
             clearEmail: clearEmail,
-            email,
-            first_name,
-            last_name,
-            date,
-            country,
-            address,
-            mobile_number,
-            password,
+            email: email,
             email_error_msg: email_error_msg,
             handleInputChange: handleInputChange,
             handleLogin: handleLogin,
             handleSocialSignup: handleSocialSignup,
             handleValidation: handleValidation,
+            setUserData: setUserData,
             is_ppc: props.is_ppc,
             is_submitting: is_submitting,
             showModal: props.showModal,
@@ -256,7 +314,13 @@ const Signup = (props) => {
             </EmailLink>
         </ResponseWrapper>
     ) : (
-        <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>
+        <Form
+            onSubmit={(e) => {
+                is_affiliate_signup ? handleAffiliateSignup(e) : handleEmailSignup(e)
+            }}
+            noValidate
+            bgColor={props.bgColor}
+        >
             {renderSwitch(props.appearance)}
         </Form>
     )

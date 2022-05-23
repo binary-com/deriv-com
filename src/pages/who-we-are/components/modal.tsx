@@ -7,7 +7,7 @@ import Linkedin from 'images/svg/who-we-are/linkedin.svg'
 
 type ModalPropsType = {
     name: string
-    position: string
+    position: any
     link?: string
 }
 

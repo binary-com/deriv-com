@@ -28,8 +28,8 @@ const NavAcademy = () => {
 
     return (
         <NavTemplate show_academy_nav={is_mounted} hide_nav={visible}>
-            <NavDesktop is_logged_in={is_logged_in} hide_language_switcher />
-            <NavMobile is_logged_in={is_logged_in} hide_language_switcher />
+            <NavDesktop is_logged_in={is_logged_in} />
+            <NavMobile is_logged_in={is_logged_in} />
         </NavTemplate>
     )
 }

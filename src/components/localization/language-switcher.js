@@ -8,12 +8,15 @@ import { useClientInformation } from '../hooks/use-client-information'
 import Dropdown from './language-dropdown'
 import { isProduction } from 'common/websocket/config'
 import { nonENLangUrlReplace } from 'common/utility'
+import { isBrowser } from 'common/constants'
 
 const languages = Object.keys(language_config)
 
-const disabled_lang = ['ach']
-
 const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
+    const is_academy_page = isBrowser() && window.location.pathname.includes('/academy')
+    const disabled_lang = is_academy_page
+        ? ['ach', 'ru', 'th', 'vi', 'it', 'zh_cn', 'pl', 'zh_tw']
+        : ['ach']
     const [language, setLanguage] = React.useState(i18n.language)
     const client_information = useClientInformation()
 

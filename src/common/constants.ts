@@ -1,4 +1,4 @@
-const isBrowser = () => typeof window !== 'undefined'
+export const isBrowser = () => typeof window !== 'undefined'
 
 const deriv_com_url = 'deriv.com'
 const deriv_me_url = 'deriv.me'

@@ -12,8 +12,9 @@ jobs:
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
-            - name: Latest Merged Branch
+            - name: Custom Vars
               uses: tonynguyenit18/github-action-custom-vars@v1
+            - name: Latest Merged Branch
               run: echo $RECENT_MERGED_BRANCH_NAME
               id: last_merged_branch
             - name: Setup Node

@@ -104,7 +104,7 @@ const PlatformSlideshow = () => {
     useEffect(() => {
         const slideshow_timer = setInterval(() => {
             setNextImage()
-        }, 500000)
+        }, 5000)
 
         return () => clearInterval(slideshow_timer)
     }, [slide_images])

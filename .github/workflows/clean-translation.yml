@@ -3,7 +3,7 @@ name: Crowdin Branch Clean-Up
 on:
     push:
         branches:
-            - 'master*'
+            - 'master-*'
 
 jobs:
     crowdin-branch-delete:

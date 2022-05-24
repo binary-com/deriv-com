@@ -6,7 +6,6 @@ import Cookies from 'js-cookie'
 import language_config from '../../../i18n-config'
 import { useClientInformation } from '../hooks/use-client-information'
 import Dropdown from './language-dropdown'
-import { isProduction } from 'common/websocket/config'
 import { nonENLangUrlReplace } from 'common/utility'
 import { isBrowser } from 'common/constants'
 
@@ -37,7 +36,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, has_short_name, security }) => {
     }, [client_information])
 
     const renderLanguageChoice = (lang) => {
-        if (disabled_lang.includes(lang) && isProduction()) return
+        if (disabled_lang.includes(lang)) return
         const { display_name, path, short_name } = language_config[lang]
         const current_short_name = language_config[language].short_name
         const is_selected = current_short_name === short_name

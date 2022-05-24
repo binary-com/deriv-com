@@ -179,6 +179,7 @@ const Signup = (props) => {
         e.preventDefault()
         // TODO: find a way to access user token
         const token = 'tmdaw4uGUCYGFJK'
+        const verification_code = queryParams.get('code')
         const {
             first_name,
             last_name,
@@ -192,12 +193,10 @@ const Signup = (props) => {
 
         const req_affiliate = {
             affiliate_account_add: 1,
-            // email as username is failing
-            // username: window.localStorage.getItem('affiliate_email'),
-            username: first_name,
             first_name,
             last_name,
             country: value,
+            verification_code,
             // no separate address field for current version of form
             address_city: address,
             address_line_1: address,

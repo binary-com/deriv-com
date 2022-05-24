@@ -77,10 +77,10 @@ const passwordValidation = (input, field_name, min_digit, max_digit) => {
 }
 
 const validation = {
-    firstName: (input) => {
+    first_name: (input) => {
         return nameValidation(input, localize('First Name'), 2, 50)
     },
-    lastName: (input) => {
+    last_name: (input) => {
         return nameValidation(input, localize('Last Name'), 2, 50)
     },
     date: (input) => {
@@ -95,7 +95,7 @@ const validation = {
     address: (input) => {
         return textValidation(input, localize('Address'), 2, 70)
     },
-    mobileNumber: (input) => {
+    phone: (input) => {
         return phoneValidation(input, localize('Mobile number'), 9, 35)
     },
     password: (input) => {

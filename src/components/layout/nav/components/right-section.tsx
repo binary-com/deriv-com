@@ -87,6 +87,7 @@ const RightSection = ({
                     <LocalizedLink id="dm-signup" to={signup_url}>
                         <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
                             {localize('Create free demo account')}
+                            {localize('TODO: Create free demo account')}
                         </SignupButton>
                     </LocalizedLink>
                 </>

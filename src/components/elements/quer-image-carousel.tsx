@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
+import device from 'themes/device'
 
 export type QueryImageProps = {
     alt: ReactElement | string
@@ -40,6 +41,17 @@ const query = graphql`
 `
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`
+    @media ${device.tablet} {
+        .gatsby-image-wrapper img {
+            height: 450px !important;
+        }
+    }
+    @media ${device.tabletS} {
+        .gatsby-image-wrapper img {
+            height: 400px !important;
+        }
+    }
+
     & .gatsby-image-wrapper {
         width: ${(props) => props.width || '100%'};
         height: ${(props) => props.height};
@@ -55,22 +67,22 @@ export const ImageWrapper = styled.div<ImageWrapperProps>`
         }};
     }
     .gatsby-image-wrapper img {
-        height: 700px !important;
+        height: 700px;
     }
     .hero1 img {
-        background: url(${(props) => props.bimage}) 120px 35px;
+        background: url(${(props) => props.bimage}) 0% 5%;
         background-repeat: no-repeat;
-        background-size: 1911px;
+        background-size: 320%;
     }
     .hero2 img {
-        background: url(${(props) => props.bimage}) -590px 35px;
+        background: url(${(props) => props.bimage}) 47% 5%;
         background-repeat: no-repeat;
-        background-size: 1911px;
+        background-size: 270%;
     }
     .hero3 img {
-        background: url(${(props) => props.bimage}) -1280px 35px;
+        background: url(${(props) => props.bimage}) 105% 5%;
         background-repeat: no-repeat;
-        background-size: 1911px;
+        background-size: 273%;
     }
 `
 

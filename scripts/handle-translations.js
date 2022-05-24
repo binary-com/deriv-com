@@ -29,9 +29,15 @@ const handleProcess = (action) => {
 
     // Detect Auto Translation Process
     if (branch_name.startsWith(branch_name_convention)) {
+        if(action !=="pull-master")
         console.log(
             `\x1b[33mFetching translation data for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
         )
+        else{
+            console.log(
+                `\x1b[32m[STP Process] \x1b[33mFetching translation from master source \x1b[33m   \n \x1b[0m`,
+            )
+        }
 
         runProcess({
             process: action,
@@ -56,6 +62,9 @@ const runProcess = (data) => {
     switch (process) {
         case 'pull':
             exec(`crowdin download -b ${branch_name} -T ${CROWDIN_API_KEY}`, callback)
+            break
+        case 'pull-master':
+            exec(`crowdin download -b master -T ${CROWDIN_API_KEY}`, callback)
             break
         default:
             break

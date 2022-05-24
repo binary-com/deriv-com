@@ -20,22 +20,24 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout) => {
 })
 
 const handleProcess = () => {
-    const branch_name_convention = 'translation-'
+    const translation_branches = ['translation-', 'stp-']
     const strings_path = 'crowdin/messages.json'
 
     // Detect Auto Translation Process
-    if (branch_name.startsWith(branch_name_convention)) {
-        console.log(
-            `\x1b[33m[${branch_name}]\x1b[32m requires translation, auto extracting strings \n \x1b[0m`,
-        )
+    translation_branches.forEach((tb) => {
+        if (branch_name.startsWith(tb)) {
+            console.log(
+                `\x1b[33m[${branch_name}]\x1b[32m requires translation, auto extracting strings \n \x1b[0m`,
+            )
 
-        runProcess({
-            process: 'extract',
-            callback: () => {
-                exec(`git add ${strings_path}`)
-            },
-        })
-    }
+            runProcess({
+                process: 'extract',
+                callback: () => {
+                    exec(`git add ${strings_path}`)
+                },
+            })
+        }
+    })
 }
 
 const runProcess = (data) => {

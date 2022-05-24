@@ -5,6 +5,7 @@ on:
         branches:
             - 'translation-*'
             - 'master-*'
+            - 'stp-*'
 
 jobs:
     push-translation:

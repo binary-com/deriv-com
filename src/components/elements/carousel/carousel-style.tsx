@@ -3,7 +3,7 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
-type Props = {
+type StyledButtonWrapperProps = {
     width?: number | string
     last_slide_no_spacing?: boolean
     left?: boolean
@@ -52,7 +52,7 @@ export const EmblaSlideInner = styled.div<EmblaSlideInnerProps>`
     }}
 `
 
-export const StyledButtonWrapper = styled.div<Props>`
+export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     position: absolute;
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.32' : '1')};

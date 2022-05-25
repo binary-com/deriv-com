@@ -2,10 +2,7 @@
 const { exec } = require('child_process')
 const cliSelect = require('cli-select')
 const dotenv = require('dotenv').config({ path: '.env.development' })
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout,
-})
+const prompt = require('prompt-sync')()
 
 let branch_name = ''
 let action = ''
@@ -29,38 +26,34 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout) => {
 })
 
 const branchGenerator = (step = 1, data = {}) => {
-    let msg = ''
-    let options = []
     switch (step) {
         case 1:
-            msg = 'What kind of translation are you gonna work on?'
-            options = ['Normal Translation', 'STP']
+            const msg = 'What kind of translation are you gonna work on?'
+            const options = ['Normal Translation', 'STP']
+            console.log(`\x1b[33m${msg}  \n \x1b[0m`)
+
+            cliSelect({
+                values: options,
+            })
+                .then(({ id }) => {
+                    const branch_prefix = translation_branches[id]
+                    const unix = +new Date()
+
+                    branchGenerator(2, { branch_prefix, unix })
+                })
+                .catch(() => {})
             break
         case 2:
-            msg = 'Fill your branch name:'
+            const { branch_prefix, unix } = data
+            const branch_name = prompt('\x1b[33mFill in your branch name: \x1b[0m')
+
+            if (branch_name) {
+                exec(`git checkout -b ${branch_prefix}-${branch_name}-${unix}`, () => {})
+            }
+
             break
         default:
             break
-    }
-
-    console.log(`\x1b[33m${msg}  \n \x1b[0m`)
-
-    if (step === 1) {
-        cliSelect({
-            values: options,
-        })
-            .then(({ id }) => {
-                const branch_prefix = translation_branches[id]
-                const unix = +new Date()
-
-                branchGenerator(2, { branch_prefix, unix })
-            })
-            .catch(() => {})
-    } else {
-        readline.question(msg, (branch_name) => {
-            exec(`git checkout -b ${branch_prefix}-${branch_name}-${unix}`, () => {})
-            readline.close()
-        })
     }
 }
 

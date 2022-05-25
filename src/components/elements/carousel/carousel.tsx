@@ -66,11 +66,11 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: PrevN
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronLeft black="true" red="false" />
+            <ChevronLeft black="true" />
         ) : color === 'red' ? (
-            <ChevronLeft red="true" black="false" />
+            <ChevronLeft red="true" />
         ) : (
-            <ChevronLeft black="null" red="null" />
+            <ChevronLeft />
         )}
     </StyledButtonWrapper>
 )
@@ -88,16 +88,14 @@ export const NextButton = ({ color, enabled, is_reviews, onClick, style }: PrevN
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronRight black="true" red="false" />
+            <ChevronRight black="true" />
         ) : color === 'red' ? (
-            <ChevronRight red="true" black="false" />
+            <ChevronRight red="true" />
         ) : (
-            <ChevronRight black="null" red="null" />
+            <ChevronRight />
         )}
     </StyledButtonWrapper>
 )
-
-// NextButton.propTypes = PrevButton.propTypes
 
 export const Carousel = ({
     autoplay_delay,

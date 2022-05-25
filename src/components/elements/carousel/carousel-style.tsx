@@ -55,7 +55,7 @@ export const EmblaSlideInner = styled.div<EmblaSlideInnerProps>`
 export const StyledButtonWrapper = styled.div<Props>`
     position: absolute;
     bottom: 50%;
-    opacity: ${(disabled) => (disabled ? '0.32' : '1')};
+    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
     ${(left) => {
         if (left)
             return css`
@@ -160,8 +160,8 @@ export const StyledDot = styled.div`
 `
 
 type ChevronRightAndLeftProps = {
-    black: string | boolean
-    red: string | boolean
+    black?: string | boolean
+    red?: string | boolean
 }
 export const ChevronRight = styled(StyledChevron)<ChevronRightAndLeftProps>`
     transform: rotate(180deg);

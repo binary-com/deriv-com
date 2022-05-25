@@ -36,6 +36,10 @@ export const ExternalLink = styled(LocalizedLink)`
     :hover {
         text-decoration: underline;
     }
+
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
 `
 
 export const StyledHeader = styled(Header)`

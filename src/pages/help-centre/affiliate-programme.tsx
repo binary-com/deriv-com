@@ -259,7 +259,7 @@ const ReferralLink = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps to get your referral link:')}</Text>
-        <StyledList listStyle="number" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
@@ -310,7 +310,7 @@ const PaymentMethod = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps to change your payment method:')}</Text>
-        <StyledList listStyle="number" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
@@ -374,7 +374,7 @@ const SeeEarnings = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps to see your earnings:')}</Text>
-        <StyledList listStyle="number" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize

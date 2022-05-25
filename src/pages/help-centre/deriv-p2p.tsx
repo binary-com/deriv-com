@@ -79,7 +79,7 @@ const NeedDerivAccounttouseDerivP2P = ({ text }: ArticleProps) => (
         <StyledText>
             {localize('If you already have a demo account, here’s how to add a real account:')}
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize
@@ -241,7 +241,7 @@ const CreateAnAd = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps:')}</Text>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize
@@ -318,7 +318,7 @@ const MakeAnOrder = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps:')}</Text>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize
@@ -455,7 +455,7 @@ const DisputeWithTheTrader = ({ text }: ArticleProps) => (
         <StyledText>
             {localize('To dispute a Deriv P2P transaction, follow these steps:')}
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>
                     <Localize

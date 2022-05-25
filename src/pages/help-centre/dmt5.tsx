@@ -195,7 +195,7 @@ const ResetDMT5Password = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps to reset your Deriv MT5 password:')}</Text>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>
                     <Localize
@@ -409,7 +409,7 @@ const DownloadmyDerivMT5History = ({ text }: ArticleProps) => (
                 'If you need a statement of your trades on Deriv MT5, follow these steps to download a 3-month statement:',
             )}
         </Text>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>{localize('Log in to your MT5 account via the desktop app.')}</Text>
             </StyledListItem>

@@ -37,7 +37,7 @@ export const ExternalLink = styled(LocalizedLink)`
         text-decoration: underline;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         font-size: 16px;
     }
 `

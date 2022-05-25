@@ -58,6 +58,15 @@ const ListWrapper = styled.div`
     @media ${device.laptopM} {
         width: 26rem;
     }
+    @media ${device.tabletS} {
+        width: 50rem;
+    }
+    @media ${device.mobileL} {
+        width: 40rem;
+    }
+    @media ${device.mobileM} {
+        width: 30rem;
+    }
     @media ${device.tabletL} {
         padding-top: 3.55rem;
     }

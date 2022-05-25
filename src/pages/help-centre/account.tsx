@@ -343,7 +343,7 @@ const ChangeMyEmailAddress = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="Yes. <0>Contact us via live chat</0> Localize and we'll help you with it."
+                translate_text="Yes. <0>Contact us via live chat</0> and we'll help you with it."
                 components={[
                     <StyledLink
                         to={'/contact_us/?is_livechat'}

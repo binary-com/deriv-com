@@ -3,6 +3,14 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
+type Props = {
+    width?: number | string
+    last_slide_no_spacing?: boolean
+    left?: boolean
+    disabled?: boolean
+    is_reviews: boolean
+}
+
 export const Embla = styled.div`
     position: relative;
     overflow: hidden;
@@ -27,7 +35,11 @@ export const EmblaContainer = styled.div`
     will-change: transform;
 `
 
-export const EmblaSlideInner = styled.div`
+type EmblaSlideInnerProps = {
+    width?: number
+}
+
+export const EmblaSlideInner = styled.div<EmblaSlideInnerProps>`
     position: relative;
     padding-left: 0;
     margin: 0 auto;
@@ -40,18 +52,18 @@ export const EmblaSlideInner = styled.div`
     }}
 `
 
-export const StyledButtonWrapper = styled.div`
+export const StyledButtonWrapper = styled.div<Props>`
     position: absolute;
     bottom: 50%;
-    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
-    ${(props) => {
-        if (props.left)
+    opacity: ${(disabled) => (disabled ? '0.32' : '1')};
+    ${(left) => {
+        if (left)
             return css`
                 left: 0;
 
                 @media ${device.tabletL} {
-                    ${(props) => {
-                        if (props.is_reviews) {
+                    ${(is_reviews) => {
+                        if (is_reviews) {
                             return css`
                                 @media ${device.tabletL} {
                                     left: 22%;
@@ -71,8 +83,8 @@ export const StyledButtonWrapper = styled.div`
             right: 0;
 
             @media ${device.tabletL} {
-                ${(props) => {
-                    if (props.is_reviews) {
+                ${(is_reviews) => {
+                    if (is_reviews) {
                         return css`
                             @media ${device.tabletL} {
                                 right: 22%;
@@ -98,27 +110,23 @@ export const StyledButtonWrapper = styled.div`
 export const StyledChevron = styled(Chevron)`
     height: 24px;
     width: 24px;
-    ${(props) => {
-        if (props.red) {
+    ${(red) => {
+        if (red) {
             return css`
                 width: 16px;
                 height: 16px;
+                fill: var(--color-red);
             `
         }
     }}
 
     path {
-        ${(props) => {
-            if (props.black) {
+        ${(black) => {
+            if (black) {
                 return css`
                     fill: var(--color-black);
                 `
-            } else if (props.red) {
-                return css`
-                    fill: var(--color-red);
-                `
             }
-
             return css`
                 fill: var(--color-white);
             `
@@ -135,12 +143,6 @@ export const NavigationContainer = styled(Flex)`
                 width: 100%;
                 height: ${height ?? '8px'};
                 bottom: ${bottom_offset ?? '40px'};
-                padding-left: 16px;
-                justify-content: left;
-
-                @media screen and (min-width: 785px) {
-                    padding-left: 102px;
-                }
             `
     }}
 `
@@ -157,10 +159,14 @@ export const StyledDot = styled.div`
     background-color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-grey-21)')};
 `
 
-export const ChevronRight = styled(StyledChevron)`
+type ChevronRightAndLeftProps = {
+    black: string | boolean
+    red: string | boolean
+}
+export const ChevronRight = styled(StyledChevron)<ChevronRightAndLeftProps>`
     transform: rotate(180deg);
     right: 0;
 `
-export const ChevronLeft = styled(StyledChevron)`
+export const ChevronLeft = styled(StyledChevron)<ChevronRightAndLeftProps>`
     left: 0;
 `

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, CSSProperties } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import PropTypes from 'prop-types'
 import {
     Embla,
     EmblaContainer,
@@ -14,7 +13,51 @@ import {
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 
-export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
+type PrevNextButtonProps = {
+    color: string
+    enabled?: boolean
+    onClick: () => void
+    is_reviews?: boolean
+    style?: CSSProperties
+}
+type NavigationButtonProps = {
+    color: string
+    is_enabled?: boolean
+    onClick: () => void
+}
+
+type CarouselProps = {
+    autoplay_delay?: number
+    autoplay_interval?: number
+    chevron_style?: {
+        chevron_color?: string
+        chevron_left?: CSSProperties
+        chevron_right?: CSSProperties
+        is_displayed_on_mobile?: boolean
+    }
+    children?: Element[]
+    container_style?: object
+    embla_style?: object
+    has_autoplay?: boolean
+    last_slide_no_spacing?: boolean
+    navigation_css?: [string]
+    navigation_style?: {
+        nav_color?: string
+        bottom_offset?: number
+        chevron_right?: CSSProperties
+        height?: number
+    }
+    options: object
+    slide_inner_width: number
+    slide_style: object
+    vertical_container: object
+    view_port: object
+    left: boolean
+    black: boolean | string
+    red: boolean | string
+}
+
+export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: PrevNextButtonProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -23,49 +66,38 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronLeft black="true" />
+            <ChevronLeft black="true" red="false" />
         ) : color === 'red' ? (
-            <ChevronLeft red="true" />
+            <ChevronLeft red="true" black="false" />
         ) : (
-            <ChevronLeft />
+            <ChevronLeft black="null" red="null" />
         )}
     </StyledButtonWrapper>
 )
 
-PrevButton.propTypes = {
-    chevron_style: PropTypes.object,
-    enabled: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
-export const NavigationButton = ({ color, is_enabled, onClick }) => (
+export const NavigationButton = ({ color, is_enabled, onClick }: NavigationButtonProps) => (
     <StyledDot onClick={onClick} color={is_enabled ? color : null} />
 )
 
-NavigationButton.propTypes = {
-    color: PropTypes.string,
-    is_enabled: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
-export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
+export const NextButton = ({ color, enabled, is_reviews, onClick, style }: PrevNextButtonProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
+        left={false}
         style={style}
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronRight black="true" />
+            <ChevronRight black="true" red="false" />
         ) : color === 'red' ? (
-            <ChevronRight red="true" />
+            <ChevronRight red="true" black="false" />
         ) : (
-            <ChevronRight />
+            <ChevronRight black="null" red="null" />
         )}
     </StyledButtonWrapper>
 )
 
-NextButton.propTypes = PrevButton.propTypes
+// NextButton.propTypes = PrevButton.propTypes
 
 export const Carousel = ({
     autoplay_delay,
@@ -81,9 +113,9 @@ export const Carousel = ({
     slide_inner_width,
     vertical_container,
     view_port,
-    last_slide_no_spacing = false,
     navigation_css,
-}) => {
+    last_slide_no_spacing,
+}: CarouselProps) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -205,22 +237,4 @@ export const Carousel = ({
             </Embla>
         </div>
     )
-}
-
-Carousel.propTypes = {
-    autoplay_delay: PropTypes.number,
-    autoplay_interval: PropTypes.number,
-    chevron_style: PropTypes.object,
-    children: PropTypes.array,
-    container_style: PropTypes.object,
-    embla_style: PropTypes.object,
-    has_autoplay: PropTypes.bool,
-    last_slide_no_spacing: PropTypes.bool,
-    navigation_css: PropTypes.array,
-    navigation_style: PropTypes.object,
-    options: PropTypes.object,
-    slide_inner_width: PropTypes.string,
-    slide_style: PropTypes.object,
-    vertical_container: PropTypes.object,
-    view_port: PropTypes.object,
 }

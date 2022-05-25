@@ -42,7 +42,7 @@ const AboutUs = () => {
             <SEO
                 title={localize('Who we are | An Online Trading Platform | Deriv.com')}
                 description={localize(
-                    'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
+                    'Deriv: an online trading platform available 24/7 with a wide selection of derivatives',
                 )}
             />
             <Hero />

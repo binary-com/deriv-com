@@ -6,7 +6,7 @@ import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: left;
         ${(props) =>

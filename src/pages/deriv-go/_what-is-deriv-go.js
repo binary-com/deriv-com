@@ -32,7 +32,7 @@ const NumberWrapper = styled.div`
     width: 32.8rem;
 `
 
-const StyledTitle = styled((props) => <Header {...props} />)`
+const StyledTitle = styled(Header)`
     @media ${device.tabletL} {
         padding-top: 24px;
     }
@@ -47,7 +47,7 @@ const StyledSubTitle = styled(Text)`
     }
 `
 
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 32px;
     }

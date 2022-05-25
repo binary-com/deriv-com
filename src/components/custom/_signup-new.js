@@ -31,7 +31,7 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 3rem;
         margin-bottom: 3rem;

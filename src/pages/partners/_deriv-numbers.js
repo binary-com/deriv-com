@@ -24,7 +24,7 @@ const Card = styled(Flex)`
     }
 `
 
-const CardHeader = styled((props) => <Header {...props} />)`
+const CardHeader = styled(Header)`
     white-space: nowrap;
 `
 

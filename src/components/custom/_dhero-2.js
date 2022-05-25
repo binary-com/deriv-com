@@ -56,7 +56,7 @@ const HeroContent = styled(Flex)`
         }
     }
 `
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     color: var(--color-white);
     display: flex;
     align-items: center;
@@ -72,7 +72,7 @@ const StyledHeader = styled((props) => <Header {...props} />)`
     }
 `
 
-const HeroHeader = styled((props) => <Header {...props} />)`
+const HeroHeader = styled(Header)`
     @media (max-width: 1315px) {
         font-size: 4.8rem;
     }

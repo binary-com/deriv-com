@@ -46,12 +46,12 @@ const MainWrapper = styled(Flex)`
     }
 `
 
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         width: auto;
     }
 `
-const StyledSubTitle = styled((props) => <Header {...props} />)`
+const StyledSubTitle = styled(Header)`
     margin-top: 24px;
     @media ${device.laptopM} {
         margin-top: 8px;

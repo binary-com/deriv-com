@@ -101,7 +101,7 @@ const DemoButton = styled.div`
         margin: unset;
     }
 `
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     max-width: 84rem;
     @media ${device.laptopM} {
         font-size: 4rem;

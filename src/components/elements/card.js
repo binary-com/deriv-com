@@ -287,7 +287,7 @@ const RightDiagonal = styled.img`
     }
 `
 
-const ResponsiveHeader = styled((props) => <Header {...props} />)`
+const ResponsiveHeader = styled(Header)`
     transition: color 0.2s;
     @media ${device.tabletL} {
         font-size: 16px;

@@ -62,7 +62,7 @@ const StyledRow = styled(Flex)`
         border-bottom: none;
     }
 `
-const ValueText = styled((props) => <Header {...props} />)`
+const ValueText = styled(Header)`
     text-align: right;
     white-space: pre-line;
 

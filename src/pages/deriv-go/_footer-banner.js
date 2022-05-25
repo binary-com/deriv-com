@@ -68,13 +68,13 @@ const BannerWrapper = styled(Flex)`
     }
 `
 
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
     }
 `
 
-const StyledSubTitle = styled((props) => <Header {...props} />)`
+const StyledSubTitle = styled(Header)`
     margin-top: 5px;
     @media ${device.tabletL} {
         margin-top: 8px;

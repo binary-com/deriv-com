@@ -77,7 +77,7 @@ const SocialButton = styled(Button)`
     border: none;
 `
 
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     width: auto;
 `
 const StyledText = styled(Text)`

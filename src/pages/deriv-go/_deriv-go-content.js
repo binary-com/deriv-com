@@ -27,7 +27,7 @@ const Content = styled(Flex)`
         margin: 0 auto;
     }
 `
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
     }

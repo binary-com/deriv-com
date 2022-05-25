@@ -93,7 +93,7 @@ const Content = styled.div`
     width: 100%;
 `
 
-const TextWrapper = styled((props) => <Header {...props} />)`
+const TextWrapper = styled(Header)`
     text-align: center;
     font-weight: ${(props) => (props.selected ? 'bold' : 'normal')};
 

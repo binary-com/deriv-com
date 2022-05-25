@@ -171,7 +171,7 @@ const SocialButton = styled(Button)`
         justify-content: center;
     }
 `
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
     @media ${device.tablet} {

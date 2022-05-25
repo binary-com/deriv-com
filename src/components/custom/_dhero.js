@@ -38,7 +38,7 @@ const HeroContent = styled.div`
     flex-direction: column;
     justify-content: flex-start;
 `
-const StyledHeader = styled((props) => <Header {...props} />)`
+const StyledHeader = styled(Header)`
     color: var(--color-white);
     display: flex;
     margin-top: 0;

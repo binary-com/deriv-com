@@ -135,12 +135,6 @@ export const NavigationContainer = styled(Flex)`
                 width: 100%;
                 height: ${height ?? '8px'};
                 bottom: ${bottom_offset ?? '40px'};
-                padding-left: 16px;
-                justify-content: left;
-
-                @media screen and (min-width: 785px) {
-                    padding-left: 102px;
-                }
             `
     }}
 `

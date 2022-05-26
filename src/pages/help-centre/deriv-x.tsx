@@ -20,6 +20,7 @@ const StyledListItem = styled.li<{ marginTop: string }>`
 const ExternalLink = styled.a`
     text-decoration: none;
     color: var(--color-red);
+    font-weight: bold;
 
     :hover {
         text-decoration: underline;

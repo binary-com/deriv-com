@@ -116,7 +116,7 @@ const AddDerivXAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps to add a Deriv X account:')}</Text>
-        <StyledList listStyle="number" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
@@ -185,7 +185,7 @@ const HowLoginDerivX = ({ text }: ArticleProps) => (
                 "You'll need to add a Deriv X account first. After that, follow these steps to log in:",
             )}
         </Text>
-        <StyledList listStyle="number" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize

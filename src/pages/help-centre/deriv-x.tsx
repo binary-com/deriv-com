@@ -20,6 +20,7 @@ const StyledListItem = styled.li<{ marginTop: string }>`
 const ExternalLink = styled.a`
     text-decoration: none;
     color: var(--color-red);
+    font-weight: bold;
 
     :hover {
         text-decoration: underline;
@@ -157,7 +158,7 @@ const AddDerivXAccount = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="Choose between <0>Synthetic</0> or <0>Financial<0/> accounts. Then, hit <0>Add real account</0> or <0>Add demo account</0>."
+                        translate_text="Choose between <0>Synthetic</0> or <0>Financial</0> accounts. Then, hit <0>Add real account</0> or <0>Add demo account</0>."
                         components={[<strong key={0} />]}
                     />
                 </Text>

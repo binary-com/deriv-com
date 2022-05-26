@@ -16,7 +16,7 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v5.2
       - name: Fetching Feature Branch
-        run: 
+        run: |
           echo "Latest branch merged to master: ${{ steps.branch-name.outputs.head_ref_branch }}"
       - name: Setup Node
         uses: actions/setup-node@v2.1.2
@@ -30,6 +30,5 @@ jobs:
             git config --global user.name "DerivFE"
             git config --global user.email "80095553+DerivFE@users.noreply.github.com"
       - name: Delete Crowdin Branch 🗑️
-         run:  
+        run:  
            crowdin branch delete -b ${{ steps.branch-name.outputs.head_ref_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
-                    

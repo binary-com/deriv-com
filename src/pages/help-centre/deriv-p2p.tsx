@@ -439,7 +439,7 @@ const DisputeWithTheTrader = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help resolve the situation, please <0>let us know via live chat</0> and we’ll help you resolve it."
+                translate_text="If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help resolve the situation, please <0>let us know</0> via live chat and we’ll help you resolve it."
                 components={[
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}

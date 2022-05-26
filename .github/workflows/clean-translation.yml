@@ -31,4 +31,4 @@ jobs:
             git config --global user.email "80095553+DerivFE@users.noreply.github.com"
       - name: Delete Crowdin Branch 🗑️
         run:  
-           crowdin branch delete -b ${{ steps.branch-name.outputs.head_ref_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+           crowdin branch delete ${{ steps.branch-name.outputs.head_ref_branch }} -T ${{ secrets.CROWDIN_API_KEY }}

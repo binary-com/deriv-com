@@ -30,7 +30,7 @@ import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
@@ -207,7 +207,7 @@ export const getPlatformDetails = (no_of_copies, is_eu, is_uk) => {
 }
 
 export const no_slide_sets = () => {
-    const { is_row } = getCountryRule()
+    const [is_row] = useCountryRule()
     if (!is_row) {
         return 1
     }
@@ -215,7 +215,7 @@ export const no_slide_sets = () => {
 }
 
 export const getSlideStartingIndex = () => {
-    const { is_row } = getCountryRule()
+    const [is_row] = useCountryRule()
     if (!is_row) {
         return 0
     }

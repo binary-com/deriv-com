@@ -14,7 +14,7 @@ import { image_query } from './_details'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const CarouselItemWrapper = styled.div`
     width: 100%;
@@ -100,7 +100,7 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
 }
 
 const MobilePlatformCarousel = () => {
-    const { is_eu, is_uk } = getCountryRule()
+    const [is_eu, is_uk] = useCountryRule()
     const images = useStaticQuery(image_query)
 
     const carouselData = () => {

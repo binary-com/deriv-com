@@ -9,7 +9,7 @@ import { LinkButton } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const query = graphql`
     query {
@@ -77,7 +77,7 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const { is_uk } = getCountryRule()
+    const [is_uk] = useCountryRule()
 
     const text =
         !is_ppc && !is_uk

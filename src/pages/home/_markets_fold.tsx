@@ -8,7 +8,8 @@ import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
-import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
+import { Desktop, Mobile } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -320,7 +321,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_uk, is_non_uk, is_eu } = getCountryRule()
+    const [is_uk, is_non_uk, is_eu] = useCountryRule()
     const size = useWindowSize()
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768

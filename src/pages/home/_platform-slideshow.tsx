@@ -5,7 +5,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const ImagePlaceHolder = styled.div`
@@ -71,7 +71,7 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const [is_be_loaded, setBeLoaded] = useState(false)
     const data = useStaticQuery(query)
-    const { is_row, is_eu, is_uk } = getCountryRule()
+    const [is_row, is_eu, is_uk] = useCountryRule()
     const [website_status] = useWebsiteStatus()
 
     useEffect(() => {

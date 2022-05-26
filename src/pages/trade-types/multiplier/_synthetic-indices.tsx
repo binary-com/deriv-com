@@ -18,7 +18,8 @@ import {
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Desktop, Mobile, getCountryRule } from 'components/containers/visibility'
+import { Desktop, Mobile } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -135,7 +136,7 @@ const ContinuousIndicesDetails = () => (
 
 const SyntheticIndices = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const { is_row } = getCountryRule()
+    const [is_row] = useCountryRule()
 
     return (
         <SectionContainer padding="4rem 0 8rem">

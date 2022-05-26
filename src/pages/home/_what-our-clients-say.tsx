@@ -7,7 +7,7 @@ import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
@@ -268,7 +268,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_row, is_eu, is_uk } = getCountryRule()
+    const [is_row, is_eu, is_uk] = useCountryRule()
 
     useEffect(() => {
         addScript({

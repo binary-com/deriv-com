@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer, UKEU, ROW } from 'components/containers'
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
@@ -409,8 +409,8 @@ NavPlatform.propTypes = {
 }
 
 export const NavMarket = ({ onClick, is_ppc }) => {
-    const { is_non_uk } = getCountryRule()
-    const { is_non_eu } = getCountryRule()
+    const [is_non_uk] = useCountryRule()
+    const [is_non_eu] = useCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">

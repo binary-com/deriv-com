@@ -8,7 +8,7 @@ import { localize, Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type CardContentType = {
     header: React.ReactElement
@@ -119,7 +119,7 @@ const StyledText = styled(Text)`
     }
 `
 const WhyTrader = () => {
-    const { is_eu, is_uk } = getCountryRule()
+    const [is_eu, is_uk] = useCountryRule()
 
     return (
         <Section>

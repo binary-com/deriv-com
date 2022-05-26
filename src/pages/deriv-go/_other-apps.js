@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 // svg
 import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'
@@ -106,7 +106,7 @@ const other_apps = [
 ]
 
 const OtherApps = () => {
-    const { is_uk_eu } = getCountryRule()
+    const [is_uk_eu] = useCountryRule()
 
     return (
         <div>

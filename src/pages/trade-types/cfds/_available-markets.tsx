@@ -6,7 +6,7 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex, ROW, UK, EU } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
@@ -119,7 +119,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const AvailableMarkets = () => {
-    const { is_uk_eu } = getCountryRule()
+    const [is_uk_eu] = useCountryRule()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">

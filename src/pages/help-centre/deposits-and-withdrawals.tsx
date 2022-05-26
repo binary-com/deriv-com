@@ -231,7 +231,7 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
         <StyledText>
             <Text>{localize('To cancel your withdrawal, follow these steps:')}</Text>
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize

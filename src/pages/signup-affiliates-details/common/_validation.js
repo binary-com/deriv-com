@@ -95,7 +95,7 @@ const validation = {
     address: (input) => {
         return textValidation(input, localize('Address'), 2, 70)
     },
-    mobileNumber: (input) => {
+    phone: (input) => {
         return phoneValidation(input, localize('Mobile number'), 9, 35)
     },
     password: (input) => {

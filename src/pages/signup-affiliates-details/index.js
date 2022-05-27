@@ -9,7 +9,7 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import Map from 'images/svg/landing/map.svg'
 
 const StyledFlex = styled(Flex)`
@@ -34,7 +34,7 @@ const Overlay = styled.div`
 
 const affiliateSignupDetails = () => {
     const [is_popup_shown, setPopupShown] = useState(false)
-    const [is_error_message, setErrorMessage] = useState(false)
+    const [error_message, setErrorMessage] = useState('')
     const showModal = (status) => setPopupShown(status)
 
     return (
@@ -63,12 +63,12 @@ const affiliateSignupDetails = () => {
                 </Layout>
             </Overlay>
             {is_popup_shown &&
-                (is_error_message ? (
+                (error_message ? (
                     <ModalMessage
                         showModal={showModal}
                         src={ErrorEmail}
                         title={localize('Sorry, an error occured')}
-                        message={localize('Account was not created')}
+                        message={localize(error_message)}
                     />
                 ) : (
                     <ModalMessage

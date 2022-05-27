@@ -3,10 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Formik, Field } from 'formik'
 import { Flex } from '../containers'
-import {
-    getSignupAffiliateValue,
-    resetSignupAffiliateDetails,
-} from '../../pages/signup-affiliates-details/common/_utility'
+import { resetSignupAffiliateDetails } from '../../pages/signup-affiliates-details/common/_utility'
 import { DropdownSearch } from '../elements'
 import { useResidenceList } from '../hooks/use-residence-list'
 import { useAffiliateData } from '../hooks/use-affiliate-data'
@@ -16,7 +13,7 @@ import { Input, Button } from 'components/form'
 import { Header, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledContentFlex = styled(Flex)`
     width: fit-content;
@@ -64,9 +61,9 @@ const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
 `
 
-const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMessage }) => {
-    const [is_pep_checked, setPepChecked] = useState(false)
-    const [is_terms_checked, setTermsChecked] = useState(false)
+const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
+    const [non_pep_declaration, setNonPepDeclaration] = useState(0)
+    const [tnc_accepted, setTncAccepted] = useState(0)
     const [is_eu_checked, setEuChecked] = useState(false)
     const [disabled, setDisabled] = useState(true)
     const residence_list = useResidenceList()
@@ -80,33 +77,24 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
 
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()
-
-    const handleCheckChange = (event, func) => func(event.currentTarget.checked)
-
-    const submitValues = (values, callback) => {
-        Object.keys(values).forEach((el) => {
-            callback(el, getSignupAffiliateValue(values[el]))
-        })
-    }
-
+    const handleCheckChange = (event, func) => func(event.currentTarget.checked ? 1 : 0)
     return (
         <StyledContentFlex jc="flex-start" fd="column" p="40px">
             <Formik
                 enableReinitialize
                 initialValues={{
-                    firstName: first_name || '',
-                    lastName: last_name || '',
+                    first_name: first_name || '',
+                    last_name: last_name || '',
                     date: date_of_birth || '',
                     country: country || '',
-                    residenceList: residence_list,
+                    residence_list: residence_list,
                     address: address_line_1 || address_line_2 || '',
-                    mobileNumber: phone || '',
+                    phone: phone || '',
                     password: '',
                     currency: '',
                 }}
                 validateOnBlur={false}
                 validate={(values) => resetSignupAffiliateDetails(values)}
-                onSubmit={(values, { setFieldValue }) => submitValues(values, setFieldValue)}
             >
                 {({
                     values,
@@ -120,27 +108,27 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                     dirty,
                 }) => {
                     const fieldsSelected = () =>
-                        !(is_pep_checked && is_terms_checked && is_checked) || !isValid || !dirty
+                        !(non_pep_declaration && tnc_accepted && is_checked) || !isValid || !dirty
 
                     const form_inputs = [
                         {
                             id: 'dm-first-name-input',
-                            name: 'firstName',
+                            name: 'first_name',
                             type: 'text',
-                            error: errors.firstName,
-                            value: values.firstName,
-                            touch: touched.firstName,
+                            error: errors.first_name,
+                            value: values.first_name,
+                            touch: touched.first_name,
                             label: localize('First Name'),
                             placeholder: 'First Name',
                             required: true,
                         },
                         {
                             id: 'dm-last-name-input',
-                            name: 'lastName',
+                            name: 'last_name',
                             type: 'text',
-                            error: errors.lastName,
-                            value: values.lastName,
-                            touch: touched.lastName,
+                            error: errors.last_name,
+                            value: values.last_name,
+                            touch: touched.last_name,
                             label: localize('Last Name'),
                             placeholder: 'Last Name',
                             required: true,
@@ -162,7 +150,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                             type: 'select',
                             error: errors.country,
                             touch: touched.selected_dropdown,
-                            list: values.residenceList,
+                            list: values.residence_list,
                             label: localize('Country of residence'),
                             placeholder: 'Country of residence',
                             required: true,
@@ -180,11 +168,11 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                         },
                         {
                             id: 'dm-mobile-number',
-                            name: 'mobileNumber',
+                            name: 'phone',
                             type: 'tel',
-                            error: errors.mobileNumber,
-                            value: values.mobileNumber,
-                            touch: touched.mobileNumber,
+                            error: errors.phone,
+                            value: values.phone,
+                            touch: touched.phone,
                             label: localize('Mobile number'),
                             placeholder: 'Mobile number',
                             required: true,
@@ -202,7 +190,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                         },
                     ]
                     return (
-                        <form style={{ display: 'block' }}>
+                        <div style={{ display: 'block' }}>
                             <Header as="h3" type="heading-3" mb="8px">
                                 {localize('We’re glad you’re here')}
                             </Header>
@@ -299,9 +287,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                             </Field>
                             <Flex fd="column">
                                 <AgreementLabel
-                                    is_checked={is_pep_checked}
+                                    is_checked={non_pep_declaration}
                                     handleChangeCheckbox={(e) =>
-                                        handleCheckChange(e, setPepChecked)
+                                        handleCheckChange(e, setNonPepDeclaration)
                                     }
                                     link_text={localize(
                                         'I declare that I am not a politically exposed person.',
@@ -309,9 +297,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                 ></AgreementLabel>
                                 <AgreementLabel
                                     is_affiliate
-                                    is_checked={is_terms_checked}
+                                    is_checked={tnc_accepted}
                                     handleChangeCheckbox={(e) =>
-                                        handleCheckChange(e, setTermsChecked)
+                                        handleCheckChange(e, setTncAccepted)
                                     }
                                     link_text={localize(
                                         'I have read and accepted Deriv’s <0>General business terms</0> and ',
@@ -340,24 +328,20 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                 ></AgreementLabel>
                             </Flex>
                             <Flex fd="column" ai="center">
-                                <div
-                                    onClick={() => {
-                                        if (fieldsSelected()) {
-                                            showModal(true)
-                                            setErrorMessage(true)
-                                        }
-                                    }}
-                                >
+                                <div>
                                     <SignupButton
                                         id="dm-new-signup"
                                         secondary
                                         type="submit"
                                         disabled={fieldsSelected()}
-                                        onClick={(e) => {
-                                            e.preventDefault()
-                                            submitValues(values, setFieldValue)
-                                            showModal(true)
-                                            setErrorMessage(false)
+                                        onClick={() => {
+                                            /*eslint no-unused-vars: ["error", { "ignoreRestSiblings": true }]*/
+                                            const { residence_list, ...user_data } = values
+                                            setUserData({
+                                                ...user_data,
+                                                non_pep_declaration,
+                                                tnc_accepted,
+                                            })
                                         }}
                                     >
                                         {localize('Sign up')}
@@ -382,7 +366,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, showModal, setErrorMes
                                     </StyledLinkText>
                                 </Header>
                             </Flex>
-                        </form>
+                        </div>
                     )
                 }}
             </Formik>
@@ -405,9 +389,10 @@ SignupAffiliateDetails.propTypes = {
     handleValidation: PropTypes.func,
     is_ppc: PropTypes.bool,
     last_name: PropTypes.string,
-    mobile_number: PropTypes.number,
     password: PropTypes.string,
+    phone: PropTypes.number,
     setErrorMessage: PropTypes.func,
+    setUserData: PropTypes.func,
     showModal: PropTypes.func,
 }
 

@@ -5,7 +5,7 @@ import { Flex } from '../containers'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledFlex = styled(Flex)`
     height: fit-content;

@@ -1,15 +1,15 @@
 import React, { ReactElement, useEffect, useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
-import { size } from 'themes/device'
+import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { eu_domains, uk_domains } from 'common/constants'
-import { getClientInformation, getDomain, isBrowser, isTestlink } from 'common/utility'
+import { getClientInformation, getDomain, isLocalhost, isTestlink } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 type ResponsiveContainerProps = {
     children: ReactElement
-    breakpoint?: number | keyof typeof size
+    breakpoint?: number | SizeType
     className?: string
 }
 
@@ -103,7 +103,7 @@ export const getCountryRule = () => {
     const is_non_eu = !is_eu
     const is_uk_eu = !(!is_eu && !is_uk)
     const is_row = !is_uk_eu
-    const is_dev = (isBrowser() && process.env.NODE_ENV === 'development') || isTestlink()
+    const is_dev = isLocalhost() || isTestlink()
 
     return { is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row, is_dev }
 }

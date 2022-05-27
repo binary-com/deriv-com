@@ -57,6 +57,5 @@ export const dataFilter = (data) => {
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )
     }
-    console.log(filtered_data)
     return filtered_data
 }

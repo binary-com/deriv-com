@@ -1,11 +1,7 @@
 name: Translation Push
 
 on:
-    pull_request:
-        types: 
-            - opened
-            - reopened
-            - edited
+    push:
         branches:
             - 'translation-*'
             - 'master-*'
@@ -13,6 +9,7 @@ on:
 
 jobs:
     push-translation:
+        if: github.event.action != 'closed' 
         runs-on: ubuntu-latest
         steps:
             - name: Extract branch name

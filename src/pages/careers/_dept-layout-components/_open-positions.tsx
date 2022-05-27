@@ -10,7 +10,7 @@ import RightArrow from 'images/svg/career-right-arrow.svg'
 import device from 'themes/device'
 
 const getLink = (id) => {
-    return `https://deriv.zohorecruit.com/jobs/Careers/${id}`
+    return `https://deriv.zohorecruit.eu/jobs/Careers /${id}`
 }
 
 const PositionLink = styled(LocalizedLink)`

@@ -229,6 +229,7 @@ const Signup = (props) => {
                 }
             }
         }
+        setInterval(() => setSubmitting(false), 5000)
     }
     const clearEmail = () => {
         setEmail('')

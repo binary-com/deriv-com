@@ -95,7 +95,7 @@ export const p2p_applestore_url = 'https://apps.apple.com/us/app/deriv-dp2p/id15
 export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C103844755'
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
-export const zoho_url = 'https://deriv.zohorecruit.com'
+export const zoho_url = 'https://deriv.zohorecruit.eu'
 export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers'
 export const live_chat_redirection_link = `?is_livechat_open=true`
 export const localized_link_url = Object.freeze({

@@ -122,6 +122,7 @@ const BasketCommoditiesDetails = () => (
     </DetailsContainer>
 )
 
+//
 const BasketIndices = () => {
     const { is_row } = getCountryRule()
     return (

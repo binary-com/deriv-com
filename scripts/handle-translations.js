@@ -63,39 +63,35 @@ const handleProcess = (action) => {
         return false
     }
 
-    translation_branches.forEach((b) => {
-        // Detect Auto Translation Process
-        const branch_prefix = branch_name.split('-')[0]
+    // Detect Auto Translation Process
+    const branch_prefix = branch_name.split('-')[0]
 
-        if (translation_branches.includes(branch_prefix)) {
-            if (action !== 'pull-master')
-                console.log(
-                    `\x1b[33mFetching translation data for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
-                )
-            else {
-                console.log(
-                    `\x1b[32m[STP Process] \x1b[33mFetching translation from master source \x1b[33m   \n \x1b[0m`,
-                )
-            }
-
-            runProcess({
-                process: action,
-                callback: (error, stdout, stderr) => {
-                    if (error) {
-                        logError(error)
-                    }
-
-                    if (stdout) {
-                        console.log(stdout)
-                    }
-                },
-            })
-        } else {
+    if (translation_branches.includes(branch_prefix)) {
+        if (action !== 'pull-master')
             console.log(
-                `\x1b[32m[${branch_name}]\x1b[31m is not a valid translation branch \n \x1b[0m`,
+                `\x1b[33mFetching translation data for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
+            )
+        else {
+            console.log(
+                `\x1b[32m[STP Process] \x1b[33mFetching translation from master source \x1b[33m   \n \x1b[0m`,
             )
         }
-    })
+
+        runProcess({
+            process: action,
+            callback: (error, stdout, stderr) => {
+                if (error) {
+                    logError(error)
+                }
+
+                if (stdout) {
+                    console.log(stdout)
+                }
+            },
+        })
+    } else {
+        console.log(`\x1b[32m[${branch_name}]\x1b[31m is not a valid translation branch \n \x1b[0m`)
+    }
 }
 
 const runProcess = (data) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { convertToHash } from './_utility'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -44,32 +44,24 @@ type ArticleComponentProps = {
 }
 
 const ArticleDiv = styled.div`
-    width: 100%;
     display: flex;
     flex-direction: column;
 `
-const Platforms = styled(Text)`
-    font-size: var(--text-size-s);
-    color: var(--color-grey-5);
-    margin: 4rem 0 -3.2rem;
-
-    @media ${device.tablet} {
-        color: var(--color-black-3);
-        font-size: 24px;
-        font-weight: bold;
-        margin: 32px auto -32px;
-    }
-`
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
-    max-width: 38.4rem;
-    width: 38.4rem;
+    width: 35rem;
     line-height: 1.5;
 
     @media ${device.laptopL} {
-        max-width: auto;
+        width: 30rem;
+    }
+    @media ${device.laptopM} {
+        width: 26rem;
+    }
+    @media ${device.tabletS} {
         width: auto;
     }
+
     @media ${device.tabletL} {
         padding-top: 3.55rem;
     }
@@ -104,6 +96,11 @@ const ListNoBullets = styled.ul`
 
     li {
         max-width: 38.4rem;
+
+        @media ${device.tabletS} {
+            max-width: 100%;
+            width: 100%;
+        }
     }
     > *:not(:last-child) {
         padding-bottom: 1.6rem;
@@ -135,17 +132,8 @@ const StyledView = styled.div`
     }
 `
 
-const HeaderPlatforms = styled.div`
-    margin: 6.2rem 0 -3.2rem;
-
-    @media ${device.tablet} {
-        margin: 32px auto -32px;
-    }
-`
-
 const ArticleComponent = ({
     idx,
-    id,
     item,
     all_categories,
     toggleArticle,
@@ -154,9 +142,6 @@ const ArticleComponent = ({
 }: ArticleComponentProps) => {
     return (
         <ArticleDiv key={idx}>
-            {id === 1 && idx == 0 && <Platforms>Platforms</Platforms>}
-            {id === 1 && idx !== 0 && <HeaderPlatforms />}
-
             <ListWrapper>
                 <StyledHeader type="section-title">{item.category}</StyledHeader>
                 {item.articles.map((ar, idxb) => {

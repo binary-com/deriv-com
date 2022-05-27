@@ -7,9 +7,20 @@ import { derivx_app_url, deriv_app_url } from 'common/constants'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
+const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
+    list-style: ${(props) => props.listStyle};
+    padding-left: ${(props) => props.paddingLeft};
+`
+
+const StyledListItem = styled.li<{ marginTop: string }>`
+    color: var(--color-black-3);
+    margin-top: ${(props) => props.marginTop};
+`
+
 const ExternalLink = styled.a`
     text-decoration: none;
     color: var(--color-red);
+    font-weight: bold;
 
     :hover {
         text-decoration: underline;
@@ -76,22 +87,142 @@ const DifferenceDMT5DTraderDerivX = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const DerivXAccount = ({ text }: ArticleProps) => (
+const DifferenceMT5DerivX = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Real or Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
+                translate_text="<0>Deriv MT5</0> offers CFD trading on forex, stocks, stock indices, commodities, cryptocurrencies, and synthetics. <1>Deriv X</1> offers CFD trading on the same markets, except stocks and stock indices."
                 components={[
                     <ExternalLink
-                        href={derivx_app_url}
+                        href={'/dmt5/'}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
                     />,
+                    <ExternalLink
+                        href={'/derivx/'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
                 ]}
             />
         </Text>
+    </ArticleWrapper>
+)
+
+const AddDerivXAccount = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>{localize('Follow these steps to add a Deriv X account:')}</Text>
+        <StyledList listStyle="decimal" paddingLeft="5rem">
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize
+                        translate_text="<0>Log in</0> to your Deriv account."
+                        components={[
+                            <ExternalLink
+                                href={'https://oauth.deriv.com/oauth2/authorize?app_id=16929'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize
+                        translate_text="Go to the <0>Deriv X dashboard</0>."
+                        components={[
+                            <ExternalLink
+                                href={'https://app.deriv.com/derivx'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize
+                        translate_text="Select <0>Real account</0> or <0>Demo account</0>."
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize
+                        translate_text="Choose between <0>Synthetic</0> or <0>Financial</0> accounts. Then, hit <0>Add real account</0> or <0>Add demo account</0>."
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    {localize(
+                        'If you’re adding your first Deriv X account, you’ll need to set your Deriv X password. If you’ve already set your Deriv X password before, you’ll need to enter it now.',
+                    )}
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>{localize('Your new Deriv X account is now ready.')}</Text>
+            </StyledListItem>
+        </StyledList>
+    </ArticleWrapper>
+)
+
+const HowLoginDerivX = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>
+            {localize(
+                "You'll need to add a Deriv X account first. After that, follow these steps to log in:",
+            )}
+        </Text>
+        <StyledList listStyle="decimal" paddingLeft="5rem">
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize
+                        translate_text="Go to your <0>Deriv X dashboard</0>."
+                        components={[
+                            <ExternalLink
+                                href={'https://app.deriv.com/derivx'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={0}
+                            />,
+                        ]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize
+                        translate_text="Take note of your <0>username</0> and password."
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize
+                        translate_text="To log in on your desktop, click <0>Trade on web terminal</0>."
+                        components={[<strong key={0} />]}
+                    />
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="1rem">
+                <Text>
+                    <Localize translate_text="To log in on your mobile, you'll need the app. If you haven't got the app, you can download it from your dashboard." />
+                </Text>
+            </StyledListItem>
+        </StyledList>
     </ArticleWrapper>
 )
 
@@ -256,9 +387,19 @@ const DerivXArticle = () => {
                     label="differences-of-dtrader-dmt5-deriv-x"
                     is_mounted={is_mounted}
                 />
-                <DerivXAccount
-                    text={localize('How do I create a Deriv X account?')}
-                    label="create-account"
+                <DifferenceMT5DerivX
+                    text={localize("What's the difference between Deriv MT5 and Deriv X?")}
+                    label="differences-of-dmt5-deriv-x"
+                    is_mounted={is_mounted}
+                />
+                <AddDerivXAccount
+                    text={localize('How do I add a Deriv X account?')}
+                    label="add-account"
+                    is_mounted={is_mounted}
+                />
+                <HowLoginDerivX
+                    text={localize('How do I log in to Deriv X?')}
+                    label="log-in"
                     is_mounted={is_mounted}
                 />
                 <DifferentAccounts

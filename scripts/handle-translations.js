@@ -25,6 +25,17 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout) => {
     }
 })
 
+const slugify = (text) =>
+    text &&
+    text
+        .toString()
+        .normalize('NFD') 
+        .replace(/[\u0300-\u036f]/g, '') 
+        .toLowerCase()
+        .trim() 
+        .replace(/\s+/g, '-') 
+        .replace(/--+/g, '-') 
+
 const branchGenerator = (step = 1, data = {}) => {
     switch (step) {
         case 1:
@@ -47,8 +58,10 @@ const branchGenerator = (step = 1, data = {}) => {
             const { branch_prefix, unix } = data
             const branch_name = prompt('\x1b[33mFill in your branch name: \x1b[0m')
 
-            if (branch_name) {
-                exec(`git checkout -b ${branch_prefix}-${branch_name}-${unix}`, () => {})
+            const clean_branch_name = slugify(branch_name)
+
+            if (clean_branch_name) {
+                exec(`git checkout -b ${branch_prefix}-${clean_branch_name}-${unix}`, () => {})
             }
 
             break
@@ -56,6 +69,8 @@ const branchGenerator = (step = 1, data = {}) => {
             break
     }
 }
+
+
 
 const handleProcess = (action) => {
     if (action === 'branch') {

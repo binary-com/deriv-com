@@ -36,17 +36,27 @@ export const handleTag = (tag_name) => {
 }
 
 export const dataFilter = (data) => {
+    const extra = {
+        smart_trader: 'c1925a11-e999-4750-97af-cc243186ce40',
+        options: '1d194e63-e40e-440f-85f1-79e9030e2114',
+    }
+
     const { is_eu, is_uk } = getCountryRule()
     let filtered_data = data
 
     if (is_eu) {
         filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
+            (item) =>
+                item.visibility !== 'hide_for_eu' &&
+                item.visibility !== 'hide_for_eu_uk' &&
+                item.id !== extra.smart_trader &&
+                item.id !== extra.options,
         )
     } else if (is_uk) {
         filtered_data = data.filter(
             (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
         )
     }
+    console.log(filtered_data)
     return filtered_data
 }

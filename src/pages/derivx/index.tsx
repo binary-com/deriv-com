@@ -31,7 +31,7 @@ const DerivX = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }, [setMobile])
 
-    const [is_row] = useCountryRule()
+    const { is_row } = useCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {

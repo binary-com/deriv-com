@@ -71,7 +71,7 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const [is_be_loaded, setBeLoaded] = useState(false)
     const data = useStaticQuery(query)
-    const [is_row, is_eu, is_uk] = useCountryRule()
+    const { is_row, is_eu, is_uk } = useCountryRule()
     const [website_status] = useWebsiteStatus()
 
     useEffect(() => {

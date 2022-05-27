@@ -151,7 +151,7 @@ CheckedText.propTypes = {
 }
 
 const InterestFreeTrading = () => {
-    const [is_uk, is_eu, is_row] = useCountryRule()
+    const { is_uk, is_eu, is_row } = useCountryRule()
 
     return (
         <StyledContainer>

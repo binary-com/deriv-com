@@ -119,7 +119,7 @@ const StyledText = styled(Text)`
     }
 `
 const WhyTrader = () => {
-    const [is_eu, is_uk] = useCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     return (
         <Section>

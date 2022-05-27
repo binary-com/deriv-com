@@ -77,7 +77,7 @@ const StyledHeader = styled(Header)`
 
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
-    const [is_uk] = useCountryRule()
+    const { is_uk } = useCountryRule()
 
     const text =
         !is_ppc && !is_uk

@@ -159,7 +159,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const [is_uk, is_uk_eu] = useCountryRule()
+    const { is_uk, is_uk_eu } = useCountryRule()
 
     return (
         <>

@@ -268,7 +268,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const [is_row, is_eu, is_uk] = useCountryRule()
+    const { is_row, is_eu, is_uk } = useCountryRule()
 
     useEffect(() => {
         addScript({

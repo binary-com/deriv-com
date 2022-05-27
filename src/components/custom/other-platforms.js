@@ -409,8 +409,8 @@ NavPlatform.propTypes = {
 }
 
 export const NavMarket = ({ onClick, is_ppc }) => {
-    const [is_non_uk] = useCountryRule()
-    const [is_non_eu] = useCountryRule()
+    const { is_non_uk } = useCountryRule()
+    const { is_non_eu } = useCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">

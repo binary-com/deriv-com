@@ -31,7 +31,7 @@ type CryptoContent = {
 }
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
-    const [is_uk_eu, is_uk] = useCountryRule()
+    const { is_uk_eu, is_uk } = useCountryRule()
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,

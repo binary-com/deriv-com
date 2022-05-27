@@ -6,7 +6,7 @@ import { localize, Localize } from 'components/localization'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const OurPlatforms = () => {
-    const [is_row] = useCountryRule()
+    const { is_row } = useCountryRule()
 
     return (
         <SectionContainer

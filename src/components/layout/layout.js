@@ -90,7 +90,7 @@ const CFDText = styled(Text)`
 `
 
 export const CFDWarning = ({ is_ppc }) => {
-    const [is_uk_eu] = useCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     if (is_ppc || is_uk_eu) {
         return (
@@ -127,7 +127,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const [is_uk_eu] = useCountryRule()
+    const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()

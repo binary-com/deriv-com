@@ -45,7 +45,7 @@ const items = [
     },
 ]
 const DerivGo = () => {
-    const [is_row] = useCountryRule()
+    const { is_row } = useCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {

@@ -21,7 +21,7 @@ type StockIndicesProps = {
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
-    const [is_uk] = useCountryRule()
+    const { is_uk } = useCountryRule()
 
     simple_step_content[1].text = localize(
         'Open a real account, make a deposit, and start trading stocks, indices and other markets.',

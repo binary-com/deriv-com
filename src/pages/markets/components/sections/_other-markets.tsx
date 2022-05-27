@@ -267,7 +267,7 @@ const MobileCardContainer = styled(Flex)`
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
-    const [is_uk, is_eu] = useCountryRule()
+    const { is_uk, is_eu } = useCountryRule()
 
     const markets = [
         '',

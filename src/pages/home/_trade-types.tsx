@@ -277,7 +277,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
 }
 
 const TradeTypes = (): React.ReactNode => {
-    const [is_row, is_eu, is_uk] = useCountryRule()
+    const { is_row, is_eu, is_uk } = useCountryRule()
     const items_details_by_region =
         (is_row && items_details_cr) || (is_eu && items_details_eu) || (is_uk && items_details_uk)
     const [is_not_big_screen] = useBrowserResize(1979)

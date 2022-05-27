@@ -7,7 +7,7 @@ import { CookieStorage } from 'common/storage'
 
 const UKAccountClosureModal = () => {
     const modalRef = React.useRef<ModalRefType>()
-    const [is_uk] = useCountryRule()
+    const { is_uk } = useCountryRule()
     const cookie_key = 'uk_account_closure_modal_shown'
     const cookie = new CookieStorage(cookie_key)
 

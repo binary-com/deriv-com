@@ -13,7 +13,7 @@ const Subscription = () => {
     const [email] = useQueryParam('email', StringParam)
     const [confirmation_code] = useQueryParam('c', StringParam)
     const [is_script_loaded, setScriptLoaded] = useState(false)
-    const [is_eu] = useCountryRule()
+    const { is_eu } = useCountryRule()
 
     useEffect(() => {
         if (email && confirmation_code) {

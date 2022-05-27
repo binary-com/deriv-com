@@ -135,7 +135,7 @@ const StyledText = styled(Text)`
 
 const Flexibility = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const [is_uk] = useCountryRule()
+    const { is_uk } = useCountryRule()
 
     const chosen_content = is_eu_country ? eucontent : content
 

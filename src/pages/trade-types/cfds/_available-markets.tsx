@@ -119,7 +119,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const AvailableMarkets = () => {
-    const [is_uk_eu] = useCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">

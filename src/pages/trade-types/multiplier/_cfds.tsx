@@ -28,7 +28,7 @@ const StyledTitle = styled(Text)`
 
 const CFDs = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const [is_row] = useCountryRule()
+    const { is_row } = useCountryRule()
 
     const major_pairs: MarketInstrumentsElement = {
         markets_list: {

@@ -5,13 +5,15 @@ import { eu_countries } from 'common/country-base'
 import { getClientInformation, getDomain, isLocalhost, isTestlink } from 'common/utility'
 
 export const useCountryRule = () => {
-    const [is_eu, setIsEu] = useState(null)
-    const [is_uk, setIsUk] = useState(null)
-    const [is_non_uk, setIsNonUk] = useState(null)
-    const [is_non_eu, setIsNonEu] = useState(null)
-    const [is_uk_eu, setIsUkEu] = useState(null)
-    const [is_row, setIsRow] = useState(null)
-    const [is_dev, setIsDev] = useState(null)
+    const [region, setRegion] = useState({
+        is_eu: null,
+        is_uk: null,
+        is_non_uk: null,
+        is_non_eu: null,
+        is_uk_eu: null,
+        is_row: null,
+        is_dev: null,
+    })
 
     const [website_status] = useWebsiteStatus()
     const user_ip_country = website_status?.clients_country || ''
@@ -28,13 +30,18 @@ export const useCountryRule = () => {
 
     useEffect(() => {
         if (website_status) {
-            setIsEu(is_eu_residence || (!residence && is_eu_country) || is_eu_domain)
-            setIsUk(is_uk_residence || (!residence && is_uk_country) || is_uk_domain)
-            setIsNonUk(!is_uk)
-            setIsNonEu(!is_eu)
-            setIsUkEu(!(!is_eu && !is_uk))
-            setIsRow(!is_uk_eu)
-            setIsDev(isLocalhost() || isTestlink())
+            console.log({ is_eu_residence })
+            console.log(!residence && is_eu_country)
+            console.log({ is_eu_domain })
+            setRegion({
+                is_eu: is_eu_residence || (!residence && is_eu_country) || is_eu_domain,
+                is_uk: is_uk_residence || (!residence && is_uk_country) || is_uk_domain,
+                is_non_uk: !region.is_uk,
+                is_non_eu: !region.is_eu,
+                is_uk_eu: !(!region.is_eu && !region.is_uk),
+                is_row: !region.is_uk_eu,
+                is_dev: isLocalhost() || isTestlink(),
+            })
         }
     }, [
         is_eu_residence,
@@ -44,10 +51,9 @@ export const useCountryRule = () => {
         is_uk_residence,
         is_uk_country,
         is_uk_domain,
-        is_eu,
-        is_uk,
-        is_uk_eu,
+        region.is_eu,
+        region.is_uk,
+        region.is_uk_eu,
     ])
-
-    return [is_eu, is_uk, is_non_uk, is_non_eu, is_uk_eu, is_row, is_dev]
+    return region
 }

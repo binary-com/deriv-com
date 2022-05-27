@@ -207,7 +207,7 @@ export const getPlatformDetails = (no_of_copies, is_eu, is_uk) => {
 }
 
 export const no_slide_sets = () => {
-    const [is_row] = useCountryRule()
+    const { is_row } = useCountryRule()
     if (!is_row) {
         return 1
     }
@@ -215,7 +215,7 @@ export const no_slide_sets = () => {
 }
 
 export const getSlideStartingIndex = () => {
-    const [is_row] = useCountryRule()
+    const { is_row } = useCountryRule()
     if (!is_row) {
         return 0
     }

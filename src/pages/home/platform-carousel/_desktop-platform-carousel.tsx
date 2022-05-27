@@ -16,7 +16,7 @@ const StyledDesktopCarousel = styled(Flex)`
 const DesktopPlatformCarousel = () => {
     const [slide_index, setSlideIndex] = useState(getSlideStartingIndex())
 
-    const [is_eu, is_uk] = useCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     const platform_details = getPlatformDetails(no_slide_sets(), is_eu, is_uk)
 

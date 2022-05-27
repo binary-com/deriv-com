@@ -136,7 +136,7 @@ const ContinuousIndicesDetails = () => (
 
 const SyntheticIndices = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const [is_row] = useCountryRule()
+    const { is_row } = useCountryRule()
 
     return (
         <SectionContainer padding="4rem 0 8rem">

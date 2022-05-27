@@ -18,7 +18,7 @@ import {
 } from 'common/constants'
 
 const LogoSection = ({ type }) => {
-    const [is_eu, is_uk] = useCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     return (
         <DerivLogoWrapper>

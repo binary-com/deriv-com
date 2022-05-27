@@ -106,7 +106,7 @@ const other_apps = [
 ]
 
 const OtherApps = () => {
-    const [is_uk_eu] = useCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     return (
         <div>

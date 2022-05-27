@@ -718,7 +718,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
-    const [is_eu, is_uk] = useCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     // Filter out restricted categories from the combined filter type array based on geolocation
     useEffect(() => {

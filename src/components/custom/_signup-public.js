@@ -310,7 +310,7 @@ const SignupPublic = ({
     is_submitting,
 }) => {
     const data = useStaticQuery(query)
-    const [is_row, is_eu, is_uk] = useCountryRule()
+    const { is_row, is_eu, is_uk } = useCountryRule()
     const [is_checked, setChecked] = useState(false)
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)

@@ -172,7 +172,7 @@ const Subscribe = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
     const { user_country } = React.useContext(DerivStore)
-    const [is_eu] = useCountryRule()
+    const { is_eu } = useCountryRule()
 
     useEffect(() => {
         if (!window._cio) {

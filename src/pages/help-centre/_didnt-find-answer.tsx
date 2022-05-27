@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { Button } from 'components/form'
 import { localize } from 'components/localization'
-import { Container } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
@@ -47,7 +47,7 @@ const WhatsAppButton = styled.button`
     color: var(--color-white);
     font-size: var(--text-size-xs);
     border-radius: 4px;
-    height: fit-content;
+    height: auto;
     padding: 10px 16px;
     font-weight: bold;
     margin-left: 16px;
@@ -73,24 +73,26 @@ export const DidntFindYourAnswerBanner = () => {
                     {localize('Didn’t find your answer? We can help.')}
                 </MiddleText>
                 {is_livechat_interactive && (
-                    <Button
-                        secondary="true"
-                        onClick={() => {
-                            LC_API.open_chat_window()
-                        }}
-                    >
-                        {localize('Chat')}
-                    </Button>
+                    <Flex>
+                        <Button
+                            secondary="true"
+                            onClick={() => {
+                                LC_API.open_chat_window()
+                            }}
+                        >
+                            {localize('Chat')}
+                        </Button>
+                        <WhatsAppButton>
+                            <WhatsAppIcon
+                                src={WhatsAppSVG}
+                                alt={localize('whatsappicon')}
+                                height="16"
+                                width="16"
+                            />
+                            {localize('WhatsApp')}
+                        </WhatsAppButton>
+                    </Flex>
                 )}
-                <WhatsAppButton>
-                    <WhatsAppIcon
-                        src={WhatsAppSVG}
-                        alt={localize('whatsappicon')}
-                        height="16"
-                        width="16"
-                    />
-                    {localize('WhatsApp')}
-                </WhatsAppButton>
             </DFYASection>
         </DFYAWrapper>
     )

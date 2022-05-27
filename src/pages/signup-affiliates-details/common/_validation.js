@@ -9,7 +9,7 @@ export const affiliate_validation_regex = {
 
 const validation_is_exceed_number = (input, max_digit) => {
     const max_digit_value = max_digit || 15
-    return !(input.includes('.') || input.length > max_digit_value + 1)
+    return !(input.length > max_digit_value + 1)
 }
 
 const validation_is_lack_number = (input, min_digit) => input.length + 1 > min_digit

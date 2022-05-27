@@ -7,7 +7,7 @@ import AvailablePlatforms from '../../markets/components/helper/_available-platf
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Desktop, Mobile } from 'components/containers/visibility'
+import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
 import device from 'themes/device'
 
 const StyledText = styled(Text)`
@@ -123,6 +123,7 @@ const BasketCommoditiesDetails = () => (
 )
 
 const BasketIndices = () => {
+    const { is_row } = getCountryRule()
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
@@ -132,7 +133,7 @@ const BasketIndices = () => {
                     )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
-                    <AvailablePlatforms m_top="16px" dtrader />
+                    <AvailablePlatforms m_top="16px" dbot={is_row} dtrader />
                 </AvailablePlatformsWrapper>
                 <Text weight="bold">
                     {localize('Instruments available for multipliers trading')}

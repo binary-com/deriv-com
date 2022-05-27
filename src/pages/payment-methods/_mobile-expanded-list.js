@@ -7,7 +7,7 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Button } from 'components/form/'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledItemWrapper = styled(Flex)`
     border-bottom: ${(props) => (props.is_expanded ? '1px solid var(--color-grey-8)' : 'none')};

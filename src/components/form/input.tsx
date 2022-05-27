@@ -1,15 +1,49 @@
 import React, { useRef } from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
 
+interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
+    handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
+}
+
+type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
+
+type InputWrapperProps = {
+    border?: string
+    label_hover_color?: string
+    focus_border?: string
+    error?: string
+    disabled?: boolean
+}
+
+type StyledInputProps = {
+    input_background?: string
+    inputColor?: string
+    showLabel?: string
+    label_focus_color?: string
+    background?: string
+    label?: string
+    error?: string
+}
+
+type ValidProps = {
+    background?: string
+}
+
+type StyledLabelProps = {
+    label_color?: string
+    tablet_background?: string
+    error?: string
+    htmlFor?: string
+}
+
 const RelativeWrapper = styled.div`
     position: relative;
 `
-const InputWrapper = styled.div`
+const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
@@ -68,7 +102,7 @@ const StyledError = styled.img`
     }
 `
 
-const StyledInput = styled.input`
+const StyledInput = styled.input<StyledInputProps>`
     background: ${({ input_background }) =>
         input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
@@ -129,7 +163,7 @@ const StyledInput = styled.input`
     &:valid {
         ${(props) =>
             props.value &&
-            css`
+            css<ValidProps>`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
                     color: var(--color-black-3);
@@ -150,7 +184,7 @@ const ErrorMessages = styled(Text)`
     min-height: 16px;
 `
 
-const StyledLabel = styled.label`
+const StyledLabel = styled.label<StyledLabelProps>`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);
@@ -165,22 +199,22 @@ const StyledLabel = styled.label`
 `
 
 const Input = ({
-    label,
-    height,
-    border,
-    focus_border,
+    label = '',
+    height = '',
+    border = '',
+    focus_border = '',
     label_hover_color,
-    label_color,
+    label_color = '',
     disabled,
-    id,
-    error,
-    background,
-    tablet_background,
+    id = '',
+    error = '',
+    background = '',
+    tablet_background = '',
     handleError,
     maxLength,
     ...props
-}) => {
-    let current_input = useRef(null)
+}: InputProps) => {
+    const current_input = useRef(null)
 
     return (
         <RelativeWrapper>
@@ -201,7 +235,7 @@ const Input = ({
                     height={height}
                     showLabel={label}
                     {...props}
-                    ref={(ip) => (current_input = ip)}
+                    ref={() => current_input}
                 />
                 {label && (
                     <StyledLabel
@@ -228,24 +262,6 @@ const Input = ({
             )}
         </RelativeWrapper>
     )
-}
-
-Input.propTypes = {
-    background: PropTypes.string,
-    border: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    disabled: PropTypes.bool,
-    error: PropTypes.string,
-    focus_border: PropTypes.string,
-    handleError: PropTypes.func,
-    height: PropTypes.any,
-    id: PropTypes.string,
-    label: PropTypes.string,
-    label_color: PropTypes.string,
-    label_hover_color: PropTypes.string,
-    maxLength: PropTypes.string,
-    tablet_background: PropTypes.string,
-    width: PropTypes.string,
 }
 
 export default Input

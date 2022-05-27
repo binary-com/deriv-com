@@ -308,9 +308,12 @@ export const addScript = (settings) => {
     const script = document.createElement('script')
 
     Object.keys(settings).forEach((key) => {
-        script.setAttribute(key, settings[key])
+        if (key === 'text') {
+            script.text = settings['text']
+        } else {
+            script.setAttribute(key, settings[key])
+        }
     })
-
     document.body.appendChild(script)
 }
 
@@ -455,7 +458,9 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
 
     const eu_domains = ['eu', 'staging-eu']
 
-    if (eu_domains.some((e) => subdomain.includes(e))) {
+    if (isLocalhost() || isTestlink()) {
+        return false
+    } else if (eu_domains.some((e) => subdomain.includes(e))) {
         handleEURedirect(country, full_domain)
     } else {
         handleDerivRedirect(country, subdomain)
@@ -470,3 +475,7 @@ export const queryParamData = () => {
         return platform_list.includes(platform_name) ? platform_name : ''
     } else return ''
 }
+
+export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
+
+export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))

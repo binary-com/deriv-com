@@ -50,16 +50,6 @@ const getBreakPoint = (breakpoint: ResponsiveContainerProps['breakpoint']) => {
     }
 }
 
-const deviceRenderer = (): boolean => {
-    const [is_loaded, setLoaded] = useState(false)
-
-    useEffect(() => {
-        setLoaded(true)
-    }, [useBrowserResize])
-
-    return is_loaded
-}
-
 export const Desktop = ({
     children,
     breakpoint = DEFAULT_BREAKPOINT,
@@ -67,7 +57,10 @@ export const Desktop = ({
 }: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint)
     const [is_mobile] = useBrowserResize(breakpoint_size)
-    const is_loaded = deviceRenderer()
+    const [is_loaded, setLoaded] = useState(false)
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
 
     const desktop_view = is_mobile ? <></> : <div className={className}>{children}</div>
 
@@ -85,7 +78,10 @@ export const Mobile = ({
 }: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint) + 1
     const [is_mobile] = useBrowserResize(breakpoint_size - 1)
-    const is_loaded = deviceRenderer()
+    const [is_loaded, setLoaded] = useState(false)
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
 
     const mobile_view = is_mobile ? <div className={className}>{children}</div> : <></>
 

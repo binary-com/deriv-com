@@ -30,7 +30,6 @@ import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser

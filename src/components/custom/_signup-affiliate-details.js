@@ -61,19 +61,21 @@ const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
 `
 
-const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
+const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData, is_submitting }) => {
     const [non_pep_declaration, setNonPepDeclaration] = useState(0)
     const [tnc_accepted, setTncAccepted] = useState(0)
     const [is_eu_checked, setEuChecked] = useState(false)
-    const [disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(false)
     const residence_list = useResidenceList()
     const [is_checked, setChecked] = useState(false)
 
     useEffect(() => {
-        if (residence_list.length > 0) {
+        if (is_submitting || residence_list.length < 0) {
+            setDisabled(true)
+        } else {
             setDisabled(false)
         }
-    }, [residence_list])
+    }, [is_submitting])
 
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()
@@ -108,7 +110,10 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                     dirty,
                 }) => {
                     const fieldsSelected = () =>
-                        !(non_pep_declaration && tnc_accepted && is_checked) || !isValid || !dirty
+                        !(non_pep_declaration && tnc_accepted && is_checked) ||
+                        !isValid ||
+                        !dirty ||
+                        disabled
 
                     const form_inputs = [
                         {
@@ -237,8 +242,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                                     label_focus_color="black"
                                                     background="white"
                                                     error={item.touch && item.error}
-                                                    label={localize(item.label)}
-                                                    placeholder={item.placeholder}
+                                                    label={!disabled ? localize(item.label) : ''}
+                                                    placeholder={!disabled ? item.placeholder : ''}
                                                     password_icon={item.name === 'password'}
                                                     handleError={(current_input) => {
                                                         setFieldValue(item.name, '', false)
@@ -388,6 +393,7 @@ SignupAffiliateDetails.propTypes = {
     handleSocialSignup: PropTypes.func,
     handleValidation: PropTypes.func,
     is_ppc: PropTypes.bool,
+    is_submitting: PropTypes.bool,
     last_name: PropTypes.string,
     password: PropTypes.string,
     phone: PropTypes.number,

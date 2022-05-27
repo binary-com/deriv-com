@@ -176,6 +176,7 @@ const Signup = (props) => {
         }
     }
     const handleAffiliateSignup = (e) => {
+        setSubmitting(true)
         e.preventDefault()
         // TODO: find a way to access user token
         const token = 'tmdaw4uGUCYGFJK'

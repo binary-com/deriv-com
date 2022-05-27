@@ -68,7 +68,6 @@ const DesktopPlatformCarousel = () => {
     useEffect(() => {
         setPlatformDetails(getPlatformDetails(no_slide_sets()))
     }, [getPlatformDetails, no_slide_sets])
-    console.log(platform_details)
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">

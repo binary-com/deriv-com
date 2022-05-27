@@ -327,25 +327,27 @@ const TradeTypes = (): React.ReactNode => {
             <DesktopWrapper>
                 <Flex>
                     <Carousel {...settings}>
-                        {items_details_by_region.map((item) => {
-                            return (
-                                <Flex key={item.image_url} ai="flex-start">
-                                    <TradeItems items_details={item} />
-                                </Flex>
-                            )
-                        })}
+                        {items_details_by_region &&
+                            items_details_by_region.map((item) => {
+                                return (
+                                    <Flex key={item.image_url} ai="flex-start">
+                                        <TradeItems items_details={item} />
+                                    </Flex>
+                                )
+                            })}
                     </Carousel>
                 </Flex>
             </DesktopWrapper>
             <MobileWrapper>
                 <Flex fd="column" tablet={{ max_width: '58.8rem', m: '0 auto' }}>
-                    {items_details_by_region.map((item) => {
-                        return (
-                            <Flex key={item.link} ai="flex-start">
-                                <TradeItems items_details={item} />
-                            </Flex>
-                        )
-                    })}
+                    {items_details_by_region &&
+                        items_details_by_region.map((item) => {
+                            return (
+                                <Flex key={item.link} ai="flex-start">
+                                    <TradeItems items_details={item} />
+                                </Flex>
+                            )
+                        })}
                 </Flex>
             </MobileWrapper>
         </StyledSection>

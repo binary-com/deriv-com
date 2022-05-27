@@ -61,7 +61,7 @@ export const oauth_url = `https://oauth.${getDomainUrl()}`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
-    'https://deriv.zohorecruit.eu/jobs/Careers /590522000040116003/BeSquare-Graduate-Trainee-2-0?source=CareerSite'
+    'https://deriv.zohorecruit.eu/jobs/Careers/590522000040116003/BeSquare-Graduate-Trainee-2-0?source=CareerSite'
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
@@ -96,7 +96,7 @@ export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C1
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
-export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers '
+export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers'
 export const live_chat_redirection_link = `?is_livechat_open=true`
 export const localized_link_url = Object.freeze({
     affiliate_sign_in: affiliate_signin_url,

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
 import PlatformSlider from './_platform-slider'
-import { no_slide_sets, getPlatformDetails, getSlideStartingIndex } from './_utils'
+import { platform_details_eu, platform_details_uk, platform_details_cr } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -14,15 +14,66 @@ const StyledDesktopCarousel = styled(Flex)`
     }
 `
 const DesktopPlatformCarousel = () => {
-    const [slide_index, setSlideIndex] = useState(getSlideStartingIndex())
+    const [slide_index, setSlideIndex] = useState(null)
+    const [platform_details, setPlatformDetails] = useState(null)
 
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu, is_uk, is_row } = useCountryRule()
 
-    const platform_details = getPlatformDetails(no_slide_sets(), is_eu, is_uk)
+    const getPlatformDetails = useCallback(
+        (no_of_copies) => {
+            const new_details = []
+            let current_index = 0
+
+            const platformDetails = () => {
+                if (is_eu) {
+                    return platform_details_eu
+                } else if (is_uk) {
+                    return platform_details_uk
+                }
+
+                return platform_details_cr
+            }
+
+            for (let index = 0; index < no_of_copies; index++) {
+                // prettier-ignore
+                platformDetails().forEach((p) => {
+            new_details.push({ ...p, id: current_index })
+            current_index++
+        })
+            }
+
+            return new_details
+        },
+        [is_eu, is_uk],
+    )
+
+    const no_slide_sets = useCallback(() => {
+        if (!is_row) {
+            return 1
+        }
+        return 11
+    }, [is_row])
+
+    const getSlideStartingIndex = useCallback(() => {
+        if (!is_row) {
+            return 0
+        }
+        return Math.round((no_slide_sets() * 8) / 2 - 2)
+    }, [is_row, no_slide_sets])
+
+    useEffect(() => {
+        setSlideIndex(getSlideStartingIndex())
+    }, [getSlideStartingIndex])
+
+    useEffect(() => {
+        setPlatformDetails(getPlatformDetails(no_slide_sets()))
+    }, [getPlatformDetails, no_slide_sets])
+    console.log(platform_details)
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">
             <PlatformSlider
+                getSlideStartingIndex={getSlideStartingIndex}
                 slide_index={slide_index}
                 onSelectSlide={setSlideIndex}
                 platform_details={platform_details}

@@ -2,11 +2,12 @@ import React from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled, { css } from 'styled-components'
-import { PlatformContent, ImageTag, getSlideStartingIndex } from './_utils'
+import { PlatformContent, ImageTag } from './_utils'
 import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -101,12 +102,18 @@ const StyledFlex = styled(Flex)`
 `
 
 type PlatformSliderProps = {
+    getSlideStartingIndex: () => number
     slide_index: number
     onSelectSlide: Dispatch<SetStateAction<number>>
     platform_details: TPlatformDetails[]
 }
 
-const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
+const PlatformSlider = ({
+    getSlideStartingIndex,
+    slide_index,
+    onSelectSlide,
+    platform_details,
+}: PlatformSliderProps) => {
     const [viewportRef, embla] = useEmblaCarousel({
         startIndex: getSlideStartingIndex(),
         loop: getSlideStartingIndex() > 2 ? true : false,

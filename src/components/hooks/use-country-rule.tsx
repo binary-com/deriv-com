@@ -30,9 +30,6 @@ export const useCountryRule = () => {
 
     useEffect(() => {
         if (website_status) {
-            console.log({ is_eu_residence })
-            console.log(!residence && is_eu_country)
-            console.log({ is_eu_domain })
             setRegion({
                 is_eu: is_eu_residence || (!residence && is_eu_country) || is_eu_domain,
                 is_uk: is_uk_residence || (!residence && is_uk_country) || is_uk_domain,
@@ -44,16 +41,18 @@ export const useCountryRule = () => {
             })
         }
     }, [
-        is_eu_residence,
-        residence,
         is_eu_country,
         is_eu_domain,
-        is_uk_residence,
+        is_eu_residence,
         is_uk_country,
         is_uk_domain,
+        is_uk_residence,
         region.is_eu,
         region.is_uk,
         region.is_uk_eu,
+        residence,
+        website_status,
     ])
+    console.log(region)
     return region
 }

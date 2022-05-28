@@ -53,6 +53,7 @@ export const useCountryRule = () => {
         residence,
         website_status,
     ])
+    console.log(website_status)
     console.log(region)
     return region
 }

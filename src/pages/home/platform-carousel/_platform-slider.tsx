@@ -138,9 +138,7 @@ const PlatformSlider = ({
                 <Shadow location="start" />
                 <Shadow location="end" />
                 <SelectedSlide
-                    selected_slide={
-                        platform_details && (platform_details[slide_index] || platform_details[0])
-                    }
+                    selected_slide={platform_details[slide_index] || platform_details[0]}
                 />
                 <Flex ai="center" jc="unset">
                     <Scene>

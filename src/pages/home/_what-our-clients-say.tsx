@@ -268,7 +268,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_row, is_eu, is_uk } = useCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     useEffect(() => {
         addScript({
@@ -276,7 +276,7 @@ const WhatOurClientsSay = () => {
             id: 'trust-pilot',
             async: true,
         })
-    }, [document])
+    }, [])
 
     return (
         <StyledContainer>
@@ -344,9 +344,9 @@ const WhatOurClientsSay = () => {
                         >
                             <Carousel>
                                 {(
-                                    (is_row && testimonial_slides) ||
                                     (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
-                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk))
+                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk)) ||
+                                    testimonial_slides
                                 ).map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />
                                 ))}

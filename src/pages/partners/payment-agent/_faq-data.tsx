@@ -28,7 +28,7 @@ const General = () => (
             }}
         >
             {localize(
-                'It is a partnership arrangement where a payment agent is authorised to process deposits and withdrawals for our clients.',
+                'It’s a partnership programme where we authorise third-party payment agents to process deposits and withdrawals for Deriv clients.',
             )}
         </Header>
         <Header
@@ -50,9 +50,20 @@ const General = () => (
                 type: 'paragraph-2',
             }}
         >
-            {localize(
-                'No, it isn’t. DP2P is a peer-to-peer service for our clients to make deposits and withdrawals using their local currency. As our payment agent, you can use the DP2P platform to offer your services to Deriv clients in your country.',
-            )}
+            <Localize
+                translate_text="No, it isn’t. <0>Deriv P2P</0> is a peer-to-peer service for our clients to make deposits and
+                                withdrawals using their local currency. As our payment agent, you can use Deriv P2P to offer
+                                your services to Deriv clients in your country."
+                components={[
+                    <LinkText
+                        key={0}
+                        color="red"
+                        target="_blank"
+                        href="/p2p"
+                        rel="noopener noreferrer"
+                    />,
+                ]}
+            />
         </Header>
         <Header
             as="p"
@@ -85,28 +96,7 @@ const General = () => (
                 type: 'paragraph-2',
             }}
         >
-            {localize('Are there any fees I need to pay to become a payment agent on Deriv?')}
-        </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            {localize('Not at all. Joining our payment agent programme is completely free.')}
-        </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            {localize('Who sets the commission rate per transaction?')}
+            {localize('Do I need a Deriv account to become a payment agent?')}
         </Header>
         <Header
             as="p"
@@ -118,7 +108,53 @@ const General = () => (
             }}
         >
             {localize(
-                'As a payment agent, you determine your commission per transaction, subject to our established thresholds.',
+                'Yes, you’ll need a Deriv real account to process deposits and withdrawals for our clients.',
+            )}
+        </Header>
+        <Header
+            as="p"
+            type="paragraph-1"
+            mt="16px"
+            tabletL={{
+                type: 'paragraph-2',
+            }}
+        >
+            {localize('Do I have to pay any fees to become a payment agent for Deriv?')}
+        </Header>
+        <Header
+            as="p"
+            type="paragraph-1"
+            mt="8px"
+            weight="normal"
+            tabletL={{
+                type: 'paragraph-2',
+            }}
+        >
+            {localize(
+                'Not at all. Our payment agent programme is completely free. You’ll just need to have a minimum balance in your Deriv account when signing up. The minimum amount depends on your country of residence.',
+            )}
+        </Header>
+        <Header
+            as="p"
+            type="paragraph-1"
+            mt="16px"
+            tabletL={{
+                type: 'paragraph-2',
+            }}
+        >
+            {localize('Do I get commission as a payment agent?')}
+        </Header>
+        <Header
+            as="p"
+            type="paragraph-1"
+            mt="8px"
+            weight="normal"
+            tabletL={{
+                type: 'paragraph-2',
+            }}
+        >
+            {localize(
+                'We don’t pay commission, but you can set your own commission rate per transaction within reasonable thresholds. When you sign up, our team will be in touch to work out the details with you.',
             )}
         </Header>
         <Header
@@ -198,29 +234,6 @@ const AccountManagement = () => (
                     />,
                 ]}
             />
-        </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="16px"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            {localize('As a payment agent, will I receive commissions from Deriv?')}
-        </Header>
-        <Header
-            as="p"
-            type="paragraph-1"
-            mt="8px"
-            weight="normal"
-            tabletL={{
-                type: 'paragraph-2',
-            }}
-        >
-            {localize(
-                'We do not pay commissions to payment agents. You set your own commission rate per transaction and our clients will bear the necessary fees.',
-            )}
         </Header>
         <Header
             as="p"

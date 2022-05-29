@@ -173,8 +173,7 @@ const tab_list_uk = [
 ]
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
-    const { is_uk } = useCountryRule()
-    const { is_eu } = useCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     const ref = useRef(null)
 

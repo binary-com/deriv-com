@@ -75,7 +75,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData, is_submit
         } else {
             setDisabled(false)
         }
-    }, [is_submitting])
+    }, [is_submitting, residence_list])
 
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()

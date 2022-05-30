@@ -77,11 +77,11 @@ const passwordValidation = (input, field_name, min_digit, max_digit) => {
 }
 
 const validation = {
-    firstName: (input) => {
-        return nameValidation(input, localize('First name'), 2, 50)
+    first_name: (input) => {
+        return nameValidation(input, localize('First Name'), 2, 50)
     },
-    lastName: (input) => {
-        return nameValidation(input, localize('Last name'), 2, 50)
+    last_name: (input) => {
+        return nameValidation(input, localize('Last Name'), 2, 50)
     },
     date: (input) => {
         return dateValidation(input, localize('Date'))

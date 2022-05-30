@@ -124,24 +124,28 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <MainWrapper>
-                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
-                    {homepage_banner_data.map((page_data) => {
-                        return (
-                            <Flex key={page_data.id}>
-                                <Hero
-                                    imageData={page_data.image?.imageFile}
-                                    imageAlt={page_data?.image?.description}
-                                    title={page_data.heading}
-                                    description={page_data.sub_heading}
-                                    href={page_data.link}
-                                    cta_text={page_data.button_text}
-                                />
-                            </Flex>
-                        )
-                    })}
-                </Carousel>
-            </MainWrapper>
+
+            {is_eu_country != null && (
+                <MainWrapper>
+                    <Carousel has_autoplay autoplay_interval={6000} {...settings}>
+                        {homepage_banner_data.map((page_data) => {
+                            return (
+                                <Flex key={page_data.id}>
+                                    <Hero
+                                        imageData={page_data.image?.imageFile}
+                                        imageAlt={page_data?.image?.description}
+                                        title={page_data.heading}
+                                        description={page_data.sub_heading}
+                                        href={page_data.link}
+                                        cta_text={page_data.button_text}
+                                    />
+                                </Flex>
+                            )
+                        })}
+                    </Carousel>
+                </MainWrapper>
+            )}
+
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
             <VideoBanner
                 featured_video_list_data={featured_video_list_data}

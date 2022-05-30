@@ -7,7 +7,6 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/elements/card-arrow.svg'
-import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -359,11 +358,6 @@ export const NavCard = ({ content, external, icon: Icon, style, title, ...props 
                     </ResponsiveHeader>
                     <ResponsiveText color="grey-5">{content}</ResponsiveText>
                 </NavContent>
-                {external && (
-                    <div>
-                        <RightDiagonal src={Diagonal} alt="Diagonal" widht="16" height="16" />
-                    </div>
-                )}
             </FlexHover>
         </LocalizedLink>
     )
@@ -377,25 +371,9 @@ NavCard.propTypes = {
     title: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
-const LinkRightDiagonal = styled.div`
-    opacity: 0;
-    justify-self: flex-end;
-    align-self: center;
-
-    & > svg,
-    img {
-        width: 16px;
-        height: 16px;
-    }
-`
-
 const HoverFlex = styled(Flex)`
     &:hover {
         background-color: var(--color-grey-30);
-
-        ${LinkRightDiagonal} {
-            opacity: 1;
-        }
     }
 `
 
@@ -443,11 +421,6 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
                     >
                         {title}
                     </ResponsiveHeader>
-                    {external && (
-                        <LinkRightDiagonal>
-                            <img src={Diagonal} alt="Diagonal" width="16" height="16" />
-                        </LinkRightDiagonal>
-                    )}
                 </RelativeFlex>
             </HoverFlex>
         </LocalizedLink>

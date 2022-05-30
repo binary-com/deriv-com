@@ -20,7 +20,6 @@ import DerivLife from 'images/svg/menu/deriv-life.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
-import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
@@ -66,13 +65,6 @@ const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
 
 const Span = styled.span`
     width: 100%;
-`
-
-const SpanSvg = styled.span`
-    & > img {
-        width: 16px;
-        height: 16px;
-    }
 `
 
 const StyledLink = styled((props) => <LocalizedLink {...props} />)`
@@ -443,9 +435,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={DerivLife} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Deriv life" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
@@ -471,9 +460,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Community} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Community" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
                         </StyledLink>
                         <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
                             <div>
@@ -509,9 +495,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Status} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Status page" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
                         </StyledLink>
                         <StyledLink to="/academy/" onClick={handleArrowClick}>
                             <div>

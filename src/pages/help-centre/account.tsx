@@ -110,7 +110,7 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
                 'If you haven’t made a deposit or added a real MT5 account, follow these steps:',
             )}
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>
                     <Localize
@@ -148,7 +148,7 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
                 'If you have made a deposit or have added a real MT5 account, follow these steps:',
             )}
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>{localize('If you have open positions, close them first.')}</Text>
                 <StyledList listStyle="circle" paddingLeft="5rem">
@@ -223,7 +223,7 @@ const RecoveringPassword = ({ text }: ArticleProps) => (
                 "If you'd like to log in using your email address instead, follow these steps:",
             )}
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize
@@ -594,7 +594,7 @@ const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('When we prompt you to verify your account, follow these steps:')}</Text>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize

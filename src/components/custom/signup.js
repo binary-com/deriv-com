@@ -155,8 +155,8 @@ const Signup = (props) => {
             if (response.error) {
                 binary_socket.close()
                 setSubmitStatus('error')
-                setSubmitErrorMsg(response.error.message)
-                handleValidation(formatted_email)
+                setEmailErrorMsg(response.error.message)
+                // handleValidation(formatted_email)
             } else {
                 setSubmitStatus('success')
                 if (props.onSubmit) {

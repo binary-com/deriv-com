@@ -243,7 +243,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData, is_submit
                                                     background="white"
                                                     error={item.touch && item.error}
                                                     label={!disabled ? localize(item.label) : ''}
-                                                    placeholder={!disabled ? item.placeholder : ''}
+                                                    placeholder={item.placeholder}
                                                     password_icon={item.name === 'password'}
                                                     handleError={(current_input) => {
                                                         setFieldValue(item.name, '', false)

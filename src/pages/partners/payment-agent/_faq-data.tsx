@@ -1,10 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import { LocalizedLinkText } from '../affiliate-ib/_faq-data'
-import { Header, LinkText } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-
-const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const General = () => (
     <>
@@ -55,12 +52,11 @@ const General = () => (
                                 withdrawals using their local currency. As our payment agent, you can use Deriv P2P to offer
                                 your services to Deriv clients in your country."
                 components={[
-                    <LinkText
-                        key={0}
-                        color="red"
+                    <LocalizedLinkText
+                        to="/p2p"
                         target="_blank"
-                        href="/p2p"
                         rel="noopener noreferrer"
+                        key={0}
                     />,
                 ]}
             />
@@ -209,7 +205,14 @@ const General = () => (
 )
 const AccountManagement = () => (
     <>
-        <Header as="h5" type="main-paragraph">
+        <Header
+            as="p"
+            mt="24px"
+            type="paragraph-1"
+            tabletL={{
+                type: 'paragraph-2',
+            }}
+        >
             {localize('How can I add, remove or change my accepted payment methods?')}
         </Header>
         <Header
@@ -224,13 +227,13 @@ const AccountManagement = () => (
             <Localize
                 translate_text="To change your payment method, please contact us via <0>livechat</0>."
                 components={[
-                    <TextLink
-                        key={0}
-                        color="red"
+                    <LocalizedLinkText
+                        as={'span'}
                         onClick={() => {
                             // eslint-disable-next-line no-undef
                             LC_API.open_chat_window()
                         }}
+                        key={0}
                     />,
                 ]}
             />

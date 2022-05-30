@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
-import { all_offices } from '../_model/_locations/_locations'
+import { continents } from '../_model/_locations/_locations'
 import device from 'themes/device'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, Text, Tabs, QueryImage } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
 const meta_attributes = {
@@ -24,7 +24,13 @@ const ChevronRight = styled(Chevron)`
     width: 16px;
     height: 16px;
 `
-
+const StyledTabs = styled(Tabs)`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 912px;
+    height: 56px;
+`
 const BackDrop = styled.section`
     background-color: var(--color-black);
     padding: 120px 0;
@@ -32,7 +38,7 @@ const BackDrop = styled.section`
     flex-direction: column;
     align-items: center;
 
-    @media ${device.mobile} {
+    @media ${device.mobileS} {
         padding: 80px 0;
         align-items: center;
     }
@@ -97,7 +103,6 @@ const StyledDiv = styled.div`
     min-height: 140px;
     padding: 24px 24px 24px 25px;
 `
-
 type CountryCardProps = {
     country_name: string
     city_name: string
@@ -199,38 +204,63 @@ const Locations = () => {
             />
             <Hero />
             <StyledSectionContainer direction="column" padding="80px 16px">
-                <Header
-                    as="h2"
-                    align="center"
-                    padding="0 0 35px"
-                    size={'var(--text-size-header-1)'}
+                <StyledTabs
+                    tab_list={[
+                        'all',
+                        'middle_east',
+                        'europe',
+                        'asia',
+                        'latam',
+                        'africa',
+                        'eastern_europe',
+                    ]}
+                    jc_tablet="start"
+                    jc_mobileL="start"
+                    mobile_font_size={16}
+                    line_divider_length="unset"
                 >
-                    Explore our locations
-                </Header>
-                <CssGrid
-                    columns="repeat(3, 384px)"
-                    row_gap="40px"
-                    column_gap="24px"
-                    laptop_columns="repeat(3, minmax(280px, 384px))"
-                    laptop_margin="0 16px"
-                    tablet_columns="repeat(2, 1fr)"
-                    mobile_columns="minmax(300px, 384px)"
-                    mobile_row_gap="37px"
-                    style={{ marginTop: '0rem', justifyContent: 'center' }}
-                    margin="0 16px"
-                >
-                    {all_offices.map((office) => (
-                        <CountryCard
-                            key={office.name}
-                            Icon={office.flagIcon}
-                            img_data={images[office.thumbnail]}
-                            country_name={office.country}
-                            city_name={office.display_name}
-                            link={office.link}
-                            img_alt={office.img_alt}
-                        />
-                    ))}
-                </CssGrid>
+                    {Object.keys(continents).map((key) => {
+                        return (
+                            <Tabs.Panel
+                                label={key
+                                    .split('_')
+                                    .filter((name) => name.length > 0)
+                                    .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
+                                    .join(' ')}
+                                key={{ key }}
+                                width="79px"
+                                height="56px"
+                                gap="8px"
+                            >
+                                <CssGrid
+                                    columns="repeat(3, 384px)"
+                                    row_gap="40px"
+                                    column_gap="24px"
+                                    laptop_columns="repeat(3, minmax(280px, 384px))"
+                                    laptop_margin="0 16px"
+                                    tablet_columns="repeat(2, 1fr)"
+                                    mobile_columns="minmax(300px, 384px)"
+                                    mobile_row_gap="37px"
+                                    style={{ justifyContent: 'center', marginTop: '80px' }}
+                                    mobileS={{ mt: '40px' }}
+                                    margin="0 16px"
+                                >
+                                    {continents[key].map((office) => (
+                                        <CountryCard
+                                            key={office.name}
+                                            Icon={office.flagIcon}
+                                            img_data={images[office.thumbnail]}
+                                            country_name={office.country}
+                                            city_name={office.display_name}
+                                            link={office.link}
+                                            img_alt={office.img_alt}
+                                        />
+                                    ))}
+                                </CssGrid>
+                            </Tabs.Panel>
+                        )
+                    })}
+                </StyledTabs>
             </StyledSectionContainer>
         </Layout>
     )

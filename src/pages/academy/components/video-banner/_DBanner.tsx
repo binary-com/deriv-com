@@ -12,7 +12,6 @@ import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
 const ParentWrapper = styled(Flex)`
-    overflow: hidden;
     margin: 80px 0;
     position: relative;
     height: auto;
@@ -133,7 +132,7 @@ const Dbanner = ({ featured_video_list_data, non_featured_video_list_data }: Vid
                     </BackgroundImageContainer>
                 </BackgroundImageWrapper>
                 <GradientWrapper />
-                <Container direction="column" jc="flex-start" style={{ zIndex: 3 }}>
+                <Container direction="column" jc="flex-start" style={{ zIndex: 5 }}>
                     <Flex direction="column" jc="flex-start" height="auto">
                         <PlayerIconWrapper
                             ai="center"

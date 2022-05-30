@@ -36,21 +36,21 @@ const OptionsToTrade = () => {
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h2" type="page-title" mb="4rem">
-                    {localize('Options to trade on Deriv')}
+                    <Localize translate_text="Options to trade on Deriv" />
                 </Header>
                 <Header as="h3" type="section-title" mb="2.4rem">
-                    {localize('Digital options')}
+                    <Localize translate_text="Digital options" />
                 </Header>
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('Up/Down')}
+                    <Localize translate_text="Up/Down" />
                 </Header>
                 <UpDownGrid />
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('In/Out')}
+                    <Localize translate_text="In/Out" />
                 </Header>
                 <InOutGrid />
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('Digits')}
+                    <Localize translate_text="Digits" />
                 </Header>
                 <DigitsGrid />
                 <SingleOptionsGrid />
@@ -60,7 +60,7 @@ const OptionsToTrade = () => {
                     }
                 />
                 <Header as="h4" type="sub-section-title" mt="4rem" mb="1.6rem">
-                    {localize('Lookbacks')}
+                    <Localize translate_text="Lookbacks" />
                 </Header>
                 <LookbacksGrid />
                 <Notes
@@ -88,7 +88,7 @@ const UpDownGrid = () => {
                     <img src={RiseFall} alt="rise fall" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Rise/Fall')}
+                    <Localize translate_text="Rise/Fall" />
                 </Text>
                 <MiddleText>
                     {localize(
@@ -116,7 +116,7 @@ const UpDownGrid = () => {
                     <img src={HigherLower} alt="higher lower" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Higher/Lower')}
+                    <Localize translate_text="Higher/Lower" />
                 </Text>
                 <MiddleText>
                     {localize(
@@ -151,7 +151,7 @@ const InOutGrid = () => {
                     <img src={EbEo} alt="eb eo" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Ends Between/Ends Outside')}
+                    <Localize translate_text="Ends Between/Ends Outside" />
                 </Text>
 
                 <MiddleText>
@@ -180,7 +180,7 @@ const InOutGrid = () => {
                     <img src={SbGo} alt="sb go" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Stays Between/Goes Outside')}
+                    <Localize translate_text="Stays Between/Goes Outside" />
                 </Text>
                 <MiddleText>
                     {localize(
@@ -210,7 +210,7 @@ const DigitsGrid = () => {
                     <img src={MatchDiffers} alt="matches differs" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Matches/Differs')}
+                    <Localize translate_text="Matches/Differs" />
                 </Text>
                 <MiddleText>
                     {localize(
@@ -233,7 +233,7 @@ const DigitsGrid = () => {
                     <img src={EvenOdd} alt="even odd" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Even/Odd')}
+                    <Localize translate_text="Even/Odd" />
                 </Text>
                 <MiddleText>
                     {localize(
@@ -256,7 +256,7 @@ const DigitsGrid = () => {
                     <img src={OverUnder} alt="over under" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Over/Under')}
+                    <Localize translate_text="Over/Under" />
                 </Text>
                 <MiddleText>
                     {localize(
@@ -283,7 +283,7 @@ const SingleOptionsGrid = () => {
         <OptionGridSecondary>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('Reset Call/Reset Put')}
+                    <Localize translate_text="Reset Call/Reset Put" />
                 </Header>
                 <div>
                     <img src={RcRp} alt="rc rp" />
@@ -311,7 +311,7 @@ const SingleOptionsGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('High/Low Ticks')}
+                    <Localize translate_text="High/Low Ticks" />
                 </Header>
                 <div>
                     <img src={HighLowTicks} alt="hl ticks" />
@@ -334,7 +334,7 @@ const SingleOptionsGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('Touch/No Touch')}
+                    <Localize translate_text="Touch/No Touch" />
                 </Header>
                 <div>
                     <img src={TnT} alt="tnt" />
@@ -357,7 +357,7 @@ const SingleOptionsGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('Asians')}
+                    <Localize translate_text="Asians" />
                 </Header>
                 <div>
                     <img src={Asians} alt="asians" />
@@ -385,7 +385,7 @@ const SingleOptionsGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    {localize('Only Ups/Only Downs')}
+                    <Localize translate_text="Only Ups/Only Downs" />
                 </Header>
                 <div>
                     <img src={OuOd} alt="ou od" />
@@ -418,7 +418,7 @@ const LookbacksGrid = () => {
                     <img src={HighClose} alt="high close" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('High-Close')}
+                    <Localize translate_text="High-Close" />
                 </Text>
                 <Text>
                     {localize(
@@ -431,7 +431,7 @@ const LookbacksGrid = () => {
                     <img src={CloseLow} alt="close low" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Close-Low')}
+                    <Localize translate_text="Close-Low" />
                 </Text>
                 <Text>
                     {localize(
@@ -444,7 +444,7 @@ const LookbacksGrid = () => {
                     <img src={HighLow} alt="high low" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('High-Low')}
+                    <Localize translate_text="High-Low" />
                 </Text>
                 <Text>
                     {localize(

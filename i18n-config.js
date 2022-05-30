@@ -7,6 +7,7 @@ module.exports = {
         affiliate_lang: 0,
     },
     fa: {
+        is_disabled: true,
         path: 'fa',
         display_name: 'Persian',
         short_name: 'FA',
@@ -19,6 +20,7 @@ module.exports = {
         affiliate_lang: 2,
     },
     ms: {
+        is_disabled: true,
         path: 'ms',
         display_name: 'Malay',
         short_name: 'MS',
@@ -31,18 +33,21 @@ module.exports = {
         affiliate_lang: 4,
     },
     tl: {
+        is_disabled: true,
         path: 'tl',
         display_name: 'Tagalog',
         short_name: 'TL',
         affiliate_lang: 5,
     },
     ta: {
+        is_disabled: true,
         path: 'ta',
         display_name: 'Tamil',
         short_name: 'TA',
         affiliate_lang: 6,
     },
     zh: {
+        is_disabled: true,
         path: 'zh',
         display_name: 'Chinese',
         short_name: 'ZH',

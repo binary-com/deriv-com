@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Text } from 'components/elements'
@@ -126,6 +126,15 @@ const Item = styled.div`
     padding: 0.8rem 1.6rem;
     transition: background 0.25s;
 
+    ${(props) => {
+        if (props.not_available) {
+            return css`
+                filter: brightness(30%);
+                opacity: 0.4;
+            `
+        }
+    }}
+
     &:hover {
         background: rgba(245, 247, 250, 0.64);
     }
@@ -179,13 +188,17 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                             if (!option) return null
                             const abbreviation = option.path.substring(0, 2)
                             const current_option = default_option.path === option.path
+
                             return (
                                 <Item
                                     disabled={current_option}
+                                    not_available={option.is_disabled}
                                     id={option.value}
                                     onClick={() => {
-                                        handleSelect(option.value)
-                                        Cookies.set('lang_is_fixed', 'true')
+                                        if (!option.is_disabled) {
+                                            handleSelect(option.value)
+                                            Cookies.set('lang_is_fixed', 'true')
+                                        }
                                     }}
                                     key={idx}
                                 >

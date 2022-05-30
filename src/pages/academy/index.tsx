@@ -94,22 +94,37 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
     let non_featured_video_list_data = data.directus.videos
     let featured_video_list_data = data.directus.featured_video
 
+    const {
+        market_news_eu,
+        recent_eu,
+        featured_eu,
+        homepage_banners_eu,
+        videos_eu,
+        featured_video_eu,
+        market_news_uk,
+        recent_uk,
+        featured_uk,
+        homepage_banners_uk,
+        videos_uk,
+        featured_video_uk,
+    } = data.directus
+
     // We need to include the !is_uk_country check together with is_eu_country because 'gb'
     // is a valid country code for both EU and UK in our country base.
     if (is_eu) {
-        market_news_data = data.directus.market_news_eu
-        recent_data = data.directus.recent_eu
-        featured_data = data.directus.featured_eu
-        homepage_banner_data = data.directus.homepage_banners_eu
-        non_featured_video_list_data = data.directus.videos_eu
-        featured_video_list_data = data.directus.featured_video_eu
+        market_news_data = market_news_eu
+        recent_data = recent_eu
+        featured_data = featured_eu
+        homepage_banner_data = homepage_banners_eu
+        non_featured_video_list_data = videos_eu
+        featured_video_list_data = featured_video_eu
     } else if (is_uk) {
-        market_news_data = data.directus.market_news_uk
-        recent_data = data.directus.recent_uk
-        featured_data = data.directus.featured_uk
-        homepage_banner_data = data.directus.homepage_banners_uk
-        non_featured_video_list_data = data.directus.videos_uk
-        featured_video_list_data = data.directus.featured_video_uk
+        market_news_data = market_news_uk
+        recent_data = recent_uk
+        featured_data = featured_uk
+        homepage_banner_data = homepage_banners_uk
+        non_featured_video_list_data = videos_uk
+        featured_video_list_data = featured_video_uk
     }
 
     //arranges homepage banners in ascendingly on order value

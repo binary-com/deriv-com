@@ -69,6 +69,10 @@ const StyledUl = styled.ul`
     font-size: var(--text-size-s);
     padding-left: 16px;
     margin-bottom: 36px;
+
+    &.get-started--list {
+        margin-bottom: 0;
+    }
 `
 
 const Li = styled.li`
@@ -197,7 +201,7 @@ const WhoCanApply = () => {
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize('Send us an email with the following:')}
                                         </Header>
-                                        <StyledUl>
+                                        <StyledUl className="get-started--list">
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(

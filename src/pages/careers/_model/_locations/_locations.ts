@@ -392,6 +392,12 @@ export const locations = {
 }
 export const continents = {
     All: all_offices,
+    europe: [],
+    asia: [],
+    middle_east: [],
+    eastern_europe: [],
+    africa: [],
+    latam: [],
 }
 
 all_offices.forEach((office) => {

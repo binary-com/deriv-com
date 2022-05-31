@@ -207,12 +207,12 @@ const Locations = () => {
                 <StyledTabs
                     tab_list={[
                         'all',
-                        'middle_east',
                         'europe',
                         'asia',
-                        'latam',
-                        'africa',
+                        'middle_east',
                         'eastern_europe',
+                        'africa',
+                        'latam',
                     ]}
                     jc_tablet="start"
                     jc_mobileL="start"

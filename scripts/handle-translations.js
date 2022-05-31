@@ -88,7 +88,7 @@ const handleProcess = (action) => {
             )
         else {
             console.log(
-                `\x1b[32m[STP Process] \x1b[33mFetching translation from master source \x1b[33m   \n \x1b[0m`,
+                `\x1b[32m[Main] \x1b[33mFetching translation from the master source \x1b[33m   \n \x1b[0m`,
             )
         }
 

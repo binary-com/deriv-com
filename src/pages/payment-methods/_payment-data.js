@@ -849,7 +849,7 @@ const payment_data = [
                 min_max_deposit: <Localize translate_text="Deriv USD account" />,
                 min_max_withdrawal: <Localize translate_text="500 USD" />,
                 deposit_time: <Localize translate_text="500 USD" />,
-                withdrawal_time: <Localize translate_text="Max 1 hours" />,
+                withdrawal_time: <Localize translate_text="Max 1 hour" />,
                 reference_link: (
                     <StyledRefLink to="/p2p/" target="_blank" rel="noopener noreferrer">
                         <Localize translate_text="Learn more" />

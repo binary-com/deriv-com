@@ -391,7 +391,7 @@ export const locations = {
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
 }
 export const continents = {
-    All: all_offices,
+    all: all_offices,
     europe: [],
     asia: [],
     middle_east: [],

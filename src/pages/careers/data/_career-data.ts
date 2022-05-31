@@ -16,9 +16,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Back-end',
-
             open_position: [
                 {
                     title: 'Back-end Developer',
@@ -71,9 +69,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Marketing',
-
             open_position: [
                 {
                     title: 'Digital PR Manager',
@@ -126,9 +122,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Security',
-
             open_position: [
                 {
                     title: 'DevOps Engineer',
@@ -181,9 +175,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Customer-Support',
-
             open_position: [
                 {
                     title: 'Client Support Executive',
@@ -236,9 +228,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/People-Management',
-
             open_position: [
                 {
                     title: 'Talent Acquisition Specialist',
@@ -291,9 +281,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Product-Design-and-UX',
-
             open_position: [
                 {
                     title: 'UI/UX Designer',
@@ -349,9 +337,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Compliance',
-
             open_position: [
                 {
                     title: 'Compliance Executive',
@@ -404,9 +390,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Finance',
-
             open_position: [
                 {
                     title: 'E-Payments Executive',
@@ -453,9 +437,7 @@ const career_data = {
                 subtitle:
                     'Our main function is to help our customers trade easily using a payment method of their choice. Our job can be described as "client funding facilitators" — meaning we provide the necessary tools to the clients to be able to fund their accounts and to be able to withdraw their returns.',
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Payments',
-
             intro_section: {
                 image: 'payments_desc',
                 img_alt: 'Girls seeing on lapop',
@@ -495,9 +477,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Front-end',
-
             open_position: [
                 {
                     title: 'Senior Front-end Developer',
@@ -550,9 +530,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Trading-Operations',
-
             open_position: [
                 {
                     title: 'Quantitative Analyst',
@@ -608,9 +586,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Software-Testing',
-
             open_position: [
                 {
                     title: 'Software Tester',
@@ -663,9 +639,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Business-Excellence',
-
             open_position: [
                 {
                     title: 'Business Analyst',
@@ -708,9 +682,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Internal-Audit',
-
             open_position: [
                 {
                     title: 'Internal Auditor',
@@ -758,9 +730,7 @@ const career_data = {
                     },
                 ],
             },
-
             link_url: 'https://deriv.zohorecruit.eu/jobs/Project-Management',
-
             open_position: [
                 {
                     title: 'Project Manager',

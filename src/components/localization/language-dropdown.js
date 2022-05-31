@@ -213,6 +213,9 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}
                                     </Text>
+                                    <Text ml="0.4rem" size="10px">
+                                        {option.is_disabled ? 'N/A' : ''}
+                                    </Text>
                                 </Item>
                             )
                         })}

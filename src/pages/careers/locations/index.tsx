@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
-import { continents } from '../_model/_locations/_locations'
+import { allContinents } from '../_model/_locations/_locations'
 import device from 'themes/device'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -193,6 +193,16 @@ const query = graphql`
 const Locations = () => {
     const images = useStaticQuery(query)
 
+    const continents = Object.keys(allContinents)
+
+    const formatContinentName = (continent) => {
+        return continent
+            .split('_')
+            .filter((continentName) => continentName.length > 0)
+            .map((continentName) => continentName.charAt(0).toUpperCase() + continentName.slice(1))
+            .join(' ')
+    }
+
     return (
         <Layout type="careers" margin_top={7}>
             <SEO
@@ -219,15 +229,11 @@ const Locations = () => {
                     mobile_font_size={16}
                     line_divider_length="unset"
                 >
-                    {Object.keys(continents).map((key) => {
+                    {continents.map((continent) => {
                         return (
                             <Tabs.Panel
-                                label={key
-                                    .split('_')
-                                    .filter((name) => name.length > 0)
-                                    .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
-                                    .join(' ')}
-                                key={{ key }}
+                                label={formatContinentName(continent)}
+                                key={{ continent }}
                                 width="79px"
                                 height="56px"
                                 gap="8px"
@@ -245,7 +251,7 @@ const Locations = () => {
                                     mobileS={{ mt: '40px' }}
                                     margin="0 16px"
                                 >
-                                    {continents[key].map((office) => (
+                                    {allContinents[continent].map((office) => (
                                         <CountryCard
                                             key={office.name}
                                             Icon={office.flagIcon}

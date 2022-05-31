@@ -390,7 +390,7 @@ export const locations = {
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
 }
-export const continents = {
+export const allContinents = {
     all: all_offices,
     europe: [],
     asia: [],
@@ -401,11 +401,11 @@ export const continents = {
 }
 
 all_offices.forEach((office) => {
-    const continentList = continents[office.continent]
+    const continentList = allContinents[office.continent]
     if (continentList == undefined) {
-        continents[office.continent] = [office]
+        allContinents[office.continent] = [office]
     } else {
-        continents[office.continent].push(office)
+        allContinents[office.continent].push(office)
     }
 })
 

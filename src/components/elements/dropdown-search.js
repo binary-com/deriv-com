@@ -94,7 +94,6 @@ const DropdownSearch = ({
     useEffect(() => {
         setDropdownItems([...items])
     }, [items])
-    console.log('disable:', disabled)
     return (
         <>
             <DropdownContainer

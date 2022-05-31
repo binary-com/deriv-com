@@ -11,7 +11,7 @@ import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
-import { DerivStore } from 'store'
+import { getCountryRule } from 'components/containers/visibility'
 import device from 'themes/device'
 
 export const query = graphql`
@@ -50,7 +50,7 @@ export type NonFeaturedVideoListDataType = AcademyIndexFragment['directus']['vid
 export type MarketNewsDataType = AcademyIndexFragment['directus']['market_news']
 
 const DerivBlog = ({ data }: DerivBlogProps) => {
-    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+    const { is_eu, is_uk } = getCountryRule()
 
     const meta_attributes = {
         og_title: 'Blogs, video tutorials, and more | Deriv Academy',
@@ -96,14 +96,14 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
 
     // We need to include the !is_uk_country check together with is_eu_country because 'gb'
     // is a valid country code for both EU and UK in our country base.
-    if (is_eu_country && !is_uk_country) {
+    if (is_eu && !is_uk) {
         market_news_data = data.directus.market_news_eu
         recent_data = data.directus.recent_eu
         featured_data = data.directus.featured_eu
         homepage_banner_data = data.directus.homepage_banners_eu
         non_featured_video_list_data = data.directus.videos_eu
         featured_video_list_data = data.directus.featured_video_eu
-    } else if (is_uk_country) {
+    } else if (is_uk) {
         market_news_data = data.directus.market_news_uk
         recent_data = data.directus.recent_uk
         featured_data = data.directus.featured_uk
@@ -125,7 +125,7 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
                 meta_attributes={meta_attributes}
             />
 
-            {is_eu_country != null && (
+            {is_eu !== null && (
                 <MainWrapper>
                     <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                         {homepage_banner_data.map((page_data) => {

@@ -94,6 +94,7 @@ const DropdownSearch = ({
     useEffect(() => {
         setDropdownItems([...items])
     }, [items])
+
     return (
         <>
             <DropdownContainer

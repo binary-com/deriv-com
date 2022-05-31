@@ -21,22 +21,22 @@ const career_data = {
                 {
                     title: 'Back-end Developer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000000366102',
+                    id: '47807000001891244',
                 },
                 {
                     title: 'C++ Developer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000010928298',
+                    id: '47807000001891465',
                 },
                 {
                     title: 'C++ Developer',
                     location: 'Minsk, Belarus',
-                    id: '590522000010931352',
+                    id: '47807000001891466',
                 },
                 {
                     title: 'Cryptocurrency/Blockchain Developer',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000002158468',
+                    id: '47807000001891317',
                 },
             ],
             testimony_section: {
@@ -74,22 +74,22 @@ const career_data = {
                 {
                     title: 'Digital PR Manager',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000033642096',
+                    id: '47807000001891564',
                 },
                 {
                     title: 'Business Development Executive',
                     location: 'Kigali, Rwanda',
-                    id: '590522000004649139',
+                    id: '47807000001891401',
                 },
                 {
                     title: 'Performance Marketing Executive',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000002067162',
+                    id: '47807000001891261',
                 },
                 {
                     title: 'IT Product Manager',
                     location: 'Limassol, Cyprus',
-                    id: '590522000016498026',
+                    id: '47807000001891497',
                 },
             ],
             testimony_section: {
@@ -127,22 +127,22 @@ const career_data = {
                 {
                     title: 'DevOps Engineer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000000366151',
+                    id: '47807000001891246',
                 },
                 {
                     title: 'DevOps (Windows) Engineer',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000008127253',
+                    id: '47807000001891446',
                 },
                 {
                     title: 'Security Engineer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000000554001',
+                    id: '47807000004591246',
                 },
                 {
                     title: 'Database Administrator',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000002685375',
+                    id: '47807000001891333',
                 },
             ],
             testimony_section: {
@@ -180,22 +180,22 @@ const career_data = {
                 {
                     title: 'Client Support Executive',
                     location: 'Asunción, Paraguay',
-                    id: '590522000002708128',
+                    id: '47807000001891359',
                 },
                 {
                     title: 'Client Support Executive',
                     location: 'Kigali, Rwanda',
-                    id: '590522000003910182',
+                    id: '47807000001891392',
                 },
                 {
                     title: 'Client Support Executive',
                     location: 'Birkirkara, Malta',
-                    id: '590522000000468342',
+                    id: '47807000001891265',
                 },
                 {
                     title: 'Client Support Executive',
                     location: 'Ipoh, Malaysia',
-                    id: '590522000001477084',
+                    id: '47807000001891297',
                 },
             ],
             testimony_section: {
@@ -233,22 +233,22 @@ const career_data = {
                 {
                     title: 'Talent Acquisition Specialist',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000002075011',
+                    id: '47807000001891313',
                 },
                 {
                     title: 'IT Recruiter',
                     location: 'Minsk, Belarus',
-                    id: '590522000013730417',
+                    id: '47807000001891470',
                 },
                 {
                     title: 'Talent Acquisition Specialist',
                     location: 'Birkirkara, Malta',
-                    id: '590522000002165394',
+                    id: '47807000001891321',
                 },
                 {
                     title: 'Talent Acquisition Executive',
                     location: 'Kigali, Rwanda',
-                    id: '590522000003910120',
+                    id: '47807000001891390',
                 },
             ],
             testimony_section: {
@@ -286,22 +286,17 @@ const career_data = {
                 {
                     title: 'UI/UX Designer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000002693001',
+                    id: '47807000001891335',
                 },
                 {
                     title: 'Motion Designer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000002693017',
+                    id: '47807000001891336',
                 },
                 {
                     title: 'Graphics Designer',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000000846613',
-                },
-                {
-                    title: 'UX Researcher',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000013900070',
+                    id: '47807000001891287',
                 },
             ],
             testimony_section: {
@@ -342,22 +337,22 @@ const career_data = {
                 {
                     title: 'Compliance Executive',
                     location: 'Birkirkara, Malta',
-                    id: '590522000002051238',
+                    id: '47807000001891310',
                 },
                 {
                     title: 'Corporate Governance Administrator',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000022641278',
+                    id: '47807000001891517',
                 },
                 {
                     title: 'Compliance Operations Executive',
                     location: 'Birkirkara, Malta',
-                    id: '590522000020130003',
+                    id: '47807000001891504',
                 },
                 {
                     title: 'Senior Compliance Officer',
                     location: 'Guernsey',
-                    id: '590522000037212155',
+                    id: '47807000001891591',
                 },
             ],
             testimony_section: {
@@ -393,24 +388,19 @@ const career_data = {
             link_url: 'https://deriv.zohorecruit.eu/jobs/Finance',
             open_position: [
                 {
-                    title: 'E-Payments Executive',
-                    location: 'Kigali, Rwanda',
-                    id: '590522000037223025',
-                },
-                {
                     title: 'Payments Executive',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000038463764',
+                    id: '47807000001891602',
                 },
                 {
                     title: 'Payments Executive',
                     location: 'Asunción, Paraguay',
-                    id: '590522000025380388',
+                    id: '47807000001891525',
                 },
                 {
                     title: 'Payments and Reconciliation Executive',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000022443181',
+                    id: '47807000001891511',
                 },
             ],
             testimony_section: {
@@ -482,22 +472,22 @@ const career_data = {
                 {
                     title: 'Senior Front-end Developer',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000005764197',
+                    id: '47807000001891413/',
                 },
                 {
                     title: 'Front-end Developer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000000384042',
+                    id: '47807000001891254',
                 },
                 {
                     title: 'Flutter Developer',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000000384027',
+                    id: '47807000001891253',
                 },
                 {
                     title: 'Flutter Developer',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000005605178',
+                    id: '47807000001891410',
                 },
             ],
             testimony_section: {
@@ -535,22 +525,22 @@ const career_data = {
                 {
                     title: 'Quantitative Analyst',
                     location: 'Minsk, Belarus',
-                    id: '590522000005991768',
+                    id: '47807000001891429',
                 },
                 {
                     title: 'Quantitative Analyst',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000000670134',
+                    id: '47807000001891284',
                 },
                 {
                     title: 'Quantitative Analyst',
                     location: 'Birkirkara, Malta',
-                    id: '590522000002158426',
+                    id: '47807000001891314',
                 },
                 {
                     title: 'Trading Analyst',
                     location: 'Limassol, Cyprus',
-                    id: '590522000001540056',
+                    id: '47807000001891469',
                 },
             ],
             testimony_section: {
@@ -591,22 +581,17 @@ const career_data = {
                 {
                     title: 'Software Tester',
                     location: 'Asunción, Paraguay',
-                    id: '590522000022996207',
-                },
-                {
-                    title: 'Automation Tester',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000022344044',
+                    id: '47807000001891520',
                 },
                 {
                     title: 'Software Tester',
                     location: 'Kigali, Rwanda',
-                    id: '590522000006365298',
+                    id: '47807000001891437',
                 },
                 {
                     title: 'Software Tester',
                     location: 'Minsk, Belarus',
-                    id: '590522000016474003',
+                    id: '47807000001891493',
                 },
             ],
             testimony_section: {
@@ -644,12 +629,12 @@ const career_data = {
                 {
                     title: 'Business Analyst',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000033805388',
+                    id: '47807000001891567',
                 },
                 {
                     title: 'Business Process Management',
                     location: 'Cyberjaya, Malaysia',
-                    id: '590522000004000041',
+                    id: '47807000001891393',
                 },
             ],
             testimony_section: {
@@ -687,17 +672,17 @@ const career_data = {
                 {
                     title: 'Internal Auditor',
                     location: 'Birkirkara, Malta',
-                    id: '590522000037933833',
+                    id: '47807000001895742',
                 },
                 {
                     title: 'Internal Auditor',
                     location: 'Dubai, United Arab Emirates',
-                    id: '590522000037933852',
+                    id: '47807000001891588',
                 },
                 {
                     title: 'Internal Auditor',
                     location: 'Asunción, Paraguay',
-                    id: '590522000037933936',
+                    id: '47807000001891589',
                 },
             ],
             testimony_section: {
@@ -735,12 +720,12 @@ const career_data = {
                 {
                     title: 'Project Manager',
                     location: 'Limassol, Cyprus',
-                    id: '590522000033674411',
+                    id: '47807000001891565',
                 },
                 {
                     title: 'Project Manager',
                     location: 'Minsk, Belarus',
-                    id: '590522000006340297',
+                    id: '47807000001891432',
                 },
             ],
             testimony_section: {

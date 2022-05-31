@@ -134,7 +134,7 @@ const Layout = ({
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
-
+    
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
     React.useEffect(() => {

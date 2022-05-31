@@ -4,6 +4,9 @@ import { handleGetTrading, handleLogin, handleScroll, moveButton } from '../util
 import { NavRight } from '../styles/nav-styles'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
+import { getCountryRule } from 'components/containers/visibility'
+//import handleNonEu from 'components/layout/layout.js'
+import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup.js'
 
 type RightSectionProps = {
     is_logged_in: boolean
@@ -41,7 +44,9 @@ const RightSection = ({
     hide_signup_login,
 }: RightSectionProps) => {
     const button_ref = useRef(null)
+    const { is_non_eu } = getCountryRule()
     const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
+    const [show_non_eu_popup, setShowNonEuPopup] = React.useState(true)
 
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
@@ -68,6 +73,11 @@ const RightSection = ({
             </Wrapper>
         )
     }
+
+    const handleNonEuPopUp = () => {
+        setShowNonEuPopup(true)
+    }
+        
     return (
         <NavRight
             move={show_button}
@@ -78,9 +88,14 @@ const RightSection = ({
         >
             <Language hide_component={hide_language_switcher} />
 
+            {show_non_eu_popup && (
+                <NonEuRedirectPopUp
+                    is_open={show_non_eu_popup}
+                />
+            )}
             {!hide_signup_login && (
                 <>
-                    <StyledButton id="dm-nav-login-button" onClick={handleLogin} primary>
+                    <StyledButton id="dm-nav-login-button" onClick={is_non_eu? handleLogin : handleNonEuPopUp} primary>
                         {localize('Log in')}
                     </StyledButton>
 

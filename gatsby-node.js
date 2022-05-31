@@ -340,6 +340,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 exports.createPages = async ({ reporter, actions, graphql }) => {
     const { createPage } = actions
     const articleTemplate = path.resolve(__dirname, 'src/templates/article.tsx')
+    const videoTemplate = path.resolve(__dirname, 'src/templates/video.tsx')
 
     // Query our published articles
     const result = await graphql(`
@@ -348,6 +349,10 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
                 blog(filter: { status: { _eq: "published" } }) {
                     id
                     slug
+                }
+                videos(filter: { status: { _eq: "published" } }) {
+                    video_id
+                    video_slug
                 }
             }
         }
@@ -365,6 +370,18 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
                 locale: 'en',
                 pathname: `/academy/blog/posts/${blog_post.slug}/`,
                 slug: blog_post.slug,
+            },
+        })
+    })
+    const videos = result.data.directus.videos
+    videos.forEach((video) => {
+        createPage({
+            path: `/academy/videos/${video.video_slug}/`,
+            component: videoTemplate,
+            context: {
+                locale: 'en',
+                pathname: `/academy/videos/${video.video_slug}/`,
+                slug: video.video_slug,
             },
         })
     })

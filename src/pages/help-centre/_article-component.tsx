@@ -58,6 +58,10 @@ const ListWrapper = styled.div`
     @media ${device.laptopM} {
         width: 26rem;
     }
+    @media ${device.tabletS} {
+        width: auto;
+    }
+
     @media ${device.tabletL} {
         padding-top: 3.55rem;
     }
@@ -92,6 +96,11 @@ const ListNoBullets = styled.ul`
 
     li {
         max-width: 38.4rem;
+
+        @media ${device.tabletS} {
+            max-width: 100%;
+            width: 100%;
+        }
     }
     > *:not(:last-child) {
         padding-bottom: 1.6rem;

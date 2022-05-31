@@ -62,7 +62,6 @@ const Signup = (props) => {
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
-    const [submit_error_msg, setSubmitErrorMsg] = useState('')
     const [is_affiliate_signup, setIsAffiliateSignup] = useState('')
 
     useEffect(() => {
@@ -70,16 +69,7 @@ const Signup = (props) => {
     }, [])
 
     const validateEmail = (email_address) => {
-        const error_message =
-            validation.required(email_address) ||
-            validation.email(email_address) ||
-            submit_error_msg
-
-        if (submit_error_msg) {
-            setSubmitErrorMsg('')
-            setSubmitStatus('')
-        }
-
+        const error_message = validation.required(email_address) || validation.email(email_address)
         return error_message
     }
 
@@ -156,7 +146,6 @@ const Signup = (props) => {
                 binary_socket.close()
                 setSubmitStatus('error')
                 setEmailErrorMsg(response.error.message)
-                // handleValidation(formatted_email)
             } else {
                 setSubmitStatus('success')
                 if (props.onSubmit) {

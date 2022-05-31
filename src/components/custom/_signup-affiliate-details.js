@@ -215,7 +215,11 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData, is_submit
                                                 default_item={''}
                                                 error={item.touch && item.error}
                                                 items={item.list}
-                                                label={localize('Country of residence')}
+                                                label={
+                                                    !disabled
+                                                        ? localize('Country of residence')
+                                                        : ''
+                                                }
                                                 onChange={(value) =>
                                                     setFieldValue('country', value)
                                                 }

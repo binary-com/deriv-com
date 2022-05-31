@@ -28,6 +28,13 @@ const DropdownInput = styled.input`
             color: var(--color-white);
         `}
 
+    ${(props) =>
+        props.disabled &&
+        css`
+            opacity: 0.32;
+            pointer-events: none;
+        `}
+
     &:focus {
         outline: none;
     }
@@ -87,7 +94,7 @@ const DropdownSearch = ({
     useEffect(() => {
         setDropdownItems([...items])
     }, [items])
-
+    console.log('disable:', disabled)
     return (
         <>
             <DropdownContainer

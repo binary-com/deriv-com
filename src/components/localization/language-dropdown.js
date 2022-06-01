@@ -141,9 +141,9 @@ const ResponsiveText = styled(Text)`
 /* stylelint-enable */
 
 const Icon = styled(QueryImage)`
+    display: flex;
     width: 24px;
     height: 24px;
-    display: flex;
 
     @media ${device.mobileL} {
         width: 20px;

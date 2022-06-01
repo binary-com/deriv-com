@@ -185,7 +185,10 @@ const query = graphql`
         zh: file(relativePath: { eq: "flags/zh.png" }) {
             ...fadeIn
         }
-        ac: file(relativePath: { eq: "flags/en.png" }) {
+        ac: file(relativePath: { eq: "flags/uk.png" }) {
+            ...fadeIn
+        }
+        tr: file(relativePath: { eq: "flags/tr.png" }) {
             ...fadeIn
         }
     }

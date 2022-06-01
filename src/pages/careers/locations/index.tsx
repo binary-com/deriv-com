@@ -195,11 +195,15 @@ const Locations = () => {
 
     const continents = Object.keys(allContinents)
 
+    const changeCase = (continentName) => {
+        return continentName.charAt(0).toUpperCase() + continentName.slice(1)
+    }
+
     const formatContinentName = (continent) => {
         return continent
             .split('_')
             .filter((continentName) => continentName.length > 0)
-            .map((continentName) => continentName.charAt(0).toUpperCase() + continentName.slice(1))
+            .map((continentName) => changeCase(continentName))
             .join(' ')
     }
 

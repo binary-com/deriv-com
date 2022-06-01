@@ -130,7 +130,7 @@ const career_data = {
                     id: '47807000001891246',
                 },
                 {
-                    title: 'DevOps (Windows) Engineer',
+                    title: 'DevOps Engineer (Windows) ',
                     location: 'Dubai, United Arab Emirates',
                     id: '47807000001891446',
                 },
@@ -140,7 +140,7 @@ const career_data = {
                     id: '47807000004591246',
                 },
                 {
-                    title: 'Database Administrator',
+                    title: 'Senior Database Developer',
                     location: 'Dubai, United Arab Emirates',
                     id: '47807000001891333',
                 },
@@ -538,7 +538,7 @@ const career_data = {
                     id: '47807000001891314',
                 },
                 {
-                    title: 'Trading Analyst',
+                    title: 'Quantitative Analyst',
                     location: 'Limassol, Cyprus',
                     id: '47807000001891469',
                 },
@@ -632,7 +632,7 @@ const career_data = {
                     id: '47807000001891567',
                 },
                 {
-                    title: 'Business Process Management',
+                    title: 'Business Process Optimization Specialist ',
                     location: 'Cyberjaya, Malaysia',
                     id: '47807000001891393',
                 },
@@ -718,12 +718,12 @@ const career_data = {
             link_url: 'https://deriv.zohorecruit.eu/jobs/Project-Management',
             open_position: [
                 {
-                    title: 'Project Manager',
+                    title: 'Senior Project Manager',
                     location: 'Limassol, Cyprus',
                     id: '47807000001891565',
                 },
                 {
-                    title: 'Project Manager',
+                    title: 'Senior Project Manager',
                     location: 'Minsk, Belarus',
                     id: '47807000001891432',
                 },

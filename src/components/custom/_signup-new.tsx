@@ -16,7 +16,7 @@ type SignupNewProps = {
     autofocus: boolean
     clearEmail: () => void
     email: string
-    email_error_msg: boolean
+    email_error_msg: string
     handleInputChange: (event) => void
     handleLogin: (event) => void
     handleSocialSignup: (event) => void

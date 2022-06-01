@@ -1,4 +1,3 @@
-import { AnyNsRecord } from 'dns'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/custom/other-platforms'
@@ -14,6 +13,7 @@ type PlatformsDropdownProps = {
     is_ppc_redirect: boolean
     parent: string
     setActiveDropdown: () => void
+    setTradeArrowOffset: number
 }
 
 type NavDropdownProps = {

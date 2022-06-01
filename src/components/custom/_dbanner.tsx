@@ -1,4 +1,4 @@
-import React, { ReactElement, JSXElementConstructor } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
@@ -9,7 +9,7 @@ import device from 'themes/device.js'
 type DBannerProps = {
     background_pattern?: string | (() => void)
     data: object
-    image_alt?: string | ReactElement<any, string | JSXElementConstructor<any>>
+    image_alt?: string
     title?: string | object
 }
 const Wrapper = styled.div`

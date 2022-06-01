@@ -8,7 +8,7 @@ import CrossIcon from 'images/svg/help/cross.svg'
 export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     background?: string
     border?: string
-    error?: boolean
+    error?: string
     focus_border?: string
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
     height?: string
@@ -28,7 +28,7 @@ type InputWrapperProps = {
     border?: string
     label_hover_color?: string
     focus_border?: string
-    error?: boolean
+    error?: string
     disabled?: boolean
 }
 
@@ -36,10 +36,10 @@ type StyledInputProps = {
     input_background?: string
     inputColor?: string
     showLabel?: string
-    label_focus_color?: string
     background?: string
     label?: string
-    error?: boolean
+    error?: string
+    label_focus_color?: string
 }
 
 type ValidProps = {
@@ -49,7 +49,7 @@ type ValidProps = {
 type StyledLabelProps = {
     label_color?: string
     tablet_background?: string
-    error?: boolean
+    error?: string
     htmlFor?: string
 }
 
@@ -220,7 +220,7 @@ const Input = ({
     label_color = '',
     disabled,
     id = '',
-    error = false,
+    error = '',
     background = '',
     tablet_background = '',
     handleError,

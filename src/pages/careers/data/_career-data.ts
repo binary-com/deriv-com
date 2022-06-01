@@ -632,7 +632,7 @@ const career_data = {
                     id: '47807000001891567',
                 },
                 {
-                    title: 'Business Process Optimization Specialist ',
+                    title: 'Business Process Optimisation Specialist ',
                     location: 'Cyberjaya, Malaysia',
                     id: '47807000001891393',
                 },

@@ -1,10 +1,7 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
-import { isBrowser } from 'common/utility'
-import { eu_urls } from 'common/constants'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -14,9 +11,6 @@ import { Appearances } from 'components/custom/signup'
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
-
-    // To block eu.deriv.com domain for search engines
-    const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
 
     return (
         <Layout type="transparent" margin_top="0">
@@ -29,11 +23,6 @@ const Home = () => {
                 )}
                 has_organization_schema
             />
-            {block_eu && (
-                <Helmet>
-                    <meta name="robots" content="noindex, nofollow" />
-                </Helmet>
-            )}
             <Hero />
             <MarketsFold />
             <TradeTypes />

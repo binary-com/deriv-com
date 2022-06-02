@@ -85,9 +85,7 @@ const cardItems: CardItemType[] = [
     },
     {
         img_src: WithdrawDeposit,
-        card_text: (
-            <Localize translate_text="Help Deriv clients to make multiple deposits and withdrawals daily." />
-        ),
+        card_text: <Localize translate_text="Perform multiple deposits and withdrawals per day." />,
     },
     {
         img_src: CloseAccount,

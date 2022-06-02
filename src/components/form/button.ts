@@ -19,16 +19,6 @@ type SharedButtonStyleProps = MarginsType &
         white?: string
         hero?: string
         provider?: string
-        // m?: string
-        // mt?: string
-        // ml?: string
-        // mr?: string
-        // mb?: string
-        // p?: string
-        // pt?: string
-        // pl?: string
-        // pr?: string
-        // pb?: string
     }
 
 export const SharedButtonStyle = css<SharedButtonStyleProps>`

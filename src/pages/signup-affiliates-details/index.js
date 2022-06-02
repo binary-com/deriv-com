@@ -13,8 +13,11 @@ import device from 'themes/device'
 import Map from 'images/svg/landing/map.svg'
 
 const StyledFlex = styled(Flex)`
-    height: 70vh;
     background-color: rgba(200, 214, 215, 0.22);
+
+    @media (min-width: 992px) {
+        height: 70vh;
+    }
 `
 const StyledDiv = styled.div`
     padding-top: 20rem;

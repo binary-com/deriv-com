@@ -4,8 +4,7 @@ const cliSelect = require('cli-select')
 const dotenv = require('dotenv').config({ path: '.env.development' })
 const prompt = require('prompt-sync')()
 
-let branch_name = ''
-let action = ''
+const branches = ['pr', 'translation', 'stp']
 
 const logError = (err) => {
     console.log(`\x1b[31m${err}`)
@@ -26,32 +25,47 @@ const branchGenerator = (step = 1, data = {}) => {
     switch (step) {
         case 1:
             const msg = 'What kind of branch you need to work on?'
-            const options = [
-                'Normal PR',
-                'Normal Translation',
-                'Special Translation Procedure (STP)',
-            ]
+            const options = ['Normal PR', 'Normal Translation', 'STP']
             console.log(`\x1b[33m${msg}  \n \x1b[0m`)
 
             cliSelect({
                 values: options,
             })
                 .then(({ id }) => {
-                    const branch_prefix = translation_branches[id]
-                    const unix = +new Date()
+                    const branch_prefix = branches[id]
 
-                    branchGenerator(2, { branch_prefix, unix })
+                    branchGenerator(2, { branch_prefix })
                 })
                 .catch(() => {})
             break
         case 2:
-            const { branch_prefix, unix } = data
-            const branch_name = prompt('\x1b[33mFill in your branch name: \x1b[0m')
+            {
+                const { branch_prefix } = data
 
-            const clean_branch_name = slugify(branch_name)
+                const redmine_id = prompt('\x1b[33mRedmine Card #: \x1b[0m')
 
-            if (clean_branch_name) {
-                exec(`git checkout -b ${branch_prefix}-${clean_branch_name}-${unix}`, () => {})
+                const is_number = /^\d+$/.test(redmine_id)
+
+                if (is_number) {
+                    const branch_name = `${branch_prefix}-${redmine_id}`
+                    branchGenerator(3, { branch_name })
+                } else {
+                    if (redmine_id !== 'exit') {
+                        logError('Redmine Card # should be a number')
+                        branchGenerator(2, { branch_prefix })
+                    }
+                }
+            }
+            break
+        case 3:
+            const { branch_name } = data
+
+            const name_input = prompt('\x1b[33mBranch name: \x1b[0m')
+
+            const clean_name_input = slugify(name_input)
+
+            if (clean_name_input) {
+                exec(`git checkout -b ${branch_name}-${clean_name_input}`, () => {})
             }
 
             break

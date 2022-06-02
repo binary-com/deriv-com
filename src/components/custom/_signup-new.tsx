@@ -300,7 +300,7 @@ const SignupNew = ({
                 isChecked={is_checked}
                 type="submit"
                 secondary="true"
-                disabled={is_submitting || !is_checked || email_error_msg || !email}
+                disabled={is_submitting || !is_checked || email_error_msg !== '' || !email}
                 id="dm-new-signup"
             >
                 {localize('Create demo account')}

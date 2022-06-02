@@ -376,7 +376,7 @@ const SignupPublic = ({
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||
-                                            email_error_msg ||
+                                            email_error_msg !== '' ||
                                             !email
                                         }
                                     >
@@ -526,7 +526,7 @@ const SignupPublic = ({
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||
-                                            email_error_msg ||
+                                            email_error_msg !== '' ||
                                             !email
                                         }
                                     >

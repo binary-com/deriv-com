@@ -164,9 +164,6 @@ const SocialWrapper = styled.div<CSSProperties>`
         flex-direction: column;
         margin-top: 1rem;
     }
-    @media ${device.mobile} {
-        justify-content: space-around;
-    }
     @media ${device.mobileS} {
         justify-content: space-between;
     }

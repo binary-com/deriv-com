@@ -10,6 +10,8 @@ jobs:
     push-translation:
         runs-on: ubuntu-latest
         steps:
+            - name: Print
+              run: env | sort
             - name: Get branch name
               id: branch-name
               uses: tj-actions/branch-names@v5.2

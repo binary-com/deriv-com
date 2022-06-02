@@ -3,8 +3,8 @@ name: Crowdin Branch Clean-Up
 on:
   pull_request:
     branches:
-      - "translation-*"
-      - "stp-*"
+      - 'translation-*'
+      - 'stp-*'
     types: [closed]
 
 jobs:

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
-import PlatformSlider from './_platform-slider'
+import { PlatformSliderCarousel, PlatformSliderDiv } from './_platform-slider'
 import { no_slide_sets, getPlatformDetails, getSlideStartingIndex } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -22,11 +22,19 @@ const DesktopPlatformCarousel = () => {
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">
-            <PlatformSlider
-                slide_index={slide_index}
-                onSelectSlide={setSlideIndex}
-                platform_details={platform_details}
-            />
+            {platform_details.length > 5 ? (
+                <PlatformSliderCarousel
+                    slide_index={slide_index}
+                    onSelectSlide={setSlideIndex}
+                    platform_details={platform_details}
+                />
+            ) : (
+                <PlatformSliderDiv
+                    slide_index={slide_index}
+                    onSelectSlide={setSlideIndex}
+                    platform_details={platform_details}
+                />
+            )}
             <Details slide={slide_index} platform_details={platform_details} />
         </StyledDesktopCarousel>
     )

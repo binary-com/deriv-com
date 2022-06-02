@@ -100,7 +100,11 @@ const SubmitABugReport = () => {
                     </TextWrap>
 
                     <ImageWrap>
-                        <QueryImage data={bug_report_image} alt="bug_report_image" width="100%" />
+                        <QueryImage
+                            data={bug_report_image}
+                            alt="Try Deriv’s trading platforms and trading apps on your laptop or mobile phones."
+                            width="100%"
+                        />
                     </ImageWrap>
                 </Wrapper>
 

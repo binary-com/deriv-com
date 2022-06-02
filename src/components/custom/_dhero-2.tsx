@@ -8,22 +8,22 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
 type DHeroProps = {
-    background_alt: string
-    background_image_name: string
-    background_svg: string
-    background_svg2: string
-    content: string | object
-    d_height: string
-    go_to_live_demo: boolean
-    image_name: string
-    is_mobile: boolean
-    is_ppc: boolean
-    join_us_for_free: boolean
-    laptop_height: string
-    laptopM_height: string
-    Logo: string
-    tabletL_height: string
-    title: string
+    background_alt?: string
+    background_image_name?: string
+    background_svg?: string
+    background_svg2?: string
+    content?: string | object
+    d_height?: string
+    go_to_live_demo?: boolean
+    image_name?: string
+    is_mobile?: boolean
+    is_ppc?: boolean
+    join_us_for_free?: boolean
+    laptop_height?: string
+    laptopM_height?: string
+    Logo?: string
+    tabletL_height?: string
+    title?: string
 }
 
 const Wrapper = styled(Flex)`

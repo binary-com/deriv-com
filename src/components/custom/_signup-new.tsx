@@ -13,16 +13,16 @@ import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
 
 type SignupNewProps = {
-    autofocus: boolean
-    clearEmail: () => void
-    email: string
-    email_error_msg: string
-    handleInputChange: (event) => void
-    handleLogin: (event) => void
-    handleSocialSignup: (event) => void
-    handleValidation: (event) => void
-    is_ppc: boolean
-    is_submitting: boolean
+    autofocus?: boolean
+    clearEmail?: () => void
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_ppc?: boolean
+    is_submitting?: boolean
 }
 
 type SocialButtonProps = {

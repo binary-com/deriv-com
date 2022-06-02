@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 type DBannerProps = {
-    background_pattern?: string | (() => void)
+    background_pattern?: string
     data: object
     image_alt?: string
     title?: string | object

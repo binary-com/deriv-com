@@ -7,9 +7,9 @@ type CheckboxProps = {
     secondary?: boolean
     id?: string
     bg?: string
-    style: CSSProperties
-    className: string
-    onChange: (event) => void
+    style?: CSSProperties
+    className?: string
+    onChange?: (event) => void
 }
 
 type StyledCheckboxProps = {

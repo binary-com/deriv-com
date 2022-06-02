@@ -6,28 +6,28 @@ import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
 type DTradingProps = {
-    reverse: boolean
-    trading: {
-        title: string
-        subtitle: string
-        second_title: string
-        second_subtitle: string
-        image_name: string
-        image_alt: string
+    reverse?: boolean
+    trading?: {
+        title?: string
+        subtitle?: string
+        second_title?: string
+        second_subtitle?: string
+        image_name?: string
+        image_alt?: string
     }[]
-    two_title: boolean
+    two_title?: boolean
 }
 
 type ContentProps = {
-    margin_right: string
+    margin_right?: string
 }
 
 type ImageWrapperProps = {
-    margin_right: string
+    margin_right?: string
 }
 
 type RowProps = {
-    flex_direction: string
+    flex_direction?: string
 }
 
 const StyledSection = styled(SectionContainer)`

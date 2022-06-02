@@ -5,7 +5,7 @@ import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
 
-export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
+interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     background?: string
     border?: string
     error?: string

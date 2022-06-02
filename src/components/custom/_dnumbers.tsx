@@ -5,11 +5,11 @@ import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 
 type DNumbersProps = {
-    items: {
-        title: string | ReactElement
-        subtitle: string | ReactElement
+    items?: {
+        title?: string | ReactElement
+        subtitle?: string | ReactElement
     }[]
-    justify: string
+    justify?: string
 }
 
 const NumberWrapper = styled.div`

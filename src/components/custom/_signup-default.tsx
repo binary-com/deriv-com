@@ -10,15 +10,15 @@ import Facebook from 'images/svg/custom/facebook.svg'
 import Google from 'images/svg/custom/google.svg'
 
 type SignupDefaultProps = {
-    autofocus: boolean
-    clearEmail: () => void
-    email: string
-    email_error_msg: string
-    handleInputChange: (event) => void
-    handleLogin: (event) => void
-    handleSocialSignup: (event) => void
-    handleValidation: (event) => void
-    is_submitting: boolean
+    autofocus?: boolean
+    clearEmail?: () => void
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_submitting?: boolean
 }
 
 const Wrapper = styled.div`

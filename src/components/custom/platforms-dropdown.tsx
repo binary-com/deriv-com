@@ -4,21 +4,21 @@ import { NavPlatform, NavCompany, NavResources, NavMarket } from 'components/cus
 import { Container, Show, Flex } from 'components/containers'
 
 type PlatformsDropdownProps = {
-    active_dropdown: string
-    current_ref: {
-        offsetWidth: number
-        offsetLeft: number
+    active_dropdown?: string
+    current_ref?: {
+        offsetWidth?: number
+        offsetLeft?: number
     }
-    is_ppc: boolean
-    is_ppc_redirect: boolean
-    parent: string
-    setActiveDropdown: (dropdownContainerRef) => void
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
+    parent?: string
+    setActiveDropdown?: (dropdownContainerRef) => void
 }
 
 type NavDropdownProps = {
-    offset: number
-    is_trade: boolean
-    offset_arrow: number
+    offset?: number
+    is_trade?: boolean
+    offset_arrow?: number
 }
 
 const FadeInDown = keyframes`

@@ -10,16 +10,16 @@ import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 
 type SignupFlatProps = {
-    autofocus: boolean
-    clearEmail: () => void
+    autofocus?: boolean
+    clearEmail?: () => void
     dark?: boolean
-    email: string
-    email_error_msg: string
-    handleInputChange: (event) => void
-    handleLogin: (event) => void
-    handleSocialSignup: (event) => void
-    handleValidation: (event) => void
-    is_submitting: boolean
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_submitting?: boolean
 }
 
 type DarkType = {

@@ -16,15 +16,15 @@ import Google from 'images/svg/custom/google-40.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 
 type SignupPublicProps = {
-    autofocus: boolean
-    clearEmail: () => void
-    email: string
-    email_error_msg: string
-    handleInputChange: (event) => void
-    handleLogin: (event) => void
-    handleSocialSignup: (event) => void
-    handleValidation: (event) => void
-    is_submitting: boolean
+    autofocus?: boolean
+    clearEmail?: () => void
+    email?: string
+    email_error_msg?: string
+    handleInputChange?: (event) => void
+    handleLogin?: (event) => void
+    handleSocialSignup?: (event) => void
+    handleValidation?: (event) => void
+    is_submitting?: boolean
 }
 
 const query = graphql`

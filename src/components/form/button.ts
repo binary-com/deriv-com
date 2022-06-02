@@ -9,12 +9,12 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<'button'>, SharedBu
 
 type SharedButtonStyleProps = {
     width?: string
-    primary?: string | boolean
-    secondary?: string | boolean
-    tertiary?: string | boolean
-    tertiary_light?: string | boolean
+    primary?: string
+    secondary?: string
+    tertiary?: string
+    tertiary_light?: string
     flat?: string
-    social?: boolean
+    social?: string
     white?: string
     hero?: string
     provider?: string

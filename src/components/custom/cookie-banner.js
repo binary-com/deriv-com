@@ -120,7 +120,7 @@ const CookieBanner = ({ onAccept, onDecline, is_open }) => {
             </StyledText>
             <Flex>
                 <StyledButton tertiary onClick={onDecline} mr="0.8rem">
-                    {localize("Don't accept")}
+                    {localize("Don't accept it")}
                 </StyledButton>
                 <StyledButton secondary onClick={onAccept}>
                     {localize('Accept')}

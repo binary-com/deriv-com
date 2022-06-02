@@ -115,14 +115,11 @@ export const Desktop = ({
 }: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint)
     const [is_mobile] = useBrowserResize(breakpoint_size)
-    const is_loaded = deviceRenderer()
 
-    const desktop_view = is_mobile ? <></> : <div className={className}>{children}</div>
-
-    return is_loaded ? (
-        desktop_view
-    ) : (
+    return is_mobile ? (
         <DesktopLayer breakpoint={breakpoint_size}>{children}</DesktopLayer>
+    ) : (
+        <div className={className}>{children}</div>
     )
 }
 
@@ -133,12 +130,9 @@ export const Mobile = ({
 }: ResponsiveContainerProps) => {
     const breakpoint_size = getBreakPoint(breakpoint) + 1
     const [is_mobile] = useBrowserResize(breakpoint_size - 1)
-    const is_loaded = deviceRenderer()
 
-    const mobile_view = is_mobile ? <div className={className}>{children}</div> : <></>
-
-    return is_loaded ? (
-        mobile_view
+    return is_mobile ? (
+        <div className={className}>{children}</div>
     ) : (
         <MobileLayer breakpoint={breakpoint_size}>{children}</MobileLayer>
     )

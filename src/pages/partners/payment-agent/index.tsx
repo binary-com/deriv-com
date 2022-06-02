@@ -5,7 +5,7 @@ import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import Layout from 'components/layout/layout'
-import { SEO, ROW } from 'components/containers'
+import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
@@ -36,9 +36,7 @@ const PaymentAgent = () => {
             <TapInto />
             <YourControl />
             <WhoCanApply />
-            <ROW>
-                <P2PBanner />
-            </ROW>
+            <P2PBanner />
             <Faq />
         </Layout>
     )

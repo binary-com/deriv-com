@@ -4,11 +4,12 @@ name: Crowdin Branch Clean-Up
 on:
   pull_request:
       branches:
-       - 'master*'
-      types: [closed]
+       - 'translation-*'
+       - 'stp-*'
   
 jobs:
   delete_translation_branch:
+    if: github.event.action == 'closed' 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

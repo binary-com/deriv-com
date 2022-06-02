@@ -14,7 +14,7 @@ import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type SignupProps = {
     appearance?: keyof typeof Appearances

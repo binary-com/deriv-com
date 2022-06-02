@@ -5,7 +5,7 @@ import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type DHeroProps = {
     background_alt?: string

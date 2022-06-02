@@ -5,11 +5,7 @@ import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/help/cross.svg'
 
-interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
-    background?: string
-    border?: string
-    error?: string
-    focus_border?: string
+interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
     height?: string
     id?: string
@@ -23,6 +19,8 @@ interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
     labelSize?: string
     labelTop?: string
 }
+
+type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
 
 type InputWrapperProps = {
     border?: string

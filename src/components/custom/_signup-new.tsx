@@ -4,7 +4,7 @@ import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { DerivStore } from 'store'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type DHowItWorksProps = {
     title: object

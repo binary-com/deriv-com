@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import Desktop from 'images/svg/p2p/p2p-desktop.svg'
-import Mobile from 'images/svg/p2p/p2p-mobile.svg'
+import DesktopImage from 'images/svg/p2p/p2p-desktop.svg'
+import MobileImage from 'images/svg/p2p/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
 import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'components/elements'
-import { Flex, SectionContainer, Show } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
 import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
@@ -139,8 +139,8 @@ const Availability = () => {
                 as="h2"
                 mb="4rem"
             >
-                <Show.Desktop min_width="992">{localize('How to get Deriv P2P')}</Show.Desktop>
-                <Show.Mobile>{localize('How to get Deriv P2P')}</Show.Mobile>
+                <Desktop>{localize('How to get Deriv P2P')}</Desktop>
+                <Mobile>{localize('How to get Deriv P2P')}</Mobile>
             </StyledHeader>
             <Flex
                 tablet_direction="column"
@@ -150,7 +150,7 @@ const Availability = () => {
             >
                 <PlatformCard>
                     <Row>
-                        <img src={Desktop} alt="" />
+                        <img src={DesktopImage} alt="" />
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
@@ -191,7 +191,7 @@ const Availability = () => {
                 <Line />
                 <PlatformCard>
                     <Row>
-                        <img src={Mobile} alt="" />
+                        <img src={MobileImage} alt="" />
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
@@ -200,7 +200,7 @@ const Availability = () => {
                     </Row>
                     <div>
                         <StyledText>
-                            <Show.Desktop min_width="992">
+                            <Desktop>
                                 <Flex>
                                     <Left>
                                         <Localize
@@ -242,8 +242,8 @@ const Availability = () => {
                                         />
                                     </Right>
                                 </Flex>
-                            </Show.Desktop>
-                            <Show.Mobile>
+                            </Desktop>
+                            <Mobile>
                                 <Localize
                                     translate_text="1. Download Deriv P2P from the <0>Google Play Store</0>, <1>Apple App Store</1>, or the <2>Huawei AppGallery</2>."
                                     components={[
@@ -273,7 +273,7 @@ const Availability = () => {
                                         />,
                                     ]}
                                 />
-                            </Show.Mobile>
+                            </Mobile>
                         </StyledText>
                         <StyledText>
                             <Localize translate_text="2. Register for Deriv P2P by logging into your Deriv account in the app." />

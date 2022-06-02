@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Paddings, Margins } from 'themes/function'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'>, SharedButtonStyleProps {
     loading?: string

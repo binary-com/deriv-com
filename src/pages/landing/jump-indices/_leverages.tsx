@@ -5,7 +5,7 @@ import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import TradingIcon from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
 import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg'
 

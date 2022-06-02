@@ -2,10 +2,9 @@ name: Crowdin Branch Clean-Up
 
 on:
   pull_request:
-    branches:
-      - 'translation-*'
-      - 'stp-*'
     types: [closed]
+    branches:
+        - 'master*'
 
 jobs:
   delete_translation_branch:
@@ -15,9 +14,9 @@ jobs:
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v5.2
-      - name: Fetching Feature Branch
-        run: |
-          echo "Latest branch merged to master: ${{ steps.branch-name.outputs.head_ref_branch }}"
+      - name: Checking branch name (❌ Auto stop on non-translation branches)
+        uses: andymckay/cancel-action@0.2
+        if:  "!startsWith(steps.branch-name.outputs.head_ref_branch, 'translation-') && !startsWith(steps.branch-name.outputs.head_ref_branch, 'stp-')"
       - name: Setup Node
         uses: actions/setup-node@v2.1.2
         with:

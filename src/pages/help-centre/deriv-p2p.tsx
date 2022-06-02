@@ -79,7 +79,7 @@ const NeedDerivAccounttouseDerivP2P = ({ text }: ArticleProps) => (
         <StyledText>
             {localize('If you already have a demo account, here’s how to add a real account:')}
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize
@@ -241,7 +241,7 @@ const CreateAnAd = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps:')}</Text>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize
@@ -318,7 +318,7 @@ const MakeAnOrder = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>{localize('Follow these steps:')}</Text>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
                     <Localize
@@ -439,7 +439,7 @@ const DisputeWithTheTrader = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             <Localize
-                translate_text="If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help resolve the situation, please <0>let us know via live chat</0> and we’ll help you resolve it."
+                translate_text="If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help resolve the situation, please <0>let us know</0> via live chat and we’ll help you resolve it."
                 components={[
                     <ExternalLink
                         to={'/contact_us/?is_livechat_open=true'}
@@ -455,7 +455,7 @@ const DisputeWithTheTrader = ({ text }: ArticleProps) => (
         <StyledText>
             {localize('To dispute a Deriv P2P transaction, follow these steps:')}
         </StyledText>
-        <StyledList listStyle="numbers" paddingLeft="5rem">
+        <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>
                     <Localize

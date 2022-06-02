@@ -151,7 +151,7 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
 
                 <VideoText>{localize('Find out how Deriv P2P works:')}</VideoText>
                 <StyledIFrame
-                    src="https://www.youtube.com/embed/sITTfAZAnwU"
+                    src="https://www.youtube.com/embed/zf9flqE94Ek"
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

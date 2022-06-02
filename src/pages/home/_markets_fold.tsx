@@ -372,7 +372,7 @@ const MarketsFold = () => {
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
-                        Markets
+                        <Localize translate_text="Markets" />
                     </Header>
                 </Flex>
                 <Carousel

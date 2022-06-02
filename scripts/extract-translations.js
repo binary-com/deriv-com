@@ -5,6 +5,7 @@ const program = require('commander')
 const crc32 = require('crc-32').str
 const fs = require('fs')
 const glob = require('glob')
+const translated_keys = require('../src/translations/ach.json')
 
 program
     .version('0.1.0')
@@ -19,6 +20,7 @@ const globs = ['**/*.js', '**/*.ts', '**/*.tsx']
 
 const getKeyHash = string => crc32(string)
 
+const action = process.argv[2]
 
 /** **********************************************
  * Compile
@@ -65,9 +67,25 @@ function extractTranslations() {
                 }
             }
 
+            const untranslated = []
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {
-                messages_json[getKeyHash(messages[i])] = messages[i];
+                const key = getKeyHash(messages[i])
+                messages_json[key] = messages[i];
+
+                if(!translated_keys[key]){
+                    untranslated.push({
+                        key,
+                        string: messages[i]
+                    })
+                }
+            }
+            
+
+            if(action === "show-untranslated"){
+                console.log(`Untranslated: ${untranslated.length}`)
+                console.log(untranslated)
+                return false
             }
 
             // Add to messages.json

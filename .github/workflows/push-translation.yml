@@ -13,7 +13,7 @@ jobs:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
               with:
-                token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+                token: ${{ secrets.OLD_ACCESS_TOKEN }}
             - name: Get branch name
               id: branch-name
               uses: tj-actions/branch-names@v5.2

@@ -1,11 +1,11 @@
 name: Translation Push
 
 on:
-    push:
-        branches:
-            - 'translation-*'
-            - 'master'
-            - 'stp-*'
+  pull_request:
+    types: [opened, reopened]
+    branches:
+        - 'translation-*'
+        - 'stp-*'  
 
 jobs:
     push-translation:

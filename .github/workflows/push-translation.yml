@@ -3,8 +3,8 @@ name: Translation Push
 on:
     push:
         branches:
-            - 'master'
             - 'translation-*'
+            - 'master'
             - 'stp-*'
 
 jobs:

@@ -6,10 +6,10 @@ on:
       branches:
        - 'translation-*'
        - 'stp-*'
+      types: [closed]
   
 jobs:
   delete_translation_branch:
-    if: github.event.action == 'closed' 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

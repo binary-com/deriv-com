@@ -10,13 +10,15 @@ jobs:
     push-translation:
         runs-on: ubuntu-latest
         steps:
-            - name: Log
-              run: echo "$GITHUB_CONTEXT"
             - name: Get branch name
               id: branch-name
               uses: tj-actions/branch-names@v5.2
             - name: Checking branch name (❌ Auto stop on non-translation branches)
-              uses: andymckay/cancel-action@0.2
+              run: gh auth login --with-token <<< ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+                  gh api \
+                  --method POST \
+                  -H "Accept: application/vnd.github.v3+json" \
+                  /repos/${{ github.repository_owner }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/cancel
               if:  "!startsWith(steps.branch-name.outputs.head_ref_branch, 'translation-') && !startsWith(steps.branch-name.outputs.head_ref_branch, 'stp-')"
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1

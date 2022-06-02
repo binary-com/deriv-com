@@ -36,6 +36,7 @@ export type DataProps = {
     intro_section: IntroSectionProps
     open_position?: OpenPositionsProps[]
     testimony_section: TestimonySectionProps
+    link_url?: string
 }
 
 export type FirstDataProps = {

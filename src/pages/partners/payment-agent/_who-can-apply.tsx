@@ -13,7 +13,7 @@ import {
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { Header, Timeline } from 'components/elements'
+import { Header, LinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
@@ -68,6 +68,11 @@ const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
     padding-left: 16px;
+    margin-bottom: 36px;
+
+    &.get-started--list {
+        margin-bottom: 0;
+    }
 `
 
 const Li = styled.li`
@@ -144,13 +149,13 @@ const WhoCanApply = () => {
                             />
                         ))}
                         <Header as="h4" type="paragraph-1" mt="24px">
-                            {localize('A couple of things to note:')}
+                            {localize('Note:')}
                         </Header>
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
                                     {localize(
-                                        'You must have a minimum balance in your Deriv account, depending on your country of residence.',
+                                        'You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful.',
                                     )}
                                 </Header>
                             </Li>
@@ -162,6 +167,20 @@ const WhoCanApply = () => {
                                 </Header>
                             </Li>
                         </StyledUl>
+                        <Header as="h4" type="paragraph-1" weight="normal">
+                            <Localize
+                                translate_text="See our <0>terms and conditions</0> for more info."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        color="red"
+                                        target="_blank"
+                                        href="/tnc/business-partners-payment-agents.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Header>
                     </WhoCanApplyWrapper>
                 </Flex>
                 <Separator />
@@ -182,7 +201,7 @@ const WhoCanApply = () => {
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             {localize('Send us an email with the following:')}
                                         </Header>
-                                        <StyledUl>
+                                        <StyledUl className="get-started--list">
                                             <Li>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     {localize(
@@ -257,7 +276,7 @@ const WhoCanApply = () => {
                     to="mailto:partners@deriv.com"
                     is_mail_link
                 >
-                    {localize('Sign up')}
+                    {localize('Send us email to apply')}
                 </LinkButton>
             </ButtonWrapper>
         </SectionWrapper>

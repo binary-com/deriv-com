@@ -16,6 +16,7 @@ jobs:
             - name: Checking branch name (❌ Auto stop on non-translation branches)
               uses: andymckay/cancel-action@0.2
               with:
+                ref: crowdin
                 token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
               if:  "!startsWith(steps.branch-name.outputs.head_ref_branch, 'translation-') && !startsWith(steps.branch-name.outputs.head_ref_branch, 'stp-')"
             - name: Checkout 🛎️

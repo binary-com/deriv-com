@@ -6,20 +6,19 @@ import { Container, Show, Flex } from 'components/containers'
 type PlatformsDropdownProps = {
     active_dropdown: string
     current_ref: {
-        offsetWidth: any
-        offsetLeft: any
+        offsetWidth: number
+        offsetLeft: number
     }
     is_ppc: boolean
     is_ppc_redirect: boolean
     parent: string
-    setActiveDropdown: () => void
-    setTradeArrowOffset: number
+    setActiveDropdown: (dropdownContainerRef) => void
 }
 
 type NavDropdownProps = {
-    offset: string
+    offset: number
     is_trade: boolean
-    offset_arrow: string
+    offset_arrow: number
 }
 
 const FadeInDown = keyframes`
@@ -94,7 +93,7 @@ const PlatformsDropdown = ({
     const setTradeArrowOffset = (dropdownOffset) =>
         current_ref.offsetLeft - dropdownOffset + current_offset
     const [left_offset, setLeftOffset] = useState(current_ref.offsetLeft)
-    const [left_arrow_offset, setLeftArrowOffset] = useState()
+    const [left_arrow_offset, setLeftArrowOffset] = useState<number>()
 
     const updateOffsets = useCallback(() => {
         if (is_trade) {

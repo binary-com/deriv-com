@@ -29,7 +29,44 @@ const FadeOutUp = keyframes`
         transform: translateY(0);
     }
 `
+const Cover = styled.div`
+    position: absolute;
+    width: 191rem;
+    height: 915px;
+    left: 0px;
+    top: 0px;
 
+    background: rgba(0, 0, 0, 0.72);
+
+    @media ${device.laptopM} {
+        bottom: -7rem;
+    }
+    @media (max-width: 1269px) {
+        bottom: -6rem;
+    }
+    @media ${device.tabletL} {
+        bottom: -4rem;
+    }
+    @media ${device.tablet} {
+        width: 100%;
+        height: 105.6rem;
+        padding: 16px;
+        left: unset;
+        border-radius: unset;
+        min-height: unset;
+        bottom: -6.1rem;
+    }
+    @media (max-width: 711px) {
+        bottom: -7.7rem;
+    }
+    @media (max-width: 539px) {
+        bottom: -4.5rem;
+    }
+    @media ${device.mobileS} {
+        bottom: -4.5rem;
+        height: 16.8rem;
+    }
+`
 const Wrapper = styled.div`
     position: absolute;
     width: 384px;
@@ -37,8 +74,8 @@ const Wrapper = styled.div`
     gap: 24px;
     min-height: 188px;
     padding: 24px;
-    top: 50%;
-    left: 50%;
+    top: 550px;
+    left: 700px;
     transform: translate(-50%, -50%);
     transition: translate 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 200;
@@ -141,18 +178,20 @@ const RedirectNonEuLogin = () => {
 }
 const NonEuRedirectPopUp = ({ is_open }: PopupModalTypes) => {
     return (
-        <Wrapper id="euwe" is_open={is_open}>
-            <StyledText>
-                <Localize translate_text="It seems you’re not in the EU, so we’re taking you to our website for non-EU visitors, where you can log in or sign up (if you don’t have a Deriv account)." />
-            </StyledText>
-            <Flex>
-                <StyledButtonText>
-                    <StyledButton secondary onClick={RedirectNonEuLogin} mr="-24rem">
-                        {localize('Take me there')}
-                    </StyledButton>
-                </StyledButtonText>
-            </Flex>
-        </Wrapper>
+        <Cover>
+            <Wrapper is_open={is_open}>
+                <StyledText>
+                    <Localize translate_text="It seems you’re not in the EU, so we’re taking you to our website for non-EU visitors, where you can log in or sign up (if you don’t have a Deriv account)." />
+                </StyledText>
+                <Flex>
+                    <StyledButtonText>
+                        <StyledButton secondary onClick={RedirectNonEuLogin} mr="-24rem">
+                            {localize('Take me there')}
+                        </StyledButton>
+                    </StyledButtonText>
+                </Flex>
+            </Wrapper>
+        </Cover>
     )
 }
 

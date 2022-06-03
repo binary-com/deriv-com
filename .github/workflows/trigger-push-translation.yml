@@ -1,4 +1,4 @@
-name: Translation Push
+name: Translation Push Trigger
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
         - 'master*'
         
 jobs:
-    push-translation:
+    push-comment:
         runs-on: ubuntu-latest
         if:  startsWith(github.head_ref, 'translation-') && startsWith(github.head_ref, 'stp-')
         steps:

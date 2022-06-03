@@ -36,6 +36,7 @@ export type VideosType = {
     tags: TagsType[]
     video_description: string
     video_duration: string
+    video_slug: string
     video_file: VideoFileType
     video_thumbnail: VideoThumbnailType
     video_title: string
@@ -90,6 +91,7 @@ const query = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 video_thumbnail {
                     id

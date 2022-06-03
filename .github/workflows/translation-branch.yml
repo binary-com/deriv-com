@@ -7,7 +7,7 @@ on:
         - 'master*'
         
 jobs:
-    push-translation:
+    check-translation-branch:
         runs-on: ubuntu-latest
         steps:
             - name: Env

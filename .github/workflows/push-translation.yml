@@ -9,15 +9,10 @@ on:
 jobs:
     push-translation:
         runs-on: ubuntu-latest
+        if:  "!startsWith(github.head_ref, 'translation-') && !startsWith(github.head_ref, 'stp-')"
         steps:
-            - name: ENV
-              run: env
-            - name: Get branch name
-              id: branch-name
-              uses: tj-actions/branch-names@v5.2
-            - name: Checking branch name (❌ Auto stop on non-translation branches)
-              run: exit 0
-              if:  "!startsWith(steps.branch-name.outputs.head_ref_branch, 'translation-') && !startsWith(steps.branch-name.outputs.head_ref_branch, 'stp-')"
+            - name: Test
+              run: echo ${{ github.head_ref }}
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
             - name: Setup Node
@@ -33,6 +28,6 @@ jobs:
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
             - name: Push New Strings & Translations ⬆️
               run:  
-                  crowdin upload sources -b ${{ steps.branch-name.outputs.head_ref_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ steps.branch-name.outputs.head_ref_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+                  crowdin upload sources -b ${{ github.head_ref }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.head_ref }} -T ${{ secrets.CROWDIN_API_KEY }}
                 
 

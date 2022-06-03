@@ -109,8 +109,6 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
         featured_video_uk,
     } = data.directus
 
-    // We need to include the !is_uk_country check together with is_eu_country because 'gb'
-    // is a valid country code for both EU and UK in our country base.
     if (is_eu) {
         market_news_data = market_news_eu
         recent_data = recent_eu

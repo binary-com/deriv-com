@@ -14,18 +14,18 @@ export const Mobile = ({ children, min_width, ...props }) => (
     </Media>
 )
 
-export const Eu = ({ children }) => {
+export const Eu = ({ children, placeholder = <></> }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country) return <>{children}</>
-    else return null
+    else return { placeholder }
 }
 
-export const NonEU = ({ children }) => {
+export const NonEU = ({ children, placeholder = <></> }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country === false) return <>{children}</>
-    else return null
+    else return { placeholder }
 }
 
 export default {
@@ -33,14 +33,6 @@ export default {
     NonEU,
     Mobile,
     Desktop,
-}
-
-NonEU.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
-
-Eu.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
 Desktop.propTypes = {
@@ -55,8 +47,10 @@ Mobile.propTypes = {
 
 Eu.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    placeholder: PropTypes.node,
 }
 
 NonEU.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    placeholder: PropTypes.node,
 }

@@ -24,6 +24,15 @@ jobs:
                   echo "Setting up Git identity"
                   git config --global user.name "DerivFE"
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v3
+              with:
+                commit-message: Automated PR for Translation
+                title: '[Translation] Pushing string to CROWDIN'
+                body: >
+                  - creating ${{ github.head_ref }} branch on crowdin
+                  - pushing strings from ${{ github.head_ref }} to ${{ github.head_ref }} crowdin branch
+                labels: translation, automated PR
             - name: Push New Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ github.head_ref }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.head_ref }} -T ${{ secrets.CROWDIN_API_KEY }}

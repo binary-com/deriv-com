@@ -5,6 +5,7 @@ on:
     workflows: ["Translation Branch Check"]
     types:
       - completed
+      - requested
       
 jobs:
     push-translation:

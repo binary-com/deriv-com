@@ -2,7 +2,6 @@ name: Translation Branch Check
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
     branches:
         - 'master*'
         

@@ -1,21 +1,18 @@
-name: Translation Push
+name: Sync Master Translation
 
 on:
-  pull_request:
-    types: [opened, reopened]
+  push:
     branches:
-        - 'translation-*'
-        - 'stp-*'  
-
+        - 'master*'
+        
 jobs:
-    push-translation:
-        if: github.event.action != 'closed' 
+    sync-translation:
         runs-on: ubuntu-latest
         steps:
-            - name: Extract branch name
+            - name: Get current branch name
               shell: bash
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-              id: extract_branch
+              id: current_branch
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
             - name: Setup Node
@@ -31,6 +28,6 @@ jobs:
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
             - name: Push New Strings & Translations ⬆️
               run:  
-                  crowdin upload sources -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ steps.extract_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+                  crowdin upload sources -b ${{ steps.current_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ steps.current_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}
                 
 

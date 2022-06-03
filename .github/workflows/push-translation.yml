@@ -9,7 +9,7 @@ on:
 jobs:
     push-translation:
         runs-on: ubuntu-latest
-        if:  "!startsWith(${{ github.head_ref }}, 'translation-') && !startsWith(${{github.head_ref}}, 'stp-')"
+        if:  startsWith(github.head_ref, 'translation-') && startsWith(github.head_ref, 'stp-')
         steps:
             - name: Test
               run: echo ${{ github.head_ref }}

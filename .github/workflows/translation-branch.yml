@@ -9,9 +9,8 @@ on:
 jobs:
     check-translation-branch:
         runs-on: ubuntu-latest
+        if:  startsWith(github.head_ref, 'translation-') || startsWith(github.head_ref, 'stp-')
         steps:
-            - name: Check Ref
-              run: echo 'branch name is ${{ github.head_ref }} translation- ${{startsWith(github.head_ref, 'translation-')}}  stp- ${{startsWith(github.head_ref, 'stp-')}}'
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
             - name: Save PR number

@@ -23,7 +23,7 @@ jobs:
               with:
                   node-version: '14.x'
             - name: Installing Crowdin     
-            - run: npm i -g @crowdin/cli
+              run: npm i -g @crowdin/cli
             - name: Pushing new strings & translations to ${{ github.event.workflow_run.head_branch }}  ⬆️
               run:  
                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}

@@ -10,6 +10,8 @@ jobs:
     push-translation:
         runs-on: ubuntu-latest
         steps:
+            - name: Env
+              run: env
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
             - name: Checkout 🛎️

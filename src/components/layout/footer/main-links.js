@@ -21,7 +21,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/why-choose-us/">
-                                {<Localize translate_text="Why choose us" />}
+                                {<Localize translate_text="Why choose us because why not?" />}
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>

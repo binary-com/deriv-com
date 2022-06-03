@@ -2,7 +2,7 @@ name: Crowdin Branch Clean-Up
 
 on:
   pull_request:
-    types: [synchronize, closed]
+    types: [closed]
     branches:
         - 'master*'
 

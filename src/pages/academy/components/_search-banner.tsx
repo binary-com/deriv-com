@@ -515,6 +515,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     const onClickIcon = () => {
         navigate(`/academy/search?q=${encodeURI(search_input)}`)
         setSearchInput('')
+        is_mobile_separator && setModal(false)
     }
 
     const getResultTitles = (item) =>

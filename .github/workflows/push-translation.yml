@@ -26,6 +26,7 @@ jobs:
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v3
               with:
+                base: ${{ github.head_ref }}
                 commit-message: Automated PR for Translation
                 title: '[Translation] Pushing string to CROWDIN'
                 body: >

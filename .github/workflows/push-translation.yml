@@ -10,10 +10,11 @@ jobs:
     push-translation:
         runs-on: ubuntu-latest
         steps:
+            - name: ENV
+              run: env
             - name: Get branch name
               id: branch-name
               uses: tj-actions/branch-names@v5.2
-              run: env
             - name: Checking branch name (❌ Auto stop on non-translation branches)
               run: exit 0
               if:  "!startsWith(steps.branch-name.outputs.head_ref_branch, 'translation-') && !startsWith(steps.branch-name.outputs.head_ref_branch, 'stp-')"

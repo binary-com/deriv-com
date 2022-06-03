@@ -150,7 +150,6 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
                                         <GatsbyImage
                                             image={
                                                 item.video_thumbnail.imageFile.childImageSharp
-                                                    .gatsbyImageData
                                             }
                                             alt={thumbnail_img_alt}
                                             width="100%"

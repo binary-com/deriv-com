@@ -5,11 +5,12 @@ import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { SEO, ROW } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
+const P2PBanner = Loadable(() => import('./_p2p_banner'))
 
 const meta_attributes = {
     og_title: localize('Payment agents | Partners | Deriv'),
@@ -35,6 +36,9 @@ const PaymentAgent = () => {
             <TapInto />
             <YourControl />
             <WhoCanApply />
+            <ROW>
+                <P2PBanner />
+            </ROW>
             <Faq />
         </Layout>
     )

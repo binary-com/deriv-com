@@ -1,4 +1,4 @@
-export type locationsTypes = {
+export type LocationsType = {
     name: string
     link: string
     display_name: string
@@ -18,4 +18,9 @@ export type locationsTypes = {
     address: string[]
     google_map_link?: string
     has_iframe?: boolean
+    // has_map check is for the new offices with ready office addresses
+    // can be deprecated once all new offices have ready physical addresses
+    has_map?: boolean
+    badge?: string
+    badge_alt?: string
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
 import VideoBanner from './_video-banner'
@@ -12,7 +12,7 @@ import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
 import { DerivStore } from 'store'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 export const query = graphql`
     query {
@@ -75,6 +75,16 @@ const DerivBlog = ({ data }: DerivBlogProps) => {
             nav_color: 'white',
             height: '0',
         },
+        navigation_css: css`
+            position: relative;
+            width: 100%;
+            bottom: 40px;
+            padding-left: 16px;
+            justify-content: left;
+            @media screen and (min-width: 785px) {
+                padding-left: 102px;
+            }
+        `,
     }
 
     let market_news_data = data.directus.market_news

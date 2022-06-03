@@ -13,10 +13,9 @@ import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
-import SignupSimple from 'components/custom/_signup-simple'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const Form = styled.form`
     height: 100%;
@@ -175,8 +174,6 @@ const Signup = (props) => {
         }
 
         switch (param) {
-            case Appearances.simple:
-                return <SignupSimple {...parameters}></SignupSimple>
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
             case Appearances.public:

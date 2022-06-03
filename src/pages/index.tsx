@@ -13,13 +13,13 @@ const Home = () => {
     useOpenLiveChat()
 
     return (
-        <Layout is_nav_transparent margin_top="0">
+        <Layout type="transparent" margin_top="0">
             <SEO
                 title={localize(
                     'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
                 )}
                 description={localize(
-                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
+                    'Deriv: an online trading platform available 24/7 with a wide selection of derivatives.',
                 )}
                 has_organization_schema
             />

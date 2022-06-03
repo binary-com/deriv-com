@@ -1,11 +1,16 @@
 import React, { ReactElement } from 'react'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
 import Hands from 'images/svg/who-we-are/hands.svg'
+import { all_offices, all_countries } from 'pages/careers/_model/_locations/_locations'
 
-export const first_section_texts = [
+type FirstSectionTextsType = {
+    text: ReactElement
+}
+
+export const first_section_texts: FirstSectionTextsType[] = [
     {
         text: (
             <Localize translate_text="Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, indices, cryptocurrencies, commodities, and synthetics to millions of registered users across the globe." />
@@ -166,12 +171,6 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/labuan',
     },
     {
-        left: '45.8%',
-        top: '28%',
-        title: <Localize translate_text="London" />,
-        link: '/careers/locations/london',
-    },
-    {
         left: '47.4%',
         top: '30.9%',
         title: <Localize translate_text="Paris" />,
@@ -247,12 +246,6 @@ export const mobile_pins: MapPinType[] = [
         link: '/careers/locations/labuan',
     },
     {
-        left: '44.3%',
-        top: '24%',
-        title: <Localize translate_text="London" />,
-        link: '/careers/locations/london',
-    },
-    {
         left: '45.9%',
         top: '26.9%',
         title: <Localize translate_text="Paris" />,
@@ -264,4 +257,40 @@ export const mobile_pins: MapPinType[] = [
         title: <Localize translate_text="Guernsey" />,
         link: '/careers/locations/guernsey',
     },
+]
+
+type DerivNumbersType = {
+    count: ReactElement
+    title: ReactElement
+}
+
+export const our_offices_count: DerivNumbersType[] = [
+    { count: <Localize translate_text="750+" />, title: <Localize translate_text="employees" /> },
+    {
+        count: <Localize translate_text="50+" />,
+        title: <Localize translate_text="nationalities" />,
+    },
+    { count: localize(all_offices.length), title: <Localize translate_text="locations" /> },
+    { count: localize(all_countries.length), title: <Localize translate_text="countries" /> },
+]
+
+export const deriv_numbers: DerivNumbersType[][] = [
+    [
+        {
+            count: <Localize translate_text="2.5M+" />,
+            title: <Localize translate_text="traders worldwide" />,
+        },
+        {
+            count: <Localize translate_text="USD 26M+" />,
+            title: <Localize translate_text="withdrawals last month" />,
+        },
+        {
+            count: <Localize translate_text="114M+" />,
+            title: <Localize translate_text="trades last month" />,
+        },
+        {
+            count: <Localize translate_text="USD 10B+" />,
+            title: <Localize translate_text="total trade turnover" />,
+        },
+    ],
 ]

@@ -36,6 +36,10 @@ export const VideoGrid = styled.div<VideoGridProps>`
     grid-column-gap: 24px;
     grid-template-rows: auto;
     justify-content: center;
+
+    @media ${device.mobileL} {
+        grid-template-columns: unset;
+    }
 `
 
 type StandardImgWrapperProps = {

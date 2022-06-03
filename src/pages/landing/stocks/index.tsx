@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { FooterBanner, HeaderSection, DTrading, Parallelogram, WhyTradeWithUs } from './_lazy-load'
 import BackgroundFooterStocksPattern from 'images/svg/stock-indices/stocks-footer-banner-overlay-shape.svg'
 import Layout from 'components/layout/layout'
-import { Show, SEO } from 'components/containers'
+import { Desktop, Mobile, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
@@ -111,17 +111,17 @@ const Stocks = () => {
                 no_index
             />
             <HeaderSection />
-            <Show.Desktop>
+            <Desktop>
                 <DTrading
                     trading={trading}
                     setWidth={'486px'}
                     reverse={false}
                     contentMargin={'24px'}
                 />
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <Parallelogram trading={tradingMobile} reverse={false} />
-            </Show.Mobile>
+            </Mobile>
             <DTrading
                 trading={blueChips}
                 setWidth={'486px'}

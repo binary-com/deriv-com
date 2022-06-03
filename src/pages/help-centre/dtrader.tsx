@@ -1,17 +1,45 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
-import { ArticleWrapper, StyledHeader } from './_help-centre-style'
+import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
+import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
+
+const StyledLink = styled(ExternalLink)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+
+const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
+    list-style: ${(props) => props.listStyle};
+    padding-left: ${(props) => props.paddingLeft};
+`
+
+const StyledListItem = styled.li<{ marginTop: string }>`
+    color: var(--color-black-3);
+    margin-top: ${(props) => props.marginTop};
+`
 
 const WhatIsDMT5 = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
-            )}
+            <Localize
+                translate_text="<0>DTrader</0> is one of our trading platforms. It offers digital options and multipliers on a variety of assets in financial and synthetic markets. "
+                components={[
+                    <StyledLink
+                        to={'/dtrader/'}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
         </Text>
     </ArticleWrapper>
 )
@@ -21,7 +49,7 @@ const DTraderMarkets = ({ text }: ArticleProps) => (
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
             {localize(
-                'You can trade forex, stock indices, commodities, and synthetic indices on DTrader.',
+                'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices on DTrader. Some markets may not be available in certain countries.',
             )}
         </Text>
     </ArticleWrapper>
@@ -30,10 +58,59 @@ const DTraderMarkets = ({ text }: ArticleProps) => (
 const DTraderContracts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
+        <Text>{localize('These contracts are available on DTrader:')}</Text>
+        <StyledList listStyle="disc" paddingLeft="5rem">
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('Multipliers')}</Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('Ups & Downs')}</Text>
+                <StyledList listStyle="circle" paddingLeft="5rem">
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>{localize('Rise/Fall')}</Text>
+                    </StyledListItem>
+                </StyledList>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('Highs & Lows')}</Text>
+                <StyledList listStyle="circle" paddingLeft="5rem">
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>{localize('Higher/Lower')}</Text>
+                    </StyledListItem>
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>{localize('Touch/No Touch')}</Text>
+                    </StyledListItem>
+                </StyledList>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{localize('Digits')}</Text>
+                <StyledList listStyle="circle" paddingLeft="5rem">
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>{localize('Matches/Differs')}</Text>
+                    </StyledListItem>
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>{localize('Even/Odd')}</Text>
+                    </StyledListItem>
+                    <StyledListItem marginTop="0.3rem">
+                        <Text>{localize('Over/Under')}</Text>
+                    </StyledListItem>
+                </StyledList>
+            </StyledListItem>
+        </StyledList>
+        <StyledText>
+            {localize('Some trade types may not be available in certain countries.')}
+        </StyledText>
+    </ArticleWrapper>
+)
+
+const DownloadtheChartonDTrader = ({ text }: ArticleProps) => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'We offer three contract types on DTrader: Ups & Downs, Highs & Lows, and Digits.',
-            )}
+            <Localize
+                translate_text="Yes, you can download the chart on DTrader (in .csv and .png) by clicking <0>Download</0> on the toolbar on the left. "
+                components={[<strong key={0} />]}
+            />
         </Text>
     </ArticleWrapper>
 )
@@ -59,8 +136,13 @@ const DTraderArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <DTraderContracts
-                    text={localize('What contract types can I use on DTrader?')}
+                    text={localize('What contract types do you offer on DTrader?')}
                     label="contracts-on-dtrader"
+                    is_mounted={is_mounted}
+                />
+                <DownloadtheChartonDTrader
+                    text={localize('Can I download the chart on DTrader?')}
+                    label="download-the-chart-on-DTrader"
                     is_mounted={is_mounted}
                 />
             </Article>

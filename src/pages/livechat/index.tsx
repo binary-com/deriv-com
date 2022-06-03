@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import InitialLoader from 'components/elements/dot-loader'
 import { localize, WithIntl } from 'components/localization'
-import { SEO, Container, Show } from 'components/containers'
-import { DerivStore } from 'store'
+import { SEO, Container, Mobile } from 'components/containers'
+import { useLivechat } from 'components/hooks/use-livechat'
 
 type CoverMinimizeButtonTypes = {
     loading: boolean
@@ -28,14 +28,23 @@ const CoverMinimizeButton = styled.div<CoverMinimizeButtonTypes>`
 `
 
 const LiveChatPage = () => {
-    const { is_livechat_interactive, LC_API, setFirstLoadOpenLc } = useContext(DerivStore)
+    const [is_livechat_interactive, LC_API] = useLivechat()
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // The reason for this timeout is to help delay before calling LC_API.open_chat_window() function,
+        // so that it only call the function if Live Chat is fully loaded.
+        let script_timeout = null
         if (is_livechat_interactive) {
-            LC_API.open_chat_window()
-            setLoading(false)
-        } else setFirstLoadOpenLc(true)
+            script_timeout = setTimeout(() => {
+                LC_API.open_chat_window()
+                setLoading(false)
+            }, 1000)
+        }
+
+        return () => {
+            clearTimeout(script_timeout)
+        }
     }, [is_livechat_interactive])
 
     return (
@@ -46,9 +55,9 @@ const LiveChatPage = () => {
                 no_index
             />
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
-            <Show.Mobile>
+            <Mobile>
                 <CoverMinimizeButton loading={loading} />
-            </Show.Mobile>
+            </Mobile>
         </Layout>
     )
 }

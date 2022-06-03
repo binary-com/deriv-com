@@ -41,12 +41,14 @@ const contents_ppc = [
 const HeroWrapper = styled.section`
     width: 100%;
     padding: calc(7rem + 80px) 0;
+    min-height: 915px;
     background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
     position: relative;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         justify-content: flex-start;
         padding: calc(7rem + 40px) 0 46px;
+        min-height: 846px;
     }
 `
 const HeroButton = styled(LinkButton)`
@@ -139,7 +141,9 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             >
                                 {text}
                             </Header>
-                            <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
+                            <VerticalCarousel
+                                contents={!is_ppc && !is_uk ? contents : contents_ppc}
+                            />
                             <Box tabletL={{ mt: '-8px' }}>
                                 <HeroButton
                                     id="dm-hero-signup"

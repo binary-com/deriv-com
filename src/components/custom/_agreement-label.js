@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Checkbox, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const CheckboxSpan = styled.span`
     font-size: 14px;
@@ -54,11 +54,12 @@ const AgreementLabel = ({
                     components={[
                         <LocalizedLinkText
                             key={0}
-                            type="terms_and_conditions/#clients"
+                            to="/terms-and-conditions/#clients"
                             external="true"
                             rel="noopener noreferrer"
                             size="14px"
                             color="red"
+                            target="__blank"
                         />,
                     ]}
                 />

@@ -7,6 +7,7 @@ import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
+import { getCountryRule } from 'components/containers/visibility'
 
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
@@ -235,6 +236,19 @@ const testimonial_slides = [
     },
 ]
 
+const filtered_testimonial = (unavailable_testimonial) =>
+    testimonial_slides.filter(({ quote }) => {
+        const lowered_quote = quote.props.translate_text.toLowerCase()
+        let show = true
+        unavailable_testimonial.forEach(
+            (unavailable) => lowered_quote.includes(unavailable) && (show = false),
+        )
+        return show
+    })
+
+const unavailable_testimonial_eu = ['p2p', 'deriv go']
+const unavailable_testimonial_uk = ['p2p', 'synthetic', 'deriv go']
+
 type ClientSideProps = {
     quote: ReactElement
     name: string
@@ -254,6 +268,8 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
+    const { is_row, is_eu, is_uk } = getCountryRule()
+
     useEffect(() => {
         addScript({
             src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
@@ -327,7 +343,11 @@ const WhatOurClientsSay = () => {
                             }}
                         >
                             <Carousel>
-                                {testimonial_slides.map(({ id, name, quote }) => (
+                                {(
+                                    (is_row && testimonial_slides) ||
+                                    (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
+                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk))
+                                ).map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />
                                 ))}
                             </Carousel>

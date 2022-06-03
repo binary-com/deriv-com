@@ -84,7 +84,13 @@ const AboutDeriv = () => {
                 </WrapText>
 
                 <ImageWrapper>
-                    <QueryImage data={data.deriv_platform} alt={'Deriv platform'} />
+                    <QueryImage
+                        data={data.deriv_platform}
+                        alt={
+                            'Send us an email with the report of a bug you found on Deriv trading platforms or apps.'
+                        }
+                        loading="eager"
+                    />
                 </ImageWrapper>
             </WrapContainer>
         </Container>

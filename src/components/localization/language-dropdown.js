@@ -7,7 +7,6 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const Container = styled.div`
     position: relative;
@@ -141,6 +140,16 @@ const ResponsiveText = styled(Text)`
 `
 /* stylelint-enable */
 
+const Icon = styled(QueryImage)`
+    width: 24px;
+    height: 24px;
+
+    @media ${device.mobileL} {
+        width: 20px;
+        height: 20px;
+    }
+`
+
 const query = graphql`
     query {
         en: file(relativePath: { eq: "flags/en.png" }) {
@@ -176,7 +185,10 @@ const query = graphql`
         zh: file(relativePath: { eq: "flags/zh.png" }) {
             ...fadeIn
         }
-        ac: file(relativePath: { eq: "flags/en.png" }) {
+        ac: file(relativePath: { eq: "flags/uk.png" }) {
+            ...fadeIn
+        }
+        tr: file(relativePath: { eq: "flags/tr.png" }) {
             ...fadeIn
         }
     }
@@ -185,8 +197,6 @@ const query = graphql`
 const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security }) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
-    const [is_mobile] = useBrowserResize()
-    const icon_size = security && is_mobile ? '20px' : '24px'
     const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
@@ -207,13 +217,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <QueryImage
-                        width={icon_size}
-                        height={icon_size}
-                        data={data[default_abbreviation]}
-                        alt=""
-                        loading="eager"
-                    />
+                    <Icon data={data[default_abbreviation]} alt="language icon" loading="eager" />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
@@ -236,11 +240,9 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                                     }}
                                     key={idx}
                                 >
-                                    <QueryImage
-                                        width="24px"
-                                        height="24px"
+                                    <Icon
                                         data={data[abbreviation]}
-                                        alt=""
+                                        alt="language icon"
                                         loading="eager"
                                     />
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>

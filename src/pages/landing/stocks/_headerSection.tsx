@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Container, Flex } from 'components/containers'
+import { Container, Flex, Desktop, Mobile } from 'components/containers'
 import StocksHeaderOverlayBg from 'images/svg/stock-indices/stocksHeaderOverlayBg.svg'
 import StocksHeaderOverlayBgMobile from 'images/svg/stock-indices/stocksHeaderOverlayBgMobile.svg'
 import StocksHeaderOverlayBelowSectionBg from 'images/svg/stock-indices/stocksHeaderOverlayBelowSectionBg.svg'
 import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
-import Show from 'components/containers/show'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -305,31 +304,31 @@ const HeaderSection = () => {
                         </TopHeaderImgWrapper>
                     </TopHeaderBgDiv>
                 </TopHeaderWrapper>
-                <Show.Desktop>
+                <Desktop>
                     <BackgroundPattern src={StocksHeaderOverlayBg} alt="background pattern" />
-                </Show.Desktop>
-                <Show.Mobile>
+                </Desktop>
+                <Mobile>
                     <BackgroundPattern
                         src={StocksHeaderOverlayBgMobile}
                         alt="background pattern mobile"
                     />
-                </Show.Mobile>
+                </Mobile>
             </HeaderWrapper>
             <SectionWrapper>
                 <SectionImgWrapper>
                     <SectionImgDiv>
-                        <Show.Desktop>
+                        <Desktop>
                             <SectionBannerImg
                                 src={StocksHeaderBelowSection}
                                 alt="stocks favorite brand"
                             />
-                        </Show.Desktop>
-                        <Show.Mobile>
+                        </Desktop>
+                        <Mobile>
                             <SectionBannerImg
                                 src={stocksHeaderBelowSectionM}
                                 alt="stocks favorite brand"
                             />
-                        </Show.Mobile>
+                        </Mobile>
                     </SectionImgDiv>
                 </SectionImgWrapper>
                 <SectionTextWrapper>

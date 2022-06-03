@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
@@ -108,6 +108,7 @@ const Hero = () => {
                             data={data['about_us_logo']}
                             alt="example"
                             width="unset"
+                            loading="eager"
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>{title}</DesktopHeader>

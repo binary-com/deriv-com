@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container, Show } from 'components/containers'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type HeroComponentProps = {
     background_data: string
@@ -142,20 +142,20 @@ const Hero = ({ title, content }: HeroProps) => {
 
     return (
         <div>
-            <Show.Desktop min_width="800">
+            <Desktop>
                 <HeroComponent
                     title={title}
                     content={content}
                     background_data={data['p2p_hero_background']}
                 />
-            </Show.Desktop>
-            <Show.Mobile>
+            </Desktop>
+            <Mobile>
                 <HeroComponent
                     title={title}
                     content={content}
                     background_data={data['p2p_hero_background_mobile']}
                 />
-            </Show.Mobile>
+            </Mobile>
         </div>
     )
 }

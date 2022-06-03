@@ -20,7 +20,6 @@ jobs:
               with:
                   node-version: '14.x'
             - run: npm i -g @crowdin/cli
-            - run: npm ci
             - name: Git Setup
               run: 
                   echo "Setting up Git identity"

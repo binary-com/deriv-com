@@ -7,20 +7,13 @@ on:
         - 'master*'
         
 jobs:
-    branch-fetch:
+    push-translation:
         runs-on: ubuntu-latest
+         if:  "!startsWith(steps.branch-name.outputs.head_ref_branch, 'translation-') && !startsWith(steps.branch-name.outputs.head_ref_branch, 'stp-')"
         steps:
             - name: Get branch name
               id: branch-name
               uses: tj-actions/branch-names@v5.2
-            
-    push-translation:
-        if: "!startsWith(needs.branch-fetch.steps.branch-name.outputs.head_ref_branch, 'translation-') && !startsWith(needs.branch-fetch.steps.branch-name.outputs.head_ref_branch, 'stp-')"
-        needs: branch-fetch
-        runs-on: ubuntu-latest
-        steps:
-            - name: Branch
-              run: echo ${{ needs.branch-fetch.steps.branch-name.outputs.head_ref_branch }}
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
             - name: Setup Node

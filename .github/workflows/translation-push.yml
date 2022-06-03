@@ -5,12 +5,14 @@ on:
     workflows: ["Translation Branch Check"]
     types:
       - completed
+      - requested
       
 jobs:
     push-translation:
         runs-on: ubuntu-latest
         steps:
-            - run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
+            - name: Defining Action
+              run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
               with:
@@ -22,7 +24,7 @@ jobs:
               with:
                   node-version: '14.x'
             - name: Installing Crowdin     
-            - run: npm i -g @crowdin/cli
+              run: npm i -g @crowdin/cli
             - name: Pushing new strings & translations to ${{ github.event.workflow_run.head_branch }}  ⬆️
               run:  
                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}

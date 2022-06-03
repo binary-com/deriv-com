@@ -7,9 +7,9 @@ on:
         - 'master*'
         
 jobs:
-    push-translation:
+    check-translation-branch:
         runs-on: ubuntu-latest
-        if:  startsWith(github.head_ref, 'translation-') && startsWith(github.head_ref, 'stp-')
+        if:  startsWith(github.head_ref, 'translation-') || startsWith(github.head_ref, 'stp-')
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1

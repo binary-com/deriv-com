@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { ElementType } from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
@@ -7,7 +7,7 @@ import device from 'themes/device'
 
 type DHowItWorksProps = {
     title: object
-    Video: FunctionComponent
+    Video: ElementType
 }
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {

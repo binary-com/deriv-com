@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
@@ -9,7 +9,7 @@ import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 
 type SimpleStepsProps = {
-    content: { header: ReactElement; icon: HTMLImageElement; text: ReactElement }[]
+    content: { header: ReactNode; icon: HTMLImageElement; text: ReactNode }[]
     header: object
     sign_up?: boolean
 }

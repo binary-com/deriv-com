@@ -9,6 +9,8 @@ jobs:
     sync-translation:
         runs-on: ubuntu-latest
         steps:
+            - name: ENV
+              run: env
             - name: Get current branch name
               shell: bash
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
@@ -20,12 +22,6 @@ jobs:
               with:
                   node-version: '14.x'
             - run: npm i -g @crowdin/cli
-            - run: npm ci
-            - name: Git Setup
-              run: 
-                  echo "Setting up Git identity"
-                  git config --global user.name "DerivFE"
-                  git config --global user.email "80095553+DerivFE@users.noreply.github.com"
             - name: Push New Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ steps.current_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ steps.current_branch.outputs.branch }} -T ${{ secrets.CROWDIN_API_KEY }}

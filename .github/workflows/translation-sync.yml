@@ -9,6 +9,8 @@ jobs:
     sync-translation:
         runs-on: ubuntu-latest
         steps:
+            - name: ENV
+              run: env
             - name: Get current branch name
               shell: bash
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"

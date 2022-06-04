@@ -2,7 +2,7 @@ name: Push Translation
 
 on:
   workflow_run:
-    workflows: ["Pre-push Translation"]
+    workflows: ["Pre-delete Translation"]
     types:
       - completed
       
@@ -11,8 +11,8 @@ jobs:
         if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
         runs-on: ubuntu-latest
         steps:
-            - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
-              run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
+            - name: 'Branch [${{ github.event.workflow_run.head_branch }}]'
+              run: echo 'Deleting Translation Branch ${{ github.event.workflow_run.head_branch }}'
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
               with:
@@ -25,8 +25,7 @@ jobs:
                   node-version: '14.x'
             - name: Installing Crowdin     
               run: npm i -g @crowdin/cli
-            - name: Pushing Strings & Translations ⬆️
-              run:  
-                  crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+            - name: Delete Branch [${{ github.event.workflow_run.head_branch }}] 🗑️
+              run: crowdin branch delete ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
                 
 

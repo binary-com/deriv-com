@@ -2,19 +2,15 @@ name: Push Translation
 
 on:
   workflow_run:
-    workflows: ["Translation Branch Check"]
+    workflows: ["Pre-push Translation"]
     types:
       - completed
       
 jobs:
     push-translation:
-        if: startsWith(github.event.workflow_run.head_branch, 'translation-') || startsWith(github.event.workflow_run.head_branch, 'stp-')
+        if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
         runs-on: ubuntu-latest
         steps:
-            - name: Show source action
-              run: echo 'Last Action - ${{ github.event.workflow_run.event }} Action - ${{ github.event.workflow_run.event.action }}'
-            - name: Env
-              run: env
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
             - name: Checkout 🛎️

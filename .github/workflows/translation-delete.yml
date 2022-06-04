@@ -1,23 +1,31 @@
-name: Crowdin Branch Clean-Up
+name: Delete Translation
 
 on:
-  pull_request:
-    types: [closed]
-    branches:
-        - 'master*'
-
+  workflow_run:
+    workflows: ["Pre-delete Translation"]
+    types:
+      - completed
+      
 jobs:
-  delete_translation_branch:
-    runs-on: ubuntu-latest
-    if:  startsWith(github.head_ref, 'translation-') || startsWith(github.head_ref, 'stp-')
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-      - name: Setup Node
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: "14.x"
-      - run: npm i -g @crowdin/cli
-      - run: npm ci
-      - name: Delete Crowdin Branch 🗑️
-        run: crowdin branch delete ${{ github.head_ref }} -T ${{ secrets.CROWDIN_API_KEY }}
+    delete-translation:
+        if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Branch [${{ github.event.workflow_run.head_branch }}]'
+              run: echo 'Deleting Translation Branch ${{ github.event.workflow_run.head_branch }}'
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+              with:
+                fetch-depth: 0
+                ref: ${{ github.event.workflow_run.head_branch }}
+                repository: ${{github.event.workflow_run.head_repository.full_name}}
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '14.x'
+            - name: Installing Crowdin     
+              run: npm i -g @crowdin/cli
+            - name: Delete Branch [${{ github.event.workflow_run.head_branch }}] 🗑️
+              run: crowdin branch delete ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+                
+

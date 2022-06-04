@@ -45,7 +45,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {<Localize translate_text="Deriv life" />}
+                                {<Localize translate_text="Deriv life is cool" />}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>

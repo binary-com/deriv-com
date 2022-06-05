@@ -32,11 +32,11 @@ jobs:
               uses: 8398a7/action-slack@v3
               with:
                   status: custom
-                  fields: workflow,job,commit,repo,ref,author,took
+                  fields: workflow,job,commit,repo
                   custom_payload: |
                       {
                         attachments: [{
-                          color: 'good'
+                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
                           text: `New Translation for *Deriv.com* on branch: *${{ github.event.workflow_run.head_branch }} *`
                         }]
                       }

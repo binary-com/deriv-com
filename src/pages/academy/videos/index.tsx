@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
+import { dataFilter } from '../components/utility'
 import AllVideos from './_all-videos'
 import { AllVideosQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
@@ -10,7 +11,6 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/video-tutorials.png'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -53,21 +53,7 @@ type VideosPageProps = {
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
 const VideosPage = ({ data }: VideosPageProps) => {
-    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
-
-    let video_data = data.directus.videos
-
-    // We need to include the !is_uk_country check together with is_eu_country because 'gb'
-    // is a valid country code for both EU and UK in our country base.
-    if (is_eu_country && !is_uk_country) {
-        video_data = data.directus.videos.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
-        )
-    } else if (is_uk_country) {
-        video_data = data.directus.videos.filter(
-            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
-        )
-    }
+    const video_data = dataFilter(data.directus.videos)
 
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',

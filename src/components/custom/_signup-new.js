@@ -309,7 +309,7 @@ const SignupNew = ({
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                    {localize('Or sign up with')}
+                    {localize('Or sign up with me')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>

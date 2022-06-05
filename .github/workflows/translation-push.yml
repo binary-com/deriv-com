@@ -37,7 +37,7 @@ jobs:
                       {
                         attachments: [{
                           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                          text: `New Translation for *Deriv.com* on branch: *${{ github.event.workflow_run.head_branch }} *`
+                          text: `*[Deriv.com]*  :pencil2: new strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} *`
                         }]
                       }
               env:

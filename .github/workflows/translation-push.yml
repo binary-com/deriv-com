@@ -28,5 +28,18 @@ jobs:
             - name: Pushing Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
-                
+            - name: Slack Notification 📣
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: ${{ job.status }}
+                  fields: workflow,repo
+                  custom_payload: |
+                      {
+                        attachments: [{
+                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          text: `New Translation for *Deriv.com* on branch: *${{ github.event.workflow_run.head_branch }} *`
+                        }]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TEST }}
 

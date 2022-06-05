@@ -36,7 +36,7 @@ const General = () => (
                 type: 'paragraph-2',
             }}
         >
-            {localize('Is the Deriv Payment Agent Programme the same as Deriv P2P (DP2P)?')}
+            {localize('Is the Deriv Payment Agent Programme the same as Deriv P2P?')}
         </Header>
         <Header
             as="p"

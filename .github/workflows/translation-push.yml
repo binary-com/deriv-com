@@ -31,12 +31,12 @@ jobs:
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
-                  status: ${{ job.status }}
-                  fields: workflow,repo
+                  status: custom
+                  fields: workflow,job,commit,repo,ref,author,took
                   custom_payload: |
                       {
                         attachments: [{
-                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          color: 'good'
                           text: `New Translation for *Deriv.com* on branch: *${{ github.event.workflow_run.head_branch }} *`
                         }]
                       }

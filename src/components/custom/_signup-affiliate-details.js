@@ -78,6 +78,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()
     const handleCheckChange = (event, func) => func(event.currentTarget.checked ? 1 : 0)
+
     return (
         <StyledContentFlex jc="flex-start" fd="column" p="40px">
             <Formik
@@ -155,6 +156,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             placeholder: 'Country of residence',
                             required: true,
                         },
+
                         {
                             id: 'dm-address',
                             name: 'address',
@@ -166,6 +168,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             placeholder: 'Address',
                             required: true,
                         },
+
                         {
                             id: 'dm-mobile-number',
                             name: 'phone',
@@ -189,6 +192,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             required: true,
                         },
                     ]
+
                     return (
                         <div style={{ display: 'block' }}>
                             <Header as="h3" type="heading-3" mb="8px">
@@ -211,9 +215,10 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                                 error={item.touch && item.error}
                                                 items={item.list}
                                                 label={localize('Country of residence')}
-                                                onChange={(value) =>
+                                                onChange={(value) => {
                                                     setFieldValue('country', value)
-                                                }
+                                                    setFieldValue('phone', value.country_code)
+                                                }}
                                                 onBlur={handleBlur}
                                                 disabled={disabled}
                                             />

@@ -17,6 +17,31 @@ type PnlCalculatorTabItemProps = {
     disabled?: ReactNode
 }
 
+type FormulaValueType = {
+    width?: string
+    mb?: string
+    ml?: string
+}
+
+type PointerContainerType = {
+    width?: string
+    ml?: string
+    top?: boolean
+    mw?: string
+}
+
+type PointerStickType = {
+    height?: string
+}
+
+type PointerTextType = {
+    ml?: string
+    top?: boolean
+}
+type FormulaWrapperType = {
+    ml?: string
+}
+
 export const Hero = styled(Flex)`
     height: 40rem;
     background: var(--color-black);
@@ -401,6 +426,11 @@ export const FormulaText = styled.div`
     padding: 1.6rem;
     font-size: 14px;
     line-height: 2;
+    width: 650px;
+
+    @media ${device.tablet} {
+        width: auto;
+    }
 `
 
 export const StyledOl = styled.ol`
@@ -469,3 +499,170 @@ export const header_style = {
     position: 'relative',
     boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
 }
+export const FormulaContainer = styled(Flex)`
+    width: 650px;
+    height: ${(props) => (props.height ? props.height : '172px')};
+    margin: 16px 0 0;
+    border-radius: 4px;
+    background-color: var(--color-blue-4);
+    position: relative;
+`
+
+export const FormulaContainerMobile = styled(Flex)`
+    width: auto;
+    height: ${(props) => (props.height ? props.height : '160px')};
+    background-color: var(--color-blue-4);
+    position: relative;
+`
+
+export const FormulaHighlight = styled(Flex)`
+    margin-top: ${(props) => (props.mt ? props.mt : '50px')};
+    width: 618px;
+    height: ${(props) => (props.height ? props.height : '72px')};
+    border-radius: 4px;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: white;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding-right: ${(props) => (props.pr ? props.pr : '0')};
+`
+
+export const FormulaHighlightMobile = styled(Flex)`
+    margin-top: ${(props) => (props.mt ? props.mt : '54px')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '53px')};
+    height: ${(props) => (props.height ? props.height : '53px')};
+    border-radius: 4px;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: white;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
+    width: calc(100% - 16px);
+`
+
+export const FormulaValue = styled.div<FormulaValueType>`
+    display: inline-block;
+    min-width: ${(props) => (props.width ? props.width : '55px')};
+    text-align: center;
+    margin-bottom: ${(props) => (props.mb ? props.mb : '14px')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+`
+
+export const FormulaValueSwapSynthetic = styled.div`
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+`
+
+export const FormulaValueMobile = styled.div`
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+
+    @media ${device.mobileM} {
+        min-width: 16px;
+    }
+`
+
+export const FormulaGreen = styled.span`
+    display: inline-block;
+    color: var(--color-blue-5);
+`
+
+export const PointerContainer = styled.div<PointerContainerType>`
+    display: flex;
+    position: absolute;
+    height: 80px;
+    margin-top: ${(props) => (props.top ? '-100px' : '8px')};
+    flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
+    align-items: center;
+    max-width: ${(props) => (props.width ? 'props.width' : '60px')};
+    white-space: normal;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+`
+
+export const PointerContainerMobile = styled.div<PointerContainerType>`
+    display: flex;
+    position: absolute;
+    height: 80px;
+    margin-top: ${(props) => (props.top ? '-100px' : '8px')};
+    flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    align-items: center;
+    max-width: ${(props) => (props.mw ? 'props.mw' : '22px')};
+    white-space: normal;
+`
+
+export const PointerDot = styled.div`
+    height: 9px;
+    width: 9px;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.1;
+`
+
+export const PointerDotMobile = styled.div`
+    height: 7px;
+    width: 7px;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.1;
+`
+
+export const PointerStick = styled.div<PointerStickType>`
+    position: relative;
+    height: ${(props) => (props.height ? props.height : '25px')};
+    width: 1px;
+    background-color: black;
+    opacity: 0.1;
+`
+
+export const PointerStickMobile = styled.div<PointerStickType>`
+    position: relative;
+    height: ${(props) => (props.height ? props.height : '18px')};
+    width: 1px;
+    background-color: black;
+    opacity: 0.1;
+`
+
+export const PointerText = styled.div<PointerTextType>`
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-blue-5);
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+`
+
+export const PointerTextMobile = styled.div<PointerTextType>`
+    margin-top: ${(props) => (props.top ? '0' : '5px')};
+    margin-bottom: ${(props) => (props.top ? '5px' : '0')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-blue-5);
+`
+
+export const Sup = styled.span`
+    color: black;
+    font-size: 9px;
+    vertical-align: super;
+`
+
+export const FormulaTopWrapper = styled.div`
+    display: block;
+`
+
+export const FormulaBottomWrapper = styled.div<FormulaWrapperType>`
+    display: block;
+    margin-top: 10px;
+    margin-left: ${(props) => (props.ml ? props.ml : '210px')};
+`
+
+export const PnlBottomWrapper = styled.div`
+    display: block;
+    margin-top: 10px;
+`

@@ -78,6 +78,11 @@ module.exports = {
         display_name: 'Crowdin',
         short_name: 'CR',
     },
+    tr: {
+        path: 'tr',
+        display_name: 'Türkçe',
+        short_name: 'TR',
+    },
     // TODO: uncomment when supported
     // de: {
     //     path: 'de',

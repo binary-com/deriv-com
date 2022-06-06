@@ -13,6 +13,8 @@ const non_localized_links = [
     '/besquare/',
     '/academy',
     '/academy/',
+    '/bug-bounty/',
+    '/bug-bounty/',
 ]
 
 const languages = Object.keys(language_config)

@@ -9,7 +9,6 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import device from 'themes/device'
 import Map from 'images/svg/landing/map.svg'
 
 const StyledFlex = styled(Flex)`
@@ -20,11 +19,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 const StyledDiv = styled.div`
-    padding-top: 20rem;
     background-color: rgba(200, 214, 215, 0.22);
-    @media ${device.mobileL} {
-        padding-top: 40rem;
-    }
 `
 const StyledMap = styled.img`
     width: 100%;

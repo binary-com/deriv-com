@@ -12,7 +12,7 @@ type DHeroProps = {
     background_image_name?: string
     background_svg?: string
     background_svg2?: string
-    content?: string | object
+    content?: string | JSX.Element
     d_height?: string
     go_to_live_demo?: boolean
     image_name?: string
@@ -23,7 +23,7 @@ type DHeroProps = {
     laptopM_height?: string
     Logo?: string
     tabletL_height?: string
-    title?: string
+    title?: string | JSX.Element
 }
 
 const Wrapper = styled(Flex)`

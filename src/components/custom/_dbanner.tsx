@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -8,9 +9,9 @@ import device from 'themes/device'
 
 type DBannerProps = {
     background_pattern?: string
-    data: object
+    data: ImageDataLike | IGatsbyImageData
     image_alt?: string
-    title?: string | object
+    title?: string | JSX.Element
 }
 const Wrapper = styled.div`
     position: relative;

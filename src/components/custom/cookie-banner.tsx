@@ -16,10 +16,6 @@ type WrapperProps = {
     is_open?: boolean
 }
 
-type StyledButtonProps = {
-    mr?: string
-}
-
 const FadeInDown = keyframes`
     from {
         opacity: 0;
@@ -87,7 +83,7 @@ const Wrapper = styled.div<WrapperProps>`
     }
 `
 
-const StyledButton = styled(Button)<StyledButtonProps>`
+const StyledButton = styled(Button)`
     @media ${device.tablet} {
         font-size: 1.4rem;
         padding: 3px 8px;

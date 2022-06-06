@@ -34,7 +34,7 @@ const FadeInDown = keyframes`
 const NavDropdown = styled.div<NavDropdownProps>`
     width: auto;
     max-width: 1200px;
-    left: ${({ offset, is_trade }) => (offset && !is_trade ? offset + 'px !important' : 'none')};
+    left: ${(props) => (props.offset && !props.is_trade ? props.offset + 'px !important' : 'none')};
     position: absolute;
     padding: 2.2rem 0.8rem;
     z-index: -1;
@@ -55,7 +55,7 @@ const NavDropdown = styled.div<NavDropdownProps>`
         content: ' ';
         position: absolute;
         top: -9px;
-        left: ${({ offset_arrow }) => (offset_arrow ? offset_arrow + 'px !important' : 'none')};
+        left: ${(props) => (props.offset_arrow ? props.offset_arrow + 'px !important' : 'none')};
         border-top: none;
         border-right: 15px solid transparent;
         border-left: 15px solid transparent;

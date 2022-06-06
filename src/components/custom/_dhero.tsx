@@ -11,13 +11,13 @@ type DHeroProps = {
     background_alt?: string
     background_image_name?: string
     background_svg?: string
-    content?: string | object
+    content?: string | JSX.Element
     go_to_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
     join_us_for_free?: boolean
     Logo?: string
-    title?: string
+    title?: string | JSX.Element
 }
 
 const Wrapper = styled.div`

@@ -78,7 +78,7 @@ const ClientCard = styled.article<ClientCardProps>`
 
     @media (max-width: 1185px) {
         margin: 2rem;
-        order: ${({ order }) => (order ? order : '')};
+        order: ${(props) => (props.order ? props.order : '')};
     }
     @media ${device.tabletL} {
         width: 100%;

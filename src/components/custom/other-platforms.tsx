@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer, UKEU, ROW } from 'components/containers'
@@ -42,18 +41,9 @@ type CardProps = {
     is_selected?: boolean
     word_break_cover?: boolean
 }
-
-interface BotCardProps extends CardProps {}
-
-interface DerivXCardProps extends CardProps {}
-
 interface DMT5CardProps extends CardProps {
     is_ppc_redirect?: boolean
 }
-
-interface SmarttraderCardProps extends CardProps {}
-
-interface TraderCardProps extends CardProps {}
 
 type OtherPlatformProps = {
     exclude?: string
@@ -137,7 +127,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
     }
 `
 
-export const TraderCard = ({ is_selected, word_break_cover }: TraderCardProps) => (
+export const TraderCard = ({ is_selected, word_break_cover }: CardProps) => (
     <StyledLink aria_label="DTrader" to="/dtrader/">
         <Card
             cover_background="var(--color-red)"
@@ -154,7 +144,7 @@ export const TraderCard = ({ is_selected, word_break_cover }: TraderCardProps) =
     </StyledLink>
 )
 
-export const BotCard = ({ is_selected, word_break_cover }: BotCardProps) => (
+export const BotCard = ({ is_selected, word_break_cover }: CardProps) => (
     <StyledLink aria_label="DBot" to="/dbot/">
         <Card
             cover_background="var(--color-orange)"
@@ -188,7 +178,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }: DMT
     </StyledLink>
 )
 
-export const DerivXCard = ({ is_selected, word_break_cover }: DerivXCardProps) => (
+export const DerivXCard = ({ is_selected, word_break_cover }: CardProps) => (
     <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
@@ -207,7 +197,7 @@ export const DerivXCard = ({ is_selected, word_break_cover }: DerivXCardProps) =
     </StyledLink>
 )
 
-export const SmarttraderCard = ({ is_selected, word_break_cover }: SmarttraderCardProps) => (
+export const SmarttraderCard = ({ is_selected, word_break_cover }: CardProps) => (
     <StyledLink
         aria_label="SmartTrader"
         to="trading"

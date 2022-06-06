@@ -500,7 +500,7 @@ export const header_style = {
     boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
 }
 export const FormulaContainer = styled(Flex)`
-    width: 650px;
+    width: auto;
     height: ${(props) => (props.height ? props.height : '172px')};
     margin: 16px 0 0;
     border-radius: 4px;

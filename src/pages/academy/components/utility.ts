@@ -1,5 +1,6 @@
 import { navigate } from 'gatsby'
 import { isBrowser, addScript } from 'common/utility'
+import { getCountryRule } from 'components/containers/visibility'
 
 export const url = isBrowser() ? window.location.href : ''
 
@@ -32,4 +33,20 @@ export const addScriptForCIO = (is_eu) => {
 }
 export const handleTag = (tag_name) => {
     navigate(`/academy/search?category=${encodeURI(`${tag_name}`)}`)
+}
+
+export const dataFilter = (data) => {
+    const { is_eu, is_uk } = getCountryRule()
+    let filtered_data = data
+
+    if (is_eu) {
+        filtered_data = data.filter(
+            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
+        )
+    } else if (is_uk) {
+        filtered_data = data.filter(
+            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
+        )
+    }
+    return filtered_data
 }

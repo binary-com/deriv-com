@@ -59,6 +59,5 @@ jobs:
             - name: Publish to Cloudfare
               uses: cloudflare/wrangler-action@2.0.0
               with:
-                apiToken: ${{ secrets.CF_API_KEY }}
-                email: ${{ secrets.CF_EMAIL }}
+                apiToken: ${{ secrets.CF_API_TOKEN }}
                 command: pages publish public --project-name=deriv 

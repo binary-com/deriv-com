@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
 
 const MainWrapper = styled(Flex)`

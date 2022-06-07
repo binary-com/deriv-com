@@ -41,7 +41,7 @@ const HeroComponent = ({ background_data, background_dark }: HeroComponentProps)
                     {localize('Bug bounty program')}
                 </Header>
 
-                <Subheadline as="h3" color="white" align="center" type="subtitle-1">
+                <Subheadline as="p" color="white" align="center" type="subtitle-1">
                     {localize('Security is a collaboration. Report bugs and be rewarded.')}
                 </Subheadline>
             </StyledContainer>

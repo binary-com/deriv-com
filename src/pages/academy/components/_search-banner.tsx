@@ -4,12 +4,14 @@ import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { combined_filter_type } from '../common/_constants'
 import type { TopicType } from '../common/_constants'
+import { dataFilter } from './utility'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { useAcademyTags } from 'components/hooks/use-academy-tags'
 import { LocalizedLink } from 'components/localization'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { getCountryRule } from 'components/containers/visibility'
 import { slugify, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
@@ -44,7 +46,7 @@ const MainWrapper = styled(Flex)`
             ? 'inset 0 -1px 0 rgba(14, 14, 14, 0.1)'
             : '0 5px 10px rgba(14, 14, 14, 0.1)'};
     position: fixed;
-    z-index: 4;
+    z-index: 10;
     height: 7.2rem;
     top: ${(props) => (props.background ? '0' : '72px')};
 
@@ -376,7 +378,8 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    const combined_data = [...academy_data.blog, ...academy_data.videos]
+    const combined_data = dataFilter([...academy_data.blog, ...academy_data.videos])
+
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(e.target.value)
@@ -717,6 +720,18 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
+    const { is_eu, is_uk } = getCountryRule()
+
+    // Filter out restricted categories from the combined filter type array based on geolocation
+    useEffect(() => {
+        combined_filter_type.forEach((type) => {
+            type.items = type.items.filter((obj) => {
+                if (is_eu) return obj.is_visible_eu
+                if (is_uk) return obj.is_visible_uk
+                return obj
+            })
+        })
+    }, [is_uk, is_eu])
 
     useEffect(() => {
         const currentLocation = window.location.pathname.split('/').slice(0, 4).join('/') + '/'
@@ -735,6 +750,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         setModal(!modal_opened)
     }
 
+    // Grey out any categories that don't have any results for respective videos/blog
     const handleGreyed = (category) => {
         if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
             if (video_tags.includes(category)) return false

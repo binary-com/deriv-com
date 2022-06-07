@@ -90,6 +90,12 @@ jobs:
               #   tagRegex: "staging(.*)"
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+            
+            - name: Verify nginx image
+              run: |
+                  set -e
+                  docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
+                  echo "docker image validated successfully"
 
             - name: Pushing Image to docker hub 🐳
               run: |

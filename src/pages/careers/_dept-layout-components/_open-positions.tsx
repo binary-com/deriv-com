@@ -1,16 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { zoho_career_url } from '../../../common/constants'
 import { OpenPositionsProps } from './_dept-layout.types'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
-import { LinkButton } from 'components/form'
 import RightArrow from 'images/svg/career-right-arrow.svg'
 import device from 'themes/device'
 
 const getLink = (id) => {
-    return `https://deriv.zohorecruit.com/jobs/Careers/${id}`
+    return `https://deriv.zohorecruit.eu/jobs/Careers/${id}?source=CareerSite`
 }
 
 const PositionLink = styled(LocalizedLink)`
@@ -83,18 +81,6 @@ const OpenPositions = (data: DataProps) => {
                             </PositionLink>
                         )
                     })}
-
-                {!hidden && (
-                    <LinkButton external mt="35px" to={zoho_career_url} secondary target="_blank">
-                        See all
-                    </LinkButton>
-                )}
-
-                {hidden && (
-                    <Header type="subtitle-1" align="center" color="grey-5">
-                        Sorry, there are currently no open positions.
-                    </Header>
-                )}
             </Container>
         </SectionContainer>
     )

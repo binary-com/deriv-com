@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type CheckboxProps = {
     checked?: boolean

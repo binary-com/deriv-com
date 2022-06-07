@@ -35,7 +35,7 @@ const Wrapper = styled.div`
     position: absolute;
     z-index: 1;
     flex-direction: column;
-    padding: 20px 0 0 40px;
+    padding: 20px 16px 0 16px;
 
     @media screen and (min-width: 1980px) {
         max-width: 1900px;

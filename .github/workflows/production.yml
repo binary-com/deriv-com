@@ -49,8 +49,6 @@ jobs:
                       ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
 
             - run: npm ci
-            - run: npm run format
-            - run: npm run test
             - run: npm run build
 
             - name: Remove Storybook

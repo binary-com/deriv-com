@@ -83,7 +83,8 @@ const CountryCardWrapper = styled(StyledCard)`
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    width: 384px;
+    width: 100%;
+    max-width: 384px;
     height: 356px;
     background: #ffffff;
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08);
@@ -94,8 +95,12 @@ const CountryCardWrapper = styled(StyledCard)`
         margin-right: 8px;
     }
     @media ${device.mobileS} {
-        width: 328px;
+        max-width: 328px;
         height: 304px;
+    }
+
+    @media ${device.laptopS} and ${device.laptop} {
+        height: 320px;
     }
 `
 const StyledText = styled(Text)`
@@ -114,14 +119,9 @@ const StyledDiv = styled.div`
     padding: 24px;
     gap: 8px;
     position: absolute;
-    width: 384px;
-    height: 140px;
-    top: 216px;
-    @media ${device.mobileS}, ${device.mobileM}, ${device.mobileL} {
-        width: 328px;
-        height: 117px;
-        top: 185px;
-    }
+    width: 100%;
+    max-width: 384px;
+    bottom: 0;
 `
 type CountryCardProps = {
     country_name: string
@@ -148,9 +148,9 @@ const StyledFrame = styled(Flex)`
     order: 0;
     align-self: stretch;
     flex-grow: 0;
+    justify-content: space-between;
 `
 const StyledHeader = styled(Text)`
-    width: 257px;
     height: 36px;
     font-size: 24px;
     line-height: 36px;

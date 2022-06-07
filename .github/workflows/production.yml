@@ -55,3 +55,10 @@ jobs:
               uses: JesseTG/rm@v1.0.2
               with:
                   path: public/storybook
+                  
+            - name: Publish to Cloudfare
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                apiKey: ${{ secrets.CF_API_KEY }}
+                email: ${{ secrets.CF_EMAIL }}
+                command: pages publish public --project-name=deriv 

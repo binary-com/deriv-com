@@ -29,7 +29,9 @@ const numberValidation = (input, fieldName, maxDigit) => {
     if (!input) {
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (!validation_regex_number(maxDigit).test(input)) {
-        return localize('Should be a valid number')
+        return localize(
+            'Please enter a valid amount, including the decimal point (.), in this format: ####.#',
+        )
     } else if (!validation_is_exceed_number(input, maxDigit)) {
         return localize('Reached maximum number of digits')
     } else if (!validation_is_not_zero(input)) {
@@ -43,7 +45,9 @@ const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
     if (!input) {
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (!validation_regex_number_with_negative(maxDigit).test(input)) {
-        return localize('Should be a valid number')
+        return localize(
+            'Please enter a valid amount, including the decimal point (.), in this format: ####.#',
+        )
     } else if (!validation_is_exceed_number(input, maxDigit)) {
         return localize('Reached maximum number of digits')
     } else if (!validation_is_not_zero(input)) {

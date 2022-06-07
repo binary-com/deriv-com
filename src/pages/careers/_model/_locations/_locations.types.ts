@@ -6,6 +6,7 @@ export type LocationsType = {
     map_office_name: string
     country: string
     continent: string
+    display_continent: string
     flagIcon: string
     thumbnail: string
     first_p: string

@@ -26,6 +26,7 @@ import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
     continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
     img_alt: 'Cyberjaya bridge and lake view',
@@ -55,6 +56,7 @@ export const cyberjaya: LocationsType = {
 export const malta: LocationsType = {
     name: 'malta',
     continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/malta/',
     display_name: 'Malta',
     img_alt: 'Malta Senglea Church',
@@ -83,6 +85,7 @@ export const malta: LocationsType = {
 export const dubai: LocationsType = {
     name: 'dubai',
     continent: 'middle_east',
+    display_continent: 'Middle East',
     link: '/careers/locations/dubai/',
     display_name: 'Dubai',
     img_alt: 'Dubai Skyscrappers',
@@ -113,6 +116,7 @@ export const dubai: LocationsType = {
 export const labuan: LocationsType = {
     name: 'labuan',
     continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/labuan/',
     display_name: 'Labuan',
     img_alt: 'Labuan clock tower',
@@ -142,6 +146,7 @@ export const labuan: LocationsType = {
 export const asuncion: LocationsType = {
     name: 'asuncion',
     continent: 'latam',
+    display_continent: 'Latam',
     link: '/careers/locations/asuncion/',
     display_name: 'Asunción',
     img_alt: 'Palace of the Lopez - Asuncion',
@@ -170,6 +175,7 @@ export const asuncion: LocationsType = {
 export const melaka: LocationsType = {
     name: 'melaka',
     continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/melaka/',
     display_name: 'Melaka',
     img_alt: 'Dutch square of Melaka',
@@ -199,6 +205,7 @@ export const melaka: LocationsType = {
 export const ipoh: LocationsType = {
     name: 'ipoh',
     continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/ipoh/',
     display_name: 'Ipoh',
     img_alt: 'White architecture building in Ipoh',
@@ -227,6 +234,7 @@ export const ipoh: LocationsType = {
 export const cyprus: LocationsType = {
     name: 'cyprus',
     continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/cyprus/',
     display_name: 'Limassol',
     img_alt: 'Buildings near beach side - Limassol',
@@ -256,6 +264,7 @@ export const cyprus: LocationsType = {
 export const rwanda: LocationsType = {
     name: 'rwanda',
     continent: 'africa',
+    display_continent: 'Africa',
     link: '/careers/locations/rwanda/',
     display_name: 'Kigali',
     img_alt: 'Blue sky and buildings - Kigali',
@@ -286,6 +295,7 @@ export const rwanda: LocationsType = {
 export const minsk: LocationsType = {
     name: 'minsk',
     continent: 'eastern_europe',
+    display_continent: 'Eastern Europe',
     link: '/careers/locations/minsk/',
     display_name: 'Minsk',
     img_alt: 'Diamond shape building in Minsk',
@@ -316,6 +326,7 @@ export const minsk: LocationsType = {
 export const paris: LocationsType = {
     name: 'paris',
     continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/paris/',
     display_name: 'Paris',
     map_office_name: '(France) SAS',
@@ -339,6 +350,7 @@ export const paris: LocationsType = {
 export const guernsey: LocationsType = {
     name: 'guernsey',
     continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/guernsey/',
     display_name: 'Guernsey',
     img_alt: 'Guernsey alt img',

@@ -6,7 +6,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
 import { allContinents } from '../_model/_locations/_locations'
 import device from 'themes/device'
-import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex, CssGrid, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, Tabs, QueryImage } from 'components/elements'
@@ -83,10 +83,19 @@ const CountryCardWrapper = styled(StyledCard)`
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    margin: 0;
+    width: 384px;
+    height: 356px;
+    background: #ffffff;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.08), 0 24px 24px rgba(0, 0, 0, 0.08);
+    gap: 40px;
+    border-radius: 4px;
 
     svg {
         margin-right: 8px;
+    }
+    @media ${device.mobileS} {
+        width: 328px;
+        height: 304px;
     }
 `
 const StyledText = styled(Text)`
@@ -98,22 +107,88 @@ const StyledText = styled(Text)`
 `
 
 const StyledDiv = styled.div`
+    display: flex;
     flex-direction: column;
-    width: 100%;
-    min-height: 140px;
-    padding: 24px 24px 24px 25px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 24px;
+    gap: 8px;
+    position: absolute;
+    width: 384px;
+    height: 140px;
+    top: 216px;
+    @media ${device.mobileS}, ${device.mobileM}, ${device.mobileL} {
+        width: 328px;
+        height: 117px;
+        top: 185px;
+    }
 `
 type CountryCardProps = {
     country_name: string
+    continent: string
     city_name: string
     link: string
     img_alt: string
     img_data: ImageDataLike
     Icon: string
 }
+const StyledFrame = styled(Flex)`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    height: 36px;
 
+    @media ${device.mobileS}, ${device.mobileM}, ${device.mobileL} {
+        gap: 13.67px;
+        height: 26px;
+    }
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+`
+const StyledHeader = styled(Text)`
+    width: 257px;
+    height: 36px;
+    font-size: 24px;
+    line-height: 36px;
+
+    @media ${device.mobileS}, ${device.mobileM}, ${device.mobileL} {
+        width: auto;
+        height: 26px;
+        flex: none;
+        order: 0;
+        flex-grow: 1;
+    }
+`
+const StyledBox = styled(Flex)`
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8px;
+    gap: 8px;
+    width: auto;
+    height: 24px;
+    border: 1px solid #999999;
+    border-radius: 100px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+`
+const StyledName = styled(Text)`
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+`
 const CountryCard = ({
     country_name,
+    continent,
     city_name,
     link,
     img_alt,
@@ -124,12 +199,15 @@ const CountryCard = ({
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={img_alt} width="100%" />
             <StyledDiv>
-                <Header as="h5" size="var(--text-size-sm)">
-                    {city_name}
-                </Header>
+                <StyledFrame>
+                    <StyledHeader weight="bold">{city_name}</StyledHeader>
+                    <StyledBox>
+                        <StyledName weight="bold">{continent}</StyledName>
+                    </StyledBox>
+                </StyledFrame>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
                     <StyledImg src={Icon} alt="" />
-                    <StyledText weight="bold">{country_name}</StyledText>
+                    <StyledText>{country_name}</StyledText>
                 </Flex>
                 <Flex ai="center" jc="flex-end" width="100%">
                     <ChevronRight />
@@ -261,6 +339,7 @@ const Locations = () => {
                                             Icon={office.flagIcon}
                                             img_data={images[office.thumbnail]}
                                             country_name={office.country}
+                                            continent={office.display_continent}
                                             city_name={office.display_name}
                                             link={office.link}
                                             img_alt={office.img_alt}

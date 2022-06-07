@@ -458,7 +458,7 @@ export const handleRedirect = (residence, current_client_country, full_domain) =
 
     const eu_domains = ['eu', 'staging-eu']
 
-    if (isLocalhost() || isTestlink()) {
+    if (isLocalhost() || isTestlink() || isCloudflarelink()) {
         return false
     } else if (eu_domains.some((e) => subdomain.includes(e))) {
         handleEURedirect(country, full_domain)
@@ -479,3 +479,5 @@ export const queryParamData = () => {
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+export const isCloudflarelink = () =>
+    !!(isBrowser() && window.location.hostname.includes('pages.dev'))

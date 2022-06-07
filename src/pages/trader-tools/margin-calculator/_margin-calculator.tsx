@@ -333,7 +333,7 @@ const MarginCalculator = () => {
                                     )}
                                 </Text>
                                 <Show.Desktop>
-                                    <FormulaContainer height="185px">
+                                    <FormulaContainer height="200px">
                                         <FormulaHighlight>
                                             <FormulaValue>
                                                 <Localize translate_text="( 2" />

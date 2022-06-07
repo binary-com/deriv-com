@@ -26,7 +26,7 @@ export const SwapSyntheticExample = () => {
     return (
         <>
             <Show.Desktop>
-                <FormulaContainer>
+                <FormulaContainer height="200px">
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="0.01" />

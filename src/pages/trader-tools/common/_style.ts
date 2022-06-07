@@ -501,8 +501,9 @@ export const header_style = {
 }
 export const FormulaContainer = styled(Flex)`
     width: auto;
-    height: ${(props) => (props.height ? props.height : '172px')};
-    margin: 16px 0 0;
+    height: ${(props) => (props.height ? props.height : '192px')};
+    margin: 0;
+    padding: 16px;
     border-radius: 4px;
     background-color: var(--color-blue-4);
     position: relative;

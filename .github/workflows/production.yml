@@ -2,8 +2,8 @@ name: Release Production
 
 on:
     push:
-        tags:
-            - 'production*'
+        branches:
+            - master
         paths-ignore:
             - '**.md'
 

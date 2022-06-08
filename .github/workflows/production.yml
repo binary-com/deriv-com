@@ -2,11 +2,10 @@ name: Release Production
 
 on:
     push:
-        branches:
-            - master
+        tags:
+            - 'production*'
         paths-ignore:
             - '**.md'
-
 
 env:
     GATSBY_CPU_COUNT: 2
@@ -54,5 +53,8 @@ jobs:
                 apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                 accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                 command: pages publish public --project-name=deriv --branch=main
+
+            - name: Report new Cloudflare Website
+              run: echo "New proudction website - http://deriv.pages.dev"
 
 

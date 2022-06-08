@@ -6,7 +6,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
 import { allContinents } from '../_model/_locations/_locations'
 import device from 'themes/device'
-import { SEO, SectionContainer, Container, Flex, CssGrid, Box } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, Tabs, QueryImage } from 'components/elements'
@@ -117,11 +117,16 @@ const StyledDiv = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
     padding: 24px;
-    gap: 8px;
     position: absolute;
     width: 100%;
     max-width: 384px;
     bottom: 0;
+    @media ${device.mobileM} {
+        gap: 8.2px;
+    }
+    @media ${device.mobileS} {
+        gap: 8px;
+    }
 `
 type CountryCardProps = {
     country_name: string

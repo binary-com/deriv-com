@@ -1,0 +1,45 @@
+name: Push Translation
+
+on:
+  workflow_run:
+    workflows: ["Pre-push Translation"]
+    types:
+      - completed
+      
+jobs:
+    push-translation:
+        if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
+              run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+              with:
+                fetch-depth: 0
+                ref: ${{ github.event.workflow_run.head_branch }}
+                repository: ${{github.event.workflow_run.head_repository.full_name}}
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '14.x'
+            - name: Installing Crowdin     
+              run: npm i -g @crowdin/cli
+            - name: Pushing Strings & Translations ⬆️
+              run:  
+                  crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+            - name: Slack Notification 📣
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: custom
+                  fields: workflow,job,commit,repo
+                  custom_payload: |
+                      {
+                        attachments: [{
+                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} *`
+                        }]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION }}
+

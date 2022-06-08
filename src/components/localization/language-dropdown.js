@@ -142,17 +142,17 @@ const ResponsiveText = styled(Text)`
 
 const Icon = styled(QueryImage)`
     width: 24px;
-    height: 24px;
+    height: 19px;
 
     @media ${device.mobileL} {
         width: 20px;
-        height: 20px;
+        height: 15px;
     }
 `
 
 const query = graphql`
     query {
-        en: file(relativePath: { eq: "flags/en.png" }) {
+        en: file(relativePath: { eq: "flags/uk.png" }) {
             ...fadeIn
         }
         es: file(relativePath: { eq: "flags/es.png" }) {
@@ -185,7 +185,10 @@ const query = graphql`
         zh: file(relativePath: { eq: "flags/zh.png" }) {
             ...fadeIn
         }
-        ac: file(relativePath: { eq: "flags/en.png" }) {
+        tr: file(relativePath: { eq: "flags/tr.png" }) {
+            ...fadeIn
+        }
+        ac: file(relativePath: { eq: "flags/uk.png" }) {
             ...fadeIn
         }
     }

@@ -119,7 +119,7 @@ export const FormWrapper = styled(Flex)`
 
     @media ${device.laptopM} {
         margin: 0 0 40px;
-        overflow: scroll;
+        overflow: auto;
         padding-left: 40px;
     }
 `

@@ -120,7 +120,7 @@ export const FormWrapper = styled(Flex)`
 
     @media ${device.laptopM} {
         margin: 0 0 40px;
-        overflow: hidden;
+        overflow: scroll;
     }
 `
 export const SwapFormWrapper = styled(FormWrapper)`
@@ -140,7 +140,7 @@ const CalculatorFormStyles = css`
 
     @media ${device.mobileL} {
         margin-bottom: 20px;
-        width: 328px;
+        width: 280px;
     }
 `
 
@@ -150,13 +150,13 @@ export const CalculatorForm = styled(Form)`
 `
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
-    width: 328px;
+    width: 280px;
 `
 
 export const PnlHeaderOverflow = styled.div`
-    width: 328px;
+    width: 280px;
     border-radius: 8px 8px 0 0;
-    overflow-x: hidden;
+    overflow-x: scroll;
 `
 const CalculatorHeaderStyles = css`
     border-radius: 8px 8px 0 0;
@@ -173,7 +173,7 @@ export const PnlCalculatorHeader = styled.div`
 
     @media (max-width: 424px) {
         width: 440px;
-        overflow-x: hidden;
+        overflow-x: scroll;
     }
 `
 
@@ -182,7 +182,7 @@ export const PnlCalculatorHeaderMobile = styled.div`
     padding: 2.4rem;
     background-color: var(--color-blue-4);
     width: 440px;
-    overflow-x: hidden;
+    overflow-x: scroll;
 `
 
 export const CalculatorLabel = styled.label`

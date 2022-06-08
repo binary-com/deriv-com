@@ -5,7 +5,7 @@ import { LocaleContextWrapper } from '../../../components/localization/locale-co
 import { DerivProvider } from '../../../store/index'
 import NewSignup from '../index.tsx'
 
-// mock all functions that are required in signup page
+// mock all functions that are required in signup page.
 jest.mock('common/utility', () => ({
     __esModule: true,
     isBrowser: jest.fn(() => true),

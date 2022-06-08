@@ -6,6 +6,7 @@ import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
 import CFDs from './_cfds'
 import SyntheticIndices from './_synthetic-indices'
 import Cryptocurrencies from './_cryptocurrencies'
+import BasketIndices from './__basket_indices'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -159,7 +160,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_uk, is_uk_eu } = getCountryRule()
+    const { is_non_uk, is_row, is_uk_eu } = getCountryRule()
 
     return (
         <>
@@ -385,19 +386,13 @@ const WhatAreOptions = () => {
                 </SmallContainer>
             </StyledSectionContainer>
 
-            {is_uk ? (
-                <AvailableTrades
-                    display_title={localize('Instruments available to trade on Multipliers')}
-                    Forex={CFDs}
-                />
-            ) : (
-                <AvailableTrades
-                    display_title={localize('Instruments available to trade on Multipliers')}
-                    Forex={CFDs}
-                    SyntheticIndices={SyntheticIndices}
-                    Cryptocurrencies={Cryptocurrencies}
-                />
-            )}
+            <AvailableTrades
+                display_title={localize('Instruments available to trade on Multipliers')}
+                Forex={CFDs}
+                SyntheticIndices={is_non_uk ? SyntheticIndices : null}
+                Cryptocurrencies={is_non_uk ? Cryptocurrencies : null}
+                BasketIndices={is_row ? BasketIndices : null}
+            />
 
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">

@@ -142,11 +142,11 @@ const ResponsiveText = styled(Text)`
 
 const Icon = styled(QueryImage)`
     width: 24px;
-    height: 24px;
+    height: 19px;
 
     @media ${device.mobileL} {
         width: 20px;
-        height: 20px;
+        height: 15px;
     }
 `
 

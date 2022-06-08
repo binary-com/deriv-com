@@ -55,6 +55,6 @@ jobs:
                 command: pages publish public --project-name=deriv --branch=main
 
             - name: Report new Cloudflare Website
-              run: echo "New proudction website - http://deriv.pages.dev"
+              run: echo "New production website - http://deriv.pages.dev"
 
 

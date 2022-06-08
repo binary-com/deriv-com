@@ -520,12 +520,14 @@ export const FormulaHighlight = styled(Flex)`
     margin-top: ${(props) => (props.mt ? props.mt : '50px')};
     width: 618px;
     height: ${(props) => (props.height ? props.height : '72px')};
+    gap: ${(props) => (props.gap ? props.gap : 0)};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
     align-items: center;
     font-size: 16px;
     font-weight: 600;
+    justify-content: space-evenly;
     padding-right: ${(props) => (props.pr ? props.pr : '0')};
 `
 
@@ -533,9 +535,11 @@ export const FormulaHighlightMobile = styled(Flex)`
     margin-top: ${(props) => (props.mt ? props.mt : '54px')};
     margin-bottom: ${(props) => (props.mb ? props.mb : '53px')};
     height: ${(props) => (props.height ? props.height : '53px')};
+    gap: ${(props) => (props.gap ? props.gap : 0)};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 14px;
     font-weight: 600;

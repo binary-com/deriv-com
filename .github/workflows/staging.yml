@@ -1,0 +1,58 @@
+name: Release Staging
+
+on:
+    push:
+        branches:
+            - master
+        paths-ignore:
+            - '**.md'
+
+
+env:
+    GATSBY_CPU_COUNT: 2
+    GATSBY_ENV: production
+    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
+
+jobs:
+    release-cloudflare:
+        timeout-minutes: 30
+        runs-on: ubuntu-latest
+        environment: production
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '14.x'
+
+            - name: Set version env variable
+              run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+            - name: Cache Gatsby
+              id: gatsby-cache-build
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      public
+                      .cache
+                  key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
+            - run: npm ci
+            - run: npm run build
+
+            - name: Remove Storybook
+              uses: JesseTG/rm@v1.0.2
+              with:
+                  path: public/storybook
+
+            - name: Publish to Cloudfare
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                command: pages publish public --project-name=deriv --branch=staging
+
+

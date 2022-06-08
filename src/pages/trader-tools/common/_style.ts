@@ -109,7 +109,6 @@ export const ContentContainer = styled(Flex)`
     }
     @media ${device.laptop} {
         margin-bottom: 0;
-        padding: 0 16px;
     }
 `
 
@@ -121,6 +120,7 @@ export const FormWrapper = styled(Flex)`
     @media ${device.laptopM} {
         margin: 0 0 40px;
         overflow: scroll;
+        padding-left: 40px;
     }
 `
 export const SwapFormWrapper = styled(FormWrapper)`

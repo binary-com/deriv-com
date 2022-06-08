@@ -296,6 +296,14 @@ const Locations = () => {
             />
             <Hero />
             <StyledSectionContainer direction="column" padding="80px 16px">
+                <Header
+                    as="h2"
+                    align="center"
+                    padding="0 0 35px"
+                    size={'var(--text-size-header-1)'}
+                >
+                    Explore our locations
+                </Header>
                 <StyledTabs
                     tab_list={[
                         'all',

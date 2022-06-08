@@ -6,7 +6,7 @@ on:
             - master
         paths-ignore:
             - '**.md'
-
+            - '.github/workflows/**.yml'
 
 env:
     GATSBY_CPU_COUNT: 2
@@ -54,5 +54,8 @@ jobs:
                 apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                 accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                 command: pages publish public --project-name=deriv --branch=staging
+                 
+            - name: Report new Cloudflare Website
+              run: echo "New staging website - http://staging.deriv.pages.dev"
 
 

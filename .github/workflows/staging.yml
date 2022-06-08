@@ -14,7 +14,7 @@ env:
     DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
 
 jobs:
-    release-cloudflare:
+    build-and-preview:
         timeout-minutes: 30
         runs-on: ubuntu-latest
         environment: production

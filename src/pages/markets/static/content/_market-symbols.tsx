@@ -1149,7 +1149,133 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="ZEC/USD" />,
     },
 ]
+export const cryptocurrencies_cfds_ROW: MarketSymbol[] = [
+    {
+        src: icons.ALGORAND,
+        text: <Localize translate_text="ALG/USD" />,
+    },
+    {
+        src: icons.ADAUSD,
+        text: <Localize translate_text="ADA/USD" />,
+    },
+    {
+        src: icons.AVALANCHE,
+        text: <Localize translate_text="AVA/USD" />,
+    },
 
+    {
+        src: icons.BAT,
+        text: <Localize translate_text="BAT/USD" />,
+    },
+    {
+        src: icons.BCHNEW,
+        text: <Localize translate_text="BCH/USD" />,
+    },
+    {
+        src: icons.BNBUSD,
+        text: <Localize translate_text="BNB/USD" />,
+    },
+    {
+        src: icons.BTCUSD,
+        text: <Localize translate_text="BTC/USD" />,
+    },
+    {
+        src: icons.BTCETH,
+        text: <Localize translate_text="BTC/ETH" />,
+    },
+    {
+        src: icons.BTCLTC,
+        text: <Localize translate_text="BTC/LTC" />,
+    },
+    {
+        src: icons.DOGUSD,
+        text: <Localize translate_text="DOG/USD" />,
+    },
+    {
+        src: icons.DOTUSD,
+        text: <Localize translate_text="DOT/USD" />,
+    },
+    {
+        src: icons.DSHUSD1,
+        text: <Localize translate_text="DSH/USD" />,
+    },
+    {
+        src: icons.EOSUSD1,
+        text: <Localize translate_text="EOS/USD" />,
+    },
+    {
+        src: icons.ETCUSD,
+        text: <Localize translate_text="ETC/USD" />,
+    },
+    {
+        src: icons.ETHUSD,
+        text: <Localize translate_text="ETH/USD" />,
+    },
+    {
+        src: icons.FILUSD,
+        text: <Localize translate_text="FIL/USD" />,
+    },
+    {
+        src: icons.IOTUSD,
+        text: <Localize translate_text="IOT/USD" />,
+    },
+    {
+        src: icons.LNKUSD,
+        text: <Localize translate_text="LNK/USD" />,
+    },
+    {
+        src: icons.LTCUSD,
+        text: <Localize translate_text="LTC/USD" />,
+    },
+    {
+        src: icons.MKRUSD,
+        text: <Localize translate_text="MKR/USD" />,
+    },
+    {
+        src: icons.MTCUSD,
+        text: <Localize translate_text="MTC/USD" />,
+    },
+    {
+        src: icons.NEOUSD,
+        text: <Localize translate_text="NEO/USD" />,
+    },
+    {
+        src: icons.OMGUSD,
+        text: <Localize translate_text="OMG/USD" />,
+    },
+    {
+        src: icons.SOLUSD,
+        text: <Localize translate_text="SOL/USD" />,
+    },
+    {
+        src: icons.TRXUSD,
+        text: <Localize translate_text="TRX/USD" />,
+    },
+    {
+        src: icons.UNIUSD,
+        text: <Localize translate_text="UNI/USD" />,
+    },
+    {
+        src: icons.XMRUSD,
+        text: <Localize translate_text="XMR/USD" />,
+    },
+    {
+        src: icons.XLMUSD,
+        text: <Localize translate_text="XLM/USD" />,
+    },
+    {
+        src: icons.XRPUSD1,
+        text: <Localize translate_text="XRP/USD" />,
+    },
+    {
+        src: icons.XTZUSD,
+        text: <Localize translate_text="XTZ/USD" />,
+    },
+    {
+        src: icons.ZECUSD,
+        text: <Localize translate_text="ZEC/USD" />,
+    },
+]
 export const cryptocurrencies_multipliers: MarketSymbol[] = [
     {
         src: icons.BTCUSD,

@@ -21,7 +21,7 @@
         "gatsby-background-image": "^1.6.0",
         "gatsby-plugin-anchor-links": "^1.2.1",
         "gatsby-plugin-google-tagmanager": "^4.9.0",
-        "gatsby-plugin-image": "^2.9.1",
+        "gatsby-plugin-image": "2.13.0",
         "gatsby-plugin-manifest": "^4.9.1",
         "gatsby-plugin-page-progress": "^2.2.1",
         "gatsby-plugin-preact": "^6.9.0",

@@ -152,7 +152,7 @@ const Icon = styled(QueryImage)`
 
 const query = graphql`
     query {
-        en: file(relativePath: { eq: "flags/en.png" }) {
+        en: file(relativePath: { eq: "flags/uk.png" }) {
             ...fadeIn
         }
         es: file(relativePath: { eq: "flags/es.png" }) {
@@ -185,10 +185,10 @@ const query = graphql`
         zh: file(relativePath: { eq: "flags/zh.png" }) {
             ...fadeIn
         }
-        ac: file(relativePath: { eq: "flags/uk.png" }) {
+        tr: file(relativePath: { eq: "flags/tr.png" }) {
             ...fadeIn
         }
-        tr: file(relativePath: { eq: "flags/tr.png" }) {
+        ac: file(relativePath: { eq: "flags/uk.png" }) {
             ...fadeIn
         }
     }

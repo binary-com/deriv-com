@@ -51,7 +51,7 @@ const DesktopPlatformCarousel = () => {
         if (!is_row) {
             return 1
         }
-        return 11
+        return 1
     }, [is_row])
 
     const getSlideStartingIndex = useCallback(() => {
@@ -60,6 +60,7 @@ const DesktopPlatformCarousel = () => {
         }
         return Math.round((no_slide_sets() * 8) / 2 - 2)
     }, [is_row, no_slide_sets])
+    console.log(getSlideStartingIndex())
 
     useEffect(() => {
         setSlideIndex(getSlideStartingIndex())

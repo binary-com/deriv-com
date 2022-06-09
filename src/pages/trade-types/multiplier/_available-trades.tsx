@@ -8,7 +8,6 @@ import device from 'themes/device'
 import ForexIcon from 'images/svg/trade-types/market-forex.svg'
 import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
 import CryptocurrencyIcon from 'images/svg/markets/cryptocurrencies.svg'
-import BasketIndicesIcon from 'images/svg/markets/basket_indices_new.svg'
 
 type CardProps = {
     active_tab: string
@@ -22,7 +21,6 @@ type AvailableTradesProps = {
     display_title: React.ReactNode
     Forex: React.ElementType
     SyntheticIndices: React.ElementType
-    BasketIndices: React.ElementType
 }
 
 const StyledHeader = styled(Header)`
@@ -206,9 +204,6 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {active_tab === 'Cryptocurrencies' && (
                     <TabIcon src={CryptocurrencyIcon} alt="" name={name} active_tab={active_tab} />
                 )}
-                {active_tab === 'Basket Indices' && (
-                    <TabIcon src={BasketIndicesIcon} alt="" name={name} active_tab={active_tab} />
-                )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}
                 </CardHeader>
@@ -222,7 +217,6 @@ const AvailableTrades = ({
     Forex,
     SyntheticIndices,
     Cryptocurrencies,
-    BasketIndices,
 }: AvailableTradesProps) => {
     const [active_tab, setActiveTab] = useState('Forex')
 
@@ -262,20 +256,11 @@ const AvailableTrades = ({
                             active_tab={active_tab}
                         />
                     )}
-                    {BasketIndices && (
-                        <Card
-                            name="Basket Indices"
-                            display_name={<Localize translate_text="Basket Indices" />}
-                            onTabChange={() => handleTabChange('Basket Indices')}
-                            active_tab={active_tab}
-                        />
-                    )}
                 </CardWrapper>
                 <ContentWrapper>
                     {active_tab === 'Forex' && <Forex />}
                     {active_tab === 'Synthetic Indices' && <SyntheticIndices />}
                     {active_tab === 'Cryptocurrencies' && <Cryptocurrencies />}
-                    {active_tab === 'Basket Indices' && <BasketIndices />}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>

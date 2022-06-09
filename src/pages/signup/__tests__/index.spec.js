@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/preact'
+import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { useStaticQuery } from 'gatsby'
 import { LocaleContextWrapper } from '../../../components/localization/locale-context'
@@ -45,9 +45,9 @@ describe('NewSignUp', () => {
                 </LocaleContextWrapper>
             </DerivProvider>,
         )
-        const singup_button = screen.findByRole('button', {
+        const singup_button = screen.getByRole('button', {
             name: /Create demo account/i,
         })
-        expect(singup_button).toBeDefined()
+        expect(singup_button).toBeInTheDocument()
     })
 })

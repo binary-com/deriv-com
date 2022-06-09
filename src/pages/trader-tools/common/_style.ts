@@ -43,7 +43,7 @@ export const BreadCrumbContainer = styled(Container)`
     margin-top: 2.4rem;
 
     @media ${device.laptopL} {
-        width: 100%;
+        width: 90%;
     }
     @media ${device.laptopM} {
         width: 90%;
@@ -115,12 +115,10 @@ export const ContentContainer = styled(Flex)`
 export const FormWrapper = styled(Flex)`
     margin-right: 4.8rem;
     height: 100%;
-    width: unset;
 
     @media ${device.laptopM} {
         margin: 0 0 40px;
-        overflow: scroll;
-        padding-left: 40px;
+        overflow: hidden;
     }
 `
 export const SwapFormWrapper = styled(FormWrapper)`
@@ -140,23 +138,22 @@ const CalculatorFormStyles = css`
 
     @media ${device.mobileL} {
         margin-bottom: 20px;
-        width: 280px;
+        width: 90%;
     }
 `
 
 export const CalculatorForm = styled(Form)`
     ${CalculatorFormStyles}
-    width: 54rem;
+    width: 46rem;
 `
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
-    width: 280px;
+    width: 90%;
 `
 
 export const PnlHeaderOverflow = styled.div`
-    width: 280px;
     border-radius: 8px 8px 0 0;
-    overflow-x: scroll;
+    padding: 2.4rem;
 `
 const CalculatorHeaderStyles = css`
     border-radius: 8px 8px 0 0;
@@ -181,8 +178,6 @@ export const PnlCalculatorHeaderMobile = styled.div`
     border-radius: 8px 8px 0 0;
     padding: 2.4rem;
     background-color: var(--color-blue-4);
-    width: 440px;
-    overflow-x: scroll;
 `
 
 export const CalculatorLabel = styled.label`
@@ -356,7 +351,7 @@ export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {
-        width: 140px;
+        width: 130px;
     }
 `
 
@@ -364,7 +359,7 @@ export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {
-        width: 140px;
+        width: 130px;
         height: 53px;
     }
 `
@@ -375,23 +370,24 @@ export const CalculatorDropdown = styled(Dropdown)`
 
 export const InputGroup = styled.div`
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: 2.4rem 0;
 `
 
 export const PnLInputGroup = styled.div`
     position: relative;
-    width: 100%;
+    width: 90%;
 `
 
 export const CalculateButton = styled(Button)`
-    width: 100%;
+    width: 90%;
 `
 
 export const RightContent = styled.div`
     display: block;
     max-width: 69rem;
     margin: 0;
+    padding: 19px;
     @media ${device.laptopM} {
         margin: auto;
     }

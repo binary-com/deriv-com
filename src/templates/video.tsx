@@ -21,11 +21,12 @@ import { handleTag } from 'pages/academy/components/utility'
 import { AllVideosQuery } from 'types/graphql.types'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { Mobile, Flex, SectionContainer, Desktop } from 'components/containers'
+import { Mobile, Flex, SectionContainer, Desktop, Container } from 'components/containers'
 import { truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import IncreasingArrow from 'images/svg/tools/increasing-arrow.svg'
 import { getTruncateLength } from 'pages/academy/blog/posts/preview'
 
 type VideosTemplateProps = {
@@ -33,13 +34,40 @@ type VideosTemplateProps = {
 }
 
 const VideoPlayer = styled(Vimeo)`
-    width: 100%;
-    height: 100%;
-
     > iframe {
-        width: 1280px;
-        height: 720px;
+        width: 720px;
+        height: 480px;
     }
+
+    @media (min-width: 1280px) {
+        > iframe {
+            width: 1280px;
+            height: 720px;
+        }
+    }
+`
+
+const VideoTitle = styled.h1`
+    font-size: 2.3rem;
+    padding: 2rem 0;
+    font-weight: 700;
+`
+
+const VideoDescription = styled.p`
+    color: var(--color-grey);
+    font-size: 1.6rem;
+    padding-bottom: 1.5rem;
+    max-width: 996px;
+    line-height: 2.1rem;
+`
+
+const VideoDetails = styled.div`
+    display: flex;
+`
+const GreyText = styled.p`
+    color: var(--color-grey);
+    font-size: 1.6rem;
+    padding: 0 0.6rem;
 `
 
 const VideoTemplate = ({ data }: VideosTemplateProps) => {
@@ -47,6 +75,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
+    const [view_count, setViewCount] = useState(null)
 
     useEffect(() => {
         if (is_mounted) {
@@ -87,6 +116,22 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
     const video_title = video_data?.video_title
     const vimeo_id = video_data?.vimeo_id
 
+    useEffect(() => {
+        const url = `https://vimeo.com/api/v2/video/${vimeo_id}.json`
+
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url)
+                const json = await response.json()
+                setViewCount(json[0]?.stats_number_of_plays)
+            } catch (error) {
+                console.log('error', error)
+            }
+        }
+
+        fetchData()
+    }, [vimeo_id])
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             {/* <SEO
@@ -98,158 +143,63 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
             <>
                 {is_mounted && (
                     <SectionContainer padding="0" position="relative">
-                        <Background>
-                            <StickyBreadCrumbsWrapper scroll={visible}>
-                                <BreadcrumbsWrapper scroll={visible}>
-                                    <StyledBreadcrumbsContainer>
-                                        <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
-                                            All Videos
-                                        </StyledBreadcrumbsLink>
-                                        <img src={RightArrow} height="16" width="16" />
-                                        <StyledBreadcrumbsTitle>
-                                            {is_mobile
-                                                ? truncateString(video_title, getTruncateLength())
-                                                : video_title}
-                                        </StyledBreadcrumbsTitle>
-                                        <SocialSharing />
-                                    </StyledBreadcrumbsContainer>
-                                </BreadcrumbsWrapper>
-                                <Scrollbar scroll={visible}>
-                                    <ProgressContainer>
-                                        <ProgressBar ref={barElement}></ProgressBar>
-                                    </ProgressContainer>
-                                </Scrollbar>
-                            </StickyBreadCrumbsWrapper>
-                            <HeroContainer>
-                                {/* <InfoText mb="16px" size="14px">
-                                    {video_data?.published_date &&
-                                        convertDate(video_data?.published_date)}
-                                </InfoText>
-                                <ArticleTitle as="h1" type="page-title">
-                                    {video_data?.video_title}
-                                </ArticleTitle> */}
-                                {/* <InfoText size="14px" mt="16px">
-                                        {getMinRead(video_data?.blog_post)}
-                                    </InfoText> */}
-                                <Mobile breakpoint="laptop">
-                                    <SideBarContainer fd="column" mr="126px" height="auto">
-                                        <Flex
-                                            fw="wrap"
-                                            jc="flex-start"
-                                            max-width="100%"
-                                            width=" 100%"
-                                        >
-                                            {video_data?.tags.map((tag) => {
-                                                return (
-                                                    <Tag
-                                                        key={tag?.tags_id?.id}
-                                                        onClick={() =>
-                                                            handleTag(tag?.tags_id?.tag_name)
-                                                        }
-                                                    >
-                                                        {tag?.tags_id?.tag_name}
-                                                    </Tag>
-                                                )
-                                            })}
-                                        </Flex>
-                                    </SideBarContainer>
-                                </Mobile>
-                                <Desktop breakpoint="laptop">
-                                    {vimeo_id && <VideoPlayer video={vimeo_id} autoplay />}
-                                </Desktop>
-                            </HeroContainer>
-                        </Background>
-
-                        {/* <BodyContainer>
-                            <LeftBodyContainerWrapper>
-                                <Mobile breakpoint="laptop">
-                                    {video_data?.author && (
-                                        <Flex ai="center" jc="flex-start">
-                                            <>
-                                                {video_data?.author?.image && (
-                                                    <WriterImage>
-                                                        <QueryImage
-                                                            data={
-                                                                video_data?.author?.image?.imageFile
-                                                            }
-                                                            alt={
-                                                                video_data?.author?.image
-                                                                    ?.description || ''
-                                                            }
-                                                        />
-                                                    </WriterImage>
-                                                )}
-                                            </>
-
-                                            <Box>
-                                                <WrittenbyText color="grey-5" size="12px">
-                                                    {localize('Written by')}
-                                                </WrittenbyText>
-                                                <InfoText>
-                                                    {localize(video_data?.author?.name)}
-                                                </InfoText>
-                                            </Box>
-                                        </Flex>
-                                    )}
-                                </Mobile>
-                                <Desktop breakpoint="laptop">
-                                    <SideBarContainer fd="column" height="auto">
-                                        <Flex
-                                            jc="flex-start"
-                                            mb="40px"
-                                            fw="wrap"
-                                            max-width="255px"
-                                            width=" 100%"
-                                        >
-                                            {video_data?.tags.map((tag) => {
-                                                return (
-                                                    <Tag
-                                                        key={tag?.tags_id?.id}
-                                                        onClick={() =>
-                                                            handleTag(tag?.tags_id?.tag_name)
-                                                        }
-                                                    >
-                                                        {tag?.tags_id?.tag_name}
-                                                    </Tag>
-                                                )
-                                            })}
-                                        </Flex>
-                                        {side_banner_data_details && (
-                                            <Banner detailsObj={side_banner_data_details} />
-                                        )}
-                                        <DesktopWrapper>
-                                            <SideSubscriptionBanner />
-                                        </DesktopWrapper>
-                                    </SideBarContainer>
-                                </Desktop>
-                            </LeftBodyContainerWrapper>
-                            <RightBodyContainerWrapper>
-                                <Flex fd="column" margin="0 auto" ai="center">
-                                    <PreviewContainer
-                                        dangerouslySetInnerHTML={{
-                                            __html: video_data?.blog_post
-                                                .replace(/<p><img /g, '<img ')
-                                                .replace(/\/><\/p>/g, '/>'),
-                                        }}
-                                    />
-
-                                    {footer_banner_details && (
-                                        <Banner detailsObj={footer_banner_details} />
-                                    )}
-
-                                    {side_banner_data_details && (
-                                        <MobileWrapper>
-                                            <Flex mt="24px">
-                                                <Banner detailsObj={side_banner_data_details} />
-                                            </Flex>
-                                        </MobileWrapper>
-                                    )}
-                                    <MobileWrapper>
-                                        <SideSubscriptionBanner />
-                                    </MobileWrapper>
-                                </Flex>
-                            </RightBodyContainerWrapper>
-                        </BodyContainer> */}
+                        <StickyBreadCrumbsWrapper scroll={visible}>
+                            <BreadcrumbsWrapper scroll={visible}>
+                                <StyledBreadcrumbsContainer>
+                                    <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
+                                        All Videos
+                                    </StyledBreadcrumbsLink>
+                                    <img src={RightArrow} height="16" width="16" />
+                                    <StyledBreadcrumbsTitle>
+                                        {is_mobile
+                                            ? truncateString(video_title, getTruncateLength())
+                                            : video_title}
+                                    </StyledBreadcrumbsTitle>
+                                    <SocialSharing />
+                                </StyledBreadcrumbsContainer>
+                            </BreadcrumbsWrapper>
+                            <Scrollbar scroll={visible}>
+                                <ProgressContainer>
+                                    <ProgressBar ref={barElement}></ProgressBar>
+                                </ProgressContainer>
+                            </Scrollbar>
+                        </StickyBreadCrumbsWrapper>
+                        <Container padding="10px 40px">
+                            <Mobile breakpoint="laptop">
+                                <SideBarContainer fd="column" mr="126px" height="auto">
+                                    <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
+                                        {video_data?.tags.map((tag) => {
+                                            return (
+                                                <Tag
+                                                    key={tag?.tags_id?.id}
+                                                    onClick={() =>
+                                                        handleTag(tag?.tags_id?.tag_name)
+                                                    }
+                                                >
+                                                    {tag?.tags_id?.tag_name}
+                                                </Tag>
+                                            )
+                                        })}
+                                    </Flex>
+                                </SideBarContainer>
+                            </Mobile>
+                            <Desktop breakpoint="laptop">
+                                <>
+                                    {/* {!vimeo_id && <VideoLoader />} */}
+                                    {vimeo_id && <VideoPlayer video={vimeo_id} />}
+                                    <VideoTitle>{video_data?.video_title}</VideoTitle>
+                                    <VideoDescription>
+                                        {video_data?.video_description}
+                                    </VideoDescription>
+                                    <VideoDetails>
+                                        <img src={IncreasingArrow} height="16" width="16" />
+                                        <GreyText>{view_count} views</GreyText>
+                                        <GreyText>•</GreyText>
+                                        <GreyText>{video_data?.published_date}</GreyText>
+                                    </VideoDetails>
+                                </>
+                            </Desktop>
+                        </Container>
                     </SectionContainer>
                 )}
             </>

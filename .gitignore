@@ -82,7 +82,3 @@ yarn-error.log
 
 #CNAME
 static/CNAME
-
-
-# webpack bundle size reports
-/webpack-bundle-report

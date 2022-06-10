@@ -237,8 +237,8 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
-                analyzerMode: 'static',
-                reportFilename: '../webpack-bundle-report/report.html',
+                analyzerMode: 'disabled',
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
             },
         },
     ],

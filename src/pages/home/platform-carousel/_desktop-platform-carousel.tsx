@@ -32,7 +32,7 @@ const DesktopPlatformCarousel = () => {
             const platform_details_by_region =
                 (is_eu && platform_details_eu) ||
                 (is_uk && platform_details_uk) ||
-                platform_details_cr
+                (is_row && platform_details_cr)
 
             for (let index = 0; index < no_of_copies; index++) {
                 // prettier-ignore
@@ -47,10 +47,6 @@ const DesktopPlatformCarousel = () => {
 
         setPlatformDetails(getPlatformDetails(no_slide_sets))
     }, [is_eu, is_row, is_uk])
-
-    if (platform_details === null) {
-        return <></>
-    }
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">

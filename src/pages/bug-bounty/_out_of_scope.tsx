@@ -56,10 +56,9 @@ const OutOfScope = () => {
     return (
         <SectionContainer background="grey-30">
             <Container direction="column">
-                <Header as="h2" type="heading-2" align="center" mb="0.8rem">
+                <Header tabletL={{ pb: '24px' }} as="h2" type="heading-2" align="center">
                     {localize('Out of scope vulnerabilities')}
                 </Header>
-
                 <FlexContainer tabletL={{ mt: '0', fd: 'column' }} mt="4rem">
                     {out_of_scope_content.map((item, index) => {
                         return (

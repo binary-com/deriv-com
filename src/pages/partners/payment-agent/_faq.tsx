@@ -48,8 +48,8 @@ const Faq = () => {
         border: 'none',
     }
     return (
-        <RelativeContainer>
-            <Header as="h2" size="3.6rem" mb="4rem" align="center">
+        <RelativeContainer padding="5rem 0">
+            <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
                 {localize('FAQs')}
             </Header>
             <AccordionWrapper>

@@ -48,19 +48,20 @@ const DesktopPlatformCarousel = () => {
         setPlatformDetails(getPlatformDetails(no_slide_sets))
     }, [is_eu, is_row, is_uk])
 
-    if (platform_details)
-        return (
-            <StyledDesktopCarousel ai="start" jc="center">
-                <PlatformSlider
-                    slide_index={slide_index}
-                    onSelectSlide={setSlideIndex}
-                    platform_details={platform_details}
-                />
-                <Details slide={slide_index} platform_details={platform_details} />
-            </StyledDesktopCarousel>
-        )
+    if (platform_details === null) {
+        return <></>
+    }
 
-    return null
+    return (
+        <StyledDesktopCarousel ai="start" jc="center">
+            <PlatformSlider
+                slide_index={slide_index}
+                onSelectSlide={setSlideIndex}
+                platform_details={platform_details}
+            />
+            <Details slide={slide_index} platform_details={platform_details} />
+        </StyledDesktopCarousel>
+    )
 }
 
 export default DesktopPlatformCarousel

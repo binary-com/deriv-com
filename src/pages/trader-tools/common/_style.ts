@@ -21,6 +21,8 @@ type FormulaValueType = {
     width?: string
     mb?: string
     ml?: string
+    pt?: string
+    pb?: string
 }
 
 type PointerContainerType = {
@@ -501,9 +503,9 @@ export const header_style = {
 }
 export const FormulaContainer = styled(Flex)`
     width: auto;
-    height: ${(props) => (props.height ? props.height : '192px')};
+    height: ${(props) => (props.height ? props.height : '132px')};
     margin: 0;
-    padding: 16px;
+    padding: 8px 16px;
     border-radius: 4px;
     background-color: var(--color-blue-4);
     position: relative;
@@ -511,29 +513,29 @@ export const FormulaContainer = styled(Flex)`
 
 export const FormulaContainerMobile = styled(Flex)`
     width: auto;
-    height: ${(props) => (props.height ? props.height : '160px')};
+    height: ${(props) => (props.height ? props.height : '132px')};
+    padding: 6px;
     background-color: var(--color-blue-4);
     position: relative;
 `
 
 export const FormulaHighlight = styled(Flex)`
-    margin-top: ${(props) => (props.mt ? props.mt : '50px')};
-    width: 618px;
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
     height: ${(props) => (props.height ? props.height : '72px')};
-    gap: ${(props) => (props.gap ? props.gap : 0)};
+    gap: ${(props) => (props.gp ? props.gp : 0)};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
     align-items: center;
     font-size: 16px;
     font-weight: 600;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-right: ${(props) => (props.pr ? props.pr : '0')};
 `
 
 export const FormulaHighlightMobile = styled(Flex)`
-    margin-top: ${(props) => (props.mt ? props.mt : '54px')};
-    margin-bottom: ${(props) => (props.mb ? props.mb : '53px')};
+    margin-top: ${(props) => (props.mt ? props.mt : '35px')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '35px')};
     height: ${(props) => (props.height ? props.height : '53px')};
     gap: ${(props) => (props.gap ? props.gap : 0)};
     border-radius: 4px;
@@ -549,15 +551,22 @@ export const FormulaHighlightMobile = styled(Flex)`
 
 export const FormulaValue = styled.div<FormulaValueType>`
     display: inline-block;
-    min-width: ${(props) => (props.width ? props.width : '55px')};
+    min-width: ${(props) => (props.width ? props.width : '50px')};
     text-align: center;
-    margin-bottom: ${(props) => (props.mb ? props.mb : '14px')};
+    padding-top: ${(props) => (props.pt ? props.pt : '24px')};
+    padding-bottom: ${(props) => (props.pb ? props.pb : '24px')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
-
+//margin-bottom: ${(props) => (props.mb ? props.mb : '14px')};
 export const FormulaValueSwapSynthetic = styled.div`
     display: inline-block;
     min-width: 40px;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+`
+export const FormulaValueSwapSyntheticMobile = styled.div`
+    display: inline-block;
+    min-width: 0;
     text-align: center;
     margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
 `
@@ -636,7 +645,7 @@ export const PointerStickMobile = styled.div<PointerStickType>`
 
 export const PointerText = styled.div<PointerTextType>`
     margin-top: 5px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--color-blue-5);
     margin-left: ${(props) => (props.ml ? props.ml : '0')};

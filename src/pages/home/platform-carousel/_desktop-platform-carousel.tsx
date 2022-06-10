@@ -16,6 +16,7 @@ const StyledDesktopCarousel = styled(Flex)`
 const DesktopPlatformCarousel = () => {
     const [slide_index, setSlideIndex] = useState(null)
     const [platform_details, setPlatformDetails] = useState(null)
+    const [is_loading, setIsLoading] = useState(true)
     const { is_eu, is_uk, is_row } = useCountryRule()
 
     useEffect(() => {
@@ -42,22 +43,29 @@ const DesktopPlatformCarousel = () => {
                 })
             }
 
+            setIsLoading(false)
             return new_details
         }
 
         setPlatformDetails(getPlatformDetails(no_slide_sets))
     }, [is_eu, is_row, is_uk])
 
-    return (
-        <StyledDesktopCarousel ai="start" jc="center">
-            <PlatformSlider
-                slide_index={slide_index}
-                onSelectSlide={setSlideIndex}
-                platform_details={platform_details}
-            />
-            <Details slide={slide_index} platform_details={platform_details} />
-        </StyledDesktopCarousel>
-    )
+    if (is_loading) {
+        return <p>Is Loading</p>
+    }
+
+    if (!is_loading) {
+        return (
+            <StyledDesktopCarousel ai="start" jc="center">
+                <PlatformSlider
+                    slide_index={slide_index}
+                    onSelectSlide={setSlideIndex}
+                    platform_details={platform_details}
+                />
+                <Details slide={slide_index} platform_details={platform_details} />
+            </StyledDesktopCarousel>
+        )
+    }
 }
 
 export default DesktopPlatformCarousel

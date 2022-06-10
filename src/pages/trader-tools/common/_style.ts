@@ -645,7 +645,7 @@ export const PointerStickMobile = styled.div<PointerStickType>`
 
 export const PointerText = styled.div<PointerTextType>`
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--color-blue-5);
     margin-left: ${(props) => (props.ml ? props.ml : '0')};

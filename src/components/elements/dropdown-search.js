@@ -54,7 +54,7 @@ const DropdownSearch = ({
     // Auto select default value
     useEffect(() => {
         if (selected_item) {
-            setInputValue(selected_item.name)
+            setInputValue(selected_item?.name)
         }
     }, [selected_item])
 

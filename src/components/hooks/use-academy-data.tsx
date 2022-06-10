@@ -10,6 +10,7 @@ export type BlogType = {
     blog_description: string
     blog_title: string
     featured: boolean
+    visibility: string
     id: string
     main_image: MainImageType
     published_date: string
@@ -32,6 +33,7 @@ export type TagsType = {
 
 export type VideosType = {
     featured: boolean
+    visibility: string
     published_date: string
     tags: TagsType[]
     video_description: string
@@ -76,6 +78,7 @@ const query = graphql`
                 slug
                 published_date
                 featured
+                visibility
                 tags {
                     id
                     tags_id {
@@ -91,6 +94,7 @@ const query = graphql`
                 video_description
                 video_duration
                 featured
+                visibility
                 video_thumbnail {
                     id
                     title

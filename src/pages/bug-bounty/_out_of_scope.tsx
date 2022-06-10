@@ -52,6 +52,7 @@ const out_of_scope_content = [
     />,
 ]
 
+// Todo(mitra): can be merged with `scope` component into a generic component
 const OutOfScope = () => {
     return (
         <SectionContainer background="grey-30">

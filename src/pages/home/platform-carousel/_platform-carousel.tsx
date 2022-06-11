@@ -7,11 +7,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const PlatformCarousel = () => {
     const { is_eu, is_uk, is_row } = useCountryRule()
-    const [carousel_data, setCarouselData] = useState(
-        (is_eu && platform_details_eu) ||
-            (is_uk && platform_details_uk) ||
-            (is_row && platform_details_cr),
-    )
+    const [carousel_data, setCarouselData] = useState(null)
 
     useEffect(() => {
         setCarouselData(
@@ -21,13 +17,17 @@ const PlatformCarousel = () => {
         )
     }, [is_eu, is_row, is_uk])
 
+    if (carousel_data === null) {
+        return <h1>Loading</h1>
+    }
+
     return (
         <>
             <DesktopWrapper>
-                {carousel_data && <DesktopPlatformCarousel carousel_data={carousel_data} />}
+                <DesktopPlatformCarousel carousel_data={carousel_data} />
             </DesktopWrapper>
             <MobileWrapper>
-                {carousel_data && <MobilePlatformCarousel carousel_data={carousel_data} />}
+                <MobilePlatformCarousel carousel_data={carousel_data} />
             </MobileWrapper>
         </>
     )

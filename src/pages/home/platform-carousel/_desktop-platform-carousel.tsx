@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
 import PlatformSlider from './_platform-slider'
@@ -16,7 +16,6 @@ const StyledDesktopCarousel = styled(Flex)`
 const DesktopPlatformCarousel = () => {
     const [slide_index, setSlideIndex] = useState(null)
     const [platform_details, setPlatformDetails] = useState(null)
-    const [is_loading, setIsLoading] = useState(true)
     const { is_eu, is_uk, is_row } = useCountryRule()
 
     useEffect(() => {
@@ -43,19 +42,14 @@ const DesktopPlatformCarousel = () => {
                 })
             }
 
-            setIsLoading(false)
             return new_details
         }
 
         setPlatformDetails(getPlatformDetails(no_slide_sets))
     }, [is_eu, is_row, is_uk])
 
-    if (is_loading) {
-        return <p>Is Loading</p>
-    }
-
-    if (!is_loading) {
-        return (
+    return (
+        <Suspense fallback={<h1>loading</h1>}>
             <StyledDesktopCarousel ai="start" jc="center">
                 <PlatformSlider
                     slide_index={slide_index}
@@ -64,8 +58,8 @@ const DesktopPlatformCarousel = () => {
                 />
                 <Details slide={slide_index} platform_details={platform_details} />
             </StyledDesktopCarousel>
-        )
-    }
+        </Suspense>
+    )
 }
 
 export default DesktopPlatformCarousel

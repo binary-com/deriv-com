@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
 import PlatformSlider from './_platform-slider'
-import { platform_details_cr, platform_details_eu, platform_details_uk } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -13,10 +12,10 @@ const StyledDesktopCarousel = styled(Flex)`
         margin: 0 auto;
     }
 `
-const DesktopPlatformCarousel = () => {
+const DesktopPlatformCarousel = ({ carousel_data }: any) => {
     const [slide_index, setSlideIndex] = useState(null)
     const [platform_details, setPlatformDetails] = useState(null)
-    const { is_eu, is_uk, is_row } = useCountryRule()
+    const { is_row } = useCountryRule()
 
     useEffect(() => {
         if (!is_row) setSlideIndex(0)
@@ -29,14 +28,9 @@ const DesktopPlatformCarousel = () => {
             const new_details = []
             let current_index = 0
 
-            const platform_details_by_region =
-                (is_eu && platform_details_eu) ||
-                (is_uk && platform_details_uk) ||
-                (is_row && platform_details_cr)
-
             for (let index = 0; index < no_of_copies; index++) {
                 // prettier-ignore
-                platform_details_by_region.forEach((p) => {
+                carousel_data.forEach((p) => {
                     new_details.push({ ...p, id: current_index })
                     current_index++
                 })
@@ -46,7 +40,7 @@ const DesktopPlatformCarousel = () => {
         }
 
         setPlatformDetails(getPlatformDetails(no_slide_sets))
-    }, [is_eu, is_row, is_uk])
+    }, [carousel_data, is_row])
 
     return (
         <Suspense fallback={<h1>loading</h1>}>

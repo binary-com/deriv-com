@@ -1,20 +1,12 @@
 import React from 'react'
 import { useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import {
-    platform_details_cr,
-    platform_details_eu,
-    platform_details_uk,
-    getOSIcon,
-    PlatformContent,
-    ImageTag,
-} from './_utils'
+import { getOSIcon, PlatformContent, ImageTag } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import { image_query } from './_details'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const CarouselItemWrapper = styled.div`
     width: 100%;
@@ -99,23 +91,12 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
     )
 }
 
-const MobilePlatformCarousel = () => {
-    const { is_eu, is_uk } = useCountryRule()
+const MobilePlatformCarousel = ({ carousel_data }: any) => {
     const images = useStaticQuery(image_query)
-
-    const carouselData = () => {
-        if (is_eu) {
-            return platform_details_eu
-        }
-        if (is_uk) {
-            return platform_details_uk
-        }
-        return platform_details_cr
-    }
 
     return (
         <Carousel {...settings}>
-            {carouselData().map(
+            {carousel_data.map(
                 ({ image_key, title, icon, description, learn_more_link, download_links }) => {
                     return (
                         <CarouselItemWrapper key={image_key}>

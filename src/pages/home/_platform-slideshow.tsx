@@ -97,7 +97,7 @@ const PlatformSlideshow = () => {
         ])
 
     const setNextImage = useCallback(() => {
-        setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
+        setActiveIndex((prevIndex) => (prevIndex >= slide_images?.length - 1 ? 0 : prevIndex + 1))
     }, [slide_images])
 
     useEffect(() => {
@@ -125,7 +125,7 @@ type SlidesProps = {
 const Slides = ({ images, active_index }: SlidesProps) => {
     return (
         <>
-            {images.map((slide, index) => {
+            {images?.map((slide, index) => {
                 const { key, image } = slide
                 return (
                     <StyledImage

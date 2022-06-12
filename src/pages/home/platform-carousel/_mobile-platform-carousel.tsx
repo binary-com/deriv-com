@@ -100,7 +100,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
 
     return (
         <Carousel {...settings}>
-            {carousel_data.map(
+            {carousel_data?.map(
                 ({ image_key, title, icon, description, learn_more_link, download_links }) => {
                     return (
                         <CarouselItemWrapper key={image_key}>

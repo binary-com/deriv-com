@@ -7,7 +7,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const PlatformCarousel = () => {
     const { is_eu, is_uk, is_row } = useCountryRule()
-    const [carousel_data, setCarouselData] = useState(null)
+    const [carousel_data, setCarouselData] = useState(platform_details_cr)
 
     useEffect(() => {
         if (is_eu) {

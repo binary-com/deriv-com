@@ -19,7 +19,7 @@ type DesktopPlatformCarouselProps = {
 }
 
 const DesktopPlatformCarousel = ({ carousel_data }: DesktopPlatformCarouselProps) => {
-    const [slide_index, setSlideIndex] = useState(null)
+    const [slide_index, setSlideIndex] = useState(42)
     const [platform_details, setPlatformDetails] = useState(null)
     const { is_row } = useCountryRule()
 
@@ -36,7 +36,7 @@ const DesktopPlatformCarousel = ({ carousel_data }: DesktopPlatformCarouselProps
 
             for (let index = 0; index < no_of_copies; index++) {
                 // prettier-ignore
-                carousel_data.forEach((p) => {
+                carousel_data?.forEach((p) => {
                     new_details.push({ ...p, id: current_index })
                     current_index++
                 })

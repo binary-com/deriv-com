@@ -1,7 +1,8 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
 import PlatformSlider from './_platform-slider'
+import { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -12,7 +13,12 @@ const StyledDesktopCarousel = styled(Flex)`
         margin: 0 auto;
     }
 `
-const DesktopPlatformCarousel = ({ carousel_data }: any) => {
+
+type DesktopPlatformCarouselProps = {
+    carousel_data: TPlatformDetails[]
+}
+
+const DesktopPlatformCarousel = ({ carousel_data }: DesktopPlatformCarouselProps) => {
     const [slide_index, setSlideIndex] = useState(null)
     const [platform_details, setPlatformDetails] = useState(null)
     const { is_row } = useCountryRule()
@@ -43,16 +49,14 @@ const DesktopPlatformCarousel = ({ carousel_data }: any) => {
     }, [carousel_data, is_row])
 
     return (
-        <Suspense fallback={<h1>loading</h1>}>
-            <StyledDesktopCarousel ai="start" jc="center">
-                <PlatformSlider
-                    slide_index={slide_index}
-                    onSelectSlide={setSlideIndex}
-                    platform_details={platform_details}
-                />
-                <Details slide={slide_index} platform_details={platform_details} />
-            </StyledDesktopCarousel>
-        </Suspense>
+        <StyledDesktopCarousel ai="start" jc="center">
+            <PlatformSlider
+                slide_index={slide_index}
+                onSelectSlide={setSlideIndex}
+                platform_details={platform_details}
+            />
+            <Details slide={slide_index} platform_details={platform_details} />
+        </StyledDesktopCarousel>
     )
 }
 

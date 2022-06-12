@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { getOSIcon, PlatformContent, ImageTag } from './_utils'
+import { getOSIcon, PlatformContent, ImageTag, TPlatformDetails } from './_utils'
 import type { PlatformDetailsProps } from './_utils'
 import { image_query } from './_details'
 import device from 'themes/device'
@@ -91,7 +91,11 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
     )
 }
 
-const MobilePlatformCarousel = ({ carousel_data }: any) => {
+type MobilePlatformCarouselProps = {
+    carousel_data: TPlatformDetails[]
+}
+
+const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) => {
     const images = useStaticQuery(image_query)
 
     return (

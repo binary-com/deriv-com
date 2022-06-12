@@ -6,13 +6,13 @@ import { getClientInformation, getDomain, isLocalhost, isTestlink } from 'common
 
 export const useCountryRule = () => {
     const [region, setRegion] = useState({
-        is_eu: null,
-        is_uk: null,
-        is_non_uk: null,
-        is_non_eu: null,
-        is_uk_eu: null,
-        is_row: null,
-        is_dev: null,
+        is_eu: false,
+        is_uk: false,
+        is_non_uk: true,
+        is_non_eu: true,
+        is_uk_eu: false,
+        is_row: true,
+        is_dev: false,
     })
 
     const [website_status] = useWebsiteStatus()

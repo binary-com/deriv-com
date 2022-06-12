@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import DesktopPlatformCarousel from './_desktop-platform-carousel'
 import MobilePlatformCarousel from './_mobile-platform-carousel'
 import { platform_details_cr, platform_details_eu, platform_details_uk } from './_utils'
@@ -9,18 +9,17 @@ const PlatformCarousel = () => {
     const { is_eu, is_uk, is_row } = useCountryRule()
     const [carousel_data, setCarouselData] = useState(null)
 
-    useLayoutEffect(() => {
-        setCarouselData(
-            () =>
-                (is_eu && platform_details_eu) ||
-                (is_uk && platform_details_uk) ||
-                (is_row && platform_details_cr),
-        )
+    useEffect(() => {
+        if (is_eu) {
+            setCarouselData(platform_details_eu)
+        }
+        if (is_uk) {
+            setCarouselData(platform_details_uk)
+        }
+        if (is_row) {
+            setCarouselData(platform_details_cr)
+        }
     }, [is_eu, is_row, is_uk])
-
-    if (carousel_data === null) {
-        return <h1>Loading</h1>
-    }
 
     return (
         <>

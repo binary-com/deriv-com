@@ -125,43 +125,46 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
         onSelectSlide(index)
     }
 
-    return (
-        <Box
-            width="fit-content"
-            height="640px"
-            background="rgba(249, 251, 255, 1)"
-            p="0 20px 8px"
-            m="0 auto"
-        >
-            <StyledFlex position="relative" m="0 auto" jc="unset">
-                <Shadow location="start" />
-                <Shadow location="end" />
-                <SelectedSlide
-                    selected_slide={platform_details[slide_index] || platform_details[0]}
-                />
-                <Flex ai="center" jc="unset">
-                    <Scene>
-                        <Viewport position="relative" ai="center" ref={viewportRef}>
-                            <WheelContainer>
-                                {platform_details.map(({ title, icon, learn_more_link }, index) => {
-                                    return (
-                                        <Slide
-                                            distance_center={index - slide_index}
-                                            key={learn_more_link}
-                                            onClick={() => clickHandler(index)}
-                                        >
-                                            <ImageTag src={icon} />
-                                            <Header type="subtitle-1">{title}</Header>
-                                        </Slide>
-                                    )
-                                })}
-                            </WheelContainer>
-                        </Viewport>
-                    </Scene>
-                </Flex>
-            </StyledFlex>
-        </Box>
-    )
+    if (platform_details)
+        return (
+            <Box
+                width="fit-content"
+                height="640px"
+                background="rgba(249, 251, 255, 1)"
+                p="0 20px 8px"
+                m="0 auto"
+            >
+                <StyledFlex position="relative" m="0 auto" jc="unset">
+                    <Shadow location="start" />
+                    <Shadow location="end" />
+                    <SelectedSlide
+                        selected_slide={platform_details[slide_index] || platform_details[0]}
+                    />
+                    <Flex ai="center" jc="unset">
+                        <Scene>
+                            <Viewport position="relative" ai="center" ref={viewportRef}>
+                                <WheelContainer>
+                                    {platform_details.map(
+                                        ({ title, icon, learn_more_link }, index) => {
+                                            return (
+                                                <Slide
+                                                    distance_center={index - slide_index}
+                                                    key={learn_more_link}
+                                                    onClick={() => clickHandler(index)}
+                                                >
+                                                    <ImageTag src={icon} />
+                                                    <Header type="subtitle-1">{title}</Header>
+                                                </Slide>
+                                            )
+                                        },
+                                    )}
+                                </WheelContainer>
+                            </Viewport>
+                        </Scene>
+                    </Flex>
+                </StyledFlex>
+            </Box>
+        )
 }
 
 export default PlatformSlider

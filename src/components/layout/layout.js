@@ -130,7 +130,7 @@ const Layout = ({
     type,
 }) => {
     const { non_eu_popup } = React.useContext(DerivStore)
-    const [show_non_eu_popup] = non_eu_popup
+    const [show_non_eu_popup, setShowNonEuPopup] = non_eu_popup
     const { is_uk_eu } = getCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
@@ -279,7 +279,12 @@ const Layout = ({
                 aria_label={modal_payload.aria_label}
             />
             <UKAccountClosureModal />
-            {show_non_eu_popup && <NonEuRedirectPopUp is_open={show_non_eu_popup} />}
+            {show_non_eu_popup && (
+                <NonEuRedirectPopUp
+                    is_open={show_non_eu_popup}
+                    setShowNonEuPopup={setShowNonEuPopup}
+                />
+            )}
         </LocationProvider>
     )
 }

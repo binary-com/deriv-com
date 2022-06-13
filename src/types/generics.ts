@@ -4,4 +4,5 @@ export type StringObjectType = {
 
 export type PopupModalTypes = {
     is_open: boolean
+    setShowNonEuPopup: React.Dispatch<React.SetStateAction<string>>
 }

@@ -1,14 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import { graphql } from 'gatsby'
 import Vimeo from '@u-wave/react-vimeo'
 import styled from 'styled-components'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import {
-    Background,
-    HeroContainer,
     BreadcrumbsWrapper,
     SideBarContainer,
     Tag,
-    StickyBreadCrumbsWrapper,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
     StyledBreadcrumbsContainer,
@@ -28,6 +26,82 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import IncreasingArrow from 'images/svg/tools/increasing-arrow.svg'
 import { getTruncateLength } from 'pages/academy/blog/posts/preview'
+import device from 'themes/device'
+import { DerivStore } from 'store'
+import { QueryImage } from 'components/elements'
+
+const StickyBreadCrumbsWrapper = styled(Flex)`
+    background: ${(props) => (props.scroll ? 'var(--color-grey-8)' : 'var(--color-white)')};
+    position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
+    top: ${(props) => (props.scroll ? '70px' : 'unset')};
+    z-index: ${(props) => (props.scroll ? '1' : 'unset')};
+    height: 70px;
+    border-top: 1px solid var(--color-grey-8);
+
+    @media ${device.desktopL} {
+        top: ${(props) => (props.scroll ? '82px' : 'unset')};
+        height: 74px;
+    }
+
+    @media ${device.laptop} {
+        height: 66px;
+        top: 66px;
+    }
+
+    @media ${device.tabletL} {
+        top: ${(props) => (props.scroll ? '55px' : 'unset')};
+        height: 66px;
+    }
+`
+
+const DesktopContainer = styled.div`
+    display: flex;
+    padding: 30px 0 80px;
+`
+
+const VideoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7fa;
+    width: 854px;
+    height: 650px;
+    border-radius: 8px;
+`
+
+const RelatedVideos = styled.div`
+    background-color: #f5f7fa;
+    width: 340px;
+    height: 650px;
+    border-radius: 8px;
+    margin-left: 20px;
+`
+
+const RelatedVideosContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+`
+
+const RelatedVideoCard = styled.div`
+    display: flex;
+`
+const RelatedVideoImage = styled.div`
+    width: 160px;
+    height: 95px;
+`
+
+const RelatedVideoDescription = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+const RelatedVideoTitle = styled.h3`
+    font-size: 1rem;
+    font-weight: 700;
+`
+const RelatedVideoDateAndDuration = styled.p`
+    font-size: 12px;
+    color: #999999;
+`
 
 type VideosTemplateProps = {
     data: AllVideosQuery
@@ -41,22 +115,28 @@ const VideoPlayer = styled(Vimeo)`
 
     @media (min-width: 1280px) {
         > iframe {
-            width: 1280px;
-            height: 720px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            width: 854px;
+            height: 480px;
         }
     }
 `
 
-const VideoTitle = styled.h1`
+const VideoDetailsContainer = styled.div`
+    padding: 2rem;
+    justify-self: end;
+`
+
+const Title = styled.h1`
     font-size: 2.3rem;
-    padding: 2rem 0;
     font-weight: 700;
 `
 
 const VideoDescription = styled.p`
     color: var(--color-grey);
     font-size: 1.6rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 0;
     max-width: 996px;
     line-height: 2.1rem;
 `
@@ -71,6 +151,8 @@ const GreyText = styled.p`
 `
 
 const VideoTemplate = ({ data }: VideosTemplateProps) => {
+    const { academy_data } = useContext(DerivStore)
+    console.log(academy_data)
     const [is_mobile] = useBrowserResize(992)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
@@ -112,9 +194,17 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [prevScrollPos, visible, handleScroll])
 
+    const all_videos = academy_data.videos
     const video_data = data.directus.videos[0]
     const video_title = video_data?.video_title
     const vimeo_id = video_data?.vimeo_id
+    const video_tag = video_data?.tags[0]?.tags_id?.tag_name
+
+    const findRelatedVideos = () =>
+        all_videos.filter((video) =>
+            video?.tags?.some((tag) => tag.tags_id?.tag_name === video_tag),
+        )
+    console.log(findRelatedVideos())
 
     useEffect(() => {
         const url = `https://vimeo.com/api/v2/video/${vimeo_id}.json`
@@ -164,7 +254,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                 </ProgressContainer>
                             </Scrollbar>
                         </StickyBreadCrumbsWrapper>
-                        <Container padding="10px 40px">
+                        <Container>
                             <Mobile breakpoint="laptop">
                                 <SideBarContainer fd="column" mr="126px" height="auto">
                                     <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
@@ -184,20 +274,48 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                 </SideBarContainer>
                             </Mobile>
                             <Desktop breakpoint="laptop">
-                                <>
-                                    {/* {!vimeo_id && <VideoLoader />} */}
-                                    {vimeo_id && <VideoPlayer video={vimeo_id} />}
-                                    <VideoTitle>{video_data?.video_title}</VideoTitle>
-                                    <VideoDescription>
-                                        {video_data?.video_description}
-                                    </VideoDescription>
-                                    <VideoDetails>
-                                        <img src={IncreasingArrow} height="16" width="16" />
-                                        <GreyText>{view_count} views</GreyText>
-                                        <GreyText>•</GreyText>
-                                        <GreyText>{video_data?.published_date}</GreyText>
-                                    </VideoDetails>
-                                </>
+                                <DesktopContainer>
+                                    <VideoContainer>
+                                        <VideoPlayer video={vimeo_id} />
+                                        <VideoDetailsContainer>
+                                            <Title>{video_data?.video_title}</Title>
+                                            <VideoDescription>
+                                                {video_data?.video_description}
+                                            </VideoDescription>
+                                            <VideoDetails>
+                                                <img src={IncreasingArrow} height="16" width="16" />
+                                                <GreyText>{view_count} views</GreyText>
+                                                <GreyText>•</GreyText>
+                                                <GreyText>{video_data?.published_date}</GreyText>
+                                            </VideoDetails>
+                                        </VideoDetailsContainer>
+                                    </VideoContainer>
+                                    <RelatedVideos>
+                                        <RelatedVideosContainer>
+                                            <Title>Related Videos</Title>
+                                            {findRelatedVideos().map((video) => (
+                                                <RelatedVideoCard key={video?.video_title}>
+                                                    <RelatedVideoImage>
+                                                        <GatsbyImage
+                                                            image={
+                                                                video.video_thumbnail.imageFile
+                                                                    .childImageSharp.gatsbyImageData
+                                                            }
+                                                        />
+                                                    </RelatedVideoImage>
+                                                    <RelatedVideoDescription>
+                                                        <RelatedVideoTitle>
+                                                            {video?.video_title}
+                                                        </RelatedVideoTitle>
+                                                        <RelatedVideoDateAndDuration>
+                                                            {video?.published_date}
+                                                        </RelatedVideoDateAndDuration>
+                                                    </RelatedVideoDescription>
+                                                </RelatedVideoCard>
+                                            ))}
+                                        </RelatedVideosContainer>
+                                    </RelatedVideos>
+                                </DesktopContainer>
                             </Desktop>
                         </Container>
                     </SectionContainer>

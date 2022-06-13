@@ -86,7 +86,16 @@ const DerivX = () => {
         return <PageNotFound />
     }
 
-    return <></>
+    return (
+        <>
+            <SEO
+                title={localize('Deriv X - a multi-asset CFD trading platform available on Deriv')}
+                description={localize(
+                    'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
+                )}
+            />
+        </>
+    )
 }
 
 export default WithIntl()(DerivX)

@@ -4,6 +4,7 @@ import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import { combined_filter_type } from '../common/_constants'
 import type { TopicType } from '../common/_constants'
+import { dataFilter } from './utility'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
@@ -377,7 +378,8 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    const combined_data = [...academy_data.blog, ...academy_data.videos]
+    const combined_data = dataFilter([...academy_data.blog, ...academy_data.videos])
+
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(e.target.value)

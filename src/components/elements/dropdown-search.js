@@ -51,10 +51,10 @@ const DropdownSearch = ({
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
 
-    // Auto select default value
     useEffect(() => {
         if (selected_item) {
             setInputValue(selected_item?.name)
+            setDropdownItems([...items])
         }
     }, [selected_item])
 

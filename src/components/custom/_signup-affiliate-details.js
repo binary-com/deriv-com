@@ -89,17 +89,11 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
     const user_ip_country = website_status?.clients_country || ''
     const [phone_code, setPhoneCode] = useState('')
     const [default_residence, setDefaultResidence] = useState(null)
-    // console.log({
-    //     user_ip_country,
-    //     country,
-    //     residence_list,
-    //     object: residence_list.find(({ value }) => value === user_ip_country),
-    // })
+
     useEffect(() => {
         if (residence_list.length > 0) {
             setDisabled(false)
             const current_country = residence_list.find(({ value }) => value === user_ip_country)
-            console.log({ user_ip_country, residence_list, current_country })
             setDefaultResidence(current_country)
         }
     }, [residence_list])
@@ -141,10 +135,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                         !(non_pep_declaration && tnc_accepted && is_checked) || !isValid || !dirty
 
                     if (!values.country && default_residence) {
-                        console.log({
-                            country: values.country,
-                            default_residence,
-                        })
                         setFieldValue('country', default_residence)
                         setFieldValue(phone_code, setPhoneCode(default_residence.country_code))
                     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
@@ -17,11 +17,6 @@ const DropdownInput = styled.input`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
-    &:disabled {
-        background-color: var(--color-white);
-    }
-
     ${(props) =>
         props.has_short_name &&
         css`
@@ -33,7 +28,7 @@ const DropdownInput = styled.input`
     }
 
     @media ${device.tabletL} {
-        font-size: '1.75rem';
+        font-size: 1.75rem;
     }
 
     @media ${device.mobileL} {
@@ -49,14 +44,19 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
-    label_position,
-    disabled,
     ...props
 }) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
+
+    // Auto select default value
+    useEffect(() => {
+        if (selected_item) {
+            setInputValue(selected_item?.name)
+        }
+    }, [selected_item])
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
@@ -84,10 +84,6 @@ const DropdownSearch = ({
         }
     }
 
-    useEffect(() => {
-        setDropdownItems([...items])
-    }, [items])
-
     return (
         <>
             <DropdownContainer
@@ -96,21 +92,14 @@ const DropdownSearch = ({
                 has_short_name={has_short_name}
                 error={error}
                 mb="36px"
-                disabled={disabled}
                 {...props}
             >
                 <Flex>
-                    <StyledLabel
-                        active={is_open || (!is_open && selected_item)}
-                        error={error}
-                        label_position={label_position}
-                        disabled={disabled}
-                    >
+                    <StyledLabel active={is_open || (!is_open && selected_item)}>
                         {label}
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
-                        label_position={label_position}
                         tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
@@ -121,7 +110,6 @@ const DropdownSearch = ({
                         value={input_value}
                         is_active={is_open}
                         placeholder={label}
-                        disabled={disabled}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open ? 'true' : 'false'} />
                 </Flex>
@@ -134,7 +122,7 @@ const DropdownSearch = ({
                     selected_option={selected_item}
                 />
             </DropdownContainer>
-            <BottomLabel contractSize={contractSize} error={error} line_height="0.2" />
+            <BottomLabel contractSize={contractSize} error={error} />
         </>
     )
 }
@@ -142,12 +130,10 @@ const DropdownSearch = ({
 DropdownSearch.propTypes = {
     contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_item: PropTypes.any,
-    disabled: PropTypes.bool,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
     items: PropTypes.array,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    label_position: PropTypes.number,
     onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     selected_item: PropTypes.any,
 }

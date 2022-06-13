@@ -334,7 +334,7 @@ const MarginCalculator = () => {
                                     )}
                                 </Text>
                                 <Show.Desktop>
-                                    <FormulaContainer>
+                                    <FormulaContainer pt="8px">
                                         <FormulaHighlight gp="12px">
                                             <FormulaValue>
                                                 <Localize translate_text="( 2" />
@@ -417,9 +417,9 @@ const MarginCalculator = () => {
                                 </Show.Desktop>
                                 <Show.Mobile>
                                     <FormulaContainerMobile height="142px">
-                                        <FormulaHighlightMobile>
+                                        <FormulaHighlightMobile gp="0" jc="space-evenly">
                                             <FormulaValueMobile>
-                                                <Localize translate_text="(2" />
+                                                <Localize translate_text="( 2" />
                                                 <PointerContainerMobile>
                                                     <PointerDotMobile />
                                                     <PointerStickMobile height="18px" />
@@ -452,7 +452,7 @@ const MarginCalculator = () => {
                                             </FormulaValueSwapSyntheticMobile>
 
                                             <FormulaValueMobile>
-                                                <Localize translate_text="1.10)" />
+                                                <Localize translate_text="1.10 )" />
                                                 <PointerContainerMobile ml="-30px" mw="0">
                                                     <PointerDotMobile />
                                                     <PointerStickMobile height="16px" />

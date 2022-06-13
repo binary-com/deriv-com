@@ -174,7 +174,6 @@ const Signup = (props) => {
     const handleAffiliateSignup = (e) => {
         e.preventDefault()
         // TODO: find a way to access user token
-        const token = 'tmdaw4uGUCYGFJK'
         const verification_code = queryParams.get('code')
         const {
             first_name,
@@ -207,20 +206,17 @@ const Signup = (props) => {
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify({ authorize: token }))
-            binary_socket.onmessage = () => {
-                binary_socket.send(JSON.stringify(req_affiliate))
-                binary_socket.onmessage = (msg) => {
-                    const response = JSON.parse(msg.data)
-                    if (response.error) {
-                        binary_socket.close()
-                        props.showModal(true)
-                        props.setErrorMessage(response.error.message)
-                        setSubmitStatus('error')
-                    } else {
-                        binary_socket.close()
-                        props.showModal(true)
-                    }
+            binary_socket.send(JSON.stringify(req_affiliate))
+            binary_socket.onmessage = (msg) => {
+                const response = JSON.parse(msg.data)
+                if (response.error) {
+                    binary_socket.close()
+                    props.showModal(true)
+                    props.setErrorMessage(response.error.message)
+                    setSubmitStatus('error')
+                } else {
+                    binary_socket.close()
+                    props.showModal(true)
                 }
             }
         }

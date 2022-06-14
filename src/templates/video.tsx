@@ -4,8 +4,6 @@ import Vimeo from '@u-wave/react-vimeo'
 import styled from 'styled-components'
 import {
     BreadcrumbsWrapper,
-    SideBarContainer,
-    Tag,
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
     StyledBreadcrumbsContainer,
@@ -14,13 +12,11 @@ import {
     ProgressBar,
 } from '../pages/academy/blog/posts/_style'
 import SocialSharing from '../pages/academy/components/_social-sharing'
-import { handleTag } from 'pages/academy/components/utility'
 import { AllVideosQuery } from 'types/graphql.types'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { Mobile, Flex, SectionContainer, Desktop, Container } from 'components/containers'
+import { Mobile, Flex, SectionContainer, Desktop, Container, SEO } from 'components/containers'
 import { truncateString } from 'common/utility'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import Eye from 'images/svg/eye.svg'
@@ -58,8 +54,18 @@ const StickyBreadCrumbsWrapper = styled(Flex)`
     }
 `
 
+const VideoAndRelatedContainer = styled(Flex)`
+    flex-direction: row;
+
+    @media ${device.laptopM} {
+        flex-direction: column;
+        margin: auto;
+    }
+`
+
 const DesktopContainer = styled.div`
     display: flex;
+    flex-direction: column;
     padding: 30px 0 80px;
 `
 
@@ -68,23 +74,57 @@ const VideoContainer = styled.div`
     flex-direction: column;
     background-color: #f5f7fa;
     width: 791px;
-    height: 650px;
+    height: 615px;
     border-radius: 8px;
+
+    @media ${device.laptopM} {
+        margin-bottom: 20px;
+    }
+    @media (max-width: 800px) {
+        width: 576px;
+        height: 480px;
+    }
+    @media ${device.tabletS} {
+        width: 328px;
+        height: 385px;
+    }
 `
 
 const RelatedVideos = styled.div`
     background-color: #f5f7fa;
     width: 384px;
-    height: 650px;
+    height: 615px;
     border-radius: 8px;
     margin-left: 20px;
-    position: relative;
+    padding: 1.5rem;
+
+    @media ${device.laptopM} {
+        margin-left: 0;
+        width: 791px;
+        height: 387px;
+    }
+    @media (max-width: 800px) {
+        width: 576px;
+        height: 615px;
+    }
+    @media ${device.tabletS} {
+        width: 328px;
+    }
 `
 
 const RelatedVideosContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    padding-top: 5px;
+
+    @media ${device.laptopM} {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    @media (max-width: 800px) {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
 `
 
 const RelatedVideoCard = styled.div`
@@ -93,21 +133,30 @@ const RelatedVideoCard = styled.div`
     width: 352px;
     max-width: 352px;
     height: 96px;
-    margin: 7px 0;
+    margin: 8px 0;
+
+    @media (max-width: 800px) {
+        width: 576px;
+    }
+
+    @media ${device.tabletS} {
+        width: 328px;
+        max-width: 328px;
+    }
 `
 
 const RelatedVideoImage = styled(QueryImage)`
     width: 160px;
     height: 96px;
-    border-radius: 5%;
+    border-radius: 2%;
 `
 
 const RelatedVideoDescription = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding: 10px;
 `
+
 const RelatedVideoTitle = styled.h3`
     font-size: 14px;
     font-weight: 700;
@@ -118,18 +167,25 @@ const RelatedVideoTitle = styled.h3`
 const RelatedVideoDateAndDuration = styled.div`
     display: flex;
 `
+
 const VideoPlayer = styled(Vimeo)`
     > iframe {
-        width: 720px;
-        height: 480px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        width: 791px;
+        height: 445px;
     }
 
-    @media (min-width: 1280px) {
+    @media (max-width: 800px) {
         > iframe {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            width: 791px;
-            height: 445px;
+            width: 576px;
+            height: 324px;
+        }
+    }
+    @media ${device.tabletS} {
+        > iframe {
+            width: 329px;
+            height: 185px;
         }
     }
 `
@@ -141,6 +197,11 @@ const VideoDetailsContainer = styled.div`
 const Title = styled.h1`
     font-size: 24px;
     font-weight: 700;
+
+    @media (max-width: 800px) {
+        font-size: 18px;
+        line-height: 26px;
+    }
 `
 
 const VideoDescription = styled.p`
@@ -148,7 +209,12 @@ const VideoDescription = styled.p`
     font-size: 16px;
     padding: 1.5rem 0;
     max-width: 684px;
-    line-height: 2.1rem;
+    line-height: 24px;
+
+    @media ${device.tabletS} {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `
 
 const VideoDetails = styled.div`
@@ -160,6 +226,10 @@ const GreyText = styled.p`
     color: var(--color-grey);
     font-size: 14px;
     padding: 0 0.6rem;
+
+    @media ${device.tabletS} {
+        font-size: 12px;
+    }
 `
 const GreyTextSmall = styled.p`
     color: var(--color-grey);
@@ -168,9 +238,8 @@ const GreyTextSmall = styled.p`
 `
 
 const AllVideosButton = styled(LinkButton)`
-    position: absolute;
-    bottom: 12px;
-    left: 16px;
+    margin: 30px auto 0;
+    width: 130px;
 
     &:hover {
         cursor: pointer;
@@ -183,7 +252,6 @@ const AllVideosButton = styled(LinkButton)`
 
 const VideoTemplate = ({ data }: VideosTemplateProps) => {
     const { academy_data } = useContext(DerivStore)
-    const [is_mobile] = useBrowserResize(992)
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
@@ -227,25 +295,47 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
     const all_videos = academy_data.videos
     const video_data = data.directus.videos[0]
     const video_title = video_data?.video_title
+    const video_description = video_data?.video_description
+    const published_date = video_data?.published_date
+    const video_duration = video_data?.video_duration
     const vimeo_id = video_data?.vimeo_id
     const video_tag = video_data?.tags[0]?.tags_id?.tag_name
 
-    const findRelatedVideos = () =>
-        all_videos.filter((video) =>
-            video?.tags?.some((tag) => tag.tags_id?.tag_name === video_tag),
-        )
+    const getFiveRelatedVideos = () => {
+        // Find related videos by tag
+        const findRelatedVideoByTag = () =>
+            all_videos.filter((video) =>
+                video?.tags?.some((tag) => tag.tags_id?.tag_name === video_tag),
+            )
+
+        // Function to remove current video from a video list
+        const removeCurrentVideoFromArray = (video_list) =>
+            video_list.filter((video) => video.video_title !== video_title)
+
+        // Merge videos by tag with all other videos
+        const merged_two_arrays = findRelatedVideoByTag().concat(all_videos)
+
+        // Remove duplicate items from merged array
+        const remove_duplicate_from_array = [...new Set(merged_two_arrays)]
+
+        // Remove current video from video list
+        const final_array = removeCurrentVideoFromArray(remove_duplicate_from_array)
+
+        if (final_array.length <= 5) {
+            return final_array
+        }
+
+        // If video list array has more than 5 items slice it
+        return final_array.slice(0, 5)
+    }
 
     useEffect(() => {
         const url = `https://vimeo.com/api/v2/video/${vimeo_id}.json`
 
         const fetchData = async () => {
-            try {
-                const response = await fetch(url)
-                const json = await response.json()
-                setViewCount(json[0]?.stats_number_of_plays)
-            } catch (error) {
-                console.log('error', error)
-            }
+            const response = await fetch(url)
+            const json = await response.json()
+            setViewCount(json[0]?.stats_number_of_plays)
         }
 
         fetchData()
@@ -253,47 +343,64 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
 
     return (
         <Layout type="academy" margin_top={'14.4'}>
-            {/* <SEO
-                description={meta_description}
-                title={meta_title}
-                meta_attributes={meta_attributes}
-                no_index={test_data}
-            /> */}
+            <SEO description={video_description} title={video_title} />
             <>
                 {is_mounted && (
                     <SectionContainer padding="0" position="relative">
-                        <StickyBreadCrumbsWrapper scroll={visible}>
-                            <BreadcrumbsWrapper scroll={visible}>
-                                <StyledBreadcrumbsContainer>
-                                    <StyledBreadcrumbsLink to="/academy/" color="grey-5">
-                                        Academy
-                                    </StyledBreadcrumbsLink>
-                                    <img
-                                        src={RightArrow}
-                                        height="16"
-                                        width="16"
-                                        style={{ marginRight: '12px' }}
-                                    />
-                                    <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
-                                        All Videos
-                                    </StyledBreadcrumbsLink>
-                                    <img src={RightArrow} height="16" width="16" />
-                                    <StyledBreadcrumbsTitle>
-                                        {is_mobile
-                                            ? truncateString(video_title, getTruncateLength())
-                                            : video_title}
-                                    </StyledBreadcrumbsTitle>
-                                    <SocialSharing />
-                                </StyledBreadcrumbsContainer>
-                            </BreadcrumbsWrapper>
-                            <Scrollbar scroll={visible}>
-                                <ProgressContainer>
-                                    <ProgressBar ref={barElement}></ProgressBar>
-                                </ProgressContainer>
-                            </Scrollbar>
-                        </StickyBreadCrumbsWrapper>
+                        <Desktop breakpoint="laptop">
+                            <StickyBreadCrumbsWrapper scroll={visible}>
+                                <BreadcrumbsWrapper scroll={visible}>
+                                    <StyledBreadcrumbsContainer>
+                                        <StyledBreadcrumbsLink to="/academy/" color="grey-5">
+                                            Academy
+                                        </StyledBreadcrumbsLink>
+                                        <img
+                                            src={RightArrow}
+                                            height="16"
+                                            width="16"
+                                            style={{ marginRight: '12px' }}
+                                        />
+                                        <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
+                                            All Videos
+                                        </StyledBreadcrumbsLink>
+                                        <img src={RightArrow} height="16" width="16" />
+                                        <StyledBreadcrumbsTitle>
+                                            {video_title}
+                                        </StyledBreadcrumbsTitle>
+                                        <SocialSharing />
+                                    </StyledBreadcrumbsContainer>
+                                </BreadcrumbsWrapper>
+                                <Scrollbar scroll={visible}>
+                                    <ProgressContainer>
+                                        <ProgressBar ref={barElement}></ProgressBar>
+                                    </ProgressContainer>
+                                </Scrollbar>
+                            </StickyBreadCrumbsWrapper>
+                        </Desktop>
+                        <Mobile breakpoint="laptop">
+                            <StickyBreadCrumbsWrapper scroll={visible}>
+                                <BreadcrumbsWrapper scroll={visible}>
+                                    <StyledBreadcrumbsContainer>
+                                        <StyledBreadcrumbsLink to="/academy/videos/" color="grey-5">
+                                            All Videos
+                                        </StyledBreadcrumbsLink>
+                                        <img src={RightArrow} height="16" width="16" />
+                                        <StyledBreadcrumbsTitle>
+                                            {truncateString(video_title, getTruncateLength())}
+                                        </StyledBreadcrumbsTitle>
+                                        <SocialSharing />
+                                    </StyledBreadcrumbsContainer>
+                                </BreadcrumbsWrapper>
+                                <Scrollbar scroll={visible}>
+                                    <ProgressContainer>
+                                        <ProgressBar ref={barElement}></ProgressBar>
+                                    </ProgressContainer>
+                                </Scrollbar>
+                            </StickyBreadCrumbsWrapper>
+                        </Mobile>
+
                         <Container>
-                            <Mobile breakpoint="laptop">
+                            {/* <Mobile breakpoint="laptop">
                                 <SideBarContainer fd="column" mr="126px" height="auto">
                                     <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
                                         {video_data?.tags.map((tag) => {
@@ -310,75 +417,68 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                         })}
                                     </Flex>
                                 </SideBarContainer>
-                            </Mobile>
-                            <Desktop breakpoint="laptop">
-                                <DesktopContainer>
+                            </Mobile> */}
+                            <DesktopContainer>
+                                <VideoAndRelatedContainer>
                                     <VideoContainer>
                                         <VideoPlayer video={vimeo_id} />
                                         <VideoDetailsContainer>
-                                            <Title>{video_data?.video_title}</Title>
-                                            <VideoDescription>
-                                                {video_data?.video_description}
-                                            </VideoDescription>
+                                            <Title>{video_title}</Title>
+                                            <VideoDescription>{video_description}</VideoDescription>
                                             <VideoDetails>
                                                 <img src={Eye} height="16" width="16" />
                                                 <GreyText>{view_count} views</GreyText>
                                                 <GreyText>•</GreyText>
-                                                <GreyText>{video_data?.published_date}</GreyText>
+                                                <GreyText>{published_date}</GreyText>
                                                 <GreyText>•</GreyText>
-                                                <GreyText>
-                                                    {video_data?.video_duration} Min
-                                                </GreyText>
+                                                <GreyText>{video_duration} Min</GreyText>
                                             </VideoDetails>
                                         </VideoDetailsContainer>
                                     </VideoContainer>
                                     <RelatedVideos>
+                                        <Title>Related Videos</Title>
                                         <RelatedVideosContainer>
-                                            <Title>Related Videos</Title>
-                                            {findRelatedVideos()
-                                                .slice(0, 5)
-                                                .map((video) => (
-                                                    <RelatedVideoCard
-                                                        key={video?.video_title}
-                                                        onClick={() => {
-                                                            navigate(
-                                                                `/academy/videos/${video?.video_slug}`,
-                                                            )
-                                                        }}
-                                                    >
-                                                        <RelatedVideoImage
-                                                            style={{ borderRadius: '7px' }}
-                                                            data={
-                                                                video?.video_thumbnail?.imageFile
-                                                                    ?.childImageSharp
-                                                                    ?.gatsbyImageData
-                                                            }
-                                                            width="161px"
-                                                            height="96px"
-                                                        />
-                                                        <RelatedVideoDescription>
-                                                            <RelatedVideoTitle>
-                                                                {video?.video_title}
-                                                            </RelatedVideoTitle>
-                                                            <RelatedVideoDateAndDuration>
-                                                                <GreyTextSmall>
-                                                                    {video?.published_date}
-                                                                </GreyTextSmall>
-                                                                <GreyTextSmall>•</GreyTextSmall>
-                                                                <GreyTextSmall>
-                                                                    {video?.video_duration}
-                                                                </GreyTextSmall>
-                                                            </RelatedVideoDateAndDuration>
-                                                        </RelatedVideoDescription>
-                                                    </RelatedVideoCard>
-                                                ))}
-                                            <AllVideosButton tertiary to="/academy/videos/">
-                                                See all videos
-                                            </AllVideosButton>
+                                            {getFiveRelatedVideos().map((video) => (
+                                                <RelatedVideoCard
+                                                    key={video_title}
+                                                    onClick={() => {
+                                                        navigate(
+                                                            `/academy/videos/${video?.video_slug}`,
+                                                        )
+                                                    }}
+                                                >
+                                                    <RelatedVideoImage
+                                                        style={{ borderRadius: '7px' }}
+                                                        data={
+                                                            video?.video_thumbnail?.imageFile
+                                                                ?.childImageSharp?.gatsbyImageData
+                                                        }
+                                                        width="161px"
+                                                        height="96px"
+                                                    />
+                                                    <RelatedVideoDescription>
+                                                        <RelatedVideoTitle>
+                                                            {video?.video_title}
+                                                        </RelatedVideoTitle>
+                                                        <RelatedVideoDateAndDuration>
+                                                            <GreyTextSmall>
+                                                                {video?.published_date}
+                                                            </GreyTextSmall>
+                                                            <GreyTextSmall>•</GreyTextSmall>
+                                                            <GreyTextSmall>
+                                                                {video?.video_duration}
+                                                            </GreyTextSmall>
+                                                        </RelatedVideoDateAndDuration>
+                                                    </RelatedVideoDescription>
+                                                </RelatedVideoCard>
+                                            ))}
                                         </RelatedVideosContainer>
                                     </RelatedVideos>
-                                </DesktopContainer>
-                            </Desktop>
+                                </VideoAndRelatedContainer>
+                                <AllVideosButton tertiary to="/academy/videos/">
+                                    See all videos
+                                </AllVideosButton>
+                            </DesktopContainer>
                         </Container>
                     </SectionContainer>
                 )}

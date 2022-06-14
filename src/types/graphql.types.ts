@@ -5823,6 +5823,7 @@ export type AllVideosQuery = {
     directus: {
         __typename?: 'DirectusData'
         videos: Array<{
+            [x: string]: any
             __typename?: 'DirectusData_videos'
             video_id: string
             video_slug: string

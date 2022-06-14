@@ -34,6 +34,7 @@ export type VideosType = {
     featured: boolean
     published_date: string
     tags: TagsType[]
+    vimeo_id: string
     video_description: string
     video_duration: string
     video_slug: string

@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { Header, Text } from 'components/elements/typography'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -13,7 +14,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     padding-bottom: 0;
 
     @media ${device.tabletL} {
-        padding-top: 0;
+        padding-top: 40px;
     }
 `
 
@@ -31,19 +32,51 @@ const StyledText = styled(Text)`
     }
 `
 const StyledFrame = styled.div`
-    position: relative;
+    padding: 40px 40px 0 40px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    bottom: -165px;
     z-index: 1;
+    position: relative;
+    top: 350px;
+    margin-top: -350px;
+
+    @media ${device.laptopL} {
+        top: 250px;
+        margin-top: -250px;
+    }
+    @media ${device.laptopM} {
+        top: 55px;
+        margin-top: -55px;
+    }
+    @media ${device.tabletS} {
+        padding: 40px 16px 0 16px;
+    }
 
     & iframe {
+        border-radius: 8px;
         max-width: 1040px;
+        min-height: 594px;
+
+        @media ${device.mobileM} {
+            max-width: 328px;
+        }
     }
 `
 
 const StyledRoadmap = styled.div`
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+
+const StyledButton = styled(LinkButton)`
+    margin-top: 40px;
+    position: relative;
+    max-width: 120px;
+    z-index: 3;
 `
 
 const query = graphql`
@@ -73,9 +106,18 @@ const RoadmapDerivGO = () => {
                 <iframe
                     src="https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1"
                     frameBorder="0"
-                    height="1000px"
+                    height="100%"
                     width="100%"
                 ></iframe>
+                <StyledButton
+                    tertiary="true"
+                    to={'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn'}
+                    external="true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {localize('Go to portal')}
+                </StyledButton>
             </StyledFrame>
             <StyledRoadmap>
                 <QueryImage

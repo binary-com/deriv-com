@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../helper/_available-platforms'
-import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
+import {
+    ContentWrapper,
+    Descriptions,
+    StyledHeader,
+    StyledText,
+} from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { SectionContainer } from 'components/containers'
@@ -47,9 +52,9 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                         <AvailablePlatforms dmt5 derivx />
                     )}
                 </Descriptions>
-                <StyledText font_size="14px" weight="bold" mt="4rem">
+                <StyledHeader as="h3" font_size="14px" weight="bold" mt="4rem">
                     <Localize translate_text="Instruments available for CFD trading" />
-                </StyledText>
+                </StyledHeader>
                 <MarketInstruments market_content={market_content} />
             </ContentWrapper>
         </StyledSection>

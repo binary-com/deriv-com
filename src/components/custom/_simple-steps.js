@@ -128,7 +128,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
             <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
         </Show.Mobile>
         <Container direction="column">
-            <TitleHeader align="center" as="h3" type="section-title">
+            <TitleHeader align="center" type="section-title">
                 {header}
             </TitleHeader>
         </Container>
@@ -137,7 +137,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
                 return (
                     <ClientCard key={idx}>
                         <Flex ai="center" height="fit-content">
-                            <StyledHeader as="h4" type="sub-section-title">
+                            <StyledHeader as="h3" type="sub-section-title">
                                 {item.header}
                             </StyledHeader>
                             {item.icon}

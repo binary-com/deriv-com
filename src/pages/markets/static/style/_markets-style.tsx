@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Box, CssGrid, Flex } from 'components/containers'
-import { Text } from 'components/elements'
+import { Text, Header } from 'components/elements'
 import device from 'themes/device'
 
 type DescriptionsProps = {
@@ -168,7 +168,17 @@ export const OptionsRow = styled(Flex)<OptionsRowProps>`
     }
 `
 
-export const StyledText = styled(Text)<StyledTextProps>`
+export const StyledHeader = styled(Header)<StyledTextProps>`
+    @media ${device.tabletL} {
+        font-size: ${({ font_size }) => font_size ?? '20px'};
+        text-align: ${({ align }) => align ?? 'left'};
+    }
+
+    @media ${device.mobileL} {
+        max-width: 328px;
+    }
+`
+export const StyledText = styled(Header)<StyledTextProps>`
     @media ${device.tabletL} {
         font-size: ${({ font_size }) => font_size ?? '20px'};
         text-align: ${({ align }) => align ?? 'left'};

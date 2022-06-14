@@ -51,11 +51,11 @@ jobs:
             - name: Publish to Cloudfare
               uses: cloudflare/wrangler-action@2.0.0
               with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                command: pages publish public --project-name=deriv --branch=staging
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_DERIV }}
+                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_DERIV }}
+                command: pages publish public --project-name=deriv-com-pages --branch=staging
                  
             - name: Report new Cloudflare Website
-              run: echo "New staging website - http://staging.deriv.pages.dev"
+              run: echo "New staging website - http://staging.deriv-com-pages.pages.dev (and soon http://staging.cf-pages.deriv.com)"
 
 

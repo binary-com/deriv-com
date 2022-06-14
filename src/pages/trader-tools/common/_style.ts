@@ -6,6 +6,7 @@ import { Dropdown, Header, Text } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
+import { Grid } from 'pages/trade-types/components/_style'
 
 type CalculatorTabItemProps = {
     active?: ReactNode
@@ -28,6 +29,7 @@ type FormulaValueType = {
 
 type PointerContainerType = {
     width?: string
+    height?: string
     ml?: string
     top?: boolean
     mw?: string
@@ -533,7 +535,20 @@ export const FormulaHighlight = styled(Flex)`
     align-items: center;
     font-size: 16px;
     font-weight: 600;
-    justify-content: center;
+    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
+    padding-right: ${(props) => (props.pr ? props.pr : '0')};
+    padding-left: ${(props) => (props.pl ? props.pl : '0')};
+`
+export const FormulaHighlightForPnlMultiplier = styled(Flex)`
+    display: table;
+    text-align: center;
+    border-radius: 4px;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: white;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     padding-right: ${(props) => (props.pr ? props.pr : '0')};
 `
 
@@ -557,8 +572,6 @@ export const FormulaValue = styled.div<FormulaValueType>`
     display: inline-block;
     min-width: ${(props) => (props.width ? props.width : '50px')};
     text-align: center;
-    padding-top: ${(props) => (props.pt ? props.pt : '24px')};
-    padding-bottom: ${(props) => (props.pb ? props.pb : '24px')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
 export const FormulaValueSwapSynthetic = styled.div`
@@ -589,6 +602,9 @@ export const FormulaValueSwapFinancialMobile = styled.div`
     min-width: ${(props: FormulaValueType) => (props.mw ? 'props.mw' : '14px')};
     text-align: center;
     margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.mobileS} {
+        font-size: 12px;
+    }
 `
 export const FormulaGreen = styled.span`
     display: inline-block;
@@ -598,7 +614,7 @@ export const FormulaGreen = styled.span`
 export const PointerContainer = styled.div<PointerContainerType>`
     display: flex;
     position: absolute;
-    height: 80px;
+    height: ${(props) => (props.height ? 'props.height' : '80px')};
     margin-top: ${(props) => (props.top ? '-100px' : '8px')};
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     align-items: center;
@@ -666,6 +682,9 @@ export const PointerTextMobile = styled.div<PointerTextType>`
     font-size: 14px;
     font-weight: 600;
     color: var(--color-blue-5);
+    @media ${device.mobileS} {
+        font-size: 12px;
+    }
 `
 
 export const Sup = styled.span`
@@ -677,11 +696,18 @@ export const Sup = styled.span`
 export const FormulaTopWrapper = styled.div`
     display: block;
 `
-
+export const FormulaTopWrapperPnl = styled.div<FormulaWrapperType>`
+    display: block;
+    margin-top: 24px;
+`
+export const FormulaBottomWrapperPnl = styled.div<FormulaWrapperType>`
+    display: block;
+    margin-left: -170px;
+    padding-bottom: 24px;
+    margin-top: 15px;
+`
 export const FormulaBottomWrapper = styled.div<FormulaWrapperType>`
     display: block;
-    margin-top: 10px;
-    margin-left: ${(props) => (props.ml ? props.ml : '210px')};
 `
 
 export const PnlBottomWrapper = styled.div`

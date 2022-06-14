@@ -25,13 +25,13 @@ export const PipSyntheticExample = () => {
     return (
         <>
             <Show.Desktop>
-                <FormulaContainer>
-                    <FormulaHighlight>
+                <FormulaContainer pt="8px">
+                    <FormulaHighlight jc="space-evenly" pl="100px" pr="100px">
                         <FormulaValue>
                             <Localize translate_text="0.01" />
-                            <PointerContainer ml="-15px">
+                            <PointerContainer width="100px" ml="-25px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="28px" />
                                 <PointerText>
                                     <Localize
                                         translate_text="Point value <0>1</0>"
@@ -49,7 +49,7 @@ export const PipSyntheticExample = () => {
                             <Localize translate_text="1" />
                             <PointerContainer ml="-7px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="28px" />
                                 <PointerText>
                                     <Localize translate_text="Volume" />
                                 </PointerText>
@@ -62,15 +62,12 @@ export const PipSyntheticExample = () => {
 
                         <FormulaValue>
                             <Localize translate_text="1" />
-                            <PointerContainer ml="-3px">
+                            <PointerContainer ml="-28px" width="100px">
                                 <PointerDot />
-                                <PointerStick height="18px" />
-                                <PointerText>
-                                    <Localize translate_text="Contract" />
-                                </PointerText>
+                                <PointerStick height="28px" />
                                 <PointerText>
                                     <Localize
-                                        translate_text=" size <0>2</0>"
+                                        translate_text="Contract size <0>2</0>"
                                         components={[<Sup key={0} />]}
                                     />
                                 </PointerText>
@@ -86,7 +83,7 @@ export const PipSyntheticExample = () => {
                                 translate_text="<0>0.01</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer ml="8px">
+                            <PointerContainer ml="-8px" width="100px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
@@ -99,46 +96,46 @@ export const PipSyntheticExample = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile height="178px">
-                    <FormulaHighlightMobile height="82px">
-                        <FormulaValueSwapSynthetic>
+                <FormulaContainerMobile height="142px">
+                    <FormulaHighlightMobile jc="space-evenly">
+                        <FormulaValueMobile>
                             <Localize translate_text="0.01" />
-                            <PointerContainerMobile top>
+                            <PointerContainerMobile top mw="0" ml="-15px">
                                 <PointerDotMobile />
-                                <PointerStickMobile height="28px" />
-                                <PointerTextMobile top ml="-6px">
+                                <PointerStickMobile height="18px" />
+                                <PointerTextMobile top>
                                     <Localize
                                         translate_text="Point value<0>1</0>"
                                         components={[<Sup key={0} />]}
                                     />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <FormulaGreen> x </FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <Localize translate_text="1" />
-                            <PointerContainerMobile ml="8px">
+                            <PointerContainerMobile ml="-2px">
                                 <PointerDotMobile />
-                                <PointerStickMobile height="28px" />
+                                <PointerStickMobile height="18px" />
                                 <PointerTextMobile>
                                     <Localize translate_text="Volume" />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <FormulaGreen>x</FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <Localize translate_text="1" />
-                            <PointerContainerMobile top ml="3px">
+                            <PointerContainerMobile top ml="-37px" mw="0">
                                 <PointerDotMobile />
-                                <PointerStickMobile height="28px" />
+                                <PointerStickMobile height="18px" />
                                 <PointerTextMobile top>
                                     <Localize
                                         translate_text="Contract size <0>2</0>"
@@ -146,24 +143,24 @@ export const PipSyntheticExample = () => {
                                     />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
-                        </FormulaValueSwapSynthetic>
-                        <FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
+                        <FormulaValueMobile>
                             <FormulaGreen>=</FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <Localize
                                 translate_text="<0>0.01</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainerMobile ml="4px">
+                            <PointerContainerMobile ml="-10px" mw="0">
                                 <PointerDotMobile />
-                                <PointerStickMobile />
+                                <PointerStickMobile height="18px" />
                                 <PointerTextMobile>
                                     <Localize translate_text="Pip value" />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
             </Show.Mobile>
@@ -175,13 +172,13 @@ export const PipForexExample = () => {
     return (
         <>
             <Show.Desktop>
-                <FormulaContainer>
-                    <FormulaHighlight>
+                <FormulaContainer pt="8px">
+                    <FormulaHighlight jc="space-evenly" pl="71px" pr="71px">
                         <FormulaValue>
                             <Localize translate_text="0.00001" />
-                            <PointerContainer ml="-15px">
+                            <PointerContainer ml="-15px" width="100px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="28px" />
                                 <PointerText>
                                     <Localize
                                         translate_text="Point value<0>1</0>"
@@ -197,9 +194,9 @@ export const PipForexExample = () => {
 
                         <FormulaValue>
                             <Localize translate_text="2" />
-                            <PointerContainer ml="-7px">
+                            <PointerContainer ml="0">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="28px" />
                                 <PointerText>
                                     <Localize translate_text="Volume" />
                                 </PointerText>
@@ -212,15 +209,12 @@ export const PipForexExample = () => {
 
                         <FormulaValue>
                             <Localize translate_text="100,000" />
-                            <PointerContainer ml="3px">
+                            <PointerContainer ml="-20px" width="100px">
                                 <PointerDot />
-                                <PointerStick height="18px" />
-                                <PointerText>
-                                    <Localize translate_text="Contract" />
-                                </PointerText>
+                                <PointerStick height="28px" />
                                 <PointerText>
                                     <Localize
-                                        translate_text=" size <0>2</0>"
+                                        translate_text="Contract size <0>2</0>"
                                         components={[<Sup key={0} />]}
                                     />
                                 </PointerText>
@@ -236,9 +230,9 @@ export const PipForexExample = () => {
                                 translate_text="<0>2</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainer>
+                            <PointerContainer width="100px" ml="-8px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="28px" />
                                 <PointerText>
                                     <Localize translate_text="Pip value" />
                                 </PointerText>
@@ -249,13 +243,13 @@ export const PipForexExample = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile height="178px">
-                    <FormulaHighlightMobile height="82px">
+                <FormulaContainerMobile height="142px">
+                    <FormulaHighlightMobile jc="space-evenly">
                         <FormulaValueMobile>
                             <Localize translate_text="0.00001" />
-                            <PointerContainerMobile top>
+                            <PointerContainerMobile mw="0" top>
                                 <PointerDotMobile />
-                                <PointerStickMobile height="28px" />
+                                <PointerStickMobile height="18px" />
                                 <PointerTextMobile top ml="-6px">
                                     <Localize
                                         translate_text="Point value<0>1</0>"
@@ -273,7 +267,7 @@ export const PipForexExample = () => {
                             <Localize translate_text="2" />
                             <PointerContainerMobile>
                                 <PointerDotMobile />
-                                <PointerStickMobile height="28px" />
+                                <PointerStickMobile height="18px" />
                                 <PointerTextMobile>
                                     <Localize translate_text="Volume" />
                                 </PointerTextMobile>
@@ -286,9 +280,9 @@ export const PipForexExample = () => {
 
                         <FormulaValueMobile>
                             <Localize translate_text="100,000" />
-                            <PointerContainerMobile top ml="3px">
+                            <PointerContainerMobile top ml="-25px" mw="0">
                                 <PointerDotMobile />
-                                <PointerStickMobile height="28px" />
+                                <PointerStickMobile height="18px" />
                                 <PointerTextMobile top>
                                     <Localize
                                         translate_text="Contract size <0>2</0>"
@@ -306,10 +300,10 @@ export const PipForexExample = () => {
                                 translate_text="<0>2</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainerMobile ml="4px">
+                            <PointerContainerMobile ml="-10px" mw="0">
                                 <PointerDotMobile />
-                                <PointerStickMobile />
-                                <PointerTextMobile>
+                                <PointerStickMobile height="18px" />
+                                <PointerTextMobile ml="-14px">
                                     <Localize translate_text="Pip value" />
                                 </PointerTextMobile>
                             </PointerContainerMobile>

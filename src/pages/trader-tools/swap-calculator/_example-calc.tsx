@@ -27,13 +27,13 @@ export const SwapSyntheticExample = () => {
     return (
         <>
             <Show.Desktop>
-                <FormulaContainer height="200px">
+                <FormulaContainer height="176px">
                     <FormulaHighlight>
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="0.01" />
                             <PointerContainer ml="-10px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="34px" />
                                 <PointerText>
                                     <Localize translate_text="Volume" />
                                 </PointerText>
@@ -48,7 +48,7 @@ export const SwapSyntheticExample = () => {
                             <Localize translate_text="1" />
                             <PointerContainer top ml="-33px" width="100px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="34px" />
                                 <PointerText top>
                                     <Localize
                                         translate_text="Contract size <0>1</>"
@@ -66,7 +66,7 @@ export const SwapSyntheticExample = () => {
                             <Localize translate_text="400,000" />
                             <PointerContainer ml="-10px" width="100px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="34px" />
                                 <PointerText>
                                     <Localize translate_text="Asset price" />
                                 </PointerText>
@@ -81,7 +81,7 @@ export const SwapSyntheticExample = () => {
                             <Localize translate_text="( -7.5 " />
                             <PointerContainer top ml="-15px" width="100px">
                                 <PointerDot />
-                                <PointerStick />
+                                <PointerStick height="34px" />
                                 <PointerText top>
                                     <Localize
                                         translate_text="Swap rate <0>2</0>"
@@ -118,8 +118,8 @@ export const SwapSyntheticExample = () => {
                             />
                             <PointerContainer ml="-25px" width="100px">
                                 <PointerDot />
-                                <PointerStick />
-                                <PointerText ml="-25px">
+                                <PointerStick height="34px" />
+                                <PointerText ml="-10px">
                                     <Localize translate_text="Swap charge" />
                                 </PointerText>
                             </PointerContainer>
@@ -129,14 +129,14 @@ export const SwapSyntheticExample = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile height="188px">
-                    <FormulaHighlightMobile height="82px" syn_mobile>
+                <FormulaContainerMobile height="172px">
+                    <FormulaHighlightMobile height="84px" syn_mobile>
                         <FormulaTopWrapper>
                             <FormulaValueMobile mw="30px">
                                 <Localize translate_text="0.01" />
                                 <PointerContainerMobile ml="7px" top>
                                     <PointerDotMobile />
-                                    <PointerStickMobile />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
                                         <Localize translate_text="Volume" />
                                     </PointerTextMobile>
@@ -149,9 +149,9 @@ export const SwapSyntheticExample = () => {
 
                             <FormulaValueMobile>
                                 <Localize translate_text="1" />
-                                <PointerContainerMobile mw="0" ml="-38px">
+                                <PointerContainerMobile mw="0" ml="-32px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="42px" />
+                                    <PointerStickMobile height="46px" />
                                     <PointerTextMobile>
                                         <Localize
                                             translate_text="Contract size <0>1</0>"
@@ -167,9 +167,9 @@ export const SwapSyntheticExample = () => {
 
                             <FormulaValueMobile>
                                 <Localize translate_text="400,000" />
-                                <PointerContainerMobile top ml="-25px" mw="0">
+                                <PointerContainerMobile top ml="-15px" mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
                                         <Localize translate_text="Asset price" />
                                     </PointerTextMobile>
@@ -184,7 +184,7 @@ export const SwapSyntheticExample = () => {
                                 <Localize translate_text="( -7.5 " />
                                 <PointerContainerMobile top ml="-13px" mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="18px" />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Swap rate <0>2</0>"
@@ -220,9 +220,9 @@ export const SwapSyntheticExample = () => {
                                     translate_text="<0> -0.83</0>"
                                     components={[<FormulaGreen key={0} />]}
                                 />
-                                <PointerContainerMobile ml="-25px" mw="0">
+                                <PointerContainerMobile ml="-20px" mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Swap charge" />
                                     </PointerTextMobile>
@@ -240,8 +240,8 @@ export const SwapFinancialExample = () => {
     return (
         <>
             <Show.Desktop>
-                <FormulaContainer>
-                    <FormulaHighlight>
+                <FormulaContainer height="132px" pt="8px">
+                    <FormulaHighlight jc="space-evenly" pr="78px" pl="78px">
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="2" />
                             <PointerContainer ml="-7px">
@@ -295,7 +295,7 @@ export const SwapFinancialExample = () => {
 
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="-0.12 " />
-                            <PointerContainer ml="-14px" width="100px">
+                            <PointerContainer ml="-24px" width="100px">
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -329,14 +329,14 @@ export const SwapFinancialExample = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile height="178px">
-                    <FormulaHighlightMobile height="82px" syn_mobile>
+                <FormulaContainerMobile height="152px">
+                    <FormulaHighlightMobile jc="space-evenly" height="70px">
                         <FormulaTopWrapper>
                             <FormulaValueSwapFinancialMobile>
                                 <Localize translate_text="2" />
                                 <PointerContainerMobile mw="0" ml="-15px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Volume" />
                                     </PointerTextMobile>
@@ -351,7 +351,7 @@ export const SwapFinancialExample = () => {
                                 <Localize translate_text="100,000" />
                                 <PointerContainerMobile mw="0" top ml="-30px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Contract size <0>1</0>"
@@ -369,7 +369,7 @@ export const SwapFinancialExample = () => {
                                 <Localize translate_text="0.00001" />
                                 <PointerContainerMobile ml="-20px" mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile>
                                         <Localize
                                             translate_text="Point value<0>2</0>"
@@ -387,7 +387,7 @@ export const SwapFinancialExample = () => {
                                 <Localize translate_text="-0.12 " />
                                 <PointerContainerMobile mw="0" ml="-18px" top>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Swap rate <0>3</0>"
@@ -407,7 +407,7 @@ export const SwapFinancialExample = () => {
                                 />
                                 <PointerContainerMobile ml="-26px" mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile ml="-8px">
                                         <Localize translate_text="Swap charge" />
                                     </PointerTextMobile>

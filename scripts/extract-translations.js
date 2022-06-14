@@ -91,7 +91,7 @@ function extractTranslations() {
             // Add to messages.json
             fs.writeFileSync(
                 path.resolve(__dirname, '../crowdin/messages.json'),
-                JSON.stringify(messages_json),
+                JSON.stringify(messages_json,null,2),
                 'utf8',
                 (err) => console.log(err)
             );

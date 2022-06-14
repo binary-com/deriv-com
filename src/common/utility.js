@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
@@ -479,3 +479,47 @@ export const queryParamData = () => {
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+
+function getDimensionObject(node) {
+    const rect = node.getBoundingClientRect()
+
+    return {
+        width: rect.width,
+        height: rect.height,
+        top: 'x' in rect ? rect.x : rect.top,
+        left: 'y' in rect ? rect.y : rect.left,
+        x: 'x' in rect ? rect.x : rect.left,
+        y: 'y' in rect ? rect.y : rect.top,
+        right: rect.right,
+        bottom: rect.bottom,
+    }
+}
+
+export function useDimensions(data = null, liveMeasure = true) {
+    const [dimensions, setDimensions] = useState({})
+    const [node, setNode] = useState(null)
+
+    const ref = useCallback((node) => {
+        setNode(node)
+    }, [])
+
+    useEffect(() => {
+        if (node) {
+            const measure = () =>
+                window.requestAnimationFrame(() => setDimensions(getDimensionObject(node)))
+            measure()
+
+            if (liveMeasure) {
+                window.addEventListener('resize', measure)
+                window.addEventListener('scroll', measure)
+
+                return () => {
+                    window.removeEventListener('resize', measure)
+                    window.removeEventListener('scroll', measure)
+                }
+            }
+        }
+    }, [node, data])
+
+    return [ref, dimensions, node]
+}

@@ -1,7 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Media } from 'themes/media'
 import { DerivStore } from 'store'
+import { useDimensions } from 'common/utility'
 
 export const Desktop = ({ children, max_width, ...props }) => (
     <Media greaterThanOrEqual={max_width || 'tabletL'} {...props}>
@@ -13,19 +15,63 @@ export const Mobile = ({ children, min_width, ...props }) => (
         {children}
     </Media>
 )
+const Container = styled.div`
+    height: ${(props) => props.height}px;
+    width: ${(props) => props.width}px;
+    top: ${(props) => props.top}px;
+    left: ${(props) => props.left}px;
+    x: ${(props) => props.x}px;
+    y: ${(props) => props.y}px;
+    right: ${(props) => props.right}px;
+    bottom: ${(props) => props.bottom}px;
+`
 
-export const Eu = ({ children, placeholder = <></> }) => {
+export const Eu = ({ children }) => {
+    const [ref, dimensions] = useDimensions()
+
     const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country) return <>{children}</>
-    else return { placeholder }
+    else
+        return (
+            <Container
+                ref={ref}
+                height={dimensions.height}
+                width={dimensions.width}
+                top={dimensions.top}
+                bottom={dimensions.bottom}
+                left={dimensions.left}
+                right={dimensions.right}
+                x={dimensions.x}
+                y={dimensions.y}
+            >
+                {JSON.stringify(dimensions)}
+            </Container>
+        )
 }
 
-export const NonEU = ({ children, placeholder = <></> }) => {
+export const NonEU = ({ children }) => {
+    const [ref, dimensions] = useDimensions()
+
     const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country === false) return <>{children}</>
-    else return { placeholder }
+    else
+        return (
+            <Container
+                ref={ref}
+                height={dimensions.height}
+                width={dimensions.width}
+                top={dimensions.top}
+                bottom={dimensions.bottom}
+                left={dimensions.left}
+                right={dimensions.right}
+                x={dimensions.x}
+                y={dimensions.y}
+            >
+                {JSON.stringify(dimensions)}
+            </Container>
+        )
 }
 
 export default {
@@ -47,10 +93,12 @@ Mobile.propTypes = {
 
 Eu.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    placeholder: PropTypes.node,
+    height: PropTypes.string,
+    width: PropTypes.string,
 }
 
 NonEU.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    placeholder: PropTypes.node,
+    height: PropTypes.string,
+    width: PropTypes.string,
 }

@@ -677,7 +677,7 @@ export const TakeProfitAmountUp = () => {
                             </FormulaValueSwapSynthetic>
 
                             <FormulaValueMobile>
-                                <Localize translate_text="-0.2 }," />
+                                <Localize translate_text="0.2 }," />
                                 <PointerContainerMobile ml="4px">
                                     <PointerDotMobile />
                                     <PointerStickMobile height="42px" />

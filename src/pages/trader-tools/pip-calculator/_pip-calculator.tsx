@@ -75,7 +75,6 @@ const PipCalculator = () => {
             }
         }
     `
-
     const data = useStaticQuery(query)
 
     const [tab, setTab] = useState('Synthetic')

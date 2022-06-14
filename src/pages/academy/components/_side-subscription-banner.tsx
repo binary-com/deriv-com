@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TextWrapper } from './_common'
-import { addScriptForCIO } from './utility'
+import { addScriptForCIO } from './_utility'
 import AgreementLabel from 'components/custom/_agreement-label'
 import validation from 'common/validation'
 import { localize, Localize } from 'components/localization'

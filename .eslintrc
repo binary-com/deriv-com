@@ -33,7 +33,7 @@
         "strict": 0,
         "camelcase": 0,
         "no-console": "warn",
-        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/rules-of-hooks": "warn",
         "react-hooks/exhaustive-deps": "warn",
         "no-trailing-spaces": [
             "error",

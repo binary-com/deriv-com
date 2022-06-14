@@ -20,6 +20,7 @@ import {
     CalculateButton,
     CalculatorBody,
     CalculatorForm,
+    CalculatorDropdown,
     CalculatorHeader,
     CalculatorLabel,
     CalculatorOutputContainer,
@@ -45,7 +46,6 @@ import {
     Accordion,
     AccordionItem,
     Dropdown,
-    DropdownSearch,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -184,14 +184,12 @@ const MarginCalculator = () => {
                                                 <Text align="center">{localize('Financial')}</Text>
                                             </CalculatorTabItem>
                                         </Flex>
-                                        <DropdownSearch
-                                            id="symbol"
-                                            key={tab}
-                                            contractSize={values.contractSize}
-                                            default_item={optionItemDefault}
-                                            error={touched.symbol && errors.symbol}
-                                            items={values.optionList}
+                                        <CalculatorDropdown
+                                            option_list={values.optionList}
                                             label={localize('Symbol')}
+                                            default_option={optionItemDefault}
+                                            selected_option={values.symbol}
+                                            id="symbol"
                                             onChange={(value) => {
                                                 setFieldValue('marginSymbol', getCurrency(value))
                                                 setFieldValue(
@@ -200,8 +198,10 @@ const MarginCalculator = () => {
                                                 )
                                                 setFieldValue('symbol', value)
                                             }}
-                                            selected_item={values.symbol}
+                                            error={touched.symbol && errors.symbol}
                                             onBlur={handleBlur}
+                                            autocomplete="off"
+                                            contractSize={values.contractSize}
                                         />
                                         <InputGroup>
                                             <Field

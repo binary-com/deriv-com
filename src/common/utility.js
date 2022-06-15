@@ -110,9 +110,7 @@ export const isUKOrMXAccount = (current_client_country) => {
         residence: '',
     }
 
-    const isuk = residence === 'gb' || isUK(current_client_country)
-
-    return isuk
+    return residence === 'gb' || isUK(current_client_country)
 }
 
 export const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)

@@ -64,39 +64,35 @@ type DetailsProps = {
 
 const Details = ({ slide, platform_details }: DetailsProps) => {
     const images = useStaticQuery(image_query)
-    const selected_platform = platform_details[slide]
+    const selected_platform = platform_details && platform_details[slide]
 
-    if (selected_platform) {
-        return (
-            <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
-                <Flex max_height="550px" mb="24px">
-                    <StyledQueryImage
-                        height="100%"
-                        data={images[selected_platform.image_key]}
-                        alt="test"
-                    />
-                </Flex>
-                <Flex>
-                    {selected_platform.download_links.map((link, index) => {
-                        return (
-                            <DownloadLink
-                                key={index}
-                                external="true"
-                                type={link?.link_type}
-                                to={link?.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <img src={getOSIcon(link.type)} loading="lazy" />
-                            </DownloadLink>
-                        )
-                    })}
-                </Flex>
+    return (
+        <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
+            <Flex max_height="550px" mb="24px">
+                <StyledQueryImage
+                    height="100%"
+                    data={images[selected_platform?.image_key]}
+                    alt="test"
+                />
             </Flex>
-        )
-    }
-
-    return <></>
+            <Flex>
+                {selected_platform?.download_links?.map((link, index) => {
+                    return (
+                        <DownloadLink
+                            key={index}
+                            external="true"
+                            type={link?.link_type}
+                            to={link?.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img src={getOSIcon(link.type)} loading="lazy" />
+                        </DownloadLink>
+                    )
+                })}
+            </Flex>
+        </Flex>
+    )
 }
 
 export default Details

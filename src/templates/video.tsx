@@ -76,6 +76,7 @@ const VideoContainer = styled.div`
     width: 791px;
     height: 615px;
     border-radius: 8px;
+    position: relative;
 
     @media ${device.laptopM} {
         margin-bottom: 20px;
@@ -86,7 +87,7 @@ const VideoContainer = styled.div`
     }
     @media ${device.tabletS} {
         width: 328px;
-        height: 385px;
+        height: 100%;
     }
 `
 
@@ -191,7 +192,19 @@ const VideoPlayer = styled(Vimeo)`
 `
 
 const VideoDetailsContainer = styled.div`
-    padding: 2rem;
+    padding: 0 0 30px 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    @media (max-width: 800px) {
+        padding: 0 0 10px 20px;
+    }
+
+    @media ${device.tabletS} {
+        padding: 10px;
+        position: relative;
+    }
 `
 
 const Title = styled.h1`
@@ -217,9 +230,9 @@ const VideoDescription = styled.p`
     }
 `
 
-const VideoDetails = styled.div`
-    display: flex;
-    align-self: end;
+const VideoDetails = styled(Flex)`
+    justify-content: start;
+    align-items: center;
     bottom: 0;
 `
 const GreyText = styled.p`
@@ -398,26 +411,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                 </Scrollbar>
                             </StickyBreadCrumbsWrapper>
                         </Mobile>
-
                         <Container>
-                            {/* <Mobile breakpoint="laptop">
-                                <SideBarContainer fd="column" mr="126px" height="auto">
-                                    <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
-                                        {video_data?.tags.map((tag) => {
-                                            return (
-                                                <Tag
-                                                    key={tag?.tags_id?.id}
-                                                    onClick={() =>
-                                                        handleTag(tag?.tags_id?.tag_name)
-                                                    }
-                                                >
-                                                    {tag?.tags_id?.tag_name}
-                                                </Tag>
-                                            )
-                                        })}
-                                    </Flex>
-                                </SideBarContainer>
-                            </Mobile> */}
                             <DesktopContainer>
                                 <VideoAndRelatedContainer>
                                     <VideoContainer>

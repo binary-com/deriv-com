@@ -8,3 +8,5 @@
   GATSBY_ENV = "development"
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
+  
+  

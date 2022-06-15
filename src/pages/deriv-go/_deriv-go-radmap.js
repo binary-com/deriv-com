@@ -39,13 +39,9 @@ const StyledFrame = styled.div`
     justify-content: center;
     z-index: 1;
     position: relative;
-    top: 350px;
-    margin-top: -350px;
+    top: 310px;
+    margin-top: -310px;
 
-    @media ${device.laptopL} {
-        top: 250px;
-        margin-top: -250px;
-    }
     @media ${device.laptopM} {
         top: 55px;
         margin-top: -55px;

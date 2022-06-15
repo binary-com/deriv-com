@@ -514,6 +514,11 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
             </span>
         )
     }
+    const onClickIcon = () => {
+        navigate(`/academy/search?q=${encodeURI(search_input)}`)
+        setSearchInput('')
+        is_mobile_separator && setModal(false)
+    }
 
     const getResultTitles = (item) =>
         item.blog_title
@@ -538,14 +543,13 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         <SearchIconWrapper
                             src={SearchIcon}
                             alt="search_icon"
-                            onSubmit={handleSubmit}
+                            onClick={onClickIcon}
                         ></SearchIconWrapper>
                         <InputWrapper
                             type="text"
                             placeholder="I want to know about..."
                             onChange={handleFilterSearch}
                             onFocus={handleFocus}
-                            onBlur={handleBlur}
                             value={search_input}
                             ref={input_ref}
                             onKeyDown={handleNavigation}

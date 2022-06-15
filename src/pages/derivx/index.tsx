@@ -15,7 +15,7 @@ import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDerivX from 'images/svg/deriv-x/derivx-footer.svg'
 import BackgroundPatternDerivXMobile from 'images/svg/deriv-x/derivx-footer-mobile.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const query = graphql`
     query {
@@ -31,12 +31,12 @@ const DerivX = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }, [setMobile])
 
-    const { is_row } = getCountryRule()
+    const { is_row } = useCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setLoaded(true)
-    }, [getCountryRule])
+    }, [useCountryRule])
 
     useEffect(() => {
         handleResizeWindow()

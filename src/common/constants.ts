@@ -37,6 +37,7 @@ const getDomainAppID = () => {
 }
 
 export const eu_domains = ['eu', 'staging-eu']
+export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
 export const uk_domains = ['uk', 'staging-uk']
 
 // URL

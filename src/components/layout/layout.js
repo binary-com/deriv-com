@@ -3,7 +3,6 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import { getCountryRule } from '../containers/visibility'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
@@ -15,6 +14,7 @@ import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
@@ -92,7 +92,7 @@ const CFDText = styled(Text)`
 `
 
 export const CFDWarning = ({ is_ppc }) => {
-    const { is_uk_eu } = getCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     if (is_ppc || is_uk_eu) {
         return (
@@ -131,7 +131,7 @@ const Layout = ({
 }) => {
     const { non_eu_popup } = React.useContext(DerivStore)
     const [show_non_eu_popup, setShowNonEuPopup] = non_eu_popup
-    const { is_uk_eu } = getCountryRule()
+    const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()

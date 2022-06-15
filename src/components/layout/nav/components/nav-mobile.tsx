@@ -19,8 +19,8 @@ import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import Login from 'common/login'
 import { redirectToTradingPlatform } from 'common/utility'
-import { getCountryRule } from 'components/containers/visibility'
 import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -58,7 +58,7 @@ const NavMobile = ({
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     const { non_eu_popup } = React.useContext(DerivStore)
     const [_, setShowNonEuPopup] = non_eu_popup
-    const { is_non_eu } = getCountryRule()
+    const { is_non_eu } = useCountryRule()
 
     const handleLogin = () => {
         if (is_non_eu) {

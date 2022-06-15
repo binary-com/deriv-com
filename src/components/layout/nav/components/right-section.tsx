@@ -1,11 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { handleGetTrading, handleLogin, handleScroll, moveButton } from '../util/nav-methods'
+import { handleGetTrading, handleScroll, moveButton } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
-import { getCountryRule } from 'components/containers/visibility'
 import { DerivStore } from 'store'
+import { redirectToTradingPlatform } from 'common/utility'
+import Login from 'common/login'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+
 //import handleNonEu from 'components/layout/layout.js'
 type RightSectionProps = {
     is_logged_in: boolean
@@ -45,7 +48,7 @@ const RightSection = ({
     const { non_eu_popup } = React.useContext(DerivStore)
     const [_, setShowNonEuPopup] = non_eu_popup
     const button_ref = useRef(null)
-    const { is_non_eu } = getCountryRule()
+    const { is_non_eu } = useCountryRule()
     const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
@@ -75,6 +78,15 @@ const RightSection = ({
 
     const handleNonEuPopUp = () => {
         setShowNonEuPopup(true)
+    }
+
+    const handleLogin = () => {
+        if (is_non_eu) {
+            redirectToTradingPlatform()
+            Login.redirectToLogin()
+        } else {
+            setShowNonEuPopup(true)
+        }
     }
 
     return (

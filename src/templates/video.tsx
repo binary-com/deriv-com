@@ -221,7 +221,6 @@ const VideoDescription = styled.p`
     color: var(--color-grey);
     font-size: 16px;
     padding: 1.5rem 0;
-    max-width: 684px;
     line-height: 24px;
 
     @media ${device.tabletS} {

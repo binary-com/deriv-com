@@ -238,7 +238,7 @@ const VideoDetails = styled(Flex)`
 const GreyText = styled.p`
     color: var(--color-grey);
     font-size: 14px;
-    padding: 0 0.6rem;
+    padding: 0 10px;
 
     @media ${device.tabletS} {
         font-size: 12px;
@@ -247,7 +247,7 @@ const GreyText = styled.p`
 const GreyTextSmall = styled.p`
     color: var(--color-grey);
     font-size: 12px;
-    padding: 0 0.2rem;
+    padding-right: 10px;
 `
 
 const AllVideosButton = styled(LinkButton)`
@@ -425,7 +425,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                                 <GreyText>•</GreyText>
                                                 <GreyText>{published_date}</GreyText>
                                                 <GreyText>•</GreyText>
-                                                <GreyText>{video_duration} Min</GreyText>
+                                                <GreyText>{video_duration}</GreyText>
                                             </VideoDetails>
                                         </VideoDetailsContainer>
                                     </VideoContainer>

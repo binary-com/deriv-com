@@ -3,6 +3,7 @@ import Hero from './_hero'
 import { Rewards, SubmitABugReport } from './_lazy-load'
 import AboutDeriv from './_about-deriv'
 import Scope from './_scope'
+import OutOfScope from './_out_of_scope'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -26,6 +27,7 @@ const Security = () => {
             <Hero />
             <AboutDeriv />
             <Scope />
+            <OutOfScope />
             <Rewards />
             <SubmitABugReport />
         </Layout>

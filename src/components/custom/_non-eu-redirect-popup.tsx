@@ -36,51 +36,30 @@ const ModalCard = styled.div`
     flex-direction: column;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
+    width: 384px;
+    height: 172px;
     max-width: 44rem;
     background: var(--color-white);
-    padding: 2.4rem;
+    padding: 24px;
 
     @media ${device.mobileL} {
         width: 90%;
+        height: auto;
     }
 `
 
 const ButtonWrapper = styled(Flex)`
-    margin-bottom: 1rem;
-`
-
-const StyledButton = styled(Button)`
-    @media ${device.tablet} {
-        font-size: 1.4rem;
-        padding: 3px 8px;
-    }
+    justify-content: flex-end;
+    margin-top: 20px;
 `
 
 const StyledText = styled.div`
     font-size: 14px;
-    margin-bottom: 16px;
-    font-style: normal;
     font-weight: 400;
     line-height: 20px;
-
-    @media ${device.tablet} {
-        font-size: 12px;
-    }
-    @media ${device.mobileL} {
-        font-size: 10px;
-        margin-bottom: 8px;
-    }
 `
 
 const StyledButtonText = styled(Text)`
-    /* label */
-
-    width: 93px;
-    height: 20px;
-
-    /* desktop/paragraph/P2 - bold */
-
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -115,9 +94,9 @@ const NonEuRedirectPopUp = ({ is_open, setShowNonEuPopup }: PopupModalTypes) => 
                         </StyledText>
                         <ButtonWrapper>
                             <StyledButtonText>
-                                <StyledButton secondary onClick={RedirectNonEuLogin} mr="-24rem">
+                                <Button secondary onClick={RedirectNonEuLogin}>
                                     {localize('Take me there')}
-                                </StyledButton>
+                                </Button>
                             </StyledButtonText>
                         </ButtonWrapper>
                     </ModalCard>

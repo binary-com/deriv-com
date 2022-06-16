@@ -42,7 +42,6 @@ type StyledLabelProps = {
 
 const RelativeWrapper = styled.div`
     position: relative;
-    margin: 5px;
 `
 const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
@@ -119,8 +118,8 @@ const StyledInput = styled.input<StyledInputProps>`
         height: 100%;
 
         & ~ label {
-            font-size: 1.75rem;
-            top: 1.5rem;
+            font-size: 1.6rem;
+            top: 1.8rem;
         }
     }
     @media ${device.mobileL} {

@@ -31,7 +31,7 @@ const Symbol = styled(Flex)`
         font-weight: normal;
         font-size: var(--text-size-xs);
         line-height: 1.14;
-        margin-top: 8px;
+        margin-top: 10px;
 
         @media ${device.mobileL} {
             font-size: 14px;
@@ -40,6 +40,9 @@ const Symbol = styled(Flex)`
 `
 
 export const DropdownContainer = styled.ul`
+    @media (width: 428px) {
+        height: 46px;
+    }
     list-style: none;
     position: relative;
     border: 1px solid var(--color-grey-7);
@@ -216,7 +219,7 @@ export const StyledLabel = styled.label`
 
     @media ${device.tabletL} {
         font-size: 1.6rem;
-        top: 1.5rem;
+        top: 1.8rem;
     }
 
     @media ${device.mobileL} {
@@ -251,9 +254,7 @@ const ContractSizeWrapper = styled(Text)`
     cursor: text;
     color: var(--color-grey-5);
 
-    @media ${device.tabletL} {
-        margin-top: 4px;
-    }
+    margin-top: 12px;
 `
 
 const DefaultOptionText = styled(Text)`

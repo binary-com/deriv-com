@@ -107,7 +107,7 @@ const Search = styled.input`
 const ResultWrapper = styled.div`
     > :first-child {
         margin-top: 4rem;
-        margin-bottom: 3.6rem;
+        margin-bottom: 2.3rem;
     }
 `
 

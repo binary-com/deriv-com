@@ -314,7 +314,7 @@ const SwapCalculator = () => {
 
                                             <CalculatorBody>
                                                 <Dropdown
-                                                    mb="3.6rem"
+                                                    mb="2.3rem"
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
                                                     default_option={optionItemDefault}
@@ -563,7 +563,7 @@ const SwapCalculator = () => {
 
                                             <CalculatorBody>
                                                 <Dropdown
-                                                    mb="3.6rem"
+                                                    mb="2.3rem"
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}

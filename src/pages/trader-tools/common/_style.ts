@@ -97,9 +97,14 @@ export const SwapTabSelector = styled(Flex)`
     cursor: pointer;
     ${swap_tab_selector_css}
 
-    @media ${device.mobileL} {
+    @media (min-width:320px) {
         padding: 12px 24px;
-        min-width: 144px;
+        width: 154px;
+    }
+
+    @media (min-width: 375px) and (max-width: 425px) {
+        padding: 12px 24px;
+        width: 170px;
     }
 `
 
@@ -211,7 +216,7 @@ export const PnLCalculatorOutputContainer = styled(Flex)`
     background-color: var(--color-white);
     width: 100%;
     @media ${device.mobileL} {
-        max-width: 37rem;
+        max-width: 42rem;
     }
 `
 
@@ -351,18 +356,19 @@ const CalculatorTabItemStyles = css`
 
 export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
-    width: 20rem;
+    width: 18.3rem;
 
     @media (width: 428px) {
         width: 15.3rem;
     }
 
-    @media ${device.mobileL} {
-        width: 17.2rem;
+    @media ${device.tablet} {
+        width: 17.4rem;
+        height: 60px;
     }
-
-    @media (min-width: 768px) {
-        width: 18.8rem;
+    @media (min-width: 320px) and (max-width: 374px) {
+        width: 16rem;
+        height: 60px;
     }
 `
 
@@ -374,9 +380,6 @@ export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
 `
 
 export const CalculatorDropdown = styled(Dropdown)`
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
     margin-bottom: 2.3rem;
     @media (width: 428px) {
         height: 45px;

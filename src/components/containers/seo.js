@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
+import { isBrowser } from 'common/utility'
+import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 
 const non_localized_links = [
@@ -13,6 +15,8 @@ const non_localized_links = [
     '/besquare/',
     '/academy',
     '/academy/',
+    '/bug-bounty/',
+    '/bug-bounty/',
 ]
 
 const languages = Object.keys(language_config)
@@ -41,6 +45,9 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
     const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
     const default_og_description = localize('Trading platforms designed with you in mind.')
+
+    // To block eu.deriv.com domain for search engines
+    const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
 
     let is_ach_page = false
     let current_page = ''
@@ -160,6 +167,12 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                     name: 'version',
                     content: process.env.GATSBY_DERIV_VERSION,
                 },
+                block_eu
+                    ? {
+                          name: 'robots',
+                          content: 'noindex, nofollow',
+                      }
+                    : {},
                 ...(no_index || no_index_staging || is_ach_page
                     ? [
                           {

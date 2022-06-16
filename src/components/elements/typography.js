@@ -85,7 +85,7 @@ export const Text = styled.p`
 /////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-export const Header = styled(({ as = 'h1', children, ...props }) =>
+export const Header = styled(({ as = 'h2', children, ...props }) =>
     createElement(as, props, children),
 )`
     ${BaseElement}

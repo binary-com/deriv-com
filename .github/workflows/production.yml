@@ -97,7 +97,8 @@ jobs:
             - name: Verify nginx image
               run: |
                   set -e
-                  #docker run --rm -it --entrypoint sh ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -c "nginx -t"
+                  docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME nginx -t
+                  echo "docker image validated successfully"
 
             - name: Pushing Image to docker hub 🐳
               run: |
@@ -116,6 +117,16 @@ jobs:
                   cd devops-ci-scripts/k8s-build_tools
                   echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
                   ./release.sh deriv-com $GIT_TAG_NAME
+
+            - name: Deploy to Cloudflare ☁️
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                command: pages publish public --project-name=deriv-com-pages --branch=main
+
+            - name: Cloudflare production link ✨
+              run: echo "New website - http://cf-pages.deriv.com"
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

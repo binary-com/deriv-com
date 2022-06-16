@@ -11,7 +11,7 @@ import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic-new.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 
 type MarketType = {
@@ -267,8 +267,7 @@ const MobileCardContainer = styled(Flex)`
 `
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
-    const { is_uk } = getCountryRule()
-    const { is_eu } = getCountryRule()
+    const { is_uk, is_eu } = useCountryRule()
 
     const markets = [
         '',

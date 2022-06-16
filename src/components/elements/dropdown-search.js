@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
@@ -50,6 +50,13 @@ const DropdownSearch = ({
     const [dropdown_items, setDropdownItems] = useState([...items])
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
+
+    // Auto select default value
+    useEffect(() => {
+        if (selected_item) {
+            setInputValue(selected_item?.name)
+        }
+    }, [selected_item])
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value)

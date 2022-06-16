@@ -11,7 +11,7 @@ import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device'
 import { DerivStore } from 'store'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -172,7 +172,7 @@ const Subscribe = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
     const { user_country } = React.useContext(DerivStore)
-    const { is_eu } = getCountryRule()
+    const { is_eu } = useCountryRule()
 
     useEffect(() => {
         if (!window._cio) {

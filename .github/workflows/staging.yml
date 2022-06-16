@@ -63,7 +63,7 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+                  key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}
 
@@ -90,7 +90,7 @@ jobs:
               #   tagRegex: "staging(.*)"
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
-            
+
             - name: Verify nginx image
               run: |
                   set -e
@@ -118,9 +118,9 @@ jobs:
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                command: pages publish public --project-name=deriv-com-pages --branch=staging
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages publish public --project-name=deriv-com-pages --branch=staging
 
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages.deriv.com"

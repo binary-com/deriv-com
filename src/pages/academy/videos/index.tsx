@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, navigate } from 'gatsby'
 import Subscribe from '../components/_subscribe'
-import { dataFilter } from '../components/utility'
+import { useDataFilter } from '../components/utility'
 import AllVideos from './_all-videos'
 import { AllVideosQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
@@ -59,7 +59,7 @@ const VideosPage = ({ data }: VideosPageProps) => {
         video_link.includes('?t=') && navigate(video_link.replace('?t=', ''))
     }, [])
 
-    const video_data = dataFilter(data.directus.videos)
+    const video_data = useDataFilter(data.directus.videos)
 
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',

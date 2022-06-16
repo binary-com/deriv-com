@@ -6,7 +6,7 @@ import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
 import { SEO } from 'components/containers'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
 
@@ -45,12 +45,12 @@ const items = [
     },
 ]
 const DerivGo = () => {
-    const { is_row } = getCountryRule()
+    const { is_row } = useCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setLoaded(true)
-    }, [getCountryRule])
+    }, [useCountryRule])
 
     if (is_loaded) {
         if (is_row) {

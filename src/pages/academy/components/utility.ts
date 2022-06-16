@@ -1,6 +1,6 @@
 import { navigate } from 'gatsby'
 import { isBrowser, addScript } from 'common/utility'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 export const url = isBrowser() ? window.location.href : ''
 
@@ -36,7 +36,7 @@ export const handleTag = (tag_name) => {
 }
 
 export const dataFilter = (data) => {
-    const { is_eu, is_uk } = getCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
     let filtered_data = data
 
     if (is_eu) {

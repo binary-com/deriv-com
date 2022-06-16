@@ -2,6 +2,7 @@ import React, { useContext, useState, useRef } from 'react'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
+import { dataFilter } from '../utility'
 import {
     SearchResultRows,
     SearchSuggestionWrapper,
@@ -142,7 +143,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    const combined_data = [...academy_data.blog, ...academy_data.videos]
+    const combined_data = dataFilter([...academy_data.blog, ...academy_data.videos])
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(e.target.value)
@@ -260,6 +261,12 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         )
     }
 
+    const onClickIcon = () => {
+        navigate(`/academy/search?q=${encodeURI(search_input)}`)
+        setSearchInput('')
+        is_mobile_separator && setModal(false)
+    }
+
     const getResultTitles = (item) =>
         item.blog_title
             ? getHighlightedTitle(item.blog_title, search_query)
@@ -283,7 +290,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         <SearchIconWrapper
                             src={SearchIcon}
                             alt="search_icon"
-                            onSubmit={handleSubmit}
+                            onClick={onClickIcon}
                         ></SearchIconWrapper>
                         <InputWrapper
                             type="text"

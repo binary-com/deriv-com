@@ -9,10 +9,10 @@ import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useAcademyTags } from 'components/hooks/use-academy-tags'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { getCountryRule } from 'components/containers/visibility'
 import { slugify, isBrowser } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type SearchBannerProps = {
     hidden?: boolean
@@ -77,7 +77,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
-    const { is_eu, is_uk } = getCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     // Filter out restricted categories from the combined filter type array based on geolocation
     useEffect(() => {

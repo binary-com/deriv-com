@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
-import { dataFilter } from '../components/_utility'
+import { useDataFilter } from '../components/_utility'
 import AllVideos from './_all-videos'
 import { AllVideosQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
@@ -53,7 +53,7 @@ type VideosPageProps = {
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
 const VideosPage = ({ data }: VideosPageProps) => {
-    const video_data = dataFilter(data.directus.videos)
+    const video_data = useDataFilter(data.directus.videos)
 
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',

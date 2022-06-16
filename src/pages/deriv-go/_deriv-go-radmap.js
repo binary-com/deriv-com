@@ -24,6 +24,7 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
+    max-width: 1044px;
     padding-top: 8px;
     font-size: 32px;
 

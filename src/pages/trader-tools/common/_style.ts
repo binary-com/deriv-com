@@ -359,10 +359,10 @@ export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     width: 18.3rem;
 
     @media (width: 428px) {
-        width: 15.3rem;
+        width: 15rem;
     }
 
-    @media ${device.tablet} {
+    @media (min-width: 768px) {
         width: 17.4rem;
         height: 60px;
     }

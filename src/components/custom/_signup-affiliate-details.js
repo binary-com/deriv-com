@@ -63,7 +63,7 @@ const DropdownSearchWrapper = styled.div`
 `
 const CodeWrapper = styled.div`
     width: 20%;
-    padding: 2rem 1rem 1rem 0.8rem;
+    padding: 1rem;
     border: var(--color-grey-7) 1px solid;
     height: 40px;
     font-size: var(--text-size-s);

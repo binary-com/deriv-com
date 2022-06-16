@@ -30,6 +30,12 @@ type VideosTemplateProps = {
     data: AllVideosQuery
 }
 
+const VideoPageContainer = styled(Container)`
+    @media ${device.tabletS} {
+        width: 100%;
+    }
+`
+
 const StickyBreadCrumbsWrapper = styled(Flex)`
     background: ${(props) => (props.scroll ? 'var(--color-grey-8)' : 'var(--color-white)')};
     position: ${(props) => (props.scroll ? 'fixed' : 'unset')};
@@ -76,18 +82,11 @@ const VideoContainer = styled.div`
     width: 791px;
     height: 615px;
     border-radius: 8px;
-    position: relative;
 
     @media ${device.laptopM} {
         margin-bottom: 20px;
-    }
-    @media (max-width: 800px) {
-        width: 576px;
-        height: 480px;
-    }
-    @media ${device.tabletS} {
-        width: 328px;
-        height: 100%;
+        width: 100%;
+        height: auto;
     }
 `
 
@@ -101,15 +100,8 @@ const RelatedVideos = styled.div`
 
     @media ${device.laptopM} {
         margin-left: 0;
-        width: 791px;
-        height: 387px;
-    }
-    @media (max-width: 800px) {
-        width: 576px;
-        height: 615px;
-    }
-    @media ${device.tabletS} {
-        width: 328px;
+        width: 100%;
+        height: auto;
     }
 `
 
@@ -117,32 +109,17 @@ const RelatedVideosContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding-top: 5px;
-
-    @media ${device.laptopM} {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    @media (max-width: 800px) {
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
 `
 
 const RelatedVideoCard = styled.div`
     cursor: pointer;
     display: flex;
     width: 352px;
-    max-width: 352px;
     height: 96px;
     margin: 8px 0;
 
-    @media (max-width: 800px) {
-        width: 576px;
-    }
-
-    @media ${device.tabletS} {
-        width: 328px;
-        max-width: 328px;
+    @media ${device.laptopM} {
+        width: auto;
     }
 `
 
@@ -163,6 +140,12 @@ const RelatedVideoTitle = styled.h3`
     font-weight: 700;
     line-height: 20px;
     padding-bottom: 5px;
+
+    @media ${device.mobileM} {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 15px;
+    }
 `
 
 const RelatedVideoDateAndDuration = styled.div`
@@ -171,40 +154,12 @@ const RelatedVideoDateAndDuration = styled.div`
 
 const VideoPlayer = styled(Vimeo)`
     > iframe {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        width: 791px;
-        height: 445px;
-    }
-
-    @media (max-width: 800px) {
-        > iframe {
-            width: 576px;
-            height: 324px;
-        }
-    }
-    @media ${device.tabletS} {
-        > iframe {
-            width: 329px;
-            height: 185px;
-        }
+        width: 100%;
     }
 `
 
 const VideoDetailsContainer = styled.div`
-    padding: 0 0 30px 20px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    @media (max-width: 800px) {
-        padding: 0 0 10px 20px;
-    }
-
-    @media ${device.tabletS} {
-        padding: 10px;
-        position: relative;
-    }
+    padding: 20px;
 `
 
 const Title = styled.h1`
@@ -220,7 +175,7 @@ const Title = styled.h1`
 const VideoDescription = styled.p`
     color: var(--color-grey);
     font-size: 16px;
-    padding: 1.5rem 0;
+    padding: 16px 0;
     line-height: 24px;
 
     @media ${device.tabletS} {
@@ -231,8 +186,6 @@ const VideoDescription = styled.p`
 
 const VideoDetails = styled(Flex)`
     justify-content: start;
-    align-items: center;
-    bottom: 0;
 `
 const GreyText = styled.p`
     color: var(--color-grey);
@@ -410,11 +363,11 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                 </Scrollbar>
                             </StickyBreadCrumbsWrapper>
                         </Mobile>
-                        <Container>
+                        <VideoPageContainer>
                             <DesktopContainer>
                                 <VideoAndRelatedContainer>
                                     <VideoContainer>
-                                        <VideoPlayer video={vimeo_id} />
+                                        <VideoPlayer responsive={true} video={vimeo_id} />
                                         <VideoDetailsContainer>
                                             <Title>{video_title}</Title>
                                             <VideoDescription>{video_description}</VideoDescription>
@@ -472,7 +425,7 @@ const VideoTemplate = ({ data }: VideosTemplateProps) => {
                                     See all videos
                                 </AllVideosButton>
                             </DesktopContainer>
-                        </Container>
+                        </VideoPageContainer>
                     </SectionContainer>
                 )}
             </>

@@ -366,7 +366,7 @@ export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
         width: 17.4rem;
         height: 60px;
     }
-    @media (min-width: 320px) and (max-width: 374px) {
+    @media (min-width: 320px) and (max-width: 427px) {
         width: 16rem;
         height: 60px;
     }

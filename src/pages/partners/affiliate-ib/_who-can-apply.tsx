@@ -45,14 +45,11 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 const ImageWrapper = styled.img`
     width: 48px;
     height: 48px;
-`
+    margin-right: 16px;
 
-const ApplyImageWrapper = styled(ImageWrapper)`
-    margin-top: 0;
-`
-
-const TradingExpertsImageWrapper = styled(ImageWrapper)`
-    margin-top: 10px;
+    @media (max-width: 749px) {
+        margin-top: 10px;
+    }
 `
 
 const CenteredSection = styled(SectionContainer)`
@@ -157,7 +154,8 @@ const WhoCanApplyWrapper = styled(Col)`
 const ContentWrapper = styled(Wrapper)`
     @media (max-width: 749px) {
         flex-flow: wrap;
-        margin-top: 16px;
+        margin-top: 20px;
+        width: max-content;
     }
 `
 
@@ -190,7 +188,7 @@ const WhoCanApply = () => {
                             {localize('Who can apply')}
                         </StyledHeader>
                         <ContentWrapper>
-                            <TradingExpertsImageWrapper src={TradingExperts} alt="" />
+                            <ImageWrapper src={TradingExperts} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Trading experts')}
@@ -240,7 +238,7 @@ const WhoCanApply = () => {
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
-                                        <ApplyImageWrapper src={Apply} alt="" />
+                                        <ImageWrapper src={Apply} alt="" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">

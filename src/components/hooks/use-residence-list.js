@@ -22,6 +22,7 @@ export const useResidenceList = () => {
                         country.name = el.text
                         country.display_name = el.text
                         country.value = el.value
+                        country.country_code = el.phone_idd
                         return country
                     })
                     setResidenceList(residence_list_response)

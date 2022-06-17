@@ -9,6 +9,7 @@ import { useResidenceList } from '../hooks/use-residence-list'
 import { useAffiliateData } from '../hooks/use-affiliate-data'
 import CurrencySelect from '../form/currency-select'
 import AgreementLabel from './_agreement-label'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { Input, Button } from 'components/form'
 import { Header, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
@@ -60,6 +61,21 @@ const StyledLinkText = styled(LinkText)`
 const DropdownSearchWrapper = styled.div`
     margin-bottom: -16px;
 `
+const CodeWrapper = styled.div`
+    width: 20%;
+    border: var(--color-grey-7) 1px solid;
+    height: 40px;
+    font-size: var(--text-size-xs);
+    background: none;
+    color: var(--color-black);
+    border-radius: 4px;
+    text-align: center;
+`
+const MobileInputWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+`
 
 const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
     const [non_pep_declaration, setNonPepDeclaration] = useState(0)
@@ -68,16 +84,23 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
     const [disabled, setDisabled] = useState(true)
     const residence_list = useResidenceList()
     const [is_checked, setChecked] = useState(false)
+    const [website_status] = useWebsiteStatus()
+    const user_ip_country = website_status?.clients_country || ''
+    const [phone_code, setPhoneCode] = useState('')
+    const [default_residence, setDefaultResidence] = useState(null)
 
     useEffect(() => {
         if (residence_list.length > 0) {
             setDisabled(false)
+            const current_country = residence_list.find(({ value }) => value === user_ip_country)
+            setDefaultResidence(current_country)
         }
     }, [residence_list])
 
     const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
         useAffiliateData()
     const handleCheckChange = (event, func) => func(event.currentTarget.checked ? 1 : 0)
+
     return (
         <StyledContentFlex jc="flex-start" fd="column" p="40px">
             <Formik
@@ -86,7 +109,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                     first_name: first_name || '',
                     last_name: last_name || '',
                     date: date_of_birth || '',
-                    country: country || '',
+                    country: country || null,
                     residence_list: residence_list,
                     address: address_line_1 || address_line_2 || '',
                     phone: phone || '',
@@ -109,6 +132,11 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                 }) => {
                     const fieldsSelected = () =>
                         !(non_pep_declaration && tnc_accepted && is_checked) || !isValid || !dirty
+
+                    if (!values.country && default_residence) {
+                        setFieldValue('country', default_residence)
+                        setFieldValue(phone_code, setPhoneCode(default_residence.country_code))
+                    }
 
                     const form_inputs = [
                         {
@@ -155,6 +183,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             placeholder: 'Country of residence',
                             required: true,
                         },
+
                         {
                             id: 'dm-address',
                             name: 'address',
@@ -166,6 +195,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             placeholder: 'Address',
                             required: true,
                         },
+
                         {
                             id: 'dm-mobile-number',
                             name: 'phone',
@@ -189,6 +219,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             required: true,
                         },
                     ]
+
                     return (
                         <div style={{ display: 'block' }}>
                             <Header as="h3" type="heading-3" mb="8px">
@@ -201,64 +232,134 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             </Header>
                             <InputGroup>
                                 {form_inputs.map((item) => {
-                                    return item.name === 'country' ? (
-                                        <DropdownSearchWrapper key={item.id}>
-                                            <DropdownSearch
-                                                id={item.id}
-                                                label_position={0.8}
-                                                selected_item={values.country}
-                                                default_item={''}
-                                                error={item.touch && item.error}
-                                                items={item.list}
-                                                label={localize('Country of residence')}
-                                                onChange={(value) =>
-                                                    setFieldValue('country', value)
-                                                }
-                                                onBlur={handleBlur}
-                                                disabled={disabled}
-                                            />
-                                        </DropdownSearchWrapper>
-                                    ) : (
-                                        <Field
-                                            name={item.name}
-                                            key={item.id}
-                                            onChange={(value) => {
-                                                setFieldValue(item.name, value)
-                                            }}
-                                        >
-                                            {({ field }) => (
-                                                <Input
-                                                    {...field}
+                                    if (item.name === 'country') {
+                                        return (
+                                            <DropdownSearchWrapper key={item.id}>
+                                                <DropdownSearch
                                                     id={item.id}
-                                                    is_date={item.name === 'date'}
-                                                    error_shift="0.8rem"
-                                                    type={item.type}
-                                                    border="solid 1px var(--color-grey-7)"
-                                                    label_focus_color="black"
-                                                    background="white"
+                                                    label_position={0.8}
+                                                    selected_item={values.country}
+                                                    default_item={''}
                                                     error={item.touch && item.error}
-                                                    label={localize(item.label)}
-                                                    placeholder={item.placeholder}
-                                                    password_icon={item.name === 'password'}
-                                                    handleError={(current_input) => {
-                                                        setFieldValue(item.name, '', false)
-                                                        setFieldError(item.name, '')
-                                                        setFieldTouched(item.name, false, false)
-                                                        if (item.name !== 'date') {
-                                                            current_input.current.focus()
-                                                        }
+                                                    items={item.list}
+                                                    label={localize('Country of residence')}
+                                                    onChange={(value) => {
+                                                        setFieldValue('country', value)
+                                                        setFieldValue(
+                                                            phone_code,
+                                                            setPhoneCode(value.country_code),
+                                                        )
                                                     }}
                                                     onBlur={handleBlur}
-                                                    setFieldValue={setFieldValue}
-                                                    setFieldTouched={setFieldTouched}
-                                                    autoFocus={autofocus}
-                                                    autoComplete="off"
-                                                    required={item.required}
                                                     disabled={disabled}
                                                 />
-                                            )}
-                                        </Field>
-                                    )
+                                            </DropdownSearchWrapper>
+                                        )
+                                    }
+                                    if (item.name === 'phone') {
+                                        return (
+                                            <MobileInputWrapper>
+                                                <CodeWrapper>
+                                                    <div style={{ marginTop: '15px' }}>
+                                                        {'+' + phone_code}
+                                                    </div>
+                                                </CodeWrapper>
+                                                <div style={{ width: '80%', paddingLeft: '10px' }}>
+                                                    <Field
+                                                        name={item.name}
+                                                        key={item.id}
+                                                        onChange={(value) => {
+                                                            setFieldValue(item.name, value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id={item.id}
+                                                                is_date={item.name === 'date'}
+                                                                error_shift="0.8rem"
+                                                                type={item.type}
+                                                                border="solid 1px var(--color-grey-7)"
+                                                                label_focus_color="black"
+                                                                background="white"
+                                                                error={item.touch && item.error}
+                                                                label={localize(item.label)}
+                                                                placeholder={item.placeholder}
+                                                                password_icon={
+                                                                    item.name === 'password'
+                                                                }
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        item.name,
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError(item.name, '')
+                                                                    setFieldTouched(
+                                                                        item.name,
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    if (item.name !== 'date') {
+                                                                        current_input.current.focus()
+                                                                    }
+                                                                }}
+                                                                onBlur={handleBlur}
+                                                                setFieldValue={setFieldValue}
+                                                                setFieldTouched={setFieldTouched}
+                                                                autoFocus={autofocus}
+                                                                autoComplete="off"
+                                                                required={item.required}
+                                                                disabled={disabled}
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </div>
+                                            </MobileInputWrapper>
+                                        )
+                                    } else {
+                                        return (
+                                            <Field
+                                                name={item.name}
+                                                key={item.id}
+                                                onChange={(value) => {
+                                                    setFieldValue(item.name, value)
+                                                }}
+                                            >
+                                                {({ field }) => (
+                                                    <Input
+                                                        {...field}
+                                                        id={item.id}
+                                                        is_date={item.name === 'date'}
+                                                        error_shift="0.8rem"
+                                                        type={item.type}
+                                                        border="solid 1px var(--color-grey-7)"
+                                                        label_focus_color="black"
+                                                        background="white"
+                                                        error={item.touch && item.error}
+                                                        label={localize(item.label)}
+                                                        placeholder={item.placeholder}
+                                                        password_icon={item.name === 'password'}
+                                                        handleError={(current_input) => {
+                                                            setFieldValue(item.name, '', false)
+                                                            setFieldError(item.name, '')
+                                                            setFieldTouched(item.name, false, false)
+                                                            if (item.name !== 'date') {
+                                                                current_input.current.focus()
+                                                            }
+                                                        }}
+                                                        onBlur={handleBlur}
+                                                        setFieldValue={setFieldValue}
+                                                        setFieldTouched={setFieldTouched}
+                                                        autoFocus={autofocus}
+                                                        autoComplete="off"
+                                                        required={item.required}
+                                                        disabled={disabled}
+                                                    />
+                                                )}
+                                            </Field>
+                                        )
+                                    }
                                 })}
                             </InputGroup>
                             <Flex fd="row" jc="space-between" ai="center" mt="24px">
@@ -339,6 +440,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                             const { residence_list, ...user_data } = values
                                             setUserData({
                                                 ...user_data,
+                                                phone_code,
                                                 non_pep_declaration,
                                                 tnc_accepted,
                                             })

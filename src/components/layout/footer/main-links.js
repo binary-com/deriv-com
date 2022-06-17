@@ -125,7 +125,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <ROW>
                             <LinkWrapper>
-                                <Link to="/derivx/">{<Localize translate_text="DerivX" />}</Link>
+                                <Link to="/derivx/">{<Localize translate_text="Deriv X" />}</Link>
                             </LinkWrapper>
                             <LinkWrapper>
                                 <Link to="/deriv-go/">

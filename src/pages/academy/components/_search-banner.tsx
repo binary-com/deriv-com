@@ -11,7 +11,7 @@ import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { useAcademyTags } from 'components/hooks/use-academy-tags'
 import { LocalizedLink } from 'components/localization'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { slugify, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
@@ -514,6 +514,11 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
             </span>
         )
     }
+    const onClickIcon = () => {
+        navigate(`/academy/search?q=${encodeURI(search_input)}`)
+        setSearchInput('')
+        is_mobile_separator && setModal(false)
+    }
 
     const getResultTitles = (item) =>
         item.blog_title
@@ -538,14 +543,13 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         <SearchIconWrapper
                             src={SearchIcon}
                             alt="search_icon"
-                            onSubmit={handleSubmit}
+                            onClick={onClickIcon}
                         ></SearchIconWrapper>
                         <InputWrapper
                             type="text"
                             placeholder="I want to know about..."
                             onChange={handleFilterSearch}
                             onFocus={handleFocus}
-                            onBlur={handleBlur}
                             value={search_input}
                             ref={input_ref}
                             onKeyDown={handleNavigation}
@@ -720,7 +724,7 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
-    const { is_eu, is_uk } = getCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     // Filter out restricted categories from the combined filter type array based on geolocation
     useEffect(() => {

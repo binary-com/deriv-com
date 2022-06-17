@@ -35,7 +35,7 @@ export const useWebsiteStatus = () => {
         } else {
             setLoading(false)
         }
-    }, [website_status])
+    }, [setWebsiteStatus, website_status])
 
     return [website_status, setWebsiteStatus, is_loading]
 }

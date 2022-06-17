@@ -91,7 +91,7 @@ const SubmitABugReport = () => {
                     <TextWrap>
                         <Header type="heading-2" color="white" as="p" weight="700">
                             <Localize
-                                translate_text="Send your reports to our <0>Bug Bounty Program"
+                                translate_text="Send your reports to our <0>Bug Bounty Platform</0>"
                                 components={[
                                     <LinkText
                                         key={0}

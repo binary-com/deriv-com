@@ -34,17 +34,7 @@ export const Eu = ({ children }) => {
     if (is_eu_country) return <>{children}</>
     else
         return (
-            <Container
-                ref={ref}
-                height={dimensions.height}
-                width={dimensions.width}
-                top={dimensions.top}
-                bottom={dimensions.bottom}
-                left={dimensions.left}
-                right={dimensions.right}
-                x={dimensions.x}
-                y={dimensions.y}
-            >
+            <Container ref={ref} {...dimensions}>
                 {JSON.stringify(dimensions)}
             </Container>
         )
@@ -58,17 +48,7 @@ export const NonEU = ({ children }) => {
     if (is_eu_country === false) return <>{children}</>
     else
         return (
-            <Container
-                ref={ref}
-                height={dimensions.height}
-                width={dimensions.width}
-                top={dimensions.top}
-                bottom={dimensions.bottom}
-                left={dimensions.left}
-                right={dimensions.right}
-                x={dimensions.x}
-                y={dimensions.y}
-            >
+            <Container ref={ref} {...dimensions}>
                 {JSON.stringify(dimensions)}
             </Container>
         )
@@ -93,12 +73,8 @@ Mobile.propTypes = {
 
 Eu.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    height: PropTypes.string,
-    width: PropTypes.string,
 }
 
 NonEU.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    height: PropTypes.string,
-    width: PropTypes.string,
 }

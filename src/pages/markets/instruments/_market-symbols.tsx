@@ -1053,10 +1053,12 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
     {
         src: icons.BTCXAG,
         text: <Localize translate_text="BTC/XAG" />,
+        row: false,
     },
     {
         src: icons.BTCXAU,
         text: <Localize translate_text="BTC/XAU" />,
+        row: false,
     },
     {
         src: icons.DOGUSD,

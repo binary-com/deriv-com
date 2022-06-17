@@ -71,7 +71,11 @@ const DerivGo = () => {
         return <PageNotFound />
     }
 
-    return <></>
+    return (
+        <>
+            <SEO title="Deriv Go | Deriv" />
+        </>
+    )
 }
 
 export default WithIntl()(DerivGo)

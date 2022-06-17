@@ -56,7 +56,17 @@ const Options = () => {
         )
     }
 
-    return <></>
+    return (
+        <>
+            <SEO
+                title={localize('Options trading | Trade types | Deriv')}
+                description={localize(
+                    'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets.',
+                )}
+                meta_attributes={meta_attributes}
+            />
+        </>
+    )
 }
 
 export default WithIntl()(Options)

@@ -87,6 +87,13 @@ const GetStartedContent = styled(Content)`
         max-width: 360px;
         position: relative;
         top: -3px;
+
+        h4 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 14px;
+        }
     }
 `
 
@@ -108,6 +115,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         font-size: 24px;
+        text-align: center;
     }
 `
 
@@ -151,12 +159,25 @@ const WhoCanApplyWrapper = styled(Col)`
     max-width: 42.8rem;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 749px) {
+        text-align: center;
+
+        h4 {
+            text-align: center;
+            font-size: 18px;
+        }
+        p {
+            text-align: center;
+            font-size: 14px;
+        }
+    }
 `
 const ContentWrapper = styled(Wrapper)`
     @media (max-width: 749px) {
         flex-flow: wrap;
         margin-top: 24px;
-        width: max-content;
+        justify-content: center;
     }
 `
 

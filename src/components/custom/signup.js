@@ -199,7 +199,7 @@ const Signup = (props) => {
             address_line_1: address,
             address_postcode: address,
             address_state: address,
-            phone: '+' + phone_code + phone,
+            phone: `+` + phone_code + phone,
             password,
             non_pep_declaration,
             tnc_accepted,

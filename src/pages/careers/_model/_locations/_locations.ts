@@ -107,7 +107,7 @@ export const dubai: LocationsType = {
     map_text:
         'Deriv (Dubai) provides limitless opportunities to grow. Here, you can work on remarkable projects that showcase your mettle on a global scale. You will have the scope to expand your career horizontally and vertically. If you are keen on learning and enjoy a fulfilling career journey, join our team in Dubai.',
     address: address_dubai,
-    google_map_link: 'https://goo.gl/maps/UMNHYdEBdsAg7Ax29',
+    google_map_link: 'https://goo.gl/maps/xx4q4ui1NhgVtE8J7',
     has_iframe: true,
     badge: 'dubai_great_place_to_work_badge',
     badge_alt: 'Dubai Great Place to Work 2022 Certification Badge',

@@ -82,7 +82,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             height: 24px;
             margin: 8px 8px 8px 24px;
         }
-        h4 {
+        h3 {
             color: var(--color-black);
         }
         ::before {
@@ -149,7 +149,7 @@ const Card = ({ display_name, active_tab, name }: CardProps) => {
                 {name === 'Multipliers' && (
                     <TabIcon src={MultipliersIcon} alt="" name={name} active_tab={active_tab} />
                 )}
-                <Header as="h4" type="unset" size="18px" width="auto">
+                <Header as="h3" type="unset" size="18px" width="auto">
                     {display_name}
                 </Header>
             </Flex>

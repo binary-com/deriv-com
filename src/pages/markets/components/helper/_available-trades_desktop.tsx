@@ -98,7 +98,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             margin: 0 8px 0 0;
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
         }
-        h4 {
+        h3 {
             color: ${(props) =>
                 props.active_tab === props.name ? 'var(--color-black)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
@@ -202,7 +202,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {name === 'Multipliers' && (
                     <TabIcon src={MultipliersIcon} alt="" name={name} active_tab={active_tab} />
                 )}
-                <CardHeader as="h4" type="sub-section-title" width="auto">
+                <CardHeader as="h3" type="sub-section-title" width="auto">
                     {display_name}
                 </CardHeader>
             </Flex>

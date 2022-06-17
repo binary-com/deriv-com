@@ -63,10 +63,9 @@ const DropdownSearchWrapper = styled.div`
 `
 const CodeWrapper = styled.div`
     width: 20%;
-    padding: 1rem;
     border: var(--color-grey-7) 1px solid;
     height: 40px;
-    font-size: var(--text-size-s);
+    font-size: var(--text-size-xs);
     background: none;
     color: var(--color-black);
     border-radius: 4px;
@@ -261,9 +260,11 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                         return (
                                             <MobileInputWrapper>
                                                 <CodeWrapper>
-                                                    <span>{'+' + phone_code}</span>
+                                                    <div style={{ marginTop: '15px' }}>
+                                                        {'+' + phone_code}
+                                                    </div>
                                                 </CodeWrapper>
-                                                <div style={{ width: '80%' }}>
+                                                <div style={{ width: '80%', paddingLeft: '10px' }}>
                                                     <Field
                                                         name={item.name}
                                                         key={item.id}

@@ -19,7 +19,7 @@ const CryptocurrenciesCFDs = () => {
             <ROW>
                 <>
                     {cryptocurrencies_cfds_row.map((symbol, index) => (
-                        <Symbol key={index} src={symbol.src} text={symbol.text} row={symbol.row} />
+                        <Symbol key={index} src={symbol.src} text={symbol.text} />
                     ))}
                 </>
             </ROW>

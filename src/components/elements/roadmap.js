@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
@@ -84,7 +85,7 @@ const query = graphql`
     }
 `
 
-const RoadmapDerivGO = () => {
+const Roadmap = ({ portal }) => {
     const data = useStaticQuery(query)
 
     return (
@@ -95,37 +96,38 @@ const RoadmapDerivGO = () => {
                         <Localize translate_text="What’s next?" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center">
-                        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+                        {portal.paragraph}
                     </StyledText>
                 </Flex>
             </Container>
-            <StyledFrame>
-                <iframe
-                    src="https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1"
-                    frameBorder="0"
-                    height="100%"
-                    width="100%"
-                ></iframe>
-                <StyledButton
-                    tertiary="true"
-                    to={'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn'}
-                    external="true"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {localize('Go to portal')}
-                </StyledButton>
-            </StyledFrame>
-            <StyledRoadmap>
-                <QueryImage
-                    data={data['roadmap']}
-                    alt={'roadmap'}
-                    width="100%"
-                    className="content-wrapper"
-                />
-            </StyledRoadmap>
+            <>
+                <StyledFrame>
+                    <iframe src={portal.frame} frameBorder="0" height="100%" width="100%"></iframe>
+                    <StyledButton
+                        tertiary="true"
+                        to={portal.link}
+                        external="true"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {localize('Go to portal')}
+                    </StyledButton>
+                </StyledFrame>
+                <StyledRoadmap>
+                    <QueryImage
+                        data={data['roadmap']}
+                        alt={'roadmap'}
+                        width="100%"
+                        className="content-wrapper"
+                    />
+                </StyledRoadmap>
+            </>
         </StyledSectionContainer>
     )
 }
 
-export default RoadmapDerivGO
+Roadmap.propTypes = {
+    portal: PropTypes.object,
+}
+
+export default Roadmap

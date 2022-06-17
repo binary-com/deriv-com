@@ -5,8 +5,8 @@ import Banner from './_banner.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
-import RoadmapDerivGO from './_deriv-go-radmap'
 import { SEO } from 'components/containers'
+import Roadmap from 'components/elements/roadmap'
 import { getCountryRule } from 'components/containers/visibility'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
@@ -45,6 +45,14 @@ const items = [
         image_alt: 'risk management trading',
     },
 ]
+
+const derivGoPortalData = {
+    paragraph: (
+        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+    ),
+    frame: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1',
+    link: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn',
+}
 const DerivGo = () => {
     const { is_row } = getCountryRule()
     const [is_loaded, setLoaded] = useState(false)
@@ -65,7 +73,7 @@ const DerivGo = () => {
                     <StartDerivGo />
                     <FooterBanner />
                     <OtherApps />
-                    <RoadmapDerivGO />
+                    <Roadmap portal={derivGoPortalData} />
                 </Layout>
             )
         }

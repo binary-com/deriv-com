@@ -46,7 +46,7 @@ const RightSection = ({
     hide_signup_login,
 }: RightSectionProps) => {
     const { non_eu_popup } = React.useContext(DerivStore)
-    const [_, setShowNonEuPopup] = non_eu_popup
+    const [, setShowNonEuPopup] = non_eu_popup
     const button_ref = useRef(null)
     const { is_non_eu } = useCountryRule()
     const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'

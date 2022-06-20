@@ -12,7 +12,6 @@ import {
     crash_boom,
     crash_boom_trade_type_eu,
     cryptocurrencies_cfds,
-    cryptocurrencies_cfds_ROW,
     cryptocurrencies_multipliers,
     cryptocurrencies_trade_type,
     daily_reset_indices,
@@ -61,8 +60,7 @@ export const CrashBoom = () => {
 }
 
 export const CryptocurrenciesCFDs = () => {
-    const { is_eu } = getCountryRule()
-    return <Symbol instruments_type={is_eu ? cryptocurrencies_cfds : cryptocurrencies_cfds_ROW} />
+    return <Symbol instruments_type={cryptocurrencies_cfds} />
 }
 
 export const CryptocurrenciesMultipliers = () => (

@@ -1068,7 +1068,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
     {
         src: icons.BTCXAU,
         text: <Localize translate_text="BTC/XAU" />,
-
         row: false,
     },
     {

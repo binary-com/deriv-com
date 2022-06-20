@@ -17,7 +17,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
+import { isBrowser, handleRedirect, queryParamData, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
@@ -160,7 +160,7 @@ const Layout = ({
         const website_status = useWebsiteStatusApi()
 
         React.useEffect(() => {
-            if (website_status) {
+            if (website_status && !isEuDomain()) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
                 const residence = client_information_cookie.get('residence')

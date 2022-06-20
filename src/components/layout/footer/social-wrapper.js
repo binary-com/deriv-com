@@ -7,8 +7,12 @@ import {
     instagram_url_career,
     linkedin_url,
     linkedin_url_career,
+    reddit_url,
+    telegram_url,
 } from 'common/constants'
 //Logo
+import Reddit from 'images/svg/layout/footer-reddit.svg'
+import Telegram from 'images/svg/layout/footer-telegram.svg'
 import Twitter from 'images/svg/layout/footer-twitter.svg'
 import Instagram from 'images/svg/layout/footer-instagram.svg'
 import Facebook from 'images/svg/layout/footer-facebook.svg'
@@ -17,6 +21,16 @@ import Linkedin from 'images/svg/layout/footer-linkedin.svg'
 const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter_url }) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
+        {
+            link: reddit_url,
+            image: Reddit,
+            image_alt: `reddit ${alt_string}`,
+        },
+        {
+            link: telegram_url,
+            image: Telegram,
+            image_alt: `telegram ${alt_string}`,
+        },
         {
             link: is_career_page ? fb_url_career : fb_url,
             image: Facebook,

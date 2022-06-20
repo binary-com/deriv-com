@@ -6,7 +6,7 @@ import { Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { deriv_com_url } from 'common/constants'
-import { PopupModalTypes } from 'types/generics'
+import type { PopupModalTypes } from 'types/generics'
 
 const Background = styled.div`
     position: absolute;
@@ -86,23 +86,21 @@ const NonEuRedirectPopUp = ({ is_open, setShowNonEuPopup }: PopupModalTypes) => 
     const toggle = () => setShowNonEuPopup(!is_open)
     return (
         is_open && (
-            <>
-                <ModalWrapper>
-                    <ModalCard>
-                        <StyledText>
-                            <Localize translate_text="It seems you’re not in the EU, so we’re taking you to our website for non-EU visitors, where you can log in or sign up (if you don’t have a Deriv account)." />
-                        </StyledText>
-                        <ButtonWrapper>
-                            <StyledButtonText>
-                                <Button secondary onClick={RedirectNonEuLogin}>
-                                    {localize('Take me there')}
-                                </Button>
-                            </StyledButtonText>
-                        </ButtonWrapper>
-                    </ModalCard>
-                    <Background onClick={toggle} />
-                </ModalWrapper>
-            </>
+            <ModalWrapper>
+                <ModalCard>
+                    <StyledText>
+                        <Localize translate_text="It seems you’re not in the EU, so we’re taking you to our website for non-EU visitors, where you can log in or sign up (if you don’t have a Deriv account)." />
+                    </StyledText>
+                    <ButtonWrapper>
+                        <StyledButtonText>
+                            <Button secondary onClick={RedirectNonEuLogin}>
+                                {localize('Take me there')}
+                            </Button>
+                        </StyledButtonText>
+                    </ButtonWrapper>
+                </ModalCard>
+                <Background onClick={toggle} />
+            </ModalWrapper>
         )
     )
 }

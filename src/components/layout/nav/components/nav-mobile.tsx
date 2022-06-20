@@ -57,7 +57,7 @@ const NavMobile = ({
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     const { non_eu_popup } = React.useContext(DerivStore)
-    const [_, setShowNonEuPopup] = non_eu_popup
+    const [, setShowNonEuPopup] = non_eu_popup
     const { is_non_eu } = useCountryRule()
 
     const handleLogin = () => {

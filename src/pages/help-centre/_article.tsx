@@ -13,7 +13,7 @@ export type ArticleProps = {
     header?: string
     title?: string
     description?: string
-    text?: string
+    text?: string | React.ReactElement
     label?: string
     is_mounted?: boolean
     has_note?: string

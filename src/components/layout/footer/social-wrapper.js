@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { SocialWrapper } from './common/style.js'
 import { LocalizedLink } from 'components/localization'
 import {
+    reddit_url,
+    telegram_url,
     fb_url_career,
     instagram_url_career,
     linkedin_url,
     linkedin_url_career,
-    reddit_url,
-    telegram_url,
 } from 'common/constants'
 //Logo
 import Reddit from 'images/svg/layout/footer-reddit.svg'
@@ -55,7 +55,7 @@ const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter
     }
 
     if (!is_career_page) {
-        accounts.splice(1, 0, twitter)
+        accounts.splice(3, 0, twitter)
     }
 
     return <SocialMediaComponent social_accounts={accounts} />

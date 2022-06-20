@@ -5,7 +5,6 @@ import { Localize } from 'components/localization'
 export type MarketSymbol = {
     src: string
     text: ReactElement
-    row?: boolean
 }
 export const americas: MarketSymbol[] = [
     {

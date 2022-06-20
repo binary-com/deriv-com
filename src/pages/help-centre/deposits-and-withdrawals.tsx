@@ -5,7 +5,7 @@ import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
     list-style: ${(props) => props.listStyle};
@@ -122,31 +122,37 @@ const LiftWithdrawalLimits = ({ text }: ArticleProps) => (
 const CreditCardDepositDeclined = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Here are some reasons why your credit card deposit was declined:')}</Text>
+        <Text>
+            {
+                <Localize translate_text="Here are some reasons why your credit card deposit was declined:" />
+            }
+        </Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>
-                    {localize(
-                        'Your card issuer may have blocked your transaction. Please contact your card issuer to check.',
-                    )}
+                    {
+                        <Localize translate_text="Your card issuer may have blocked your transaction. Please contact your card issuer to check." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        'Your 3D SecureCode may not be activated. Please contact your bank to check.',
-                    )}
+                    {
+                        <Localize translate_text="Your 3D SecureCode may not be activated. Please contact your bank to check." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        'Your country of residence does not match the country that your card was issued in.',
-                    )}
+                    {
+                        <Localize translate_text="Your country of residence does not match the country that your card was issued in." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Your credit card balance may be insufficient.')}</Text>
+                <Text>
+                    {<Localize translate_text="Your credit card balance may be insufficient." />}
+                </Text>
             </StyledListItem>
         </StyledList>
         <StyledText>
@@ -171,9 +177,9 @@ const WithdrawDepositBonus = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "Yes, but only once your turnover exceeds an amount that's 25 times the deposit bonus value. The bonus is to help you get familiar with our trading platforms, so we'd love for you to use it to trade and earn a potential profit (which you may withdraw at any time).",
-            )}
+            {
+                <Localize translate_text="Yes, but only once your turnover exceeds an amount that's 25 times the deposit bonus value. The bonus is to help you get familiar with our trading platforms, so we'd love for you to use it to trade and earn a potential profit (which you may withdraw at any time)." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -182,9 +188,9 @@ const WithdrawMaestroMastercard = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'Mastercard and Maestro card withdrawals are only available for UK clients. If you are not from the UK, you’ll need to use a withdrawal method that’s available in your country.',
-            )}
+            {
+                <Localize translate_text="Mastercard and Maestro card withdrawals are only available for UK clients. If you are not from the UK, you’ll need to use a withdrawal method that’s available in your country." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -193,9 +199,9 @@ const ConversionRatesDepositsAndWithdrawals = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'The currency conversion for your deposits and withdrawals are done by your payment service provider. For example, if you use Skrill, your transaction amount will be converted by Skrill. Please check with your service provider regarding the conversion rates used for your deposits and withdrawals.',
-            )}
+            {
+                <Localize translate_text="The currency conversion for your deposits and withdrawals are done by your payment service provider. For example, if you use Skrill, your transaction amount will be converted by Skrill. Please check with your service provider regarding the conversion rates used for your deposits and withdrawals." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -220,16 +226,20 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
         </Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('you reside in the UK, or')}</Text>
+                <Text>{<Localize translate_text="you reside in the UK, or" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize('your withdrawal request has already been authorised and processed')}
+                    {
+                        <Localize translate_text="your withdrawal request has already been authorised and processed" />
+                    }
                 </Text>
             </StyledListItem>
         </StyledList>
         <StyledText>
-            <Text>{localize('To cancel your withdrawal, follow these steps:')}</Text>
+            <Text>
+                {<Localize translate_text="To cancel your withdrawal, follow these steps:" />}
+            </Text>
         </StyledText>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
@@ -251,7 +261,9 @@ const HowCanICancelMyWithdrawal = ({ text }: ArticleProps) => (
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize("We'll send you an email with a verification link. Click that link.")}
+                    {
+                        <Localize translate_text="We'll send you an email with a verification link. Click that link." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
@@ -278,9 +290,9 @@ const DepositWithFriendsAndFamilyCard = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'No. To keep your funds safe, you are strictly prohibited from using payment methods that are not yours. If you do use someone else’s payment method, we’ll suspend your Deriv account for security purposes.',
-            )}
+            {
+                <Localize translate_text="No. To keep your funds safe, you are strictly prohibited from using payment methods that are not yours. If you do use someone else’s payment method, we’ll suspend your Deriv account for security purposes." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -312,77 +324,91 @@ const DepositsAndWithdrawalArticle = () => {
     return (
         <div>
             <Article
-                header={localize('Deposits and withdrawals')}
-                title={localize(
-                    'Help centre | Frequently asked questions | Deposits and withdrawals | Deriv',
-                )}
-                description={localize('Frequently asked questions - Deposits and withdrawals')}
+                header={<Localize translate_text="Deposits and withdrawals" />}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | Deposits and withdrawals | Deriv" />
+                }
+                description={
+                    <Localize translate_text="Frequently asked questions - Deposits and withdrawals" />
+                }
             >
                 <PaymentMethods
-                    text={localize('What payment methods can I use for deposits and withdrawals?')}
+                    text={
+                        <Localize translate_text="What payment methods can I use for deposits and withdrawals?" />
+                    }
                     label="payment-methods"
                     is_mounted={is_mounted}
                 />
                 <WithdrawalProcessingTime
-                    text={localize(
-                        'How long does it take for my deposits and withdrawals to be processed?',
-                    )}
+                    text={
+                        <Localize translate_text="How long does it take for my deposits and withdrawals to be processed?" />
+                    }
                     label="deposit-withdrawal-processing-time"
                     is_mounted={is_mounted}
                 />
                 <MinimumDepositWithdrawal
-                    text={localize('What is the minimum deposit or withdrawal amount?')}
+                    text={
+                        <Localize translate_text="What is the minimum deposit or withdrawal amount?" />
+                    }
                     label="minimum-deposit-or-withdrawal"
                     is_mounted={is_mounted}
                 />
                 <ExpiredVerificationLink
-                    text={localize(
-                        'My withdrawal verification link has expired. What should I do?',
-                    )}
+                    text={
+                        <Localize translate_text="My withdrawal verification link has expired. What should I do?" />
+                    }
                     label="expired-verification-link"
                     is_mounted={is_mounted}
                 />
                 <LiftWithdrawalLimits
-                    text={localize('How can I remove the withdrawal limit on my account?')}
+                    text={
+                        <Localize translate_text="How can I remove the withdrawal limit on my account?" />
+                    }
                     label="lift-withdrawal-limits"
                     is_mounted={is_mounted}
                 />
                 <CreditCardDepositDeclined
-                    text={localize('Why did my credit card deposit get declined?')}
+                    text={
+                        <Localize translate_text="Why did my credit card deposit get declined? " />
+                    }
                     label="credit-card-deposit-declined"
                     is_mounted={is_mounted}
                 />
                 <WithdrawDepositBonus
-                    text={localize('Can I withdraw my deposit bonus?')}
+                    text={<Localize translate_text="Can I withdraw my deposit bonus?" />}
                     label="withdraw-deposit-bonus"
                     is_mounted={is_mounted}
                 />
                 <WithdrawMaestroMastercard
-                    text={localize("Why can't I withdraw using Maestro or Mastercard?")}
+                    text={
+                        <Localize translate_text="Why can't I withdraw using Maestro or Mastercard?" />
+                    }
                     label="withdraw-to-maestro-mastercard"
                     is_mounted={is_mounted}
                 />
                 <ConversionRatesDepositsAndWithdrawals
-                    text={localize(
-                        'What conversion rates do you use for deposits and withdrawals?',
-                    )}
+                    text={
+                        <Localize translate_text="What conversion rates do you use for deposits and withdrawals?" />
+                    }
                     label="What-conversion-rates-do-you-use-for-deposits-and-withdrawals"
                     is_mounted={is_mounted}
                 />
                 <HowCanICancelMyWithdrawal
-                    text={localize('How can I cancel my withdrawal?')}
+                    text={<Localize translate_text="How can I cancel my withdrawal?" />}
                     label="How-can-I-cancel-my-withdrawal"
                     is_mounted={is_mounted}
                 />
                 <DepositWithFriendsAndFamilyCard
-                    text={localize(
-                        "Can I deposit with my friend's/family member's debit/credit card or e-wallet?",
-                    )}
+                    text={
+                        <Localize translate_text="Can I deposit with my friend's/family member's debit/credit card or e-wallet? " />
+                    }
                     label="deposit-with-friends-and-family-card"
                     is_mounted={is_mounted}
                 />
                 <PaymentMethodsOnTheWithdrawalPage
-                    text={localize("Why can't I see any payment methods on the Withdrawal page?")}
+                    text={
+                        <Localize translate_text="Why can't I see any payment methods on the Withdrawal page?" />
+                    }
                     label="payment-methods-on-the-Withdrawal-page"
                     is_mounted={is_mounted}
                 />

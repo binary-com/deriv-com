@@ -5,7 +5,7 @@ import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-
 import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const StyledLink = styled(ExternalLink)`
     @media ${device.tabletL} {
@@ -48,9 +48,9 @@ const DTraderMarkets = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices on DTrader. Some markets may not be available in certain countries.',
-            )}
+            {
+                <Localize translate_text="You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and synthetic indices on DTrader. Some markets may not be available in certain countries." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -58,47 +58,49 @@ const DTraderMarkets = ({ text }: ArticleProps) => (
 const DTraderContracts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('These contracts are available on DTrader:')}</Text>
+        <Text>{<Localize translate_text="These contracts are available on DTrader:" />}</Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Multipliers')}</Text>
+                <Text>{<Localize translate_text="Multipliers" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Ups & Downs')}</Text>
+                <Text>{<Localize translate_text="Ups & Downs" />}</Text>
                 <StyledList listStyle="circle" paddingLeft="5rem">
                     <StyledListItem marginTop="0.3rem">
-                        <Text>{localize('Rise/Fall')}</Text>
+                        <Text>{<Localize translate_text="Rise/Fall" />}</Text>
                     </StyledListItem>
                 </StyledList>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Highs & Lows')}</Text>
+                <Text>{<Localize translate_text="Highs & Lows" />}</Text>
                 <StyledList listStyle="circle" paddingLeft="5rem">
                     <StyledListItem marginTop="0.3rem">
-                        <Text>{localize('Higher/Lower')}</Text>
+                        <Text>{<Localize translate_text="Higher/Lower" />}</Text>
                     </StyledListItem>
                     <StyledListItem marginTop="0.3rem">
-                        <Text>{localize('Touch/No Touch')}</Text>
+                        <Text>{<Localize translate_text="Touch/No Touch" />}</Text>
                     </StyledListItem>
                 </StyledList>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Digits')}</Text>
+                <Text>{<Localize translate_text="Digits" />}</Text>
                 <StyledList listStyle="circle" paddingLeft="5rem">
                     <StyledListItem marginTop="0.3rem">
-                        <Text>{localize('Matches/Differs')}</Text>
+                        <Text>{<Localize translate_text="Matches/Differs" />}</Text>
                     </StyledListItem>
                     <StyledListItem marginTop="0.3rem">
-                        <Text>{localize('Even/Odd')}</Text>
+                        <Text>{<Localize translate_text="Even/Odd" />}</Text>
                     </StyledListItem>
                     <StyledListItem marginTop="0.3rem">
-                        <Text>{localize('Over/Under')}</Text>
+                        <Text>{<Localize translate_text="Over/Under" />}</Text>
                     </StyledListItem>
                 </StyledList>
             </StyledListItem>
         </StyledList>
         <StyledText>
-            {localize('Some trade types may not be available in certain countries.')}
+            {
+                <Localize translate_text="Some trade types may not be available in certain countries." />
+            }
         </StyledText>
     </ArticleWrapper>
 )
@@ -122,26 +124,30 @@ const DTraderArticle = () => {
         <div>
             <Article
                 header="DTrader"
-                title={localize('Help centre | Frequently asked questions | DTrader | Deriv')}
-                description={localize('Frequently asked questions - DTrader')}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | DTrader | Deriv" />
+                }
+                description={<Localize translate_text="Frequently asked questions - DTrader" />}
             >
                 <WhatIsDMT5
-                    text={localize('What is DTrader?')}
+                    text={<Localize translate_text="What is DTrader?" />}
                     label="what-is-dtrader"
                     is_mounted={is_mounted}
                 />
                 <DTraderMarkets
-                    text={localize('What markets can I trade on DTrader?')}
+                    text={<Localize translate_text="What markets can I trade on DTrader?" />}
                     label="markets-on-dtrader"
                     is_mounted={is_mounted}
                 />
                 <DTraderContracts
-                    text={localize('What contract types do you offer on DTrader?')}
+                    text={
+                        <Localize translate_text="What contract types do you offer on DTrader?" />
+                    }
                     label="contracts-on-dtrader"
                     is_mounted={is_mounted}
                 />
                 <DownloadtheChartonDTrader
-                    text={localize('Can I download the chart on DTrader?')}
+                    text={<Localize translate_text="Can I download the chart on DTrader?" />}
                     label="download-the-chart-on-DTrader"
                     is_mounted={is_mounted}
                 />

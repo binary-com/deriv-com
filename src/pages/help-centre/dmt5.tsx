@@ -5,7 +5,7 @@ import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { DerivStore } from 'store'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
@@ -106,19 +106,19 @@ const DifferentAccounts = ({ text }: ArticleProps) => {
             <StyledHeader as="h4">{text}</StyledHeader>
             <>
                 <Text>
-                    {localize(
-                        'The Deriv MT5 Synthetic account offers contracts for difference (CFDs) on synthetic indices. Our proprietary synthetic indices mimic the price movement of real financial markets but are not affected by market events. Trading on synthetic indices is available 24/7, even on weekends and holidays. There are more than 15 indices to choose from, with different levels of volatility and market behaviour.',
-                    )}
+                    {
+                        <Localize translate_text="The Deriv MT5 Synthetic account offers contracts for difference (CFDs) on synthetic indices. Our proprietary synthetic indices mimic the price movement of real financial markets but are not affected by market events. Trading on synthetic indices is available 24/7, even on weekends and holidays. There are more than 15 indices to choose from, with different levels of volatility and market behaviour." />
+                    }
                 </Text>
                 <StyledText>
-                    {localize(
-                        'The Deriv MT5 Financial account offers CFDs on forex, commodities, cryptocurrencies, stocks, and stock indices, with high leverage and variable spreads for maximum flexibility. This account offers more than 100 assets, and 24/7 trading is available on cryptocurrencies.',
-                    )}
+                    {
+                        <Localize translate_text="The Deriv MT5 Financial account offers CFDs on forex, commodities, cryptocurrencies, stocks, and stock indices, with high leverage and variable spreads for maximum flexibility. This account offers more than 100 assets, and 24/7 trading is available on cryptocurrencies." />
+                    }
                 </StyledText>
                 <StyledText>
-                    {localize(
-                        'The Deriv MT5 Financial STP account offers CFDs on forex and cryptocurrencies, with lower leverage than the Financial account. This is a 100% A-book account, so your trades pass straight through to the market, giving you direct access to liquidity providers. This account also offers 24/7 trading on cryptocurrencies.',
-                    )}
+                    {
+                        <Localize translate_text="The Deriv MT5 Financial STP account offers CFDs on forex and cryptocurrencies, with lower leverage than the Financial account. This is a 100% A-book account, so your trades pass straight through to the market, giving you direct access to liquidity providers. This account also offers 24/7 trading on cryptocurrencies." />
+                    }
                 </StyledText>
             </>
         </ArticleWrapper>
@@ -131,9 +131,9 @@ const WhatIsCFDsAccount = ({ text }: ArticleProps) => {
             <StyledHeader as="h4">{text}</StyledHeader>
             {
                 <Text>
-                    {localize(
-                        'The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies.',
-                    )}
+                    {
+                        <Localize translate_text="The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies." />
+                    }
                 </Text>
             }
         </ArticleWrapper>
@@ -184,9 +184,9 @@ const LoginCredentials = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'This difference is because MT5 is a third-party platform that requires its own login credentials. Your Deriv MT5 login gives you access to the MT5 platform, while your Deriv login gives you access to our digital options platforms such as DTrader and DBot.',
-            )}
+            {
+                <Localize translate_text="This difference is because MT5 is a third-party platform that requires its own login credentials. Your Deriv MT5 login gives you access to the MT5 platform, while your Deriv login gives you access to our digital options platforms such as DTrader and DBot." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -194,7 +194,9 @@ const LoginCredentials = ({ text }: ArticleProps) => (
 const ResetDMT5Password = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps to reset your Deriv MT5 password:')}</Text>
+        <Text>
+            {<Localize translate_text="Follow these steps to reset your Deriv MT5 password:" />}
+        </Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>
@@ -246,7 +248,7 @@ const ResetDMT5Password = ({ text }: ArticleProps) => (
             </StyledListItem>
         </StyledList>
         <StyledText>
-            {localize('You can now log in to Deriv MT5 with your new password.')}
+            {<Localize translate_text="You can now log in to Deriv MT5 with your new password." />}
         </StyledText>
     </ArticleWrapper>
 )
@@ -338,9 +340,9 @@ const DerivMT5PositionsAlwaysStartWithaLoss = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
-            {localize(
-                'This is due to the spread, which is the difference between the ‘bid’ and ‘ask’ prices. Your positions will start earning a profit when the market moves in your favour.',
-            )}
+            {
+                <Localize translate_text="This is due to the spread, which is the difference between the ‘bid’ and ‘ask’ prices. Your positions will start earning a profit when the market moves in your favour." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -348,7 +350,7 @@ const DerivMT5PositionsAlwaysStartWithaLoss = ({ text }: ArticleProps) => (
 const SwapFreeDerivMT5Accounts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text mb="1.5rem">{localize("No, we don't.")}</Text>
+        <Text mb="1.5rem">{<Localize translate_text="No, we don't." />}</Text>
     </ArticleWrapper>
 )
 
@@ -397,7 +399,7 @@ const LeverageonmyDerivMT5Account = ({ text }: ArticleProps) => (
 const WhatTimeisShownintheMT5Terminal = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text mb="1.5rem">{localize('Greenwich Mean Time (GMT).')}</Text>
+        <Text mb="1.5rem">{<Localize translate_text="Greenwich Mean Time (GMT)." />}</Text>
     </ArticleWrapper>
 )
 
@@ -405,13 +407,15 @@ const DownloadmyDerivMT5History = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'If you need a statement of your trades on Deriv MT5, follow these steps to download a 3-month statement:',
-            )}
+            {
+                <Localize translate_text="If you need a statement of your trades on Deriv MT5, follow these steps to download a 3-month statement:" />
+            }
         </Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Log in to your MT5 account via the desktop app.')}</Text>
+                <Text>
+                    {<Localize translate_text="Log in to your MT5 account via the desktop app." />}
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
@@ -430,7 +434,11 @@ const DownloadmyDerivMT5History = ({ text }: ArticleProps) => (
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Your Deriv MT5 history will be downloaded as an XML file.')}</Text>
+                <Text>
+                    {
+                        <Localize translate_text="Your Deriv MT5 history will be downloaded as an XML file." />
+                    }
+                </Text>
             </StyledListItem>
         </StyledList>
         <StyledText>
@@ -453,7 +461,7 @@ const DownloadmyDerivMT5History = ({ text }: ArticleProps) => (
 const DeletemyDerivMT5AccountHistory = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text mb="1.5rem">{localize("No, you can't.")}</Text>
+        <Text mb="1.5rem">{<Localize translate_text="No, you can't." />}</Text>
     </ArticleWrapper>
 )
 
@@ -461,9 +469,9 @@ const LongCanIUsemyDerivMT5DemoAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
-            {localize(
-                "You can use your Deriv MT5 demo account for as long as you want. However, if your account is inactive for 30 days, we'll deactivate it automatically.",
-            )}
+            {
+                <Localize translate_text="You can use your Deriv MT5 demo account for as long as you want. However, if your account is inactive for 30 days, we'll deactivate it automatically." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -472,9 +480,9 @@ const WillmyinactiveDerivMT5AccountbeDeactivated = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
-            {localize(
-                'Yes, we’ll transfer your balance to your Deriv account before your Deriv MT5 account is deactivated.',
-            )}
+            {
+                <Localize translate_text="Yes, we’ll transfer your balance to your Deriv account before your Deriv MT5 account is deactivated." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -482,7 +490,7 @@ const WillmyinactiveDerivMT5AccountbeDeactivated = ({ text }: ArticleProps) => (
 const CanIChangetheCurrencyofmyDerivMT5Account = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text mb="1.5rem">{localize('No, this isn’t possible on MT5.')}</Text>
+        <Text mb="1.5rem">{<Localize translate_text="No, this isn’t possible on MT5." />}</Text>
     </ArticleWrapper>
 )
 
@@ -490,9 +498,9 @@ const CanIChangetheServerformyDerivMT5Account = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
-            {localize(
-                "No, you can't, but you may have multiple Deriv MT5 Synthetic accounts on different servers.",
-            )}
+            {
+                <Localize translate_text="No, you can't, but you may have multiple Deriv MT5 Synthetic accounts on different servers." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -501,7 +509,9 @@ const MicroForexPairsonDerivMT5 = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text mb="1.5rem">
-            {localize('Yes, you can trade micro forex pairs with a Deriv MT5 Financial account.')}
+            {
+                <Localize translate_text="Yes, you can trade micro forex pairs with a Deriv MT5 Financial account." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -509,7 +519,9 @@ const MicroForexPairsonDerivMT5 = ({ text }: ArticleProps) => (
 const MinimumVolumeforMicroForexPairs = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text mb="1.5rem">{localize('The minimum volume for micro forex pairs is 0.1 lot.')}</Text>
+        <Text mb="1.5rem">
+            {<Localize translate_text="The minimum volume for micro forex pairs is 0.1 lot." />}
+        </Text>
     </ArticleWrapper>
 )
 
@@ -521,145 +533,167 @@ const DMT5Article = () => {
         <div>
             <Article
                 header="DMT5"
-                title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')}
-                description={localize('Frequently asked questions - DMT5')}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | DMT5 | Deriv" />
+                }
+                description={<Localize translate_text="Frequently asked questions - DMT5" />}
             >
                 <WhatIsDMT5
-                    text={localize('What is Deriv MetaTrader 5 (Deriv MT5)?')}
+                    text={<Localize translate_text="What is Deriv MetaTrader 5 (Deriv MT5)?" />}
                     label="what-is-dmt5"
                     is_mounted={is_mounted}
                 />
                 <DifferenceDMT5DTrader
-                    text={localize(
-                        'What are the main differences between your digital options and CFD platforms?',
-                    )}
+                    text={
+                        <Localize translate_text="What are the main differences between your digital options and CFD platforms?" />
+                    }
                     label="differences-of-dtrader-and-dmt5"
                     is_mounted={is_mounted}
                 />
                 {is_eu_country ? (
                     <WhatIsCFDsAccount
-                        text={localize('What is the CFDs account?')}
+                        text={<Localize translate_text="What is the CFDs account?" />}
                         label="what-is-cfds-account"
                         is_mounted={is_mounted}
                     />
                 ) : (
                     <DifferentAccounts
-                        text={localize(
-                            'What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?',
-                        )}
+                        text={
+                            <Localize translate_text="What are the differences between the Deriv MT5 Synthetic, Financial, and Financial STP accounts?" />
+                        }
                         label="differences-of-dmt5-accounts"
                         is_mounted={is_mounted}
                     />
                 )}
 
                 <WithdrawDMT5
-                    text={localize(
-                        'How can I withdraw funds from my Deriv MT5 real money account?',
-                    )}
+                    text={
+                        <Localize translate_text="How can I withdraw funds from my Deriv MT5 real money account?" />
+                    }
                     label="withdraw-funds-from-DMT5"
                     is_mounted={is_mounted}
                 />
                 <LoginCredentials
-                    text={localize(
-                        'Why are my Deriv MT5 login details different from my Deriv login details?',
-                    )}
+                    text={
+                        <Localize translate_text="Why are my Deriv MT5 login details different from my Deriv login details?" />
+                    }
                     label="login-credentials"
                     is_mounted={is_mounted}
                 />
                 <ResetDMT5Password
-                    text={localize('How can I change my Deriv MT5 password?')}
+                    text={<Localize translate_text="How can I change my Deriv MT5 password?" />}
                     label="reset-dmt5-password"
                     is_mounted={is_mounted}
                 />
                 <DepositDMT5
-                    text={localize('How can I deposit funds into my Deriv MT5 real money account?')}
+                    text={
+                        <Localize translate_text="How can I deposit funds into my Deriv MT5 real money account?" />
+                    }
                     label="deposit-to-dmt5"
                     is_mounted={is_mounted}
                 />
                 <LogInToMyDerivMT5Account
-                    text={localize('How do I log in to my Deriv MT5 account?')}
+                    text={<Localize translate_text="How do I log in to my Deriv MT5 account?" />}
                     label="log-in-to-my-Deriv-MT5-account"
                     is_mounted={is_mounted}
                 />
                 <InvestorPasswordForMyDerivMT5Account
-                    text={localize('How do I set an investor password for my Deriv MT5 account?')}
+                    text={
+                        <Localize translate_text="How do I set an investor password for my Deriv MT5 account?" />
+                    }
                     label="investor-password-for-my-Deriv-MT5-account"
                     is_mounted={is_mounted}
                 />
                 <NameOfMyDerivMT5Server
-                    text={localize('What is the name of my Deriv MT5 server?')}
+                    text={<Localize translate_text="What is the name of my Deriv MT5 server?" />}
                     label="name-of-my-Deriv-MT5-server"
                     is_mounted={is_mounted}
                 />
                 <MinimumAmountToOpenaPositionOnDerivMT5
-                    text={localize('What is the minimum amount to open a position on Deriv MT5?')}
+                    text={
+                        <Localize translate_text="What is the minimum amount to open a position on Deriv MT5?" />
+                    }
                     label="minimum-amount-to-open-a-position-on-Deriv-MT5"
                     is_mounted={is_mounted}
                 />
                 <DerivMT5PositionsAlwaysStartWithaLoss
-                    text={localize('Why do my Deriv MT5 positions always start with a loss?')}
+                    text={
+                        <Localize translate_text="Why do my Deriv MT5 positions always start with a loss?" />
+                    }
                     label="Deriv-MT5-positions-always-start-with-a-loss"
                     is_mounted={is_mounted}
                 />
                 <SwapFreeDerivMT5Accounts
-                    text={localize('Do you offer swap-free Deriv MT5 accounts?')}
+                    text={<Localize translate_text="Do you offer swap-free Deriv MT5 accounts?" />}
                     label="swap-free-Deriv-MT5-accounts"
                     is_mounted={is_mounted}
                 />
                 <ReactivateMyDerivMT5Account
-                    text={localize('How can I reactivate my Deriv MT5 account?')}
+                    text={<Localize translate_text="How can I reactivate my Deriv MT5 account?" />}
                     label="reactivate-my-Deriv-MT5-account"
                     is_mounted={is_mounted}
                 />
                 <LeverageonmyDerivMT5Account
-                    text={localize('Can I change the leverage on my Deriv MT5 account?')}
+                    text={
+                        <Localize translate_text="Can I change the leverage on my Deriv MT5 account?" />
+                    }
                     label="leverage-on-my-Deriv-MT5-account"
                     is_mounted={is_mounted}
                 />
                 <WhatTimeisShownintheMT5Terminal
-                    text={localize('What time is shown in the MT5 terminal?')}
+                    text={<Localize translate_text="What time is shown in the MT5 terminal?" />}
                     label="What-time-is-shown-in-the-MT5-terminal"
                     is_mounted={is_mounted}
                 />
                 <DownloadmyDerivMT5History
-                    text={localize('How can I download my Deriv MT5 history?')}
+                    text={<Localize translate_text="How can I download my Deriv MT5 history?" />}
                     label="download-my-Deriv-MT5-history"
                     is_mounted={is_mounted}
                 />
                 <DeletemyDerivMT5AccountHistory
-                    text={localize('Can I delete my Deriv MT5 account history?')}
+                    text={<Localize translate_text="Can I delete my Deriv MT5 account history?" />}
                     label="delete-my-Deriv-MT5-account-history"
                     is_mounted={is_mounted}
                 />
                 <LongCanIUsemyDerivMT5DemoAccount
-                    text={localize('For how long can I use my Deriv MT5 demo account?')}
+                    text={
+                        <Localize translate_text="For how long can I use my Deriv MT5 demo account?" />
+                    }
                     label="For-how-long-can-I-use-my-Deriv-MT5-demo-account"
                     is_mounted={is_mounted}
                 />
                 <WillmyinactiveDerivMT5AccountbeDeactivated
-                    text={localize(
-                        'Will my inactive Deriv MT5 account be deactivated even though I still have a balance?',
-                    )}
+                    text={
+                        <Localize translate_text="Will my inactive Deriv MT5 account be deactivated even though I still have a balance?" />
+                    }
                     label="Will-my-inactive-Deriv-MT5-account-be-deactivated"
                     is_mounted={is_mounted}
                 />
                 <CanIChangetheCurrencyofmyDerivMT5Account
-                    text={localize('Can I change the currency of my Deriv MT5 account?')}
+                    text={
+                        <Localize translate_text="Can I change the currency of my Deriv MT5 account?" />
+                    }
                     label="Can-I-change-the-currency-of-my-Deriv-MT5-account"
                     is_mounted={is_mounted}
                 />
                 <CanIChangetheServerformyDerivMT5Account
-                    text={localize('Can I change the server for my Deriv MT5 account?')}
+                    text={
+                        <Localize translate_text="Can I change the server for my Deriv MT5 account?" />
+                    }
                     label="Can-I-change-the-server-for-my-Deriv-MT5-account"
                     is_mounted={is_mounted}
                 />
                 <MicroForexPairsonDerivMT5
-                    text={localize('Do you offer micro forex pairs on Deriv MT5?')}
+                    text={
+                        <Localize translate_text="Do you offer micro forex pairs on Deriv MT5?" />
+                    }
                     label="offer-micro-forex-pairs-on-Deriv-MT5"
                     is_mounted={is_mounted}
                 />
                 <MinimumVolumeforMicroForexPairs
-                    text={localize('What is the minimum volume for micro forex pairs?')}
+                    text={
+                        <Localize translate_text="What is the minimum volume for micro forex pairs?" />
+                    }
                     label="What-is-the-minimum-volume-for-micro-forex-pairs"
                     is_mounted={is_mounted}
                 />

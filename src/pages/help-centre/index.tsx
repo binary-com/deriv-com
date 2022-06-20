@@ -11,7 +11,7 @@ import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -195,10 +195,12 @@ const HelpCentre = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Help centre | Frequently asked questions | Deriv')}
-                description={localize(
-                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
-                )}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | Deriv" />
+                }
+                description={
+                    <Localize translate_text="Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question." />
+                }
             />
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
@@ -208,7 +210,7 @@ const HelpCentre = () => {
                     <Container align="left" justify="flex-start" direction="column">
                         <StyledContainer align="normal" direction="column">
                             <ResponsiveHeader as="h1" type="display-title" mb="4rem">
-                                {localize('How can we help?')}
+                                {<Localize translate_text="How can we help?" />}
                             </ResponsiveHeader>
                             <SearchForm onSubmit={handleSubmit}>
                                 <SearchIconBig src={SearchIcon} alt="search-icon" />

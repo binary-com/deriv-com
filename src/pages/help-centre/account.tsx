@@ -5,7 +5,7 @@ import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
@@ -27,18 +27,22 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize("Here are some possible reasons you aren't able to create an account:")}
+            {
+                <Localize translate_text="Here are some possible reasons you aren't able to create an account:" />
+            }
         </Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('You’re below 18 years old.')}</Text>
+                <Text>{<Localize translate_text="You’re below 18 years old." />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('You may already have a Deriv account.')}</Text>
+                <Text>{<Localize translate_text="You may already have a Deriv account." />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize("Our services aren't available in your country of residence.")}
+                    {
+                        <Localize translate_text="Our services aren't available in your country of residence." />
+                    }
                 </Text>
             </StyledListItem>
         </StyledList>
@@ -101,14 +105,14 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'While the currencies of your virtual and cryptocurrency accounts are fixed, you can change the currency of your fiat account by following the steps below.',
-            )}
+            {
+                <Localize translate_text="While the currencies of your virtual and cryptocurrency accounts are fixed, you can change the currency of your fiat account by following the steps below." />
+            }
         </Text>
         <StyledText>
-            {localize(
-                'If you haven’t made a deposit or added a real MT5 account, follow these steps:',
-            )}
+            {
+                <Localize translate_text="If you haven’t made a deposit or added a real MT5 account, follow these steps:" />
+            }
         </StyledText>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
@@ -144,13 +148,15 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
             />
         </StyledText>
         <StyledText>
-            {localize(
-                'If you have made a deposit or have added a real MT5 account, follow these steps:',
-            )}
+            {
+                <Localize translate_text="If you have made a deposit or have added a real MT5 account, follow these steps:" />
+            }
         </StyledText>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
-                <Text>{localize('If you have open positions, close them first.')}</Text>
+                <Text>
+                    {<Localize translate_text="If you have open positions, close them first." />}
+                </Text>
                 <StyledList listStyle="circle" paddingLeft="5rem">
                     <StyledListItem marginTop="0.3rem">
                         <Text>
@@ -162,15 +168,15 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
                     </StyledListItem>
                     <StyledListItem marginTop="0.3rem">
                         <Text>
-                            {localize(
-                                'For your Deriv MT5 and Deriv X real accounts, log in to close any open positions.',
-                            )}
+                            {
+                                <Localize translate_text="For your Deriv MT5 and Deriv X real accounts, log in to close any open positions." />
+                            }
                         </Text>
                     </StyledListItem>
                 </StyledList>
             </StyledListItem>
             <StyledListItem marginTop="1.6rem">
-                <Text>{localize('Then, withdraw your funds.')}</Text>
+                <Text>{<Localize translate_text="Then, withdraw your funds." />}</Text>
                 <StyledList listStyle="circle" paddingLeft="5rem">
                     <StyledListItem marginTop="0.3rem">
                         <Text>
@@ -182,9 +188,9 @@ const ChangeAccountCurrency = ({ text }: ArticleProps) => (
                     </StyledListItem>
                     <StyledListItem marginTop="0.3rem">
                         <Text>
-                            {localize(
-                                'For your Deriv MT5 and Deriv X real accounts, go to your dashboard to withdraw your funds.',
-                            )}
+                            {
+                                <Localize translate_text="For your Deriv MT5 and Deriv X real accounts, go to your dashboard to withdraw your funds." />
+                            }
                         </Text>
                     </StyledListItem>
                 </StyledList>
@@ -214,14 +220,14 @@ const RecoveringPassword = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'If you created your Deriv account using Apple/Google/Facebook, try resetting your Apple/Google/Facebook password. After that, you should be able to log in to Deriv as usual.',
-            )}
+            {
+                <Localize translate_text="If you created your Deriv account using Apple/Google/Facebook, try resetting your Apple/Google/Facebook password. After that, you should be able to log in to Deriv as usual." />
+            }
         </Text>
         <StyledText>
-            {localize(
-                "If you'd like to log in using your email address instead, follow these steps:",
-            )}
+            {
+                <Localize translate_text="If you'd like to log in using your email address instead, follow these steps:" />
+            }
         </StyledText>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
@@ -251,23 +257,23 @@ const RecoveringPassword = ({ text }: ArticleProps) => (
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        'Enter the same email address you use for your Apple/Google/Facebook account.',
-                    )}
+                    {
+                        <Localize translate_text="Enter the same email address you use for your Apple/Google/Facebook account." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        "We'll email you a verification link. Click that link and set a new password for your Deriv account.",
-                    )}
+                    {
+                        <Localize translate_text="We'll email you a verification link. Click that link and set a new password for your Deriv account." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        "Now, you'll be able to log in to your Deriv account using your email address and password.",
-                    )}
+                    {
+                        <Localize translate_text="Now, you'll be able to log in to your Deriv account using your email address and password." />
+                    }
                 </Text>
             </StyledListItem>
         </StyledList>
@@ -381,46 +387,50 @@ const OpenACorporateOrBusinessAccount = ({ text }: ArticleProps) => (
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    <Text>{localize('Name of entity')}</Text>
+                    <Text>{<Localize translate_text="Name of entity" />}</Text>
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Certificate of incorporation')}</Text>
+                <Text>{<Localize translate_text="Certificate of incorporation" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Memorandum and articles of association')}</Text>
+                <Text>{<Localize translate_text="Memorandum and articles of association" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('List of directors')}</Text>
+                <Text>{<Localize translate_text="List of directors" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('List of shareholders')}</Text>
-            </StyledListItem>
-            <StyledListItem marginTop="0.3rem">
-                <Text>
-                    {localize(
-                        'Authorisation to manage the account (if your business has more than one director)',
-                    )}
-                </Text>
+                <Text>{<Localize translate_text="List of shareholders" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        'Passport and utility bill/bank statement of the person managing the account and of each director and shareholder (if your business has more than 1)',
-                    )}
+                    {
+                        <Localize translate_text="Authorisation to manage the account (if your business has more than one director)" />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize('Utility bill/bank statement containing the address of the business')}
+                    {
+                        <Localize translate_text="Passport and utility bill/bank statement of the person managing the account and of each director and shareholder (if your business has more than 1)" />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('Source of wealth documentation')}</Text>
+                <Text>
+                    {
+                        <Localize translate_text="Utility bill/bank statement containing the address of the business" />
+                    }
+                </Text>
+            </StyledListItem>
+            <StyledListItem marginTop="0.3rem">
+                <Text>{<Localize translate_text="Source of wealth documentation" />}</Text>
             </StyledListItem>
         </StyledList>
         <StyledText>
-            {localize('We may request more information during the signup process.')}
+            {
+                <Localize translate_text="We may request more information during the signup process." />
+            }
         </StyledText>
     </ArticleWrapper>
 )
@@ -586,14 +596,22 @@ const ReactivateMyDerivAccount = ({ text }: ArticleProps) => (
 const NeedToVerifyMyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('We’ll prompt you to verify your account when it’s needed.')}</Text>
+        <Text>
+            {
+                <Localize translate_text="We’ll prompt you to verify your account when it’s needed." />
+            }
+        </Text>
     </ArticleWrapper>
 )
 
 const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('When we prompt you to verify your account, follow these steps:')}</Text>
+        <Text>
+            {
+                <Localize translate_text="When we prompt you to verify your account, follow these steps:" />
+            }
+        </Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
@@ -632,7 +650,9 @@ const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize('Follow the instructions on the screen to verify your account.')}
+                    {
+                        <Localize translate_text="Follow the instructions on the screen to verify your account." />
+                    }
                 </Text>
             </StyledListItem>
         </StyledList>
@@ -649,7 +669,11 @@ const HowDoIVerifyMyAccount = ({ text }: ArticleProps) => (
 const DocumentsDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('You’ll need the following documents to verify your account:')}</Text>
+        <Text>
+            {
+                <Localize translate_text="You’ll need the following documents to verify your account:" />
+            }
+        </Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="1.6rem">
                 <Text>
@@ -659,9 +683,9 @@ const DocumentsDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
                     />
                 </Text>
                 <Text>
-                    {localize(
-                        "You’ll need a valid government-issued identity document such as a national ID card, passport, or driver's licence. Your document must clearly show your name, photo, and date of birth.",
-                    )}
+                    {
+                        <Localize translate_text="You’ll need a valid government-issued identity document such as a national ID card, passport, or driver's licence. Your document must clearly show your name, photo, and date of birth." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="1.6rem">
@@ -672,9 +696,9 @@ const DocumentsDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
                     />
                 </Text>
                 <Text>
-                    {localize(
-                        'You’ll need a bank statement, credit card statement, tax statement, or utility bill. Your document must be issued within the last 6 months. It must contain your name, address, the name of the company that issued the document, and the issue date.',
-                    )}
+                    {
+                        <Localize translate_text="You’ll need a bank statement, credit card statement, tax statement, or utility bill. Your document must be issued within the last 6 months. It must contain your name, address, the name of the company that issued the document, and the issue date." />
+                    }
                 </Text>
             </StyledListItem>
         </StyledList>
@@ -685,9 +709,9 @@ const WhyDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "Our regulators require us to verify your account in accordance with anti-money laundering (AML) and Know Your Customer (KYC) laws. If we have prompted you to upload your documents to verify your account, it means that you'll only be able to continue using our services after your account is verified.",
-            )}
+            {
+                <Localize translate_text="Our regulators require us to verify your account in accordance with anti-money laundering (AML) and Know Your Customer (KYC) laws. If we have prompted you to upload your documents to verify your account, it means that you'll only be able to continue using our services after your account is verified." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -695,14 +719,16 @@ const WhyDoINeedToVerifyMyAccount = ({ text }: ArticleProps) => (
 const CanITradeWithoutVerifyingMyAccount = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('If you’re in the EU or UK:')}</Text>
-        <Text>{localize('No, you must verify your account before trading.')}</Text>
-
-        <StyledText>{localize('If you’re in any other country:')}</StyledText>
+        <Text>{<Localize translate_text="If you’re in the EU or UK:" />}</Text>
         <Text>
-            {localize(
-                'Yes, as long as you haven’t opened a Deriv MT5 Financial STP account, you can still trade without verifying your account.',
-            )}
+            {<Localize translate_text="No, you must verify your account before trading." />}
+        </Text>
+
+        <StyledText>{<Localize translate_text="If you’re in any other country:" />}</StyledText>
+        <Text>
+            {
+                <Localize translate_text="Yes, as long as you haven’t opened a Deriv MT5 Financial STP account, you can still trade without verifying your account." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -711,9 +737,9 @@ const HowLongDoesVerificationTake = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'We try to review your verification documents within the same day. In some cases, due to high traffic, it may take up to 3 business days. You’ll get a confirmation email from us once the review is complete. You can also check the status of your documents at',
-            )}
+            {
+                <Localize translate_text="We try to review your verification documents within the same day. In some cases, due to high traffic, it may take up to 3 business days. You’ll get a confirmation email from us once the review is complete. You can also check the status of your documents at" />
+            }
         </Text>
         <Text>
             <Localize
@@ -775,119 +801,131 @@ const AccountArticle = () => {
     return (
         <div>
             <Article
-                header={localize('Account')}
-                title={localize('Help centre | Frequently asked questions | Account | Deriv')}
-                description={localize('Frequently asked questions - Account')}
+                header={<Localize translate_text="Account" />}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | Account | Deriv" />
+                }
+                description={<Localize translate_text="Frequently asked questions - Account" />}
             >
                 <ChangingPersonalDetails
-                    text={localize('How can I change my personal details?')}
+                    text={<Localize translate_text="How can I change my personal details?" />}
                     label="changing-your-personal-details"
                     is_mounted={is_mounted}
                 />
                 <ChangeAccountCurrency
-                    text={localize('How can I change the currency of my account?')}
+                    text={
+                        <Localize translate_text="How can I change the currency of my account?" />
+                    }
                     label="change-account-currency"
                     is_mounted={is_mounted}
                 />
                 <ChangeMyEmailAddress
-                    text={localize('Can I change my email address?')}
+                    text={<Localize translate_text="Can I change my email address?" />}
                     label="change-my-email-address"
                     is_mounted={is_mounted}
                 />
                 <WhoCanOpenAnAccount
-                    text={localize("Why can't I create an account?")}
+                    text={<Localize translate_text="Why can't I create an account?" />}
                     label="who-can-open-an-account"
                     is_mounted={is_mounted}
                 />
                 <RecoveringPassword
-                    text={localize(
-                        'I forgot my Google/Facebook/Apple account password. How can I log in to my Deriv account?',
-                    )}
+                    text={
+                        <Localize translate_text="I forgot my Google/Facebook/Apple account password. How can I log in to my Deriv account?" />
+                    }
                     label="recovering-your-password"
                     is_mounted={is_mounted}
                 />
                 <CloseAccount
-                    text={localize('How can I close my account?')}
+                    text={<Localize translate_text="How can I close my account?" />}
                     label="close-your-account"
                     is_mounted={is_mounted}
                 />
                 <UnsubscribeEmail
-                    text={localize('How do I unsubscribe from marketing emails?')}
+                    text={<Localize translate_text="How do I unsubscribe from marketing emails?" />}
                     label="unsubscribe-marketing-emails"
                     is_mounted={is_mounted}
                 />
                 <DormantFee
-                    text={localize('What is a dormant fee?')}
+                    text={<Localize translate_text="What is a dormant fee?" />}
                     label="what-is-dormant-fee"
                     is_mounted={is_mounted}
                 />
                 <OpenACorporateOrBusinessAccount
-                    text={localize('Can I open a corporate or business account?')}
+                    text={<Localize translate_text="Can I open a corporate or business account?" />}
                     label="open-a-corporate-or-business-account"
                     is_mounted={is_mounted}
                 />
                 <PayTaxesOnMyTradesProfits
-                    text={localize('Do I need to pay taxes on my trades/profits?')}
+                    text={
+                        <Localize translate_text="Do I need to pay taxes on my trades/profits?" />
+                    }
                     label="pay-taxes-on-my-trades-profits"
                     is_mounted={is_mounted}
                 />
                 <OpenMoreThanOneDerivAccount
-                    text={localize('Can I open more than one Deriv account?')}
+                    text={<Localize translate_text="Can I open more than one Deriv account?" />}
                     label="open-more-than-one-deriv-account"
                     is_mounted={is_mounted}
                 />
                 <CreateAnAPIToken
-                    text={localize('How do I create an API token?')}
+                    text={<Localize translate_text="How do I create an API token?" />}
                     label="create-an-API-token"
                     is_mounted={is_mounted}
                 />
                 <SelfExclusionLimitsOnMyAccount
-                    text={localize('How can I set self-exclusion limits on my account?')}
+                    text={
+                        <Localize translate_text="How can I set self-exclusion limits on my account?" />
+                    }
                     label="self-exclusion-limits-on-my-account"
                     is_mounted={is_mounted}
                 />
                 <RemoveSelfExclusionLimits
-                    text={localize('How can I adjust or remove my self-exclusion limits?')}
+                    text={
+                        <Localize translate_text="How can I adjust or remove my self-exclusion limits?" />
+                    }
                     label="remove-self-exclusion-limits"
                     is_mounted={is_mounted}
                 />
                 <ReactivateMyDerivAccount
-                    text={localize('How can I reactivate my Deriv account?')}
+                    text={<Localize translate_text="How can I reactivate my Deriv account?" />}
                     label="reactivate-my-Deriv-account"
                     is_mounted={is_mounted}
                 />
                 <NeedToVerifyMyAccount
-                    text={localize('When do I need to verify my account?')}
+                    text={<Localize translate_text="When do I need to verify my account?" />}
                     label="need-to-verify-my-account"
                     is_mounted={is_mounted}
                 />
                 <HowDoIVerifyMyAccount
-                    text={localize('How do I verify my account?')}
+                    text={<Localize translate_text="How do I verify my account?" />}
                     label="How-do-I-verify-my-account"
                     is_mounted={is_mounted}
                 />
                 <DocumentsDoINeedToVerifyMyAccount
-                    text={localize('What documents do I need to verify my account?')}
+                    text={
+                        <Localize translate_text="What documents do I need to verify my account?" />
+                    }
                     label="documents-do-I-need-to-verify-my-account"
                     is_mounted={is_mounted}
                 />
                 <WhyDoINeedToVerifyMyAccount
-                    text={localize('Why do I need to verify my account?')}
+                    text={<Localize translate_text="Why do I need to verify my account?" />}
                     label="Why-do-I-need-to-verify-my-account"
                     is_mounted={is_mounted}
                 />
                 <CanITradeWithoutVerifyingMyAccount
-                    text={localize('Can I trade without verifying my account?')}
+                    text={<Localize translate_text="Can I trade without verifying my account?" />}
                     label="Can-I-trade-without-verifying-my-account"
                     is_mounted={is_mounted}
                 />
                 <HowLongDoesVerificationTake
-                    text={localize('How long does verification take?')}
+                    text={<Localize translate_text="How long does verification take?" />}
                     label="How-long-does-verification-take"
                     is_mounted={is_mounted}
                 />
                 <WhyWereMyDocumentsDeclined
-                    text={localize('Why were my documents declined?')}
+                    text={<Localize translate_text="Why were my documents declined?" />}
                     label="Why-were-my-documents-declined"
                     is_mounted={is_mounted}
                 />

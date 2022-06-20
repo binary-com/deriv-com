@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Text, Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 
@@ -48,10 +48,12 @@ export const Community = () => {
                     <QueryImage alt="community" data={data['community']} width="41rem" />
                     <StyledFlex tablet_ai="center" ml="5rem" direction="column">
                         <StyledHeader mt="1rem" as="h3" type="section-title">
-                            {localize('Have a question?')}
+                            {<Localize translate_text="Have a question?" />}
                         </StyledHeader>
                         <Text size="var(--text-size-m)" pt="0.8rem" pb="3.4rem">
-                            {localize('Our Deriv support community can help you find answers.')}
+                            {
+                                <Localize translate_text="Our Deriv support community can help you find answers." />
+                            }
                         </Text>
                         <StyledLinkButton
                             secondary="true"
@@ -61,7 +63,7 @@ export const Community = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {localize('Ask the community')}
+                            {<Localize translate_text="Ask the community" />}
                         </StyledLinkButton>
                     </StyledFlex>
                 </Flex>

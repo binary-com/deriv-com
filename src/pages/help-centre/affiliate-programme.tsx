@@ -4,7 +4,7 @@ import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader, ExternalLink } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
     list-style: ${(props) => props.listStyle};
@@ -47,45 +47,39 @@ const SignUp = ({ text }: ArticleProps) => (
 const WhyAffiliate = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('When you join our affiliate programme,')}</Text>
+        <Text>
+            <Localize translate_text="When you join our affiliate programme," />
+        </Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        `You'll have multiple income opportunities by joining other partnership programmes that we offer.`,
-                    )}
+                    <Localize translate_text="You'll have multiple income opportunities by joining other partnership programmes that we offer." />
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        `You'll have access to various marketing tools to help promote our products and services to your clients.`,
-                    )}
+                    <Localize translate_text="You'll have access to various marketing tools to help promote our products and services to your clients." />
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        "You'll be able to take advantage of our multilingual platforms and reach clients wherever they are.",
-                    )}
+                    <Localize translate_text="You'll be able to take advantage of our multilingual platforms and reach clients wherever they are." />
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        "You'll receive prompt monthly payouts via your preferred payment method.",
-                    )}
+                    <Localize translate_text="You'll receive prompt monthly payouts via your preferred payment method." />
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        "You won't be charged any hidden fees. You'll be able to see exactly what your earnings are.",
-                    )}
+                    <Localize translate_text="You won't be charged any hidden fees. You'll be able to see exactly what your earnings are." />
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize("You'll have a dedicated account manager to help you.")}</Text>
+                <Text>
+                    <Localize translate_text="You'll have a dedicated account manager to help you." />
+                </Text>
             </StyledListItem>
         </StyledList>
     </ArticleWrapper>
@@ -94,7 +88,9 @@ const WhyAffiliate = ({ text }: ArticleProps) => (
 const CommissionPlans = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('We have 3 commission plans:')}</Text>
+        <Text>
+            <Localize translate_text="We have 3 commission plans:" />
+        </Text>
 
         <Text>
             <Localize
@@ -142,7 +138,9 @@ const CommissionPlans = ({ text }: ArticleProps) => (
 const WhoCanApply = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('We encourage you to become our affiliate if you are:')}</Text>
+        <Text>
+            <Localize translate_text="We encourage you to become our affiliate if you are:" />
+        </Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
@@ -227,9 +225,7 @@ const ReferredClient = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'A referred client is a client who signed up using your tracking link, made a deposit in their account, and started trading on our platforms. As an affiliate, you stand to earn commission from the trades performed by your referred clients.',
-            )}
+            <Localize translate_text="A referred client is a client who signed up using your tracking link, made a deposit in their account, and started trading on our platforms. As an affiliate, you stand to earn commission from the trades performed by your referred clients." />
         </Text>
     </ArticleWrapper>
 )
@@ -258,7 +254,9 @@ const ForgotPassword = ({ text }: ArticleProps) => (
 const ReferralLink = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps to get your referral link:')}</Text>
+        <Text>
+            <Localize translate_text="Follow these steps to get your referral link:" />
+        </Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
@@ -309,7 +307,9 @@ const ReferralLink = ({ text }: ArticleProps) => (
 const PaymentMethod = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps to change your payment method:')}</Text>
+        <Text>
+            <Localize translate_text="Follow these steps to change your payment method:" />
+        </Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
@@ -373,7 +373,9 @@ const CommissionPayout = ({ text }: ArticleProps) => (
 const SeeEarnings = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Follow these steps to see your earnings:')}</Text>
+        <Text>
+            <Localize translate_text="Follow these steps to see your earnings:" />
+        </Text>
         <StyledList listStyle="decimal" paddingLeft="5rem">
             <StyledListItem marginTop="1rem">
                 <Text>
@@ -416,9 +418,7 @@ const ReportsAccess = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "You'll have access to reports that show your hits, impressions, click-through rates, clients' trading activity, and more.",
-            )}
+            <Localize translate_text="You'll have access to reports that show your hits, impressions, click-through rates, clients' trading activity, and more." />
         </Text>
     </ArticleWrapper>
 )
@@ -429,69 +429,79 @@ const AffiliateProgrammeArticle = () => {
     return (
         <div>
             <Article
-                header={localize('Affiliate programme')}
-                title={localize(
-                    'Help centre | Frequently asked questions | Affiliate programme | Deriv',
-                )}
-                description={localize('Frequently asked questions - Affiliate programme')}
+                header={<Localize translate_text="Affiliate programme" />}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | Affiliate programme | Deriv" />
+                }
+                description={
+                    <Localize translate_text="Frequently asked questions - Affiliate programme" />
+                }
             >
                 <SignUp
-                    text={localize('How do I sign up as an affiliate?')}
+                    text={<Localize translate_text="How do I sign up as an affiliate?" />}
                     label="affiliate-sign-up"
                     is_mounted={is_mounted}
                 />
                 <WhyAffiliate
-                    text={localize('Why should I join your affiliate programme?')}
+                    text={<Localize translate_text="Why should I join your affiliate programme?" />}
                     label="why-affiliate"
                     is_mounted={is_mounted}
                 />
                 <CommissionPlans
-                    text={localize('What type of commission plans do you offer?')}
+                    text={<Localize translate_text="What type of commission plans do you offer?" />}
                     label="commission-plans"
                     is_mounted={is_mounted}
                 />
                 <WhoCanApply
-                    text={localize('Who can apply as an affiliate?')}
+                    text={<Localize translate_text="Who can apply as an affiliate?" />}
                     label="who-can-apply"
                     is_mounted={is_mounted}
                 />
                 <IsItFree
-                    text={localize('Is it free to join your affiliate programme?')}
+                    text={
+                        <Localize translate_text="Is it free to join your affiliate programme?" />
+                    }
                     label="is-it-free"
                     is_mounted={is_mounted}
                 />
                 <ReferredClient
-                    text={localize('What is a referred client?')}
+                    text={<Localize translate_text="What is a referred client?" />}
                     label="referred-client"
                     is_mounted={is_mounted}
                 />
                 <ForgotPassword
-                    text={localize('I forgot my affiliate password. What should I do?')}
+                    text={
+                        <Localize translate_text="I forgot my affiliate password. What should I do?" />
+                    }
                     label="forgot-password"
                     is_mounted={is_mounted}
                 />
                 <ReferralLink
-                    text={localize('Where can I find my referral link?')}
+                    text={<Localize translate_text="Where can I find my referral link?" />}
                     label="referral-link"
                     is_mounted={is_mounted}
                 />
                 <PaymentMethod
-                    text={localize('How do I change my affiliate payment method?')}
+                    text={
+                        <Localize translate_text="How do I change my affiliate payment method?" />
+                    }
                     label="payment-method"
                     is_mounted={is_mounted}
                 />
                 <CommissionPayout
-                    text={localize('How and when will I receive my commission payout?')}
+                    text={
+                        <Localize translate_text="How and when will I receive my commission payout?" />
+                    }
                     label="commission-payout"
                     is_mounted={is_mounted}
                 />
                 <SeeEarnings
-                    text={localize('How do I see my earnings?')}
+                    text={<Localize translate_text="How do I see my earnings?" />}
                     label="see-earnings"
                     is_mounted={is_mounted}
                 />
                 <ReportsAccess
-                    text={localize('What type of reports will I have access to?')}
+                    text={<Localize translate_text="What type of reports will I have access to?" />}
                     label="reports-access"
                     is_mounted={is_mounted}
                 />

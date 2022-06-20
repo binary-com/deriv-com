@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { convertToHash } from './_utility'
 import { Text, Header, LocalizedLinkText } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 
 type TopicsType = {
@@ -90,14 +90,14 @@ const StyledLink = styled(LocalizedLinkText)`
 export const SearchSuccess = ({ suggested_topics, max_length }: SearchSuccessProps) => (
     <>
         <Header as="h3" type="section-title" color="black">
-            {localize('Topic suggestions')}
+            {<Localize translate_text="Topic suggestions" />}
         </Header>
 
         {suggested_topics.slice(0, max_length).map((article, idx) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
                     <StyledLink to={convertToHash(article.category, article.label)}>
-                        {localize(article.title)}
+                        {<Localize translate_text={article.title} />}
                     </StyledLink>
                 </ListNoBullets>
             </ListWrapper>
@@ -114,16 +114,21 @@ export const SearchError = ({ search }: SearchErrorProps) => (
             size="var(--text-size-sm)"
             mb="0.8rem"
         >
-            {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
+            {
+                <Localize
+                    translate_text={`Sorry, we couldn’t find any results matching '${search}'.`}
+                    values={search}
+                />
+            }
         </ErrorHeader>
-        <SearchText color="green">{localize('Search tips:')}</SearchText>
+        <SearchText color="green">{<Localize translate_text="Search tips:" />}</SearchText>
         <Ul>
-            <Li color="black">{localize('Check your spelling and try again')}</Li>
-            <Li color="black">{localize('Try another keyword')}</Li>
+            <Li color="black">{<Localize translate_text="Check your spelling and try again" />}</Li>
+            <Li color="black">{<Localize translate_text="Try another keyword" />}</Li>
             <Li color="black">
-                {localize(
-                    'Keep your search term short as our search capabilities works best with short search terms',
-                )}
+                {
+                    <Localize translate_text="Keep your search term short as our search capabilities works best with short search terms" />
+                }
             </Li>
         </Ul>
     </>

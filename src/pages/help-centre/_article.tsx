@@ -3,17 +3,17 @@ import styled from 'styled-components'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import { Community } from './_community'
 import Layout from 'components/layout/layout'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
 import { queryParamData } from 'common/utility'
 export type ArticleProps = {
     children?: React.ReactNode
-    header?: string
-    title?: string
-    description?: string
-    text?: string
+    header?: React.ReactElement | string
+    title?: React.ReactElement | string
+    description?: React.ReactElement | string
+    text?: React.ReactElement | string
     label?: string
     is_mounted?: boolean
     has_note?: string
@@ -65,7 +65,7 @@ export const Article = ({
                     arrow_margin="1rem"
                     margin="4rem 0 0"
                 >
-                    {localize('Back')}
+                    {<Localize translate_text="Back" />}
                 </StyledLink>
                 <Content>
                     <TabWrapper>

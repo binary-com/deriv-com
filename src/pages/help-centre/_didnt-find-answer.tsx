@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { Button } from 'components/form'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
@@ -48,7 +48,7 @@ export const DidntFindYourAnswerBanner = () => {
             <DFYASection>
                 <StyledIcon src={ContactUsIcon} alt="contact us icon" />
                 <MiddleText size="var(--text-size-l)" color="white" m="0 2.4rem">
-                    {localize('Didn’t find your answer? We can help.')}
+                    {<Localize translate_text="Didn’t find your answer? We can help." />}
                 </MiddleText>
                 {is_livechat_interactive && (
                     <Button
@@ -57,7 +57,7 @@ export const DidntFindYourAnswerBanner = () => {
                             LC_API.open_chat_window()
                         }}
                     >
-                        {localize('Chat')}
+                        {<Localize translate_text="Chat" />}
                     </Button>
                 )}
             </DFYASection>

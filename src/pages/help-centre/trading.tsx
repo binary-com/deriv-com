@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
-import device from 'themes/device.ts'
+import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const StyledLink = styled(ExternalLink)`
     @media ${device.tabletL} {
@@ -18,9 +18,9 @@ const Forex = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'Foreign exchange, or forex, is the global market of the world’s currencies, where the values of different currencies are pitted against each other in the form of forex pairs, such as EUR/USD, AUD/JPY, etc. The forex market determines the exchange rates of each currency.',
-            )}
+            {
+                <Localize translate_text="Foreign exchange, or forex, is the global market of the world’s currencies, where the values of different currencies are pitted against each other in the form of forex pairs, such as EUR/USD, AUD/JPY, etc. The forex market determines the exchange rates of each currency." />
+            }
         </Text>
         <StyledText>
             <Localize
@@ -44,9 +44,9 @@ const Commodities = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'A commodity is either grown or produced naturally in the environment, such as agricultural products, livestock, crude oil, and precious metals like gold and silver.',
-            )}
+            {
+                <Localize translate_text="A commodity is either grown or produced naturally in the environment, such as agricultural products, livestock, crude oil, and precious metals like gold and silver." />
+            }
         </Text>
         <StyledText>
             <Localize
@@ -70,9 +70,9 @@ const StockIndices = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'Stock indices measure the value of a group of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
-            )}
+            {
+                <Localize translate_text="Stock indices measure the value of a group of companies in the stock market. This allows investors to see how a particular set of assets is performing." />
+            }
         </Text>
         <StyledText>
             <Localize
@@ -96,9 +96,9 @@ const SyntheticIndices = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events.",
-            )}
+            {
+                <Localize translate_text="Available 24/7, our synthetic indices emulate price movements of real-world markets with varying levels of volatility. As they aren't based on actual underlying assets, they are unaffected by real-world market events." />
+            }
         </Text>
         <StyledText>
             <Localize
@@ -137,9 +137,9 @@ const CFD = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "CFDs let you predict the price movement of underlying assets without actually owning them. With CFDs, you open a position based on your prediction, and you'll earn a profit if you close your position when the price moves in your favour.",
-            )}
+            {
+                <Localize translate_text="CFDs let you predict the price movement of underlying assets without actually owning them. With CFDs, you open a position based on your prediction, and you'll earn a profit if you close your position when the price moves in your favour." />
+            }
         </Text>
         <StyledText>
             <Localize
@@ -163,9 +163,9 @@ const DigitalOptions = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "Digital options allow you to predict the price movement of underlying assets without actually owning them. With digital options, you open a position based on your prediction, with a set duration that closes your position automatically. You'll earn a profit if your position is closed when the price is in your favour.",
-            )}
+            {
+                <Localize translate_text="Digital options allow you to predict the price movement of underlying assets without actually owning them. With digital options, you open a position based on your prediction, with a set duration that closes your position automatically. You'll earn a profit if your position is closed when the price is in your favour." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -229,9 +229,9 @@ const TradingPlatforms = ({ text }: ArticleProps) => (
             />
         </Text>
         <StyledText>
-            {localize(
-                'Note: DBot, SmartTrader, and Binary Bot are not available in the EU and UK.',
-            )}
+            {
+                <Localize translate_text="Note: DBot, SmartTrader, and Binary Bot are not available in the EU and UK." />
+            }
         </StyledText>
     </ArticleWrapper>
 )
@@ -240,9 +240,9 @@ const AutomateTradingStrategy = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                'You can automate your trading strategy using a trading bot. A trading bot is an automated computer program that purchases trade contracts for you while following a specific set of instructions that you provide.',
-            )}
+            {
+                <Localize translate_text="You can automate your trading strategy using a trading bot. A trading bot is an automated computer program that purchases trade contracts for you while following a specific set of instructions that you provide." />
+            }
         </Text>
         <StyledText>
             <Localize
@@ -316,7 +316,9 @@ const WeekendContracts = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize('Synthetic indices and cryptocurrencies are available for trading 24/7.')}
+            {
+                <Localize translate_text="Synthetic indices and cryptocurrencies are available for trading 24/7." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -326,56 +328,60 @@ const TradingArticle = () => {
     return (
         <div>
             <Article
-                header={localize('Trading')}
-                title={localize('Help centre | Frequently asked questions | Trading | Deriv')}
-                description={localize('Frequently asked questions - Trading')}
+                header={<Localize translate_text="Trading" />}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | Trading | Deriv" />
+                }
+                description={<Localize translate_text="Frequently asked questions - Trading" />}
             >
                 <Forex
-                    text={localize('What is forex?')}
+                    text={<Localize translate_text="What is forex?" />}
                     label="what-is-forex"
                     is_mounted={is_mounted}
                 />
                 <Commodities
-                    text={localize('What are commodities?')}
+                    text={<Localize translate_text="What are commodities?" />}
                     label="what-are-commodities"
                 />
                 <StockIndices
-                    text={localize('What are stock indices?')}
+                    text={<Localize translate_text="What are stock indices?" />}
                     label="what-are-stock-indices"
                     is_mounted={is_mounted}
                 />
                 <SyntheticIndices
-                    text={localize('What are synthetic indices?')}
+                    text={<Localize translate_text="What are synthetic indices?" />}
                     label="what-are-synthetic-indices"
                     is_mounted={is_mounted}
                 />
                 <CFD
-                    text={localize('What are contracts for difference (CFDs)?')}
+                    text={<Localize translate_text="What are contracts for difference (CFDs)?" />}
                     label="what-are-cfds"
                     is_mounted={is_mounted}
                 />
                 <DigitalOptions
-                    text={localize('What are digital options?')}
+                    text={<Localize translate_text="What are digital options?" />}
                     label="what-are-digital-options"
                     is_mounted={is_mounted}
                 />
                 <TradingPlatforms
-                    text={localize('How many trading platforms do you offer?')}
+                    text={<Localize translate_text="How many trading platforms do you offer?" />}
                     label="how-many-trading-platforms"
                     is_mounted={is_mounted}
                 />
                 <AutomateTradingStrategy
-                    text={localize('How can I automate my trading strategy?')}
+                    text={<Localize translate_text="How can I automate my trading strategy?" />}
                     label="how-to-automate-trading-strategy"
                     is_mounted={is_mounted}
                 />
                 <TradingLimits
-                    text={localize('What are the trading limits on my account?')}
+                    text={<Localize translate_text="What are the trading limits on my account?" />}
                     label="trading-limits"
                     is_mounted={is_mounted}
                 />
                 <WeekendContracts
-                    text={localize('What assets are available for trading on weekends?')}
+                    text={
+                        <Localize translate_text="What assets are available for trading on weekends?" />
+                    }
                     label="contracts-available-on-weekends"
                     is_mounted={is_mounted}
                 />

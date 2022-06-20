@@ -4,7 +4,7 @@ import { Article, ArticleProps } from './_article'
 import { ArticleWrapper, StyledHeader, ExternalLink, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const StyledList = styled.ul<{ listStyle: string; paddingLeft: string }>`
     list-style: ${(props) => props.listStyle};
@@ -19,19 +19,25 @@ const StyledListItem = styled.li<{ marginTop: string }>`
 const DerivRegulated = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>{localize('Yes, we’re regulated by')}</Text>
+        <Text>{<Localize translate_text="Yes, we’re regulated by" />}</Text>
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the Malta Financial Services Authority')}</Text>
+                <Text>{<Localize translate_text="the Malta Financial Services Authority" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the Labuan Financial Services Authority')}</Text>
+                <Text>{<Localize translate_text="the Labuan Financial Services Authority" />}</Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the Vanuatu Financial Services Commission')}</Text>
+                <Text>
+                    {<Localize translate_text="the Vanuatu Financial Services Commission" />}
+                </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize('the British Virgin Islands Financial Services Commission')}</Text>
+                <Text>
+                    {
+                        <Localize translate_text="the British Virgin Islands Financial Services Commission" />
+                    }
+                </Text>
             </StyledListItem>
         </StyledList>
         <StyledText>
@@ -56,9 +62,9 @@ const WhereMoneyHeld = ({ text }: ArticleProps) => (
     <ArticleWrapper>
         <StyledHeader as="h4">{text}</StyledHeader>
         <Text>
-            {localize(
-                "Your money is held in secure financial institutions and is always available to you, should you wish to withdraw. We don't use your money for our business purposes.",
-            )}
+            {
+                <Localize translate_text="Your money is held in secure financial institutions and is always available to you, should you wish to withdraw. We don't use your money for our business purposes." />
+            }
         </Text>
     </ArticleWrapper>
 )
@@ -69,17 +75,19 @@ const AboutDerivArticle = () => {
     return (
         <div>
             <Article
-                header={localize('About Deriv')}
-                title={localize('Help centre | Frequently asked questions | About | Deriv')}
-                description={localize('Frequently asked questions - About')}
+                header={<Localize translate_text="About Deriv" />}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | About | Deriv" />
+                }
+                description={<Localize translate_text="Frequently asked questions - About" />}
             >
                 <DerivRegulated
-                    text={localize('Is Deriv regulated?')}
+                    text={<Localize translate_text="Is Deriv regulated?" />}
                     label="Deriv-regulated"
                     is_mounted={is_mounted}
                 />
                 <WhereMoneyHeld
-                    text={localize('Where is my money held?')}
+                    text={<Localize translate_text="Where is my money held?" />}
                     label="money-held"
                     is_mounted={is_mounted}
                 />

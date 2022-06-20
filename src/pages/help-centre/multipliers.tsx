@@ -5,7 +5,7 @@ import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style
 import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const StyledLink = styled(ExternalLink)`
     @media ${device.tabletL} {
@@ -62,16 +62,18 @@ const MultipliersArticle = () => {
         <div>
             <Article
                 header="Multipliers"
-                title={localize('Help centre | Frequently asked questions | Multipliers | Deriv')}
-                description={localize('Frequently asked questions - Multipliers')}
+                title={
+                    <Localize translate_text="Help centre | Frequently asked questions | Multipliers | Deriv" />
+                }
+                description={<Localize translate_text="Frequently asked questions - Multipliers" />}
             >
                 <WhatAreMultipliers
-                    text={localize('What are multipliers?')}
+                    text={<Localize translate_text="What are multipliers?" />}
                     label="what-are-multipliers"
                     is_mounted={is_mounted}
                 />
                 <HowTradeMultipliers
-                    text={localize('How do I trade multipliers?')}
+                    text={<Localize translate_text="How do I trade multipliers?" />}
                     label="how-trade-multipliers"
                     is_mounted={is_mounted}
                 />

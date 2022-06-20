@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Flex, Container } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
+import { Flex, Container, Desktop } from 'components/containers'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
+import { LinkButton } from 'components/form'
 import DerivGoBg from 'images/common/deriv-go/hero-bg.png'
 import DerivGoMobileBg from 'images/common/deriv-go/hero-mobile-bg.png'
 import {
     deriv_go_playstore_url,
     deriv_go_huaweiappgallery_url,
     deriv_go_ios_url,
+    deriv_mt5_app_url,
 } from 'common/constants'
 import { isBrowser } from 'common/utility'
 
@@ -31,6 +33,12 @@ const query = graphql`
         huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
             ...fadeIn
         }
+        qr_code: file(relativePath: { eq: "deriv-go/deriv_go_all_appstores.png" }) {
+            ...fadeIn
+        }
+        web_browser: file(relativePath: { eq: "deriv-go/web-browser.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -49,12 +57,6 @@ const MainWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         width: auto;
-    }
-`
-const StyledSubTitle = styled(Header)`
-    margin-top: 24px;
-    @media ${device.laptopM} {
-        margin-top: 8px;
     }
 `
 
@@ -99,7 +101,71 @@ const BannerWrapper = styled(Flex)`
         margin: 0;
     }
 `
+const TryButton = styled(LinkButton)`
+    opacity: 0;
+    @media ${device.tablet} {
+        opacity: 1;
+        padding: 1.5rem 1.6rem;
+        height: 42px;
+        white-space: nowrap;
+        margin-bottom: 2rem;
+        margin-right: 50%;
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        opacity: 1;
+        padding: 1.5rem 1.6rem;
+        height: 42px;
+        white-space: nowrap;
+        margin-bottom: 2rem;
+        margin-right: 500px;
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+`
+const HeroContent = styled(Flex)`
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    height: unset;
+    width: 349px;
+    margin-top: 28px;
 
+    ${Header} {
+        font-size: 20px;
+        font-weight: 200;
+        width: 230px;
+        padding-left: 15px;
+        font-family: 'IBM Plex Sans';
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        max-width: 78%;
+    }
+    @media ${device.laptopM} {
+        ${Header} {
+            font-size: 22px;
+        }
+    }
+    @media ${device.tabletL} {
+        ${Header} {
+            font-size: 16px;
+            max-width: 100%;
+        }
+    }
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 20px;
+            line-height: 25px;
+            margin-top: 16px;
+        }
+    }
+    @media ${device.mobileS} {
+        ${Header} {
+            max-width: 98%;
+        }
+    }
+`
 const Banner = () => {
     const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
@@ -129,45 +195,77 @@ const Banner = () => {
                         <StyledHeader as="h1" color="white" width="64rem" type="heading-1">
                             {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
                         </StyledHeader>
-                        <StyledSubTitle color="white" type="subtitle-1" weight="normal">
-                            {localize(
-                                'Download the app now and start trading whenever, wherever you want.',
-                            )}
-                        </StyledSubTitle>
-                        <Flex
-                            fd="row"
-                            mt="40px"
-                            jc="start"
-                            tablet_fw="wrap"
-                            laptopM={{ m: '7px 8px 48px' }}
-                        >
-                            <AppButton
-                                external="true"
-                                to={deriv_go_playstore_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                        <Desktop>
+                            <HeroContent>
+                                <Header as="h2">
+                                    {
+                                        <Localize translate_text="Scan the QR code to download Deriv GO" />
+                                    }
+                                </Header>
+                                <QueryImage
+                                    data={data['qr_code']}
+                                    alt={'play store'}
+                                    width="108px"
+                                    height="108px"
+                                />
+                            </HeroContent>
+
+                            <Flex
+                                fd="row"
+                                mt="40px"
+                                jc="start"
+                                tablet_fw="wrap"
+                                laptopM={{ m: '7px 8px 48px' }}
                             >
-                                <QueryImage data={data['google_play']} alt="google play logo" />
-                            </AppButton>
-                            <AppButton
-                                external="true"
-                                to={deriv_go_ios_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <QueryImage data={data['app_store']} alt="app store logo" />
-                            </AppButton>
-                            <AppButton
-                                external="true"
-                                to={deriv_go_huaweiappgallery_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
-                            </AppButton>
-                        </Flex>
+                                <AppButton
+                                    external="true"
+                                    to={deriv_go_playstore_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <QueryImage data={data['google_play']} alt="google play logo" />
+                                </AppButton>
+                                <AppButton
+                                    external="true"
+                                    to={deriv_go_ios_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <QueryImage data={data['app_store']} alt="app store logo" />
+                                </AppButton>
+                                <AppButton
+                                    external="true"
+                                    to={deriv_go_huaweiappgallery_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <QueryImage
+                                        data={data['huawei_app']}
+                                        alt="huawei app gallery"
+                                    />
+                                </AppButton>
+                                <AppButton
+                                    external="true"
+                                    to={deriv_mt5_app_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <QueryImage data={data['web_browser']} alt="web browser logo" />
+                                </AppButton>
+                            </Flex>
+                        </Desktop>
                     </div>
                 </Flex>
+                <TryButton
+                    secondary="true"
+                    to="/cashier/p2p"
+                    external="true"
+                    type="deriv_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {localize('Download Deriv GO')}
+                </TryButton>
                 <BannerWrapper>
                     <QueryImage
                         data={data[is_mobile ? 'hero_mobile' : 'hero']}

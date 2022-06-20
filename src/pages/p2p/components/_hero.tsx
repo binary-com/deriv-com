@@ -1,13 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container } from 'components/containers'
+import { Flex, Container, Desktop } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import {
+    p2p_playstore_url,
+    p2p_applestore_url,
+    p2p_huawei_appgallery_url,
+    deriv_dp2p_app_url,
+} from 'common/constants'
 
 const BackgroundWrapper = styled(Background)`
     height: 100%;
@@ -24,7 +30,6 @@ const Wrapper = styled(Container)`
         justify-content: center;
     }
 `
-
 const ImgWrapper = styled.div`
     width: 100%;
     height: 100%;
@@ -38,7 +43,6 @@ const ImgWrapper = styled.div`
     ${ImageWrapper} {
         width: 100%;
         height: 100%;
-
         picture > img {
             object-fit: contain !important;
         }
@@ -76,17 +80,20 @@ const InformationWrapper = styled(Flex)`
 `
 
 const HeroContent = styled(Flex)`
-    flex-direction: column;
+    flex-direction: row-reverse;
     justify-content: flex-start;
     height: unset;
+    width: 349px;
 
     ${Header} {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 200;
+        width: 230px;
+        padding-left: 15px;
+        font-family: 'IBM Plex Sans';
         color: var(--color-white);
         display: flex;
-        margin-top: 1.6rem;
-        line-height: 3.6rem;
+        align-items: center;
         max-width: 78%;
     }
     @media ${device.laptopM} {
@@ -136,23 +143,29 @@ const StyledHeader = styled(Header)`
 `
 
 const TryButton = styled(LinkButton)`
-    padding: 14px 16px;
-    width: min-content;
-    white-space: nowrap;
-    font-size: 14px;
-    margin-top: 3.2rem;
-    margin-bottom: 40px;
-    border: unset;
-
-    @media ${device.mobileL} {
+    opacity: 0;
+    @media ${device.tablet} {
+        opacity: 1;
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
         margin-bottom: 2rem;
-    }
-    @media ${device.mobileL} {
         margin-top: 24px;
         margin-bottom: 40px;
+    }
+`
+const AppButton = styled(LocalizedLink)`
+    margin-right: 8px;
+    padding: 0;
+    border: none;
+
+    img {
+        border-radius: 7px;
+    }
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
+        width: 156px;
+        height: 46px;
     }
 `
 
@@ -167,6 +180,21 @@ const query = graphql`
             ...fadeIn
         }
         p2p_hero_img: file(relativePath: { eq: "p2p/p2p_hero_img.png" }) {
+            ...fadeIn
+        }
+        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
+            ...fadeIn
+        }
+        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
+            ...fadeIn
+        }
+        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
+            ...fadeIn
+        }
+        web_browser: file(relativePath: { eq: "deriv-go/web-browser.png" }) {
+            ...fadeIn
+        }
+        qr_code: file(relativePath: { eq: "p2p/p2p_all_appstores.png" }) {
             ...fadeIn
         }
     }
@@ -184,13 +212,22 @@ const Hero = () => {
                     <StyledHeader as="h1" weight={500}>
                         {localize('Hassle-free deposits and withdrawals')}
                     </StyledHeader>
-                    <HeroContent>
-                        <Header as="h2">
-                            {
-                                <Localize translate_text="Use your local currency to make deposits into and withdrawals from your Deriv account." />
-                            }
-                        </Header>
-                    </HeroContent>
+                    <Desktop>
+                        <HeroContent>
+                            <Header as="h2">
+                                {
+                                    <Localize translate_text="Scan the QR code to download Deriv P2P" />
+                                }
+                            </Header>
+                            <QueryImage
+                                data={data['qr_code']}
+                                alt={'play store'}
+                                width="108px"
+                                height="108px"
+                            />
+                        </HeroContent>
+                    </Desktop>
+
                     <TryButton
                         secondary="true"
                         to="/cashier/p2p"
@@ -199,8 +236,52 @@ const Hero = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Try Deriv P2P now')}
+                        {localize('Download Deriv P2P')}
                     </TryButton>
+                    <Desktop>
+                        <Flex
+                            fd="row"
+                            mt="20px"
+                            jc="start"
+                            width="100%"
+                            tablet_fw="wrap"
+                            laptopM={{ m: '7px 8px 48px' }}
+                        >
+                            <AppButton
+                                external="true"
+                                to={p2p_applestore_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <QueryImage data={data['app_store']} alt="app store logo" />
+                            </AppButton>
+                            <AppButton
+                                external="true"
+                                to={p2p_playstore_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <QueryImage data={data['google_play']} alt="google play logo" />
+                            </AppButton>
+
+                            <AppButton
+                                external="true"
+                                to={p2p_huawei_appgallery_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
+                            </AppButton>
+                            <AppButton
+                                external="true"
+                                to={deriv_dp2p_app_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <QueryImage data={data['web_browser']} alt="web browser logo" />
+                            </AppButton>
+                        </Flex>
+                    </Desktop>
                 </InformationWrapper>
 
                 <ImgWrapper>

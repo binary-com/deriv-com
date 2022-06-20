@@ -1015,175 +1015,128 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
     {
         src: icons.ALGORAND,
         text: <Localize translate_text="ALG/USD" />,
-        row: true,
     },
     {
         src: icons.ADAUSD,
         text: <Localize translate_text="ADA/USD" />,
-        row: true,
     },
     {
         src: icons.AVALANCHE,
         text: <Localize translate_text="AVA/USD" />,
-        row: true,
     },
 
     {
         src: icons.BAT,
         text: <Localize translate_text="BAT/USD" />,
-        row: true,
     },
     {
         src: icons.BCH,
         text: <Localize translate_text="BCH/USD" />,
-        row: true,
     },
     {
         src: icons.BNBUSD,
         text: <Localize translate_text="BNB/USD" />,
-        row: true,
     },
 
     {
         src: icons.BTC,
         text: <Localize translate_text="BTC/USD" />,
-        row: true,
     },
     {
         src: icons.BTCETH,
         text: <Localize translate_text="BTC/ETH" />,
-        row: true,
     },
     {
         src: icons.BTCLTC,
         text: <Localize translate_text="BTC/LTC" />,
-        row: true,
-    },
-    {
-        src: icons.BTCXAG,
-        text: <Localize translate_text="BTC/XAG" />,
-
-        row: false,
-    },
-    {
-        src: icons.BTCXAU,
-        text: <Localize translate_text="BTC/XAU" />,
-        row: false,
     },
     {
         src: icons.DOGUSD,
         text: <Localize translate_text="DOG/USD" />,
-        row: true,
     },
     {
         src: icons.DOTUSD,
         text: <Localize translate_text="DOT/USD" />,
-        row: true,
     },
     {
         src: icons.DSHUSD1,
         text: <Localize translate_text="DSH/USD" />,
-        row: true,
     },
     {
         src: icons.EOSUSD1,
         text: <Localize translate_text="EOS/USD" />,
-        row: true,
     },
     {
         src: icons.ETCUSD,
         text: <Localize translate_text="ETC/USD" />,
-        row: true,
     },
     {
         src: icons.ETHUSD,
         text: <Localize translate_text="ETH/USD" />,
-        row: true,
     },
     {
         src: icons.FILUSD,
         text: <Localize translate_text="FIL/USD" />,
-        row: true,
     },
     {
         src: icons.IOTUSD,
         text: <Localize translate_text="IOT/USD" />,
-        row: true,
     },
     {
         src: icons.LNKUSD,
         text: <Localize translate_text="LNK/USD" />,
-        row: true,
     },
     {
         src: icons.LTCUSD,
         text: <Localize translate_text="LTC/USD" />,
-        row: true,
     },
     {
         src: icons.MKRUSD,
         text: <Localize translate_text="MKR/USD" />,
-        row: true,
     },
     {
         src: icons.MTCUSD,
         text: <Localize translate_text="MTC/USD" />,
-        row: true,
     },
     {
         src: icons.NEOUSD,
         text: <Localize translate_text="NEO/USD" />,
-        row: true,
     },
     {
         src: icons.OMGUSD,
         text: <Localize translate_text="OMG/USD" />,
-        row: true,
     },
     {
         src: icons.SOLUSD,
         text: <Localize translate_text="SOL/USD" />,
-        row: true,
-    },
-    {
-        src: icons.TERUSD,
-        text: <Localize translate_text="TER/USD" />,
-        row: false,
     },
     {
         src: icons.TRXUSD,
         text: <Localize translate_text="TRX/USD" />,
-        row: true,
     },
     {
         src: icons.UNIUSD,
         text: <Localize translate_text="UNI/USD" />,
-        row: true,
     },
     {
         src: icons.XMRUSD,
         text: <Localize translate_text="XMR/USD" />,
-        row: true,
     },
     {
         src: icons.XLMUSD,
         text: <Localize translate_text="XLM/USD" />,
-        row: true,
     },
     {
         src: icons.XRPUSD1,
         text: <Localize translate_text="XRP/USD" />,
-        row: true,
     },
     {
         src: icons.XTZUSD,
         text: <Localize translate_text="XTZ/USD" />,
-        row: true,
     },
     {
         src: icons.ZECUSD,
         text: <Localize translate_text="ZEC/USD" />,
-        row: true,
     },
 ]
 

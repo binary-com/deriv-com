@@ -202,7 +202,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {name === 'Multipliers' && (
                     <TabIcon src={MultipliersIcon} alt="" name={name} active_tab={active_tab} />
                 )}
-                <CardHeader as="h4" type="sub-section-title" width="auto">
+                <CardHeader as="h3" type="sub-section-title" width="auto">
                     {display_name}
                 </CardHeader>
             </Flex>

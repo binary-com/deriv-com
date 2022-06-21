@@ -22,11 +22,15 @@ export type DerivStoreType = {
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
+    show_non_eu_popup: boolean
+    setShowNonEuPopup: (key: boolean) => void
+    non_eu_popup: [boolean, (key: boolean) => void]
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
+    const [show_non_eu_popup, setShowNonEuPopup] = useState(false)
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
     const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
@@ -34,6 +38,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)
+    const non_eu_popup = [show_non_eu_popup, setShowNonEuPopup]
 
     useEffect(() => {
         if (website_status) {
@@ -59,6 +64,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 user_country,
                 website_status_loading,
                 website_status,
+                non_eu_popup,
             }}
         >
             {children}

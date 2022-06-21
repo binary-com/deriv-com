@@ -3,7 +3,6 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import { getCountryRule } from '../containers/visibility'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
@@ -14,14 +13,17 @@ import NavPartners from './nav/nav-partner'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
+import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
+import { isBrowser, handleRedirect, queryParamData, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
@@ -90,7 +92,7 @@ const CFDText = styled(Text)`
 `
 
 export const CFDWarning = ({ is_ppc }) => {
-    const { is_uk_eu } = getCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     if (is_ppc || is_uk_eu) {
         return (
@@ -127,7 +129,9 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const { is_uk_eu } = getCountryRule()
+    const { non_eu_popup } = React.useContext(DerivStore)
+    const [show_non_eu_popup, setShowNonEuPopup] = non_eu_popup
+    const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -160,7 +164,7 @@ const Layout = ({
         const website_status = useWebsiteStatusApi()
 
         React.useEffect(() => {
-            if (website_status) {
+            if (website_status && !isEuDomain()) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
                 const residence = client_information_cookie.get('residence')
@@ -261,6 +265,7 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
+
             {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
             {FooterNav}
             <EURedirect
@@ -274,6 +279,12 @@ const Layout = ({
                 aria_label={modal_payload.aria_label}
             />
             <UKAccountClosureModal />
+            {show_non_eu_popup && (
+                <NonEuRedirectPopUp
+                    is_open={show_non_eu_popup}
+                    setShowNonEuPopup={setShowNonEuPopup}
+                />
+            )}
         </LocationProvider>
     )
 }

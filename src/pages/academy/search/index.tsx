@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { matchSorter } from 'match-sorter'
 import ReactPaginate from 'react-paginate'
 import { useQueryParams, StringParam } from 'use-query-params'
+import { useDataFilter } from '../components/utility'
 import VideoParentWrapper from './_video-parent-wrapper'
 import ArticleCard from './_article-card'
 import { Container, SEO, Flex } from 'components/containers'
@@ -132,7 +133,7 @@ const SearchPage = () => {
     }
 
     // combined data
-    const combined_data = [...academy_data.blog, ...academy_data.videos]
+    const combined_data = useDataFilter([...academy_data.blog, ...academy_data.videos])
 
     useEffect(() => {
         if (search_query && !items_type) {

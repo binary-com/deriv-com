@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import {
@@ -99,7 +99,7 @@ const PlatformsDropdown = ({
 
     useEffect(() => setInitArrowOffset(), [])
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (dropdownContainerRef) {
             setActiveDropdown(dropdownContainerRef)
         }

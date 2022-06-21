@@ -159,21 +159,18 @@ const Layout = ({
         }
     }, [is_uk_eu])
 
+    const website_status = useWebsiteStatusApi()
     // Check client's account and ip and apply the necessary redirection
-    if (!is_redirection_applied) {
-        const website_status = useWebsiteStatusApi()
+    React.useEffect(() => {
+        if (website_status && !is_redirection_applied && !isEuDomain()) {
+            const current_client_country = website_status?.clients_country || ''
+            const client_information_cookie = new CookieStorage('client_information')
+            const residence = client_information_cookie.get('residence')
 
-        React.useEffect(() => {
-            if (website_status && !isEuDomain()) {
-                const current_client_country = website_status?.clients_country || ''
-                const client_information_cookie = new CookieStorage('client_information')
-                const residence = client_information_cookie.get('residence')
-
-                setRedirectionApplied(true)
-                handleRedirect(residence, current_client_country, window.location.hostname)
-            }
-        }, [website_status])
-    }
+            setRedirectionApplied(true)
+            handleRedirect(residence, current_client_country, window.location.hostname)
+        }
+    }, [is_redirection_applied, website_status])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { handleGetTrading, handleScroll, moveButton } from '../util/nav-methods'
+import { handleGetTrading, handleScroll, useMoveButton } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
@@ -52,7 +52,7 @@ const RightSection = ({
     const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    const [show_button, showButton, hideButton] = moveButton()
+    const [show_button, showButton, hideButton] = useMoveButton()
 
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)

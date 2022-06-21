@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useQueryParams, StringParam } from 'use-query-params'
 import { matchSorter } from 'match-sorter'
-import { dataFilter } from '../components/utility'
+import { useDataFilter } from '../components/utility'
 import VideoParentWrapper from './_video-parent-wrapper'
 import {
     GetPaginatedArticles,
@@ -91,7 +91,7 @@ const SearchPage = () => {
     }
 
     // combined data
-    const combined_data = dataFilter([...academy_data.blog, ...academy_data.videos])
+    const combined_data = useDataFilter([...academy_data.blog, ...academy_data.videos])
 
     useEffect(() => {
         if (search_query && !items_type) {

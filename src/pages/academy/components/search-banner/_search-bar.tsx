@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef } from 'react'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
-import { dataFilter } from '../utility'
+import { useDataFilter } from '../utility'
 import {
     SearchResultRows,
     SearchSuggestionWrapper,
@@ -143,7 +143,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    const combined_data = dataFilter([...academy_data.blog, ...academy_data.videos])
+    const combined_data = useDataFilter([...academy_data.blog, ...academy_data.videos])
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(e.target.value)

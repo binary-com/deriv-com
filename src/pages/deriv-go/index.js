@@ -5,6 +5,7 @@ import Banner from './_banner.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
+import RoadmapDerivGO from './_deriv-go-radmap'
 import { SEO } from 'components/containers'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import Layout from 'components/layout/layout'
@@ -64,6 +65,7 @@ const DerivGo = () => {
                     <StartDerivGo />
                     <FooterBanner />
                     <OtherApps />
+                    <RoadmapDerivGO />
                 </Layout>
             )
         }

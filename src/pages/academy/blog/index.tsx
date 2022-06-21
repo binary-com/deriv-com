@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
-import { dataFilter } from '../components/utility'
+import { useDataFilter } from '../components/utility'
 import AllArticles from './_all-articles'
 import { AllArticlesQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
@@ -52,7 +52,7 @@ const Hero = styled(Flex)`
 `
 
 const ArticlesPage = ({ data }: ArticlesPageProps) => {
-    const article_data = dataFilter(data.directus.blog)
+    const article_data = useDataFilter(data.directus.blog)
 
     const meta_attributes = {
         og_title: 'Trading tips, guides, and more.',

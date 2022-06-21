@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
 import { RedirectLink } from '../components/recent-featured-posts/_style'
-import { VideoDataType } from './index'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
+import { VideosType } from 'components/hooks/use-academy-data'
 
 const VideoCardWrapper = styled.div`
     max-width: 384px;
@@ -113,8 +113,7 @@ const ContentWrapper = styled.div`
 `
 
 type VideoCardProps = {
-    item: VideoDataType[0]
-    openVideo: React.MouseEventHandler<HTMLDivElement>
+    item: VideosType
 }
 
 const VideoCard = ({ item }: VideoCardProps) => {
@@ -152,7 +151,7 @@ const VideoCard = ({ item }: VideoCardProps) => {
                     </VideoDuration>
                     <StandardImgWrapper width="384px" height="230.40px">
                         <QueryImage
-                            data={item.video_thumbnail.imageFile.childImageSharp.gatsbyImageData}
+                            data={item.video_thumbnail.imageFile}
                             alt={item.video_description}
                             className="standard-query-img"
                         />

@@ -2,13 +2,13 @@ import React from 'react'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import { RedirectLink } from '../components/recent-featured-posts/_style'
 import VideoCard from './_video-card'
-import { VideoDataType } from './index'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { VideosType } from 'components/hooks/use-academy-data'
 
 type AllVideosProps = {
-    video_data: VideoDataType
+    video_data: VideosType[]
 }
 
 const AllVideos = ({ video_data }: AllVideosProps) => {

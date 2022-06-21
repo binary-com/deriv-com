@@ -63,27 +63,35 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
 
     return (
         <Container>
-            <Wrapper>
-                <Header color="white" type="heading-2" weight="700" mb="8px">
-                    {title}
-                </Header>
-                <Header as="p" color="white" weight="400" type="subtitle-2" size="20px" mb="20px">
-                    {description}
-                </Header>
-                <Flex jc="left" height="unset">
-                    <LinkButton
-                        id="hero-article"
-                        to={href}
-                        width="auto"
-                        hero
-                        target="_blank"
-                        rel="noopener noreferrer"
+            <StyledBackground data={imageData} alt={imageAlt}>
+                <Wrapper>
+                    <Header color="white" type="heading-2" weight="700" mb="8px">
+                        {title}
+                    </Header>
+                    <Header
+                        as="p"
+                        color="white"
+                        weight="400"
+                        type="subtitle-2"
+                        size="20px"
+                        mb="20px"
                     >
-                        {button_text}
-                    </LinkButton>
-                </Flex>
-            </Wrapper>
-            <StyledBackground data={imageData} alt={imageAlt}></StyledBackground>
+                        {description}
+                    </Header>
+                    <Flex jc="left" height="unset">
+                        <LinkButton
+                            id="hero-article"
+                            to={href}
+                            width="auto"
+                            hero
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {button_text}
+                        </LinkButton>
+                    </Flex>
+                </Wrapper>
+            </StyledBackground>
         </Container>
     )
 }

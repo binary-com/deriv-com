@@ -332,11 +332,7 @@ const SearchPage = () => {
                             {search_result.video_result.length != 0 ? (
                                 <>
                                     <VideoParentWrapper
-                                        closeVideo={closeVideo}
                                         currentVideoItems={search_result.video_result}
-                                        openVideo={openVideo}
-                                        show={show}
-                                        video_src={play_video_src}
                                     />
                                 </>
                             ) : (

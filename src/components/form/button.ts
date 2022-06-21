@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components'
 import { Paddings, Margins } from 'themes/function'
+import type { PaddingsType, MarginsType } from 'themes/function'
 import device from 'themes/device'
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<'button'>, SharedButtonStyleProps {
-    loading?: string
-}
+type ButtonProps = React.HTMLProps<HTMLButtonElement> & SharedButtonStyleProps
 
 type SharedButtonStyleProps = {
+    loading?: string
     width?: string
     primary?: string
     secondary?: string
@@ -19,7 +19,7 @@ type SharedButtonStyleProps = {
     provider?: string
 }
 
-export const SharedButtonStyle = css<SharedButtonStyleProps>`
+export const SharedButtonStyle = css<SharedButtonStyleProps & PaddingsType & MarginsType>`
     border-radius: 4px;
     padding: 10px 16px;
     font-size: 14px;

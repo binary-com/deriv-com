@@ -133,8 +133,6 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
                                                         .gatsbyImageData
                                                 }
                                                 alt={thumbnail_img_alt}
-                                                width="100%"
-                                                height="100%"
                                             />
                                             <PlayerIconWrapper absolute ai="center">
                                                 <IconDiv>

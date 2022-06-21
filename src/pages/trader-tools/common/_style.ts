@@ -519,10 +519,29 @@ export const FormulaContainer = styled(Flex)`
 
 export const FormulaContainerMobile = styled(Flex)`
     width: auto;
-    height: ${(props) => (props.height ? props.height : '132px')};
-    padding: 6px;
+    height: ${(props) => (props.height ? props.height : '162px')};
     background-color: var(--color-blue-4);
     position: relative;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: ${(props) => (props.mt ? props.mt : '45px')};
+    @media ${device.mobileS} {
+        height: 152px;
+        padding-top: ${(props) => (props.mt ? props.mt : '40px')};
+    }
+`
+export const FormulaContainerSwapMobile = styled(Flex)`
+    width: auto;
+    height: ${(props) => (props.height ? props.height : '192px')};
+    background-color: var(--color-blue-4);
+    position: relative;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: ${(props) => (props.mt ? props.mt : '45px')};
+    @media ${device.mobileS} {
+        height: 182px;
+        padding-top: ${(props) => (props.mt ? props.mt : '40px')};
+    }
 `
 
 export const FormulaHighlight = styled(Flex)`
@@ -553,21 +572,23 @@ export const FormulaHighlightForPnlMultiplier = styled(Flex)`
 `
 
 export const FormulaHighlightMobile = styled(Flex)`
-    margin-top: ${(props) => (props.mt ? props.mt : '35px')};
-    margin-bottom: ${(props) => (props.mb ? props.mb : '35px')};
-    height: ${(props) => (props.height ? props.height : '53px')};
+    margin-left: 8px;
+    margin-right: 8px;
+    height: ${(props) => (props.height ? props.height : '68px')};
     gap: ${(props) => (props.gp ? props.gp : 0)};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     align-items: center;
-    font-size: 14px;
     font-weight: 600;
     flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
-    width: calc(100% - 16px);
+    font-size: 16px;
+    padding: ${(props) => (props.pd ? props.pd : '0')};
+    @media ${device.mobileS} {
+        font-size: 12px;
+    }
 `
-
 export const FormulaValue = styled.div<FormulaValueType>`
     display: inline-block;
     min-width: ${(props) => (props.width ? props.width : '50px')};
@@ -582,7 +603,7 @@ export const FormulaValueSwapSynthetic = styled.div`
 `
 export const FormulaValueSwapSyntheticMobile = styled.div`
     display: inline-block;
-    min-width: 0;
+    min-width: ${(props: FormulaValueType) => (props.mw ? props.mw : '0')};
     text-align: center;
     margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
 `
@@ -626,7 +647,7 @@ export const PointerContainer = styled.div<PointerContainerType>`
 export const PointerContainerMobile = styled.div<PointerContainerType>`
     display: flex;
     position: absolute;
-    height: 80px;
+    height: ${(props) => (props.height ? 'props.height' : '80px')};
     margin-top: ${(props) => (props.top ? '-100px' : '8px')};
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
@@ -661,7 +682,7 @@ export const PointerStick = styled.div<PointerStickType>`
 
 export const PointerStickMobile = styled.div<PointerStickType>`
     position: relative;
-    height: ${(props) => (props.height ? props.height : '18px')};
+    height: ${(props) => (props.height ? props.height : '24px')};
     width: 1px;
     background-color: black;
     opacity: 0.1;
@@ -679,9 +700,9 @@ export const PointerTextMobile = styled.div<PointerTextType>`
     margin-top: 3px;
     margin-bottom: 3px;
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
-    font-size: 14px;
     font-weight: 600;
     color: var(--color-blue-5);
+    font-size: 14px;
     @media ${device.mobileS} {
         font-size: 12px;
     }
@@ -696,9 +717,21 @@ export const Sup = styled.span`
 export const FormulaTopWrapper = styled.div`
     display: block;
 `
+export const FormulaTopWrapperSwapMobile = styled.div`
+    display: block;
+    padding-top: 12px;
+`
 export const FormulaTopWrapperPnl = styled.div<FormulaWrapperType>`
     display: block;
     margin-top: 24px;
+`
+export const FormulaTopWrapperMobile = styled.div<FormulaWrapperType>`
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 6px;
+    @media ${device.mobileM} {
+        grid-column-gap: 2px;
+    }
 `
 export const FormulaBottomWrapperPnl = styled.div<FormulaWrapperType>`
     display: block;
@@ -709,7 +742,10 @@ export const FormulaBottomWrapperPnl = styled.div<FormulaWrapperType>`
 export const FormulaBottomWrapper = styled.div<FormulaWrapperType>`
     display: block;
 `
-
+export const FormulaBottomWrapperMobile = styled.div<FormulaWrapperType>`
+    display: block;
+    padding-top: 12px;
+`
 export const PnlBottomWrapper = styled.div`
     display: block;
     margin-top: 10px;

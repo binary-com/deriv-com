@@ -3,6 +3,7 @@ import {
     FormulaContainer,
     FormulaHighlight,
     FormulaValueSwapSynthetic,
+    FormulaValueSwapSyntheticMobile,
     FormulaGreen,
     FormulaValue,
     PointerContainer,
@@ -269,8 +270,8 @@ export const PipValue = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile height="230px">
-                    <FormulaHighlightMobile height="90px" mt="60px">
+                <FormulaContainerMobile>
+                    <FormulaHighlightMobile>
                         <FormulaValueMobile>
                             <Localize translate_text="|( 1.1750" />
                             <PointerContainerMobile mw="120px" ml="-16px" top>
@@ -280,14 +281,14 @@ export const PipValue = () => {
                                     <Localize translate_text="take profit level" />
                                 </PointerTextMobile>
                                 <PointerTextMobile top>
-                                    <Localize translate_text=" Stop loss or " />
+                                    <Localize translate_text="Stop loss or " />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueSwapSyntheticMobile mw="20px">
                             <FormulaGreen> - </FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueSwapSyntheticMobile>
 
                         <FormulaValueMobile>
                             <Localize translate_text="1.17524)|" />
@@ -300,9 +301,9 @@ export const PipValue = () => {
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueSwapSyntheticMobile mw="20px">
                             <FormulaGreen>&divide;</FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueSwapSyntheticMobile>
                         <FormulaValueMobile>
                             <Localize translate_text="0.00001" />
                             <PointerContainerMobile mw="40px" top ml="3px">
@@ -316,9 +317,9 @@ export const PipValue = () => {
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueSwapSyntheticMobile mw="20px">
                             <FormulaGreen>=</FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueSwapSyntheticMobile>
 
                         <FormulaValueMobile>
                             <Localize
@@ -428,9 +429,9 @@ export const TakeProfitLevel = () => {
                 </FormulaContainer>
             </Show.Desktop>
 
-            <Show.Mobile min_width="tablet">
-                <FormulaContainerMobile height="230px">
-                    <FormulaHighlightMobile height="90px" mt="80px">
+            <Show.Mobile>
+                <FormulaContainerMobile>
+                    <FormulaHighlightMobile>
                         <FormulaValueMobile>
                             <Localize translate_text="249.5961" />
                             <PointerContainerMobile mw="0">
@@ -589,8 +590,8 @@ export const ProfitPipValue = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile height="230px">
-                    <FormulaHighlightMobile height="90px" mt="80px" syn_mobile>
+                <FormulaContainerMobile>
+                    <FormulaHighlightMobile>
                         <FormulaTopWrapper>
                             <FormulaValueMobile>
                                 <Localize translate_text="|(221.5961" />

@@ -416,13 +416,13 @@ const MarginCalculator = () => {
                                     </FormulaContainer>
                                 </Show.Desktop>
                                 <Show.Mobile>
-                                    <FormulaContainerMobile height="142px">
-                                        <FormulaHighlightMobile gp="0" jc="space-evenly">
+                                    <FormulaContainerMobile>
+                                        <FormulaHighlightMobile jc="space-evenly">
                                             <FormulaValueMobile>
                                                 <Localize translate_text="( 2" />
                                                 <PointerContainerMobile>
                                                     <PointerDotMobile />
-                                                    <PointerStickMobile height="18px" />
+                                                    <PointerStickMobile />
                                                     <PointerTextMobile>
                                                         <Localize translate_text="Volume" />
                                                     </PointerTextMobile>
@@ -437,7 +437,7 @@ const MarginCalculator = () => {
                                                 <Localize translate_text="100,000" />
                                                 <PointerContainerMobile top ml="-20px" mw="0">
                                                     <PointerDotMobile />
-                                                    <PointerStickMobile height="16px" />
+                                                    <PointerStickMobile />
                                                     <PointerTextMobile top>
                                                         <Localize
                                                             translate_text="Contract size <0>1</0>"
@@ -453,9 +453,9 @@ const MarginCalculator = () => {
 
                                             <FormulaValueMobile>
                                                 <Localize translate_text="1.10 )" />
-                                                <PointerContainerMobile ml="-30px" mw="0">
+                                                <PointerContainerMobile ml="-20px" mw="0">
                                                     <PointerDotMobile />
-                                                    <PointerStickMobile height="16px" />
+                                                    <PointerStickMobile />
                                                     <PointerTextMobile>
                                                         <Localize translate_text="Asset price" />
                                                     </PointerTextMobile>
@@ -470,7 +470,7 @@ const MarginCalculator = () => {
                                                 <Localize translate_text="100" />
                                                 <PointerContainerMobile top ml="4px">
                                                     <PointerDotMobile />
-                                                    <PointerStickMobile height="16px" />
+                                                    <PointerStickMobile />
                                                     <PointerTextMobile top>
                                                         <Localize translate_text="Leverage" />
                                                     </PointerTextMobile>
@@ -488,7 +488,7 @@ const MarginCalculator = () => {
                                                 />
                                                 <PointerContainerMobile mw="0" ml="-20px">
                                                     <PointerDotMobile />
-                                                    <PointerStickMobile height="16px" />
+                                                    <PointerStickMobile />
                                                     <PointerTextMobile ml="-25px">
                                                         <Localize translate_text="Margin required" />
                                                     </PointerTextMobile>

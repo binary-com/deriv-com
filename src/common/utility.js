@@ -444,7 +444,7 @@ export const handleDerivRedirect = (country, subdomain) => {
 
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.').slice(0, -2).join('.')
 
-export const isEuDomain = () => !!eu_domains.includes.getSubdomain()
+export const isEuDomain = () => !!eu_domains.includes(getSubdomain())
 
 export const handleRedirect = (residence, current_client_country) => {
     const country = residence ? residence : current_client_country

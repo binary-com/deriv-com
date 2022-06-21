@@ -22,16 +22,6 @@ const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
-            link: reddit_url,
-            image: Reddit,
-            image_alt: `reddit ${alt_string}`,
-        },
-        {
-            link: telegram_url,
-            image: Telegram,
-            image_alt: `telegram ${alt_string}`,
-        },
-        {
             link: is_career_page ? fb_url_career : fb_url,
             image: Facebook,
             image_alt: `facebook ${alt_string}`,
@@ -53,8 +43,19 @@ const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter
         image: Twitter,
         image_alt: `twitter ${alt_string}`,
     }
+    const reddit = {
+        link: reddit_url,
+        image: Reddit,
+        image_alt: `reddit ${alt_string}`,
+    }
+    const telegram = {
+        link: telegram_url,
+        image: Telegram,
+        image_alt: `telegram ${alt_string}`,
+    }
 
     if (!is_career_page) {
+        accounts.splice(0, 0, reddit, telegram)
         accounts.splice(3, 0, twitter)
     }
 

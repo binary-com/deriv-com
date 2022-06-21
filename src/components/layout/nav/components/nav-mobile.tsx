@@ -12,7 +12,7 @@ import { handleGetTrading, handleLogin } from '../util/nav-methods'
 import device from 'themes/device'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
-import { OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
+import { OffCanvasMenu, useMoveOffCanvasMenu } from 'components/elements'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
@@ -51,7 +51,7 @@ const NavMobile = ({
     hide_language_switcher,
     hide_signup_login,
 }: NavMobileProps) => {
-    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
 
     return (
         <MobileWrapper>

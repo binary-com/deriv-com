@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TextWrapper } from './_common'
-import { addScriptForCIO } from './utility'
+import { addScriptForCIO } from './_utility'
 import AgreementLabel from 'components/custom/_agreement-label'
 import validation from 'common/validation'
 import { localize, Localize } from 'components/localization'
@@ -12,7 +12,7 @@ import device from 'themes/device'
 import { DerivStore } from 'store'
 import EmailSubscriptionSVG from 'images/svg/blog/articles/blog-article-email-subscription.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SubscribeBannerWrapper = styled(Flex)`
     max-width: 282px;
@@ -128,7 +128,7 @@ const SideSubscriptionBanner = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
     const { user_country } = React.useContext(DerivStore)
-    const { is_eu } = getCountryRule()
+    const { is_eu } = useCountryRule()
 
     useEffect(() => {
         if (!window._cio) {

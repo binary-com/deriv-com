@@ -3,7 +3,6 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/use-gtm-data'
-import { getCountryRule } from '../containers/visibility'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
 import NavStatic from './nav/nav-static'
@@ -14,6 +13,7 @@ import NavPartners from './nav/nav-partner'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
@@ -90,7 +90,7 @@ const CFDText = styled(Text)`
 `
 
 export const CFDWarning = ({ is_ppc }) => {
-    const { is_uk_eu } = getCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     if (is_ppc || is_uk_eu) {
         return (
@@ -127,7 +127,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const { is_uk_eu } = getCountryRule()
+    const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -155,21 +155,18 @@ const Layout = ({
         }
     }, [is_uk_eu])
 
+    const website_status = useWebsiteStatusApi()
     // Check client's account and ip and apply the necessary redirection
-    if (!is_redirection_applied) {
-        const website_status = useWebsiteStatusApi()
+    React.useEffect(() => {
+        if (website_status && !is_redirection_applied) {
+            const current_client_country = website_status?.clients_country || ''
+            const client_information_cookie = new CookieStorage('client_information')
+            const residence = client_information_cookie.get('residence')
 
-        React.useEffect(() => {
-            if (website_status) {
-                const current_client_country = website_status?.clients_country || ''
-                const client_information_cookie = new CookieStorage('client_information')
-                const residence = client_information_cookie.get('residence')
-
-                setRedirectionApplied(true)
-                handleRedirect(residence, current_client_country, window.location.hostname)
-            }
-        }, [website_status])
-    }
+            setRedirectionApplied(true)
+            handleRedirect(residence, current_client_country, window.location.hostname)
+        }
+    }, [is_redirection_applied, website_status])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

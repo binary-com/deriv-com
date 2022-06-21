@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import Subscribe from '../components/_subscribe'
 import { useDataFilter } from '../components/_utility'
 import AllVideos from './_all-videos'
@@ -53,6 +53,12 @@ type VideosPageProps = {
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
 const VideosPage = ({ data }: VideosPageProps) => {
+    // We need this useEffect because we already shared video links in social media which include query params '?t='
+    React.useEffect(() => {
+        const video_link = window.location.search
+        video_link.includes('?t=') && navigate(video_link.replace('?t=', ''))
+    }, [])
+
     const video_data = useDataFilter(data.directus.videos)
 
     const meta_attributes = {

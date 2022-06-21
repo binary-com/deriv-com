@@ -36,8 +36,10 @@ export type VideosType = {
     visibility: string
     published_date: string
     tags: TagsType[]
+    vimeo_id: string
     video_description: string
     video_duration: string
+    video_slug: string
     video_file: VideoFileType
     video_thumbnail: VideoThumbnailType
     video_title: string
@@ -93,6 +95,7 @@ const query = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 visibility
                 video_thumbnail {

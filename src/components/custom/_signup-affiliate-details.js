@@ -261,7 +261,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                             <MobileInputWrapper>
                                                 <CodeWrapper>
                                                     <div style={{ marginTop: '15px' }}>
-                                                        {'+' + phone_code}
+                                                        {phone_code && (
+                                                            <span>{`+${phone_code}`}</span>
+                                                        )}
                                                     </div>
                                                 </CodeWrapper>
                                                 <div style={{ width: '80%', paddingLeft: '10px' }}>

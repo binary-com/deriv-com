@@ -56,7 +56,7 @@ const derivP2PPortalData = {
     paragraph: (
         <Localize translate_text="Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
     ),
-    frame: 'https://derivp2p.productboard.com/portal/1-product-portal/tabs/ac346941-48a9-4ffd-a6d1-78b7fa9ba1f5',
+    frame: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m?hide_header=1',
     link: 'https://derivp2p.productboard.com/portal/1-product-portal/tabs/ac346941-48a9-4ffd-a6d1-78b7fa9ba1f5',
 }
 

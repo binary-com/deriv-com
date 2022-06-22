@@ -129,8 +129,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const { non_eu_popup } = React.useContext(DerivStore)
-    const [show_non_eu_popup, setShowNonEuPopup] = non_eu_popup
+    const { show_non_eu_popup, setShowNonEuPopup } = React.useContext(DerivStore)
     const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)

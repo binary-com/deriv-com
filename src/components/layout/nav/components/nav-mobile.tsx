@@ -56,8 +56,7 @@ const NavMobile = ({
     hide_signup_login,
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
-    const { non_eu_popup } = React.useContext(DerivStore)
-    const [, setShowNonEuPopup] = non_eu_popup
+    const { setShowNonEuPopup } = React.useContext(DerivStore)
     const { is_non_eu } = useCountryRule()
 
     const handleLogin = () => {

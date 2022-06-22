@@ -17,6 +17,8 @@ import {
     PointerStickMobile,
     PointerDotMobile,
     PointerTextMobile,
+    FormulaTopWrapperMobile,
+    FormulaBottomWrapperPnlMobile,
     Sup,
     FormulaTopWrapper,
     FormulaBottomWrapper,
@@ -106,9 +108,9 @@ export const StopLoss = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile height="210px">
-                    <FormulaHighlightMobile height="73px" syn_mobile mt="80px">
-                        <FormulaTopWrapper>
+                <FormulaContainerMobile pt="60px" height="192px">
+                    <FormulaHighlightMobile height="90px">
+                        <FormulaTopWrapperMobile mt="-20px" cg="6px" ml="-20px">
                             <FormulaValueMobile>
                                 <Localize translate_text="1.17524" />
                                 <PointerContainerMobile mw="0">
@@ -120,12 +122,12 @@ export const StopLoss = () => {
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
 
-                            <FormulaValueSwapSynthetic>
+                            <FormulaValueSwapSyntheticMobile mw="10px">
                                 <FormulaGreen> + </FormulaGreen>
-                            </FormulaValueSwapSynthetic>
+                            </FormulaValueSwapSyntheticMobile>
 
                             <FormulaValueMobile>
-                                <Localize translate_text="{-24" />
+                                <Localize translate_text="{ -24" />
                                 <PointerContainerMobile mw="120px" ml="-45px" top>
                                     <PointerDotMobile />
                                     <PointerStickMobile height="22px" />
@@ -138,12 +140,12 @@ export const StopLoss = () => {
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
 
-                            <FormulaValueSwapSynthetic>
+                            <FormulaValueSwapSyntheticMobile mw="10px">
                                 <FormulaGreen>&divide;</FormulaGreen>
-                            </FormulaValueSwapSynthetic>
+                            </FormulaValueSwapSyntheticMobile>
 
                             <FormulaValueMobile>
-                                <Localize translate_text="(1" />
+                                <Localize translate_text="( 1" />
                                 <PointerContainerMobile>
                                     <PointerDotMobile />
                                     <PointerStickMobile height="42px" />
@@ -153,15 +155,15 @@ export const StopLoss = () => {
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
 
-                            <FormulaValueSwapSynthetic>
+                            <FormulaValueSwapSyntheticMobile mw="10px">
                                 <FormulaGreen>x </FormulaGreen>
-                            </FormulaValueSwapSynthetic>
+                            </FormulaValueSwapSyntheticMobile>
 
                             <FormulaValueMobile>
-                                <Localize translate_text="100,0001)}" />
-                                <PointerContainerMobile top mw="0" ml="-12px">
+                                <Localize translate_text="100,0001 ) }" />
+                                <PointerContainerMobile top mw="0" ml="-5px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="16px" />
+                                    <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Contract size <0>1</0>"
@@ -170,12 +172,12 @@ export const StopLoss = () => {
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
-                        </FormulaTopWrapper>
+                        </FormulaTopWrapperMobile>
 
-                        <FormulaBottomWrapper>
-                            <FormulaValueMobile>
+                        <FormulaBottomWrapperPnlMobile mt="40px" ml="-80px">
+                            <FormulaValueSwapSyntheticMobile mw="30px">
                                 <FormulaGreen>=</FormulaGreen>
-                            </FormulaValueMobile>
+                            </FormulaValueSwapSyntheticMobile>
 
                             <FormulaValueMobile>
                                 <Localize
@@ -184,13 +186,13 @@ export const StopLoss = () => {
                                 />
                                 <PointerContainerMobile mw="0" ml="-20px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="18px" />
+                                    <PointerStickMobile height="12px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Stop loss level" />
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
-                        </FormulaBottomWrapper>
+                        </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
             </Show.Mobile>
@@ -270,8 +272,8 @@ export const PipValue = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile>
-                    <FormulaHighlightMobile>
+                <FormulaContainerMobile height="190px" pt="60px">
+                    <FormulaHighlightMobile height="78px">
                         <FormulaValueMobile>
                             <Localize translate_text="|( 1.1750" />
                             <PointerContainerMobile mw="120px" ml="-16px" top>
@@ -326,10 +328,10 @@ export const PipValue = () => {
                                 translate_text="<0>24</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainerMobile mw="40px">
+                            <PointerContainerMobile mw="40px" ml="-5px">
                                 <PointerDotMobile />
                                 <PointerStickMobile height="32px" />
-                                <PointerTextMobile ml="-100px">
+                                <PointerTextMobile ml="-80px">
                                     <Localize translate_text="Stop loss pip value" />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
@@ -430,28 +432,28 @@ export const TakeProfitLevel = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile>
+                <FormulaContainerMobile height="180px" pt="65px">
                     <FormulaHighlightMobile>
                         <FormulaValueMobile>
                             <Localize translate_text="249.5961" />
                             <PointerContainerMobile mw="0">
                                 <PointerDotMobile />
-                                <PointerStickMobile height="38px" />
+                                <PointerStickMobile height="24px" />
                                 <PointerTextMobile>
                                     <Localize translate_text="Asset price" />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueSwapSyntheticMobile mw="15px">
                             <FormulaGreen> - </FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueSwapSyntheticMobile>
 
                         <FormulaValueMobile>
                             <Localize translate_text="{ 84" />
                             <PointerContainerMobile mw="120px" top>
                                 <PointerDotMobile />
-                                <PointerStickMobile height="38px" />
+                                <PointerStickMobile height="24px" />
                                 <PointerTextMobile ml="-80px">
                                     <Localize translate_text="take profit amount" />
                                 </PointerTextMobile>
@@ -461,30 +463,30 @@ export const TakeProfitLevel = () => {
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueMobile>
+                        <FormulaValueSwapSyntheticMobile mw="15px">
                             <FormulaGreen>&divide;</FormulaGreen>
-                        </FormulaValueMobile>
+                        </FormulaValueSwapSyntheticMobile>
 
                         <FormulaValueMobile>
                             <Localize translate_text="( 3" />
                             <PointerContainerMobile>
                                 <PointerDotMobile />
-                                <PointerStickMobile height="38px" />
+                                <PointerStickMobile height="24px" />
                                 <PointerTextMobile>
                                     <Localize translate_text="Volume" />
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueMobile>
+                        <FormulaValueSwapSyntheticMobile mw="15px">
                             <FormulaGreen> x </FormulaGreen>
-                        </FormulaValueMobile>
+                        </FormulaValueSwapSyntheticMobile>
 
                         <FormulaValueMobile>
                             <Localize translate_text="1 ) }" />
                             <PointerContainerMobile top mw="0" ml="-68px">
                                 <PointerDotMobile />
-                                <PointerStickMobile height="36px" />
+                                <PointerStickMobile height="24px" />
                                 <PointerTextMobile top ml="60px">
                                     <Localize
                                         translate_text="Contract size <0>1</0>"
@@ -494,9 +496,9 @@ export const TakeProfitLevel = () => {
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueSwapSyntheticMobile mw="30px">
                             <FormulaGreen>=</FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueSwapSyntheticMobile>
 
                         <FormulaValueMobile>
                             <Localize
@@ -505,7 +507,7 @@ export const TakeProfitLevel = () => {
                             />
                             <PointerContainerMobile mw="0">
                                 <PointerDotMobile />
-                                <PointerStickMobile height="38px" />
+                                <PointerStickMobile height="24px" />
                                 <PointerTextMobile ml="-30px">
                                     <Localize translate_text="Take profit level" />
                                 </PointerTextMobile>
@@ -590,14 +592,14 @@ export const ProfitPipValue = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile>
-                    <FormulaHighlightMobile>
-                        <FormulaTopWrapper>
+                <FormulaContainerMobile pt="60px" height="202px">
+                    <FormulaHighlightMobile height="90px">
+                        <FormulaTopWrapperMobile mt="-20px" cg="6px" ml="-100px">
                             <FormulaValueMobile>
                                 <Localize translate_text="|(221.5961" />
                                 <PointerContainerMobile mw="120px" ml="-15px" top>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="38px" />
+                                    <PointerStickMobile height="24px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="  take profit level" />
                                     </PointerTextMobile>
@@ -607,30 +609,30 @@ export const ProfitPipValue = () => {
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
 
-                            <FormulaValueSwapSynthetic>
+                            <FormulaValueSwapSyntheticMobile mw="15px">
                                 <FormulaGreen> - </FormulaGreen>
-                            </FormulaValueSwapSynthetic>
+                            </FormulaValueSwapSyntheticMobile>
 
                             <FormulaValueMobile>
                                 <Localize translate_text="249.5961)|" />
                                 <PointerContainerMobile ml="25px" top mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="24px" />
                                     <PointerTextMobile top ml="-30px">
                                         <Localize translate_text="Asset price" />
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
 
-                            <FormulaValueSwapSynthetic>
+                            <FormulaValueSwapSyntheticMobile mw="15px">
                                 <FormulaGreen>&divide;</FormulaGreen>
-                            </FormulaValueSwapSynthetic>
+                            </FormulaValueSwapSyntheticMobile>
 
                             <FormulaValueMobile>
                                 <Localize translate_text="0.0001" />
                                 <PointerContainerMobile mw="0" top>
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="24px" />
                                     <PointerTextMobile top>
                                         <Localize
                                             translate_text="Point value<0>1</0>"
@@ -639,12 +641,12 @@ export const ProfitPipValue = () => {
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
-                        </FormulaTopWrapper>
+                        </FormulaTopWrapperMobile>
 
-                        <FormulaBottomWrapper ml="30px">
-                            <FormulaValueSwapSynthetic>
+                        <FormulaBottomWrapperPnlMobile mt="40px" ml="-160px">
+                            <FormulaValueSwapSyntheticMobile mw="15px">
                                 <FormulaGreen>=</FormulaGreen>
-                            </FormulaValueSwapSynthetic>
+                            </FormulaValueSwapSyntheticMobile>
 
                             <FormulaValueMobile>
                                 <Localize
@@ -653,13 +655,13 @@ export const ProfitPipValue = () => {
                                 />
                                 <PointerContainerMobile ml="-35px" mw="0">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="32px" />
+                                    <PointerStickMobile height="20px" />
                                     <PointerTextMobile>
                                         <Localize translate_text="Take profit  pip value" />
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
-                        </FormulaBottomWrapper>
+                        </FormulaBottomWrapperPnlMobile>
                     </FormulaHighlightMobile>
                 </FormulaContainerMobile>
             </Show.Mobile>

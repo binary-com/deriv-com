@@ -37,6 +37,8 @@ type PointerContainerType = {
 
 type PointerStickType = {
     height?: string
+    ml?: string
+    w?: string
 }
 
 type PointerTextType = {
@@ -45,6 +47,8 @@ type PointerTextType = {
 }
 type FormulaWrapperType = {
     ml?: string
+    mt?: string
+    cg?: string
 }
 
 export const Hero = styled(Flex)`
@@ -524,10 +528,10 @@ export const FormulaContainerMobile = styled(Flex)`
     position: relative;
     padding-right: 6px;
     padding-left: 6px;
-    padding-top: ${(props) => (props.mt ? props.mt : '45px')};
+    padding-top: ${(props) => (props.pt ? props.pt : '45px')};
     @media ${device.mobileS} {
-        height: 152px;
-        padding-top: ${(props) => (props.mt ? props.mt : '40px')};
+        height: ${(props) => (props.height ? props.height : '152px')};
+        padding-top: ${(props) => (props.pt ? props.pt : '40px')};
     }
 `
 export const FormulaContainerSwapMobile = styled(Flex)`
@@ -583,7 +587,7 @@ export const FormulaHighlightMobile = styled(Flex)`
     align-items: center;
     font-weight: 600;
     flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
-    font-size: 16px;
+    font-size: ${(props) => (props.fs ? props.fs : '16px')};
     padding: ${(props) => (props.pd ? props.pd : '0')};
     @media ${device.mobileS} {
         font-size: 12px;
@@ -685,9 +689,21 @@ export const PointerStickMobile = styled.div<PointerStickType>`
     height: ${(props) => (props.height ? props.height : '24px')};
     width: 1px;
     background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
     opacity: 0.1;
 `
-
+export const PointerHorizontalStickMobile = styled.div<PointerStickType>`
+    position: relative;
+    height: 0;
+    width: ${(props) => (props.w ? props.w : '59px')};
+    border: 1px solid;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    opacity: 0.1;
+    @media ${device.mobileS} {
+        width: ${(props) => (props.w ? props.w : '45px')};
+    }
+`
 export const PointerText = styled.div<PointerTextType>`
     margin-top: 0;
     font-size: 16px;
@@ -728,7 +744,29 @@ export const FormulaTopWrapperPnl = styled.div<FormulaWrapperType>`
 export const FormulaTopWrapperMobile = styled.div<FormulaWrapperType>`
     display: grid;
     grid-auto-flow: column;
+    grid-column-gap: ${(props) => (props.cg ? props.cg : '6px')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    @media ${device.mobileM} {
+        grid-column-gap: ${(props) => (props.cg ? props.cg : '2px')};
+    }
+`
+export const FormulaTopWrapperPnlMultiplierMobile = styled.div<FormulaWrapperType>`
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: ${(props) => (props.cg ? props.cg : '12px')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    @media ${device.mobileM} {
+        grid-column-gap: ${(props) => (props.cg ? props.cg : '2px')};
+    }
+`
+export const FormulaBottomWrapperPnlMobile = styled.div<FormulaWrapperType>`
+    display: grid;
+    grid-auto-flow: column;
     grid-column-gap: 6px;
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
     @media ${device.mobileM} {
         grid-column-gap: 2px;
     }
@@ -745,6 +783,7 @@ export const FormulaBottomWrapper = styled.div<FormulaWrapperType>`
 export const FormulaBottomWrapperMobile = styled.div<FormulaWrapperType>`
     display: block;
     padding-top: 12px;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
 export const PnlBottomWrapper = styled.div`
     display: block;

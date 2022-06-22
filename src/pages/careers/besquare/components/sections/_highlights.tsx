@@ -1,5 +1,5 @@
 import React from 'react'
-import HighlightVideo from '../../static/videos/highlights.mp4'
+import HighlightVideo from '../../static/videos/besquare_highlights.mp4'
 import { VideoPlayer } from 'components/elements'
 import { Flex } from 'components/containers'
 

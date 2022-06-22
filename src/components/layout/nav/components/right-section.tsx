@@ -75,16 +75,12 @@ const RightSection = ({
         )
     }
 
-    const handleNonEuPopUp = () => {
-        setShowNonEuPopup(true)
-    }
-
     const handleLogin = () => {
-        if (is_non_eu && !isEuDomain()) {
+        if (is_non_eu && isEuDomain()) {
+            setShowNonEuPopup(true)
+        } else {
             redirectToTradingPlatform()
             Login.redirectToLogin()
-        } else {
-            setShowNonEuPopup(true)
         }
     }
 
@@ -100,11 +96,7 @@ const RightSection = ({
 
             {!hide_signup_login && (
                 <>
-                    <StyledButton
-                        id="dm-nav-login-button"
-                        onClick={is_non_eu ? handleLogin : handleNonEuPopUp}
-                        primary
-                    >
+                    <StyledButton id="dm-nav-login-button" onClick={handleLogin} primary>
                         {localize('Log in')}
                     </StyledButton>
 

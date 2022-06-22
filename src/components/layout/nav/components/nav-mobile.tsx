@@ -60,11 +60,11 @@ const NavMobile = ({
     const { is_non_eu } = useCountryRule()
 
     const handleLogin = () => {
-        if (is_non_eu && !isEuDomain()) {
+        if (is_non_eu && isEuDomain()) {
+            setShowNonEuPopup(true)
+        } else {
             redirectToTradingPlatform()
             Login.redirectToLogin()
-        } else {
-            setShowNonEuPopup(true)
         }
     }
 

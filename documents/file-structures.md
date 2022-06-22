@@ -47,7 +47,7 @@ src
     │   ├── ach.json --- Translation texts for crowdin
     │   ├── *.json --- Translation texts for languages
     ├── types/
-    │   ├── *.types.ts --- type configuration for typescript
+    │   ├── *.types.ts --- Type declaration for project wide use. types in here are usually generic types that are extended or automatically generated.
 static
     ├── css/ --- Hold third party css
     ├── payment-methods/ --- Payment method documents

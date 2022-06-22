@@ -18,7 +18,7 @@ import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import Login from 'common/login'
-import { redirectToTradingPlatform } from 'common/utility'
+import { redirectToTradingPlatform, isEuDomain } from 'common/utility'
 import { DerivStore } from 'store'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -60,7 +60,7 @@ const NavMobile = ({
     const { is_non_eu } = useCountryRule()
 
     const handleLogin = () => {
-        if (is_non_eu) {
+        if (is_non_eu && !isEuDomain()) {
             redirectToTradingPlatform()
             Login.redirectToLogin()
         } else {

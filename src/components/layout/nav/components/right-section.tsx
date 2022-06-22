@@ -5,7 +5,7 @@ import { NavRight } from '../styles/nav-styles'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
 import { DerivStore } from 'store'
-import { redirectToTradingPlatform } from 'common/utility'
+import { redirectToTradingPlatform, isEuDomain } from 'common/utility'
 import Login from 'common/login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
@@ -80,7 +80,7 @@ const RightSection = ({
     }
 
     const handleLogin = () => {
-        if (is_non_eu) {
+        if (is_non_eu && !isEuDomain()) {
             redirectToTradingPlatform()
             Login.redirectToLogin()
         } else {

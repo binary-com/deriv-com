@@ -12,7 +12,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import FullControl from 'images/svg/trade-types/full-control.svg'
@@ -160,7 +160,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_non_uk, is_row, is_uk_eu } = getCountryRule()
+    const { is_non_uk, is_row, is_uk_eu } = useCountryRule()
 
     return (
         <>

@@ -5,13 +5,14 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Flex, Desktop } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
+import { mobileOSDetect } from 'common/os-detect'
 import device from 'themes/device'
 import {
-    deriv_go_playstore_url,
-    deriv_go_huaweiappgallery_url,
-    deriv_go_ios_url,
-    deriv_mt5_app_url,
+    derivx_android_url,
+    derivx_ios_url,
+    derivx_huawei_url,
+    derivx_app_url,
 } from 'common/constants'
 
 const Wrapper = styled(Flex)`
@@ -84,7 +85,6 @@ const HeroHeader = styled(Header)`
         font-weight: 200;
         width: 230px;
         padding-left: 15px;
-        font-family: 'IBM Plex Sans';
         color: var(--color-white);
         display: flex;
         align-items: center;
@@ -200,7 +200,7 @@ const AppButton = styled(LocalizedLink)`
         height: 40px;
     }
 `
-const TryButton = styled(LinkButton)`
+const ButtonDp2p = styled(Button)`
     opacity: 0;
     @media ${device.tablet} {
         opacity: 1;
@@ -208,7 +208,6 @@ const TryButton = styled(LinkButton)`
         height: 42px;
         width: 25rem;
         white-space: nowrap;
-        margin-bottom: 2rem;
         margin-right: 50%;
         margin-top: 24px;
         margin-bottom: 40px;
@@ -218,7 +217,6 @@ const TryButton = styled(LinkButton)`
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
-        margin-bottom: 2rem;
         margin-right: 500px;
         margin-top: 24px;
         margin-bottom: 40px;
@@ -299,7 +297,19 @@ const DHero = ({
             right: 120px;
         }
     `
-
+    const handleExternalLink = () => {
+        let link = ''
+        if (is_mobile) {
+            // TODO handle IOS case once the app is ready
+            if (mobileOSDetect() === 'Android') {
+                link = derivx_android_url
+            }
+            if (mobileOSDetect() === 'iOS') {
+                link = derivx_ios_url
+            }
+        }
+        window.open(link, '_blank')
+    }
     return (
         <Wrapper
             d_height={d_height}
@@ -334,9 +344,7 @@ const DHero = ({
                                 height="108px"
                             />
                             <Header as="h2" width="50%">
-                                {
-                                    <Localize translate_text="Scan the QR code to download Deriv GO" />
-                                }
+                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
                             </Header>
                         </HeroHeader>
                     </HeroContent>
@@ -350,7 +358,7 @@ const DHero = ({
                     >
                         <AppButton
                             external="true"
-                            to={deriv_go_playstore_url}
+                            to={derivx_android_url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -358,7 +366,7 @@ const DHero = ({
                         </AppButton>
                         <AppButton
                             external="true"
-                            to={deriv_go_ios_url}
+                            to={derivx_ios_url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -366,7 +374,7 @@ const DHero = ({
                         </AppButton>
                         <AppButton
                             external="true"
-                            to={deriv_go_huaweiappgallery_url}
+                            to={derivx_huawei_url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -374,7 +382,7 @@ const DHero = ({
                         </AppButton>
                         <AppButton
                             external="true"
-                            to={deriv_mt5_app_url}
+                            to={derivx_app_url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -383,16 +391,9 @@ const DHero = ({
                     </Flex>
                 </Desktop>
 
-                <TryButton
-                    secondary="true"
-                    to="/cashier/p2p"
-                    external="true"
-                    type="deriv_app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <ButtonDp2p secondary="true" onClick={handleExternalLink}>
                     {localize('Download Deriv X app')}
-                </TryButton>
+                </ButtonDp2p>
             </InformationWrapper>
 
             <LottieWrapper>

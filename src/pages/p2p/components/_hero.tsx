@@ -5,8 +5,9 @@ import { Flex, Container, Desktop } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Background } from 'components/elements/background-image'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import device, { size } from 'themes/device'
+import { mobileOSDetect } from 'common/os-detect'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import {
     p2p_playstore_url,
@@ -19,7 +20,20 @@ const BackgroundWrapper = styled(Background)`
     height: 100%;
     width: 100%;
 `
+const AppButton = styled(LocalizedLink)`
+    margin-right: 8px;
+    padding: 0;
+    border: none;
 
+    img {
+        border-radius: 7px;
+    }
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
+        width: 156px;
+        height: 46px;
+    }
+`
 const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
@@ -43,6 +57,7 @@ const ImgWrapper = styled.div`
     ${ImageWrapper} {
         width: 100%;
         height: 100%;
+
         picture > img {
             object-fit: contain !important;
         }
@@ -90,7 +105,6 @@ const HeroContent = styled(Flex)`
         font-weight: 200;
         width: 230px;
         padding-left: 15px;
-        font-family: 'IBM Plex Sans';
         color: var(--color-white);
         display: flex;
         align-items: center;
@@ -142,30 +156,15 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const TryButton = styled(LinkButton)`
+const ButtonDerivP2P = styled(Button)`
     opacity: 0;
     @media ${device.tablet} {
         opacity: 1;
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
-        margin-bottom: 2rem;
         margin-top: 24px;
         margin-bottom: 40px;
-    }
-`
-const AppButton = styled(LocalizedLink)`
-    margin-right: 8px;
-    padding: 0;
-    border: none;
-
-    img {
-        border-radius: 7px;
-    }
-    @media ${device.tabletL} {
-        margin-bottom: 8px;
-        width: 156px;
-        height: 46px;
     }
 `
 
@@ -205,6 +204,17 @@ const Hero = () => {
     const [is_tabletL] = useBrowserResize(size.tabletL)
     const background = is_tabletL ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
+    const handleExternalLink = () => {
+        let link = ''
+        if (mobileOSDetect() === 'Android') {
+            link = p2p_playstore_url
+        }
+        if (mobileOSDetect() === 'iOS') {
+            link = p2p_applestore_url
+        }
+
+        window.open(link, '_blank')
+    }
     return (
         <BackgroundWrapper data={background}>
             <Wrapper>
@@ -228,16 +238,9 @@ const Hero = () => {
                         </HeroContent>
                     </Desktop>
 
-                    <TryButton
-                        secondary="true"
-                        to="/cashier/p2p"
-                        external="true"
-                        type="deriv_app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {localize('Download Deriv P2P')}
-                    </TryButton>
+                    <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                        {localize('Download Deriv GO')}
+                    </ButtonDerivP2P>
                     <Desktop>
                         <Flex
                             fd="row"

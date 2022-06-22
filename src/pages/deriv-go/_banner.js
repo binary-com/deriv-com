@@ -5,14 +5,14 @@ import { Flex, Container, Desktop } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import DerivGoBg from 'images/common/deriv-go/hero-bg.png'
+import { mobileOSDetect } from 'common/os-detect'
 import DerivGoMobileBg from 'images/common/deriv-go/hero-mobile-bg.png'
 import {
     deriv_go_playstore_url,
     deriv_go_huaweiappgallery_url,
     deriv_go_ios_url,
-    deriv_mt5_app_url,
 } from 'common/constants'
 import { isBrowser } from 'common/utility'
 
@@ -101,14 +101,13 @@ const BannerWrapper = styled(Flex)`
         margin: 0;
     }
 `
-const TryButton = styled(LinkButton)`
+const ButtonDerivGO = styled(Button)`
     opacity: 0;
     @media ${device.tablet} {
         opacity: 1;
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
-        margin-bottom: 2rem;
         margin-right: 50%;
         margin-top: 24px;
         margin-bottom: 40px;
@@ -118,7 +117,6 @@ const TryButton = styled(LinkButton)`
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
-        margin-bottom: 2rem;
         margin-right: 500px;
         margin-top: 24px;
         margin-bottom: 40px;
@@ -136,7 +134,6 @@ const HeroContent = styled(Flex)`
         font-weight: 200;
         width: 230px;
         padding-left: 15px;
-        font-family: 'IBM Plex Sans';
         color: var(--color-white);
         display: flex;
         align-items: center;
@@ -181,6 +178,19 @@ const Banner = () => {
         }
     }, [handleResizeWindow])
 
+    const handleExternalLink = () => {
+        let link = deriv_go_playstore_url
+        if (is_mobile) {
+            // TODO handle IOS case once the app is ready
+            if (mobileOSDetect() === 'Android') {
+                link = deriv_go_playstore_url
+            }
+            if (mobileOSDetect() === 'iOS') {
+                link = deriv_go_ios_url
+            }
+        }
+        window.open(link, '_blank')
+    }
     return (
         <MainWrapper>
             <Container laptop_direction="column">
@@ -244,28 +254,13 @@ const Banner = () => {
                                         alt="huawei app gallery"
                                     />
                                 </AppButton>
-                                <AppButton
-                                    external="true"
-                                    to={deriv_mt5_app_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <QueryImage data={data['web_browser']} alt="web browser logo" />
-                                </AppButton>
                             </Flex>
                         </Desktop>
                     </div>
                 </Flex>
-                <TryButton
-                    secondary="true"
-                    to="/cashier/p2p"
-                    external="true"
-                    type="deriv_app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
                     {localize('Download Deriv GO')}
-                </TryButton>
+                </ButtonDerivGO>
                 <BannerWrapper>
                     <QueryImage
                         data={data[is_mobile ? 'hero_mobile' : 'hero']}

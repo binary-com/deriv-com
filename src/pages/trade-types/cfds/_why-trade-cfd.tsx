@@ -10,9 +10,11 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { LinkButton } from 'components/form'
 import { DerivStore, DerivStoreType } from 'store'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const WhyTradeCFD = () => {
     const { is_eu_country } = React.useContext<DerivStoreType>(DerivStore)
+    const handleSignup = useHandleSignup()
 
     return (
         <SectionContainer background="rgba(245, 247, 250, 0.64)" padding="4rem 0 4rem">
@@ -86,7 +88,13 @@ const WhyTradeCFD = () => {
                 <Text align="left" width="100%" weight="bold">
                     {localize("Don't have a Deriv account yet?")}
                 </Text>
-                <LinkButton id="dm-cfd-signup" mt="1.6rem" to="/signup/" secondary="true">
+                <LinkButton
+                    onClick={handleSignup}
+                    id="dm-cfd-signup"
+                    mt="1.6rem"
+                    secondary="true"
+                    to="#"
+                >
                     {localize('Create free demo account')}
                 </LinkButton>
             </SmallContainer>

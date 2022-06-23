@@ -10,8 +10,11 @@ import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
 import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const WhatAreOptions = () => {
+    const handleSignup = useHandleSignup()
+
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
@@ -129,7 +132,7 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <LinkButton id="dm-options-signup-1" to="/signup/" secondary>
+                    <LinkButton onClick={handleSignup} id="dm-options-signup-1" to="#" secondary>
                         {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>

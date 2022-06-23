@@ -7,6 +7,7 @@ import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled(Flex)`
     position: relative;
@@ -224,6 +225,7 @@ const DHero = ({
 }) => {
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+    const handleSignup = is_ppc ? useHandleSignup(is_ppc) : useHandleSignup()
 
     const DLogo = styled.img`
         width: 32px !important;
@@ -311,9 +313,10 @@ const DHero = ({
                 <LinkWrapper>
                     {join_us_for_free && (
                         <StyledLinkButton
+                            onClick={handleSignup}
                             id="dm-hero-signup-2"
                             secondary="true"
-                            to={is_ppc ? '/landing/signup/' : '/signup/'}
+                            to="#"
                         >
                             {localize('Create free demo account')}
                         </StyledLinkButton>

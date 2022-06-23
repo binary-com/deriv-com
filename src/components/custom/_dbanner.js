@@ -6,6 +6,7 @@ import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled.div`
     position: relative;
@@ -113,6 +114,8 @@ const StyledHeader = styled(Header)`
     }
 `
 const DBanner = ({ title, data, background_pattern, image_alt }) => {
+    const handleSignup = useHandleSignup()
+
     return (
         <Wrapper>
             <ImageContainer>
@@ -130,7 +133,13 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
                     {title}
                 </StyledHeader>
                 <DemoButton>
-                    <LinkButton id="dm-dbanner-signup" type="submit" secondary="true" to="/signup/">
+                    <LinkButton
+                        onClick={handleSignup}
+                        id="dm-dbanner-signup"
+                        type="submit"
+                        secondary="true"
+                        to="#"
+                    >
                         {localize('Create free demo account')}
                     </LinkButton>
                 </DemoButton>

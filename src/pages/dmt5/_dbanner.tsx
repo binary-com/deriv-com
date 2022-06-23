@@ -6,6 +6,7 @@ import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type DBannerProps = {
     background_pattern?: string
@@ -117,6 +118,8 @@ const DBanner = ({
     title = '',
     image_alt = '',
 }: DBannerProps) => {
+    const handleSignup = is_ppc ? useHandleSignup(is_ppc) : useHandleSignup()
+
     const BackgroundPattern = styled.img`
         position: absolute;
         top: 0;
@@ -151,10 +154,11 @@ const DBanner = ({
                         {title}
                     </StyledHeader>
                     <StyledLinkButton
+                        onClick={handleSignup}
                         id="dm-dbanner-signup-1"
                         type="submit"
                         secondary="true"
-                        to={is_ppc ? '/landing/signup/' : '/signup/'}
+                        to="#"
                     >
                         {localize('Create free demo account')}
                     </StyledLinkButton>

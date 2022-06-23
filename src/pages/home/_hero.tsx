@@ -11,6 +11,7 @@ import { BackgroundImage, Header } from 'components/elements'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
 import { EU, UK, ROW } from 'components/containers/visibility'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const query = graphql`
     query {
@@ -79,6 +80,7 @@ const StyledHeader = styled(Header)`
 const Hero = ({ is_ppc }: HeroProps) => {
     const data = useStaticQuery(query)
     const { is_uk } = useCountryRule()
+    const handleSignup = useHandleSignup()
 
     return (
         <HeroWrapper>
@@ -148,11 +150,12 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             />
                             <Box tabletL={{ mt: '-8px' }}>
                                 <HeroButton
+                                    onClick={handleSignup}
                                     id="dm-hero-signup"
                                     secondary="true"
-                                    to="/signup/"
                                     p="17px 24px"
                                     height="64px"
+                                    to="#"
                                 >
                                     <Localize translate_text="Create free demo account" />
                                 </HeroButton>

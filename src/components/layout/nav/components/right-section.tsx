@@ -2,12 +2,10 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { handleGetTrading, handleScroll, moveButton } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
-import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
+import { localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
-import { DerivStore } from 'store'
-import { redirectToTradingPlatform, isEuDomain } from 'common/utility'
-import Login from 'common/login'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useHandleLogin from 'components/hooks/use-handle-login'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 //import handleNonEu from 'components/layout/layout.js'
 type RightSectionProps = {
@@ -45,10 +43,7 @@ const RightSection = ({
     hide_language_switcher,
     hide_signup_login,
 }: RightSectionProps) => {
-    const { setShowNonEuPopup } = React.useContext(DerivStore)
     const button_ref = useRef(null)
-    const { is_non_eu } = useCountryRule()
-    const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
     const [show_button, showButton, hideButton] = moveButton()
@@ -75,14 +70,8 @@ const RightSection = ({
         )
     }
 
-    const handleLogin = () => {
-        if (is_non_eu && isEuDomain()) {
-            setShowNonEuPopup(true)
-        } else {
-            redirectToTradingPlatform()
-            Login.redirectToLogin()
-        }
-    }
+    const handleLogin = useHandleLogin()
+    const handleSignup = is_ppc_redirect ? useHandleSignup(is_ppc_redirect) : useHandleSignup()
 
     return (
         <NavRight
@@ -100,11 +89,14 @@ const RightSection = ({
                         {localize('Log in')}
                     </StyledButton>
 
-                    <LocalizedLink id="dm-signup" to={signup_url}>
-                        <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
-                            {localize('Create free demo account')}
-                        </SignupButton>
-                    </LocalizedLink>
+                    <SignupButton
+                        onClick={handleSignup}
+                        id="dm-nav-signup"
+                        ref={button_ref}
+                        secondary="true"
+                    >
+                        {localize('Create free demo account')}
+                    </SignupButton>
                 </>
             )}
         </NavRight>

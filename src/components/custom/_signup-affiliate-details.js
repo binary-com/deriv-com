@@ -146,8 +146,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             error: errors.first_name,
                             value: values.first_name,
                             touch: touched.first_name,
-                            label: localize('First Name'),
-                            placeholder: 'First Name',
+                            label: localize('First name'),
+                            placeholder: 'First name',
                             required: true,
                         },
                         {
@@ -157,8 +157,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             error: errors.last_name,
                             value: values.last_name,
                             touch: touched.last_name,
-                            label: localize('Last Name'),
-                            placeholder: 'Last Name',
+                            label: localize('Last name'),
+                            placeholder: 'Last name',
                             required: true,
                         },
                         {
@@ -168,8 +168,8 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             error: errors.date,
                             value: values.date,
                             touch: touched.date,
-                            label: localize('Date of Birth'),
-                            placeholder: 'Date of Birth',
+                            label: localize('Date of birth'),
+                            placeholder: 'Date of birth',
                             required: true,
                         },
                         {
@@ -261,7 +261,9 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                             <MobileInputWrapper>
                                                 <CodeWrapper>
                                                     <div style={{ marginTop: '15px' }}>
-                                                        {'+' + phone_code}
+                                                        {phone_code && (
+                                                            <span>{`+${phone_code}`}</span>
+                                                        )}
                                                     </div>
                                                 </CodeWrapper>
                                                 <div style={{ width: '80%', paddingLeft: '10px' }}>

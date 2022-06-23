@@ -282,7 +282,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                                                 error_shift="0.8rem"
                                                                 type={item.type}
                                                                 border="solid 1px var(--color-grey-7)"
-                                                                label_focus_color="black"
+                                                                label_focus_color="green"
                                                                 background="white"
                                                                 error={item.touch && item.error}
                                                                 label={localize(item.label)}

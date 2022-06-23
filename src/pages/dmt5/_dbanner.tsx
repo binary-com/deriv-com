@@ -158,7 +158,7 @@ const DBanner = ({
                         id="dm-dbanner-signup-1"
                         type="submit"
                         secondary="true"
-                        to="#"
+                        to=""
                     >
                         {localize('Create free demo account')}
                     </StyledLinkButton>

@@ -87,7 +87,7 @@ const WhyTradeMargin = () => {
                         onClick={handleSignup}
                         id="dm-cfd-signup"
                         mt="1.6rem"
-                        to="#"
+                        to=""
                         secondary="true"
                     >
                         {localize('Create free demo account')}

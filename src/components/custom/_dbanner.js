@@ -138,7 +138,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
                         id="dm-dbanner-signup"
                         type="submit"
                         secondary="true"
-                        to="#"
+                        to=""
                     >
                         {localize('Create free demo account')}
                     </LinkButton>

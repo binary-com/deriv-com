@@ -93,7 +93,7 @@ const WhyTradeCFD = () => {
                     id="dm-cfd-signup"
                     mt="1.6rem"
                     secondary="true"
-                    to="#"
+                    to=""
                 >
                     {localize('Create free demo account')}
                 </LinkButton>

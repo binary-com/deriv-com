@@ -260,7 +260,7 @@ const DHero = ({
                             onClick={handleSignup}
                             id="dm-hero-signup-1"
                             secondary="true"
-                            to="#"
+                            to=""
                         >
                             {localize('Create free demo account')}
                         </DemoButton>

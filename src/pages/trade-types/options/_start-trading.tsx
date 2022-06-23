@@ -45,7 +45,7 @@ const StartTrading = () => {
                         )}
                     </FixTimeline.Item>
                 </FixTimeline>
-                <LinkButton onClick={handleSignup} id="dm-options-signup-2" secondary to="#">
+                <LinkButton onClick={handleSignup} id="dm-options-signup-2" secondary to="">
                     {localize('Create free demo account')}
                 </LinkButton>
             </SmallContainer>

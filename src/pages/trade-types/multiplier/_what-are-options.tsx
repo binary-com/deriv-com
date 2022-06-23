@@ -486,12 +486,7 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <LinkButton
-                        onClick={handleSignup}
-                        id="dm-multipliers-signup-1"
-                        to="#"
-                        secondary
-                    >
+                    <LinkButton onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
                         {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>

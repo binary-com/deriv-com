@@ -112,7 +112,7 @@ export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
                     onClick={handleSignup}
                     id="dm-why-trade-signup"
                     secondary="true"
-                    to="#"
+                    to=""
                 >
                     {localize('Create free demo account')}
                 </StyledButton>

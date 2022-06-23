@@ -155,7 +155,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     secondary="true"
                                     p="17px 24px"
                                     height="64px"
-                                    to="#"
+                                    to=""
                                 >
                                     <Localize translate_text="Create free demo account" />
                                 </HeroButton>

@@ -316,7 +316,7 @@ const DHero = ({
                             onClick={handleSignup}
                             id="dm-hero-signup-2"
                             secondary="true"
-                            to="#"
+                            to=""
                         >
                             {localize('Create free demo account')}
                         </StyledLinkButton>

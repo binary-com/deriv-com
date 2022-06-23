@@ -919,11 +919,6 @@ export const StopLossAmountDown = () => {
                             </FormulaValueSwapSyntheticMobile>
                             <FormulaValueMobile mb="20px">
                                 <Localize translate_text="3376.24)" />
-                                <PointerContainerMobile mw="0" top width="100px">
-                                    <PointerDotMobile />
-                                    <PointerStickMobile height="6px" />
-                                    <PointerHorizontalStickMobile ml="58px" />
-                                </PointerContainerMobile>
                             </FormulaValueMobile>
                             <FormulaValueSwapSyntheticMobile>
                                 <FormulaGreen>&divide;</FormulaGreen>
@@ -932,8 +927,7 @@ export const StopLossAmountDown = () => {
                                 <Localize translate_text="3376.24" />
                                 <PointerContainerMobile mw="0" top width="100px">
                                     <PointerDotMobile />
-                                    <PointerStickMobile height="6px" />
-                                    <PointerStickMobile height="6px" />
+                                    <PointerStickMobile />
                                     <PointerTextMobile top>
                                         <Localize translate_text="Asset price" />
                                     </PointerTextMobile>

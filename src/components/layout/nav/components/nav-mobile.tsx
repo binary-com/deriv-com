@@ -8,7 +8,7 @@ import {
     HamburgerMenu,
     CloseIcon,
 } from '../styles/nav-styles'
-import { handleGetTrading } from '../util/nav-methods'
+import { handleGetTrading, handleLogin } from '../util/nav-methods'
 import device from 'themes/device'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
@@ -17,10 +17,6 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
-import Login from 'common/login'
-import { redirectToTradingPlatform } from 'common/utility'
-import { DerivStore } from 'store'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -56,18 +52,6 @@ const NavMobile = ({
     hide_signup_login,
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
-    const { non_eu_popup } = React.useContext(DerivStore)
-    const [, setShowNonEuPopup] = non_eu_popup
-    const { is_non_eu } = useCountryRule()
-
-    const handleLogin = () => {
-        if (is_non_eu) {
-            redirectToTradingPlatform()
-            Login.redirectToLogin()
-        } else {
-            setShowNonEuPopup(true)
-        }
-    }
 
     return (
         <MobileWrapper>

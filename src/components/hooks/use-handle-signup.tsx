@@ -5,11 +5,13 @@ import { isEuDomain } from 'common/utility'
 import { DerivStore } from 'store'
 
 const useHandleSignup = (_is_ppc = false) => {
-    const { is_non_eu } = useCountryRule()
+    const { is_loading, is_non_eu } = useCountryRule()
     const { setShowNonEuPopup } = React.useContext(DerivStore)
 
     return () => {
-        if (is_non_eu && isEuDomain()) {
+        if (is_loading) {
+            return
+        } else if (is_non_eu && isEuDomain()) {
             setShowNonEuPopup(true)
         } else if (_is_ppc) {
             navigate('/landing/signup/')

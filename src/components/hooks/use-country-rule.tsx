@@ -6,6 +6,7 @@ import { getClientInformation, getDomain, isLocalhost, isTestlink } from 'common
 
 export const useCountryRule = () => {
     const [region, setRegion] = useState({
+        is_loading: true,
         is_eu: false,
         is_uk: false,
         is_non_uk: true,
@@ -31,6 +32,7 @@ export const useCountryRule = () => {
     useEffect(() => {
         if (website_status) {
             setRegion({
+                is_loading: false,
                 is_eu: is_eu_residence || (!residence && is_eu_country) || is_eu_domain,
                 is_uk: is_uk_residence || (!residence && is_uk_country) || is_uk_domain,
                 is_non_uk: !region.is_uk,

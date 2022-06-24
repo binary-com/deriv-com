@@ -446,11 +446,16 @@ export const handleDerivRedirect = (country, subdomain) => {
     }
 }
 
+
 const handleEURedirect = (country, full_domain) => {
     if (!eu_subdomain_countries.includes(country)) {
         redirectToDeriv(full_domain)
     }
 }
+
+const getSubdomain = () => isBrowser() && window.location.hostname.split('.').slice(0, -2).join('.')
+
+export const isEuDomain = () => !!eu_domains.includes(getSubdomain())
 
 export const handleRedirect = (residence, current_client_country, full_domain) => {
     const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')

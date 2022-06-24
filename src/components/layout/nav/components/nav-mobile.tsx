@@ -17,10 +17,7 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
-import Login from 'common/login'
-import { redirectToTradingPlatform, isEuDomain } from 'common/utility'
-import { DerivStore } from 'store'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useHandleLogin from 'components/hooks/use-handle-login'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -56,17 +53,7 @@ const NavMobile = ({
     hide_signup_login,
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
-    const { setShowNonEuPopup } = React.useContext(DerivStore)
-    const { is_non_eu } = useCountryRule()
-
-    const handleLogin = () => {
-        if (is_non_eu && isEuDomain()) {
-            setShowNonEuPopup(true)
-        } else {
-            redirectToTradingPlatform()
-            Login.redirectToLogin()
-        }
-    }
+    const handleLogin = useHandleLogin()
 
     return (
         <MobileWrapper>

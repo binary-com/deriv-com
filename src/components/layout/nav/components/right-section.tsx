@@ -7,7 +7,6 @@ import { Button } from 'components/form'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
-//import handleNonEu from 'components/layout/layout.js'
 type RightSectionProps = {
     is_logged_in: boolean
     is_ppc_redirect: boolean

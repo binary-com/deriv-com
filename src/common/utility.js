@@ -9,6 +9,7 @@ import {
     live_chat_redirection_link,
     live_chat_key,
     domains,
+    eu_domains,
 } from './constants'
 import { isUK, eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -445,7 +446,6 @@ export const handleDerivRedirect = (country, subdomain) => {
         redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
     }
 }
-
 
 const handleEURedirect = (country, full_domain) => {
     if (!eu_subdomain_countries.includes(country)) {

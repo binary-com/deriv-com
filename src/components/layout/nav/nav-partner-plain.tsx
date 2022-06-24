@@ -1,4 +1,3 @@
-// Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
 import React from 'react'
 import styled from 'styled-components'
 import { CFDWarning } from '../layout'

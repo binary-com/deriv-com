@@ -7,6 +7,7 @@ import { Divider, Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const ResponsiveLinkButton = styled(LinkButton)`
     @media ${device.mobileL} {
@@ -55,6 +56,8 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
+    const handleSignup = useHandleSignup()
+
     return (
         <Layout>
             <SEO
@@ -123,7 +126,12 @@ const WhyChooseUs = () => {
                         </Column>
                     </ColumnContainer>
                     <Flex mt="3.2rem">
-                        <ResponsiveLinkButton id="dm-about-signup" to="/signup/" secondary="true">
+                        <ResponsiveLinkButton
+                            id="dm-about-signup"
+                            to=""
+                            secondary="true"
+                            onClick={handleSignup}
+                        >
                             {localize("Sounds great. Let's get started.")}
                         </ResponsiveLinkButton>
                     </Flex>

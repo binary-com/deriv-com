@@ -126,6 +126,16 @@ jobs:
                   echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
                   ./release.sh deriv-com ${{ steps.get_tag_name.outputs.VERSION }}
 
+            - name: Deploy to Cloudflare ☁️
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                command: pages publish public --project-name=deriv-com-pages --branch=main
+
+            - name: Cloudflare production link ✨
+              run: echo "New website - http://cf-pages.deriv.com"
+
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:

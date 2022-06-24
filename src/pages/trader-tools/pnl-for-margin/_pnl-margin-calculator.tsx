@@ -150,7 +150,7 @@ const PnlMarginCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center">
+                <Flex jc="flex-start" ai="center" ml="3rem">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -715,6 +715,7 @@ const PnlMarginCalculator = () => {
                                                     <Flex
                                                         mb="3rem"
                                                         mt="1rem"
+                                                        width="103%"
                                                         jc="space-between"
                                                         tablet={{ height: 'unset' }}
                                                     >

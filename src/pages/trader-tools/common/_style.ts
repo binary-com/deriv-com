@@ -61,12 +61,19 @@ export const StyledSection = styled(SectionContainer)`
 `
 
 export const SectionSubtitle = styled(Header)`
-    width: 79.2rem;
-    margin: 0 auto;
-    line-height: 1.5;
-    @media ${device.tablet} {
-        width: unset;
-        padding: 0 16px;
+    text-align: center;
+
+    @media (min-width: 320px) and (max-width: 430px) {
+        padding: 0 5rem;
+    }
+    @media (min-width: 431px) and (max-width: 500px) {
+        padding: 0 7rem;
+    }
+    @media (min-width: 501px) and (max-width: 600px) {
+        padding: 0 13rem;
+    }
+    @media (min-width: 601px) {
+        padding: 0 18rem;
     }
 `
 const swap_tab_selector_css = (props) =>
@@ -102,7 +109,7 @@ export const SwapTabSelector = styled(Flex)`
         width: 154px;
     }
 
-    @media (min-width: 375px) and (max-width: 425px) {
+    @media (min-width: 350px) and (max-width: 430px) {
         padding: 12px 24px;
         width: 170px;
     }
@@ -124,7 +131,6 @@ export const FormWrapper = styled(Flex)`
 
     @media ${device.laptopM} {
         margin: 0 0 40px;
-        overflow: hidden;
     }
 `
 export const SwapFormWrapper = styled(FormWrapper)`
@@ -160,7 +166,6 @@ export const PnlCalculatorFormMobile = styled(Form)`
 
 export const PnlHeaderOverflow = styled.div`
     border-radius: 8px 8px 0 0;
-    padding: 2.4rem;
 `
 const CalculatorHeaderStyles = css`
     border-radius: 8px 8px 0 0;
@@ -189,7 +194,7 @@ export const PnlCalculatorHeaderMobile = styled.div`
 
 export const CalculatorLabel = styled.label`
     font-size: var(--text-size-xs);
-    font-weight: 300;
+    font-weight: 330;
     display: block;
     margin-bottom: 1.4rem;
 
@@ -357,16 +362,17 @@ const CalculatorTabItemStyles = css`
 export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
     width: 18.3rem;
-
+    height: 60px;
     @media (width: 428px) {
         width: 15rem;
+        height: 60px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 430px) {
         width: 17.4rem;
         height: 60px;
     }
-    @media (min-width: 320px) and (max-width: 427px) {
+    @media (min-width: 320px) and (max-width: 420px) {
         width: 16rem;
         height: 60px;
     }

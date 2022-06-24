@@ -81,7 +81,7 @@ const MarginCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center">
+                <Flex jc="flex-start" ai="center" ml="3rem">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -270,6 +270,7 @@ const MarginCalculator = () => {
                                                 )}
                                             </Field>
                                         </InputGroup>
+                                        <br></br>
                                         <Dropdown
                                             option_list={leverageItemLists}
                                             id="leverage"

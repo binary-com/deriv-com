@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
 import { useDataFilter } from '../components/utility'
 import AllVideos from './_all-videos'
-import { redirectWithParamReference } from 'common/utility'
+import { redirectWithParamReference, queryParams } from 'common/utility'
 import { AllVideosQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
@@ -56,7 +56,11 @@ export type VideoDataType = AllVideosQuery['directus']['videos']
 const VideosPage = ({ data }: VideosPageProps) => {
     // We need this to redirect users to the new videos page if ever they are accessing the old video link
     React.useEffect(() => {
-        redirectWithParamReference('/academy/videos', 't')
+        const video_title = queryParams.get('t')
+
+        if (video_title) {
+            redirectWithParamReference('/academy/videos', 't')
+        }
     }, [])
 
     const video_data = useDataFilter(data.directus.videos)

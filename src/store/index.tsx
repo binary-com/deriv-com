@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
+import { useWebsocket } from 'components/hooks/use-websocket'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
@@ -22,6 +23,7 @@ export type DerivStoreType = {
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
+    ws: any
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
@@ -34,6 +36,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)
+    const [ws] = useWebsocket()
 
     useEffect(() => {
         if (website_status) {
@@ -59,6 +62,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 user_country,
                 website_status_loading,
                 website_status,
+                ws,
             }}
         >
             {children}

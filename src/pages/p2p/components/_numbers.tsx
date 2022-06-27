@@ -101,6 +101,13 @@ const StyledLinkButton = styled(LinkButton)`
     margin: 80px auto 0 auto;
     white-space: nowrap;
 
+    @media ${device.mobileL} {
+        padding: 14px;
+        font-size: 14px;
+        height: 40px;
+        width: 167px;
+    }
+
     @media ${device.tablet} {
         margin-top: 40px;
     }

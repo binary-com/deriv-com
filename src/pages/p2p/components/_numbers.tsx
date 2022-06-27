@@ -8,11 +8,11 @@ import device from 'themes/device'
 
 const content = [
     {
-        header: <Localize translate_text="21,000" />,
+        header: <Localize translate_text="21,000+" />,
         text: <Localize translate_text="active users" />,
     },
     {
-        header: <Localize translate_text="12M USD" />,
+        header: <Localize translate_text="12M+ USD" />,
         text: <Localize translate_text="exchanged to date" />,
     },
 ]
@@ -92,10 +92,12 @@ const StyledText = styled(Text)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 14px 16px;
-    font-size: 14px;
+    padding: 24px;
+    font-size: 20px;
+    font-weight: 700;
     border: unset;
-    width: min-content;
+    height: 64px;
+    width: 220px;
     margin: 80px auto 0 auto;
     white-space: nowrap;
 

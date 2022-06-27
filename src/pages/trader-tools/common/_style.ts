@@ -341,9 +341,9 @@ const calculator_tab_item_style_css = (props: { active: string }) =>
           `
 
 const CalculatorTabItemStyles = css`
-    height: 72px;
-    width: 15rem;
-    border-radius: 1rem;
+    width: 50%;
+    height: 60px;
+    margin-right: 15px;
     padding: 2rem;
     border: solid 1px rgba(51, 51, 51, 0.1);
     display: flex;
@@ -361,21 +361,6 @@ const CalculatorTabItemStyles = css`
 
 export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
-    width: 18.3rem;
-    height: 60px;
-    @media (width: 428px) {
-        width: 15rem;
-        height: 60px;
-    }
-
-    @media (min-width: 430px) {
-        width: 17.4rem;
-        height: 60px;
-    }
-    @media (min-width: 320px) and (max-width: 420px) {
-        width: 16rem;
-        height: 60px;
-    }
 `
 
 export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`

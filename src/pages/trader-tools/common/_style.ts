@@ -40,7 +40,7 @@ export const StyledHeader = styled(Header)`
 `
 
 export const BreadCrumbContainer = styled(Container)`
-    margin-top: 2.4rem;
+    margin-top: 2.5rem;
 
     @media ${device.laptopL} {
         width: 100%;
@@ -360,6 +360,9 @@ const CalculatorTabItemStyles = css`
 `
 
 export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
+    :nth-child(2) {
+        margin-right: 0rem;
+    }
     ${CalculatorTabItemStyles}
 `
 

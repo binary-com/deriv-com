@@ -436,9 +436,20 @@ const redirect = (subdomain) => {
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
+const redirectToDeriv = (full_domain) => {
+    const final_url = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
+    window.location.href = `https://${final_url}`
+}
+
 export const handleDerivRedirect = (country, subdomain) => {
     if (eu_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
+    }
+}
+
+const handleEURedirect = (country, full_domain) => {
+    if (!eu_subdomain_countries.includes(country)) {
+        redirectToDeriv(full_domain)
     }
 }
 
@@ -446,13 +457,18 @@ const getSubdomain = () => isBrowser() && window.location.hostname.split('.').sl
 
 export const isEuDomain = () => !!eu_domains.includes(getSubdomain())
 
-export const handleRedirect = (residence, current_client_country) => {
+export const handleRedirect = (residence, current_client_country, full_domain) => {
+    const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
     const country = residence ? residence : current_client_country
+
+    const eu_domains = ['eu', 'staging-eu']
 
     if (isLocalhost() || isTestlink()) {
         return false
+    } else if (eu_domains.some((e) => subdomain.includes(e))) {
+        handleEURedirect(country, full_domain)
     } else {
-        handleDerivRedirect(country, getSubdomain())
+        handleDerivRedirect(country, subdomain)
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container, Desktop } from 'components/containers'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Background } from 'components/elements/background-image'
@@ -154,14 +154,20 @@ const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         line-height: 50px;
     }
+
+    :nth-child(3) {
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 24px;
+    }
 `
 
 const ButtonDerivP2P = styled(Button)`
     opacity: 0;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         opacity: 1;
         padding: 1.5rem 1.6rem;
-        height: 42px;
+        height: 64px;
         white-space: nowrap;
         margin-top: 24px;
         margin-bottom: 40px;
@@ -237,9 +243,15 @@ const Hero = () => {
                             />
                         </HeroContent>
                     </Desktop>
-
+                    <Mobile>
+                        <Header size="18px" color="white" weight="200">
+                            {localize(
+                                'Use your local currency to make deposits into and withdrawals from your Deriv account.',
+                            )}
+                        </Header>
+                    </Mobile>
                     <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                        {localize('Download Deriv GO')}
+                        {localize('Download Deriv P2P')}
                     </ButtonDerivP2P>
                     <Desktop>
                         <Flex

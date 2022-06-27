@@ -88,7 +88,7 @@ const HeroHeader = styled(Header)`
         color: var(--color-white);
         display: flex;
         align-items: center;
-        max-width: 78%;
+        max-width: 100%;
     }
     @media (max-width: 1315px) {
         font-size: 4.8rem;
@@ -202,22 +202,13 @@ const AppButton = styled(LocalizedLink)`
 `
 const ButtonDp2p = styled(Button)`
     opacity: 0;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         opacity: 1;
         padding: 1.5rem 1.6rem;
-        height: 42px;
+        height: 64px;
         width: 25rem;
         white-space: nowrap;
         margin-right: 50%;
-        margin-top: 24px;
-        margin-bottom: 40px;
-    }
-    @media (min-width: 768px) and (max-width: 1023px) {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 42px;
-        white-space: nowrap;
-        margin-right: 500px;
         margin-top: 24px;
         margin-bottom: 40px;
     }

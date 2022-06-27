@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Flex, Container, Desktop } from 'components/containers'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
@@ -103,21 +103,12 @@ const BannerWrapper = styled(Flex)`
 `
 const ButtonDerivGO = styled(Button)`
     opacity: 0;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         opacity: 1;
         padding: 1.5rem 1.6rem;
-        height: 42px;
+        height: 64px;
+        width: 100%;
         white-space: nowrap;
-        margin-right: 50%;
-        margin-top: 24px;
-        margin-bottom: 40px;
-    }
-    @media (min-width: 768px) and (max-width: 1023px) {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 42px;
-        white-space: nowrap;
-        margin-right: 500px;
         margin-top: 24px;
         margin-bottom: 40px;
     }
@@ -137,7 +128,7 @@ const HeroContent = styled(Flex)`
         color: var(--color-white);
         display: flex;
         align-items: center;
-        max-width: 78%;
+        max-width: 100%;
     }
     @media ${device.laptopM} {
         ${Header} {
@@ -205,6 +196,13 @@ const Banner = () => {
                         <StyledHeader as="h1" color="white" width="64rem" type="heading-1">
                             {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
                         </StyledHeader>
+                        <Mobile>
+                            <Header size="18px" color="white" weight="200" mt="10px">
+                                {localize(
+                                    'Download the app now and start trading whenever, wherever you want. ',
+                                )}
+                            </Header>
+                        </Mobile>
                         <Desktop>
                             <HeroContent>
                                 <Header as="h2">

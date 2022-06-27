@@ -345,6 +345,7 @@ const CalculatorTabItemStyles = css`
     height: 60px;
     margin-right: 15px;
     padding: 2rem;
+    border-radius: 10px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     display: flex;
     justify-content: center;
@@ -398,7 +399,7 @@ export const RightContent = styled.div`
     display: block;
     max-width: 69rem;
     margin: 0;
-    padding: 19px;
+    padding: 0 45px;
     @media ${device.laptopM} {
         margin: auto;
     }

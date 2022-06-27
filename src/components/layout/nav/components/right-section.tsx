@@ -6,6 +6,7 @@ import { localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type RightSectionProps = {
     is_logged_in: boolean
@@ -46,6 +47,7 @@ const RightSection = ({
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
     const [show_button, showButton, hideButton] = moveButton()
+    const { is_loading } = useCountryRule()
 
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
@@ -84,7 +86,12 @@ const RightSection = ({
 
             {!hide_signup_login && (
                 <>
-                    <StyledButton id="dm-nav-login-button" onClick={handleLogin} primary>
+                    <StyledButton
+                        disabled={is_loading}
+                        id="dm-nav-login-button"
+                        onClick={handleLogin}
+                        primary
+                    >
                         {localize('Log in')}
                     </StyledButton>
 

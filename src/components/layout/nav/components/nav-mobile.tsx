@@ -18,6 +18,7 @@ import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import useHandleLogin from 'components/hooks/use-handle-login'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type NavMobileProps = {
     is_ppc?: boolean
@@ -54,6 +55,7 @@ const NavMobile = ({
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     const handleLogin = useHandleLogin()
+    const { is_loading } = useCountryRule()
 
     return (
         <MobileWrapper>
@@ -88,6 +90,7 @@ const NavMobile = ({
                                 id="dm-mobile-nav-login-button"
                                 onClick={handleLogin}
                                 primary
+                                disabled={is_loading}
                             >
                                 {localize('Log in')}
                             </StyledButton>

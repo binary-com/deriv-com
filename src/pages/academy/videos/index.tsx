@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, navigate } from 'gatsby'
+import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
 import { useDataFilter } from '../components/utility'
 import AllVideos from './_all-videos'

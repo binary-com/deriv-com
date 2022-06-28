@@ -173,7 +173,7 @@ const tab_list_uk = [
 ]
 
 const NavTab = ({ route_from, route_offset }: NavTabProps) => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu, is_uk, is_row } = useCountryRule()
 
     const ref = useRef(null)
 
@@ -185,15 +185,17 @@ const NavTab = ({ route_from, route_offset }: NavTabProps) => {
         <TabsContainer>
             <Flex direction="column">
                 <TabList ref={ref}>
-                    {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item, index) => {
-                        return (
-                            <TabButton selected={route_from == item.tab_name} key={index}>
-                                <StyledLink to={item.route_to}>
-                                    <TextWrapper>{item.title}</TextWrapper>
-                                </StyledLink>
-                            </TabButton>
-                        )
-                    })}
+                    {((is_eu && tab_list_eu) || (is_uk && tab_list_uk) || (is_row && tab_list)).map(
+                        (item, index) => {
+                            return (
+                                <TabButton selected={route_from == item.tab_name} key={index}>
+                                    <StyledLink to={item.route_to}>
+                                        <TextWrapper>{item.title}</TextWrapper>
+                                    </StyledLink>
+                                </TabButton>
+                            )
+                        },
+                    )}
                     <LineDivider />
                 </TabList>
             </Flex>

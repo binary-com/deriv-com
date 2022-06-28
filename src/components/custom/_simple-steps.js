@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
@@ -112,7 +112,7 @@ const LinkButtonWrapper = styled(Flex)`
     justify-content: center;
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(Button)`
     height: 40px;
     width: auto;
     border-radius: 4px;
@@ -153,12 +153,7 @@ const SimpleSteps = ({ header, content, sign_up }) => {
             </StyledFlex>
             {sign_up && (
                 <LinkButtonWrapper>
-                    <StyledLinkButton
-                        id="dm-steps-signup"
-                        to=""
-                        secondary="true"
-                        onClick={handleSignup}
-                    >
+                    <StyledLinkButton id="dm-steps-signup" secondary="true" onClick={handleSignup}>
                         {localize('Sign up now')}
                     </StyledLinkButton>
                 </LinkButtonWrapper>

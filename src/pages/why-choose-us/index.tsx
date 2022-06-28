@@ -5,11 +5,11 @@ import { SEO, SectionContainer, GridContainer, Flex } from 'components/container
 import Layout from 'components/layout/layout'
 import { Divider, Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
-const ResponsiveLinkButton = styled(LinkButton)`
+const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
         font-size: 1.75rem;
     }
@@ -128,7 +128,6 @@ const WhyChooseUs = () => {
                     <Flex mt="3.2rem">
                         <ResponsiveLinkButton
                             id="dm-about-signup"
-                            to=""
                             secondary="true"
                             onClick={handleSignup}
                         >

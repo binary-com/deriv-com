@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -133,15 +133,14 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
                     {title}
                 </StyledHeader>
                 <DemoButton>
-                    <LinkButton
+                    <Button
                         onClick={handleSignup}
                         id="dm-dbanner-signup"
                         type="submit"
                         secondary="true"
-                        to=""
                     >
                         {localize('Create free demo account')}
-                    </LinkButton>
+                    </Button>
                 </DemoButton>
             </TextWrapper>
         </Wrapper>

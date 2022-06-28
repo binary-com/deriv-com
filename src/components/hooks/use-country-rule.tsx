@@ -32,6 +32,7 @@ export const useCountryRule = () => {
     useEffect(() => {
         if (website_status) {
             setRegion({
+                is_loading: false,
                 is_eu: is_eu_residence || (!residence && is_eu_country) || is_eu_domain,
                 is_uk: is_uk_residence || (!residence && is_uk_country) || is_uk_domain,
                 is_non_uk: !region.is_uk,
@@ -39,7 +40,6 @@ export const useCountryRule = () => {
                 is_uk_eu: !(!region.is_eu && !region.is_uk),
                 is_row: !region.is_uk_eu,
                 is_dev: isLocalhost() || isTestlink(),
-                is_loading: false,
             })
         }
     }, [

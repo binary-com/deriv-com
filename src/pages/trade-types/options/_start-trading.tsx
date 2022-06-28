@@ -4,7 +4,7 @@ import Timeline from '../components/_timeline'
 import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import Pattern from 'images/common/trade-types/pattern-section.png'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -45,9 +45,9 @@ const StartTrading = () => {
                         )}
                     </FixTimeline.Item>
                 </FixTimeline>
-                <LinkButton onClick={handleSignup} id="dm-options-signup-2" secondary to="">
+                <Button onClick={handleSignup} id="dm-options-signup-2" secondary>
                     {localize('Create free demo account')}
-                </LinkButton>
+                </Button>
             </SmallContainer>
         </PatternContainer>
     )

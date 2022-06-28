@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -89,7 +89,7 @@ const TextWrapper = styled.div`
         text-align: center;
     }
 `
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(Button)`
     min-width: 20.2rem;
     width: auto;
     border: unset;
@@ -118,7 +118,7 @@ const DBanner = ({
     title = '',
     image_alt = '',
 }: DBannerProps) => {
-    const handleSignup = is_ppc ? useHandleSignup(is_ppc) : useHandleSignup()
+    const handleSignup = useHandleSignup(is_ppc)
 
     const BackgroundPattern = styled.img`
         position: absolute;
@@ -158,7 +158,6 @@ const DBanner = ({
                         id="dm-dbanner-signup-1"
                         type="submit"
                         secondary="true"
-                        to=""
                     >
                         {localize('Create free demo account')}
                     </StyledLinkButton>

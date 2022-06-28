@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -71,7 +71,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 16px;
     }
 `
-const StyledButton = styled(LinkButton)`
+const StyledButton = styled(Button)`
     border-radius: 4px;
     @media ${device.tabletL} {
         font-size: 1.75rem;
@@ -108,12 +108,7 @@ export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
                         }
                     })}
                 </ItemContainer>
-                <StyledButton
-                    onClick={handleSignup}
-                    id="dm-why-trade-signup"
-                    secondary="true"
-                    to=""
-                >
+                <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary="true">
                     {localize('Create free demo account')}
                 </StyledButton>
             </Flex>

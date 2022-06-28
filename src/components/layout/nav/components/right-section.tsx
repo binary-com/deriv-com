@@ -48,6 +48,8 @@ const RightSection = ({
     const [has_scrolled, setHasScrolled] = useState(false)
     const [show_button, showButton, hideButton] = moveButton()
     const { is_loading } = useCountryRule()
+    const handleLogin = useHandleLogin()
+    const handleSignup = useHandleSignup(is_ppc_redirect)
 
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
@@ -71,9 +73,6 @@ const RightSection = ({
         )
     }
 
-    const handleLogin = useHandleLogin()
-    const handleSignup = is_ppc_redirect ? useHandleSignup(is_ppc_redirect) : useHandleSignup()
-
     return (
         <NavRight
             move={show_button}
@@ -96,6 +95,7 @@ const RightSection = ({
                     </StyledButton>
 
                     <SignupButton
+                        disabled={is_loading}
                         onClick={handleSignup}
                         id="dm-nav-signup"
                         ref={button_ref}

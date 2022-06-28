@@ -42,7 +42,6 @@ type StyledLabelProps = {
 
 const RelativeWrapper = styled.div`
     position: relative;
-    margin-top: 5px;
 `
 const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */

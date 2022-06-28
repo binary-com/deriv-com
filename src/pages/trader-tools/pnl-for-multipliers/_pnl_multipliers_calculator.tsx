@@ -465,7 +465,7 @@ const PnlMultipliersCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center" ml="3rem">
+                <Flex jc="flex-start" ai="center" ml="10%">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -683,7 +683,8 @@ const PnlMultipliersCalculator = () => {
                                                             <Flex
                                                                 fd="column"
                                                                 width="100%"
-                                                                ml="10px"
+                                                                ml="3px"
+                                                                mr="2rem"
                                                             >
                                                                 <PnLInputGroup>
                                                                     <AssetPriceField
@@ -726,7 +727,8 @@ const PnlMultipliersCalculator = () => {
                                                             <Flex
                                                                 fd="column"
                                                                 width="100%"
-                                                                ml="10px"
+                                                                ml="3px"
+                                                                mr="2rem"
                                                             >
                                                                 <PnLInputGroup>
                                                                     <StakeField
@@ -792,7 +794,8 @@ const PnlMultipliersCalculator = () => {
                                                             <Flex
                                                                 fd="column"
                                                                 width="100%"
-                                                                ml="10px"
+                                                                ml="3px"
+                                                                mr="2rem"
                                                             >
                                                                 <PnLInputGroup>
                                                                     <MultiplierField

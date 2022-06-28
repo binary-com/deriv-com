@@ -150,7 +150,7 @@ const PnlMarginCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center" ml="3rem">
+                <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -404,7 +404,7 @@ const PnlMarginCalculator = () => {
                                 return (
                                     <>
                                         <Show.Desktop max_width="tablet">
-                                            <CalculatorForm>
+                                            <CalculatorForm width="80rem">
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
                                                         <Flex fd="column" mr="24px">
@@ -494,7 +494,12 @@ const PnlMarginCalculator = () => {
                                                         </PnlCalculatorTabItem>
                                                     </Flex>
                                                     <Flex jc="space-between">
-                                                        <Flex fd="column" width="100%" ml="5px">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <CalculatorDropdown
                                                                 option_list={values.optionList}
                                                                 label={localize('Symbol')}
@@ -528,7 +533,12 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
 
                                                     <Flex jc="space-between">
-                                                        <Flex fd="column" width="100%" ml="5px">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="volume"
@@ -600,7 +610,12 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
 
                                                     <Flex jc="space-between">
-                                                        <Flex fd="column" width="100%" ml="5px">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="assetPrice"

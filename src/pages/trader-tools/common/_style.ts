@@ -42,11 +42,28 @@ export const StyledHeader = styled(Header)`
 export const BreadCrumbContainer = styled(Container)`
     margin-top: 2.5rem;
 
-    @media ${device.laptopL} {
-        width: 100%;
+    @media ${device.tabletL} {
+        margin-top: 2.5rem;
+        padding-left: 1.5rem;
     }
-    @media ${device.laptopM} {
-        width: 100%;
+
+    @media (width: 1024px) {
+        margin-top: 2.5rem;
+        margin-right: 11rem;
+    }
+
+    @media (width: 1440px) {
+        margin-top: 2.5rem;
+        padding-left: 5rem;
+    }
+    @media (width: 1920px) {
+        margin-top: 2.5rem;
+        padding-left: 8rem;
+    }
+
+    @media ${device.desktopS} {
+        margin-top: 2.5rem;
+        margin-right: 62rem;
     }
 `
 
@@ -61,19 +78,13 @@ export const StyledSection = styled(SectionContainer)`
 `
 
 export const SectionSubtitle = styled(Header)`
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
 
-    @media (min-width: 320px) and (max-width: 430px) {
-        padding: 0 5rem;
-    }
-    @media (min-width: 431px) and (max-width: 500px) {
-        padding: 0 7rem;
-    }
-    @media (min-width: 501px) and (max-width: 600px) {
-        padding: 0 13rem;
-    }
-    @media (min-width: 601px) {
-        padding: 0 18rem;
+    @media (min-width: 1400px) {
+        padding: 0 20%;
     }
 `
 const swap_tab_selector_css = (props) =>
@@ -113,6 +124,10 @@ export const SwapTabSelector = styled(Flex)`
         padding: 12px 24px;
         width: 170px;
     }
+
+    @media (min-width: 1200px) {
+        width: 20%;
+    }
 `
 
 export const ContentContainer = styled(Flex)`
@@ -126,8 +141,14 @@ export const ContentContainer = styled(Flex)`
 `
 
 export const FormWrapper = styled(Flex)`
-    margin-right: 4.8rem;
     height: 100%;
+    margin-left: 15rem;
+
+    @media ${device.desktopS} {
+        height: 100%;
+        margin-left: 15rem;
+        width: 50%;
+    }
 
     @media ${device.laptopM} {
         margin: 0 0 40px;
@@ -149,19 +170,29 @@ const CalculatorFormStyles = css`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     width: 100%;
 
-    @media ${device.tablet} {
+    @media (max-width: 1200px) {
         margin-bottom: 20px;
-        width: 346px;
+        width: 90%;
+    }
+    @media (width: 425px) {
+        margin-bottom: 20px;
+        width: 90%;
     }
 `
 
 export const CalculatorForm = styled(Form)`
     ${CalculatorFormStyles}
-    width: 46rem;
+    @media (min-width: 1200px) {
+        width: 80rem;
+    }
+
+    @media (max-width: 1200px) {
+        margin-right: 4rem;
+        width: 85rem;
+    }
 `
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
-    width: 100%;
 `
 
 export const PnlHeaderOverflow = styled.div`
@@ -370,8 +401,14 @@ export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
 export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     ${CalculatorTabItemStyles}
     width:100%;
-    margin-right: 1rem;
+    margin-right: 2.5rem;
     height: 53px;
+
+    @media (min-width: 768px) {
+        :nth-child(2) {
+            margin-right: 0rem;
+        }
+    }
 `
 
 export const CalculatorDropdown = styled(Dropdown)`
@@ -397,11 +434,16 @@ export const CalculateButton = styled(Button)`
 
 export const RightContent = styled.div`
     display: block;
-    max-width: 69rem;
-    margin: 0;
-    padding: 0 45px;
+    margin-right: 5%;
+    margin-left: 5%;
+
+    @media (min-width: 1200px) {
+        width: 50%;
+    }
+
     @media ${device.laptopM} {
         margin: auto;
+        padding: 0 45px;
     }
 `
 

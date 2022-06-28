@@ -723,6 +723,17 @@ export const PointerTextMobile = styled.div<PointerTextType>`
         font-size: 12px;
     }
 `
+export const PointerTextMobilePnlMultiplier = styled.div<PointerTextType>`
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    font-weight: 600;
+    color: var(--color-blue-5);
+    font-size: 14px;
+    @media ${device.mobileM} {
+        font-size: 12px;
+    }
+`
 
 export const Sup = styled.span`
     color: black;

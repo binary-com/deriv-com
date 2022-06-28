@@ -110,7 +110,7 @@ export const StopLoss = () => {
             <Show.Mobile>
                 <FormulaContainerMobile pt="60px" height="192px">
                     <FormulaHighlightMobile height="90px">
-                        <FormulaTopWrapperMobile mt="-20px" cg="6px" ml="-20px">
+                        <FormulaTopWrapperMobile mt="-20px" cg="6px">
                             <FormulaValueMobile>
                                 <Localize translate_text="1.17524" />
                                 <PointerContainerMobile mw="0">
@@ -174,7 +174,7 @@ export const StopLoss = () => {
                             </FormulaValueMobile>
                         </FormulaTopWrapperMobile>
 
-                        <FormulaBottomWrapperPnlMobile mt="40px" ml="-80px">
+                        <FormulaBottomWrapperPnlMobile mt="40px" ml="-90px">
                             <FormulaValueSwapSyntheticMobile mw="30px">
                                 <FormulaGreen>=</FormulaGreen>
                             </FormulaValueSwapSyntheticMobile>

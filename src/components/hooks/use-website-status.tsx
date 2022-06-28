@@ -25,9 +25,9 @@ export const useWebsiteStatus = () => {
                 const response = JSON.parse(msg.data)
 
                 if (!response.error) {
-                    const { clients_country, crypto_config } = response.website_status
+                    const { clients_country } = response.website_status
 
-                    setWebsiteStatus({ clients_country, crypto_config })
+                    setWebsiteStatus({ clients_country })
                 }
                 setLoading(false)
                 binary_socket.close()

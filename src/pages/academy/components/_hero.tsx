@@ -48,6 +48,7 @@ const Wrapper = styled.div`
 const Container = styled(Flex)`
     background: #0e0e0e;
     border-radius: 8px;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     position: relative;

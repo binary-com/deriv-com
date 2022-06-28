@@ -5,10 +5,11 @@ import Banner from './_banner.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
+import RoadmapDerivGO from './_deriv-go-radmap'
 import { SEO } from 'components/containers'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import Layout from 'components/layout/layout'
-import { Localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 
 const items = [
     {
@@ -45,18 +46,25 @@ const items = [
     },
 ]
 const DerivGo = () => {
-    const { is_row } = getCountryRule()
+    const { is_row } = useCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setLoaded(true)
-    }, [getCountryRule])
+    }, [useCountryRule])
 
     if (is_loaded) {
         if (is_row) {
             return (
                 <Layout>
-                    <SEO title="Deriv Go | Deriv" />
+                    <SEO
+                        title={localize(
+                            'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO',
+                        )}
+                        description={localize(
+                            'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                        )}
+                    />
                     <Banner />
                     <WhatIsDerivGo />
                     <WhyTradeDerivGo />
@@ -64,6 +72,7 @@ const DerivGo = () => {
                     <StartDerivGo />
                     <FooterBanner />
                     <OtherApps />
+                    <RoadmapDerivGO />
                 </Layout>
             )
         }
@@ -71,7 +80,18 @@ const DerivGo = () => {
         return <PageNotFound />
     }
 
-    return <></>
+    return (
+        <>
+            <SEO
+                title={localize(
+                    'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO',
+                )}
+                description={localize(
+                    'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                )}
+            />
+        </>
+    )
 }
 
 export default WithIntl()(DerivGo)

@@ -23,7 +23,8 @@ export type DerivStoreType = {
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
-    ws: any
+    ws: any // to be updated
+    ws_messages_hook: any // to be updated
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
@@ -36,7 +37,9 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)
+    const [ws_messages, setWSMessages] = useState([])
     const [ws] = useWebsocket()
+    const ws_messages_hook = [ws_messages, setWSMessages]
 
     useEffect(() => {
         if (website_status) {
@@ -62,6 +65,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 user_country,
                 website_status_loading,
                 website_status,
+                ws_messages_hook,
                 ws,
             }}
         >

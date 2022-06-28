@@ -59,6 +59,7 @@ export const StandardImgWrapper = styled.div<StandardImgWrapperProps>`
     height: ${(props) => (props.height ? props.height : '100%')};
     border-radius: ${(props) => (props.border_radius ? props.border_radius : '4px')};
     overflow: hidden;
+    transform: translateZ(0);
     position: relative;
     text-align: center;
     display: flex;

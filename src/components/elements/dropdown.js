@@ -238,7 +238,7 @@ export const StyledLabel = styled.label`
     ${(props) =>
         props.active &&
         css`
-            color: ${props.error ? 'var(--color-red-1)' : 'var(--color-green)'};
+            color: ${props.error ? 'var(--color-red-1)' : 'var(--color-black-3)'};
             transform: translate(-0.6rem, -2.2rem) scale(0.7);
             @media ${device.tabletL} {
                 top: 9px;

@@ -23,7 +23,7 @@ export type DerivStoreType = {
     website_status_loading: boolean
     website_status: WebsiteStatusType
     show_non_eu_popup: boolean
-    setShowNonEuPopup: (key: boolean) => void
+    setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)

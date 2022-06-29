@@ -145,9 +145,11 @@ const TryButton = styled(LinkButton)`
     border: unset;
 
     @media ${device.mobileL} {
-        padding: 1.5rem 1.6rem;
-        height: 42px;
+        padding: 24px;
+        width: 328px;
+        height: 64px;
         white-space: nowrap;
+        font-size: 20px;
         margin-bottom: 2rem;
     }
     @media ${device.mobileL} {

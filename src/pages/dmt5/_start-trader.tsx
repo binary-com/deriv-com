@@ -183,7 +183,7 @@ const StartTrader = () => {
         setTab(chosenTab)
     }
 
-    const handleLogin = () => useHandleLogin()
+    const handleLogin = useHandleLogin()
 
     const handleSignup = useHandleSignup()
 

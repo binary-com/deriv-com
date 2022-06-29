@@ -9,7 +9,7 @@ import RoadmapDerivGO from './_deriv-go-radmap'
 import { SEO } from 'components/containers'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import Layout from 'components/layout/layout'
-import { Localize, WithIntl, localize } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 
 const items = [
     {
@@ -80,7 +80,18 @@ const DerivGo = () => {
         return <PageNotFound />
     }
 
-    return <></>
+    return (
+        <>
+            <SEO
+                title={localize(
+                    'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO',
+                )}
+                description={localize(
+                    'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                )}
+            />
+        </>
+    )
 }
 
 export default WithIntl()(DerivGo)

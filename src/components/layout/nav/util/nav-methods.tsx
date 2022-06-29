@@ -1,5 +1,6 @@
 // Global methods of nav components
 import { useState } from 'react'
+import Login from 'common/login'
 import { getLanguage, getDerivAppLocalizedURL, redirectToTradingPlatform } from 'common/utility'
 import { deriv_app_url } from 'common/constants'
 
@@ -13,6 +14,11 @@ export const moveButton = () => {
     const showButton = () => setShowButton(!show_button)
     const hideButton = () => setShowButton(false)
     return [show_button, showButton, hideButton] as const // here, we freeze the array to a tuple, so we can not change it out of this methods
+}
+
+export const handleLogin = () => {
+    redirectToTradingPlatform()
+    Login.redirectToLogin()
 }
 
 export const handleGetTrading = () => {

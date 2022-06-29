@@ -322,7 +322,8 @@ const StartTrader = () => {
                                         <StyledLocalizedLink
                                             external="true"
                                             key={0}
-                                            to={handleLogin()}
+                                            onClick={handleLogin}
+                                            to=""
                                         />,
                                     ]}
                                 />

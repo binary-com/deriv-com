@@ -5,11 +5,11 @@ import SideTab from './components/_side-tab'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import useHandleLogin from 'components/hooks/use-handle-login'
 
 type TabProps = {
     active?: boolean
@@ -182,9 +182,9 @@ const StartTrader = () => {
     const onTabClick = (chosenTab: string) => {
         setTab(chosenTab)
     }
-    const handleLogin = () => {
-        return Login.loginUrl()
-    }
+
+    const handleLogin = () => useHandleLogin()
+
     const handleSignup = useHandleSignup()
 
     const { is_eu_country } = React.useContext(DerivStore)

@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
+import Roadmap from 'components/elements/roadmap'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -51,6 +52,14 @@ const DP2P_CONTENT = [
     },
 ]
 
+const derivP2PPortalData = {
+    paragraph: (
+        <Localize translate_text="Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+    ),
+    frame: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m?hide_header=1',
+    link: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m',
+}
+
 const DP2PHome = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix the second Hero-component during page's loading
     return (
@@ -72,6 +81,7 @@ const DP2PHome = () => {
                     <P2PBanner
                         title={localize('Make hassle-free deposits and withdrawals today')}
                     />
+                    <Roadmap portal={derivP2PPortalData} />
                 </>
             )}
         </Layout>

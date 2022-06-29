@@ -19,7 +19,7 @@ const items = [
             <Localize translate_text="Amplify your profits up to 1000x without losing more than your trade amount with multipliers." />
         ),
         image_name: 'multiply_profit',
-        image_alt: 'multiplier trading',
+        image_alt: 'Trading multipliers on Deriv GO',
     },
     {
         title: <Localize translate_text="Forex trading on the go" />,
@@ -27,7 +27,7 @@ const items = [
             <Localize translate_text="Access the world’s most traded market and take advantage of currency price movements." />
         ),
         image_name: 'forex',
-        image_alt: 'trade forex',
+        image_alt: 'Trading forex pairs on Deriv GO',
     },
     {
         title: <Localize translate_text="Trade synthetic indices" />,
@@ -35,7 +35,7 @@ const items = [
             <Localize translate_text="Trade Volatility and Crash/Boom indices that emulate the movements of real-world markets." />
         ),
         image_name: 'synthetic_indices',
-        image_alt: 'synthetic indices trading',
+        image_alt: 'Trading Volatility 100 Index on Deriv GO',
     },
     {
         title: <Localize translate_text="Better risk management" />,
@@ -43,7 +43,7 @@ const items = [
             <Localize translate_text="Customise your contracts to suit your risk appetite using innovative features like stop loss, take profit, and deal cancellation." />
         ),
         image_name: 'better_risk',
-        image_alt: 'risk management trading',
+        image_alt: 'Risk management on Deriv GO',
     },
 ]
 
@@ -68,7 +68,7 @@ const DerivGo = () => {
                 <Layout>
                     <SEO
                         title={localize(
-                            'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO',
+                            'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
                         )}
                         description={localize(
                             'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',

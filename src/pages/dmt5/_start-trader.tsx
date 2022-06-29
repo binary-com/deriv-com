@@ -9,6 +9,7 @@ import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type TabProps = {
     active?: boolean
@@ -184,6 +185,7 @@ const StartTrader = () => {
     const handleLogin = () => {
         return Login.loginUrl()
     }
+    const handleSignup = useHandleSignup()
 
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -273,8 +275,9 @@ const StartTrader = () => {
                                     translate_text="Sign up for a free <0>Deriv demo account</0>"
                                     components={[
                                         <StyledLocalizedLink
+                                            onClick={handleSignup}
                                             id="dm-dmt5-signup-link"
-                                            to="/signup/"
+                                            to=""
                                             key={0}
                                         />,
                                     ]}

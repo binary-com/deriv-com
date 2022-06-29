@@ -134,7 +134,7 @@ jobs:
                 command: pages publish public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
-              run: echo "New website - http://cf-pages.deriv.com"
+              run: echo "New website - http://cf-pages-deriv-com.deriv.com"
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

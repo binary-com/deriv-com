@@ -319,12 +319,7 @@ const StartTrader = () => {
                                 <Localize
                                     translate_text="Create or <0>sign in</0> to your Deriv account"
                                     components={[
-                                        <StyledLocalizedLink
-                                            external="true"
-                                            key={0}
-                                            onClick={handleLogin}
-                                            to=""
-                                        />,
+                                        <StyledLocalizedLink key={0} onClick={handleLogin} to="" />,
                                     ]}
                                 />
                             }

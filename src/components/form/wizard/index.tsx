@@ -34,29 +34,21 @@ const Modal = styled.div`
 export const StepContext = React.createContext(null)
 export const FormContext = React.createContext(null)
 
-const Wizard = () => {
+const Wizard = ({ children }: { children: React.ReactElement[] }) => {
     const [show, setShow] = useState(true)
     const [step, setStep] = useState(1)
-    const [form_data, setFormData] = useState({
-        account_type: '',
-        country_of_residence: '',
-        state: '',
-        city: '',
-        street: '',
-        zip_code: null,
-    })
+    const max_step = children.length
+    const step_names = children.map((child) => child.props.name)
 
     if (show)
         return (
             <>
                 <Modal>
                     <Header setShow={setShow} />
-                    <StepContext.Provider value={{ step, setStep }}>
-                        <Stepper />
-                        <FormContext.Provider value={{ form_data, setFormData }}>
-                            <Form />
-                            <Footer />
-                        </FormContext.Provider>
+                    <StepContext.Provider value={{ step, setStep, max_step }}>
+                        <Stepper step_names={step_names} />
+                        <Form>{children}</Form>
+                        <Footer disabled={false} />
                     </StepContext.Provider>
                 </Modal>
                 <Background></Background>

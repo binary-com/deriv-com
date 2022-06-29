@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FormContext } from '.'
 import Individual from 'images/svg/partners/individual.svg'
 import Selected from 'images/svg/partners/selected.svg'
 import Business from 'images/svg/partners/business.svg'
@@ -63,10 +62,9 @@ const SelectedIcon = styled.img`
 `
 
 const FormAccountType = () => {
-    const { form_data, setFormData } = React.useContext(FormContext)
-    const { account_type } = form_data
+    const [account_type, setAccountType] = React.useState('')
 
-    const clickHandler = (type) => setFormData({ ...form_data, account_type: type })
+    const clickHandler = (type) => setAccountType(type)
 
     return (
         <Flex>

@@ -74,23 +74,15 @@ const Label = styled.h4`
     color: ${(props) => (props.active ? `#FF444F` : `#999999`)};
 `
 
-const step_list = [
-    { id: 1, label: 'Account type' },
-    { id: 2, label: 'Address details' },
-    { id: 3, label: 'Phone number' },
-    { id: 4, label: 'Personal details' },
-    { id: 5, label: 'Terms of use' },
-]
-
-const Stepper = () => {
+const Stepper = ({ step_names }: { step_names: string[] }) => {
     const { step } = React.useContext(StepContext)
 
     return (
         <StepperWrapper>
-            {step_list.map(({ id, label }) => (
-                <StepperItem key={id} active={id < step}>
-                    <StepCounter active={id <= step}>{id}</StepCounter>
-                    <Label active={id === step}>{label}</Label>
+            {step_names.map((step_name, id) => (
+                <StepperItem key={step_name} active={id + 1 < step}>
+                    <StepCounter active={id + 1 <= step}>{id + 1}</StepCounter>
+                    <Label active={id + 1 === step}>{step_name}</Label>
                 </StepperItem>
             ))}
         </StepperWrapper>

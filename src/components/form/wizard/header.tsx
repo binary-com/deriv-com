@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CloseSVG from 'images/svg/custom/close-2.svg'
 
-const Header = styled.div`
+const StyledHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,13 +25,13 @@ const Title = styled.h2`
     color: '#333333';
 `
 
-const header = ({ setShow }: { setShow: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const Header = ({ setShow }: { setShow: React.Dispatch<React.SetStateAction<boolean>> }) => {
     return (
-        <Header>
+        <StyledHeader>
             <Title>Add an affiliate account</Title>
             <CloseButton src={CloseSVG} onClick={() => setShow(false)} />
-        </Header>
+        </StyledHeader>
     )
 }
 
-export default header
+export default Header

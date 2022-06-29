@@ -20,24 +20,6 @@ const InputGroup = styled.div`
     }
 `
 
-function validateEmail(value) {
-    let error
-    if (!value) {
-        error = 'Required'
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-        error = 'Invalid email address'
-    }
-    return error
-}
-
-function validateUsername(value) {
-    let error
-    if (value === 'admin') {
-        error = 'Nice try!'
-    }
-    return error
-}
-
 const FormAddressDetails = () => {
     const country_of_residence_list = [
         { name: 'US', display_name: 'United States', key: '1', icon: '' },

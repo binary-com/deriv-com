@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../button'
-import { StepContext, FormContext } from '.'
+import { StepContext } from '.'
 import { localize } from 'components/localization'
 
 const StyledFooter = styled.div`
@@ -18,10 +18,8 @@ const StyledFooter = styled.div`
     width: 100%;
 `
 
-const Footer = () => {
-    const { step, setStep } = React.useContext(StepContext)
-    const { form_data } = React.useContext(FormContext)
-    const { account_type } = form_data
+const Footer = ({ disabled }: { disabled: boolean }) => {
+    const { step, setStep, max_step } = React.useContext(StepContext)
 
     return (
         <StyledFooter>
@@ -34,7 +32,7 @@ const Footer = () => {
             </Button>
             <Button
                 secondary="true"
-                disabled={!account_type}
+                disabled={disabled || max_step === step}
                 onClick={() => step < 5 && setStep(step + 1)}
             >
                 {localize('Next')}

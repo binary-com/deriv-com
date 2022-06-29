@@ -5,13 +5,13 @@ import { DerivStore } from 'store'
 import Login from 'common/login'
 
 const useHandleLogin = () => {
-    const { is_loading, is_non_eu } = useCountryRule()
+    const { is_loading, is_row } = useCountryRule()
     const { setShowNonEuPopup } = React.useContext(DerivStore)
 
     return () => {
         if (is_loading) {
             return
-        } else if (is_non_eu && isEuDomain()) {
+        } else if (is_row && isEuDomain()) {
             setShowNonEuPopup(true)
         } else {
             redirectToTradingPlatform()

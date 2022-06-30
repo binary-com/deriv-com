@@ -97,8 +97,17 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
         }
     }, [residence_list])
 
-    const { first_name, last_name, date_of_birth, country, address_line_1, address_line_2, phone } =
-        useAffiliateData()
+    const {
+        first_name,
+        last_name,
+        date_of_birth,
+        country,
+        address_line_1,
+        address_city,
+        address_state,
+        address_postcode,
+        phone,
+    } = useAffiliateData()
     const handleCheckChange = (event, func) => func(event.currentTarget.checked ? 1 : 0)
 
     return (
@@ -111,7 +120,10 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                     date: date_of_birth || '',
                     country: country || null,
                     residence_list: residence_list,
-                    address: address_line_1 || address_line_2 || '',
+                    address_line_1: address_line_1 || '',
+                    address_city: address_city || '',
+                    address_state: address_state || '',
+                    address_postcode: address_postcode || '',
                     phone: phone || '',
                     password: '',
                     currency: '',
@@ -185,17 +197,57 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                         },
 
                         {
-                            id: 'dm-address',
-                            name: 'address',
+                            id: 'dm-address_line_1',
+                            name: 'address_line_1',
                             type: 'text',
-                            error: errors.address,
-                            value: values.address,
-                            touch: touched.address,
-                            label: localize('Address'),
-                            placeholder: 'Address',
+                            error: errors.address_line_1,
+                            value: values.address_line_1,
+                            touch: touched.address_line_1,
+                            label: localize('Address line1'),
+                            placeholder: 'Address line1',
                             required: true,
                         },
-
+                        {
+                            id: 'dm-address_line_2',
+                            name: 'address_line_2',
+                            type: 'text',
+                            value: values.address_line_2,
+                            label: localize('Address line2'),
+                            placeholder: 'Address line2',
+                        },
+                        {
+                            id: 'dm-address_city',
+                            name: 'address_city',
+                            type: 'text',
+                            error: errors.address_city,
+                            value: values.address_city,
+                            touch: touched.address_city,
+                            label: localize('City'),
+                            placeholder: 'City',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-address_state',
+                            name: 'address_state',
+                            type: 'text',
+                            error: errors.address_state,
+                            value: values.address_state,
+                            touch: touched.address_state,
+                            label: localize('State'),
+                            placeholder: 'State',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-address_postcode',
+                            name: 'address_postcode',
+                            type: 'text',
+                            error: errors.address_postcode,
+                            value: values.address_postcode,
+                            touch: touched.address_postcode,
+                            label: localize('Postcode'),
+                            placeholder: 'Postcode',
+                            required: true,
+                        },
                         {
                             id: 'dm-mobile-number',
                             name: 'phone',

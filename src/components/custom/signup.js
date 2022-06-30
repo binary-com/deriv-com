@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import * as moment from 'moment'
 import { getLanguage, isChoosenLanguage, queryParams } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
@@ -179,8 +180,13 @@ const Signup = (props) => {
             first_name,
             last_name,
             country: { value },
-            address,
+            address_line_1,
+            address_line_2,
+            address_city,
+            address_postcode,
+            address_state,
             phone,
+            date,
             phone_code,
             password,
             non_pep_declaration,
@@ -194,11 +200,13 @@ const Signup = (props) => {
             country: value,
             verification_code,
             // no separate address field for current version of form
-            address_city: address,
-            address_line_1: address,
-            address_postcode: address,
-            address_state: address,
+            address_city: address_city,
+            address_line_1: address_line_1,
+            address_line_2: address_line_2,
+            address_postcode: address_postcode,
+            address_state: address_state,
             phone: `+` + phone_code + phone,
+            date_of_birth: moment(date).format('YYYY-MM-DD'),
             password,
             non_pep_declaration,
             tnc_accepted,

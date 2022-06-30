@@ -5,7 +5,7 @@ import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Background } from 'components/elements/background-image'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import device, { size } from 'themes/device'
 import { mobileOSDetect } from 'common/os-detect'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -162,12 +162,12 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const ButtonDerivP2P = styled(Button)`
+const StyledLinkButton = styled(LinkButton)`
     opacity: 0;
     @media ${device.tabletL} {
         opacity: 1;
         padding: 1.5rem 1.6rem;
-        height: 64px;
+        height: 45px;
         white-space: nowrap;
         margin-top: 24px;
         margin-bottom: 40px;
@@ -250,9 +250,16 @@ const Hero = () => {
                             )}
                         </Header>
                     </Mobile>
-                    <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                    <StyledLinkButton
+                        secondary="true"
+                        to="/cashier/p2p"
+                        external="true"
+                        type="deriv_app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         {localize('Try Deriv P2P now')}
-                    </ButtonDerivP2P>
+                    </StyledLinkButton>
                     <Desktop>
                         <Flex
                             fd="row"

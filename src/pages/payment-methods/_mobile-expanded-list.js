@@ -317,7 +317,6 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
 }
 
 MobileExpandedList.propTypes = {
-    crypto_config: PropTypes.object,
     is_crypto: PropTypes.bool,
     is_dp2p: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,

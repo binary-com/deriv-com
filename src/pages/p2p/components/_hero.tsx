@@ -251,7 +251,7 @@ const Hero = () => {
                         </Header>
                     </Mobile>
                     <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                        {localize('Download Deriv P2P')}
+                        {localize('Try Deriv P2P now')}
                     </ButtonDerivP2P>
                     <Desktop>
                         <Flex

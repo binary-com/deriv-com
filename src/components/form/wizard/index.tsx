@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Footer from './footer'
 import Form from './form'
@@ -32,23 +32,27 @@ const Modal = styled.div`
 `
 
 export const StepContext = React.createContext(null)
-export const FormContext = React.createContext(null)
 
 const Wizard = ({ children }: { children: React.ReactElement[] }) => {
     const [show, setShow] = useState(true)
     const [step, setStep] = useState(1)
     const max_step = children.length
     const step_names = children.map((child) => child.props.name)
+    const [enable_next, setEnableNext] = useState(false)
+
+    useEffect(() => {
+        setEnableNext(false)
+    }, [step])
 
     if (show)
         return (
             <>
                 <Modal>
                     <Header setShow={setShow} />
-                    <StepContext.Provider value={{ step, setStep, max_step }}>
+                    <StepContext.Provider value={{ step, setStep, max_step, setEnableNext }}>
                         <Stepper step_names={step_names} />
                         <Form>{children}</Form>
-                        <Footer disabled={false} />
+                        <Footer disabled={!enable_next} />
                     </StepContext.Provider>
                 </Modal>
                 <Background></Background>

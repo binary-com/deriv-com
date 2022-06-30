@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StepContext } from '.'
 import Individual from 'images/svg/partners/individual.svg'
 import Selected from 'images/svg/partners/selected.svg'
 import Business from 'images/svg/partners/business.svg'
@@ -63,6 +64,7 @@ const SelectedIcon = styled.img`
 
 const FormAccountType = () => {
     const [account_type, setAccountType] = React.useState('')
+    const { setEnableNext } = React.useContext(StepContext)
 
     const clickHandler = (type) => setAccountType(type)
 
@@ -71,7 +73,10 @@ const FormAccountType = () => {
             <Text>Choose which plan you would like to subscribe to:</Text>
             <Card
                 selected={account_type === 'Individual'}
-                onClick={() => clickHandler('Individual')}
+                onClick={() => {
+                    clickHandler('Individual')
+                    setEnableNext(true)
+                }}
             >
                 <Icon src={Individual} alt="individual" />
                 <Content>
@@ -80,7 +85,13 @@ const FormAccountType = () => {
                 </Content>
                 {account_type === 'Individual' && <SelectedIcon src={Selected} alt="selected" />}
             </Card>
-            <Card selected={account_type === 'Business'} onClick={() => clickHandler('Business')}>
+            <Card
+                selected={account_type === 'Business'}
+                onClick={() => {
+                    clickHandler('Business')
+                    setEnableNext(true)
+                }}
+            >
                 <Icon src={Business} alt="Business" />
                 <Content>
                     <Title>Business/Corporate</Title>

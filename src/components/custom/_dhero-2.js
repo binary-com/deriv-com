@@ -174,7 +174,7 @@ const query = graphql`
         deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
             ...bannerImage
         }
-        qr_code: file(relativePath: { eq: "deriv-go/deriv_go_all_appstores.png" }) {
+        qr_code: file(relativePath: { eq: "deriv-x/deriv-x-qr.png" }) {
             ...fadeIn
         }
         web_browser: file(relativePath: { eq: "deriv-go/web-browser.png" }) {

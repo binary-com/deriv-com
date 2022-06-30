@@ -48,4 +48,10 @@ module.exports = {
         short_name: 'ZH',
         affiliate_lang: 7,
     },
+    vi: {
+        path: 'vi',
+        display_name: 'Vietnamese',
+        short_name: 'vi',
+        affiliate_lang: 8,
+    },
 }

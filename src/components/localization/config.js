@@ -11,6 +11,7 @@ import Russian from 'images/svg/flags/ru.svg'
 import Tagalog from 'images/svg/flags/tl.svg'
 import Tamil from 'images/svg/flags/ta.svg'
 import Chinese from 'images/svg/flags/zh.svg'
+import Vietnam from 'images/svg/flags/vn.svg'
 
 export const language_images = [
     {
@@ -44,6 +45,10 @@ export const language_images = [
     {
         id: 'zh',
         icon: Chinese,
+    },
+    {
+        id: 'vi',
+        icon: Vietnam,
     },
 ]
 

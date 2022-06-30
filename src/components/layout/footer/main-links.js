@@ -25,6 +25,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
+                            <Link to="/our-principles/">
+                                {<Localize translate_text="Principles" />}
+                            </Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
                             <Link to="/partners/">
                                 {<Localize translate_text="Partnership programmes" />}
                             </Link>

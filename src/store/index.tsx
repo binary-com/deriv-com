@@ -22,6 +22,8 @@ export type DerivStoreType = {
     website_status_loading: boolean
     website_status: WebsiteStatusType
     deriv_socket: any // to be updated
+    show_non_eu_popup: boolean
+    setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
@@ -29,6 +31,7 @@ export const DerivStore = createContext<DerivStoreType>(null)
 export const DerivProvider = ({ children }: DerivProviderProps) => {
     const deriv_socket = useWebsocket()
 
+    const [show_non_eu_popup, setShowNonEuPopup] = useState(false)
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
     const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
@@ -79,6 +82,8 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 website_status_loading,
                 website_status,
                 deriv_socket,
+                show_non_eu_popup,
+                setShowNonEuPopup,
             }}
         >
             {children}

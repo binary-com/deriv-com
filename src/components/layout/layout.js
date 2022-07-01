@@ -26,7 +26,6 @@ import device from 'themes/device'
 import { DerivStore } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
-import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -129,7 +128,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
-    const { show_non_eu_popup, setShowNonEuPopup } = React.useContext(DerivStore)
+    const { show_non_eu_popup, setShowNonEuPopup, website_status } = React.useContext(DerivStore)
     const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
@@ -159,10 +158,8 @@ const Layout = ({
     }, [is_uk_eu])
 
     // Check client's account and ip and apply the necessary redirection
-    if (!is_redirection_applied) {
-        const website_status = useWebsiteStatusApi()
-
-        React.useEffect(() => {
+    React.useEffect(() => {
+        if (!is_redirection_applied) {
             if (website_status) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
@@ -172,8 +169,8 @@ const Layout = ({
                 !isEuDomain() &&
                     handleRedirect(residence, current_client_country, window.location.hostname)
             }
-        }, [website_status])
-    }
+        }
+    }, [])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

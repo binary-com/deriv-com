@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useDomainBasedCheck } from './use-domain-base-check'
-import { useWebsiteStatus } from './use-website-status'
 import { eu_countries } from 'common/country-base'
 import { getClientInformation, getDomain, isLocalhost, isTestlink } from 'common/utility'
+import { DerivStore } from 'store'
 
 export const useCountryRule = () => {
     const [region, setRegion] = useState({
@@ -16,7 +16,7 @@ export const useCountryRule = () => {
         is_dev: false,
     })
 
-    const [website_status] = useWebsiteStatus()
+    const { website_status } = useContext(DerivStore)
     const user_ip_country = website_status?.clients_country || ''
     const [is_eu_domain, is_uk_domain] = useDomainBasedCheck()
     const { residence } = getClientInformation(getDomain()) || {

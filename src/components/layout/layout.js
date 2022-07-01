@@ -25,7 +25,6 @@ import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
-import { DerivStore } from 'store'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -136,9 +135,6 @@ const Layout = ({
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
-    const { ws } = React.useContext(DerivStore)
-
-    console.log({ ws })
 
     const is_static = type === 'static'
     // Allow tracking cookie banner setup

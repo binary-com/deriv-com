@@ -18,7 +18,7 @@ const Text = styled.h4`
     padding-bottom: 10px;
 `
 
-const Card = styled.div`
+const Card = styled.div<{ selected: boolean }>`
     display: flex;
     align-items: center;
     padding-left: 24px;

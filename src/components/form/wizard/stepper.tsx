@@ -10,7 +10,7 @@ const StepperWrapper = styled.div`
     margin: 0 auto;
 `
 
-const StepperItem = styled.div`
+const StepperItem = styled.div<{ active: boolean }>`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@ const StepperItem = styled.div`
     }
 `
 
-const StepCounter = styled.div`
+const StepCounter = styled.div<{ active: boolean }>`
     color: #ffffff;
     font-weight: 700;
     font-size: 14px;
@@ -67,7 +67,7 @@ const StepCounter = styled.div`
     }
 `
 
-const Label = styled.h4`
+const Label = styled.h4<{ active: boolean }>`
     padding-top: 10px;
     font-size: 12px;
     font-weight: ${(props) => (props.active ? 700 : 400)};

@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { LinkButton, Button } from 'components/form'
 import device from 'themes/device'
+import { mobileOSDetect } from 'common/os-detect'
+import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 
 const content = [
     {
@@ -71,6 +73,30 @@ const ClientCard = styled.article`
         max-width: 290px;
     }
 `
+const ButtonDerivP2P = styled(Button)`
+    opacity: 0;
+    @media ${device.tabletL} {
+        opacity: 1;
+        padding: 1.5rem 1.6rem;
+        height: 64px;
+        margin: auto;
+        width: 50%;
+        white-space: nowrap;
+    }
+`
+
+const StyledLinkButton = styled(LinkButton)`
+    opacity: 0;
+    @media (min-width: 992px) {
+        opacity: 1;
+        padding: 2.1rem 1.6rem;
+        height: 64px;
+        margin: 20px auto;
+        width: 33%;
+        white-space: nowrap;
+    }
+`
+
 const StyledHeader = styled(Header)`
     text-align: center;
     font-size: 48px;
@@ -91,20 +117,18 @@ const StyledText = styled(Text)`
     }
 `
 
-const StyledLinkButton = styled(LinkButton)`
-    padding: 14px 16px;
-    font-size: 14px;
-    border: unset;
-    width: min-content;
-    margin: 80px auto 0 auto;
-    white-space: nowrap;
-
-    @media ${device.tablet} {
-        margin-top: 40px;
-    }
-`
-
 const Numbers = () => {
+    const handleExternalLink = () => {
+        let link = ''
+        if (mobileOSDetect() === 'Android') {
+            link = p2p_playstore_url
+        }
+        if (mobileOSDetect() === 'iOS') {
+            link = p2p_applestore_url
+        }
+
+        window.open(link, '_blank')
+    }
     return (
         <Section>
             <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
@@ -126,6 +150,7 @@ const Numbers = () => {
                     )
                 })}
             </Flex>
+
             <StyledLinkButton
                 secondary="true"
                 to="/cashier/p2p"
@@ -136,6 +161,10 @@ const Numbers = () => {
             >
                 {localize('Try Deriv P2P now')}
             </StyledLinkButton>
+
+            <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                {localize('Try Deriv P2P now')}
+            </ButtonDerivP2P>
         </Section>
     )
 }

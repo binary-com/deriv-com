@@ -41,35 +41,28 @@ export const StyledHeader = styled(Header)`
 
 export const BreadCrumbContainer = styled(Container)`
     margin-top: 2.5rem;
+    width: 100%;
+    white-space: nowrap;
 
-    @media ${device.tabletL} {
-        margin-top: 2.5rem;
-        padding-left: 1.5rem;
+    @media (min-width: 1280px) and (max-width: 1600px) {
+        padding: 0;
+        margin-right: 27vw;
     }
 
-    @media (width: 1024px) {
-        margin-top: 2.5rem;
-        margin-right: 11rem;
+    @media (min-width: 1600px) and (max-width: 1920px) {
+        padding: 0;
+        margin-right: 48vw;
     }
 
-    @media (width: 1440px) {
-        margin-top: 2.5rem;
-        padding-left: 5rem;
-    }
-    @media (width: 1920px) {
-        margin-top: 2.5rem;
-        padding-left: 8rem;
-    }
-
-    @media ${device.desktopS} {
-        margin-top: 2.5rem;
-        margin-right: 62rem;
+    @media (min-width: 1920px) and (max-width: 2600px) {
+        padding: 0;
+        margin-right: 65vw;
     }
 `
 
 export const StyledSection = styled(SectionContainer)`
     position: relative;
-    padding: 8rem 0;
+    padding: 8rem 5rem;
 
     @media ${device.desktopS} {
         padding: 40px 0;
@@ -81,7 +74,6 @@ export const SectionSubtitle = styled(Header)`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 10%;
 
     @media (min-width: 1400px) {
         padding: 0 20%;
@@ -142,7 +134,6 @@ export const ContentContainer = styled(Flex)`
 
 export const FormWrapper = styled(Flex)`
     height: 100%;
-    margin-left: 15rem;
 
     @media ${device.desktopS} {
         height: 100%;
@@ -168,28 +159,15 @@ const CalculatorFormStyles = css`
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    width: 100%;
+    width: 90vw;
 
-    @media (max-width: 1200px) {
-        margin-bottom: 20px;
-        width: 90%;
-    }
-    @media (width: 425px) {
-        margin-bottom: 20px;
-        width: 90%;
+    @media (min-width: 1200px) {
+        width: 40vw;
     }
 `
 
 export const CalculatorForm = styled(Form)`
     ${CalculatorFormStyles}
-    @media (min-width: 1200px) {
-        width: 80rem;
-    }
-
-    @media (max-width: 1200px) {
-        margin-right: 4rem;
-        width: 85rem;
-    }
 `
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
@@ -250,7 +228,6 @@ export const PnLCalculatorOutputContainer = styled(Flex)`
     height: 56px;
     border: 1px solid var(--color-green);
     background-color: var(--color-white);
-    width: 100%;
     @media ${device.mobileL} {
         max-width: 42rem;
     }
@@ -434,16 +411,10 @@ export const CalculateButton = styled(Button)`
 
 export const RightContent = styled.div`
     display: block;
-    margin-right: 5%;
-    margin-left: 5%;
 
     @media (min-width: 1200px) {
-        width: 50%;
-    }
-
-    @media ${device.laptopM} {
-        margin: auto;
-        padding: 0 45px;
+        width: 80%;
+        padding: 0 50px;
     }
 `
 

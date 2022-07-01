@@ -465,7 +465,7 @@ const PnlMultipliersCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center" ml="10%">
+                <Flex jc="flex-start" ai="center" ml="10vw">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -628,7 +628,7 @@ const PnlMultipliersCalculator = () => {
                                                                     </PnLCalculatorOutputSymbol>
                                                                 </PnLCalculatorOutputContainer>
                                                             </Flex>
-                                                            <Flex fd="column" ml="10px">
+                                                            <Flex fd="column">
                                                                 <CalculatorLabel htmlFor="message">
                                                                     {localize('Stop loss level')}
                                                                 </CalculatorLabel>
@@ -652,7 +652,6 @@ const PnlMultipliersCalculator = () => {
                                                             mb="3rem"
                                                             mt="1rem"
                                                             jc="space-between"
-                                                            ml="6px"
                                                             tablet={{ height: 'unset' }}
                                                         >
                                                             <PnlCalculatorTabItem
@@ -1345,11 +1344,7 @@ const PnlMultipliersCalculator = () => {
                                                             </PnlCalculatorTabItem>
                                                         </Flex>
                                                         <Flex jc="space-between">
-                                                            <Flex
-                                                                fd="column"
-                                                                width="100%"
-                                                                ml="10px"
-                                                            >
+                                                            <Flex fd="column" width="100%">
                                                                 <PnLInputGroup>
                                                                     <AssetPriceField
                                                                         values={values}
@@ -1368,7 +1363,7 @@ const PnlMultipliersCalculator = () => {
                                                             <Flex
                                                                 fd="column"
                                                                 width="100%"
-                                                                ml="10px"
+                                                                ml="15px"
                                                             >
                                                                 <PnLInputGroup>
                                                                     <CommissionField
@@ -1388,11 +1383,7 @@ const PnlMultipliersCalculator = () => {
                                                         </Flex>
 
                                                         <Flex jc="space-between">
-                                                            <Flex
-                                                                fd="column"
-                                                                width="100%"
-                                                                ml="10px"
-                                                            >
+                                                            <Flex fd="column" width="100%">
                                                                 <PnLInputGroup>
                                                                     <StakeField
                                                                         values={values}
@@ -1411,7 +1402,7 @@ const PnlMultipliersCalculator = () => {
                                                             <Flex
                                                                 fd="column"
                                                                 width="100%"
-                                                                ml="10px"
+                                                                ml="15px"
                                                             >
                                                                 <PnLInputGroup>
                                                                     <Field
@@ -1454,11 +1445,7 @@ const PnlMultipliersCalculator = () => {
                                                         </Flex>
 
                                                         <Flex jc="space-between">
-                                                            <Flex
-                                                                fd="column"
-                                                                width="100%"
-                                                                ml="10px"
-                                                            >
+                                                            <Flex fd="column" width="100%">
                                                                 <PnLInputGroup>
                                                                     <MultiplierField
                                                                         values={values}
@@ -1477,7 +1464,7 @@ const PnlMultipliersCalculator = () => {
                                                             <Flex
                                                                 fd="column"
                                                                 width="100%"
-                                                                ml="10px"
+                                                                ml="15px"
                                                             >
                                                                 <PnLInputGroup>
                                                                     <StopLossLevelField

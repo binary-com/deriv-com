@@ -219,7 +219,7 @@ const SwapCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center">
+                <Flex jc="flex-start" ai="center" ml="10vw">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
-import { useWebsocket } from 'components/hooks/use-websocket'
+import { useWebsocket, DerivSocketProps } from 'components/hooks/use-websocket'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
@@ -21,7 +21,7 @@ export type DerivStoreType = {
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
-    deriv_socket: any // to be updated
+    deriv_socket: DerivSocketProps
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -93,8 +93,8 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
 
 export const DerivSocket = () => {
     const {
-        deriv_socket: { ws, send, receive },
+        deriv_socket: { send, receive },
     } = React.useContext(DerivStore)
 
-    return { ws, send, receive }
+    return { send, receive }
 }

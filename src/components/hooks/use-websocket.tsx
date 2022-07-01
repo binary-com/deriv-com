@@ -12,7 +12,6 @@ export type SendCallbackType = {
 }
 
 export type DerivSocketProps = {
-    ws: any
     send: ({ data, onmessage: { action, dependencies } }: SendCallbackType) => void
     receive: ({ action, dependencies }: OnMessageType) => void
 }
@@ -74,5 +73,5 @@ export const useWebsocket = () => {
 
     const receive = addWSMessageCallback
 
-    return { ws, send, receive }
+    return { send, receive }
 }

@@ -27,20 +27,43 @@ export type DerivStoreType = {
 export const DerivStore = createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
+    const deriv_socket = useWebsocket()
+
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
     const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
-    const deriv_socket = useWebsocket()
+
+    // Fetch website status from the API & save in the cookies
+    useEffect(() => {
+        const { send } = deriv_socket
+
+        send({
+            data: { website_status: 1 },
+            onmessage: {
+                action: (response) => {
+                    if (!response.error && !website_status) {
+                        const {
+                            website_status: { clients_country },
+                        } = response
+
+                        setWebsiteStatus({ clients_country })
+                    }
+                },
+                dependencies: ['website_status'],
+            },
+        })
+    }, [])
 
     useEffect(() => {
         if (website_status) {
-            setEuCountry(!!isEuCountry(website_status.clients_country))
-            setUkCountry(!!isUK(website_status.clients_country))
-            setP2PAllowedCountry(isP2PAllowedCountry(website_status.clients_country))
-            setUserCountry(website_status.clients_country)
+            const { clients_country } = website_status
+            setEuCountry(!!isEuCountry(clients_country))
+            setUkCountry(!!isUK(clients_country))
+            setP2PAllowedCountry(isP2PAllowedCountry(clients_country))
+            setUserCountry(clients_country)
         }
     }, [website_status])
 
@@ -61,4 +84,12 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
             {children}
         </DerivStore.Provider>
     )
+}
+
+export const DerivSocket = () => {
+    const {
+        deriv_socket: { ws, send, receive },
+    } = React.useContext(DerivStore)
+
+    return { ws, send, receive }
 }

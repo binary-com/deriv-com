@@ -1,14 +1,20 @@
 import { useState, useLayoutEffect, useRef } from 'react'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 
-type OnMessageType = {
-    response?: (e) => void
+export type OnMessageType = {
+    action?: (e) => void
     dependencies?: string[]
 }
 
-type SendCallbackType = {
-    data?: string
+export type SendCallbackType = {
+    data?: object
     onmessage?: OnMessageType
+}
+
+export type DerivSocketProps = {
+    ws: any
+    send: ({ data, onmessage: { action, dependencies } }: SendCallbackType) => void
+    receive: ({ action, dependencies }: OnMessageType) => void
 }
 
 export const useWebsocket = () => {
@@ -29,10 +35,10 @@ export const useWebsocket = () => {
     if (ws) {
         ws.onmessage = (msg) => {
             const parsed_data = JSON.parse(msg.data)
-            // Matching response with request message
-            ws_messages.current.map(({ response, dependencies }) => {
+            // Matching action with request message
+            ws_messages.current.map(({ action, dependencies }) => {
                 if (!dependencies.length || dependencies.includes(parsed_data.msg_type)) {
-                    response(parsed_data)
+                    action(parsed_data)
                 }
             })
         }
@@ -45,11 +51,11 @@ export const useWebsocket = () => {
         }
     }
 
-    const send = ({ data, onmessage: { response, dependencies = [] } }: SendCallbackType) => {
+    const send = ({ data, onmessage: { action, dependencies = [] } }: SendCallbackType) => {
         const request_data = JSON.stringify(data)
 
-        if (response) {
-            addWSMessageCallback({ response, dependencies })
+        if (action) {
+            addWSMessageCallback({ action, dependencies })
         }
 
         if (ws) {
@@ -59,9 +65,9 @@ export const useWebsocket = () => {
         }
     }
 
-    const addWSMessageCallback = ({ response, dependencies = [] }: OnMessageType) => {
+    const addWSMessageCallback = ({ action, dependencies = [] }: OnMessageType) => {
         ws_messages.current.push({
-            response,
+            action,
             dependencies,
         })
     }

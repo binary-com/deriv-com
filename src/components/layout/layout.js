@@ -24,7 +24,7 @@ import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_mo
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
-import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
+import { DerivSocket } from 'store'
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -158,18 +158,25 @@ const Layout = ({
 
     // Check client's account and ip and apply the necessary redirection
     if (!is_redirection_applied) {
-        const website_status = useWebsiteStatusApi()
+        const { receive } = DerivSocket()
 
         React.useEffect(() => {
-            if (website_status) {
-                const current_client_country = website_status?.clients_country || ''
-                const client_information_cookie = new CookieStorage('client_information')
-                const residence = client_information_cookie.get('residence')
+            receive({
+                action: (response) => {
+                    const {
+                        website_status: { clients_country },
+                    } = response
 
-                setRedirectionApplied(true)
-                handleRedirect(residence, current_client_country, window.location.hostname)
-            }
-        }, [website_status])
+                    const current_client_country = clients_country || ''
+                    const client_information_cookie = new CookieStorage('client_information')
+                    const residence = client_information_cookie.get('residence')
+
+                    setRedirectionApplied(true)
+                    handleRedirect(residence, current_client_country, window.location.hostname)
+                },
+                dependencies: ['website_status'],
+            })
+        }, [])
     }
 
     const onAccept = () => {

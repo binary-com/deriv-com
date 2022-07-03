@@ -82,6 +82,7 @@ const VideoContainer = styled.div`
     width: 791px;
     height: 615px;
     border-radius: 8px;
+    position: relative;
 
     @media ${device.laptopM} {
         margin-bottom: 20px;
@@ -159,7 +160,14 @@ const VideoPlayer = styled(Vimeo)`
 `
 
 const VideoDetailsContainer = styled.div`
+    position: absolute;
+    bottom: 0;
     padding: 20px;
+
+    @media ${device.laptopM} {
+        position: relative;
+        bottom: auto;
+    }
 `
 
 const Title = styled.h1`

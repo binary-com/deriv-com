@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useDomainBasedCheck } from './use-domain-base-check'
-import { useWebsiteStatus } from './use-website-status'
 import { eu_countries } from 'common/country-base'
 import { getClientInformation, getDomain, isLocalhost, isTestlink } from 'common/utility'
+import { DerivStore } from 'store'
 
 export const useCountryRule = () => {
     const [region, setRegion] = useState({
+        is_loading: true,
         is_eu: false,
         is_uk: false,
         is_non_uk: true,
@@ -15,7 +16,7 @@ export const useCountryRule = () => {
         is_dev: false,
     })
 
-    const [website_status] = useWebsiteStatus()
+    const { website_status } = useContext(DerivStore)
     const user_ip_country = website_status?.clients_country || ''
     const [is_eu_domain, is_uk_domain] = useDomainBasedCheck()
     const { residence } = getClientInformation(getDomain()) || {
@@ -31,6 +32,7 @@ export const useCountryRule = () => {
     useEffect(() => {
         if (website_status) {
             setRegion({
+                is_loading: false,
                 is_eu: is_eu_residence || (!residence && is_eu_country) || is_eu_domain,
                 is_uk: is_uk_residence || (!residence && is_uk_country) || is_uk_domain,
                 is_non_uk: !region.is_uk,

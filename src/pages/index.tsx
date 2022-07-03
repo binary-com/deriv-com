@@ -1,5 +1,11 @@
 import React from 'react'
-import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
+import {
+    OurPlatforms,
+    Signup,
+    WhatOurClientsSay,
+    TradeTypes,
+    P2PHomeBanner,
+} from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
@@ -28,6 +34,7 @@ const Home = () => {
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />
+            <P2PHomeBanner />
             <Signup appearance={Appearances.public} />
         </Layout>
     )

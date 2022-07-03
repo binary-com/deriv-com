@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import {
     checkElemInArray,
     getLocationHash,
@@ -8,54 +8,49 @@ import {
     setLocationHash,
 } from 'common/utility'
 
+/**
+ * @description this hook will handle the current active tab of your tabs container, by default it will put the active tab in location hash in the url, if you don't need it pass has_no_query as true
+    if it's path sensitive and there is no location hash in the url it will use the first item in tab_list as location hash and if the location hash in the url is not valid it will route you back to the previous page.
+ * @param tab_list {string[]} the array of tabs
+ * @param has_no_query {boolean} to check if we should handle location hash on active tab changes
+ * @returns [active_tab , setActiveTab]
+ */
 export const useTabStateQuery = (tab_list, has_no_query = false) => {
     const locationHash = getLocationHash()
-    const isTabInLocation = checkElemInArray(tab_list, locationHash)
+    const [active_tab, setActiveTab] = useState(null)
 
-    const isPathSensitive = !has_no_query
+    const hashExistInTabList = useMemo(() => {
+        return checkElemInArray(tab_list, locationHash)
+    }, [locationHash, tab_list])
 
-    // Set the intial value based on the passed props
-    const [active_tab, setActiveTab] = useState(() => {
-        if (locationHash && isTabInLocation && isPathSensitive) {
-            return locationHash
-        }
-        return tab_list[0]
-    })
-
-    // if tab state is path sensitive sync the active tab with location hash on active tab or location hash change
     useEffect(() => {
+        const isPathSensitive = !has_no_query
+        const isBrowserMode = isBrowser()
+
         if (isPathSensitive) {
-            if (!locationHash || !isTabInLocation) {
-                setLocationHash(active_tab)
+            if (locationHash) {
+                if (hashExistInTabList) {
+                    if (isBrowserMode && active_tab && locationHash !== active_tab) {
+                        setLocationHash(active_tab)
+                    } else {
+                        setActiveTab(locationHash)
+                        scrollTop()
+                    }
+                } else {
+                    routeBack()
+                }
             } else {
-                setActiveTab(locationHash)
-                scrollTop()
+                if (isBrowserMode) {
+                    setActiveTab(tab_list[0])
+                    setLocationHash(tab_list[0])
+                }
+            }
+        } else {
+            if (!active_tab) {
+                setActiveTab(tab_list[0])
             }
         }
-    }, [active_tab, isTabInLocation, locationHash, isPathSensitive])
-
-    // if tab state is path sensitive and locationHash and active tab are not sync, sync them
-    useEffect(() => {
-        if (isPathSensitive) {
-            if (locationHash !== active_tab && isBrowser()) {
-                setLocationHash(active_tab)
-            }
-        }
-    }, [active_tab, locationHash, isPathSensitive])
-
-    // if tab state is path sensitive,
-    // if location hash exists in tab_list array and active tab and location hash are not in sync, sync them
-    // if location hash does not exist tab_list it means the route is wrong and should go back
-    useEffect(() => {
-        if (isPathSensitive) {
-            if (locationHash !== active_tab && isTabInLocation) {
-                setActiveTab(locationHash)
-                scrollTop()
-            } else if (!isTabInLocation) {
-                routeBack()
-            }
-        }
-    }, [active_tab, isTabInLocation, locationHash, isPathSensitive])
+    }, [active_tab, locationHash, has_no_query, tab_list, hashExistInTabList])
 
     return [active_tab, setActiveTab]
 }

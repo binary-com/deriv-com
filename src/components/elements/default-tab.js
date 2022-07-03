@@ -132,7 +132,7 @@ const Tabs = ({
 
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
-    }, [active_tab])
+    }, [active_tab, tab_list])
 
     useEffect(() => {
         const selected_el = ref.current.querySelector('[aria-selected="true"]')
@@ -143,7 +143,7 @@ const Tabs = ({
 
     useEffect(() => {
         ref.current.scrollLeft = offset
-    }, [ref.current, offset])
+    }, [offset])
 
     const setOffsetPositioning = (e, index) => {
         const left = e.target.offsetLeft - 24

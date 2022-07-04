@@ -99,7 +99,7 @@ jobs:
                   command: pages publish public --project-name=deriv-com-pages --branch=staging
 
             - name: Cloudflare preview link ✨
-              run: echo "New staging website - http://staging.cf-pages.deriv.com"
+              run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
-import { dataFilter } from '../components/utility'
+import { useDataFilter } from '../components/utility'
 import AllVideos from './_all-videos'
+import { redirectWithParamReference, queryParams } from 'common/utility'
 import { AllVideosQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
@@ -53,7 +54,16 @@ type VideosPageProps = {
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
 const VideosPage = ({ data }: VideosPageProps) => {
-    const video_data = dataFilter(data.directus.videos)
+    // We need this to redirect users to the new videos page if ever they are accessing the old video link
+    React.useEffect(() => {
+        const video_title = queryParams.get('t')
+
+        if (video_title) {
+            redirectWithParamReference('/academy/videos', 't')
+        }
+    }, [])
+
+    const video_data = useDataFilter(data.directus.videos)
 
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',

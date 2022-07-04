@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Flex, Desktop } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
 import { mobileOSDetect } from 'common/os-detect'
@@ -201,17 +201,12 @@ const AppButton = styled(LocalizedLink)`
     }
 `
 const ButtonDp2p = styled(Button)`
-    opacity: 0;
-    @media ${device.tabletL} {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 64px;
-        width: 25rem;
-        white-space: nowrap;
-        margin-right: 50%;
-        margin-top: 24px;
-        margin-bottom: 40px;
-    }
+    padding: 1.5rem 1.6rem;
+    height: 64px;
+    width: 25rem;
+    white-space: nowrap;
+    margin-top: 24px;
+    margin-bottom: 40px;
 `
 const DHero = ({
     title,
@@ -290,15 +285,15 @@ const DHero = ({
     `
     const handleExternalLink = () => {
         let link = ''
-        if (is_mobile) {
-            // TODO handle IOS case once the app is ready
-            if (mobileOSDetect() === 'Android') {
-                link = derivx_android_url
-            }
-            if (mobileOSDetect() === 'iOS') {
-                link = derivx_ios_url
-            }
+
+        // TODO handle IOS case once the app is ready
+        if (mobileOSDetect() === 'Android') {
+            link = derivx_android_url
         }
+        if (mobileOSDetect() === 'iOS') {
+            link = derivx_ios_url
+        }
+
         window.open(link, '_blank')
     }
     return (
@@ -381,10 +376,11 @@ const DHero = ({
                         </AppButton>
                     </Flex>
                 </Desktop>
-
-                <ButtonDp2p secondary="true" onClick={handleExternalLink}>
-                    {localize('Download Deriv X app')}
-                </ButtonDp2p>
+                <Mobile>
+                    <ButtonDp2p secondary="true" onClick={handleExternalLink}>
+                        {localize('Download Deriv X app')}
+                    </ButtonDp2p>
+                </Mobile>
             </InformationWrapper>
 
             <LottieWrapper>

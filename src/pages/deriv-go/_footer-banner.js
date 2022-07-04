@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Flex, Container, Desktop } from 'components/containers'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
@@ -47,16 +47,12 @@ const BackgroundWrapper = styled(Flex)`
     }
 `
 const ButtonDerivGO = styled(Button)`
-    opacity: 0;
-    @media ${device.tabletL} {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 64px;
-        width: 100%;
-        white-space: nowrap;
-        margin: 20px 0;
-        margin-right: 25px;
-    }
+    padding: 1.5rem 1.6rem;
+    height: 64px;
+    width: 100%;
+    white-space: nowrap;
+    margin: 20px 0;
+    margin-right: 25px;
 `
 const BannerWrapper = styled(Flex)`
     width: 50%;
@@ -163,10 +159,15 @@ const FooterBanner = () => {
                                 width="108px"
                                 height="108px"
                             />
+                            <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
+                                {localize('Scan the QR code to download Deriv GO')}
+                            </StyledSubTitle>
                         </Desktop>
-                        <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
-                            {localize('Download Deriv GO')}
-                        </ButtonDerivGO>
+                        <Mobile>
+                            <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
+                                {localize('Download Deriv GO')}
+                            </ButtonDerivGO>
+                        </Mobile>
                     </Flex>
                 </Flex>
             </BackgroundWrapper>

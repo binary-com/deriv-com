@@ -135,15 +135,12 @@ const HeroContent = styled(Flex)`
     }
 `
 const ButtonDerivP2P = styled(Button)`
-    opacity: 0;
-    @media ${device.tabletL} {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 64px;
-        white-space: nowrap;
-        margin-top: 24px;
-        margin-bottom: 40px;
-    }
+    padding: 1.5rem 1.6rem;
+    height: 64px;
+    white-space: nowrap;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    width: 100%;
 `
 const StyledHeader = styled(Header)`
     color: var(--color-white);
@@ -243,15 +240,18 @@ const Hero = () => {
                         </HeroContent>
                     </Desktop>
                     <Mobile>
-                        <Header size="18px" color="white" weight="200">
-                            {localize(
-                                'Use your local currency to make deposits into and withdrawals from your Deriv account.',
-                            )}
-                        </Header>
+                        <>
+                            <Header size="18px" color="white" weight="200">
+                                {localize(
+                                    'Use your local currency to make deposits into and withdrawals from your Deriv account.',
+                                )}
+                            </Header>
+
+                            <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                                {localize('Try Deriv P2P now')}
+                            </ButtonDerivP2P>
+                        </>
                     </Mobile>
-                    <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                        {localize('Try Deriv P2P now')}
-                    </ButtonDerivP2P>
                     <Desktop>
                         <Flex
                             fd="row"

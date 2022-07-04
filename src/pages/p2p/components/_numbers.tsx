@@ -74,27 +74,27 @@ const ClientCard = styled.article`
     }
 `
 const ButtonDerivP2P = styled(Button)`
-    opacity: 0;
-    @media ${device.tabletL} {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 64px;
-        margin: auto;
-        width: 50%;
-        white-space: nowrap;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    padding: 1.5rem 1.6rem;
+    height: 64px;
+    margin: auto;
+    width: 50%;
+    white-space: nowrap;
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    opacity: 0;
-    @media (min-width: 992px) {
-        opacity: 1;
-        padding: 2.1rem 1.6rem;
-        height: 64px;
-        margin: 20px auto;
-        width: 33%;
-        white-space: nowrap;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    padding: 2.1rem 1.6rem;
+    height: 64px;
+    margin: 20px auto;
+    width: 33%;
+    white-space: nowrap;
 `
 
 const StyledHeader = styled(Header)`
@@ -130,42 +130,46 @@ const Numbers = () => {
         window.open(link, '_blank')
     }
     return (
-        <Section>
-            <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
-                {content.map((item, idx) => {
-                    return (
-                        <ClientCard key={idx}>
-                            <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
-                                <StyledHeader
-                                    mobile_margin="unset"
-                                    mobile_font_size="20px"
-                                    mb="0.8rem"
-                                    as="p"
-                                >
-                                    {item.header}
-                                </StyledHeader>
-                            </Flex>
-                            <StyledText>{item.text}</StyledText>
-                        </ClientCard>
-                    )
-                })}
-            </Flex>
-
-            <StyledLinkButton
-                secondary="true"
-                to="/cashier/p2p"
-                external="true"
-                type="deriv_app"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                {localize('Try Deriv P2P now')}
-            </StyledLinkButton>
-
-            <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                {localize('Try Deriv P2P now')}
-            </ButtonDerivP2P>
-        </Section>
+        <>
+            <Section>
+                <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
+                    {content.map((item, idx) => {
+                        return (
+                            <ClientCard key={idx}>
+                                <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
+                                    <StyledHeader
+                                        mobile_margin="unset"
+                                        mobile_font_size="20px"
+                                        mb="0.8rem"
+                                        as="p"
+                                    >
+                                        {item.header}
+                                    </StyledHeader>
+                                </Flex>
+                                <StyledText>{item.text}</StyledText>
+                            </ClientCard>
+                        )
+                    })}
+                </Flex>
+            </Section>
+            <Desktop>
+                <StyledLinkButton
+                    secondary="true"
+                    to="/cashier/p2p"
+                    external="true"
+                    type="deriv_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {localize('Try Deriv P2P now')}
+                </StyledLinkButton>
+            </Desktop>
+            <Mobile>
+                <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                    {localize('Try Deriv P2P now')}
+                </ButtonDerivP2P>
+            </Mobile>
+        </>
     )
 }
 

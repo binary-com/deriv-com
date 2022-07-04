@@ -102,16 +102,12 @@ const BannerWrapper = styled(Flex)`
     }
 `
 const ButtonDerivGO = styled(Button)`
-    opacity: 0;
-    @media ${device.tabletL} {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 64px;
-        width: 100%;
-        white-space: nowrap;
-        margin-top: 24px;
-        margin-bottom: 40px;
-    }
+    padding: 1.5rem 1.6rem;
+    height: 64px;
+    width: 100%;
+    white-space: nowrap;
+    margin-top: 24px;
+    margin-bottom: 40px;
 `
 const HeroContent = styled(Flex)`
     flex-direction: row-reverse;
@@ -256,9 +252,11 @@ const Banner = () => {
                         </Desktop>
                     </div>
                 </Flex>
-                <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
-                    {localize('Download Deriv GO')}
-                </ButtonDerivGO>
+                <Mobile>
+                    <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
+                        {localize('Download Deriv GO')}
+                    </ButtonDerivGO>
+                </Mobile>
                 <BannerWrapper>
                     <QueryImage
                         data={data[is_mobile ? 'hero_mobile' : 'hero']}

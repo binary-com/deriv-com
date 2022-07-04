@@ -54,6 +54,13 @@ const TryButton = styled(LinkButton)`
         margin-bottom: 2rem;
     }
 `
+const ButtonDerivP2P = styled(Button)`
+    padding: 1.5rem 1.6rem;
+    height: 54px;
+    margin: 15px auto;
+    width: 100%;
+    white-space: nowrap;
+`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 48.6rem;
@@ -108,17 +115,7 @@ const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
-const ButtonDerivP2P = styled(Button)`
-    opacity: 0;
-    @media ${device.tabletL} {
-        opacity: 1;
-        padding: 1.5rem 1.6rem;
-        height: 54px;
-        margin: 15px auto;
-        width: 50%;
-        white-space: nowrap;
-    }
-`
+
 const query = graphql`
     query {
         p2p_banner: file(relativePath: { eq: "p2p/p2p_banner.png" }) {
@@ -169,6 +166,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             <StyledHeader as="h3" weight={500}>
                                 {title}
                             </StyledHeader>
+
                             <TryButton
                                 secondary="true"
                                 to="/cashier/p2p"
@@ -193,10 +191,11 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             <StyledHeader as="h3" weight={500}>
                                 {title}
                             </StyledHeader>
-
-                            <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                                {localize('Try Deriv P2P now')}
-                            </ButtonDerivP2P>
+                            <Mobile>
+                                <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                                    {localize('Try Deriv P2P now')}
+                                </ButtonDerivP2P>
+                            </Mobile>
                         </InformationWrapper>
                     </Wrapper>
                 </Background>

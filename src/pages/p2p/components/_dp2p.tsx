@@ -126,9 +126,15 @@ const Row = styled.div<StyledProps>`
 `
 
 const StyledIFrame = styled.iframe`
-    height: 315px;
+    height: 506px;
     width: 100%;
-    max-width: 560px;
+    border-radius: 20px;
+
+    @media ${device.tabletL} {
+        max-width: 328px;
+        max-height: 160px;
+        border-radius: 10px;
+    }
 `
 
 const query = graphql`

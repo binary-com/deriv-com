@@ -35,7 +35,7 @@ export const handleTag = (tag_name) => {
     navigate(`/academy/search?category=${encodeURI(`${tag_name}`)}`)
 }
 
-export const dataFilter = (data) => {
+export const useDataFilter = (data) => {
     const { is_eu, is_uk } = useCountryRule()
     let filtered_data = data
 

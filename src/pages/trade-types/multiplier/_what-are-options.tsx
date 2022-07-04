@@ -11,7 +11,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 // Icon
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
@@ -20,6 +20,7 @@ import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 const AvailableTrades = Loadable(() => import('./_available-trades'))
 
 const StyledHeader = styled(Header)`
@@ -161,6 +162,7 @@ const query = graphql`
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
     const { is_non_uk, is_row, is_uk_eu } = useCountryRule()
+    const handleSignup = useHandleSignup()
 
     return (
         <>
@@ -484,9 +486,9 @@ const WhatAreOptions = () => {
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <LinkButton id="dm-multipliers-signup-1" to="/signup/" secondary>
+                    <Button onClick={handleSignup} id="dm-multipliers-signup-1" to="" secondary>
                         {localize('Create free demo account')}
-                    </LinkButton>
+                    </Button>
                 </SmallContainer>
             </SectionContainer>
         </>

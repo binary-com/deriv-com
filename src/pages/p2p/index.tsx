@@ -13,10 +13,8 @@ const Availability = Loadable(() => import('./components/_availability'))
 
 const DP2P_CONTENT = [
     {
-        title: <Localize translate_text="Save time" />,
-        subtitle: (
-            <Localize translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in minutes." />
-        ),
+        title: <Localize translate_text="Less waiting, more trading" />,
+        subtitle: <Localize translate_text="Deposit and withdraw in minutes." />,
         subtitle_mobile: (
             <Localize
                 translate_text="Exchange in minutes.<0 />Less waiting, more trading.<0 />Deposit and withdraw in minutes."

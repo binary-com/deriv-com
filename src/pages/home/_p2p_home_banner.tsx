@@ -371,7 +371,7 @@ const StyledHeaders = styled(Header)`
         margin-top: 2rem;
         font-size: 28px;
         line-height: 34px;
-        max-width: 42rem;
+        max-width: 41rem;
     }
     @media ${device.mobileL} {
         font-size: 28px;

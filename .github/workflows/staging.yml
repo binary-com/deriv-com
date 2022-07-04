@@ -29,17 +29,11 @@ jobs:
               uses: actions/checkout@v2.3.1
 
             - name: Set up Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                   node-version: 14
-            - name: Cache dependencies
-              id: cache
-              uses: actions/cache@v2
-              env:
-                  cache-name: cache-node-modules
-              with:
-                  path: ./node_modules
-                  key: modules-${{ hashFiles('package-lock.json') }}
+                  cache: 'npm'
+
             - name: Install Node.js dependencies
               run: |
                   npm ci
@@ -55,28 +49,10 @@ jobs:
               uses: actions/checkout@v2.3.1
 
             - name: Setup Node
-              uses: actions/setup-node@v2.1.2
+              uses: actions/setup-node@v3
               with:
                   node-version: '14.x'
-
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}
-
-            - name: Cache Gatsby
-              id: gatsby-cache-build
-              uses: actions/cache@v2
-              with:
-                  path: |
-                      public
-                      .cache
-                  key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
-                  restore-keys: |
-                      ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
+                  cache: 'npm'
 
             - run: npm ci
             - run: npm run format
@@ -90,7 +66,7 @@ jobs:
               #   tagRegex: "staging(.*)"
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
-            
+
             - name: Verify nginx image
               run: |
                   set -e
@@ -114,6 +90,16 @@ jobs:
                   cd devops-ci-scripts/k8s-build_tools
                   echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
                   ./release.sh deriv-com $GITHUB_SHA
+
+            - name: Deploy to Cloudflare ☁️
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages publish public --project-name=deriv-com-pages --branch=staging
+
+            - name: Cloudflare preview link ✨
+              run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

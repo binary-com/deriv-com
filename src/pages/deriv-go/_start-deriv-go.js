@@ -67,7 +67,7 @@ const StartDerivGo = () => {
                     >
                         <QueryImage
                             data={data['sign_up']}
-                            alt="create account"
+                            alt="Create account on Deriv GO"
                             className="content-wrapper"
                         />
                     </SideTab.Panel>
@@ -79,7 +79,7 @@ const StartDerivGo = () => {
                     >
                         <QueryImage
                             data={data['fund']}
-                            alt="fund account"
+                            alt="Fund your account and start trading on Deriv GO"
                             className="content-wrapper"
                         />
                     </SideTab.Panel>
@@ -91,7 +91,7 @@ const StartDerivGo = () => {
                     >
                         <QueryImage
                             data={data['trading']}
-                            alt="get trading"
+                            alt="Start trading on Deriv GO"
                             className="content-wrapper"
                         />
                     </SideTab.Panel>

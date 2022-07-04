@@ -88,11 +88,10 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tabletS} {
         font-size: 24px;
-        max-width: 70%;
-        margin-top: 20px;
+        margin-top: 40px;
     }
     @media ${device.mobileL} {
-        margin-top: 0;
+        margin-top: 60px;
     }
 `
 

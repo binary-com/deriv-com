@@ -1,9 +1,9 @@
 const isBrowser = () => typeof window !== 'undefined'
 
-const deriv_com_url = 'deriv.com'
-const deriv_me_url = 'deriv.me'
-const deriv_be_url = 'deriv.be'
-const staging_deriv_be_url = 'staging.deriv.be'
+export const deriv_com_url = 'deriv.com'
+export const deriv_me_url = 'deriv.me'
+export const deriv_be_url = 'deriv.be'
+export const staging_deriv_be_url = 'staging.deriv.be'
 
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
@@ -37,6 +37,7 @@ const getDomainAppID = () => {
 }
 
 export const eu_domains = ['eu', 'staging-eu']
+export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
 export const uk_domains = ['uk', 'staging-uk']
 
 // URL
@@ -135,6 +136,8 @@ export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom
 export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
 export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
+export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
+export const telegram_url = 'https://t.me/binarydotcom'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 65

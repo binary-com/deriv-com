@@ -115,7 +115,11 @@ const NavDesktop = ({
 
                 <NavigationBar ref={navigation_bar_ref}>
                     {links.map(({ active, title }) => (
-                        <NavLink key={active} onClick={(e) => handleTabClick(active, e.target)}>
+                        <NavLink
+                            key={active}
+                            isOpen={active === active_dropdown}
+                            onClick={(e) => handleTabClick(active, e.target)}
+                        >
                             <Tab aria-label={title} active={checkActive(active)}>
                                 {title}
                             </Tab>

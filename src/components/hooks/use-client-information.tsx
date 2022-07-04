@@ -21,7 +21,7 @@ export const useClientInformation = () => {
         }, 1000)
 
         return () => clearInterval(cookie_interval)
-    }, [])
+    }, [callback_ref])
 
     return client_information
 }

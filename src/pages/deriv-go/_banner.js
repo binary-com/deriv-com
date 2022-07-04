@@ -260,7 +260,7 @@ const Banner = () => {
                 <BannerWrapper>
                     <QueryImage
                         data={data[is_mobile ? 'hero_mobile' : 'hero']}
-                        alt="hero phone image"
+                        alt="Deriv GO trading app on mobile"
                         className="bannerimg-wrapper"
                         loading="eager"
                     />

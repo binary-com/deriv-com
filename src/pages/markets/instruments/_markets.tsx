@@ -59,7 +59,9 @@ export const CrashBoom = () => {
     return <Symbol instruments_type={is_eu ? crash_boom_trade_type_eu : crash_boom} />
 }
 
-export const CryptocurrenciesCFDs = () => <Symbol instruments_type={cryptocurrencies_cfds} />
+export const CryptocurrenciesCFDs = () => {
+    return <Symbol instruments_type={cryptocurrencies_cfds} />
+}
 
 export const CryptocurrenciesMultipliers = () => (
     <Symbol instruments_type={cryptocurrencies_multipliers} />

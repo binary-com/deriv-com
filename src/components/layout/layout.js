@@ -13,18 +13,19 @@ import NavPartners from './nav/nav-partner'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
+import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, queryParamData } from 'common/utility'
+import { isBrowser, handleRedirect, queryParamData, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
-import { useWebsiteStatusApi } from 'components/hooks/use-website-status'
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -127,6 +128,7 @@ const Layout = ({
     no_login_signup,
     type,
 }) => {
+    const { show_non_eu_popup, setShowNonEuPopup, website_status } = React.useContext(DerivStore)
     const { is_uk_eu } = useCountryRule()
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
@@ -156,20 +158,19 @@ const Layout = ({
     }, [is_uk_eu])
 
     // Check client's account and ip and apply the necessary redirection
-    if (!is_redirection_applied) {
-        const website_status = useWebsiteStatusApi()
-
-        React.useEffect(() => {
+    React.useEffect(() => {
+        if (!is_redirection_applied) {
             if (website_status) {
                 const current_client_country = website_status?.clients_country || ''
                 const client_information_cookie = new CookieStorage('client_information')
                 const residence = client_information_cookie.get('residence')
 
                 setRedirectionApplied(true)
-                handleRedirect(residence, current_client_country, window.location.hostname)
+                !isEuDomain() &&
+                    handleRedirect(residence, current_client_country, window.location.hostname)
             }
-        }, [website_status])
-    }
+        }
+    }, [])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
@@ -261,6 +262,7 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
+
             {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
             {FooterNav}
             <EURedirect
@@ -274,6 +276,12 @@ const Layout = ({
                 aria_label={modal_payload.aria_label}
             />
             <UKAccountClosureModal />
+            {show_non_eu_popup && (
+                <NonEuRedirectPopUp
+                    is_open={show_non_eu_popup}
+                    setShowNonEuPopup={setShowNonEuPopup}
+                />
+            )}
         </LocationProvider>
     )
 }

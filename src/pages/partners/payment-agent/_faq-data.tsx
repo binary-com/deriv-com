@@ -282,7 +282,7 @@ const AccountManagement = () => (
             }}
         >
             {localize(
-                'Yes. As a payment agent, you will still be able to trade with your account.',
+                'No, you will not be able to trade anymore on your Payment Agent account. Instead, you may open a separate account for trading purposes.',
             )}
         </Header>
     </>

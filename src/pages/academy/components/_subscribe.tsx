@@ -359,13 +359,11 @@ const Subscribe = () => {
                             />
                         </InputWrapper>
                         <EmailButton
-                            isChecked={is_checked}
                             id="gtm-signup-email"
                             type="submit"
                             secondary="true"
                             disabled={
                                 is_submitting ||
-                                !is_checked ||
                                 email_error_msg ||
                                 !email ||
                                 name_error_msg ||

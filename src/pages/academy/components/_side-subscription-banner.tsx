@@ -321,10 +321,8 @@ const SideSubscriptionBanner = () => {
                             id="gtm-signup-email"
                             type="submit"
                             secondary="true"
-                            isChecked={is_checked}
                             disabled={
                                 is_submitting ||
-                                !is_checked ||
                                 email_error_msg ||
                                 !email ||
                                 name_error_msg ||

@@ -388,6 +388,8 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         if (is_mobile_separator && e.target.value === '') handleBlur()
     }
 
+    const node = React.useRef()
+
     useDebouncedEffect(
         () => {
             if (search_input !== '') {
@@ -525,6 +527,22 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
             ? getHighlightedTitle(item.blog_title, search_query)
             : getHighlightedTitle(item.video_title, search_query)
 
+    const useOnClickOutside = (ref, handler) => {
+        React.useEffect(() => {
+            const listener = (event) => {
+                if (!ref.current || ref.current.contains(event.target)) return
+                handler(event)
+            }
+            document.addEventListener('mousedown', listener)
+
+            return () => {
+                document.removeEventListener('mousedown', listener)
+            }
+        }, [ref, handler])
+    }
+
+    useOnClickOutside(node, () => handleBlur())
+
     return (
         <>
             <FormWrapper fd="column" ai="flex-start" height="auto">
@@ -539,6 +557,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         ai="center"
                         maximise={search_input_touched}
                         result_opened={result_opened}
+                        ref={node}
                     >
                         <SearchIconWrapper
                             src={SearchIcon}

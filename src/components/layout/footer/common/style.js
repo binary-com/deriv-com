@@ -137,6 +137,7 @@ export const LinkWrapper = styled.div`
 export const DisclaimerWrapper = styled.div`
     grid-area: disclaimer;
     background: var(--color-grey-25);
+    margin-left: 1rem;
 `
 export const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);

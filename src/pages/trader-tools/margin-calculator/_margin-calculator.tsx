@@ -20,9 +20,9 @@ import {
     CalculateButton,
     CalculatorBody,
     CalculatorForm,
-    CalculatorDropdown,
     CalculatorHeader,
     CalculatorLabel,
+    CalculatorDropdown,
     CalculatorOutputContainer,
     CalculatorOutputField,
     CalculatorOutputSymbol,
@@ -81,7 +81,7 @@ const MarginCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center" ml="10vw">
+                <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -270,7 +270,6 @@ const MarginCalculator = () => {
                                                 )}
                                             </Field>
                                         </InputGroup>
-                                        <br></br>
                                         <Dropdown
                                             option_list={leverageItemLists}
                                             id="leverage"
@@ -306,16 +305,16 @@ const MarginCalculator = () => {
                         <Text>
                             <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
                         </Text>
-                        <Text mb="1.6rem" lh="2">
+                        <Text mb="1.6rem">
                             <Localize
                                 translate_text="<0>Margin = (volume × contract size × asset price) ÷ leverage</0>"
                                 components={[<strong key={0} />]}
                             />
                         </Text>
-                        <Text mb="1.6rem" lh="2">
+                        <Text mb="1.6rem">
                             <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
                         </Text>
-                        <Text mb="40px" lh="2">
+                        <Text mb="40px">
                             {localize(
                                 'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be calculated in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
                             )}

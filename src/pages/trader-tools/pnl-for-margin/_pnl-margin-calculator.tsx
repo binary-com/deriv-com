@@ -20,7 +20,6 @@ import {
     CalculateButton,
     CalculatorBody,
     CalculatorDropdown,
-    CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
     ContentContainer,
@@ -150,7 +149,7 @@ const PnlMarginCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center" ml="10vw">
+                <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -404,7 +403,7 @@ const PnlMarginCalculator = () => {
                                 return (
                                     <>
                                         <Show.Desktop max_width="tablet">
-                                            <CalculatorForm>
+                                            <PnlCalculatorFormMobile>
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
                                                         <Flex fd="column" mr="24px">
@@ -532,7 +531,7 @@ const PnlMarginCalculator = () => {
                                                         </Flex>
                                                     </Flex>
 
-                                                    <Flex jc="space-between">
+                                                    <Flex jc="space-between" mb="17px">
                                                         <Flex
                                                             fd="column"
                                                             width="100%"
@@ -656,7 +655,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculateButton>
                                                     </Flex>
                                                 </CalculatorBody>
-                                            </CalculatorForm>
+                                            </PnlCalculatorFormMobile>
                                         </Show.Desktop>
 
                                         <Show.Mobile min_width="tablet">
@@ -730,7 +729,6 @@ const PnlMarginCalculator = () => {
                                                     <Flex
                                                         mb="3rem"
                                                         mt="1rem"
-                                                        width="103%"
                                                         jc="space-between"
                                                         tablet={{ height: 'unset' }}
                                                     >

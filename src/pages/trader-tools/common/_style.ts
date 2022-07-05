@@ -40,43 +40,38 @@ export const StyledHeader = styled(Header)`
 `
 
 export const BreadCrumbContainer = styled(Container)`
-    margin-top: 2.5rem;
-    width: 100%;
-    white-space: nowrap;
+    margin-top: 2.4rem;
 
-    @media (min-width: 1280px) and (max-width: 1600px) {
-        padding: 0;
-        margin-right: 27vw;
+    @media ${device.laptopL} {
+        width: 100%;
     }
-
-    @media (min-width: 1600px) and (max-width: 1920px) {
-        padding: 0;
-        margin-right: 48vw;
-    }
-
-    @media (min-width: 1920px) and (max-width: 2600px) {
-        padding: 0;
-        margin-right: 65vw;
+    @media ${device.laptopM} {
+        width: 90%;
     }
 `
 
 export const StyledSection = styled(SectionContainer)`
     position: relative;
-    padding: 8rem 5rem;
+    padding: 8rem 0;
 
-    @media ${device.desktopS} {
-        padding: 40px 0;
+    @media ${device.laptop} {
+        padding: 40px 8px;
+        width: 100%;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1280px) {
+        padding: 40px 56px;
         width: 100%;
     }
 `
 
 export const SectionSubtitle = styled(Header)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @media (min-width: 1400px) {
-        padding: 0 20%;
+    width: 79.2rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    @media ${device.tablet} {
+        width: unset;
+        padding: 0 16px;
     }
 `
 const swap_tab_selector_css = (props) =>
@@ -107,18 +102,9 @@ export const SwapTabSelector = styled(Flex)`
     cursor: pointer;
     ${swap_tab_selector_css}
 
-    @media (min-width:320px) {
+    @media ${device.mobileL} {
         padding: 12px 24px;
-        width: 154px;
-    }
-
-    @media (min-width: 350px) and (max-width: 430px) {
-        padding: 12px 24px;
-        width: 170px;
-    }
-
-    @media (min-width: 1200px) {
-        width: 20%;
+        min-width: 144px;
     }
 `
 
@@ -129,17 +115,14 @@ export const ContentContainer = styled(Flex)`
     }
     @media ${device.laptop} {
         margin-bottom: 0;
+        padding: 0 16px;
     }
 `
 
 export const FormWrapper = styled(Flex)`
+    margin-right: 4.8rem;
     height: 100%;
-
-    @media ${device.desktopS} {
-        height: 100%;
-        margin-left: 15rem;
-        width: 50%;
-    }
+    width: unset;
 
     @media ${device.laptopM} {
         margin: 0 0 40px;
@@ -159,17 +142,19 @@ const CalculatorFormStyles = css`
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    width: 90vw;
-
-    @media (min-width: 1200px) {
-        width: 40vw;
-    }
 `
 
 export const CalculatorForm = styled(Form)`
     ${CalculatorFormStyles}
+    width: 54rem;
+    @media (max-width: 1200px) {
+        width: 150rem;
+    }
 `
 export const PnlCalculatorFormMobile = styled(Form)`
+    @media (max-width: 1200px) {
+        width: 90vw;
+    }
     ${CalculatorFormStyles}
 `
 
@@ -203,7 +188,7 @@ export const PnlCalculatorHeaderMobile = styled.div`
 
 export const CalculatorLabel = styled.label`
     font-size: var(--text-size-xs);
-    font-weight: 330;
+    font-weight: 300;
     display: block;
     margin-bottom: 1.4rem;
 
@@ -360,7 +345,6 @@ const CalculatorTabItemStyles = css`
     flex-direction: column;
     cursor: pointer;
     ${calculator_tab_item_style_css}
-
     ${Text} {
         @media ${device.mobileL} {
             font-size: 14px;
@@ -381,23 +365,19 @@ export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     margin-right: 2.5rem;
     height: 53px;
 
-    @media (min-width: 768px) {
-        :nth-child(2) {
-            margin-right: 0rem;
-        }
+    :nth-child(2) {
+        margin-right: 0rem;
     }
 `
 
 export const CalculatorDropdown = styled(Dropdown)`
-    margin-bottom: 2.3rem;
-    @media (width: 428px) {
-        height: 45px;
-    }
+    margin-bottom: 3.6rem;
 `
 
 export const InputGroup = styled.div`
     position: relative;
     width: 100%;
+    margin: 2.4rem 0;
 `
 
 export const PnLInputGroup = styled.div`
@@ -411,10 +391,11 @@ export const CalculateButton = styled(Button)`
 
 export const RightContent = styled.div`
     display: block;
-
-    @media (min-width: 1200px) {
-        width: 80%;
-        padding: 0 50px;
+    max-width: 69rem;
+    margin: 0;
+    @media ${device.laptopM} {
+        margin: auto;
+        max-width: 150rem;
     }
 `
 
@@ -454,7 +435,7 @@ export const LinkWrapper = styled(Flex)`
 
     @media ${device.laptop} {
         flex-direction: column-reverse;
-        max-width: 552px;
+        max-width: 1024px;
     }
 `
 

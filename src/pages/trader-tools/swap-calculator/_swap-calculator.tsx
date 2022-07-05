@@ -219,7 +219,7 @@ const SwapCalculator = () => {
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center" ml="10vw">
+                <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -240,7 +240,7 @@ const SwapCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex mt="80px" mb="80px" tablet={{ mt: '40px', mb: '24px' }}>
                     <SwapTabSelector
                         active={tab === 'Synthetic'}
                         onClick={() => onTabClick('Synthetic')}
@@ -314,7 +314,7 @@ const SwapCalculator = () => {
 
                                             <CalculatorBody>
                                                 <Dropdown
-                                                    mb="2.3rem"
+                                                    mb="3.6rem"
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
                                                     default_option={optionItemDefault}
@@ -563,7 +563,7 @@ const SwapCalculator = () => {
 
                                             <CalculatorBody>
                                                 <Dropdown
-                                                    mb="2.3rem"
+                                                    mb="3.6rem"
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}

@@ -229,12 +229,6 @@ const Leaders = () => {
             image: leaders_data.jeya,
         },
         {
-            name: 'Antony Pradeep Charles',
-            position: <Localize translate_text="Vice President of Strategy & Project Management" />,
-            link: 'https://www.linkedin.com/in/antonypradeep/',
-            image: leaders_data.antony,
-        },
-        {
             name: 'Gary Ross Vytialingam',
             position: <Localize translate_text="Chief Risk Officer" />,
             link: 'https://www.linkedin.com/in/gary-ross-vytialingam-37a729106/',

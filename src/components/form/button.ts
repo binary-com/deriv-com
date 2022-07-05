@@ -150,6 +150,12 @@ const Button = styled.button<ButtonProps>`
     }
 
     ${(props) => {
+        if (props.active)
+            return css`
+                pointer-events: none;
+                border: 2px solid var(--color-red);
+                color: var(--color-red);
+            `
         if (props.disabled)
             return css`
                 pointer-events: none;

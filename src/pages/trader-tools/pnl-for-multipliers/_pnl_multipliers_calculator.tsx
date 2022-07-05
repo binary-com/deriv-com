@@ -481,7 +481,7 @@ const PnlMultipliersCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our profit and loss calculator for multipliers helps to determine the stop loss and/or take profit level in your trades to minimise losses and maximise gains.',
+                        'Our profit and loss calculator for multipliers helps to determine the stop loss and take profit level in your trades to minimise losses and maximise gains.',
                     )}
                 </SectionSubtitle>
 
@@ -1010,24 +1010,24 @@ const PnlMultipliersCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level for a contract on DTrader is calculated based on the formula:',
+                                    'The stop loss and take profit level for a contract on DTrader is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the Up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and take profit level in the Up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the Down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and take profit level in the Down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="40px">
                                 {localize(
-                                    'This helps you to set the stop loss and/or take profit level when the asset price moves in Up or Down direction.',
+                                    'This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction.',
                                 )}
                             </Text>
 
@@ -1127,7 +1127,7 @@ const PnlMultipliersCalculator = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to Dtrader')}
+                                    {localize('Go to DTrader')}
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>
@@ -1647,23 +1647,23 @@ const PnlMultipliersCalculator = () => {
 
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('How to calculate stop loss and/or take profit amount')}
+                                {localize('How to calculate stop loss and take profit amount')}
                             </Header>
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit amount for a contract on DTrader is calculated based on the formula:',
+                                    'The stop loss and take profit amount for a contract on DTrader is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
+                                    translate_text="<0>Stop loss and take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
+                                    translate_text="<0>Stop loss and take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
@@ -1769,7 +1769,7 @@ const PnlMultipliersCalculator = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Go to Dtrader')}
+                                    {localize('Go to DTrader')}
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>

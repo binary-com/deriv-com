@@ -195,7 +195,7 @@ const StyledLinkButton = styled(LinkButton)`
         display: block;
         margin: auto;
         font-size: 14px;
-        width: 216px;
+        width: 90%;
         height: 40px;
     }
 `

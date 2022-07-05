@@ -69,6 +69,7 @@ export const SectionSubtitle = styled(Header)`
     width: 79.2rem;
     margin: 0 auto;
     line-height: 1.5;
+    
     @media ${device.tablet} {
         width: unset;
         padding: 0 16px;

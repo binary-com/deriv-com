@@ -172,7 +172,7 @@ const ExchangeSteps = () => {
                             </StyledCardHeader>
                             <StyledText>
                                 {localize(
-                                    'Every order must be completed and confirmed within 2 hours. Note: Funds are only released when the transaction is complete.',
+                                    'Every order must be completed and confirmed within 1 hour. Note: Funds are only released when the transaction is complete.',
                                 )}
                             </StyledText>
                         </Column>

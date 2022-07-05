@@ -20,6 +20,9 @@ export type Scalars = {
     DirectusSystemData_Date: any
     /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
     DirectusSystemData_JSON: any
+    /** Represents NULL values */
+    DirectusSystemData_Void: any
+    GatsbyImageData: any
     /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
     JSON: any
 }
@@ -389,24 +392,101 @@ export type DirectorySortInput = {
 
 export type DirectusData = {
     __typename?: 'DirectusData'
+    articles: Maybe<Array<Maybe<DirectusData_Articles>>>
+    articles_aggregated: Maybe<Array<Maybe<DirectusData_Articles_Aggregated>>>
+    articles_by_id: Maybe<DirectusData_Articles>
+    articles_translations: Maybe<Array<Maybe<DirectusData_Articles_Translations>>>
+    articles_translations_aggregated: Maybe<
+        Array<Maybe<DirectusData_Articles_Translations_Aggregated>>
+    >
+    articles_translations_by_id: Maybe<DirectusData_Articles_Translations>
     author: Maybe<Array<Maybe<DirectusData_Author>>>
     author_by_id: Maybe<DirectusData_Author>
     blog: Maybe<Array<Maybe<DirectusData_Blog>>>
+    blog_aggregated: Maybe<Array<Maybe<DirectusData_Blog_Aggregated>>>
     blog_by_id: Maybe<DirectusData_Blog>
     blog_tags: Maybe<Array<Maybe<DirectusData_Blog_Tags>>>
+    blog_tags_aggregated: Maybe<Array<Maybe<DirectusData_Blog_Tags_Aggregated>>>
     blog_tags_by_id: Maybe<DirectusData_Blog_Tags>
+    blog_translations: Maybe<Array<Maybe<DirectusData_Blog_Translations>>>
+    blog_translations_aggregated: Maybe<Array<Maybe<DirectusData_Blog_Translations_Aggregated>>>
+    blog_translations_by_id: Maybe<DirectusData_Blog_Translations>
     footer_banners: Maybe<Array<Maybe<DirectusData_Footer_Banners>>>
+    footer_banners_aggregated: Maybe<Array<Maybe<DirectusData_Footer_Banners_Aggregated>>>
     footer_banners_by_id: Maybe<DirectusData_Footer_Banners>
+    footer_banners_translations: Maybe<Array<Maybe<DirectusData_Footer_Banners_Translations>>>
+    footer_banners_translations_aggregated: Maybe<
+        Array<Maybe<DirectusData_Footer_Banners_Translations_Aggregated>>
+    >
+    footer_banners_translations_by_id: Maybe<DirectusData_Footer_Banners_Translations>
     homepage_banners: Maybe<Array<Maybe<DirectusData_Homepage_Banners>>>
+    homepage_banners_aggregated: Maybe<Array<Maybe<DirectusData_Homepage_Banners_Aggregated>>>
     homepage_banners_by_id: Maybe<DirectusData_Homepage_Banners>
+    homepage_banners_translations: Maybe<Array<Maybe<DirectusData_Homepage_Banners_Translations>>>
+    homepage_banners_translations_aggregated: Maybe<
+        Array<Maybe<DirectusData_Homepage_Banners_Translations_Aggregated>>
+    >
+    homepage_banners_translations_by_id: Maybe<DirectusData_Homepage_Banners_Translations>
+    languages: Maybe<Array<Maybe<DirectusData_Languages>>>
+    languages_by_id: Maybe<DirectusData_Languages>
     side_banners: Maybe<Array<Maybe<DirectusData_Side_Banners>>>
+    side_banners_aggregated: Maybe<Array<Maybe<DirectusData_Side_Banners_Aggregated>>>
     side_banners_by_id: Maybe<DirectusData_Side_Banners>
+    side_banners_translations: Maybe<Array<Maybe<DirectusData_Side_Banners_Translations>>>
+    side_banners_translations_aggregated: Maybe<
+        Array<Maybe<DirectusData_Side_Banners_Translations_Aggregated>>
+    >
+    side_banners_translations_by_id: Maybe<DirectusData_Side_Banners_Translations>
     tags: Maybe<Array<Maybe<DirectusData_Tags>>>
     tags_by_id: Maybe<DirectusData_Tags>
     videos: Maybe<Array<Maybe<DirectusData_Videos>>>
+    videos_aggregated: Maybe<Array<Maybe<DirectusData_Videos_Aggregated>>>
     videos_by_id: Maybe<DirectusData_Videos>
     videos_tags: Maybe<Array<Maybe<DirectusData_Videos_Tags>>>
+    videos_tags_aggregated: Maybe<Array<Maybe<DirectusData_Videos_Tags_Aggregated>>>
     videos_tags_by_id: Maybe<DirectusData_Videos_Tags>
+}
+
+export type DirectusDataArticlesArgs = {
+    filter: InputMaybe<DirectusData_Articles_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataArticles_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Articles_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataArticles_By_IdArgs = {
+    id: Scalars['ID']
+}
+
+export type DirectusDataArticles_TranslationsArgs = {
+    filter: InputMaybe<DirectusData_Articles_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataArticles_Translations_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Articles_Translations_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataArticles_Translations_By_IdArgs = {
+    id: Scalars['ID']
 }
 
 export type DirectusDataAuthorArgs = {
@@ -431,6 +511,14 @@ export type DirectusDataBlogArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusDataBlog_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Blog_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusDataBlog_By_IdArgs = {
     id: Scalars['ID']
 }
@@ -444,7 +532,36 @@ export type DirectusDataBlog_TagsArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusDataBlog_Tags_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Blog_Tags_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusDataBlog_Tags_By_IdArgs = {
+    id: Scalars['ID']
+}
+
+export type DirectusDataBlog_TranslationsArgs = {
+    filter: InputMaybe<DirectusData_Blog_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataBlog_Translations_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Blog_Translations_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataBlog_Translations_By_IdArgs = {
     id: Scalars['ID']
 }
 
@@ -457,7 +574,36 @@ export type DirectusDataFooter_BannersArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusDataFooter_Banners_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Footer_Banners_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusDataFooter_Banners_By_IdArgs = {
+    id: Scalars['ID']
+}
+
+export type DirectusDataFooter_Banners_TranslationsArgs = {
+    filter: InputMaybe<DirectusData_Footer_Banners_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataFooter_Banners_Translations_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Footer_Banners_Translations_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataFooter_Banners_Translations_By_IdArgs = {
     id: Scalars['ID']
 }
 
@@ -470,7 +616,49 @@ export type DirectusDataHomepage_BannersArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusDataHomepage_Banners_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Homepage_Banners_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusDataHomepage_Banners_By_IdArgs = {
+    id: Scalars['ID']
+}
+
+export type DirectusDataHomepage_Banners_TranslationsArgs = {
+    filter: InputMaybe<DirectusData_Homepage_Banners_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataHomepage_Banners_Translations_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Homepage_Banners_Translations_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataHomepage_Banners_Translations_By_IdArgs = {
+    id: Scalars['ID']
+}
+
+export type DirectusDataLanguagesArgs = {
+    filter: InputMaybe<DirectusData_Languages_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataLanguages_By_IdArgs = {
     id: Scalars['ID']
 }
 
@@ -483,7 +671,36 @@ export type DirectusDataSide_BannersArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusDataSide_Banners_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Side_Banners_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusDataSide_Banners_By_IdArgs = {
+    id: Scalars['ID']
+}
+
+export type DirectusDataSide_Banners_TranslationsArgs = {
+    filter: InputMaybe<DirectusData_Side_Banners_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataSide_Banners_Translations_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Side_Banners_Translations_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusDataSide_Banners_Translations_By_IdArgs = {
     id: Scalars['ID']
 }
 
@@ -509,6 +726,14 @@ export type DirectusDataVideosArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusDataVideos_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Videos_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusDataVideos_By_IdArgs = {
     id: Scalars['ID']
 }
@@ -522,8 +747,317 @@ export type DirectusDataVideos_TagsArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusDataVideos_Tags_AggregatedArgs = {
+    filter: InputMaybe<DirectusData_Videos_Tags_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusDataVideos_Tags_By_IdArgs = {
     id: Scalars['ID']
+}
+
+export type DirectusData_Articles = {
+    __typename?: 'DirectusData_articles'
+    /** Add a content of this article */
+    article_body: Scalars['String']
+    article_description: Maybe<Scalars['String']>
+    article_id: Maybe<Scalars['ID']>
+    /** Add Tags/tag for article */
+    article_tags: Maybe<Scalars['DirectusData_JSON']>
+    article_tags_func: Maybe<DirectusData_Count_Functions>
+    article_thumbnail: Maybe<DirectusData_Directus_Files>
+    /** Add alt tag for Article Thumbnail Image */
+    article_thumbnail_alt_tag: Maybe<Scalars['String']>
+    /** Add a title for this article */
+    article_title: Scalars['String']
+    /** https://deriv.com/article/blog/your-article-url */
+    article_url: Scalars['String']
+    author: Maybe<Scalars['String']>
+    authors_image: Maybe<DirectusData_Directus_Files>
+    date_created: Maybe<Scalars['DirectusData_Date']>
+    date_created_func: Maybe<DirectusData_Datetime_Functions>
+    date_updated: Maybe<Scalars['DirectusData_Date']>
+    date_updated_func: Maybe<DirectusData_Datetime_Functions>
+    /** Featured this article? (in All articles page) */
+    featured: Scalars['Boolean']
+    footer_banner_bg_image: Maybe<DirectusData_Directus_Files>
+    /** Add text on CTA button for footer banner */
+    footer_banner_button_text: Maybe<Scalars['String']>
+    /** Add a redirect link for footer banner CTA button */
+    footer_banner_cta_link: Maybe<Scalars['String']>
+    /** Add description for footer banner */
+    footer_banner_description: Maybe<Scalars['String']>
+    footer_banner_image: Maybe<DirectusData_Directus_Files>
+    /** Add Footer Banner Image Alt */
+    footer_banner_image_alt: Maybe<Scalars['String']>
+    /** Add title for footer banner */
+    footer_banner_title: Maybe<Scalars['String']>
+    main_image: Maybe<DirectusData_Directus_Files>
+    /** Add alt tag for Main Image */
+    main_image_alt_tag: Maybe<Scalars['String']>
+    main_video: Maybe<DirectusData_Directus_Files>
+    /** Add meta description for this article */
+    meta_description: Maybe<Scalars['String']>
+    /** Add meta title for this article */
+    meta_title: Maybe<Scalars['String']>
+    /** Add 'Minutes to read' for example '3 min read' */
+    minutes_to_read: Maybe<Scalars['Int']>
+    /** Set published date for this article */
+    publish_date: Maybe<Scalars['DirectusData_Date']>
+    publish_date_func: Maybe<DirectusData_Datetime_Functions>
+    side_banner_bg_image: Maybe<DirectusData_Directus_Files>
+    /** Add text for side banner CTA button */
+    side_banner_button_text: Maybe<Scalars['String']>
+    /** Add redirect link for CTA side banner button */
+    side_banner_cta_link: Maybe<Scalars['String']>
+    /** Add description of side banner */
+    side_banner_description: Maybe<Scalars['String']>
+    side_banner_image: Maybe<DirectusData_Directus_Files>
+    /** Add Side banner image alt */
+    side_banner_image_alt: Maybe<Scalars['String']>
+    /** Add title of side banner */
+    side_banner_title: Maybe<Scalars['String']>
+    /** Add side banner type ( e.g PDF, DOC ) */
+    side_banner_type: Maybe<Scalars['String']>
+    sort: Maybe<Scalars['Int']>
+    /** Set a status for this article */
+    status: Scalars['String']
+    /** Enable subscription banner? */
+    subscription_banner: Scalars['Boolean']
+    translations: Maybe<Array<Maybe<DirectusData_Articles_Translations>>>
+    translations_func: Maybe<DirectusData_Count_Functions>
+    user_created: Maybe<DirectusData_Directus_Users>
+    user_updated: Maybe<DirectusData_Directus_Users>
+}
+
+export type DirectusData_ArticlesArticle_ThumbnailArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesAuthors_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesFooter_Banner_Bg_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesFooter_Banner_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesMain_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesMain_VideoArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesSide_Banner_Bg_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesSide_Banner_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesTranslationsArgs = {
+    filter: InputMaybe<DirectusData_Articles_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesUser_CreatedArgs = {
+    filter: InputMaybe<DirectusData_Directus_Users_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_ArticlesUser_UpdatedArgs = {
+    filter: InputMaybe<DirectusData_Directus_Users_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Articles_Aggregated = {
+    __typename?: 'DirectusData_articles_aggregated'
+    avg: Maybe<DirectusData_Articles_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Articles_Aggregated_Fields>
+    count: Maybe<DirectusData_Articles_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Articles_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Articles_Aggregated_Fields>
+    min: Maybe<DirectusData_Articles_Aggregated_Fields>
+    sum: Maybe<DirectusData_Articles_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Articles_Aggregated_Fields>
+}
+
+export type DirectusData_Articles_Aggregated_Fields = {
+    __typename?: 'DirectusData_articles_aggregated_fields'
+    /** Add 'Minutes to read' for example '3 min read' */
+    minutes_to_read: Maybe<Scalars['Float']>
+    sort: Maybe<Scalars['Float']>
+}
+
+export type DirectusData_Articles_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusData_Articles_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusData_Articles_Filter>>>
+    article_body: InputMaybe<DirectusData_String_Filter_Operators>
+    article_description: InputMaybe<DirectusData_String_Filter_Operators>
+    article_id: InputMaybe<DirectusData_String_Filter_Operators>
+    article_tags: InputMaybe<DirectusData_String_Filter_Operators>
+    article_tags_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
+    article_thumbnail: InputMaybe<DirectusData_Directus_Files_Filter>
+    article_thumbnail_alt_tag: InputMaybe<DirectusData_String_Filter_Operators>
+    article_title: InputMaybe<DirectusData_String_Filter_Operators>
+    article_url: InputMaybe<DirectusData_String_Filter_Operators>
+    author: InputMaybe<DirectusData_String_Filter_Operators>
+    authors_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    date_created: InputMaybe<DirectusData_Date_Filter_Operators>
+    date_created_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
+    date_updated: InputMaybe<DirectusData_Date_Filter_Operators>
+    date_updated_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
+    featured: InputMaybe<DirectusData_Boolean_Filter_Operators>
+    footer_banner_bg_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    footer_banner_button_text: InputMaybe<DirectusData_String_Filter_Operators>
+    footer_banner_cta_link: InputMaybe<DirectusData_String_Filter_Operators>
+    footer_banner_description: InputMaybe<DirectusData_String_Filter_Operators>
+    footer_banner_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    footer_banner_image_alt: InputMaybe<DirectusData_String_Filter_Operators>
+    footer_banner_title: InputMaybe<DirectusData_String_Filter_Operators>
+    main_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    main_image_alt_tag: InputMaybe<DirectusData_String_Filter_Operators>
+    main_video: InputMaybe<DirectusData_Directus_Files_Filter>
+    meta_description: InputMaybe<DirectusData_String_Filter_Operators>
+    meta_title: InputMaybe<DirectusData_String_Filter_Operators>
+    minutes_to_read: InputMaybe<DirectusData_Number_Filter_Operators>
+    publish_date: InputMaybe<DirectusData_Date_Filter_Operators>
+    publish_date_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
+    side_banner_bg_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    side_banner_button_text: InputMaybe<DirectusData_String_Filter_Operators>
+    side_banner_cta_link: InputMaybe<DirectusData_String_Filter_Operators>
+    side_banner_description: InputMaybe<DirectusData_String_Filter_Operators>
+    side_banner_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    side_banner_image_alt: InputMaybe<DirectusData_String_Filter_Operators>
+    side_banner_title: InputMaybe<DirectusData_String_Filter_Operators>
+    side_banner_type: InputMaybe<DirectusData_String_Filter_Operators>
+    sort: InputMaybe<DirectusData_Number_Filter_Operators>
+    status: InputMaybe<DirectusData_String_Filter_Operators>
+    subscription_banner: InputMaybe<DirectusData_Boolean_Filter_Operators>
+    translations: InputMaybe<DirectusData_Articles_Translations_Filter>
+    translations_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
+    user_created: InputMaybe<DirectusData_Directus_Users_Filter>
+    user_updated: InputMaybe<DirectusData_Directus_Users_Filter>
+}
+
+export type DirectusData_Articles_Translations = {
+    __typename?: 'DirectusData_articles_translations'
+    article_title: Maybe<Scalars['String']>
+    articles_article_id: Maybe<DirectusData_Articles>
+    content: Maybe<Scalars['String']>
+    excerpt: Maybe<Scalars['String']>
+    id: Maybe<Scalars['ID']>
+    languages_code: Maybe<DirectusData_Languages>
+}
+
+export type DirectusData_Articles_TranslationsArticles_Article_IdArgs = {
+    filter: InputMaybe<DirectusData_Articles_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Articles_TranslationsLanguages_CodeArgs = {
+    filter: InputMaybe<DirectusData_Languages_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Articles_Translations_Aggregated = {
+    __typename?: 'DirectusData_articles_translations_aggregated'
+    avg: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+    count: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+    min: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+    sum: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Articles_Translations_Aggregated_Fields>
+}
+
+export type DirectusData_Articles_Translations_Aggregated_Fields = {
+    __typename?: 'DirectusData_articles_translations_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
+export type DirectusData_Articles_Translations_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusData_Articles_Translations_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusData_Articles_Translations_Filter>>>
+    article_title: InputMaybe<DirectusData_String_Filter_Operators>
+    articles_article_id: InputMaybe<DirectusData_Articles_Filter>
+    content: InputMaybe<DirectusData_String_Filter_Operators>
+    excerpt: InputMaybe<DirectusData_String_Filter_Operators>
+    id: InputMaybe<DirectusData_Number_Filter_Operators>
+    languages_code: InputMaybe<DirectusData_Languages_Filter>
 }
 
 export type DirectusData_Author = {
@@ -560,7 +1094,9 @@ export type DirectusData_Blog = {
     /** Maximum of 60 characters */
     blog_title: Scalars['String']
     date_created: Maybe<Scalars['DirectusData_Date']>
+    date_created_func: Maybe<DirectusData_Datetime_Functions>
     date_updated: Maybe<Scalars['DirectusData_Date']>
+    date_updated_func: Maybe<DirectusData_Datetime_Functions>
     /** This blog will be featured in the Featured section of the blog homepage */
     featured: Scalars['Boolean']
     footer_banners: Maybe<DirectusData_Footer_Banners>
@@ -578,6 +1114,7 @@ export type DirectusData_Blog = {
     og_title: Maybe<Scalars['String']>
     /** This will be shown as the published date for the blog post */
     published_date: Scalars['DirectusData_Date']
+    published_date_func: Maybe<DirectusData_Date_Functions>
     /** Has to be in WHOLE numbers, e.g. (5)-minute read */
     read_time_in_minutes: Maybe<Scalars['Int']>
     side_banners: Maybe<DirectusData_Side_Banners>
@@ -587,8 +1124,11 @@ export type DirectusData_Blog = {
     /** Select "Published" and click on save to publish this blog post */
     status: Scalars['String']
     tags: Maybe<Array<Maybe<DirectusData_Blog_Tags>>>
+    tags_func: Maybe<DirectusData_Count_Functions>
     /** Check this for hiding the article from the UI for testing purposes (mainly for QA) */
     test_data: Scalars['Boolean']
+    translations: Maybe<Array<Maybe<DirectusData_Blog_Translations>>>
+    translations_func: Maybe<DirectusData_Count_Functions>
     user_created: Maybe<DirectusData_Directus_Users>
     user_updated: Maybe<DirectusData_Directus_Users>
     /** Choose an option for geo locking the content */
@@ -640,6 +1180,15 @@ export type DirectusData_BlogTagsArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusData_BlogTranslationsArgs = {
+    filter: InputMaybe<DirectusData_Blog_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusData_BlogUser_CreatedArgs = {
     filter: InputMaybe<DirectusData_Directus_Users_Filter>
     limit: InputMaybe<Scalars['Int']>
@@ -658,6 +1207,28 @@ export type DirectusData_BlogUser_UpdatedArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusData_Blog_Aggregated = {
+    __typename?: 'DirectusData_blog_aggregated'
+    avg: Maybe<DirectusData_Blog_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Blog_Aggregated_Fields>
+    count: Maybe<DirectusData_Blog_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Blog_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Blog_Aggregated_Fields>
+    min: Maybe<DirectusData_Blog_Aggregated_Fields>
+    sum: Maybe<DirectusData_Blog_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Blog_Aggregated_Fields>
+}
+
+export type DirectusData_Blog_Aggregated_Fields = {
+    __typename?: 'DirectusData_blog_aggregated_fields'
+    /** Add footer banner (optional) */
+    footer_banners: Maybe<Scalars['Float']>
+    /** Has to be in WHOLE numbers, e.g. (5)-minute read */
+    read_time_in_minutes: Maybe<Scalars['Float']>
+    sort: Maybe<Scalars['Float']>
+}
+
 export type DirectusData_Blog_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusData_Blog_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusData_Blog_Filter>>>
@@ -666,7 +1237,9 @@ export type DirectusData_Blog_Filter = {
     blog_post: InputMaybe<DirectusData_String_Filter_Operators>
     blog_title: InputMaybe<DirectusData_String_Filter_Operators>
     date_created: InputMaybe<DirectusData_Date_Filter_Operators>
+    date_created_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
     date_updated: InputMaybe<DirectusData_Date_Filter_Operators>
+    date_updated_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
     featured: InputMaybe<DirectusData_Boolean_Filter_Operators>
     footer_banners: InputMaybe<DirectusData_Footer_Banners_Filter>
     hide_for_eu: InputMaybe<DirectusData_Boolean_Filter_Operators>
@@ -677,13 +1250,17 @@ export type DirectusData_Blog_Filter = {
     og_description: InputMaybe<DirectusData_String_Filter_Operators>
     og_title: InputMaybe<DirectusData_String_Filter_Operators>
     published_date: InputMaybe<DirectusData_Date_Filter_Operators>
+    published_date_func: InputMaybe<DirectusData_Date_Function_Filter_Operators>
     read_time_in_minutes: InputMaybe<DirectusData_Number_Filter_Operators>
     side_banners: InputMaybe<DirectusData_Side_Banners_Filter>
     slug: InputMaybe<DirectusData_String_Filter_Operators>
     sort: InputMaybe<DirectusData_Number_Filter_Operators>
     status: InputMaybe<DirectusData_String_Filter_Operators>
     tags: InputMaybe<DirectusData_Blog_Tags_Filter>
+    tags_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     test_data: InputMaybe<DirectusData_Boolean_Filter_Operators>
+    translations: InputMaybe<DirectusData_Blog_Translations_Filter>
+    translations_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     user_created: InputMaybe<DirectusData_Directus_Users_Filter>
     user_updated: InputMaybe<DirectusData_Directus_Users_Filter>
     visibility: InputMaybe<DirectusData_String_Filter_Operators>
@@ -714,6 +1291,24 @@ export type DirectusData_Blog_TagsTags_IdArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusData_Blog_Tags_Aggregated = {
+    __typename?: 'DirectusData_blog_tags_aggregated'
+    avg: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+    count: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+    min: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+    sum: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Blog_Tags_Aggregated_Fields>
+}
+
+export type DirectusData_Blog_Tags_Aggregated_Fields = {
+    __typename?: 'DirectusData_blog_tags_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
 export type DirectusData_Blog_Tags_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusData_Blog_Tags_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusData_Blog_Tags_Filter>>>
@@ -722,11 +1317,85 @@ export type DirectusData_Blog_Tags_Filter = {
     tags_id: InputMaybe<DirectusData_Tags_Filter>
 }
 
+export type DirectusData_Blog_Translations = {
+    __typename?: 'DirectusData_blog_translations'
+    blog_description: Maybe<Scalars['String']>
+    blog_id: Maybe<DirectusData_Blog>
+    blog_post: Maybe<Scalars['String']>
+    blog_title: Maybe<Scalars['String']>
+    id: Maybe<Scalars['ID']>
+    languages_code: Maybe<DirectusData_Languages>
+    meta_description: Maybe<Scalars['String']>
+    meta_title: Maybe<Scalars['String']>
+    og_description: Maybe<Scalars['String']>
+    og_title: Maybe<Scalars['String']>
+}
+
+export type DirectusData_Blog_TranslationsBlog_IdArgs = {
+    filter: InputMaybe<DirectusData_Blog_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Blog_TranslationsLanguages_CodeArgs = {
+    filter: InputMaybe<DirectusData_Languages_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Blog_Translations_Aggregated = {
+    __typename?: 'DirectusData_blog_translations_aggregated'
+    avg: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+    count: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+    min: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+    sum: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Blog_Translations_Aggregated_Fields>
+}
+
+export type DirectusData_Blog_Translations_Aggregated_Fields = {
+    __typename?: 'DirectusData_blog_translations_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
+export type DirectusData_Blog_Translations_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusData_Blog_Translations_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusData_Blog_Translations_Filter>>>
+    blog_description: InputMaybe<DirectusData_String_Filter_Operators>
+    blog_id: InputMaybe<DirectusData_Blog_Filter>
+    blog_post: InputMaybe<DirectusData_String_Filter_Operators>
+    blog_title: InputMaybe<DirectusData_String_Filter_Operators>
+    id: InputMaybe<DirectusData_Number_Filter_Operators>
+    languages_code: InputMaybe<DirectusData_Languages_Filter>
+    meta_description: InputMaybe<DirectusData_String_Filter_Operators>
+    meta_title: InputMaybe<DirectusData_String_Filter_Operators>
+    og_description: InputMaybe<DirectusData_String_Filter_Operators>
+    og_title: InputMaybe<DirectusData_String_Filter_Operators>
+}
+
 export type DirectusData_Boolean_Filter_Operators = {
     _eq: InputMaybe<Scalars['Boolean']>
     _neq: InputMaybe<Scalars['Boolean']>
     _nnull: InputMaybe<Scalars['Boolean']>
     _null: InputMaybe<Scalars['Boolean']>
+}
+
+export type DirectusData_Count_Function_Filter_Operators = {
+    count: InputMaybe<DirectusData_Number_Filter_Operators>
+}
+
+export type DirectusData_Count_Functions = {
+    __typename?: 'DirectusData_count_functions'
+    count: Maybe<Scalars['Int']>
 }
 
 export type DirectusData_Date_Filter_Operators = {
@@ -740,6 +1409,46 @@ export type DirectusData_Date_Filter_Operators = {
     _null: InputMaybe<Scalars['Boolean']>
 }
 
+export type DirectusData_Date_Function_Filter_Operators = {
+    day: InputMaybe<DirectusData_Number_Filter_Operators>
+    month: InputMaybe<DirectusData_Number_Filter_Operators>
+    week: InputMaybe<DirectusData_Number_Filter_Operators>
+    weekday: InputMaybe<DirectusData_Number_Filter_Operators>
+    year: InputMaybe<DirectusData_Number_Filter_Operators>
+}
+
+export type DirectusData_Date_Functions = {
+    __typename?: 'DirectusData_date_functions'
+    day: Maybe<Scalars['Int']>
+    month: Maybe<Scalars['Int']>
+    week: Maybe<Scalars['Int']>
+    weekday: Maybe<Scalars['Int']>
+    year: Maybe<Scalars['Int']>
+}
+
+export type DirectusData_Datetime_Function_Filter_Operators = {
+    day: InputMaybe<DirectusData_Number_Filter_Operators>
+    hour: InputMaybe<DirectusData_Number_Filter_Operators>
+    minute: InputMaybe<DirectusData_Number_Filter_Operators>
+    month: InputMaybe<DirectusData_Number_Filter_Operators>
+    second: InputMaybe<DirectusData_Number_Filter_Operators>
+    week: InputMaybe<DirectusData_Number_Filter_Operators>
+    weekday: InputMaybe<DirectusData_Number_Filter_Operators>
+    year: InputMaybe<DirectusData_Number_Filter_Operators>
+}
+
+export type DirectusData_Datetime_Functions = {
+    __typename?: 'DirectusData_datetime_functions'
+    day: Maybe<Scalars['Int']>
+    hour: Maybe<Scalars['Int']>
+    minute: Maybe<Scalars['Int']>
+    month: Maybe<Scalars['Int']>
+    second: Maybe<Scalars['Int']>
+    week: Maybe<Scalars['Int']>
+    weekday: Maybe<Scalars['Int']>
+    year: Maybe<Scalars['Int']>
+}
+
 export type DirectusData_Directus_Files = {
     __typename?: 'DirectusData_directus_files'
     charset: Maybe<Scalars['String']>
@@ -748,21 +1457,25 @@ export type DirectusData_Directus_Files = {
     embed: Maybe<Scalars['String']>
     filename_disk: Maybe<Scalars['String']>
     filename_download: Scalars['String']
-    filesize: Maybe<Scalars['Int']>
+    filesize: Maybe<Scalars['String']>
     folder: Maybe<DirectusData_Directus_Folders>
     height: Maybe<Scalars['Int']>
     id: Maybe<Scalars['ID']>
     imageFile: Maybe<File>
     location: Maybe<Scalars['String']>
     metadata: Maybe<Scalars['DirectusData_JSON']>
+    metadata_func: Maybe<DirectusData_Count_Functions>
     modified_by: Maybe<DirectusData_Directus_Users>
     modified_on: Scalars['DirectusData_Date']
+    modified_on_func: Maybe<DirectusData_Datetime_Functions>
     storage: Scalars['String']
     tags: Maybe<Scalars['DirectusData_JSON']>
+    tags_func: Maybe<DirectusData_Count_Functions>
     title: Maybe<Scalars['String']>
     type: Maybe<Scalars['String']>
     uploaded_by: Maybe<DirectusData_Directus_Users>
     uploaded_on: Scalars['DirectusData_Date']
+    uploaded_on_func: Maybe<DirectusData_Datetime_Functions>
     width: Maybe<Scalars['Int']>
 }
 
@@ -802,20 +1515,24 @@ export type DirectusData_Directus_Files_Filter = {
     embed: InputMaybe<DirectusData_String_Filter_Operators>
     filename_disk: InputMaybe<DirectusData_String_Filter_Operators>
     filename_download: InputMaybe<DirectusData_String_Filter_Operators>
-    filesize: InputMaybe<DirectusData_Number_Filter_Operators>
+    filesize: InputMaybe<DirectusData_String_Filter_Operators>
     folder: InputMaybe<DirectusData_Directus_Folders_Filter>
     height: InputMaybe<DirectusData_Number_Filter_Operators>
     id: InputMaybe<DirectusData_String_Filter_Operators>
     location: InputMaybe<DirectusData_String_Filter_Operators>
     metadata: InputMaybe<DirectusData_String_Filter_Operators>
+    metadata_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     modified_by: InputMaybe<DirectusData_Directus_Users_Filter>
     modified_on: InputMaybe<DirectusData_Date_Filter_Operators>
+    modified_on_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
     storage: InputMaybe<DirectusData_String_Filter_Operators>
     tags: InputMaybe<DirectusData_String_Filter_Operators>
+    tags_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     title: InputMaybe<DirectusData_String_Filter_Operators>
     type: InputMaybe<DirectusData_String_Filter_Operators>
     uploaded_by: InputMaybe<DirectusData_Directus_Users_Filter>
     uploaded_on: InputMaybe<DirectusData_Date_Filter_Operators>
+    uploaded_on_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
     width: InputMaybe<DirectusData_Number_Filter_Operators>
 }
 
@@ -847,15 +1564,14 @@ export type DirectusData_Directus_Roles = {
     __typename?: 'DirectusData_directus_roles'
     admin_access: Scalars['Boolean']
     app_access: Scalars['Boolean']
-    collection_list: Maybe<Scalars['DirectusData_JSON']>
     description: Maybe<Scalars['String']>
     enforce_tfa: Scalars['Boolean']
     icon: Scalars['String']
     id: Maybe<Scalars['ID']>
-    ip_access: Maybe<Scalars['DirectusData_JSON']>
-    module_list: Maybe<Scalars['DirectusData_JSON']>
+    ip_access: Maybe<Array<Maybe<Scalars['String']>>>
     name: Scalars['String']
     users: Maybe<Array<Maybe<DirectusData_Directus_Users>>>
+    users_func: Maybe<DirectusData_Count_Functions>
 }
 
 export type DirectusData_Directus_RolesUsersArgs = {
@@ -872,33 +1588,39 @@ export type DirectusData_Directus_Roles_Filter = {
     _or: InputMaybe<Array<InputMaybe<DirectusData_Directus_Roles_Filter>>>
     admin_access: InputMaybe<DirectusData_Boolean_Filter_Operators>
     app_access: InputMaybe<DirectusData_Boolean_Filter_Operators>
-    collection_list: InputMaybe<DirectusData_String_Filter_Operators>
     description: InputMaybe<DirectusData_String_Filter_Operators>
     enforce_tfa: InputMaybe<DirectusData_Boolean_Filter_Operators>
     icon: InputMaybe<DirectusData_String_Filter_Operators>
     id: InputMaybe<DirectusData_String_Filter_Operators>
     ip_access: InputMaybe<DirectusData_String_Filter_Operators>
-    module_list: InputMaybe<DirectusData_String_Filter_Operators>
     name: InputMaybe<DirectusData_String_Filter_Operators>
     users: InputMaybe<DirectusData_Directus_Users_Filter>
+    users_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
 }
 
 export type DirectusData_Directus_Users = {
     __typename?: 'DirectusData_directus_users'
+    auth_data: Maybe<Scalars['DirectusData_JSON']>
+    auth_data_func: Maybe<DirectusData_Count_Functions>
     avatar: Maybe<DirectusData_Directus_Files>
     description: Maybe<Scalars['String']>
-    email: Scalars['String']
+    email: Maybe<Scalars['String']>
+    email_notifications: Maybe<Scalars['Boolean']>
+    external_identifier: Maybe<Scalars['String']>
     first_name: Maybe<Scalars['String']>
     id: Maybe<Scalars['ID']>
     language: Maybe<Scalars['String']>
     last_access: Maybe<Scalars['DirectusData_Date']>
+    last_access_func: Maybe<DirectusData_Datetime_Functions>
     last_name: Maybe<Scalars['String']>
     last_page: Maybe<Scalars['String']>
     location: Maybe<Scalars['String']>
     password: Maybe<Scalars['String']>
+    provider: Scalars['String']
     role: Maybe<DirectusData_Directus_Roles>
     status: Scalars['String']
     tags: Maybe<Scalars['DirectusData_JSON']>
+    tags_func: Maybe<DirectusData_Count_Functions>
     tfa_secret: Maybe<Scalars['String']>
     theme: Maybe<Scalars['String']>
     title: Maybe<Scalars['String']>
@@ -926,20 +1648,27 @@ export type DirectusData_Directus_UsersRoleArgs = {
 export type DirectusData_Directus_Users_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusData_Directus_Users_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusData_Directus_Users_Filter>>>
+    auth_data: InputMaybe<DirectusData_String_Filter_Operators>
+    auth_data_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     avatar: InputMaybe<DirectusData_Directus_Files_Filter>
     description: InputMaybe<DirectusData_String_Filter_Operators>
     email: InputMaybe<DirectusData_String_Filter_Operators>
+    email_notifications: InputMaybe<DirectusData_Boolean_Filter_Operators>
+    external_identifier: InputMaybe<DirectusData_String_Filter_Operators>
     first_name: InputMaybe<DirectusData_String_Filter_Operators>
     id: InputMaybe<DirectusData_String_Filter_Operators>
     language: InputMaybe<DirectusData_String_Filter_Operators>
     last_access: InputMaybe<DirectusData_Date_Filter_Operators>
+    last_access_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
     last_name: InputMaybe<DirectusData_String_Filter_Operators>
     last_page: InputMaybe<DirectusData_String_Filter_Operators>
     location: InputMaybe<DirectusData_String_Filter_Operators>
     password: InputMaybe<DirectusData_String_Filter_Operators>
+    provider: InputMaybe<DirectusData_String_Filter_Operators>
     role: InputMaybe<DirectusData_Directus_Roles_Filter>
     status: InputMaybe<DirectusData_String_Filter_Operators>
     tags: InputMaybe<DirectusData_String_Filter_Operators>
+    tags_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     tfa_secret: InputMaybe<DirectusData_String_Filter_Operators>
     theme: InputMaybe<DirectusData_String_Filter_Operators>
     title: InputMaybe<DirectusData_String_Filter_Operators>
@@ -957,6 +1686,8 @@ export type DirectusData_Footer_Banners = {
     name: Scalars['String']
     sort: Maybe<Scalars['Int']>
     status: Scalars['String']
+    translations: Maybe<Array<Maybe<DirectusData_Footer_Banners_Translations>>>
+    translations_func: Maybe<DirectusData_Count_Functions>
 }
 
 export type DirectusData_Footer_BannersDesktop_Banner_ImageArgs = {
@@ -977,6 +1708,34 @@ export type DirectusData_Footer_BannersMobile_Banner_ImageArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusData_Footer_BannersTranslationsArgs = {
+    filter: InputMaybe<DirectusData_Footer_Banners_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Footer_Banners_Aggregated = {
+    __typename?: 'DirectusData_footer_banners_aggregated'
+    avg: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+    count: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+    min: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+    sum: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Footer_Banners_Aggregated_Fields>
+}
+
+export type DirectusData_Footer_Banners_Aggregated_Fields = {
+    __typename?: 'DirectusData_footer_banners_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+    sort: Maybe<Scalars['Float']>
+}
+
 export type DirectusData_Footer_Banners_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusData_Footer_Banners_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusData_Footer_Banners_Filter>>>
@@ -987,6 +1746,82 @@ export type DirectusData_Footer_Banners_Filter = {
     name: InputMaybe<DirectusData_String_Filter_Operators>
     sort: InputMaybe<DirectusData_Number_Filter_Operators>
     status: InputMaybe<DirectusData_String_Filter_Operators>
+    translations: InputMaybe<DirectusData_Footer_Banners_Translations_Filter>
+    translations_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
+}
+
+export type DirectusData_Footer_Banners_Translations = {
+    __typename?: 'DirectusData_footer_banners_translations'
+    desktop_banner_image: Maybe<DirectusData_Directus_Files>
+    footer_banners_id: Maybe<DirectusData_Footer_Banners>
+    id: Maybe<Scalars['ID']>
+    languages_code: Maybe<DirectusData_Languages>
+    mobile_banner_image: Maybe<DirectusData_Directus_Files>
+}
+
+export type DirectusData_Footer_Banners_TranslationsDesktop_Banner_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Footer_Banners_TranslationsFooter_Banners_IdArgs = {
+    filter: InputMaybe<DirectusData_Footer_Banners_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Footer_Banners_TranslationsLanguages_CodeArgs = {
+    filter: InputMaybe<DirectusData_Languages_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Footer_Banners_TranslationsMobile_Banner_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Footer_Banners_Translations_Aggregated = {
+    __typename?: 'DirectusData_footer_banners_translations_aggregated'
+    avg: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+    count: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+    min: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+    sum: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Footer_Banners_Translations_Aggregated_Fields>
+}
+
+export type DirectusData_Footer_Banners_Translations_Aggregated_Fields = {
+    __typename?: 'DirectusData_footer_banners_translations_aggregated_fields'
+    footer_banners_id: Maybe<Scalars['Float']>
+    id: Maybe<Scalars['Float']>
+}
+
+export type DirectusData_Footer_Banners_Translations_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusData_Footer_Banners_Translations_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusData_Footer_Banners_Translations_Filter>>>
+    desktop_banner_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    footer_banners_id: InputMaybe<DirectusData_Footer_Banners_Filter>
+    id: InputMaybe<DirectusData_Number_Filter_Operators>
+    languages_code: InputMaybe<DirectusData_Languages_Filter>
+    mobile_banner_image: InputMaybe<DirectusData_Directus_Files_Filter>
 }
 
 export type DirectusData_Homepage_Banners = {
@@ -1004,6 +1839,8 @@ export type DirectusData_Homepage_Banners = {
     status: Scalars['String']
     /** Banner description */
     sub_heading: Scalars['String']
+    translations: Maybe<Array<Maybe<DirectusData_Homepage_Banners_Translations>>>
+    translations_func: Maybe<DirectusData_Count_Functions>
     /** Choose an option for geo locking the content */
     visibility: Scalars['String']
 }
@@ -1015,6 +1852,33 @@ export type DirectusData_Homepage_BannersImageArgs = {
     page: InputMaybe<Scalars['Int']>
     search: InputMaybe<Scalars['String']>
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Homepage_BannersTranslationsArgs = {
+    filter: InputMaybe<DirectusData_Homepage_Banners_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Homepage_Banners_Aggregated = {
+    __typename?: 'DirectusData_homepage_banners_aggregated'
+    avg: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+    count: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+    min: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+    sum: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Homepage_Banners_Aggregated_Fields>
+}
+
+export type DirectusData_Homepage_Banners_Aggregated_Fields = {
+    __typename?: 'DirectusData_homepage_banners_aggregated_fields'
+    sort: Maybe<Scalars['Float']>
 }
 
 export type DirectusData_Homepage_Banners_Filter = {
@@ -1029,7 +1893,81 @@ export type DirectusData_Homepage_Banners_Filter = {
     sort: InputMaybe<DirectusData_Number_Filter_Operators>
     status: InputMaybe<DirectusData_String_Filter_Operators>
     sub_heading: InputMaybe<DirectusData_String_Filter_Operators>
+    translations: InputMaybe<DirectusData_Homepage_Banners_Translations_Filter>
+    translations_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     visibility: InputMaybe<DirectusData_String_Filter_Operators>
+}
+
+export type DirectusData_Homepage_Banners_Translations = {
+    __typename?: 'DirectusData_homepage_banners_translations'
+    button_text: Maybe<Scalars['String']>
+    heading: Maybe<Scalars['String']>
+    homepage_banners_id: Maybe<DirectusData_Homepage_Banners>
+    id: Maybe<Scalars['ID']>
+    languages_code: Maybe<DirectusData_Languages>
+    link: Maybe<Scalars['String']>
+    sub_heading: Maybe<Scalars['String']>
+}
+
+export type DirectusData_Homepage_Banners_TranslationsHomepage_Banners_IdArgs = {
+    filter: InputMaybe<DirectusData_Homepage_Banners_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Homepage_Banners_TranslationsLanguages_CodeArgs = {
+    filter: InputMaybe<DirectusData_Languages_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Homepage_Banners_Translations_Aggregated = {
+    __typename?: 'DirectusData_homepage_banners_translations_aggregated'
+    avg: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+    count: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+    min: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+    sum: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Homepage_Banners_Translations_Aggregated_Fields>
+}
+
+export type DirectusData_Homepage_Banners_Translations_Aggregated_Fields = {
+    __typename?: 'DirectusData_homepage_banners_translations_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
+export type DirectusData_Homepage_Banners_Translations_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusData_Homepage_Banners_Translations_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusData_Homepage_Banners_Translations_Filter>>>
+    button_text: InputMaybe<DirectusData_String_Filter_Operators>
+    heading: InputMaybe<DirectusData_String_Filter_Operators>
+    homepage_banners_id: InputMaybe<DirectusData_Homepage_Banners_Filter>
+    id: InputMaybe<DirectusData_Number_Filter_Operators>
+    languages_code: InputMaybe<DirectusData_Languages_Filter>
+    link: InputMaybe<DirectusData_String_Filter_Operators>
+    sub_heading: InputMaybe<DirectusData_String_Filter_Operators>
+}
+
+export type DirectusData_Languages = {
+    __typename?: 'DirectusData_languages'
+    code: Maybe<Scalars['ID']>
+    name: Maybe<Scalars['String']>
+}
+
+export type DirectusData_Languages_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusData_Languages_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusData_Languages_Filter>>>
+    code: InputMaybe<DirectusData_String_Filter_Operators>
+    name: InputMaybe<DirectusData_String_Filter_Operators>
 }
 
 export type DirectusData_Number_Filter_Operators = {
@@ -1055,6 +1993,8 @@ export type DirectusData_Side_Banners = {
     name: Scalars['String']
     sort: Maybe<Scalars['Int']>
     status: Scalars['String']
+    translations: Maybe<Array<Maybe<DirectusData_Side_Banners_Translations>>>
+    translations_func: Maybe<DirectusData_Count_Functions>
 }
 
 export type DirectusData_Side_BannersBanner_ImageArgs = {
@@ -1066,6 +2006,33 @@ export type DirectusData_Side_BannersBanner_ImageArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusData_Side_BannersTranslationsArgs = {
+    filter: InputMaybe<DirectusData_Side_Banners_Translations_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Side_Banners_Aggregated = {
+    __typename?: 'DirectusData_side_banners_aggregated'
+    avg: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+    count: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+    min: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+    sum: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Side_Banners_Aggregated_Fields>
+}
+
+export type DirectusData_Side_Banners_Aggregated_Fields = {
+    __typename?: 'DirectusData_side_banners_aggregated_fields'
+    sort: Maybe<Scalars['Float']>
+}
+
 export type DirectusData_Side_Banners_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusData_Side_Banners_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusData_Side_Banners_Filter>>>
@@ -1075,19 +2042,87 @@ export type DirectusData_Side_Banners_Filter = {
     name: InputMaybe<DirectusData_String_Filter_Operators>
     sort: InputMaybe<DirectusData_Number_Filter_Operators>
     status: InputMaybe<DirectusData_String_Filter_Operators>
+    translations: InputMaybe<DirectusData_Side_Banners_Translations_Filter>
+    translations_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
+}
+
+export type DirectusData_Side_Banners_Translations = {
+    __typename?: 'DirectusData_side_banners_translations'
+    banner_image: Maybe<DirectusData_Directus_Files>
+    id: Maybe<Scalars['ID']>
+    languages_code: Maybe<DirectusData_Languages>
+    side_banners_id: Maybe<DirectusData_Side_Banners>
+}
+
+export type DirectusData_Side_Banners_TranslationsBanner_ImageArgs = {
+    filter: InputMaybe<DirectusData_Directus_Files_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Side_Banners_TranslationsLanguages_CodeArgs = {
+    filter: InputMaybe<DirectusData_Languages_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Side_Banners_TranslationsSide_Banners_IdArgs = {
+    filter: InputMaybe<DirectusData_Side_Banners_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Side_Banners_Translations_Aggregated = {
+    __typename?: 'DirectusData_side_banners_translations_aggregated'
+    avg: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+    count: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+    min: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+    sum: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Side_Banners_Translations_Aggregated_Fields>
+}
+
+export type DirectusData_Side_Banners_Translations_Aggregated_Fields = {
+    __typename?: 'DirectusData_side_banners_translations_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
+export type DirectusData_Side_Banners_Translations_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusData_Side_Banners_Translations_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusData_Side_Banners_Translations_Filter>>>
+    banner_image: InputMaybe<DirectusData_Directus_Files_Filter>
+    id: InputMaybe<DirectusData_Number_Filter_Operators>
+    languages_code: InputMaybe<DirectusData_Languages_Filter>
+    side_banners_id: InputMaybe<DirectusData_Side_Banners_Filter>
 }
 
 export type DirectusData_String_Filter_Operators = {
     _contains: InputMaybe<Scalars['String']>
     _empty: InputMaybe<Scalars['Boolean']>
+    _ends_with: InputMaybe<Scalars['String']>
     _eq: InputMaybe<Scalars['String']>
     _in: InputMaybe<Array<InputMaybe<Scalars['String']>>>
     _ncontains: InputMaybe<Scalars['String']>
     _nempty: InputMaybe<Scalars['Boolean']>
+    _nends_with: InputMaybe<Scalars['String']>
     _neq: InputMaybe<Scalars['String']>
     _nin: InputMaybe<Array<InputMaybe<Scalars['String']>>>
     _nnull: InputMaybe<Scalars['Boolean']>
+    _nstarts_with: InputMaybe<Scalars['String']>
     _null: InputMaybe<Scalars['Boolean']>
+    _starts_with: InputMaybe<Scalars['String']>
 }
 
 export type DirectusData_Tags = {
@@ -1106,16 +2141,20 @@ export type DirectusData_Tags_Filter = {
 export type DirectusData_Videos = {
     __typename?: 'DirectusData_videos'
     date_created: Maybe<Scalars['DirectusData_Date']>
+    date_created_func: Maybe<DirectusData_Datetime_Functions>
     date_updated: Maybe<Scalars['DirectusData_Date']>
+    date_updated_func: Maybe<DirectusData_Datetime_Functions>
     /** Add featured video (will be displayed in home page) *There should only be ONE featured video* */
     featured: Scalars['Boolean']
     /** Checking this hides the video for EU */
     hide_for_eu: Scalars['Boolean']
     /** Sets the published date shown on the page */
     published_date: Scalars['DirectusData_Date']
+    published_date_func: Maybe<DirectusData_Date_Functions>
     sort: Maybe<Scalars['Int']>
     status: Scalars['String']
     tags: Maybe<Array<Maybe<DirectusData_Videos_Tags>>>
+    tags_func: Maybe<DirectusData_Count_Functions>
     user_created: Maybe<DirectusData_Directus_Users>
     user_updated: Maybe<DirectusData_Directus_Users>
     /** Add a description for your video */
@@ -1179,17 +2218,39 @@ export type DirectusData_VideosVideo_ThumbnailArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusData_Videos_Aggregated = {
+    __typename?: 'DirectusData_videos_aggregated'
+    avg: Maybe<DirectusData_Videos_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Videos_Aggregated_Fields>
+    count: Maybe<DirectusData_Videos_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Videos_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Videos_Aggregated_Fields>
+    min: Maybe<DirectusData_Videos_Aggregated_Fields>
+    sum: Maybe<DirectusData_Videos_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Videos_Aggregated_Fields>
+}
+
+export type DirectusData_Videos_Aggregated_Fields = {
+    __typename?: 'DirectusData_videos_aggregated_fields'
+    sort: Maybe<Scalars['Float']>
+}
+
 export type DirectusData_Videos_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusData_Videos_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusData_Videos_Filter>>>
     date_created: InputMaybe<DirectusData_Date_Filter_Operators>
+    date_created_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
     date_updated: InputMaybe<DirectusData_Date_Filter_Operators>
+    date_updated_func: InputMaybe<DirectusData_Datetime_Function_Filter_Operators>
     featured: InputMaybe<DirectusData_Boolean_Filter_Operators>
     hide_for_eu: InputMaybe<DirectusData_Boolean_Filter_Operators>
     published_date: InputMaybe<DirectusData_Date_Filter_Operators>
+    published_date_func: InputMaybe<DirectusData_Date_Function_Filter_Operators>
     sort: InputMaybe<DirectusData_Number_Filter_Operators>
     status: InputMaybe<DirectusData_String_Filter_Operators>
     tags: InputMaybe<DirectusData_Videos_Tags_Filter>
+    tags_func: InputMaybe<DirectusData_Count_Function_Filter_Operators>
     user_created: InputMaybe<DirectusData_Directus_Users_Filter>
     user_updated: InputMaybe<DirectusData_Directus_Users_Filter>
     video_description: InputMaybe<DirectusData_String_Filter_Operators>
@@ -1226,6 +2287,24 @@ export type DirectusData_Videos_TagsVideos_Video_IdArgs = {
     page: InputMaybe<Scalars['Int']>
     search: InputMaybe<Scalars['String']>
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusData_Videos_Tags_Aggregated = {
+    __typename?: 'DirectusData_videos_tags_aggregated'
+    avg: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+    count: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+    countDistinct: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusData_JSON']>
+    max: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+    min: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+    sum: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusData_Videos_Tags_Aggregated_Fields>
+}
+
+export type DirectusData_Videos_Tags_Aggregated_Fields = {
+    __typename?: 'DirectusData_videos_tags_aggregated_fields'
+    id: Maybe<Scalars['Float']>
 }
 
 export type DirectusData_Videos_Tags_Filter = {
@@ -1433,6 +2512,7 @@ export type DirectusGraphQlSourceSortInput = {
 export type DirectusSystemData = {
     __typename?: 'DirectusSystemData'
     activity: Maybe<Array<Maybe<DirectusSystemData_Directus_Activity>>>
+    activity_aggregated: Maybe<Array<Maybe<DirectusSystemData_Directus_Activity_Aggregated>>>
     activity_by_id: Maybe<DirectusSystemData_Directus_Activity>
     collections: Maybe<Array<Maybe<DirectusSystemData_Directus_Collections>>>
     collections_by_name: Maybe<DirectusSystemData_Directus_Collections>
@@ -1441,12 +2521,20 @@ export type DirectusSystemData = {
     fields_by_name: Maybe<DirectusSystemData_Directus_Fields>
     fields_in_collection: Maybe<Array<Maybe<DirectusSystemData_Directus_Fields>>>
     files: Maybe<Array<Maybe<DirectusSystemData_Directus_Files>>>
+    files_aggregated: Maybe<Array<Maybe<DirectusSystemData_Directus_Files_Aggregated>>>
     files_by_id: Maybe<DirectusSystemData_Directus_Files>
     folders: Maybe<Array<Maybe<DirectusSystemData_Directus_Folders>>>
     folders_by_id: Maybe<DirectusSystemData_Directus_Folders>
+    notifications: Maybe<Array<Maybe<DirectusSystemData_Directus_Notifications>>>
+    notifications_aggregated: Maybe<
+        Array<Maybe<DirectusSystemData_Directus_Notifications_Aggregated>>
+    >
+    notifications_by_id: Maybe<DirectusSystemData_Directus_Notifications>
     permissions: Maybe<Array<Maybe<DirectusSystemData_Directus_Permissions>>>
+    permissions_aggregated: Maybe<Array<Maybe<DirectusSystemData_Directus_Permissions_Aggregated>>>
     permissions_by_id: Maybe<DirectusSystemData_Directus_Permissions>
     presets: Maybe<Array<Maybe<DirectusSystemData_Directus_Presets>>>
+    presets_aggregated: Maybe<Array<Maybe<DirectusSystemData_Directus_Presets_Aggregated>>>
     presets_by_id: Maybe<DirectusSystemData_Directus_Presets>
     relations: Maybe<Array<Maybe<DirectusSystemData_Directus_Relations>>>
     relations_by_name: Maybe<DirectusSystemData_Directus_Relations>
@@ -1459,6 +2547,9 @@ export type DirectusSystemData = {
     server_specs_graphql: Maybe<Scalars['String']>
     server_specs_oas: Maybe<Scalars['DirectusSystemData_JSON']>
     settings: Maybe<DirectusSystemData_Directus_Settings>
+    shares: Maybe<Array<Maybe<DirectusSystemData_Directus_Shares>>>
+    shares_aggregated: Maybe<Array<Maybe<DirectusSystemData_Directus_Shares_Aggregated>>>
+    shares_by_id: Maybe<DirectusSystemData_Directus_Shares>
     users: Maybe<Array<Maybe<DirectusSystemData_Directus_Users>>>
     users_by_id: Maybe<DirectusSystemData_Directus_Users>
     users_me: Maybe<DirectusSystemData_Directus_Users>
@@ -1469,6 +2560,14 @@ export type DirectusSystemDataActivityArgs = {
     limit: InputMaybe<Scalars['Int']>
     offset: InputMaybe<Scalars['Int']>
     page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemDataActivity_AggregatedArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Activity_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
     search: InputMaybe<Scalars['String']>
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
@@ -1499,6 +2598,14 @@ export type DirectusSystemDataFilesArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusSystemDataFiles_AggregatedArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Files_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
 export type DirectusSystemDataFiles_By_IdArgs = {
     id: Scalars['ID']
 }
@@ -1516,11 +2623,40 @@ export type DirectusSystemDataFolders_By_IdArgs = {
     id: Scalars['ID']
 }
 
+export type DirectusSystemDataNotificationsArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Notifications_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemDataNotifications_AggregatedArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Notifications_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemDataNotifications_By_IdArgs = {
+    id: Scalars['ID']
+}
+
 export type DirectusSystemDataPermissionsArgs = {
     filter: InputMaybe<DirectusSystemData_Directus_Permissions_Filter>
     limit: InputMaybe<Scalars['Int']>
     offset: InputMaybe<Scalars['Int']>
     page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemDataPermissions_AggregatedArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Permissions_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
     search: InputMaybe<Scalars['String']>
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
@@ -1534,6 +2670,14 @@ export type DirectusSystemDataPresetsArgs = {
     limit: InputMaybe<Scalars['Int']>
     offset: InputMaybe<Scalars['Int']>
     page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemDataPresets_AggregatedArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Presets_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
     search: InputMaybe<Scalars['String']>
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
@@ -1568,6 +2712,27 @@ export type DirectusSystemDataServer_Specs_GraphqlArgs = {
     scope: InputMaybe<DirectusSystemData_Graphql_Sdl_Scope>
 }
 
+export type DirectusSystemDataSharesArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Shares_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemDataShares_AggregatedArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Shares_Filter>
+    groupBy: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+    limit: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemDataShares_By_IdArgs = {
+    id: Scalars['ID']
+}
+
 export type DirectusSystemDataUsersArgs = {
     filter: InputMaybe<DirectusSystemData_Directus_Users_Filter>
     limit: InputMaybe<Scalars['Int']>
@@ -1600,18 +2765,34 @@ export type DirectusSystemData_Boolean_Filter_Operators = {
     _null: InputMaybe<Scalars['Boolean']>
 }
 
+export type DirectusSystemData_Count_Function_Filter_Operators = {
+    count: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+}
+
+export type DirectusSystemData_Count_Functions = {
+    __typename?: 'DirectusSystemData_count_functions'
+    count: Maybe<Scalars['Int']>
+}
+
+export type DirectusSystemData_Count_FunctionsInput = {
+    count: InputMaybe<Scalars['Int']>
+}
+
 export type DirectusSystemData_Create_Directus_Presets_Input = {
     bookmark: InputMaybe<Scalars['String']>
     collection: InputMaybe<Scalars['String']>
-    filters: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    color: InputMaybe<Scalars['String']>
+    filter: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    filter_func: InputMaybe<DirectusSystemData_Count_FunctionsInput>
+    icon: Scalars['String']
     id: InputMaybe<Scalars['ID']>
     layout: InputMaybe<Scalars['String']>
     layout_options: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    layout_options_func: InputMaybe<DirectusSystemData_Count_FunctionsInput>
     layout_query: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    layout_query_func: InputMaybe<DirectusSystemData_Count_FunctionsInput>
     refresh_interval: InputMaybe<Scalars['Int']>
-    role: InputMaybe<Scalars['String']>
     search: InputMaybe<Scalars['String']>
-    user: InputMaybe<Scalars['String']>
 }
 
 export type DirectusSystemData_Date_Filter_Operators = {
@@ -1623,6 +2804,29 @@ export type DirectusSystemData_Date_Filter_Operators = {
     _neq: InputMaybe<Scalars['String']>
     _nnull: InputMaybe<Scalars['Boolean']>
     _null: InputMaybe<Scalars['Boolean']>
+}
+
+export type DirectusSystemData_Datetime_Function_Filter_Operators = {
+    day: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    hour: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    minute: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    month: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    second: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    week: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    weekday: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    year: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+}
+
+export type DirectusSystemData_Datetime_Functions = {
+    __typename?: 'DirectusSystemData_datetime_functions'
+    day: Maybe<Scalars['Int']>
+    hour: Maybe<Scalars['Int']>
+    minute: Maybe<Scalars['Int']>
+    month: Maybe<Scalars['Int']>
+    second: Maybe<Scalars['Int']>
+    week: Maybe<Scalars['Int']>
+    weekday: Maybe<Scalars['Int']>
+    year: Maybe<Scalars['Int']>
 }
 
 export type DirectusSystemData_Delete_Many = {
@@ -1643,8 +2847,8 @@ export type DirectusSystemData_Directus_Activity = {
     id: Maybe<Scalars['ID']>
     ip: Scalars['String']
     item: Scalars['String']
-    revisions: Maybe<Scalars['String']>
     timestamp: Scalars['DirectusSystemData_Date']
+    timestamp_func: Maybe<DirectusSystemData_Datetime_Functions>
     user: Maybe<DirectusSystemData_Directus_Users>
     user_agent: Maybe<Scalars['String']>
 }
@@ -1658,6 +2862,24 @@ export type DirectusSystemData_Directus_ActivityUserArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusSystemData_Directus_Activity_Aggregated = {
+    __typename?: 'DirectusSystemData_directus_activity_aggregated'
+    avg: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+    count: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+    countDistinct: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusSystemData_JSON']>
+    max: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+    min: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+    sum: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusSystemData_Directus_Activity_Aggregated_Fields>
+}
+
+export type DirectusSystemData_Directus_Activity_Aggregated_Fields = {
+    __typename?: 'DirectusSystemData_directus_activity_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
 export type DirectusSystemData_Directus_Activity_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Activity_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Activity_Filter>>>
@@ -1667,8 +2889,8 @@ export type DirectusSystemData_Directus_Activity_Filter = {
     id: InputMaybe<DirectusSystemData_Number_Filter_Operators>
     ip: InputMaybe<DirectusSystemData_String_Filter_Operators>
     item: InputMaybe<DirectusSystemData_String_Filter_Operators>
-    revisions: InputMaybe<DirectusSystemData_String_Filter_Operators>
     timestamp: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    timestamp_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
     user: InputMaybe<DirectusSystemData_Directus_Users_Filter>
     user_agent: InputMaybe<DirectusSystemData_String_Filter_Operators>
 }
@@ -1686,14 +2908,17 @@ export type DirectusSystemData_Directus_Collections_Meta = {
     archive_app_filter: Scalars['Boolean']
     archive_field: Maybe<Scalars['String']>
     archive_value: Maybe<Scalars['String']>
+    collapse: Scalars['String']
     collection: Scalars['String']
     color: Maybe<Scalars['String']>
     display_template: Maybe<Scalars['String']>
+    group: Maybe<Scalars['String']>
     hidden: Scalars['Boolean']
     icon: Maybe<Scalars['String']>
     item_duplication_fields: Maybe<Scalars['DirectusSystemData_JSON']>
     note: Maybe<Scalars['String']>
     singleton: Scalars['Boolean']
+    sort: Maybe<Scalars['Int']>
     sort_field: Maybe<Scalars['String']>
     translations: Maybe<Scalars['DirectusSystemData_JSON']>
     unarchive_value: Maybe<Scalars['String']>
@@ -1717,19 +2942,23 @@ export type DirectusSystemData_Directus_Fields = {
 export type DirectusSystemData_Directus_Fields_Meta = {
     __typename?: 'DirectusSystemData_directus_fields_meta'
     collection: Scalars['String']
+    conditions: Maybe<Scalars['DirectusSystemData_JSON']>
     display: Maybe<Scalars['String']>
     display_options: Maybe<Scalars['DirectusSystemData_JSON']>
     field: Scalars['String']
-    group: Maybe<Scalars['Int']>
+    group: Maybe<Scalars['String']>
     hidden: Scalars['Boolean']
     id: Scalars['Int']
     interface: Maybe<Scalars['String']>
     note: Maybe<Scalars['String']>
     options: Maybe<Scalars['DirectusSystemData_JSON']>
     readonly: Scalars['Boolean']
+    required: Maybe<Scalars['Boolean']>
     sort: Maybe<Scalars['Int']>
-    special: Maybe<Scalars['DirectusSystemData_JSON']>
+    special: Maybe<Array<Maybe<Scalars['String']>>>
     translations: Maybe<Scalars['DirectusSystemData_JSON']>
+    validation: Maybe<Scalars['DirectusSystemData_JSON']>
+    validation_message: Maybe<Scalars['String']>
     width: Maybe<Scalars['String']>
 }
 
@@ -1759,21 +2988,25 @@ export type DirectusSystemData_Directus_Files = {
     embed: Maybe<Scalars['String']>
     filename_disk: Maybe<Scalars['String']>
     filename_download: Scalars['String']
-    filesize: Maybe<Scalars['Int']>
+    filesize: Maybe<Scalars['String']>
     folder: Maybe<DirectusSystemData_Directus_Folders>
     height: Maybe<Scalars['Int']>
     id: Maybe<Scalars['ID']>
     imageFile: Maybe<File>
     location: Maybe<Scalars['String']>
     metadata: Maybe<Scalars['DirectusSystemData_JSON']>
+    metadata_func: Maybe<DirectusSystemData_Count_Functions>
     modified_by: Maybe<DirectusSystemData_Directus_Users>
     modified_on: Scalars['DirectusSystemData_Date']
+    modified_on_func: Maybe<DirectusSystemData_Datetime_Functions>
     storage: Scalars['String']
     tags: Maybe<Scalars['DirectusSystemData_JSON']>
+    tags_func: Maybe<DirectusSystemData_Count_Functions>
     title: Maybe<Scalars['String']>
     type: Maybe<Scalars['String']>
     uploaded_by: Maybe<DirectusSystemData_Directus_Users>
     uploaded_on: Scalars['DirectusSystemData_Date']
+    uploaded_on_func: Maybe<DirectusSystemData_Datetime_Functions>
     width: Maybe<Scalars['Int']>
 }
 
@@ -1804,6 +3037,26 @@ export type DirectusSystemData_Directus_FilesUploaded_ByArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusSystemData_Directus_Files_Aggregated = {
+    __typename?: 'DirectusSystemData_directus_files_aggregated'
+    avg: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+    count: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+    countDistinct: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusSystemData_JSON']>
+    max: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+    min: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+    sum: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusSystemData_Directus_Files_Aggregated_Fields>
+}
+
+export type DirectusSystemData_Directus_Files_Aggregated_Fields = {
+    __typename?: 'DirectusSystemData_directus_files_aggregated_fields'
+    duration: Maybe<Scalars['Float']>
+    height: Maybe<Scalars['Float']>
+    width: Maybe<Scalars['Float']>
+}
+
 export type DirectusSystemData_Directus_Files_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Files_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Files_Filter>>>
@@ -1813,20 +3066,24 @@ export type DirectusSystemData_Directus_Files_Filter = {
     embed: InputMaybe<DirectusSystemData_String_Filter_Operators>
     filename_disk: InputMaybe<DirectusSystemData_String_Filter_Operators>
     filename_download: InputMaybe<DirectusSystemData_String_Filter_Operators>
-    filesize: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    filesize: InputMaybe<DirectusSystemData_String_Filter_Operators>
     folder: InputMaybe<DirectusSystemData_Directus_Folders_Filter>
     height: InputMaybe<DirectusSystemData_Number_Filter_Operators>
     id: InputMaybe<DirectusSystemData_String_Filter_Operators>
     location: InputMaybe<DirectusSystemData_String_Filter_Operators>
     metadata: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    metadata_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     modified_by: InputMaybe<DirectusSystemData_Directus_Users_Filter>
     modified_on: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    modified_on_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
     storage: InputMaybe<DirectusSystemData_String_Filter_Operators>
     tags: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    tags_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     title: InputMaybe<DirectusSystemData_String_Filter_Operators>
     type: InputMaybe<DirectusSystemData_String_Filter_Operators>
     uploaded_by: InputMaybe<DirectusSystemData_Directus_Users_Filter>
     uploaded_on: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    uploaded_on_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
     width: InputMaybe<DirectusSystemData_Number_Filter_Operators>
 }
 
@@ -1854,17 +3111,84 @@ export type DirectusSystemData_Directus_Folders_Filter = {
     parent: InputMaybe<DirectusSystemData_Directus_Folders_Filter>
 }
 
+export type DirectusSystemData_Directus_Notifications = {
+    __typename?: 'DirectusSystemData_directus_notifications'
+    collection: Maybe<Scalars['String']>
+    id: Maybe<Scalars['ID']>
+    item: Maybe<Scalars['String']>
+    message: Maybe<Scalars['String']>
+    recipient: Maybe<DirectusSystemData_Directus_Users>
+    sender: Maybe<DirectusSystemData_Directus_Users>
+    status: Maybe<Scalars['String']>
+    subject: Scalars['String']
+    timestamp: Scalars['DirectusSystemData_Date']
+    timestamp_func: Maybe<DirectusSystemData_Datetime_Functions>
+}
+
+export type DirectusSystemData_Directus_NotificationsRecipientArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Users_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemData_Directus_NotificationsSenderArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Users_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemData_Directus_Notifications_Aggregated = {
+    __typename?: 'DirectusSystemData_directus_notifications_aggregated'
+    avg: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+    count: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+    countDistinct: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusSystemData_JSON']>
+    max: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+    min: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+    sum: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusSystemData_Directus_Notifications_Aggregated_Fields>
+}
+
+export type DirectusSystemData_Directus_Notifications_Aggregated_Fields = {
+    __typename?: 'DirectusSystemData_directus_notifications_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
+export type DirectusSystemData_Directus_Notifications_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Notifications_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Notifications_Filter>>>
+    collection: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    id: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    item: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    message: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    recipient: InputMaybe<DirectusSystemData_Directus_Users_Filter>
+    sender: InputMaybe<DirectusSystemData_Directus_Users_Filter>
+    status: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    subject: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    timestamp: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    timestamp_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
+}
+
 export type DirectusSystemData_Directus_Permissions = {
     __typename?: 'DirectusSystemData_directus_permissions'
     action: Scalars['String']
     collection: Scalars['String']
-    fields: Maybe<Scalars['DirectusSystemData_JSON']>
+    fields: Maybe<Array<Maybe<Scalars['String']>>>
     id: Maybe<Scalars['ID']>
-    limit: Maybe<Scalars['Int']>
     permissions: Maybe<Scalars['DirectusSystemData_JSON']>
+    permissions_func: Maybe<DirectusSystemData_Count_Functions>
     presets: Maybe<Scalars['DirectusSystemData_JSON']>
+    presets_func: Maybe<DirectusSystemData_Count_Functions>
     role: Maybe<DirectusSystemData_Directus_Roles>
     validation: Maybe<Scalars['DirectusSystemData_JSON']>
+    validation_func: Maybe<DirectusSystemData_Count_Functions>
 }
 
 export type DirectusSystemData_Directus_PermissionsRoleArgs = {
@@ -1876,6 +3200,24 @@ export type DirectusSystemData_Directus_PermissionsRoleArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusSystemData_Directus_Permissions_Aggregated = {
+    __typename?: 'DirectusSystemData_directus_permissions_aggregated'
+    avg: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+    count: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+    countDistinct: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusSystemData_JSON']>
+    max: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+    min: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+    sum: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusSystemData_Directus_Permissions_Aggregated_Fields>
+}
+
+export type DirectusSystemData_Directus_Permissions_Aggregated_Fields = {
+    __typename?: 'DirectusSystemData_directus_permissions_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+}
+
 export type DirectusSystemData_Directus_Permissions_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Permissions_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Permissions_Filter>>>
@@ -1883,22 +3225,29 @@ export type DirectusSystemData_Directus_Permissions_Filter = {
     collection: InputMaybe<DirectusSystemData_String_Filter_Operators>
     fields: InputMaybe<DirectusSystemData_String_Filter_Operators>
     id: InputMaybe<DirectusSystemData_Number_Filter_Operators>
-    limit: InputMaybe<DirectusSystemData_Number_Filter_Operators>
     permissions: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    permissions_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     presets: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    presets_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     role: InputMaybe<DirectusSystemData_Directus_Roles_Filter>
     validation: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    validation_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
 }
 
 export type DirectusSystemData_Directus_Presets = {
     __typename?: 'DirectusSystemData_directus_presets'
     bookmark: Maybe<Scalars['String']>
     collection: Maybe<Scalars['String']>
-    filters: Maybe<Scalars['DirectusSystemData_JSON']>
+    color: Maybe<Scalars['String']>
+    filter: Maybe<Scalars['DirectusSystemData_JSON']>
+    filter_func: Maybe<DirectusSystemData_Count_Functions>
+    icon: Scalars['String']
     id: Maybe<Scalars['ID']>
     layout: Maybe<Scalars['String']>
     layout_options: Maybe<Scalars['DirectusSystemData_JSON']>
+    layout_options_func: Maybe<DirectusSystemData_Count_Functions>
     layout_query: Maybe<Scalars['DirectusSystemData_JSON']>
+    layout_query_func: Maybe<DirectusSystemData_Count_Functions>
     refresh_interval: Maybe<Scalars['Int']>
     role: Maybe<DirectusSystemData_Directus_Roles>
     search: Maybe<Scalars['String']>
@@ -1923,16 +3272,40 @@ export type DirectusSystemData_Directus_PresetsUserArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusSystemData_Directus_Presets_Aggregated = {
+    __typename?: 'DirectusSystemData_directus_presets_aggregated'
+    avg: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+    count: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+    countDistinct: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusSystemData_JSON']>
+    max: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+    min: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+    sum: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusSystemData_Directus_Presets_Aggregated_Fields>
+}
+
+export type DirectusSystemData_Directus_Presets_Aggregated_Fields = {
+    __typename?: 'DirectusSystemData_directus_presets_aggregated_fields'
+    id: Maybe<Scalars['Float']>
+    refresh_interval: Maybe<Scalars['Float']>
+}
+
 export type DirectusSystemData_Directus_Presets_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Presets_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Presets_Filter>>>
     bookmark: InputMaybe<DirectusSystemData_String_Filter_Operators>
     collection: InputMaybe<DirectusSystemData_String_Filter_Operators>
-    filters: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    color: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    filter: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    filter_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
+    icon: InputMaybe<DirectusSystemData_String_Filter_Operators>
     id: InputMaybe<DirectusSystemData_Number_Filter_Operators>
     layout: InputMaybe<DirectusSystemData_String_Filter_Operators>
     layout_options: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    layout_options_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     layout_query: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    layout_query_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     refresh_interval: InputMaybe<DirectusSystemData_Number_Filter_Operators>
     role: InputMaybe<DirectusSystemData_Directus_Roles_Filter>
     search: InputMaybe<DirectusSystemData_String_Filter_Operators>
@@ -1954,7 +3327,7 @@ export type DirectusSystemData_Directus_Relations_Meta = {
     junction_field: Maybe<Scalars['String']>
     many_collection: Maybe<Scalars['String']>
     many_field: Maybe<Scalars['String']>
-    one_allowed_collections: Maybe<Scalars['DirectusSystemData_JSON']>
+    one_allowed_collections: Maybe<Array<Maybe<Scalars['String']>>>
     one_collection: Maybe<Scalars['String']>
     one_collection_field: Maybe<Scalars['String']>
     one_deselect_action: Maybe<Scalars['String']>
@@ -1977,15 +3350,14 @@ export type DirectusSystemData_Directus_Roles = {
     __typename?: 'DirectusSystemData_directus_roles'
     admin_access: Scalars['Boolean']
     app_access: Scalars['Boolean']
-    collection_list: Maybe<Scalars['DirectusSystemData_JSON']>
     description: Maybe<Scalars['String']>
     enforce_tfa: Scalars['Boolean']
     icon: Scalars['String']
     id: Maybe<Scalars['ID']>
-    ip_access: Maybe<Scalars['DirectusSystemData_JSON']>
-    module_list: Maybe<Scalars['DirectusSystemData_JSON']>
+    ip_access: Maybe<Array<Maybe<Scalars['String']>>>
     name: Scalars['String']
     users: Maybe<Array<Maybe<DirectusSystemData_Directus_Users>>>
+    users_func: Maybe<DirectusSystemData_Count_Functions>
 }
 
 export type DirectusSystemData_Directus_RolesUsersArgs = {
@@ -2002,25 +3374,31 @@ export type DirectusSystemData_Directus_Roles_Filter = {
     _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Roles_Filter>>>
     admin_access: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>
     app_access: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>
-    collection_list: InputMaybe<DirectusSystemData_String_Filter_Operators>
     description: InputMaybe<DirectusSystemData_String_Filter_Operators>
     enforce_tfa: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>
     icon: InputMaybe<DirectusSystemData_String_Filter_Operators>
     id: InputMaybe<DirectusSystemData_String_Filter_Operators>
     ip_access: InputMaybe<DirectusSystemData_String_Filter_Operators>
-    module_list: InputMaybe<DirectusSystemData_String_Filter_Operators>
     name: InputMaybe<DirectusSystemData_String_Filter_Operators>
     users: InputMaybe<DirectusSystemData_Directus_Users_Filter>
+    users_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
 }
 
 export type DirectusSystemData_Directus_Settings = {
     __typename?: 'DirectusSystemData_directus_settings'
     auth_login_attempts: Maybe<Scalars['Int']>
     auth_password_policy: Maybe<Scalars['String']>
+    basemaps: Maybe<Scalars['DirectusSystemData_JSON']>
+    basemaps_func: Maybe<DirectusSystemData_Count_Functions>
     custom_css: Maybe<Scalars['String']>
+    default_language: Scalars['String']
     id: Maybe<Scalars['ID']>
-    /** Login & Logo Background */
+    mapbox_key: Maybe<Scalars['String']>
+    module_bar: Maybe<Scalars['DirectusSystemData_JSON']>
+    module_bar_func: Maybe<DirectusSystemData_Count_Functions>
+    /** $t:field_options.directus_settings.project_color_note */
     project_color: Maybe<Scalars['String']>
+    project_descriptor: Maybe<Scalars['String']>
     project_logo: Maybe<DirectusSystemData_Directus_Files>
     project_name: Scalars['String']
     project_url: Maybe<Scalars['String']>
@@ -2028,7 +3406,11 @@ export type DirectusSystemData_Directus_Settings = {
     public_foreground: Maybe<DirectusSystemData_Directus_Files>
     public_note: Maybe<Scalars['String']>
     storage_asset_presets: Maybe<Scalars['DirectusSystemData_JSON']>
+    storage_asset_presets_func: Maybe<DirectusSystemData_Count_Functions>
     storage_asset_transform: Maybe<Scalars['String']>
+    storage_default_folder: Maybe<DirectusSystemData_Directus_Folders>
+    translation_strings: Maybe<Scalars['DirectusSystemData_JSON']>
+    translation_strings_func: Maybe<DirectusSystemData_Count_Functions>
 }
 
 export type DirectusSystemData_Directus_SettingsProject_LogoArgs = {
@@ -2058,22 +3440,119 @@ export type DirectusSystemData_Directus_SettingsPublic_ForegroundArgs = {
     sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
+export type DirectusSystemData_Directus_SettingsStorage_Default_FolderArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Folders_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemData_Directus_Shares = {
+    __typename?: 'DirectusSystemData_directus_shares'
+    collection: Maybe<Scalars['String']>
+    date_created: Maybe<Scalars['DirectusSystemData_Date']>
+    date_created_func: Maybe<DirectusSystemData_Datetime_Functions>
+    /** $t:shared_leave_blank_for_unlimited */
+    date_end: Maybe<Scalars['DirectusSystemData_Date']>
+    date_end_func: Maybe<DirectusSystemData_Datetime_Functions>
+    /** $t:shared_leave_blank_for_unlimited */
+    date_start: Maybe<Scalars['DirectusSystemData_Date']>
+    date_start_func: Maybe<DirectusSystemData_Datetime_Functions>
+    id: Maybe<Scalars['ID']>
+    item: Maybe<Scalars['String']>
+    /** $t:shared_leave_blank_for_unlimited */
+    max_uses: Maybe<Scalars['Int']>
+    name: Maybe<Scalars['String']>
+    /** $t:shared_leave_blank_for_unlimited */
+    password: Maybe<Scalars['String']>
+    role: Maybe<DirectusSystemData_Directus_Roles>
+    times_used: Maybe<Scalars['Int']>
+    user_created: Maybe<DirectusSystemData_Directus_Users>
+}
+
+export type DirectusSystemData_Directus_SharesRoleArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Roles_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemData_Directus_SharesUser_CreatedArgs = {
+    filter: InputMaybe<DirectusSystemData_Directus_Users_Filter>
+    limit: InputMaybe<Scalars['Int']>
+    offset: InputMaybe<Scalars['Int']>
+    page: InputMaybe<Scalars['Int']>
+    search: InputMaybe<Scalars['String']>
+    sort: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+}
+
+export type DirectusSystemData_Directus_Shares_Aggregated = {
+    __typename?: 'DirectusSystemData_directus_shares_aggregated'
+    avg: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+    avgDistinct: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+    count: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+    countDistinct: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+    group: Maybe<Scalars['DirectusSystemData_JSON']>
+    max: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+    min: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+    sum: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+    sumDistinct: Maybe<DirectusSystemData_Directus_Shares_Aggregated_Fields>
+}
+
+export type DirectusSystemData_Directus_Shares_Aggregated_Fields = {
+    __typename?: 'DirectusSystemData_directus_shares_aggregated_fields'
+    /** $t:shared_leave_blank_for_unlimited */
+    max_uses: Maybe<Scalars['Float']>
+    times_used: Maybe<Scalars['Float']>
+}
+
+export type DirectusSystemData_Directus_Shares_Filter = {
+    _and: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Shares_Filter>>>
+    _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Shares_Filter>>>
+    collection: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    date_created: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    date_created_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
+    date_end: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    date_end_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
+    date_start: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    date_start_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
+    id: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    item: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    max_uses: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    name: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    password: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    role: InputMaybe<DirectusSystemData_Directus_Roles_Filter>
+    times_used: InputMaybe<DirectusSystemData_Number_Filter_Operators>
+    user_created: InputMaybe<DirectusSystemData_Directus_Users_Filter>
+}
+
 export type DirectusSystemData_Directus_Users = {
     __typename?: 'DirectusSystemData_directus_users'
+    auth_data: Maybe<Scalars['DirectusSystemData_JSON']>
+    auth_data_func: Maybe<DirectusSystemData_Count_Functions>
     avatar: Maybe<DirectusSystemData_Directus_Files>
     description: Maybe<Scalars['String']>
-    email: Scalars['String']
+    email: Maybe<Scalars['String']>
+    email_notifications: Maybe<Scalars['Boolean']>
+    external_identifier: Maybe<Scalars['String']>
     first_name: Maybe<Scalars['String']>
     id: Maybe<Scalars['ID']>
     language: Maybe<Scalars['String']>
     last_access: Maybe<Scalars['DirectusSystemData_Date']>
+    last_access_func: Maybe<DirectusSystemData_Datetime_Functions>
     last_name: Maybe<Scalars['String']>
     last_page: Maybe<Scalars['String']>
     location: Maybe<Scalars['String']>
     password: Maybe<Scalars['String']>
+    provider: Scalars['String']
     role: Maybe<DirectusSystemData_Directus_Roles>
     status: Scalars['String']
     tags: Maybe<Scalars['DirectusSystemData_JSON']>
+    tags_func: Maybe<DirectusSystemData_Count_Functions>
     tfa_secret: Maybe<Scalars['String']>
     theme: Maybe<Scalars['String']>
     title: Maybe<Scalars['String']>
@@ -2101,20 +3580,27 @@ export type DirectusSystemData_Directus_UsersRoleArgs = {
 export type DirectusSystemData_Directus_Users_Filter = {
     _and: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Users_Filter>>>
     _or: InputMaybe<Array<InputMaybe<DirectusSystemData_Directus_Users_Filter>>>
+    auth_data: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    auth_data_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     avatar: InputMaybe<DirectusSystemData_Directus_Files_Filter>
     description: InputMaybe<DirectusSystemData_String_Filter_Operators>
     email: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    email_notifications: InputMaybe<DirectusSystemData_Boolean_Filter_Operators>
+    external_identifier: InputMaybe<DirectusSystemData_String_Filter_Operators>
     first_name: InputMaybe<DirectusSystemData_String_Filter_Operators>
     id: InputMaybe<DirectusSystemData_String_Filter_Operators>
     language: InputMaybe<DirectusSystemData_String_Filter_Operators>
     last_access: InputMaybe<DirectusSystemData_Date_Filter_Operators>
+    last_access_func: InputMaybe<DirectusSystemData_Datetime_Function_Filter_Operators>
     last_name: InputMaybe<DirectusSystemData_String_Filter_Operators>
     last_page: InputMaybe<DirectusSystemData_String_Filter_Operators>
     location: InputMaybe<DirectusSystemData_String_Filter_Operators>
     password: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    provider: InputMaybe<DirectusSystemData_String_Filter_Operators>
     role: InputMaybe<DirectusSystemData_Directus_Roles_Filter>
     status: InputMaybe<DirectusSystemData_String_Filter_Operators>
     tags: InputMaybe<DirectusSystemData_String_Filter_Operators>
+    tags_func: InputMaybe<DirectusSystemData_Count_Function_Filter_Operators>
     tfa_secret: InputMaybe<DirectusSystemData_String_Filter_Operators>
     theme: InputMaybe<DirectusSystemData_String_Filter_Operators>
     title: InputMaybe<DirectusSystemData_String_Filter_Operators>
@@ -2161,32 +3647,43 @@ export type DirectusSystemData_Server_Info = {
 export type DirectusSystemData_String_Filter_Operators = {
     _contains: InputMaybe<Scalars['String']>
     _empty: InputMaybe<Scalars['Boolean']>
+    _ends_with: InputMaybe<Scalars['String']>
     _eq: InputMaybe<Scalars['String']>
     _in: InputMaybe<Array<InputMaybe<Scalars['String']>>>
     _ncontains: InputMaybe<Scalars['String']>
     _nempty: InputMaybe<Scalars['Boolean']>
+    _nends_with: InputMaybe<Scalars['String']>
     _neq: InputMaybe<Scalars['String']>
     _nin: InputMaybe<Array<InputMaybe<Scalars['String']>>>
     _nnull: InputMaybe<Scalars['Boolean']>
+    _nstarts_with: InputMaybe<Scalars['String']>
     _null: InputMaybe<Scalars['Boolean']>
+    _starts_with: InputMaybe<Scalars['String']>
+}
+
+export type DirectusSystemData_Update_Directus_Notifications_Input = {
+    status: InputMaybe<Scalars['String']>
 }
 
 export type DirectusSystemData_Update_Directus_Presets_Input = {
     bookmark: InputMaybe<Scalars['String']>
     collection: InputMaybe<Scalars['String']>
-    filters: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    color: InputMaybe<Scalars['String']>
+    filter: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    filter_func: InputMaybe<DirectusSystemData_Count_FunctionsInput>
+    icon: InputMaybe<Scalars['String']>
     id: InputMaybe<Scalars['ID']>
     layout: InputMaybe<Scalars['String']>
     layout_options: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    layout_options_func: InputMaybe<DirectusSystemData_Count_FunctionsInput>
     layout_query: InputMaybe<Scalars['DirectusSystemData_JSON']>
+    layout_query_func: InputMaybe<DirectusSystemData_Count_FunctionsInput>
     refresh_interval: InputMaybe<Scalars['Int']>
-    role: InputMaybe<Scalars['String']>
     search: InputMaybe<Scalars['String']>
     user: InputMaybe<DirectusSystemData_Update_Directus_Users_Input>
 }
 
 export type DirectusSystemData_Update_Directus_Users_Input = {
-    avatar: InputMaybe<Scalars['String']>
     description: InputMaybe<Scalars['String']>
     email: InputMaybe<Scalars['String']>
     first_name: InputMaybe<Scalars['String']>
@@ -2451,7 +3948,6 @@ export type File = Node & {
     size: Scalars['Int']
     sourceInstanceName: Scalars['String']
     uid: Scalars['Int']
-    url: Maybe<Scalars['String']>
 }
 
 export type FileAccessTimeArgs = {
@@ -2572,28 +4068,51 @@ export enum FileFieldsEnum {
     childImageSharp___children___internal___type = 'childImageSharp___children___internal___type',
     childImageSharp___children___parent___children = 'childImageSharp___children___parent___children',
     childImageSharp___children___parent___id = 'childImageSharp___children___parent___id',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___aspectRatio = 'childImageSharp___fixed___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___base64 = 'childImageSharp___fixed___base64',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___height = 'childImageSharp___fixed___height',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___originalName = 'childImageSharp___fixed___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___src = 'childImageSharp___fixed___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___srcSet = 'childImageSharp___fixed___srcSet',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___srcSetWebp = 'childImageSharp___fixed___srcSetWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___srcWebp = 'childImageSharp___fixed___srcWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___tracedSVG = 'childImageSharp___fixed___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fixed___width = 'childImageSharp___fixed___width',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___aspectRatio = 'childImageSharp___fluid___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___base64 = 'childImageSharp___fluid___base64',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___originalImg = 'childImageSharp___fluid___originalImg',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___originalName = 'childImageSharp___fluid___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___presentationHeight = 'childImageSharp___fluid___presentationHeight',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___presentationWidth = 'childImageSharp___fluid___presentationWidth',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___sizes = 'childImageSharp___fluid___sizes',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___src = 'childImageSharp___fluid___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___srcSet = 'childImageSharp___fluid___srcSet',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___srcSetWebp = 'childImageSharp___fluid___srcSetWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___srcWebp = 'childImageSharp___fluid___srcWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___fluid___tracedSVG = 'childImageSharp___fluid___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___gatsbyImageData = 'childImageSharp___gatsbyImageData',
     childImageSharp___id = 'childImageSharp___id',
     childImageSharp___internal___content = 'childImageSharp___internal___content',
@@ -2621,11 +4140,17 @@ export enum FileFieldsEnum {
     childImageSharp___parent___internal___type = 'childImageSharp___parent___internal___type',
     childImageSharp___parent___parent___children = 'childImageSharp___parent___parent___children',
     childImageSharp___parent___parent___id = 'childImageSharp___parent___parent___id',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___resize___aspectRatio = 'childImageSharp___resize___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___resize___height = 'childImageSharp___resize___height',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___resize___originalName = 'childImageSharp___resize___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___resize___src = 'childImageSharp___resize___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___resize___tracedSVG = 'childImageSharp___resize___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childImageSharp___resize___width = 'childImageSharp___resize___width',
     children = 'children',
     childrenImageSharp = 'childrenImageSharp',
@@ -2644,28 +4169,51 @@ export enum FileFieldsEnum {
     childrenImageSharp___children___internal___type = 'childrenImageSharp___children___internal___type',
     childrenImageSharp___children___parent___children = 'childrenImageSharp___children___parent___children',
     childrenImageSharp___children___parent___id = 'childrenImageSharp___children___parent___id',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___aspectRatio = 'childrenImageSharp___fixed___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___base64 = 'childrenImageSharp___fixed___base64',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___height = 'childrenImageSharp___fixed___height',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___originalName = 'childrenImageSharp___fixed___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___src = 'childrenImageSharp___fixed___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___srcSet = 'childrenImageSharp___fixed___srcSet',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___srcSetWebp = 'childrenImageSharp___fixed___srcSetWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___srcWebp = 'childrenImageSharp___fixed___srcWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___tracedSVG = 'childrenImageSharp___fixed___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fixed___width = 'childrenImageSharp___fixed___width',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___aspectRatio = 'childrenImageSharp___fluid___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___base64 = 'childrenImageSharp___fluid___base64',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___originalImg = 'childrenImageSharp___fluid___originalImg',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___originalName = 'childrenImageSharp___fluid___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___presentationHeight = 'childrenImageSharp___fluid___presentationHeight',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___presentationWidth = 'childrenImageSharp___fluid___presentationWidth',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___sizes = 'childrenImageSharp___fluid___sizes',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___src = 'childrenImageSharp___fluid___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___srcSet = 'childrenImageSharp___fluid___srcSet',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___srcSetWebp = 'childrenImageSharp___fluid___srcSetWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___srcWebp = 'childrenImageSharp___fluid___srcWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___fluid___tracedSVG = 'childrenImageSharp___fluid___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___gatsbyImageData = 'childrenImageSharp___gatsbyImageData',
     childrenImageSharp___id = 'childrenImageSharp___id',
     childrenImageSharp___internal___content = 'childrenImageSharp___internal___content',
@@ -2693,11 +4241,17 @@ export enum FileFieldsEnum {
     childrenImageSharp___parent___internal___type = 'childrenImageSharp___parent___internal___type',
     childrenImageSharp___parent___parent___children = 'childrenImageSharp___parent___parent___children',
     childrenImageSharp___parent___parent___id = 'childrenImageSharp___parent___parent___id',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___resize___aspectRatio = 'childrenImageSharp___resize___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___resize___height = 'childrenImageSharp___resize___height',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___resize___originalName = 'childrenImageSharp___resize___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___resize___src = 'childrenImageSharp___resize___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___resize___tracedSVG = 'childrenImageSharp___resize___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     childrenImageSharp___resize___width = 'childrenImageSharp___resize___width',
     children___children = 'children___children',
     children___children___children = 'children___children___children',
@@ -2807,7 +4361,6 @@ export enum FileFieldsEnum {
     size = 'size',
     sourceInstanceName = 'sourceInstanceName',
     uid = 'uid',
-    url = 'url',
 }
 
 export type FileFilterInput = {
@@ -2851,7 +4404,6 @@ export type FileFilterInput = {
     size: InputMaybe<IntQueryOperatorInput>
     sourceInstanceName: InputMaybe<StringQueryOperatorInput>
     uid: InputMaybe<IntQueryOperatorInput>
-    url: InputMaybe<StringQueryOperatorInput>
 }
 
 export type FileGroupConnection = {
@@ -2905,6 +4457,13 @@ export type FloatQueryOperatorInput = {
     lte: InputMaybe<Scalars['Float']>
     ne: InputMaybe<Scalars['Float']>
     nin: InputMaybe<Array<InputMaybe<Scalars['Float']>>>
+}
+
+export type GatsbyImageDataQueryOperatorInput = {
+    eq: InputMaybe<Scalars['GatsbyImageData']>
+    in: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>
+    ne: InputMaybe<Scalars['GatsbyImageData']>
+    nin: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>
 }
 
 export enum GatsbyImageFormat {
@@ -2978,7 +4537,7 @@ export type ImageSharp = Node & {
     children: Array<Node>
     fixed: Maybe<ImageSharpFixed>
     fluid: Maybe<ImageSharpFluid>
-    gatsbyImageData: Scalars['JSON']
+    gatsbyImageData: Scalars['GatsbyImageData']
     id: Scalars['ID']
     internal: Internal
     original: Maybe<ImageSharpOriginal>
@@ -3157,28 +4716,51 @@ export enum ImageSharpFieldsEnum {
     children___parent___internal___type = 'children___parent___internal___type',
     children___parent___parent___children = 'children___parent___parent___children',
     children___parent___parent___id = 'children___parent___parent___id',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___aspectRatio = 'fixed___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___base64 = 'fixed___base64',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___height = 'fixed___height',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___originalName = 'fixed___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___src = 'fixed___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___srcSet = 'fixed___srcSet',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___srcSetWebp = 'fixed___srcSetWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___srcWebp = 'fixed___srcWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___tracedSVG = 'fixed___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fixed___width = 'fixed___width',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___aspectRatio = 'fluid___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___base64 = 'fluid___base64',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___originalImg = 'fluid___originalImg',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___originalName = 'fluid___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___presentationHeight = 'fluid___presentationHeight',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___presentationWidth = 'fluid___presentationWidth',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___sizes = 'fluid___sizes',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___src = 'fluid___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___srcSet = 'fluid___srcSet',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___srcSetWebp = 'fluid___srcSetWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___srcWebp = 'fluid___srcWebp',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     fluid___tracedSVG = 'fluid___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     gatsbyImageData = 'gatsbyImageData',
     id = 'id',
     internal___content = 'internal___content',
@@ -3230,11 +4812,17 @@ export enum ImageSharpFieldsEnum {
     parent___parent___internal___type = 'parent___parent___internal___type',
     parent___parent___parent___children = 'parent___parent___parent___children',
     parent___parent___parent___id = 'parent___parent___parent___id',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     resize___aspectRatio = 'resize___aspectRatio',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     resize___height = 'resize___height',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     resize___originalName = 'resize___originalName',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     resize___src = 'resize___src',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     resize___tracedSVG = 'resize___tracedSVG',
+    /** @deprecated Sorting on fields that need arguments to resolve is deprecated. */
     resize___width = 'resize___width',
 }
 
@@ -3242,7 +4830,7 @@ export type ImageSharpFilterInput = {
     children: InputMaybe<NodeFilterListInput>
     fixed: InputMaybe<ImageSharpFixedFilterInput>
     fluid: InputMaybe<ImageSharpFluidFilterInput>
-    gatsbyImageData: InputMaybe<JsonQueryOperatorInput>
+    gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>
     id: InputMaybe<StringQueryOperatorInput>
     internal: InputMaybe<InternalFilterInput>
     original: InputMaybe<ImageSharpOriginalFilterInput>
@@ -3683,14 +5271,13 @@ export type QueryFileArgs = {
     size: InputMaybe<IntQueryOperatorInput>
     sourceInstanceName: InputMaybe<StringQueryOperatorInput>
     uid: InputMaybe<IntQueryOperatorInput>
-    url: InputMaybe<StringQueryOperatorInput>
 }
 
 export type QueryImageSharpArgs = {
     children: InputMaybe<NodeFilterListInput>
     fixed: InputMaybe<ImageSharpFixedFilterInput>
     fluid: InputMaybe<ImageSharpFluidFilterInput>
-    gatsbyImageData: InputMaybe<JsonQueryOperatorInput>
+    gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>
     id: InputMaybe<StringQueryOperatorInput>
     internal: InputMaybe<InternalFilterInput>
     original: InputMaybe<ImageSharpOriginalFilterInput>
@@ -3702,12 +5289,17 @@ export type QuerySiteArgs = {
     buildTime: InputMaybe<DateQueryOperatorInput>
     children: InputMaybe<NodeFilterListInput>
     flags: InputMaybe<SiteFlagsFilterInput>
+    graphqlTypegen: InputMaybe<BooleanQueryOperatorInput>
     host: InputMaybe<StringQueryOperatorInput>
     id: InputMaybe<StringQueryOperatorInput>
     internal: InputMaybe<InternalFilterInput>
+    jsxRuntime: InputMaybe<StringQueryOperatorInput>
     parent: InputMaybe<NodeFilterInput>
+    pathPrefix: InputMaybe<StringQueryOperatorInput>
+    polyfill: InputMaybe<BooleanQueryOperatorInput>
     port: InputMaybe<IntQueryOperatorInput>
     siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>
+    trailingSlash: InputMaybe<StringQueryOperatorInput>
 }
 
 export type QuerySiteBuildMetadataArgs = {
@@ -3767,12 +5359,17 @@ export type Site = Node & {
     buildTime: Maybe<Scalars['Date']>
     children: Array<Node>
     flags: Maybe<SiteFlags>
+    graphqlTypegen: Maybe<Scalars['Boolean']>
     host: Maybe<Scalars['String']>
     id: Scalars['ID']
     internal: Internal
+    jsxRuntime: Maybe<Scalars['String']>
     parent: Maybe<Node>
+    pathPrefix: Maybe<Scalars['String']>
+    polyfill: Maybe<Scalars['Boolean']>
     port: Maybe<Scalars['Int']>
     siteMetadata: Maybe<SiteSiteMetadata>
+    trailingSlash: Maybe<Scalars['String']>
 }
 
 export type SiteBuildTimeArgs = {
@@ -4064,6 +5661,7 @@ export enum SiteFieldsEnum {
     children___parent___parent___children = 'children___parent___parent___children',
     children___parent___parent___id = 'children___parent___parent___id',
     flags___FAST_DEV = 'flags___FAST_DEV',
+    graphqlTypegen = 'graphqlTypegen',
     host = 'host',
     id = 'id',
     internal___content = 'internal___content',
@@ -4074,6 +5672,7 @@ export enum SiteFieldsEnum {
     internal___mediaType = 'internal___mediaType',
     internal___owner = 'internal___owner',
     internal___type = 'internal___type',
+    jsxRuntime = 'jsxRuntime',
     parent___children = 'parent___children',
     parent___children___children = 'parent___children___children',
     parent___children___children___children = 'parent___children___children___children',
@@ -4112,23 +5711,31 @@ export enum SiteFieldsEnum {
     parent___parent___internal___type = 'parent___parent___internal___type',
     parent___parent___parent___children = 'parent___parent___parent___children',
     parent___parent___parent___id = 'parent___parent___parent___id',
+    pathPrefix = 'pathPrefix',
+    polyfill = 'polyfill',
     port = 'port',
     siteMetadata___author = 'siteMetadata___author',
     siteMetadata___description = 'siteMetadata___description',
     siteMetadata___siteUrl = 'siteMetadata___siteUrl',
     siteMetadata___title = 'siteMetadata___title',
+    trailingSlash = 'trailingSlash',
 }
 
 export type SiteFilterInput = {
     buildTime: InputMaybe<DateQueryOperatorInput>
     children: InputMaybe<NodeFilterListInput>
     flags: InputMaybe<SiteFlagsFilterInput>
+    graphqlTypegen: InputMaybe<BooleanQueryOperatorInput>
     host: InputMaybe<StringQueryOperatorInput>
     id: InputMaybe<StringQueryOperatorInput>
     internal: InputMaybe<InternalFilterInput>
+    jsxRuntime: InputMaybe<StringQueryOperatorInput>
     parent: InputMaybe<NodeFilterInput>
+    pathPrefix: InputMaybe<StringQueryOperatorInput>
+    polyfill: InputMaybe<BooleanQueryOperatorInput>
     port: InputMaybe<IntQueryOperatorInput>
     siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>
+    trailingSlash: InputMaybe<StringQueryOperatorInput>
 }
 
 export type SiteFlags = {
@@ -5027,6 +6634,7 @@ export type AcademyIndexFragment = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5049,6 +6657,7 @@ export type AcademyIndexFragment = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5071,6 +6680,7 @@ export type AcademyIndexFragment = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5093,6 +6703,7 @@ export type AcademyIndexFragment = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5115,6 +6726,7 @@ export type AcademyIndexFragment = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5137,6 +6749,7 @@ export type AcademyIndexFragment = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5332,8 +6945,18 @@ export type StoreQueryQuery = {
             slug: string
             published_date: any
             featured: boolean
+            visibility: string
             blog_title: string
             blog_description: string
+            main_image: {
+                __typename?: 'DirectusData_directus_files'
+                id: string
+                description: string
+                imageFile: {
+                    __typename?: 'File'
+                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+                }
+            }
             tags: Array<{
                 __typename?: 'DirectusData_blog_tags'
                 id: string
@@ -5346,7 +6969,9 @@ export type StoreQueryQuery = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
+            visibility: string
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
                 id: string
@@ -5380,6 +7005,46 @@ export type TagsQuery = {
             __typename?: 'DirectusData_blog_tags'
             tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
         }>
+    }
+}
+
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_1_Query = {
+    __typename?: 'Query'
+    footer_image: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_2_Query = {
+    __typename?: 'Query'
+    deriv: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_3_Query = {
+    __typename?: 'Query'
+    deriv: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_4_Query = {
+    __typename?: 'Query'
+    deriv: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
 }
 
@@ -5417,9 +7082,9 @@ export type AllArticlesQuery = {
     }
 }
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_5_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_1_Query = {
+export type Unnamed_5_Query = {
     __typename?: 'Query'
     directus: {
         __typename?: 'DirectusData'
@@ -5543,6 +7208,7 @@ export type Unnamed_1_Query = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5565,6 +7231,7 @@ export type Unnamed_1_Query = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5587,6 +7254,7 @@ export type Unnamed_1_Query = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5609,6 +7277,7 @@ export type Unnamed_1_Query = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5631,6 +7300,7 @@ export type Unnamed_1_Query = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5653,6 +7323,7 @@ export type Unnamed_1_Query = {
             published_date: any
             video_description: string
             video_duration: string
+            video_slug: string
             featured: boolean
             video_thumbnail: {
                 __typename?: 'DirectusData_directus_files'
@@ -5823,7 +7494,6 @@ export type AllVideosQuery = {
     directus: {
         __typename?: 'DirectusData'
         videos: Array<{
-            [x: string]: any
             __typename?: 'DirectusData_videos'
             video_id: string
             video_slug: string
@@ -5850,9 +7520,9 @@ export type AllVideosQuery = {
     }
 }
 
-export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_2_Query = {
+export type Unnamed_6_Query = {
     __typename?: 'Query'
     deriv_platform: {
         __typename?: 'File'
@@ -5860,9 +7530,9 @@ export type Unnamed_2_Query = {
     }
 }
 
-export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_7_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_3_Query = {
+export type Unnamed_7_Query = {
     __typename?: 'Query'
     hero_background_desktop: {
         __typename?: 'File'
@@ -5874,9 +7544,9 @@ export type Unnamed_3_Query = {
     }
 }
 
-export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_8_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_4_Query = {
+export type Unnamed_8_Query = {
     __typename?: 'Query'
     bug_report_desktop: {
         __typename?: 'File'
@@ -5888,9 +7558,9 @@ export type Unnamed_4_Query = {
     }
 }
 
-export type Unnamed_5_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_9_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_5_Query = {
+export type Unnamed_9_Query = {
     __typename?: 'Query'
     back_end_desc: {
         __typename?: 'File'
@@ -5954,9 +7624,9 @@ export type Unnamed_5_Query = {
     }
 }
 
-export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_10_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_6_Query = {
+export type Unnamed_10_Query = {
     __typename?: 'Query'
     back_end_bg: {
         __typename?: 'File'
@@ -6020,9 +7690,9 @@ export type Unnamed_6_Query = {
     }
 }
 
-export type Unnamed_7_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_11_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_7_Query = {
+export type Unnamed_11_Query = {
     __typename?: 'Query'
     marketing_review: {
         __typename?: 'File'
@@ -6146,9 +7816,9 @@ export type Unnamed_7_Query = {
     }
 }
 
-export type Unnamed_8_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_12_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_8_Query = {
+export type Unnamed_12_Query = {
     __typename?: 'Query'
     image: {
         __typename?: 'File'
@@ -6156,9 +7826,9 @@ export type Unnamed_8_Query = {
     }
 }
 
-export type Unnamed_9_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_13_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_9_Query = {
+export type Unnamed_13_Query = {
     __typename?: 'Query'
     backendDevelopment: {
         __typename?: 'File'
@@ -6222,9 +7892,9 @@ export type Unnamed_9_Query = {
     }
 }
 
-export type Unnamed_10_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_14_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_10_Query = {
+export type Unnamed_14_Query = {
     __typename?: 'Query'
     teamfocus: {
         __typename?: 'File'
@@ -6236,9 +7906,9 @@ export type Unnamed_10_Query = {
     }
 }
 
-export type Unnamed_11_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_15_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_11_Query = {
+export type Unnamed_15_Query = {
     __typename?: 'Query'
     participant_img1: {
         __typename?: 'File'
@@ -6250,9 +7920,9 @@ export type Unnamed_11_Query = {
     }
 }
 
-export type Unnamed_12_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_16_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_12_Query = {
+export type Unnamed_16_Query = {
     __typename?: 'Query'
     asuncion: {
         __typename?: 'File'
@@ -6284,9 +7954,9 @@ export type Unnamed_12_Query = {
     }
 }
 
-export type Unnamed_13_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_17_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_13_Query = {
+export type Unnamed_17_Query = {
     __typename?: 'Query'
     cyberjaya: {
         __typename?: 'File'
@@ -6314,9 +7984,9 @@ export type Unnamed_13_Query = {
     }
 }
 
-export type Unnamed_14_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_18_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_14_Query = {
+export type Unnamed_18_Query = {
     __typename?: 'Query'
     cyprus: {
         __typename?: 'File'
@@ -6348,9 +8018,9 @@ export type Unnamed_14_Query = {
     }
 }
 
-export type Unnamed_15_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_19_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_15_Query = {
+export type Unnamed_19_Query = {
     __typename?: 'Query'
     dubai: {
         __typename?: 'File'
@@ -6380,11 +8050,15 @@ export type Unnamed_15_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
+    dubai_great_place_to_work_badge: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
 }
 
-export type Unnamed_16_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_20_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_16_Query = {
+export type Unnamed_20_Query = {
     __typename?: 'Query'
     guernsey: {
         __typename?: 'File'
@@ -6416,9 +8090,9 @@ export type Unnamed_16_Query = {
     }
 }
 
-export type Unnamed_17_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_21_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_17_Query = {
+export type Unnamed_21_Query = {
     __typename?: 'Query'
     thumbnail_cyberjaya: {
         __typename?: 'File'
@@ -6470,9 +8144,9 @@ export type Unnamed_17_Query = {
     }
 }
 
-export type Unnamed_18_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_22_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_18_Query = {
+export type Unnamed_22_Query = {
     __typename?: 'Query'
     ipoh: {
         __typename?: 'File'
@@ -6504,9 +8178,9 @@ export type Unnamed_18_Query = {
     }
 }
 
-export type Unnamed_19_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_23_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_19_Query = {
+export type Unnamed_23_Query = {
     __typename?: 'Query'
     labuan: {
         __typename?: 'File'
@@ -6538,11 +8212,9 @@ export type Unnamed_19_Query = {
     }
 }
 
-export type Unnamed_20_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_24_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_21_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_21_Query = {
+export type Unnamed_24_Query = {
     __typename?: 'Query'
     malta: {
         __typename?: 'File'
@@ -6570,9 +8242,9 @@ export type Unnamed_21_Query = {
     }
 }
 
-export type Unnamed_22_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_25_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_22_Query = {
+export type Unnamed_25_Query = {
     __typename?: 'Query'
     melaka: {
         __typename?: 'File'
@@ -6604,9 +8276,9 @@ export type Unnamed_22_Query = {
     }
 }
 
-export type Unnamed_23_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_26_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_23_Query = {
+export type Unnamed_26_Query = {
     __typename?: 'Query'
     minsk: {
         __typename?: 'File'
@@ -6638,9 +8310,9 @@ export type Unnamed_23_Query = {
     }
 }
 
-export type Unnamed_24_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_27_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_24_Query = {
+export type Unnamed_27_Query = {
     __typename?: 'Query'
     paris: {
         __typename?: 'File'
@@ -6672,9 +8344,9 @@ export type Unnamed_24_Query = {
     }
 }
 
-export type Unnamed_25_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_28_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_25_Query = {
+export type Unnamed_28_Query = {
     __typename?: 'Query'
     rwanda: {
         __typename?: 'File'
@@ -6706,9 +8378,9 @@ export type Unnamed_25_Query = {
     }
 }
 
-export type Unnamed_26_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_29_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_26_Query = {
+export type Unnamed_29_Query = {
     __typename?: 'Query'
     community: {
         __typename?: 'File'
@@ -6720,9 +8392,9 @@ export type Unnamed_26_Query = {
     }
 }
 
-export type Unnamed_27_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_30_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_27_Query = {
+export type Unnamed_30_Query = {
     __typename?: 'Query'
     map_paraguay: {
         __typename?: 'File'
@@ -6766,9 +8438,45 @@ export type Unnamed_27_Query = {
     }
 }
 
-export type Unnamed_28_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_31_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_28_Query = {
+export type Unnamed_31_Query = {
+    __typename?: 'Query'
+    step_1: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    step_2: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    step_3: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    step_4: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    step_5: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_32_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_32_Query = {
+    __typename?: 'Query'
+    deriv_platform: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_33_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_33_Query = {
     __typename?: 'Query'
     demo_step1: {
         __typename?: 'File'
@@ -6828,9 +8536,9 @@ export type Unnamed_28_Query = {
     }
 }
 
-export type Unnamed_29_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_34_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_29_Query = {
+export type Unnamed_34_Query = {
     __typename?: 'Query'
     deriv_platform: {
         __typename?: 'File'
@@ -6838,9 +8546,9 @@ export type Unnamed_29_Query = {
     }
 }
 
-export type Unnamed_30_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_35_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_30_Query = {
+export type Unnamed_35_Query = {
     __typename?: 'Query'
     subscriber_step_1: {
         __typename?: 'File'
@@ -6892,9 +8600,9 @@ export type Unnamed_30_Query = {
     }
 }
 
-export type Unnamed_31_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_36_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_31_Query = {
+export type Unnamed_36_Query = {
     __typename?: 'Query'
     signals: {
         __typename?: 'File'
@@ -6910,9 +8618,9 @@ export type Unnamed_31_Query = {
     }
 }
 
-export type Unnamed_32_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_37_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_32_Query = {
+export type Unnamed_37_Query = {
     __typename?: 'Query'
     step_1: {
         __typename?: 'File'
@@ -6928,9 +8636,9 @@ export type Unnamed_32_Query = {
     }
 }
 
-export type Unnamed_33_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_38_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_33_Query = {
+export type Unnamed_38_Query = {
     __typename?: 'Query'
     mobile_phone: {
         __typename?: 'File'
@@ -6938,9 +8646,9 @@ export type Unnamed_33_Query = {
     }
 }
 
-export type Unnamed_34_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_39_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_34_Query = {
+export type Unnamed_39_Query = {
     __typename?: 'Query'
     margin_calculator: {
         __typename?: 'File'
@@ -6960,9 +8668,9 @@ export type Unnamed_34_Query = {
     }
 }
 
-export type Unnamed_35_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_40_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_35_Query = {
+export type Unnamed_40_Query = {
     __typename?: 'Query'
     demo_step1: {
         __typename?: 'File'
@@ -7038,9 +8746,9 @@ export type Unnamed_35_Query = {
     }
 }
 
-export type Unnamed_36_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_41_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_36_Query = {
+export type Unnamed_41_Query = {
     __typename?: 'Query'
     deriv_platform: {
         __typename?: 'File'
@@ -7048,9 +8756,9 @@ export type Unnamed_36_Query = {
     }
 }
 
-export type Unnamed_37_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_42_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_37_Query = {
+export type Unnamed_42_Query = {
     __typename?: 'Query'
     deriv_platform: {
         __typename?: 'File'
@@ -7058,9 +8766,9 @@ export type Unnamed_37_Query = {
     }
 }
 
-export type Unnamed_38_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_43_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_38_Query = {
+export type Unnamed_43_Query = {
     __typename?: 'Query'
     community: {
         __typename?: 'File'
@@ -7068,9 +8776,9 @@ export type Unnamed_38_Query = {
     }
 }
 
-export type Unnamed_39_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_44_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_39_Query = {
+export type Unnamed_44_Query = {
     __typename?: 'Query'
     hero_background: {
         __typename?: 'File'
@@ -7078,9 +8786,9 @@ export type Unnamed_39_Query = {
     }
 }
 
-export type Unnamed_40_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_45_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_40_Query = {
+export type Unnamed_45_Query = {
     __typename?: 'Query'
     market_forex: {
         __typename?: 'File'
@@ -7098,21 +8806,71 @@ export type Unnamed_40_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
+    market_basket_indices: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
     market_commodities: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
 }
 
-export type Unnamed_41_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_46_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_41_Query = {
+export type Unnamed_46_Query = {
+    __typename?: 'Query'
+    p2p_home_banner: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    deriv_p2p_logo: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    deriv_p2p_mobile_logo: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    qr_code: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    p2p_mobile_banner: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    p2p_apple_store: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    p2p_google_play: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    p2p_app_gallery: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_47_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_47_Query = {
     __typename?: 'Query'
     hero_platform1: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
+    hero_platform1_uk_and_eu: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
     hero_platform2: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    hero_platform2_uk_and_eu: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -7126,9 +8884,9 @@ export type Unnamed_41_Query = {
     }
 }
 
-export type Unnamed_42_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_48_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_42_Query = {
+export type Unnamed_48_Query = {
     __typename?: 'Query'
     dtrader_artboard: {
         __typename?: 'File'
@@ -7136,11 +8894,19 @@ export type Unnamed_42_Query = {
     }
 }
 
-export type Unnamed_43_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_49_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_43_Query = {
+export type Unnamed_49_Query = {
     __typename?: 'Query'
     trade_type_cfds: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    trade_type_cfds_eu: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    trade_type_cfds_uk: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -7152,15 +8918,23 @@ export type Unnamed_43_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
+    trade_type_multipliers_eu: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    trade_type_multipliers_uk: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
     trade_type_spreads: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
 }
 
-export type Unnamed_44_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_50_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_44_Query = {
+export type Unnamed_50_Query = {
     __typename?: 'Query'
     dtrader_trade: {
         __typename?: 'File'
@@ -7176,9 +8950,9 @@ export type Unnamed_44_Query = {
     }
 }
 
-export type Unnamed_45_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_51_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_45_Query = {
+export type Unnamed_51_Query = {
     __typename?: 'Query'
     platforms_deriv_go: {
         __typename?: 'File'
@@ -7188,7 +8962,23 @@ export type Unnamed_45_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
+    platforms_mt5_eu: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    platforms_mt5_uk: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
     platforms_dtrader: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    platforms_dtrader_eu: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    platforms_dtrader_uk: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -7214,47 +9004,9 @@ export type Unnamed_45_Query = {
     }
 }
 
-export type Unnamed_46_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_52_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_46_Query = {
-    __typename?: 'Query'
-    platforms_deriv_go: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    platforms_mt5: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    platforms_dtrader: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    platforms_derivx: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    platforms_dbot: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    platforms_smarttrader: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    platforms_binary_bot: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    platforms_api: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_47_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_47_Query = {
+export type Unnamed_52_Query = {
     __typename?: 'Query'
     affiliate: {
         __typename?: 'File'
@@ -7274,61 +9026,11 @@ export type Unnamed_47_Query = {
     }
 }
 
-export type Unnamed_48_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_48_Query = {
-    __typename?: 'Query'
-    deriv: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_49_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_49_Query = {
-    __typename?: 'Query'
-    dbot: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_50_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_50_Query = {
-    __typename?: 'Query'
-    deriv: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_51_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_51_Query = {
-    __typename?: 'Query'
-    dmt5: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_52_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_52_Query = {
-    __typename?: 'Query'
-    deriv: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
 export type Unnamed_53_QueryVariables = Exact<{ [key: string]: never }>
 
 export type Unnamed_53_Query = {
     __typename?: 'Query'
-    deriv_platform: {
+    deriv: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -7337,6 +9039,56 @@ export type Unnamed_53_Query = {
 export type Unnamed_54_QueryVariables = Exact<{ [key: string]: never }>
 
 export type Unnamed_54_Query = {
+    __typename?: 'Query'
+    dbot: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_55_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_55_Query = {
+    __typename?: 'Query'
+    deriv: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_56_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_56_Query = {
+    __typename?: 'Query'
+    dmt5: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_57_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_57_Query = {
+    __typename?: 'Query'
+    deriv: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_58_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_58_Query = {
+    __typename?: 'Query'
+    deriv_platform: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_59_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_59_Query = {
     __typename?: 'Query'
     crypto_hero: {
         __typename?: 'File'
@@ -7372,9 +9124,9 @@ export type Unnamed_54_Query = {
     }
 }
 
-export type Unnamed_55_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_60_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_55_Query = {
+export type Unnamed_60_Query = {
     __typename?: 'Query'
     forex_ebook_img_en: {
         __typename?: 'File'
@@ -7394,9 +9146,9 @@ export type Unnamed_55_Query = {
     }
 }
 
-export type Unnamed_56_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_61_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_56_Query = {
+export type Unnamed_61_Query = {
     __typename?: 'Query'
     stocks_ebook_img: {
         __typename?: 'File'
@@ -7408,9 +9160,9 @@ export type Unnamed_56_Query = {
     }
 }
 
-export type Unnamed_57_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_62_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_57_Query = {
+export type Unnamed_62_Query = {
     __typename?: 'Query'
     p2p_hero_background: {
         __typename?: 'File'
@@ -7422,9 +9174,9 @@ export type Unnamed_57_Query = {
     }
 }
 
-export type Unnamed_58_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_63_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_58_Query = {
+export type Unnamed_63_Query = {
     __typename?: 'Query'
     login: {
         __typename?: 'File'
@@ -7440,9 +9192,9 @@ export type Unnamed_58_Query = {
     }
 }
 
-export type Unnamed_59_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_64_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_59_Query = {
+export type Unnamed_64_Query = {
     __typename?: 'Query'
     dbot_strategy: {
         __typename?: 'File'
@@ -7502,9 +9254,9 @@ export type Unnamed_59_Query = {
     }
 }
 
-export type Unnamed_60_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_65_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_60_Query = {
+export type Unnamed_65_Query = {
     __typename?: 'Query'
     mainHeaderImage: {
         __typename?: 'File'
@@ -7516,9 +9268,9 @@ export type Unnamed_60_Query = {
     }
 }
 
-export type Unnamed_61_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_66_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_61_Query = {
+export type Unnamed_66_Query = {
     __typename?: 'Query'
     dbot_strategy: {
         __typename?: 'File'
@@ -7574,9 +9326,9 @@ export type Unnamed_61_Query = {
     }
 }
 
-export type Unnamed_62_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_67_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_62_Query = {
+export type Unnamed_67_Query = {
     __typename?: 'Query'
     stocks_banner: {
         __typename?: 'File'
@@ -7588,9 +9340,9 @@ export type Unnamed_62_Query = {
     }
 }
 
-export type Unnamed_63_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_68_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_63_Query = {
+export type Unnamed_68_Query = {
     __typename?: 'Query'
     p2p_hero_background: {
         __typename?: 'File'
@@ -7602,9 +9354,9 @@ export type Unnamed_63_Query = {
     }
 }
 
-export type Unnamed_64_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_69_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_64_Query = {
+export type Unnamed_69_Query = {
     __typename?: 'Query'
     login: {
         __typename?: 'File'
@@ -7620,9 +9372,9 @@ export type Unnamed_64_Query = {
     }
 }
 
-export type Unnamed_65_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_70_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_65_Query = {
+export type Unnamed_70_Query = {
     __typename?: 'Query'
     p2p_hero_background: {
         __typename?: 'File'
@@ -7634,9 +9386,9 @@ export type Unnamed_65_Query = {
     }
 }
 
-export type Unnamed_66_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_71_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_66_Query = {
+export type Unnamed_71_Query = {
     __typename?: 'Query'
     buy_sell: {
         __typename?: 'File'
@@ -7648,9 +9400,9 @@ export type Unnamed_66_Query = {
     }
 }
 
-export type Unnamed_67_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_72_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_67_Query = {
+export type Unnamed_72_Query = {
     __typename?: 'Query'
     qr_code: {
         __typename?: 'File'
@@ -7658,9 +9410,9 @@ export type Unnamed_67_Query = {
     }
 }
 
-export type Unnamed_68_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_73_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_68_Query = {
+export type Unnamed_73_Query = {
     __typename?: 'Query'
     buy_sell: {
         __typename?: 'File'
@@ -7676,9 +9428,9 @@ export type Unnamed_68_Query = {
     }
 }
 
-export type Unnamed_69_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_74_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_69_Query = {
+export type Unnamed_74_Query = {
     __typename?: 'Query'
     p2p_hero_background: {
         __typename?: 'File'
@@ -7694,9 +9446,9 @@ export type Unnamed_69_Query = {
     }
 }
 
-export type Unnamed_70_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_75_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_70_Query = {
+export type Unnamed_75_Query = {
     __typename?: 'Query'
     p2p_banner: {
         __typename?: 'File'
@@ -7708,9 +9460,9 @@ export type Unnamed_70_Query = {
     }
 }
 
-export type Unnamed_71_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_76_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_71_Query = {
+export type Unnamed_76_Query = {
     __typename?: 'Query'
     dmt5_synthetic_calculator: {
         __typename?: 'File'
@@ -7724,6 +9476,10 @@ export type Unnamed_71_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
+    dmt5_financial_calculator_three: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
     dmt5_financial_stp_calculator_one: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
@@ -7734,23 +9490,19 @@ export type Unnamed_71_Query = {
     }
 }
 
-export type Unnamed_72_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_77_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_72_Query = {
+export type Unnamed_77_Query = {
     __typename?: 'Query'
     image: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
-    image_mobile: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
 }
 
-export type Unnamed_73_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_78_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_73_Query = {
+export type Unnamed_78_Query = {
     __typename?: 'Query'
     multiple_income_opportunities: {
         __typename?: 'File'
@@ -7766,9 +9518,9 @@ export type Unnamed_73_Query = {
     }
 }
 
-export type Unnamed_74_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_79_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_74_Query = {
+export type Unnamed_79_Query = {
     __typename?: 'Query'
     payment_agent: {
         __typename?: 'File'
@@ -7776,9 +9528,9 @@ export type Unnamed_74_Query = {
     }
 }
 
-export type Unnamed_75_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_80_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_75_Query = {
+export type Unnamed_80_Query = {
     __typename?: 'Query'
     view_email: {
         __typename?: 'File'
@@ -7786,9 +9538,9 @@ export type Unnamed_75_Query = {
     }
 }
 
-export type Unnamed_76_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_81_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_76_Query = {
+export type Unnamed_81_Query = {
     __typename?: 'Query'
     margin_relationship_piechart: {
         __typename?: 'File'
@@ -7800,9 +9552,9 @@ export type Unnamed_76_Query = {
     }
 }
 
-export type Unnamed_77_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_82_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_77_Query = {
+export type Unnamed_82_Query = {
     __typename?: 'Query'
     example: {
         __typename?: 'File'
@@ -7814,9 +9566,9 @@ export type Unnamed_77_Query = {
     }
 }
 
-export type Unnamed_78_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_83_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_78_Query = {
+export type Unnamed_83_Query = {
     __typename?: 'Query'
     multiplier_market: {
         __typename?: 'File'
@@ -7864,9 +9616,9 @@ export type Unnamed_78_Query = {
     }
 }
 
-export type Unnamed_79_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_84_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_79_Query = {
+export type Unnamed_84_Query = {
     __typename?: 'Query'
     stake_amount: {
         __typename?: 'File'
@@ -7906,9 +9658,9 @@ export type Unnamed_79_Query = {
     }
 }
 
-export type Unnamed_80_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_85_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_80_Query = {
+export type Unnamed_85_Query = {
     __typename?: 'Query'
     option_market: {
         __typename?: 'File'
@@ -7936,9 +9688,9 @@ export type Unnamed_80_Query = {
     }
 }
 
-export type Unnamed_81_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_86_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_81_Query = {
+export type Unnamed_86_Query = {
     __typename?: 'Query'
     margin: {
         __typename?: 'File'
@@ -7982,9 +9734,9 @@ export type Unnamed_81_Query = {
     }
 }
 
-export type Unnamed_82_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_87_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_82_Query = {
+export type Unnamed_87_Query = {
     __typename?: 'Query'
     margin_formula: {
         __typename?: 'File'
@@ -8000,9 +9752,9 @@ export type Unnamed_82_Query = {
     }
 }
 
-export type Unnamed_83_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_88_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_83_Query = {
+export type Unnamed_88_Query = {
     __typename?: 'Query'
     pip_value_formula: {
         __typename?: 'File'
@@ -8022,9 +9774,9 @@ export type Unnamed_83_Query = {
     }
 }
 
-export type Unnamed_84_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_89_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_84_Query = {
+export type Unnamed_89_Query = {
     __typename?: 'Query'
     stop_loss_level_formula: {
         __typename?: 'File'
@@ -8060,9 +9812,9 @@ export type Unnamed_84_Query = {
     }
 }
 
-export type Unnamed_85_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_90_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_85_Query = {
+export type Unnamed_90_Query = {
     __typename?: 'Query'
     stop_loss_level_up_formula: {
         __typename?: 'File'
@@ -8098,9 +9850,9 @@ export type Unnamed_85_Query = {
     }
 }
 
-export type Unnamed_86_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_91_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_86_Query = {
+export type Unnamed_91_Query = {
     __typename?: 'Query'
     swap_synthetic_formula: {
         __typename?: 'File'
@@ -8120,11 +9872,103 @@ export type Unnamed_86_Query = {
     }
 }
 
-export type Unnamed_87_QueryVariables = Exact<{ [key: string]: never }>
+export type Unnamed_92_QueryVariables = Exact<{ [key: string]: never }>
 
-export type Unnamed_87_Query = {
+export type Unnamed_92_Query = {
     __typename?: 'Query'
+    earth: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    earth_mobile: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_93_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_93_Query = {
+    __typename?: 'Query'
+    media1: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media2: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media3: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media4: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media5: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media6: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_94_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_94_Query = {
+    __typename?: 'Query'
+    media1: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media2: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media3: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media4: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media5: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    media6: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_95_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_95_Query = {
+    __typename?: 'Query'
+    about_us_logo: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+}
+
+export type Unnamed_96_QueryVariables = Exact<{ [key: string]: never }>
+
+export type Unnamed_96_Query = {
+    __typename?: 'Query'
+    antony: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
     derek: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    edwin: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -8145,6 +9989,10 @@ export type Unnamed_87_Query = {
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
     joanna: {
+        __typename?: 'File'
+        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+    }
+    kaveh: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -8173,90 +10021,6 @@ export type Unnamed_87_Query = {
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
     waqas: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_88_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_88_Query = {
-    __typename?: 'Query'
-    earth: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    earth_mobile: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_89_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_89_Query = {
-    __typename?: 'Query'
-    media1: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media2: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media3: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media4: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media5: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media6: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_90_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_90_Query = {
-    __typename?: 'Query'
-    media1: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media2: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media3: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media4: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media5: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    media6: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-}
-
-export type Unnamed_91_QueryVariables = Exact<{ [key: string]: never }>
-
-export type Unnamed_91_Query = {
-    __typename?: 'Query'
-    about_us_logo: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -8356,6 +10120,41 @@ export type ArticleQuery = {
                     }
                 }
             }
+        }>
+    }
+}
+
+export type VideoQueryVariables = Exact<{
+    slug: InputMaybe<Scalars['String']>
+}>
+
+export type VideoQuery = {
+    __typename?: 'Query'
+    directus: {
+        __typename?: 'DirectusData'
+        videos: Array<{
+            __typename?: 'DirectusData_videos'
+            video_title: string
+            published_date: any
+            video_description: string
+            video_duration: string
+            featured: boolean
+            vimeo_id: string
+            video_thumbnail: {
+                __typename?: 'DirectusData_directus_files'
+                id: string
+                title: string
+                imageFile: {
+                    __typename?: 'File'
+                    id: string
+                    childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
+                }
+            }
+            video_file: { __typename?: 'DirectusData_directus_files'; id: string }
+            tags: Array<{
+                __typename?: 'DirectusData_videos_tags'
+                tags_id: { __typename?: 'DirectusData_tags'; tag_name: string }
+            }>
         }>
     }
 }

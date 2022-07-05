@@ -9,6 +9,7 @@ import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { useAcademyTags } from 'components/hooks/use-academy-tags'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { LocalizedLink } from 'components/localization'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -388,7 +389,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
         if (is_mobile_separator && e.target.value === '') handleBlur()
     }
 
-    const node = React.useRef()
+    const search_bar_ref = React.useRef()
 
     useDebouncedEffect(
         () => {
@@ -527,21 +528,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
             ? getHighlightedTitle(item.blog_title, search_query)
             : getHighlightedTitle(item.video_title, search_query)
 
-    const useOnClickOutside = (ref, handler) => {
-        React.useEffect(() => {
-            const listener = (event) => {
-                if (!ref.current || ref.current.contains(event.target)) return
-                handler(event)
-            }
-            document.addEventListener('mousedown', listener)
-
-            return () => {
-                document.removeEventListener('mousedown', listener)
-            }
-        }, [ref, handler])
-    }
-
-    useOnClickOutside(node, () => handleBlur())
+    useOutsideClick(search_bar_ref, () => handleBlur())
 
     return (
         <>
@@ -557,7 +544,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         ai="center"
                         maximise={search_input_touched}
                         result_opened={result_opened}
-                        ref={node}
+                        ref={search_bar_ref}
                     >
                         <SearchIconWrapper
                             src={SearchIcon}

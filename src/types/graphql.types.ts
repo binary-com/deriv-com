@@ -8124,10 +8124,6 @@ export type Unnamed_87_QueryVariables = Exact<{ [key: string]: never }>
 
 export type Unnamed_87_Query = {
     __typename?: 'Query'
-    antony: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
     derek: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }

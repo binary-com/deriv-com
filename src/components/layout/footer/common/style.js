@@ -222,7 +222,7 @@ export const SocialWrapper = styled.div`
     margin: 1.6rem 0;
 
     img {
-        margin-left: 1.6rem;
+        margin-left: 1rem;
     }
 
     @media ${device.tabletL} {

@@ -23,7 +23,7 @@ import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
-import { DerivStore, useDerivSocket } from 'store'
+import { DerivStore, DerivApi } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 const Footer = Loadable(() => import('./footer'))
@@ -158,25 +158,20 @@ const Layout = ({
     }, [is_uk_eu])
 
     if (!is_redirection_applied) {
-        const { receive } = useDerivSocket()
+        const { send } = DerivApi()
 
         React.useEffect(() => {
-            receive({
-                action: (response) => {
-                    const {
-                        website_status: { clients_country },
-                    } = response
+            send({ website_status: 1 }, (response) => {
+                const {
+                    website_status: { clients_country },
+                } = response
 
-                    const current_client_country = clients_country || ''
-                    const client_information_cookie = new CookieStorage('client_information')
-                    const residence = client_information_cookie.get('residence')
-
-                    setRedirectionApplied(true)
-
-                    !isEuDomain() &&
-                        handleRedirect(residence, current_client_country, window.location.hostname)
-                },
-                dependencies: ['website_status'],
+                const current_client_country = clients_country || ''
+                const client_information_cookie = new CookieStorage('client_information')
+                const residence = client_information_cookie.get('residence')
+                setRedirectionApplied(true)
+                !isEuDomain() &&
+                    handleRedirect(residence, current_client_country, window.location.hostname)
             })
         }, [])
     }

@@ -15,7 +15,7 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useDerivSocket } from 'store'
+import { DerivApi } from 'store'
 
 const Form = styled.form`
     height: 100%;
@@ -52,7 +52,7 @@ export const Appearances = {
 }
 
 const Signup = (props) => {
-    const { send } = useDerivSocket()
+    const { send } = DerivApi()
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -113,24 +113,18 @@ const Signup = (props) => {
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
 
-        send({
-            data: verify_email_req,
-            onmessage: {
-                action: (response) => {
-                    setSubmitting(false)
-                    if (response.error) {
-                        setSubmitStatus('error')
-                        setSubmitErrorMsg(response.error.message)
-                        handleValidation(formatted_email)
-                    } else {
-                        setSubmitStatus('success')
-                        if (props.onSubmit) {
-                            props.onSubmit(submit_status || 'success', email)
-                        }
-                    }
-                },
-                dependencies: ['verify_email'],
-            },
+        send(verify_email_req, (response) => {
+            setSubmitting(false)
+            if (response.error) {
+                setSubmitStatus('error')
+                setSubmitErrorMsg(response.error.message)
+                handleValidation(formatted_email)
+            } else {
+                setSubmitStatus('success')
+                if (props.onSubmit) {
+                    props.onSubmit(submit_status || 'success', email)
+                }
+            }
         })
 
         if (props.appearance === 'public') {

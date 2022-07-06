@@ -14,7 +14,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
-import { useDerivSocket } from 'store'
+import { DerivApi } from 'store'
 
 type GetEbookProps = {
     color?: string
@@ -191,7 +191,7 @@ const EmailImage = styled.img`
 `
 
 const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
-    const { send } = useDerivSocket()
+    const { send } = DerivApi()
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -270,23 +270,17 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
 
         const verify_email_req = getVerifyEmailRequest(formattedEmail)
 
-        send({
-            data: verify_email_req,
-            onmessage: {
-                action: (response) => {
-                    if (response.error) {
-                        setIsSubmitting(false)
-                        setSubmitStatus('error')
-                        setSubmitErrorMsg(response.error.message)
-                        handleValidation(formattedEmail)
-                    } else {
-                        setIsSubmitting(false)
-                        setSubmitStatus('success')
-                        if (onSubmit) onSubmit(submit_status, email)
-                    }
-                },
-                dependencies: ['verify_email'],
-            },
+        send(verify_email_req, (response) => {
+            if (response.error) {
+                setIsSubmitting(false)
+                setSubmitStatus('error')
+                setSubmitErrorMsg(response.error.message)
+                handleValidation(formattedEmail)
+            } else {
+                setIsSubmitting(false)
+                setSubmitStatus('success')
+                if (onSubmit) onSubmit(submit_status, email)
+            }
         })
     }
 

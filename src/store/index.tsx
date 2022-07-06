@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
-import { useWebsocket, useDerivSocketProps } from 'components/hooks/use-websocket'
+import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
@@ -21,7 +21,7 @@ export type DerivStoreType = {
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
-    deriv_socket: useDerivSocketProps
+    deriv_api: DerivApiProps
     show_non_eu_popup: boolean
     setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -29,7 +29,7 @@ export type DerivStoreType = {
 export const DerivStore = createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
-    const deriv_socket = useWebsocket()
+    const deriv_api = useDerivApi()
 
     const [show_non_eu_popup, setShowNonEuPopup] = useState(false)
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
@@ -39,24 +39,18 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
 
-    // Fetch website status from the API & save in the cookies
     useEffect(() => {
-        const { send } = deriv_socket
+        // Fetch website status from the API & save in the cookies
+        const { send } = deriv_api
 
-        send({
-            data: { website_status: 1 },
-            onmessage: {
-                action: (response) => {
-                    if (!response.error && !website_status) {
-                        const {
-                            website_status: { clients_country },
-                        } = response
+        send({ website_status: 1 }, (response) => {
+            if (!response.error && !website_status) {
+                const {
+                    website_status: { clients_country },
+                } = response
 
-                        setWebsiteStatus({ clients_country })
-                    }
-                },
-                dependencies: ['website_status'],
-            },
+                setWebsiteStatus({ clients_country })
+            }
         })
     }, [])
 
@@ -81,7 +75,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
                 user_country,
                 website_status_loading,
                 website_status,
-                deriv_socket,
+                deriv_api,
                 show_non_eu_popup,
                 setShowNonEuPopup,
             }}
@@ -91,10 +85,10 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     )
 }
 
-export const useuseDerivSocket = () => {
+export const DerivApi = () => {
     const {
-        deriv_socket: { send, receive },
+        deriv_api: { send },
     } = React.useContext(DerivStore)
 
-    return { send, receive }
+    return { send }
 }

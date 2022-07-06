@@ -9,7 +9,7 @@ import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import { useDerivSocket } from 'store'
+import { DerivApi } from 'store'
 
 type EmailType = { email: string }
 
@@ -50,31 +50,25 @@ const resetValidation = (values: EmailType) => {
 const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
 
-    const { send } = useDerivSocket()
+    const { send } = DerivApi()
 
     const resetSubmission = (values: EmailType, actions) => {
-        send({
-            data: { verify_email: trimSpaces(values.email), type: 'reset_password' },
-            onmessage: {
-                action: (response) => {
-                    actions.setSubmitting(false)
+        send({ verify_email: trimSpaces(values.email), type: 'reset_password' }, (response) => {
+            actions.setSubmitting(false)
 
-                    if (response.error) {
-                        actions.setStatus({
-                            error: response.error.message,
-                        })
-                        return
-                    }
+            if (response.error) {
+                actions.setStatus({
+                    error: response.error.message,
+                })
+                return
+            }
 
-                    actions.resetForm({ email: '' })
-                    actions.setStatus({
-                        success: localize(
-                            'Please check your email and click on the link provided to reset your password.',
-                        ),
-                    })
-                },
-                dependencies: ['verify_email'],
-            },
+            actions.resetForm({ email: '' })
+            actions.setStatus({
+                success: localize(
+                    'Please check your email and click on the link provided to reset your password.',
+                ),
+            })
         })
     }
 

@@ -118,9 +118,9 @@ export const Carousel = ({
         (index) => {
             if (!embla) return
             embla.scrollTo(index)
-            stop()
+            play()
         },
-        [embla, stop],
+        [embla, play],
     )
 
     const onSelect = useCallback(() => {

@@ -14,7 +14,13 @@ const PnLMarginCalculator = () => {
             />
             <Hero jc="center" ai="center">
                 <Container>
-                    <StyledHeader as="h1" type="display-title" color="white" align="center">
+                    <StyledHeader
+                        as="h1"
+                        type="display-title"
+                        color="white"
+                        align="center"
+                        width="80%"
+                    >
                         {localize('Stop loss and/or take profit calculator for margin')}
                     </StyledHeader>
                 </Container>

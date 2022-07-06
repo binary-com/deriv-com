@@ -145,7 +145,6 @@ export const DisclaimerWrapper = styled.div`
 export const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
     margin-top: 2rem;
-    margin-left: 1rem;
 
     @media ${device.tabletL} {
         font-size: 12px;

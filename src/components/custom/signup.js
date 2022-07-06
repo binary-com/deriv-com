@@ -15,7 +15,7 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { DerivSocket } from 'store'
+import { useDerivSocket } from 'store'
 
 const Form = styled.form`
     height: 100%;
@@ -52,7 +52,7 @@ export const Appearances = {
 }
 
 const Signup = (props) => {
-    const { send } = DerivSocket()
+    const { send } = useDerivSocket()
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')

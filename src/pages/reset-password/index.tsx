@@ -9,7 +9,7 @@ import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import { DerivSocket } from 'store'
+import { useDerivSocket } from 'store'
 
 type EmailType = { email: string }
 
@@ -50,7 +50,7 @@ const resetValidation = (values: EmailType) => {
 const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
 
-    const { send } = DerivSocket()
+    const { send } = useDerivSocket()
 
     const resetSubmission = (values: EmailType, actions) => {
         send({

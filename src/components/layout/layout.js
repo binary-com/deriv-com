@@ -23,7 +23,7 @@ import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
-import { DerivStore, DerivSocket } from 'store'
+import { DerivStore, useDerivSocket } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 const Footer = Loadable(() => import('./footer'))
@@ -158,7 +158,7 @@ const Layout = ({
     }, [is_uk_eu])
 
     if (!is_redirection_applied) {
-        const { receive } = DerivSocket()
+        const { receive } = useDerivSocket()
 
         React.useEffect(() => {
             receive({

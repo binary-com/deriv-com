@@ -11,7 +11,7 @@ export type SendCallbackType = {
     onmessage?: OnMessageType
 }
 
-export type DerivSocketProps = {
+export type useDerivSocketProps = {
     send: ({ data, onmessage: { action, dependencies } }: SendCallbackType) => void
     receive: ({ action, dependencies }: OnMessageType) => void
 }
@@ -20,7 +20,7 @@ export const useWebsocket = () => {
     const [is_opened, setOpened] = useState(false)
     const [ws, setWS] = useState(null)
 
-    const send_requests = useRef([])
+    const sent_requests = useRef([])
     const ws_messages = useRef([])
 
     useLayoutEffect(() => {
@@ -44,7 +44,7 @@ export const useWebsocket = () => {
 
         ws.onopen = () => {
             // firing websocket calls requested before ws open
-            send_requests.current.map((request) => {
+            sent_requests.current.map((request) => {
                 ws.send(request)
             })
         }
@@ -60,7 +60,7 @@ export const useWebsocket = () => {
         if (ws) {
             ws.send(request_data)
         } else {
-            send_requests.current.push(request_data)
+            sent_requests.current.push(request_data)
         }
     }
 

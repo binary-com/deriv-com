@@ -158,6 +158,7 @@ export const PnlCalculatorFormMobile = styled(Form)`
     @media (max-width: 1200px) {
         width: 90vw;
     }
+
     ${CalculatorFormStyles}
 `
 
@@ -347,7 +348,9 @@ const CalculatorTabItemStyles = css`
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
+
     ${calculator_tab_item_style_css}
+
     ${Text} {
         @media ${device.mobileL} {
             font-size: 14px;
@@ -359,6 +362,7 @@ export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     :nth-child(2) {
         margin-right: 0rem;
     }
+
     ${CalculatorTabItemStyles}
 `
 

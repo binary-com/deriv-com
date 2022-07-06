@@ -137,14 +137,17 @@ export const LinkWrapper = styled.div`
 export const DisclaimerWrapper = styled.div`
     grid-area: disclaimer;
     background: var(--color-grey-25);
+
+    @media ${device.laptop} {
+        padding: 0px 35px;
+    }
 `
 export const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
-    margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
+    margin-top: 2rem;
+    margin-left: 1rem;
 
     @media ${device.tabletL} {
-        width: 90%;
-        margin: 16px auto 0;
         font-size: 12px;
         line-height: ${(props) => (props.line_height ? '21px' : '18px')};
     }
@@ -171,20 +174,11 @@ export const StaticAssetLink = styled(LocalizedLink)`
 export const RiskWarning = styled.div`
     background-color: var(--color-grey-28);
     border-left: 4px solid var(--color-grey-27);
-    padding: 1.6rem;
     margin-top: 2rem;
 
     @media ${device.tabletL} {
         border-top: 2px solid var(--color-grey-27);
         border-left: none;
-        width: 90%;
-        margin: 24px 30px 0;
-        padding: 0 8px 16px;
-
-        p {
-            padding: 0;
-            width: 100%;
-        }
     }
 `
 

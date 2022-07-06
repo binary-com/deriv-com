@@ -55,7 +55,7 @@ export const StyledSection = styled(SectionContainer)`
     padding: 8rem 0;
 
     @media ${device.laptop} {
-        padding: 40px 8px;
+        padding: 40px 20px;
         width: 100%;
     }
 
@@ -153,6 +153,8 @@ export const CalculatorForm = styled(Form)`
     }
 `
 export const PnlCalculatorFormMobile = styled(Form)`
+    width: 55rem;
+
     @media (max-width: 1200px) {
         width: 90vw;
     }

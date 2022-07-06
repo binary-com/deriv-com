@@ -71,7 +71,7 @@ export const DerivLogoWrapper = styled.div`
     padding: 4rem 0 2rem 0;
 
     @media ${device.tabletL} {
-        margin-left: 2rem;
+        margin-left: 3.5rem;
     }
 `
 export const LinksWrapper = styled.div`
@@ -137,7 +137,6 @@ export const LinkWrapper = styled.div`
 export const DisclaimerWrapper = styled.div`
     grid-area: disclaimer;
     background: var(--color-grey-25);
-    margin-left: 1rem;
 `
 export const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
@@ -179,7 +178,7 @@ export const RiskWarning = styled.div`
         border-top: 2px solid var(--color-grey-27);
         border-left: none;
         width: 90%;
-        margin: 24px 16px 0;
+        margin: 24px 30px 0;
         padding: 0 8px 16px;
 
         p {

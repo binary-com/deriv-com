@@ -148,7 +148,7 @@ export const Carousel = ({
 
     if (children)
         return (
-            <div style={container_style}>
+            <div style={container_style} onClick={play()}>
                 <Embla style={embla_style}>
                     <ViewPort style={view_port} ref={emblaRef}>
                         <EmblaContainer style={vertical_container ? vertical_container : null}>

@@ -18,7 +18,9 @@ export type ItemType = ArticleDataType[0]
 const AllArticles = ({ article_data }: AllArticlesProps) => {
     const [is_mobile] = useBrowserResize()
     const [current_page, setCurrentPage] = useState(1)
-    const posts_per_page = is_mobile ? 9 : 19
+    const desktop_max_posts = 10
+    const mobile_max_posts = 10
+    const posts_per_page = is_mobile ? mobile_max_posts : desktop_max_posts
 
     const index_of_last_post = current_page * posts_per_page
     const index_of_first_post = index_of_last_post - posts_per_page
@@ -51,7 +53,6 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
                 total_posts={article_data.length - 1}
                 paginate={paginate}
                 current_page={current_page}
-                is_mobile={is_mobile}
             />
         </Container>
     )

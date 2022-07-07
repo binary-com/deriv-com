@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, SectionContainer, Flex } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
@@ -27,26 +27,33 @@ type LinkTextProps = {
 const LinkText = styled.a<LinkTextProps>`
     color: var(--color-red);
     text-decoration: none;
-    font-size: ${({ sm }) => (sm ? '14px' : '20px')};
+    font-size: ${({ sm }) => (sm ? '14px' : '4.8rem')};
 
     @media ${device.tabletL} {
-        font-size: ${({ sm }) => (sm ? '12px' : '16px')};
+        font-size: ${({ sm }) => (sm ? '14px' : '28px')};
     }
 `
 
 const TextWrap = styled.div`
-    padding: 64px 0;
-    width: 690px;
+    padding: 83px 0;
+    width: 570px;
+    margin-right: 60px;
 
     @media ${device.tabletL} {
-        width: unset;
+        width: 100%;
         padding: 0;
+        margin-right: 0;
+
+        p {
+            text-align: center;
+        }
     }
 `
 
 const ImageWrap = styled.div`
     width: 320px;
     margin: 32px 0 0 32px;
+
     @media ${device.tabletL} {
         padding: 24px 0 0;
         margin: 0 auto;
@@ -82,16 +89,13 @@ const SubmitABugReport = () => {
             <Container direction="column">
                 <Wrapper>
                     <TextWrap>
-                        <Header type="heading-2" as="h2" color="white">
-                            {localize('Submit a bug report')}
-                        </Header>
-                        <Header type="subtitle-2" color="white" mt="8px" as="p" weight="normal">
+                        <Header type="heading-2" color="white" as="p" weight="700">
                             <Localize
-                                translate_text="Send your report by email to <0>security@deriv.com</0> and attach all relevant videos, system diagnosis reports, and crash logs. You can use Dropbox or Google Drive for sharing large files with us."
+                                translate_text="Send your reports to our <0>Bug Bounty Platform</0>"
                                 components={[
                                     <LinkText
                                         key={0}
-                                        href="mailto:security@deriv.com"
+                                        href="https://hackerone.com/binary"
                                         target="_blank"
                                     />,
                                 ]}

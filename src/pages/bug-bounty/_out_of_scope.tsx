@@ -14,7 +14,7 @@ const Card = styled.div`
     padding: 2.4rem;
     display: flex;
     flex: 1 0 30%;
-
+    align-items: center;
     @media ${device.tabletL} {
         padding: 16px 24px;
     }
@@ -53,19 +53,19 @@ const out_of_scope_content = [
     />,
 ]
 
+// Todo(mitra): can be merged with `scope` component into a generic component
 const OutOfScope = () => {
     return (
         <SectionContainer background="grey-30">
             <Container direction="column">
-                <Header as="h2" type="heading-2" align="center" mb="0.8rem">
+                <Header tabletL={{ pb: '24px' }} as="h2" type="heading-2" align="center">
                     {localize('Out of scope vulnerabilities')}
                 </Header>
-
                 <FlexContainer tabletL={{ mt: '0', fd: 'column' }} mt="4rem">
                     {out_of_scope_content.map((item, index) => {
                         return (
                             <Card key={index}>
-                                <Flex height="auto" mt="1.6rem" ai="flex-start" jc="flex-start">
+                                <Flex height="auto" ai="flex-start" jc="flex-start">
                                     <IconWrap src={TickIcon} />
                                     <div>
                                         <Header as="p" type="paragraph-2" weight="normal">

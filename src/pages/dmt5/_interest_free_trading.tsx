@@ -8,7 +8,7 @@ import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const ImageWrapper = styled.div`
     width: 124px;
@@ -151,7 +151,7 @@ CheckedText.propTypes = {
 }
 
 const InterestFreeTrading = () => {
-    const { is_uk, is_eu, is_row } = getCountryRule()
+    const { is_uk, is_eu, is_row } = useCountryRule()
 
     return (
         <StyledContainer>

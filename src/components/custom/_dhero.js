@@ -5,8 +5,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled.div`
     position: relative;
@@ -129,7 +130,7 @@ const GoToLiveDemo = styled(LinkButton)`
         white-space: nowrap;
     }
 `
-const DemoButton = styled(LinkButton)`
+const DemoButton = styled(Button)`
     padding: 14px 16px;
     width: auto;
     font-size: 14px;
@@ -237,6 +238,7 @@ const DHero = ({
 }) => {
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+    const handleSignup = useHandleSignup()
 
     return (
         <Wrapper>
@@ -254,7 +256,7 @@ const DHero = ({
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (
-                        <DemoButton id="dm-hero-signup-1" secondary="true" to="/signup/">
+                        <DemoButton onClick={handleSignup} id="dm-hero-signup-1" secondary="true">
                             {localize('Create free demo account')}
                         </DemoButton>
                     )}

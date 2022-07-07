@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Button } from 'components/form'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -21,10 +21,19 @@ const StyledButton = styled(Button)`
     @media ${device.mobileL} {
         padding: 10px;
     }
+
+    ${(props) => {
+        if (props.active)
+            return css`
+                pointer-events: none;
+                border: 2px solid var(--color-blue);
+                color: var(--color-blue);
+            `
+    }}
 `
 
 const Dots = styled.p`
-    font-size: 20px;
+    font-size: 16px;
     align-self: center;
 `
 

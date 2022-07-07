@@ -16,10 +16,11 @@ const StyledFlex = styled(Flex)`
 `
 
 const StyledButton = styled(Button)`
+    padding: 13px;
     margin: 0.3rem;
 
     @media ${device.mobileL} {
-        padding: 10px;
+        padding: 9px;
     }
 
     ${(props) => {

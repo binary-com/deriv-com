@@ -96,9 +96,29 @@ export const SwapTabSelector = styled(Flex)`
     cursor: pointer;
     ${swap_tab_selector_css}
 
-    @media ${device.mobileL} {
-        padding: 12px 24px;
-        min-width: 144px;
+    @media ${device.tablet} {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 24px 38px;
+
+        width: 182px;
+        height: 74px;
+
+        /* system/light/8 - primary (background) */
+
+        background: #ffffff;
+        /* Shadow */
+
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.08), 0px 24px 24px rgba(0, 0, 0, 0.08);
+        border-radius: 4px 0px 0px 4px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
     }
 `
 
@@ -139,7 +159,7 @@ const CalculatorFormStyles = css`
 
     @media ${device.mobileL} {
         margin-bottom: 20px;
-        width: 328px;
+        width: 320px;
     }
 `
 
@@ -149,11 +169,10 @@ export const CalculatorForm = styled(Form)`
 `
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
-    width: 328px;
+    width:43rem;
 `
 
 export const PnlHeaderOverflow = styled.div`
-    width: 328px;
     border-radius: 8px 8px 0 0;
     overflow-x: scroll;
 `
@@ -212,7 +231,7 @@ export const PnLCalculatorOutputContainer = styled(Flex)`
     border: 1px solid var(--color-green);
     background-color: var(--color-white);
     max-width: 23rem;
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         max-width: 37rem;
     }
 `
@@ -333,9 +352,10 @@ const calculator_tab_item_style_css = (props: { active: string }) =>
           `
 
 const CalculatorTabItemStyles = css`
-    height: 72px;
-    width: 23.4rem;
-    border-radius: 1rem;
+    width: 50%;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 8px;
     padding: 2rem;
     border: solid 1px rgba(51, 51, 51, 0.1);
     display: flex;
@@ -352,14 +372,22 @@ const CalculatorTabItemStyles = css`
 `
 
 export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
-    ${CalculatorTabItemStyles}
-
-    @media ${device.mobileL} {
-        width: 140px;
+    :nth-child(2) {
+        margin-right: 0rem;
     }
+
+    ${CalculatorTabItemStyles}
 `
 
 export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
+    width: 100%;
+    margin-right: 2.5rem;
+    height: 53px;
+
+    :nth-child(2) {
+        margin-right: 0rem;
+    }
+
     ${CalculatorTabItemStyles}
 
     @media ${device.mobileL} {

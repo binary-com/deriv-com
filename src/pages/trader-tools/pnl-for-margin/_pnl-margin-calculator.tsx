@@ -20,7 +20,6 @@ import {
     CalculateButton,
     CalculatorBody,
     CalculatorDropdown,
-    CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
     ContentContainer,
@@ -403,8 +402,8 @@ const PnlMarginCalculator = () => {
 
                                 return (
                                     <>
-                                        <Show.Desktop max_width="mobileL">
-                                            <CalculatorForm>
+                                        <Show.Desktop max_width="tablet">
+                                            <PnlCalculatorFormMobile>
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
                                                         <Flex fd="column" mr="24px">
@@ -494,7 +493,12 @@ const PnlMarginCalculator = () => {
                                                         </PnlCalculatorTabItem>
                                                     </Flex>
                                                     <Flex jc="space-between">
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <CalculatorDropdown
                                                                 option_list={values.optionList}
                                                                 label={localize('Symbol')}
@@ -509,7 +513,7 @@ const PnlMarginCalculator = () => {
                                                                 onBlur={handleBlur}
                                                             />
                                                         </Flex>
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex fd="column" width="100%" ml="5px">
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="pointValue"
@@ -528,7 +532,12 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
 
                                                     <Flex jc="space-between" mb="17px">
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="volume"
@@ -584,7 +593,7 @@ const PnlMarginCalculator = () => {
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex fd="column" width="100%" ml="5px">
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="takeProfitAmount"
@@ -600,7 +609,12 @@ const PnlMarginCalculator = () => {
                                                     </Flex>
 
                                                     <Flex jc="space-between">
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex
+                                                            fd="column"
+                                                            width="100%"
+                                                            ml="3px"
+                                                            mr="2rem"
+                                                        >
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="assetPrice"
@@ -616,7 +630,7 @@ const PnlMarginCalculator = () => {
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
-                                                        <Flex fd="column" width="23.4rem">
+                                                        <Flex fd="column" width="100%" ml="5px">
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="stopLossAmount"
@@ -641,10 +655,10 @@ const PnlMarginCalculator = () => {
                                                         </CalculateButton>
                                                     </Flex>
                                                 </CalculatorBody>
-                                            </CalculatorForm>
+                                            </PnlCalculatorFormMobile>
                                         </Show.Desktop>
 
-                                        <Show.Mobile min_width="mobileL">
+                                        <Show.Mobile min_width="tablet">
                                             <PnlCalculatorFormMobile>
                                                 <PnlHeaderOverflow>
                                                     <PnlCalculatorHeaderMobile>
@@ -912,13 +926,13 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_level_formula}
                                             alt={localize('stop loss level formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_level_formula_mobile}
                                             alt={localize('stop loss level formula')}
@@ -940,13 +954,13 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_pip_formula}
                                             alt={localize('stop loss pip formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_pip_formula_mobile}
                                             alt={localize('stop loss pip formula')}
@@ -1047,13 +1061,13 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_level_formula}
                                             alt={localize('take profit level formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_level_formula_mobile}
                                             alt={localize('take profit level formula')}
@@ -1075,13 +1089,13 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_pip_formula}
                                             alt={localize('take profit pip formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_pip_formula_mobile}
                                             alt={localize('take profit pip formula')}

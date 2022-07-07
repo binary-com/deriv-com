@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Button } from 'components/form'
 import { Flex } from 'components/containers'
-import device from 'themes/device'
 
 type PaginationProps = {
     posts_per_page: number
@@ -15,25 +14,23 @@ const StyledFlex = styled(Flex)`
     margin-bottom: 40px;
 `
 
-const StyledButton = styled(Button)`
-    padding: 13px;
-    margin: 0.3rem;
-
-    @media ${device.mobileL} {
-        padding: 9px;
-    }
-
+const StyledButton = styled(Button)<{ active: boolean }>`
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 8px 13px;
+    margin: 0;
+    color: var(--color-black-5);
     ${(props) => {
         if (props.active)
             return css`
                 pointer-events: none;
-                border: 2px solid var(--color-blue);
-                color: var(--color-blue);
+                background: var(--color-red);
+                color: var(--color-white);
             `
     }}
 `
 
 const Dots = styled.p`
+    color: var(--color-black-5);
     font-size: 16px;
     align-self: center;
 `

@@ -17,10 +17,13 @@ export type ItemType = ArticleDataType[0]
 
 const AllArticles = ({ article_data }: AllArticlesProps) => {
     const [is_mobile] = useBrowserResize()
+    const [is_tablet] = useBrowserResize(1333)
     const [current_page, setCurrentPage] = useState(1)
     const desktop_max_posts = 10
+    const tablet_max_posts = 9
     const mobile_max_posts = 10
-    const posts_per_page = is_mobile ? mobile_max_posts : desktop_max_posts
+    const posts_per_page =
+        (is_mobile && mobile_max_posts) || (is_tablet && tablet_max_posts) || desktop_max_posts
 
     const index_of_last_post = current_page * posts_per_page
     const index_of_first_post = index_of_last_post - posts_per_page
@@ -42,7 +45,7 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
                 <StyledImg src={RightArrow} height="16" width="16" />
                 <Text>All articles</Text>
             </Flex>
-            <FirstArticle item={article_data[0]} />
+            {current_page === 1 && <FirstArticle item={article_data[0]} />}
             <VideoGrid margin="40px 0">
                 {current_posts.slice(1).map((item) => {
                     return <ArticleCard key={item.id} item={item} />

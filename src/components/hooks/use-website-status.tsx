@@ -1,6 +1,4 @@
-import { useState, useLayoutEffect } from 'react'
 import { useCookieState } from './use-cookie-state'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import { getDateFromToday } from 'common/utility'
 
 const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'

@@ -30,13 +30,13 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
     const myRef = React.useRef(null)
 
     const paginate = (page_number) => {
-        myRef.current.scrollIntoView()
+        myRef.current.scrollIntoView({ behavior: 'smooth' })
         setCurrentPage(page_number)
     }
 
     return (
-        <Container m="0 auto" fd="column">
-            <Flex ref={myRef} jc="flex-start" ai="center" mt="4rem">
+        <Container ref={myRef} m="0 auto" fd="column">
+            <Flex jc="flex-start" ai="center" mt="4rem">
                 <LocalizedLinkText to="/academy/" color="grey-5">
                     Home
                 </LocalizedLinkText>

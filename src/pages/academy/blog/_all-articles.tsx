@@ -32,13 +32,13 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
     const myRef = useRef(null)
 
     const paginate = (page_number) => {
-        myRef.current.scrollIntoView()
+        myRef.current.scrollIntoView({ behavior: 'smooth' })
         setCurrentPage(page_number)
     }
 
     return (
-        <Container m="0 auto" fd="column" ai="center">
-            <Flex ref={myRef} jc="flex-start" ai="center" mt="40px">
+        <Container ref={myRef} m="0 auto" fd="column" ai="center">
+            <Flex jc="flex-start" ai="center" mt="40px">
                 <LocalizedLinkText to="/academy/" color="grey-5">
                     Home
                 </LocalizedLinkText>

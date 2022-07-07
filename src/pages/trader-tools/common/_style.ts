@@ -95,16 +95,6 @@ export const SwapTabSelector = styled(Flex)`
     flex-direction: column;
     cursor: pointer;
     ${swap_tab_selector_css}
-
-    @media ${device.tablet} {
-        margin-left: 14px;
-        :nth-child(2) {
-            margin-left: 0px;
-            margin-right: 14px;
-        }
-        padding: 12px 24px;
-        width: 100%;
-    }
 `
 
 export const ContentContainer = styled(Flex)`
@@ -368,6 +358,7 @@ export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     width: 100%;
     margin-right: 2.5rem;
     height: 53px;
+
     :nth-child(2) {
         margin-right: 0rem;
     }

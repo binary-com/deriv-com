@@ -97,28 +97,13 @@ export const SwapTabSelector = styled(Flex)`
     ${swap_tab_selector_css}
 
     @media ${device.tablet} {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 24px 38px;
-
-        width: 182px;
-        height: 74px;
-
-        /* system/light/8 - primary (background) */
-
-        background: #ffffff;
-        /* Shadow */
-
-        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.08), 0px 24px 24px rgba(0, 0, 0, 0.08);
-        border-radius: 4px 0px 0px 4px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 0;
-        flex-grow: 0;
+        margin-left: 14px;
+        :nth-child(2) {
+            margin-left: 0px;
+            margin-right: 14px;
+        }
+        padding: 12px 24px;
+        width: 100%;
     }
 `
 
@@ -169,7 +154,7 @@ export const CalculatorForm = styled(Form)`
 `
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
-    width:43rem;
+    width:46rem;
 `
 
 export const PnlHeaderOverflow = styled.div`
@@ -383,7 +368,6 @@ export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     width: 100%;
     margin-right: 2.5rem;
     height: 53px;
-
     :nth-child(2) {
         margin-right: 0rem;
     }

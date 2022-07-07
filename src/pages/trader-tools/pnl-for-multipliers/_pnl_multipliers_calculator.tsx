@@ -13,7 +13,7 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorForm,
+    PnlCalculatorFormMobile,
     CalculatorHeader,
     CalculatorLabel,
     ContentContainer,
@@ -608,8 +608,8 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Show.Desktop max_width="mobileL">
-                                                <CalculatorForm>
+                                            <Show.Desktop max_width="tablet">
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
                                                             <Flex fd="column" mr="24px">
@@ -815,11 +815,11 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
+                                                </PnlCalculatorFormMobile>
                                             </Show.Desktop>
 
-                                            <Show.Mobile min_width="mobileL">
-                                                <CalculatorForm>
+                                            <Show.Mobile min_width="tablet">
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex fd="column">
                                                             <Flex fd="column" mb="16px">
@@ -995,7 +995,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
+                                                </PnlCalculatorFormMobile>
                                             </Show.Mobile>
                                         </>
                                     )
@@ -1047,13 +1047,13 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the stop loss level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss amount of 7.54 USD in Up direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_level_up_formula}
                                             alt={localize('stop loss level up formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_level_up_formula_mobile}
                                             alt={localize('stop loss level up formula')}
@@ -1088,13 +1088,13 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the take profit level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit amount of 7.54 USD in Down direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_level_down_formula}
                                             alt={localize('take profit level down formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_level_down_formula_mobile}
                                             alt={localize('take profit level down formula')}
@@ -1246,8 +1246,8 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Show.Desktop max_width="mobileL">
-                                                <CalculatorForm>
+                                            <Show.Desktop max_width="tablet">
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
                                                             <Flex fd="column" mr="24px">
@@ -1455,11 +1455,11 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
+                                                </PnlCalculatorFormMobile>
                                             </Show.Desktop>
 
-                                            <Show.Mobile min_width="mobileL">
-                                                <CalculatorForm>
+                                            <Show.Mobile min_width="tablet">
+                                                <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex fd="column">
                                                             <Flex fd="column" mb="16px">
@@ -1637,7 +1637,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculateButton>
                                                         </Flex>
                                                     </CalculatorBody>
-                                                </CalculatorForm>
+                                                </PnlCalculatorFormMobile>
                                             </Show.Mobile>
                                         </>
                                     )
@@ -1689,13 +1689,13 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the take profit amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit level of 3400 in Up direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_amount_up_formula}
                                             alt={localize('take profit amount up formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.take_profit_amount_up_formula_mobile}
                                             alt={localize('take profit amount up formula')}
@@ -1730,13 +1730,13 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the stop loss amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss level of 3400 in Down direction.',
                                         )}
                                     </Text>
-                                    <Show.Desktop max_width="mobileL">
+                                    <Show.Desktop max_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_amount_down_formula}
                                             alt={localize('stop loss amount down formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile min_width="mobileL">
+                                    <Show.Mobile min_width="tablet">
                                         <QueryImage
                                             data={data.stop_loss_amount_down_formula_mobile}
                                             alt={localize('stop loss amount down formula')}

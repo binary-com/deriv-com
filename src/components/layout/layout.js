@@ -162,16 +162,18 @@ const Layout = ({
 
         React.useEffect(() => {
             send({ website_status: 1 }, (response) => {
-                const {
-                    website_status: { clients_country },
-                } = response
+                if (!response.error) {
+                    const {
+                        website_status: { clients_country },
+                    } = response
 
-                const current_client_country = clients_country || ''
-                const client_information_cookie = new CookieStorage('client_information')
-                const residence = client_information_cookie.get('residence')
-                setRedirectionApplied(true)
-                !isEuDomain() &&
-                    handleRedirect(residence, current_client_country, window.location.hostname)
+                    const current_client_country = clients_country || ''
+                    const client_information_cookie = new CookieStorage('client_information')
+                    const residence = client_information_cookie.get('residence')
+                    setRedirectionApplied(true)
+                    !isEuDomain() &&
+                        handleRedirect(residence, current_client_country, window.location.hostname)
+                }
             })
         }, [])
     }

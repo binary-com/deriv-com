@@ -134,8 +134,7 @@ export const Carousel = ({
         if (!embla) return
         onSelect()
         embla.on('select', onSelect)
-        embla.on('pointerDown', stop)
-    }, [embla, onSelect, stop])
+    }, [embla, onSelect])
 
     useEffect(() => {
         play()
@@ -148,7 +147,7 @@ export const Carousel = ({
 
     if (children)
         return (
-            <div style={container_style} onClick={play()}>
+            <div style={container_style}>
                 <Embla style={embla_style}>
                     <ViewPort style={view_port} ref={emblaRef}>
                         <EmblaContainer style={vertical_container ? vertical_container : null}>

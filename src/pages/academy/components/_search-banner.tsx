@@ -129,10 +129,7 @@ const TopicItemWrapper = styled(Flex)`
         display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
     }
 `
-const styled_link_greyed_css = css`
-    pointer-events: none;
-    opacity: 0.32;
-`
+
 const StyledLink = styled(LocalizedLink)`
     font-weight: normal;
     font-size: 14px;
@@ -144,8 +141,6 @@ const StyledLink = styled(LocalizedLink)`
     &:hover {
         background-color: var(--color-grey-31);
     }
-
-    ${(props) => props.greyed && styled_link_greyed_css}
 `
 const SearchResultRows = styled(Flex)`
     cursor: pointer;
@@ -361,7 +356,6 @@ type SearchBarProps = {
 type TopicItemsAccordionProps = {
     items?: TopicType
     setModal?: React.Dispatch<React.SetStateAction<boolean>>
-    handleGreyed: (category: string) => void
     handleHref: (category: string) => void
 }
 
@@ -664,12 +658,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     )
 }
 
-const TopicItemsAccordion = ({
-    items,
-    setModal,
-    handleGreyed,
-    handleHref,
-}: TopicItemsAccordionProps) => {
+const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordionProps) => {
     const [is_expanded, setExpanded] = useState(false)
 
     const toggleExpand = () => {
@@ -703,12 +692,7 @@ const TopicItemsAccordion = ({
             <DetailsWrapper is_expanded={is_expanded} fd="column">
                 {items.items.map((item, idx) => {
                     return (
-                        <StyledLink
-                            key={idx}
-                            to={handleHref(item.title)}
-                            onClick={handleModal}
-                            greyed={handleGreyed(item.title)}
-                        >
+                        <StyledLink key={idx} to={handleHref(item.title)} onClick={handleModal}>
                             {item.title}
                         </StyledLink>
                     )
@@ -755,17 +739,6 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     }
 
     // Grey out any categories that don't have any results for respective videos/blog
-    const handleGreyed = (category) => {
-        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
-            if (video_tags.includes(category)) return false
-            return true
-        }
-        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
-            if (blog_tags.includes(category)) return false
-            return true
-        }
-        return false
-    }
 
     const handleHref = (category) => {
         if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
@@ -853,7 +826,6 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                     key={index}
                                                     items={filter}
                                                     setModal={setModal}
-                                                    handleGreyed={handleGreyed}
                                                     handleHref={handleHref}
                                                 />
                                             </>
@@ -886,7 +858,6 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
                                                             key={idx}
                                                             to={handleHref(item.title)}
                                                             onClick={() => setModal(false)}
-                                                            greyed={handleGreyed(item.title)}
                                                         >
                                                             {item.title}
                                                         </StyledLink>

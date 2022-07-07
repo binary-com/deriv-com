@@ -347,97 +347,77 @@ const SearchPage = () => {
                             </>
                         )}
                     </Flex>
-                    {((search_query && items_type == 'article') ||
-                        (search_query && !items_type) ||
-                        (category_type && !items_type) ||
-                        (category_type && items_type == 'article')) && (
-                        <Flex m="40px 0" fd="column">
-                            <StyledHeaderWrapper jc="space-between">
-                                <Header as="h3" type="subtitle-2">
-                                    Articles
-                                </Header>
-                                {items_type ? (
-                                    <Header as="span" type="paragraph-2" align="right">
-                                        {getPaginationItemCountText()}
-                                    </Header>
-                                ) : (
-                                    <Header as="span" type="paragraph-2" align="right">
-                                        {getTotalArticleText()}
-                                    </Header>
-                                )}
-                            </StyledHeaderWrapper>
-
-                            {article_result.length !== 0 ? (
-                                getPaginatedArticles()
-                            ) : (
-                                <Flex m="16px 0">
-                                    <Header
-                                        as="h3"
-                                        type="subtitle-2"
-                                        weight="normal"
-                                        color="grey-5"
-                                    >
-                                        No results found
-                                    </Header>
-                                </Flex>
-                            )}
-
-                            {full_article_link && !items_type && total_article > 4 && (
-                                <AllArticleButton tertiary="true" to={full_article_link}>
-                                    All article results
-                                </AllArticleButton>
-                            )}
-                        </Flex>
-                    )}
-
-                    {((search_query && items_type == 'video') ||
-                        (search_query && !items_type) ||
-                        (category_type && !items_type) ||
-                        (category_type && items_type == 'video')) && (
-                        <Flex m="40px 0" fd="column">
-                            <StyledHeaderWrapper jc="space-between">
-                                <Header as="h3" type="subtitle-2">
-                                    Videos
-                                </Header>
+                    <Flex m="40px 0" fd="column">
+                        <StyledHeaderWrapper jc="space-between">
+                            <Header as="h3" type="subtitle-2">
+                                Articles
+                            </Header>
+                            {items_type ? (
                                 <Header as="span" type="paragraph-2" align="right">
-                                    <>
-                                        {total_video > 1 && !items_type
-                                            ? `1-2 of ${total_video} results`
-                                            : `${total_video} results`}
-                                    </>
+                                    {getPaginationItemCountText()}
                                 </Header>
-                            </StyledHeaderWrapper>
-
-                            {video_result.length != 0 ? (
-                                <>
-                                    <VideoParentWrapper
-                                        closeVideo={closeVideo}
-                                        currentVideoItems={video_result}
-                                        openVideo={openVideo}
-                                        show={show}
-                                        video_src={play_video_src}
-                                    />
-                                </>
                             ) : (
-                                <Flex m="16px 0">
-                                    <Header
-                                        as="h3"
-                                        type="subtitle-2"
-                                        weight="normal"
-                                        color="grey-5"
-                                    >
-                                        No results found
-                                    </Header>
-                                </Flex>
+                                <Header as="span" type="paragraph-2" align="right">
+                                    {getTotalArticleText()}
+                                </Header>
                             )}
+                        </StyledHeaderWrapper>
 
-                            {full_video_link && !items_type && total_video > 1 && (
-                                <AllArticleButton tertiary="true" to={full_video_link}>
-                                    All video results
-                                </AllArticleButton>
-                            )}
-                        </Flex>
-                    )}
+                        {article_result.length !== 0 ? (
+                            getPaginatedArticles()
+                        ) : (
+                            <Flex m="16px 0">
+                                <Header as="h3" type="subtitle-2" weight="normal" color="grey-5">
+                                    No results found
+                                </Header>
+                            </Flex>
+                        )}
+
+                        {full_article_link && !items_type && total_article > 4 && (
+                            <AllArticleButton tertiary="true" to={full_article_link}>
+                                All article results
+                            </AllArticleButton>
+                        )}
+                    </Flex>
+
+                    <Flex m="40px 0" fd="column">
+                        <StyledHeaderWrapper jc="space-between">
+                            <Header as="h3" type="subtitle-2">
+                                Videos
+                            </Header>
+                            <Header as="span" type="paragraph-2" align="right">
+                                <>
+                                    {total_video > 1 && !items_type
+                                        ? `1-2 of ${total_video} results`
+                                        : `${total_video} results`}
+                                </>
+                            </Header>
+                        </StyledHeaderWrapper>
+
+                        {video_result.length != 0 ? (
+                            <>
+                                <VideoParentWrapper
+                                    closeVideo={closeVideo}
+                                    currentVideoItems={video_result}
+                                    openVideo={openVideo}
+                                    show={show}
+                                    video_src={play_video_src}
+                                />
+                            </>
+                        ) : (
+                            <Flex m="16px 0">
+                                <Header as="h3" type="subtitle-2" weight="normal" color="grey-5">
+                                    No results found
+                                </Header>
+                            </Flex>
+                        )}
+
+                        {full_video_link && !items_type && total_video > 1 && (
+                            <AllArticleButton tertiary="true" to={full_video_link}>
+                                All video results
+                            </AllArticleButton>
+                        )}
+                    </Flex>
                 </Container>
             </Flex>
         </Layout>

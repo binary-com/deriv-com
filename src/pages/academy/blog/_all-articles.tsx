@@ -19,7 +19,7 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
     const [is_mobile] = useBrowserResize()
     const [is_tablet] = useBrowserResize(1333)
     const [current_page, setCurrentPage] = useState(1)
-    const desktop_max_posts = 10
+    const desktop_max_posts = 19
     const tablet_max_posts = 9
     const mobile_max_posts = 10
     const posts_per_page =
@@ -52,8 +52,8 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
                 })}
             </VideoGrid>
             <Pagination
-                posts_per_page={posts_per_page}
-                total_posts={article_data.length - 1}
+                items_per_page={posts_per_page}
+                total_items={article_data.length}
                 paginate={paginate}
                 current_page={current_page}
             />

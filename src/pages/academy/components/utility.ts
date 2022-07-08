@@ -1,3 +1,4 @@
+import React from 'react'
 import { navigate } from 'gatsby'
 import { isBrowser, addScript } from 'common/utility'
 import { useCountryRule } from 'components/hooks/use-country-rule'
@@ -36,17 +37,32 @@ export const handleTag = (tag_name) => {
 }
 
 export const useDataFilter = (data) => {
-    const { is_eu, is_uk } = useCountryRule()
-    let filtered_data = data
+    const [filtered_data, setFilteredData] = React.useState(null)
+    const { is_eu, is_uk, is_loading } = useCountryRule()
 
-    if (is_eu) {
-        filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
-        )
-    } else if (is_uk) {
-        filtered_data = data.filter(
-            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
-        )
-    }
+    React.useEffect(() => {
+        if (!is_loading) {
+            if (is_eu) {
+                setFilteredData(
+                    data.filter(
+                        (item) =>
+                            item.visibility !== 'hide_for_eu' &&
+                            item.visibility !== 'hide_for_eu_uk',
+                    ),
+                )
+            } else if (is_uk) {
+                setFilteredData(
+                    data.filter(
+                        (item) =>
+                            item.visibility !== 'hide_for_uk' &&
+                            item.visibility !== 'hide_for_eu_uk',
+                    ),
+                )
+            } else {
+                setFilteredData(data)
+            }
+        }
+    }, [data, is_eu, is_loading, is_uk])
+
     return filtered_data
 }

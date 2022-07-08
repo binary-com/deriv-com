@@ -7,13 +7,13 @@ import { SectionContainer, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form/'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const Subscription = () => {
     const [email] = useQueryParam('email', StringParam)
     const [confirmation_code] = useQueryParam('c', StringParam)
     const [is_script_loaded, setScriptLoaded] = useState(false)
-    const { is_eu } = getCountryRule()
+    const { is_eu } = useCountryRule()
 
     useEffect(() => {
         if (email && confirmation_code) {

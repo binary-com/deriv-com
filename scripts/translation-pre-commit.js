@@ -21,23 +21,15 @@ exec('git rev-parse --abbrev-ref HEAD', (err, stdout) => {
 
 const handleProcess = () => {
     const strings_path = 'crowdin/messages.json'
-    const translation_branches = ['translation', 'stp']
 
-    // Detect Auto Translation Process
-    const branch_prefix = branch_name.split('-')[0]
+    console.log(`\x1b[33m[${branch_name}]\x1b[32m Checking new strings to be extracted \n \x1b[0m`)
 
-    if (translation_branches.includes(branch_prefix)) {
-        console.log(
-            `\x1b[33m[${branch_name}]\x1b[32m requires translation, auto extracting strings \n \x1b[0m`,
-        )
-
-        runProcess({
-            process: 'extract',
-            callback: () => {
-                exec(`git add ${strings_path}`)
-            },
-        })
-    }
+    runProcess({
+        process: 'extract',
+        callback: () => {
+            exec(`git add ${strings_path}`)
+        },
+    })
 }
 
 const runProcess = (data) => {

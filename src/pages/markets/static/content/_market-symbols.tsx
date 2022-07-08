@@ -1049,14 +1049,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="BTC/LTC" />,
     },
     {
-        src: icons.BTCXAG,
-        text: <Localize translate_text="BTC/XAG" />,
-    },
-    {
-        src: icons.BTCXAU,
-        text: <Localize translate_text="BTC/XAU" />,
-    },
-    {
         src: icons.DOGUSD,
         text: <Localize translate_text="DOG/USD" />,
     },
@@ -1117,10 +1109,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="SOL/USD" />,
     },
     {
-        src: icons.TERUSD,
-        text: <Localize translate_text="TER/USD" />,
-    },
-    {
         src: icons.TRXUSD,
         text: <Localize translate_text="TRX/USD" />,
     },
@@ -1149,7 +1137,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="ZEC/USD" />,
     },
 ]
-
 export const cryptocurrencies_multipliers: MarketSymbol[] = [
     {
         src: icons.BTCUSD,

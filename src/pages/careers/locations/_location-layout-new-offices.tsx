@@ -223,7 +223,10 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
 
     return (
         <>
-            <Hero display_name={display_name} img_data={images[location.name]} />
+            <Hero
+                display_name={display_name === 'Amman' ? ' Jordan' : display_name}
+                img_data={images[location.name]}
+            />
             <FirstSection>
                 <SecondStyledHeader
                     type="unset"
@@ -232,7 +235,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                     size="var(--text-size-header-5)"
                     color="black-6"
                 >
-                    Deriv in {display_name}
+                    Deriv in {display_name === 'Amman' ? ' Jordan' : display_name}
                 </SecondStyledHeader>
                 <Flex tablet_direction="column">
                     <Text color="black-6">{location.first_p}</Text>

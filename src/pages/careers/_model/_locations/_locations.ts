@@ -22,6 +22,7 @@ import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -374,6 +375,33 @@ export const guernsey: LocationsType = {
     has_map: false,
 }
 
+export const jordan: LocationsType = {
+    name: 'jordan',
+    continent: 'middle_east',
+    display_continent: 'Middle East',
+    link: '/careers/locations/jordan/',
+    display_name: 'Amman',
+    img_alt: 'Jordan alt img',
+    map_office_name: '(Jordan)',
+    country: 'Jordan',
+    flagIcon: JordanFlagIcon,
+    thumbnail: 'thumbnail_jordan',
+    first_p:
+        'Deriv (Jordan) will be our new office, starting its operations later in 2022.  Tapping into the regional talent pool, it will be a software development centre and will also offer general services to the Deriv Group.',
+    first_img: 'living_in_jordan',
+    first_img_alt: 'living_in_jordan alt img',
+    grid_images: ['jordan_grid_1', 'jordan_grid_2', 'jordan_grid_3', 'jordan_grid_4'],
+    grid_img_alt: ['jordan grid 1', 'jordan grid 2', 'jordan grid 3', 'jordan grid 4'],
+    map: '',
+    map_text:
+        'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
+    address: address_guernsey,
+    map_img: 'guernsey_map',
+    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
+    has_iframe: false,
+    has_map: false,
+}
+
 export const all_offices: LocationsType[] = [
     dubai,
     malta,
@@ -386,6 +414,7 @@ export const all_offices: LocationsType[] = [
     guernsey,
     asuncion,
     rwanda,
+    jordan,
     minsk,
 ]
 export const locations = {
@@ -401,7 +430,9 @@ export const locations = {
     belarus: `${minsk.display_name}, ${minsk.country}`,
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
+    jordan: `${jordan.display_name}, ${jordan.country}`,
 }
+
 export const allContinents = {
     all: all_offices,
     europe: [],

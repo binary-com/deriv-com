@@ -19,15 +19,22 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
     const [is_mobile] = useBrowserResize()
     const [is_tablet] = useBrowserResize(1333)
     const [current_page, setCurrentPage] = useState(1)
-    const desktop_max_posts = 19
-    const tablet_max_posts = 9
-    const mobile_max_posts = 10
-    const posts_per_page =
-        (is_mobile && mobile_max_posts) || (is_tablet && tablet_max_posts) || desktop_max_posts
+    const desktop_max_articles = 18
+    const tablet_max_articles = 12
+    const mobile_max_articles = 10
+    const articles_per_page =
+        (is_mobile && mobile_max_articles) ||
+        (is_tablet && tablet_max_articles) ||
+        desktop_max_articles
 
-    const index_of_last_post = current_page * posts_per_page
-    const index_of_first_post = index_of_last_post - posts_per_page
-    const current_posts = article_data.slice(index_of_first_post, index_of_last_post)
+    const index_of_last_article = current_page * articles_per_page
+    const index_of_first_article = index_of_last_article - articles_per_page
+    const first_article = article_data[0]
+    const all_articles_except_first = article_data.slice(1)
+    const articles_for_pagination = all_articles_except_first.slice(
+        index_of_first_article,
+        index_of_last_article,
+    )
 
     const myRef = useRef(null)
 
@@ -45,15 +52,15 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
                 <StyledImg src={RightArrow} height="16" width="16" />
                 <Text>All articles</Text>
             </Flex>
-            {current_page === 1 && <FirstArticle item={article_data[0]} />}
+            {current_page === 1 && <FirstArticle item={first_article} />}
             <VideoGrid margin="40px 0">
-                {current_posts.slice(1).map((item) => {
+                {articles_for_pagination.map((item) => {
                     return <ArticleCard key={item.id} item={item} />
                 })}
             </VideoGrid>
             <Pagination
-                items_per_page={posts_per_page}
-                total_items={article_data.length}
+                items_per_page={articles_per_page}
+                total_items={all_articles_except_first.length}
                 paginate={paginate}
                 current_page={current_page}
             />

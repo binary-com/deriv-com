@@ -19,8 +19,8 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
     const [is_tablet] = useBrowserResize(1333)
     const [current_page, setCurrentPage] = React.useState(1)
     const desktop_max_videos = 18
-    const tablet_max_videos = 10
-    const mobile_max_videos = 9
+    const tablet_max_videos = 12
+    const mobile_max_videos = 10
     const videos_per_page =
         (is_mobile && mobile_max_videos) || (is_tablet && tablet_max_videos) || desktop_max_videos
 

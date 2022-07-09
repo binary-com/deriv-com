@@ -38,24 +38,26 @@ const Dots = styled.p`
 const Pagination = ({ items_per_page, total_items, paginate, current_page }: PaginationProps) => {
     const page_numbers = []
 
-    for (let i = 1; i <= Math.ceil(total_items / items_per_page); i++) {
+    const total_pages = Math.ceil(total_items / items_per_page)
+
+    for (let i = 1; i <= total_pages; i++) {
         page_numbers.push(i)
     }
 
+    const last_page = page_numbers.length
+
     const sliced_page_numbers =
-        page_numbers.length > 5
+        last_page > 5
             ? page_numbers.slice(
-                  (current_page > 2 && current_page !== 4 && current_page - 3) ||
-                      (current_page === 4 && current_page - 4),
+                  (current_page === 4 && current_page - 4) ||
+                      (current_page > 4 && current_page - 3),
                   current_page + 2,
               )
             : page_numbers
 
-    const last_page_number = page_numbers.length
-
     return (
         <StyledFlex>
-            {current_page > 4 && page_numbers.length > 5 && (
+            {current_page > 4 && last_page > 5 && (
                 <>
                     <StyledButton
                         active={1 === current_page}
@@ -79,16 +81,16 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
                     {number}
                 </StyledButton>
             ))}
-            {current_page + 2 < last_page_number && page_numbers.length > 5 && (
+            {current_page + 2 < last_page && last_page > 5 && (
                 <>
                     <Dots>...</Dots>
                     <StyledButton
-                        active={last_page_number === current_page}
+                        active={last_page === current_page}
                         tertiary
                         m="5px"
-                        onClick={() => paginate(last_page_number)}
+                        onClick={() => paginate(last_page)}
                     >
-                        {last_page_number}
+                        {last_page}
                     </StyledButton>
                 </>
             )}

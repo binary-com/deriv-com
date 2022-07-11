@@ -14,19 +14,19 @@ const query = graphql`
         living_in_jordan: file(relativePath: { eq: "careers/living_in_jordan.jpg" }) {
             ...fadeIn
         }
-        jordan_grid_1: file(relativePath: { eq: "careers/jordan_grid_1.jpg" }) {
+        guernsey_grid_1: file(relativePath: { eq: "careers/guernsey_grid_1.jpg" }) {
             ...fadeIn
         }
-        jordan_grid_2: file(relativePath: { eq: "careers/jordan_grid_2.jpg" }) {
+        guernsey_grid_2: file(relativePath: { eq: "careers/guernsey_grid_2.jpg" }) {
             ...fadeIn
         }
-        jordan_grid_3: file(relativePath: { eq: "careers/jordan_grid_3.jpg" }) {
+        jordan_grid_3: file(relativePath: { eq: "careers/jordan_grid_3.png" }) {
             ...fadeIn
         }
-        jordan_grid_4: file(relativePath: { eq: "careers/jordan_grid_4.jpg" }) {
+        guernsey_grid_4: file(relativePath: { eq: "careers/guernsey_grid_4.jpg" }) {
             ...fadeIn
         }
-        jordan_map: file(relativePath: { eq: "maps/map-jordan-career.jpg" }) {
+        guernsey_map: file(relativePath: { eq: "maps/map-guernsey-career.jpg" }) {
             ...fadeIn
         }
     }

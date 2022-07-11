@@ -174,7 +174,7 @@ const WorkingFlex = styled(Flex)`
 `
 
 const WorkingInformation = styled(Flex)`
-    max-width: 44.4rem;
+    max-width: 51.4rem;
     padding: 40px;
     display: block;
     @media ${device.laptop} {
@@ -184,7 +184,7 @@ const WorkingInformation = styled(Flex)`
 `
 
 const StyledDiv = styled.div`
-    max-width: 400px;
+    max-width: 438px;
 
     @media ${device.laptop} {
         max-width: 100%;

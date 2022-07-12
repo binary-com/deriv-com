@@ -9,7 +9,7 @@ import { Flex } from 'components/containers'
 
 const Symbol = styled(Flex)`
     width: fit-content;
-    margin-top: px;
+    margin-top: 8px;
 
     img {
         width: 32px;
@@ -40,9 +40,10 @@ const Symbol = styled(Flex)`
 `
 
 export const DropdownContainer = styled.ul`
-    @media (width: 428px) {
-        height: 46px;
+    @media ${device.mobileL} {
+        height: 43px;
     }
+
     list-style: none;
     position: relative;
     border: 1px solid var(--color-grey-7);
@@ -214,7 +215,6 @@ export const StyledLabel = styled.label`
     left: 0.8rem;
     top: 1.2rem;
     height: 2rem;
-
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
@@ -255,7 +255,6 @@ const ContractSizeWrapper = styled(Text)`
     position: absolute;
     cursor: text;
     color: var(--color-grey-5);
-
     margin-top: 12px;
 `
 

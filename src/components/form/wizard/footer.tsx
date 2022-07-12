@@ -32,10 +32,10 @@ const Footer = ({ disabled }: { disabled: boolean }) => {
             </Button>
             <Button
                 secondary="true"
-                disabled={disabled || max_step === step}
+                disabled={disabled}
                 onClick={() => step < 5 && setStep(step + 1)}
             >
-                {localize('Next')}
+                {max_step === step ? localize('Submit') : localize('Next')}
             </Button>
         </StyledFooter>
     )

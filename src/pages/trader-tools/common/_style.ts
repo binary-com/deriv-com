@@ -94,7 +94,7 @@ export const SwapTabSelector = styled(Flex)`
     margin-left: 15px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     padding: 22px 16px;
-    width: 27rem;
+    width: 21rem;
     height: 80px;
     border-radius: 4px;
     flex-direction: column;
@@ -155,7 +155,7 @@ export const CalculatorForm = styled(Form)`
 `
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
-    width:46rem;
+    width:43rem;
 `
 
 export const PnlHeaderOverflow = styled.div`

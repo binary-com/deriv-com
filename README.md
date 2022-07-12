@@ -260,7 +260,7 @@ If preferable to use manual deployment, you can use [gh-pages](https://pages.git
 -   **To a specific branch:**
 
     ```sh
-    branch_name=fix_all_the_bugs npm run deploy-branch
+    npm run deploy-branch --branch_name=my-branch
     ```
 
     This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs

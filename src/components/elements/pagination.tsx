@@ -12,13 +12,15 @@ type PaginationProps = {
 
 const StyledFlex = styled(Flex)`
     margin-bottom: 40px;
+    align-items: center;
 `
 
-const StyledButton = styled(Button)<{ active: boolean }>`
+const StyledButton = styled(Button)<{ active: boolean; red: boolean; big: boolean }>`
     border: 2px solid rgba(0, 0, 0, 0);
     padding: 8px 13px;
     margin: 0;
-    color: var(--color-black-5);
+    color: ${(props) => (props.red ? 'var(--color-red)' : 'var(--color-black-5)')};
+    font-size: ${(props) => props.big && '20px'};
     ${(props) => {
         if (props.active)
             return css`
@@ -49,15 +51,25 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
     const sliced_page_numbers =
         last_page > 5
             ? page_numbers.slice(
-                  (current_page === 4 && current_page - 4) ||
-                      (current_page > 4 && current_page - 3),
-                  current_page + 2,
+                  (current_page === 3 && current_page - 3) ||
+                      (current_page > 3 && current_page - 2),
+                  (current_page < 3 && current_page + 2) || current_page + 1,
               )
             : page_numbers
 
     return (
         <StyledFlex>
-            {current_page > 4 && last_page > 5 && (
+            <StyledButton
+                red
+                big
+                disabled={current_page === 1}
+                tertiary
+                m="5px"
+                onClick={() => paginate(current_page - 1)}
+            >
+                {'<'}
+            </StyledButton>
+            {current_page > 3 && last_page > 5 && (
                 <>
                     <StyledButton
                         active={1 === current_page}
@@ -94,6 +106,16 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
                     </StyledButton>
                 </>
             )}
+            <StyledButton
+                red
+                big
+                disabled={current_page === last_page}
+                tertiary
+                m="5px"
+                onClick={() => paginate(current_page + 1)}
+            >
+                {'>'}
+            </StyledButton>
         </StyledFlex>
     )
 }

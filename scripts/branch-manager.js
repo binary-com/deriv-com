@@ -58,6 +58,7 @@ const branchGenerator = (step = 1, data = {}) => {
             }
             break
         case 3:
+            {
             const { branch_name } = data
 
             const name_input = prompt('\x1b[33mBranch name: \x1b[0m')
@@ -65,10 +66,36 @@ const branchGenerator = (step = 1, data = {}) => {
             const clean_name_input = slugify(name_input)
 
             if (clean_name_input) {
-                exec(`git checkout -b ${branch_name}-${clean_name_input}`, () => {})
+                if (branch_name.slice(0,3)=='stp'){
+                const final_branch_name=`${branch_name}-${clean_name_input}`
+                   branchGenerator(4, { final_branch_name })
+                }
+                else {
+                exec(`git checkout -b ${branch_name}-${clean_name_input}`, () => {})}
             }
+        }
+        break
 
+        case 4:
+            {
+                const { final_branch_name } = data
+
+                const pr_id = prompt('\x1b[33mPR-ID: \x1b[0m')
+
+                const is_number = /^\d+$/.test(pr_id)
+
+                if (is_number) {
+                    exec(`git checkout -b ${final_branch_name}`, () => {})
+                    exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name} `)
+                } else {
+                    if (pr_id !== 'exit') {
+                        logError('PR id # should be a number')
+                        branchGenerator(4, { final_branch_name })
+                    }
+                }
+            }
             break
+
         default:
             break
     }

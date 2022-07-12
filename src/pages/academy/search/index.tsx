@@ -347,6 +347,7 @@ const SearchPage = () => {
                             </>
                         )}
                     </Flex>
+
                     {((search_query && items_type == 'article') ||
                         (search_query && !items_type) ||
                         (category_type && !items_type) ||

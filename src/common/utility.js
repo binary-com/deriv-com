@@ -10,6 +10,7 @@ import {
     live_chat_key,
     domains,
     eu_domains,
+    uk_domains,
 } from './constants'
 import { isUK, eu_countries } from 'common/country-base'
 import { localize } from 'components/localization'
@@ -412,6 +413,21 @@ export const queryParams = {
         return history.replaceState(null, null, url)
     },
 }
+
+export const redirectWithParamReference = (url = '', param = null) => {
+    const param_value = queryParams.get(param)
+    const new_url = new URL(location)
+
+    if (param) {
+        new_url.searchParams.delete(param) // Remove the param reference so it will not be included on the final redirection link
+
+        const param_string = new_url.searchParams.toString()
+        const param_settings = `${param_string === '' ? '' : '?'}${param_string}`
+        const final_url = `${url}${param ? `/${param_value}` : ''}`
+        navigate(`${final_url}/${param_settings}`)
+    }
+}
+
 export const getBaseRef = (ref) => {
     // this is intended to solve a problem of preact that
     // in some cases element api's are in the ref.current.base and
@@ -436,39 +452,25 @@ const redirect = (subdomain) => {
     window.location.href = `https://${redirection_url + window.location.pathname}`
 }
 
-const redirectToDeriv = (full_domain) => {
-    const final_url = full_domain.includes('staging') ? 'staging.deriv.com' : 'deriv.com'
-    window.location.href = `https://${final_url}`
-}
-
 export const handleDerivRedirect = (country, subdomain) => {
     if (eu_subdomain_countries.includes(country)) {
         redirect(subdomain.includes('staging') ? 'staging-eu' : 'eu')
     }
 }
 
-const handleEURedirect = (country, full_domain) => {
-    if (!eu_subdomain_countries.includes(country)) {
-        redirectToDeriv(full_domain)
-    }
-}
+const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
-const getSubdomain = () => isBrowser() && window.location.hostname.split('.').slice(0, -2).join('.')
+export const isEuDomain = () => !!eu_domains.some((e) => getSubdomain().includes(e))
 
-export const isEuDomain = () => !!eu_domains.includes(getSubdomain())
+export const isUkDomain = () => !!uk_domains.some((e) => getSubdomain().includes(e))
 
-export const handleRedirect = (residence, current_client_country, full_domain) => {
-    const subdomain = window.location.hostname.split('.').slice(0, -2).join('.')
+export const handleRedirect = (residence, current_client_country) => {
     const country = residence ? residence : current_client_country
-
-    const eu_domains = ['eu', 'staging-eu']
 
     if (isLocalhost() || isTestlink()) {
         return false
-    } else if (eu_domains.some((e) => subdomain.includes(e))) {
-        handleEURedirect(country, full_domain)
     } else {
-        handleDerivRedirect(country, subdomain)
+        handleDerivRedirect(country, getSubdomain())
     }
 }
 

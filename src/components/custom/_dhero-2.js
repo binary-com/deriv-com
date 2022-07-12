@@ -5,8 +5,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled(Flex)`
     position: relative;
@@ -143,6 +144,20 @@ const StyledLinkButton = styled(LinkButton)`
         max-height: 40px;
     }
 `
+const StyledButton = styled(Button)`
+    padding: 14px 16px;
+    width: fit-content;
+    height: 100%;
+    margin-right: 2px;
+    border: unset;
+
+    @media ${device.tablet} {
+        height: 40px;
+        white-space: nowrap;
+        display: inline-block;
+        max-height: 40px;
+    }
+`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 56.2rem;
@@ -224,6 +239,7 @@ const DHero = ({
 }) => {
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+    const handleSignup = useHandleSignup(is_ppc)
 
     const DLogo = styled.img`
         width: 32px !important;
@@ -310,13 +326,9 @@ const DHero = ({
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (
-                        <StyledLinkButton
-                            id="dm-hero-signup-2"
-                            secondary="true"
-                            to={is_ppc ? '/landing/signup/' : '/signup/'}
-                        >
+                        <StyledButton onClick={handleSignup} id="dm-hero-signup-2" secondary="true">
                             {localize('Create free demo account')}
-                        </StyledLinkButton>
+                        </StyledButton>
                     )}
                     {go_to_live_demo && (
                         <StyledLinkButton

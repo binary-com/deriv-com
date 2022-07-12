@@ -263,7 +263,7 @@ If preferable to use manual deployment, you can use [gh-pages](https://pages.git
     npm run deploy-branch --branch_name=my-branch
     ```
 
-    This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
+    This will be deployed to name.github.io/deriv-com/br/my-branch
 
 ⚠️ You have to enable pathPrefix in gatsby-config for manual deployment, otherwise, the resources will not be uploaded to the site
 

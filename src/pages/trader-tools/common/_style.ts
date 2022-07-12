@@ -156,6 +156,10 @@ export const CalculatorForm = styled(Form)`
 export const PnlCalculatorFormMobile = styled(Form)`
     ${CalculatorFormStyles}
     width:43rem;
+
+    @media (min-width: 1200px) {
+        width: 54rem;
+    }
 `
 
 export const PnlHeaderOverflow = styled.div`

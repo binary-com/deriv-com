@@ -212,7 +212,7 @@ export const StyledLabel = styled.label`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1rem;
+    top: 1.2rem;
     height: 2rem;
 
     transition: 0.25s ease transform;
@@ -221,7 +221,7 @@ export const StyledLabel = styled.label`
 
     @media ${device.tabletL} {
         font-size: 1.6rem;
-        top: 1.8rem;
+        top: 1.6rem;
     }
 
     @media ${device.mobileL} {

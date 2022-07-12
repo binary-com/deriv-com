@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Footer from './footer'
-import Form from './form'
 import Header from './header'
 import Stepper from './stepper'
+
+type WizardProps = {
+    children: React.ReactElement[]
+    steps_names: string[]
+}
 
 const Background = styled.div`
     position: absolute;
@@ -33,11 +37,10 @@ const Modal = styled.div`
 
 export const StepContext = React.createContext(null)
 
-const Wizard = ({ children }: { children: React.ReactElement[] }) => {
+const Wizard = ({ children, steps_names }: WizardProps) => {
     const [show, setShow] = useState(true)
     const [step, setStep] = useState(1)
     const max_step = children.length
-    const step_names = children.map((child) => child.props.name)
     const [enable_next, setEnableNext] = useState(false)
 
     useEffect(() => {
@@ -50,8 +53,10 @@ const Wizard = ({ children }: { children: React.ReactElement[] }) => {
                 <Modal>
                     <Header setShow={setShow} />
                     <StepContext.Provider value={{ step, setStep, max_step, setEnableNext }}>
-                        <Stepper step_names={step_names} />
-                        <Form>{children}</Form>
+                        <Stepper step_names={steps_names} />
+                        {children.map((child, idx) => (
+                            <div key={child.props.name}>{step === idx + 1 && child}</div>
+                        ))}
                         <Footer disabled={!enable_next} />
                     </StepContext.Provider>
                 </Modal>

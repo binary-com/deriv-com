@@ -171,12 +171,20 @@ const AffiliateIb = () => {
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
-            <Wizard>
-                <FormAccountType name="Account type" />
-                <FormAddressDetails name="Address details" />
-                <FormPhoneNumber name="Phone number" />
-                <FormPersonalDetails name="Personal details" />
-                <FormTermsOfUse name="Terms of use" />
+            <Wizard
+                steps_names={[
+                    'Account type',
+                    'Address details',
+                    'Phone number',
+                    'Personal details',
+                    'Terms of use',
+                ]}
+            >
+                <FormAccountType />
+                <FormAddressDetails />
+                <FormPhoneNumber />
+                <FormPersonalDetails />
+                <FormTermsOfUse />
             </Wizard>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">

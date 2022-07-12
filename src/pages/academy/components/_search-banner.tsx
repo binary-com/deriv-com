@@ -741,12 +741,6 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     // Grey out any categories that don't have any results for respective videos/blog
 
     const handleHref = (category) => {
-        if (isBrowser() && window.location.pathname.includes('/academy/videos')) {
-            return `/academy/search?type=video&category=${encodeURIComponent(slugify(category))}`
-        }
-        if (isBrowser() && window.location.pathname.includes('/academy/blog')) {
-            return `/academy/search?type=article&category=${encodeURIComponent(slugify(category))}`
-        }
         return `/academy/search?category=${encodeURIComponent(slugify(category))}`
     }
 

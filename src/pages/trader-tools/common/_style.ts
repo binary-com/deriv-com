@@ -87,13 +87,24 @@ const swap_tab_selector_css = (props) =>
           `
 
 export const SwapTabSelector = styled(Flex)`
-    padding: 22px 64px;
-    width: auto;
+    @media ${device.mobileL} {
+        width: 160px;
+    }
+
+    margin-left: 15px;
+    border: solid 1px rgba(51, 51, 51, 0.1);
+    padding: 22px 16px;
+    width: 27rem;
     height: 80px;
     border-radius: 4px;
-    border: solid 1px rgba(51, 51, 51, 0.1);
     flex-direction: column;
     cursor: pointer;
+
+    :nth-child(2) {
+        margin-left: 0px;
+        margin-right: 15px;
+    }
+
     ${swap_tab_selector_css}
 `
 

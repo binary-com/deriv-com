@@ -16,9 +16,10 @@ type AllArticlesProps = {
 export type ItemType = ArticleDataType[0]
 
 const AllArticles = ({ article_data }: AllArticlesProps) => {
+    const url_page_number = Number(window.location.search.replace(/\D/g, ''))
     const [is_mobile] = useBrowserResize()
     const [is_tablet] = useBrowserResize(1333)
-    const [current_page, setCurrentPage] = useState(1)
+    const [current_page, setCurrentPage] = useState(url_page_number ? url_page_number : 1)
     const desktop_max_articles = 18
     const tablet_max_articles = 12
     const mobile_max_articles = 10
@@ -63,6 +64,7 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
                 total_items={all_articles_except_first.length}
                 paginate={paginate}
                 current_page={current_page}
+                setCurrentPage={setCurrentPage}
             />
         </Container>
     )

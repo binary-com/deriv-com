@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import { RedirectLink } from '../components/recent-featured-posts/_style'
 import VideoCard from './_video-card'
@@ -14,10 +14,11 @@ type AllVideosProps = {
 }
 
 const AllVideos = ({ video_data }: AllVideosProps) => {
-    const [show_pagination, setShowPagination] = React.useState(false)
+    const url_page_number = Number(window.location.search.replace(/\D/g, ''))
+    const [show_pagination, setShowPagination] = useState(false)
     const [is_mobile] = useBrowserResize()
     const [is_tablet] = useBrowserResize(1333)
-    const [current_page, setCurrentPage] = React.useState(1)
+    const [current_page, setCurrentPage] = useState(url_page_number ? url_page_number : 1)
     const desktop_max_videos = 18
     const tablet_max_videos = 12
     const mobile_max_videos = 10
@@ -28,7 +29,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
     const index_of_first_post = index_of_last_post - videos_per_page
     const current_videos = video_data.slice(index_of_first_post, index_of_last_post)
 
-    const myRef = React.useRef(null)
+    const myRef = useRef(null)
 
     const paginate = (page_number) => {
         myRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -74,6 +75,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
                     total_items={video_data.length}
                     paginate={paginate}
                     current_page={current_page}
+                    setCurrentPage={setCurrentPage}
                 />
             )}
         </Container>

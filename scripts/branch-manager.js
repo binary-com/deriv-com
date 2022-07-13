@@ -91,8 +91,7 @@ const branchGenerator = (step = 1, data = {}) => {
                         branchGenerator(4, { final_branch_name })
                  }
                     else{
-                    exec(`git checkout ${final_branch_name}`, () => {
-                        console.log("checking out to the stp branch")})
+                    exec(`git checkout ${final_branch_name}`, () => {})
                 }})}
                 else {
                     if (pr_id !== 'exit') {

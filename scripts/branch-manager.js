@@ -91,9 +91,11 @@ const branchGenerator = (step = 1, data = {}) => {
                  }
 
                 else{
-                    exec(`git checkout ${final_branch_name}`, (err) => {if(err){logError(err)}
-                    else{console.log("here")}})
-                    exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name} `, ()=>{console.log("done")})
+                    exec(`git checkout ${final_branch_name}`, (err) => {
+                    if(err)
+                        { logError(err)}
+                    else
+                       { console.log("checking out to the stp branch")}})
                 }})
                 }
 

@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import { Header } from './typography'
 import { Flex } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
-import { useTabState } from 'components/hooks/use-tab-state'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
@@ -126,15 +125,14 @@ const Tabs = ({
     const [is_mobile] = useBrowserResize(768)
     const [is_mounted] = usePageLoaded()
     const [selected_tab, setSelectedTab] = useState(0)
-    const [active_tab, setActiveTab] = has_no_query
-        ? useTabState(tab_list)
-        : useTabStateQuery(tab_list)
+
+    const [active_tab, setActiveTab] = useTabStateQuery(tab_list, has_no_query)
     const [offset, setOffset] = useState(0)
     const ref = useRef(null)
 
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
-    }, [active_tab])
+    }, [active_tab, tab_list])
 
     useEffect(() => {
         const selected_el = ref.current.querySelector('[aria-selected="true"]')
@@ -145,7 +143,7 @@ const Tabs = ({
 
     useEffect(() => {
         ref.current.scrollLeft = offset
-    }, [ref.current, offset])
+    }, [offset])
 
     const setOffsetPositioning = (e, index) => {
         const left = e.target.offsetLeft - 24

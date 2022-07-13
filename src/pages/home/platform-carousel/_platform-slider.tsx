@@ -125,7 +125,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
         onSelectSlide(index)
     }
 
-    if (platform_details)
+    if (platform_details) {
         return (
             <Box
                 width="fit-content"
@@ -165,6 +165,8 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
                 </StyledFlex>
             </Box>
         )
+    }
+    return <></>
 }
 
 export default PlatformSlider

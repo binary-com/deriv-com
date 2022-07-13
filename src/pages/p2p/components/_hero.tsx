@@ -65,10 +65,6 @@ const InformationWrapper = styled(Flex)`
     @media ${device.tablet} {
         top: 280px;
         max-width: 350px;
-        padding: 0 16px;
-    }
-    @media ${device.mobileL} {
-        max-width: 328px;
     }
     @media ${device.mobileM} {
         padding: 0;
@@ -87,7 +83,6 @@ const HeroContent = styled(Flex)`
         display: flex;
         margin-top: 1.6rem;
         line-height: 3.6rem;
-        max-width: 78%;
     }
     @media ${device.laptopM} {
         ${Header} {
@@ -96,8 +91,13 @@ const HeroContent = styled(Flex)`
     }
     @media ${device.tabletL} {
         ${Header} {
-            font-size: 16px;
+            font-size: 20px;
             max-width: 100%;
+        }
+    }
+    @media ${device.mobileM} {
+        ${Header} {
+            font-size: 19px;
         }
     }
     @media ${device.mobileL} {
@@ -145,9 +145,11 @@ const TryButton = styled(LinkButton)`
     border: unset;
 
     @media ${device.mobileL} {
-        padding: 1.5rem 1.6rem;
-        height: 42px;
+        padding: 24px;
+        height: 64px;
+        width: 100%;
         white-space: nowrap;
+        font-size: 20px;
         margin-bottom: 2rem;
     }
     @media ${device.mobileL} {

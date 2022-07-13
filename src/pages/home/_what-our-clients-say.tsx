@@ -24,7 +24,7 @@ const ClientContainer = styled(Container)`
     align-items: center;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto 80px;
+    margin: 0 auto;
 `
 
 const ClientFlex = styled(Flex)`

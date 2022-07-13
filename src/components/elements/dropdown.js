@@ -207,21 +207,21 @@ export const Arrow = styled(Chevron)`
 `
 
 export const StyledLabel = styled.label`
-    color: grey;
+    color: gray;
     background: var(--color-white);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.2rem;
+    top: 1.1rem;
     height: 2rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
 
     @media ${device.tabletL} {
-        font-size: 1.6rem;
-        top: 1.6rem;
+        font-size: 1.65rem;
+        top: 1.4rem;
     }
 
     @media ${device.mobileL} {
@@ -255,7 +255,6 @@ const ContractSizeWrapper = styled(Text)`
     position: absolute;
     cursor: text;
     color: var(--color-grey-5);
-    margin-top: 12px;
 `
 
 const DefaultOptionText = styled(Text)`

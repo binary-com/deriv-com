@@ -391,7 +391,7 @@ const SearchPage = () => {
             </>
         )
     }
-    const urlLocation = (url, is_search = false) => {
+    const checkFilterType = (url, is_search = false) => {
         const type = queryParams.get('type')
         const category = queryParams.get('category')
         if (!is_search) {
@@ -400,9 +400,9 @@ const SearchPage = () => {
             return category && type ? false : true
         }
     }
-    const is_video = urlLocation('video')
-    const is_article = urlLocation('article')
-    const is_search = urlLocation('', true)
+    const is_video = checkFilterType('video')
+    const is_article = checkFilterType('article')
+    const is_search = checkFilterType('', true)
 
     return (
         <Layout type="academy" margin_top={'14.4'}>

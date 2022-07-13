@@ -85,9 +85,19 @@ const branchGenerator = (step = 1, data = {}) => {
                 const is_number = /^\d+$/.test(pr_id)
 
                 if (is_number) {
-                    exec(`git checkout -b ${final_branch_name}`, () => {})
-                    exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name} `,() => {})
-                } else {
+                    exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name}`,(err) => {if (err) {
+                        logError(err)
+                        branchGenerator(4, { final_branch_name })
+                 }
+
+                else{
+                    exec(`git checkout ${final_branch_name}`, (err) => {if(err){logError(err)}
+                    else{console.log("here")}})
+                    exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name} `, ()=>{console.log("done")})
+                }})
+                }
+
+                else {
                     if (pr_id !== 'exit') {
                         logError('PR id # should be a number')
                         branchGenerator(4, { final_branch_name })

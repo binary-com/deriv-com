@@ -12,7 +12,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
 import { cms_assets_end_point } from 'common/constants'
-import { unslugify, slugify } from 'common/utility'
+import { unslugify, slugify, queryParams } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 
@@ -391,12 +391,18 @@ const SearchPage = () => {
             </>
         )
     }
-    const urlLocation = (url) => {
-        return window.location.href.includes(url)
+    const urlLocation = (url, is_search = false) => {
+        const type = queryParams.get('type')
+        const category = queryParams.get('category')
+        if (!is_search) {
+            return type === url
+        } else {
+            return category && type ? false : true
+        }
     }
-    const itemTypevideo = urlLocation('/academy/search?type=video')
-    const itemTypearticle = urlLocation('/academy/search?type=article')
-    const itemSearch = urlLocation('/academy/search?category=')
+    const is_video = urlLocation('video')
+    const is_article = urlLocation('article')
+    const is_search = urlLocation('', true)
 
     return (
         <Layout type="academy" margin_top={'14.4'}>
@@ -433,7 +439,7 @@ const SearchPage = () => {
                             </>
                         )}
                     </Flex>
-                    {(itemTypearticle || itemSearch) && (
+                    {(is_article || is_search) && (
                         <>
                             <Flex m="40px 0" fd="column">
                                 {renderArticle()}
@@ -444,7 +450,7 @@ const SearchPage = () => {
                             </Flex>
                         </>
                     )}
-                    {itemTypevideo && (
+                    {is_video && (
                         <>
                             <Flex m="40px 0" fd="column">
                                 {renderVideo()}

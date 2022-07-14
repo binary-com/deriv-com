@@ -1,7 +1,8 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
+// import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
+import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
@@ -116,9 +117,9 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
-    if (isLive()) {
-        pushwooshInit(push_woosh)
-    }
+    // if (isLive()) {
+    pushwooshInit(push_woosh)
+    // }
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {

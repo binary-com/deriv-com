@@ -10,11 +10,11 @@ import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 
 const content = [
     {
-        header: <Localize translate_text="21,000" />,
+        header: <Localize translate_text="21,000+" />,
         text: <Localize translate_text="active users" />,
     },
     {
-        header: <Localize translate_text="12M USD" />,
+        header: <Localize translate_text="12M+ USD" />,
         text: <Localize translate_text="exchanged to date" />,
     },
 ]

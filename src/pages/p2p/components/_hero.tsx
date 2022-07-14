@@ -84,10 +84,6 @@ const InformationWrapper = styled(Flex)`
     @media ${device.tablet} {
         top: 280px;
         max-width: 350px;
-        padding: 0 16px;
-    }
-    @media ${device.mobileL} {
-        max-width: 328px;
     }
     @media ${device.mobileM} {
         padding: 0;
@@ -117,8 +113,13 @@ const HeroContent = styled(Flex)`
     }
     @media ${device.tabletL} {
         ${Header} {
-            font-size: 16px;
+            font-size: 20px;
             max-width: 100%;
+        }
+    }
+    @media ${device.mobileM} {
+        ${Header} {
+            font-size: 19px;
         }
     }
     @media ${device.mobileL} {

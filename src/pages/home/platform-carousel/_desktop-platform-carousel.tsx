@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Details from './_details'
 import PlatformSlider from './_platform-slider'
-import { no_slide_sets, getPlatformDetails, getSlideStartingIndex } from './_utils'
+import { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledDesktopCarousel = styled(Flex)`
     @media ${device.desktopL} {
@@ -13,12 +13,40 @@ const StyledDesktopCarousel = styled(Flex)`
         margin: 0 auto;
     }
 `
-const DesktopPlatformCarousel = () => {
-    const [slide_index, setSlideIndex] = useState(getSlideStartingIndex())
 
-    const { is_eu, is_uk } = getCountryRule()
+type DesktopPlatformCarouselProps = {
+    carousel_data: TPlatformDetails[]
+}
 
-    const platform_details = getPlatformDetails(no_slide_sets(), is_eu, is_uk)
+const DesktopPlatformCarousel = ({ carousel_data }: DesktopPlatformCarouselProps) => {
+    const [slide_index, setSlideIndex] = useState(42)
+    const [platform_details, setPlatformDetails] = useState(null)
+    const { is_row } = useCountryRule()
+
+    useEffect(() => {
+        if (!is_row) setSlideIndex(0)
+        if (is_row) setSlideIndex(42)
+    }, [is_row])
+
+    useEffect(() => {
+        const no_slide_sets = (!is_row && 1) || (is_row && 11)
+        const getPlatformDetails = (no_of_copies) => {
+            const new_details = []
+            let current_index = 0
+
+            for (let index = 0; index < no_of_copies; index++) {
+                // prettier-ignore
+                carousel_data?.forEach((p) => {
+                    new_details.push({ ...p, id: current_index })
+                    current_index++
+                })
+            }
+
+            return new_details
+        }
+
+        setPlatformDetails(getPlatformDetails(no_slide_sets))
+    }, [carousel_data, is_row])
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">

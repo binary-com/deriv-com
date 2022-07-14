@@ -126,7 +126,7 @@ const FooterBanner = () => {
                 <BannerWrapper jc="start">
                     <QueryImage
                         data={data[is_mobile ? 'footer_banner_m' : 'footer_banner']}
-                        alt="footer banner"
+                        alt="Trading forex and synthetic indices on Deriv GO"
                         className="footerimg-wrapper"
                     />
                 </BannerWrapper>

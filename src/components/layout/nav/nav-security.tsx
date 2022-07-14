@@ -46,8 +46,7 @@ const NavSecurity = () => {
                         </StyledLogoLink>
 
                         <SubmissionButton
-                            to="mailto:security@deriv.com"
-                            is_mail_link
+                            to="https://hackerone.com/binary"
                             external="true"
                             target="_blank"
                             tertiary

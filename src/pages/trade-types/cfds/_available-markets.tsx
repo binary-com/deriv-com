@@ -6,7 +6,7 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex, ROW, UK, EU } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
@@ -44,7 +44,7 @@ const available_markets = [
         name: 'Forex',
         img_src: Forex,
         img_alt: 'forex',
-        text: localize('Forex'),
+        text: <Localize translate_text="Forex" />,
         description: (
             <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
         ),
@@ -57,9 +57,9 @@ const available_markets = [
         name: 'Synthetic Indices',
         img_src: SyntheticIndices,
         img_alt: 'synthetic indices',
-        text: localize('Synthetic indices'),
-        description: localize(
-            'Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks.',
+        text: <Localize translate_text="Synthetic indices" />,
+        description: (
+            <Localize translate_text="Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks." />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -67,9 +67,9 @@ const available_markets = [
         name: 'Stock Indices',
         img_src: StockIndices,
         img_alt: 'stock indices',
-        text: localize('Stocks & indices'),
-        description: localize(
-            'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
+        text: <Localize translate_text="Stocks & indices" />,
+        description: (
+            <Localize translate_text="Go long or short on our OTC German index and utilise leverage to increase your potential profit." />
         ),
         learn_more_path: '/markets/stock/',
     },
@@ -77,9 +77,9 @@ const available_markets = [
         name: 'Cryptocurrencies',
         img_src: Cryptocurrencies,
         img_alt: 'cryptocurrencies',
-        text: localize('Cryptocurrencies'),
-        description: localize(
-            'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
+        text: <Localize translate_text="Cryptocurrencies" />,
+        description: (
+            <Localize translate_text="Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements." />
         ),
         learn_more_path: '/markets/cryptocurrencies/',
     },
@@ -87,9 +87,9 @@ const available_markets = [
         name: 'Basket Indices',
         img_src: BasketIndices,
         img_alt: 'basket indices',
-        text: localize('Basket indices'),
-        description: localize(
-            'In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world.',
+        text: <Localize translate_text="Basket indices" />,
+        description: (
+            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
         ),
         learn_more_path: '/markets/basket-indices/',
     },
@@ -97,12 +97,12 @@ const available_markets = [
         name: 'Commodities',
         img_src: Commodities,
         img_alt: 'commodities',
-        text: localize('Commodities'),
-        description: localize(
-            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
+        text: <Localize translate_text="Commodities" />,
+        description: (
+            <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
         ),
-        uk_eu_description: localize(
-            'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
+        uk_eu_description: (
+            <Localize translate_text="Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits." />
         ),
         learn_more_path: '/markets/commodities/',
     },
@@ -119,7 +119,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const AvailableMarkets = () => {
-    const { is_uk_eu } = getCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">

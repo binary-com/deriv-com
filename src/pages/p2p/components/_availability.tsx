@@ -118,7 +118,7 @@ const Right = styled.div`
 
 const query = graphql`
     query {
-        qr_code: file(relativePath: { eq: "p2p/p2p_all_appstores.png" }) {
+        qr_code: file(relativePath: { eq: "p2p/p2p_footer_qr.png" }) {
             ...fadeIn
         }
     }

@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { LinkButton, Button } from 'components/form'
 import device from 'themes/device'
+import { mobileOSDetect } from 'common/os-detect'
+import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 
 const content = [
     {
@@ -71,6 +73,30 @@ const ClientCard = styled.article`
         max-width: 290px;
     }
 `
+const ButtonDerivP2P = styled(Button)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    padding: 1.5rem 1.6rem;
+    height: 64px;
+    margin: auto;
+    width: 50%;
+    white-space: nowrap;
+`
+
+const StyledLinkButton = styled(LinkButton)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    padding: 2.1rem 1.6rem;
+    height: 64px;
+    margin: 20px auto;
+    width: 33%;
+    white-space: nowrap;
+`
+
 const StyledHeader = styled(Header)`
     text-align: center;
     font-size: 48px;
@@ -91,61 +117,60 @@ const StyledText = styled(Text)`
     }
 `
 
-const StyledLinkButton = styled(LinkButton)`
-    padding: 24px;
-    font-size: 20px;
-    font-weight: 700;
-    border: unset;
-    height: 64px;
-    width: 220px;
-    margin: 80px auto 0 auto;
-    white-space: nowrap;
-
-    @media ${device.mobileL} {
-        padding: 14px;
-        font-size: 14px;
-        height: 40px;
-        width: 167px;
-    }
-
-    @media ${device.tablet} {
-        margin-top: 40px;
-    }
-`
-
 const Numbers = () => {
+    const handleExternalLink = () => {
+        let link = ''
+        if (mobileOSDetect() === 'Android') {
+            link = p2p_playstore_url
+        }
+        if (mobileOSDetect() === 'iOS') {
+            link = p2p_applestore_url
+        }
+
+        window.open(link, '_blank')
+
+    }
     return (
-        <Section>
-            <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
-                {content.map((item, idx) => {
-                    return (
-                        <ClientCard key={idx}>
-                            <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
-                                <StyledHeader
-                                    mobile_margin="unset"
-                                    mobile_font_size="20px"
-                                    mb="0.8rem"
-                                    as="p"
-                                >
-                                    {item.header}
-                                </StyledHeader>
-                            </Flex>
-                            <StyledText>{item.text}</StyledText>
-                        </ClientCard>
-                    )
-                })}
-            </Flex>
-            <StyledLinkButton
-                secondary="true"
-                to="/cashier/p2p"
-                external="true"
-                type="deriv_app"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                {localize('Try Deriv P2P now')}
-            </StyledLinkButton>
-        </Section>
+        <>
+            <Section>
+                <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
+                    {content.map((item, idx) => {
+                        return (
+                            <ClientCard key={idx}>
+                                <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
+                                    <StyledHeader
+                                        mobile_margin="unset"
+                                        mobile_font_size="20px"
+                                        mb="0.8rem"
+                                        as="p"
+                                    >
+                                        {item.header}
+                                    </StyledHeader>
+                                </Flex>
+                                <StyledText>{item.text}</StyledText>
+                            </ClientCard>
+                        )
+                    })}
+                </Flex>
+            </Section>
+            <Desktop>
+                <StyledLinkButton
+                    secondary="true"
+                    to="/cashier/p2p"
+                    external="true"
+                    type="deriv_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {localize('Try Deriv P2P now')}
+                </StyledLinkButton>
+            </Desktop>
+            <Mobile>
+                <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                    {localize('Try Deriv P2P now')}
+                </ButtonDerivP2P>
+            </Mobile>
+        </>
     )
 }
 

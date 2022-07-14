@@ -15,7 +15,6 @@ import {
     derivx_app_url,
 } from 'common/constants'
 
-
 const Wrapper = styled(Flex)`
     position: relative;
     justify-content: flex-start;

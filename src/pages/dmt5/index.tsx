@@ -11,7 +11,7 @@ import {
 } from './_lazy-load'
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
-import DHero from 'components/custom/_dhero-2'
+import DHero from 'components/custom/_dhero'
 import BackgroundPatternDMT5 from 'images/svg/dmt5/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
@@ -63,7 +63,7 @@ const DMT5 = () => {
                 title={localize('Deriv MT5 (DMT5)')}
                 content={
                     <Localize
-                        translate_text="The all-in-one <0/>CFD trading<0/> platform"
+                        translate_text="The all-in-one <0/>CFD trading platform<0/> "
                         components={[<br key={0} />]}
                     />
                 }

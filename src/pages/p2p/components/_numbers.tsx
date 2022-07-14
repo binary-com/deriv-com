@@ -86,15 +86,23 @@ const ButtonDerivP2P = styled(Button)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    padding: 2.1rem 1.6rem;
+    padding: 24px;
+    font-size: 20px;
+    font-weight: 700;
+    border: unset;
     height: 64px;
-    margin: 20px auto;
-    width: 33%;
+    width: 220px;
+    margin: 80px auto 0 auto;
     white-space: nowrap;
+    @media ${device.mobileL} {
+        padding: 14px;
+        font-size: 14px;
+        height: 40px;
+        width: 167px;
+    }
+    @media ${device.tablet} {
+        margin-top: 40px;
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -128,7 +136,6 @@ const Numbers = () => {
         }
 
         window.open(link, '_blank')
-
     }
     return (
         <>
@@ -152,8 +159,6 @@ const Numbers = () => {
                         )
                     })}
                 </Flex>
-            </Section>
-            <Desktop>
                 <StyledLinkButton
                     secondary="true"
                     to="/cashier/p2p"
@@ -164,12 +169,7 @@ const Numbers = () => {
                 >
                     {localize('Try Deriv P2P now')}
                 </StyledLinkButton>
-            </Desktop>
-            <Mobile>
-                <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                    {localize('Try Deriv P2P now')}
-                </ButtonDerivP2P>
-            </Mobile>
+            </Section>
         </>
     )
 }

@@ -394,10 +394,9 @@ const SearchPage = () => {
 
     const isShowArticle = () => {
         const type = queryParams.get('type')
-        if (type === 'article' || !type) {
-            return true
-        }
+        return type === 'article' || !type
     }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO

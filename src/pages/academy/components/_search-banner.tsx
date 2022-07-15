@@ -704,7 +704,6 @@ const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordio
 
 const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [is_mobile] = useBrowserResize(768)
-    const [video_tags, blog_tags] = useAcademyTags()
     const [modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)

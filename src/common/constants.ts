@@ -70,6 +70,7 @@ export const deriv_app_languages = ['id', 'pt', 'es']
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
+export const derivx_huawei_url = 'https://appgallery.cloud.huawei.com/ag/n/app/C104633219'
 export const deriv_go_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
 export const deriv_go_huaweiappgallery_url = 'https://appgallery.huawei.com/#/app/C103801913'
 export const deriv_go_ios_url = 'https://apps.apple.com/my/app/deriv-go/id1550561298'
@@ -139,4 +140,4 @@ export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/binarydotcom'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
-export const loss_percent = 65
+export const loss_percent = 69

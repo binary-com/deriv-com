@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef } from 'react'
 import { navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
-import { useDataFilter } from '../utility'
+import { useDataFilter } from '../_utility'
 import {
     SearchResultRows,
     SearchSuggestionWrapper,

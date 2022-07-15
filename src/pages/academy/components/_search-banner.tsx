@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react'
+import React, { useContext, useEffect, useState, useRef, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'
@@ -378,7 +378,12 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    const combined_data = useDataFilter([...academy_data.blog, ...academy_data.videos])
+    const memoized_data_filter = useMemo(
+        () => [...academy_data.blog, ...academy_data.videos],
+        [academy_data.blog, academy_data.videos],
+    )
+
+    const combined_data = useDataFilter(memoized_data_filter)
 
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

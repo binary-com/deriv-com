@@ -5,7 +5,7 @@ import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
-import ProvenReferral from 'images/svg/partners/proven-referral-tools.svg'
+import Advertise from 'images/svg/partners/advertise.svg'
 import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
 const ReasonHeader = styled(Header)`
@@ -79,7 +79,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={ProvenReferral} alt="" />
+                        <img src={Advertise} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>

@@ -397,10 +397,6 @@ const SearchPage = () => {
         if (type === 'article' || !type) {
             return true
         }
-
-        if (type === 'video') {
-            return false
-        }
     }
     return (
         <Layout type="academy" margin_top={'14.4'}>

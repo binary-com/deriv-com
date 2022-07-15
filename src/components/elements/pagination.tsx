@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import qs from 'qs'
 import { navigate } from 'gatsby'
 import { Button } from 'components/form'
 import { Flex } from 'components/containers'
@@ -10,7 +9,6 @@ type PaginationProps = {
     total_items: number
     paginate: (arg1: number) => void
     current_page: number
-    setCurrentPage: React.Dispatch<React.SetStateAction<number>>
 }
 
 const StyledFlex = styled(Flex)`
@@ -35,13 +33,7 @@ const StyledButton = styled(Button)<{ active: boolean; grey: boolean }>`
     }};
 `
 
-const Pagination = ({
-    items_per_page,
-    total_items,
-    paginate,
-    current_page,
-    setCurrentPage,
-}: PaginationProps) => {
+const Pagination = ({ items_per_page, total_items, paginate, current_page }: PaginationProps) => {
     const page_numbers = []
 
     const total_pages = Math.ceil(total_items / items_per_page)
@@ -56,14 +48,6 @@ const Pagination = ({
         last_page > 5
             ? page_numbers.slice(current_page > 2 && current_page - 1, current_page + 1)
             : page_numbers
-
-    React.useEffect(() => {
-        const filterParams = window.location.search.substr(1)
-        const filtersFromParams = qs.parse(filterParams)
-        if (filtersFromParams.current_page) {
-            setCurrentPage(Number(filtersFromParams.current_page))
-        }
-    }, [setCurrentPage])
 
     React.useEffect(() => {
         navigate(`?page=${current_page}`, { replace: true })

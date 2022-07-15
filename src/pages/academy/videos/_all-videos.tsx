@@ -75,7 +75,6 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
                     total_items={video_data.length}
                     paginate={paginate}
                     current_page={current_page}
-                    setCurrentPage={setCurrentPage}
                 />
             )}
         </Container>

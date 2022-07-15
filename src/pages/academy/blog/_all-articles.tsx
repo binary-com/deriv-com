@@ -64,7 +64,6 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
                 total_items={all_articles_except_first.length}
                 paginate={paginate}
                 current_page={current_page}
-                setCurrentPage={setCurrentPage}
             />
         </Container>
     )

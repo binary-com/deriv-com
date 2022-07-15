@@ -8,6 +8,7 @@ import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { queryParams } from 'common/utility'
 
 type AllArticlesProps = {
     article_data: ArticleDataType
@@ -16,10 +17,13 @@ type AllArticlesProps = {
 export type ItemType = ArticleDataType[0]
 
 const AllArticles = ({ article_data }: AllArticlesProps) => {
-    const url_page_number = Number(window.location.search.replace(/\D/g, ''))
+    const url_page_number = Number(queryParams.get('page') || 1)
+
+    // Our grid items change in 1333 width which is our tablet size
+    const tablet_width = 1333
     const [is_mobile] = useBrowserResize()
-    const [is_tablet] = useBrowserResize(1333)
-    const [current_page, setCurrentPage] = useState(url_page_number ? url_page_number : 1)
+    const [is_tablet] = useBrowserResize(tablet_width)
+    const [current_page, setCurrentPage] = useState(url_page_number)
     const desktop_max_articles = 18
     const tablet_max_articles = 12
     const mobile_max_articles = 10

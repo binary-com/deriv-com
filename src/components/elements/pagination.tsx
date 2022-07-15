@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { navigate } from 'gatsby'
 import { Button } from 'components/form'
 import { Flex } from 'components/containers'
+import { queryParams } from 'common/utility'
 
 type PaginationProps = {
     items_per_page: number
@@ -50,7 +51,8 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
             : page_numbers
 
     React.useEffect(() => {
-        navigate(`?page=${current_page}`, { replace: true })
+        // navigate(`?page=${current_page}`, { replace: true })
+        queryParams.set({ page: current_page })
     }, [current_page])
 
     if (current_page > last_page) navigate('/404/')

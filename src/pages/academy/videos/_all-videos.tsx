@@ -8,17 +8,21 @@ import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { queryParams } from 'common/utility'
 
 type AllVideosProps = {
     video_data: VideoDataType
 }
 
 const AllVideos = ({ video_data }: AllVideosProps) => {
-    const url_page_number = Number(window.location.search.replace(/\D/g, ''))
+    const url_page_number = Number(queryParams.get('page') || 1)
+
+    // Our grid items change in 1333 width which is our tablet size
+    const tablet_width = 1333
     const [show_pagination, setShowPagination] = useState(false)
     const [is_mobile] = useBrowserResize()
-    const [is_tablet] = useBrowserResize(1333)
-    const [current_page, setCurrentPage] = useState(url_page_number ? url_page_number : 1)
+    const [is_tablet] = useBrowserResize(tablet_width)
+    const [current_page, setCurrentPage] = useState(url_page_number)
     const desktop_max_videos = 18
     const tablet_max_videos = 12
     const mobile_max_videos = 10

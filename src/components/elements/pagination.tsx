@@ -45,13 +45,17 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
 
     const last_page = page_numbers.length
 
-    const sliced_page_numbers =
-        last_page > 5
-            ? page_numbers.slice(current_page > 2 && current_page - 1, current_page + 1)
-            : page_numbers
+    const more_than_five_pages = last_page > 5
+
+    const only_current_page = current_page > 2 && current_page - 1
+
+    const sliced_page_numbers = more_than_five_pages
+        ? // Example: If we are in page 8 it will only show page 8 and 9 buttons
+          page_numbers.slice(only_current_page, current_page + 1)
+        : // Example: If we are in page 3 it will show page 1,2,3,4,5
+          page_numbers
 
     React.useEffect(() => {
-        // navigate(`?page=${current_page}`, { replace: true })
         queryParams.set({ page: current_page })
     }, [current_page])
 

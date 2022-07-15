@@ -609,7 +609,7 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Desktop>
+                                            <Desktop breakpoint={'tablet'}>
                                                 <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
@@ -1048,7 +1048,7 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the stop loss level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss amount of 7.54 USD in Up direction.',
                                         )}
                                     </Text>
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.stop_loss_level_up_formula}
                                             alt={localize('stop loss level up formula')}
@@ -1089,7 +1089,7 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the take profit level when you open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit amount of 7.54 USD in Down direction.',
                                         )}
                                     </Text>
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.take_profit_level_down_formula}
                                             alt={localize('take profit level down formula')}
@@ -1247,7 +1247,7 @@ const PnlMultipliersCalculator = () => {
 
                                     return (
                                         <>
-                                            <Desktop>
+                                            <Desktop breakpoint={'tablet'}>
                                                 <PnlCalculatorFormMobile>
                                                     <CalculatorHeader>
                                                         <Flex>
@@ -1690,7 +1690,7 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the take profit amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a take profit level of 3400 in Up direction.',
                                         )}
                                     </Text>
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.take_profit_amount_up_formula}
                                             alt={localize('take profit amount up formula')}
@@ -1731,7 +1731,7 @@ const PnlMultipliersCalculator = () => {
                                             'Let’s say you want to calculate the stop loss amount when you want to open a position for Volatility 100 Index priced at 3376.24 USD with a stake amount of 10 USD, a multiplier value of x100, and a stop loss level of 3400 in Down direction.',
                                         )}
                                     </Text>
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.stop_loss_amount_down_formula}
                                             alt={localize('stop loss amount down formula')}

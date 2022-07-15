@@ -403,7 +403,7 @@ const PnlMarginCalculator = () => {
 
                                 return (
                                     <>
-                                        <Desktop>
+                                        <Desktop breakpoint={'tablet'}>
                                             <PnlCalculatorFormMobile>
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
@@ -927,7 +927,7 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.stop_loss_level_formula}
                                             alt={localize('stop loss level formula')}
@@ -955,7 +955,7 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.stop_loss_pip_formula}
                                             alt={localize('stop loss pip formula')}
@@ -1062,7 +1062,7 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.take_profit_level_formula}
                                             alt={localize('take profit level formula')}
@@ -1090,7 +1090,7 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Desktop>
+                                    <Desktop breakpoint={'tablet'}>
                                         <QueryImage
                                             data={data.take_profit_pip_formula}
                                             alt={localize('take profit pip formula')}

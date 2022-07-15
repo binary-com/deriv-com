@@ -20,7 +20,7 @@ const Subscription = () => {
             addScriptForCIO(is_eu)
             setScriptLoaded(true)
         }
-    }, [])
+    }, [confirmation_code, email, is_eu])
 
     useEffect(() => {
         if (is_script_loaded && isBrowser()) {
@@ -31,7 +31,7 @@ const Subscription = () => {
                 client_confirmation_code: confirmation_code,
             })
         }
-    }, [is_script_loaded])
+    }, [confirmation_code, email, is_script_loaded])
 
     return (
         <>

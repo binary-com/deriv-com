@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useQueryParams, StringParam } from 'use-query-params'
 import { matchSorter } from 'match-sorter'
@@ -14,8 +14,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
-import { cms_assets_end_point } from 'common/constants'
-import { unslugify, slugify } from 'common/utility'
+import { unslugify } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 
@@ -57,43 +56,92 @@ const SearchPage = () => {
     const page_count = Math.ceil(search_result.article_result.length / items_per_page)
 
     // query params
-    const [query, setQuery] = useQueryParams({
+    const [query] = useQueryParams({
         q: StringParam,
         type: StringParam,
         category: StringParam,
         t: StringParam,
     })
-    const { q: search_query, type: items_type, category: category_type, t: title_params } = query
-
-    // video player states
-    const [show, setShow] = useState(false)
-    const [play_video_id, setPlayVideoId] = useState('')
-    const play_video_src = `${cms_assets_end_point}${play_video_id}`
-
-    useEffect(() => {
-        const video_track = academy_data.videos.find(
-            (item) => slugify(item.video_title) == title_params,
-        )?.video_file.id
-        if (video_track) openVideo(video_track, title_params)
-    }, [])
-
-    // video player functions
-    const openVideo = (track_id: string, video_title: string) => {
-        setPlayVideoId(track_id)
-        setQuery({ ...query, t: video_title })
-        setShow(true)
-    }
-
-    const closeVideo = () => {
-        setShow(false)
-        setPlayVideoId('')
-        setQuery({ ...query, t: undefined })
-    }
+    const { q: search_query, type: items_type, category: category_type } = query
 
     // combined data
     const combined_data = useDataFilter([...academy_data.blog, ...academy_data.videos])
 
     useEffect(() => {
+        // filter functions
+        const filteredBaseOnType = (obj) => {
+            const article_arr = []
+            const video_arr = []
+
+            obj.forEach((items) => {
+                if (items.blog_title) {
+                    article_arr.push(items)
+                } else if (items.video_title) {
+                    video_arr.push(items)
+                }
+            })
+
+            setSearchResult({
+                // slice video result to two as for default
+                video_result: items_type ? video_arr : video_arr.slice(0, 2),
+                article_result: article_arr,
+                total_article: article_arr.length,
+                total_video: video_arr.length,
+            })
+        }
+
+        const getFilterResult = (type: string) => {
+            let result = []
+
+            if (type !== '') {
+                result = matchSorter(combined_data, unslugify(type), {
+                    keys: ['tags.*.tags_id.tag_name'],
+                })
+            } else {
+                result = null
+            }
+
+            filteredBaseOnType(result)
+
+            return result
+        }
+
+        // search functions
+        const getSearchResult = (q: string) => {
+            let result = []
+
+            if (q !== '') {
+                result = matchSorter(combined_data, q, {
+                    keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
+                })
+            } else result = null
+
+            filteredBaseOnType(result)
+
+            return result
+        }
+
+        const getSearchResultBasedOnType = (obj: Record<string, unknown>[], params: string) => {
+            const result = []
+            let key_to_find: string
+
+            if (params == 'article') {
+                key_to_find = 'blog_title'
+            } else if (params == 'video') {
+                key_to_find = 'video_title'
+            }
+
+            obj.forEach((items) => {
+                if (key_to_find in items) {
+                    result.push(items)
+                }
+            })
+
+            filteredBaseOnType(result)
+
+            return result
+        }
+
         if (search_query && !items_type) {
             getSearchResult(search_query)
             setFullArticleLink(`/academy/search?q=${search_query}&type=article`)
@@ -115,84 +163,7 @@ const SearchPage = () => {
             setFullArticleLink(`/academy/search?category=${category_type}&type=article`)
             setFullVideoLink(`/academy/search?category=${category_type}&type=video`)
         }
-    }, [query])
-
-    // filter functions
-    const filteredBaseOnType = useCallback(
-        (obj) => {
-            const article_arr = []
-            const video_arr = []
-
-            obj.forEach((items) => {
-                if (items.blog_title) {
-                    article_arr.push(items)
-                } else if (items.video_title) {
-                    video_arr.push(items)
-                }
-            })
-
-            setSearchResult({
-                // slice video result to two as for default
-                video_result: items_type ? video_arr : video_arr.slice(0, 2),
-                article_result: article_arr,
-                total_article: article_arr.length,
-                total_video: video_arr.length,
-            })
-        },
-        [setSearchResult],
-    )
-
-    const getFilterResult = (type: string) => {
-        let result = []
-
-        if (type !== '') {
-            result = matchSorter(combined_data, unslugify(type), {
-                keys: ['tags.*.tags_id.tag_name'],
-            })
-        } else {
-            result = null
-        }
-
-        filteredBaseOnType(result)
-
-        return result
-    }
-
-    // search functions
-    const getSearchResult = (q: string) => {
-        let result = []
-
-        if (q !== '') {
-            result = matchSorter(combined_data, q, {
-                keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
-            })
-        } else result = null
-
-        filteredBaseOnType(result)
-
-        return result
-    }
-
-    const getSearchResultBasedOnType = (obj: Record<string, unknown>[], params: string) => {
-        const result = []
-        let key_to_find: string
-
-        if (params == 'article') {
-            key_to_find = 'blog_title'
-        } else if (params == 'video') {
-            key_to_find = 'video_title'
-        }
-
-        obj.forEach((items) => {
-            if (key_to_find in items) {
-                result.push(items)
-            }
-        })
-
-        filteredBaseOnType(result)
-
-        return result
-    }
+    }, [category_type, combined_data, setSearchResult, items_type, query, search_query])
 
     const getTotalSearchCount = () => {
         if (!items_type) {

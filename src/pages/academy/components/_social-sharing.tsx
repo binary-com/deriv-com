@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { url } from './utility'
+import { url } from './_utility'
 import { Desktop, Mobile, Container } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import FacebookIcon from 'images/svg/blog/facebook.svg'

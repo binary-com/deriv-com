@@ -187,7 +187,6 @@ const AssetPriceField = ({
                 onBlur={handleBlur}
                 data-lpignore="true"
                 handleError={assetPriceErrorHandler}
-                maxLength={getMaxLength(values.assetPrice, 8)}
                 background="white"
             />
         )}

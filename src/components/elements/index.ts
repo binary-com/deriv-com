@@ -12,7 +12,7 @@ import { StyledLink } from './link'
 import {
     OffCanvasMenuWrapper as OffCanvasMenu,
     OffCanvasMenuPartner,
-    moveOffCanvasMenu,
+    useMoveOffCanvasMenu,
 } from './off-canvas-menu'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
@@ -45,7 +45,7 @@ export {
     Li,
     LinkText,
     LocalizedLinkText,
-    moveOffCanvasMenu,
+    useMoveOffCanvasMenu,
     NavCard,
     OffCanvasMenu,
     OffCanvasMenuPartner,

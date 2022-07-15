@@ -391,24 +391,14 @@ const SearchPage = () => {
             </>
         )
     }
-    const checkFilterType = (url, is_search = false) => {
-        const type = queryParams.get('type')
-        const category = queryParams.get('category')
-        if (!is_search) {
-            return type === url
-        } else {
-            return category && type ? false : true
-        }
-    }
 
     const isShowArticle = () => {
-        const is_article = checkFilterType('article')
-        const is_search = checkFilterType('', true)
-        const is_video = checkFilterType('video')
-        if (is_article || is_search) {
+        const type = queryParams.get('type')
+        if (type === 'article' || !type) {
             return true
         }
-        if (is_video) {
+
+        if (type === 'video') {
             return false
         }
     }

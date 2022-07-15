@@ -100,9 +100,6 @@ const DemoButton = styled(Button)`
     @media ${device.tabletL} {
         margin-bottom: 40px;
     }
-    @media ${device.mobileL} {
-        margin-bottom: 0;
-    }
 `
 const ImgWrapper = styled.img`
     width: 100%;

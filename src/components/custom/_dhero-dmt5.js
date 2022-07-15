@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -16,13 +15,11 @@ const Wrapper = styled.div`
     display: flex;
     min-height: 575px;
     flex-direction: row-reverse;
+    padding-left: 120px;
 
-    @media ${device.desktopS} {
-        padding-left: 18%;
-    }
     @media ${device.tabletL} {
         flex-direction: column;
-        padding-left: 8%;
+        padding-left: 16px;
     }
 `
 const HeroContent = styled.div`
@@ -47,56 +44,16 @@ const StyledHeaderTitle = styled.div`
     font-size: 64px;
     font-weight: 700;
     line-height: 80px;
-    @media ${device.tabletL} {
+
+    @media ${device.laptopM} {
         font-size: 32px;
         line-height: 48px;
     }
 `
-const LottieWrapper = styled.div`
-    width: 100%;
-    max-width: 730px;
-    position: absolute;
-    top: 50%;
-    right: 12rem;
-    bottom: 50%;
-    left: auto;
-    display: flex;
-    align-items: center;
-
-    @media ${device.desktop} {
-        max-width: 606px;
-    }
-
-    @media ${device.laptopM} {
-        max-width: 500px;
-        right: 8rem;
-    }
-    @media ${device.laptop} {
-        max-width: 450px;
-        right: 10rem;
-    }
-    @media ${device.tabletL} {
-        max-width: 390px;
-        right: 2rem;
-    }
-    @media ${device.tabletS} {
-        max-width: 380px;
-    }
-    @media ${device.tablet} {
-        max-width: 328px;
-        top: auto;
-        right: auto;
-        bottom: 50%;
-        left: auto;
-        position: relative;
-        margin-bottom: 40px;
-    }
-`
-
 const LinkWrapper = styled.div`
     display: flex;
     margin-top: 32px;
-    @media (max-width: 1420px) {
+    @media ${device.laptopL} {
         top: 480px;
     }
     @media ${device.laptopM} {
@@ -150,7 +107,6 @@ const DemoButton = styled(Button)`
 const ImgWrapper = styled.img`
     width: 100%;
     height: 100%;
-    max-width: 860px;
     max-height: 640px;
 
     .gatsby-image-wrapper {
@@ -163,9 +119,6 @@ const InformationWrapper = styled(Flex)`
     max-width: 562px;
     gap: 16px;
 
-    @media (max-width: 1370px) {
-        max-width: 420px;
-    }
     @media ${device.laptop} {
         max-width: 390px;
     }
@@ -190,39 +143,16 @@ const DLogo = styled.img`
     height: 32px;
     margin-right: 1.6rem;
 `
-
-const query = graphql`
-    {
-        dbot: file(relativePath: { eq: "dbot/dbot_trade.png" }) {
-            ...fadeIn
-        }
-        dmt5: file(relativePath: { eq: "dmt5/dmt5_trade.png" }) {
-            ...fadeIn
-        }
-        dtrader: file(relativePath: { eq: "dtrader/dtrader_trade.png" }) {
-            ...fadeIn
-        }
-        dbot_mobile: file(relativePath: { eq: "dbot/dbot_trade_mobile.png" }) {
-            ...fadeIn
-        }
-        dmt5_mobile: file(relativePath: { eq: "dmt5/dmt5_trade_mobile.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const DHero = ({
     title,
     background_alt,
     background_svg,
     content,
     image_name,
-    is_mobile,
     join_us_for_free,
     go_to_live_demo,
     Logo,
 }) => {
-    const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
 
@@ -258,17 +188,6 @@ const DHero = ({
                     )}
                 </LinkWrapper>
             </InformationWrapper>
-
-            <LottieWrapper>
-                {image_name === 'dtrader' ? (
-                    <QueryImage data={data['dtrader']} alt={background_alt} />
-                ) : (
-                    <QueryImage
-                        data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                        alt={background_alt}
-                    />
-                )}
-            </LottieWrapper>
         </Wrapper>
     )
 }

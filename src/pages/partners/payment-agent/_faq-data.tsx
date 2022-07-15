@@ -282,7 +282,7 @@ const AccountManagement = () => (
             }}
         >
             {localize(
-                'No, you will not be able to trade anymore on your Payment Agent account. Instead, you may open a separate account for trading purposes.',
+                'No. You can only use your account as a payment agent to perform clients’ deposits and withdrawal requests. For trading purposes, you will need to open a separate account.',
             )}
         </Header>
     </>

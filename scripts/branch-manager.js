@@ -10,7 +10,7 @@ const logError = (err) => {
     console.log(`\x1b[31m${err}`)
 }
 
-const isNumber =(number) =>{
+const isNumber = (number) => {
     return /^\d+$/.test(number)
 }
 
@@ -61,22 +61,22 @@ const branchGenerator = (step = 1, data = {}) => {
             break
         case 3:
             {
-            const { branch_name } = data
+                const { branch_name } = data
 
-            const name_input = prompt('\x1b[33mBranch name: \x1b[0m')
+                const name_input = prompt('\x1b[33mBranch name: \x1b[0m')
 
-            const clean_name_input = slugify(name_input)
+                const clean_name_input = slugify(name_input)
 
-            if (clean_name_input) {
-                if (branch_name.slice(0,3)==='stp'){
-                const final_branch_name=`${branch_name}-${clean_name_input}`
-                   branchGenerator(4, { final_branch_name })
+                if (clean_name_input) {
+                    if (branch_name.slice(0, 3) === 'stp') {
+                        const final_branch_name = `${branch_name}-${clean_name_input}`
+                        branchGenerator(4, { final_branch_name })
+                    } else {
+                        exec(`git checkout -b ${branch_name}-${clean_name_input}`, () => {})
+                    }
                 }
-                else {
-                exec(`git checkout -b ${branch_name}-${clean_name_input}`, () => {})}
             }
-        }
-        break
+            break
 
         case 4:
             {
@@ -85,15 +85,15 @@ const branchGenerator = (step = 1, data = {}) => {
                 const pr_id = prompt('\x1b[33mPR-ID: \x1b[0m')
 
                 if (isNumber(pr_id)) {
-                    exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name}`,(err) => {
-                    if (err) {
-                        logError(err)
-                        branchGenerator(4, { final_branch_name })
-                 }
-                    else{
-                    exec(`git checkout ${final_branch_name}`, () => {})
-                }})}
-                else {
+                    exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name}`, (err) => {
+                        if (err) {
+                            logError(err)
+                            branchGenerator(4, { final_branch_name })
+                        } else {
+                            exec(`git checkout ${final_branch_name}`, () => {})
+                        }
+                    })
+                } else {
                     if (pr_id !== 'exit') {
                         logError('PR id # should be a number')
                         branchGenerator(4, { final_branch_name })

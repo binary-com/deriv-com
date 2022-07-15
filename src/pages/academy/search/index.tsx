@@ -392,7 +392,7 @@ const SearchPage = () => {
         )
     }
 
-    const isShowArticle = () => {
+    const isShowArticleFirst = () => {
         const type = queryParams.get('type')
         return type === 'article' || !type
     }
@@ -433,7 +433,7 @@ const SearchPage = () => {
                         )}
                     </Flex>
 
-                    {isShowArticle() ? (
+                    {isShowArticleFirst() ? (
                         <>
                             <Flex m="40px 0" fd="column">
                                 {renderArticle()}

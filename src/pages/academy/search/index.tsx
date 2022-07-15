@@ -400,10 +400,18 @@ const SearchPage = () => {
             return category && type ? false : true
         }
     }
-    const is_video = checkFilterType('video')
-    const is_article = checkFilterType('article')
-    const is_search = checkFilterType('', true)
 
+    const isShowArticle = () => {
+        const is_article = checkFilterType('article')
+        const is_search = checkFilterType('', true)
+        const is_video = checkFilterType('video')
+        if (is_article || is_search) {
+            return true
+        }
+        if (is_video) {
+            return false
+        }
+    }
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -439,7 +447,8 @@ const SearchPage = () => {
                             </>
                         )}
                     </Flex>
-                    {(is_article || is_search) && (
+
+                    {isShowArticle() ? (
                         <>
                             <Flex m="40px 0" fd="column">
                                 {renderArticle()}
@@ -449,8 +458,7 @@ const SearchPage = () => {
                                 {renderVideo()}
                             </Flex>
                         </>
-                    )}
-                    {is_video && (
+                    ) : (
                         <>
                             <Flex m="40px 0" fd="column">
                                 {renderVideo()}

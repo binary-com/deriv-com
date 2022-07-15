@@ -10,6 +10,10 @@ const logError = (err) => {
     console.log(`\x1b[31m${err}`)
 }
 
+const isNumber =(number) =>{
+    return /^\d+$/.test(number)
+}
+
 const slugify = (text) =>
     text &&
     text
@@ -44,9 +48,7 @@ const branchGenerator = (step = 1, data = {}) => {
 
                 const redmine_id = prompt('\x1b[33mRedmine Card #: \x1b[0m')
 
-                const is_number = /^\d+$/.test(redmine_id)
-
-                if (is_number) {
+                if (isNumber(redmine_id)) {
                     const branch_name = `${branch_prefix}-${redmine_id}`
                     branchGenerator(3, { branch_name })
                 } else {
@@ -66,7 +68,7 @@ const branchGenerator = (step = 1, data = {}) => {
             const clean_name_input = slugify(name_input)
 
             if (clean_name_input) {
-                if (branch_name.slice(0,3)=='stp'){
+                if (branch_name.slice(0,3)==='stp'){
                 const final_branch_name=`${branch_name}-${clean_name_input}`
                    branchGenerator(4, { final_branch_name })
                 }
@@ -82,9 +84,7 @@ const branchGenerator = (step = 1, data = {}) => {
 
                 const pr_id = prompt('\x1b[33mPR-ID: \x1b[0m')
 
-                const is_number = /^\d+$/.test(pr_id)
-
-                if (is_number) {
+                if (isNumber(pr_id)) {
                     exec(`git fetch upstream pull/${pr_id}/head:${final_branch_name}`,(err) => {
                     if (err) {
                         logError(err)

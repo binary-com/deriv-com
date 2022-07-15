@@ -103,8 +103,8 @@ const BannerWrapper = styled(Flex)`
 `
 const ButtonDerivGO = styled(Button)`
     padding: 1.5rem 1.6rem;
-    height: 64px;
-    width: 100%;
+    height: 59px;
+    width: 90vw;
     white-space: nowrap;
     margin-top: 24px;
     margin-bottom: 40px;

@@ -12,7 +12,7 @@ const ForexPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Trade forex online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',
+                "Trade forex online with Deriv's . Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.",
             )}
             title={localize('Forex trading online | Forex trading demo account | Deriv')}
         />

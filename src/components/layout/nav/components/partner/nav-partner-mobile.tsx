@@ -4,7 +4,7 @@ import { Wrapper, MobileWrapper, HamburgerMenu, CloseIcon } from '../../styles/n
 import { localize, LanguageSwitcher, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Flex } from 'components/containers'
-import { OffCanvasMenuPartner, moveOffCanvasMenu } from 'components/elements'
+import { OffCanvasMenuPartner, useMoveOffCanvasMenu } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signin_url } from 'common/constants'
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
@@ -40,7 +40,7 @@ const LoginLink = styled(LinkButton)`
 `
 
 const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
-    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
 
     return (
         <Mobile>

@@ -86,7 +86,7 @@ export const WhyTrade = ({ children, header, text }: WhyTradeProps) => {
         <StyledSection background="#f9fbff" padding="120px 16px">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
-                    <StyledHeader as="h3" type="section-title" align="center" mb="1.2rem" lh="1.25">
+                    <StyledHeader type="section-title" align="center" mb="1.2rem" lh="1.25">
                         {header}
                     </StyledHeader>
                     <StyledText align="center">{text}</StyledText>

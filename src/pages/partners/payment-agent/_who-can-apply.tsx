@@ -15,7 +15,7 @@ import { Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { Header, LinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
-import TradingExperts from 'images/svg/partners/trading-experts.svg'
+import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
 import Email from 'images/svg/partners/pa-email.svg'
@@ -96,7 +96,7 @@ type SectionComponentProps = {
 
 const section_content: SectionComponentProps[] = [
     {
-        img_src: TradingExperts,
+        img_src: CurrencyExchange,
         header: <Localize translate_text="Currency exchangers" />,
         text: (
             <Localize translate_text="Reputable online currency exchangers who want to gain more exposure and clients." />

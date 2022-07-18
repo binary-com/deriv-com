@@ -17,9 +17,7 @@ import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
 import GetTrading from 'images/svg/layout/get-trading.svg'
-import Login from 'common/login'
-import { redirectToTradingPlatform } from 'common/utility'
-import { DerivStore } from 'store'
+import useHandleLogin from 'components/hooks/use-handle-login'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type NavMobileProps = {
@@ -56,18 +54,8 @@ const NavMobile = ({
     hide_signup_login,
 }: NavMobileProps) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
-    const { non_eu_popup } = React.useContext(DerivStore)
-    const [, setShowNonEuPopup] = non_eu_popup
-    const { is_non_eu } = useCountryRule()
-
-    const handleLogin = () => {
-        if (is_non_eu) {
-            redirectToTradingPlatform()
-            Login.redirectToLogin()
-        } else {
-            setShowNonEuPopup(true)
-        }
-    }
+    const handleLogin = useHandleLogin()
+    const { is_loading } = useCountryRule()
 
     return (
         <MobileWrapper>
@@ -102,6 +90,7 @@ const NavMobile = ({
                                 id="dm-mobile-nav-login-button"
                                 onClick={handleLogin}
                                 primary
+                                disabled={is_loading}
                             >
                                 {localize('Log in')}
                             </StyledButton>

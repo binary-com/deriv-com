@@ -13,7 +13,6 @@ const Wrapper = styled.div`
     background-color: var(--color-black);
     width: 100%;
     display: flex;
-    min-height: 575px;
     flex-direction: row-reverse;
     padding-left: 120px;
 
@@ -106,10 +105,15 @@ const ImgWrapper = styled.img`
     height: 100%;
     max-height: 640px;
     max-width: 860px;
+    margin-left: 42px;
 
     .gatsby-image-wrapper {
         width: 100%;
         height: 100%;
+    }
+
+    @media ${device.tabletL} {
+        margin-left: 0;
     }
 `
 const InformationWrapper = styled(Flex)`
@@ -129,7 +133,7 @@ const InformationWrapper = styled(Flex)`
     }
     @media ${device.tablet} {
         width: 100%;
-        margin-top: 8rem;
+        margin-top: 22px;
     }
     @media ${device.mobileL} {
         max-width: 328px;

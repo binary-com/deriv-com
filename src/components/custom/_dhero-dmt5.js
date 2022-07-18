@@ -105,6 +105,7 @@ const ImgWrapper = styled.img`
     width: 100%;
     height: 100%;
     max-height: 640px;
+    max-width: 860px;
 
     .gatsby-image-wrapper {
         width: 100%;

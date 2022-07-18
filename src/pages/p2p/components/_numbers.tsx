@@ -94,6 +94,7 @@ const StyledLinkButton = styled(LinkButton)`
     margin: 20px auto;
     width: 220px;
     white-space: nowrap;
+    margin-top: 40px;
     @media ${device.mobileL} {
         padding: 14px;
         font-size: 14px;

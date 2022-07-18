@@ -48,8 +48,7 @@ const BackgroundWrapper = styled(Flex)`
 `
 const ButtonDerivGO = styled(Button)`
     padding: 1.5rem 1.6rem;
-    height: 64px;
-    width: 100%;
+    height: 40px;
     white-space: nowrap;
     margin: 20px 0;
     margin-right: 25px;

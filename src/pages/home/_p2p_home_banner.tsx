@@ -2,9 +2,8 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { QueryImage, ImageWrapper, Header } from 'components/elements'
-import { Desktop, Mobile, Flex, Container } from 'components/containers'
+import { Desktop, Mobile, Flex } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
@@ -36,70 +35,7 @@ const query = graphql`
         }
     }
 `
-const StyledSection = styled.section`
-    width: 100%;
-    min-height: 340px;
-    background: #e6e9e9;
-    position: relative;
 
-    @media ${device.tabletL} {
-        width: 100%;
-        min-height: 680px;
-        background: #f2f3f4;
-        margin-bottom: 40px;
-    }
-`
-const ImageContainer = styled(Flex)`
-    position: absolute;
-    width: 750px;
-    min-height: 340px;
-    left: 0;
-    top: 0;
-    background: linear-gradient(270deg, rgba(188, 203, 211, 0) 0%, #dedede 100%);
-    @media ${device.tabletL} {
-        position: absolute;
-        width: 100%;
-        min-height: 172px;
-        top: 480px;
-        overflow: hidden;
-        background: linear-gradient(270deg, rgba(188, 203, 211, 0) 0%, #dedede 100%);
-    }
-`
-const StyledContent = styled(Flex)`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0;
-    gap: 16px;
-    position: absolute;
-    width: 568px;
-    height: 242px;
-    right: 120px;
-    top: 49px;
-    @media ${device.tabletL} {
-        width: 100%;
-        display: block;
-        height: 434px;
-        padding: 46px 16px 0;
-        gap: 46px;
-        left: 0;
-        top: 0;
-    }
-`
-const StyledRightContent = styled(Flex)`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    gap: 16px;
-    width: 400px;
-    height: 242px;
-    @media ${device.tabletL} {
-        width: 100%;
-        height: 176px;
-    }
-`
 const P2pLogoContainer = styled(Flex)`
     display: flex;
     flex-direction: row;
@@ -118,36 +54,7 @@ const P2pLogoContainer = styled(Flex)`
         margin-top: 47px;
     }
 `
-const StyledHeader = styled(Flex)`
-    width: 400px;
-    height: 80px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 40px;
-    color: #333333;
-    @media ${device.tabletL} {
-        height: 68px;
-        width: 100%;
-        font-size: 28px;
-        line-height: 34px;
-    }
-`
-const StyledDescription = styled(Flex)`
-    width: 400px;
-    height: 60px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-    color: #333333;
-    @media ${device.tabletL} {
-        height: 52px;
-        width: 100%;
-        font-size: 18px;
-        line-height: 26px;
-    }
-`
+
 const StyledButton = styled(LocalizedLink)`
     display: flex;
     flex-direction: row;

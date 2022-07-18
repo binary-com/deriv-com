@@ -664,7 +664,7 @@ OffCanvasMenuWrapper.propTypes = {
     is_ppc_redirect: PropTypes.bool,
 }
 
-export const moveOffCanvasMenu = (initState = false) => {
+export const useMoveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
     const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
 import { graphql } from 'gatsby'
 import {
     ArticleTitle,
@@ -30,7 +30,7 @@ import {
 import Banner from '../pages/academy/components/_banner'
 import SideSubscriptionBanner from '../pages/academy/components/_side-subscription-banner'
 import SocialSharing from '../pages/academy/components/_social-sharing'
-import { handleTag } from 'pages/academy/components/utility'
+import { handleTag } from 'pages/academy/components/_utility'
 import { ArticleQuery } from 'types/graphql.types'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -40,7 +40,7 @@ import { convertDate, getMinRead, truncateString } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { getTruncateLength } from 'pages/academy/blog/posts/preview'
+import { useTruncateLength } from 'pages/academy/blog/posts/preview'
 
 type ArticlesTemplateProps = {
     data: ArticleQuery
@@ -51,6 +51,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
     const [prevScrollPos, setPrevScrollPos] = useState(0)
     const [visible, setVisible] = useState(true)
     const [is_mounted] = usePageLoaded()
+    const truncateLength = useTruncateLength()
 
     useEffect(() => {
         if (is_mounted) {
@@ -68,11 +69,11 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
         barElement.current.style.width = scrolled + '%'
     }
 
-    const handleScroll = () => {
+    const handleScroll = useCallback(() => {
         const currentScrollPos = window.scrollY
         setPrevScrollPos(currentScrollPos)
         setVisible(currentScrollPos > 72)
-    }
+    }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', scrollFunc, { passive: true })
@@ -149,7 +150,7 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                         <img src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, getTruncateLength())
+                                                ? truncateString(article_title, truncateLength)
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
                                         <SocialSharing />

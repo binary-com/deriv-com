@@ -8,7 +8,7 @@ export const handleScroll = (show, hide) => {
     window.scrollY > show_height ? show() : hide()
 }
 
-export const moveButton = () => {
+export const useMoveButton = () => {
     const [show_button, setShowButton] = useState(false)
     const showButton = () => setShowButton(!show_button)
     const hideButton = () => setShowButton(false)

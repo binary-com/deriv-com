@@ -88,7 +88,7 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                             margin_right={!is_even ? '0' : '12.6rem'}
                         >
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader as="h3" type="heading-3">
+                                <StyledHeader as="h4" type="heading-3">
                                     {item.title}
                                 </StyledHeader>
                                 <StyledText>{item.subtitle}</StyledText>

@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
@@ -111,7 +112,7 @@ const LinkButtonWrapper = styled(Flex)`
     justify-content: center;
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(Button)`
     height: 40px;
     width: auto;
     border-radius: 4px;
@@ -119,43 +120,47 @@ const StyledLinkButton = styled(LinkButton)`
     white-space: nowrap;
 `
 
-const SimpleSteps = ({ header, content, sign_up }) => (
-    <StyledSection>
-        <Show.Desktop>
-            <BackgroundPattern src={Pattern} alt="pattern" />
-        </Show.Desktop>
-        <Show.Mobile>
-            <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
-        </Show.Mobile>
-        <Container direction="column">
-            <TitleHeader align="center" as="h3" type="section-title">
-                {header}
-            </TitleHeader>
-        </Container>
-        <StyledFlex wrap="wrap">
-            {content.map((item, idx) => {
-                return (
-                    <ClientCard key={idx}>
-                        <Flex ai="center" height="fit-content">
-                            <StyledHeader as="h4" type="sub-section-title">
-                                {item.header}
-                            </StyledHeader>
-                            {item.icon}
-                        </Flex>
-                        <Text>{item.text}</Text>
-                    </ClientCard>
-                )
-            })}
-        </StyledFlex>
-        {sign_up && (
-            <LinkButtonWrapper>
-                <StyledLinkButton id="dm-steps-signup" to="/signup/" secondary="true">
-                    {localize('Sign up now')}
-                </StyledLinkButton>
-            </LinkButtonWrapper>
-        )}
-    </StyledSection>
-)
+const SimpleSteps = ({ header, content, sign_up }) => {
+    const handleSignup = useHandleSignup()
+
+    return (
+        <StyledSection>
+            <Show.Desktop>
+                <BackgroundPattern src={Pattern} alt="pattern" />
+            </Show.Desktop>
+            <Show.Mobile>
+                <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
+            </Show.Mobile>
+            <Container direction="column">
+                <TitleHeader align="center" as="h3" type="section-title">
+                    {header}
+                </TitleHeader>
+            </Container>
+            <StyledFlex wrap="wrap">
+                {content.map((item, idx) => {
+                    return (
+                        <ClientCard key={idx}>
+                            <Flex ai="center" height="fit-content">
+                                <StyledHeader as="h4" type="sub-section-title">
+                                    {item.header}
+                                </StyledHeader>
+                                {item.icon}
+                            </Flex>
+                            <Text>{item.text}</Text>
+                        </ClientCard>
+                    )
+                })}
+            </StyledFlex>
+            {sign_up && (
+                <LinkButtonWrapper>
+                    <StyledLinkButton id="dm-steps-signup" secondary="true" onClick={handleSignup}>
+                        {localize('Sign up now')}
+                    </StyledLinkButton>
+                </LinkButtonWrapper>
+            )}
+        </StyledSection>
+    )
+}
 SimpleSteps.propTypes = {
     content: PropTypes.array.isRequired,
     header: PropTypes.object.isRequired,

@@ -1,15 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { handleGetTrading, handleScroll, moveButton } from '../util/nav-methods'
+import { handleGetTrading, handleScroll, useMoveButton } from '../util/nav-methods'
 import { NavRight } from '../styles/nav-styles'
-import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
+import { localize, LanguageSwitcher } from 'components/localization'
 import { Button } from 'components/form'
-import { DerivStore } from 'store'
-import { redirectToTradingPlatform } from 'common/utility'
-import Login from 'common/login'
+import useHandleLogin from 'components/hooks/use-handle-login'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
-//import handleNonEu from 'components/layout/layout.js'
 type RightSectionProps = {
     is_logged_in: boolean
     is_ppc_redirect: boolean
@@ -45,14 +43,13 @@ const RightSection = ({
     hide_language_switcher,
     hide_signup_login,
 }: RightSectionProps) => {
-    const { non_eu_popup } = React.useContext(DerivStore)
-    const [, setShowNonEuPopup] = non_eu_popup
     const button_ref = useRef(null)
-    const { is_non_eu } = useCountryRule()
-    const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    const [show_button, showButton, hideButton] = moveButton()
+    const [show_button, showButton, hideButton] = useMoveButton()
+    const { is_loading } = useCountryRule()
+    const handleLogin = useHandleLogin()
+    const handleSignup = useHandleSignup(is_ppc_redirect)
 
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
@@ -76,19 +73,6 @@ const RightSection = ({
         )
     }
 
-    const handleNonEuPopUp = () => {
-        setShowNonEuPopup(true)
-    }
-
-    const handleLogin = () => {
-        if (is_non_eu) {
-            redirectToTradingPlatform()
-            Login.redirectToLogin()
-        } else {
-            setShowNonEuPopup(true)
-        }
-    }
-
     return (
         <NavRight
             move={show_button}
@@ -102,18 +86,23 @@ const RightSection = ({
             {!hide_signup_login && (
                 <>
                     <StyledButton
+                        disabled={is_loading}
                         id="dm-nav-login-button"
-                        onClick={is_non_eu ? handleLogin : handleNonEuPopUp}
+                        onClick={handleLogin}
                         primary
                     >
                         {localize('Log in')}
                     </StyledButton>
 
-                    <LocalizedLink id="dm-signup" to={signup_url}>
-                        <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
-                            {localize('Create free demo account')}
-                        </SignupButton>
-                    </LocalizedLink>
+                    <SignupButton
+                        disabled={is_loading}
+                        onClick={handleSignup}
+                        id="dm-nav-signup"
+                        ref={button_ref}
+                        secondary="true"
+                    >
+                        {localize('Create free demo account')}
+                    </SignupButton>
                 </>
             )}
         </NavRight>

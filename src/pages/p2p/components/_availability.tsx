@@ -96,7 +96,7 @@ const Line = styled.div`
         height: 1px;
         width: 50rem;
         margin: 24px 0;
-        border: solid 1px #979797;
+        border: solid 1px #f7f2f200;
     }
 
     @media ${device.mobileL} {

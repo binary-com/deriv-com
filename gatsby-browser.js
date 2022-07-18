@@ -100,6 +100,7 @@ export const onInitialClientRender = () => {
                     g.o.observe({ entryTypes: ['longtask'] });
                 }
             })();`
+        document.head.appendChild(tti_script)
 
         // Enable translation
         // Check if not production and match ach or ach/

@@ -79,7 +79,7 @@ const ButtonDerivP2P = styled(Button)`
     justify-content: center;
     opacity: 1;
     padding: 1.5rem 1.6rem;
-    height: 64px;
+    height: 40px;
     margin: auto;
     width: 50%;
     white-space: nowrap;
@@ -93,7 +93,7 @@ const StyledLinkButton = styled(LinkButton)`
     padding: 2.1rem 1.6rem;
     height: 64px;
     margin: 20px auto;
-    width: 33%;
+    width: 220px;
     white-space: nowrap;
 `
 

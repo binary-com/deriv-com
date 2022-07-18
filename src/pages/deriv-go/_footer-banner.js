@@ -83,7 +83,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledSubTitle = styled(Header)`
-    margin-top: 5px;
+    margin-top: 16px;
     @media ${device.tabletL} {
         margin-top: 8px;
         text-align: center;
@@ -140,7 +140,7 @@ const FooterBanner = () => {
                     <StyledHeader as="h3" color="white" type="heading-3">
                         {localize('Start trading on the go')}
                     </StyledHeader>
-                    <StyledSubTitle color="white" type="subtitle-2" weight="normal">
+                    <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
                         {localize(
                             'Download the app today and trade multipliers anytime, anywhere you want.',
                         )}

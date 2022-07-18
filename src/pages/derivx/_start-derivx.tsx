@@ -278,7 +278,7 @@ const StartDerivX = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                <SideTab parent_tab={tab}>
+                <SideTab parent_tab={tab} has_qr_code={true}>
                     {(tab === 'demo' ? demo : real).map((currentTab, index) => {
                         return (
                             <SideTab.Panel
@@ -299,16 +299,6 @@ const StartDerivX = () => {
                                         alt={currentTab.image_alt}
                                     />
                                 </ImageWrapper>
-                                <Desktop>
-                                    <Flex jc="flex-end" ml="120px" mt="-30px">
-                                        <QueryImage
-                                            data={data['qr_code']}
-                                            alt={'qr_code'}
-                                            width="108px"
-                                            height="108px"
-                                        />
-                                    </Flex>
-                                </Desktop>
                             </SideTab.Panel>
                         )
                     })}

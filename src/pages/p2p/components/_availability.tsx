@@ -8,6 +8,7 @@ import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'compo
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
+import { mobileOSDetect } from 'common/os-detect'
 import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
 
 const Row = styled.div`
@@ -130,6 +131,20 @@ const Availability = () => {
         Login.redirectToLogin()
     }
 
+    const handleExternalLink = () => {
+        let link = ''
+
+        // TODO handle IOS case once the app is ready
+        if (mobileOSDetect() === 'Android') {
+            link = p2p_playstore_url
+        }
+        if (mobileOSDetect() === 'iOS') {
+            link = p2p_applestore_url
+        }
+
+        window.open(link, '_blank')
+    }
+
     return (
         <Section>
             <StyledHeader
@@ -201,75 +216,28 @@ const Availability = () => {
                     <div>
                         <StyledText>
                             <Desktop>
-                                <Flex>
-                                    <Left>
-                                        <Localize
-                                            translate_text="1. Download Deriv P2P from the <0>Google Play Store</0>, <1>Apple App Store</1>, or the <2>Huawei AppGallery</2>."
-                                            components={[
-                                                <LocalizedLinkText
-                                                    external
-                                                    to={p2p_playstore_url}
-                                                    target="_blank"
-                                                    size={24}
-                                                    color="red"
-                                                    key={0}
-                                                />,
-                                                <LocalizedLinkText
-                                                    external
-                                                    to={p2p_applestore_url}
-                                                    target="_blank"
-                                                    size={24}
-                                                    color="red"
-                                                    key={1}
-                                                />,
-                                                <LocalizedLinkText
-                                                    external
-                                                    to={p2p_huawei_appgallery_url}
-                                                    target="_blank"
-                                                    size={24}
-                                                    color="red"
-                                                    key={2}
-                                                />,
-                                            ]}
-                                        />
-                                    </Left>
-                                    <Right>
-                                        <QueryImage
-                                            data={data['qr_code']}
-                                            alt={'play store'}
-                                            width="108px"
-                                            height="108px"
-                                        />
-                                    </Right>
-                                </Flex>
+                                <>
+                                    <Localize translate_text="1.Download Deriv P2P." />
+
+                                    <QueryImage
+                                        data={data['qr_code']}
+                                        alt={'play store'}
+                                        width="108px"
+                                        height="108px"
+                                    />
+                                </>
                             </Desktop>
                             <Mobile>
                                 <Localize
-                                    translate_text="1. Download Deriv P2P from the <0>Google Play Store</0>, <1>Apple App Store</1>, or the <2>Huawei AppGallery</2>."
+                                    translate_text="1. <0>Download Deriv P2P.</0>"
                                     components={[
-                                        <LocalizedLinkText
+                                        <SpanLinkText
                                             external
-                                            to={p2p_playstore_url}
+                                            onClick={handleExternalLink}
                                             target="_blank"
                                             size={24}
                                             color="red"
                                             key={0}
-                                        />,
-                                        <LocalizedLinkText
-                                            external
-                                            to={p2p_applestore_url}
-                                            target="_blank"
-                                            size={24}
-                                            color="red"
-                                            key={1}
-                                        />,
-                                        <LocalizedLinkText
-                                            external
-                                            to={p2p_huawei_appgallery_url}
-                                            target="_blank"
-                                            size={24}
-                                            color="red"
-                                            key={2}
                                         />,
                                     ]}
                                 />

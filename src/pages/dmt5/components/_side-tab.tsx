@@ -31,7 +31,7 @@ type TabProps = {
 
 const query = graphql`
     query {
-        qr_code: file(relativePath: { eq: "deriv-x/deriv-x-qr.png" }) {
+        qr_code: file(relativePath: { eq: "deriv-x/derivx-footer-qr.png" }) {
             ...fadeIn
         }
     }

@@ -16,7 +16,7 @@ import BackgroundPatternDMT5 from 'images/svg/dmt5/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
 import dmt5_logo from 'images/svg/dmt5/dmt5-icon.svg'
-import { SEO } from 'components/containers'
+import { SEO, Desktop, Mobile } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5MainBanner from 'images/svg/dmt5/dmt5_main_banner.svg'
 import { size } from 'themes/device'
@@ -58,14 +58,37 @@ const DMT5 = () => {
                 )}
                 meta_attributes={meta_attributes}
             />
-            <DHero
-                title={localize('Deriv MT5 (DMT5)')}
-                content={<Localize translate_text="The all-in-one CFD trading platform " />}
-                join_us_for_free
-                Logo={dmt5_logo}
-                background_alt={localize('DMT5 trading dashboard')}
-                background_svg={DMT5MainBanner}
-            />
+            <Desktop>
+                <DHero
+                    title={localize('Deriv MT5 (DMT5)')}
+                    content={
+                        <Localize
+                            translate_text="The all-in-one <0/>CFD trading<0/> platform"
+                            components={[<br key={0} />]}
+                        />
+                    }
+                    join_us_for_free
+                    Logo={dmt5_logo}
+                    background_alt={localize('DMT5 trading dashboard')}
+                    background_svg={DMT5MainBanner}
+                />
+            </Desktop>
+            <Mobile>
+                <DHero
+                    title={localize('Deriv MT5 (DMT5)')}
+                    content={
+                        <Localize
+                            translate_text="The all-in-one <0/> CFD trading platform <0/>  "
+                            components={[<br key={0} />]}
+                        />
+                    }
+                    join_us_for_free
+                    Logo={dmt5_logo}
+                    background_alt={localize('DMT5 trading dashboard')}
+                    background_svg={DMT5MainBanner}
+                />
+            </Mobile>
+
             <Numbers />
             <WhatIsTrader />
             <WhyTrader />

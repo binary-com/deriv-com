@@ -170,7 +170,7 @@ const Layout = ({
                     handleRedirect(residence, current_client_country, window.location.hostname)
             }
         }
-    }, [])
+    }, [is_redirection_applied, website_status])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

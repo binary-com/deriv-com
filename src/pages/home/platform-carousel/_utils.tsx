@@ -12,6 +12,9 @@ import {
     dmt5_macos_url,
     smarttrader_url,
     binary_bot_url,
+    dmt5_mac_app_url,
+    dmt5_windows_download_url,
+    dmt5_app_gallery,
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -30,6 +33,9 @@ import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
+import Windows from 'images/svg/app-download/app-store-windows.svg'
+import MacAppStore from 'images/svg/app-download/app-store-mac.svg'
+import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
 
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
@@ -37,6 +43,9 @@ export const getOSIcon = (type: string) => {
     else if (type === 'google_play') return GooglePlay
     else if (type === 'linux') return Linux
     else if (type === 'apk') return APK
+    else if (type === 'windows') return Windows
+    else if (type === 'mac_app_store') return MacAppStore
+    else if (type === 'app_gallery') return AppGallery
 }
 
 export type TPlatformDetails = {
@@ -48,7 +57,6 @@ export type TPlatformDetails = {
     learn_more_link: string
     download_links: Array<{ type: string; url?: string; link_type?: string }>
 }
-
 export const platform_details_cr: TPlatformDetails[] = [
     {
         title: 'Deriv GO',
@@ -68,10 +76,13 @@ export const platform_details_cr: TPlatformDetails[] = [
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: [
+            { type: 'mac_app_store', url: dmt5_mac_app_url },
+            { type: 'windows', url: dmt5_windows_download_url },
+            { type: 'linux', url: dmt5_linux_url },
             { type: 'browser', link_type: 'mt5' },
             { type: 'app_store', url: dmt5_macos_url },
-            { type: 'linux', url: dmt5_linux_url },
             { type: 'google_play', url: dmt5_android_url },
+            { type: 'app_gallery', url: dmt5_app_gallery },
         ],
     },
     {
@@ -131,7 +142,6 @@ export const platform_details_cr: TPlatformDetails[] = [
         download_links: [{ type: 'browser', url: deriv_api_url }],
     },
 ]
-
 export const platform_details_eu: TPlatformDetails[] = [
     {
         title: 'Deriv MT5',
@@ -140,10 +150,13 @@ export const platform_details_eu: TPlatformDetails[] = [
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: [
+            { type: 'mac_app_store', url: dmt5_mac_app_url },
+            { type: 'windows', url: dmt5_windows_download_url },
+            { type: 'linux', url: dmt5_linux_url },
             { type: 'browser', link_type: 'mt5' },
             { type: 'app_store', url: dmt5_macos_url },
-            { type: 'linux', url: dmt5_linux_url },
             { type: 'google_play', url: dmt5_android_url },
+            { type: 'app_gallery', url: dmt5_app_gallery },
         ],
     },
     {
@@ -164,10 +177,13 @@ export const platform_details_uk: TPlatformDetails[] = [
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: [
+            { type: 'mac_app_store', url: dmt5_mac_app_url },
+            { type: 'windows', url: dmt5_windows_download_url },
+            { type: 'linux', url: dmt5_linux_url },
             { type: 'browser', link_type: 'mt5' },
             { type: 'app_store', url: dmt5_macos_url },
-            { type: 'linux', url: dmt5_linux_url },
             { type: 'google_play', url: dmt5_android_url },
+            { type: 'app_gallery', url: dmt5_app_gallery },
         ],
     },
     {

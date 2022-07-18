@@ -6,6 +6,14 @@ import type { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
 
+const StyledFlex = styled(Flex)`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 630px;
+    margin-bottom: 20px;
+`
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
@@ -75,10 +83,11 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                     alt="test"
                 />
             </Flex>
-            <Flex>
+            <StyledFlex>
                 {selected_platform?.download_links?.map((link, index) => {
                     return (
                         <DownloadLink
+                            link
                             key={index}
                             external="true"
                             type={link?.link_type}
@@ -90,7 +99,7 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                         </DownloadLink>
                     )
                 })}
-            </Flex>
+            </StyledFlex>
         </Flex>
     )
 }

@@ -1005,7 +1005,7 @@ const PnlMultipliersCalculator = () => {
 
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('How to calculate stop loss and/or take profit level')}
+                                {localize('How to calculate stop loss and take profit level')}
                             </Header>
 
                             <Text mb="8px">
@@ -1669,7 +1669,7 @@ const PnlMultipliersCalculator = () => {
                             </Text>
                             <Text mb="40px">
                                 {localize(
-                                    'This helps you to set the stop loss and/or take profit level when the asset price moves in Up or Down direction.',
+                                    'This helps you to set the stop loss and take profit level when the asset price moves in Up or Down direction.',
                                 )}
                             </Text>
 

@@ -167,12 +167,10 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                     name: 'version',
                     content: process.env.GATSBY_DERIV_VERSION,
                 },
-                block_eu
-                    ? {
-                          name: 'robots',
-                          content: 'noindex, nofollow',
-                      }
-                    : {},
+                block_eu && {
+                    name: 'robots',
+                    content: 'noindex, nofollow',
+                },
                 ...(no_index || no_index_staging || is_ach_page
                     ? [
                           {

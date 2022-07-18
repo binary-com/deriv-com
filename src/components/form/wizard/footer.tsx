@@ -14,7 +14,7 @@ const StyledFooter = styled.div`
     height: 72px;
     right: 0;
     bottom: 0;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid var(--color-grey-43);
     width: 100%;
 `
 

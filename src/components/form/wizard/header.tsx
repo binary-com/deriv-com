@@ -8,7 +8,7 @@ const StyledHeader = styled.div`
     align-items: center;
     height: 56px;
     padding: 24px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--color-grey-43);
     gap: 10px;
 `
 

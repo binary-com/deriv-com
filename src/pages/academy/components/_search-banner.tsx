@@ -378,12 +378,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
 
     const input_ref = useRef<HTMLInputElement>()
 
-    const memoized_data_filter = useMemo(
-        () => [...academy_data.blog, ...academy_data.videos],
-        [academy_data.blog, academy_data.videos],
-    )
-
-    const combined_data = useDataFilter(memoized_data_filter)
+    const combined_data = useDataFilter([...academy_data.blog, ...academy_data.videos])
 
     let data_to_render
     const handleFilterSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

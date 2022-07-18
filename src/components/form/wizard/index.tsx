@@ -7,6 +7,7 @@ import Stepper from './stepper'
 type WizardProps = {
     children: React.ReactElement[]
     steps_names: string[]
+    title: string
 }
 
 const Background = styled.div`
@@ -37,7 +38,7 @@ const Modal = styled.div`
 
 export const StepContext = React.createContext(null)
 
-const Wizard = ({ children, steps_names }: WizardProps) => {
+const Wizard = ({ children, steps_names, title }: WizardProps) => {
     const [show, setShow] = useState(true)
     const [step, setStep] = useState(1)
     const max_step = children.length
@@ -51,7 +52,7 @@ const Wizard = ({ children, steps_names }: WizardProps) => {
         return (
             <>
                 <Modal>
-                    <Header setShow={setShow} />
+                    <Header title={title} setShow={setShow} />
                     <StepContext.Provider value={{ step, setStep, max_step, setEnableNext }}>
                         <Stepper step_names={steps_names} />
                         {children.map((child, idx) => (

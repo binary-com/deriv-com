@@ -13,12 +13,6 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { MetaAttributesType } from 'types/page.types'
-import Wizard from 'components/form/wizard'
-import FormAccountType from 'components/form/wizard/form_account_type'
-import FormAddressDetails from 'components/form/wizard/form_address_details'
-import FormPersonalDetails from 'components/form/wizard/form_personal_details'
-import FormPhoneNumber from 'components/form/wizard/form_phone_number'
-import FormTermsOfUse from 'components/form/wizard/form_terms_of_use'
 
 const WhyUs = Loadable(() => import('./_why-us'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply'))
@@ -171,21 +165,6 @@ const AffiliateIb = () => {
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
-            <Wizard
-                steps_names={[
-                    'Account type',
-                    'Address details',
-                    'Phone number',
-                    'Personal details',
-                    'Terms of use',
-                ]}
-            >
-                <FormAccountType />
-                <FormAddressDetails />
-                <FormPhoneNumber />
-                <FormPersonalDetails />
-                <FormTermsOfUse />
-            </Wizard>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
                     {localize('Partner with a trusted online trading provider')}

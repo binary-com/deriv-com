@@ -25,10 +25,15 @@ const Title = styled.h2`
     color: '#333333';
 `
 
-const Header = ({ setShow }: { setShow: React.Dispatch<React.SetStateAction<boolean>> }) => {
+type HeaderProps = {
+    title: string
+    setShow: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Header = ({ title, setShow }: HeaderProps) => {
     return (
         <StyledHeader>
-            <Title>Add an affiliate account</Title>
+            <Title>{title}</Title>
             <CloseButton src={CloseSVG} onClick={() => setShow(false)} />
         </StyledHeader>
     )

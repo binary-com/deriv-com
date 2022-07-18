@@ -8,6 +8,8 @@ export const DefaultFooter = styled.footer`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
     margin-bottom: ${(props) => props.is_eu_country && '7.3rem'};
     padding-bottom: 1.6rem;
 

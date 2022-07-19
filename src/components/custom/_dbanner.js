@@ -6,6 +6,7 @@ import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import { EU, ROW } from 'components/containers/visibility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const Wrapper = styled.div`
@@ -120,7 +121,12 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
         <Wrapper>
             <ImageContainer>
                 <ImageWrapper ai="center">
-                    <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
+                    <ROW>
+                        <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
+                    </ROW>
+                    <EU>
+                        <QueryImage data={data['deriv_platform_EU']} alt={image_alt} width="100%" />
+                    </EU>
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper

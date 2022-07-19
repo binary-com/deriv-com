@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CareerContainer from '../_layout-components/_career_container'
-import { locationsTypes } from '../_model/_locations/_locations.types'
+import { LocationsType } from '../_model/_locations/_locations.types'
 import { Iframe, Pin } from './_location-layout'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -174,7 +174,7 @@ const WorkingFlex = styled(Flex)`
 `
 
 const WorkingInformation = styled(Flex)`
-    max-width: 44.4rem;
+    max-width: 51.4rem;
     padding: 40px;
     display: block;
     @media ${device.laptop} {
@@ -184,7 +184,7 @@ const WorkingInformation = styled(Flex)`
 `
 
 const StyledDiv = styled.div`
-    max-width: 400px;
+    max-width: 438px;
 
     @media ${device.laptop} {
         max-width: 100%;
@@ -213,8 +213,8 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
-    location: locationsTypes
-    images: locationsTypes
+    location: LocationsType
+    images: LocationsType
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {

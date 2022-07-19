@@ -1,0 +1,51 @@
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import { berlin } from '../../_model/_locations/_locations'
+import { NewLocationLayout } from '../_location-layout-new-offices'
+import { SEO } from 'components/containers'
+import Layout from 'components/layout/layout'
+import { localize, WithIntl } from 'components/localization'
+
+const query = graphql`
+    query {
+        berlin: file(relativePath: { eq: "careers/berlin.jpg" }) {
+            ...heroImage
+        }
+        living_in_berlin: file(relativePath: { eq: "careers/living_in_berlin.jpg" }) {
+            ...fadeIn
+        }
+        guernsey_grid_1: file(relativePath: { eq: "careers/guernsey_grid_1.jpg" }) {
+            ...fadeIn
+        }
+        guernsey_grid_2: file(relativePath: { eq: "careers/guernsey_grid_2.jpg" }) {
+            ...fadeIn
+        }
+        berlin_grid_3: file(relativePath: { eq: "careers/berlin_grid_3.png" }) {
+            ...fadeIn
+        }
+        guernsey_grid_4: file(relativePath: { eq: "careers/guernsey_grid_4.jpg" }) {
+            ...fadeIn
+        }
+        guernsey_map: file(relativePath: { eq: "maps/map-guernsey-career.jpg" }) {
+            ...fadeIn
+        }
+    }
+`
+
+const Berlin = () => {
+    const images = useStaticQuery(query)
+
+    return (
+        <Layout type="careers">
+            <SEO
+                title={localize('berlin – Our office | Deriv')}
+                description={localize(
+                    'Check out the current open job positions at Deriv and get a chance to work with our team in berlin for a thriving tech career.',
+                )}
+            />
+            <NewLocationLayout location={berlin} images={images} />
+        </Layout>
+    )
+}
+
+export default WithIntl()(Berlin)

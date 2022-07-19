@@ -48,8 +48,7 @@ const BackgroundWrapper = styled(Flex)`
 `
 const ButtonDerivGO = styled(Button)`
     padding: 1.5rem 1.6rem;
-    height: 64px;
-    width: 100%;
+    height: 40px;
     white-space: nowrap;
     margin: 20px 0;
     margin-right: 25px;
@@ -83,7 +82,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledSubTitle = styled(Header)`
-    margin-top: 5px;
+    margin-top: 16px;
     @media ${device.tabletL} {
         margin-top: 8px;
         text-align: center;
@@ -140,7 +139,7 @@ const FooterBanner = () => {
                     <StyledHeader as="h3" color="white" type="heading-3">
                         {localize('Start trading on the go')}
                     </StyledHeader>
-                    <StyledSubTitle color="white" type="subtitle-2" weight="normal">
+                    <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
                         {localize(
                             'Download the app today and trade multipliers anytime, anywhere you want.',
                         )}

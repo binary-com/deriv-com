@@ -154,7 +154,7 @@ const StyledFlex = styled(Flex)`
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-        height: 316px;
+        height: 90%;
         border-radius: 0 0 8px 8px;
     }
     ${LearnMore} {
@@ -179,7 +179,7 @@ const settings = {
     },
     slide_style: {
         width: '282px',
-        height: '350px',
+        height: '365px',
         marginRight: '24px',
         paddingRight: '50px',
         paddingLeft: '25px',
@@ -195,8 +195,7 @@ const Card = ({ market }: CardProps) => {
     return (
         <StyledFlex
             direction="column"
-            max_width="28.2rem"
-            height="296px"
+            height="unset"
             width="282px"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"

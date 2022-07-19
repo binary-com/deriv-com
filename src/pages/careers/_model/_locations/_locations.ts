@@ -22,6 +22,7 @@ import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -374,6 +375,33 @@ export const guernsey: LocationsType = {
     has_map: false,
 }
 
+export const vanuatu: LocationsType = {
+    name: 'vanuatu',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/vanuatu/',
+    display_name: 'Port Vila',
+    img_alt: 'Vanuatu alt img',
+    map_office_name: '(Vanuatu)',
+    country: 'Vanuatu',
+    flagIcon: VanuatuFlagIcon,
+    thumbnail: 'thumbnail_vanuatu',
+    first_p:
+        'Deriv (Vanuatu) will be our new office, opening in the second half of 2022.  Benefiting from the regional talent pool, it will assist the Deriv Group in delivering robust online trading solutions with exceptional customer service.',
+    first_img: 'living_in_vanuatu',
+    first_img_alt: 'living_in_vanuatu alt img',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'vanuatu_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'vanuatu_grid_3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'The Vanuatu office will bring experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
+    address: address_guernsey,
+    map_img: '',
+    google_map_link: '',
+    has_iframe: false,
+    has_map: false,
+}
+
 export const all_offices: LocationsType[] = [
     dubai,
     malta,
@@ -387,6 +415,7 @@ export const all_offices: LocationsType[] = [
     asuncion,
     rwanda,
     minsk,
+    vanuatu,
 ]
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
@@ -401,6 +430,7 @@ export const locations = {
     belarus: `${minsk.display_name}, ${minsk.country}`,
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
+    vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
 }
 export const allContinents = {
     all: all_offices,

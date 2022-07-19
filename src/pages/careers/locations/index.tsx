@@ -270,6 +270,9 @@ const query = graphql`
         thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.jpg" }) {
             ...fadeIn
         }
+        thumbnail_vanuatu: file(relativePath: { eq: "careers/thumbnail_vanuatu.jpg" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -328,7 +331,7 @@ const Locations = () => {
                         return (
                             <Tabs.Panel
                                 label={formatContinentName(continent)}
-                                key={{ continent }}
+                                key={continent}
                                 width="79px"
                                 height="56px"
                                 gap="8px"

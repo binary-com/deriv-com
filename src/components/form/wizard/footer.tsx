@@ -26,15 +26,18 @@ const enum ButtonType {
 const Footer = ({ disabled }: { disabled: boolean }) => {
     const { step, setStep, max_step, setEnableNext } = React.useContext(StepContext)
 
-    const buttonHandler = (button_type: ButtonType): void => {
-        if (button_type === ButtonType.Previous) {
-            step > 1 && setStep(step - 1)
-        }
-        if (button_type === ButtonType.Next) {
-            step < max_step && setStep(step + 1)
-        }
-        setEnableNext(false)
-    }
+    const buttonHandler = React.useCallback(
+        (button_type: ButtonType): void => {
+            if (button_type === ButtonType.Previous) {
+                step > 1 && setStep(step - 1)
+            }
+            if (button_type === ButtonType.Next) {
+                step < max_step && setStep(step + 1)
+            }
+            setEnableNext(false)
+        },
+        [max_step, setEnableNext, setStep, step],
+    )
 
     return (
         <StyledFooter>

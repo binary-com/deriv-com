@@ -58,9 +58,7 @@ const Card = ({ icon, title, description, selected }: CardProps) => {
     const clickHandler = () => setIsSelected(true)
 
     React.useEffect(() => {
-        if (selected) {
-            setIsSelected(selected)
-        }
+        setIsSelected(selected)
     }, [selected])
 
     return (

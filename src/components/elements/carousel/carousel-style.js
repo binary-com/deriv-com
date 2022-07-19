@@ -32,6 +32,7 @@ export const EmblaSlideInner = styled.div`
     padding-left: 0;
     margin: 0 auto;
     height: 100%;
+    height: ${(props) => props.height || '100%'};
     ${(props) => {
         if (props.width)
             return css`

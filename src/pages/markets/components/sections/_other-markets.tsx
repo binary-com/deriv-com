@@ -148,14 +148,15 @@ const MobileCardWrapper = styled(Flex)`
 `
 const StyledFlex = styled(Flex)`
     min-width: 282px;
+    height: 97%;
     border-radius: 8px;
     background-color: var(--color-white);
     top: 0;
 
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-        height: 90%;
         border-radius: 0 0 8px 8px;
+        height: 100%;
     }
     ${LearnMore} {
         img {
@@ -179,7 +180,6 @@ const settings = {
     },
     slide_style: {
         width: '282px',
-        height: '365px',
         marginRight: '24px',
         paddingRight: '50px',
         paddingLeft: '25px',
@@ -195,7 +195,6 @@ const Card = ({ market }: CardProps) => {
     return (
         <StyledFlex
             direction="column"
-            height="unset"
             width="282px"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"
@@ -206,7 +205,6 @@ const Card = ({ market }: CardProps) => {
             <div>
                 <Icon dynamic_id={markets_type[market].id} width="64px" height="64px" />
             </div>
-
             <Text size="16px" weight="bold" mt="1.6rem">
                 {localize(markets_type[market].title)}
             </Text>
@@ -302,7 +300,12 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Carousel has_autoplay autoplay_interval={4000} {...settings}>
+                    <Carousel
+                        has_autoplay
+                        autoplay_interval={4000}
+                        slide_inner_height="calc(100% - 30px)"
+                        {...settings}
+                    >
                         {filteredMarkets.map((market) =>
                             market === '' ? <div></div> : <Card market={market} key={market} />,
                         )}

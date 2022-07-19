@@ -87,10 +87,6 @@ const swap_tab_selector_css = (props) =>
           `
 
 export const SwapTabSelector = styled(Flex)`
-    @media ${device.mobileL} {
-        width: 160px;
-    }
-
     margin-left: 15px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     padding: 22px 16px;
@@ -106,6 +102,11 @@ export const SwapTabSelector = styled(Flex)`
     }
 
     ${swap_tab_selector_css}
+    
+        @media ${device.mobileL} {
+        width: 160px;
+    }
+
 `
 
 export const ContentContainer = styled(Flex)`
@@ -150,12 +151,12 @@ const CalculatorFormStyles = css`
 `
 
 export const CalculatorForm = styled(Form)`
-    ${CalculatorFormStyles}
     width: 54rem;
+    ${CalculatorFormStyles}
 `
 export const PnlCalculatorFormMobile = styled(Form)`
-    ${CalculatorFormStyles}
     width:43rem;
+    ${CalculatorFormStyles}
 
     @media (min-width: 1200px) {
         width: 54rem;

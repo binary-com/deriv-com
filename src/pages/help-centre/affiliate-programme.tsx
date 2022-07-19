@@ -51,9 +51,9 @@ const WhyAffiliate = ({ text }: ArticleProps) => (
         <StyledList listStyle="disc" paddingLeft="5rem">
             <StyledListItem marginTop="0.3rem">
                 <Text>
-                    {localize(
-                        `You'll have multiple income opportunities by joining other partnership programmes that we offer.`,
-                    )}
+                    {
+                        <Localize translate_text="You'll have multiple income opportunities by joining other partnership programmes that we offer." />
+                    }
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">

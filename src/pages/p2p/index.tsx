@@ -1,5 +1,6 @@
 import React from 'react'
 import Loadable from '@loadable/component'
+import PageNotFound from '../404'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
 import Roadmap from 'components/elements/roadmap'
@@ -11,13 +12,12 @@ const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
 const Numbers = Loadable(() => import('./components/_numbers'))
 const Availability = Loadable(() => import('./components/_availability'))
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const DP2P_CONTENT = [
     {
-        title: <Localize translate_text="Save time" />,
-        subtitle: (
-            <Localize translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in minutes." />
-        ),
+        title: <Localize translate_text="Less waiting, more trading" />,
+        subtitle: <Localize translate_text="Deposit and withdraw in minutes." />,
         subtitle_mobile: (
             <Localize
                 translate_text="Exchange in minutes.<0 />Less waiting, more trading.<0 />Deposit and withdraw in minutes."
@@ -61,31 +61,37 @@ const derivP2PPortalData = {
 }
 
 const DP2PHome = () => {
-    const [is_mounted] = usePageLoaded(false) // needed to fix the second Hero-component during page's loading
-    return (
-        <Layout>
-            <SEO
-                title={localize('Deriv P2P – peer-to-peer deposit and withdrawal service')}
-                description={localize(
-                    'With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.',
-                )}
-            />
+    const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
 
-            {is_mounted && (
-                <>
-                    <Hero />
-                    <DP2P reverse P2P={DP2P_CONTENT} />
-                    <Numbers />
-                    <ExchangeSteps />
-                    <Availability />
-                    <P2PBanner
-                        title={localize('Make hassle-free deposits and withdrawals today')}
-                    />
-                    <Roadmap portal={derivP2PPortalData} />
-                </>
-            )}
-        </Layout>
-    )
+    const { is_row } = useCountryRule()
+
+    if (is_row) {
+        return (
+            <Layout>
+                <SEO
+                    title={localize('Deriv P2P – peer-to-peer deposit and withdrawal service')}
+                    description={localize(
+                        'With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.',
+                    )}
+                />
+
+                {is_mounted && (
+                    <>
+                        <Hero />
+                        <DP2P reverse P2P={DP2P_CONTENT} />
+                        <Numbers />
+                        <ExchangeSteps />
+                        <Availability />
+                        <P2PBanner
+                            title={localize('Make hassle-free deposits and withdrawals today')}
+                        />
+                        <Roadmap portal={derivP2PPortalData} />
+                    </>
+                )}
+            </Layout>
+        )
+    }
+    return <PageNotFound />
 }
 
 export default WithIntl()(DP2PHome)

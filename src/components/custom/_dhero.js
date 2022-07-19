@@ -8,6 +8,7 @@ import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { DerivStore } from 'store'
 
 const Wrapper = styled.div`
     position: relative;
@@ -216,6 +217,9 @@ const query = graphql`
         dtrader: file(relativePath: { eq: "dtrader/dtrader_trade.png" }) {
             ...fadeIn
         }
+        dtrader_eu: file(relativePath: { eq: "dtrader/dtrader_trade_eu.png" }) {
+            ...fadeIn
+        }
         dbot_mobile: file(relativePath: { eq: "dbot/dbot_trade_mobile.png" }) {
             ...fadeIn
         }
@@ -231,7 +235,6 @@ const DHero = ({
     background_svg,
     content,
     image_name,
-    is_mobile,
     join_us_for_free,
     go_to_live_demo,
     Logo,
@@ -239,6 +242,7 @@ const DHero = ({
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
+    const { is_eu_country } = React.useContext(DerivStore)
 
     return (
         <Wrapper>
@@ -275,14 +279,10 @@ const DHero = ({
             </InformationWrapper>
 
             <LottieWrapper>
-                {image_name === 'dtrader' ? (
-                    <QueryImage data={data['dtrader']} alt={background_alt} />
-                ) : (
-                    <QueryImage
-                        data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                        alt={background_alt}
-                    />
-                )}
+                <QueryImage
+                    data={data[is_eu_country ? 'dtrader' + '_eu' : 'dtrader']}
+                    alt={background_alt}
+                />
             </LottieWrapper>
         </Wrapper>
     )

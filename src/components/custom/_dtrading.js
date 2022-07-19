@@ -102,6 +102,9 @@ const query = graphql`
         trade_what_you_want: file(relativePath: { eq: "dtrader/trade-what-you-want.png" }) {
             ...fadeIn
         }
+        trade_what_you_want_EU: file(relativePath: { eq: "dtrader/trade-what-you-want_EU.png" }) {
+            ...fadeIn
+        }
         how_you_want: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
             ...fadeIn
         }

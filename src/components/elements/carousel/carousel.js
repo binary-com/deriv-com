@@ -79,6 +79,7 @@ export const Carousel = ({
     options,
     slide_style,
     slide_inner_width,
+    slide_inner_height,
     vertical_container,
     view_port,
     last_slide_no_spacing = false,
@@ -158,7 +159,10 @@ export const Carousel = ({
                                         : slide_style
                                 return (
                                     <div key={idx} style={new_style}>
-                                        <EmblaSlideInner width={slide_inner_width}>
+                                        <EmblaSlideInner
+                                            width={slide_inner_width}
+                                            height={slide_inner_height}
+                                        >
                                             {child}
                                         </EmblaSlideInner>
                                     </div>
@@ -221,6 +225,7 @@ Carousel.propTypes = {
     navigation_css: PropTypes.array,
     navigation_style: PropTypes.object,
     options: PropTypes.object,
+    slide_inner_height: PropTypes.string,
     slide_inner_width: PropTypes.string,
     slide_style: PropTypes.object,
     vertical_container: PropTypes.object,

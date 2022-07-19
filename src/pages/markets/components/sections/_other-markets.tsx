@@ -148,6 +148,7 @@ const MobileCardWrapper = styled(Flex)`
 `
 const StyledFlex = styled(Flex)`
     min-width: 282px;
+    height: 97%;
     border-radius: 8px;
     background-color: var(--color-white);
     top: 0;
@@ -207,7 +208,6 @@ const Card = ({ market }: CardProps) => {
             <div>
                 <Icon dynamic_id={markets_type[market].id} width="64px" height="64px" />
             </div>
-
             <Text size="16px" weight="bold" mt="1.6rem">
                 {localize(markets_type[market].title)}
             </Text>
@@ -303,7 +303,12 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Carousel has_autoplay autoplay_interval={4000} {...settings}>
+                    <Carousel
+                        has_autoplay
+                        autoplay_interval={4000}
+                        slide_inner_height="calc(100% - 30px)"
+                        {...settings}
+                    >
                         {filteredMarkets.map((market) =>
                             market === '' ? <div></div> : <Card market={market} key={market} />,
                         )}

@@ -8,6 +8,7 @@ type WizardProps = {
     children: React.ReactElement[]
     steps_names: string[]
     title: string
+    enable_next_button: boolean
 }
 
 const Background = styled.div`
@@ -38,15 +39,17 @@ const Modal = styled.div`
 
 export const StepContext = React.createContext(null)
 
-const Wizard = ({ children, steps_names, title }: WizardProps) => {
+const Wizard = ({ children, steps_names, title, enable_next_button }: WizardProps) => {
     const [show, setShow] = useState(true)
     const [step, setStep] = useState(1)
     const max_step = children.length
     const [enable_next, setEnableNext] = useState(false)
 
     useEffect(() => {
-        setEnableNext(false)
-    }, [step])
+        if (enable_next_button) {
+            setEnableNext(true)
+        }
+    }, [enable_next_button])
 
     if (show)
         return (
@@ -55,7 +58,7 @@ const Wizard = ({ children, steps_names, title }: WizardProps) => {
                     <Header title={title} setShow={setShow} />
                     <StepContext.Provider value={{ step, setStep, max_step, setEnableNext }}>
                         <Stepper step_names={steps_names} />
-                        {children.map((child, idx) => (
+                        {React.Children.map(children, (child, idx) => (
                             <div key={child.props.name}>{step === idx + 1 && child}</div>
                         ))}
                         <Footer disabled={!enable_next} />

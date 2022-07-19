@@ -54,8 +54,14 @@ const SelectedIcon = styled.img`
 `
 
 const Card = ({ icon, title, description, selected }: CardProps) => {
-    const [is_selected, setIsSelected] = React.useState(selected || false)
+    const [is_selected, setIsSelected] = React.useState(false)
     const clickHandler = () => setIsSelected(true)
+
+    React.useEffect(() => {
+        if (selected) {
+            setIsSelected(selected)
+        }
+    }, [selected])
 
     return (
         <StyledCard selected={is_selected} onClick={clickHandler}>

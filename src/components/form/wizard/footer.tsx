@@ -18,22 +18,37 @@ const StyledFooter = styled.div`
     width: 100%;
 `
 
+const enum ButtonType {
+    Previous = 'PREVIOUS',
+    Next = 'NEXT',
+}
+
 const Footer = ({ disabled }: { disabled: boolean }) => {
-    const { step, setStep, max_step } = React.useContext(StepContext)
+    const { step, setStep, max_step, setEnableNext } = React.useContext(StepContext)
+
+    const buttonHandler = (button_type: ButtonType): void => {
+        if (button_type === ButtonType.Previous) {
+            step > 1 && setStep(step - 1)
+        }
+        if (button_type === ButtonType.Next) {
+            step < max_step && setStep(step + 1)
+        }
+        setEnableNext(false)
+    }
 
     return (
         <StyledFooter>
             <Button
                 tertiary="true"
                 disabled={step <= 1}
-                onClick={() => step > 1 && setStep(step - 1)}
+                onClick={() => buttonHandler(ButtonType.Previous)}
             >
                 {localize('Previous')}
             </Button>
             <Button
                 secondary="true"
                 disabled={disabled}
-                onClick={() => step < 5 && setStep(step + 1)}
+                onClick={() => buttonHandler(ButtonType.Next)}
             >
                 {max_step === step ? localize('Submit') : localize('Next')}
             </Button>

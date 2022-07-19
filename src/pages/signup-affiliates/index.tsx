@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
-import { localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
@@ -242,4 +242,4 @@ AffiliateSignup.prototypes = {
     handleValidation: PropTypes.func,
 }
 
-export default AffiliateSignup
+export default WithIntl()(AffiliateSignup)

@@ -22,7 +22,7 @@ const DP2P_CONTENT = [
         ),
         subtitle_mobile: (
             <Localize
-                translate_text="Exchange in minutes.<0 />Less waiting, more trading.<0 />Deposit and withdraw in minutes."
+                translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in <0 /> minutes."
                 components={[<br key={0} />]}
             />
         ),

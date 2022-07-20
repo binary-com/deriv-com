@@ -274,7 +274,7 @@ const CarouselItem = ({
 
     return (
         <ItemWrapper
-            onMouseEnter={() => handleHover(true)}
+            onMouseOver={() => handleHover(true)}
             onMouseLeave={() => handleHover(false)}
             onClick={(e) => !is_mobile && e.preventDefault()}
         >

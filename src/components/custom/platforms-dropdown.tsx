@@ -8,7 +8,6 @@ type PlatformsDropdownProps = {
     current_ref?: {
         offsetWidth?: number
         offsetLeft?: number
-        getBoundingClientRect?: any
     }
     is_ppc?: boolean
     is_ppc_redirect?: boolean
@@ -83,16 +82,16 @@ const PlatformsDropdown = ({
 
     const [left_offset, setLeftOffset] = useState(() => {
         if (is_trade) {
-            return current_ref?.getBoundingClientRect()?.x / 2
+            return (current_ref as HTMLElement)?.getBoundingClientRect()?.x / 2
         }
-        return current_ref?.getBoundingClientRect()?.x
+        return (current_ref as HTMLElement)?.getBoundingClientRect()?.x
     })
 
     const updateOffsets = useCallback(() => {
         if (is_trade) {
-            setLeftOffset(current_ref.getBoundingClientRect().x / 2)
+            setLeftOffset((current_ref as HTMLElement).getBoundingClientRect().x / 2)
         } else if (current_ref && !is_trade) {
-            setLeftOffset(current_ref.getBoundingClientRect().x)
+            setLeftOffset((current_ref as HTMLElement).getBoundingClientRect().x)
         }
     }, [current_ref])
 

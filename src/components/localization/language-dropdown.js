@@ -1,13 +1,80 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { QueryImage, Text } from 'components/elements'
+import { Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
+import EN from 'images/svg/flags/en.svg'
+import ES from 'images/svg/flags/es.svg'
+import FR from 'images/svg/flags/fr.svg'
+import ID from 'images/svg/flags/id.svg'
+import IT from 'images/svg/flags/it.svg'
+import PL from 'images/svg/flags/pl.svg'
+import PT from 'images/svg/flags/pt.svg'
+import RU from 'images/svg/flags/ru.svg'
+import TH from 'images/svg/flags/th.svg'
+import TR from 'images/svg/flags/tr.svg'
+import VI from 'images/svg/flags/vi.svg'
+import ZH_CN from 'images/svg/flags/zh-cn.svg'
+//import ZH_TW from 'images/svg/flags/zh-tw.svg'
 
+const flags = {
+    en: {
+        src: EN,
+        alt: 'en',
+    },
+    es: {
+        src: ES,
+        alt: 'es',
+    },
+    fr: {
+        src: FR,
+        alt: 'fr',
+    },
+    id: {
+        src: ID,
+        alt: 'id',
+    },
+    it: {
+        src: IT,
+        alt: 'it',
+    },
+    pl: {
+        src: PL,
+        alt: 'pl',
+    },
+    pt: {
+        src: PT,
+        alt: 'pt',
+    },
+    ru: {
+        src: RU,
+        alt: 'ru',
+    },
+    th: {
+        src: TH,
+        alt: 'th',
+    },
+    tr: {
+        src: TR,
+        alt: 'tr',
+    },
+
+    vi: {
+        src: VI,
+        alt: 'vi',
+    },
+    zh: {
+        src: ZH_CN,
+        alt: 'zh-cn',
+    },
+    /*zh_tw: {
+        src: ZH_TW,
+        alt: 'zh-tw',
+    },*/
+}
 const Container = styled.div`
     position: relative;
 
@@ -140,7 +207,7 @@ const ResponsiveText = styled(Text)`
 `
 /* stylelint-enable */
 
-const Icon = styled(QueryImage)`
+export const IconWrapper = styled.img`
     width: 24px;
     height: 19px;
 
@@ -149,55 +216,9 @@ const Icon = styled(QueryImage)`
         height: 15px;
     }
 `
-
-const query = graphql`
-    query {
-        en: file(relativePath: { eq: "flags/uk.png" }) {
-            ...fadeIn
-        }
-        es: file(relativePath: { eq: "flags/es.png" }) {
-            ...fadeIn
-        }
-        fr: file(relativePath: { eq: "flags/fr.png" }) {
-            ...fadeIn
-        }
-        id: file(relativePath: { eq: "flags/id.png" }) {
-            ...fadeIn
-        }
-        it: file(relativePath: { eq: "flags/it.png" }) {
-            ...fadeIn
-        }
-        pl: file(relativePath: { eq: "flags/pl.png" }) {
-            ...fadeIn
-        }
-        pt: file(relativePath: { eq: "flags/pt.png" }) {
-            ...fadeIn
-        }
-        ru: file(relativePath: { eq: "flags/ru.png" }) {
-            ...fadeIn
-        }
-        vi: file(relativePath: { eq: "flags/vi.png" }) {
-            ...fadeIn
-        }
-        th: file(relativePath: { eq: "flags/th.png" }) {
-            ...fadeIn
-        }
-        zh: file(relativePath: { eq: "flags/zh.png" }) {
-            ...fadeIn
-        }
-        tr: file(relativePath: { eq: "flags/tr.png" }) {
-            ...fadeIn
-        }
-        ac: file(relativePath: { eq: "flags/uk.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security }) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
-    const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
     const toggleVisibility = () => setOpen(!is_open)
@@ -210,14 +231,20 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
         onChange({ target: { id: value } })
         closeList()
     }
-
-    const default_abbreviation = default_option.path.substring(0, 2)
+    const flagName = default_option.path
+    const current_flag = flags[flagName].src
 
     return (
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <Icon data={data[default_abbreviation]} alt="language icon" loading="eager" />
+                    <IconWrapper
+                        src={current_flag}
+                        alt="language icon"
+                        width="26.67"
+                        height="26.67"
+                    />
+
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
@@ -228,8 +255,8 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null
-                            const abbreviation = option.path.substring(0, 2)
                             const current_option = default_option.path === option.path
+
                             return (
                                 <Item
                                     disabled={current_option}
@@ -240,10 +267,11 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                                     }}
                                     key={idx}
                                 >
-                                    <Icon
-                                        data={data[abbreviation]}
+                                    <IconWrapper
+                                        src={current_flag}
                                         alt="language icon"
-                                        loading="eager"
+                                        width="26.67"
+                                        height="26.67"
                                     />
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}

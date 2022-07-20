@@ -10,6 +10,7 @@ export type BlogType = {
     blog_description: string
     blog_title: string
     featured: boolean
+    visibility: string
     id: string
     main_image: MainImageType
     published_date: string
@@ -32,10 +33,13 @@ export type TagsType = {
 
 export type VideosType = {
     featured: boolean
+    visibility: string
     published_date: string
     tags: TagsType[]
+    vimeo_id: string
     video_description: string
     video_duration: string
+    video_slug: string
     video_file: VideoFileType
     video_thumbnail: VideoThumbnailType
     video_title: string
@@ -64,9 +68,19 @@ const query = graphql`
         directus {
             blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(width: 600, aspectRatio: 1.82)
+                        }
+                    }
+                }
                 slug
                 published_date
                 featured
+                visibility
                 tags {
                     id
                     tags_id {
@@ -81,14 +95,16 @@ const query = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
+                visibility
                 video_thumbnail {
                     id
                     title
                     imageFile {
                         id
                         childImageSharp {
-                            gatsbyImageData(width: 382, aspectRatio: 1.6666666667)
+                            gatsbyImageData(width: 382, aspectRatio: 1.82)
                         }
                     }
                 }

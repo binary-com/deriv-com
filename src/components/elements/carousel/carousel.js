@@ -118,9 +118,9 @@ export const Carousel = ({
         (index) => {
             if (!embla) return
             embla.scrollTo(index)
-            stop()
+            play()
         },
-        [embla, stop],
+        [embla, play],
     )
 
     const onSelect = useCallback(() => {
@@ -134,8 +134,7 @@ export const Carousel = ({
         if (!embla) return
         onSelect()
         embla.on('select', onSelect)
-        embla.on('pointerDown', stop)
-    }, [embla, onSelect, stop])
+    }, [embla, onSelect])
 
     useEffect(() => {
         play()
@@ -146,65 +145,68 @@ export const Carousel = ({
     const is_arrow = prevBtnEnabled || nextBtnEnabled
     const { nav_color, bottom_offset, height } = navigation_style || {}
 
-    return (
-        <div style={container_style}>
-            <Embla style={embla_style}>
-                <ViewPort style={view_port} ref={emblaRef}>
-                    <EmblaContainer style={vertical_container ? vertical_container : null}>
-                        {children.map((child, idx) => {
-                            const new_style =
-                                last_slide_no_spacing && idx === children.length - 1
-                                    ? { ...slide_style, marginRight: 0, paddingRight: 0 }
-                                    : slide_style
-                            return (
-                                <div key={idx} style={new_style}>
-                                    <EmblaSlideInner width={slide_inner_width}>
-                                        {child}
-                                    </EmblaSlideInner>
-                                </div>
-                            )
-                        })}
-                    </EmblaContainer>
-                </ViewPort>
-                {chevron_color && is_arrow && (
-                    <PrevButton
-                        color={chevron_color}
-                        onClick={scrollPrev}
-                        enabled={prevBtnEnabled}
-                        style={chevron_left}
-                        is_reviews={is_displayed_on_mobile}
-                    />
-                )}
-                {chevron_color && is_arrow && (
-                    <NextButton
-                        color={chevron_color}
-                        onClick={scrollNext}
-                        enabled={nextBtnEnabled}
-                        style={chevron_right}
-                        is_reviews={is_displayed_on_mobile}
-                    />
-                )}
-                {nav_color && (
-                    <NavigationContainer
-                        navigation_css={navigation_css}
-                        bottom_offset={bottom_offset}
-                        height={height}
-                    >
-                        {/* We need the `child` below as an argument for embla-carousel to
+    if (children)
+        return (
+            <div style={container_style}>
+                <Embla style={embla_style}>
+                    <ViewPort style={view_port} ref={emblaRef}>
+                        <EmblaContainer style={vertical_container ? vertical_container : null}>
+                            {children.map((child, idx) => {
+                                const new_style =
+                                    last_slide_no_spacing && idx === children.length - 1
+                                        ? { ...slide_style, marginRight: 0, paddingRight: 0 }
+                                        : slide_style
+                                return (
+                                    <div key={idx} style={new_style}>
+                                        <EmblaSlideInner width={slide_inner_width}>
+                                            {child}
+                                        </EmblaSlideInner>
+                                    </div>
+                                )
+                            })}
+                        </EmblaContainer>
+                    </ViewPort>
+                    {chevron_color && is_arrow && (
+                        <PrevButton
+                            color={chevron_color}
+                            onClick={scrollPrev}
+                            enabled={prevBtnEnabled}
+                            style={chevron_left}
+                            is_reviews={is_displayed_on_mobile}
+                        />
+                    )}
+                    {chevron_color && is_arrow && (
+                        <NextButton
+                            color={chevron_color}
+                            onClick={scrollNext}
+                            enabled={nextBtnEnabled}
+                            style={chevron_right}
+                            is_reviews={is_displayed_on_mobile}
+                        />
+                    )}
+                    {nav_color && (
+                        <NavigationContainer
+                            navigation_css={navigation_css}
+                            bottom_offset={bottom_offset}
+                            height={height}
+                        >
+                            {/* We need the `child` below as an argument for embla-carousel to
                         correctly render the navigation buttons */}
-                        {children.map((child, idx) => (
-                            <NavigationButton
-                                key={idx}
-                                color={nav_color}
-                                is_enabled={idx === selectedIndex}
-                                onClick={() => scrollTo(idx)}
-                            />
-                        ))}
-                    </NavigationContainer>
-                )}
-            </Embla>
-        </div>
-    )
+                            {children?.map((child, idx) => (
+                                <NavigationButton
+                                    key={idx}
+                                    color={nav_color}
+                                    is_enabled={idx === selectedIndex}
+                                    onClick={() => scrollTo(idx)}
+                                />
+                            ))}
+                        </NavigationContainer>
+                    )}
+                </Embla>
+            </div>
+        )
+
+    return <></>
 }
 
 Carousel.propTypes = {

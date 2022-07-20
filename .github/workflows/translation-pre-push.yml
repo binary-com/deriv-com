@@ -1,0 +1,17 @@
+name: Pre-push Translation
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+        - 'master*'
+        
+jobs:
+    check-translation-branch:
+        runs-on: ubuntu-latest
+        if:  startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')
+        steps:
+            - name: Branch Check 🔍
+              run: echo '${{ github.head_ref }} is valid branch for translation workflow'
+              
+

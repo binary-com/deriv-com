@@ -7,8 +7,9 @@ import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
-import device from 'themes/device.js'
-import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
+import device from 'themes/device'
+import { Desktop, Mobile } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -117,7 +118,7 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Basket indicies" />,
+        header: <Localize translate_text="Basket indices" />,
         description: (
             <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
         ),
@@ -273,7 +274,7 @@ const CarouselItem = ({
 
     return (
         <ItemWrapper
-            onMouseEnter={() => handleHover(true)}
+            onMouseOver={() => handleHover(true)}
             onMouseLeave={() => handleHover(false)}
             onClick={(e) => !is_mobile && e.preventDefault()}
         >
@@ -320,7 +321,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_uk, is_non_uk, is_eu } = getCountryRule()
+    const { is_loading, is_uk, is_non_uk, is_eu, is_row } = useCountryRule()
     const size = useWindowSize()
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768
@@ -371,7 +372,7 @@ const MarketsFold = () => {
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
-                        Markets
+                        <Localize translate_text="Markets" />
                     </Header>
                 </Flex>
                 <Carousel
@@ -379,8 +380,12 @@ const MarketsFold = () => {
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >
-                    {(is_uk ? market_data_uk : is_eu ? market_data_eu : market_data).map(
-                        (market, index) => {
+                    {!is_loading &&
+                        (
+                            (is_uk && market_data_uk) ||
+                            (is_eu && market_data_eu) ||
+                            (is_row && market_data)
+                        ).map((market, index) => {
                             const {
                                 header,
                                 description,
@@ -402,8 +407,7 @@ const MarketsFold = () => {
                                     url={to}
                                 />
                             )
-                        },
-                    )}
+                        })}
                 </Carousel>
             </FoldContainer>
         </FoldWrapper>

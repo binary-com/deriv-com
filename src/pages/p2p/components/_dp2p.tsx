@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer, Show } from 'components/containers'
+import { Container, SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
@@ -89,18 +89,24 @@ const StyledText = styled(Text)`
     text-align: center;
 
     @media ${device.tabletL} {
-        font-size: 16px;
-        line-height: 24px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 30px;
     }
 `
 const VideoText = styled(Text)`
     margin-top: 70px;
-    font-size: 2.4rem;
+    font-size: 32px;
+    font-weight: 700;
     text-align: center;
-    line-height: 36px;
+    line-height: 40px;
+    margin-bottom: 40px;
 
     @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 30px;
+        max-width: 328px;
     }
 `
 const Row = styled.div<StyledProps>`
@@ -120,9 +126,15 @@ const Row = styled.div<StyledProps>`
 `
 
 const StyledIFrame = styled.iframe`
-    height: 315px;
+    height: 506px;
     width: 100%;
-    max-width: 560px;
+    border-radius: 20px;
+
+    @media ${device.tabletL} {
+        max-width: 328px;
+        max-height: 160px;
+        border-radius: 10px;
+    }
 `
 
 const query = graphql`
@@ -149,7 +161,7 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
                     )}
                 </StyledText>
 
-                <VideoText>{localize('Find out how Deriv P2P works:')}</VideoText>
+                <VideoText>{localize('Find out how Deriv P2P works')}</VideoText>
                 <StyledIFrame
                     src="https://www.youtube.com/embed/zf9flqE94Ek"
                     title="YouTube video player"
@@ -164,12 +176,12 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader as="h2">{item.title}</StyledHeader>
-                                <Show.Desktop>
+                                <Desktop>
                                     <Text>{item.subtitle}</Text>
-                                </Show.Desktop>
-                                <Show.Mobile>
+                                </Desktop>
+                                <Mobile>
                                     <Text>{item.subtitle_mobile}</Text>
-                                </Show.Mobile>
+                                </Mobile>
                             </Content>
                             <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
                                 <QueryImage

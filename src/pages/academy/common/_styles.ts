@@ -36,6 +36,10 @@ export const VideoGrid = styled.div<VideoGridProps>`
     grid-column-gap: 24px;
     grid-template-rows: auto;
     justify-content: center;
+
+    @media ${device.mobileL} {
+        grid-template-columns: unset;
+    }
 `
 
 type StandardImgWrapperProps = {
@@ -55,6 +59,7 @@ export const StandardImgWrapper = styled.div<StandardImgWrapperProps>`
     height: ${(props) => (props.height ? props.height : '100%')};
     border-radius: ${(props) => (props.border_radius ? props.border_radius : '4px')};
     overflow: hidden;
+    transform: translateZ(0);
     position: relative;
     text-align: center;
     display: flex;

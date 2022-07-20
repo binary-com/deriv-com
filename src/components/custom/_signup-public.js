@@ -8,8 +8,8 @@ import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
-import { getCountryRule } from 'components/containers/visibility'
-import device from 'themes/device.js'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+import device from 'themes/device'
 // SVG
 import Apple from 'images/svg/custom/apple-40.svg'
 import Facebook from 'images/svg/custom/facebook-40.svg'
@@ -310,7 +310,7 @@ const SignupPublic = ({
     is_submitting,
 }) => {
     const data = useStaticQuery(query)
-    const { is_row, is_eu, is_uk } = getCountryRule()
+    const { is_row, is_eu, is_uk } = useCountryRule()
     const [is_checked, setChecked] = useState(false)
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)

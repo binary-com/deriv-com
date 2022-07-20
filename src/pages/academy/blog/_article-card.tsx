@@ -64,7 +64,7 @@ const ArticleCard = ({ item }: ArticleCardProps) => {
             <ArticleCardWrapper>
                 <StandardImgWrapper
                     width="384px"
-                    height="auto"
+                    height="230px"
                     border_radius="unset"
                     tabletL_border_radius="unset"
                 >

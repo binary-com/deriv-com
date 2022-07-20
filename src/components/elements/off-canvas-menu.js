@@ -370,7 +370,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </Flex>
                         )}
                         <ROW>
-                            <Flex>
+                            <Flex mb="3.2rem">
                                 <NavCard
                                     aria_label="Basket indices"
                                     icon={() => <img src={Basket} alt="" width="32" height="32" />}
@@ -430,9 +430,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Career} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Careers" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
                         </StyledLink>
                         <StyledLink
                             to=""
@@ -521,9 +518,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Blog} alt="" width="24" height="24" />
                             </div>
                             <Span>{<Localize translate_text="Academy" />}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="" width="16" height="16" />
-                            </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
@@ -670,7 +664,7 @@ OffCanvasMenuWrapper.propTypes = {
     is_ppc_redirect: PropTypes.bool,
 }
 
-export const moveOffCanvasMenu = (initState = false) => {
+export const useMoveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
     const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)

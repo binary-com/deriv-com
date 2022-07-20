@@ -10,7 +10,7 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { localize, Localize } from 'components/localization'
 import type { SimpleStepsContent } from 'components/custom/_simple-steps'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -21,7 +21,7 @@ type StockIndicesProps = {
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
-    const { is_uk } = getCountryRule()
+    const { is_uk } = useCountryRule()
 
     simple_step_content[1].text = localize(
         'Open a real account, make a deposit, and start trading stocks, indices and other markets.',

@@ -11,6 +11,7 @@ export const americas: MarketSymbol[] = [
         src: icons.STOCKSUS500,
         text: <Localize translate_text="US 500" />,
     },
+
     {
         src: icons.STOCKSUSTECH100,
         text: <Localize translate_text="US Tech 100" />,
@@ -538,29 +539,6 @@ export const smart_gold_index: MarketSymbol[] = [
     },
 ]
 
-export const smart_fx = [
-    {
-        src: icons.AUDINDEX,
-        text: <Localize translate_text="AUD Index" />,
-    },
-    {
-        src: icons.EURINDEX,
-        text: <Localize translate_text="EUR Index" />,
-    },
-    {
-        src: icons.GBPINDEX,
-        text: <Localize translate_text="GBP Index" />,
-    },
-    {
-        src: icons.USDINDEX,
-        text: <Localize translate_text="USD Index" />,
-    },
-    {
-        src: icons.GOLDINDEX,
-        text: <Localize translate_text="Gold Index" />,
-    },
-]
-
 export const minor_pairs: MarketSymbol[] = [
     {
         src: icons.AUDCAD,
@@ -1072,14 +1050,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
         text: <Localize translate_text="BTC/LTC" />,
     },
     {
-        src: icons.BTCXAG,
-        text: <Localize translate_text="BTC/XAG" />,
-    },
-    {
-        src: icons.BTCXAU,
-        text: <Localize translate_text="BTC/XAU" />,
-    },
-    {
         src: icons.DOGUSD,
         text: <Localize translate_text="DOG/USD" />,
     },
@@ -1138,10 +1108,6 @@ export const cryptocurrencies_cfds: MarketSymbol[] = [
     {
         src: icons.SOLUSD,
         text: <Localize translate_text="SOL/USD" />,
-    },
-    {
-        src: icons.TERUSD,
-        text: <Localize translate_text="TER/USD" />,
     },
     {
         src: icons.TRXUSD,

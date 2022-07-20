@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StandardImgWrapper } from '../common/_styles'
+import { RedirectLink } from '../components/recent-featured-posts/_style'
 import { VideoDataType } from './index'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
@@ -29,16 +30,20 @@ const VideoCardWrapper = styled.div`
     }
 
     @media ${device.mobileL} {
-        width: 100%;
+        max-width: 328px;
+        width: 328px;
     }
 `
 
 const ImageWrapper = styled.div`
     position: relative;
     z-index: 1;
+    width: 384px;
+    height: 230px;
 
     @media ${device.mobileL} {
-        width: 100%;
+        width: 328px;
+        height: 196px;
     }
 `
 
@@ -109,18 +114,17 @@ const ContentWrapper = styled.div`
 
 type VideoCardProps = {
     item: VideoDataType[0]
-    openVideo: (track_id: string, video_title: string) => void
 }
 
-const VideoCard = ({ item, openVideo }: VideoCardProps) => {
+const VideoCard = ({ item }: VideoCardProps) => {
     const first_2_tags = item.tags?.slice(0, 2)
     const another_tags_number = item.tags.length > 2 ? `+${item.tags.length - 2}` : ''
     const converted_date = convertDate(item.published_date)
     return (
         // the extra div surrounding the videocard is to get around Safari's different
         // interpretation of height: 100%
-        <div>
-            <VideoCardWrapper onClick={openVideo}>
+        <RedirectLink to={`/academy/videos/${item.video_slug}/`}>
+            <VideoCardWrapper>
                 <ImageWrapper>
                     <ImageOverlay />
                     <CategoriesContainer jc="flex-start" fw="wrap">
@@ -158,7 +162,7 @@ const VideoCard = ({ item, openVideo }: VideoCardProps) => {
                     </Header>
                 </ContentWrapper>
             </VideoCardWrapper>
-        </div>
+        </RedirectLink>
     )
 }
 

@@ -42,6 +42,7 @@ const StyledTab = styled.li`
     margin: auto;
     padding: 3px 0 3px 16px;
     transform: translateX(-16px);
+    border-left: 4px transparent solid;
 
     &.tab-active,
     &:hover {

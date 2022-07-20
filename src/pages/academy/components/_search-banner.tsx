@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react'
+import React, { useContext, useEffect, useState, useRef, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { Link, navigate } from 'gatsby'
 import { matchSorter } from 'match-sorter'

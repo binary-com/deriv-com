@@ -5,6 +5,7 @@ import { Localize } from 'components/localization'
 export type MarketSymbol = {
     src: string
     text: ReactElement
+    eu?: boolean
 }
 export const americas: MarketSymbol[] = [
     {
@@ -725,26 +726,32 @@ export const stocks_european_indices: MarketSymbol[] = [
     {
         src: icons.STOCKSNETHERLAND25,
         text: <Localize translate_text="Netherland 25" />,
+        eu: false,
     },
     {
         src: icons.STOCKSEUROPE50,
         text: <Localize translate_text="Europe 50" />,
+        eu: true,
     },
     {
         src: icons.STOCKSFRANCE40,
         text: <Localize translate_text="France 40" />,
+        eu: true,
     },
     {
         src: icons.STOCKSGERMANY30,
         text: <Localize translate_text="Germany 40" />,
+        eu: true,
     },
     {
         src: icons.STOCKSUK100,
         text: <Localize translate_text="UK 100" />,
+        eu: true,
     },
     {
         src: icons.STOCKSSPAIN35,
         text: <Localize translate_text="Spain 35" />,
+        eu: true,
     },
 ]
 
@@ -876,10 +883,6 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="HP Inc" />,
     },
     {
-        src: icons.STOCKSHUGOBOSS,
-        text: <Localize translate_text="Hugo Boss AG Common Stock" />,
-    },
-    {
         src: icons.STOCKSIBM,
         text: <Localize translate_text="IBM" />,
     },
@@ -912,20 +915,12 @@ export const american_stocks: MarketSymbol[] = [
         text: <Localize translate_text="Moderna Inc" />,
     },
     {
-        src: icons.STOCKSNESTLE,
-        text: <Localize translate_text="Nestle SA" />,
-    },
-    {
         src: icons.STOCKSNETFLIX,
         text: <Localize translate_text="Netflix Inc" />,
     },
     {
         src: icons.STOCKSNIKE,
         text: <Localize translate_text="Nike" />,
-    },
-    {
-        src: icons.STOCKSNOVARTIS,
-        text: <Localize translate_text="Novartis AG" />,
     },
     {
         src: icons.STOCKSNVIDIA,

@@ -81,7 +81,7 @@ const trading = [
     },
 ]
 
-const tradingEU = [
+const trading_eu = [
     {
         title: <Localize translate_text="Make smarter trading decisions" />,
         subtitle: (

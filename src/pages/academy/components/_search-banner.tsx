@@ -403,9 +403,8 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
     if (search_query !== '') {
         data_to_render = matchSorter(combined_data, search_query.trim(), {
             keys: [
-                'blog_title',
-                'video_title',
-                { threshold: matchSorter.rankings.EQUAL, key: 'tags.*.tags_id.tag_name' },
+                { threshold: matchSorter.rankings.CONTAINS, key: 'blog_title' },
+                { threshold: matchSorter.rankings.CONTAINS, key: 'video_title' },
             ],
         })
         data_to_render.forEach((post) => {

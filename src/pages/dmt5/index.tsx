@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, StaticQuery } from 'gatsby'
 import {
     WhyTrader,
     StartTrader,
@@ -18,7 +18,6 @@ import Layout from 'components/layout/layout'
 import dmt5_logo from 'images/svg/dmt5/dmt5-icon.svg'
 import { SEO, Desktop, Mobile } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import DMT5MainBanner from 'images/svg/dmt5/dmt5_main_banner.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { MetaAttributesType } from 'types/page.types'
@@ -35,10 +34,16 @@ const query = graphql`
         deriv_platform: file(relativePath: { eq: "dmt5/dmt5-banner.png" }) {
             ...fadeIn
         }
+        dmt5_desktop_banner: file(relativePath: { eq: "dmt5/bg_desktop_banner_dmt5.png" }) {
+            ...fadeIn
+        }
+        dmt5_mobile_banner: file(relativePath: { eq: "dmt5/bg_banner_dmt5_mobile.png" }) {
+            ...fadeIn
+        }
     }
 `
-
 const DMT5 = () => {
+    const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -48,6 +53,7 @@ const DMT5 = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
+    const background = is_mobile ? data['dmt5_mobile_banner'] : data['dmt5_desktop_banner']
 
     return (
         <Layout>
@@ -70,7 +76,7 @@ const DMT5 = () => {
                     join_us_for_free
                     Logo={dmt5_logo}
                     background_alt={localize('DMT5 trading dashboard')}
-                    background_svg={DMT5MainBanner}
+                    background={background}
                 />
             </Desktop>
             <Mobile>
@@ -85,10 +91,9 @@ const DMT5 = () => {
                     join_us_for_free
                     Logo={dmt5_logo}
                     background_alt={localize('DMT5 trading dashboard')}
-                    background_svg={DMT5MainBanner}
+                    background={background}
                 />
             </Mobile>
-
             <Numbers />
             <WhatIsTrader />
             <WhyTrader />
@@ -105,7 +110,7 @@ const DMT5 = () => {
                             is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
                         }
                         title={<Localize translate_text="Get into the Deriv MT5 experience" />}
-                        data={data}
+                        data={data['deriv_platform']}
                         image_alt="DMT5 trading platform"
                     />
                 )}

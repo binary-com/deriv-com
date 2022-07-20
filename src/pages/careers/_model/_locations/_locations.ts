@@ -22,9 +22,12 @@ import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
+    continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
     img_alt: 'Cyberjaya bridge and lake view',
@@ -53,6 +56,8 @@ export const cyberjaya: LocationsType = {
 
 export const malta: LocationsType = {
     name: 'malta',
+    continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/malta/',
     display_name: 'Malta',
     img_alt: 'Malta Senglea Church',
@@ -80,6 +85,8 @@ export const malta: LocationsType = {
 
 export const dubai: LocationsType = {
     name: 'dubai',
+    continent: 'middle_east',
+    display_continent: 'Middle East',
     link: '/careers/locations/dubai/',
     display_name: 'Dubai',
     img_alt: 'Dubai Skyscrappers',
@@ -101,7 +108,7 @@ export const dubai: LocationsType = {
     map_text:
         'Deriv (Dubai) provides limitless opportunities to grow. Here, you can work on remarkable projects that showcase your mettle on a global scale. You will have the scope to expand your career horizontally and vertically. If you are keen on learning and enjoy a fulfilling career journey, join our team in Dubai.',
     address: address_dubai,
-    google_map_link: 'https://goo.gl/maps/UMNHYdEBdsAg7Ax29',
+    google_map_link: 'https://goo.gl/maps/xx4q4ui1NhgVtE8J7',
     has_iframe: true,
     badge: 'dubai_great_place_to_work_badge',
     badge_alt: 'Dubai Great Place to Work 2022 Certification Badge',
@@ -109,6 +116,8 @@ export const dubai: LocationsType = {
 
 export const labuan: LocationsType = {
     name: 'labuan',
+    continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/labuan/',
     display_name: 'Labuan',
     img_alt: 'Labuan clock tower',
@@ -137,6 +146,8 @@ export const labuan: LocationsType = {
 
 export const asuncion: LocationsType = {
     name: 'asuncion',
+    continent: 'latam',
+    display_continent: 'Latam',
     link: '/careers/locations/asuncion/',
     display_name: 'Asunción',
     img_alt: 'Palace of the Lopez - Asuncion',
@@ -164,6 +175,8 @@ export const asuncion: LocationsType = {
 
 export const melaka: LocationsType = {
     name: 'melaka',
+    continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/melaka/',
     display_name: 'Melaka',
     img_alt: 'Dutch square of Melaka',
@@ -192,6 +205,8 @@ export const melaka: LocationsType = {
 
 export const ipoh: LocationsType = {
     name: 'ipoh',
+    continent: 'asia',
+    display_continent: 'Asia',
     link: '/careers/locations/ipoh/',
     display_name: 'Ipoh',
     img_alt: 'White architecture building in Ipoh',
@@ -219,6 +234,8 @@ export const ipoh: LocationsType = {
 
 export const cyprus: LocationsType = {
     name: 'cyprus',
+    continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/cyprus/',
     display_name: 'Limassol',
     img_alt: 'Buildings near beach side - Limassol',
@@ -247,6 +264,8 @@ export const cyprus: LocationsType = {
 
 export const rwanda: LocationsType = {
     name: 'rwanda',
+    continent: 'africa',
+    display_continent: 'Africa',
     link: '/careers/locations/rwanda/',
     display_name: 'Kigali',
     img_alt: 'Blue sky and buildings - Kigali',
@@ -276,6 +295,8 @@ export const rwanda: LocationsType = {
 
 export const minsk: LocationsType = {
     name: 'minsk',
+    continent: 'eastern_europe',
+    display_continent: 'Eastern Europe',
     link: '/careers/locations/minsk/',
     display_name: 'Minsk',
     img_alt: 'Diamond shape building in Minsk',
@@ -305,6 +326,8 @@ export const minsk: LocationsType = {
 
 export const paris: LocationsType = {
     name: 'paris',
+    continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/paris/',
     display_name: 'Paris',
     map_office_name: '(France) SAS',
@@ -327,6 +350,8 @@ export const paris: LocationsType = {
 
 export const guernsey: LocationsType = {
     name: 'guernsey',
+    continent: 'europe',
+    display_continent: 'Europe',
     link: '/careers/locations/guernsey/',
     display_name: 'Guernsey',
     img_alt: 'Guernsey alt img',
@@ -350,6 +375,33 @@ export const guernsey: LocationsType = {
     has_map: false,
 }
 
+export const jordan: LocationsType = {
+    name: 'jordan',
+    continent: 'middle_east',
+    display_continent: 'Middle East',
+    link: '/careers/locations/jordan/',
+    display_name: 'Amman',
+    img_alt: 'Jordan alt img',
+    map_office_name: '(Jordan)',
+    country: 'Jordan',
+    flagIcon: JordanFlagIcon,
+    thumbnail: 'thumbnail_jordan',
+    first_p:
+        'Deriv (Jordan) will be our new office, starting its operations later in 2022.  Tapping into the regional talent pool, it will be a software development centre and will also offer general services to the Deriv Group.',
+    first_img: 'living_in_jordan',
+    first_img_alt: 'living_in_jordan alt img',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'jordan_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'jordan grid 3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
+    address: address_guernsey,
+    map_img: 'guernsey_map',
+    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
+    has_iframe: false,
+    has_map: false,
+}
+
 export const all_offices: LocationsType[] = [
     dubai,
     malta,
@@ -362,9 +414,9 @@ export const all_offices: LocationsType[] = [
     guernsey,
     asuncion,
     rwanda,
+    jordan,
     minsk,
 ]
-
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
@@ -378,6 +430,26 @@ export const locations = {
     belarus: `${minsk.display_name}, ${minsk.country}`,
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
+    jordan: `${jordan.display_name}, ${jordan.country}`,
 }
+
+export const allContinents = {
+    all: all_offices,
+    europe: [],
+    asia: [],
+    middle_east: [],
+    eastern_europe: [],
+    africa: [],
+    latam: [],
+}
+
+all_offices.forEach((office) => {
+    const continentList = allContinents[office.continent]
+    if (continentList == undefined) {
+        allContinents[office.continent] = [office]
+    } else {
+        allContinents[office.continent].push(office)
+    }
+})
 
 export const all_countries: string[] = [...new Set(all_offices.map((office) => office.country))]

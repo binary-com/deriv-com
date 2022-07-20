@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer, UKEU, ROW } from 'components/containers'
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
@@ -393,7 +393,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                         }
                         title={<Localize translate_text="Deriv GO" />}
                         onClick={onClick}
-                        to="/landing/deriv-go/"
+                        to="/deriv-go/"
                     />
                     <NavCard
                         aria_label="DBot"
@@ -425,8 +425,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
 }
 
 export const NavMarket = ({ onClick, is_ppc }: NavMarketProps) => {
-    const { is_non_uk } = getCountryRule()
-    const { is_non_eu } = getCountryRule()
+    const { is_non_eu, is_non_uk } = useCountryRule()
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">

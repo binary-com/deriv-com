@@ -71,9 +71,9 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
                     ) + ' '
                 }
                 authorName={localize('Vince Stanzione.')}
-                bg="linear-gradient(90deg, #EBCA93, #EBC17A)"
-                bgMobile="linear-gradient(180deg, #EBCA93, #EBC17A)"
-                color="black"
+                bg="linear-gradient(180deg, #1f1f1f, #0E0E0E)"
+                bgMobile="linear-gradient(180deg, #333333, #0E0E0E)"
+                color="white"
                 ebook_utm_code="cryptocurrencies-ebook"
                 introSub=""
                 introMain={localize('Learn how to trade cryptocurrencies with Deriv')}

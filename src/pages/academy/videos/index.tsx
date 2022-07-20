@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
+import { useDataFilter } from '../components/_utility'
 import AllVideos from './_all-videos'
+import { redirectWithParamReference, queryParams } from 'common/utility'
 import { AllVideosQuery } from 'types/graphql.types'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
@@ -10,7 +12,6 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/video-tutorials.png'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 
 const SmallContainer = styled(Container)`
     width: 62%;
@@ -53,21 +54,16 @@ type VideosPageProps = {
 export type VideoDataType = AllVideosQuery['directus']['videos']
 
 const VideosPage = ({ data }: VideosPageProps) => {
-    const { is_eu_country, is_uk_country } = React.useContext(DerivStore)
+    // We need this to redirect users to the new videos page if ever they are accessing the old video link
+    React.useEffect(() => {
+        const video_title = queryParams.get('t')
 
-    let video_data = data.directus.videos
+        if (video_title) {
+            redirectWithParamReference('/academy/videos', 't')
+        }
+    }, [])
 
-    // We need to include the !is_uk_country check together with is_eu_country because 'gb'
-    // is a valid country code for both EU and UK in our country base.
-    if (is_eu_country && !is_uk_country) {
-        video_data = data.directus.videos.filter(
-            (item) => item.visibility !== 'hide_for_eu' && item.visibility !== 'hide_for_eu_uk',
-        )
-    } else if (is_uk_country) {
-        video_data = data.directus.videos.filter(
-            (item) => item.visibility !== 'hide_for_uk' && item.visibility !== 'hide_for_eu_uk',
-        )
-    }
+    const video_data = useDataFilter(data.directus.videos)
 
     const meta_attributes = {
         og_title: 'Platform tours, webinars, and more.',

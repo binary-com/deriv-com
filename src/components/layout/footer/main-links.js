@@ -25,6 +25,11 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
+                            <Link to="/our-principles/">
+                                {<Localize translate_text="Principles" />}
+                            </Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
                             <Link to="/partners/">
                                 {<Localize translate_text="Partnership programmes" />}
                             </Link>
@@ -125,7 +130,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         </LinkWrapper>
                         <ROW>
                             <LinkWrapper>
-                                <Link to="/derivx/">{<Localize translate_text="DerivX" />}</Link>
+                                <Link to="/derivx/">{<Localize translate_text="Deriv X" />}</Link>
                             </LinkWrapper>
                             <LinkWrapper>
                                 <Link to="/deriv-go/">

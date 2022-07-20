@@ -125,7 +125,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }) => {
                         <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
                     </ROW>
                     <EU>
-                        <QueryImage data={data['deriv_platform_EU']} alt={image_alt} width="100%" />
+                        <QueryImage data={data['deriv_platform_eu']} alt={image_alt} width="100%" />
                     </EU>
                 </ImageWrapper>
             </ImageContainer>

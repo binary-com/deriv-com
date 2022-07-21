@@ -49,6 +49,7 @@ const StyledFlex = styled(Flex)`
 
     @media ${device.tabletS} {
         justify-content: center;
+        flex-wrap: wrap;
     }
 `
 const StyledSection = styled(SectionContainer)`
@@ -66,7 +67,7 @@ const MoreReason = () => {
                 <ReasonHeader as="h3" size="3.2rem" align="center" mb="2rem">
                     {localize('More reasons to join')}
                 </ReasonHeader>
-                <StyledFlex wrap="wrap" jc="center">
+                <StyledFlex jc="center">
                     <Reason>
                         <img src={HighValue} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">

@@ -4,9 +4,12 @@ import { Helmet } from 'react-helmet'
 import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
+import PageNotFound from 'pages/404'
 import Layout from 'components/layout/layout'
 import { SEO, ROW } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
+import { useCountryRule } from 'components/hooks/use-country-rule'
+
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
@@ -20,28 +23,33 @@ const meta_attributes = {
 }
 
 const PaymentAgent = () => {
-    return (
-        <Layout type="partners" margin_top={10} no_login_signup>
-            <SEO
-                title={localize('Payment agents | Partnership programmes | Deriv')}
-                description={localize(
-                    'Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue.',
-                )}
-                meta_attributes={meta_attributes}
-            />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            </Helmet>
-            <Hero />
-            <TapInto />
-            <YourControl />
-            <WhoCanApply />
-            <ROW>
-                <P2PBanner />
-            </ROW>
-            <Faq />
-        </Layout>
-    )
+    const { is_row } = useCountryRule()
+
+    if (is_row) {
+        return (
+            <Layout type="partners" margin_top={10} no_login_signup>
+                <SEO
+                    title={localize('Payment agents | Partnership programmes | Deriv')}
+                    description={localize(
+                        'Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue.',
+                    )}
+                    meta_attributes={meta_attributes}
+                />
+                <Helmet>
+                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                </Helmet>
+                <Hero />
+                <TapInto />
+                <YourControl />
+                <WhoCanApply />
+                <ROW>
+                    <P2PBanner />
+                </ROW>
+                <Faq />
+            </Layout>
+        )
+    }
+    return <PageNotFound />
 }
 
 export default WithIntl()(PaymentAgent)

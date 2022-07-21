@@ -375,7 +375,7 @@ export const removeSpecialCharacterUrl = (url) =>
 
 export const queryParams = {
     get: (key) => {
-        const params = new URLSearchParams(location.search)
+        const params = new URLSearchParams(isBrowser() && location.search)
         let param_values = {}
         //To get the params from the url
 

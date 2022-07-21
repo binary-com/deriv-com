@@ -11,7 +11,7 @@ const query = graphql`
         vanuatu: file(relativePath: { eq: "careers/vanuatu.jpg" }) {
             ...heroImage
         }
-        living_in_vanuatu: file(relativePath: { eq: "careers/living_in_vanuatu.jpg" }) {
+        living_in_vanuatu: file(relativePath: { eq: "careers/living_in_vanuatu.png" }) {
             ...fadeIn
         }
         guernsey_grid_1: file(relativePath: { eq: "careers/guernsey_grid_1.jpg" }) {

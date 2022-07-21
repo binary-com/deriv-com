@@ -8,10 +8,10 @@ import { localize, WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        minsk: file(relativePath: { eq: "careers/minsk.jpg" }) {
+        minsk: file(relativePath: { eq: "careers/minsk.png" }) {
             ...heroImage
         }
-        living_in_minsk: file(relativePath: { eq: "careers/living_in_minsk.jpg" }) {
+        living_in_minsk: file(relativePath: { eq: "careers/living_in_minsk.png" }) {
             ...fadeIn
         }
         minsk_grid_1: file(relativePath: { eq: "careers/minsk_grid_1.jpg" }) {

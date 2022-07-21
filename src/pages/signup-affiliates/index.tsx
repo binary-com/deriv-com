@@ -16,7 +16,7 @@ const StyledNote = styled.div`
     height: 36px;
     width: 406px;
     border-radius: 4px;
-    background-color: rgba(248, 248, 249, 1);
+    background-color: #f8f8f9;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -121,11 +121,10 @@ type AffiliateSignupProps = {
     autofocus: boolean
     email: string
     email_error_msg: string
-    is_ppc: boolean
     is_submitting: boolean
 }
 
-const AffiliateSignup = ({ autofocus, email, email_error_msg, is_ppc }: AffiliateSignupProps) => {
+const AffiliateSignup = ({ autofocus, email, email_error_msg }: AffiliateSignupProps) => {
     return (
         <AffiliateSignupLayout>
             <SignUpWrapper>
@@ -194,7 +193,7 @@ const AffiliateSignup = ({ autofocus, email, email_error_msg, is_ppc }: Affiliat
                 </SocialWrapper>
                 <LoginContainer>
                     <LoginText mt="3.75rem">
-                        {localize('Already have a Deriv or Binary.com affiliate account?')}{' '}
+                        {localize('Already have a Deriv or Binary.com affiliate account?')}
                     </LoginText>
                     <StyledText id="dm-new-login-button" align="center" size="16px" color="red">
                         {localize('Log in')}

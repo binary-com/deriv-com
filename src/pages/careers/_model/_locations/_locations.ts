@@ -23,6 +23,7 @@ import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
 import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
+import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -402,6 +403,33 @@ export const jordan: LocationsType = {
     has_map: false,
 }
 
+export const singapore: LocationsType = {
+    name: 'singapore',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/singapore/',
+    display_name: 'Singapore',
+    img_alt: 'Singapore alt img',
+    map_office_name: '(Singapore)',
+    country: 'Singapore',
+    flagIcon: SingaporeFlagIcon,
+    thumbnail: 'thumbnail_singapore',
+    first_p:
+        'Deriv (Singapore) will be a new office in Southeast Asia, opening in the second half of 2022.  Strategically situated in the regional financial hub, it will focus on developing innovative derivative trading solutions, particularly for trading CFDs.',
+    first_img: 'living_in_singapore',
+    first_img_alt: 'living_in_singapore alt img',
+    grid_images: ['singapore_grid', 'guernsey_grid_2', 'singapore_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['singapore grid', 'guernsey grid 2', 'singapore grid 3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
+    address: address_guernsey,
+    map_img: 'singapore_map',
+    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
+    has_iframe: false,
+    has_map: false,
+}
+
 export const all_offices: LocationsType[] = [
     dubai,
     malta,
@@ -416,6 +444,7 @@ export const all_offices: LocationsType[] = [
     rwanda,
     jordan,
     minsk,
+    singapore,
 ]
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
@@ -431,6 +460,7 @@ export const locations = {
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
     jordan: `${jordan.display_name}, ${jordan.country}`,
+    singapore: `${singapore.display_name}, ${singapore.country}`,
 }
 
 export const allContinents = {

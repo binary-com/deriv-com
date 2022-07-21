@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import {
     WhyTrader,
     StartTrader,

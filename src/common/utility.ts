@@ -200,9 +200,7 @@ export const nonENLangUrlReplace = (current_path) => {
 }
 export const getDateFromToday = (num_of_days) => {
     const today = new Date()
-    const end_date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
-
-    return end_date
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
 }
 
 export const isNullUndefined = (value) => value === null || typeof value === 'undefined'
@@ -473,12 +471,9 @@ export const handleRedirect = (residence, current_client_country) => {
 }
 
 export const queryParamData = () => {
-    if (isBrowser()) {
-        const queryParams = new URLSearchParams(window.location.search)
-        const platform_name = queryParams.get('platform')
-        const platform_list = ['derivgo', 'p2p']
-        return platform_list.includes(platform_name) ? platform_name : ''
-    } else return ''
+    const platform_name = queryParams.get('platform') as string
+    const platform_list = ['derivgo', 'p2p']
+    return platform_list.includes(platform_name) ? platform_name : ''
 }
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')

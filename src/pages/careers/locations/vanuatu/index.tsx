@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { vanuatu } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
-// import { SEO } from 'components/containers'
+import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 
@@ -34,12 +34,12 @@ const Vanuatu = () => {
 
     return (
         <Layout type="careers">
-            {/* <SEO
-                title={localize('vanuatu – Our office | Deriv')}
+            <SEO
+                title={localize('Vanuatu – Our office | Deriv')}
                 description={localize(
-                    'Check out the current open job positions at Deriv and get a chance to work with our team in vanuatu for a thriving tech career.',
+                    'View current job openings at Deriv’s new office in Port Vila, Vanuatu, and get a chance to have a rewarding career ahead.',
                 )}
-            /> */}
+            />
             <NewLocationLayout location={vanuatu} images={images} />
         </Layout>
     )

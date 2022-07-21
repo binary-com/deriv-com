@@ -45,11 +45,11 @@ export const cyberjaya: LocationsType = {
         'Welcome entrance ',
         'Boys playing foosball',
     ],
-    map: 'ChIJyTcAIli2zTERA4MWDMgk9i0',
+    map: 'ChIJQyOushS3zTER-d3unGdC7P0',
     map_text:
         'We believe in fostering an environment that allows a balanced lifestyle between work responsibilities and personal commitments. Every project is exciting, keeping you intellectually challenged. If you want to be inspired every day, join our team in Cyberjaya.',
     address: address_cyberjaya,
-    google_map_link: 'https://g.page/r/CQODFgzIJPYtEAE',
+    google_map_link: 'https://goo.gl/maps/taw811vL1Wht9z4YA',
     has_iframe: true,
 }
 

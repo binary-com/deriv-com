@@ -145,13 +145,13 @@ const DLogo = styled.img`
     margin-right: 1.6rem;
 `
 type DHeroProps = {
-    background_alt: string
-    background_svg: string
-    content: string
+    background_alt: string | object
+    background_svg: string | object
+    content: string | object
     go_to_live_demo: boolean
     image_name: string
     join_us_for_free: boolean
-    Logo: string
+    Logo: string | object
     title: string
 }
 const DHero = ({

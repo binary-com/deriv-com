@@ -390,9 +390,14 @@ export const vanuatu: LocationsType = {
     first_p:
         'Deriv (Vanuatu) will be our new office, opening in the second half of 2022.  Benefiting from the regional talent pool, it will assist the Deriv Group in delivering robust online trading solutions with exceptional customer service.',
     first_img: 'living_in_vanuatu',
-    first_img_alt: 'living_in_vanuatu alt img',
+    first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'vanuatu_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'vanuatu_grid_3', 'guernsey grid 4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Working with Deriv’s Vanuatu team',
+        'guernsey grid 4',
+    ],
     map: '',
     map_text:
         'The Vanuatu office will bring experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',

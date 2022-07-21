@@ -270,7 +270,6 @@ export const getVideoObject = (video_data) => {
         featured,
         tags,
     } = video_data
-    const { id } = video_slug
     const { title: alt } = video_thumbnail
 
     return {
@@ -279,7 +278,7 @@ export const getVideoObject = (video_data) => {
         video_title,
         video_description,
         video_thumbnail,
-        video_url: getAssetUrl(id),
+        video_url: getAssetUrl(video_slug),
         video_duration,
         video_slug,
         featured,

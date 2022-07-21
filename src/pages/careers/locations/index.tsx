@@ -273,6 +273,9 @@ const query = graphql`
         thumbnail_vanuatu: file(relativePath: { eq: "careers/thumbnail_vanuatu.jpg" }) {
             ...fadeIn
         }
+        thumbnail_jordan: file(relativePath: { eq: "careers/thumbnail_jordan.jpg" }) {
+            ...fadeIn
+        }
     }
 `
 

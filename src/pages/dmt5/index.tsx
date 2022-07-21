@@ -104,18 +104,13 @@ const DMT5 = () => {
             <MarginCalculator />
             <Flexibility />
             <SwapFreeTrading />
-            <StaticQuery
-                query={query}
-                render={(data) => (
-                    <DBanner
-                        background_pattern={
-                            is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
-                        }
-                        title={<Localize translate_text="Get into the Deriv MT5 experience" />}
-                        data={data}
-                        image_alt="DMT5 trading platform"
-                    />
-                )}
+            <DBanner
+                background_pattern={
+                    is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
+                }
+                title={<Localize translate_text="Get into the Deriv MT5 experience" />}
+                data={data}
+                image_alt="DMT5 trading platform"
             />
         </Layout>
     )

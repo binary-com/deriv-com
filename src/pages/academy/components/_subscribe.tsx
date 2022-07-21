@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TextWrapper } from './_common'
-import { addScriptForCIO } from './utility'
+import { addScriptForCIO } from './_utility'
 import paperPlane from 'images/common/blog/paperplanes.png'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
@@ -359,13 +359,11 @@ const Subscribe = () => {
                             />
                         </InputWrapper>
                         <EmailButton
-                            isChecked={is_checked}
                             id="gtm-signup-email"
                             type="submit"
                             secondary="true"
                             disabled={
                                 is_submitting ||
-                                !is_checked ||
                                 email_error_msg ||
                                 !email ||
                                 name_error_msg ||

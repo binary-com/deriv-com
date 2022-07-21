@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { matchSorter } from 'match-sorter'
 import ReactPaginate from 'react-paginate'
 import { useQueryParams, StringParam } from 'use-query-params'
-import { useDataFilter } from '../components/utility'
+import { useDataFilter } from '../components/_utility'
 import VideoParentWrapper from './_video-parent-wrapper'
 import ArticleCard from './_article-card'
 import { Container, SEO, Flex } from 'components/containers'
@@ -12,7 +12,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
 import { cms_assets_end_point } from 'common/constants'
-import { unslugify, slugify } from 'common/utility'
+import { unslugify, slugify, queryParams } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 
@@ -31,6 +31,7 @@ const AllArticleButton = styled(LinkButton)`
         margin-top: 0;
     }
 `
+
 const ArticlePaginationWrapper = styled(Flex)`
     flex-direction: column;
 
@@ -147,8 +148,7 @@ const SearchPage = () => {
                 const result_arr = getSearchResult(search_query)
                 getSearchResultBasedOnType(result_arr, items_type)
             } else if (category_type) {
-                const category_result = getFilterResult(category_type)
-                getSearchResultBasedOnType(category_result, items_type)
+                getFilterResult(category_type)
             }
         }
 
@@ -312,6 +312,91 @@ const SearchPage = () => {
         }
     }
 
+    const renderArticle = () => {
+        return (
+            <>
+                <StyledHeaderWrapper jc="space-between">
+                    <Header as="h3" type="subtitle-2">
+                        Articles
+                    </Header>
+                    {items_type ? (
+                        <Header as="span" type="paragraph-2" align="right">
+                            {getPaginationItemCountText()}
+                        </Header>
+                    ) : (
+                        <Header as="span" type="paragraph-2" align="right">
+                            {getTotalArticleText()}
+                        </Header>
+                    )}
+                </StyledHeaderWrapper>
+
+                {article_result.length !== 0 ? (
+                    getPaginatedArticles()
+                ) : (
+                    <Flex m="16px 0">
+                        <Header as="h3" type="subtitle-2" weight="normal" color="grey-5">
+                            No results found
+                        </Header>
+                    </Flex>
+                )}
+
+                {full_article_link && !items_type && total_article > 4 && (
+                    <AllArticleButton tertiary="true" to={full_article_link}>
+                        All article results
+                    </AllArticleButton>
+                )}
+            </>
+        )
+    }
+
+    const renderVideo = () => {
+        return (
+            <>
+                <StyledHeaderWrapper jc="space-between">
+                    <Header as="h3" type="subtitle-2">
+                        Videos
+                    </Header>
+                    <Header as="span" type="paragraph-2" align="right">
+                        <>
+                            {total_video > 1 && !items_type
+                                ? `1-2 of ${total_video} results`
+                                : `${total_video} results`}
+                        </>
+                    </Header>
+                </StyledHeaderWrapper>
+
+                {video_result.length != 0 ? (
+                    <>
+                        <VideoParentWrapper
+                            closeVideo={closeVideo}
+                            currentVideoItems={video_result}
+                            openVideo={openVideo}
+                            show={show}
+                            video_src={play_video_src}
+                        />
+                    </>
+                ) : (
+                    <Flex m="16px 0">
+                        <Header as="h3" type="subtitle-2" weight="normal" color="grey-5">
+                            No results found
+                        </Header>
+                    </Flex>
+                )}
+
+                {full_video_link && !items_type && total_video > 1 && (
+                    <AllArticleButton tertiary="true" to={full_video_link}>
+                        All video results
+                    </AllArticleButton>
+                )}
+            </>
+        )
+    }
+
+    const isShowArticleFirst = () => {
+        const type = queryParams.get('type')
+        return type === 'article' || !type
+    }
+
     return (
         <Layout type="academy" margin_top={'14.4'}>
             <SEO
@@ -347,96 +432,27 @@ const SearchPage = () => {
                             </>
                         )}
                     </Flex>
-                    {((search_query && items_type == 'article') ||
-                        (search_query && !items_type) ||
-                        (category_type && !items_type) ||
-                        (category_type && items_type == 'article')) && (
-                        <Flex m="40px 0" fd="column">
-                            <StyledHeaderWrapper jc="space-between">
-                                <Header as="h3" type="subtitle-2">
-                                    Articles
-                                </Header>
-                                {items_type ? (
-                                    <Header as="span" type="paragraph-2" align="right">
-                                        {getPaginationItemCountText()}
-                                    </Header>
-                                ) : (
-                                    <Header as="span" type="paragraph-2" align="right">
-                                        {getTotalArticleText()}
-                                    </Header>
-                                )}
-                            </StyledHeaderWrapper>
 
-                            {article_result.length !== 0 ? (
-                                getPaginatedArticles()
-                            ) : (
-                                <Flex m="16px 0">
-                                    <Header
-                                        as="h3"
-                                        type="subtitle-2"
-                                        weight="normal"
-                                        color="grey-5"
-                                    >
-                                        No results found
-                                    </Header>
-                                </Flex>
-                            )}
+                    {isShowArticleFirst() ? (
+                        <>
+                            <Flex m="40px 0" fd="column">
+                                {renderArticle()}
+                            </Flex>
 
-                            {full_article_link && !items_type && total_article > 4 && (
-                                <AllArticleButton tertiary="true" to={full_article_link}>
-                                    All article results
-                                </AllArticleButton>
-                            )}
-                        </Flex>
-                    )}
+                            <Flex m="40px 0" fd="column">
+                                {renderVideo()}
+                            </Flex>
+                        </>
+                    ) : (
+                        <>
+                            <Flex m="40px 0" fd="column">
+                                {renderVideo()}
+                            </Flex>
 
-                    {((search_query && items_type == 'video') ||
-                        (search_query && !items_type) ||
-                        (category_type && !items_type) ||
-                        (category_type && items_type == 'video')) && (
-                        <Flex m="40px 0" fd="column">
-                            <StyledHeaderWrapper jc="space-between">
-                                <Header as="h3" type="subtitle-2">
-                                    Videos
-                                </Header>
-                                <Header as="span" type="paragraph-2" align="right">
-                                    <>
-                                        {total_video > 1 && !items_type
-                                            ? `1-2 of ${total_video} results`
-                                            : `${total_video} results`}
-                                    </>
-                                </Header>
-                            </StyledHeaderWrapper>
-
-                            {video_result.length != 0 ? (
-                                <>
-                                    <VideoParentWrapper
-                                        closeVideo={closeVideo}
-                                        currentVideoItems={video_result}
-                                        openVideo={openVideo}
-                                        show={show}
-                                        video_src={play_video_src}
-                                    />
-                                </>
-                            ) : (
-                                <Flex m="16px 0">
-                                    <Header
-                                        as="h3"
-                                        type="subtitle-2"
-                                        weight="normal"
-                                        color="grey-5"
-                                    >
-                                        No results found
-                                    </Header>
-                                </Flex>
-                            )}
-
-                            {full_video_link && !items_type && total_video > 1 && (
-                                <AllArticleButton tertiary="true" to={full_video_link}>
-                                    All video results
-                                </AllArticleButton>
-                            )}
-                        </Flex>
+                            <Flex m="40px 0" fd="column">
+                                {renderArticle()}
+                            </Flex>
+                        </>
                     )}
                 </Container>
             </Flex>

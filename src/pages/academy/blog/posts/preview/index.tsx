@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
     ArticleTitle,
     Background,
@@ -30,13 +30,13 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Desktop, Mobile, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
-import { handleTag } from 'pages/academy/components/utility'
+import { handleTag } from 'pages/academy/components/_utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useWindowSize } from 'components/hooks/use-window-size'
 
-export const getTruncateLength = () => {
+export const useTruncateLength = () => {
     const size = useWindowSize()
     if (size.width < 400) return 15
     else if (size.width < 475) return 30
@@ -60,11 +60,13 @@ const BlogPreview = () => {
         }
     }, [isMounted])
 
-    const handleScroll = () => {
+    const truncateLength = useTruncateLength()
+
+    const handleScroll = useCallback(() => {
         const currentScrollPos = window.scrollY
         setPrevScrollPos(currentScrollPos)
         setVisible(currentScrollPos > 72)
-    }
+    }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -142,7 +144,7 @@ const BlogPreview = () => {
                                         <StyledImg src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, getTruncateLength())
+                                                ? truncateString(article_title, truncateLength)
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
                                         <SocialSharing />

@@ -314,7 +314,6 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
                     slug
                 }
                 videos(filter: { status: { _eq: "published" } }) {
-                    video_id
                     video_slug
                 }
             }

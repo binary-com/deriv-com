@@ -204,7 +204,7 @@ const SearchPage = () => {
             setFullArticleLink(`/academy/search?category=${category_type}&type=article`)
             setFullVideoLink(`/academy/search?category=${category_type}&type=video`)
         }
-    }, [category_type, combined_data, items_type, search_query])
+    }, [query])
 
     // pagination functions
     const handlePageChange = ({ selected }) => {

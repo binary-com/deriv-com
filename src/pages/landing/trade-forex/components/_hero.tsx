@@ -1,13 +1,13 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { HeroComponentProps, HeroProps } from 'pages/landing/_types'
 
 const BackgroundWrapper = styled(Background)`
     background-size: cover;
@@ -95,15 +95,6 @@ const query = graphql`
         }
     }
 `
-type HeroDataProps = {
-    title: string
-    content: ReactElement
-}
-type HeroComponentProps = {
-    title: string
-    content: ReactElement
-    background_data: ImageDataLike
-}
 
 const HeroComponent = ({ title, content, background_data }: HeroComponentProps) => {
     return (
@@ -134,7 +125,7 @@ const HeroComponent = ({ title, content, background_data }: HeroComponentProps) 
     )
 }
 
-const Hero = ({ title, content }: HeroDataProps) => {
+const Hero = ({ title, content }: HeroProps) => {
     const data = useStaticQuery(query)
 
     return (

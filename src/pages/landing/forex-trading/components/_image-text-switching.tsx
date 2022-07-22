@@ -6,33 +6,12 @@ import { Container, SectionContainer, Desktop, Mobile } from 'components/contain
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
-
-type P2PType = {
-    title: React.ReactNode
-    subtitle1: React.ReactNode
-    subtitle_mobile1: React.ReactNode
-    second_title?: string
-    second_subtitle1?: string
-    image_alt: string
-    image_name: string
-}[]
+import { ContentType, StyledProps } from 'pages/landing/_types'
 
 type ImageTextSwitchingProps = {
-    P2P: P2PType
+    P2P: ContentType[]
     reverse: boolean
     two_title?: string
-}
-
-type ContentProps = {
-    margin_right: string
-}
-
-type ImageWrapperProps = {
-    margin_right: string
-}
-
-type RowProps = {
-    flex_direction: string
 }
 
 const StyledSection = styled(SectionContainer)`
@@ -46,7 +25,7 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const Content = styled.div<ContentProps>`
+const Content = styled.div<StyledProps>`
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -69,7 +48,7 @@ const Content = styled.div<ContentProps>`
         margin: 0 auto;
     }
 `
-const ImageWrapper = styled.div<ImageWrapperProps>`
+const ImageWrapper = styled.div<StyledProps>`
     width: 40%;
     margin-right: ${(props) => props.margin_right};
 
@@ -91,7 +70,7 @@ const StyledText = styled(Text)`
         line-height: 30px;
     }
 `
-const Row = styled.div<RowProps>`
+const Row = styled.div<StyledProps>`
     justify-content: space-around;
     flex-direction: ${(props) => props.flex_direction};
     width: 85%;

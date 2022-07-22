@@ -124,22 +124,6 @@ export const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.sli
 export const getCryptoDecimals = (input) =>
     input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
 
-export const debounce = (func, wait, immediate) => {
-    let timeout
-    return () => {
-        const later = function () {
-            timeout = null
-            if (!immediate) func.apply(this, func, wait, immediate)
-        }
-
-        const callNow = immediate && !timeout
-
-        clearTimeout(timeout)
-        timeout = setTimeout(later, wait)
-        if (callNow) func.apply(this, func, wait, immediate)
-    }
-}
-
 // This function is created to back traverse an array of style values
 export const responsiveFallback = (prop, start_from, fallback) => {
     let index = start_from ?? prop?.length ?? 0

@@ -11,8 +11,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { LinkButton } from 'components/form'
-import { cms_assets_end_point } from 'common/constants'
-import { unslugify, slugify, queryParams } from 'common/utility'
+import { unslugify, queryParams } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 
@@ -100,43 +99,91 @@ const SearchPage = () => {
     const page_count = Math.ceil(article_result.length / items_per_page)
 
     // query params
-    const [query, setQuery] = useQueryParams({
+    const [query] = useQueryParams({
         q: StringParam,
         type: StringParam,
         category: StringParam,
         t: StringParam,
     })
-    const { q: search_query, type: items_type, category: category_type, t: title_params } = query
-
-    // video player states
-    const [show, setShow] = useState(false)
-    const [play_video_id, setPlayVideoId] = useState('')
-    const play_video_src = `${cms_assets_end_point}${play_video_id}`
-
-    useEffect(() => {
-        const video_track = academy_data.videos.find(
-            (item) => slugify(item.video_title) == title_params,
-        )?.video_file.id
-        if (video_track) openVideo(video_track, title_params)
-    }, [])
-
-    // video player functions
-    const openVideo = (track_id: string, video_title: string) => {
-        setPlayVideoId(track_id)
-        setQuery({ ...query, t: video_title })
-        setShow(true)
-    }
-
-    const closeVideo = () => {
-        setShow(false)
-        setPlayVideoId('')
-        setQuery({ ...query, t: undefined })
-    }
+    const { q: search_query, type: items_type, category: category_type } = query
 
     // combined data
     const combined_data = useDataFilter([...academy_data.blog, ...academy_data.videos])
 
     useEffect(() => {
+        // filter functions
+        const filteredBaseOnType = (obj) => {
+            const article_arr = []
+            const video_arr = []
+
+            obj.forEach((items) => {
+                if (items.blog_title) {
+                    article_arr.push(items)
+                } else if (items.video_title) {
+                    video_arr.push(items)
+                }
+            })
+
+            // slice video result to two as for default
+            items_type ? setVideoResult(video_arr) : setVideoResult(video_arr.slice(0, 2))
+
+            setArticleResult(article_arr)
+            setTotalArticle(article_arr.length)
+            setTotalVideo(video_arr.length)
+        }
+
+        const getFilterResult = (type: string) => {
+            let result = []
+
+            if (type !== '') {
+                result = matchSorter(combined_data, unslugify(type), {
+                    keys: ['tags.*.tags_id.tag_name'],
+                })
+            } else {
+                result = null
+            }
+
+            filteredBaseOnType(result)
+
+            return result
+        }
+
+        // search functions
+        const getSearchResult = (q: string) => {
+            let result = []
+
+            if (q !== '') {
+                result = matchSorter(combined_data, q, {
+                    keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
+                })
+            } else result = null
+
+            filteredBaseOnType(result)
+
+            return result
+        }
+
+        const getSearchResultBasedOnType = (obj: Record<string, unknown>[], params: string) => {
+            const result = []
+            let key_to_find: string
+
+            if (params == 'article') {
+                key_to_find = 'blog_title'
+            } else if (params == 'video') {
+                key_to_find = 'video_title'
+            }
+
+            obj.forEach((items) => {
+                if (key_to_find in items) {
+                    result.push(items)
+                }
+            })
+
+            filteredBaseOnType(result)
+
+            return result
+        }
+
         if (search_query && !items_type) {
             getSearchResult(search_query)
             setFullArticleLink(`/academy/search?q=${search_query}&type=article`)
@@ -203,79 +250,6 @@ const SearchPage = () => {
 
     const getTotalArticleText = () =>
         total_article > 4 ? `1-5 of ${total_article} results` : `${total_article} results`
-
-    // filter functions
-    const filteredBaseOnType = (obj) => {
-        const article_arr = []
-        const video_arr = []
-
-        obj.forEach((items) => {
-            if (items.blog_title) {
-                article_arr.push(items)
-            } else if (items.video_title) {
-                video_arr.push(items)
-            }
-        })
-
-        // slice video result to two as for default
-        items_type ? setVideoResult(video_arr) : setVideoResult(video_arr.slice(0, 2))
-
-        setArticleResult(article_arr)
-        setTotalArticle(article_arr.length)
-        setTotalVideo(video_arr.length)
-    }
-
-    const getFilterResult = (type: string) => {
-        let result = []
-
-        if (type !== '') {
-            result = matchSorter(combined_data, unslugify(type), {
-                keys: ['tags.*.tags_id.tag_name'],
-            })
-        } else {
-            result = null
-        }
-
-        filteredBaseOnType(result)
-
-        return result
-    }
-
-    // search functions
-    const getSearchResult = (q: string) => {
-        let result = []
-
-        if (q !== '') {
-            result = matchSorter(combined_data, q, {
-                keys: ['blog_title', 'video_title', 'tags.*.tags_id.tag_name'],
-            })
-        } else result = null
-
-        filteredBaseOnType(result)
-
-        return result
-    }
-
-    const getSearchResultBasedOnType = (obj: Record<string, unknown>[], params: string) => {
-        const result = []
-        let key_to_find: string
-
-        if (params == 'article') {
-            key_to_find = 'blog_title'
-        } else if (params == 'video') {
-            key_to_find = 'video_title'
-        }
-
-        obj.forEach((items) => {
-            if (key_to_find in items) {
-                result.push(items)
-            }
-        })
-
-        filteredBaseOnType(result)
-
-        return result
-    }
 
     const getTotalSearchCount = () => {
         if (!items_type) {
@@ -367,13 +341,7 @@ const SearchPage = () => {
 
                 {video_result.length != 0 ? (
                     <>
-                        <VideoParentWrapper
-                            closeVideo={closeVideo}
-                            currentVideoItems={video_result}
-                            openVideo={openVideo}
-                            show={show}
-                            video_src={play_video_src}
-                        />
+                        <VideoParentWrapper currentVideoItems={video_result} />
                     </>
                 ) : (
                     <Flex m="16px 0">

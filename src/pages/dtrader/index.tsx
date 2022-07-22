@@ -15,7 +15,7 @@ import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 const DtraderVideo = Loadable(() => import('./_dtrader-tabs'))
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
@@ -81,7 +81,7 @@ const trading = [
     },
 ]
 
-const tradingEU = [
+const trading_eu = [
     {
         title: <Localize translate_text="Make smarter trading decisions" />,
         subtitle: (
@@ -115,7 +115,7 @@ const PlatformContainer = styled.div`
 `
 const Dtrader = () => {
     const [is_mobile, setMobile] = useState(false)
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -146,7 +146,7 @@ const Dtrader = () => {
                 join_us_for_free
                 go_to_live_demo
                 Logo={dtrader_logo}
-                image_name={is_eu_country ? 'dtrader_eu' : 'dtrader'}
+                image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
                 is_mobile={is_mobile}
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('Trade volatility indices with DTrader at Deriv')}
@@ -165,7 +165,7 @@ const Dtrader = () => {
                 <DTrading trading={trading} />
             </ROW>
             <EU>
-                <DTrading trading={tradingEU} />
+                <DTrading trading={trading_eu} />
             </EU>
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />

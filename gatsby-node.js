@@ -309,12 +309,11 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
     const result = await graphql(`
         query MyQuery {
             directus {
-                blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
+                blog(filter: { status: { _eq: "published" } }, limit: -1) {
                     id
                     slug
                 }
                 videos(filter: { status: { _eq: "published" } }) {
-                    video_id
                     video_slug
                 }
             }

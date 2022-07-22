@@ -118,7 +118,6 @@ export const query = graphql`
     query AllVideos {
         directus {
             videos(filter: { status: { _eq: "published" } }, sort: "- published_date") {
-                video_id
                 video_slug
                 video_title
                 published_date
@@ -130,9 +129,6 @@ export const query = graphql`
                         tag_name
                         id
                     }
-                }
-                video_file {
-                    id
                 }
                 video_thumbnail {
                     id

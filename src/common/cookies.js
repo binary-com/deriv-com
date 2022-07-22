@@ -49,4 +49,5 @@ export const getCookiesFields = () => [
     'utm_medium',
     'utm_msclk_id',
     'utm_term',
+    'utm_click_id',
 ]

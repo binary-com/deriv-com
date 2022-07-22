@@ -65,7 +65,7 @@ export const useLivechat = () => {
                     const client_information = getClientInformation(domain)
                     const url_params = new URLSearchParams(window.location.search)
 
-                    const { utm_source, utm_medium, utm_campaign } = utm_data || {}
+                    const { utm_source, utm_medium, utm_campaign, utm_click_id } = utm_data || {}
 
                     const {
                         loginid,
@@ -90,6 +90,7 @@ export const useLivechat = () => {
                         utm_source: utm_source ?? '',
                         utm_medium: utm_medium ?? '',
                         utm_campaign: utm_campaign ?? '',
+                        utm_click_id: utm_click_id ?? '',
                     }
 
                     window.LiveChatWidget.call('set_session_variables', session_variables)

@@ -47,9 +47,11 @@ const Reason = styled.div`
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;
 
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
+        display: block;
         justify-content: center;
         flex-wrap: wrap;
+        width: auto;
     }
 `
 const StyledSection = styled(SectionContainer)`

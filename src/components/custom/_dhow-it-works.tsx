@@ -6,7 +6,7 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 
 type DHowItWorksProps = {
-    title: object
+    title: string
     Video: ElementType
 }
 const StyledHeader = styled(Header)`

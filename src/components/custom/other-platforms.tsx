@@ -41,7 +41,7 @@ type CardProps = {
     is_selected?: boolean
     word_break_cover?: boolean
 }
-interface DMT5CardProps extends CardProps {
+type DMT5CardProps = CardProps & {
     is_ppc_redirect?: boolean
 }
 

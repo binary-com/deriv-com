@@ -11,7 +11,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type SimpleStepsProps = {
     content: { header: ReactNode; icon: HTMLImageElement; text: ReactNode }[]
-    header: object
+    header: string
     sign_up?: boolean
 }
 

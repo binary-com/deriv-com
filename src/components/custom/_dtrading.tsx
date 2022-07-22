@@ -5,16 +5,18 @@ import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
+type TradingType = {
+    title?: string
+    subtitle?: string
+    second_title?: string
+    second_subtitle?: string
+    image_name?: string
+    image_alt?: string
+}
+
 type DTradingProps = {
     reverse?: boolean
-    trading?: {
-        title?: string
-        subtitle?: string
-        second_title?: string
-        second_subtitle?: string
-        image_name?: string
-        image_alt?: string
-    }[]
+    trading?: TradingType[]
     two_title?: boolean
 }
 

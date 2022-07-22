@@ -7,7 +7,7 @@ import device from 'themes/device'
 
 type AgreementLabelProps = {
     color?: string
-    handleChangeCheckbox?: (event) => void
+    handleChangeCheckbox: (event) => void
     isChecked?: boolean
     link_text?: string
 }

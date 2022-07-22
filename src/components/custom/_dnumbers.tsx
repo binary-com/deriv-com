@@ -4,11 +4,13 @@ import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 
+type ItemType = {
+    title?: string | ReactNode
+    subtitle?: string | ReactNode
+}
+
 type DNumbersProps = {
-    items?: {
-        title?: string | ReactNode
-        subtitle?: string | ReactNode
-    }[]
+    items?: ItemType[]
     justify?: string
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import type { ImageDataLike, IGatsbyImageData } from 'gatsby-plugin-image'
+import type { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
@@ -10,7 +10,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 
 type DBannerProps = {
     background_pattern?: string
-    data: ImageDataLike | IGatsbyImageData
+    data: IGatsbyImageData
     image_alt?: string
     title?: string | JSX.Element
 }

@@ -103,7 +103,7 @@ const Regulatory = (locale: RegulatoryProps) => {
     return (
         <Layout>
             <SEO
-                title={localize('License and regulation information | Deriv')}
+                title={localize('Licence and regulatory information | Deriv')}
                 description={localize(
                     'Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions.',
                 )}

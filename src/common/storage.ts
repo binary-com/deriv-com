@@ -129,7 +129,7 @@ State.prototype.getResponse = function (pathname) {
 }
 State.set('response', {})
 
-const CookieStorage = function (cookie_name, cookie_domain) {
+const CookieStorage = function (cookie_name, cookie_domain = '') {
     const hostname = isBrowser() && window.location.hostname
     const is_deriv_com = String(hostname).includes('deriv.com')
     const is_binary_sx = String(hostname).includes('binary.sx')

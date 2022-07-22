@@ -262,7 +262,6 @@ export const getAssetUrl = (id) => `${cms_assets_end_point}${id}`
 export const getVideoObject = (video_data) => {
     const {
         published_date,
-        video_file,
         video_thumbnail,
         video_title,
         video_duration,
@@ -271,7 +270,6 @@ export const getVideoObject = (video_data) => {
         featured,
         tags,
     } = video_data
-    const { id: video_id } = video_file
     const { title: alt } = video_thumbnail
 
     return {
@@ -280,7 +278,7 @@ export const getVideoObject = (video_data) => {
         video_title,
         video_description,
         video_thumbnail,
-        video_url: getAssetUrl(video_id),
+        video_url: getAssetUrl(video_slug),
         video_duration,
         video_slug,
         featured,

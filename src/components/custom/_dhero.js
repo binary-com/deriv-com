@@ -8,7 +8,7 @@ import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const Wrapper = styled.div`
     position: relative;
@@ -242,7 +242,7 @@ const DHero = ({
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const handleSignup = useHandleSignup()
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     return (
         <Wrapper>
@@ -280,7 +280,7 @@ const DHero = ({
 
             <LottieWrapper>
                 <QueryImage
-                    data={data[is_eu_country ? 'dtrader' + '_eu' : 'dtrader']}
+                    data={data[is_eu ? 'dtrader_eu' : 'dtrader']}
                     alt={background_alt}
                 />
             </LottieWrapper>

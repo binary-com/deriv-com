@@ -33,7 +33,7 @@ const query = graphql`
         deriv_platform: file(relativePath: { eq: "dtrader/dtrader-banner.png" }) {
             ...fadeIn
         }
-        deriv_platform_EU: file(relativePath: { eq: "dtrader/dtrader-banner_EU.png" }) {
+        deriv_platform_eu: file(relativePath: { eq: "dtrader/dtrader-banner_EU.png" }) {
             ...fadeIn
         }
     }

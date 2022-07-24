@@ -119,7 +119,6 @@ export const onClientEntry = () => {
     if (isLive()) {
         pushwooshInit(push_woosh)
     }
-
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
         addScript({

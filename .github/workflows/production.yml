@@ -115,19 +115,19 @@ jobs:
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"
 
-            - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
-              with:
-                  status: ${{ job.status }}
-                  fields: workflow,repo
-                  if_mention: failure,cancelled
-                  custom_payload: |
-                      {
-                        attachments: [{
-                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                          text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
-                        }]
-                      }
-              env:
-                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-              if: always()
+            # - name: Slack Notification 📣
+            #   uses: 8398a7/action-slack@v3
+            #   with:
+            #       status: ${{ job.status }}
+            #       fields: workflow,repo
+            #       if_mention: failure,cancelled
+            #       custom_payload: |
+            #           {
+            #             attachments: [{
+            #               color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+            #               text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
+            #             }]
+            #           }
+            #   env:
+            #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+            #   if: always()

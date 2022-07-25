@@ -382,7 +382,7 @@ export const berlin: LocationsType = {
     display_continent: 'Europe',
     link: '/careers/locations/berlin/',
     display_name: 'Berlin',
-    img_alt: 'berlin alt img',
+    img_alt: ' Deriv’s Germany office at Berlin ',
     map_office_name: '(Germany)',
     country: 'Germany',
     flagIcon: GermanyFlagIcon,
@@ -391,7 +391,7 @@ export const berlin: LocationsType = {
     first_p:
         'Deriv (Germany) will open later this year in the heart of the European Union. Home to tech professionals, this agile office will help the Deriv Group with its most ambitious technological challenges to create future-proof online trading solutions. ',
     first_img: 'living_in_berlin',
-    first_img_alt: 'living_in_berlin alt img',
+    first_img_alt: 'Working with Deriv’s Berlin team',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'berlin_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'berlin grid 3', 'guernsey grid 4'],
     map: '',

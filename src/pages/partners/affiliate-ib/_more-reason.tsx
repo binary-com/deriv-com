@@ -20,7 +20,6 @@ const Reason = styled.div`
 
     &:nth-child(2) {
         margin-right: 2.4rem;
-        margin-left: 2.4rem;
 
         @media ${device.mobileL} {
             margin-right: 0;
@@ -31,12 +30,12 @@ const Reason = styled.div`
         margin-top: 1.6rem;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.tabletS} {
         text-align: center;
 
         h4 {
             text-align: center;
-            font-size: 16px;
+            font-size: 18px;
         }
         p {
             text-align: center;

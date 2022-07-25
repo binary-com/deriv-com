@@ -191,7 +191,7 @@ const HowToApplyContent = styled.div`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
         display: block;
         margin: auto;
         font-size: 14px;

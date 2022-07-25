@@ -12,14 +12,19 @@ const EuropeanIndices = () => {
             <ROW>
                 <>
                     {stocks_european_indices.map((symbol, index) => (
-                        <Symbol key={index} src={symbol.src} text={symbol.text} />
+                        <Symbol key={symbol.text && index} src={symbol.src} text={symbol.text} />
                     ))}
                 </>
             </ROW>
             <EU>
                 <>
                     {stocks_european_indices_eu_endpoint.map((symbol, index) => (
-                        <Symbol key={index} src={symbol.src} text={symbol.text} eu={symbol.eu} />
+                        <Symbol
+                            key={symbol.text && index}
+                            src={symbol.src}
+                            text={symbol.text}
+                            eu={symbol.eu}
+                        />
                     ))}
                 </>
             </EU>

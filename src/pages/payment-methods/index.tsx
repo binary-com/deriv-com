@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
@@ -12,6 +11,10 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+
+type StyledTableInterface = {
+    has_note: boolean
+}
 
 const meta_attributes = {
     og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
@@ -67,7 +70,7 @@ const TopContainer = styled(Container)`
         width: 100%;
     }
 `
-const StyledTable = styled.table`
+const StyledTable = styled.table<StyledTableInterface>`
     table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
@@ -120,7 +123,11 @@ const MobileWrapper = styled.div`
         display: block;
     }
 `
-const DisplayAccordion = (locale) => {
+type PaymentMethodsProps = {
+    locale: object
+    pd?: object
+}
+const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_eu_country, is_p2p_allowed_country } = React.useContext(DerivStore)
     const [is_mobile] = useBrowserResize(992)
 
@@ -190,28 +197,24 @@ const DisplayAccordion = (locale) => {
     )
 }
 
-DisplayAccordion.propTypes = {
-    locale: PropTypes.object,
-}
-
-const DisplayAccordianItem = ({ pd, locale }) => {
+const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
     return (
         <>
             <OuterDiv>
                 <InnerDiv>
-                    <StyledTable has_note={!!pd.note}>
+                    <StyledTable has_note={!!pd['note']}>
                         <Thead>
                             <Tr>
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th colSpan={pd.is_fiat_onramp && '2'}>
+                                <Th colSpan={pd['is_fiat_onramp'] && parseInt('2')}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
-                                <Th style={pd.is_fiat_onramp && { width: '180px' }}>
-                                    {pd.is_crypto || pd.is_fiat_onramp ? (
+                                <Th style={pd['is_fiat_onramp'] && { width: '180px' }}>
+                                    {pd['is_crypto'] || pd['is_fiat_onramp'] ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
-                                    ) : pd.is_dp2p ? (
+                                    ) : pd['is_dp2p'] ? (
                                         <BoldText>{localize('Supported Deriv accounts')}</BoldText>
                                     ) : (
                                         <React.Fragment>
@@ -220,13 +223,13 @@ const DisplayAccordianItem = ({ pd, locale }) => {
                                         </React.Fragment>
                                     )}
                                 </Th>
-                                {!pd.is_fiat_onramp && (
+                                {!pd['is_fiat_onramp'] && (
                                     <Th>
-                                        {pd.is_crypto ? (
+                                        {pd['is_crypto'] ? (
                                             <>
                                                 <BoldText>{localize('Min withdrawal')}</BoldText>
                                             </>
-                                        ) : pd.is_dp2p ? (
+                                        ) : pd['is_dp2p'] ? (
                                             <BoldText>{localize('Daily deposit limits')}</BoldText>
                                         ) : (
                                             <React.Fragment>
@@ -236,11 +239,11 @@ const DisplayAccordianItem = ({ pd, locale }) => {
                                         )}
                                     </Th>
                                 )}
-                                {pd.is_fiat_onramp ? (
-                                    <Th colSpan="2">
+                                {pd['is_fiat_onramp'] ? (
+                                    <Th colSpan={2}>
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
-                                ) : pd.is_dp2p ? (
+                                ) : pd['is_dp2p'] ? (
                                     <Th>
                                         <BoldText>{localize('Daily withdrawal limits')}</BoldText>
                                     </Th>
@@ -251,33 +254,35 @@ const DisplayAccordianItem = ({ pd, locale }) => {
                                     </Th>
                                 )}
 
-                                {!pd.is_fiat_onramp && !pd.is_dp2p && (
+                                {!pd['is_fiat_onramp'] && !pd['is_dp2p'] && (
                                     <Th>
                                         <BoldText>{localize('Withdrawal')}</BoldText>
                                         <BoldText>{localize('processing time')}</BoldText>
                                     </Th>
                                 )}
-                                {pd.is_dp2p && (
+                                {pd['is_dp2p'] && (
                                     <Th>
                                         <BoldText>{localize('Processing time')}</BoldText>
                                     </Th>
                                 )}
                                 <Th>
                                     <BoldText>
-                                        {pd.is_dp2p ? localize('More info') : localize('Reference')}
+                                        {pd['is_dp2p']
+                                            ? localize('More info')
+                                            : localize('Reference')}
                                     </BoldText>
                                 </Th>
                                 <Th />
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {pd.data.map((data, indx) => {
+                            {pd['data'].map((data, indx) => {
                                 return (
                                     <ExpandList
                                         key={indx}
                                         data={data}
-                                        is_crypto={pd.is_crypto}
-                                        is_fiat_onramp={pd.is_fiat_onramp}
+                                        is_crypto={pd['is_crypto']}
+                                        is_fiat_onramp={pd['is_fiat_onramp']}
                                         locale={locale}
                                     />
                                 )
@@ -286,10 +291,10 @@ const DisplayAccordianItem = ({ pd, locale }) => {
                     </StyledTable>
                 </InnerDiv>
             </OuterDiv>
-            {pd.note && (
+            {pd['note'] && (
                 <Notes>
                     <Text weight="500" size="var(--text-size-xs)">
-                        {localize('Note:')} {pd.note}
+                        {localize('Note:')} {pd['note']}
                     </Text>
                 </Notes>
             )}
@@ -297,12 +302,7 @@ const DisplayAccordianItem = ({ pd, locale }) => {
     )
 }
 
-DisplayAccordianItem.propTypes = {
-    locale: PropTypes.object,
-    pd: PropTypes.object,
-}
-
-const PaymentMethods = (locale) => {
+const PaymentMethods = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout>
@@ -364,10 +364,6 @@ const PaymentMethods = (locale) => {
             )}
         </Layout>
     )
-}
-
-PaymentMethods.propTypes = {
-    locale: PropTypes.object,
 }
 
 export default WithIntl()(PaymentMethods)

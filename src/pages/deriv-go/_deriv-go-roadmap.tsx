@@ -65,7 +65,7 @@ const StyledButton = styled(LinkButton)`
     z-index: 3;
 `
 
-const RoadmapDerivGO = () => {
+const DerivGoRoadmap = () => {
     return (
         <StyledSectionContainer>
             <Container>
@@ -99,4 +99,4 @@ const RoadmapDerivGO = () => {
     )
 }
 
-export default RoadmapDerivGO
+export default DerivGoRoadmap

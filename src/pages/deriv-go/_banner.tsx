@@ -169,7 +169,6 @@ const Banner = () => {
     const handleExternalLink = () => {
         let link = deriv_go_playstore_url
         if (is_mobile) {
-            // TODO handle IOS case once the app is ready
             if (mobileOSDetect() === 'Android') {
                 link = deriv_go_playstore_url
             }

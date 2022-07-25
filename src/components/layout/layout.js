@@ -18,7 +18,7 @@ import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, queryParamData, isEuDomain } from 'common/utility'
+import { isBrowser, handleRedirect, usePlatformQueryParam, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
@@ -136,6 +136,7 @@ const Layout = ({
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
+    const { hasPlatform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
@@ -237,7 +238,7 @@ const Layout = ({
             break
     }
     //Handle page layout when redirection from mobile app.
-    if (queryParamData()) {
+    if (hasPlatform) {
         return (
             <Main margin_top={'0'} is_static={is_static}>
                 {children}

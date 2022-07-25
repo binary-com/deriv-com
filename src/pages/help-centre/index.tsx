@@ -12,7 +12,7 @@ import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { getLocationHash, sanitize } from 'common/utility'
+import { getLocationHash, sanitize, usePlatformQueryParam } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
@@ -191,6 +191,7 @@ const HelpCentre = () => {
 
     const general_articles = articles.filter((article) => article.section === 'General')
     const platforms_articles = articles.filter((article) => article.section === 'Platforms')
+    const { hasPlatform } = usePlatformQueryParam()
 
     return (
         <Layout>
@@ -260,7 +261,7 @@ const HelpCentre = () => {
             <Desktop breakpoint={'tabletS'}>
                 <Community />
             </Desktop>
-            <DidntFindYourAnswerBanner />
+            {!hasPlatform && <DidntFindYourAnswerBanner />}
         </Layout>
     )
 }

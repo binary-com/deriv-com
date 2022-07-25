@@ -39,7 +39,7 @@ class CustomPromise<T> {
     }
 }
 
-export default class DerivWSApi {
+export default class DerivWS {
     private pendingRequests: {
         [k: string]: CustomPromise<DerivAPIResponse>
     } = {}

@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect, useRef } from 'react'
-import DerivWSApi from 'common/websocket/api'
+import DerivWS from 'common/websocket/api'
 
 export type DerivApiProps = {
     send: (data: object, callback: (e: any) => void) => void
@@ -11,7 +11,7 @@ export const useDerivApi = () => {
 
     useLayoutEffect(() => {
         if (!is_opened) {
-            const deriv_api = new DerivWSApi()
+            const deriv_api = new DerivWS()
             setOpened(true)
             ws.current = deriv_api
         }

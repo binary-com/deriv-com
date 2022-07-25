@@ -29,10 +29,5 @@ export type StyledProps = {
 export type HeroProps = {
     title: string
     content: ReactElement
-}
-
-export type HeroComponentProps = {
-    title: string
-    content: ReactElement
-    background_data: ImageDataLike
+    background_data?: ImageDataLike
 }

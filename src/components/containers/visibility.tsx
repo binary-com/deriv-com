@@ -5,7 +5,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ResponsiveContainerProps = {
-    children: ReactElement
+    children: ReactElement | ReactElement[]
     breakpoint?: number | SizeType
     className?: string
 }
@@ -20,7 +20,7 @@ type CountryRuleType =
     | 'is_dev'
 
 type CountryBasedContentProps = {
-    children: ReactElement
+    children: ReactElement | ReactElement[]
     country_rule: CountryRuleType
 }
 

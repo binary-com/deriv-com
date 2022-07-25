@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -13,7 +14,6 @@ import device from 'themes/device'
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 32px;
@@ -28,7 +28,6 @@ const StyledText = styled(Text)`
     font-size: 20px;
     text-align: center;
 `
-
 const LearnMore = styled(LocalizedLink)`
     margin-right: 8px;
     display: flex;
@@ -54,7 +53,6 @@ const LearnMore = styled(LocalizedLink)`
         }
     }
 `
-
 const Card = styled(Flex)`
     flex-direction: column;
     max-width: 380px;
@@ -76,7 +74,7 @@ const Card = styled(Flex)`
     }
 `
 
-const other_apps = [
+const other_apps: ContentType[] = [
     {
         icon: DMT5,
         title: <Localize translate_text="DMT5" />,
@@ -125,7 +123,7 @@ const OtherApps = () => {
                         {other_apps.map((item, index) => {
                             if (is_uk_eu && index == 1) return
                             return (
-                                <Card key={item.title}>
+                                <Card key={index}>
                                     <div>
                                         <img src={item.icon} alt="" />
                                     </div>

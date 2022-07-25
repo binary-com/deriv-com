@@ -15,7 +15,6 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding-top: 40px;
     }
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 32px;

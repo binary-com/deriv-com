@@ -150,20 +150,21 @@ const HeroContent = styled(Flex)`
         }
     }
 `
+
 const Banner = () => {
     const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = () =>
-        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
 
     useEffect(() => {
+        const handleResizeWindow = () =>
+            setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
         handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
 
         return () => {
             window.removeEventListener('resize', handleResizeWindow)
         }
-    }, [handleResizeWindow])
+    }, [is_mobile])
 
     const handleExternalLink = () => {
         let link = deriv_go_playstore_url
@@ -213,7 +214,6 @@ const Banner = () => {
                                     height="108px"
                                 />
                             </HeroContent>
-
                             <Flex
                                 fd="row"
                                 mt="40px"

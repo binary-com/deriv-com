@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ContentType } from './index'
 import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
@@ -13,7 +14,6 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding-top: 0;
     }
 `
-
 const StyledContainer = styled(Container)`
     padding: 40px 0 104px;
     width: 100%;
@@ -24,20 +24,17 @@ const StyledContainer = styled(Container)`
         padding: 16px 0 40px;
     }
 `
-
 const NumberWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 32.8rem;
 `
-
 const StyledTitle = styled(Header)`
     @media ${device.tabletL} {
         padding-top: 24px;
     }
 `
-
 const StyledSubTitle = styled(Text)`
     padding-top: 8px;
     font-size: 24px;
@@ -46,7 +43,6 @@ const StyledSubTitle = styled(Text)`
         font-size: 18px;
     }
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 32px;
@@ -61,7 +57,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const items = [
+const items: ContentType[] = [
     {
         title: <Localize translate_text="Up to x1000" />,
         subtitle: <Localize translate_text="potential profit" />,
@@ -69,6 +65,7 @@ const items = [
     { title: '24/7', subtitle: <Localize translate_text="trading" /> },
     { title: 'USD 1', subtitle: <Localize translate_text="minimum stake" /> },
 ]
+
 const WhatIsDerivGo = () => {
     return (
         <StyledSectionContainer>

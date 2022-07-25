@@ -12,6 +12,7 @@ import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 
 export type ContentType = {
+    id?: number
     title: ReactElement | string
     subtitle?: ReactElement
     content?: ReactElement

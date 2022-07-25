@@ -76,6 +76,7 @@ const Card = styled(Flex)`
 
 const other_apps: ContentType[] = [
     {
+        id: 0,
         icon: DMT5,
         title: <Localize translate_text="DMT5" />,
         content: (
@@ -89,6 +90,7 @@ const other_apps: ContentType[] = [
         ),
     },
     {
+        id: 1,
         icon: DerivX,
         title: <Localize translate_text="Deriv X" />,
         content: (
@@ -123,7 +125,7 @@ const OtherApps = () => {
                         {other_apps.map((item, index) => {
                             if (is_uk_eu && index == 1) return
                             return (
-                                <Card key={index}>
+                                <Card key={item.id}>
                                     <div>
                                         <img src={item.icon} alt="" />
                                     </div>

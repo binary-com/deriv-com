@@ -59,19 +59,20 @@ const StyledText = styled(Text)`
 
 const items: ContentType[] = [
     {
+        id: 0,
         title: <Localize translate_text="Up to x1000" />,
         subtitle: <Localize translate_text="potential profit" />,
     },
-    { title: '24/7', subtitle: <Localize translate_text="trading" /> },
-    { title: 'USD 1', subtitle: <Localize translate_text="minimum stake" /> },
+    { id: 1, title: '24/7', subtitle: <Localize translate_text="trading" /> },
+    { id: 3, title: 'USD 1', subtitle: <Localize translate_text="minimum stake" /> },
 ]
 
 const WhatIsDerivGo = () => {
     return (
         <StyledSectionContainer>
             <StyledContainer>
-                {items.map((item, index) => (
-                    <NumberWrapper key={index}>
+                {items.map((item) => (
+                    <NumberWrapper key={item.id}>
                         <StyledTitle as="h3" type="heading-3" align="center">
                             {item.title}
                         </StyledTitle>

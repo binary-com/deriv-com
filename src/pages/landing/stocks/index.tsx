@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { FooterBanner, HeaderSection, DTrading, Parallelogram, WhyTradeWithUs } from './_lazy-load'
 import BackgroundFooterStocksPattern from 'images/svg/stock-indices/stocks-footer-banner-overlay-shape.svg'
@@ -13,15 +13,7 @@ import HighLeverageSVG from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import TwelveIndicesSVG from 'images/svg/stock-indices/stocks-12-world-indices.svg'
 import FourtyStocksSVG from 'images/svg/stock-indices/stocks-80-analytic-objects.svg'
 import LowCapitalSVG from 'images/svg/stock-indices/stocks-minimum-capital.svg'
-
-type StocksType = {
-    title?: ReactElement
-    subtitle?: ReactElement
-    icon?: string
-    image_name?: string
-    image_name_mobile?: string
-    image_alt?: string
-}
+import { ContentType } from 'pages/landing/_types'
 
 const query = graphql`
     query {
@@ -37,7 +29,7 @@ const query = graphql`
 `
 
 // max numbers of columnPerRow is 5
-const WhyTradeWithUsArr: StocksType[] = [
+const WhyTradeWithUsArr: ContentType[] = [
     {
         title: <Localize translate_text="Extended market hours" />,
         icon: ExtendedTimeSVG,
@@ -64,7 +56,7 @@ const WhyTradeWithUsArr: StocksType[] = [
     },
 ]
 
-const trading: StocksType[] = [
+const trading: ContentType[] = [
     {
         title: <Localize translate_text="No commision, no fees" />,
         subtitle: (
@@ -76,7 +68,7 @@ const trading: StocksType[] = [
     },
 ]
 
-const tradingMobile: StocksType[] = [
+const tradingMobile: ContentType[] = [
     {
         title: <Localize translate_text="No commision, no fees" />,
         subtitle: (
@@ -84,7 +76,7 @@ const tradingMobile: StocksType[] = [
         ),
     },
 ]
-const blueChips: StocksType[] = [
+const blueChips: ContentType[] = [
     {
         title: <Localize translate_text="Blue chip, blue skies" />,
         subtitle: (

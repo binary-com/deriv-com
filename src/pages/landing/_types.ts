@@ -11,8 +11,10 @@ export type ContentType = {
     second_subtitle1?: ReactElement
     subtitle_mobile1?: ReactElement
     subtitle_mobile2?: ReactElement
+    icon?: string
     imgsrc?: string
     image_name?: string
+    image_name_mobile?: string
     image_alt?: string
 }
 

@@ -45,14 +45,12 @@ const StyledSectionWrapper = styled(SectionWrapper)`
 const ImageWrapper = styled.img`
     width: 48px;
     height: 48px;
-`
+    margin-right: 16px;
+    margin-top: -8px;
 
-const ApplyImageWrapper = styled(ImageWrapper)`
-    margin-top: 0;
-`
-
-const TradingExpertsImageWrapper = styled(ImageWrapper)`
-    margin-top: 10px;
+    @media (max-width: 749px) {
+        margin-top: 8px;
+    }
 `
 
 const CenteredSection = styled(SectionContainer)`
@@ -89,6 +87,13 @@ const GetStartedContent = styled(Content)`
         max-width: 360px;
         position: relative;
         top: -3px;
+
+        h4 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 14px;
+        }
     }
 `
 
@@ -110,6 +115,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         font-size: 24px;
+        text-align: center;
     }
 `
 
@@ -153,11 +159,25 @@ const WhoCanApplyWrapper = styled(Col)`
     max-width: 42.8rem;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 749px) {
+        text-align: center;
+
+        h4 {
+            text-align: center;
+            font-size: 18px;
+        }
+        p {
+            text-align: center;
+            font-size: 14px;
+        }
+    }
 `
 const ContentWrapper = styled(Wrapper)`
     @media (max-width: 749px) {
         flex-flow: wrap;
-        margin-top: 16px;
+        margin-top: 24px;
+        justify-content: center;
     }
 `
 
@@ -175,7 +195,7 @@ const StyledLinkButton = styled(LinkButton)`
         display: block;
         margin: auto;
         font-size: 14px;
-        width: 216px;
+        width: 90%;
         height: 40px;
     }
 `
@@ -190,7 +210,7 @@ const WhoCanApply = () => {
                             {localize('Who can apply')}
                         </StyledHeader>
                         <ContentWrapper>
-                            <TradingExpertsImageWrapper src={TradingExperts} alt="" />
+                            <ImageWrapper src={TradingExperts} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Trading experts')}
@@ -233,14 +253,14 @@ const WhoCanApply = () => {
                 <Separator />
                 <Flex>
                     <HowToApply>
-                        <SecondaryHeader as="h2" mb="40px" size="3.2rem">
+                        <SecondaryHeader as="h2" mb="24px" size="3.2rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
-                                        <ApplyImageWrapper src={Apply} alt="" />
+                                        <ImageWrapper src={Apply} alt="" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">

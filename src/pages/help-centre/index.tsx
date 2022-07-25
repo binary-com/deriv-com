@@ -5,14 +5,14 @@ import { Helmet } from 'react-helmet'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
-import { euArticles, getAllArticles, splitArticles } from './_utility'
+import { getAllArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
+import ArticleSectionComponent from './_article-section-component'
 import { SEO, Desktop, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { getLocationHash, sanitize, queryParamData } from 'common/utility'
-import { DerivStore } from 'store'
+import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
@@ -21,7 +21,6 @@ import CrossIcon from 'images/svg/help/cross.svg'
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
-const ArticleComponent = Loadable(() => import('./_article-component'))
 
 type StyledProps = {
     wrap?: string
@@ -74,7 +73,7 @@ const SearchForm = styled.form`
     height: 6.4rem;
     max-width: 99.6rem;
 
-    @media ${device.Laptop} {
+    @media ${device.laptop} {
         width: 100%;
 
         svg {
@@ -112,30 +111,6 @@ const ResultWrapper = styled.div`
     }
 `
 
-const ArticleSection = styled.section`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0 0 8rem;
-
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        padding: 0 0 8rem;
-    }
-`
-
-const RowDiv = styled.div<StyledProps>`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: ${(props) => props.wrap};
-
-    @media ${device.tabletS} {
-        flex-direction: column;
-    }
-`
-
 const ResponsiveHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
@@ -144,9 +119,8 @@ const ResponsiveHeader = styled(Header)`
         font-size: 4rem;
     }
 `
-const param = queryParamData()
+
 const HelpCentre = () => {
-    const { is_eu_country } = React.useContext(DerivStore)
     const [data, setData] = useState({
         search: '',
         toggle_search: true,
@@ -154,6 +128,14 @@ const HelpCentre = () => {
         all_categories: {},
         all_articles: [],
     })
+
+    const toggleArticle = (category) => {
+        if (data.all_categories[category]) {
+            const categories = { ...data.all_categories }
+            categories[category].is_expanded = !categories[category].is_expanded
+            setData({ ...data, all_categories: categories })
+        }
+    }
 
     useEffect(() => {
         const current_label = getLocationHash()
@@ -201,19 +183,14 @@ const HelpCentre = () => {
         keys: ['title', 'sub_category'],
     })
 
-    const splitted_articles = is_eu_country
-        ? euArticles(splitArticles(articles, 3))
-        : splitArticles(articles, 3)
+    // const splitted_articles = is_eu_country
+    //     ? euArticles(splitArticles(articles, 3))
+    //     : splitArticles(articles, 3)
 
     const has_results = !!filtered_articles.length
 
-    const toggleArticle = (category) => {
-        if (data.all_categories[category]) {
-            const categories = { ...data.all_categories }
-            categories[category].is_expanded = !categories[category].is_expanded
-            setData({ ...data, all_categories: categories })
-        }
-    }
+    const general_articles = articles.filter((article) => article.section === 'General')
+    const platforms_articles = articles.filter((article) => article.section === 'Platforms')
 
     return (
         <Layout>
@@ -267,37 +244,18 @@ const HelpCentre = () => {
                 </Backdrop>
             </SearchSection>
             <Container align="left" justify="flex-start" direction="column">
-                <ArticleSection>
-                    {splitted_articles.map((article, id) => {
-                        const first_category = article[0]?.articles[0]?.category
-                        return (
-                            <RowDiv wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'} key={id}>
-                                {article.map((item, idx) => {
-                                    if (
-                                        is_eu_country &&
-                                        (item.category.props.translate_text === 'Deriv X' ||
-                                            item.category.props.translate_text === 'Deriv P2P')
-                                    ) {
-                                        return <React.Fragment key={idx}></React.Fragment>
-                                    }
-
-                                    return (
-                                        <ArticleComponent
-                                            key={idx}
-                                            idx={idx}
-                                            id={id}
-                                            item={item}
-                                            all_categories={data.all_categories}
-                                            toggleArticle={toggleArticle}
-                                            is_eu_country={is_eu_country}
-                                            param={param}
-                                        />
-                                    )
-                                })}
-                            </RowDiv>
-                        )
-                    })}
-                </ArticleSection>
+                <ArticleSectionComponent
+                    section_name="General"
+                    articles={general_articles}
+                    data={data}
+                    toggleArticle={toggleArticle}
+                />
+                <ArticleSectionComponent
+                    section_name="Platforms"
+                    articles={platforms_articles}
+                    data={data}
+                    toggleArticle={toggleArticle}
+                />
             </Container>
             <Desktop breakpoint={'tabletS'}>
                 <Community />

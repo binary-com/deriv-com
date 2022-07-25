@@ -3,7 +3,7 @@ import SocialWrapperComponent from './social-wrapper'
 import { DerivLogoWrapper, StyledLogo } from './common/style'
 import { Desktop } from 'components/containers'
 import DerivLogo from 'images/svg/layout/deriv-footer.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import {
     fb_eu_url,
     fb_uk_url,
@@ -21,7 +21,7 @@ type LogoSectionProps = {
 }
 
 const LogoSection = ({ type = '' }: LogoSectionProps) => {
-    const { is_eu, is_uk } = getCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     return (
         <DerivLogoWrapper>

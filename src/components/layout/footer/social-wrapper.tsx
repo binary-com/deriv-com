@@ -2,12 +2,16 @@ import React from 'react'
 import { SocialWrapper } from './common/style'
 import { LocalizedLink } from 'components/localization'
 import {
+    reddit_url,
+    telegram_url,
     fb_url_career,
     instagram_url_career,
     linkedin_url,
     linkedin_url_career,
 } from 'common/constants'
 //Logo
+import Reddit from 'images/svg/layout/footer-reddit.svg'
+import Telegram from 'images/svg/layout/footer-telegram.svg'
 import Twitter from 'images/svg/layout/footer-twitter.svg'
 import Instagram from 'images/svg/layout/footer-instagram.svg'
 import Facebook from 'images/svg/layout/footer-facebook.svg'
@@ -58,9 +62,20 @@ const SocialWrapperComponent = ({
         image: Twitter,
         image_alt: `twitter ${alt_string}`,
     }
+    const reddit = {
+        link: reddit_url,
+        image: Reddit,
+        image_alt: `reddit ${alt_string}`,
+    }
+    const telegram = {
+        link: telegram_url,
+        image: Telegram,
+        image_alt: `telegram ${alt_string}`,
+    }
 
     if (!is_career_page) {
-        accounts.splice(1, 0, twitter)
+        accounts.splice(0, 0, reddit, telegram)
+        accounts.splice(3, 0, twitter)
     }
 
     return <SocialMediaComponent social_accounts={accounts} />

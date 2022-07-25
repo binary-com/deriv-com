@@ -157,10 +157,9 @@ const Layout = ({
         }
     }, [is_uk_eu])
 
-    if (!is_redirection_applied) {
-        const { send } = DerivApi()
-
-        React.useEffect(() => {
+    React.useEffect(() => {
+        if (!is_redirection_applied) {
+            const { send } = DerivApi()
             send({ website_status: 1 }, (response) => {
                 if (!response.error) {
                     const {
@@ -175,8 +174,8 @@ const Layout = ({
                         handleRedirect(residence, current_client_country, window.location.hostname)
                 }
             })
-        }, [])
-    }
+        }
+    }, [is_redirection_applied])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

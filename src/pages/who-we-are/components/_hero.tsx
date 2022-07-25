@@ -7,7 +7,6 @@ import device from 'themes/device'
 import { localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
-import { getWindowWidth } from 'common/utility'
 
 const query = graphql`
     query {

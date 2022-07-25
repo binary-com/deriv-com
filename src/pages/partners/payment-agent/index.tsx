@@ -25,31 +25,34 @@ const meta_attributes = {
 const PaymentAgent = () => {
     const { is_row } = useCountryRule()
 
-    if (is_row) {
-        return (
-            <Layout type="partners" margin_top={10} no_login_signup>
-                <SEO
-                    title={localize('Payment agents | Partnership programmes | Deriv')}
-                    description={localize(
-                        'Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue.',
-                    )}
-                    meta_attributes={meta_attributes}
-                />
-                <Helmet>
-                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-                </Helmet>
-                <Hero />
-                <TapInto />
-                <YourControl />
-                <WhoCanApply />
-                <ROW>
-                    <P2PBanner />
-                </ROW>
-                <Faq />
-            </Layout>
-        )
-    }
-    return <PageNotFound />
+    return (
+        <>
+            <SEO
+                title={localize('Payment agents | Partnership programmes | Deriv')}
+                description={localize(
+                    'Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue.',
+                )}
+                meta_attributes={meta_attributes}
+            />
+            {is_row ? (
+                <Layout type="partners" margin_top={10} no_login_signup>
+                    <Helmet>
+                        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                    </Helmet>
+                    <Hero />
+                    <TapInto />
+                    <YourControl />
+                    <WhoCanApply />
+                    <ROW>
+                        <P2PBanner />
+                    </ROW>
+                    <Faq />
+                </Layout>
+            ) : (
+                <PageNotFound />
+            )}
+        </>
+    )
 }
 
 export default WithIntl()(PaymentAgent)

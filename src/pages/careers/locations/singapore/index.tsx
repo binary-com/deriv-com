@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import type { ImageDataLike } from 'gatsby-plugin-image'
 import { singapore } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
@@ -33,14 +34,14 @@ const query = graphql`
 `
 
 const Singapore = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery<ImageDataLike>(query)
 
     return (
         <Layout type="careers">
             <SEO
                 title={localize('Singapore – Our office | Deriv')}
                 description={localize(
-                    'Check out the current open job positions at Deriv and get a chance to work with our team in Jordan for a thriving tech career.',
+                    'Join great trading minds at Deriv in Singapore and build your career in developing online trading solutions, particularly for CFD trading.',
                 )}
             />
             <NewLocationLayout location={singapore} images={images} />

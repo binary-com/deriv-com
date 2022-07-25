@@ -409,7 +409,7 @@ export const singapore: LocationsType = {
     display_continent: 'Asia',
     link: '/careers/locations/singapore/',
     display_name: 'Singapore',
-    img_alt: 'Singapore alt img',
+    img_alt: 'Marina Bay Sands - Singapore',
     map_office_name: '(Singapore)',
     country: 'Singapore',
     flagIcon: SingaporeFlagIcon,
@@ -417,9 +417,10 @@ export const singapore: LocationsType = {
     first_p:
         'Deriv (Singapore) will be a new office in Southeast Asia, opening in the second half of 2022.  Strategically situated in the regional financial hub, it will focus on developing innovative derivative trading solutions, particularly for trading CFDs.',
     first_img: 'living_in_singapore',
-    first_img_alt: 'living_in_singapore alt img',
+    first_img_alt: 'Deriv’s Singapore office',
+
     grid_images: ['singapore_grid', 'guernsey_grid_2', 'singapore_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: ['singapore grid', 'guernsey grid 2', 'singapore grid 3', 'guernsey grid 4'],
+    grid_img_alt: ['Working with Deriv’s Singapore team'],
     map: '',
     map_text:
         'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',

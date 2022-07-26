@@ -138,8 +138,8 @@ const ResHeader = styled(Header)`
 `
 
 const ContinentHeader = styled(Header)`
-    width: 79px;
-    height: 30px;
+    border-bottom: 1px solid var(--color-grey-2);
+    height: 45px;
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -225,7 +225,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="france">
                             <OfficeHeader>
                                 <div>
-                                    <img src={France} alt="" />
+                                    <img src={France} alt="France - Eiffel Tower" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('France')}
@@ -270,7 +270,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="malta">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Malta} alt="" />
+                                    <img src={Malta} alt="Malta - Valleta" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Malta')}
@@ -316,7 +316,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="cyprus">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Cyprus} alt="" />
+                                    <img src={Cyprus} alt="Cyprus - Limassol" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Cyprus')}
@@ -353,7 +353,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="guernsey">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Guernsey} alt="" />
+                                    <img src={Guernsey} alt="Guernsey - Sark Lighthouse" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Guernsey')}
@@ -388,11 +388,11 @@ export const Offices = () => {
                             </BorderBox>
                         </Flex>
                     </GridLayout>
-                    <Flex fd="column" m="4rem 0" id="malaysia">
+                    <Flex fd="column" mt="2rem" id="malaysia">
                         <ContinentHeader>{localize('ASIA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Malaysia} alt="" />
+                                <img src={Malaysia} alt="Malaysia - Petronas Twin Towers" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                 {localize('Malaysia')}
@@ -547,16 +547,18 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mb="30px" fd="column" max_width="48.6rem" id="dubai">
+                    <Flex mb="30px" fd="column" id="dubai">
                         <ContinentHeader>{localize('MIDDLE EAST')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Dubai} alt="" />
+                                <img src={Dubai} alt="Dubai - Burj Al Arab" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                 {localize('Dubai')}
                             </Header>
                         </OfficeHeader>
+                    </Flex>
+                    <Flex max_width="48.6rem">
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
@@ -592,16 +594,18 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <Flex mt="15px" fd="column" max_width="48.6rem" id="belarus">
+                    <Flex mt="15px" fd="column" id="belarus">
                         <ContinentHeader>{localize('EASTERN EUROPE')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Belarus} alt="" />
+                                <img src={Belarus} alt="Belarus - National Library" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                 {localize('Belarus')}
                             </Header>
                         </OfficeHeader>
+                    </Flex>
+                    <Flex mt="15px" fd="column" max_width="48.6rem">
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
@@ -633,56 +637,59 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <GridLayout mt="4rem" row_gap="4rem">
-                        <Flex fd="column" max_width="48.6rem" id="rwanda">
-                            <ContinentHeader>{localize('AFRICA')}</ContinentHeader>
-                            <OfficeHeader>
-                                <div>
-                                    <img src={Rwanda} alt="" />
-                                </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                    {localize('Rwanda')}
-                                </Header>
-                            </OfficeHeader>
-                            <BorderBox>
-                                <MapContainer>
-                                    <LocalizedLink
-                                        to="https://goo.gl/maps/dy3BPr2y29usir648"
-                                        external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            alt="Deriv's office location map in Rwanda"
-                                            data={data['map_rwanda']}
-                                            height="100%"
-                                        />
-                                    </LocalizedLink>
-                                </MapContainer>
-                                <LocalizedLinkText
+                    <Flex fd="column" id="rwanda">
+                        <ContinentHeader>{localize('AFRICA')}</ContinentHeader>
+                        <OfficeHeader>
+                            <div>
+                                <img src={Rwanda} alt="Rwanda - Kigali Convention Center" />
+                            </div>
+                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                {localize('Rwanda')}
+                            </Header>
+                        </OfficeHeader>
+                    </Flex>
+                    <Flex mt="15px" fd="column" max_width="48.6rem">
+                        <BorderBox>
+                            <MapContainer>
+                                <LocalizedLink
                                     to="https://goo.gl/maps/dy3BPr2y29usir648"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
                                 >
-                                    <p>Level 2 East Wing, Kigali Heights,</p>
-                                    <p>KG7 Avenue, Kigali</p>
-                                </LocalizedLinkText>
-                            </BorderBox>
-                        </Flex>
-                    </GridLayout>
-                    <Flex fd="column" max_width="48.6rem" id="paraguay">
+                                    <QueryImage
+                                        alt="Deriv's office location map in Rwanda"
+                                        data={data['map_rwanda']}
+                                        height="100%"
+                                    />
+                                </LocalizedLink>
+                            </MapContainer>
+                            <LocalizedLinkText
+                                to="https://goo.gl/maps/dy3BPr2y29usir648"
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                mt="0.8rem"
+                                ml="1.6rem"
+                            >
+                                <p>Level 2 East Wing, Kigali Heights,</p>
+                                <p>KG7 Avenue, Kigali</p>
+                            </LocalizedLinkText>
+                        </BorderBox>
+                    </Flex>
+
+                    <Flex fd="column" id="paraguay">
                         <ContinentHeader>{localize('LATIN AMERICA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Paraguay} alt="" />
+                                <img src={Paraguay} alt="Paraguay - National Pantheon of Heroes" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                 {localize('Paraguay')}
                             </Header>
                         </OfficeHeader>
+                    </Flex>
+                    <Flex max_width="48.6rem">
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink

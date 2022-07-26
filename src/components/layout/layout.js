@@ -137,7 +137,7 @@ const Layout = ({
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
-    const { hasPlatform } = usePlatformQueryParam()
+    const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
@@ -239,7 +239,7 @@ const Layout = ({
             break
     }
     //Handle page layout when redirection from mobile app.
-    if (hasPlatform) {
+    if (has_platform) {
         return (
             <Main margin_top={'0'} is_static={is_static}>
                 {children}

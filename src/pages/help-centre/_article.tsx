@@ -45,7 +45,7 @@ export const Article = ({
     label = '',
     is_mounted = false,
 }: ArticleProps) => {
-    const { platform, hasPlatform } = usePlatformQueryParam()
+    const { platform, has_platform } = usePlatformQueryParam()
 
     return (
         <Layout>
@@ -58,7 +58,7 @@ export const Article = ({
             />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
-                    to={hasPlatform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
+                    to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
                     has_arrow="true"
                     color="black"
                     size="var(--text-size-s)"

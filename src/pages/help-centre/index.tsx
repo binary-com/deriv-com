@@ -192,7 +192,7 @@ const HelpCentre = () => {
 
     const general_articles = articles.filter((article) => article.section === 'General')
     const platforms_articles = articles.filter((article) => article.section === 'Platforms')
-    const { isDerivGo } = usePlatformQueryParam()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <Layout>
@@ -262,7 +262,7 @@ const HelpCentre = () => {
             <Desktop breakpoint={'tabletS'}>
                 <Community />
             </Desktop>
-            {!isDerivGo && <DidntFindYourAnswerBanner />}
+            {!is_deriv_go && <DidntFindYourAnswerBanner />}
         </Layout>
     )
 }

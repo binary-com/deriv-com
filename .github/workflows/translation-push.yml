@@ -28,6 +28,17 @@ jobs:
             - name: Pushing Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
+            - name: Update PR with new Translations ⬇️
+              run: |
+                  crowdin download -b  ${{ github.event.workflow_run.head_branch }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  if [ -z "$(git status --porcelain)" ]; then
+                  echo "No new translation data"
+                  else
+                  echo "New translation Data found. New commit will be added to this PR"
+                  # Commit the newly downloaded files
+                  git add .
+                  git commit -m "translation: 📚 sync translations with crowdin"
+                  git push origin ${{ github.event.workflow_run.head_branch }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:

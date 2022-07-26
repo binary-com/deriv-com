@@ -37,7 +37,7 @@ jobs:
                   echo "New translation Data found. New commit will be added to this PR"
                   # Commit the newly downloaded files
                   git add .
-                  git commit -m "translation: 📚 sync translations with crowdin"
+                  git commit -m "translation: 📚 sync translations from crowdin feature branch"
                   git push origin ${{ github.event.workflow_run.head_branch }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

@@ -103,7 +103,7 @@ const Separator = styled.div`
     width: 1px;
     height: 452px;
     background-color: var(--color-grey-8);
-    margin: 0 9.2rem;
+    margin: 0 17.2rem;
 
     @media ${device.laptop} {
         display: none !important;

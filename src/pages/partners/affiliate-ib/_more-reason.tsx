@@ -8,19 +8,20 @@ import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
 import Advertise from 'images/svg/partners/advertise.svg'
 import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
+const StyledContainer = styled(Container)`
+    width: 100%;
+    max-width: fit-content;
+`
 const ReasonHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 24px;
     }
 `
-
 const Reason = styled.div`
-    width: 38.4rem;
+    width: 40.4rem;
     margin-top: 4rem;
 
     &:nth-child(2) {
-        margin-right: 2.4rem;
-
         @media ${device.mobileL} {
             margin-right: 0;
             margin-left: 0;
@@ -45,6 +46,7 @@ const Reason = styled.div`
 `
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;
+    gap: 8px;
 
     @media ${device.tabletL} {
         display: block;
@@ -64,7 +66,7 @@ const StyledSection = styled(SectionContainer)`
 const MoreReason = () => {
     return (
         <StyledSection>
-            <Container direction="column">
+            <StyledContainer direction="column" mw="0">
                 <ReasonHeader as="h3" size="3.2rem" align="center" mb="2rem">
                     {localize('More reasons to join')}
                 </ReasonHeader>
@@ -103,7 +105,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                 </StyledFlex>
-            </Container>
+            </StyledContainer>
         </StyledSection>
     )
 }

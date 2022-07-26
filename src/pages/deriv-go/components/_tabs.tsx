@@ -124,7 +124,7 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-type TabsType = {
+type TabsProps = {
     children: ReactElement | ReactElement[]
     label?: ReactElement
     description?: ReactElement
@@ -133,13 +133,15 @@ type TabsType = {
     max_width?: string
 }
 
-const TabPanel = ({ children, className }: TabsType) => (
+type TabPanelProps = Pick<TabsProps, 'children' | 'className' | 'label' | 'description'>
+
+const TabPanel = ({ children, className }: TabPanelProps) => (
     <TabContent className={className} role="tabpanel">
         {children}
     </TabContent>
 )
 
-const Tabs = ({ children, is_reverse, className, max_width }: TabsType) => {
+const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
 
     useEffect(() => {

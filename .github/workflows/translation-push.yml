@@ -31,6 +31,9 @@ jobs:
             - name: Update PR with new Translations ⬇️
               run: |
                   crowdin download -b  ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  echo "Setting up Git identity"
+                  git config --global user.name "DerivFE"
+                  git config --global user.email "80095553+DerivFE@users.noreply.github.com"
                   git add .
                   git commit -m "translation: 📚 sync translations from crowdin feature branch"
                   git push origin ${{ github.event.workflow_run.head_branch }}

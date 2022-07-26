@@ -38,7 +38,7 @@ const Berlin = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Berlin – Our office | Deriv')}
+                title={localize('Berlin | Our office | Deriv')}
                 description={localize(
                     'Join Deriv’s team in Germany and work on next-gen fintech products. View our current openings for a chance to build a fulfilling career.',
                 )}

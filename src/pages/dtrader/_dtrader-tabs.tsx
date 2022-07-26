@@ -5,6 +5,7 @@ import { Header } from 'components/elements'
 import { ReactComponent as Macbook } from 'images/svg/dtrader/macbook.svg'
 import device from 'themes/device'
 import { isBrowser } from 'common/utility'
+import { EU, ROW } from 'components/containers/visibility'
 import { LinkButton } from 'components/form'
 
 type StepCommonType = {
@@ -270,8 +271,15 @@ class DtraderTabs extends React.Component {
                         muted
                         playsInline
                     >
-                        <source src="/Dtrader_GIF.mp4" type="video/mp4" />
-                        <source src="/Dtrader_GIF.webm" type="video/webm" />
+                        <ROW>
+                            <>
+                                <source src="/Dtrader_GIF.mp4" type="video/mp4" />
+                                <source src="/Dtrader_GIF.webm" type="video/webm" />
+                            </>
+                        </ROW>
+                        <EU>
+                            <source src="/Dtrader_GIF_EU.mp4" type="video/mp4" />
+                        </EU>
                     </Video>
                 </VideoWrapper>
             </Container>

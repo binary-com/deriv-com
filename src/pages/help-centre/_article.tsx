@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
-import { usePlatformQueryParam } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 export type ArticleProps = {
     children?: React.ReactNode
     header?: string

@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
-import { useQueryParam, StringParam } from 'use-query-params'
 import {
     cms_assets_end_point,
     deriv_cookie_domain,
@@ -476,12 +475,3 @@ export const handleRedirect = (residence, current_client_country) => {
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
-
-export const usePlatformQueryParam = () => {
-    const [platform] = useQueryParam('platform', StringParam)
-    const isDerivGo = platform === 'derivgo'
-    const isDerivP2P = platform === 'p2p'
-    const hasPlatform = isDerivGo || isDerivP2P
-
-    return { platform, hasPlatform, isDerivP2P, isDerivGo }
-}

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { ArcticlesType } from './_help-articles'
 import { DerivStore } from 'store'
-import { usePlatformQueryParam } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 

@@ -94,7 +94,7 @@ const NonEuRedirectPopUp = ({ is_open, setShowNonEuPopup }: PopupModalTypes) => 
                     <ButtonWrapper>
                         <StyledButtonText>
                             <Button secondary onClick={RedirectNonEuLogin}>
-                                {localize('Take me there')}
+                                {localize('Take me there!!')}
                             </Button>
                         </StyledButtonText>
                     </ButtonWrapper>

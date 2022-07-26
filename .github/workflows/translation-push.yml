@@ -30,7 +30,7 @@ jobs:
                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Update PR with new Translations ⬇️
               run: |
-                  crowdin download -b  ${{ github.event.workflow_run.head_branch }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  crowdin download -b  ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
                   if [ -z "$(git status --porcelain)" ]; then
                   echo "No new translation data"
                   else

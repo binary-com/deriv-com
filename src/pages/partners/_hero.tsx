@@ -55,7 +55,7 @@ const Hero = () => {
             >
                 <source data-src={PartnerVideo} type="video/mp4" />
             </StyledVideo>
-            <Content direction="column">
+            <Content>
                 <Container direction="column" height="100%">
                     <Header as="h1" type="display-title" color="white" align="center">
                         {localize('Deriv partnership programmes')}

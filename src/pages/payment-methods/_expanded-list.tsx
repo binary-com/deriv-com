@@ -159,8 +159,6 @@ const ExpandList = ({ data, is_crypto, is_fiat_onramp, locale }: ExpandListProps
                                 data.min_max_withdrawal.map((md, idx) => (
                                     <Text key={idx}>{md}</Text>
                                 ))
-                            ) : is_crypto ? (
-                                <Text>{data.min_max_withdrawal}</Text>
                             ) : (
                                 <Text>{data.min_max_withdrawal}</Text>
                             )}

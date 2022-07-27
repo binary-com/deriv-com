@@ -17,7 +17,7 @@ type SearchBannerProps = {
     hidden?: boolean
 }
 
-export const fadeKeyframes = css`
+const fadeKeyframes = css`
     animation: fade 0.4s ease-in-out;
     @keyframes fade {
         0% {

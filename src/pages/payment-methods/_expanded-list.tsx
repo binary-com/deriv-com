@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
@@ -125,14 +124,13 @@ type ExpandListProps = {
         url?: string
         reference_link?: string | ReactElement
     }
-    is_crypto: boolean
     is_fiat_onramp: boolean
     locale?: {
         locale?: { language: string }
     }
 }
 
-const ExpandList = ({ data, is_crypto, is_fiat_onramp, locale }: ExpandListProps) => {
+const ExpandList = ({ data, is_fiat_onramp, locale }: ExpandListProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
@@ -180,7 +178,7 @@ const ExpandList = ({ data, is_crypto, is_fiat_onramp, locale }: ExpandListProps
                         {data.reference ? (
                             <CenterIcon
                                 href={`/payment-methods/${
-                                    data.locales?.includes(locale.locale.language)
+                                    data.locales?.includes(locale?.locale?.language)
                                         ? locale.locale.language + '/' + data.reference
                                         : data.reference
                                 }`}
@@ -221,13 +219,6 @@ const ExpandList = ({ data, is_crypto, is_fiat_onramp, locale }: ExpandListProps
             )}
         </>
     )
-}
-
-ExpandList.propTypes = {
-    data: PropTypes.object,
-    is_crypto: PropTypes.bool,
-    is_fiat_onramp: PropTypes.bool,
-    locale: PropTypes.object,
 }
 
 export default ExpandList

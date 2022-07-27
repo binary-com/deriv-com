@@ -132,7 +132,6 @@ const Dp2p = () => {
     const handleExternalLink = () => {
         let link = deriv_dp2p_app_url
         if (is_mobile) {
-            // TODO handle IOS case once the app is ready
             if (mobileOSDetect() === 'Android') {
                 link = dp2p_google_play_url
             }

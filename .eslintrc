@@ -4,7 +4,8 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:import/errors",
-        "plugin:import/warnings"
+        "plugin:import/warnings",
+        "plugin:react-hooks/recommended"
     ],
     "overrides": [
         {
@@ -32,6 +33,8 @@
         "strict": 0,
         "camelcase": 0,
         "no-console": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
         "no-trailing-spaces": [
             "error",
             {

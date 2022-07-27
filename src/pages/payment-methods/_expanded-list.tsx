@@ -179,7 +179,7 @@ const ExpandList = ({ data, is_fiat_onramp, locale }: ExpandListProps) => {
                             <CenterIcon
                                 href={`/payment-methods/${
                                     data.locales?.includes(locale?.locale?.language)
-                                        ? locale.locale.language + '/' + data.reference
+                                        ? locale?.locale?.language + '/' + data.reference
                                         : data.reference
                                 }`}
                                 target="_blank"

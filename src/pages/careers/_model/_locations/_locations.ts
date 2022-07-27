@@ -22,6 +22,8 @@ import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
+import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -45,11 +47,11 @@ export const cyberjaya: LocationsType = {
         'Welcome entrance ',
         'Boys playing foosball',
     ],
-    map: 'ChIJyTcAIli2zTERA4MWDMgk9i0',
+    map: 'ChIJQyOushS3zTER-d3unGdC7P0',
     map_text:
         'We believe in fostering an environment that allows a balanced lifestyle between work responsibilities and personal commitments. Every project is exciting, keeping you intellectually challenged. If you want to be inspired every day, join our team in Cyberjaya.',
     address: address_cyberjaya,
-    google_map_link: 'https://g.page/r/CQODFgzIJPYtEAE',
+    google_map_link: 'https://goo.gl/maps/taw811vL1Wht9z4YA',
     has_iframe: true,
 }
 
@@ -374,6 +376,63 @@ export const guernsey: LocationsType = {
     has_map: false,
 }
 
+export const vanuatu: LocationsType = {
+    name: 'vanuatu',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/vanuatu/',
+    display_name: 'Port Vila',
+    img_alt: 'Vanuatu alt img',
+    map_office_name: '(Vanuatu)',
+    country: 'Vanuatu',
+    flagIcon: VanuatuFlagIcon,
+    thumbnail: 'thumbnail_vanuatu',
+    first_p:
+        'Deriv (Vanuatu) will be our new office, opening in the second half of 2022.  Benefiting from the regional talent pool, it will assist the Deriv Group in delivering robust online trading solutions with exceptional customer service.',
+    first_img: 'living_in_vanuatu',
+    first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'vanuatu_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Working with Deriv’s Vanuatu team',
+        'guernsey grid 4',
+    ],
+    map: '',
+    map_text:
+        'The Vanuatu office will bring experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
+    address: address_guernsey,
+    map_img: '',
+    google_map_link: '',
+}
+
+export const jordan: LocationsType = {
+    name: 'jordan',
+    continent: 'middle_east',
+    display_continent: 'Middle East',
+    link: '/careers/locations/jordan/',
+    display_name: 'Amman',
+    img_alt: 'Jordan alt img',
+    map_office_name: '(Jordan)',
+    country: 'Jordan',
+    flagIcon: JordanFlagIcon,
+    thumbnail: 'thumbnail_jordan',
+    first_p:
+        'Deriv (Jordan) will be our new office, starting its operations later in 2022.  Tapping into the regional talent pool, it will be a software development centre and will also offer general services to the Deriv Group.',
+    first_img: 'living_in_jordan',
+    first_img_alt: 'living_in_jordan alt img',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'jordan_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'jordan grid 3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
+    address: address_guernsey,
+    map_img: 'guernsey_map',
+    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
+    has_iframe: false,
+    has_map: false,
+}
+
 export const all_offices: LocationsType[] = [
     dubai,
     malta,
@@ -386,7 +445,9 @@ export const all_offices: LocationsType[] = [
     guernsey,
     asuncion,
     rwanda,
+    jordan,
     minsk,
+    vanuatu,
 ]
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
@@ -401,7 +462,10 @@ export const locations = {
     belarus: `${minsk.display_name}, ${minsk.country}`,
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
+    vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
+    jordan: `${jordan.display_name}, ${jordan.country}`,
 }
+
 export const allContinents = {
     all: all_offices,
     europe: [],

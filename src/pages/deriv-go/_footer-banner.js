@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Flex, Container } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
+import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
+import { Button } from 'components/form'
 import BannerBg from 'images/common/deriv-go/banner.png'
 import BannerMobileBg from 'images/common/deriv-go/banner-m.png'
-import {
-    deriv_go_playstore_url,
-    deriv_go_huaweiappgallery_url,
-    deriv_go_ios_url,
-} from 'common/constants'
 import { isBrowser } from 'common/utility'
+import { mobileOSDetect } from 'common/os-detect'
+import { deriv_go_playstore_url, deriv_go_ios_url } from 'common/constants'
 
 const query = graphql`
     query {
@@ -31,6 +29,9 @@ const query = graphql`
         huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
             ...fadeIn
         }
+        qr_code: file(relativePath: { eq: "deriv-go/deriv_go_all_appstores.png" }) {
+            ...fadeIn
+        }
     }
 `
 const BackgroundWrapper = styled(Flex)`
@@ -45,7 +46,13 @@ const BackgroundWrapper = styled(Flex)`
         flex-direction: column-reverse;
     }
 `
-
+const ButtonDerivGO = styled(Button)`
+    padding: 1.5rem 1.6rem;
+    height: 40px;
+    white-space: nowrap;
+    margin: 20px 0;
+    margin-right: 25px;
+`
 const BannerWrapper = styled(Flex)`
     width: 50%;
     align-self: flex-end;
@@ -75,27 +82,23 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledSubTitle = styled(Header)`
-    margin-top: 5px;
+    margin-top: 16px;
     @media ${device.tabletL} {
         margin-top: 8px;
         text-align: center;
     }
 `
-
-const AppButton = styled(LocalizedLink)`
-    margin-right: 8px;
-    padding: 0;
-
-    img {
-        border-radius: 7px;
+const handleExternalLink = () => {
+    let link = deriv_go_playstore_url
+    // TODO handle IOS case once the app is ready
+    if (mobileOSDetect() === 'Android') {
+        link = deriv_go_playstore_url
     }
-    @media ${device.tabletL} {
-        margin-bottom: 8px;
-        width: 136px;
-        height: 40px;
+    if (mobileOSDetect() === 'iOS') {
+        link = deriv_go_ios_url
     }
-`
-
+    window.open(link, '_blank')
+}
 const FooterBanner = () => {
     const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
@@ -136,7 +139,7 @@ const FooterBanner = () => {
                     <StyledHeader as="h3" color="white" type="heading-3">
                         {localize('Start trading on the go')}
                     </StyledHeader>
-                    <StyledSubTitle color="white" type="subtitle-2" weight="normal">
+                    <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
                         {localize(
                             'Download the app today and trade multipliers anytime, anywhere you want.',
                         )}
@@ -148,30 +151,22 @@ const FooterBanner = () => {
                         tablet_jc="center"
                         tabletL={{ m: '24px 8px 0 32px' }}
                     >
-                        <AppButton
-                            external="true"
-                            to={deriv_go_playstore_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['google_play']} alt="google play logo" />
-                        </AppButton>
-                        <AppButton
-                            external="true"
-                            to={deriv_go_ios_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['app_store']} alt="app store logo" />
-                        </AppButton>
-                        <AppButton
-                            external="true"
-                            to={deriv_go_huaweiappgallery_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
-                        </AppButton>
+                        <Desktop>
+                            <QueryImage
+                                data={data['qr_code']}
+                                alt={'play store'}
+                                width="108px"
+                                height="108px"
+                            />
+                            <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
+                                {localize('Scan the QR code to download Deriv GO')}
+                            </StyledSubTitle>
+                        </Desktop>
+                        <Mobile>
+                            <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
+                                {localize('Download Deriv GO')}
+                            </ButtonDerivGO>
+                        </Mobile>
                     </Flex>
                 </Flex>
             </BackgroundWrapper>

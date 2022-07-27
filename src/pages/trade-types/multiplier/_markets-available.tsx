@@ -40,9 +40,9 @@ const available_markets = [
         name: 'Forex',
         img_src: Forex,
         img_alt: 'forex',
-        text: localize('Forex'),
-        description: localize(
-            'Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake.',
+        text: <Localize translate_text="Forex" />,
+        description: (
+            <Localize translate_text="Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake." />
         ),
         learn_more_path: '/markets/forex/',
     },
@@ -50,9 +50,9 @@ const available_markets = [
         name: 'Synthetic Indices',
         img_src: SyntheticIndices,
         img_alt: 'synthetic indices',
-        text: localize('Synthetic indices'),
-        description: localize(
-            'Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk.',
+        text: <Localize translate_text="Synthetic indices" />,
+        description: (
+            <Localize translate_text="Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk." />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -60,9 +60,9 @@ const available_markets = [
         name: 'Basket Indices',
         img_src: BasketIndices,
         img_alt: 'basket indices',
-        text: localize('Basket indices'),
-        description: localize(
-            'In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world.',
+        text: <Localize translate_text="Basket indices" />,
+        description: (
+            <Localize translate_text="In trading basket indices, the change in the value of one currency is measured against a basket of the most liquid currencies in the world." />
         ),
         learn_more_path: '/markets/basket-indices/',
     },

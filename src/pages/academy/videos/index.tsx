@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
-import { useDataFilter } from '../components/utility'
+import { useDataFilter } from '../components/_utility'
 import AllVideos from './_all-videos'
 import { redirectWithParamReference, queryParams } from 'common/utility'
 import { AllVideosQuery } from 'types/graphql.types'
@@ -118,7 +118,6 @@ export const query = graphql`
     query AllVideos {
         directus {
             videos(filter: { status: { _eq: "published" } }, sort: "- published_date") {
-                video_id
                 video_slug
                 video_title
                 published_date
@@ -130,9 +129,6 @@ export const query = graphql`
                         tag_name
                         id
                     }
-                }
-                video_file {
-                    id
                 }
                 video_thumbnail {
                     id

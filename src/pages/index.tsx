@@ -1,9 +1,15 @@
 import React from 'react'
-import { OurPlatforms, Signup, WhatOurClientsSay, TradeTypes } from './home/_lazy-load'
+import {
+    OurPlatforms,
+    Signup,
+    WhatOurClientsSay,
+    TradeTypes,
+    P2PHomeBanner,
+} from './home/_lazy-load'
 import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import { SEO } from 'components/containers'
+import { SEO, ROW } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
@@ -28,6 +34,9 @@ const Home = () => {
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />
+            <ROW>
+                <P2PHomeBanner />
+            </ROW>
             <Signup appearance={Appearances.public} />
         </Layout>
     )

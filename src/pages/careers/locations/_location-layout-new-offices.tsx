@@ -57,7 +57,7 @@ const Hero = ({ display_name, img_data }: HeroProps) => {
                     rel="noopener noreferrer"
                     external
                 >
-                    View open positions in {display_name}
+                    View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -174,7 +174,7 @@ const WorkingFlex = styled(Flex)`
 `
 
 const WorkingInformation = styled(Flex)`
-    max-width: 44.4rem;
+    max-width: 51.4rem;
     padding: 40px;
     display: block;
     @media ${device.laptop} {
@@ -184,7 +184,7 @@ const WorkingInformation = styled(Flex)`
 `
 
 const StyledDiv = styled.div`
-    max-width: 400px;
+    max-width: 438px;
 
     @media ${device.laptop} {
         max-width: 100%;
@@ -223,7 +223,16 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
 
     return (
         <>
-            <Hero display_name={display_name} img_data={images[location.name]} />
+            <Hero
+                display_name={
+                    display_name === 'Port Vila'
+                        ? 'Vanuatu'
+                        : display_name === 'Amman'
+                        ? ' Jordan'
+                        : display_name
+                }
+                img_data={images[location.name]}
+            />
             <FirstSection>
                 <SecondStyledHeader
                     type="unset"
@@ -232,7 +241,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                     size="var(--text-size-header-5)"
                     color="black-6"
                 >
-                    Deriv in {display_name}
+                    Deriv in {display_name === 'Amman' ? ' Jordan' : display_name}
                 </SecondStyledHeader>
                 <Flex tablet_direction="column">
                     <Text color="black-6">{location.first_p}</Text>

@@ -48,6 +48,10 @@ const MobileHeader = styled.h1`
     line-height: 94px;
     font-weight: bold;
 
+    @media ${device.tabletS} {
+        max-width: 300px;
+        width: 100%;
+    }
     @media ${device.mobileL} {
         font-size: 64px;
         line-height: 1.25;

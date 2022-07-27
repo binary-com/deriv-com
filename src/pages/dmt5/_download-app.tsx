@@ -94,7 +94,9 @@ const DownloadApp = () => {
                 tabletL={{ mt: '0', pl: '10px', pr: '10px' }}
             >
                 <Desktop>
-                    <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
+                    <StyledHeader as="h4" type="subtitle-1">
+                        {localize('Desktop')}
+                    </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
                             <LocalizedLink

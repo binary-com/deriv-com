@@ -303,7 +303,7 @@ export const Offices = () => {
                                 <FullBox id="cyberjaya">
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/ExoJcRaRjcGdpMY78"
+                                            to="https://goo.gl/maps/taw811vL1Wht9z4YA"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -318,20 +318,19 @@ export const Offices = () => {
                                     <Box mt="0.8rem" ml="1.6rem">
                                         <CountryText>Cyberjaya</CountryText>
                                         <LocalizedLinkText
-                                            to="https://goo.gl/maps/ExoJcRaRjcGdpMY78"
+                                            to="https://goo.gl/maps/taw811vL1Wht9z4YA"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
                                             <Desktop>
-                                                <p>C-13, iTech Tower, Jalan Impact,</p>
-                                                <p>Cyber 6, Cyberjaya 63000,</p>
-                                                <p>Selangor</p>
+                                                <p>Deriv HQ, 3500, Jalan Teknokrat </p>
+                                                <p>3, 63000 Cyberjaya, Selangor</p>
                                             </Desktop>
                                             <Mobile>
                                                 <StyledMobileAddress>
-                                                    C-13, iTech Tower, Jalan Impact, Cyber 6,
-                                                    Cyberjaya 63000, Selangor
+                                                    Deriv HQ, 3500, Jalan Teknokrat 3, 63000
+                                                    Cyberjaya, Selangor
                                                 </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>

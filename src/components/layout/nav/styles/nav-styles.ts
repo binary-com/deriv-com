@@ -75,27 +75,7 @@ export const NavRight = styled.div<NavRightProps>`
     opacity: ${({ mounted }) => (mounted ? '1' : '0')};
     transition: ${({ move, has_scrolled }) =>
         move ? 'all 0.25s' : has_scrolled ? 'all 0.25s' : 'none'};
-    transform: translateX(
-        ${({ button_ref, hide_signup_login, move, mounted }) => {
-            const ref_base = getBaseRef(button_ref)
-
-            if (hide_signup_login) {
-                return 0
-            } else if (move && !hide_signup_login) {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 1
-                }
-                return 0
-            } else {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 2
-                    return `${calculation}px`
-                }
-                return '300px'
-            }
-        }}
-    );
+    transform: translateX('300px');
 
     > a {
         pointer-events: ${({ move }) => (move ? 'visible' : 'none')};

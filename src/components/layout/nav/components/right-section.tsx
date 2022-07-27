@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 `
 const SignupButton = styled(Button)`
     margin-left: 1.6rem;
-    opacity: 0;
+    opacity: 1;
 `
 
 const Language = ({ hide_component }: LanguageProps) =>
@@ -45,7 +45,7 @@ const RightSection = ({
 }: RightSectionProps) => {
     const button_ref = useRef(null)
     const [mounted, setMounted] = useState(false)
-    const [has_scrolled, setHasScrolled] = useState(false)
+    const [has_scrolled, setHasScrolled] = useState(true)
     const [show_button, showButton, hideButton] = useMoveButton()
     const { is_loading } = useCountryRule()
     const handleLogin = useHandleLogin()
@@ -82,29 +82,24 @@ const RightSection = ({
             has_scrolled={has_scrolled}
         >
             <Language hide_component={hide_language_switcher} />
-
-            {!hide_signup_login && (
-                <>
-                    <StyledButton
-                        disabled={is_loading}
-                        id="dm-nav-login-button"
-                        onClick={handleLogin}
-                        primary
-                    >
-                        {localize('Log in')}
-                    </StyledButton>
-
-                    <SignupButton
-                        disabled={is_loading}
-                        onClick={handleSignup}
-                        id="dm-nav-signup"
-                        ref={button_ref}
-                        secondary="true"
-                    >
-                        {localize('Create free demo account')}
-                    </SignupButton>
-                </>
-            )}
+            <>
+                <StyledButton
+                    disabled={is_loading}
+                    id="dm-nav-login-button"
+                    onClick={handleLogin}
+                    primary
+                >
+                    {localize('Log in')}
+                </StyledButton>
+                <SignupButton
+                    disabled={is_loading}
+                    onClick={handleSignup}
+                    id="dm-nav-signup"
+                    secondary="true"
+                >
+                    {localize('Create free demo account')}
+                </SignupButton>
+            </>
         </NavRight>
     )
 }

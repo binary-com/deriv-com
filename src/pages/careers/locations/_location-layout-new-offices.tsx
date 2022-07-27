@@ -58,7 +58,7 @@ const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
                     rel="noopener noreferrer"
                     external
                 >
-                    View open positions in {display_name}
+                    View open positions in {display_name === 'Vanuatu' ? 'Port Vila' : display_name}
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -225,7 +225,13 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
     return (
         <>
             <Hero
-                display_name={display_name === 'Amman' ? ' Jordan' : display_name}
+                display_name={
+                    display_name === 'Port Vila'
+                        ? 'Vanuatu'
+                        : display_name === 'Amman'
+                        ? ' Jordan'
+                        : display_name
+                }
                 img_data={images[location.name]}
                 img_alt={location.img_alt}
             />

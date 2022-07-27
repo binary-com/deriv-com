@@ -65,7 +65,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
                 {current_videos.map((item) => {
                     return (
                         <RedirectLink
-                            key={item.video_id}
+                            key={item.video_slug}
                             to={`/academy/videos/${item.video_slug}/`}
                         >
                             <VideoCard item={item} />

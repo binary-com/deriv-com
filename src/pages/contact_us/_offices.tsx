@@ -41,13 +41,13 @@ const query = graphql`
         map_malta: file(relativePath: { eq: "maps/map-malta.png" }) {
             ...fadeIn
         }
-        map_france: file(relativePath: { eq: "maps/map-france.png" }) {
+        map_france: file(relativePath: { eq: "maps/map-france.jpg" }) {
             ...fadeIn
         }
         map_cyberjaya: file(relativePath: { eq: "maps/map-cyberjaya.png" }) {
             ...fadeIn
         }
-        map_guernsey: file(relativePath: { eq: "maps/map-guernsey.png" }) {
+        map_guernsey: file(relativePath: { eq: "maps/map-guernsey.jpg" }) {
             ...fadeIn
         }
         map_cyprus: file(relativePath: { eq: "maps/map-cyprus.png" }) {

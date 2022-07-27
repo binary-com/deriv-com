@@ -11,7 +11,7 @@ type VideoSourceType = {
     dataset?: HTMLVideoElement
 }
 
-const createObserver = (lazyVideos) => {
+const createObserver = (lazyVideos: HTMLVideoElement[]) => {
     const lazyVideoObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (video: VideoType & IntersectionObserverEntry) {
             if (video.isIntersecting) {

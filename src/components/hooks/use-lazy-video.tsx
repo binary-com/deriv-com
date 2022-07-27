@@ -2,15 +2,13 @@ import { useEffect } from 'react'
 
 type VideoType = {
     isIntersecting: boolean
-    target: {
-        classList?: () => void
-    } & { load?: () => void }
+    target: HTMLVideoElement
 }
 
 type VideoSourceType = {
     tagName: string
-    src?: DOMStringMap
-    dataset?: { src: DOMStringMap }
+    src?: string
+    dataset?: HTMLVideoElement
 }
 
 const createObserver = (lazyVideos) => {

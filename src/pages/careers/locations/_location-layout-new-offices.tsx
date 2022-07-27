@@ -42,11 +42,12 @@ const SecondStyledHeader = styled(Header)`
 type HeroProps = {
     display_name: string
     img_data: string
+    img_alt: string
 }
 
-const Hero = ({ display_name, img_data }: HeroProps) => {
+const Hero = ({ display_name, img_data, img_alt }: HeroProps) => {
     return (
-        <StyledBackground data={img_data} alt={display_name}>
+        <StyledBackground data={img_data} alt={img_alt}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <LinkButton
@@ -232,6 +233,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                         : display_name
                 }
                 img_data={images[location.name]}
+                img_alt={location.img_alt}
             />
             <FirstSection>
                 <SecondStyledHeader
@@ -289,7 +291,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
                         <WorkingFlex jc="cover">
                             <WorkingQueryImage
                                 data={images[location.grid_images[2]]}
-                                alt={location.display_name + 'map'}
+                                alt={location.grid_img_alt}
                                 width="100%"
                                 height="100%"
                             />

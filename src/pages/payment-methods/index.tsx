@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ExpandList from './_expanded-list'
-import payment_data from './_payment-data'
+import payment_data, { PaymentDataType } from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
@@ -12,7 +12,7 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 
-type StyledTableInterface = {
+type StyledTableType = {
     has_note: boolean
 }
 
@@ -70,7 +70,7 @@ const TopContainer = styled(Container)`
         width: 100%;
     }
 `
-const StyledTable = styled.table<StyledTableInterface>`
+const StyledTable = styled.table<StyledTableType>`
     table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
@@ -124,8 +124,8 @@ const MobileWrapper = styled.div`
     }
 `
 type PaymentMethodsProps = {
-    locale: object
-    pd?: object
+    locale?: object
+    pd?: PaymentDataType
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_eu_country, is_p2p_allowed_country } = React.useContext(DerivStore)
@@ -202,19 +202,19 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
         <>
             <OuterDiv>
                 <InnerDiv>
-                    <StyledTable has_note={!!pd['note']}>
+                    <StyledTable has_note={!!pd.note}>
                         <Thead>
                             <Tr>
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th colSpan={pd['is_fiat_onramp'] && parseInt('2')}>
+                                <Th colSpan={pd.is_fiat_onramp && parseInt('2')}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
-                                <Th style={pd['is_fiat_onramp'] && { width: '180px' }}>
-                                    {pd['is_crypto'] || pd['is_fiat_onramp'] ? (
+                                <Th style={pd.is_fiat_onramp && { width: '180px' }}>
+                                    {pd.is_crypto || pd.is_fiat_onramp ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
-                                    ) : pd['is_dp2p'] ? (
+                                    ) : pd.is_dp2p ? (
                                         <BoldText>{localize('Supported Deriv accounts')}</BoldText>
                                     ) : (
                                         <React.Fragment>
@@ -223,13 +223,13 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                         </React.Fragment>
                                     )}
                                 </Th>
-                                {!pd['is_fiat_onramp'] && (
+                                {!pd.is_fiat_onramp && (
                                     <Th>
-                                        {pd['is_crypto'] ? (
+                                        {pd.is_crypto ? (
                                             <>
                                                 <BoldText>{localize('Min withdrawal')}</BoldText>
                                             </>
-                                        ) : pd['is_dp2p'] ? (
+                                        ) : pd.is_dp2p ? (
                                             <BoldText>{localize('Daily deposit limits')}</BoldText>
                                         ) : (
                                             <React.Fragment>
@@ -239,11 +239,11 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                         )}
                                     </Th>
                                 )}
-                                {pd['is_fiat_onramp'] ? (
+                                {pd.is_fiat_onramp ? (
                                     <Th colSpan={2}>
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
-                                ) : pd['is_dp2p'] ? (
+                                ) : pd.is_dp2p ? (
                                     <Th>
                                         <BoldText>{localize('Daily withdrawal limits')}</BoldText>
                                     </Th>
@@ -254,35 +254,33 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                     </Th>
                                 )}
 
-                                {!pd['is_fiat_onramp'] && !pd['is_dp2p'] && (
+                                {!pd.is_fiat_onramp && !pd.is_dp2p && (
                                     <Th>
                                         <BoldText>{localize('Withdrawal')}</BoldText>
                                         <BoldText>{localize('processing time')}</BoldText>
                                     </Th>
                                 )}
-                                {pd['is_dp2p'] && (
+                                {pd.is_dp2p && (
                                     <Th>
                                         <BoldText>{localize('Processing time')}</BoldText>
                                     </Th>
                                 )}
                                 <Th>
                                     <BoldText>
-                                        {pd['is_dp2p']
-                                            ? localize('More info')
-                                            : localize('Reference')}
+                                        {pd.is_dp2p ? localize('More info') : localize('Reference')}
                                     </BoldText>
                                 </Th>
                                 <Th />
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {pd['data'].map((data, indx) => {
+                            {pd.data.map((data, indx) => {
                                 return (
                                     <ExpandList
                                         key={indx}
                                         data={data}
-                                        is_crypto={pd['is_crypto']}
-                                        is_fiat_onramp={pd['is_fiat_onramp']}
+                                        is_crypto={pd.is_crypto}
+                                        is_fiat_onramp={pd.is_fiat_onramp}
                                         locale={locale}
                                     />
                                 )
@@ -291,10 +289,10 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                     </StyledTable>
                 </InnerDiv>
             </OuterDiv>
-            {pd['note'] && (
+            {pd.note && (
                 <Notes>
                     <Text weight="500" size="var(--text-size-xs)">
-                        {localize('Note:')} {pd['note']}
+                        {localize('Note:')} {pd.note}
                     </Text>
                 </Notes>
             )}

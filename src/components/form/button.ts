@@ -10,7 +10,7 @@ type SharedButtonStyleProps = {
     width?: string
     primary?: string
     secondary?: string
-    tertiary?: string
+    tertiary?: string | boolean
     tertiary_light?: string
     flat?: string
     social?: string

@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-// import { getCryptoDecimals } from 'common/utility'
-// SVG
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+
+type StyledChevronType = {
+    expanded: boolean
+}
+type TrType = {
+    is_expanded?: boolean
+}
+type DepositType = {
+    is_fiat_onramp: boolean
+}
 
 const StyledButton = styled(Button)`
     padding: 6px 16px;
     width: 112px;
 `
-
-const StyledChevron = styled.img`
+const StyledChevron = styled.img<StyledChevronType>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
@@ -28,7 +35,7 @@ const StyledPDF = styled.img`
 const ExpandedContent = styled.td`
     text-align: left;
 `
-const Tr = styled.tr`
+const Tr = styled.tr<TrType>`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
 const Td = styled.td`
@@ -62,7 +69,7 @@ const HoverTd = styled(Td)`
     justify-content: center;
 `
 
-const Description = styled.div`
+const Description = styled.div<TrType>`
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s, padding 0.3s;
@@ -87,7 +94,7 @@ const StyledText = styled(Text)`
 const StyleCurrencyText = styled(Text)`
     white-space: pre-line;
 `
-const Deposit = styled(Td)`
+const Deposit = styled(Td)<DepositType>`
     & > p {
         max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
     }
@@ -103,24 +110,39 @@ const Withdrawal = styled(Td)`
         max-width: 14rem;
     }
 `
-// const replaceLineBreak = (str) => {
-//     return str.toString().replace(/\n/g, '</br>')
-// }
+type ExpandListProps = {
+    data?: {
+        method?: string | ReactElement
+        currencies?: string | ReactElement
+        min_max_deposit?: string | ReactElement
+        min_max_withdrawal?: string | ReactElement
+        deposit_time?: string | ReactElement
+        withdrawal_time?: string | ReactElement
+        description?: string | ReactElement
+        name?: string
+        reference?: string
+        locales?: string[]
+        url?: string
+        reference_link?: string | ReactElement
+    }
+    is_crypto: boolean
+    is_fiat_onramp: boolean
+    locale?: {
+        locale?: { language: string }
+    }
+}
 
-const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => {
+const ExpandList = ({ data, is_crypto, is_fiat_onramp, locale }: ExpandListProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
 
-    // const getCryptoConfig = (name) => {
-    //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
-    // }
     return (
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
-                <Td colSpan={is_fiat_onramp && '2'}>
+                <Td colSpan={is_fiat_onramp && parseInt('2')}>
                     <StyleCurrencyText>{data.currencies}</StyleCurrencyText>
                 </Td>
                 <Td>
@@ -138,7 +160,6 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                                     <Text key={idx}>{md}</Text>
                                 ))
                             ) : is_crypto ? (
-                                // <Text>{getCryptoConfig(data.name)}</Text>
                                 <Text>{data.min_max_withdrawal}</Text>
                             ) : (
                                 <Text>{data.min_max_withdrawal}</Text>
@@ -146,7 +167,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                         </>
                     </Td>
                 )}
-                <Deposit colSpan={is_fiat_onramp && '2'} is_fiat_onramp={is_fiat_onramp}>
+                <Deposit colSpan={is_fiat_onramp && parseInt('2')} is_fiat_onramp={is_fiat_onramp}>
                     <Text>{data.deposit_time}</Text>
                 </Deposit>
 
@@ -185,7 +206,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
             </Tr>
             {data.description && (
                 <Tr>
-                    <ExpandedContent colSpan="8">
+                    <ExpandedContent colSpan={8}>
                         <Description is_expanded={is_expanded}>
                             <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
                             {data.url && (
@@ -205,7 +226,6 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
 }
 
 ExpandList.propTypes = {
-    // config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,

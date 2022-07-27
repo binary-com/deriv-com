@@ -11,8 +11,6 @@ jobs:
         if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
         runs-on: ubuntu-latest
         steps:
-            - name: Show Latest Commit Message
-              run: echo ${{ github.event.head_commit.message }}
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
             - name: Checkout 🛎️
@@ -21,6 +19,8 @@ jobs:
                 fetch-depth: 0
                 ref: ${{ github.event.workflow_run.head_branch }}
                 repository: ${{github.event.workflow_run.head_repository.full_name}}
+            - name: Show Latest Commit Message
+              run: echo 'Commit Message = ${{github.event.head_commit.message}}'
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:

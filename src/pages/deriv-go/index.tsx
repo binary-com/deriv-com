@@ -74,28 +74,29 @@ const derivGoPortalData: DerivGoPortalType = {
 const DerivGo = () => {
     const { is_row } = useCountryRule()
 
-    return is_row ? (
-        <Layout>
-            <SEO
-                title={localize(
-                    'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
-                )}
-                description={localize(
-                    'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
-                )}
-            />
-            <Banner />
-            <WhatIsDerivGo />
-            <WhyTradeDerivGo />
-            <DerivGoContent reverse P2P={items} />
-            <StartDerivGo />
-            <FooterBanner />
-            <OtherApps />
-            <Roadmap portal={derivGoPortalData} />
-        </Layout>
-    ) : (
-        <PageNotFound />
-    )
+    if (is_row) {
+        return (
+            <Layout>
+                <SEO
+                    title={localize(
+                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
+                    )}
+                    description={localize(
+                        'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                    )}
+                />
+                <Banner />
+                <WhatIsDerivGo />
+                <WhyTradeDerivGo />
+                <DerivGoContent reverse P2P={items} />
+                <StartDerivGo />
+                <FooterBanner />
+                <OtherApps />
+                <Roadmap portal={derivGoPortalData} />
+            </Layout>
+        )
+    }
+    return <PageNotFound />
 }
 
 export default WithIntl()(DerivGo)

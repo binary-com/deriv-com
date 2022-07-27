@@ -125,7 +125,7 @@ const Mobile = styled(Show.Mobile)`
 `
 
 type TabsProps = {
-    children: ReactElement | ReactElement[]
+    children: ReactElement[]
     label?: ReactElement
     description?: ReactElement
     className?: string

@@ -11,6 +11,8 @@ jobs:
         if: startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')
         runs-on: ubuntu-latest
         steps:
+            - name: Show Latest Commit Message
+              run: echo ${{ github.event.head_commit.message }}
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
               run: echo 'Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}'
             - name: Checkout 🛎️

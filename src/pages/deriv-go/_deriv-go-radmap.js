@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { QueryImage } from 'components/elements'
 import { Header, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -61,14 +59,6 @@ const StyledFrame = styled.div`
         }
     }
 `
-
-const StyledRoadmap = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-`
-
 const StyledButton = styled(LinkButton)`
     margin-top: 40px;
     position: relative;
@@ -76,17 +66,7 @@ const StyledButton = styled(LinkButton)`
     z-index: 3;
 `
 
-const query = graphql`
-    query {
-        roadmap: file(relativePath: { eq: "deriv-go/roadmap.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const RoadmapDerivGO = () => {
-    const data = useStaticQuery(query)
-
     return (
         <StyledSectionContainer>
             <Container>
@@ -116,14 +96,6 @@ const RoadmapDerivGO = () => {
                     {localize('Go to portal')}
                 </StyledButton>
             </StyledFrame>
-            <StyledRoadmap>
-                <QueryImage
-                    data={data['roadmap']}
-                    alt={'roadmap'}
-                    width="100%"
-                    className="content-wrapper"
-                />
-            </StyledRoadmap>
         </StyledSectionContainer>
     )
 }

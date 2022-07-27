@@ -110,6 +110,7 @@ export const query = graphql`
             blog(
                 filter: { status: { _eq: "published" }, test_data: { _eq: false } }
                 sort: "-published_date"
+                limit: -1
             ) {
                 id
                 main_image {

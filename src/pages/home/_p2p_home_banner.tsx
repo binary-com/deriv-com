@@ -35,132 +35,6 @@ const query = graphql`
         }
     }
 `
-
-const P2pLogoContainer = styled(Flex)`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0;
-    gap: 4.8px;
-    width: 186.67px;
-    height: 24px;
-    @media ${device.tabletL} {
-        display: inline-block;
-        height: 24px;
-        width: auto;
-        max-width: 42rem;
-        gap: 8px;
-        margin-top: 47px;
-    }
-`
-
-const StyledButton = styled(LocalizedLink)`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    gap: 8px;
-    width: 126px;
-    height: 30px;
-    margin-bottom: 49px;
-    border-radius: 4px;
-    flex-grow: 0;
-    @media ${device.tabletL} {
-        justify-content: flex-start;
-        gap: 6px;
-        width: 100%;
-        height: 24px;
-        max-width: 42rem;
-        margin-bottom: 0;
-    }
-`
-const LearnMore = styled(LocalizedLink)`
-    width: 120px;
-    height: 30px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-    color: #ff444f;
-    text-decoration-color: transparent;
-    @media ${device.tabletL} {
-        width: 100px;
-        height: 24px;
-        font-size: 16px;
-        line-height: 24px;
-    }
-    @media ${device.laptopM} {
-        font-size: 16px;
-    }
-`
-const QRCodeP2p = styled(Flex)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px;
-    gap: 8px;
-    margin-top: 49px;
-    width: 152px;
-    height: 200px;
-    background: #ffffff;
-    border-radius: 8px;
-    margin-right: 223px;
-    @media ${device.laptopM} {
-        margin-top: 20px;
-        width: 120px;
-        height: 160px;
-        margin-left: 60px;
-    }
-`
-const StyledLabel = styled(Flex)`
-    width: 120px;
-    height: 40px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    color: #333333;
-`
-const StyledBadge = styled(Flex)`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    gap: 22px;
-    width: 100%;
-    height: 96px;
-
-    @media ${device.tabletL} {
-        margin-top: 46px;
-        margin-bottom: 60px;
-    }
-    @media ${device.mobileM} {
-        margin-top: 38px;
-        margin-bottom: 34px;
-    }
-`
-const StyledTopBadge = styled(Flex)`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0;
-    width: 100%;
-    height: 40px;
-`
-const AppStoreTopBadge = styled(LocalizedLink)`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    height: 40px;
-    width: 157px;
-    padding: 6px 8px;
-`
-
 const BackgroundWrapper = styled.section`
     width: 100%;
     background: #e6e9e9;
@@ -193,8 +67,6 @@ const Wrapper = styled(Flex)`
     }
 `
 const ImgWrapper = styled.div`
-    height: 100%;
-
     .gatsby-image-wrapper {
         width: 100%;
         height: 100%;
@@ -213,16 +85,6 @@ const ImgWrapper = styled.div`
         width: 100%;
         min-height: 172px;
     }
-    @media ${device.laptopL} {
-        width: 100%;
-        height: 100%;
-        max-height: 340px;
-    }
-    @media ${device.laptop} {
-        width: 100%;
-        height: 100%;
-        max-height: unset;
-    }
     @media ${device.mobileM} {
         margin-top: 32px;
     }
@@ -231,7 +93,6 @@ const InformationWrapper = styled(Flex)`
     width: 100%;
     z-index: 1;
     gap: 16px;
-    margin-left: 172px;
     margin-top: 49px;
 
     @media ${device.tabletL} {
@@ -326,6 +187,138 @@ const HeroContent = styled(Flex)`
         }
     }
 `
+const P2pLogoContainer = styled(Flex)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 4.8px;
+    width: 186.67px;
+    height: 24px;
+    @media ${device.tabletL} {
+        display: inline-block;
+        height: 24px;
+        width: auto;
+        max-width: 42rem;
+        gap: 8px;
+        margin-top: 47px;
+    }
+`
+const StyledButton = styled(LocalizedLink)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 8px;
+    width: 126px;
+    height: 30px;
+    border-radius: 4px;
+    flex-grow: 0;
+    @media ${device.tabletL} {
+        justify-content: flex-start;
+        gap: 6px;
+        width: 100%;
+        height: 24px;
+        max-width: 42rem;
+        margin-bottom: 0;
+    }
+`
+const LearnMore = styled(LocalizedLink)`
+    width: 120px;
+    height: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ff444f;
+    text-decoration-color: transparent;
+    @media ${device.tabletL} {
+        width: 100px;
+        height: 24px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    @media ${device.laptopM} {
+        font-size: 16px;
+    }
+`
+const QRCodeP2p = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 8px;
+    margin-top: 49px;
+    width: 152px;
+    height: 200px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-right: 120px;
+    @media ${device.laptopL} {
+        margin-right: 20px;
+    }
+`
+const StyledLabel = styled(Flex)`
+    width: 120px;
+    height: 40px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #333333;
+`
+const StyledBadge = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 32px;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 36px;
+
+    @media ${device.tabletL} {
+        margin-top: 46px;
+        margin-bottom: 60px;
+        gap: 22px;
+        height: 96px;
+    }
+    @media ${device.mobileM} {
+        margin-top: 38px;
+        margin-bottom: 34px;
+        gap: 22px;
+        height: 96px;
+    }
+`
+const StyledTopBadge = styled(Flex)`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    @media ${device.tabletL} {
+        justify-content: center;
+    }
+`
+const AppStoreTopBadge = styled(LocalizedLink)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    height: 40px;
+    width: 127px;
+    padding-right: 20px;
+
+    @media ${device.tabletL} {
+        width: 157px;
+        padding: 6px 8px;
+    }
+`
 const P2PHomeBanner = () => {
     const data = useStaticQuery(query)
     const [is_tabletL] = useBrowserResize(size.tabletL)
@@ -379,9 +372,33 @@ const P2PHomeBanner = () => {
                             <Localize translate_text="Learn more >" />
                         </LearnMore>
                     </StyledButton>
+                    <Desktop min-width="mobileL">
+                        <StyledBadge>
+                            <StyledTopBadge>
+                                <AppStoreTopBadge to="https://apps.apple.com/us/app/deriv-dp2p/id1506901451">
+                                    <QueryImage
+                                        data={data['p2p_apple_store']}
+                                        alt="p2p apple store"
+                                    />
+                                </AppStoreTopBadge>
+                                <AppStoreTopBadge to="https://play.google.com/store/apps/details?id=com.deriv.dp2p">
+                                    <QueryImage
+                                        data={data['p2p_google_play']}
+                                        alt="p2p google play"
+                                    />
+                                </AppStoreTopBadge>
+                                <AppStoreTopBadge to="https://appgallery.huawei.com/#/app/C103844755">
+                                    <QueryImage
+                                        data={data['p2p_app_gallery']}
+                                        alt="p2p app gallery"
+                                    />
+                                </AppStoreTopBadge>
+                            </StyledTopBadge>
+                        </StyledBadge>
+                    </Desktop>
                 </InformationWrapper>
 
-                <Desktop>
+                <Desktop min-width="mobileL">
                     <QRCodeP2p>
                         <QueryImage
                             data={data['qr_code']}

@@ -1,3 +1,4 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -95,7 +96,7 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled(Chevron)`
+export const StyledChevron = styled((props) => <Chevron {...props} />)`
     height: 24px;
     width: 24px;
     ${(props) => {

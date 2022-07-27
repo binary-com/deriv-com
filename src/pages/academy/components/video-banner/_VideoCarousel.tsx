@@ -100,7 +100,7 @@ const VideoCarousel = ({ carousel_items }: VideoCarouselProps) => {
             transform: 'translate(-50%, -50%)',
             bottom: 'unset',
             right: 'unset',
-            custom_chevron_color: 'custom',
+            custom_chevron_color: 'red',
             custom_is_displayed_on_mobile: true,
         },
     }

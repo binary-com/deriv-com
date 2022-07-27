@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ButtonsProps } from './_custom-carousel'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { LocalizedLinkText } from 'components/elements'
@@ -35,7 +36,7 @@ export const EmblaSlideInner = styled.div`
     height: 100%;
 `
 
-export const StyledButtonWrapper = styled.div`
+export const StyledButtonWrapper = styled.div<ButtonsProps>`
     position: absolute;
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.92' : '1')};
@@ -65,7 +66,7 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled(Chevron)`
+export const StyledChevron = styled(Chevron)<{ red?: string; black?: string; custom?: string }>`
     height: 24px;
     width: 24px;
     ${(props) => {
@@ -101,7 +102,7 @@ export const NavigationContainer = styled(Flex)`
     bottom: ${(props) => props.bottom_offset ?? '40px'};
 `
 
-export const StyledDot = styled.div`
+export const StyledDot = styled.div<{ color?: string }>`
     cursor: pointer;
     height: 8px;
     width: 8px;
@@ -119,6 +120,7 @@ export const ChevronRight = styled(StyledChevron)`
 `
 export const ChevronLeft = styled(StyledChevron)`
     left: 0;
+    fill: red;
 `
 export const NavigationWrapper = styled(Flex)`
     align-items: center;
@@ -136,7 +138,7 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<{ disabled?: boolean }>`
     width: 32px;
     height: 32px;
     border-radius: 50%;

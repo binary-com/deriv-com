@@ -18,7 +18,7 @@ const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 3
 
 const address_france = ['Wojo Madeleine, 18 Boulevard Malesherbes,', '75008 Paris']
 
-const address_guernsey = ['5 St James Street, St Peter Port,', 'Guernsey, GY1 2NZ']
+const address_guernsey = ['Suite 5, One Cornet Street, St Peter Port, Guernsey GY1 1 BZ']
 
 const address_labuan = [
     'F16, 1st Floor, Paragon Labuan,',

@@ -1,5 +1,5 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
+import { ButtonsProps } from './_custom-carousel'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { LocalizedLinkText } from 'components/elements'
@@ -36,7 +36,7 @@ export const EmblaSlideInner = styled.div`
     height: 100%;
 `
 
-export const StyledButtonWrapper = styled.div`
+export const StyledButtonWrapper = styled.div<ButtonsProps>`
     position: absolute;
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.92' : '1')};
@@ -66,18 +66,18 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled((props) => <Chevron {...props} />)`
+export const StyledChevron = styled(Chevron)<{ color?: string }>`
     height: 24px;
     width: 24px;
     ${(props) => {
         const red_box = 'width: 16px;height: 16px;'
         const custom_box = 'width: 10px;height: 18px;'
 
-        if (props.red) {
+        if (props.color == 'red') {
             return css`
                 ${red_box}
             `
-        } else if (props.custom) {
+        } else if (props.color == 'custom') {
             return css`
                 ${custom_box}
             `
@@ -86,11 +86,10 @@ export const StyledChevron = styled((props) => <Chevron {...props} />)`
 
     path {
         ${(props) => {
-            const black_color = 'fill: var(--color-black);'
-            const red_color = 'fill: var(--color-red);'
+            const choosed_color = `fill: var(--color-${props.color});`
             const default_color = 'fill: var(--color-white);'
 
-            return props.black ? black_color : props.red ? red_color : default_color
+            return props.color !== 'custom' ? choosed_color : default_color
         }}
     }
 `
@@ -102,7 +101,7 @@ export const NavigationContainer = styled(Flex)`
     bottom: ${(props) => props.bottom_offset ?? '40px'};
 `
 
-export const StyledDot = styled.div`
+export const StyledDot = styled.div<{ color?: string }>`
     cursor: pointer;
     height: 8px;
     width: 8px;
@@ -120,6 +119,7 @@ export const ChevronRight = styled(StyledChevron)`
 `
 export const ChevronLeft = styled(StyledChevron)`
     left: 0;
+    fill: red;
 `
 export const NavigationWrapper = styled(Flex)`
     align-items: center;
@@ -137,7 +137,7 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<{ disabled?: boolean }>`
     width: 32px;
     height: 32px;
     border-radius: 50%;

@@ -119,12 +119,13 @@ const CountryText = styled(Text)`
     color: var(--color-grey-5);
     margin-bottom: 0.8rem;
     @media ${device.mobileL} {
-        margin-bottom: 8px !important;
+        margin-bottom: 13px;
+        margin-top: 13px;
     }
 `
 
 const FullBorder = styled(BorderBox)`
-    padding: 2.4rem 0;
+    padding: 1rem 0;
 `
 
 const ResHeader = styled(Header)`
@@ -145,12 +146,20 @@ const ContinentHeader = styled(Header)`
     font-size: 20px;
     line-height: 30px;
     white-space: nowrap;
-    margin-bottom: 56px;
+    margin-bottom: 38px;
     margin-top: 30px;
     color: #85acb0;
     flex: none;
     order: 0;
     flex-grow: 0;
+
+    :nth-child(2) {
+        margin-bottom: 0px;
+    }
+
+    @media ${device.mobileL} {
+        margin-top: 65px;
+    }
 `
 
 const OfficeHeader = styled.div`
@@ -182,12 +191,11 @@ const FullBox = styled(Flex)`
             margin-bottom: 16px;
         }
         ${CountryText} {
-            margin-top: 0;
-            margin-bottom: 8px;
+            margin-top: 33px;
             font-size: 14px;
         }
         ${Text} {
-            margin-bottom: 0;
+            margin-bottom: 33px;
         }
         ${LocalizedLinkText} {
             margin-bottom: 0;
@@ -222,7 +230,7 @@ export const Offices = () => {
                     </ResHeader>
                     <ContinentHeader>{localize('EUROPE')}</ContinentHeader>
                     <GridLayout>
-                        <Flex fd="column" max_width="48.6rem" id="france">
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
                             <OfficeHeader>
                                 <div>
                                     <img src={France} alt="France - Eiffel Tower" />
@@ -267,7 +275,7 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex fd="column" max_width="48.6rem" id="malta">
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="malta">
                             <OfficeHeader>
                                 <div>
                                     <img src={Malta} alt="Malta - Valleta" />
@@ -313,7 +321,7 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex fd="column" max_width="48.6rem" id="cyprus">
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="cyprus">
                             <OfficeHeader>
                                 <div>
                                     <img src={Cyprus} alt="Cyprus - Limassol" />
@@ -350,7 +358,7 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex fd="column" max_width="48.6rem" id="guernsey">
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="guernsey">
                             <OfficeHeader>
                                 <div>
                                     <img src={Guernsey} alt="Guernsey - Sark Lighthouse" />
@@ -388,7 +396,7 @@ export const Offices = () => {
                             </BorderBox>
                         </Flex>
                     </GridLayout>
-                    <Flex fd="column" mt="2rem" id="malaysia">
+                    <Flex fd="column" mt="30px" id="malaysia">
                         <ContinentHeader>{localize('ASIA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
@@ -424,14 +432,13 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <Desktop>
-                                                <p>C-13, iTech Tower, Jalan Impact,</p>
-                                                <p>Cyber 6, Cyberjaya 63000,</p>
-                                                <p>Selangor</p>
+                                                <p>Deriv HQ, 3500, Jalan Teknokrat 3, 63000</p>
+                                                <p>Cyberjaya, Selangor</p>
                                             </Desktop>
                                             <Mobile>
                                                 <StyledMobileAddress>
-                                                    C-13, iTech Tower, Jalan Impact, Cyber 6,
-                                                    Cyberjaya 63000, Selangor
+                                                    Deriv HQ, 3500, Jalan Teknokrat 3, 63000
+                                                    Cyberjaya, Selangor
                                                 </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
@@ -547,7 +554,7 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mb="30px" fd="column" id="dubai">
+                    <Flex mt="30px" mb="30px" fd="column" id="dubai">
                         <ContinentHeader>{localize('MIDDLE EAST')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
@@ -594,7 +601,7 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <Flex mt="15px" fd="column" id="belarus">
+                    <Flex mt="30px" fd="column" id="belarus">
                         <ContinentHeader>{localize('EASTERN EUROPE')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
@@ -605,7 +612,7 @@ export const Offices = () => {
                             </Header>
                         </OfficeHeader>
                     </Flex>
-                    <Flex mt="15px" fd="column" max_width="48.6rem">
+                    <Flex mt="30px" fd="column" max_width="48.6rem">
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
@@ -637,7 +644,7 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <Flex fd="column" id="rwanda">
+                    <Flex mt="30px" fd="column" id="rwanda">
                         <ContinentHeader>{localize('AFRICA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
@@ -648,7 +655,7 @@ export const Offices = () => {
                             </Header>
                         </OfficeHeader>
                     </Flex>
-                    <Flex mt="15px" fd="column" max_width="48.6rem">
+                    <Flex mt="30px" fd="column" max_width="48.6rem">
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
@@ -678,7 +685,7 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
 
-                    <Flex fd="column" id="paraguay">
+                    <Flex mt="30px" fd="column" id="paraguay">
                         <ContinentHeader>{localize('LATIN AMERICA')}</ContinentHeader>
                         <OfficeHeader>
                             <div>

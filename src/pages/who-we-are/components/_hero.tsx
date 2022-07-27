@@ -53,6 +53,7 @@ const MobileHeader = styled.h1`
         width: 100%;
     }
     @media ${device.mobileL} {
+        max-width: 210px;
         font-size: 64px;
         line-height: 1.25;
     }

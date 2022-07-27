@@ -1,13 +1,13 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 import { useCountryRule } from './use-country-rule'
-import { isEuDomain } from 'common/utility'
+import { isEuDomain , isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 
 const useHandleSignup = (_is_ppc = false) => {
     const { is_loading, is_eu_location } = useCountryRule()
     const { setShowNonEuPopup } = React.useContext(DerivStore)
-    const currentLocation = window.location.pathname.split('/').slice(0, 4).join('/')
+    const currentLocation = isBrowser() && window.location.pathname.split('/').slice(0, 4).join('/')
 
     return () => {
         if (is_loading) {

@@ -66,18 +66,18 @@ export const StyledButtonWrapper = styled.div<ButtonsProps>`
     }
 `
 
-export const StyledChevron = styled(Chevron)<{ red?: string; black?: string; custom?: string }>`
+export const StyledChevron = styled(Chevron)<{ color?: string }>`
     height: 24px;
     width: 24px;
     ${(props) => {
         const red_box = 'width: 16px;height: 16px;'
         const custom_box = 'width: 10px;height: 18px;'
 
-        if (props.red) {
+        if (props.color == 'red') {
             return css`
                 ${red_box}
             `
-        } else if (props.custom) {
+        } else if (props.color == 'custom') {
             return css`
                 ${custom_box}
             `
@@ -86,11 +86,10 @@ export const StyledChevron = styled(Chevron)<{ red?: string; black?: string; cus
 
     path {
         ${(props) => {
-            const black_color = 'fill: var(--color-black);'
-            const red_color = 'fill: var(--color-red);'
+            const choosed_color = `fill: var(--color-${props.color});`
             const default_color = 'fill: var(--color-white);'
 
-            return props.black ? black_color : props.red ? red_color : default_color
+            return props.color !== 'custom' ? choosed_color : default_color
         }}
     }
 `

@@ -45,15 +45,7 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: Butto
         style={style}
         is_reviews={is_reviews}
     >
-        {color === 'black' ? (
-            <ChevronLeft black="true" />
-        ) : color === 'red' ? (
-            <ChevronLeft red="true" />
-        ) : color === 'custom' ? (
-            <ChevronLeft custom="true" />
-        ) : (
-            <ChevronLeft />
-        )}
+        {color ? <ChevronLeft color={color} /> : <ChevronLeft />}
     </StyledButtonWrapper>
 )
 

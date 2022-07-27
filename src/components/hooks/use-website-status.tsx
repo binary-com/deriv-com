@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useCookieState } from './use-cookie-state'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { getDateFromToday } from 'common/utility'
@@ -13,7 +13,7 @@ export const useWebsiteStatus = () => {
 
     const [is_loading, setLoading] = useState(true)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setLoading(true)
         if (!website_status) {
             const binary_socket = BinarySocketBase.init()
@@ -46,7 +46,7 @@ export const useWebsiteStatusApi = () => {
     // Therefore we need a direct call from the API
     const [website_status_api, setWebsiteStatusApi] = useState(null)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const binary_socket = BinarySocketBase.init()
         binary_socket.onopen = () => {
             binary_socket.send(JSON.stringify({ website_status: 1 }))

@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useLayoutEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { size, SizeType } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -96,7 +96,7 @@ const CountryBasedContent = ({ country_rule, children }: CountryBasedContentProp
     const rules = useCountryRule()
     const [is_loaded, setLoaded] = useState(false)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setLoaded(true)
     }, [rules])
 

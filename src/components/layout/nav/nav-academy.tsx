@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import useAuthCheck from '../../hooks/use-auth-check'
 import NavTemplate from './components/nav-template'
 import NavDesktop from './components/nav-desktop'
@@ -17,7 +17,7 @@ const NavAcademy = () => {
         setVisible(current_scroll_position > 72)
     }, [])
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         is_mounted && scrollHandler()
     })
 

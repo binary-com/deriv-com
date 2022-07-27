@@ -5,6 +5,22 @@ import device from 'themes/device'
 import { LocalizedLinkText } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
+type StyledButtonWrapperProps = {
+    disabled?: boolean
+    is_reviews?: boolean
+    left?: boolean
+}
+
+type StyledChevronProps = {
+    red?: boolean
+    black?: boolean
+    custom?: boolean
+}
+
+type IconWrapperProps = {
+    disabled: boolean
+}
+
 export const Embla = styled.div`
     position: relative;
     overflow: hidden;
@@ -36,7 +52,7 @@ export const EmblaSlideInner = styled.div`
     height: 100%;
 `
 
-export const StyledButtonWrapper = styled.div`
+export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     position: absolute;
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.92' : '1')};
@@ -66,7 +82,7 @@ export const StyledButtonWrapper = styled.div`
     }
 `
 
-export const StyledChevron = styled((props) => <Chevron {...props} />)`
+export const StyledChevron = styled(Chevron)<StyledChevronProps>`
     height: 24px;
     width: 24px;
     ${(props) => {
@@ -90,7 +106,7 @@ export const StyledChevron = styled((props) => <Chevron {...props} />)`
             const red_color = 'fill: var(--color-red);'
             const default_color = 'fill: var(--color-white);'
 
-            return props.black ? black_color : props.red ? red_color : default_color
+            return (props.black && black_color) || (props.red && red_color) || default_color
         }}
     }
 `
@@ -137,7 +153,7 @@ export const Divider = styled(Flex)`
 export const NavIconWrapper = styled(Flex)`
     width: auto;
 `
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<IconWrapperProps>`
     width: 32px;
     height: 32px;
     border-radius: 50%;

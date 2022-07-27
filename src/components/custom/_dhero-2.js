@@ -201,12 +201,21 @@ const AppButton = styled(LocalizedLink)`
     }
 `
 const ButtonDp2p = styled(Button)`
-    padding: 1.5rem 1.6rem;
-    height: 64px;
+    padding: 10px 16px;
+    height: 40px;
     width: 25rem;
     white-space: nowrap;
     margin-top: 24px;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #ff444f;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
 `
 const DHero = ({
     title,
@@ -344,20 +353,21 @@ const DHero = ({
                     >
                         <AppButton
                             external="true"
-                            to={derivx_android_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <QueryImage data={data['google_play']} alt="google play logo" />
-                        </AppButton>
-                        <AppButton
-                            external="true"
                             to={derivx_ios_url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <QueryImage data={data['app_store']} alt="app store logo" />
                         </AppButton>
+                        <AppButton
+                            external="true"
+                            to={derivx_android_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <QueryImage data={data['google_play']} alt="google play logo" />
+                        </AppButton>
+
                         <AppButton
                             external="true"
                             to={derivx_huawei_url}

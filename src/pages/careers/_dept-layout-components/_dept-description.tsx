@@ -85,7 +85,7 @@ const DeptDescription = (dept_data: DeptDataProps) => {
         <SectionContainer>
             <Container>
                 <Flex fd="row" ai="center" max_width="990px" tablet_direction="column">
-                    <Flex max_width="384px">
+                    <Flex>
                         <StyledQueryImage
                             data={data[dept_data.data.image]}
                             alt={dept_data.data.img_alt}

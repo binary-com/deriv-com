@@ -8,6 +8,7 @@ import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'commo
 import { Box } from 'components/containers'
 import Login from 'common/login'
 import validation from 'common/validation'
+import { BinarySocketBase } from 'common/websocket/socket_base'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
@@ -15,7 +16,6 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { DerivApi } from 'store'
 
 const Form = styled.form`
     height: 100%;
@@ -52,7 +52,6 @@ export const Appearances = {
 }
 
 const Signup = (props) => {
-    const { send } = DerivApi()
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -112,10 +111,16 @@ const Signup = (props) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
+        const binary_socket = BinarySocketBase.init()
 
-        send(verify_email_req, (response) => {
+        binary_socket.onopen = () => {
+            binary_socket.send(JSON.stringify(verify_email_req))
+        }
+        binary_socket.onmessage = (msg) => {
+            const response = JSON.parse(msg.data)
             setSubmitting(false)
             if (response.error) {
+                binary_socket.close()
                 setSubmitStatus('error')
                 setSubmitErrorMsg(response.error.message)
                 handleValidation(formatted_email)
@@ -125,8 +130,9 @@ const Signup = (props) => {
                     props.onSubmit(submit_status || 'success', email)
                 }
             }
-        })
 
+            binary_socket.close()
+        }
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`
             const link_with_language = `${getLanguage()}/${success_default_link}`

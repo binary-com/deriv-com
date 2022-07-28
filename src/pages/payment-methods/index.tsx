@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import ExpandList from './_expanded-list'
-import payment_data, { PaymentDataType } from './_payment-data'
+import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
@@ -123,9 +123,53 @@ const MobileWrapper = styled.div`
         display: block;
     }
 `
-type PaymentMethodsProps = {
+export type PaymentProps = {
+    payment_data?: {
+        method?: string | ReactElement
+        currencies?: string | ReactElement
+        min_max_deposit?: string | ReactElement
+        min_max_withdrawal?: string | ReactElement
+        deposit_time?: string | ReactElement
+        withdrawal_time?: string | ReactElement
+        description?: string | ReactElement
+        name?: string
+        reference?: string
+        locales?: string[]
+        url?: string
+        reference_link?: string | ReactElement
+    }
+    locale?: {
+        locale?: { language?: string }
+    }
+    is_crypto?: boolean
+    is_fiat_onramp?: boolean
+    is_dp2p?: boolean
+}
+export type PaymentDataProps = {
+    name?: ReactElement
+    note?: ReactElement
+    is_crypto?: boolean
+    is_dp2p?: boolean
+    is_fiat_onramp?: boolean
     locale?: object
-    pd?: PaymentDataType
+    data?: Array<{
+        method?: string | ReactElement
+        currencies?: string | ReactElement
+        min_max_deposit?: string | ReactElement
+        min_max_withdrawal?: string | ReactElement
+        deposit_time?: string | ReactElement
+        withdrawal_time?: string | ReactElement
+        description?: string | ReactElement
+        name?: string
+        reference?: string
+        locales?: string[]
+        url?: string
+        reference_link?: string | ReactElement
+    }>
+}
+export type PaymentMethodsProps = {
+    locale?: PaymentDataProps
+    pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_eu_country, is_p2p_allowed_country } = React.useContext(DerivStore)
@@ -278,7 +322,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                 return (
                                     <ExpandList
                                         key={indx}
-                                        data={data}
+                                        payment_data={data}
                                         is_crypto={pd.is_crypto}
                                         is_fiat_onramp={pd.is_fiat_onramp}
                                         locale={locale}

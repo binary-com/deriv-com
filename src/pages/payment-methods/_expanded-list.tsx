@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
+import { PaymentProps } from './index'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
@@ -109,28 +110,8 @@ const Withdrawal = styled(Td)`
         max-width: 14rem;
     }
 `
-type ExpandListProps = {
-    data?: {
-        method?: string | ReactElement
-        currencies?: string | ReactElement
-        min_max_deposit?: string | ReactElement
-        min_max_withdrawal?: string | ReactElement
-        deposit_time?: string | ReactElement
-        withdrawal_time?: string | ReactElement
-        description?: string | ReactElement
-        name?: string
-        reference?: string
-        locales?: string[]
-        url?: string
-        reference_link?: string | ReactElement
-    }
-    is_fiat_onramp: boolean
-    locale?: {
-        locale?: { language: string }
-    }
-}
 
-const ExpandList = ({ data, is_fiat_onramp, locale }: ExpandListProps) => {
+const ExpandList = ({ payment_data, is_crypto, is_fiat_onramp, locale }: PaymentProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
@@ -139,75 +120,79 @@ const ExpandList = ({ data, is_fiat_onramp, locale }: ExpandListProps) => {
     return (
         <>
             <Tr is_expanded={is_expanded}>
-                <Td>{data.method}</Td>
+                <Td>{payment_data.method}</Td>
                 <Td colSpan={is_fiat_onramp && parseInt('2')}>
-                    <StyleCurrencyText>{data.currencies}</StyleCurrencyText>
+                    <StyleCurrencyText>{payment_data.currencies}</StyleCurrencyText>
                 </Td>
                 <Td>
-                    {Array.isArray(data.min_max_deposit) ? (
-                        data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
+                    {Array.isArray(payment_data.min_max_deposit) ? (
+                        payment_data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
                     ) : (
-                        <Text>{data.min_max_deposit}</Text>
+                        <Text>{payment_data.min_max_deposit}</Text>
                     )}
                 </Td>
                 {!is_fiat_onramp && (
                     <Td>
                         <>
-                            {Array.isArray(data.min_max_withdrawal) ? (
-                                data.min_max_withdrawal.map((md, idx) => (
+                            {Array.isArray(payment_data.min_max_withdrawal) ? (
+                                payment_data.min_max_withdrawal.map((md, idx) => (
                                     <Text key={idx}>{md}</Text>
                                 ))
+                            ) : is_crypto ? (
+                                <Text>{payment_data.min_max_withdrawal}</Text>
                             ) : (
-                                <Text>{data.min_max_withdrawal}</Text>
+                                <Text>{payment_data.min_max_withdrawal}</Text>
                             )}
                         </>
                     </Td>
                 )}
                 <Deposit colSpan={is_fiat_onramp && parseInt('2')} is_fiat_onramp={is_fiat_onramp}>
-                    <Text>{data.deposit_time}</Text>
+                    <Text>{payment_data.deposit_time}</Text>
                 </Deposit>
 
                 {!is_fiat_onramp && (
                     <Withdrawal>
-                        <Text>{data.withdrawal_time}</Text>
+                        <Text>{payment_data.withdrawal_time}</Text>
                     </Withdrawal>
                 )}
 
                 <Td>
                     <>
-                        {data.reference ? (
+                        {payment_data.reference ? (
                             <CenterIcon
                                 href={`/payment-methods/${
-                                    data.locales?.includes(locale?.locale?.language)
-                                        ? locale?.locale?.language + '/' + data.reference
-                                        : data.reference
+                                    payment_data.locales?.includes(locale?.locale?.language)
+                                        ? locale?.locale?.language + '/' + payment_data.reference
+                                        : payment_data.reference
                                 }`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <StyledPDF src={PDF} alt="PDF" />
                             </CenterIcon>
-                        ) : data.reference_link ? (
-                            data.reference_link
+                        ) : payment_data.reference_link ? (
+                            payment_data.reference_link
                         ) : (
                             <Text align="center">-</Text>
                         )}
                     </>
                 </Td>
-                {data.description && (
+                {payment_data.description && (
                     <HoverTd onClick={toggleExpand}>
                         <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
                     </HoverTd>
                 )}
             </Tr>
-            {data.description && (
+            {payment_data.description && (
                 <Tr>
                     <ExpandedContent colSpan={8}>
                         <Description is_expanded={is_expanded}>
-                            <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
-                            {data.url && (
+                            <StyledText is_expanded={is_expanded}>
+                                {payment_data.description}
+                            </StyledText>
+                            {payment_data.url && (
                                 <StyledButton
-                                    onClick={() => window.open(data.url, '_blank')}
+                                    onClick={() => window.open(payment_data.url, '_blank')}
                                     tertiary
                                 >
                                     {localize('Learn more')}

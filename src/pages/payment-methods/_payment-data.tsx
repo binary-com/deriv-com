@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { PaymentDataProps } from './index'
 import { Localize, LocalizedLink } from 'components/localization'
 import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
 import Visa from 'images/svg/payment-methods/payment-visa.svg'
@@ -50,28 +51,8 @@ const StyledRefLink = styled(LocalizedLink)`
     display: flex;
     justify-content: center;
 `
-export type PaymentDataType = {
-    name?: ReactElement
-    note?: ReactElement
-    is_crypto?: boolean
-    is_dp2p?: boolean
-    is_fiat_onramp?: boolean
-    data?: Array<{
-        method?: string | ReactElement
-        currencies?: string | ReactElement
-        min_max_deposit?: string | ReactElement
-        min_max_withdrawal?: string | ReactElement
-        deposit_time?: string | ReactElement
-        withdrawal_time?: string | ReactElement
-        description?: string | ReactElement
-        name?: string
-        reference?: string
-        locales?: string[]
-        url?: string
-        reference_link?: string | ReactElement
-    }>
-}
-const payment_data: PaymentDataType[] = [
+
+const payment_data: PaymentDataProps[] = [
     {
         name: <Localize translate_text="Online banking" />,
         data: [

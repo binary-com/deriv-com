@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { PaymentProps } from './index'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Flex } from 'components/containers'
@@ -93,35 +94,13 @@ const StyledRefLink = styled(Flex)`
         width: 65%;
     }
 `
-type MobileExpandedListProps = {
-    is_crypto?: boolean
-    is_dp2p?: boolean
-    is_fiat_onramp?: boolean
-    locale?: {
-        locale?: { language: string }
-    }
-    payment_data?: {
-        method?: string | ReactElement
-        currencies?: string | ReactElement
-        min_max_deposit?: string | ReactElement
-        min_max_withdrawal?: string | ReactElement
-        deposit_time?: string | ReactElement
-        withdrawal_time?: string | ReactElement
-        description?: string | ReactElement
-        name?: string
-        reference?: string
-        locales?: string[]
-        url?: string
-        reference_link?: string | ReactElement
-    }
-}
 const MobileExpandedList = ({
     is_crypto,
     is_fiat_onramp,
     is_dp2p,
     locale,
     payment_data,
-}: MobileExpandedListProps) => {
+}: PaymentProps) => {
     const [is_expanded, setExpanded] = React.useState(false)
     const toggleExpand = () => {
         setExpanded(!is_expanded)
@@ -301,8 +280,8 @@ const MobileExpandedList = ({
                                 {payment_data.reference ? (
                                     <RefIcon
                                         href={`/payment-methods/${
-                                            payment_data.locales?.includes(locale?.locale.language)
-                                                ? locale?.locale.language +
+                                            payment_data.locales?.includes(locale?.locale?.language)
+                                                ? locale?.locale?.language +
                                                   '/' +
                                                   payment_data.reference
                                                 : payment_data.reference

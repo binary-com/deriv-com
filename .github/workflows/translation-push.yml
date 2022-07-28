@@ -19,13 +19,6 @@ jobs:
                 fetch-depth: 0
                 ref: ${{ github.event.workflow_run.head_branch }}
                 repository: ${{github.event.workflow_run.head_repository.full_name}}
-            - name: Dump GitHub context
-              env:
-                GITHUB_WORKFLOW: ${{ toJSON(github.event.workflow_run.head_commit.message) }}
-              run: |
-                echo "${{ github.event.workflow_run.head_branch }}"
-                echo "${{ github.event.workflow_run.head_commit.message }}"
-                echo "=============="
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
@@ -40,19 +33,16 @@ jobs:
               run: |
                   crowdin download -b  ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
                   if git diff --exit-code; then
-                    echo "::set-env name=new_translations::false"
+                    echo "No new translation data to commit"
                   else
-                    echo "::set-env name=new_translations::true"
+                    echo "Committing new translation data 📝"
+                    echo "Setting up Git identity"
+                    git config --global user.name "DerivFE"
+                    git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+                    git add -u
+                    git commit -m "translation: 📚 sync translations from crowdin feature branch"
+                    git push origin ${{ github.event.workflow_run.head_branch }}
                   fi
-            - name: Commit New Translations 📝
-              if: ${{ env.new_translations == 'true' }}
-              run: | 
-                  echo "Setting up Git identity"
-                  git config --global user.name "DerivFE"
-                  git config --global user.email "80095553+DerivFE@users.noreply.github.com"
-                  git add -u
-                  git commit -m "translation: 📚 sync translations from crowdin feature branch"
-                  git push origin ${{ github.event.workflow_run.head_branch }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:

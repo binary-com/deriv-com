@@ -19,8 +19,10 @@ jobs:
                 fetch-depth: 0
                 ref: ${{ github.event.workflow_run.head_branch }}
                 repository: ${{github.event.workflow_run.head_repository.full_name}}
-            - name: Show Latest Commit Message
-              run: echo 'Commit Message = ${{github.event.head_commit}}'
+            - name: Dump GitHub context
+              env:
+                GITHUB_CONTEXT: ${{ toJSON(github) }}
+              run: echo "$GITHUB_CONTEXT"
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:

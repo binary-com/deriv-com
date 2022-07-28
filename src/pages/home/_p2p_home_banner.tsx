@@ -100,15 +100,11 @@ const InformationWrapper = styled(Flex)`
     padding: 0;
     gap: 24px;
     position: relative;
-    margin-right: 60px;
+    margin-right: 80px;
 
     @media ${device.laptopL} {
-        margin-right: 60px;
-        width: 100%;
-    }
-
-    @media ${device.laptopM} {
         margin-right: 30px;
+        gap: 0;
     }
 `
 const ContentWrapper = styled(Flex)`
@@ -279,7 +275,7 @@ const QRCodeP2p = styled(Flex)`
     margin-right: 60px;
     margin-top: 61px;
 
-    @media ${device.laptopL} {
+    @media ${device.laptopM} {
         margin-right: 0;
         height: 200px;
         width: 162px;

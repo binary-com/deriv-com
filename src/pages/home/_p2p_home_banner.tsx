@@ -43,13 +43,12 @@ const BackgroundWrapper = styled.section`
 
     @media ${device.tabletL} {
         width: 100%;
-        background: #e6e9e9;
+        background: #f2f3f4;
         margin-bottom: 40px;
         max-height: fit-content;
     }
     @media ${device.laptopL} {
         width: 100%;
-        background: #e6e9e9;
         height: 100%;
     }
 `
@@ -132,7 +131,7 @@ const ContentWrapper = styled(Flex)`
     @media ${device.tabletL} {
         height: fit-content;
         margin-top: 0;
-        padding-left: 20px;
+        padding-left: 16px;
     }
 `
 const StyledHeaders = styled(Header)`
@@ -152,7 +151,7 @@ const StyledHeaders = styled(Header)`
     }
 
     @media ${device.tabletL} {
-        margin-top: 2rem;
+        margin-top: 36px;
         font-size: 28px;
         line-height: 34px;
         max-width: 41rem;
@@ -326,10 +325,11 @@ const StyledBadge = styled(Flex)`
     margin-bottom: 36px;
 
     @media ${device.tabletL} {
-        margin-top: 46px;
+        margin-top: 36px;
         margin-bottom: 60px;
         gap: 22px;
         height: 96px;
+        padding-left: 17px;
     }
 
     @media ${device.mobileM} {

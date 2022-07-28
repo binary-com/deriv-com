@@ -70,7 +70,6 @@ const Wrapper = styled(Flex)`
 `
 const ImgWrapper = styled.div`
     height: 400px;
-    width: 75%;
 
     .gatsby-image-wrapper {
         width: 100%;
@@ -85,24 +84,12 @@ const ImgWrapper = styled.div`
         width: 100%;
         min-height: 172px;
         max-width: 750px;
-    }
-    @media ${device.tabletL} {
-        width: 100%;
-        min-height: 172px;
-        max-height: fit-content;
+        height: 200px;
     }
 
     @media ${device.mobileM} {
         margin-top: 32px;
-    }
-
-    @media ${device.mobileM} {
-        max-height: 400px;
-    }
-
-    @media ${device.laptopM} {
-        width: 100%;
-        height: 400px;
+        height: 200px;
     }
 `
 const InformationWrapper = styled(Flex)`
@@ -113,7 +100,6 @@ const InformationWrapper = styled(Flex)`
     padding: 0;
     gap: 24px;
     position: relative;
-    width: 42%;
     margin-right: 60px;
 
     @media ${device.laptopL} {
@@ -290,7 +276,7 @@ const QRCodeP2p = styled(Flex)`
     height: 256px;
     background: #ffffff;
     border-radius: 8px;
-    margin-right: 120px;
+    margin-right: 60px;
     margin-top: 61px;
 
     @media ${device.laptopL} {
@@ -330,7 +316,6 @@ const StyledBadge = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 32px;
-    width: 444px;
     margin-bottom: 36px;
 
     @media ${device.tabletL} {
@@ -338,6 +323,7 @@ const StyledBadge = styled(Flex)`
         margin-bottom: 60px;
         gap: 22px;
         height: 96px;
+        width: 338px;
         padding-left: 17px;
     }
 
@@ -345,6 +331,8 @@ const StyledBadge = styled(Flex)`
         margin-top: 38px;
         margin-bottom: 34px;
         gap: 22px;
+        padding-left: 0;
+        width: 340px;
         height: 96px;
     }
 `
@@ -361,6 +349,17 @@ const StyledTopBadge = styled(Flex)`
         justify-content: center;
     }
 `
+const StyledBottomBadge = styled(Flex)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 32px;
+    width: 328px;
+    height: 40px;
+    margin-top: 8px;
+`
 const AppStoreTopBadge = styled(LocalizedLink)`
     display: flex;
     flex-direction: row;
@@ -370,7 +369,18 @@ const AppStoreTopBadge = styled(LocalizedLink)`
 
     @media ${device.tabletL} {
         padding: 6px 8px;
+        height: 40px;
     }
+`
+const AppStoreBottomBadge = styled(LocalizedLink)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 8px;
+    gap: 8px;
+    width: 164px;
+    height: 40px;
 `
 const P2PHomeBanner = () => {
     const data = useStaticQuery(query)
@@ -411,21 +421,31 @@ const P2PHomeBanner = () => {
                         <Mobile>
                             <StyledBadge>
                                 <StyledTopBadge>
-                                    <AppStoreTopBadge to={p2p_applestore_url}>
+                                    <AppStoreTopBadge
+                                        external="true"
+                                        to={p2p_applestore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <QueryImage
                                             data={data['p2p_apple_store']}
                                             alt="p2p apple store"
                                         />
                                     </AppStoreTopBadge>
-                                    <AppStoreTopBadge to={p2p_playstore_url}>
+                                    <AppStoreTopBadge
+                                        external="true"
+                                        to={p2p_playstore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <QueryImage
                                             data={data['p2p_google_play']}
                                             alt="p2p google play"
                                         />
                                     </AppStoreTopBadge>
                                 </StyledTopBadge>
-                                <StyledTopBadge>
-                                    <AppStoreTopBadge
+                                <StyledBottomBadge>
+                                    <AppStoreBottomBadge
                                         external="true"
                                         to={p2p_huawei_appgallery_url}
                                         target="_blank"
@@ -435,26 +455,41 @@ const P2PHomeBanner = () => {
                                             data={data['p2p_app_gallery']}
                                             alt="p2p app gallery"
                                         />
-                                    </AppStoreTopBadge>
-                                </StyledTopBadge>
+                                    </AppStoreBottomBadge>
+                                </StyledBottomBadge>
                             </StyledBadge>
                         </Mobile>
                         <Desktop min-width="mobileL">
                             <StyledBadge>
                                 <StyledTopBadge>
-                                    <AppStoreTopBadge to="https://apps.apple.com/us/app/deriv-dp2p/id1506901451">
+                                    <AppStoreTopBadge
+                                        external="true"
+                                        to={p2p_applestore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <QueryImage
                                             data={data['p2p_apple_store']}
                                             alt="p2p apple store"
                                         />
                                     </AppStoreTopBadge>
-                                    <AppStoreTopBadge to="https://play.google.com/store/apps/details?id=com.deriv.dp2p">
+                                    <AppStoreTopBadge
+                                        external="true"
+                                        to={p2p_playstore_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <QueryImage
                                             data={data['p2p_google_play']}
                                             alt="p2p google play"
                                         />
                                     </AppStoreTopBadge>
-                                    <AppStoreTopBadge to={p2p_huawei_appgallery_url}>
+                                    <AppStoreTopBadge
+                                        external="true"
+                                        to={p2p_huawei_appgallery_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <QueryImage
                                             data={data['p2p_app_gallery']}
                                             alt="p2p app gallery"

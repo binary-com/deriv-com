@@ -23,7 +23,8 @@ jobs:
               env:
                 GITHUB_WORKFLOW: ${{ toJSON(github.event.workflow_run.head_commit.message) }}
               run: |
-                echo "${{ GITHUB_WORKFLOW }}"
+                echo "${{ github.event.workflow_run.head_branch }}"
+                echo "${{ github.event.workflow_run.head_commit.message }}"
                 echo "=============="
             - name: Setup Node
               uses: actions/setup-node@v2.1.2

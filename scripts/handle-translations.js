@@ -108,7 +108,7 @@ const runProcess = (data) => {
     switch (process) {
         case 'pull':
             exec(
-                `git commit -m 'auto-pull-translation' --allow-empty --no-verify;git push`,
+                `git commit -m 'auto-pull-translation' --allow-empty --no-verify;git push origin ${branch_name} `,
                 callback,
             )
             break

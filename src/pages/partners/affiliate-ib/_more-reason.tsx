@@ -11,6 +11,9 @@ import HighValue from 'images/svg/partners/high-value-partnership.svg'
 const StyledContainer = styled(Container)`
     width: 100%;
     max-width: fit-content;
+    @media ${device.laptopM} {
+        width: 84%;
+    }
 `
 const ReasonHeader = styled(Header)`
     @media ${device.tabletL} {

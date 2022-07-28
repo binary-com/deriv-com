@@ -21,10 +21,8 @@ jobs:
                 repository: ${{github.event.workflow_run.head_repository.full_name}}
             - name: Dump GitHub context
               env:
-                GITHUB_CONTEXT: ${{ toJSON(github) }}
-                GITHUB_WORKFLOW: ${{ toJSON(github.event.workflow_run.head_commit) }}
+                GITHUB_WORKFLOW: ${{ toJSON(github.event.workflow_run) }}
               run: |
-                echo "$GITHUB_CONTEXT"
                 echo "$GITHUB_WORKFLOW"
             - name: Setup Node
               uses: actions/setup-node@v2.1.2

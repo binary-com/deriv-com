@@ -235,7 +235,6 @@ const StyledButton = styled(LocalizedLink)`
     align-items: center;
     padding: 0;
     gap: 8px;
-    width: 126px;
     height: 30px;
     border-radius: 4px;
     flex-grow: 0;
@@ -286,7 +285,7 @@ const QRCodeP2p = styled(Flex)`
     @media ${device.laptopL} {
         margin-right: 0;
         height: 200px;
-        width: 156px;
+        width: 162px;
         padding: 0;
 
         .gatsby-image-wrapper {
@@ -311,7 +310,7 @@ const StyledLabel = styled(Flex)`
     color: #333333;
 
     @media ${device.laptopM} {
-        width: 113px;
+        min-width: 113px;
     }
 `
 const StyledBadge = styled(Flex)`
@@ -320,8 +319,7 @@ const StyledBadge = styled(Flex)`
     align-items: flex-start;
     padding: 0;
     gap: 32px;
-    width: 100%;
-    height: 40px;
+    width: 444px;
     margin-bottom: 36px;
 
     @media ${device.tabletL} {
@@ -357,11 +355,9 @@ const AppStoreTopBadge = styled(LocalizedLink)`
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    width: 147px;
-    padding-right: 20px;
+    padding-right: 15px;
 
     @media ${device.tabletL} {
-        width: 157px;
         padding: 6px 8px;
     }
 `
@@ -397,7 +393,7 @@ const P2PHomeBanner = () => {
                             </Header>
                         </HeroContent>
                         <StyledButton to="/p2p/">
-                            <LearnMore>
+                            <LearnMore to="/p2p/">
                                 <Localize translate_text="Learn more >" />
                             </LearnMore>
                         </StyledButton>

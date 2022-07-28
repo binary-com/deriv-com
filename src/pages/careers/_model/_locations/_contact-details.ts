@@ -5,10 +5,7 @@ const address_asuncion = [
 
 const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
 
-const address_cyberjaya = [
-    'C-13, iTech Tower, Jalan Impact, Cyber 6,',
-    ' Cyberjaya 63000, Selangor',
-]
+const address_cyberjaya = ['Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor']
 
 const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
 

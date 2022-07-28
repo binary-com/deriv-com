@@ -35,14 +35,22 @@ jobs:
             - name: Pushing Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }}
-            - name: Update PR with new Translations ⬇️
+            - name: Download New Translations ⬇️
               if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
               run: |
                   crowdin download -b  ${{ github.event.workflow_run.head_branch }} -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  ${{ github.event.workflow_run.head_branch }} -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  if git diff --exit-code; then
+                    echo "::set-env name=new_translations::false"
+                  else
+                    echo "::set-env name=new_translations::true"
+                  fi
+            - name: Commit New Translations 📝
+              if: ${{ env.new_translations == 'true' }}
+              run: | 
                   echo "Setting up Git identity"
                   git config --global user.name "DerivFE"
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
-                  git add .
+                  git add -u
                   git commit -m "translation: 📚 sync translations from crowdin feature branch"
                   git push origin ${{ github.event.workflow_run.head_branch }}
             - name: Slack Notification 📣

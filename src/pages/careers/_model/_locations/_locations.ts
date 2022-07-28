@@ -22,8 +22,10 @@ import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
 import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
 import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
+import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -376,6 +378,29 @@ export const guernsey: LocationsType = {
     has_map: false,
 }
 
+export const berlin: LocationsType = {
+    name: 'berlin',
+    continent: 'europe',
+    display_continent: 'Europe',
+    link: '/careers/locations/berlin/',
+    display_name: 'Berlin',
+    img_alt: ' Deriv’s Germany office at Berlin ',
+    map_office_name: '(Germany)',
+    country: 'Germany',
+    flagIcon: GermanyFlagIcon,
+    thumbnail: 'thumbnail_berlin',
+    address: address_guernsey,
+    first_p:
+        'Deriv (Germany) will open later this year in the heart of the European Union. Home to tech professionals, this agile office will help the Deriv Group with its most ambitious technological challenges to create future-proof online trading solutions. ',
+    first_img: 'living_in_berlin',
+    first_img_alt: 'Working with Deriv’s Berlin team',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'berlin_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'berlin grid 3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'Our Berlin office will be a new European base for Deriv fintech talent. The experts at this office will tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
+}
+
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
     continent: 'asia',
@@ -433,7 +458,36 @@ export const jordan: LocationsType = {
     has_map: false,
 }
 
+export const singapore: LocationsType = {
+    name: 'singapore',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/singapore/',
+    display_name: 'Singapore',
+    img_alt: 'Marina Bay Sands - Singapore',
+    map_office_name: '(Singapore)',
+    country: 'Singapore',
+    flagIcon: SingaporeFlagIcon,
+    thumbnail: 'thumbnail_singapore',
+    first_p:
+        'Deriv (Singapore) will be a new office in Southeast Asia, opening in the second half of 2022.  Strategically situated in the regional financial hub, it will focus on developing innovative derivative trading solutions, particularly for trading CFDs.',
+    first_img: 'living_in_singapore',
+    first_img_alt: 'Deriv’s Singapore office',
+
+    grid_images: ['singapore_grid', 'guernsey_grid_2', 'singapore_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['Working with Deriv’s Singapore team'],
+    map: '',
+    map_text:
+        'Our Singapore office will be home to a team of bright trading minds who will make Deriv everyone’s first choice for trading CFDs. Start a thriving career at Deriv in Singapore to influence the trading experience of over two million clients around the globe.',
+    address: address_guernsey,
+    map_img: 'singapore_map',
+    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
+    has_iframe: false,
+    has_map: false,
+}
+
 export const all_offices: LocationsType[] = [
+    berlin,
     dubai,
     malta,
     cyprus,
@@ -447,9 +501,11 @@ export const all_offices: LocationsType[] = [
     rwanda,
     jordan,
     minsk,
+    singapore,
     vanuatu,
 ]
 export const locations = {
+    berlin: `${berlin.display_name}, ${berlin.country}`,
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,
@@ -464,6 +520,7 @@ export const locations = {
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
     vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
     jordan: `${jordan.display_name}, ${jordan.country}`,
+    singapore: `${singapore.display_name}, ${singapore.country}`,
 }
 
 export const allContinents = {

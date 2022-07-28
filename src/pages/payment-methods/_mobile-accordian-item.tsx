@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import MobileExpandedList from './_mobile-expanded-list'
 import { PaymentDataProps } from './index'
 import { Flex } from 'components/containers'
@@ -25,7 +24,9 @@ const Notes = styled.div`
     padding: 16px;
 `
 type MobileAccordianItemProps = {
-    locale: object
+    locale?: {
+        locale?: { language?: string }
+    }
     pd: PaymentDataProps
 }
 const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
@@ -56,11 +57,6 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
             )}
         </>
     )
-}
-
-MobileAccordianItem.propTypes = {
-    locale: PropTypes.object,
-    pd: PropTypes.object,
 }
 
 export default MobileAccordianItem

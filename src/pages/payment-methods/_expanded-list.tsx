@@ -8,7 +8,6 @@ import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
 type ExpandListType = {
-    expanded?: boolean
     is_expanded?: boolean
     is_fiat_onramp?: boolean
 }
@@ -21,7 +20,7 @@ const StyledChevron = styled.img<ExpandListType>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
-    transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
+    transform: ${(props) => (props.is_expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
 const StyledPDF = styled.img`
@@ -178,7 +177,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                 </Td>
                 {payment_data.description && (
                     <HoverTd onClick={toggleExpand}>
-                        <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
+                        <StyledChevron src={Chevron} alt="chevron" is_expanded={is_expanded} />
                     </HoverTd>
                 )}
             </Tr>

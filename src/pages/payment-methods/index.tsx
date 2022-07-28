@@ -242,6 +242,8 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 }
 
 const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
+    const parse_to_integer = parseInt('2')
+
     return (
         <>
             <OuterDiv>
@@ -252,7 +254,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th colSpan={pd.is_fiat_onramp && parseInt('2')}>
+                                <Th colSpan={pd.is_fiat_onramp && parse_to_integer}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
                                 <Th style={pd.is_fiat_onramp && { width: '180px' }}>

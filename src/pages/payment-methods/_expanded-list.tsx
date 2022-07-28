@@ -7,21 +7,17 @@ import { localize } from 'components/localization'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
-type StyledChevronType = {
-    expanded: boolean
-}
-type TrType = {
+type ExpandListType = {
+    expanded?: boolean
     is_expanded?: boolean
-}
-type DepositType = {
-    is_fiat_onramp: boolean
+    is_fiat_onramp?: boolean
 }
 
 const StyledButton = styled(Button)`
     padding: 6px 16px;
     width: 112px;
 `
-const StyledChevron = styled.img<StyledChevronType>`
+const StyledChevron = styled.img<ExpandListType>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
@@ -35,7 +31,7 @@ const StyledPDF = styled.img`
 const ExpandedContent = styled.td`
     text-align: left;
 `
-const Tr = styled.tr<TrType>`
+const Tr = styled.tr<ExpandListType>`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
 const Td = styled.td`
@@ -69,7 +65,7 @@ const HoverTd = styled(Td)`
     justify-content: center;
 `
 
-const Description = styled.div<TrType>`
+const Description = styled.div<ExpandListType>`
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s, padding 0.3s;
@@ -94,7 +90,7 @@ const StyledText = styled(Text)`
 const StyleCurrencyText = styled(Text)`
     white-space: pre-line;
 `
-const Deposit = styled(Td)<DepositType>`
+const Deposit = styled(Td)<ExpandListType>`
     & > p {
         max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
     }
@@ -113,6 +109,8 @@ const Withdrawal = styled(Td)`
 
 const ExpandList = ({ payment_data, is_crypto, is_fiat_onramp, locale }: PaymentProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
+    const parse_to_integer = parseInt('2')
+
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
@@ -121,7 +119,7 @@ const ExpandList = ({ payment_data, is_crypto, is_fiat_onramp, locale }: Payment
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{payment_data.method}</Td>
-                <Td colSpan={is_fiat_onramp && parseInt('2')}>
+                <Td colSpan={is_fiat_onramp && parse_to_integer}>
                     <StyleCurrencyText>{payment_data.currencies}</StyleCurrencyText>
                 </Td>
                 <Td>
@@ -146,7 +144,10 @@ const ExpandList = ({ payment_data, is_crypto, is_fiat_onramp, locale }: Payment
                         </>
                     </Td>
                 )}
-                <Deposit colSpan={is_fiat_onramp && parseInt('2')} is_fiat_onramp={is_fiat_onramp}>
+                <Deposit
+                    colSpan={is_fiat_onramp && parse_to_integer}
+                    is_fiat_onramp={is_fiat_onramp}
+                >
                     <Text>{payment_data.deposit_time}</Text>
                 </Deposit>
 

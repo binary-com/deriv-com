@@ -108,7 +108,7 @@ const runProcess = (data) => {
     switch (process) {
         case 'pull':
             exec(
-                `crowdin download -b  ${branch_name} && crowdin download -b  ${branch_name} -l zh-CN -T ${CROWDIN_API_KEY} `,
+                `git commit -m 'auto-pull-translation' --allow-empty --no-verify;git push origin ${branch_name} `,
                 callback,
             )
             break

@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import Login from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
+import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Input, Button } from 'components/form'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -14,7 +15,6 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
-import { DerivApi } from 'store'
 
 type GetEbookProps = {
     color?: string
@@ -191,7 +191,6 @@ const EmailImage = styled.img`
 `
 
 const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
-    const { send } = DerivApi()
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -269,9 +268,15 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         }
 
         const verify_email_req = getVerifyEmailRequest(formattedEmail)
+        const binary_socket = BinarySocketBase.init()
 
-        send(verify_email_req, (response) => {
+        binary_socket.onopen = () => {
+            binary_socket.send(JSON.stringify(verify_email_req))
+        }
+        binary_socket.onmessage = (msg) => {
+            const response = JSON.parse(msg.data)
             if (response.error) {
+                binary_socket.close()
                 setIsSubmitting(false)
                 setSubmitStatus('error')
                 setSubmitErrorMsg(response.error.message)
@@ -281,7 +286,9 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 setSubmitStatus('success')
                 if (onSubmit) onSubmit(submit_status, email)
             }
-        })
+
+            binary_socket.close()
+        }
     }
 
     return submit_status === 'success' ? (

@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import styled, { css } from 'styled-components'
 import { ButtonsProps } from './_custom-carousel'
 import { Flex } from 'components/containers'
@@ -66,7 +67,7 @@ export const StyledButtonWrapper = styled.div<ButtonsProps>`
     }
 `
 
-export const StyledChevron = styled(Chevron)<{ color?: string }>`
+export const StyledChevron = styled(Chevron)<CSSProperties>`
     height: 24px;
     width: 24px;
     ${(props) => {
@@ -86,10 +87,10 @@ export const StyledChevron = styled(Chevron)<{ color?: string }>`
 
     path {
         ${(props) => {
-            const choosed_color = `fill: var(--color-${props.color});`
+            const selected_color = `fill: var(--color-${props.color});`
             const default_color = 'fill: var(--color-white);'
 
-            return props.color !== 'custom' ? choosed_color : default_color
+            return props.color == 'custom' ? default_color : selected_color
         }}
     }
 `

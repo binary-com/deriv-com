@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, HTMLAttributes } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled from 'styled-components'
 import {
@@ -27,17 +27,28 @@ import { Flex } from 'components/containers'
 
 const StyledDiv = styled.div<{ style?: string; onClick?: () => void }>``
 
-export type ButtonsProps = {
+export type ButtonsProps = HTMLAttributes<HTMLDivElement> & {
     color?: string
     enabled?: boolean
-    disabled?: boolean
+    is_enabled?: boolean
     left?: boolean
     is_reviews?: boolean
-    onClick?: () => void
+    disabled?: boolean
     style?: CustomBlogVideoNavStyleType | string
 }
 
-export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: ButtonsProps) => (
+type PrevAndNextButtonsProps = Pick<
+    ButtonsProps,
+    'color' | 'enabled' | 'is_reviews' | 'onClick' | 'style'
+>
+
+export const PrevButton = ({
+    color,
+    enabled,
+    is_reviews,
+    onClick,
+    style,
+}: PrevAndNextButtonsProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -49,18 +60,20 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: Butto
     </StyledButtonWrapper>
 )
 
-type NavigationButtonProps = {
-    color: string
-    is_enabled: boolean
-    onClick?: () => void
-}
+type NavigationButtonProps = Pick<ButtonsProps, 'color' | 'is_enabled' | 'onClick'>
 
 // TODO: will remove later,not using this for now
 export const NavigationButton = ({ color, is_enabled, onClick }: NavigationButtonProps) => (
     <StyledDot onClick={onClick} color={is_enabled ? color : null} />
 )
 
-export const NextButton = ({ color, enabled, is_reviews, onClick, style }: ButtonsProps) => (
+export const NextButton = ({
+    color,
+    enabled,
+    is_reviews,
+    onClick,
+    style,
+}: PrevAndNextButtonsProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}

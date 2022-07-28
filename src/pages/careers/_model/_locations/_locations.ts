@@ -378,7 +378,6 @@ export const guernsey: LocationsType = {
     has_map: false,
 }
 
-
 export const berlin: LocationsType = {
     name: 'berlin',
     continent: 'europe',

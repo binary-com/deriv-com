@@ -6,6 +6,7 @@ import { Desktop, Mobile, Flex } from 'components/containers'
 import { LocalizedLink, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
 
 const query = graphql`
     query {
@@ -39,7 +40,7 @@ const BackgroundWrapper = styled.section`
     width: 100%;
     background: #e6e9e9;
     position: relative;
-    max-height: 400px;
+    height: 400px;
 
     @media ${device.tabletL} {
         width: 100%;
@@ -47,9 +48,10 @@ const BackgroundWrapper = styled.section`
         margin-bottom: 40px;
         max-height: fit-content;
     }
-    @media ${device.laptopL} {
+    @media ${device.laptopM} {
         width: 100%;
         height: 100%;
+        min-height: 400px;
     }
 `
 const Wrapper = styled(Flex)`
@@ -67,7 +69,7 @@ const Wrapper = styled(Flex)`
     }
 `
 const ImgWrapper = styled.div`
-    max-height: 400px;
+    height: 400px;
     width: 75%;
 
     .gatsby-image-wrapper {
@@ -92,6 +94,15 @@ const ImgWrapper = styled.div`
 
     @media ${device.mobileM} {
         margin-top: 32px;
+    }
+
+    @media ${device.mobileM} {
+        max-height: 400px;
+    }
+
+    @media ${device.laptopM} {
+        width: 100%;
+        height: 400px;
     }
 `
 const InformationWrapper = styled(Flex)`
@@ -400,13 +411,13 @@ const P2PHomeBanner = () => {
                         <Mobile>
                             <StyledBadge>
                                 <StyledTopBadge>
-                                    <AppStoreTopBadge to="https://apps.apple.com/us/app/deriv-dp2p/id1506901451">
+                                    <AppStoreTopBadge to={p2p_applestore_url}>
                                         <QueryImage
                                             data={data['p2p_apple_store']}
                                             alt="p2p apple store"
                                         />
                                     </AppStoreTopBadge>
-                                    <AppStoreTopBadge to="https://play.google.com/store/apps/details?id=com.deriv.dp2p">
+                                    <AppStoreTopBadge to={p2p_playstore_url}>
                                         <QueryImage
                                             data={data['p2p_google_play']}
                                             alt="p2p google play"
@@ -414,7 +425,12 @@ const P2PHomeBanner = () => {
                                     </AppStoreTopBadge>
                                 </StyledTopBadge>
                                 <StyledTopBadge>
-                                    <AppStoreTopBadge to="https://appgallery.huawei.com/#/app/C103844755">
+                                    <AppStoreTopBadge
+                                        external="true"
+                                        to={p2p_huawei_appgallery_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <QueryImage
                                             data={data['p2p_app_gallery']}
                                             alt="p2p app gallery"
@@ -438,7 +454,7 @@ const P2PHomeBanner = () => {
                                             alt="p2p google play"
                                         />
                                     </AppStoreTopBadge>
-                                    <AppStoreTopBadge to="https://appgallery.huawei.com/#/app/C103844755">
+                                    <AppStoreTopBadge to={p2p_huawei_appgallery_url}>
                                         <QueryImage
                                             data={data['p2p_app_gallery']}
                                             alt="p2p app gallery"

@@ -107,7 +107,7 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const ExpandList = ({ payment_data, is_crypto, is_fiat_onramp, locale }: PaymentProps) => {
+const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const parse_to_integer = parseInt('2')
 
@@ -136,8 +136,6 @@ const ExpandList = ({ payment_data, is_crypto, is_fiat_onramp, locale }: Payment
                                 payment_data.min_max_withdrawal.map((md, idx) => (
                                     <Text key={idx}>{md}</Text>
                                 ))
-                            ) : is_crypto ? (
-                                <Text>{payment_data.min_max_withdrawal}</Text>
                             ) : (
                                 <Text>{payment_data.min_max_withdrawal}</Text>
                             )}

@@ -123,21 +123,22 @@ const MobileWrapper = styled.div`
         display: block;
     }
 `
+type PaymentType = {
+    method?: string | ReactElement
+    currencies?: string | ReactElement
+    min_max_deposit?: string | ReactElement
+    min_max_withdrawal?: string | ReactElement
+    deposit_time?: string | ReactElement
+    withdrawal_time?: string | ReactElement
+    description?: string | ReactElement
+    name?: string
+    reference?: string
+    locales?: string[]
+    url?: string
+    reference_link?: string | ReactElement
+}
 export type PaymentProps = {
-    payment_data?: {
-        method?: string | ReactElement
-        currencies?: string | ReactElement
-        min_max_deposit?: string | ReactElement
-        min_max_withdrawal?: string | ReactElement
-        deposit_time?: string | ReactElement
-        withdrawal_time?: string | ReactElement
-        description?: string | ReactElement
-        name?: string
-        reference?: string
-        locales?: string[]
-        url?: string
-        reference_link?: string | ReactElement
-    }
+    payment_data?: PaymentType
     locale?: {
         locale?: { language?: string }
     }
@@ -152,20 +153,7 @@ export type PaymentDataProps = {
     is_dp2p?: boolean
     is_fiat_onramp?: boolean
     locale?: object
-    data?: Array<{
-        method?: string | ReactElement
-        currencies?: string | ReactElement
-        min_max_deposit?: string | ReactElement
-        min_max_withdrawal?: string | ReactElement
-        deposit_time?: string | ReactElement
-        withdrawal_time?: string | ReactElement
-        description?: string | ReactElement
-        name?: string
-        reference?: string
-        locales?: string[]
-        url?: string
-        reference_link?: string | ReactElement
-    }>
+    data?: Array<PaymentType>
 }
 export type PaymentMethodsProps = {
     locale?: PaymentDataProps

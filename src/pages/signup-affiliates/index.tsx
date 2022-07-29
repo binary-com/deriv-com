@@ -114,8 +114,8 @@ const AppleWrapper = styled.div`
 `
 const FacebookWrapper = styled.div``
 
-const onChange = (value) => {
-    console.log('Captcha value:', value)
+const onChange = (data) => {
+    console.log('Captcha value:', data)
 }
 type AffiliateSignupProps = {
     autofocus: boolean

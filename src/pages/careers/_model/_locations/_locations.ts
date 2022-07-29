@@ -378,6 +378,7 @@ export const guernsey: LocationsType = {
     has_iframe: true,
 }
 
+
 export const berlin: LocationsType = {
     name: 'berlin',
     continent: 'europe',

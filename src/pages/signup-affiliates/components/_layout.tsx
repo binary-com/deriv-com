@@ -17,7 +17,6 @@ export const SignUpWrapper = styled(Container)`
     margin: 0;
     width: 100%;
     max-width: 486px;
-    height: 608px;
     background: var(--color-white);
     border-radius: 6px;
 `
@@ -54,7 +53,6 @@ const MapBackground = styled.img`
 
     @media ${device.tabletL} {
         width: 100%;
-        height: 214px;
         margin-top: 320px;
     }
 `

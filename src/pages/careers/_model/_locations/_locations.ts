@@ -22,6 +22,7 @@ import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
 import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
+import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
 import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
 import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
@@ -367,14 +368,37 @@ export const guernsey: LocationsType = {
     first_img_alt: 'living_in_guernsey alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
-    map: 'M8p55z3Wu4EKhQ3A7',
+    map: 'ChIJc-QshyFzDUgRy9q1rkkXFqs',
     map_text:
         'Deriv (Guernsey) can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at Guernsey gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
     address: address_guernsey,
     map_img: 'guernsey_map',
-    google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
-    has_iframe: false,
-    has_map: false,
+    google_map_link: 'https://goo.gl/maps/jX1D5CmysqtbMJeh6',
+    has_map: true,
+    has_iframe: true,
+}
+
+export const berlin: LocationsType = {
+    name: 'berlin',
+    continent: 'europe',
+    display_continent: 'Europe',
+    link: '/careers/locations/berlin/',
+    display_name: 'Berlin',
+    img_alt: ' Deriv’s Germany office at Berlin ',
+    map_office_name: '(Germany)',
+    country: 'Germany',
+    flagIcon: GermanyFlagIcon,
+    thumbnail: 'thumbnail_berlin',
+    address: address_guernsey,
+    first_p:
+        'Deriv (Germany) will open later this year in the heart of the European Union. Home to tech professionals, this agile office will help the Deriv Group with its most ambitious technological challenges to create future-proof online trading solutions. ',
+    first_img: 'living_in_berlin',
+    first_img_alt: 'Working with Deriv’s Berlin team',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'berlin_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'berlin grid 3', 'guernsey grid 4'],
+    map: '',
+    map_text:
+        'Our Berlin office will be a new European base for Deriv fintech talent. The experts at this office will tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
 }
 
 export const vanuatu: LocationsType = {
@@ -463,6 +487,7 @@ export const singapore: LocationsType = {
 }
 
 export const all_offices: LocationsType[] = [
+    berlin,
     dubai,
     malta,
     cyprus,
@@ -480,6 +505,7 @@ export const all_offices: LocationsType[] = [
     vanuatu,
 ]
 export const locations = {
+    berlin: `${berlin.display_name}, ${berlin.country}`,
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,

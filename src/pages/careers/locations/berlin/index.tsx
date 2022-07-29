@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { guernsey } from '../../_model/_locations/_locations'
+import { berlin } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -8,10 +8,10 @@ import { localize, WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        guernsey: file(relativePath: { eq: "careers/guernsey.jpg" }) {
+        berlin: file(relativePath: { eq: "careers/berlin.png" }) {
             ...heroImage
         }
-        living_in_guernsey: file(relativePath: { eq: "careers/living_in_guernsey.jpg" }) {
+        living_in_berlin: file(relativePath: { eq: "careers/living_in_berlin.png" }) {
             ...fadeIn
         }
         guernsey_grid_1: file(relativePath: { eq: "careers/guernsey_grid_1.jpg" }) {
@@ -20,32 +20,32 @@ const query = graphql`
         guernsey_grid_2: file(relativePath: { eq: "careers/guernsey_grid_2.jpg" }) {
             ...fadeIn
         }
-        guernsey_grid_3: file(relativePath: { eq: "careers/guernsey_grid_3.jpg" }) {
+        berlin_grid_3: file(relativePath: { eq: "careers/berlin_grid_3.png" }) {
             ...fadeIn
         }
         guernsey_grid_4: file(relativePath: { eq: "careers/guernsey_grid_4.jpg" }) {
             ...fadeIn
         }
-        guernsey_map: file(relativePath: { eq: "maps/map-guernsey.jpg" }) {
+        guernsey_map: file(relativePath: { eq: "maps/map-guernsey-career.jpg" }) {
             ...fadeIn
         }
     }
 `
 
-const Guernsey = () => {
+const Berlin = () => {
     const images = useStaticQuery(query)
 
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Guernsey | Our office – Channel Islands | Deriv')}
+                title={localize('Berlin - Our office | Deriv')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Guernsey, Channel Islands.',
+                    'Join Deriv’s team in Germany and work on next-gen fintech products. View our current openings for a chance to build a fulfilling career.',
                 )}
             />
-            <NewLocationLayout location={guernsey} images={images} />
+            <NewLocationLayout location={berlin} images={images} />
         </Layout>
     )
 }
 
-export default WithIntl()(Guernsey)
+export default WithIntl()(Berlin)

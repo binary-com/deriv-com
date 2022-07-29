@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CareerContainer from '../_layout-components/_career_container'
-import { locationsTypes } from '../_model/_locations/_locations.types'
+import { LocationsType } from '../_model/_locations/_locations.types'
 import { Iframe, Pin } from './_location-layout'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -214,8 +214,8 @@ const WorkingQueryImage = styled(QueryImage)`
 `
 
 type LocationLayoutProps = {
-    location: locationsTypes
-    images: locationsTypes
+    location: LocationsType
+    images: LocationsType
 }
 
 export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => {

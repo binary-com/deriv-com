@@ -15,7 +15,7 @@ const VideoParentWrapper = ({ currentVideoItems }: VideoParentWrapperProps) => {
                 {currentVideoItems.map((item) => {
                     return (
                         <RedirectLink
-                            key={item.video_file.id}
+                            key={item.video_slug}
                             to={`/academy/videos/${item.video_slug}/`}
                         >
                             <VideoCard item={item} />

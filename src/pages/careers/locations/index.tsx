@@ -261,13 +261,27 @@ const query = graphql`
         thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.jpg" }) {
             ...fadeIn
         }
-        thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.jpg" }) {
+
+        thumbnail_berlin: file(relativePath: { eq: "careers/thumbnail_berlin.jpg" }) {
+            ...fadeIn
+        }
+    
+        thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.png" }) {
             ...fadeIn
         }
         thumbnail_paris: file(relativePath: { eq: "careers/thumbnail_paris.jpg" }) {
             ...fadeIn
         }
         thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.jpg" }) {
+            ...fadeIn
+        }
+        thumbnail_vanuatu: file(relativePath: { eq: "careers/thumbnail_vanuatu.png" }) {
+            ...fadeIn
+        }
+        thumbnail_jordan: file(relativePath: { eq: "careers/thumbnail_jordan.jpg" }) {
+            ...fadeIn
+        }
+        thumbnail_singapore: file(relativePath: { eq: "careers/thumbnail_singapore.png" }) {
             ...fadeIn
         }
     }
@@ -328,7 +342,7 @@ const Locations = () => {
                         return (
                             <Tabs.Panel
                                 label={formatContinentName(continent)}
-                                key={{ continent }}
+                                key={continent}
                                 width="79px"
                                 height="56px"
                                 gap="8px"

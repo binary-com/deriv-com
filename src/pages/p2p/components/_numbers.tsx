@@ -79,7 +79,7 @@ const ButtonDerivP2P = styled(Button)`
     justify-content: center;
     opacity: 1;
     padding: 1.5rem 1.6rem;
-    height: 64px;
+    height: 40px;
     margin: auto;
     width: 50%;
     white-space: nowrap;
@@ -91,9 +91,10 @@ const StyledLinkButton = styled(LinkButton)`
     font-weight: 700;
     border: unset;
     height: 64px;
+    margin: 20px auto;
     width: 220px;
-    margin: 80px auto 0 auto;
     white-space: nowrap;
+    margin-top: 40px;
     @media ${device.mobileL} {
         padding: 14px;
         font-size: 14px;

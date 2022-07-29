@@ -105,7 +105,6 @@ const HeroContent = styled(Flex)`
         display: flex;
         align-items: center;
         max-width: 78%;
-
     }
     @media ${device.laptopM} {
         ${Header} {
@@ -164,7 +163,6 @@ const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         line-height: 50px;
     }
-
 
     :nth-child(3) {
         font-size: 18px;
@@ -227,13 +225,19 @@ const Hero = () => {
                     <StyledHeader as="h1" weight={500}>
                         {localize('Hassle-free deposits and withdrawals')}
                     </StyledHeader>
+                    <Header size="18px" color="white" weight="200" pr="100px">
+                        {localize(
+                            'Use your local currency to make deposits into and withdrawals from your Deriv account.',
+                        )}
+                    </Header>
                     <Desktop>
-                        <HeroContent>
+                        <HeroContent mt="15px">
                             <Header as="h2">
                                 {
                                     <Localize translate_text="Scan the QR code to download Deriv P2P" />
                                 }
                             </Header>
+
                             <QueryImage
                                 data={data['qr_code']}
                                 alt={'play store'}
@@ -242,18 +246,11 @@ const Hero = () => {
                             />
                         </HeroContent>
                     </Desktop>
-                    <Mobile>
-                        <>
-                            <Header size="18px" color="white" weight="200">
-                                {localize(
-                                    'Use your local currency to make deposits into and withdrawals from your Deriv account.',
-                                )}
-                            </Header>
 
-                            <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
-                                {localize('Try Deriv P2P now')}
-                            </ButtonDerivP2P>
-                        </>
+                    <Mobile>
+                        <ButtonDerivP2P secondary="true" onClick={handleExternalLink}>
+                            {localize('Try Deriv P2P now')}
+                        </ButtonDerivP2P>
                     </Mobile>
                     <Desktop>
                         <Flex

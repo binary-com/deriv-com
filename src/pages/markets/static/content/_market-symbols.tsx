@@ -724,13 +724,8 @@ export const stocks_asian_indices: MarketSymbol[] = [
 
 export const stocks_european_indices: MarketSymbol[] = [
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
-        eu: false,
-    },
-    {
         src: icons.STOCKSEUROPE50,
-        text: <Localize translate_text="Europe 50" />,
+        text: <Localize translate_text="Euro 50" />,
         eu: true,
     },
     {
@@ -744,13 +739,18 @@ export const stocks_european_indices: MarketSymbol[] = [
         eu: true,
     },
     {
-        src: icons.STOCKSUK100,
-        text: <Localize translate_text="UK 100" />,
-        eu: true,
+        src: icons.STOCKSNETHERLAND25,
+        text: <Localize translate_text="Netherland 25" />,
+        eu: false,
     },
     {
         src: icons.STOCKSSPAIN35,
         text: <Localize translate_text="Spain 35" />,
+        eu: true,
+    },
+    {
+        src: icons.STOCKSUK100,
+        text: <Localize translate_text="UK 100" />,
         eu: true,
     },
 ]

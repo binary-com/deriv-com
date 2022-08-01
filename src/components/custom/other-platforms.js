@@ -196,6 +196,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => {
+    const excludetoLowerCase = exclude.toLowerCase()
     const getHeaderText = () => (
         <>
             <UKEU>
@@ -230,10 +231,11 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
                 </HeaderWrapper>
             )}
             <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
-                {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
-                {exclude.toLowerCase() !== 'dbot' && <BotCard />}
-                {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-                <ROW>{exclude.toLowerCase() !== 'derivx' && <DerivXCard />}</ROW>
+                {}
+                {excludetoLowerCase !== 'dtrader' && <TraderCard />}
+                {excludetoLowerCase !== 'dbot' && <BotCard />}
+                {excludetoLowerCase !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
+                <ROW>{excludetoLowerCase !== 'derivx' && <DerivXCard />}</ROW>
             </StyledFlexGridContainer>
         </SectionContainer>
     )

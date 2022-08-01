@@ -195,26 +195,6 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             placeholder: 'Country of residence',
                             required: true,
                         },
-
-                        {
-                            id: 'dm-address_line_1',
-                            name: 'address_line_1',
-                            type: 'text',
-                            error: errors.address_line_1,
-                            value: values.address_line_1,
-                            touch: touched.address_line_1,
-                            label: localize('Address line1'),
-                            placeholder: 'Address line1',
-                            required: true,
-                        },
-                        {
-                            id: 'dm-address_line_2',
-                            name: 'address_line_2',
-                            type: 'text',
-                            value: values.address_line_2,
-                            label: localize('Address line2'),
-                            placeholder: 'Address line2',
-                        },
                         {
                             id: 'dm-address_city',
                             name: 'address_city',
@@ -237,6 +217,26 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                             placeholder: 'State',
                             required: true,
                         },
+                        {
+                            id: 'dm-address_line_1',
+                            name: 'address_line_1',
+                            type: 'text',
+                            error: errors.address_line_1,
+                            value: values.address_line_1,
+                            touch: touched.address_line_1,
+                            label: localize('Address line1'),
+                            placeholder: 'Address line1',
+                            required: true,
+                        },
+                        {
+                            id: 'dm-address_line_2',
+                            name: 'address_line_2',
+                            type: 'text',
+                            value: values.address_line_2,
+                            label: localize('Address line2'),
+                            placeholder: 'Address line2',
+                        },
+
                         {
                             id: 'dm-address_postcode',
                             name: 'address_postcode',
@@ -473,9 +473,7 @@ const SignupAffiliateDetails = ({ autofocus, handleLogin, setUserData }) => {
                                 <AgreementLabel
                                     is_checked={is_eu_checked}
                                     handleChangeCheckbox={(e) => handleCheckChange(e, setEuChecked)}
-                                    link_text={localize(
-                                        'Are you going to promote in EU and/or UK?',
-                                    )}
+                                    link_text={localize(`I'm going to promote Deriv in the EU`)}
                                 ></AgreementLabel>
                                 <AgreementLabel
                                     is_checked={is_checked}

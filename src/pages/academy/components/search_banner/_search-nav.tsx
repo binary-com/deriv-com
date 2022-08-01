@@ -12,7 +12,7 @@ type NavProps = {
     setModal?: React.Dispatch<React.SetStateAction<boolean>>
     openModal: () => void
     Chevron: string
-    modal_opened: boolean
+    is_modal_opened: boolean
 }
 
 const TopicSectionWrapper = styled(Flex)`
@@ -38,7 +38,7 @@ const LogoWrapper = styled.img`
     height: 24px;
 `
 
-const SearchNav = ({ setModal, openModal, Chevron, modal_opened }: NavProps) => {
+const SearchNav = ({ setModal, openModal, Chevron, is_modal_opened }: NavProps) => {
     return (
         <NavWrapper>
             <Flex ai="center" jc="space-between">
@@ -69,7 +69,7 @@ const SearchNav = ({ setModal, openModal, Chevron, modal_opened }: NavProps) => 
                             Topics
                         </Header>
                         <HoverChevron>
-                            <StyledChevron src={Chevron} alt="chevron" expanded={modal_opened} />
+                            <StyledChevron src={Chevron} alt="chevron" expanded={is_modal_opened} />
                         </HoverChevron>
                     </TopicSectionWrapper>
                 </Flex>

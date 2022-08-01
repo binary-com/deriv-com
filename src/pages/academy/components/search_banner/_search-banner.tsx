@@ -17,6 +17,10 @@ type SearchBannerProps = {
     hidden?: boolean
 }
 
+type TopicWrapperProps = {
+    is_mobile_expanded: boolean
+}
+
 const fadeKeyframes = css`
     animation: fade 0.4s ease-in-out;
     @keyframes fade {
@@ -29,10 +33,10 @@ const fadeKeyframes = css`
     }
 `
 const TopicParent = styled(Flex)`
-    display: ${(props) => (props.modal ? 'flex' : 'none')};
-    z-index: ${(props) => (props.modal ? '100' : 'unset')};
+    display: ${({ modal }) => (modal ? 'flex' : 'none')};
+    z-index: ${({ modal }) => (modal ? '100' : 'unset')};
     position: relative;
-    ${(props) => props.modal && fadeKeyframes}
+    ${({ modal }) => modal && fadeKeyframes}
 `
 const TopicWrapper = styled(Flex)`
     position: absolute;
@@ -52,7 +56,7 @@ const TopicWrapper = styled(Flex)`
 const TopicItemsParentWrapper = styled(Container)`
     flex-wrap: wrap;
 `
-const TopicItemWrapper = styled(Flex)`
+const TopicItemWrapper = styled(Flex)<TopicWrapperProps>`
     max-width: 250px;
     padding: 16px;
     height: auto;
@@ -62,17 +66,17 @@ const TopicItemWrapper = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
+        display: ${({ is_mobile_expanded }) => (is_mobile_expanded ? 'none' : 'flex')};
     }
 `
 
-const TopicMobileParentWrapper = styled(Flex)`
-    display: ${(props) => (props.is_mobile_expanded ? 'none' : 'flex')};
+const TopicMobileParentWrapper = styled(Flex)<TopicWrapperProps>`
+    display: ${(is_mobile_expanded) => (is_mobile_expanded ? 'none' : 'flex')};
 `
 
 const SearchBanner = ({ hidden }: SearchBannerProps) => {
     const [is_mobile] = useBrowserResize(768)
-    const [modal_opened, setModal] = useState(false)
+    const [is_modal_opened, setModal] = useState(false)
     const [hide_mobile_topic, setHideMobileTopic] = useState(false)
     const [blog_post_url, setBlogPostURL] = useState(false)
     const { is_eu, is_uk } = useCountryRule()
@@ -98,11 +102,11 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     }, [])
 
     useEffect(() => {
-        document.body.style.overflow = modal_opened ? 'hidden' : 'unset'
-    }, [modal_opened])
+        document.body.style.overflow = is_modal_opened ? 'hidden' : 'unset'
+    }, [is_modal_opened])
 
     const openModal = () => {
-        setModal(!modal_opened)
+        setModal(!is_modal_opened)
     }
 
     const handleHref = (category) => {
@@ -116,16 +120,16 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
     }
 
     return (
-        <ParentWrapper overlay={modal_opened}>
+        <ParentWrapper overlay={is_modal_opened}>
             <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
                 <SearchNav
                     setModal={setModal}
                     openModal={openModal}
                     Chevron={Chevron}
-                    modal_opened={modal_opened}
+                    is_modal_opened={is_modal_opened}
                 />
                 <Flex style={{ position: 'relative' }} height="0">
-                    <TopicParent modal={modal_opened}>
+                    <TopicParent modal={is_modal_opened}>
                         <TopicWrapper jc="space-evenly" fd="row">
                             <MobileWrapper style={{ height: 'auto' }}>
                                 <Flex

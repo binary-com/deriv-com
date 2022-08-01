@@ -106,7 +106,7 @@ const trading_eu = [
             <Localize translate_text="Choose a multiplier value, fine-tune your trade with multipliers optional features (take profit, stop loss, and deal cancellation), and start trading with a stake as low as $5." />
         ),
 
-        image_name: 'how_you_want',
+        image_name: 'how_you_want_eu',
         image_alt: localize('Customise your trade types'),
     },
 ]

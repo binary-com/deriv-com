@@ -24,7 +24,7 @@ import { slugify } from 'common/utility'
 import { Header } from 'components/elements'
 
 type ElementWithMaximiseProps = {
-    maximise?: boolean
+    is_maximise?: boolean
     result_opened?: boolean
 }
 
@@ -33,7 +33,7 @@ type SearchBarProps = {
     setHideMobileTopic?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const FlexSearchBar = styled(Flex)`
+const FlexSearchBar = styled(Flex)<{ is_maximise: boolean }>`
     max-width: 400px;
     width: 100%;
     background-color: rgba(236, 241, 247, 0.5);
@@ -43,7 +43,7 @@ const FlexSearchBar = styled(Flex)`
     overflow: hidden;
     transition: max-width 500ms ease;
     ${(props) =>
-        props.maximise &&
+        props.is_maximise &&
         css`
             max-width: 640px;
             background-color: white;
@@ -114,7 +114,7 @@ const SearchIconWrapper = styled.img`
     transform: translateY(-50%);
 `
 const CloseIconWrapper = styled.img<ElementWithMaximiseProps>`
-    display: ${(props) => (props.maximise ? 'block' : 'none')};
+    display: ${(props) => (props.is_maximise ? 'block' : 'none')};
     cursor: pointer;
     position: absolute;
     width: 10px;
@@ -288,7 +288,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                     <FlexSearchBar
                         jc="flex-start"
                         ai="center"
-                        maximise={search_input_touched}
+                        is_maximise={search_input_touched}
                         result_opened={result_opened}
                         ref={search_bar_ref}
                     >
@@ -307,7 +307,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                             onKeyDown={handleNavigation}
                         ></InputWrapper>
                         <CloseIconWrapper
-                            maximise={search_input_touched}
+                            is_maximise={search_input_touched}
                             src={CloseIcon}
                             alt="close icon"
                             onClick={handleBlur}
@@ -321,7 +321,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                             <SearchResultRows
                                 jc="flex-start"
                                 ai="center"
-                                active={focus_index === -1}
+                                is_active={focus_index === -1}
                                 style={{ color: 'var(--color-blue-3)' }}
                                 onMouseDown={handleSearchClick}
                             >{`Search for: ${search_query}`}</SearchResultRows>
@@ -341,7 +341,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                                             jc="flex-start"
                                             ai="center"
                                             onMouseDown={handleMouseDown}
-                                            active={focus_index === idx}
+                                            is_active={focus_index === idx}
                                         >
                                             {
                                                 <>
@@ -370,7 +370,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                         <SearchResultRows
                             jc="flex-start"
                             ai="center"
-                            active={focus_index === -1}
+                            is_active={focus_index === -1}
                             style={{ color: 'var(--color-blue-3)' }}
                         >{`Search for: ${search_query}`}</SearchResultRows>
                     )}
@@ -389,7 +389,7 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                                     jc="flex-start"
                                     ai="center"
                                     onMouseDown={handleMouseDown}
-                                    active={focus_index === idx}
+                                    is_active={focus_index === idx}
                                     tabletL={{ ai: 'flex-start' }}
                                 >
                                     {

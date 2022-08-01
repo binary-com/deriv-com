@@ -83,7 +83,9 @@ const Hero = ({ cta_text, href, imageAlt, imageData, title, description }: HeroP
                     </LinkButton>
                 </Flex>
             </Wrapper>
-            <StyledBackground data={imageData} alt={imageAlt}></StyledBackground>
+            <StyledBackground data={imageData} alt={imageAlt}>
+                <></>
+            </StyledBackground>
         </Container>
     )
 }

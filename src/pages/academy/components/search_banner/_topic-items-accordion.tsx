@@ -12,14 +12,14 @@ type TopicItemsAccordionProps = {
     handleHref: (category: string) => void
 }
 
-const DetailsWrapper = styled(Flex)`
+const DetailsWrapper = styled(Flex)<{ is_expanded: boolean }>`
     height: auto;
     overflow: hidden;
     transition: max-height 0.5s ease;
-    max-height: ${(props) => (props.is_expanded ? '180px' : '0')};
+    max-height: ${(is_expanded) => (is_expanded ? '180px' : '0')};
 
     :nth-last-child(-n + 2) {
-        max-height: ${(props) => (props.is_expanded ? '110px' : '0')};
+        max-height: ${(is_expanded) => (is_expanded ? '110px' : '0')};
     }
 `
 
@@ -50,14 +50,18 @@ const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordio
                         {items.type.toUpperCase()}
                     </Header>
                     <HoverChevron>
-                        <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
+                        <StyledChevron src={Chevron} alt="chevron" is_expanded={is_expanded} />
                     </HoverChevron>
                 </Flex>
             </Flex>
             <DetailsWrapper is_expanded={is_expanded} fd="column">
-                {items.items.map((item, idx) => {
+                {items.items.map((item) => {
                     return (
-                        <StyledLink key={idx} to={handleHref(item.title)} onClick={handleModal}>
+                        <StyledLink
+                            key={item.title}
+                            to={handleHref(item.title)}
+                            onClick={handleModal}
+                        >
                             {item.title}
                         </StyledLink>
                     )

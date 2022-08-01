@@ -8,7 +8,6 @@ import React, {
 } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import type { EmblaOptionsType } from 'embla-carousel-react'
-import PropTypes from 'prop-types'
 import {
     Embla,
     EmblaContainer,
@@ -290,20 +289,4 @@ export const CustomCarousel = ({
             </Embla>
         </div>
     )
-}
-
-CustomCarousel.propTypes = {
-    autoplay_interval: PropTypes.number,
-    chevron_style: PropTypes.object,
-    children: PropTypes.array,
-    container_style: PropTypes.object,
-    custom_blog_video_nav: PropTypes.bool,
-    custom_blog_video_nav_style: PropTypes.object,
-    has_autoplay: PropTypes.bool,
-    navigation_style: PropTypes.object,
-    options: PropTypes.object,
-    slide_mobile_style: PropTypes.object,
-    slide_style: PropTypes.object,
-    vertical_container: PropTypes.object,
-    view_port: PropTypes.object,
 }

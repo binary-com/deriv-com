@@ -4,7 +4,7 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 type StyledChevronProps = {
-    expanded?: boolean
+    is_expanded?: boolean
 }
 
 const overlay_css = css`
@@ -21,27 +21,27 @@ const overlay_css = css`
     width: 100%;
     height: 100vh;
 `
-export const MainWrapper = styled(Flex)`
+export const MainWrapper = styled(Flex)<{ hide_box_shadow?: boolean; background?: boolean }>`
     background-color: var(--color-white);
-    box-shadow: ${(props) =>
-        props.hide_box_shadow && props.background
+    box-shadow: ${({ hide_box_shadow, background }) =>
+        hide_box_shadow && background
             ? 'inset 0 -1px 0 rgba(14, 14, 14, 0.1)'
             : '0 5px 10px rgba(14, 14, 14, 0.1)'};
     position: fixed;
     z-index: 10;
     height: 7.2rem;
-    top: ${(props) => (props.background ? '0' : '72px')};
+    top: ${({ background }) => (background ? '0' : '72px')};
 
     @media ${device.desktopL} {
-        top: ${(props) => (props.background ? '0' : '87px')};
+        top: ${({ background }) => (background ? '0' : '87px')};
     }
 
     @media ${device.tabletL} {
-        top: ${(props) => (props.background ? '0' : '7.2rem')};
+        top: ${({ background }) => (background ? '0' : '7.2rem')};
     }
 `
-export const ParentWrapper = styled(Flex)`
-    ${(props) => props.overlay && overlay_css}
+export const ParentWrapper = styled(Flex)<{ overlay?: boolean }>`
+    ${({ overlay }) => overlay && overlay_css}
 `
 export const StyledLink = styled(LocalizedLink)`
     font-weight: normal;
@@ -55,14 +55,14 @@ export const StyledLink = styled(LocalizedLink)`
         background-color: var(--color-grey-31);
     }
 `
-export const SearchResultRows = styled(Flex)`
+export const SearchResultRows = styled(Flex)<{ is_active?: boolean }>`
     cursor: pointer;
     font-size: 16px;
     margin-top: 4px;
     padding: 8px 16px;
     min-height: 44px;
     height: auto;
-    background-color: ${(props) => (props.active ? 'var(--color-grey-30)' : 'unset')};
+    background-color: ${({ is_active }) => (is_active ? 'var(--color-grey-30)' : 'unset')};
 
     &:hover {
         background-color: var(--color-grey-30);
@@ -127,7 +127,7 @@ export const MobileWrapper = styled.div`
 export const StyledChevron = styled.img<StyledChevronProps>`
     height: 16px;
     width: 16px;
-    transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
+    transform: ${(props) => (props.is_expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
 export const HoverChevron = styled.div`

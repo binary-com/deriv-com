@@ -15,7 +15,7 @@ const StyledBackground = styled(BackgroundImage)<{ $dark: string }>`
 `
 
 interface BackgroundProps extends IBackgroundImageProps {
-    children?: ReactNode
+    children: ReactNode
     dark?: string
     data: ImageDataLike | IGatsbyImageData
     is_unstyled?: boolean
@@ -44,7 +44,7 @@ export const Background = ({
 
     return (
         <StyledBackground Tag="div" style={style} $dark={dark} {...bg_image} {...props}>
-            {children ? children : <></>}
+            {children}
         </StyledBackground>
     )
 }

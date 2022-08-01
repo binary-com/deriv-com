@@ -32,7 +32,7 @@ const fadeKeyframes = css`
         }
     }
 `
-const TopicParent = styled(Flex)`
+const TopicParent = styled(Flex)<{ modal: boolean }>`
     display: ${({ modal }) => (modal ? 'flex' : 'none')};
     z-index: ${({ modal }) => (modal ? '100' : 'unset')};
     position: relative;

@@ -42,7 +42,7 @@ const SearchNav = ({ setModal, openModal, Chevron, is_modal_opened }: NavProps) 
     return (
         <NavWrapper>
             <Flex ai="center" jc="space-between">
-                <Link to="/academy">
+                <Link to="/academy/">
                     <LogoWrapper src={AcademyLogo} />
                 </Link>
                 <Flex ai="center" max_width="751px" jc="flex-end">
@@ -69,7 +69,11 @@ const SearchNav = ({ setModal, openModal, Chevron, is_modal_opened }: NavProps) 
                             Topics
                         </Header>
                         <HoverChevron>
-                            <StyledChevron src={Chevron} alt="chevron" expanded={is_modal_opened} />
+                            <StyledChevron
+                                src={Chevron}
+                                alt="chevron"
+                                is_expanded={is_modal_opened}
+                            />
                         </HoverChevron>
                     </TopicSectionWrapper>
                 </Flex>

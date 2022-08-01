@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import NavTemplate from './components/nav-template'
-import { LogoLink, StyledLink, Wrapper } from './styles/nav-styles'
-import { Flex } from 'components/containers'
-import { QueryImage } from 'components/elements'
+import { LogoLink, StyledLink, HamburgerMenu, CloseIcon } from './styles/nav-styles'
+import { Flex, Desktop, Mobile } from 'components/containers'
+import { QueryImage, OffCanvasMenuWrapperCareer, useMoveOffCanvasMenu } from 'components/elements'
+import Hamburger from 'images/svg/layout/hamburger_menu.svg'
+import Close from 'images/svg/layout/close-long.svg'
 import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
@@ -14,37 +16,64 @@ import { besquare_signup_url, zoho_career_url } from 'common/constants'
 type NavCareersProps = {
     is_besquare?: boolean
 }
+const MainWrapper = styled(Flex)`
+    padding: 1.2rem 0;
+    height: 72px;
+    width: 100%;
+    justify-content: space-between;
 
-const LeftSection = styled.div`
+    @media ${device.tabletL} {
+        height: 48px;
+    }
+`
+const LogoSection = styled.div`
     display: flex;
     align-items: center;
-    max-width: 30rem;
+    max-width: 156px;
     width: 100%;
+
+    @media ${device.tabletL} {
+        margin-left: 16px;
+        margin-top: 7px;
+    }
+`
+const HeaderSection = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    font-size: 16px;
+    margin-top: 13px;
 `
 const NavWrapper = styled.div`
+    padding: 0 120px;
+
     .fresnel-between-start-tabletL {
         display: none;
     }
+
     @media ${device.tabletL} {
         .fresnel-between-start-tabletL {
             display: flex;
             width: 100%;
             align-items: center;
         }
+
+        padding: 0;
     }
 `
 const StyledLogoLink = styled(LogoLink)`
     margin-right: 3.2rem;
+    width: 16.4rem;
 
     @media ${device.tabletS} {
         margin-right: 0;
         max-width: 100px;
     }
-    @media ${device.mobileL} {
-        max-width: 80px;
-
+    @media ${device.tabletL} {
         & .gatsby-image-wrapper {
-            width: 80px;
+            width: 115px;
         }
     }
 `
@@ -53,14 +82,13 @@ const RightSection = styled(Flex)`
     justify-self: flex-end;
 `
 const StyledLinkButton = styled(LinkButton)`
-    @media ${device.tabletS} {
-        font-size: 12px;
-    }
-    @media ${device.mobileL} {
-        font-size: 9px;
-    }
-    @media ${device.mobileM} {
-        margin-left: 4px;
+    @media ${device.tabletL} {
+        font-size: 14px;
+        margin-right: 16px;
+        margin-top: 7px;
+        width: 120px;
+        height: 43px;
+        padding: 13px 16px;
     }
 `
 const NavLink = styled(StyledLink)`
@@ -79,16 +107,16 @@ const query = graphql`
 `
 
 const links = [
-    { active: 'home', title: 'HOME', aria_label: 'Careers', to: '/careers/' },
+    { active: 'home', title: 'Home', aria_label: 'Careers', to: '/careers/' },
     {
         active: 'locations',
-        title: 'LOCATIONS',
+        title: 'Locations',
         aria_label: 'Locations',
         to: '/careers/locations/',
     },
     {
         active: 'besquare',
-        title: 'BESQUARE',
+        title: 'BeSquare',
         aria_label: 'BeSquare',
         to: '/careers/besquare/',
     },
@@ -98,35 +126,50 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
 
     return (
         <NavTemplate>
             <NavWrapper>
-                <Wrapper offset_px_mobile={4}>
-                    <LeftSection>
+                <MainWrapper>
+                    <Mobile>
+                        {is_canvas_menu_open ? (
+                            <CloseIcon src={Close} alt="close icon" onClick={closeOffCanvasMenu} />
+                        ) : (
+                            <HamburgerMenu
+                                src={Hamburger}
+                                alt="hamburger menu"
+                                onClick={openOffCanvasMenu}
+                            />
+                        )}
+                    </Mobile>
+
+                    <LogoSection>
                         <StyledLogoLink to="/" aria-label="Home">
                             <QueryImage
                                 data={data['deriv']}
                                 alt="Deriv"
-                                width="16.4rem"
                                 height="auto"
                                 loading="eager"
                             />
                         </StyledLogoLink>
-
-                        {links.map(({ to, active, aria_label, title }) => (
-                            <NavLink
-                                key={to}
-                                active={current_page === active}
-                                activeClassName="active"
-                                to={to}
-                                partiallyActive
-                                aria-label={aria_label}
-                            >
-                                {title}
-                            </NavLink>
-                        ))}
-                    </LeftSection>
+                    </LogoSection>
+                    <Desktop>
+                        <HeaderSection>
+                            {links.map(({ to, active, aria_label, title }) => (
+                                <NavLink
+                                    key={to}
+                                    active={current_page === active}
+                                    activeClassName="active"
+                                    to={to}
+                                    partiallyActive
+                                    aria-label={aria_label}
+                                >
+                                    {title}
+                                </NavLink>
+                            ))}
+                        </HeaderSection>
+                    </Desktop>
 
                     <RightSection jc="flex-end" ai="center">
                         {has_mounted && (
@@ -142,7 +185,11 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                             </StyledLinkButton>
                         )}
                     </RightSection>
-                </Wrapper>
+                    <OffCanvasMenuWrapperCareer
+                        is_canvas_menu_open={is_canvas_menu_open}
+                        closeOffCanvasMenu={closeOffCanvasMenu}
+                    />
+                </MainWrapper>
             </NavWrapper>
         </NavTemplate>
     )

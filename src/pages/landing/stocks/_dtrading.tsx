@@ -147,6 +147,9 @@ const query = graphql`
         how_you_want: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
             ...fadeIn
         }
+        how_you_want_eu: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
+            ...fadeIn
+        }
         stocks_zero_fees: file(relativePath: { eq: "stock-indices/stocks-zero-fees.png" }) {
             ...fadeIn
         }

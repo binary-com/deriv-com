@@ -278,7 +278,10 @@ class DtraderTabs extends React.Component {
                             </>
                         </ROW>
                         <EU>
-                            <source src="/Dtrader_GIF_EU.mp4" type="video/mp4" />
+                            <>
+                                <source src="/Dtrader_GIF_EU.mp4" type="video/mp4" />
+                                <source src="/Dtrader_GIF_EU.webm" type="video/webm" />
+                            </>
                         </EU>
                     </Video>
                 </VideoWrapper>

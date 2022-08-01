@@ -7,7 +7,7 @@ import { Header } from 'components/elements'
 import { useLazyVideo } from 'components/hooks/use-lazy-video'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { EU, UK, ROW } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const BackgroundWrapper = styled.div`
     position: relative;
@@ -68,7 +68,7 @@ const MarketSubHeader = styled(Header)`
 `
 export const Hero = () => {
     useLazyVideo()
-
+    const { is_eu, is_uk, is_row } = useCountryRule()
     return (
         <BackgroundWrapper>
             <Video className="lazy" width="100%" height="100%" autoPlay muted playsInline loop>
@@ -89,15 +89,27 @@ export const Hero = () => {
                     align="center"
                     mt="1.6rem"
                 >
-                    <EU>
-                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities." />
-                    </EU>
-                    <UK>
-                        <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
-                    </UK>
-                    <ROW>
-                        <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                    </ROW>
+                    {
+                        is_eu && (
+                            // <EU>
+                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies and commodities." />
+                        )
+                        // </EU>
+                    }
+                    {
+                        is_uk && (
+                            // <UK>
+                            <Localize translate_text="Learn about the markets that you can trade online with Deriv, including forex, stocks & indices and commodities." />
+                        )
+                        // </UK>
+                    }
+                    {
+                        is_row && (
+                            // <ROW>
+                            <Localize translate_text=" Learn about the markets that you can trade online with Deriv, including forex, synthetic indices, stocks & indices, cryptocurrencies, basket indices, and commodities." />
+                        )
+                        // </ROW>
+                    }
                 </MarketSubHeader>
             </StyledContainer>
         </BackgroundWrapper>

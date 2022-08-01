@@ -9,8 +9,16 @@ import Advertise from 'images/svg/partners/advertise.svg'
 import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
 const StyledContainer = styled(Container)`
-    width: 100%;
-    max-width: fit-content;
+    align-items: flex-start;
+    max-width: 1200px;
+
+    @media ${device.laptopM} {
+        width: 84%;
+    }
+
+    @media ${device.tabletL} {
+        align-items: center;
+    }
 `
 const ReasonHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -18,7 +26,7 @@ const ReasonHeader = styled(Header)`
     }
 `
 const Reason = styled.div`
-    width: 40.4rem;
+    width: 384px;
     margin-top: 4rem;
 
     &:nth-child(2) {
@@ -46,19 +54,13 @@ const Reason = styled.div`
 `
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;
-    gap: 8px;
+    gap: 24px;
 
     @media ${device.tabletL} {
         display: block;
         justify-content: center;
         flex-wrap: wrap;
         width: auto;
-    }
-    @media ${device.laptopL} {
-        width: 90%;
-    }
-    @media ${device.laptopM} {
-        width: 84%;
     }
 `
 const StyledSection = styled(SectionContainer)`

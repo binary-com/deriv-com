@@ -21,9 +21,13 @@ const MainWrapper = styled(Flex)`
     height: 72px;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
+    margin-left: 16px;
+    margin-top: 7px;
 
     @media ${device.tabletL} {
         height: 48px;
+        width: 95%;
     }
 `
 const LogoSection = styled.div`
@@ -33,8 +37,8 @@ const LogoSection = styled.div`
     width: 100%;
 
     @media ${device.tabletL} {
-        margin-left: 16px;
-        margin-top: 7px;
+        margin-left: 10px;
+        max-width: none;
     }
 `
 const HeaderSection = styled.div`
@@ -71,6 +75,7 @@ const StyledLogoLink = styled(LogoLink)`
         margin-right: 0;
         max-width: 100px;
     }
+
     @media ${device.tabletL} {
         & .gatsby-image-wrapper {
             width: 115px;
@@ -85,10 +90,10 @@ const StyledLinkButton = styled(LinkButton)`
     @media ${device.tabletL} {
         font-size: 14px;
         margin-right: 16px;
-        margin-top: 7px;
         width: 120px;
         height: 43px;
         padding: 13px 16px;
+        margin-top: -6px;
     }
 `
 const NavLink = styled(StyledLink)`

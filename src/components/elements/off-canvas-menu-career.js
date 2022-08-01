@@ -24,6 +24,7 @@ const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2.4rem 1.6rem;
+    height: 100vh;
 
     div {
         a:first-child {

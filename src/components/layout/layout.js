@@ -23,7 +23,7 @@ import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
 import device from 'themes/device'
-import { DerivStore, DerivApi } from 'store'
+import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
 const Footer = Loadable(() => import('./footer'))
@@ -136,6 +136,7 @@ const Layout = ({
     const [modal_payload, setModalPayload] = React.useState({})
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
+    const { send } = useDerivWS()
 
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
@@ -159,7 +160,6 @@ const Layout = ({
 
     React.useEffect(() => {
         if (!is_redirection_applied) {
-            const { send } = DerivApi()
             send({ website_status: 1 }, (response) => {
                 if (!response.error) {
                     const {

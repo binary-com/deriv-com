@@ -85,7 +85,7 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     )
 }
 
-export const DerivApi = () => {
+export const useDerivWS = () => {
     const {
         deriv_api: { send },
     } = React.useContext(DerivStore)

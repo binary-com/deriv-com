@@ -9,7 +9,7 @@ import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import { DerivApi } from 'store'
+import { useDerivWS } from 'store'
 
 type EmailType = { email: string }
 
@@ -50,7 +50,7 @@ const resetValidation = (values: EmailType) => {
 const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
 
-    const { send } = DerivApi()
+    const { send } = useDerivWS()
 
     const resetSubmission = (values: EmailType, actions) => {
         send({ verify_email: trimSpaces(values.email), type: 'reset_password' }, (response) => {

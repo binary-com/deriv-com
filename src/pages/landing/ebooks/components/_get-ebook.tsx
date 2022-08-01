@@ -14,7 +14,7 @@ import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
-import { DerivApi } from 'store'
+import { useDerivWS } from 'store'
 
 type GetEbookProps = {
     color?: string
@@ -191,7 +191,7 @@ const EmailImage = styled.img`
 `
 
 const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
-    const { send } = DerivApi()
+    const { send } = useDerivWS()
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)

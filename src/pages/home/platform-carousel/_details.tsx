@@ -86,7 +86,12 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src={getOSIcon(link.type)} loading="lazy" />
+                            <img
+                                width="150px"
+                                height="40px"
+                                src={getOSIcon(link.type)}
+                                loading="lazy"
+                            />
                         </DownloadLink>
                     )
                 })}

@@ -19,10 +19,6 @@ const MobileImage = styled(QueryImage)`
     }
 `
 
-const DownloadLink = styled(StyledLink)`
-    margin: 0.4rem;
-`
-
 const settings = {
     options: {
         loop: false,
@@ -128,7 +124,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                 mobileL={{ m: '32px 0 40px' }}
                             >
                                 {download_links.map((link) => (
-                                    <DownloadLink
+                                    <StyledLink
                                         key={link.type}
                                         external="true"
                                         type={link?.link_type}
@@ -136,8 +132,13 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <img src={getOSIcon(link.type)} alt={link.type} />
-                                    </DownloadLink>
+                                        <img
+                                            width="150px"
+                                            height="40px"
+                                            src={getOSIcon(link.type)}
+                                            alt={link.type}
+                                        />
+                                    </StyledLink>
                                 ))}
                             </Flex>
                         </CarouselItemWrapper>

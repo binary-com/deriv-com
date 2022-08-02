@@ -11,8 +11,6 @@ import { ComponentProps } from 'types/generics'
 export const SignUpWrapper = styled(Container)`
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     padding: 40px;
     margin: 0;
     width: 100%;

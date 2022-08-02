@@ -12,6 +12,7 @@ import { slugify, isBrowser } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 type SearchBannerProps = {
     hidden?: boolean
@@ -119,9 +120,18 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         return `/academy/search?category=${encodeURIComponent(slugify(category))}`
     }
 
+    const topics_ref = React.useRef()
+
+    useOutsideClick(topics_ref, () => setModal(false))
+
     return (
         <ParentWrapper overlay={is_modal_opened}>
-            <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
+            <MainWrapper
+                ref={topics_ref}
+                fd="column"
+                background={hidden}
+                hide_box_shadow={blog_post_url}
+            >
                 <SearchNav
                     setModal={setModal}
                     openModal={openModal}

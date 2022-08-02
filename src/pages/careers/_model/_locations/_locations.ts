@@ -487,11 +487,11 @@ export const singapore: LocationsType = {
 }
 
 export const all_offices: LocationsType[] = [
-    berlin,
     paris,
     malta,
     cyprus,
     guernsey,
+    berlin,
     cyberjaya,
     ipoh,
     melaka,

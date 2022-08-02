@@ -71,7 +71,7 @@ const trading = [
         image_alt: localize('Trade world or synthetic markets'),
     },
     {
-        title: <Localize translate_text="...And how you want" />,
+        title: <Localize translate_text="... And how you want" />,
         subtitle: (
             <Localize translate_text="Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second." />
         ),

@@ -97,7 +97,7 @@ const trading_eu = [
             <Localize translate_text="Synthetic indices, forex, and cryptocurrencies — whether it’s the world financial markets or synthetic markets that excite you, you’ll find them here." />
         ),
 
-        image_name: 'trade_what_you_want_EU',
+        image_name: 'trade_what_you_want_eu',
         image_alt: localize('Trade world or synthetic markets'),
     },
     {

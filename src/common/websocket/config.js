@@ -46,7 +46,7 @@ export const domain_config = {
     },
 }
 
-export const cell_xpert = {
+export const cellxpert_config = {
     staging: {
         hostname: 'deriv-com-git-cellxperts.binary.sx',
         app_id: 31909,
@@ -66,7 +66,7 @@ const isLocalHost = () => isBrowser() && domain_config.local.hostname === window
 
 const getAppId = () => {
     let app_id = null
-    const url = window.location.href.includes('signup-affiliates')
+    const url = isBrowser() && window.location.href.includes('signup-affiliates')
     const user_app_id = '' // you can insert Application ID of your registered application here
     if (isBrowser()) {
         const config_app_id = window.localStorage.getItem('config.app_id')
@@ -81,8 +81,8 @@ const getAppId = () => {
         } else if (isLocalHost()) {
             app_id = domain_config.local.app_id
         } else if (url) {
-            if (isBrowser() && cell_xpert.staging.hostname === window.location.hostname) {
-                app_id = cell_xpert.staging.app_id
+            if (isBrowser() && cellxpert_config.staging.hostname === window.location.hostname) {
+                app_id = cellxpert_config.staging.app_id
             }
         } else {
             window.localStorage.removeItem('config.default_app_id')

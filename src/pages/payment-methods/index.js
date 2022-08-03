@@ -127,8 +127,7 @@ const DisplayAccordion = (locale) => {
     const content_style = is_mobile
         ? {
               boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-              borderBottomLeftRadius: '6px',
-              borderBottomRightRadius: '6px',
+              boborderBottomRightRadius: '6px',
           }
         : {
               background: 'var(--color-white)',
@@ -165,7 +164,7 @@ const DisplayAccordion = (locale) => {
 
                 if (pd.is_crypto && is_eu_country) {
                     return []
-                } else if (pd.is_dp2p && !is_p2p_allowed_country && is_eu_country) {
+                } else if (pd.is_dp2p && !is_p2p_allowed_country) {
                     return []
                 } else
                     return (

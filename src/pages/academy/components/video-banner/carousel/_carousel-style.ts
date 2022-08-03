@@ -102,7 +102,7 @@ export const NavigationContainer = styled(Flex)`
     bottom: ${(props) => props.bottom_offset ?? '40px'};
 `
 
-export const StyledDot = styled.div<{ color?: string }>`
+export const StyledDot = styled.div<CSSProperties>`
     cursor: pointer;
     height: 8px;
     width: 8px;

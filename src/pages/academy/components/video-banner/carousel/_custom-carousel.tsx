@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, HTMLAttributes } from 'react'
+import React, { useState, useEffect, useCallback, HTMLAttributes, ReactElement } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import styled from 'styled-components'
 import {
@@ -85,34 +85,34 @@ export const NextButton = ({
 )
 
 type ChevronStyleType = {
-    chevron_color: string
-    chevron_left: string
-    chevron_right: string
-    is_displayed_on_mobile: boolean
+    chevron_color?: string
+    chevron_left?: string
+    chevron_right?: string
+    is_displayed_on_mobile?: boolean
 }
 type CustomBlogVideoNavStyleType = {
-    custom_chevron_color: string
-    custom_is_displayed_on_mobile: boolean
+    custom_chevron_color?: string
+    custom_is_displayed_on_mobile?: boolean
 }
 type NavigationStyleType = {
-    nav_color: string
-    bottom_offset: string
+    nav_color?: string
+    bottom_offset?: string
 }
 
 type CustomCarouselProps = {
-    autoplay_interval: number
-    chevron_style: ChevronStyleType
-    children: React.ReactElement[]
-    container_style: string
-    custom_blog_video_nav: boolean
-    custom_blog_video_nav_style: CustomBlogVideoNavStyleType
-    has_autoplay: boolean
-    navigation_style: NavigationStyleType
-    options: object
-    slide_mobile_style: string
-    slide_style: string
-    vertical_container: object
-    view_port: object
+    autoplay_interval?: number
+    chevron_style?: ChevronStyleType
+    children?: ReactElement[]
+    container_style?: string
+    custom_blog_video_nav?: boolean
+    custom_blog_video_nav_style?: CustomBlogVideoNavStyleType
+    has_autoplay?: boolean
+    navigation_style?: NavigationStyleType
+    options?: object
+    slide_mobile_style?: string
+    slide_style?: string
+    vertical_container?: object
+    view_port?: object
     chevron_color?: string
 }
 

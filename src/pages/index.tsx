@@ -20,7 +20,7 @@ const Home = () => {
     useOpenLiveChat()
 
     const is_p2p_allowed = useWebsiteStatus()[3]
-
+    console.log('isp2pallowed', is_p2p_allowed)
     return (
         <Layout type="transparent" margin_top="0">
             <SEO

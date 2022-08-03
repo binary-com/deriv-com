@@ -468,4 +468,4 @@ export const header_style = {
     borderRadius: '8px',
     position: 'relative',
     boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
-}
+} as React.CSSProperties

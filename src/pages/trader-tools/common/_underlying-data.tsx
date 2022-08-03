@@ -118,7 +118,7 @@ import {
     WMT,
     XRPUSD,
     ZM,
-} from 'components/elements/symbols.js'
+} from 'components/elements/symbols'
 
 export const optionItemDefault = {
     name: 'default',

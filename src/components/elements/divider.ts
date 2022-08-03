@@ -1,7 +1,8 @@
+import { CSSProperties } from 'react'
 import styled from 'styled-components'
-import { Margins } from 'themes/function'
+import { Margins, MarginsType } from 'themes/function'
 
-const Divider = styled.hr`
+const Divider = styled.hr<CSSProperties & MarginsType>`
     border: none;
     width: ${(props) => (props.width ? props.width : '100%')};
     height: ${(props) => (props.height ? props.height : '1px')};

@@ -1,11 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { useDropdown } from 'components/hooks/use-dropdown'
+import { useDropdown, DropdownErrorsType } from 'components/hooks/use-dropdown'
 import { Text } from 'components/elements/typography'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
+import { FormikErrors } from 'pages/trader-tools/common/_formik-types'
+
+type DropdownStyledProps = {
+    has_short_name?: boolean
+    open?: boolean
+    active?: boolean | OptionsType
+}
 
 const Symbol = styled(Flex)`
     width: fit-content;
@@ -39,7 +45,13 @@ const Symbol = styled(Flex)`
     }
 `
 
-export const DropdownContainer = styled.ul`
+type DropdownContainerProps = {
+    active?: boolean
+    mb?: string
+    has_short_name?: boolean
+} & DropdownErrorsType
+
+export const DropdownContainer = styled.ul<DropdownContainerProps>`
     list-style: none;
     position: relative;
     border: 1px solid var(--color-grey-7);
@@ -97,7 +109,7 @@ const StyledDiv = styled.div`
     top: -30px;
 `
 
-const DropdownSelected = styled.li`
+const DropdownSelected = styled.li<any>`
     color: var(--color-grey-6);
     list-style-position: inside;
     white-space: nowrap;
@@ -124,7 +136,7 @@ const ListContainer = styled.li`
     list-style: none;
 `
 
-const ListItem = styled.li`
+const ListItem = styled.li<any>`
     color: var(--color-grey-6);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
@@ -165,7 +177,7 @@ const ListItem = styled.li`
     }
 `
 
-const UnorderedList = styled.ul`
+const UnorderedList = styled.ul<DropdownStyledProps>`
     z-index: 1;
     list-style: none;
     margin: 0;
@@ -202,7 +214,7 @@ export const Arrow = styled((props) => <Chevron {...props} />)`
     }
 `
 
-export const StyledLabel = styled.label`
+export const StyledLabel = styled.label<DropdownStyledProps>`
     color: grey;
     background: var(--color-white);
     font-size: var(--text-size-xs);
@@ -260,7 +272,44 @@ const DefaultOptionText = styled(Text)`
     color: var(--color-grey-5);
 `
 
-export const ItemList = ({ error, handleChange, is_open, nodes, option_list, selected_option }) => {
+type OptionsType = {
+    name?: string | number
+    display_name?: string | number
+    key?: string
+    icon?: unknown
+}
+
+type SelectedType = {
+    name?: string
+    display_name?: string
+    key?: string
+    icon?: unknown
+}
+
+type NodesType = {
+    option?: OptionsType
+    set?: (display_name?: string | number, c?: string) => void
+}
+
+type ItemListProps = {
+    handleChange?: (
+        option?: OptionsType,
+        error?: string | FormikErrors<any> | string[] | FormikErrors<any>[],
+    ) => void
+    is_open?: boolean
+    nodes?: NodesType
+    option_list?: OptionsType[]
+    selected_option?: OptionsType
+} & DropdownErrorsType
+
+export const ItemList = ({
+    error,
+    handleChange,
+    is_open,
+    nodes,
+    option_list,
+    selected_option,
+}: ItemListProps) => {
     return (
         <ListContainer aria-expanded={is_open ? 'true' : 'false'} role="list">
             <UnorderedList open={is_open}>
@@ -272,7 +321,7 @@ export const ItemList = ({ error, handleChange, is_open, nodes, option_list, sel
                                     tabIndex="0"
                                     id={option?.name}
                                     key={option?.name}
-                                    ref={(c) => nodes.set(option?.display_name, c)}
+                                    ref={(c: string) => nodes.set(option?.display_name, c)}
                                     onClick={() => handleChange(option, error)}
                                     onKeyDown={(e) => {
                                         if (e.key === 'Tab' || e.key === 'Enter') {
@@ -293,17 +342,11 @@ export const ItemList = ({ error, handleChange, is_open, nodes, option_list, sel
     )
 }
 
-ItemList.propTypes = {
-    default_option: PropTypes.any,
-    error: PropTypes.any,
-    handleChange: PropTypes.func,
-    is_open: PropTypes.bool,
-    nodes: PropTypes.object,
-    option_list: PropTypes.array,
-    selected_option: PropTypes.any,
-}
+type BottomLabelProps = {
+    contractSize?: string | number
+} & DropdownErrorsType
 
-export const BottomLabel = ({ error, contractSize }) => {
+export const BottomLabel = ({ error, contractSize }: BottomLabelProps) => {
     return (
         <StyledDiv>
             <ErrorMessages lh="1.4" align="left" color="red-1">
@@ -319,10 +362,25 @@ export const BottomLabel = ({ error, contractSize }) => {
     )
 }
 
-BottomLabel.propTypes = {
-    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-}
+export type DropdownProps = {
+    id?: string
+    contractSize?: string | number
+    active?: boolean
+    default_item?: OptionsType
+    default_option?: { display_name?: string }
+    onBlur?: {
+        (e: React.FocusEvent<any, Element>): void
+        <T = any>(fieldOrEvent: T): T extends string ? (e: any) => void : void
+    }
+    autoComplete?: string
+    has_short_name?: boolean
+    items?: SelectedType[]
+    label?: string
+    onChange?: (value: string) => void
+    option_list?: OptionsType[]
+    selected_option?: OptionsType
+    selected_item?: SelectedType
+} & DropdownErrorsType
 
 const Dropdown = ({
     default_option,
@@ -334,7 +392,7 @@ const Dropdown = ({
     selected_option,
     contractSize,
     ...props
-}) => {
+}: DropdownProps) => {
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdown(onChange)
 
     return (
@@ -376,17 +434,6 @@ const Dropdown = ({
             <BottomLabel contractSize={contractSize} error={error} />
         </>
     )
-}
-
-Dropdown.propTypes = {
-    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    default_option: PropTypes.any,
-    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    has_short_name: PropTypes.bool,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    option_list: PropTypes.array,
-    selected_option: PropTypes.any,
 }
 
 export default Dropdown

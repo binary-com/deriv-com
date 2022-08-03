@@ -1,7 +1,21 @@
-import { useRef, useState } from 'react'
+import { MouseEventHandler, useRef, useState } from 'react'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
+import { FormikErrors } from 'pages/trader-tools/common/_formik-types'
 
-export const useDropdown = (onChange) => {
+export type DropdownErrorsType = {
+    error?: string | FormikErrors<any> | string[] | FormikErrors<any>[]
+}
+
+export const useDropdown = (
+    onChange: (value: any) => void,
+): [
+    boolean,
+    React.MutableRefObject<null>,
+    Map<any, any>,
+    (option: { name?: string }, error: DropdownErrorsType) => void,
+    MouseEventHandler<HTMLInputElement>,
+    React.Dispatch<React.SetStateAction<boolean>>,
+] => {
     const [is_open, setOpen] = useState(false)
     const dropdown_ref = useRef(null)
     const nodes = new Map()
@@ -59,6 +73,7 @@ export const useDropdown = (onChange) => {
     }
 
     const handleChange = (option) => {
+        console.log(option)
         onChange(option)
         closeList()
     }

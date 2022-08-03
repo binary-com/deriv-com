@@ -17,7 +17,7 @@ const StyledFlex = styled(Flex)`
     align-items: center;
 `
 
-const StyledButton = styled(Button)<{ active: boolean; grey: boolean }>`
+const StyledButton = styled(Button)<{ active?: boolean; grey?: boolean }>`
     border: 1px solid var(--color-grey-2);
     padding: 7px 13px;
     font-size: 14px;

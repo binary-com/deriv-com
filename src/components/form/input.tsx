@@ -6,7 +6,9 @@ import device from 'themes/device'
 import CrossIcon from 'images/svg/help/cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
-    handleError?: (current_input: React.MutableRefObject<HTMLInputElement>) => void
+    handleError?: (
+        current_input?: { focus?: () => void } & React.MutableRefObject<HTMLInputElement>,
+    ) => void
 }
 
 type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps

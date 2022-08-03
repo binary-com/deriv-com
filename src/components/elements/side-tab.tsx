@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
 import device, { size } from 'themes/device'
@@ -7,6 +6,14 @@ import { getWindowWidth } from 'common/utility'
 import { Box } from 'components/containers'
 import { Desktop } from 'components/containers/show'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
+
+type TabsStyledProps = {
+    tab_width?: string
+    is_sticky?: boolean
+    opacity?: string
+    font_size?: string
+    line_height?: string
+}
 
 const StyledSideTab = styled(() => <Box />)`
     padding: 0;
@@ -18,7 +25,7 @@ const StyledSideTab = styled(() => <Box />)`
         width: 100%;
     }
 `
-const TabList = styled.ol`
+const TabList = styled.ol<TabsStyledProps>`
     width: ${(props) => props.tab_width || '38.4rem'};
     list-style: none;
     ${(props) =>
@@ -36,7 +43,7 @@ const TabList = styled.ol`
 const TabContent = styled.div`
     flex: 1;
 `
-const StyledTab = styled.li`
+const StyledTab = styled.li<TabsStyledProps>`
     cursor: pointer;
     width: 38rem;
     margin: auto;
@@ -86,7 +93,27 @@ const ItemWrapper = styled.div`
     margin-bottom: 1.4rem;
 `
 
-const Tab = ({ active_tab, font_size, label, line_height, mobile, onClick, opacity, text }) => {
+type TabProps = {
+    active_tab?: string
+    font_size?: string
+    label?: string
+    line_height?: string
+    mobile?: boolean
+    onClick?: (label: string) => void
+    opacity?: string
+    text?: string
+}
+
+const Tab = ({
+    active_tab,
+    font_size,
+    label,
+    line_height,
+    mobile,
+    onClick,
+    opacity,
+    text,
+}: TabProps) => {
     const className = active_tab === label ? 'tab-active' : ''
 
     const handleClick = () => {
@@ -114,7 +141,33 @@ const Tab = ({ active_tab, font_size, label, line_height, mobile, onClick, opaci
 
 const getTabs = (children) => children.map((child) => child.props.label)
 
-const SideTab = ({ children, font_size, is_sticky, line_height, opacity, tab_header }) => {
+type TabChildrenType = {
+    props?: {
+        is_mobile?: boolean
+        label?: string
+        text?: string
+        onClick?: (e: string) => void
+    }
+}
+
+type SideTabProps = {
+    children: TabChildrenType[]
+    font_size: string
+    is_mobile: boolean
+    is_sticky: boolean
+    line_height: string
+    opacity: string
+    tab_header: string
+}
+
+const SideTab = ({
+    children,
+    font_size,
+    is_sticky,
+    line_height,
+    opacity,
+    tab_header,
+}: SideTabProps) => {
     const [active_tab, setActiveTab] = useTabStateQuery(getTabs(children))
     const [is_menu, setMenu] = useState(false)
 
@@ -163,27 +216,6 @@ const SideTab = ({ children, font_size, is_sticky, line_height, opacity, tab_hea
             </TabContent>
         </StyledSideTab>
     )
-}
-
-SideTab.propTypes = {
-    children: PropTypes.instanceOf(Array).isRequired,
-    font_size: PropTypes.string,
-    is_mobile: PropTypes.bool,
-    is_sticky: PropTypes.bool,
-    line_height: PropTypes.string,
-    opacity: PropTypes.string,
-    tab_header: PropTypes.string,
-}
-
-Tab.propTypes = {
-    active_tab: PropTypes.string.isRequired,
-    font_size: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    line_height: PropTypes.string,
-    mobile: PropTypes.bool,
-    onClick: PropTypes.func.isRequired,
-    opacity: PropTypes.string,
-    text: PropTypes.string.isRequired,
 }
 
 export default SideTab

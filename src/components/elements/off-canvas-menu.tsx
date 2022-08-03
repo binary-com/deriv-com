@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, CSSProperties } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex, ROW } from 'components/containers'
 import { DerivStore } from 'store'
@@ -46,7 +45,7 @@ import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
 
-const OffCanvasMenu = styled.section`
+const OffCanvasMenu = styled.section<OffCanvasMenuWrapperPropps>`
     position: fixed;
     background-color: var(--color-white);
     top: 7.2rem;
@@ -116,16 +115,23 @@ const header_style = {
     padding: '0',
     boxShadow: 'none',
     flexDirection: 'row',
-}
+} as CSSProperties
 
 const content_style = {
     marginLeft: '8px',
     paddingBottom: '16px',
     flexDirection: 'column',
     display: 'flex',
+} as CSSProperties
+
+type OffCanvasMenuWrapperPropps = {
+    closeOffCanvasMenu?: () => void
+    is_canvas_menu_open?: boolean
+    is_ppc?: boolean
+    is_ppc_redirect?: boolean
 }
 
-export const OffCanvasMenuWrapper = (props) => {
+export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperPropps) => {
     const { is_uk_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
@@ -589,12 +595,13 @@ export const OffCanvasMenuWrapper = (props) => {
     )
 }
 
-OffCanvasMenuWrapper.propTypes = {
-    closeOffCanvasMenu: PropTypes.func,
-    is_canvas_menu_open: PropTypes.bool,
+type OffCanvasMenuPartnerProps = {
+    closeOffCanvasMenu?: () => void
+    is_canvas_menu_open?: boolean
+    is_ppc?: boolean
 }
 
-export const OffCanvasMenuPartner = (props) => {
+export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -651,17 +658,6 @@ export const OffCanvasMenuPartner = (props) => {
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>
     )
-}
-
-OffCanvasMenuPartner.propTypes = {
-    closeOffCanvasMenu: PropTypes.func,
-    is_canvas_menu_open: PropTypes.bool,
-    is_ppc: PropTypes.bool,
-}
-
-OffCanvasMenuWrapper.propTypes = {
-    is_ppc: PropTypes.bool,
-    is_ppc_redirect: PropTypes.bool,
 }
 
 export const useMoveOffCanvasMenu = (initState = false) => {

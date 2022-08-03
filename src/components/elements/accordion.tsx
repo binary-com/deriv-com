@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, ReactNode, CSSProperties } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Text } from './typography'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
 import Chevron from 'images/svg/custom/chevron-bottom.svg'
@@ -9,16 +8,20 @@ import Minus from 'images/svg/elements/minus.svg'
 import Plus from 'images/svg/elements/plus.svg'
 import device from 'themes/device'
 
-const ThickArrow = styled.img`
+type ArrowProps = {
+    expanded?: boolean
+}
+
+const ThickArrow = styled.img<ArrowProps>`
     width: 24px;
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
-    ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+    ${(props) => (props.expanded ? 'transform: inherit;' : '')}
 `
 
-const Arrow = styled.img`
+const Arrow = styled.img<ArrowProps>`
     transition: transform 0.25s linear;
-    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+    ${(props) => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 `
 
 const AccordionHeader = styled.div`
@@ -50,6 +53,7 @@ const AccordionHeader = styled.div`
         height: 100%;
     }
 `
+const AccordionHeaderItem = styled.div<AccordionItemProps>``
 
 const AccordionWrapper = styled.div`
     width: 100%;
@@ -58,8 +62,16 @@ const AccordionWrapper = styled.div`
 `
 const TRANSITION_DURATION = 250
 
+type AccordionProps = {
+    children?: ChildType | ChildType[]
+    has_single_state?: boolean
+    id?: string
+    is_default_open?: boolean
+    nodes?: ReactNode
+}
+
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children, has_single_state, id, is_default_open }) => {
+const Accordion = ({ children, has_single_state, id, is_default_open }: AccordionProps) => {
     const nodes = []
 
     return has_single_state ? (
@@ -70,15 +82,28 @@ const Accordion = ({ children, has_single_state, id, is_default_open }) => {
         <AccordionContent nodes={nodes}>{children}</AccordionContent>
     )
 }
-Accordion.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    has_single_state: PropTypes.bool,
-    id: PropTypes.string,
-    is_default_open: PropTypes.bool,
-    nodes: PropTypes.array,
+
+type ChildType = {
+    props?: {
+        is_showed?: boolean
+        parent_style?: CSSProperties
+        header_style?: CSSProperties
+        content_style?: CSSProperties
+        header?: string
+        plus?: boolean
+        arrow_thin?: boolean
+    }
 }
 
-const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
+type ItemExpandedProps = {
+    child?: ChildType
+    child_idx?: number
+    id?: string
+    is_default_open?: boolean
+    nodes?: ReactNode
+}
+
+const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpandedProps) => {
     const getHeight = (active_idx) => {
         return (
             nodes[active_idx] &&
@@ -93,15 +118,35 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
         else setHeight(0)
     })
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (is_default_open) setExpanded(true)
     }, [])
 
-    React.useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
+    useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
+
+    const deployer = is_expanded ? (
+        <img src={Minus} alt="Minus" height="16" width="16" />
+    ) : (
+        <img src={Plus} alt="Plus" height="16" width="16" />
+    )
+
+    const expanded_state = is_expanded ? true : false
+
+    const current_arrow = child.props.arrow_thin ? (
+        <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={expanded_state} />
+    ) : (
+        <ThickArrow
+            src={ChevronThick}
+            alt="Chevron thick"
+            width="32"
+            height="32"
+            expanded={expanded_state}
+        />
+    )
 
     return (
         <>
-            {child.props.is_showed != false && (
+            {child.props.is_showed !== false && (
                 <div
                     key={child_idx}
                     style={child.props.parent_style}
@@ -118,31 +163,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
                             style={child.props.header_style}
                         >
                             <Text weight="bold">{child.props.header}</Text>
-                            <div>
-                                {child.props.plus ? (
-                                    is_expanded ? (
-                                        <img src={Minus} alt="Minus" height="16" width="16" />
-                                    ) : (
-                                        <img src={Plus} alt="Plus" height="16" width="16" />
-                                    )
-                                ) : child.props.arrow_thin ? (
-                                    <Arrow
-                                        src={Chevron}
-                                        alt="Chevron"
-                                        width="32"
-                                        height="32"
-                                        expanded={is_expanded ? 'true' : 'false'}
-                                    />
-                                ) : (
-                                    <ThickArrow
-                                        src={ChevronThick}
-                                        alt="Chevron thick"
-                                        width="32"
-                                        height="32"
-                                        expanded={is_expanded ? 'true' : 'false'}
-                                    />
-                                )}
-                            </div>
+                            <div>{child.props.plus ? deployer : current_arrow}</div>
                         </AccordionHeader>
                         <div
                             style={{
@@ -161,15 +182,19 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
     )
 }
 
-ItemExpanded.propTypes = {
-    child: PropTypes.any,
-    child_idx: PropTypes.any,
-    id: PropTypes.string,
-    is_default_open: PropTypes.bool,
-    nodes: PropTypes.any,
+type SingleAccordionContentProps = {
+    children: ChildType | ChildType[]
+    id: string
+    is_default_open: boolean
+    nodes: ReactNode
 }
 
-const SingleAccordionContent = ({ is_default_open = false, nodes, children, id }) => {
+const SingleAccordionContent = ({
+    is_default_open = false,
+    nodes,
+    children,
+    id,
+}: SingleAccordionContentProps) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         return (
             <ItemExpanded
@@ -186,17 +211,17 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children, id }
     return <>{render_nodes}</>
 }
 
-SingleAccordionContent.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    id: PropTypes.string,
-    is_default_open: PropTypes.bool,
-    nodes: PropTypes.array,
+type AccordionContentProps = {
+    children?: ChildType | ChildType[]
+    has_single_state?: boolean
+    id?: string
+    nodes?: ReactNode
 }
 
-const AccordionContent = ({ children, nodes }) => {
+const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
     const [active_idx, setActiveIdx] = useState(-1)
 
-    const toggle = (child_idx) => {
+    const toggle = (child_idx: number) => {
         const is_closed = active_idx === child_idx || child_idx === -1
         if (is_closed) setActiveIdx(-1)
         else {
@@ -204,7 +229,7 @@ const AccordionContent = ({ children, nodes }) => {
         }
     }
 
-    const getHeight = (child_idx) => {
+    const getHeight = (child_idx: number) => {
         if (active_idx === child_idx) {
             return (
                 nodes[active_idx] &&
@@ -217,6 +242,26 @@ const AccordionContent = ({ children, nodes }) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         const height = getHeight(child_idx)
         const is_expanded = child_idx === active_idx
+
+        const deployer = is_expanded ? (
+            <img src={Minus} alt="Minus" height="16" width="16" />
+        ) : (
+            <img src={Plus} alt="Plus" height="16" width="16" />
+        )
+
+        const expanded_state = is_expanded ? true : false
+
+        const current_arrow = child.props.arrow_thin ? (
+            <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={expanded_state} />
+        ) : (
+            <ThickArrow
+                src={ChevronThick}
+                alt="Chevron thick"
+                width="32"
+                height="32"
+                expanded={expanded_state}
+            />
+        )
 
         return (
             <div
@@ -233,29 +278,7 @@ const AccordionContent = ({ children, nodes }) => {
                         style={child.props.header_style}
                     >
                         <Text weight="bold">{child.props.header}</Text>
-                        {child.props.plus ? (
-                            is_expanded ? (
-                                <img src={Minus} alt="Minus" height="16" width="16" />
-                            ) : (
-                                <img src={Plus} alt="Plus" height="16" width="16" />
-                            )
-                        ) : child.props.arrow_thin ? (
-                            <Arrow
-                                src={Chevron}
-                                alt="Chevron"
-                                height="32"
-                                width="32"
-                                expanded={is_expanded ? 'true' : 'false'}
-                            />
-                        ) : (
-                            <ThickArrow
-                                src={ChevronThick}
-                                alt="ChevronThick"
-                                height="32"
-                                width="32"
-                                expanded={is_expanded ? 'true' : 'false'}
-                            />
-                        )}
+                        {child.props.plus ? deployer : current_arrow}
                     </AccordionHeader>
                     <div
                         style={{
@@ -276,27 +299,21 @@ const AccordionContent = ({ children, nodes }) => {
     return <>{render_nodes}</>
 }
 
-AccordionContent.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    has_single_state: PropTypes.bool,
-    id: PropTypes.string,
-    nodes: PropTypes.array,
+type AccordionItemProps = {
+    children?: ChildType | ChildType[]
+    id?: string
+    style?: CSSProperties
+    header?: ReactNode
+    header_style?: CSSProperties
+    text?: string
 }
 
-const AccordionItem = ({ id, text, children, style }) => {
+const AccordionItem = ({ id, text, children, style }: AccordionItemProps) => {
     return (
-        <div style={style} header={text} id={id}>
+        <AccordionHeaderItem style={style} header={text} id={id}>
             {children}
-        </div>
+        </AccordionHeaderItem>
     )
-}
-
-AccordionItem.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    id: PropTypes.string,
-    is_showed: PropTypes.bool,
-    style: PropTypes.object,
-    text: PropTypes.string,
 }
 
 export { Accordion, AccordionItem }

@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
-import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
+import {
+    Arrow,
+    BottomLabel,
+    DropdownContainer,
+    DropdownProps,
+    ItemList,
+    StyledLabel,
+} from './dropdown'
 import { useDropdown } from 'components/hooks/use-dropdown'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
-const DropdownInput = styled.input`
+const DropdownInput = styled.input<any>`
     color: var(--color-black-3);
     width: calc(100% - 2px);
     border: none;
@@ -45,7 +51,7 @@ const DropdownSearch = ({
     onChange,
     selected_item,
     ...props
-}) => {
+}: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
@@ -74,7 +80,7 @@ const DropdownSearch = ({
                 ? items
                 : items.filter((i) => {
                       if (!/^[\w\d\s]/.test(input_value)) return false
-                      let regex = new RegExp(input_value, 'gi')
+                      const regex = new RegExp(input_value, 'gi')
                       return !!regex.test(i.name)
                   })
         setDropdownItems(filtered_items)
@@ -125,17 +131,6 @@ const DropdownSearch = ({
             <BottomLabel contractSize={contractSize} error={error} />
         </>
     )
-}
-
-DropdownSearch.propTypes = {
-    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    default_item: PropTypes.any,
-    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    has_short_name: PropTypes.bool,
-    items: PropTypes.array,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    selected_item: PropTypes.any,
 }
 
 export default DropdownSearch

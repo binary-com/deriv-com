@@ -223,7 +223,7 @@ class DtraderTabs extends React.Component {
                             lh="1.5"
                             align="left"
                             start_time={7}
-                            end_time={13}
+                            end_time={20}
                             current_time={this.state.current_time}
                             onClick={() => {
                                 this.clickHandler(7)
@@ -239,7 +239,7 @@ class DtraderTabs extends React.Component {
                             type="sub-section-title"
                             lh="1.5"
                             align="left"
-                            start_time={13}
+                            start_time={20}
                             end_time={30}
                             current_time={this.state.current_time}
                             onClick={() => {

@@ -42,7 +42,6 @@ const p2p_allowed_countries = [
     'aq',
     'ar',
     'aw',
-    'ax',
     'az',
     'ba',
     'bb',

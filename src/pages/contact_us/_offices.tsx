@@ -154,7 +154,7 @@ const ContinentHeader = styled(Header)`
     flex-grow: 0;
 
     :nth-child(2) {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     @media ${device.mobileL} {

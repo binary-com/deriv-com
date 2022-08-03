@@ -202,7 +202,7 @@ const UnorderedList = styled.ul<DropdownStyledProps>`
         `}
 `
 
-export const Arrow = styled((props) => <Chevron {...props} />)`
+export const Arrow = styled(Chevron)`
     position: absolute;
     right: 8px;
     top: 25%;

@@ -238,7 +238,7 @@ export const Card = ({
                     )}
                 </>
             )}
-            {children && children}
+            {children}
         </CardWrapper>
     )
 }

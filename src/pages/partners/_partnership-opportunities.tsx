@@ -8,7 +8,9 @@ import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
 
-const ClientCard = styled(LocalizedLink)<{ first?: number; second?: number; third?: number }>`
+type ClientCardProps = { first?: number; second?: number; third?: number }
+
+const ClientCard = styled(LocalizedLink)<ClientCardProps>`
     ${CardStyle}
     text-decoration: none;
     max-width: 38.4rem;

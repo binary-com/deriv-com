@@ -14,7 +14,6 @@ type WebsiteStatusType = {
 export type DerivStoreType = {
     academy_data: AcademyDataType
     is_eu_country: boolean
-    is_p2p_allowed_country: boolean
     is_uk_country: boolean
     setWebsiteStatus: Dispatch<WebsiteStatusType | void>
     user_country: string
@@ -32,14 +31,12 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
     const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
-    const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
 
     useEffect(() => {
         if (website_status) {
             setEuCountry(!!isEuCountry(website_status.clients_country))
             setUkCountry(!!isUK(website_status.clients_country))
-            setP2PAllowedCountry(!!website_status.p2p_config)
             setUserCountry(website_status.clients_country)
         }
     }, [website_status])
@@ -49,7 +46,6 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
             value={{
                 academy_data,
                 is_eu_country,
-                is_p2p_allowed_country,
                 is_uk_country,
                 setWebsiteStatus,
                 user_country,

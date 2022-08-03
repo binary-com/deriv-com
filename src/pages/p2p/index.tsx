@@ -12,7 +12,7 @@ const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
 const Numbers = Loadable(() => import('./components/_numbers'))
 const Availability = Loadable(() => import('./components/_availability'))
-import { DerivStore } from 'store'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const DP2P_CONTENT = [
     {
@@ -64,9 +64,9 @@ const derivP2PPortalData = {
 
 const DP2PHome = () => {
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const is_p2p_allowed = useWebsiteStatus()[3]
 
-    if (is_p2p_allowed_country) {
+    if (is_p2p_allowed) {
         return (
             <Layout>
                 <SEO

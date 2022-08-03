@@ -10,6 +10,7 @@ export const useWebsiteStatus = () => {
     const [website_status, setWebsiteStatus] = useCookieState(null, WEBSITE_STATUS_COUNTRY_KEY, {
         expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
+    const [is_p2p_allowed, setIsp2pAllowed] = useState(false)
 
     const [is_loading, setLoading] = useState(true)
 
@@ -25,9 +26,10 @@ export const useWebsiteStatus = () => {
                 const response = JSON.parse(msg.data)
 
                 if (!response.error) {
-                    const { clients_country } = response.website_status
+                    const { clients_country, p2p_config } = response.website_status
 
                     setWebsiteStatus({ clients_country })
+                    setIsp2pAllowed(!!p2p_config)
                 }
                 setLoading(false)
                 binary_socket.close()
@@ -37,7 +39,7 @@ export const useWebsiteStatus = () => {
         }
     }, [setWebsiteStatus, website_status])
 
-    return [website_status, setWebsiteStatus, is_loading]
+    return [website_status, setWebsiteStatus, is_loading, is_p2p_allowed]
 }
 
 export const useWebsiteStatusApi = () => {

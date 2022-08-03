@@ -13,13 +13,13 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import { DerivStore } from 'store'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
 
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const is_p2p_allowed = useWebsiteStatus()[3]
 
     return (
         <Layout type="transparent" margin_top="0">
@@ -37,7 +37,7 @@ const Home = () => {
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />
-            {is_p2p_allowed_country && <P2PHomeBanner />}
+            {is_p2p_allowed && <P2PHomeBanner />}
             <Signup appearance={Appearances.public} />
         </Layout>
     )

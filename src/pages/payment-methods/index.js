@@ -10,6 +10,7 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 
@@ -121,7 +122,8 @@ const MobileWrapper = styled.div`
     }
 `
 const DisplayAccordion = (locale) => {
-    const { is_eu_country, is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext(DerivStore)
+    const is_p2p_allowed = useWebsiteStatus()[3]
     const [is_mobile] = useBrowserResize(992)
 
     const content_style = is_mobile
@@ -165,7 +167,7 @@ const DisplayAccordion = (locale) => {
 
                 if (pd.is_crypto && is_eu_country) {
                     return []
-                } else if (pd.is_dp2p && !is_p2p_allowed_country) {
+                } else if (pd.is_dp2p && !is_p2p_allowed) {
                     return []
                 } else
                     return (
@@ -303,7 +305,7 @@ DisplayAccordianItem.propTypes = {
 }
 
 const PaymentMethods = (locale) => {
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const is_p2p_allowed = useWebsiteStatus()[3]
     return (
         <Layout>
             <SEO
@@ -352,7 +354,7 @@ const PaymentMethods = (locale) => {
                     </Header>
                 </Container>
             </SectionContentContainer>
-            {is_p2p_allowed_country && (
+            {is_p2p_allowed && (
                 <>
                     <Divider height="2px" />
                     <SectionContainer>

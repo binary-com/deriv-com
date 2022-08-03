@@ -243,7 +243,7 @@ class DtraderTabs extends React.Component {
                             end_time={30}
                             current_time={this.state.current_time}
                             onClick={() => {
-                                this.clickHandler(13)
+                                this.clickHandler(20)
                                 this.updatePlay()
                             }}
                         >

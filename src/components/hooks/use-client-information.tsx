@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { getClientInformation, getDomain, useCallbackRef } from 'common/utility'
 
 export const useClientInformation = () => {
-    const [client_information, setClientInformation] = useState(false)
+    const [client_information, setClientInformation] = useState(null)
 
     const setCurrentClientInformation = () => {
         const current_client_information = getClientInformation(getDomain())

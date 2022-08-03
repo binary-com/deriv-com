@@ -1,12 +1,13 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
+
+type TrueOrFalse = 'true' | 'false'
 
 const Container = styled.div`
     position: relative;
@@ -30,8 +31,8 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled(Chevron)`
-    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+const Arrow = styled(Chevron)<{ expanded: TrueOrFalse }>`
+    ${({ expanded }) => (expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
     transition: transform 0.25s;
 
     & path {
@@ -42,7 +43,7 @@ const Arrow = styled(Chevron)`
     }
 `
 
-const Absolute = styled.div`
+const Absolute = styled.div<{ is_high_nav?: boolean; security?: TrueOrFalse; is_open?: boolean }>`
     position: absolute;
     z-index: -1;
     top: ${(props) => {
@@ -61,10 +62,10 @@ const Absolute = styled.div`
     cursor: default;
     border-radius: 4px;
     will-change: opacity;
-    display: ${(props) => !props.is_open && 'none'};
+    display: ${({ is_open }) => !is_open && 'none'};
 
     @media ${device.mobileL} {
-        top: ${(props) => (props.is_high_nav ? '7rem' : '9rem')};
+        top: ${({ is_high_nav }) => (is_high_nav ? '7rem' : '9rem')};
         left: 0;
     }
 `
@@ -86,7 +87,7 @@ const FadeOutUp = keyframes`
     }
 `
 
-const ItemContainer = styled.div`
+const ItemContainer = styled.div<{ is_open: boolean }>`
     background-color: var(--color-white);
     padding: 1.6rem 0.8rem;
     position: relative;
@@ -97,7 +98,7 @@ const ItemContainer = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     will-change: opacity;
-    animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
+    animation-name: ${({ is_open }) => (is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: 0.3s;
     @media ${device.mobileL} {
@@ -118,11 +119,11 @@ const ItemContainer = styled.div`
     }
 `
 
-const Item = styled.div`
+const Item = styled.div<{ disabled: boolean }>`
     display: flex;
     align-items: center;
-    pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
-    cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+    pointer-events: ${({ disabled }) => (disabled ? 'none' : 'all')};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     padding: 0.8rem 1.6rem;
     transition: background 0.25s;
 
@@ -194,7 +195,24 @@ const query = graphql`
     }
 `
 
-const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security }) => {
+type DropdownProps = {
+    default_option: {
+        path: string
+        short_name: string
+    }
+    onChange: (arg1: { target: { id: string } }) => void
+    option_list: { path: string; value: string; text: string }[]
+    is_high_nav?: boolean
+    security?: TrueOrFalse
+}
+
+const Dropdown = ({
+    default_option,
+    onChange,
+    option_list,
+    is_high_nav,
+    security,
+}: DropdownProps) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
     const data = useStaticQuery(query)
@@ -224,7 +242,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                     <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
                 </Display>
 
-                <Absolute is_high_nav={is_high_nav} is_open={is_open} security={security}>
+                <Absolute is_high_nav={is_high_nav} security={security} is_open={is_open}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null
@@ -256,14 +274,6 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
             </Container>
         </>
     )
-}
-
-Dropdown.propTypes = {
-    default_option: PropTypes.object,
-    is_high_nav: PropTypes.bool,
-    onChange: PropTypes.func,
-    option_list: PropTypes.array,
-    security: PropTypes.bool,
 }
 
 export default Dropdown

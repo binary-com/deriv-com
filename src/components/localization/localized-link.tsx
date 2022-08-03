@@ -1,5 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
+import React, {
+    CSSProperties,
+    ForwardedRef,
+    MutableRefObject,
+    Ref,
+    useContext,
+    useEffect,
+    useState,
+} from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
@@ -15,7 +22,33 @@ import {
 } from 'common/utility'
 import { DerivStore } from 'store'
 
-export const SharedLinkStyle = css`
+type InternalLinkProps = {
+    aria_label?: string
+    children?: string
+    has_no_end_slash?: boolean
+    is_anchor?: boolean
+    locale?: string
+    mounted?: boolean
+    to?: string
+    ref?: any
+}
+
+type ExternalLinkProps = {
+    aria_label?: string
+    children?: string
+    is_mail_link?: boolean
+    locale?: string
+    mounted?: boolean
+    onClick?: (arg: MouseEvent) => void
+    rel?: string
+    style?: CSSProperties
+    target?: string
+    to?: string
+    type?: string
+    ref?: any
+}
+
+export const SharedLinkStyle = css<{ active: boolean; disabled: boolean }>`
     color: var(--color-white);
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -42,8 +75,8 @@ export const SharedLinkStyle = css`
         text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
     }
 
-    ${(props) =>
-        props.active &&
+    ${({ active }) =>
+        active &&
         css`
             text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
 
@@ -53,9 +86,9 @@ export const SharedLinkStyle = css`
         `}
 `
 
-const ShareDisabledStyle = css`
-    ${(props) =>
-        props.disabled &&
+const ShareDisabledStyle = css<{ disabled: boolean }>`
+    ${({ disabled }) =>
+        disabled &&
         `
         pointer-events: none;
         opacity: 0.32;`}
@@ -73,7 +106,11 @@ const StyledGatsbyLink = styled(GatsbyLink)`
     ${ShareDisabledStyle}
 `
 
-export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
+type LocalizedLinkProps = {
+    external: boolean | 'true'
+}
+
+export const LocalizedLink = React.forwardRef(({ external, ...props }: LocalizedLinkProps, ref) => {
     const { locale } = useContext(LocaleContext)
     const [has_mounted, setMounted] = useState(false)
 
@@ -89,9 +126,6 @@ export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
 })
 
 LocalizedLink.displayName = 'LocalizedLink'
-LocalizedLink.propTypes = {
-    external: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-}
 
 const non_localized_links = ['/careers', '/academy']
 
@@ -104,7 +138,7 @@ const InternalLink = ({
     locale,
     to,
     ...props
-}) => {
+}: InternalLinkProps) => {
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
@@ -129,16 +163,6 @@ const InternalLink = ({
             {children}
         </StyledGatsbyLink>
     )
-}
-
-InternalLink.propTypes = {
-    aria_label: PropTypes.string,
-    children: PropTypes.node,
-    has_no_end_slash: PropTypes.bool,
-    is_anchor: PropTypes.bool,
-    locale: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    mounted: PropTypes.bool,
-    to: PropTypes.string.isRequired,
 }
 
 const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
@@ -185,7 +209,7 @@ const ExternalLink = ({
     to,
     type,
     ...props
-}) => {
+}: ExternalLinkProps) => {
     const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
@@ -236,19 +260,4 @@ const ExternalLink = ({
             {children}
         </StyledAnchor>
     )
-}
-
-ExternalLink.propTypes = {
-    aria_label: PropTypes.string,
-    children: PropTypes.node,
-    is_mail_link: PropTypes.bool,
-    locale: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    mounted: PropTypes.bool,
-    onClick: PropTypes.func,
-    ref: PropTypes.string,
-    rel: PropTypes.string,
-    style: PropTypes.object,
-    target: PropTypes.string,
-    to: PropTypes.string,
-    type: PropTypes.string,
 }

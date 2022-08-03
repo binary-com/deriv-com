@@ -1,13 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
 import { isBrowser } from 'common/utility'
 
+type WrapWithIntl = {
+    pageContext: {
+        locale: string
+    }
+}
+
 // HOC that pre renders a page with the translated language (during build)
 // Without this HOC the page will be translated on the client side dynamically
-export const WithIntl = () => (WrappedComponent) => {
-    const WrapWithIntl = ({ pageContext, ...props }) => {
+export const WithIntl = () => (WrappedComponent: JSX.IntrinsicAttributes) => {
+    const WrapWithIntl = ({ pageContext, ...props }: WrapWithIntl) => {
         const addResources = (pc, language) => {
             if (pc && pc.localeResources) {
                 if (!i18next.hasResourceBundle(language, 'translations')) {
@@ -27,11 +32,11 @@ export const WithIntl = () => (WrappedComponent) => {
                 }
             }
         }
-        WrapWithIntl.propTypes = {
-            pageContext: PropTypes.shape({
-                locale: PropTypes.string,
-            }),
-        }
+        // WrapWithIntl.propTypes = {
+        //     pageContext: PropTypes.shape({
+        //         locale: PropTypes.string,
+        //     }),
+        // }
         return (
             <I18nextProvider i18n={i18next}>
                 <WrappedComponent

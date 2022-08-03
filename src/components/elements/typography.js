@@ -188,7 +188,7 @@ export const SpanLinkText = styled(Text).attrs({ as: 'span' })`
 `
 
 Header.propTypes = {
-    as: PropTypes.string,
+    as: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
     type: PropTypes.string.isRequired,
 }

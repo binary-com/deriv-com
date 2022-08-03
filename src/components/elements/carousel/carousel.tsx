@@ -76,16 +76,6 @@ export const NextButton = ({
     </StyledButtonWrapper>
 )
 
-export type SlideStyleType = {
-    height?: string
-    marginRight?: string | number
-    paddingTop?: string | number
-    paddingBottom?: string | number
-    paddingRight?: string | number
-    position?: string
-    width?: string
-} & CSSProperties
-
 type ChevronStyleType = {
     chevron_color?: string
     chevron_left?: CSSProperties
@@ -117,10 +107,10 @@ type CarouselProps = {
     has_autoplay?: boolean
     navigation_style?: NavigationStyleType
     options?: OptionsType
-    slide_style: SlideStyleType
-    slide_inner_width: number
-    vertical_container: CSSProperties
-    view_port: CSSProperties
+    slide_style: CSSProperties
+    slide_inner_width?: string
+    vertical_container?: CSSProperties
+    view_port?: CSSProperties
     last_slide_no_spacing?: boolean
     navigation_css?: string[]
 }

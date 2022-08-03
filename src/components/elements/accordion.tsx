@@ -183,10 +183,10 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
 }
 
 type SingleAccordionContentProps = {
-    children: ChildType | ChildType[]
-    id: string
-    is_default_open: boolean
-    nodes: ReactNode
+    children?: ChildType | ChildType[]
+    id?: string
+    is_default_open?: boolean
+    nodes?: ReactNode
 }
 
 const SingleAccordionContent = ({
@@ -306,6 +306,7 @@ type AccordionItemProps = {
     header?: ReactNode
     header_style?: CSSProperties
     text?: string
+    plus?: boolean
 }
 
 const AccordionItem = ({ id, text, children, style }: AccordionItemProps) => {

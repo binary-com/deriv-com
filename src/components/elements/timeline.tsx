@@ -44,7 +44,7 @@ const OvalWrapper = styled.div`
     left: -13px;
 `
 
-const FlexWrapper = styled.div<{ is_border?: boolean; pb?: string }>`
+const FlexWrapper = styled.div<TimelineTickProps>`
     display: flex;
     border-left: ${(props) => (props.is_border ? 'var(--color-red) dashed 1px' : 'unset')};
     position: relative;
@@ -60,6 +60,7 @@ const Oval = () => {
 
 type TimelineTickProps = {
     pb?: string
+    is_border?: boolean
     color?: string
     children?: ReactNode[]
 }

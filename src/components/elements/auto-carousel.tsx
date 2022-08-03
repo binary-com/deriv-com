@@ -10,7 +10,6 @@ type CarouselItemProps = {
     transition_duration?: number
     count_child?: number
     animation_status?: string
-    [props: string]: unknown
 }
 
 const AutoCarouselSection = styled.section<CarouselItemProps & CSSProperties>`

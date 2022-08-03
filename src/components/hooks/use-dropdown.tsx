@@ -73,7 +73,6 @@ export const useDropdown = (
     }
 
     const handleChange = (option) => {
-        console.log(option)
         onChange(option)
         closeList()
     }

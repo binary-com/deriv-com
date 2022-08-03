@@ -202,12 +202,16 @@ const UnorderedList = styled.ul<DropdownStyledProps>`
         `}
 `
 
-export const Arrow = styled(Chevron)`
+type ArrowType = {
+    expanded?: boolean
+}
+
+export const Arrow = styled(Chevron)<ArrowType>`
     position: absolute;
     right: 8px;
     top: 25%;
     transition: transform 0.2s linear;
-    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+    ${(props) => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 
     & path {
         fill: var(--color-black);
@@ -276,14 +280,14 @@ type OptionsType = {
     name?: string | number
     display_name?: string | number
     key?: string
-    icon?: unknown
+    icon?: string
 }
 
 type SelectedType = {
     name?: string
     display_name?: string
     key?: string
-    icon?: unknown
+    icon?: string
 }
 
 type NodesType = {
@@ -321,7 +325,7 @@ export const ItemList = ({
                                     tabIndex="0"
                                     id={option?.name}
                                     key={option?.name}
-                                    ref={(c: string) => nodes.set(option?.display_name, c)}
+                                    ref={(c) => nodes.set(option?.display_name, c)}
                                     onClick={() => handleChange(option, error)}
                                     onKeyDown={(e) => {
                                         if (e.key === 'Tab' || e.key === 'Enter') {
@@ -370,7 +374,6 @@ export type DropdownProps = {
     default_option?: { display_name?: string }
     onBlur?: {
         (e: React.FocusEvent<any, Element>): void
-        <T = any>(fieldOrEvent: T): T extends string ? (e: any) => void : void
     }
     autoComplete?: string
     has_short_name?: boolean
@@ -420,7 +423,7 @@ const Dropdown = ({
                             <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         )}
                     </Symbol>
-                    <Arrow expanded={is_open ? 'true' : 'false'} />
+                    <Arrow expanded={is_open ? true : false} />
                 </DropdownSelected>
                 <ItemList
                     error={error}

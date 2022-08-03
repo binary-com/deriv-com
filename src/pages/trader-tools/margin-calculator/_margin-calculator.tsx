@@ -327,6 +327,7 @@ const MarginCalculator = () => {
                                 header={localize('Margin required')}
                                 header_style={header_style}
                                 style={item_style}
+                                plus
                             >
                                 <Text mb="16px">
                                     {localize(

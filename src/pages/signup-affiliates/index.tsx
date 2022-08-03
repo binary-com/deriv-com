@@ -291,7 +291,13 @@ const AffiliateSignup = ({ autofocus, is_response, onSubmit }: AffiliateSignupPr
                                 onChange={onChange}
                             />
                         </CaptchaContainer>
-                        <EmailButton type="submit" secondary="true" id="partner-signup">
+                        <EmailButton
+                            disabled={is_submitting || !email || email_error_msg}
+                            type="submit"
+                            onClick={handleEmailSignup}
+                            secondary="true"
+                            id="partner-signup"
+                        >
                             {localize('Create partner account')}
                         </EmailButton>
                         <SignupWithContainer>

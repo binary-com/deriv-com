@@ -127,7 +127,8 @@ const DisplayAccordion = (locale) => {
     const content_style = is_mobile
         ? {
               boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-              boborderBottomRightRadius: '6px',
+              borderBottomLeftRadius: '6px',
+              borderBottomRightRadius: '6px',
           }
         : {
               background: 'var(--color-white)',

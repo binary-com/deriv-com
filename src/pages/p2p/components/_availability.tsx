@@ -25,7 +25,7 @@ const Column = styled.div`
     margin-bottom: 32px;
 
     :first-child {
-        flex-basis: 6%;
+        flex-basis: 7%;
     }
 `
 const Section = styled(SectionContainer)`
@@ -55,9 +55,6 @@ const PlatformCard = styled.article`
         max-height: unset;
         max-width: 328px;
         margin-bottom: 16px;
-    }
-    @media ${device.mobileM} {
-        max-width: 335px;
     }
 `
 const StyledHeader = styled(Header)`

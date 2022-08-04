@@ -26,8 +26,8 @@ const ReasonHeader = styled(Header)`
     }
 `
 const Reason = styled.div`
-    width: 384px;
     margin-top: 4rem;
+    width: 384px;
 
     &:nth-child(2) {
         @media ${device.mobileL} {
@@ -50,6 +50,9 @@ const Reason = styled.div`
             text-align: center;
             font-size: 14px;
         }
+    }
+    @media ${device.laptopL} {
+        width: auto;
     }
 `
 const StyledFlex = styled(Flex)`

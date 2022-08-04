@@ -56,7 +56,7 @@ const TryButton = styled(LinkButton)`
 `
 const ButtonDerivP2P = styled(Button)`
     padding: 1.5rem 1.6rem;
-    height: 54px;
+    height: 40px;
     margin: 15px auto;
     width: 100%;
     white-space: nowrap;

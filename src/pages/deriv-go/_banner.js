@@ -103,8 +103,8 @@ const BannerWrapper = styled(Flex)`
 `
 const ButtonDerivGO = styled(Button)`
     padding: 1.5rem 1.6rem;
-    height: 64px;
-    width: 100%;
+    height: 59px;
+    width: 90vw;
     white-space: nowrap;
     margin-top: 24px;
     margin-bottom: 40px;
@@ -223,19 +223,19 @@ const Banner = () => {
                             >
                                 <AppButton
                                     external="true"
-                                    to={deriv_go_playstore_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <QueryImage data={data['google_play']} alt="google play logo" />
-                                </AppButton>
-                                <AppButton
-                                    external="true"
                                     to={deriv_go_ios_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <QueryImage data={data['app_store']} alt="app store logo" />
+                                </AppButton>
+                                <AppButton
+                                    external="true"
+                                    to={deriv_go_playstore_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <QueryImage data={data['google_play']} alt="google play logo" />
                                 </AppButton>
                                 <AppButton
                                     external="true"

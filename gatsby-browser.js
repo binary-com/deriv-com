@@ -87,18 +87,30 @@ export const wrapRootElement = ({ element }) => {
 }
 
 export const onInitialClientRender = () => {
-    // Enable translation
-    // Check if not production and match ach or ach/
     if (is_browser) {
-        const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
+        // Check for PerformanceLongTaskTiming compatibility before collecting measurement
+        const tti_script = document.createElement('script')
+        tti_script.type = 'text/javascript'
+        tti_script.text = `!(function () {
+                if ('PerformanceLongTaskTiming' in window) {
+                    var g = (window.__tti = { e: [] });
+                    g.o = new PerformanceObserver(function (l) {
+                        g.e = g.e.concat(l.getEntries());
+                    });
+                    g.o.observe({ entryTypes: ['longtask'] });
+                }
+            })();`
+        document.head.appendChild(tti_script)
 
+        // Enable translation
+        // Check if not production and match ach or ach/
+        const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
         if (match_ach) {
             // TODO: remove this line when production ready for translation
             if (!isProduction()) LocalStore.set('i18n', 'ach')
         }
 
         const i18n = LocalStore.get('i18n')
-
         if (!isProduction() && i18n && i18n.match('ach')) {
             const jipt = document.createElement('script')
             jipt.type = 'text/javascript'
@@ -119,6 +131,11 @@ export const onClientEntry = () => {
     if (isLive()) {
         pushwooshInit(push_woosh)
     }
+    // Add VWO script for test domain
+    addScript({
+        text: `
+        window._vwo_code=window._vwo_code||function(){var b="body",c=!1,d=document,a={use_existing_jquery:function(){return!1},library_tolerance:function(){return 2500},finish:function(){if(!c){c=!0;var a=d.getElementById("_vis_opt_path_hides");a&&a.parentNode.removeChild(a)}},finished:function(){return c},load:function(b){var a=d.createElement("script");a.src=b,a.type="text/javascript",a.innerText,a.onerror=function(){_vwo_code.finish()},d.getElementsByTagName("head")[0].appendChild(a)},init:function(){window.settings_timer=setTimeout(function(){_vwo_code.finish()},2e3);var a=d.createElement("style"),c=b?b+"{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}":"",e=d.getElementsByTagName("head")[0];return a.setAttribute("id","_vis_opt_path_hides"),a.setAttribute("type","text/css"),a.styleSheet?a.styleSheet.cssText=c:a.appendChild(d.createTextNode(c)),e.appendChild(a),this.load("https://dev.visualwebsiteoptimizer.com/j.php?a=629574&u="+encodeURIComponent(d.URL)+"&f=1&r="+Math.random()),settings_timer}};return window._vwo_settings_timer=a.init(),a}()`,
+    })
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {

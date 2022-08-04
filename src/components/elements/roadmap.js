@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { QueryImage } from 'components/elements'
 import { Header, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -12,7 +10,7 @@ import device from 'themes/device'
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
     padding-top: 80px;
-    padding-bottom: 0;
+    padding-bottom: 120px;
 
     @media ${device.tabletL} {
         padding-top: 40px;
@@ -34,15 +32,13 @@ const StyledText = styled(Text)`
     }
 `
 const StyledFrame = styled.div`
-    padding: 40px 40px 0 40px;
+    padding: 40px 120px 0 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1;
     position: relative;
-    top: 310px;
-    margin-top: -310px;
 
     @media ${device.laptopM} {
         top: 55px;
@@ -54,7 +50,6 @@ const StyledFrame = styled.div`
 
     & iframe {
         border-radius: 8px;
-        max-width: 1040px;
         min-height: 594px;
 
         @media ${device.mobileM} {
@@ -62,32 +57,13 @@ const StyledFrame = styled.div`
         }
     }
 `
-
-const StyledRoadmap = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-`
-
 const StyledButton = styled(LinkButton)`
     margin-top: 40px;
     position: relative;
     max-width: 120px;
     z-index: 3;
 `
-
-const query = graphql`
-    query {
-        roadmap: file(relativePath: { eq: "deriv-go/roadmap.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const Roadmap = ({ portal }) => {
-    const data = useStaticQuery(query)
-
     return (
         <StyledSectionContainer>
             <Container>
@@ -113,14 +89,6 @@ const Roadmap = ({ portal }) => {
                         {localize('Go to portal')}
                     </StyledButton>
                 </StyledFrame>
-                <StyledRoadmap>
-                    <QueryImage
-                        data={data['roadmap']}
-                        alt={'roadmap'}
-                        width="100%"
-                        className="content-wrapper"
-                    />
-                </StyledRoadmap>
             </>
         </StyledSectionContainer>
     )

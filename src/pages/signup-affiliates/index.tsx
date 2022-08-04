@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
 import Cookies from 'js-cookie'
 import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
@@ -138,7 +138,6 @@ const ImageWrapper = styled.div`
 type AffiliateSignupProps = {
     autofocus: boolean
     email_error_msg: string
-    is_response: true
     email: string
     submit_status: string | ReactElement
     is_submitting: boolean
@@ -146,7 +145,7 @@ type AffiliateSignupProps = {
     onSubmit?: (submit_status: string, email: string) => void
 }
 
-const AffiliateSignup = ({ autofocus, is_response, onSubmit }: AffiliateSignupProps) => {
+const AffiliateSignup = ({ autofocus, onSubmit }: AffiliateSignupProps) => {
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -342,9 +341,10 @@ const AffiliateSignup = ({ autofocus, is_response, onSubmit }: AffiliateSignupPr
                             {localize('Check your email')}
                         </Header>
                         <Header type="paragraph-1" align="center" weight="400" pt="8px">
-                            {localize(
-                                "We've sent a message to test@deriv.com with a link to activate your account.",
-                            )}
+                            <Localize
+                                translate_text="We've sent a message to {{email}} with a link to activate your account."
+                                values={{ email: email }}
+                            />
                         </Header>
                         <EmailText id="dm-new-login-button" align="center" color="red">
                             {localize('Didn’t receive your email?')}

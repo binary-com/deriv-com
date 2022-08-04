@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
 import Cookies from 'js-cookie'
@@ -13,7 +13,6 @@ import Facebook from 'images/svg/custom/facebooknew-blue.svg'
 import Email from 'images/svg/check-email/new email.svg'
 import validation from 'common/validation'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 
 const StyledNote = styled.div`
@@ -135,17 +134,8 @@ const EmailWrapper = styled.div`
 const ImageWrapper = styled.div`
     margin: auto;
 `
-type AffiliateSignupProps = {
-    autofocus: boolean
-    email_error_msg: string
-    email: string
-    submit_status: string | ReactElement
-    is_submitting: boolean
-    submit_error_msg: ReactElement
-    onSubmit?: (submit_status: string, email: string) => void
-}
 
-const AffiliateSignup = ({ autofocus, onSubmit }: AffiliateSignupProps) => {
+const AffiliateSignup = () => {
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -188,40 +178,6 @@ const AffiliateSignup = ({ autofocus, onSubmit }: AffiliateSignupProps) => {
         }
     }
 
-    const handleEmailSignup = (e) => {
-        e.preventDefault()
-        setSubmitting(true)
-        const formatted_email = email.replace(/\s/g, '')
-        handleValidation(email)
-        const has_error_email = validateEmail(formatted_email)
-        if (has_error_email || email_error_msg) {
-            return setSubmitting(false)
-        }
-
-        const verify_email_req = getVerifyEmailRequest(formatted_email)
-        const binary_socket = BinarySocketBase.init()
-
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify(verify_email_req))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
-            setSubmitting(false)
-            if (response.error) {
-                binary_socket.close()
-                setSubmitStatus('error')
-                setSubmitErrorMsg(response.error.message)
-                handleValidation(formatted_email)
-            } else {
-                setSubmitStatus('success')
-                if (onSubmit) {
-                    onSubmit(submit_status || 'success', email)
-                }
-            }
-
-            binary_socket.close()
-        }
-    }
     const clearEmail = () => {
         setEmail('')
         setEmailErrorMsg('')
@@ -276,7 +232,6 @@ const AffiliateSignup = ({ autofocus, onSubmit }: AffiliateSignupProps) => {
                                 value={email}
                                 label={localize('Email')}
                                 placeholder={'Email'}
-                                autoFocus={autofocus}
                                 autoComplete="off"
                                 handleError={clearEmail}
                                 onChange={handleInputValidation}
@@ -293,7 +248,6 @@ const AffiliateSignup = ({ autofocus, onSubmit }: AffiliateSignupProps) => {
                         <EmailButton
                             disabled={is_submitting || !email || email_error_msg}
                             type="submit"
-                            onClick={handleEmailSignup}
                             secondary="true"
                             id="partner-signup"
                         >

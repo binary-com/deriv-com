@@ -36,9 +36,10 @@ export type VideosType = {
     visibility: string
     published_date: string
     tags: TagsType[]
+    vimeo_id: string
     video_description: string
     video_duration: string
-    video_file: VideoFileType
+    video_slug: string
     video_thumbnail: VideoThumbnailType
     video_title: string
 }
@@ -64,7 +65,7 @@ export const useAcademyData = (): [AcademyDataType] => {
 const query = graphql`
     query StoreQuery {
         directus {
-            blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
+            blog(filter: { status: { _eq: "published" } }, sort: "-published_date", limit: -1) {
                 id
                 main_image {
                     id
@@ -93,6 +94,7 @@ const query = graphql`
                 published_date
                 video_description
                 video_duration
+                video_slug
                 featured
                 visibility
                 video_thumbnail {
@@ -104,9 +106,6 @@ const query = graphql`
                             gatsbyImageData(width: 382, aspectRatio: 1.82)
                         }
                     }
-                }
-                video_file {
-                    id
                 }
                 tags {
                     tags_id {

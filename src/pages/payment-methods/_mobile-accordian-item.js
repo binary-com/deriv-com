@@ -24,7 +24,7 @@ const Notes = styled.div`
     padding: 16px;
 `
 
-const MobileAccordianItem = ({ crypto_config, locale, pd }) => {
+const MobileAccordianItem = ({ locale, pd }) => {
     return (
         <>
             <ParentWrapper>
@@ -34,7 +34,6 @@ const MobileAccordianItem = ({ crypto_config, locale, pd }) => {
                             <MobileExpandedList
                                 payment_data={items}
                                 locale={locale}
-                                crypto_config={crypto_config}
                                 is_crypto={pd.is_crypto}
                                 is_fiat_onramp={pd.is_fiat_onramp}
                                 is_dp2p={pd.is_dp2p}
@@ -56,7 +55,6 @@ const MobileAccordianItem = ({ crypto_config, locale, pd }) => {
 }
 
 MobileAccordianItem.propTypes = {
-    crypto_config: PropTypes.object,
     locale: PropTypes.object,
     pd: PropTypes.object,
 }

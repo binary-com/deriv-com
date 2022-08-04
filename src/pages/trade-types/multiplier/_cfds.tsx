@@ -7,7 +7,7 @@ import { MajorPairs } from '../../markets/instruments/_index'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -28,7 +28,7 @@ const StyledTitle = styled(Text)`
 
 const CFDs = () => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const { is_row } = getCountryRule()
+    const { is_row } = useCountryRule()
 
     const major_pairs: MarketInstrumentsElement = {
         markets_list: {

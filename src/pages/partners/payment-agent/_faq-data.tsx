@@ -48,9 +48,7 @@ const General = () => (
             }}
         >
             <Localize
-                translate_text="No, it isn’t. <0>Deriv P2P</0> is a peer-to-peer service for our clients to make deposits and
-                                withdrawals using their local currency. As our payment agent, you can use Deriv P2P to offer
-                                your services to Deriv clients in your country."
+                translate_text="No, it isn’t. <0>Deriv P2P</0> is a peer-to-peer service for our clients to make deposits and withdrawals using their local currency. As our payment agent, you can use Deriv P2P to offer your services to Deriv clients in your country."
                 components={[
                     <LocalizedLinkText
                         to="/p2p"
@@ -284,7 +282,7 @@ const AccountManagement = () => (
             }}
         >
             {localize(
-                'Yes. As a payment agent, you will still be able to trade with your account.',
+                'No. You can only use your account as a payment agent to perform clients’ deposits and withdrawal requests. For trading purposes, you will need to open a separate account.',
             )}
         </Header>
     </>

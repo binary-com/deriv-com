@@ -273,11 +273,7 @@ const CarouselItem = ({
     }
 
     return (
-        <ItemWrapper
-            onMouseOver={() => handleHover(true)}
-            onMouseLeave={() => handleHover(false)}
-            onClick={(e) => !is_mobile && e.preventDefault()}
-        >
+        <ItemWrapper onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>
             <StyledLink to={url}>
                 <CarouselItemContainer
                     direction="column"
@@ -304,9 +300,6 @@ const CarouselItem = ({
                                 alt={header}
                                 loading="eager"
                                 $hovered={is_hovered}
-                                onClick={(e) => {
-                                    !is_mobile && e.preventDefault()
-                                }}
                             />
                         </>
                     </Desktop>

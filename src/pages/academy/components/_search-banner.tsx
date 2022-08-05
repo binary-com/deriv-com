@@ -754,9 +754,18 @@ const SearchBanner = ({ hidden }: SearchBannerProps) => {
         return `/academy/search?category=${encodeURIComponent(slugify(category))}`
     }
 
+    const topics_ref = React.useRef()
+
+    useOutsideClick(topics_ref, () => setModal(false))
+
     return (
         <ParentWrapper overlay={modal_opened}>
-            <MainWrapper fd="column" background={hidden} hide_box_shadow={blog_post_url}>
+            <MainWrapper
+                ref={topics_ref}
+                fd="column"
+                background={hidden}
+                hide_box_shadow={blog_post_url}
+            >
                 <NavWrapper>
                     <Flex ai="center" jc="space-between">
                         <Link to="/academy">

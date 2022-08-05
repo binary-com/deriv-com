@@ -127,21 +127,17 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                 tabletL={{ m: '3.2rem 3.8rem' }}
                                 mobileL={{ m: '32px 0 40px' }}
                             >
-                                {download_links.map((link) => (
-                                    <>
-                                        {!link.should_hide_in_mobile && (
-                                            <DownloadLink
-                                                key={link.type}
-                                                external="true"
-                                                type={link?.link_type}
-                                                to={link?.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <img src={getOSIcon(link.type)} alt={link.type} />
-                                            </DownloadLink>
-                                        )}
-                                    </>
+                                {download_links.is_mobile.map((link) => (
+                                    <DownloadLink
+                                        key={link.type}
+                                        external="true"
+                                        type={link?.link_type}
+                                        to={link?.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img src={getOSIcon(link.type)} alt={link.type} />
+                                    </DownloadLink>
                                 ))}
                             </Flex>
                         </CarouselItemWrapper>

@@ -46,7 +46,7 @@ const DisableTwoFactorAuthentication = ({ text }: ArticleProps) => (
                 translate_text="Please <0>contact us via live chat</0> immediately, and we'll help to disable 2FA on your account. When you have a new phone, please <1>re-enable 2FA</1>."
                 components={[
                     <ExternalLink
-                        to={'/contact-us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"

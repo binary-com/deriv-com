@@ -518,7 +518,7 @@ const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => (
                 translate_text="If you're residing in the EU or UK, <0>contact us via live chat</0>, and we'll help you with it."
                 components={[
                     <StyledLink
-                        to={'/contact-us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"
@@ -533,7 +533,7 @@ const RemoveSelfExclusionLimits = ({ text }: ArticleProps) => (
                 translate_text="If you reside in any other country, you can adjust or remove your limits on the <1>Self-exclusion</1> page. If you’re unable to change your limits, <0>let us know via live chat</0>."
                 components={[
                     <StyledLink
-                        to={'/contact-us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"
@@ -562,7 +562,7 @@ const ReactivateMyDerivAccount = ({ text }: ArticleProps) => (
                 translate_text="You may reactivate your account by <1>logging in</1> with your email address and password. If you're unable to do so, please <0>contact us via live chat</0>, and we'll help you further."
                 components={[
                     <StyledLink
-                        to={'/contact-us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"
@@ -756,7 +756,7 @@ const WhyWereMyDocumentsDeclined = ({ text }: ArticleProps) => (
                 translate_text="We may have declined your documents because they were unclear, invalid, expired, had cropped edges, or showed details that did not match your Deriv profile. If you need help, please <0>contact us via live chat</0>."
                 components={[
                     <StyledLink
-                        to={'/contact-us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"

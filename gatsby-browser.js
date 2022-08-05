@@ -88,7 +88,6 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
-
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'

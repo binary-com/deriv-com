@@ -293,7 +293,7 @@ const PaymentMethodsOnTheWithdrawalPage = ({ text }: ArticleProps) => (
                 translate_text="Your payment method will only appear on the Withdrawal page after you've made your first deposit. If you've made a deposit and still don't see your payment method on the Withdrawal screen, it's probably because the payment method you used for the deposit cannot be used for withdrawals. In this case, you may need to use a different payment method that supports withdrawals, too. <0>Contact us via live chat</0> if you need help."
                 components={[
                     <ExternalLink
-                        to={'/contact_us/?is_livechat_open=true'}
+                        to={'/contact-us/?is_livechat_open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"

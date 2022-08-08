@@ -55,6 +55,7 @@ import {
 import { Flex, ROW, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -215,7 +216,7 @@ const SwapCalculator = () => {
     const onTabClick = (t) => {
         setTab(t)
     }
-
+    const { is_eu } = useCountryRule()
     return (
         <>
             <BreadCrumbContainer>
@@ -240,21 +241,26 @@ const SwapCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex mt="80px" mb={is_eu ? '0px' : '40px'} tablet={{ mt: '40px', mb: '24px' }}>
                     <ROW>
-                        <SwapTabSelector
-                            active={tab === 'Synthetic'}
-                            onClick={() => onTabClick('Synthetic')}
-                        >
-                            <Text size="var(--text-size-m)" align="center">
-                                {localize('Synthetic')}
-                            </Text>
-                        </SwapTabSelector>
-                        <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                            <Text size="var(--text-size-m)" align="center">
-                                {localize('Financial')}
-                            </Text>
-                        </SwapTabSelector>
+                        <>
+                            <SwapTabSelector
+                                active={tab === 'Synthetic'}
+                                onClick={() => onTabClick('Synthetic')}
+                            >
+                                <Text size="var(--text-size-m)" align="center">
+                                    {localize('Synthetic')}
+                                </Text>
+                            </SwapTabSelector>
+                            <SwapTabSelector
+                                active={tab === 'Real'}
+                                onClick={() => onTabClick('Real')}
+                            >
+                                <Text size="var(--text-size-m)" align="center">
+                                    {localize('Financial')}
+                                </Text>
+                            </SwapTabSelector>
+                        </>
                     </ROW>
                 </Flex>
 

@@ -165,7 +165,7 @@ module.exports = {
                 //     {
                 //       start_url: '/de/',
                 //       lang: 'de',
-                //       name: 'Die coole Anwendung',
+                //       name: 'Die coole Test',
                 //       short_name: 'Coole Anwendung',
                 //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
                 //     },

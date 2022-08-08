@@ -243,24 +243,19 @@ const SwapCalculator = () => {
 
                 <Flex mt="80px" mb={is_eu ? '0px' : '40px'} tablet={{ mt: '40px', mb: '24px' }}>
                     <ROW>
-                        <>
-                            <SwapTabSelector
-                                active={tab === 'Synthetic'}
-                                onClick={() => onTabClick('Synthetic')}
-                            >
-                                <Text size="var(--text-size-m)" align="center">
-                                    {localize('Synthetic')}
-                                </Text>
-                            </SwapTabSelector>
-                            <SwapTabSelector
-                                active={tab === 'Real'}
-                                onClick={() => onTabClick('Real')}
-                            >
-                                <Text size="var(--text-size-m)" align="center">
-                                    {localize('Financial')}
-                                </Text>
-                            </SwapTabSelector>
-                        </>
+                        <SwapTabSelector
+                            active={tab === 'Synthetic'}
+                            onClick={() => onTabClick('Synthetic')}
+                        >
+                            <Text size="var(--text-size-m)" align="center">
+                                {localize('Synthetic')}
+                            </Text>
+                        </SwapTabSelector>
+                        <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
+                            <Text size="var(--text-size-m)" align="center">
+                                {localize('Financial')}
+                            </Text>
+                        </SwapTabSelector>
                     </ROW>
                 </Flex>
 

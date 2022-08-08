@@ -10,17 +10,19 @@ import MarketsFold from './home/_markets_fold'
 import Hero from './home/_hero'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import { SEO, ROW } from 'components/containers'
+import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
 import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
+import { DerivStore } from 'store'
 //const MarketsFold = React.lazy(() => import('./home/_markets_fold'));
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
-    useOpenLiveChat()
+    useOpenLiveChat(1)
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
     const target = '#market-fold'
     const options = {
         root: null,
@@ -66,7 +68,7 @@ const Home = () => {
                     </div>
                 }
             />
-            <ROW>
+            {is_p2p_allowed_country && (
                 <P2PHomeBanner
                     fallback={
                         <div>
@@ -74,7 +76,7 @@ const Home = () => {
                         </div>
                     }
                 />
-            </ROW>
+            )}
         </>
     )
     const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)

@@ -172,7 +172,12 @@ module.exports = {
                 //   ],
             },
         },
-        `gatsby-plugin-offline`,
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+              precachePages: [`/trade-types/*`, `/markets/*`, '/help-center/'],
+            },
+          },
         `gatsby-plugin-percy`,
         {
             resolve: 'gatsby-plugin-svgr',

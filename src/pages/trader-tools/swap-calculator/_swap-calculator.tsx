@@ -52,7 +52,7 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
-import { Flex, Show } from 'components/containers'
+import { Flex, ROW, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
@@ -241,19 +241,21 @@ const SwapCalculator = () => {
                 </SectionSubtitle>
 
                 <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
-                    <SwapTabSelector
-                        active={tab === 'Synthetic'}
-                        onClick={() => onTabClick('Synthetic')}
-                    >
-                        <Text size="var(--text-size-m)" align="center">
-                            {localize('Synthetic')}
-                        </Text>
-                    </SwapTabSelector>
-                    <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                        <Text size="var(--text-size-m)" align="center">
-                            {localize('Financial')}
-                        </Text>
-                    </SwapTabSelector>
+                    <ROW>
+                        <SwapTabSelector
+                            active={tab === 'Synthetic'}
+                            onClick={() => onTabClick('Synthetic')}
+                        >
+                            <Text size="var(--text-size-m)" align="center">
+                                {localize('Synthetic')}
+                            </Text>
+                        </SwapTabSelector>
+                        <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
+                            <Text size="var(--text-size-m)" align="center">
+                                {localize('Financial')}
+                            </Text>
+                        </SwapTabSelector>
+                    </ROW>
                 </Flex>
 
                 {tab === 'Synthetic' ? (

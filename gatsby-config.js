@@ -165,13 +165,15 @@ module.exports = {
                 //     {
                 //       start_url: '/de/',
                 //       lang: 'de',
-                //       name: 'Die coole Test',
+                //       name: 'Die coole Anwendung',
                 //       short_name: 'Coole Anwendung',
                 //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
                 //     },
                 //   ],
             },
         },
+        `gatsby-plugin-offline`,
+        `gatsby-plugin-percy`,
         {
             resolve: 'gatsby-plugin-svgr',
             options: {

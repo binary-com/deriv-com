@@ -178,7 +178,7 @@ module.exports = {
               precachePages: [`/trade-types/*`, `/markets/*`, '/help-center/'],
             },
           },
-        `gatsby-plugin-percy`,
+        `gatsby-cypress`,
         {
             resolve: 'gatsby-plugin-svgr',
             options: {

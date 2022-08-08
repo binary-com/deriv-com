@@ -8,6 +8,9 @@ const StepperWrapper = styled.div`
     justify-content: space-between;
     width: 700px;
     margin: 0 auto;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const StepperItem = styled.div<{ active: boolean }>`

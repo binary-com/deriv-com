@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Footer from './footer'
 import Header from './header'
 import Stepper from './stepper'
+import device from 'themes/device'
 
 type WizardProps = {
     children: React.ReactElement[]
@@ -14,7 +15,7 @@ type WizardProps = {
 const Background = styled.div`
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     background-color: var(--color-black);
@@ -35,6 +36,15 @@ const Modal = styled.div`
     max-width: 1200px;
     z-index: 100;
     border-radius: 8px;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+    @media ${device.laptop} {
+        width: 80%;
+    }
 `
 
 export const StepContext = React.createContext(null)

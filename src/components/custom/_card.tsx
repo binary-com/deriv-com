@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Selected_svg from 'images/svg/selected.svg'
 
-type CardProps = {
-    icon: string
-    title: string
-    description: string
+export type CardProps = {
+    icon?: string
+    title?: string | object
+    description?: string | object
     selected?: boolean
 }
 
@@ -21,6 +21,9 @@ const StyledCard = styled.div<{ selected: boolean }>`
     border: ${(props) => (props.selected ? '1px solid #aad2d8' : '1px solid #ffffff')};
     border-radius: 8px;
     cursor: pointer;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const Icon = styled.img`

@@ -18,7 +18,7 @@ type SharedButtonStyleProps = {
     hero?: TrueOrFalse
 }
 
-type ButtonProps = React.HTMLProps<HTMLButtonElement> &
+export type ButtonProps = React.HTMLProps<HTMLButtonElement> &
     SharedButtonStyleProps &
     MarginsType &
     PaddingsType

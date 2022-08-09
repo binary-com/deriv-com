@@ -1,12 +1,4 @@
-import React, {
-    CSSProperties,
-    ForwardedRef,
-    MutableRefObject,
-    Ref,
-    useContext,
-    useEffect,
-    useState,
-} from 'react'
+import React, { CSSProperties, Ref, useContext, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
@@ -24,28 +16,27 @@ import { DerivStore } from 'store'
 
 type InternalLinkProps = {
     aria_label?: string
-    children?: string
+    children?: string | JSX.Element | JSX.Element[]
     has_no_end_slash?: boolean
     is_anchor?: boolean
     locale?: string
     mounted?: boolean
     to?: string
-    ref?: any
+    ref?: Ref<GatsbyLink<string>>
 }
 
-type ExternalLinkProps = {
-    aria_label?: string
-    children?: string
+type ExternalLinkProps = InternalLinkProps & {
     is_mail_link?: boolean
-    locale?: string
-    mounted?: boolean
     onClick?: (arg: MouseEvent) => void
     rel?: string
     style?: CSSProperties
     target?: string
-    to?: string
     type?: string
-    ref?: any
+}
+
+type LocalizedLinkProps = ExternalLinkProps & {
+    external?: boolean | 'true'
+    weight?: string
 }
 
 export const SharedLinkStyle = css<{ active: boolean; disabled: boolean }>`
@@ -106,24 +97,22 @@ const StyledGatsbyLink = styled(GatsbyLink)`
     ${ShareDisabledStyle}
 `
 
-type LocalizedLinkProps = {
-    external: boolean | 'true'
-}
+export const LocalizedLink = React.forwardRef(
+    ({ external, ...props }: LocalizedLinkProps, ref: Ref<GatsbyLink<string>>) => {
+        const { locale } = useContext(LocaleContext)
+        const [has_mounted, setMounted] = useState(false)
 
-export const LocalizedLink = React.forwardRef(({ external, ...props }: LocalizedLinkProps, ref) => {
-    const { locale } = useContext(LocaleContext)
-    const [has_mounted, setMounted] = useState(false)
+        useEffect(() => {
+            setMounted(true)
+        }, [])
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+        if (external || external === 'true') {
+            return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
+        }
 
-    if (external || external === 'true') {
-        return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
-    }
-
-    return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
-})
+        return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
+    },
+)
 
 LocalizedLink.displayName = 'LocalizedLink'
 

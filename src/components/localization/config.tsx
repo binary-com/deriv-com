@@ -1,5 +1,4 @@
 import i18n, { use, t } from 'i18next'
-import type { TFunctionDetailedResult } from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { str as crc32 } from 'crc-32'
 import language_config from '../../../i18n-config'
@@ -34,12 +33,7 @@ use(initReactI18next).init({
 
 i18n.languages = Object.keys(language_config)
 
-type LocalizeProps = {
-    string: TFunctionDetailedResult
-    values?: { search: string }
-}
-
-export const localize = (string, values): LocalizeProps =>
+export const localize = (string: string, values?: { search: string }) =>
     t(String(crc32(string)), { defaultValue: string, ...values })
 
 export default i18n

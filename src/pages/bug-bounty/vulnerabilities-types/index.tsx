@@ -90,7 +90,7 @@ const VulnerabilitiesTypes = () => {
                                 <Flex mt="40px" ai="center">
                                     <IconWrap src={item.icon} />
                                     <Header as="h2" type="subtitle-1" ml="8px">
-                                        {localize(item.title)}
+                                        {item.title}
                                     </Header>
                                 </Flex>
 

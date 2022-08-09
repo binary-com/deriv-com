@@ -341,7 +341,6 @@ const SideSubscriptionBanner = () => {
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        fontSize="14px"
                                         translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                         components={[
                                             <StyledLocalizedLink

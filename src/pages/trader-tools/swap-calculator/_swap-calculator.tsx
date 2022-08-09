@@ -55,6 +55,7 @@ import {
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -215,6 +216,19 @@ const SwapCalculator = () => {
     const onTabClick = (t) => {
         setTab(t)
     }
+    const deriv_api = useDerivApi()
+
+    const fetchTickData = (selectedSymbol, setAssetPrice) => {
+        const { send } = deriv_api
+        send({ ticks: selectedSymbol }, (response) => {
+            if (!response.error) {
+                setAssetPrice('assetPrice', response.tick.quote)
+                send({ forget: response.tick.id }, (response) => {
+                    return
+                })
+            }
+        })
+    }
 
     return (
         <>
@@ -320,9 +334,19 @@ const SwapCalculator = () => {
                                                     default_option={optionItemDefault}
                                                     selected_option={values.symbol}
                                                     id="symbol"
-                                                    onChange={swap_currency_change_handler(
-                                                        setFieldValue,
-                                                    )}
+                                                    onChange={(value) => {
+                                                        console.log('symbol value', value)
+                                                        setFieldValue(
+                                                            'swapCurrency',
+                                                            getCurrency(value),
+                                                        )
+                                                        setFieldValue(
+                                                            'contractSize',
+                                                            getContractSize(value),
+                                                        )
+                                                        setFieldValue('symbol', value)
+                                                        fetchTickData(value.symbol, setFieldValue)
+                                                    }}
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
@@ -376,10 +400,6 @@ const SwapCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength={getMaxLength(
-                                                                    values.assetPrice,
-                                                                    15,
-                                                                )}
                                                                 background="white"
                                                             />
                                                         )}

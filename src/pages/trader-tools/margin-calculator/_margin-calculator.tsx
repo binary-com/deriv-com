@@ -79,12 +79,10 @@ const MarginCalculator = () => {
         setTab(t)
     }
     const deriv_api = useDerivApi()
-    const [symbolSelected, setSymbolSelected] = useState('')
 
     const fetchTickData = (selectedSymbol, setAssetPrice) => {
         const { send } = deriv_api
         send({ ticks: selectedSymbol }, (response) => {
-            setSymbolSelected(selectedSymbol)
             if (!response.error) {
                 setAssetPrice('assetPrice', response.tick.quote)
                 send({ forget: response.tick.id }, (response) => {
@@ -120,7 +118,6 @@ const MarginCalculator = () => {
                 <ContentContainer mt="8rem" mb="4rem">
                     <FormWrapper>
                         <Formik
-                            //enableReinitialize
                             initialValues={{
                                 accountType: 'Synthetic',
                                 margin: 0,

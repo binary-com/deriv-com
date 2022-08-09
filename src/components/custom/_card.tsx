@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Selected_svg from 'images/svg/selected.svg'
+import device from 'themes/device'
 
 export type CardProps = {
     icon?: string
@@ -21,7 +22,7 @@ const StyledCard = styled.div<{ selected: boolean }>`
     border: ${(props) => (props.selected ? '1px solid #aad2d8' : '1px solid #ffffff')};
     border-radius: 8px;
     cursor: pointer;
-    @media (max-width: 768px) {
+    @media ${device.tablet} {
         width: 100%;
     }
 `

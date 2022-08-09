@@ -53,6 +53,7 @@ import {
 } from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import { useDerivApi } from 'components/hooks/use-deriv-api'
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -76,6 +77,21 @@ const MarginCalculator = () => {
 
     const onTabClick = (t) => {
         setTab(t)
+    }
+    const deriv_api = useDerivApi()
+    const [symbolSelected, setSymbolSelected] = useState('')
+
+    const fetchTickData = (selectedSymbol, setAssetPrice) => {
+        const { send } = deriv_api
+        send({ ticks: selectedSymbol }, (response) => {
+            setSymbolSelected(selectedSymbol)
+            if (!response.error) {
+                setAssetPrice('assetPrice', response.tick.quote)
+                send({ forget: response.tick.id }, (response) => {
+                    return
+                })
+            }
+        })
     }
 
     return (
@@ -104,7 +120,7 @@ const MarginCalculator = () => {
                 <ContentContainer mt="8rem" mb="4rem">
                     <FormWrapper>
                         <Formik
-                            enableReinitialize
+                            //enableReinitialize
                             initialValues={{
                                 accountType: 'Synthetic',
                                 margin: 0,
@@ -135,167 +151,187 @@ const MarginCalculator = () => {
                                 resetForm,
                                 isValid,
                                 dirty,
-                            }) => (
-                                <CalculatorForm>
-                                    <CalculatorHeader>
-                                        <CalculatorLabel htmlFor="message">
-                                            {localize('Margin required')}
-                                        </CalculatorLabel>
-                                        <CalculatorOutputContainer>
-                                            <CalculatorOutputField>
-                                                {values.margin}
-                                            </CalculatorOutputField>
-                                            <CalculatorOutputSymbol>
-                                                {values.marginSymbol}
-                                            </CalculatorOutputSymbol>
-                                        </CalculatorOutputContainer>
-                                    </CalculatorHeader>
-                                    <CalculatorBody>
-                                        <CalculatorLabel>
-                                            {localize('Account type')}
-                                        </CalculatorLabel>
-                                        <Flex
-                                            mb="3rem"
-                                            mt="1rem"
-                                            jc="space-between"
-                                            tablet={{ height: 'unset' }}
-                                        >
-                                            <CalculatorTabItem
-                                                active={tab === 'Synthetic'}
-                                                onClick={() => {
-                                                    onTabClick('Synthetic')
-                                                    setErrors({})
-                                                    resetForm({})
-                                                }}
+                            }) => {
+                                return (
+                                    <CalculatorForm>
+                                        <CalculatorHeader>
+                                            <CalculatorLabel htmlFor="message">
+                                                {localize('Margin required')}
+                                            </CalculatorLabel>
+                                            <CalculatorOutputContainer>
+                                                <CalculatorOutputField>
+                                                    {values.margin}
+                                                </CalculatorOutputField>
+                                                <CalculatorOutputSymbol>
+                                                    {values.marginSymbol}
+                                                </CalculatorOutputSymbol>
+                                            </CalculatorOutputContainer>
+                                        </CalculatorHeader>
+                                        <CalculatorBody>
+                                            <CalculatorLabel>
+                                                {localize('Account type')}
+                                            </CalculatorLabel>
+                                            <Flex
+                                                mb="3rem"
+                                                mt="1rem"
+                                                jc="space-between"
+                                                tablet={{ height: 'unset' }}
                                             >
-                                                <Text align="center">{localize('Synthetic')}</Text>
-                                            </CalculatorTabItem>
-                                            <CalculatorTabItem
-                                                active={tab === 'Financial'}
-                                                disabled={tab === 'Financial'}
-                                                onClick={() => {
-                                                    onTabClick('Financial')
-                                                    setErrors({})
-                                                    resetForm({})
-                                                    setFieldValue('accountType', 'Financial')
-                                                    setFieldValue('optionList', financialItemLists)
-                                                }}
-                                            >
-                                                <Text align="center">{localize('Financial')}</Text>
-                                            </CalculatorTabItem>
-                                        </Flex>
-                                        <DropdownSearch
-                                            id="symbol"
-                                            key={tab}
-                                            contractSize={values.contractSize}
-                                            default_item={optionItemDefault}
-                                            error={touched.symbol && errors.symbol}
-                                            items={values.optionList}
-                                            label={localize('Symbol')}
-                                            onChange={(value) => {
-                                                setFieldValue('marginSymbol', getCurrency(value))
-                                                setFieldValue(
-                                                    'contractSize',
-                                                    getContractSize(value),
-                                                )
-                                                setFieldValue('symbol', value)
-                                            }}
-                                            selected_item={values.symbol}
-                                            onBlur={handleBlur}
-                                        />
-                                        <InputGroup>
-                                            <Field
-                                                name="volume"
-                                                value={values.volume}
+                                                <CalculatorTabItem
+                                                    active={tab === 'Synthetic'}
+                                                    onClick={() => {
+                                                        onTabClick('Synthetic')
+                                                        setErrors({})
+                                                        resetForm({})
+                                                    }}
+                                                >
+                                                    <Text align="center">
+                                                        {localize('Synthetic')}
+                                                    </Text>
+                                                </CalculatorTabItem>
+                                                <CalculatorTabItem
+                                                    active={tab === 'Financial'}
+                                                    disabled={tab === 'Financial'}
+                                                    onClick={() => {
+                                                        onTabClick('Financial')
+                                                        setErrors({})
+                                                        resetForm({})
+                                                        setFieldValue('accountType', 'Financial')
+                                                        setFieldValue(
+                                                            'optionList',
+                                                            financialItemLists,
+                                                        )
+                                                    }}
+                                                >
+                                                    <Text align="center">
+                                                        {localize('Financial')}
+                                                    </Text>
+                                                </CalculatorTabItem>
+                                            </Flex>
+                                            <DropdownSearch
+                                                id="symbol"
+                                                key={tab}
+                                                contractSize={values.contractSize}
+                                                default_item={optionItemDefault}
+                                                error={touched.symbol && errors.symbol}
+                                                items={values.optionList}
+                                                label={localize('Symbol')}
                                                 onChange={(value) => {
-                                                    setFieldValue('volume', value)
+                                                    setFieldValue(
+                                                        'marginSymbol',
+                                                        getCurrency(value),
+                                                    )
+                                                    setFieldValue(
+                                                        'contractSize',
+                                                        getContractSize(value),
+                                                    )
+                                                    setFieldValue('symbol', value.symbol)
+                                                    fetchTickData(value.symbol, setFieldValue)
                                                 }}
-                                            >
-                                                {({ field }) => (
-                                                    <Input
-                                                        {...field}
-                                                        id="volume"
-                                                        type="text"
-                                                        label={localize('Volume')}
-                                                        autoComplete="off"
-                                                        error={touched.volume && errors.volume}
-                                                        onBlur={handleBlur}
-                                                        handleError={(current_input) => {
-                                                            setFieldValue('volume', '', false)
-                                                            setFieldError('volume', '')
-                                                            setFieldTouched('volume', false, false)
-                                                            current_input.focus()
-                                                        }}
-                                                        maxLength={getMaxLength(values.volume, 8)}
-                                                        background="white"
-                                                    />
-                                                )}
-                                            </Field>
-                                        </InputGroup>
-                                        <InputGroup>
-                                            <Field
-                                                name="assetPrice"
-                                                value={values.assetPrice}
+                                                selected_item={values.symbol}
+                                                onBlur={handleBlur}
+                                            />
+                                            <InputGroup>
+                                                <Field
+                                                    name="volume"
+                                                    value={values.volume}
+                                                    onChange={(value) => {
+                                                        setFieldValue('volume', value)
+                                                    }}
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="volume"
+                                                            type="text"
+                                                            label={localize('Volume')}
+                                                            autoComplete="off"
+                                                            error={touched.volume && errors.volume}
+                                                            onBlur={handleBlur}
+                                                            handleError={(current_input) => {
+                                                                setFieldValue('volume', '', false)
+                                                                setFieldError('volume', '')
+                                                                setFieldTouched(
+                                                                    'volume',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                                current_input.focus()
+                                                            }}
+                                                            maxLength={getMaxLength(
+                                                                values.volume,
+                                                                8,
+                                                            )}
+                                                            background="white"
+                                                        />
+                                                    )}
+                                                </Field>
+                                            </InputGroup>
+                                            <InputGroup>
+                                                <Field
+                                                    name="assetPrice"
+                                                    onChange={(value) => {
+                                                        setFieldValue('assetPrice', value)
+                                                    }}
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="assetPrice"
+                                                            type="text"
+                                                            label={localize('Asset price')}
+                                                            autoComplete="off"
+                                                            error={
+                                                                touched.assetPrice &&
+                                                                errors.assetPrice
+                                                            }
+                                                            onBlur={handleBlur}
+                                                            handleError={(current_input) => {
+                                                                setFieldValue(
+                                                                    'assetPrice',
+                                                                    '',
+                                                                    false,
+                                                                )
+                                                                setFieldError('assetPrice', '')
+                                                                setFieldTouched(
+                                                                    'assetPrice',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                                current_input.focus()
+                                                            }}
+                                                            background="white"
+                                                        />
+                                                    )}
+                                                </Field>
+                                            </InputGroup>
+                                            <Dropdown
+                                                option_list={leverageItemLists}
+                                                id="leverage"
+                                                label={localize('Leverage')}
+                                                default_option={optionItemDefault}
+                                                selected_option={values.leverage}
                                                 onChange={(value) => {
-                                                    setFieldValue('assetPrice', value)
+                                                    setFieldValue('leverage', value)
                                                 }}
-                                            >
-                                                {({ field }) => (
-                                                    <Input
-                                                        {...field}
-                                                        id="assetPrice"
-                                                        type="text"
-                                                        label={localize('Asset price')}
-                                                        autoComplete="off"
-                                                        error={
-                                                            touched.assetPrice && errors.assetPrice
-                                                        }
-                                                        onBlur={handleBlur}
-                                                        handleError={(current_input) => {
-                                                            setFieldValue('assetPrice', '', false)
-                                                            setFieldError('assetPrice', '')
-                                                            setFieldTouched(
-                                                                'assetPrice',
-                                                                false,
-                                                                false,
-                                                            )
-                                                            current_input.focus()
-                                                        }}
-                                                        maxLength={getMaxLength(
-                                                            values.assetPrice,
-                                                            15,
-                                                        )}
-                                                        background="white"
-                                                    />
-                                                )}
-                                            </Field>
-                                        </InputGroup>
-                                        <Dropdown
-                                            option_list={leverageItemLists}
-                                            id="leverage"
-                                            label={localize('Leverage')}
-                                            default_option={optionItemDefault}
-                                            selected_option={values.leverage}
-                                            onChange={(value) => {
-                                                setFieldValue('leverage', value)
-                                            }}
-                                            error={touched.leverage && errors.leverage}
-                                            onBlur={handleBlur}
-                                            autoComplete="off"
-                                            data-lpignore="true"
-                                        />
-                                        <Flex mt="3rem">
-                                            <CalculateButton
-                                                secondary
-                                                type="submit"
-                                                disabled={!isValid || !dirty}
-                                            >
-                                                {localize('Calculate')}
-                                            </CalculateButton>
-                                        </Flex>
-                                    </CalculatorBody>
-                                </CalculatorForm>
-                            )}
+                                                error={touched.leverage && errors.leverage}
+                                                onBlur={handleBlur}
+                                                autoComplete="off"
+                                                data-lpignore="true"
+                                            />
+                                            <Flex mt="3rem">
+                                                <CalculateButton
+                                                    secondary
+                                                    type="submit"
+                                                    disabled={!isValid || !dirty}
+                                                >
+                                                    {localize('Calculate')}
+                                                </CalculateButton>
+                                            </Flex>
+                                        </CalculatorBody>
+                                    </CalculatorForm>
+                                )
+                            }}
                         </Formik>
                     </FormWrapper>
                     <RightContent>

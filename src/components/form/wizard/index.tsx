@@ -36,7 +36,7 @@ const Modal = styled.div`
     max-width: 1200px;
     z-index: 100;
     border-radius: 8px;
-    @media (max-width: 768px) {
+    @media ${device.tablet} {
         width: 100%;
     }
     @media ${device.tabletL} {

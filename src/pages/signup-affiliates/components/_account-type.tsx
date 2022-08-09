@@ -13,7 +13,7 @@ const AccountType = () => {
         justify-content: center;
         align-items: center;
     `
-    const card: CardProps[] = [
+    const cards: CardProps[] = [
         {
             icon: IndividualIcon,
             title: <Localize translate_text="Individual" />,
@@ -32,7 +32,7 @@ const AccountType = () => {
             <Header align="center" type="paragraph-1" pb="8px" weight="normal">
                 {localize('Choose which plan you would like to subscribe to:')}
             </Header>
-            {card.map(({ icon, title, description, selected }, index) => {
+            {cards.map(({ icon, title, description, selected }, index) => {
                 return (
                     <Card
                         key={index}

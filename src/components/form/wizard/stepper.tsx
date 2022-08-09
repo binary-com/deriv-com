@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StepContext } from '.'
+import device from 'themes/device'
 
 const StepperWrapper = styled.div`
     padding: 30px 0 50px 0;
@@ -8,7 +9,7 @@ const StepperWrapper = styled.div`
     justify-content: space-between;
     width: 700px;
     margin: 0 auto;
-    @media (max-width: 768px) {
+    @media ${device.tablet} {
         width: 100%;
     }
 `

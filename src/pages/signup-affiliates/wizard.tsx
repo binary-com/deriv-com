@@ -10,7 +10,7 @@ const AffiliateSignup = () => {
         'Address details',
         'Phone number',
         'Personal details',
-        'terms of use',
+        'Terms of use',
     ]
     return (
         <AffiliateSignupLayout>

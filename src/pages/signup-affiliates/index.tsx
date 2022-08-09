@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
-import Cookies from 'js-cookie'
 import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { Input, Button } from 'components/form'
@@ -12,7 +11,6 @@ import Apple from 'images/svg/custom/applenew.svg'
 import Facebook from 'images/svg/custom/facebooknew-blue.svg'
 import Email from 'images/svg/check-email/new email.svg'
 import validation from 'common/validation'
-import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import Login from 'common/login'
 
 const StyledNote = styled.div`
@@ -160,22 +158,6 @@ const AffiliateSignup = () => {
         const { value } = e.target
         setEmail(value)
         handleValidation(value)
-    }
-
-    const getVerifyEmailRequest = (formatted_email) => {
-        const affiliate_token = Cookies.getJSON('affiliate_tracking')
-        const cookies = getCookiesFields()
-        const cookies_objects = getCookiesObject(cookies)
-        const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-
-        return {
-            verify_email: formatted_email,
-            type: 'account_opening',
-            url_parameter: {
-                ...(affiliate_token && { affiliate_token: affiliate_token }),
-                ...(cookies_value && { ...cookies_value }),
-            },
-        }
     }
 
     const clearEmail = () => {

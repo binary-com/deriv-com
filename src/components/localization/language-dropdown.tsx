@@ -9,6 +9,17 @@ import device from 'themes/device'
 
 type TrueOrFalse = 'true' | 'false'
 
+type DropdownProps = {
+    default_option: {
+        path: string
+        short_name: string
+    }
+    onChange: (arg1: { target: { id: string } }) => void
+    option_list: { path: string; value: string; text: string }[]
+    is_high_nav?: boolean
+    security?: TrueOrFalse
+}
+
 const Container = styled.div`
     position: relative;
 
@@ -194,17 +205,6 @@ const query = graphql`
         }
     }
 `
-
-type DropdownProps = {
-    default_option: {
-        path: string
-        short_name: string
-    }
-    onChange: (arg1: { target: { id: string } }) => void
-    option_list: { path: string; value: string; text: string }[]
-    is_high_nav?: boolean
-    security?: TrueOrFalse
-}
 
 const Dropdown = ({
     default_option,

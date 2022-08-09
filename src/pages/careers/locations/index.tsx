@@ -337,6 +337,7 @@ const Locations = () => {
                     jc_mobileL="start"
                     mobile_font_size={16}
                     line_divider_length="unset"
+                    starting_index={1}
                 >
                     {continents.map((continent) => {
                         return (

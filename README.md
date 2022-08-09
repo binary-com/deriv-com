@@ -34,8 +34,8 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 
 Before running or contribute to this project, you need to have the setup of the following packages in your environment
 
--   node >=12.3.0
--   npm >=6.9.0
+-   node >=17.7.1
+-   npm >=8.5.2
 -   git (for `contribution`)
 -   gatsby-cli (npm install -g gatsby-cli) (for using commands that aren't listed in scripts)
 

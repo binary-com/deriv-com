@@ -127,6 +127,7 @@ type TabsProps = {
     mobile_font_size?: number
     mobile_tab_button_underline_length?: string
     tab_list?: string[]
+    starting_index?: number
 }
 
 const Tabs = ({
@@ -139,12 +140,13 @@ const Tabs = ({
     mobile_font_size,
     mobile_tab_button_underline_length,
     has_no_query,
+    starting_index = 0,
 }: TabsProps) => {
     const [is_mobile] = useBrowserResize(768)
     const [is_mounted] = usePageLoaded()
     const [selected_tab, setSelectedTab] = useState(0)
 
-    const [active_tab, setActiveTab] = useTabStateQuery(tab_list, has_no_query)
+    const [active_tab, setActiveTab] = useTabStateQuery(tab_list, has_no_query, starting_index)
     const [offset, setOffset] = useState(0)
     const ref = useRef(null)
 

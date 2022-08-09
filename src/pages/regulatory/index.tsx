@@ -103,9 +103,9 @@ const Regulatory = (locale: RegulatoryProps) => {
     return (
         <Layout>
             <SEO
-                title={localize('License and regulation information | Deriv')}
+                title={localize('Licence and regulatory information | Deriv')}
                 description={localize(
-                    'Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.',
+                    'Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions.',
                 )}
             />
             <SectionContainer>
@@ -141,7 +141,7 @@ const Regulatory = (locale: RegulatoryProps) => {
             <Divider />
             <SectionContainer padding="8rem 0 0">
                 <SmallContainer fd="column">
-                    <StyledHeader as="h3" type="section-title" align="center" mb="4rem" lh="4rem">
+                    <StyledHeader as="h2" type="section-title" align="center" mb="4rem" lh="4rem">
                         {localize('Deriv Investments (Europe) Limited')}
                     </StyledHeader>
                     <Box padding="16px 0" maxwidth="792px">
@@ -219,7 +219,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                     >
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>
-                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
+                                <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
                             </MobileWrapper>
@@ -227,7 +227,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <DesktopWrapper>
-                                <StyledHeader as="h4" type="sub-section-title">
+                                <StyledHeader as="h2" type="sub-section-title">
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
                             </DesktopWrapper>
@@ -254,7 +254,7 @@ const Regulatory = (locale: RegulatoryProps) => {
 
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>
-                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
+                                <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
                             </MobileWrapper>
@@ -265,7 +265,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <DesktopWrapper>
-                                <StyledHeader as="h4" type="sub-section-title">
+                                <StyledHeader as="h2" type="sub-section-title">
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
                             </DesktopWrapper>
@@ -339,7 +339,7 @@ const Regulatory = (locale: RegulatoryProps) => {
 
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>
-                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
+                                <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
                             </MobileWrapper>
@@ -347,7 +347,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <DesktopWrapper>
-                                <StyledHeader as="h4" type="sub-section-title">
+                                <StyledHeader as="h2" type="sub-section-title">
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
                             </DesktopWrapper>
@@ -365,7 +365,7 @@ const Regulatory = (locale: RegulatoryProps) => {
 
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>
-                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
+                                <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
                             </MobileWrapper>
@@ -373,7 +373,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <DesktopWrapper>
-                                <StyledHeader as="h4" type="sub-section-title">
+                                <StyledHeader as="h2" type="sub-section-title">
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
                             </DesktopWrapper>
@@ -399,15 +399,15 @@ const Regulatory = (locale: RegulatoryProps) => {
                     >
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>
-                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
+                                <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
                                     {localize('The Financial Commission')}
                                 </StyledHeader>
                             </MobileWrapper>
-                            <Img src={TFC} alt="TFC" />
+                            <Img src={TFC} alt="The Financial Commission" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <DesktopWrapper>
-                                <StyledHeader as="h4" type="sub-section-title">
+                                <StyledHeader as="h2" type="sub-section-title">
                                     {localize('The Financial Commission')}
                                 </StyledHeader>
                             </DesktopWrapper>

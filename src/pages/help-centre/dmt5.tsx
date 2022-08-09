@@ -438,7 +438,7 @@ const DownloadmyDerivMT5History = ({ text }: ArticleProps) => (
                 translate_text="If you need a statement for a more extended period, contact us via <0>live chat</0>, and we'll help you with it."
                 components={[
                     <ExternalLink
-                        to={'/contact_us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         external="true"
                         target="_blank"
                         rel="noopener noreferrer"

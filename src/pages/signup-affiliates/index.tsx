@@ -135,7 +135,7 @@ const ImageWrapper = styled.div`
 
 const AffiliateSignup = () => {
     const [email, setEmail] = useState('')
-    const [is_submitting, setSubmitting] = useState(false)
+    const [is_submitted, setSubmitted] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
@@ -228,7 +228,7 @@ const AffiliateSignup = () => {
                             />
                         </CaptchaContainer>
                         <EmailButton
-                            disabled={is_submitting || !email || email_error_msg}
+                            disabled={is_submitted || !email || email_error_msg}
                             type="submit"
                             secondary="true"
                             id="partner-signup"

@@ -487,22 +487,22 @@ export const singapore: LocationsType = {
 }
 
 export const all_offices: LocationsType[] = [
-    berlin,
-    dubai,
+    paris,
     malta,
     cyprus,
+    guernsey,
+    berlin,
     cyberjaya,
-    labuan,
     ipoh,
     melaka,
-    paris,
-    guernsey,
-    asuncion,
-    rwanda,
-    jordan,
-    minsk,
+    labuan,
     singapore,
     vanuatu,
+    dubai,
+    jordan,
+    minsk,
+    rwanda,
+    asuncion,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,

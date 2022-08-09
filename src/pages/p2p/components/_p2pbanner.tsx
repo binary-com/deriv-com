@@ -60,6 +60,12 @@ const ButtonDerivP2P = styled(Button)`
     margin: 15px auto;
     width: 100%;
     white-space: nowrap;
+
+    @media ${device.tabletL} {
+        padding: 0 16px;
+        margin: 26px auto;
+        font-size: 14px;
+    }
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
@@ -111,7 +117,9 @@ const StyledText = styled(Text)`
     line-height: 36px;
 
     @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 18px;
+        margin-bottom: 30px;
+        padding: 16px;
     }
 `
 

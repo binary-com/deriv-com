@@ -16,7 +16,18 @@ const Row = styled.div`
     flex-direction: row;
     width: 100%;
 `
+const Column = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex-grow: 0;
+    width: 10rem;
+    margin-bottom: 32px;
 
+    :first-child {
+        flex-basis: 7%;
+    }
+`
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -27,7 +38,7 @@ const Section = styled(SectionContainer)`
     justify-content: center;
 
     @media ${device.tablet} {
-        padding: 0 16px 40px 16px;
+        padding: 0 16px 0 16px;
     }
 `
 
@@ -42,11 +53,8 @@ const PlatformCard = styled.article`
     }
     @media ${device.tablet} {
         max-height: unset;
-        padding: 0 24px;
         max-width: 328px;
-    }
-    @media ${device.mobileM} {
-        max-width: 335px;
+        margin-bottom: 16px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -55,7 +63,7 @@ const StyledHeader = styled(Header)`
         margin-bottom: 40px;
     }
     @media ${device.mobileL} {
-        font-size: 24px;
+        font-size: 28px;
         margin-bottom: 24px;
     }
 `
@@ -65,7 +73,7 @@ const StyledCardHeader = styled(Header)`
     margin-bottom: 4rem;
 
     @media ${device.mobileL} {
-        font-size: 20px;
+        font-size: 18px;
         margin-bottom: 24px;
     }
 `
@@ -78,7 +86,7 @@ const StyledText = styled(Text)`
     }
 
     @media ${device.mobileL} {
-        font-size: 16px;
+        font-size: 18px;
     }
 `
 const Line = styled.div`
@@ -107,14 +115,6 @@ const Line = styled.div`
     @media ${device.mobileS} {
         width: 30rem;
     }
-`
-
-const Left = styled.div`
-    width: 78%;
-`
-
-const Right = styled.div`
-    width: 22%;
 `
 
 const query = graphql`
@@ -172,38 +172,65 @@ const Availability = () => {
                             <Localize translate_text="On your computer" />
                         </StyledCardHeader>
                     </Row>
-                    <div>
-                        <StyledText>
-                            <Localize
-                                translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
-                                components={[
-                                    <SpanLinkText
-                                        id="dm-p2p-login-link"
-                                        size={24}
-                                        onClick={handleLogin}
-                                        color="red"
-                                        external
-                                        key={0}
-                                    />,
-                                    <LocalizedLinkText
-                                        id="dm-p2p-signup-link"
-                                        to="/signup/"
-                                        size={24}
-                                        color="red"
-                                        key={1}
-                                    />,
-                                ]}
-                            />
-                        </StyledText>
-                        <StyledText>
-                            <Localize translate_text="2. Go to Cashier > Deriv P2P and register." />
-                        </StyledText>
-                        <StyledText>
-                            <Localize translate_text="3. Start connecting with fellow traders to make deposits and withdrawals." />
-                        </StyledText>
-                    </div>
+                    <Row>
+                        <Column>
+                            <StyledText mb="0.8rem" as="h4">
+                                {'1.'}
+                            </StyledText>
+                        </Column>
+                        <Column>
+                            <StyledText>
+                                <Localize
+                                    translate_text="<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
+                                    components={[
+                                        <SpanLinkText
+                                            id="dm-p2p-login-link"
+                                            size={24}
+                                            onClick={handleLogin}
+                                            color="red"
+                                            external
+                                            key={0}
+                                        />,
+                                        <LocalizedLinkText
+                                            id="dm-p2p-signup-link"
+                                            to="/signup/"
+                                            size={24}
+                                            color="red"
+                                            key={1}
+                                        />,
+                                    ]}
+                                />
+                            </StyledText>
+                        </Column>
+                    </Row>
+                    <Row>
+                        <Column>
+                            <StyledText mb="0.8rem" as="h4">
+                                {'2.'}
+                            </StyledText>
+                        </Column>
+                        <Column>
+                            <StyledText>
+                                <Localize translate_text="Go to Cashier > Deriv P2P and register." />
+                            </StyledText>
+                        </Column>
+                    </Row>
+                    <Row>
+                        <Column>
+                            <StyledText mb="0.8rem" as="h4">
+                                {'3.'}
+                            </StyledText>
+                        </Column>
+                        <Column>
+                            <StyledText>
+                                <Localize translate_text="Start connecting with fellow traders to make deposits and withdrawals." />
+                            </StyledText>
+                        </Column>
+                    </Row>
                 </PlatformCard>
-                <Line />
+                <Desktop>
+                    <Line />
+                </Desktop>
                 <PlatformCard>
                     <Row>
                         <img src={MobileImage} alt="" />
@@ -213,43 +240,68 @@ const Availability = () => {
                             <Localize translate_text="On your mobile" />
                         </StyledCardHeader>
                     </Row>
-                    <div>
-                        <StyledText>
-                            <Desktop>
-                                <>
-                                    <Localize translate_text="1.Download Deriv P2P." />
+                    <Row>
+                        <Column>
+                            <StyledText mb="0.8rem" as="h4">
+                                {'1.'}
+                            </StyledText>
+                        </Column>
+                        <Column>
+                            <StyledText>
+                                <Desktop>
+                                    <>
+                                        <Localize translate_text="Download Deriv P2P." />
 
-                                    <QueryImage
-                                        data={data['qr_code']}
-                                        alt={'play store'}
-                                        width="108px"
-                                        height="108px"
+                                        <QueryImage
+                                            data={data['qr_code']}
+                                            alt={'play store'}
+                                            width="108px"
+                                            height="108px"
+                                        />
+                                    </>
+                                </Desktop>
+                                <Mobile>
+                                    <Localize
+                                        translate_text="<0>Download Deriv P2P.</0>"
+                                        components={[
+                                            <SpanLinkText
+                                                external
+                                                onClick={handleExternalLink}
+                                                target="_blank"
+                                                size={24}
+                                                color="red"
+                                                key={0}
+                                            />,
+                                        ]}
                                     />
-                                </>
-                            </Desktop>
-                            <Mobile>
-                                <Localize
-                                    translate_text="1. <0>Download Deriv P2P.</0>"
-                                    components={[
-                                        <SpanLinkText
-                                            external
-                                            onClick={handleExternalLink}
-                                            target="_blank"
-                                            size={24}
-                                            color="red"
-                                            key={0}
-                                        />,
-                                    ]}
-                                />
-                            </Mobile>
-                        </StyledText>
-                        <StyledText>
-                            <Localize translate_text="2. Register for Deriv P2P by logging into your Deriv account in the app." />
-                        </StyledText>
-                        <StyledText>
-                            <Localize translate_text="3. Start connecting with fellow traders to make deposits and withdrawals." />
-                        </StyledText>
-                    </div>
+                                </Mobile>
+                            </StyledText>
+                        </Column>
+                    </Row>
+                    <Row>
+                        <Column>
+                            <StyledText mb="0.8rem" as="h4">
+                                {'2.'}
+                            </StyledText>
+                        </Column>
+                        <Column>
+                            <StyledText>
+                                <Localize translate_text="Register for Deriv P2P by logging into your Deriv account in the app." />
+                            </StyledText>
+                        </Column>
+                    </Row>
+                    <Row>
+                        <Column>
+                            <StyledText mb="0.8rem" as="h4">
+                                {'3.'}
+                            </StyledText>
+                        </Column>
+                        <Column>
+                            <StyledText>
+                                <Localize translate_text="Start connecting with fellow traders to make deposits and withdrawals." />
+                            </StyledText>
+                        </Column>
+                    </Row>
                 </PlatformCard>
             </Flex>
         </Section>

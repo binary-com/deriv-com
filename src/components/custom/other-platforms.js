@@ -52,6 +52,10 @@ const EmptySpace = styled.div`
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
+    @media ${device.tabletL} {
+        padding: 0 7rem;
+        margin-bottom: 1rem;
+    }
 `
 const icon72 = css`
     width: 72px;
@@ -134,7 +138,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
             cover_content={<Localize translate_text="Discover Deriv MT5 now" />}
             title={<Localize translate_text="Deriv MT5" />}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
-            content={[localize('Trade on Deriv MT5, the all-in-one CFD trading platform.')]}
+            content={[localize('Trade on the Deriv MT5 platform, the choice of professionals.')]}
             is_inline_icon
             min_height="12.4rem"
             is_selected={is_selected}

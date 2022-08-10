@@ -16,7 +16,7 @@ export const wrapPageElement = WrapPagesWithLocaleContext
 
 export const onRenderBody = (
     { setHeadComponents },
-    { accountId, async = true }
+    { accountId='629574', async = true }
   ) => {
     setHeadComponents([
       <script
@@ -25,7 +25,7 @@ export const onRenderBody = (
         dangerouslySetInnerHTML={{
           __html: `
           window._vwo_code = window._vwo_code || (function(){
-          var account_id=629574,
+          var account_id=${accountId},
           settings_tolerance=2000,
           library_tolerance=2500,
           use_existing_jquery=false,

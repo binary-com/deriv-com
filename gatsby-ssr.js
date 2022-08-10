@@ -16,7 +16,7 @@ export const wrapPageElement = WrapPagesWithLocaleContext
 
 export const onRenderBody = (
     { setHeadComponents },
-    { accountId='629574', async = true }
+    { accountId=629574, async = true }
   ) => {
     setHeadComponents([
       <script

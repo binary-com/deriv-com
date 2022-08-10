@@ -24,6 +24,7 @@ const PinWrapper = styled.div<PinWrapperProps>`
 `
 
 const PinContent = styled(LocalizedLink)`
+    width: max-content;
     display: flex;
     justify-content: space-around;
     align-items: center;

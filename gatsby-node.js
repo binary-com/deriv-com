@@ -11,7 +11,7 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
     const is_responsible_trading = /responsible/g.test(page.path)
-    const is_contact_us = /contact-us/g.test(page.path)
+    const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
@@ -33,20 +33,20 @@ exports.onCreatePage = ({ page, actions }) => {
 
     if (is_contact_us) {
         createRedirect({
-            fromPath: `/contact_us/`,
-            toPath: `/contact-us/`,
+            fromPath: `/contact-us/`,
+            toPath: `/contact_us/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
             fromPath: `/contact/`,
-            toPath: `/contact-us/`,
+            toPath: `/contact_us/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
-            fromPath: `/contact_us`,
-            toPath: `/contact-us`,
+            fromPath: `/contact-us`,
+            toPath: `/contact_us`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -186,20 +186,20 @@ exports.onCreatePage = ({ page, actions }) => {
 
         if (is_contact_us) {
             createRedirect({
-                fromPath: `/${lang}/contact_us/`,
-                toPath: `/${lang}/contact-us/`,
+                fromPath: `/${lang}/contact-us/`,
+                toPath: `/${lang}/contact_us/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
                 fromPath: `/${lang}/contact/`,
-                toPath: `/${lang}/contact-us/`,
+                toPath: `/${lang}/contact_us/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
-                fromPath: `/${lang}/contact_us`,
-                toPath: `/${lang}/contact-us`,
+                fromPath: `/${lang}/contact-us`,
+                toPath: `/${lang}/contact_us`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

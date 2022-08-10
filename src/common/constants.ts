@@ -99,7 +99,7 @@ export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.eu'
 export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers'
-export const live_chat_redirection_link = `?is_livechat_open=true`
+export const live_chat_redirection_link = `?is-livechat-open=true`
 export const localized_link_url = Object.freeze({
     affiliate_sign_in: affiliate_signin_url,
     affiliate_sign_up: affiliate_signup_url,

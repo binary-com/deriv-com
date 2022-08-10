@@ -160,7 +160,7 @@ const DerivP2PAccountBlocked = ({ text }: ArticleProps) => (
                         translate_text="Your Deriv account is suspended. Please <0>contact us</0> via live chat for more info."
                         components={[
                             <ExternalLink
-                                to={'/contact_us/?is_livechat_open=true'}
+                                to={'/contact-us/?is-livechat-open=true'}
                                 target="_blank"
                                 external="true"
                                 weight="bold"
@@ -177,7 +177,7 @@ const DerivP2PAccountBlocked = ({ text }: ArticleProps) => (
                         translate_text="A dispute was raised against you. Please <0>contact us</0> via live chat for more info."
                         components={[
                             <ExternalLink
-                                to={'/contact_us/?is_livechat_open=true'}
+                                to={'/contact-us/?is-livechat-open=true'}
                                 target="_blank"
                                 external="true"
                                 weight="bold"
@@ -207,7 +207,7 @@ const BuyOrSellLimit = ({ text }: ArticleProps) => (
                 translate_text="Yes, just contact us <0>via live chat</0> to request a limit increase."
                 components={[
                     <ExternalLink
-                        to={'/contact_us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"
@@ -442,7 +442,7 @@ const DisputeWithTheTrader = ({ text }: ArticleProps) => (
                 translate_text="If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help resolve the situation, please <0>let us know</0> via live chat and we’ll help you resolve it."
                 components={[
                     <ExternalLink
-                        to={'/contact_us/?is_livechat_open=true'}
+                        to={'/contact-us/?is-livechat-open=true'}
                         target="_blank"
                         external="true"
                         weight="bold"

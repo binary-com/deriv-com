@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { closestMatch } from 'closest-match'
+import { closestMatch, distance } from 'closest-match'
 import useGTMData from '../hooks/use-gtm-data'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
@@ -187,7 +187,10 @@ const Layout = ({
             const current_page = window.location.pathname.split('/')[4]
             if (!slugs.includes(current_page)) {
                 const closest_slug = closestMatch(current_page, slugs)
-                window.location.pathname = `academy/blog/posts/${closest_slug}`
+                const character_distance = distance(current_page, closest_slug)
+                if (character_distance < 10) {
+                    window.location.pathname = `academy/blog/posts/${closest_slug}`
+                }
             }
         }
     }, [])

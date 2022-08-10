@@ -52,10 +52,10 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Flex, ROW, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -194,11 +194,21 @@ const SwapCalculator = () => {
             ) {
                 ...fadeIn
             }
+            swap_synthetic_formula_eu: file(
+                relativePath: { eq: "trade-tools/swap-synthetic-formula-eu.png" }
+            ) {
+                ...fadeIn
+            }
             swap_forex_formula: file(relativePath: { eq: "trade-tools/swap-forex-formula.png" }) {
                 ...fadeIn
             }
             swap_synthetic_formula_mobile: file(
                 relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile.png" }
+            ) {
+                ...fadeIn
+            }
+            swap_synthetic_formula_mobile_eu: file(
+                relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile-eu.png" }
             ) {
                 ...fadeIn
             }
@@ -216,7 +226,10 @@ const SwapCalculator = () => {
     const onTabClick = (t) => {
         setTab(t)
     }
+
     const { is_eu } = useCountryRule()
+    const instrument = is_eu ? 'Volatility 200 (1s) Index' : 'Volatility 75 Index'
+
     return (
         <>
             <BreadCrumbContainer>
@@ -241,7 +254,7 @@ const SwapCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb={is_eu ? '0px' : '40px'} tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
                     <ROW>
                         <SwapTabSelector
                             active={tab === 'Synthetic'}
@@ -447,19 +460,28 @@ const SwapCalculator = () => {
                                     >
                                         <Text mb="2rem">
                                             {localize(
-                                                'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
+                                                'Let’s say you want to keep 0.01 lots of {{instrument}} with an asset price of 400,000 USD and swap rate of {{swap_rate}} open for one night.',
+                                                { instrument, swap_rate: is_eu ? '-20' : '-7.5' },
                                             )}
                                         </Text>
 
                                         <Show.Desktop>
                                             <QueryImage
-                                                data={data.swap_synthetic_formula}
+                                                data={
+                                                    is_eu
+                                                        ? data.swap_synthetic_formula_eu
+                                                        : data.swap_synthetic_formula
+                                                }
                                                 alt={localize('swap synthetic formula')}
                                             />
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <QueryImage
-                                                data={data.swap_synthetic_formula_mobile}
+                                                data={
+                                                    is_eu
+                                                        ? data.swap_synthetic_formula_mobile_eu
+                                                        : data.swap_synthetic_formula_mobile
+                                                }
                                                 alt={localize('swap synthetic formula mobile')}
                                             />
                                         </Show.Mobile>
@@ -467,7 +489,10 @@ const SwapCalculator = () => {
                                             <StyledOl>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="The contract size is one standard lot of Volatility 75 Index = 1" />
+                                                        <Localize
+                                                            translate_text="The contract size is one standard lot of {{instrument}} = 1"
+                                                            values={{ instrument }}
+                                                        />
                                                     </span>
                                                 </li>
                                                 <li>
@@ -480,7 +505,10 @@ const SwapCalculator = () => {
 
                                         <Text mt="1.6rem">
                                             <Localize
-                                                translate_text="So you will require a swap charge of <0>0.83 USD</0> to keep the position open for one night."
+                                                translate_text="So you will require a swap charge of <0>{{swap_charge}}</0> to keep the position open for one night."
+                                                values={{
+                                                    swap_charge: is_eu ? '2.22 USD' : '0.83 USD',
+                                                }}
                                                 components={[<strong key={0} />]}
                                             />
                                         </Text>

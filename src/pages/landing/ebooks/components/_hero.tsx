@@ -5,7 +5,7 @@ import { HeaderAndHeroProps } from './_types'
 import { Flex, Box } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 type HeroProps = HeaderAndHeroProps & {
@@ -48,7 +48,7 @@ const Hero = ({
     authorName,
     bg,
     bgMobile,
-    color = 'var(--color-white)',
+    color,
     ebook_utm_code,
     introMain,
     introSub,
@@ -126,7 +126,7 @@ const Hero = ({
                             </AuthorNameText>
                         </AuthorText>
                         <Box m="10px">
-                            <GetEbook ebook_utm_code={ebook_utm_code} color="black" />
+                            <GetEbook ebook_utm_code={ebook_utm_code} color={color} />
                         </Box>
                     </Box>
                 </Flex>

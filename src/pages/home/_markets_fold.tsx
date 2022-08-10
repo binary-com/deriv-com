@@ -3,12 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
-import { LocalizedLink, Localize, localize } from 'components/localization'
+import { LocalizedLink, Localize } from 'components/localization'
 import { Carousel, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
-import device from 'themes/device.js'
-import { getCountryRule, Desktop, Mobile } from 'components/containers/visibility'
+import device from 'themes/device'
+import { Desktop, Mobile } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const FoldWrapper = styled(SectionContainer)`
     max-width: 100%;
@@ -117,6 +118,68 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
+        header: <Localize translate_text="Basket indices" />,
+        description: (
+            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
+        ),
+        img_name: 'market_basket_indices',
+        to: '/markets/basket-indices/',
+        gradient_start: '#555110',
+        gradient_end: '#151404',
+    },
+    {
+        header: <Localize translate_text="Commodities" />,
+        description: (
+            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
+        ),
+        img_name: 'market_commodities',
+        to: '/markets/commodities/',
+        gradient_start: '#183046',
+        gradient_end: '#060C11',
+    },
+]
+const market_data_eu = [
+    {
+        header: <Localize translate_text="Forex" />,
+        description: (
+            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
+        ),
+        img_name: 'market_forex',
+        to: '/markets/forex/',
+        gradient_start: '#661B20',
+        gradient_end: '#190708',
+    },
+    {
+        header: <Localize translate_text="Synthetic indices" />,
+        description: (
+            <Localize translate_text="Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions." />
+        ),
+        img_name: 'market_synthetic_indices',
+        to: '/markets/synthetic/',
+        gradient_start: '#20403A',
+        gradient_end: '#08100E',
+    },
+    {
+        header: <Localize translate_text="Stocks & indices" />,
+        description: (
+            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
+        ),
+        img_name: 'market_stocks_indices',
+        to: '/markets/stock/',
+        gradient_start: '#2A2040',
+        gradient_end: '#0A0810',
+    },
+    {
+        header: <Localize translate_text="Cryptocurrencies" />,
+        description: (
+            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
+        ),
+        img_name: 'market_crypto',
+        to: '/markets/cryptocurrencies/',
+        gradient_start: '#664407',
+        gradient_end: '#191102',
+    },
+    {
         header: <Localize translate_text="Commodities" />,
         description: (
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
@@ -175,6 +238,9 @@ const query = graphql`
         market_crypto: file(relativePath: { eq: "home/market_crypto.png" }) {
             ...fadeIn
         }
+        market_basket_indices: file(relativePath: { eq: "home/market_basket_indices.png" }) {
+            ...fadeIn
+        }
         market_commodities: file(relativePath: { eq: "home/market_commodities.png" }) {
             ...fadeIn
         }
@@ -207,11 +273,7 @@ const CarouselItem = ({
     }
 
     return (
-        <ItemWrapper
-            onMouseEnter={() => handleHover(true)}
-            onMouseLeave={() => handleHover(false)}
-            onClick={(e) => !is_mobile && e.preventDefault()}
-        >
+        <ItemWrapper onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>
             <StyledLink to={url}>
                 <CarouselItemContainer
                     direction="column"
@@ -238,9 +300,6 @@ const CarouselItem = ({
                                 alt={header}
                                 loading="eager"
                                 $hovered={is_hovered}
-                                onClick={(e) => {
-                                    !is_mobile && e.preventDefault()
-                                }}
                             />
                         </>
                     </Desktop>
@@ -255,7 +314,7 @@ const CarouselItem = ({
 
 const MarketsFold = () => {
     const data = useStaticQuery(query)
-    const { is_uk, is_non_uk } = getCountryRule()
+    const { is_loading, is_uk, is_non_uk, is_eu, is_row } = useCountryRule()
     const size = useWindowSize()
     const is_not_big_screen = size.width < 1980 && size.width >= 768
     const is_mobile = size.width < 768
@@ -279,7 +338,7 @@ const MarketsFold = () => {
             loop: true,
             containScroll: 'trimSnaps',
             slidesToScroll: 1,
-            align: is_mobile ? 0.04 : 'start',
+            align: is_mobile ? 0.04 : 'center',
         },
         container_style: {
             maxWidth: '100%',
@@ -297,7 +356,7 @@ const MarketsFold = () => {
         },
         navigation_style: {
             bottom_offset: '-24px',
-            nav_color: 'red',
+            nav_color: '--color-red',
         },
     }
 
@@ -306,7 +365,7 @@ const MarketsFold = () => {
             <FoldContainer direction="column">
                 <Flex width="100%" jc="center">
                     <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
-                        {localize('Markets')}
+                        <Localize translate_text="Markets" />
                     </Header>
                 </Flex>
                 <Carousel
@@ -314,23 +373,34 @@ const MarketsFold = () => {
                     autoplay_interval={is_mobile ? 3200 : 4000}
                     {...settings}
                 >
-                    {(is_uk ? market_data_uk : market_data).map((market, index) => {
-                        const { header, description, img_name, gradient_start, gradient_end, to } =
-                            market
+                    {!is_loading &&
+                        (
+                            (is_uk && market_data_uk) ||
+                            (is_eu && market_data_eu) ||
+                            (is_row && market_data)
+                        ).map((market, index) => {
+                            const {
+                                header,
+                                description,
+                                img_name,
+                                gradient_start,
+                                gradient_end,
+                                to,
+                            } = market
 
-                        return (
-                            <CarouselItem
-                                key={index}
-                                header={header}
-                                description={description}
-                                is_mobile={is_mobile}
-                                image={data[img_name]}
-                                gradient_start={gradient_start}
-                                gradient_end={gradient_end}
-                                url={to}
-                            />
-                        )
-                    })}
+                            return (
+                                <CarouselItem
+                                    key={index}
+                                    header={header}
+                                    description={description}
+                                    is_mobile={is_mobile}
+                                    image={data[img_name]}
+                                    gradient_start={gradient_start}
+                                    gradient_end={gradient_end}
+                                    url={to}
+                                />
+                            )
+                        })}
                 </Carousel>
             </FoldContainer>
         </FoldWrapper>

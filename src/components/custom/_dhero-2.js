@@ -2,11 +2,18 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { localize } from 'components/localization'
-import { Flex } from 'components/containers'
+import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { LinkButton } from 'components/form'
-import device from 'themes/device.js'
+import { Button } from 'components/form'
+import { mobileOSDetect } from 'common/os-detect'
+import device from 'themes/device'
+import {
+    derivx_android_url,
+    derivx_ios_url,
+    derivx_huawei_url,
+    derivx_app_url,
+} from 'common/constants'
 
 const Wrapper = styled(Flex)`
     position: relative;
@@ -73,6 +80,16 @@ const StyledHeader = styled(Header)`
 `
 
 const HeroHeader = styled(Header)`
+    ${Header} {
+        font-size: 20px;
+        font-weight: 200;
+        width: 230px;
+        padding-left: 15px;
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+    }
     @media (max-width: 1315px) {
         font-size: 4.8rem;
     }
@@ -107,42 +124,6 @@ const LottieWrapper = styled.div`
     }
 `
 
-const LinkWrapper = styled.div`
-    display: flex;
-    margin-top: 6.3rem;
-
-    @media (max-width: 1420px) {
-        top: 480px;
-    }
-    @media ${device.laptop} {
-        top: 350px;
-        display: inline-block;
-    }
-    @media ${device.tabletL} {
-        top: 236px;
-    }
-    @media ${device.tablet} {
-        position: unset;
-        top: unset;
-        justify-content: start;
-        margin-top: 40px;
-    }
-`
-
-const StyledLinkButton = styled(LinkButton)`
-    padding: 14px 16px;
-    width: fit-content;
-    height: 100%;
-    margin-right: 2px;
-    border: unset;
-
-    @media ${device.tablet} {
-        height: 40px;
-        white-space: nowrap;
-        display: inline-block;
-        max-height: 40px;
-    }
-`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 56.2rem;
@@ -178,22 +159,13 @@ const InformationWrapper = styled(Flex)`
 
 const query = graphql`
     query {
-        dbot: file(relativePath: { eq: "dbot/dbot_trade.png" }) {
+        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
             ...fadeIn
         }
-        dmt5: file(relativePath: { eq: "dmt5/dmt5_trade.png" }) {
+        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
             ...fadeIn
         }
-        dtrader: file(relativePath: { eq: "dtrader/dtrader_trade.png" }) {
-            ...fadeIn
-        }
-        dtrader_mobile: file(relativePath: { eq: "dtrader/dtrader_trade_mobile.png" }) {
-            ...fadeIn
-        }
-        dbot_mobile: file(relativePath: { eq: "dbot/dbot_trade_mobile.png" }) {
-            ...fadeIn
-        }
-        dmt5_mobile: file(relativePath: { eq: "dmt5/dmt5_trade_mobile.png" }) {
+        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
             ...fadeIn
         }
         deriv_x: file(relativePath: { eq: "deriv-x/hero-laptop.png" }) {
@@ -202,9 +174,49 @@ const query = graphql`
         deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
             ...bannerImage
         }
+        qr_code: file(relativePath: { eq: "deriv-x/deriv-x-qr.png" }) {
+            ...fadeIn
+        }
+        web_browser: file(relativePath: { eq: "deriv-go/web-browser.png" }) {
+            ...fadeIn
+        }
     }
 `
+const AppButton = styled(LocalizedLink)`
+    margin-right: 8px;
+    padding: 0;
+    border: none;
 
+    img {
+        border-radius: 7px;
+    }
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
+        width: 156px;
+        height: 46px;
+    }
+    @media ${device.mobileL} {
+        width: 150px;
+        height: 40px;
+    }
+`
+const ButtonDp2p = styled(Button)`
+    padding: 10px 16px;
+    height: 40px;
+    width: 25rem;
+    white-space: nowrap;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #ff444f;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+`
 const DHero = ({
     title,
     background_alt,
@@ -213,8 +225,6 @@ const DHero = ({
     content,
     image_name,
     is_mobile,
-    join_us_for_free,
-    go_to_live_demo,
     is_ppc,
     Logo,
     d_height,
@@ -223,7 +233,6 @@ const DHero = ({
     tabletL_height,
 }) => {
     const data = useStaticQuery(query)
-    const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
 
     const DLogo = styled.img`
         width: 32px !important;
@@ -283,7 +292,19 @@ const DHero = ({
             right: 120px;
         }
     `
+    const handleExternalLink = () => {
+        let link = ''
 
+        // TODO handle IOS case once the app is ready
+        if (mobileOSDetect() === 'Android') {
+            link = derivx_android_url
+        }
+        if (mobileOSDetect() === 'iOS') {
+            link = derivx_ios_url
+        }
+
+        window.open(link, '_blank')
+    }
     return (
         <Wrapper
             d_height={d_height}
@@ -308,28 +329,68 @@ const DHero = ({
                         {content}
                     </HeroHeader>
                 </HeroContent>
-                <LinkWrapper>
-                    {join_us_for_free && (
-                        <StyledLinkButton
-                            id="dm-hero-signup-2"
-                            secondary="true"
-                            to={is_ppc ? '/landing/signup/' : '/signup/'}
-                        >
-                            {localize('Create free demo account')}
-                        </StyledLinkButton>
-                    )}
-                    {go_to_live_demo && (
-                        <StyledLinkButton
+                <Desktop>
+                    <HeroContent>
+                        <HeroHeader>
+                            <QueryImage
+                                data={data['qr_code']}
+                                alt={'play store'}
+                                width="108px"
+                                height="108px"
+                            />
+                            <Header as="h2" width="50%">
+                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
+                            </Header>
+                        </HeroHeader>
+                    </HeroContent>
+
+                    <Flex
+                        fd="row"
+                        mt="40px"
+                        jc="start"
+                        tablet_fw="wrap"
+                        laptopM={{ m: '7px 8px 48px' }}
+                    >
+                        <AppButton
                             external="true"
-                            secondary="true"
-                            type={getLinkType()}
+                            to={derivx_ios_url}
                             target="_blank"
-                            rel="noopener noreferrer nofollow"
+                            rel="noopener noreferrer"
                         >
-                            {localize('Go to live demo')}
-                        </StyledLinkButton>
-                    )}
-                </LinkWrapper>
+                            <QueryImage data={data['app_store']} alt="app store logo" />
+                        </AppButton>
+                        <AppButton
+                            external="true"
+                            to={derivx_android_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <QueryImage data={data['google_play']} alt="google play logo" />
+                        </AppButton>
+
+                        <AppButton
+                            external="true"
+                            to={derivx_huawei_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
+                        </AppButton>
+                        <AppButton
+                            external="true"
+                            to={derivx_app_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <QueryImage data={data['web_browser']} alt="web browser logo" />
+                        </AppButton>
+                    </Flex>
+                </Desktop>
+                <Mobile>
+                    <ButtonDp2p secondary="true" onClick={handleExternalLink}>
+                        {localize('Download Deriv X app')}
+                    </ButtonDp2p>
+                </Mobile>
             </InformationWrapper>
 
             <LottieWrapper>

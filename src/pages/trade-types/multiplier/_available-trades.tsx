@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
+import BasketIndicesIcon from 'images/svg/markets/basket_indices_new.svg'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
@@ -9,7 +9,21 @@ import device from 'themes/device'
 import ForexIcon from 'images/svg/trade-types/market-forex.svg'
 import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
 import CryptocurrencyIcon from 'images/svg/markets/cryptocurrencies.svg'
-import { DerivStore } from 'store'
+
+type CardProps = {
+    active_tab: string
+    display_name: React.ReactNode
+    name: string
+    onTabChange: (arg0: string) => void
+}
+
+type AvailableTradesProps = {
+    Cryptocurrencies: React.ElementType
+    display_title: React.ReactNode
+    Forex: React.ElementType
+    SyntheticIndices: React.ElementType
+    BasketIndices: React.ElementType
+}
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -179,7 +193,7 @@ const CardHeader = styled(Header)`
         line-height: 16px;
     }
 `
-const Card = ({ display_name, active_tab, onTabChange, name }) => {
+const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
@@ -192,6 +206,9 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
                 {active_tab === 'Cryptocurrencies' && (
                     <TabIcon src={CryptocurrencyIcon} alt="" name={name} active_tab={active_tab} />
                 )}
+                {active_tab === 'Basket Indices' && (
+                    <TabIcon src={BasketIndicesIcon} alt="" name={name} active_tab={active_tab} />
+                )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}
                 </CardHeader>
@@ -200,16 +217,13 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
     )
 }
 
-Card.propTypes = {
-    active_tab: PropTypes.string,
-    display_name: PropTypes.object,
-    name: PropTypes.string,
-    onTabChange: PropTypes.func,
-}
-
-const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrencies }) => {
-    const { is_uk_country } = React.useContext(DerivStore)
-
+const AvailableTrades = ({
+    display_title,
+    Forex,
+    SyntheticIndices,
+    Cryptocurrencies,
+    BasketIndices,
+}: AvailableTradesProps) => {
     const [active_tab, setActiveTab] = useState('Forex')
 
     const handleTabChange = (new_tab: string) => {
@@ -232,7 +246,7 @@ const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrenc
                             active_tab={active_tab}
                         />
                     )}
-                    {!is_uk_country && SyntheticIndices && (
+                    {SyntheticIndices && (
                         <Card
                             name="Synthetic Indices"
                             display_name={<Localize translate_text="Synthetic Indices" />}
@@ -240,11 +254,19 @@ const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrenc
                             active_tab={active_tab}
                         />
                     )}
-                    {!is_uk_country && Cryptocurrencies && (
+                    {Cryptocurrencies && (
                         <Card
                             name="Cryptocurrencies"
                             display_name={<Localize translate_text="Cryptocurrencies" />}
                             onTabChange={() => handleTabChange('Cryptocurrencies')}
+                            active_tab={active_tab}
+                        />
+                    )}
+                    {BasketIndices && (
+                        <Card
+                            name="Basket Indices"
+                            display_name={<Localize translate_text="Basket Indices" />}
+                            onTabChange={() => handleTabChange('Basket Indices')}
                             active_tab={active_tab}
                         />
                     )}
@@ -253,17 +275,11 @@ const AvailableTrades = ({ display_title, Forex, SyntheticIndices, Cryptocurrenc
                     {active_tab === 'Forex' && <Forex />}
                     {active_tab === 'Synthetic Indices' && <SyntheticIndices />}
                     {active_tab === 'Cryptocurrencies' && <Cryptocurrencies />}
+                    {active_tab === 'Basket Indices' && <BasketIndices />}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>
     )
-}
-
-AvailableTrades.propTypes = {
-    Cryptocurrencies: PropTypes.func,
-    display_title: PropTypes.object,
-    Forex: PropTypes.func,
-    SyntheticIndices: PropTypes.func,
 }
 
 export default AvailableTrades

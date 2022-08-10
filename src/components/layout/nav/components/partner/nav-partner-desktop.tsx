@@ -8,7 +8,7 @@ import {
     DesktopWrapper,
     Wrapper,
 } from '../../styles/nav-styles'
-import { handleScroll, moveButton } from '../../util/nav-methods'
+import { handleScroll, useMoveButton } from '../../util/nav-methods'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
@@ -127,7 +127,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const button_ref = useRef<HTMLButtonElement | null>(null)
-    const [show_button, showButton, hideButton] = moveButton()
+    const [show_button, showButton, hideButton] = useMoveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
 
@@ -157,7 +157,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     <NavLinkCard
                         active="affiliate"
                         to="/partners/affiliate-ib/"
-                        title={localize('Affiliates & IBs')}
+                        title={localize('Affiliates and IBs')}
                     />
                     <NavLinkCard
                         active="payment"

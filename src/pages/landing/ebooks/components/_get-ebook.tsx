@@ -4,17 +4,17 @@ import Cookies from 'js-cookie'
 import Login from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Input, Button } from 'components/form'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
-import device from 'themes/device.js'
+import device from 'themes/device'
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
+import { useDerivWS } from 'store'
 
 type GetEbookProps = {
     color?: string
@@ -191,6 +191,7 @@ const EmailImage = styled.img`
 `
 
 const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
+    const { send } = useDerivWS()
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
@@ -268,15 +269,9 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         }
 
         const verify_email_req = getVerifyEmailRequest(formattedEmail)
-        const binary_socket = BinarySocketBase.init()
 
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify(verify_email_req))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
+        send(verify_email_req, (response) => {
             if (response.error) {
-                binary_socket.close()
                 setIsSubmitting(false)
                 setSubmitStatus('error')
                 setSubmitErrorMsg(response.error.message)
@@ -286,9 +281,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 setSubmitStatus('success')
                 if (onSubmit) onSubmit(submit_status, email)
             }
-
-            binary_socket.close()
-        }
+        })
     }
 
     return submit_status === 'success' ? (
@@ -320,8 +313,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             input_background="grey-8"
                             label_focus_color="grey-7"
                             label_color="black-3"
-                            labelSize="16px"
-                            labelTop="1.2rem"
                             placeholder={localize('email address')}
                             handleError={clearEmail}
                             onChange={handleInputChange}
@@ -340,11 +331,12 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         color={color}
                     />
                     <EmailButton
-                        isChecked={is_checked}
                         id="dm-ebook-download-signup"
                         type="submit"
                         secondary="true"
-                        disabled={is_submitting || !is_checked || email_error_msg || !email}
+                        disabled={
+                            is_submitting || !is_checked || Boolean(email_error_msg) || !email
+                        }
                     >
                         {localize('Get your free ebook now!')}
                     </EmailButton>
@@ -386,7 +378,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         data-provider="google"
                         id="dm-signup-google"
                         type="button"
-                        social
                     >
                         <SocialButtonText>
                             <img src={Google} alt="google" width="24" height="24" />
@@ -399,7 +390,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         data-provider="facebook"
                         id="dm-signup-facebook"
                         type="button"
-                        social
                     >
                         <SocialButtonText>
                             <img src={Facebook} alt="facebook" width="24" height="24" />
@@ -412,7 +402,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         data-provider="apple"
                         id="dm-signup-apple"
                         type="button"
-                        social
                     >
                         <SocialButtonText>
                             <img src={Apple} alt="apple" width="24" height="24" />

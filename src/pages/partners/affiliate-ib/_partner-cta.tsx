@@ -35,6 +35,7 @@ const LightButton = styled(LinkButton)`
     height: 32px;
     @media ${device.tabletL} {
         padding-top: 9px;
+        width: 100%;
     }
 `
 const RedButton = styled(LinkButton)`
@@ -43,6 +44,7 @@ const RedButton = styled(LinkButton)`
     height: 32px;
     @media ${device.tabletL} {
         padding-top: 1rem;
+        width: 100%;
     }
 `
 

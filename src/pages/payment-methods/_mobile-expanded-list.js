@@ -7,7 +7,7 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Button } from 'components/form/'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const StyledItemWrapper = styled(Flex)`
     border-bottom: ${(props) => (props.is_expanded ? '1px solid var(--color-grey-8)' : 'none')};
@@ -317,7 +317,6 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
 }
 
 MobileExpandedList.propTypes = {
-    crypto_config: PropTypes.object,
     is_crypto: PropTypes.bool,
     is_dp2p: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,

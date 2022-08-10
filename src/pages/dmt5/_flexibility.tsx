@@ -9,6 +9,7 @@ import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type ContentType = {
     header?: React.ReactElement
@@ -38,14 +39,14 @@ const content: ContentType[] = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (
-            <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
+            <Localize translate_text="Trade CFDs 24/7 on our exclusive, proprietary synthetic indices, which simulate real-world market movements." />
         ),
         icon: <StyledSyntheticIcon src={SyntheticIcon} alt="" />,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
+            <Localize translate_text="Trade forex, stocks, stock indices, cryptocurrencies, basket indices, and commodities on high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },
@@ -62,7 +63,7 @@ const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies with leverage." />
+            <Localize translate_text="Trade forex, synthetic indices, stocks, stock indices, cryptocurrencies, and commodities on leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
         show_eu: true,
@@ -134,6 +135,7 @@ const StyledText = styled(Text)`
 
 const Flexibility = () => {
     const { is_eu_country } = React.useContext(DerivStore)
+    const { is_uk } = useCountryRule()
 
     const chosen_content = is_eu_country ? eucontent : content
 
@@ -169,7 +171,13 @@ const Flexibility = () => {
                                     </StyledHeader>
                                     {item.icon}
                                 </Flex>
-                                <StyledText>{item.text}</StyledText>
+                                {is_eu_country && is_uk ? (
+                                    <StyledText>
+                                        <Localize translate_text="Trade forex, stocks, stock indices, and commodities on leverage." />
+                                    </StyledText>
+                                ) : (
+                                    <StyledText>{item.text}</StyledText>
+                                )}
                             </ClientCard>
                         )
                     )

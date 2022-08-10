@@ -222,7 +222,7 @@ export const getContractSize = (symbol) => {
     if (symbol.name === 'Step Index') {
         contractSize = 10
     }
-    if (symbol.market === 'smartfx') {
+    if (symbol.market === 'basket_indices') {
         contractSize = 100
     }
     return contractSize

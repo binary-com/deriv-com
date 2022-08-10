@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, Dispatch, ReactNode } from 'react'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { AcademyDataType, useAcademyData } from 'components/hooks/use-academy-data'
-import { useLivechat } from 'components/hooks/use-livechat'
+import { useDerivApi, DerivApiProps } from 'components/hooks/use-deriv-api'
 import { isEuCountry, isP2PAllowedCountry, isUK } from 'common/country-base'
 
 type DerivProviderProps = {
@@ -10,46 +10,57 @@ type DerivProviderProps = {
 
 type WebsiteStatusType = {
     clients_country: string
-    crypto_config: unknown
 }
 
 export type DerivStoreType = {
     academy_data: AcademyDataType
-    crypto_config: unknown
     is_eu_country: boolean
-    is_livechat_interactive: boolean
-    is_loading_lc: boolean
     is_p2p_allowed_country: boolean
     is_uk_country: boolean
-    LC_API: { open_chat_window: () => void }
-    setFirstLoadOpenLc: React.Dispatch<React.SetStateAction<boolean>>
     setWebsiteStatus: Dispatch<WebsiteStatusType | void>
     user_country: string
     website_status_loading: boolean
     website_status: WebsiteStatusType
+    deriv_api: DerivApiProps
+    show_non_eu_popup: boolean
+    setShowNonEuPopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const DerivStore = createContext<DerivStoreType>(null)
 
 export const DerivProvider = ({ children }: DerivProviderProps) => {
+    const deriv_api = useDerivApi()
+
+    const [show_non_eu_popup, setShowNonEuPopup] = useState(false)
     const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
     const [academy_data] = useAcademyData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_uk_country, setUkCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
-    const [crypto_config, setCryptoConfig] = useState(null)
     const [user_country, setUserCountry] = useState(null)
-    const [is_livechat_interactive, LC_API, is_loading_lc, setFirstLoadOpenLc] = useLivechat()
+
+    useEffect(() => {
+        // Fetch website status from the API & save in the cookies
+        const { send } = deriv_api
+
+        send({ website_status: 1 }, (response) => {
+            if (!response.error && !website_status) {
+                const {
+                    website_status: { clients_country },
+                } = response
+
+                setWebsiteStatus({ clients_country })
+            }
+        })
+    }, [])
 
     useEffect(() => {
         if (website_status) {
-            setEuCountry(!!isEuCountry(website_status.clients_country))
-            setUkCountry(!!isUK(website_status.clients_country))
-            setP2PAllowedCountry(isP2PAllowedCountry(website_status.clients_country))
-            setUserCountry(website_status.clients_country)
-            if (!crypto_config) {
-                setCryptoConfig(website_status.crypto_config)
-            }
+            const { clients_country } = website_status
+            setEuCountry(!!isEuCountry(clients_country))
+            setUkCountry(!!isUK(clients_country))
+            setP2PAllowedCountry(isP2PAllowedCountry(clients_country))
+            setUserCountry(clients_country)
         }
     }, [website_status])
 
@@ -57,21 +68,27 @@ export const DerivProvider = ({ children }: DerivProviderProps) => {
         <DerivStore.Provider
             value={{
                 academy_data,
-                crypto_config,
                 is_eu_country,
-                is_livechat_interactive,
-                is_loading_lc,
                 is_p2p_allowed_country,
                 is_uk_country,
-                LC_API,
-                setFirstLoadOpenLc,
                 setWebsiteStatus,
                 user_country,
                 website_status_loading,
                 website_status,
+                deriv_api,
+                show_non_eu_popup,
+                setShowNonEuPopup,
             }}
         >
             {children}
         </DerivStore.Provider>
     )
+}
+
+export const useDerivWS = () => {
+    const {
+        deriv_api: { send },
+    } = React.useContext(DerivStore)
+
+    return { send }
 }

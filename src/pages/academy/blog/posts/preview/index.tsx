@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
     ArticleTitle,
     Background,
@@ -28,14 +28,15 @@ import SocialSharing from '../../../components/_social-sharing'
 import SideSubscriptionBanner from '../../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
+import { SEO, Desktop, Mobile, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser, getMinRead, truncateString } from 'common/utility'
+import { handleTag } from 'pages/academy/components/_utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { cms_assets_end_point, cms_end_point } from 'common/constants'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { useWindowSize } from 'components/hooks/use-window-size'
 
-export const getTruncateLength = () => {
+export const useTruncateLength = () => {
     const size = useWindowSize()
     if (size.width < 400) return 15
     else if (size.width < 475) return 30
@@ -59,11 +60,13 @@ const BlogPreview = () => {
         }
     }, [isMounted])
 
-    const handleScroll = () => {
+    const truncateLength = useTruncateLength()
+
+    const handleScroll = useCallback(() => {
         const currentScrollPos = window.scrollY
         setPrevScrollPos(currentScrollPos)
         setVisible(currentScrollPos > 72)
-    }
+    }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -141,7 +144,7 @@ const BlogPreview = () => {
                                         <StyledImg src={RightArrow} height="16" width="16" />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
-                                                ? truncateString(article_title, getTruncateLength())
+                                                ? truncateString(article_title, truncateLength)
                                                 : article_title}
                                         </StyledBreadcrumbsTitle>
                                         <SocialSharing />
@@ -160,7 +163,7 @@ const BlogPreview = () => {
                                     <InfoText size="14px" mt="16px">
                                         {getMinRead(post_data?.blog_post)}
                                     </InfoText>
-                                    <Show.Mobile min_width="laptop">
+                                    <Mobile breakpoint="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">
                                             <Flex
                                                 fw="wrap"
@@ -172,7 +175,14 @@ const BlogPreview = () => {
                                                     return (
                                                         <>
                                                             {tag?.tags_id?.id && (
-                                                                <Tag key={tag?.tags_id?.id}>
+                                                                <Tag
+                                                                    key={tag?.tags_id?.id}
+                                                                    onClick={() =>
+                                                                        handleTag(
+                                                                            tag?.tags_id?.tag_name,
+                                                                        )
+                                                                    }
+                                                                >
                                                                     {tag?.tags_id?.tag_name}
                                                                 </Tag>
                                                             )}
@@ -181,9 +191,9 @@ const BlogPreview = () => {
                                                 })}
                                             </Flex>
                                         </SideBarContainer>
-                                    </Show.Mobile>
+                                    </Mobile>
 
-                                    <Show.Desktop max_width="laptop">
+                                    <Desktop breakpoint="laptop">
                                         {post_data?.author && (
                                             <Flex ai="center" mt="40px" jc="flex-start">
                                                 <>
@@ -207,7 +217,7 @@ const BlogPreview = () => {
                                                 </Box>
                                             </Flex>
                                         )}
-                                    </Show.Desktop>
+                                    </Desktop>
                                 </HeroLeftWrapper>
                                 <HeroRightWrapper>
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
@@ -223,7 +233,7 @@ const BlogPreview = () => {
 
                         <BodyContainer>
                             <LeftBodyContainerWrapper>
-                                <Show.Mobile min_width="laptop">
+                                <Mobile breakpoint="laptop">
                                     {post_data?.author && (
                                         <Flex ai="center" jc="flex-start">
                                             <>
@@ -245,8 +255,8 @@ const BlogPreview = () => {
                                             </Box>
                                         </Flex>
                                     )}
-                                </Show.Mobile>
-                                <Show.Desktop max_width="laptop">
+                                </Mobile>
+                                <Desktop breakpoint="laptop">
                                     <SideBarContainer fd="column" height="auto">
                                         <Flex
                                             jc="flex-start"
@@ -259,7 +269,14 @@ const BlogPreview = () => {
                                                 return (
                                                     <>
                                                         {tag?.tags_id?.id && (
-                                                            <Tag key={tag?.tags_id?.id}>
+                                                            <Tag
+                                                                key={tag?.tags_id?.id}
+                                                                onClick={() =>
+                                                                    handleTag(
+                                                                        tag?.tags_id?.tag_name,
+                                                                    )
+                                                                }
+                                                            >
                                                                 {tag?.tags_id?.tag_name}
                                                             </Tag>
                                                         )}
@@ -274,7 +291,7 @@ const BlogPreview = () => {
                                             <SideSubscriptionBanner />
                                         </DesktopWrapper>
                                     </SideBarContainer>
-                                </Show.Desktop>
+                                </Desktop>
                             </LeftBodyContainerWrapper>
                             <RightBodyContainerWrapper>
                                 <Flex fd="column" margin="0 auto" ai="center">
@@ -290,13 +307,13 @@ const BlogPreview = () => {
                                         <Banner detailsPreviewObj={footer_banner_details} />
                                     )}
                                     {side_banner_data_details && (
-                                        <Show.Mobile>
+                                        <Mobile>
                                             <Flex mt="24px">
                                                 <Banner
                                                     detailsPreviewObj={side_banner_data_details}
                                                 />
                                             </Flex>
-                                        </Show.Mobile>
+                                        </Mobile>
                                     )}
                                     <MobileWrapper>
                                         <SideSubscriptionBanner />

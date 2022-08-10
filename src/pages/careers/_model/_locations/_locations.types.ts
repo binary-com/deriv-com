@@ -5,6 +5,8 @@ export type LocationsType = {
     img_alt?: string
     map_office_name: string
     country: string
+    continent: string
+    display_continent: string
     flagIcon: string
     thumbnail: string
     first_p: string
@@ -21,4 +23,6 @@ export type LocationsType = {
     // has_map check is for the new offices with ready office addresses
     // can be deprecated once all new offices have ready physical addresses
     has_map?: boolean
+    badge?: string
+    badge_alt?: string
 }

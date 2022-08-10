@@ -30,7 +30,6 @@ import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
-import { getCountryRule } from 'components/containers/visibility'
 
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
@@ -180,47 +179,6 @@ export const platform_details_uk: TPlatformDetails[] = [
         download_links: [{ type: 'browser', link_type: 'deriv_app' }],
     },
 ]
-
-export const getPlatformDetails = (no_of_copies, is_eu, is_uk) => {
-    const new_details = []
-    let current_index = 0
-
-    const getPlatformDetails = () => {
-        if (is_eu) {
-            return platform_details_eu
-        } else if (is_uk) {
-            return platform_details_uk
-        }
-
-        return platform_details_cr
-    }
-
-    for (let index = 0; index < no_of_copies; index++) {
-        // prettier-ignore
-        getPlatformDetails().forEach((p) => {
-            new_details.push({ ...p, id: current_index })
-            current_index++
-        })
-    }
-
-    return new_details
-}
-
-export const no_slide_sets = () => {
-    const { is_row } = getCountryRule()
-    if (!is_row) {
-        return 1
-    }
-    return 11
-}
-
-export const getSlideStartingIndex = () => {
-    const { is_row } = getCountryRule()
-    if (!is_row) {
-        return 0
-    }
-    return Math.round((no_slide_sets() * 8) / 2 - 2)
-}
 
 export const ImageTag = styled.img`
     width: 40px;

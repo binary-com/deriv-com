@@ -6,7 +6,7 @@ import { LocalizedLink } from 'components/localization'
 import GetTrading from 'images/svg/layout/get-trading.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex } from 'components/containers'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 const ContentContainer = styled(Container)`
     justify-content: space-between;

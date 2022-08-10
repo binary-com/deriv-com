@@ -7,7 +7,7 @@ import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import { addScript } from 'common/utility'
 import Quote from 'images/svg/testimonials/quote.svg'
-import { getCountryRule } from 'components/containers/visibility'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledContainer = styled.div`
     background: linear-gradient(76.83deg, #b1c9df 4.59%, #eaf4f5 66.44%);
@@ -24,7 +24,7 @@ const ClientContainer = styled(Container)`
     align-items: center;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto 80px;
+    margin: 0 auto;
 `
 
 const ClientFlex = styled(Flex)`
@@ -236,126 +236,18 @@ const testimonial_slides = [
     },
 ]
 
-const testimonial_slides_eu = [
-    {
-        id: 'angeh',
-        name: 'Angeh',
-        quote: (
-            <Localize translate_text="Weekend trades, fast deposits & withdrawals, plus synthetics trading - what’s better than this?" />
-        ),
-    },
-    {
-        id: 'osilva',
-        name: 'O.Silva',
-        quote: (
-            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
-        ),
-    },
-    {
-        id: 'john',
-        name: 'John',
-        quote: (
-            <Localize translate_text="I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!" />
-        ),
-    },
-    {
-        id: 'frank',
-        name: 'Frank',
-        quote: <Localize translate_text="Excellent and reliable services; tested and trusted!" />,
-    },
-    {
-        id: 'isaac',
-        name: 'Isaac',
-        quote: (
-            <Localize translate_text="Deriv is the most reliable broker - excellent customer support and fast payments. It’s a great platform for commodities, forex, and synthetics trading." />
-        ),
-    },
-    {
-        id: 'simon',
-        name: 'Simon',
-        quote: (
-            <Localize translate_text="Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!" />
-        ),
-    },
-    {
-        id: 'francoise',
-        name: 'Francoise',
-        quote: (
-            <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
-        ),
-    },
-    {
-        id: 'jackline',
-        name: 'Jackline',
-        quote: (
-            <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
-        ),
-    },
-    {
-        id: 'vikas',
-        name: 'Vikas',
-        quote: (
-            <Localize translate_text="It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!" />
-        ),
-    },
-    {
-        id: 'ls',
-        name: 'LS',
-        quote: (
-            <Localize translate_text="Deriv is the best forex broker I have ever come across!" />
-        ),
-    },
-]
+const filtered_testimonial = (unavailable_testimonial) =>
+    testimonial_slides.filter(({ quote }) => {
+        const lowered_quote = quote.props.translate_text.toLowerCase()
+        let show = true
+        unavailable_testimonial.forEach(
+            (unavailable) => lowered_quote.includes(unavailable) && (show = false),
+        )
+        return show
+    })
 
-const testimonial_slides_uk = [
-    {
-        id: 'osilva',
-        name: 'O.Silva',
-        quote: (
-            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
-        ),
-    },
-    {
-        id: 'john',
-        name: 'John',
-        quote: (
-            <Localize translate_text="I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!" />
-        ),
-    },
-    {
-        id: 'frank',
-        name: 'Frank',
-        quote: <Localize translate_text="Excellent and reliable services; tested and trusted!" />,
-    },
-    {
-        id: 'francoise',
-        name: 'Francoise',
-        quote: (
-            <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
-        ),
-    },
-    {
-        id: 'jackline',
-        name: 'Jackline',
-        quote: (
-            <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
-        ),
-    },
-    {
-        id: 'vikas',
-        name: 'Vikas',
-        quote: (
-            <Localize translate_text="It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!" />
-        ),
-    },
-    {
-        id: 'ls',
-        name: 'LS',
-        quote: (
-            <Localize translate_text="Deriv is the best forex broker I have ever come across!" />
-        ),
-    },
-]
+const unavailable_testimonial_eu = ['p2p', 'deriv go']
+const unavailable_testimonial_uk = ['p2p', 'synthetic', 'deriv go']
 
 type ClientSideProps = {
     quote: ReactElement
@@ -376,7 +268,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_row, is_eu, is_uk } = getCountryRule()
+    const { is_eu, is_uk } = useCountryRule()
 
     useEffect(() => {
         addScript({
@@ -384,7 +276,7 @@ const WhatOurClientsSay = () => {
             id: 'trust-pilot',
             async: true,
         })
-    }, [document])
+    }, [])
 
     return (
         <StyledContainer>
@@ -452,9 +344,9 @@ const WhatOurClientsSay = () => {
                         >
                             <Carousel>
                                 {(
-                                    (is_row && testimonial_slides) ||
-                                    (is_eu && testimonial_slides_eu) ||
-                                    (is_uk && testimonial_slides_uk)
+                                    (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
+                                    (is_uk && filtered_testimonial(unavailable_testimonial_uk)) ||
+                                    testimonial_slides
                                 ).map(({ id, name, quote }) => (
                                     <ClientSlide key={id} quote={quote} name={name} />
                                 ))}

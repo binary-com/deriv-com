@@ -9,6 +9,7 @@ module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
         FAST_DEV: true,
+        DEV_SSR: false,
     },
     siteMetadata: {
         title: 'Deriv',
@@ -19,6 +20,13 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-react-helmet',
+        {
+            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            options: {
+                siteUrl: `${site_url}`,
+                noQueryString: true,
+            },
+        },
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',
@@ -133,19 +141,19 @@ module.exports = {
                 description:
                     'Deriv gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 start_url: '/',
-                background_color: '#0e0e0e',
-                theme_color: '#ff444f',
+                background_color: '#000000',
+                theme_color: '#000000',
                 display: 'standalone',
                 icon: './favicons/favicon-512x512.png',
                 icons: [
                     {
-                        src: `./favicons/favicon-192x192.png`,
+                        src: `favicons/favicon-192x192.png`,
                         sizes: `192x192`,
                         type: `image/png`,
                         purpose: 'any maskable',
                     },
                     {
-                        src: `./favicons/favicon-512x512.png`,
+                        src: `favicons/favicon-512x512.png`,
                         sizes: `512x512`,
                         type: `image/png`,
                     },
@@ -227,5 +235,12 @@ module.exports = {
             },
         },
         'gatsby-plugin-use-query-params',
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+            options: {
+                analyzerMode: 'disabled',
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+            },
+        },
     ],
 }

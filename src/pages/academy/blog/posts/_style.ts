@@ -19,7 +19,7 @@ export const Background = styled.div`
 export const HeroContainer = styled(Container)`
     height: auto;
     min-height: 525px;
-    padding: 76px 0 40px;
+    padding: ${(props) => (props.padding ? props.padding : '76px 0 40px')};
     align-items: flex-start;
 
     @media (max-width: 1300px) {
@@ -246,6 +246,13 @@ export const Tag = styled(Flex)`
     align-items: center;
     margin-right: 16px;
     margin-bottom: 16px;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-blue-12);
+        background-color: var(--color-blue-13);
+    }
+
     @media ${device.laptop} {
         height: 20px;
         margin-right: 8px;

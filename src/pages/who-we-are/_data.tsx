@@ -113,73 +113,73 @@ export const desktop_pins: MapPinType[] = [
     {
         left: '30%',
         top: '75%',
-        title: <Localize translate_text="Paraguay" />,
+        title: <Localize translate_text="Asunción, Paraguay" />,
         link: '/careers/locations/asuncion',
     },
     {
         left: '50%',
         top: '39.5%',
-        title: <Localize translate_text="Malta" />,
+        title: <Localize translate_text="Birkirkara, Malta" />,
         link: '/careers/locations/malta',
     },
     {
         left: '55%',
         top: '40%',
-        title: <Localize translate_text="Cyprus" />,
+        title: <Localize translate_text="Limassol, Cyprus" />,
         link: '/careers/locations/cyprus',
     },
     {
         left: '54%',
         top: '61.5%',
-        title: <Localize translate_text="Rwanda" />,
+        title: <Localize translate_text="Kigali, Rwanda" />,
         link: '/careers/locations/rwanda',
     },
     {
         left: '54%',
         top: '27.5%',
-        title: <Localize translate_text="Belarus" />,
+        title: <Localize translate_text="Minsk, Belarus" />,
         link: '/careers/locations/minsk',
     },
     {
         left: '61.5%',
         top: '45.9%',
-        title: <Localize translate_text="Dubai" />,
+        title: <Localize translate_text="Dubai, UAE" />,
         link: '/careers/locations/dubai',
     },
     {
         left: '73.3%',
         top: '57.5%',
-        title: <Localize translate_text="Ipoh" />,
+        title: <Localize translate_text="Ipoh, Malaysia" />,
         link: '/careers/locations/ipoh',
     },
     {
         left: '74.2%',
         top: '58.5%',
-        title: <Localize translate_text="Cyberjaya" />,
+        title: <Localize translate_text="Cyberjaya, Malaysia" />,
         link: '/careers/locations/cyberjaya',
     },
     {
         left: '74.2%',
         top: '60.6%',
-        title: <Localize translate_text="Melaka" />,
+        title: <Localize translate_text="Melaka, Malaysia" />,
         link: '/careers/locations/melaka',
     },
     {
         left: '77.2%',
         top: '58.7%',
-        title: <Localize translate_text="Labuan" />,
+        title: <Localize translate_text="Labuan, Malaysia" />,
         link: '/careers/locations/labuan',
     },
     {
         left: '47.4%',
         top: '30.9%',
-        title: <Localize translate_text="Paris" />,
+        title: <Localize translate_text="Paris, France" />,
         link: '/careers/locations/paris',
     },
     {
         left: '44.5%',
         top: '30.9%',
-        title: <Localize translate_text="Guernsey" />,
+        title: <Localize translate_text="Guernsey, Channel Islands" />,
         link: '/careers/locations/guernsey',
     },
 ]
@@ -188,94 +188,109 @@ export const mobile_pins: MapPinType[] = [
     {
         left: '28.5%',
         top: '71%',
-        title: <Localize translate_text="Paraguay" />,
+        title: <Localize translate_text="Asunción, Paraguay" />,
         link: '/careers/locations/asuncion',
     },
     {
         left: '48.5%',
         top: '35.5%',
-        title: <Localize translate_text="Malta" />,
+        title: <Localize translate_text="Birkirkara, Malta" />,
         link: '/careers/locations/malta',
     },
     {
         left: '53.5%',
         top: '36%',
-        title: <Localize translate_text="Cyprus" />,
+        title: <Localize translate_text="Limassol, Cyprus" />,
         link: '/careers/locations/cyprus',
     },
     {
         left: '52.5%',
         top: '57.5%',
-        title: <Localize translate_text="Rwanda" />,
+        title: <Localize translate_text="Kigali, Rwanda" />,
         link: '/careers/locations/rwanda',
     },
     {
         left: '52.5%',
         top: '23.5%',
-        title: <Localize translate_text="Belarus" />,
+        title: <Localize translate_text="Minsk, Belarus" />,
         link: '/careers/locations/minsk',
     },
     {
         left: '60%',
         top: '41.9%',
-        title: <Localize translate_text="Dubai" />,
+        title: <Localize translate_text="Dubai, UAE" />,
         link: '/careers/locations/dubai',
     },
     {
         left: '72.3%',
         top: '51.2%',
-        title: <Localize translate_text="Ipoh" />,
+        title: <Localize translate_text="Ipoh, Malaysia" />,
         link: '/careers/locations/ipoh',
     },
     {
         left: '71%',
         top: '55%',
-        title: <Localize translate_text="Cyberjaya" />,
+        title: <Localize translate_text="Cyberjaya, Malaysia" />,
         link: '/careers/locations/cyberjaya',
     },
     {
         left: '73%',
         top: '56.7%',
-        title: <Localize translate_text="Melaka" />,
+        title: <Localize translate_text="Melaka, Malaysia" />,
         link: '/careers/locations/melaka',
     },
     {
         left: '76%',
         top: '54.7%',
-        title: <Localize translate_text="Labuan" />,
+        title: <Localize translate_text="Labuan, Malaysia" />,
         link: '/careers/locations/labuan',
     },
     {
         left: '45.9%',
         top: '26.9%',
-        title: <Localize translate_text="Paris" />,
+        title: <Localize translate_text="Paris, France" />,
         link: '/careers/locations/paris',
     },
     {
         left: '43%',
         top: '26.9%',
-        title: <Localize translate_text="Guernsey" />,
+        title: <Localize translate_text="Guernsey, Channel Islands" />,
         link: '/careers/locations/guernsey',
     },
 ]
 
 type DerivNumbersType = {
-    count: string
-    title: string
+    count: ReactElement
+    title: ReactElement
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: localize('750+'), title: localize('employees') },
-    { count: localize('50+'), title: localize('nationalities') },
-    { count: localize(all_offices.length), title: localize('locations') },
-    { count: localize(all_countries.length), title: localize('countries') },
+    { count: <Localize translate_text="750+" />, title: <Localize translate_text="employees" /> },
+    {
+        count: <Localize translate_text="50+" />,
+        title: <Localize translate_text="nationalities" />,
+    },
+    { count: localize(all_offices.length), title: <Localize translate_text="locations" /> },
+    { count: localize(all_countries.length), title: <Localize translate_text="countries" /> },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [
     [
-        { count: localize('2.5M+'), title: localize('traders worldwide') },
-        { count: localize('USD 26M+'), title: localize('withdrawals last month') },
-        { count: localize('114M+'), title: localize('trades last month') },
-        { count: localize('USD 10B+'), title: localize('total trade turnover') },
+        {
+            count: <Localize translate_text="2.5M+" />,
+            title: <Localize translate_text="traders worldwide" />,
+        },
+        {
+            count: <Localize translate_text="USD 26M+" />,
+            title: <Localize translate_text="withdrawals last month" />,
+        },
+        {
+            count: <Localize translate_text="114M+" />,
+            title: <Localize translate_text="trades last month" />,
+        },
+        {
+            count: <Localize translate_text="USD 10B+" />,
+            title: <Localize translate_text="total trade turnover" />,
+        },
     ],
 ]

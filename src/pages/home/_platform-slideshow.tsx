@@ -1,12 +1,11 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
-import { getCountryRule } from 'components/containers/visibility'
-import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
@@ -22,19 +21,13 @@ const query = graphql`
         hero_platform1: file(relativePath: { eq: "home/hero_platform1.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform1_eu: file(relativePath: { eq: "home/hero_platform1_eu.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform1_uk: file(relativePath: { eq: "home/hero_platform1_uk.png" }) {
+        hero_platform1_uk_and_eu: file(relativePath: { eq: "home/hero_platform1_uk_and_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform2: file(relativePath: { eq: "home/hero_platform2.png" }) {
             ...homePageHeroFadeIn
         }
-        hero_platform2_eu: file(relativePath: { eq: "home/hero_platform2_eu.png" }) {
-            ...homePageHeroFadeIn
-        }
-        hero_platform2_uk: file(relativePath: { eq: "home/hero_platform2_uk.png" }) {
+        hero_platform2_uk_and_eu: file(relativePath: { eq: "home/hero_platform2_uk_and_eu.png" }) {
             ...homePageHeroFadeIn
         }
         hero_platform3: file(relativePath: { eq: "home/hero_platform3.png" }) {
@@ -75,51 +68,68 @@ const StyledImage = styled(QueryImage)<{ $is_hidden: boolean }>`
 
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
-    const [is_be_loaded, setBeLoaded] = useState(false)
     const data = useStaticQuery(query)
-    const { is_row, is_eu, is_uk } = getCountryRule()
-    const [website_status] = useWebsiteStatus()
+
+    const { is_row, is_eu, is_uk, is_loading } = useCountryRule()
+
+    const slide_images = useMemo(() => {
+        if (is_row)
+            return [
+                { key: 'hero1', image: data.hero_platform1 },
+                { key: 'hero2', image: data.hero_platform2 },
+                { key: 'hero3', image: data.hero_platform3 },
+                { key: 'hero4', image: data.hero_platform4 },
+            ]
+
+        if (is_eu)
+            return [
+                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
+                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
+            ]
+
+        if (is_uk)
+            return [
+                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
+                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
+            ]
+    }, [
+        data.hero_platform1,
+        data.hero_platform1_uk_and_eu,
+        data.hero_platform2,
+        data.hero_platform2_uk_and_eu,
+        data.hero_platform3,
+        data.hero_platform4,
+        is_eu,
+        is_row,
+        is_uk,
+    ])
+
+    const intervalRef = useRef(null)
 
     useEffect(() => {
-        if (website_status) {
-            setBeLoaded(true)
+        const setNextImage = () => {
+            setActiveIndex((prevIndex) =>
+                prevIndex >= slide_images?.length - 1 ? 0 : prevIndex + 1,
+            )
         }
-    }, [website_status])
 
-    const slide_images =
-        (is_row && [
-            { key: 'hero1', image: data.hero_platform1 },
-            { key: 'hero2', image: data.hero_platform2 },
-            { key: 'hero3', image: data.hero_platform3 },
-            { key: 'hero4', image: data.hero_platform4 },
-        ]) ||
-        (is_eu && [
-            { key: 'hero1', image: data.hero_platform1_eu },
-            { key: 'hero2', image: data.hero_platform2_eu },
-        ]) ||
-        (is_uk && [
-            { key: 'hero1', image: data.hero_platform1_uk },
-            { key: 'hero2', image: data.hero_platform2_uk },
-        ])
-
-    const setNextImage = useCallback(() => {
-        setActiveIndex((prevIndex) => (prevIndex >= slide_images.length - 1 ? 0 : prevIndex + 1))
-    }, [slide_images])
-
-    useEffect(() => {
         const slideshow_timer = setInterval(() => {
             setNextImage()
         }, 5000)
 
-        return () => clearInterval(slideshow_timer)
+        intervalRef.current = slideshow_timer
+
+        return () => clearInterval(intervalRef.current)
     }, [slide_images])
 
-    return is_be_loaded ? (
+    if (is_loading) {
+        return <ImagePlaceHolder />
+    }
+
+    return (
         <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>
             <Slides images={slide_images} active_index={active_index} />
         </Flex>
-    ) : (
-        <ImagePlaceHolder />
     )
 }
 
@@ -131,7 +141,7 @@ type SlidesProps = {
 const Slides = ({ images, active_index }: SlidesProps) => {
     return (
         <>
-            {images.map((slide, index) => {
+            {images?.map((slide, index) => {
                 const { key, image } = slide
                 return (
                     <StyledImage

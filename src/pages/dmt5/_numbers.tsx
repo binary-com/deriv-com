@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
-import device from 'themes/device.js'
+import device from 'themes/device'
 
 type NumbersContentType = {
     title: React.ReactElement

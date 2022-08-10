@@ -26,7 +26,7 @@ const query = graphql`
         guernsey_grid_4: file(relativePath: { eq: "careers/guernsey_grid_4.jpg" }) {
             ...fadeIn
         }
-        guernsey_map: file(relativePath: { eq: "maps/map-guernsey-career.jpg" }) {
+        guernsey_map: file(relativePath: { eq: "maps/map-guernsey.jpg" }) {
             ...fadeIn
         }
     }

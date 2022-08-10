@@ -51,7 +51,7 @@ const MainNav = ({ is_security }: MainNavProps) => {
                 <Localize translate_text="Who we are" />
             ),
         },
-        { to: '/contact-us/', title: <Localize translate_text="Contact us" /> },
+        { to: '/contact_us/', title: <Localize translate_text="Contact us" /> },
     ]
 
     return (

@@ -52,6 +52,7 @@ const PinContent = styled(LocalizedLink)`
     }
     @media ${device.tabletL} {
         padding: 2px 4px;
+        width: 58px;
     }
 `
 

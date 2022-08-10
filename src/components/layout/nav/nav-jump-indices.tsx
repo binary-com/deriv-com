@@ -64,7 +64,6 @@ const NavJumpIndice = () => {
                         <QueryImage
                             data={data['deriv']}
                             alt="deriv logo"
-                            max_width="16.4rem"
                             width="100%"
                             height="auto"
                         />

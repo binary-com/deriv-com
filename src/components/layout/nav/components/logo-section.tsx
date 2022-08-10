@@ -57,13 +57,7 @@ const LogoSection = ({ is_ppc_redirect, base, hide_get_trading }: LogoSectionPro
     return (
         <Wrapper>
             <LogoLink to={to} aria-label="Home">
-                <QueryImage
-                    data={data['deriv']}
-                    alt="deriv logo"
-                    max_width="16.4rem"
-                    width="100%"
-                    height="auto"
-                />
+                <QueryImage data={data['deriv']} alt="deriv logo" width="100%" height="auto" />
             </LogoLink>
             {!hide_get_trading && (
                 <>

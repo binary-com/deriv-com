@@ -36,9 +36,8 @@ const LogoSection = styled.div`
     width: 100%;
 
     @media ${device.tabletL} {
-        margin-left: 10px;
         max-width: none;
-        margin-top: 4px;
+        margin: 4px 0 4px 10px;
     }
 `
 const HeaderSection = styled.div`
@@ -85,10 +84,6 @@ const StyledLogoLink = styled(LogoLink)`
 const RightSection = styled(Flex)`
     width: auto;
     justify-self: flex-end;
-
-    @media ${device.tabletL} {
-        margin-top: 7px;
-    }
 `
 const StyledLinkButton = styled(LinkButton)`
     @media ${device.tabletL} {

@@ -360,7 +360,6 @@ const Subscribe = () => {
                             secondary="true"
                             disabled={Boolean(
                                 is_submitting ||
-                                    !is_checked ||
                                     email_error_msg ||
                                     !email ||
                                     name_error_msg ||

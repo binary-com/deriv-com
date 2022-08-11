@@ -47,7 +47,6 @@ const HeaderSection = styled.div`
     align-items: center;
     gap: 32px;
     font-size: 16px;
-    margin-top: 13px;
 `
 const NavWrapper = styled.div`
     padding: 0 120px;

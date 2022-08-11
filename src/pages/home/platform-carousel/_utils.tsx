@@ -36,10 +36,6 @@ import APK from 'images/svg/app-download/apk.svg'
 import Windows from 'images/svg/app-download/app-store-windows.svg'
 import MacAppStore from 'images/svg/app-download/app-store-mac.svg'
 import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
-import MobileAppleStore from 'images/svg/app-download/mobile-app-store-apple.svg'
-import MobileGooglePlay from 'images/svg/app-download/mobile-app-store-google-play.svg'
-import MobileAppGallery from 'images/svg/app-download/mobile-app-store-app-gallery.svg'
-import MobileWebBrowser from 'images/svg/app-download/mobile-app-store-web-browser.svg'
 
 export const getOSIcon = (type: string) => {
     if (type === 'browser') return Browser
@@ -50,10 +46,6 @@ export const getOSIcon = (type: string) => {
     else if (type === 'windows') return Windows
     else if (type === 'mac_app_store') return MacAppStore
     else if (type === 'app_gallery') return AppGallery
-    else if (type === 'mobile_apple_store') return MobileAppleStore
-    else if (type === 'mobile_google_play') return MobileGooglePlay
-    else if (type === 'mobile_app_gallery') return MobileAppGallery
-    else if (type === 'mobile_web_browser') return MobileWebBrowser
 }
 
 type TDownloadLinks = Array<{ type: string; url?: string; link_type?: string }>
@@ -64,7 +56,7 @@ export type TPlatformDetails = {
     image_key: string
     description: ReactElement
     learn_more_link: string
-    download_links: { is_desktop: TDownloadLinks; is_mobile: TDownloadLinks }
+    download_links: { is_desktop: TDownloadLinks }
 }
 export const platform_details_cr: TPlatformDetails[] = [
     {
@@ -75,10 +67,6 @@ export const platform_details_cr: TPlatformDetails[] = [
         learn_more_link: '/deriv-go/',
         download_links: {
             is_desktop: [
-                { type: 'app_store', url: deriv_go_ios_url },
-                { type: 'google_play', url: deriv_go_playstore_url },
-            ],
-            is_mobile: [
                 { type: 'app_store', url: deriv_go_ios_url },
                 { type: 'google_play', url: deriv_go_playstore_url },
             ],
@@ -100,12 +88,6 @@ export const platform_details_cr: TPlatformDetails[] = [
                 { type: 'google_play', url: dmt5_android_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],
-            is_mobile: [
-                { type: 'app_store', url: dmt5_macos_url },
-                { type: 'google_play', url: dmt5_android_url },
-                { type: 'browser', link_type: 'mt5' },
-                { type: 'app_gallery', url: dmt5_app_gallery },
-            ],
         },
     },
     {
@@ -118,7 +100,6 @@ export const platform_details_cr: TPlatformDetails[] = [
         learn_more_link: '/dtrader/',
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
-            is_mobile: [{ type: 'browser', link_type: 'deriv_app' }],
         },
     },
     {
@@ -133,11 +114,6 @@ export const platform_details_cr: TPlatformDetails[] = [
                 { type: 'app_store', url: derivx_ios_url },
                 { type: 'google_play', url: derivx_android_url },
             ],
-            is_mobile: [
-                { type: 'browser', link_type: 'derivx' },
-                { type: 'app_store', url: derivx_ios_url },
-                { type: 'google_play', url: derivx_android_url },
-            ],
         },
     },
     {
@@ -148,7 +124,6 @@ export const platform_details_cr: TPlatformDetails[] = [
         learn_more_link: '/dbot/',
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'dbot' }],
-            is_mobile: [{ type: 'browser', link_type: 'dbot' }],
         },
     },
     {
@@ -159,7 +134,6 @@ export const platform_details_cr: TPlatformDetails[] = [
         learn_more_link: smarttrader_url,
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'smart_trader', url: 'trading' }],
-            is_mobile: [{ type: 'browser', link_type: 'smart_trader', url: 'trading' }],
         },
     },
     {
@@ -172,7 +146,6 @@ export const platform_details_cr: TPlatformDetails[] = [
         learn_more_link: binary_bot_url,
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'binary_bot' }],
-            is_mobile: [{ type: 'browser', link_type: 'binary_bot' }],
         },
     },
     {
@@ -183,7 +156,6 @@ export const platform_details_cr: TPlatformDetails[] = [
         learn_more_link: deriv_api_url,
         download_links: {
             is_desktop: [{ type: 'browser', url: deriv_api_url }],
-            is_mobile: [{ type: 'browser', url: deriv_api_url }],
         },
     },
 ]
@@ -205,12 +177,6 @@ export const platform_details_eu: TPlatformDetails[] = [
                 { type: 'google_play', url: dmt5_android_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],
-            is_mobile: [
-                { type: 'mobile_apple_store', url: dmt5_macos_url },
-                { type: 'mobile_app_gallery', url: dmt5_app_gallery },
-                { type: 'mobile_google_play', url: dmt5_android_url },
-                { type: 'mobile_web_browser', link_type: 'mt5' },
-            ],
         },
     },
     {
@@ -221,7 +187,6 @@ export const platform_details_eu: TPlatformDetails[] = [
         learn_more_link: '/dtrader/',
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
-            is_mobile: [{ type: 'browser', link_type: 'deriv_app' }],
         },
     },
 ]
@@ -243,12 +208,6 @@ export const platform_details_uk: TPlatformDetails[] = [
                 { type: 'google_play', url: dmt5_android_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],
-            is_mobile: [
-                { type: 'app_store', url: dmt5_macos_url },
-                { type: 'google_play', url: dmt5_android_url },
-                { type: 'browser', link_type: 'mt5' },
-                { type: 'app_gallery', url: dmt5_app_gallery },
-            ],
         },
     },
     {
@@ -259,7 +218,6 @@ export const platform_details_uk: TPlatformDetails[] = [
         learn_more_link: '/dtrader/',
         download_links: {
             is_desktop: [{ type: 'browser', link_type: 'deriv_app' }],
-            is_mobile: [{ type: 'browser', link_type: 'deriv_app' }],
         },
     },
 ]

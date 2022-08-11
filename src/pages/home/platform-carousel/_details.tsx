@@ -88,7 +88,7 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                     {selected_platform?.download_links.is_desktop?.map((link, index) => {
                         return (
                             <DownloadLink
-                                key={index}
+                                key={link.type}
                                 external="true"
                                 type={link?.link_type}
                                 to={link?.url}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -74,21 +74,32 @@ const MarginCalculator = () => {
     const data = useStaticQuery(query)
 
     const [tab, setTab] = useState('Synthetic')
+    const [activeSymbols, setActiveSymbols] = useState([])
 
     const onTabClick = (t) => {
         setTab(t)
     }
     const deriv_api = useDerivApi()
 
-    const fetchTickData = (selectedSymbol, setAssetPrice) => {
+    useEffect(() => {
         const { send } = deriv_api
-        send({ ticks: selectedSymbol }, (response) => {
+        send({ active_symbols: 'full' }, (response) => {
             if (!response.error) {
-                setAssetPrice('assetPrice', response.tick.quote)
-                send({ forget: response.tick.id }, (response) => {
-                    return
-                })
+                const data = response.active_symbols
+                setActiveSymbols(data)
             }
+        })
+    }, [])
+
+    const symbolSpotPrice = {}
+    for (const { spot, symbol } of activeSymbols) {
+        if (!symbolSpotPrice[symbol]) symbolSpotPrice[symbol] = []
+        symbolSpotPrice[symbol].push(spot)
+    }
+
+    const fetchTickData = (selectedSymbol, setAssetPrice) => {
+        symbolSpotPrice[selectedSymbol].map((price) => {
+            setAssetPrice('assetPrice', price)
         })
     }
 
@@ -245,7 +256,7 @@ const MarginCalculator = () => {
                                                             autoComplete="off"
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
-                                                            handleError={(current_input) => {
+                                                            handleError={() => {
                                                                 setFieldValue('volume', '', false)
                                                                 setFieldError('volume', '')
                                                                 setFieldTouched(
@@ -253,7 +264,6 @@ const MarginCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                current_input.focus()
                                                             }}
                                                             maxLength={getMaxLength(
                                                                 values.volume,
@@ -283,7 +293,7 @@ const MarginCalculator = () => {
                                                                 errors.assetPrice
                                                             }
                                                             onBlur={handleBlur}
-                                                            handleError={(current_input) => {
+                                                            handleError={() => {
                                                                 setFieldValue(
                                                                     'assetPrice',
                                                                     '',
@@ -295,7 +305,6 @@ const MarginCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                current_input.focus()
                                                             }}
                                                             background="white"
                                                         />

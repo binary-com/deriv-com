@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
@@ -123,11 +123,10 @@ const VolumeField = ({
                 error={touched.volume && errors.volume}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={(current_input) => {
+                handleError={() => {
                     setFieldValue('volume', '', false)
                     setFieldError('volume', '')
                     setFieldTouched('volume', false, false)
-                    current_input.focus()
                 }}
                 maxLength={getMaxLength(values.volume, 8)}
                 background="white"
@@ -163,11 +162,10 @@ const SwapRateField = ({
                 error={touched.swapRate && errors.swapRate}
                 onBlur={handleBlur}
                 data-lpignore="true"
-                handleError={(current_input) => {
+                handleError={() => {
                     setFieldValue('swapRate', '', false)
                     setFieldError('swapRate', '')
                     setFieldTouched('swapRate', false, false)
-                    current_input.focus()
                 }}
                 maxLength={getMaxLength(values.swapRate, 15)}
                 background="white"
@@ -212,21 +210,32 @@ const SwapCalculator = () => {
     const data = useStaticQuery(query)
 
     const [tab, setTab] = useState('Synthetic')
+    const [activeSymbols, setActiveSymbols] = useState([])
 
     const onTabClick = (t) => {
         setTab(t)
     }
     const deriv_api = useDerivApi()
 
-    const fetchTickData = (selectedSymbol, setAssetPrice) => {
+    useEffect(() => {
         const { send } = deriv_api
-        send({ ticks: selectedSymbol }, (response) => {
+        send({ active_symbols: 'full' }, (response) => {
             if (!response.error) {
-                setAssetPrice('assetPrice', response.tick.quote)
-                send({ forget: response.tick.id }, (response) => {
-                    return
-                })
+                const data = response.active_symbols
+                setActiveSymbols(data)
             }
+        })
+    }, [])
+
+    const symbolSpotPrice = {}
+    for (const { spot, symbol } of activeSymbols) {
+        if (!symbolSpotPrice[symbol]) symbolSpotPrice[symbol] = []
+        symbolSpotPrice[symbol].push(spot)
+    }
+
+    const fetchTickData = (selectedSymbol, setAssetPrice) => {
+        symbolSpotPrice[selectedSymbol].map((price) => {
+            setAssetPrice('assetPrice', price)
         })
     }
 
@@ -335,7 +344,6 @@ const SwapCalculator = () => {
                                                     selected_option={values.symbol}
                                                     id="symbol"
                                                     onChange={(value) => {
-                                                        console.log('symbol value', value)
                                                         setFieldValue(
                                                             'swapCurrency',
                                                             getCurrency(value),
@@ -386,7 +394,7 @@ const SwapCalculator = () => {
                                                                 }
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
-                                                                handleError={(current_input) => {
+                                                                handleError={() => {
                                                                     setFieldValue(
                                                                         'assetPrice',
                                                                         '',
@@ -398,7 +406,6 @@ const SwapCalculator = () => {
                                                                         false,
                                                                         false,
                                                                     )
-                                                                    current_input.focus()
                                                                 }}
                                                                 background="white"
                                                             />
@@ -630,7 +637,7 @@ const SwapCalculator = () => {
                                                                 }
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
-                                                                handleError={(current_input) => {
+                                                                handleError={() => {
                                                                     setFieldValue(
                                                                         'pointValue',
                                                                         '',
@@ -642,7 +649,6 @@ const SwapCalculator = () => {
                                                                         false,
                                                                         false,
                                                                     )
-                                                                    current_input.focus()
                                                                 }}
                                                                 maxLength={getMaxLength(
                                                                     values.pointValue,

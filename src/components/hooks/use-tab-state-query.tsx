@@ -15,7 +15,7 @@ import {
  * @param has_no_query {boolean} to check if we should handle location hash on active tab changes
  * @returns [active_tab , setActiveTab]
  */
-export const useTabStateQuery = (tab_list, has_no_query = false) => {
+export const useTabStateQuery = (tab_list, has_no_query = false, starting_index = 0) => {
     const locationHash = getLocationHash()
     const [active_tab, setActiveTab] = useState(null)
 
@@ -41,16 +41,16 @@ export const useTabStateQuery = (tab_list, has_no_query = false) => {
                 }
             } else {
                 if (isBrowserMode) {
-                    setActiveTab(tab_list[0])
-                    setLocationHash(tab_list[0])
+                    setActiveTab(tab_list[starting_index])
+                    setLocationHash(tab_list[starting_index])
                 }
             }
         } else {
             if (!active_tab) {
-                setActiveTab(tab_list[0])
+                setActiveTab(tab_list[starting_index])
             }
         }
-    }, [active_tab, locationHash, has_no_query, tab_list, hashExistInTabList])
+    }, [active_tab, locationHash, has_no_query, tab_list, hashExistInTabList, starting_index])
 
     return [active_tab, setActiveTab]
 }

@@ -12,7 +12,7 @@ const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
 const Numbers = Loadable(() => import('./components/_numbers'))
 const Availability = Loadable(() => import('./components/_availability'))
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import { DerivStore } from 'store'
 
 const DP2P_CONTENT = [
     {
@@ -63,11 +63,9 @@ const derivP2PPortalData = {
 }
 
 const DP2PHome = () => {
-    const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
-
-    const { is_row } = useCountryRule()
-
-    if (is_row) {
+    const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loadin
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    if (is_p2p_allowed_country) {
         return (
             <Layout>
                 <SEO

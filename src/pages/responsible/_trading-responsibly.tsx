@@ -9,6 +9,7 @@ import { SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const IcInfo = styled.img`
     margin-left: 1.5rem;
@@ -111,6 +112,7 @@ const StyledHeader = styled(Header)`
 `
 
 const TradingResponsibly = () => {
+    const { is_eu, is_non_eu } = useCountryRule()
     return (
         <SectionContainer>
             <Flex jc="center" wrap="true">
@@ -149,12 +151,12 @@ const TradingResponsibly = () => {
                         <FlexContent>
                             <img src={BadJudgement} alt="" />
                             <StyledText>
-                                <Show.Eu>
+                                {is_eu && (
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />
-                                </Show.Eu>
-                                <Show.NonEU>
+                                )}
+                                {is_non_eu && (
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement." />
-                                </Show.NonEU>
+                                )}
                             </StyledText>
                         </FlexContent>
                     </ContentWrapper>

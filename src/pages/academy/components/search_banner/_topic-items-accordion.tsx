@@ -16,10 +16,10 @@ const DetailsWrapper = styled(Flex)<{ is_expanded: boolean }>`
     height: auto;
     overflow: hidden;
     transition: max-height 0.5s ease;
-    max-height: ${(is_expanded) => (is_expanded ? '180px' : '0')};
+    max-height: ${({ is_expanded }) => (is_expanded ? '180px' : '0')};
 
     :nth-last-child(-n + 2) {
-        max-height: ${(is_expanded) => (is_expanded ? '110px' : '0')};
+        max-height: ${({ is_expanded }) => (is_expanded ? '110px' : '0')};
     }
 `
 

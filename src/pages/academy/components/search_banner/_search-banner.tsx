@@ -72,7 +72,7 @@ const TopicItemWrapper = styled(Flex)<TopicWrapperProps>`
 `
 
 const TopicMobileParentWrapper = styled(Flex)<TopicWrapperProps>`
-    display: ${(is_mobile_expanded) => (is_mobile_expanded ? 'none' : 'flex')};
+    display: ${({ is_mobile_expanded }) => (is_mobile_expanded ? 'none' : 'flex')};
 `
 
 const SearchBanner = ({ hidden }: SearchBannerProps) => {

@@ -127,7 +127,7 @@ export const MobileWrapper = styled.div`
 export const StyledChevron = styled.img<StyledChevronProps>`
     height: 16px;
     width: 16px;
-    transform: ${(props) => (props.is_expanded ? 'inherit' : 'rotate(-180deg)')};
+    transform: ${({ is_expanded }) => (is_expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
 export const HoverChevron = styled.div`

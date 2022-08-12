@@ -7,6 +7,7 @@ import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const non_localized_links = [
     '/careers',
@@ -52,6 +53,8 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     let is_ach_page = false
     let current_page = ''
     let organization_schema = {}
+    const { is_eu } = useCountryRule()
+    const current_site_url = is_eu ? 'https://eu.deriv.com' : site_url
 
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
@@ -193,7 +196,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                         const replaced_local = locale.replace('_', '-')
                         const is_default = locale === 'en' || locale === 'x-default'
                         const href_lang = is_default ? '' : `/${replaced_local}`
-                        const href = `${site_url}${href_lang}${current_page}`
+                        const href = `${current_site_url}${href_lang}${current_page}`
 
                         return (
                             <link

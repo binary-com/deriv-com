@@ -25,7 +25,7 @@ const MainWrapper = styled(Flex)`
     margin-left: 16px;
 
     @media ${device.tabletL} {
-        height: 48px;
+        height: 7.2rem;
         width: 95%;
     }
 `

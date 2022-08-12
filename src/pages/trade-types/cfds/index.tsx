@@ -16,7 +16,7 @@ const CFD = () => {
     return (
         <Layout>
             <SEO
-                title={localize('CFD trading | Trade types | Deriv')}
+                title={localize('CFD trading | Online trading platform | Deriv')}
                 description={localize(
                     'Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses.',
                 )}

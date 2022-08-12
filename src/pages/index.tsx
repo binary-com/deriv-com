@@ -18,11 +18,11 @@ import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
 import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
 import { DerivStore } from 'store'
-//const MarketsFold = React.lazy(() => import('./home/_markets_fold'));
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(1)
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
+
     const target = '#market-fold'
     const options = {
         root: null,

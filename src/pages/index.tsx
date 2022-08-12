@@ -21,7 +21,7 @@ import { DerivStore } from 'store'
 
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
-    useOpenLiveChat(1)
+    useOpenLiveChat(true)
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
 
     const target = '#market-fold'

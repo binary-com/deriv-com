@@ -81,9 +81,9 @@ export const dmt5_android_url =
 export const dmt5_linux_url =
     'https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux'
 export const dmt5_macos_url =
-    'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg'
-export const dmt5_mac_app_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?hl=en&utm_source=www.metatrader5.com&utm_campaign=install.metaquotes'
+export const dmt5_mac_app_url =
+    'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg'
 export const dmt5_windows_download_url =
     'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
 export const dmt5_app_gallery =

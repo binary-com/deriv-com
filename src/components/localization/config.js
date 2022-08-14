@@ -1,6 +1,6 @@
 import i18n, { use, t } from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { str as crc32 } from 'crc-32'
+// import { str as crc32 } from 'crc-32'
 import language_config from '../../../i18n-config'
 
 use(initReactI18next).init({
@@ -18,13 +18,13 @@ use(initReactI18next).init({
         wait: true,
         useSuspense: false,
         hashTransKey(defaultValue) {
-            return crc32(defaultValue)
+            return defaultValue
         },
     },
 })
 
 i18n.languages = Object.keys(language_config)
 
-export const localize = (string, values) => t(crc32(string), { defaultValue: string, ...values })
+export const localize = (string, values) => t(string, { defaultValue: string, ...values })
 
 export default i18n

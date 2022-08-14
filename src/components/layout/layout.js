@@ -13,12 +13,13 @@ import NavPartners from './nav/nav-partner'
 import NavInterim from './nav/nav-interim'
 import NavSecurity from './nav/nav-security'
 import NavJumpIndice from './nav/nav-jump-indices'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { useCountryRule } from 'components/hooks/use-country-rule'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser, handleRedirect, queryParamData, isEuDomain } from 'common/utility'
+import { isBrowser, handleRedirect, isEuDomain } from 'common/utility'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import UKAccountClosureModal from 'components/layout/modal/uk_account_closure_modal'
@@ -137,6 +138,7 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
     const [is_redirection_applied, setRedirectionApplied] = useState(false)
     const { send } = useDerivWS()
+    const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
     // Allow tracking cookie banner setup
@@ -242,7 +244,7 @@ const Layout = ({
             break
     }
     //Handle page layout when redirection from mobile app.
-    if (queryParamData()) {
+    if (has_platform) {
         return (
             <Main margin_top={'0'} is_static={is_static}>
                 {children}

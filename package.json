@@ -157,6 +157,6 @@
         "url": "https://github.com/binary-com/deriv-com/issues"
     },
     "engines": {
-        "npm": ">=6.9.0"
+        "npm": ">=8.5.2"
     }
 }

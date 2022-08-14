@@ -135,7 +135,7 @@ exports.onCreatePage = ({ page, actions }) => {
         if (localized_path.match(excluded_pages_regex)) return
 
         if (!translations_cache[lang]) {
-            const translation_json = require(`./src/translations/${lang}`)
+            const translation_json = require(`./i18n/translations/${lang}`)
             translations_cache[lang] = translation_json
         }
 

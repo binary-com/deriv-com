@@ -1,5 +1,5 @@
 {
-    "include": ["./src/**/*", "./src/custom.d.ts"],
+    "include": ["./src/**/*", "./src/custom.d.ts" , "./scripts/**/*" , "./i18n/**/*"],
     "jsx": "react",
     "compilerOptions": {
         "baseUrl": "src",

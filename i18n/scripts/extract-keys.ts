@@ -10,8 +10,9 @@ const getHashedValue = (value: string) => `${crc32(value)}`
 
 const regex = new RegExp(/(_t_)(?<pure_text>.*)(_t_)/g)
 const foundFilePaths: string[] = []
-const baseKeyHashedValueRefs: KeyValueRefsType = {}
 const defaults: KeyValueRefsType = {}
+const derivedKeys = {}
+let tempHashKey = ""
 
 function findAndReplace() {
     // Find all file types listed in `globs`
@@ -32,18 +33,19 @@ function findAndReplace() {
                 key = key.replace(/  +/g, ' ')
                 // replace space with _
                 key = key.replace(/ /g, '_')
-                baseKeyHashedValueRefs[getHashedValue(pureText)] = key
-                defaults[key] = pureText
+                tempHashKey = getHashedValue(pureText);
+                defaults[tempHashKey] = pureText      
+                derivedKeys[result[0]] = tempHashKey          
                 result = regex.exec(file)
             }
         } catch (e) {
             console.log(e)
         }
     }
-    fs.writeFileSync(path.resolve('keyRefs/defaults.json'), JSON.stringify(defaults, null, '\t'))
+    fs.writeFileSync(path.resolve('./i18n/keys/defaults.json'), JSON.stringify(defaults, null, '\t'))
     fs.writeFileSync(
-        path.resolve('keyRefs/base.json'),
-        JSON.stringify(baseKeyHashedValueRefs, null, '\t'),
+        path.resolve('./i18n/keys/derived.json'),
+        JSON.stringify(derivedKeys, null, '\t'),
     )
 }
 findAndReplace()

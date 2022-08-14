@@ -133,7 +133,7 @@
         "build:storybook": "build-storybook -c .storybook -o public/storybook",
         "codegen": "graphql-codegen --config codegen.yml",
         "codegen:watch": "graphql-codegen --config codegen.yml --watch",
-        "repalce:localize": "ts-node ./i18n/scripts/replace-localize.ts",
+        "replace:localize": "ts-node ./i18n/scripts/replace-localize.ts",
         "replace:translate": "ts-node ./i18n/scripts/replace-translate-text.ts",
         "replace": "npm run replace:localize && npm run replace:translate",
         "extract": "ts-node ./i18n/scripts/extract-keys.ts",

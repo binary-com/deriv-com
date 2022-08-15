@@ -6,7 +6,7 @@ export const useLivechat = () => {
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = useState(false)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
-    const is_livechat_query = url_params.get('is-livechat-open')
+    const is_livechat_query = url_params.get('is_livechat_open')
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
@@ -112,7 +112,7 @@ export const useLivechat = () => {
                         }
                     }
 
-                    const is_livechat_query = url_params.get('is-livechat-open')
+                    const is_livechat_query = url_params.get('is_livechat_open')
                     if (is_livechat_query?.toLowerCase() === 'true') {
                         window.LC_API.open_chat_window()
                     }

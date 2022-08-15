@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
@@ -112,76 +112,71 @@ const trading: TradingType[] = [
         image_alt: localize('Save your bots'),
     },
 ]
-class Dbot extends React.Component<StateType> {
-    state: StateType = { is_mobile: false }
 
-    handleResizeWindow = () => {
-        this.setState({
-            is_mobile: isBrowser() ? window.screen.width <= size.mobileL : false,
-        })
-    }
-    componentDidMount() {
-        this.setState({
-            is_mobile: isBrowser() ? window.screen.width <= size.mobileL : false,
-        })
-        window.addEventListener('resize', this.handleResizeWindow)
-    }
-    render() {
-        return (
-            <>
-                <ROW>
-                    <Layout>
-                        <SEO
-                            title={localize('DBot | Trading robot | Deriv')}
-                            description={localize(
-                                'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
-                            )}
-                            meta_attributes={meta_attributes}
-                        />
+const Dbot = () => {
+    const [is_mobile, setIsMobile] = useState(
+        isBrowser() ? window.screen.width <= size.mobileL : false,
+    )
 
-                        <DHero
-                            title={localize('DBot')}
-                            content={localize('Automate your trading ideas without writing code')}
-                            join_us_for_free
-                            go_to_live_demo
-                            Logo={dbot_logo}
-                            background_svg={this.state.is_mobile ? DBotBGMobile : DBotBG}
-                            image_name="dbot"
-                            is_mobile={this.state.is_mobile}
-                            background_alt={localize('Automate trade with DBot at Deriv')}
-                        />
-                        <DNumber items={items} justify="space-around" />
-                        <DHowItWorks
-                            Video={DBotVideo}
-                            title={
-                                <Localize translate_text="Build a trading robot in 5 easy steps" />
-                            }
-                        />
-                        <DTrading trading={trading} />
-                        <PlatformContainer>
-                            <OtherPlatform exclude="dbot" />
-                        </PlatformContainer>
-                        <StaticQuery
-                            query={query}
-                            render={(data) => (
-                                <DBanner
-                                    title={
-                                        <Localize translate_text="Get into the DBot experience" />
-                                    }
-                                    data={data}
-                                    background_pattern={BackgroundPatternDBot}
-                                    image_alt="Start trading with DBot at Deriv"
-                                />
-                            )}
-                        />
-                    </Layout>
-                </ROW>
-                <UKEU>
-                    <PageNotFound />
-                </UKEU>
-            </>
-        )
-    }
+    const handleResizeWindow = useCallback(() => {
+        setIsMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResizeWindow)
+        return () => {
+            window.removeEventListener('resize', handleResizeWindow)
+        }
+    }, [handleResizeWindow])
+    return (
+        <>
+            <SEO
+                title={localize('DBot | Trading robot | Deriv')}
+                description={localize(
+                    'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+                )}
+                meta_attributes={meta_attributes}
+            />
+            <ROW>
+                <Layout>
+                    <DHero
+                        title={localize('DBot')}
+                        content={localize('Automate your trading ideas without writing code')}
+                        join_us_for_free
+                        go_to_live_demo
+                        Logo={dbot_logo}
+                        background_svg={is_mobile ? DBotBGMobile : DBotBG}
+                        image_name="dbot"
+                        is_mobile={is_mobile}
+                        background_alt={localize('Automate trade with DBot at Deriv')}
+                    />
+                    <DNumber items={items} justify="space-around" />
+                    <DHowItWorks
+                        Video={DBotVideo}
+                        title={<Localize translate_text="Build a trading robot in 5 easy steps" />}
+                    />
+                    <DTrading trading={trading} />
+                    <PlatformContainer>
+                        <OtherPlatform exclude="dbot" />
+                    </PlatformContainer>
+                    <StaticQuery
+                        query={query}
+                        render={(data) => (
+                            <DBanner
+                                title={<Localize translate_text="Get into the DBot experience" />}
+                                data={data}
+                                background_pattern={BackgroundPatternDBot}
+                                image_alt="Start trading with DBot at Deriv"
+                            />
+                        )}
+                    />
+                </Layout>
+            </ROW>
+            <UKEU>
+                <PageNotFound />
+            </UKEU>
+        </>
+    )
 }
 
 export default WithIntl()(Dbot)

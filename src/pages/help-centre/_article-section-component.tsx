@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { ArcticlesType } from './_help-articles'
 import { DerivStore } from 'store'
-import { queryParamData } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 
@@ -60,8 +60,6 @@ const HorizontalLine = styled.hr`
     padding: 0;
 `
 
-const param = queryParamData()
-
 type ArticleSectionComponentProps = {
     section_name: string
     articles: ArcticlesType[]
@@ -82,6 +80,7 @@ const ArticleSectionComponent = ({
     toggleArticle,
 }: ArticleSectionComponentProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
+    const { platform } = usePlatformQueryParam()
 
     return (
         <ArticleSection>
@@ -105,7 +104,7 @@ const ArticleSectionComponent = ({
                             all_categories={data.all_categories}
                             toggleArticle={toggleArticle}
                             is_eu_country={is_eu_country}
-                            param={param}
+                            param={platform}
                         />
                     )
                 })}

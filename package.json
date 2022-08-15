@@ -13,7 +13,6 @@
         "cli-select": "^1.1.2",
         "commander": "^8.3.0",
         "crc-32": "^1.2.0",
-        "crowdin": "^3.5.0",
         "embla-carousel-react": "^6.0.2",
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",
@@ -142,6 +141,6 @@
         "url": "https://github.com/binary-com/deriv-com/issues"
     },
     "engines": {
-        "npm": ">=6.9.0"
+        "npm": ">=8.5.2"
     }
 }

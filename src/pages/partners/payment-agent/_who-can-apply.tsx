@@ -154,9 +154,9 @@ const WhoCanApply = () => {
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    {localize(
-                                        'You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful.',
-                                    )}
+                                    {
+                                        <Localize translate_text="You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful." />
+                                    }
                                 </Header>
                             </Li>
                             <Li>

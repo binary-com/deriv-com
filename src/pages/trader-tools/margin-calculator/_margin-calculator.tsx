@@ -75,6 +75,7 @@ const MarginCalculator = () => {
 
     const [tab, setTab] = useState('Synthetic')
     const [activeSymbols, setActiveSymbols] = useState([])
+    const [disableDropdown, setDisableDropdown] = useState(true)
 
     const onTabClick = (t) => {
         setTab(t)
@@ -84,9 +85,11 @@ const MarginCalculator = () => {
     useEffect(() => {
         const { send } = deriv_api
         send({ active_symbols: 'full' }, (response) => {
+            console.log(response)
             if (!response.error) {
                 const data = response.active_symbols
                 setActiveSymbols(data)
+                setDisableDropdown(false)
             }
         })
     }, [])
@@ -238,6 +241,7 @@ const MarginCalculator = () => {
                                                 }}
                                                 selected_item={values.symbol}
                                                 onBlur={handleBlur}
+                                                disabled={disableDropdown}
                                             />
                                             <InputGroup>
                                                 <Field
@@ -270,6 +274,7 @@ const MarginCalculator = () => {
                                                                 8,
                                                             )}
                                                             background="white"
+                                                            disabled={disableDropdown}
                                                         />
                                                     )}
                                                 </Field>
@@ -307,6 +312,7 @@ const MarginCalculator = () => {
                                                                 )
                                                             }}
                                                             background="white"
+                                                            disabled={disableDropdown}
                                                         />
                                                     )}
                                                 </Field>
@@ -324,6 +330,7 @@ const MarginCalculator = () => {
                                                 onBlur={handleBlur}
                                                 autoComplete="off"
                                                 data-lpignore="true"
+                                                disabled={disableDropdown}
                                             />
                                             <Flex mt="3rem">
                                                 <CalculateButton

@@ -12,7 +12,21 @@ import { useDropdown } from 'components/hooks/use-dropdown'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
-const DropdownInput = styled.input<any>`
+type DropdownInputProps = {
+    has_short_name?: boolean
+    id?: string
+    tabIndex?: string
+    onClick?: React.MouseEventHandler<HTMLInputElement>
+    onChange?: React.ChangeEventHandler<HTMLInputElement>
+    onFocus?: React.FocusEventHandler<HTMLInputElement> & React.MouseEventHandler<HTMLInputElement>
+    onKeyDown?: React.MouseEventHandler<HTMLInputElement>
+    onKeyUp?: React.MouseEventHandler<HTMLInputElement>
+    value?: any
+    is_active?: boolean
+    placeholder?: string
+}
+
+const DropdownInput = styled.input<DropdownInputProps>`
     color: var(--color-black-3);
     width: calc(100% - 2px);
     border: none;
@@ -106,18 +120,18 @@ const DropdownSearch = ({
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
-                        tabIndex="0"
+                        // tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
-                        onFocus={toggleListVisibility}
+                        // onFocus={toggleListVisibility}
                         onKeyDown={toggleListVisibility}
-                        onKeyUp={handleKeyUp}
-                        has_short_name={has_short_name}
-                        value={input_value}
-                        is_active={is_open}
-                        placeholder={label}
+                        // onKeyUp={handleKeyUp}
+                        // has_short_name={has_short_name}
+                        // value={input_value}
+                        // is_active={is_open}
+                        // placeholder={label}
                     />
-                    <Arrow onClick={toggleListVisibility} expanded={is_open ? 'true' : 'false'} />
+                    <Arrow onClick={toggleListVisibility} expanded={is_open} />
                 </Flex>
                 <ItemList
                     error={error}

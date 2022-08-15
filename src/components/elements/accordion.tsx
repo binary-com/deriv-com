@@ -67,7 +67,7 @@ type AccordionProps = {
     has_single_state?: boolean
     id?: string
     is_default_open?: boolean
-    nodes?: ReactNode
+    nodes?: ReactNode[]
 }
 
 // TODO: keyboard events and find a way to add proper focus handling
@@ -85,7 +85,7 @@ const Accordion = ({ children, has_single_state, id, is_default_open }: Accordio
 
 type ChildType = {
     props?: {
-        is_showed?: boolean
+        is_shown?: boolean
         parent_style?: CSSProperties
         header_style?: CSSProperties
         content_style?: CSSProperties
@@ -100,11 +100,13 @@ type ItemExpandedProps = {
     child_idx?: number
     id?: string
     is_default_open?: boolean
-    nodes?: ReactNode
+    nodes?: ReactNode[]
 }
 
 const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpandedProps) => {
-    const getHeight = (active_idx) => {
+    console.log(nodes)
+
+    const getHeight = (active_idx: number) => {
         return (
             nodes[active_idx] &&
             nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
@@ -124,11 +126,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
 
     useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
 
-    const deployer = is_expanded ? (
-        <img src={Minus} alt="Minus" height="16" width="16" />
-    ) : (
-        <img src={Plus} alt="Plus" height="16" width="16" />
-    )
+    const deployer = <img src={is_expanded ? Minus : Plus} alt="Minus" height="16" width="16" />
 
     const expanded_state = is_expanded ? true : false
 
@@ -146,7 +144,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpa
 
     return (
         <>
-            {child.props.is_showed !== false && (
+            {child.props.is_shown && (
                 <div
                     key={child_idx}
                     style={child.props.parent_style}
@@ -186,7 +184,7 @@ type SingleAccordionContentProps = {
     children?: ChildType | ChildType[]
     id?: string
     is_default_open?: boolean
-    nodes?: ReactNode
+    nodes?: ReactNode[]
 }
 
 const SingleAccordionContent = ({

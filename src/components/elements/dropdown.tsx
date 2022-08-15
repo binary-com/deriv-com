@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { HTMLAttributes, MouseEventHandler } from 'react'
 import styled, { css } from 'styled-components'
-import { useDropdown, DropdownErrorsType } from 'components/hooks/use-dropdown'
+import { useDropdown } from 'components/hooks/use-dropdown'
 import { Text } from 'components/elements/typography'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
-import { FormikErrors } from 'pages/trader-tools/common/_formik-types'
 
 type DropdownStyledProps = {
     has_short_name?: boolean
@@ -49,7 +48,8 @@ type DropdownContainerProps = {
     active?: boolean
     mb?: string
     has_short_name?: boolean
-} & DropdownErrorsType
+    error?: Error
+}
 
 export const DropdownContainer = styled.ul<DropdownContainerProps>`
     list-style: none;
@@ -136,7 +136,7 @@ const ListContainer = styled.li`
     list-style: none;
 `
 
-const ListItem = styled.li<any>`
+const ListItem = styled.li<HTMLAttributes<HTMLSelectElement>>`
     color: var(--color-grey-6);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
@@ -204,6 +204,7 @@ const UnorderedList = styled.ul<DropdownStyledProps>`
 
 type ArrowType = {
     expanded?: boolean
+    onClick?: MouseEventHandler<SVGSVGElement> & MouseEventHandler<HTMLInputElement>
 }
 
 export const Arrow = styled(Chevron)<ArrowType>`
@@ -296,15 +297,13 @@ type NodesType = {
 }
 
 type ItemListProps = {
-    handleChange?: (
-        option?: OptionsType,
-        error?: string | FormikErrors<any> | string[] | FormikErrors<any>[],
-    ) => void
+    handleChange?: (option?: OptionsType, error?: string | Error) => void
     is_open?: boolean
     nodes?: NodesType
     option_list?: OptionsType[]
     selected_option?: OptionsType
-} & DropdownErrorsType
+    error?: Error
+}
 
 export const ItemList = ({
     error,
@@ -348,7 +347,8 @@ export const ItemList = ({
 
 type BottomLabelProps = {
     contractSize?: string | number
-} & DropdownErrorsType
+    error?: Error
+}
 
 export const BottomLabel = ({ error, contractSize }: BottomLabelProps) => {
     return (
@@ -383,7 +383,8 @@ export type DropdownProps = {
     option_list?: OptionsType[]
     selected_option?: OptionsType
     selected_item?: SelectedType
-} & DropdownErrorsType
+    error?: Error
+}
 
 const Dropdown = ({
     default_option,

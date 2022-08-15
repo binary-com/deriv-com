@@ -85,7 +85,6 @@ const MarginCalculator = () => {
     useEffect(() => {
         const { send } = deriv_api
         send({ active_symbols: 'full' }, (response) => {
-            console.log(response)
             if (!response.error) {
                 const data = response.active_symbols
                 setActiveSymbols(data)

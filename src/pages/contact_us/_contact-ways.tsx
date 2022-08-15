@@ -36,9 +36,9 @@ const contactways = [
         button: (
             <StyledLinkButton
                 secondary
+                external
                 to=""
                 type="community"
-                external="true"
                 target="_blank"
                 rel="noopener noreferrer"
             >

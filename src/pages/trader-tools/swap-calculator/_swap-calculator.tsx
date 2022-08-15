@@ -211,6 +211,7 @@ const SwapCalculator = () => {
 
     const [tab, setTab] = useState('Synthetic')
     const [activeSymbols, setActiveSymbols] = useState([])
+    const [disableDropdown, setDisableDropdown] = useState(true)
 
     const onTabClick = (t) => {
         setTab(t)
@@ -223,6 +224,7 @@ const SwapCalculator = () => {
             if (!response.error) {
                 const data = response.active_symbols
                 setActiveSymbols(data)
+                setDisableDropdown(false)
             }
         })
     }, [])
@@ -358,6 +360,7 @@ const SwapCalculator = () => {
                                                     contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
+                                                    disabled={disableDropdown}
                                                 />
 
                                                 <InputGroup>
@@ -408,6 +411,7 @@ const SwapCalculator = () => {
                                                                     )
                                                                 }}
                                                                 background="white"
+                                                                disabled={disableDropdown}
                                                             />
                                                         )}
                                                     </Field>

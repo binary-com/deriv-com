@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { useStaticQuery } from 'gatsby'
+import { QueryParamProvider } from 'use-query-params'
 import { LocaleContextWrapper } from '../../../components/localization/locale-context'
 import { DerivProvider } from '../../../store/index'
 import NewSignup from '../index.tsx'
@@ -43,7 +44,9 @@ describe('NewSignUp', () => {
         render(
             <DerivProvider value={{ is_eu_country: true }}>
                 <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
-                    <NewSignup />,
+                    <QueryParamProvider>
+                        <NewSignup />,
+                    </QueryParamProvider>
                 </LocaleContextWrapper>
             </DerivProvider>,
         )

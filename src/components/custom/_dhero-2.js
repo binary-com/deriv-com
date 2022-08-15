@@ -352,7 +352,7 @@ const DHero = ({
                         laptopM={{ m: '7px 8px 48px' }}
                     >
                         <AppButton
-                            external="true"
+                            external
                             to={derivx_ios_url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -360,7 +360,7 @@ const DHero = ({
                             <QueryImage data={data['app_store']} alt="app store logo" />
                         </AppButton>
                         <AppButton
-                            external="true"
+                            external
                             to={derivx_android_url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -369,7 +369,7 @@ const DHero = ({
                         </AppButton>
 
                         <AppButton
-                            external="true"
+                            external
                             to={derivx_huawei_url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -377,7 +377,7 @@ const DHero = ({
                             <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
                         </AppButton>
                         <AppButton
-                            external="true"
+                            external
                             to={derivx_app_url}
                             target="_blank"
                             rel="noopener noreferrer"

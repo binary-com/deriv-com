@@ -172,7 +172,7 @@ const AffiliateIb = () => {
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
                     to={affiliate_signup_url}
-                    external="true"
+                    external
                     target="_blank"
                     type="affiliate_sign_up"
                     secondary

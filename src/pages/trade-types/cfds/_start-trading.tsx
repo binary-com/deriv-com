@@ -55,7 +55,7 @@ const StartTrading = () => {
                     <LinkButton
                         id="dm-dmt5-signup"
                         mt="4rem"
-                        external="true"
+                        external
                         type="mt5"
                         to="#demo"
                         target="_blank"

@@ -15,8 +15,10 @@ type DropdownProps = {
     onChange: (arg1: { target: { id: string } }) => void
     option_list: { path: string; value: string; text: string }[]
     is_high_nav?: boolean
-    security?: boolean
+    is_security?: boolean
 }
+
+type AbsoluteProps = { is_high_nav?: boolean; is_security?: boolean; is_open?: boolean }
 
 const Container = styled.div`
     position: relative;
@@ -52,13 +54,13 @@ const Arrow = styled(Chevron)<{ expanded: boolean }>`
     }
 `
 
-const Absolute = styled.div<{ is_high_nav?: boolean; security?: boolean; is_open?: boolean }>`
+const Absolute = styled.div<AbsoluteProps>`
     position: absolute;
     z-index: -1;
     top: ${(props) => {
         if (props.is_high_nav) {
             return '4.8rem'
-        } else if (props.security) {
+        } else if (props.is_security) {
             return '10.5rem'
         } else {
             return '5.5rem'
@@ -209,7 +211,7 @@ const Dropdown = ({
     onChange,
     option_list,
     is_high_nav,
-    security,
+    is_security,
 }: DropdownProps) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
@@ -240,7 +242,7 @@ const Dropdown = ({
                     <Arrow expanded={is_open ? true : false} />
                 </Display>
 
-                <Absolute is_high_nav={is_high_nav} security={security} is_open={is_open}>
+                <Absolute is_high_nav={is_high_nav} is_security={is_security} is_open={is_open}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null

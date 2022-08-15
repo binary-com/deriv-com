@@ -346,7 +346,7 @@ const SideSubscriptionBanner = () => {
                                             <StyledLocalizedLink
                                                 key={0}
                                                 type="tnc/security-and-privacy.pdf"
-                                                external="true"
+                                                external
                                                 rel="noopener noreferrer"
                                                 size="14px"
                                                 color="red"

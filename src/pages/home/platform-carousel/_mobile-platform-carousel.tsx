@@ -130,7 +130,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                 {download_links.map((link) => (
                                     <DownloadLink
                                         key={link.type}
-                                        external="true"
+                                        external
                                         type={link?.link_type}
                                         to={link?.url}
                                         target="_blank"

@@ -423,7 +423,7 @@ const SignupPublic = ({
                             />
                             <LinkFlex
                                 ai="center"
-                                external="true"
+                                external
                                 href={deriv_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
@@ -461,7 +461,7 @@ const SignupPublic = ({
                                 />
                             </MobilePlatform>
                             <DerivExperience
-                                external="true"
+                                external
                                 href={deriv_app_url}
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"

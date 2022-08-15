@@ -137,7 +137,7 @@ const BeSquareBanner = () => {
                         <StyledLinkButton
                             secondary
                             to={besquare_signup_url}
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                         >

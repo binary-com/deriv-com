@@ -117,7 +117,7 @@ const BeSquareFooter = () => {
                             {social_media_content.map(({ alt, link_to, src }, index) => (
                                 <LocalizedLink
                                     key={index}
-                                    external="true"
+                                    external
                                     to={link_to}
                                     target="_blank"
                                     rel="noopener noreferrer"

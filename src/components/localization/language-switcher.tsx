@@ -11,14 +11,14 @@ import { nonENLangUrlReplace } from 'common/utility'
 type LanguageSwitchProps = {
     i18n?: { language: string }
     is_high_nav?: boolean
-    security?: boolean
+    is_security?: boolean
 }
 
 const languages = Object.keys(language_config)
 
 const disabled_lang = ['ach']
 
-const LanguageSwitch = ({ i18n, is_high_nav, security }: LanguageSwitchProps) => {
+const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps) => {
     const [language, setLanguage] = React.useState(i18n.language)
     const client_information = useClientInformation()
 
@@ -92,7 +92,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, security }: LanguageSwitchProps) =>
             option_list={languages.map(renderLanguageChoice)}
             default_option={getCurrentLanguage()}
             is_high_nav={!!is_high_nav}
-            security={security}
+            is_security={is_security}
         />
     )
 }

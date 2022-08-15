@@ -26,14 +26,14 @@ const SignUp = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://login.deriv.com/signup.php?lang=0'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
                     />,
                     <ExternalLink
                         to={'/signup/'}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -127,7 +127,7 @@ const CommissionPlans = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://deriv.com/partners/affiliate-ib/'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -211,7 +211,7 @@ const IsItFree = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://login.deriv.com/signup.php?lang=0'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -243,7 +243,7 @@ const ForgotPassword = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'https://login.deriv.com/password-reset.php?lang=0'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -267,7 +267,7 @@ const ReferralLink = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'https://login.deriv.com/signin.php?lang=0'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -318,7 +318,7 @@ const PaymentMethod = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'https://login.deriv.com/signin.php'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -357,7 +357,7 @@ const CommissionPayout = ({ text }: ArticleProps) => (
                     <ExternalLink
                         to={'/help-centre/ib-programme/#ib-sign-up'}
                         target="_blank"
-                        external="true"
+                        external
                         weight="bold"
                         rel="noopener noreferrer"
                         key={0}
@@ -382,7 +382,7 @@ const SeeEarnings = ({ text }: ArticleProps) => (
                             <ExternalLink
                                 to={'https://login.deriv.com/signin.php'}
                                 target="_blank"
-                                external="true"
+                                external
                                 weight="bold"
                                 rel="noopener noreferrer"
                                 key={0}

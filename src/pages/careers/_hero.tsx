@@ -113,7 +113,7 @@ const Hero = () => {
                     <StyledLinkButton
                         secondary
                         to={zoho_url}
-                        external="true"
+                        external
                         target="_blank"
                         rel="noopener noreferrer"
                     >

@@ -317,7 +317,7 @@ const WhoCanApply = () => {
                     id="dm-page-affiliate-signup"
                     secondary
                     to={affiliate_signup_url}
-                    external="true"
+                    external
                     target="_blank"
                     type="affiliate_sign_up"
                 >

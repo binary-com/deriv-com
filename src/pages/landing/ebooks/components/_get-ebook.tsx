@@ -349,7 +349,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                                     to="/tnc/security-and-privacy.pdf"
                                     size="1.2rem"
                                     color="red"
-                                    external="true"
+                                    external
                                     rel="noopener noreferrer"
                                     target="_blank"
                                 />,

@@ -57,7 +57,7 @@ export const Community = () => {
                             secondary
                             to=""
                             type="community"
-                            external="true"
+                            external
                             target="_blank"
                             rel="noopener noreferrer"
                         >

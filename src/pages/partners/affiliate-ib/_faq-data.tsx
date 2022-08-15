@@ -236,7 +236,7 @@ const AffiliateAccountManagement = () => (
                 components={[
                     <LocalizedLinkText
                         to={affiliate_signup_url}
-                        external="true"
+                        external
                         type="affiliate_sign_up"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -603,7 +603,7 @@ const IBAccountManagement = () => (
                 components={[
                     <LocalizedLinkText
                         to={affiliate_signup_url}
-                        external="true"
+                        external
                         type="affiliate_sign_up"
                         target="_blank"
                         rel="noopener noreferrer"

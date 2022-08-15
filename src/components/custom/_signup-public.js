@@ -361,7 +361,7 @@ const SignupPublic = ({
                                         isChecked={is_checked}
                                         id="dm-public-signup"
                                         type="submit"
-                                        secondary="true"
+                                        secondary
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||
@@ -511,7 +511,7 @@ const SignupPublic = ({
                                         isChecked={is_checked}
                                         id="dm-mobile-public-signup"
                                         type="submit"
-                                        secondary="true"
+                                        secondary
                                         disabled={
                                             is_submitting ||
                                             !is_checked ||

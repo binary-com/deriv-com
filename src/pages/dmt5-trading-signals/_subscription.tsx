@@ -275,8 +275,8 @@ const Subscription = () => {
                     </StyledCardText>
                 </NoteContainer>
                 <DMT5Button
-                    secondary="true"
-                    external="true"
+                    secondary
+                    external
                     type="mt5"
                     to=""
                     target="_blank"

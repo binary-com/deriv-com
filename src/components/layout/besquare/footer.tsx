@@ -95,7 +95,7 @@ const BeSquareFooter = () => {
                         </TextWrapper>
                         <div>
                             <ButtonWrapper
-                                secondary="true"
+                                secondary
                                 to={besquare_signup_url}
                                 external
                                 target="_blank"

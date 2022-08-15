@@ -387,7 +387,7 @@ const DHero = ({
                     </Flex>
                 </Desktop>
                 <Mobile>
-                    <ButtonDp2p secondary="true" onClick={handleExternalLink}>
+                    <ButtonDp2p secondary onClick={handleExternalLink}>
                         {localize('Download Deriv X app')}
                     </ButtonDp2p>
                 </Mobile>

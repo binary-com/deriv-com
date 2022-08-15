@@ -11,7 +11,7 @@ import { nonENLangUrlReplace } from 'common/utility'
 type LanguageSwitchProps = {
     i18n?: { language: string }
     is_high_nav?: boolean
-    security?: 'true' | 'false'
+    security?: boolean
 }
 
 const languages = Object.keys(language_config)

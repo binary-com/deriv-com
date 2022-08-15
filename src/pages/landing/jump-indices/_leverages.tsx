@@ -124,12 +124,12 @@ const Leverages = () => {
             <BtnWrapper>
                 {is_mounted && (
                     <StyledLinkButton
-                        external="true"
+                        secondary
+                        external
                         type="deriv_app"
                         to="/mt5"
                         target="_blank"
                         rel="noopener noreferrer"
-                        secondary="true"
                     >
                         {localize('Start trading')}
                     </StyledLinkButton>

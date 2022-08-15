@@ -4,7 +4,7 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 type LinkButtonProps = ButtonProps & {
-    hero?: 'true' | boolean
+    hero?: boolean
 }
 
 const LinkButton = styled(LocalizedLink)<LinkButtonProps>`

@@ -135,7 +135,7 @@ const BeSquareBanner = () => {
                             that will transform your professional life!
                         </StyledText>
                         <StyledLinkButton
-                            secondary="true"
+                            secondary
                             to={besquare_signup_url}
                             external="true"
                             target="_blank"

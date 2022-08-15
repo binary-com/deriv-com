@@ -361,7 +361,7 @@ const Subscribe = () => {
                         <EmailButton
                             id="gtm-signup-email"
                             type="submit"
-                            secondary="true"
+                            secondary
                             disabled={
                                 is_submitting ||
                                 email_error_msg ||

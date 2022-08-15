@@ -60,7 +60,7 @@ const StartTrading = () => {
                         to="#demo"
                         target="_blank"
                         rel="noopener noreferrer"
-                        secondary="true"
+                        secondary
                     >
                         {localize('Create free demo account')}
                     </LinkButton>

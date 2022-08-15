@@ -7,8 +7,6 @@ import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
-type TrueOrFalse = 'true' | 'false'
-
 type DropdownProps = {
     default_option: {
         path: string
@@ -17,7 +15,7 @@ type DropdownProps = {
     onChange: (arg1: { target: { id: string } }) => void
     option_list: { path: string; value: string; text: string }[]
     is_high_nav?: boolean
-    security?: TrueOrFalse
+    security?: boolean
 }
 
 const Container = styled.div`
@@ -42,8 +40,8 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled(Chevron)<{ expanded: TrueOrFalse }>`
-    ${({ expanded }) => (expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+const Arrow = styled(Chevron)<{ expanded: boolean }>`
+    ${({ expanded }) => (expanded ? 'transform: rotate(-180deg);' : '')}
     transition: transform 0.25s;
 
     & path {
@@ -54,7 +52,7 @@ const Arrow = styled(Chevron)<{ expanded: TrueOrFalse }>`
     }
 `
 
-const Absolute = styled.div<{ is_high_nav?: boolean; security?: TrueOrFalse; is_open?: boolean }>`
+const Absolute = styled.div<{ is_high_nav?: boolean; security?: boolean; is_open?: boolean }>`
     position: absolute;
     z-index: -1;
     top: ${(props) => {
@@ -239,7 +237,7 @@ const Dropdown = ({
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
-                    <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
+                    <Arrow expanded={is_open ? true : false} />
                 </Display>
 
                 <Absolute is_high_nav={is_high_nav} security={security} is_open={is_open}>

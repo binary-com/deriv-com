@@ -333,7 +333,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                     <EmailButton
                         id="dm-ebook-download-signup"
                         type="submit"
-                        secondary="true"
+                        secondary
                         disabled={
                             is_submitting || !is_checked || Boolean(email_error_msg) || !email
                         }

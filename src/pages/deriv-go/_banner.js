@@ -253,7 +253,7 @@ const Banner = () => {
                     </div>
                 </Flex>
                 <Mobile>
-                    <ButtonDerivGO secondary="true" onClick={handleExternalLink}>
+                    <ButtonDerivGO secondary onClick={handleExternalLink}>
                         {localize('Download Deriv GO')}
                     </ButtonDerivGO>
                 </Mobile>

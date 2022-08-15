@@ -284,7 +284,7 @@ const SignupNew = ({
             <EmailButton
                 isChecked={is_checked}
                 type="submit"
-                secondary="true"
+                secondary
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
                 id="dm-new-signup"
             >

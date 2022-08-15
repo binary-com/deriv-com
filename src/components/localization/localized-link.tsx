@@ -35,11 +35,16 @@ type ExternalLinkProps = InternalLinkProps & {
 }
 
 type LocalizedLinkProps = ExternalLinkProps & {
-    external?: boolean | 'true'
+    external?: boolean
     weight?: string
 }
 
-export const SharedLinkStyle = css<{ active: boolean; disabled: boolean }>`
+type SharedLinkStyleProps = {
+    active: boolean
+    disabled: boolean
+}
+
+export const SharedLinkStyle = css<SharedLinkStyleProps>`
     color: var(--color-white);
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -106,7 +111,7 @@ export const LocalizedLink = React.forwardRef(
             setMounted(true)
         }, [])
 
-        if (external || external === 'true') {
+        if (external) {
             return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
         }
 

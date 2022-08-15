@@ -200,7 +200,7 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                             type="affiliate_sign_up"
                             target="_blank"
                             ref={button_ref}
-                            secondary="true"
+                            secondary
                             style={{ width: '18rem' }}
                         >
                             {localize('Affiliate & IB sign up')}

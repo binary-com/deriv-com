@@ -54,7 +54,7 @@ export const Community = () => {
                             {localize('Our Deriv support community can help you find answers.')}
                         </Text>
                         <StyledLinkButton
-                            secondary="true"
+                            secondary
                             to=""
                             type="community"
                             external="true"

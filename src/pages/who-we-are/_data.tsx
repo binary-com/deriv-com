@@ -129,6 +129,12 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/cyprus',
     },
     {
+        left: '56%',
+        top: '43%',
+        title: <Localize translate_text="Amman, Jordan" />,
+        link: '/careers/locations/jordan',
+    },
+    {
         left: '54%',
         top: '61.5%',
         title: <Localize translate_text="Kigali, Rwanda" />,
@@ -177,10 +183,28 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/paris',
     },
     {
+        left: '49.4%',
+        top: '27.9%',
+        title: <Localize translate_text="Berlin, Germany" />,
+        link: '/careers/locations/berlin',
+    },
+    {
         left: '44.5%',
         top: '30.9%',
         title: <Localize translate_text="Guernsey, Channel Islands" />,
         link: '/careers/locations/guernsey',
+    },
+    {
+        left: '92.2%',
+        top: '69.7%',
+        title: <Localize translate_text="Port Vila, Vanuatu" />,
+        link: '/careers/locations/vanuatu',
+    },
+    {
+        left: '74.6%',
+        top: '61%',
+        title: <Localize translate_text="Singapore, Singapore" />,
+        link: '/careers/locations/singapore',
     },
 ]
 
@@ -202,6 +226,12 @@ export const mobile_pins: MapPinType[] = [
         top: '36%',
         title: <Localize translate_text="Limassol, Cyprus" />,
         link: '/careers/locations/cyprus',
+    },
+    {
+        left: '56.5%',
+        top: '37%',
+        title: <Localize translate_text="Amman, Jordan" />,
+        link: '/careers/locations/jordan',
     },
     {
         left: '52.5%',
@@ -240,6 +270,18 @@ export const mobile_pins: MapPinType[] = [
         link: '/careers/locations/melaka',
     },
     {
+        left: '74.5%',
+        top: '57.9%',
+        title: <Localize translate_text="Singapore, Singapore" />,
+        link: '/careers/locations/singapore',
+    },
+    {
+        left: '47.9%',
+        top: '24.9%',
+        title: <Localize translate_text="Berlin, Germany" />,
+        link: '/careers/locations/berlin',
+    },
+    {
         left: '76%',
         top: '54.7%',
         title: <Localize translate_text="Labuan, Malaysia" />,
@@ -257,6 +299,12 @@ export const mobile_pins: MapPinType[] = [
         title: <Localize translate_text="Guernsey, Channel Islands" />,
         link: '/careers/locations/guernsey',
     },
+    {
+        left: '92.5%',
+        top: '65.1%',
+        title: <Localize translate_text="Port Vila, Vanuatu" />,
+        link: '/careers/locations/vanuatu',
+    },
 ]
 
 type DerivNumbersType = {
@@ -265,7 +313,7 @@ type DerivNumbersType = {
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: <Localize translate_text="750+" />, title: <Localize translate_text="employees" /> },
+    { count: <Localize translate_text="850+" />, title: <Localize translate_text="employees" /> },
     {
         count: <Localize translate_text="50+" />,
         title: <Localize translate_text="nationalities" />,

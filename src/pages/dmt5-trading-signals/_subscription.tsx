@@ -227,6 +227,7 @@ const Subscription = () => {
                             components={[
                                 <LocalizedLinkText
                                     external="true"
+                                    target="_blank"
                                     to="https://www.mql5.com/en/auth_register"
                                     color="red"
                                     size={16}
@@ -242,6 +243,7 @@ const Subscription = () => {
                                 <LocalizedLinkText
                                     external="true"
                                     to="https://www.mql5.com/en/articles/302#deposit"
+                                    target="_blank"
                                     color="red"
                                     size={16}
                                     key={0}
@@ -265,7 +267,8 @@ const Subscription = () => {
                             components={[
                                 <LocalizedLinkText
                                     external="true"
-                                    to="https://www.mql5.com/en/forum/10773#q17"
+                                    to="https://www.mql5.com/en/forum/10773"
+                                    target="_blank"
                                     color="red"
                                     size={16}
                                     key={0}

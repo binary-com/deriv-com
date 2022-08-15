@@ -99,7 +99,7 @@ export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.eu'
 export const zoho_career_url = 'https://deriv.zohorecruit.eu/jobs/Careers'
-export const live_chat_redirection_link = `?is-livechat-open=true`
+export const live_chat_redirection_link = `?is_livechat_open=true`
 export const localized_link_url = Object.freeze({
     affiliate_sign_in: affiliate_signin_url,
     affiliate_sign_up: affiliate_signup_url,
@@ -137,7 +137,7 @@ export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
 export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
-export const telegram_url = 'https://t.me/binarydotcom'
+export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const cms_end_point = 'https://deriv-academy.directus.app'
 export const cms_assets_end_point = `${cms_end_point}/assets/`
 export const loss_percent = 69

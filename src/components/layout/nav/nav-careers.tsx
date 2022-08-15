@@ -23,7 +23,6 @@ const MainWrapper = styled(Flex)`
     justify-content: space-between;
     align-items: center;
     margin-left: 16px;
-    margin-top: 7px;
 
     @media ${device.tabletL} {
         height: 48px;
@@ -37,8 +36,8 @@ const LogoSection = styled.div`
     width: 100%;
 
     @media ${device.tabletL} {
-        margin-left: 10px;
         max-width: none;
+        margin: 4px 0 4px 10px;
     }
 `
 const HeaderSection = styled.div`
@@ -48,7 +47,6 @@ const HeaderSection = styled.div`
     align-items: center;
     gap: 32px;
     font-size: 16px;
-    margin-top: 13px;
 `
 const NavWrapper = styled.div`
     padding: 0 120px;
@@ -91,9 +89,8 @@ const StyledLinkButton = styled(LinkButton)`
         font-size: 14px;
         margin-right: 16px;
         width: 120px;
-        height: 43px;
+        height: 40px;
         padding: 13px 16px;
-        margin-top: -6px;
     }
 `
 const NavLink = styled(StyledLink)`

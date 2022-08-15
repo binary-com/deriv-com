@@ -12,7 +12,7 @@ import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
-import { Header, QueryImage, StyledLink, Text } from 'components/elements'
+import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { useDerivWS } from 'store'
@@ -40,6 +40,12 @@ const EmailLink = styled(StyledLink)`
     text-decoration: underline;
     width: 100%;
     text-align: center;
+`
+
+const ConfirmationMessage = styled.div`
+    text-align: center;
+    font-size: 16px;
+    word-wrap: break-word;
 `
 
 export const Appearances = {
@@ -203,12 +209,12 @@ const Signup = (props) => {
                     </Box>
                 )}
             />
-            <Text align="center">
+            <ConfirmationMessage>
                 <Localize
                     translate_text="We've sent a message to {{email}} with a link to activate your account."
                     values={{ email: props.email }}
                 />
-            </Text>
+            </ConfirmationMessage>
             <EmailLink to="/check-email/" align="center">
                 {localize("Didn't receive your email?")}
             </EmailLink>

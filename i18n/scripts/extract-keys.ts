@@ -8,7 +8,7 @@ import { KeyValueRefsType } from '../types'
 
 const getHashedValue = (value: string) => `${crc32(value)}`
 
-const regex = new RegExp(/(_t_)(?<pure_text>.*)(_t_)/g)
+const regex = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
 const foundFilePaths: string[] = []
 const defaults: KeyValueRefsType = {}
 const derivedKeys = {}

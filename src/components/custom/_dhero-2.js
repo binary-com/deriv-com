@@ -193,6 +193,10 @@ const AppButton = styled(LocalizedLink)`
     @media ${device.tabletL} {
         margin-bottom: 8px;
         width: 156px;
+        height: 46px;
+    }
+    @media ${device.mobileL} {
+        width: 150px;
         height: 40px;
     }
 `
@@ -344,8 +348,8 @@ const DHero = ({
                         fd="row"
                         mt="40px"
                         jc="start"
-                        tablet_fw="wrap"
                         height="2rem"
+                        tablet_fw="wrap"
                         laptopM={{ m: '7px 8px 48px' }}
                     >
                         <AppButton

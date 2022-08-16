@@ -12,6 +12,9 @@ import Facebook from 'images/svg/custom/facebooknew-blue.svg'
 import Email from 'images/svg/check-email/new email.svg'
 import validation from 'common/validation'
 import Login from 'common/login'
+import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
+import { queryParams } from 'common/utility'
+import { useDerivWS } from 'store'
 
 const StyledNote = styled.div`
     padding: 8px 0;
@@ -139,6 +142,40 @@ const AffiliateSignup = () => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
+    const { send } = useDerivWS()
+
+    const getVerifyEmailRequest = (formatted_email) => {
+        const cookies = getCookiesFields()
+        const cookies_objects = getCookiesObject(cookies)
+        const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
+        const affiliate_url = window.location.pathname.match('/signup-affiliates/')
+        let account_status = 'account_opening'
+        const token = queryParams.get('t')
+
+        if (token && cookies_value.utm_campaign === 'CellXpert') {
+            cookies_value.utm_medium = 'affiliate'
+        }
+        if (affiliate_url) {
+            account_status = 'partner_account_opening'
+            delete cookies_value.utm_campaign
+            delete cookies_value.utm_medium
+            cookies_value.utm_source = 'null'
+        }
+
+        if (!token) {
+            delete cookies_value.utm_campaign
+            delete cookies_value.utm_medium
+            cookies_value.utm_source = 'null' //passing null as the cookies takes the affiliates token value when signed up without affiliate token
+        }
+        return {
+            verify_email: formatted_email,
+            type: account_status,
+            url_parameters: {
+                ...(token && { affiliate_token: token }),
+                ...(cookies_value && { ...cookies_value }),
+            },
+        }
+    }
 
     const validateEmail = (error_address) => {
         const error_message =
@@ -167,6 +204,29 @@ const AffiliateSignup = () => {
     const handleLogin = (e) => {
         e.preventDefault()
         Login.redirectTologin()
+    }
+
+    const handleEmailSignUp = (e) => {
+        e.preventDefault()
+        setSubmitted(true)
+        const formatted_email = email.replace(/\s/g, '')
+        handleValidation(email)
+        const has_error_email = validateEmail(formatted_email)
+        if (has_error_email || email_error_msg) {
+            return setSubmitted(false)
+        }
+        const verify_email_req = getVerifyEmailRequest(formatted_email)
+
+        send(verify_email_req, (response) => {
+            setSubmitted(false)
+            if (response.error) {
+                setSubmitStatus('error')
+                setSubmitErrorMsg(response.error.message)
+                handleValidation(formatted_email)
+            } else {
+                setSubmitStatus('success')
+            }
+        })
     }
     return (
         <AffiliateSignupLayout>
@@ -232,6 +292,7 @@ const AffiliateSignup = () => {
                             type="submit"
                             secondary="true"
                             id="partner-signup"
+                            onClick={handleEmailSignUp}
                         >
                             {localize('Create partner account')}
                         </EmailButton>

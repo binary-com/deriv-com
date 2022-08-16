@@ -103,8 +103,8 @@ const MarginCalculator = () => {
     }
 
     const fetchTickData = (selectedSymbol, setAssetPrice) => {
-        console.log('selectedSymbol', selectedSymbol)
-        if (symbolSpotPrice[selectedSymbol].length) {
+        console.log('selectedSymbol', symbolSpotPrice, selectedSymbol)
+        if (symbolSpotPrice[selectedSymbol] !== undefined) {
             console.log('symbolSpotPrice', symbolSpotPrice, symbolSpotPrice[selectedSymbol])
             symbolSpotPrice[selectedSymbol].map((price) => {
                 setAssetPrice('assetPrice', price ?? '')

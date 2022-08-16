@@ -103,11 +103,10 @@ const MarginCalculator = () => {
     }
 
     const fetchTickData = (selectedSymbol, setAssetPrice) => {
-        console.log('selectedSymbol', symbolSpotPrice, selectedSymbol)
         if (symbolSpotPrice[selectedSymbol] !== undefined) {
-            console.log('symbolSpotPrice', symbolSpotPrice, symbolSpotPrice[selectedSymbol])
+            console.log('symbolSpotPrice', symbolSpotPrice)
             symbolSpotPrice[selectedSymbol].map((price) => {
-                setAssetPrice('assetPrice', price ?? '')
+                setAssetPrice('assetPrice', price)
             })
         }
     }
@@ -242,7 +241,7 @@ const MarginCalculator = () => {
                                                         'contractSize',
                                                         getContractSize(value),
                                                     )
-                                                    setFieldValue('symbol', value.symbol ?? '')
+                                                    setFieldValue('symbol', value.symbol)
                                                     fetchTickData(value.symbol, setFieldValue)
                                                 }}
                                                 selected_item={values.symbol}
@@ -289,7 +288,7 @@ const MarginCalculator = () => {
                                                 <Field
                                                     name="assetPrice"
                                                     onChange={(value) => {
-                                                        setFieldValue('assetPrice', value ?? '')
+                                                        setFieldValue('assetPrice', value)
                                                     }}
                                                 >
                                                     {({ field }) => (

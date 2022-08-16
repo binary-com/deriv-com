@@ -148,25 +148,13 @@ const AffiliateSignup = () => {
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-        const affiliate_url = window.location.pathname.match('/signup-affiliates/')
-        let account_status = 'account_opening'
         const token = queryParams.get('t')
+        const account_status = 'partner_account_opening'
 
         if (token && cookies_value.utm_campaign === 'CellXpert') {
             cookies_value.utm_medium = 'affiliate'
         }
-        if (affiliate_url) {
-            account_status = 'partner_account_opening'
-            delete cookies_value.utm_campaign
-            delete cookies_value.utm_medium
-            cookies_value.utm_source = 'null'
-        }
 
-        if (!token) {
-            delete cookies_value.utm_campaign
-            delete cookies_value.utm_medium
-            cookies_value.utm_source = 'null' //passing null as the cookies takes the affiliates token value when signed up without affiliate token
-        }
         return {
             verify_email: formatted_email,
             type: account_status,

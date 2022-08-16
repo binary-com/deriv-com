@@ -236,9 +236,11 @@ const SwapCalculator = () => {
     }
 
     const fetchTickData = (selectedSymbol, setAssetPrice) => {
-        symbolSpotPrice[selectedSymbol].map((price) => {
-            setAssetPrice('assetPrice', price)
-        })
+        if (selectedSymbol !== 'undefined') {
+            symbolSpotPrice[selectedSymbol].map((price) => {
+                setAssetPrice('assetPrice', price)
+            })
+        }
     }
 
     return (

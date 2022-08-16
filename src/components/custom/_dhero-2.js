@@ -348,7 +348,7 @@ const DHero = ({
                         fd="row"
                         mt="40px"
                         jc="start"
-                        height="2rem"
+                        height="unset"
                         tablet_fw="wrap"
                         laptopM={{ m: '7px 8px 48px' }}
                     >

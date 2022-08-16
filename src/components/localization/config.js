@@ -15,9 +15,11 @@ use(initReactI18next).init({
     },
     // we need this in development, when we are adding new keys and they are not present we have to show the en text extracted from key
     parseMissingKeyHandler: (key) => {
+        console.log('missing_key : ', key)
         const regex = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
         const result = regex.exec(key)
-        return result?.[2]
+        console.log('missing_key result: ', result)
+        return result?.[2] ?? `_untranslated_${key}_untranslated_`
     },
 
     react: {

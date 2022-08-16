@@ -9,7 +9,7 @@ const PhoneNumber = () => {
     const [phone, setPhone] = useState('')
     const [phonecode, setPhoneCode] = useState('44')
 
-    const handleInputPhoneNumberChange = (e) => {
+    const handlePhoneNumber = (e) => {
         const { value } = e.target
         setPhone(value)
     }
@@ -103,7 +103,7 @@ const PhoneNumber = () => {
                     required
                     id="phone"
                     value={phone}
-                    onChange={handleInputPhoneNumberChange}
+                    onChange={handlePhoneNumber}
                     height="40px"
                     autoFocus={true}
                     autoComplete="off"
@@ -120,7 +120,7 @@ const PhoneNumber = () => {
 
             <OtpContainer>
                 {OtpNumbers.map(({ value }, index) => {
-                    return <OtpCard key={`option-number-${index}`} value={value}></OtpCard>
+                    return <OtpCard key={`option-number-${index}`} value={value} />
                 })}
             </OtpContainer>
         </>

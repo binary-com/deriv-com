@@ -13,16 +13,11 @@ const NavAcademy = () => {
     const { scrollY, scrollDirection } = useScroll()
 
     useEffect(() => {
-        const scrollHandler = () => {
-            if (scrollDirection === 'up') {
-                setHideNav(true)
-            } else if (scrollY > 100) {
-                setHideNav(false)
-            }
+        if (scrollDirection === 'down' && scrollY > 100) {
+            setHideNav(true)
+        } else {
+            setHideNav(false)
         }
-
-        window.addEventListener('scroll', scrollHandler, { passive: true })
-        return () => window.removeEventListener('scroll', scrollHandler)
     }, [scrollDirection, scrollY])
 
     return (

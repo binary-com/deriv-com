@@ -35,29 +35,21 @@ const Home = () => {
             <TradeTypes
                 fallback={
                     <div>
-                        <img
-                            src={TRADE_DUMMY}
-                            style={{ marginLeft: '331px' }}
-                            alt="trade-type-dummy"
-                        />
+                        <img src={TRADE_DUMMY} style={{ width: '100%' }} alt="trade-type-dummy" />
                     </div>
                 }
             />
             <OurPlatforms
                 fallback={
                     <div>
-                        <img
-                            src={PLATFORM_DUMMY}
-                            style={{ marginLeft: '331px' }}
-                            alt="platform-dummy"
-                        />
+                        <img src={PLATFORM_DUMMY} style={{ width: '100%' }} alt="platform-dummy" />
                     </div>
                 }
             />
             <WhatOurClientsSay
                 fallback={
                     <div>
-                        <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
+                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs-dummy" />
                     </div>
                 }
             />
@@ -65,7 +57,7 @@ const Home = () => {
                 appearance={Appearances.public}
                 fallback={
                     <div>
-                        <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
+                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs-dummy" />
                     </div>
                 }
             />
@@ -73,7 +65,7 @@ const Home = () => {
                 <P2PHomeBanner
                     fallback={
                         <div>
-                            <img src={WCS_DUMMY} style={{ marginLeft: '331px' }} alt="wcs-dummy" />
+                            <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs-dummy" />
                         </div>
                     }
                 />

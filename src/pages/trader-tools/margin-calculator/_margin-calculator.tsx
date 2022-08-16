@@ -95,14 +95,19 @@ const MarginCalculator = () => {
 
     const symbolSpotPrice = {}
     for (const { spot, symbol } of activeSymbols) {
-        if (!symbolSpotPrice[symbol]) symbolSpotPrice[symbol] = []
-        symbolSpotPrice[symbol].push(spot)
+        if (symbolSpotPrice[symbol] == undefined) {
+            symbolSpotPrice[symbol] = [spot]
+        } else {
+            symbolSpotPrice[symbol].push(spot)
+        }
     }
 
     const fetchTickData = (selectedSymbol, setAssetPrice) => {
-        if (selectedSymbol !== 'undefined') {
+        console.log('selectedSymbol', selectedSymbol)
+        if (symbolSpotPrice[selectedSymbol].length) {
+            console.log('symbolSpotPrice', symbolSpotPrice, symbolSpotPrice[selectedSymbol])
             symbolSpotPrice[selectedSymbol].map((price) => {
-                setAssetPrice('assetPrice', price)
+                setAssetPrice('assetPrice', price ?? '')
             })
         }
     }
@@ -237,7 +242,7 @@ const MarginCalculator = () => {
                                                         'contractSize',
                                                         getContractSize(value),
                                                     )
-                                                    setFieldValue('symbol', value.symbol)
+                                                    setFieldValue('symbol', value.symbol ?? '')
                                                     fetchTickData(value.symbol, setFieldValue)
                                                 }}
                                                 selected_item={values.symbol}
@@ -284,7 +289,7 @@ const MarginCalculator = () => {
                                                 <Field
                                                     name="assetPrice"
                                                     onChange={(value) => {
-                                                        setFieldValue('assetPrice', value)
+                                                        setFieldValue('assetPrice', value ?? '')
                                                     }}
                                                 >
                                                     {({ field }) => (

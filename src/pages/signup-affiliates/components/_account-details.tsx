@@ -5,7 +5,6 @@ import { Input } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import { useDerivWS } from 'store'
-import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const InputGroup = styled.div`
     display: flex;
@@ -38,9 +37,6 @@ const country_list = getCountryList()
 const AccountDetails = () => {
     const [residence_list, setResidenceList] = useState([])
     const [value, setValue] = useState('')
-    // // const [website_status] = useWebsiteStatus()
-    // const user_ip_country = website_status?.clients_country || ''
-    const [default_residence, setDefaultResidence] = useState(null)
     const { send } = useDerivWS()
 
     useEffect(() => {
@@ -63,13 +59,7 @@ const AccountDetails = () => {
             }
         })
     }, [send])
-    // if (residence_list.length > 0) {
-    //     const current_country = residence_list.find(({ value }) => value === user_ip_country)
-    //     setDefaultResidence(current_country)
-    // }
-    // if (!value && default_residence) {
-    //     setValue(default_residence)
-    // }
+
     const form_inputs = [
         {
             id: 'dm-country-select',
@@ -113,8 +103,6 @@ const AccountDetails = () => {
             required: true,
         },
     ]
-
-    console.log('residence_list', residence_list)
 
     return (
         <InputGroup>

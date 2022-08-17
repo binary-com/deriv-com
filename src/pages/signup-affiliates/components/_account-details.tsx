@@ -47,11 +47,11 @@ const AccountDetails = () => {
     useEffect(() => {
         send(country_list, (response) => {
             if (!response.error) {
-                const residence_list_response = response.residence_list.map(({ ...el }) => {
+                const residence_list_response = response.residence_list.map(({ text, value }) => {
                     const country: countryType = {
-                        name: el.text,
-                        display_name: el.text,
-                        value: el.value,
+                        name: text,
+                        display_name: text,
+                        value: value,
                     }
                     return country
                 })

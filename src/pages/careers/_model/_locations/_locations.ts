@@ -1,6 +1,7 @@
 import {
     address_cyberjaya,
     address_dubai,
+    address_ciudad,
     address_asuncion,
     address_labuan,
     address_malta,
@@ -486,6 +487,33 @@ export const singapore: LocationsType = {
     has_map: false,
 }
 
+export const ciudad: LocationsType = {
+    name: 'ciudad',
+    continent: 'latam',
+    display_continent: 'Latam',
+    link: '/careers/locations/ciudad/',
+    display_name: 'Ciudad del Este',
+    img_alt: 'Paraguay office at Ciudad del Este',
+    map_office_name: '(Paraguay)',
+    country: 'Paraguay',
+    flagIcon: ParaguayFlagIcon,
+    thumbnail: 'thumbnail_ciudad',
+    address: address_ciudad,
+    first_p:
+        'Our second office in Paraguay is to open in the border city of Ciudad del Este. Located in the World Trade Center, this office will tap into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
+    first_img: 'living_in_ciudad_del_este',
+    first_img_alt: 'Working with Deriv’s Ciudad del Este’s team',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'cayman map', 'guernsey grid 4'],
+    map: 'ChIJ8wOKkS-F9pQRIdgDbSjs_6A',
+    map_text:
+        'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este will have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
+    map_img: 'ciudad_map',
+    google_map_link: 'https://goo.gl/maps/pmQU7QwfoY6YSR5LA',
+    has_map: true,
+    has_iframe: true,
+}
+
 export const all_offices: LocationsType[] = [
     paris,
     malta,
@@ -503,6 +531,7 @@ export const all_offices: LocationsType[] = [
     minsk,
     rwanda,
     asuncion,
+    ciudad,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -510,6 +539,7 @@ export const locations = {
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,
     labuan: `${labuan.display_name}, ${labuan.country}`,
+    ciudad: `${ciudad.display_name}, ${ciudad.country}`,
     asuncion: `${asuncion.display_name}, ${asuncion.country}`,
     melaka: `${melaka.display_name}, ${melaka.country}`,
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,

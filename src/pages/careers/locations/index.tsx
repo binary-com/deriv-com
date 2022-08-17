@@ -240,6 +240,9 @@ const query = graphql`
         thumbnail_dubai: file(relativePath: { eq: "careers/thumbnail_dubai.png" }) {
             ...fadeIn
         }
+        thumbnail_georgetown: file(relativePath: { eq: "careers/thumbnail_georgetown.png" }) {
+            ...fadeIn
+        }
         thumbnail_labuan: file(relativePath: { eq: "careers/thumbnail_labuan.png" }) {
             ...fadeIn
         }
@@ -261,11 +264,9 @@ const query = graphql`
         thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.jpg" }) {
             ...fadeIn
         }
-
         thumbnail_berlin: file(relativePath: { eq: "careers/thumbnail_berlin.jpg" }) {
             ...fadeIn
         }
-
         thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.png" }) {
             ...fadeIn
         }
@@ -332,6 +333,7 @@ const Locations = () => {
                         'eastern_europe',
                         'africa',
                         'latam',
+                        'caribbean',
                     ]}
                     jc_tablet="start"
                     jc_mobileL="start"

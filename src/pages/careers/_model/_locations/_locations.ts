@@ -3,6 +3,7 @@ import {
     address_dubai,
     address_asuncion,
     address_labuan,
+    address_georgetown,
     address_malta,
     address_ipoh,
     address_melaka,
@@ -18,6 +19,7 @@ import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
 import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
+import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
@@ -371,7 +373,7 @@ export const guernsey: LocationsType = {
     map: 'ChIJc-QshyFzDUgRy9q1rkkXFqs',
     map_text:
         'Deriv (Guernsey) can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at Guernsey gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
-    address: address_guernsey,
+    address: address_georgetown,
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/jX1D5CmysqtbMJeh6',
     has_map: true,
@@ -431,6 +433,33 @@ export const vanuatu: LocationsType = {
     google_map_link: '',
 }
 
+export const georgetown: LocationsType = {
+    name: 'georgetown',
+    continent: 'caribbean',
+    display_continent: 'Caribbean',
+    link: '/careers/locations/georgetown/',
+    display_name: 'George Town',
+    img_alt: ' Deriv’s Cayman Islands office at George Town ',
+    map_office_name: '(Cayman Islands)',
+    country: 'Cayman Islands',
+    flagIcon: CaymanFlagIcon,
+    thumbnail: 'thumbnail_georgetown',
+    address: address_georgetown,
+    first_p:
+        'Deriv Group Ltd’s new base will be in the Cayman Commodities and Derivatives City of the Cayman Enterprise City. This office will serve as a centre for compliance, corporate governance, and operational risk management for the Deriv Group. It will also assist with trading support for the North American time zone. ',
+    first_img: 'living_in_georgetown',
+    first_img_alt: 'Working with Deriv’s George Town team',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'cayman map', 'guernsey grid 4'],
+    map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
+    map_text:
+        "Our office in the Cayman Islands will be a hub for compliance, operational risk, and quants talent. Join us at this office to analyse changes in regulatory policies, formulate and implement efficient risk management plans, and ensure the efficiency of the Deriv Group's compliance and trading strategies.",
+    map_img: 'cayman_map',
+    google_map_link: 'https://goo.gl/maps/7ZjSzDqSEteSANqD8',
+    has_map: true,
+    has_iframe: true,
+}
+
 export const jordan: LocationsType = {
     name: 'jordan',
     continent: 'middle_east',
@@ -452,7 +481,7 @@ export const jordan: LocationsType = {
     map_text:
         'Software developers, technical engineers, software testers, and IT specialists at our Amman office will work together to build state-of-the-art applications, trading platforms, and other technical systems. Join our Jordan team for a thriving tech career.',
     address: address_guernsey,
-    map_img: 'guernsey_map',
+    map_img: 'georgetown_',
     google_map_link: 'https://goo.gl/maps/M8p55z3Wu4EKhQ3A7',
     has_iframe: false,
     has_map: false,
@@ -503,6 +532,7 @@ export const all_offices: LocationsType[] = [
     minsk,
     rwanda,
     asuncion,
+    georgetown,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -521,6 +551,7 @@ export const locations = {
     vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
     jordan: `${jordan.display_name}, ${jordan.country}`,
     singapore: `${singapore.display_name}, ${singapore.country}`,
+    georgetown: `${georgetown.display_name}, ${georgetown.country}`,
 }
 
 export const allContinents = {
@@ -531,6 +562,7 @@ export const allContinents = {
     eastern_europe: [],
     africa: [],
     latam: [],
+    caribbean: [],
 }
 
 all_offices.forEach((office) => {

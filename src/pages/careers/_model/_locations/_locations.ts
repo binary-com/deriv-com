@@ -494,7 +494,7 @@ export const ciudad: LocationsType = {
     link: '/careers/locations/ciudad/',
     display_name: 'Ciudad del Este',
     img_alt: 'Paraguay office at Ciudad del Este',
-    map_office_name: '(Paraguay)',
+    map_office_name: '(Ciudad del Este)',
     country: 'Paraguay',
     flagIcon: ParaguayFlagIcon,
     thumbnail: 'thumbnail_ciudad',

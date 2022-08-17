@@ -14,7 +14,6 @@ const OurPlatforms = () => {
             height="fit-content"
             tabletL={{ height: 'fit-content', pb: 'unset' }}
             padding="8rem 0 0 0"
-            id="platform-fold"
         >
             <Flex fd="column" tabletL={{ width: '90%' }}>
                 <Flex fd="column" ai="center" jc="center" mb="8rem" tabletL={{ mb: '24px' }}>

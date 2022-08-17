@@ -83,7 +83,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
     const handleSignup = useHandleSignup()
 
     return (
-        <HeroWrapper id="hero-element">
+        <HeroWrapper>
             <BackgroundImage is_unstyled data={data.hero_background} loading="eager">
                 <Container fd="column" ai="flex-start">
                     <Flex

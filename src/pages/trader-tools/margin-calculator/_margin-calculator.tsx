@@ -88,7 +88,6 @@ const MarginCalculator = () => {
             if (!response.error) {
                 const data = response.active_symbols
                 setActiveSymbols(data)
-                setDisableDropdown(false)
             }
         })
     }, [])
@@ -104,9 +103,9 @@ const MarginCalculator = () => {
 
     const fetchTickData = (selectedSymbol, setAssetPrice) => {
         if (symbolSpotPrice[selectedSymbol] !== undefined) {
-            console.log('symbolSpotPrice', symbolSpotPrice)
             symbolSpotPrice[selectedSymbol].map((price) => {
                 setAssetPrice('assetPrice', price)
+                setDisableDropdown(false)
             })
         }
     }
@@ -279,7 +278,6 @@ const MarginCalculator = () => {
                                                                 8,
                                                             )}
                                                             background="white"
-                                                            disabled={disableDropdown}
                                                         />
                                                     )}
                                                 </Field>
@@ -317,7 +315,6 @@ const MarginCalculator = () => {
                                                                 )
                                                             }}
                                                             background="white"
-                                                            disabled={disableDropdown}
                                                         />
                                                     )}
                                                 </Field>
@@ -335,7 +332,6 @@ const MarginCalculator = () => {
                                                 onBlur={handleBlur}
                                                 autoComplete="off"
                                                 data-lpignore="true"
-                                                disabled={disableDropdown}
                                             />
                                             <Flex mt="3rem">
                                                 <CalculateButton

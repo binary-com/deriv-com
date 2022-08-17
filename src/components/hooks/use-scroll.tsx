@@ -3,16 +3,17 @@ import { isBrowser } from 'common/utility'
 
 export const useScroll = () => {
     const offset = isBrowser() && document.body.getBoundingClientRect()
-    const [lastScrollTop, setLastScrollTop] = useState(0)
-    const [bodyOffset, setBodyOffset] = useState(offset)
-    const [scrollY, setScrollY] = useState(bodyOffset.top)
-    const [scrollDirection, setScrollDirection] = useState('')
+    const [last_scroll_top, setLastScrollTop] = useState(0)
+    const [body_offset, setBodyOffset] = useState(offset)
+    const [scroll_y, setScrollY] = useState(body_offset.top)
+    const [scroll_direction, setScrollDirection] = useState('')
 
     const listener = () => {
+        const offset_top = -body_offset.top
         setBodyOffset(document.body.getBoundingClientRect())
-        setScrollY(-bodyOffset.top)
-        setScrollDirection(lastScrollTop > -bodyOffset.top ? 'up' : 'down')
-        setLastScrollTop(-bodyOffset.top)
+        setScrollY(offset_top)
+        setScrollDirection(last_scroll_top > offset_top ? 'up' : 'down')
+        setLastScrollTop(offset_top)
     }
 
     useEffect(() => {
@@ -23,7 +24,7 @@ export const useScroll = () => {
     })
 
     return {
-        scrollY,
-        scrollDirection,
+        scroll_y,
+        scroll_direction,
     }
 }

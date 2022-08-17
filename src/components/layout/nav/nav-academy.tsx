@@ -10,15 +10,15 @@ const NavAcademy = () => {
     const [hide_nav, setHideNav] = useState(false)
     const [is_mounted] = usePageLoaded()
     const [is_logged_in] = useAuthCheck()
-    const { scrollY, scrollDirection } = useScroll()
+    const { scroll_y, scroll_direction } = useScroll()
 
     useEffect(() => {
-        if (scrollDirection === 'down' && scrollY > 100) {
+        if (scroll_direction === 'down' && scroll_y > 100) {
             setHideNav(true)
         } else {
             setHideNav(false)
         }
-    }, [scrollDirection, scrollY])
+    }, [scroll_direction, scroll_y])
 
     return (
         <NavTemplate show_academy_nav={is_mounted} hide_nav={hide_nav}>

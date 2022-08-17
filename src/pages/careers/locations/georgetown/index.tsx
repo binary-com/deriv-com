@@ -26,7 +26,7 @@ const Georgetown = () => {
     return (
         <Layout type="careers">
             {/* <SEO
-                title={localize('George Town - Our office | Deriv')}
+                title={localize('George Town | Our office | Deriv')}
                 description={localize(
                     '',
                 )}

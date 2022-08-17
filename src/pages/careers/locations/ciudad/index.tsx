@@ -22,7 +22,9 @@ const CiudadDelEste = () => {
 
     return (
         <Layout type="careers">
-            {/* <SEO
+            {/*
+                ---TO DO: Add SEO once it's ready---
+            <SEO
                 title={localize('Ciudad del Este | Our office | Deriv')}
                 description={localize(
                     '',

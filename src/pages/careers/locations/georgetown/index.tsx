@@ -22,7 +22,9 @@ const Georgetown = () => {
 
     return (
         <Layout type="careers">
-            {/* <SEO
+            {/*
+            ---TO DO: Add SEO once it's ready---
+             <SEO
                 title={localize('George Town | Our office | Deriv')}
                 description={localize(
                     '',

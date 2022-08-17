@@ -501,7 +501,7 @@ export const ciudad: LocationsType = {
     address: address_ciudad,
     first_p:
         'Our second office in Paraguay is to open in the border city of Ciudad del Este. Located in the World Trade Center, this office will tap into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
-    first_img: 'living_in_ciudad_del_este',
+    first_img: 'living_in_ciudad',
     first_img_alt: 'Working with Deriv’s Ciudad del Este’s team',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'cayman map', 'guernsey grid 4'],

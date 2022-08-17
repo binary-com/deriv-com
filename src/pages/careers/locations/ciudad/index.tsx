@@ -11,12 +11,7 @@ const query = graphql`
         ciudad: file(relativePath: { eq: "careers/ciudad.png" }) {
             ...heroImage
         }
-        living_in_ciudad_del_este: file(
-            relativePath: { eq: "careers/living_in_ciudad_del_este.png" }
-        ) {
-            ...fadeIn
-        }
-        ciudad_map: file(relativePath: { eq: "maps/ciudad_map.png" }) {
+        living_in_ciudad: file(relativePath: { eq: "careers/living_in_ciudad.png" }) {
             ...fadeIn
         }
     }

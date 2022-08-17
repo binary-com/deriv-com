@@ -47,7 +47,7 @@ const AccountDetails = () => {
     useEffect(() => {
         send(country_list, (response) => {
             if (!response.error) {
-                const residence_list_response = response.residence_list.map((el) => {
+                const residence_list_response = response.residence_list.map(({ ...el }) => {
                     const country: countryType = {
                         name: el.text,
                         display_name: el.text,

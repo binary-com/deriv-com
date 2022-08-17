@@ -68,23 +68,8 @@ const PhoneNumber = () => {
         justify-content: center;
         padding-top: 15px;
     `
-    const FormValue = {
-        padding: '10px',
-    }
-    const OtpNumbers = [
-        {
-            value: 1,
-        },
-        {
-            value: 5,
-        },
-        {
-            value: 3,
-        },
-        {
-            value: 6,
-        },
-    ]
+
+    const OtpNumbers: number[] = [4, 3, 1, 2]
     return (
         <>
             <Header as="h2" align="center" type="paragraph-1" pb="24px" weight="normal">
@@ -119,8 +104,8 @@ const PhoneNumber = () => {
             </CodeText>
 
             <OtpContainer>
-                {OtpNumbers.map(({ value }, index) => {
-                    return <OtpCard key={`option-number-${index}`} value={value} />
+                {OtpNumbers.map((index) => {
+                    return <OtpCard key={`option-number-${index}`} value={index} />
                 })}
             </OtpContainer>
         </>

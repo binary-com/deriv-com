@@ -34,6 +34,11 @@ const getCountryList = () => {
 }
 const country_list = getCountryList()
 
+type countryType = {
+    name: string
+    display_name: string
+    value: string
+}
 const AccountDetails = () => {
     const [residence_list, setResidenceList] = useState([])
     const [value, setValue] = useState('')
@@ -42,11 +47,6 @@ const AccountDetails = () => {
     useEffect(() => {
         send(country_list, (response) => {
             if (!response.error) {
-                type countryType = {
-                    name: string
-                    display_name: string
-                    value: string
-                }
                 const residence_list_response = response.residence_list.map((el) => {
                     const country: countryType = {
                         name: el.text,

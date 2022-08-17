@@ -48,7 +48,6 @@ const DropdownSearch = ({
 }) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
-
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
 
@@ -118,7 +117,6 @@ const DropdownSearch = ({
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open ? 'true' : 'false'} />
                 </Flex>
-
                 <ItemList
                     error={error}
                     handleChange={handleSelectItem}

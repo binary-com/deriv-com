@@ -14,9 +14,6 @@ const query = graphql`
         living_in_georgetown: file(relativePath: { eq: "careers/living_in_georgetown.png" }) {
             ...fadeIn
         }
-        georgetown_grid_3: file(relativePath: { eq: "careers/georgetown_grid_3.png" }) {
-            ...fadeIn
-        }
     }
 `
 

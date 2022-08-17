@@ -373,7 +373,7 @@ export const guernsey: LocationsType = {
     map: 'ChIJc-QshyFzDUgRy9q1rkkXFqs',
     map_text:
         'Deriv (Guernsey) can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at Guernsey gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
-    address: address_georgetown,
+    address: address_guernsey,
     map_img: 'guernsey_map',
     google_map_link: 'https://goo.gl/maps/jX1D5CmysqtbMJeh6',
     has_map: true,

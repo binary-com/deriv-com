@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
@@ -212,6 +212,7 @@ const SwapCalculator = () => {
     const [tab, setTab] = useState('Synthetic')
     const [activeSymbols, setActiveSymbols] = useState([])
     const [disableDropdown, setDisableDropdown] = useState(true)
+    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
@@ -229,19 +230,21 @@ const SwapCalculator = () => {
         })
     }, [])
 
-    const symbolSpotPrice = {}
-    for (const { spot, symbol } of activeSymbols) {
-        if (!symbolSpotPrice[symbol]) symbolSpotPrice[symbol] = []
-        symbolSpotPrice[symbol].push(spot)
-    }
-
-    const fetchTickData = (selectedSymbol, setAssetPrice) => {
-        if (selectedSymbol !== 'undefined') {
-            symbolSpotPrice[selectedSymbol].map((price) => {
-                setAssetPrice('assetPrice', price)
-            })
+    useEffect(() => {
+        const tempSpotPrice = {}
+        for (const { spot, symbol } of activeSymbols) {
+            tempSpotPrice[symbol] = spot
         }
-    }
+        setSymbolSpotPrice(tempSpotPrice)
+    }, [activeSymbols])
+
+    const fetchTickData = useCallback(
+        (selectedSymbol, setAssetPrice) => {
+            const price = symbolSpotPrice[selectedSymbol] ?? 0
+            setAssetPrice('assetPrice', price)
+        },
+        [symbolSpotPrice],
+    )
 
     return (
         <>
@@ -413,7 +416,6 @@ const SwapCalculator = () => {
                                                                     )
                                                                 }}
                                                                 background="white"
-                                                                disabled={disableDropdown}
                                                             />
                                                         )}
                                                     </Field>

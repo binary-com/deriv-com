@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -76,6 +76,7 @@ const MarginCalculator = () => {
     const [tab, setTab] = useState('Synthetic')
     const [activeSymbols, setActiveSymbols] = useState([])
     const [disableDropdown, setDisableDropdown] = useState(true)
+    const [symbolSpotPrice, setSymbolSpotPrice] = useState({})
 
     const onTabClick = (t) => {
         setTab(t)
@@ -88,27 +89,26 @@ const MarginCalculator = () => {
             if (!response.error) {
                 const data = response.active_symbols
                 setActiveSymbols(data)
+                setDisableDropdown(false)
             }
         })
     }, [])
 
-    const symbolSpotPrice = {}
-    for (const { spot, symbol } of activeSymbols) {
-        if (symbolSpotPrice[symbol] == undefined) {
-            symbolSpotPrice[symbol] = [spot]
-        } else {
-            symbolSpotPrice[symbol].push(spot)
-        }
-    }
+    useEffect(() => {
+        const tempSpotPrice = {}
 
-    const fetchTickData = (selectedSymbol, setAssetPrice) => {
-        if (symbolSpotPrice[selectedSymbol] !== undefined) {
-            symbolSpotPrice[selectedSymbol].map((price) => {
-                setAssetPrice('assetPrice', price)
-                setDisableDropdown(false)
-            })
+        for (const { spot, symbol } of activeSymbols) {
+            tempSpotPrice[symbol] = spot
         }
-    }
+        setSymbolSpotPrice(tempSpotPrice)
+    }, [activeSymbols])
+    const fetchTickData = useCallback(
+        (selectedSymbol, setAssetPrice) => {
+            const price = symbolSpotPrice[selectedSymbol] ?? 0
+            setAssetPrice('assetPrice', price)
+        },
+        [symbolSpotPrice],
+    )
 
     return (
         <>

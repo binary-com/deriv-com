@@ -326,40 +326,35 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                                 onMouseDown={handleSearchClick}
                             >{`Search for: ${search_query}`}</SearchResultRows>
 
-                            {data_to_render &&
-                                data_to_render.slice(0, 6).map((post, idx: number) => {
-                                    const icon = post.blog_title ? ArticleIcon : VideoIcon
-                                    const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                                    const handleMouseDown = (e: React.KeyboardEvent) => {
-                                        e.preventDefault()
-                                        navigate(redirect_link_arr[idx])
-                                    }
+                            {data_to_render?.slice(0, 6).map((post, idx: number) => {
+                                const icon = post.blog_title ? ArticleIcon : VideoIcon
+                                const icon_alt = post.blog_title ? 'article icon' : 'video icon'
+                                const handleMouseDown = (e: React.KeyboardEvent) => {
+                                    e.preventDefault()
+                                    navigate(redirect_link_arr[idx])
+                                }
 
-                                    return (
-                                        <SearchResultRows
-                                            key={post.blog_title || post.video_title}
-                                            jc="flex-start"
-                                            ai="center"
-                                            onMouseDown={handleMouseDown}
-                                            is_active={focus_index === idx}
+                                return (
+                                    <SearchResultRows
+                                        key={post.blog_title || post.video_title}
+                                        jc="flex-start"
+                                        ai="center"
+                                        onMouseDown={handleMouseDown}
+                                        is_active={focus_index === idx}
+                                    >
+                                        <IconWrapper src={icon} alt={icon_alt} />
+                                        <Header
+                                            as="h3"
+                                            type="paragraph-1"
+                                            weight="normal"
+                                            ml="8px"
+                                            pt="4px"
                                         >
-                                            {
-                                                <>
-                                                    <IconWrapper src={icon} alt={icon_alt} />
-                                                    <Header
-                                                        as="h3"
-                                                        type="paragraph-1"
-                                                        weight="normal"
-                                                        ml="8px"
-                                                        pt="4px"
-                                                    >
-                                                        {getResultTitles(post)}
-                                                    </Header>
-                                                </>
-                                            }
-                                        </SearchResultRows>
-                                    )
-                                })}
+                                            {getResultTitles(post)}
+                                        </Header>
+                                    </SearchResultRows>
+                                )
+                            })}
                         </SearchSuggestionWrapper>
                     </DesktopWrapper>
                 )}
@@ -374,42 +369,37 @@ const SearchBar = ({ setModal, setHideMobileTopic }: SearchBarProps) => {
                             style={{ color: 'var(--color-blue-3)' }}
                         >{`Search for: ${search_query}`}</SearchResultRows>
                     )}
-                    {data_to_render &&
-                        data_to_render.slice(0, 4).map((post, idx: number) => {
-                            const icon = post.blog_title ? ArticleIcon : VideoIcon
-                            const icon_alt = post.blog_title ? 'article icon' : 'video icon'
-                            const handleMouseDown = (e: React.MouseEvent) => {
-                                e.preventDefault()
-                                navigate(redirect_link_arr[idx])
-                            }
+                    {data_to_render?.slice(0, 4).map((post, idx: number) => {
+                        const icon = post.blog_title ? ArticleIcon : VideoIcon
+                        const icon_alt = post.blog_title ? 'article icon' : 'video icon'
+                        const handleMouseDown = (e: React.MouseEvent) => {
+                            e.preventDefault()
+                            navigate(redirect_link_arr[idx])
+                        }
 
-                            return (
-                                <SearchResultRows
-                                    key={post.blog_title || post.video_title}
-                                    jc="flex-start"
-                                    ai="center"
-                                    onMouseDown={handleMouseDown}
-                                    is_active={focus_index === idx}
-                                    tabletL={{ ai: 'flex-start' }}
+                        return (
+                            <SearchResultRows
+                                key={post.blog_title || post.video_title}
+                                jc="flex-start"
+                                ai="center"
+                                onMouseDown={handleMouseDown}
+                                is_active={focus_index === idx}
+                                tabletL={{ ai: 'flex-start' }}
+                            >
+                                <IconWrapper src={icon} alt={icon_alt} />
+                                <Header
+                                    as="h3"
+                                    type="paragraph-1"
+                                    weight="normal"
+                                    ml="8px"
+                                    pt="4px"
+                                    tabletL={{ ml: '10px', pt: '0' }}
                                 >
-                                    {
-                                        <>
-                                            <IconWrapper src={icon} alt={icon_alt} />
-                                            <Header
-                                                as="h3"
-                                                type="paragraph-1"
-                                                weight="normal"
-                                                ml="8px"
-                                                pt="4px"
-                                                tabletL={{ ml: '10px', pt: '0' }}
-                                            >
-                                                {getResultTitles(post)}
-                                            </Header>
-                                        </>
-                                    }
-                                </SearchResultRows>
-                            )
-                        })}
+                                    {getResultTitles(post)}
+                                </Header>
+                            </SearchResultRows>
+                        )
+                    })}
                 </SearchSuggestionWrapper>
             </MobileWrapper>
         </>

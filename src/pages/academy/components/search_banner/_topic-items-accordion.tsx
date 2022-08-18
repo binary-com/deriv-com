@@ -27,10 +27,10 @@ const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordio
     const [is_expanded, setExpanded] = useState(false)
 
     const toggleExpand = () => {
-        setExpanded(!is_expanded)
+        setExpanded((prevState) => !prevState)
     }
 
-    const handleModal = () => {
+    const closeModal = () => {
         setModal(false)
     }
 
@@ -60,7 +60,7 @@ const TopicItemsAccordion = ({ items, setModal, handleHref }: TopicItemsAccordio
                         <StyledLink
                             key={item.title}
                             to={handleHref(item.title)}
-                            onClick={handleModal}
+                            onClick={closeModal}
                         >
                             {item.title}
                         </StyledLink>

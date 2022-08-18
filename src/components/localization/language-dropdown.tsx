@@ -1,9 +1,9 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 import Cookies from 'js-cookie'
+import flags from './flags'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
-import { QueryImage, Text } from 'components/elements'
+import { Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 
@@ -152,57 +152,14 @@ const ResponsiveText = styled(Text)`
 `
 /* stylelint-enable */
 
-const Icon = styled(QueryImage)`
+const Icon = styled.img`
     width: 24px;
-    height: 19px;
+    height: 16px;
+    margin-bottom: 3px;
 
     @media ${device.mobileL} {
         width: 20px;
         height: 15px;
-    }
-`
-
-const query = graphql`
-    query {
-        en: file(relativePath: { eq: "flags/uk.png" }) {
-            ...fadeIn
-        }
-        es: file(relativePath: { eq: "flags/es.png" }) {
-            ...fadeIn
-        }
-        fr: file(relativePath: { eq: "flags/fr.png" }) {
-            ...fadeIn
-        }
-        id: file(relativePath: { eq: "flags/id.png" }) {
-            ...fadeIn
-        }
-        it: file(relativePath: { eq: "flags/it.png" }) {
-            ...fadeIn
-        }
-        pl: file(relativePath: { eq: "flags/pl.png" }) {
-            ...fadeIn
-        }
-        pt: file(relativePath: { eq: "flags/pt.png" }) {
-            ...fadeIn
-        }
-        ru: file(relativePath: { eq: "flags/ru.png" }) {
-            ...fadeIn
-        }
-        vi: file(relativePath: { eq: "flags/vi.png" }) {
-            ...fadeIn
-        }
-        th: file(relativePath: { eq: "flags/th.png" }) {
-            ...fadeIn
-        }
-        zh: file(relativePath: { eq: "flags/zh.png" }) {
-            ...fadeIn
-        }
-        tr: file(relativePath: { eq: "flags/tr.png" }) {
-            ...fadeIn
-        }
-        ac: file(relativePath: { eq: "flags/uk.png" }) {
-            ...fadeIn
-        }
     }
 `
 
@@ -215,7 +172,6 @@ const Dropdown = ({
 }: DropdownProps) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
-    const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
     const toggleVisibility = () => setOpen(!is_open)
@@ -235,7 +191,7 @@ const Dropdown = ({
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <Icon data={data[default_abbreviation]} alt="language icon" loading="eager" />
+                    <Icon src={flags[default_abbreviation]} alt="language icon" />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
@@ -258,11 +214,7 @@ const Dropdown = ({
                                     }}
                                     key={idx}
                                 >
-                                    <Icon
-                                        data={data[abbreviation]}
-                                        alt="language icon"
-                                        loading="eager"
-                                    />
+                                    <Icon src={flags[abbreviation]} alt="language icon" />
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}
                                     </Text>

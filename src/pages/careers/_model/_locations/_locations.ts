@@ -162,6 +162,7 @@ export const asuncion: LocationsType = {
     first_img: 'living_in_asuncion',
     first_img_alt: 'Taxi and bikes parked nearby road',
     badge: 'asuncion_great_place_to_work_badge',
+    badge_alt: 'Asuncion Great Place To Work Badge',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
     grid_img_alt: [
         'Man teaching a group of people',

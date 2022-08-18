@@ -161,6 +161,7 @@ export const asuncion: LocationsType = {
     first_p: `Deriv (Asunción) supports the Latin American market with Marketing, Customer Support, Accounts & Payments, and Back-end teams. The teams are constantly working on activities best suited for brand awareness, empowering customers with solutions, taking care of accounting responsibilities, and strengthening our IT infrastructure.`,
     first_img: 'living_in_asuncion',
     first_img_alt: 'Taxi and bikes parked nearby road',
+    badge: 'asuncion_great_place_to_work_badge',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
     grid_img_alt: [
         'Man teaching a group of people',

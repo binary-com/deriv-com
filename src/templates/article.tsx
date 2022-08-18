@@ -147,7 +147,12 @@ const ArticlesTemplate = ({ data }: ArticlesTemplateProps) => {
                                         <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                             All articles
                                         </StyledBreadcrumbsLink>
-                                        <img src={RightArrow} height="16" width="16" />
+                                        <img
+                                            src={RightArrow}
+                                            alt="arrow right"
+                                            height="16"
+                                            width="16"
+                                        />
                                         <StyledBreadcrumbsTitle>
                                             {is_mobile
                                                 ? truncateString(article_title, truncateLength)

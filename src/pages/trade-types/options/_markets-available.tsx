@@ -51,7 +51,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={Forex} alt="" width="64" height="64" />
+                                    <img src={Forex} alt="Forex" width="64" height="64" />
 
                                     <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
@@ -71,7 +71,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={SyntheticIndices} alt="" width="64" height="64" />
+                                    <img
+                                        src={SyntheticIndices}
+                                        alt="Synthetic indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <StyledText weight="bold">
                                         {localize('Synthetic indices')}
@@ -93,7 +98,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={StockIndices} alt="" width="64" height="64" />
+                                    <img
+                                        src={StockIndices}
+                                        alt="Stocks & indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <StyledText weight="bold">
                                         {localize('Stocks & indices')}
@@ -115,7 +125,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={BasketIndices} alt="" width="64" height="64" />
+                                    <img
+                                        src={BasketIndices}
+                                        alt="Basket indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <StyledText weight="bold">
                                         {localize('Basket indices')}
@@ -137,7 +152,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={Commodities} alt="" width="64" height="64" />
+                                    <img
+                                        src={Commodities}
+                                        alt="Commodities"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <StyledText weight="bold">{localize('Commodities')}</StyledText>
                                 </MobileCardHeader>

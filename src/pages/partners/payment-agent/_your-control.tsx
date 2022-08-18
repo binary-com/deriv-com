@@ -116,7 +116,7 @@ const YourControl = () => {
                 >
                     {cardItems.map((item, index) => (
                         <Card key={`key-${index}`}>
-                            <img src={item.img_src} alt={''} />
+                            <img src={item.img_src} alt="icon" />
                             <CardText>{item.card_text}</CardText>
                         </Card>
                     ))}

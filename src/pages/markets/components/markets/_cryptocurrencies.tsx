@@ -71,7 +71,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt="" />}
+                        icon={<img src={content.src} alt="icon" />}
                     ></StyledBox>
                 ))}
             </WhyTrade>

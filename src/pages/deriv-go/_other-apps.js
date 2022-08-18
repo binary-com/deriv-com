@@ -86,7 +86,7 @@ const other_apps = [
         url: (
             <LearnMore to="/dmt5/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <img src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -99,7 +99,7 @@ const other_apps = [
         url: (
             <LearnMore to="/derivx/">
                 <Localize translate_text="Learn more" />
-                <img src={Arrow} alt="" />
+                <img src={Arrow} alt="arrow" />
             </LearnMore>
         ),
     },
@@ -127,7 +127,7 @@ const OtherApps = () => {
                             return (
                                 <Card key={item.title}>
                                     <div>
-                                        <img src={item.icon} alt="" />
+                                        <img src={item.icon} alt={item.title} />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

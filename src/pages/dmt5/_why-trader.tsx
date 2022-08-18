@@ -131,7 +131,7 @@ const WhyTrader = () => {
                     return (
                         <Card key={card.key}>
                             <div>
-                                <img src={card.image} alt="" />
+                                <img src={card.image} alt={card.image} />
                             </div>
                             <StyledCardHeader
                                 mt="0.8rem"

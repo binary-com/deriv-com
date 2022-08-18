@@ -63,7 +63,12 @@ const SecureAccount = () => {
                 <Ul jc="center" ai="flex-start">
                     <Li>
                         <div>
-                            <img src={DifferentPassword} alt="" width="64" height="64" />
+                            <img
+                                src={DifferentPassword}
+                                alt="Different Password"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
@@ -75,7 +80,7 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={SecureBrowser} alt="" width="64" height="64" />
+                            <img src={SecureBrowser} alt="Secure Browser" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
@@ -87,7 +92,7 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={PaymentMethod} alt="" width="64" height="64" />
+                            <img src={PaymentMethod} alt="Payment Method" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>
@@ -111,7 +116,12 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={InstallAntivirus} alt="" width="64" height="64" />
+                            <img
+                                src={InstallAntivirus}
+                                alt="Install Antivirus"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text max_width="28.8rem" m="auto" tabletL={{ max_width: '100%' }}>

@@ -71,17 +71,22 @@ const WhyTradeDerivGo = () => {
                         {localize('Why trade with Deriv GO')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px" mr="8px">
-                        {trade_data.map((index) => {
+                        {trade_data.map((item) => {
                             return (
-                                <Card key={index.title}>
+                                <Card key={item.title}>
                                     <div>
-                                        <img src={index.icon} width={72} height={72} alt="" />
+                                        <img
+                                            src={item.icon}
+                                            width={72}
+                                            height={72}
+                                            alt={item.title}
+                                        />
                                     </div>
                                     <Header as="h3" type="heading-3" align="center" mt="24px">
-                                        {index.title}
+                                        {item.title}
                                     </Header>
                                     <StyledText align="center" mt="8px">
-                                        {index.subtitle}
+                                        {item.subtitle}
                                     </StyledText>
                                 </Card>
                             )

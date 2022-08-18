@@ -185,7 +185,7 @@ export const syntheticItemLists = [
     {
         name: 'Range Break 100 Index',
         display_name: 'Range Break 100 Index',
-        icon: <img src={RANGEBREAK100} alt="" />,
+        icon: <img src={RANGEBREAK100} alt="Range Break 100" />,
         market: 'synthetic_indices',
     },
     {
@@ -221,7 +221,7 @@ export const syntheticItemLists = [
     {
         name: 'Volatility 25 Index',
         display_name: 'Volatility 25 Index',
-        icon: <img src={INDEX25} alt="" />,
+        icon: <img src={INDEX25} alt="Volatility 25" />,
         market: 'synthetic_indices',
     },
     {

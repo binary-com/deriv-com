@@ -125,7 +125,7 @@ const WhyTradeDerivX = () => {
                             return (
                                 <Card key={index}>
                                     <div>
-                                        <img src={card.icon} alt="" />
+                                        <img src={card.icon} alt="icon" />
                                     </div>
                                     <Header
                                         width="240px"

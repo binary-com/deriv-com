@@ -270,7 +270,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             </ContentWrapper>
             <LearnMore to={items_details.link} $visibility={details_visible && !is_mobile}>
                 <Text mr="1rem">{items_details.link_text}</Text>
-                <img src={Arrow} alt="" />
+                <img src={Arrow} alt="arrow" />
             </LearnMore>
         </ItemsWrapper>
     )

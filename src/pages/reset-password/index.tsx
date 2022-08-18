@@ -66,7 +66,7 @@ const ResetPassword = () => {
             actions.resetForm({ email: '' })
             actions.setStatus({
                 success: localize(
-                    'Please check your email and click on the link provided to reset your password.',
+                    'Please check your email and click on the link provided to reset your password. ',
                 ),
             })
         })

@@ -19,7 +19,7 @@ export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, op
     }
     useEffect(() => {
         createObserver()
-        if (window.innerHeight >= 895) {
+        if (window.innerHeight >= 950) {
             setLargeScreen(true)
         }
     }, [])

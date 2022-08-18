@@ -75,7 +75,7 @@ const OpenPositions = (data: DataProps) => {
                                         </Header>
                                     </Flex>
                                     <Flex ai="center">
-                                        <img src={RightArrow}></img>
+                                        <img src={RightArrow} alt="right arrow"></img>
                                     </Flex>
                                 </JobWrapper>
                             </PositionLink>

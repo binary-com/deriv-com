@@ -200,7 +200,7 @@ const Dp2p = () => {
                     {dp2p_checklist.map((item, index) => (
                         <div style={{ marginBottom: '1.6rem' }} key={index}>
                             <ItemTitle>
-                                <img src={Checkmark} />
+                                <img src={Checkmark} alt="Checkmark" />
                                 <Text
                                     size={is_mobile ? 'var(--text-size-sm)' : 'var(--text-size-m)'}
                                     weight="bold"

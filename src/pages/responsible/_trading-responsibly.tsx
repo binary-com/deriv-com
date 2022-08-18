@@ -120,7 +120,7 @@ const TradingResponsibly = () => {
                     </StyledHeader>
                     <ContentWrapper jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
-                            <img src={DontBorrow} alt="" />
+                            <img src={DontBorrow} alt="Dont Borrow" />
                             <StyledText>
                                 {localize(
                                     'Understand the risks of online trading. Never trade using borrowed money or money you can’t afford to lose.',
@@ -129,7 +129,7 @@ const TradingResponsibly = () => {
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
-                            <img src={FreeDemo} alt="" />
+                            <img src={FreeDemo} alt="Free Demo" />
                             <StyledText>
                                 {localize(
                                     'Use our free demo account, and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
@@ -138,7 +138,7 @@ const TradingResponsibly = () => {
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
-                            <img src={SetLimitLosses} alt="" />
+                            <img src={SetLimitLosses} alt="Set Limit Losses" />
                             <StyledText>
                                 {localize(
                                     'Set a limit for your losses, and stick to it. Put aside some of your winnings to avoid losing all your money.',
@@ -147,7 +147,7 @@ const TradingResponsibly = () => {
                         </FlexContent>
                         <StyledDivider />
                         <FlexContent>
-                            <img src={BadJudgement} alt="" />
+                            <img src={BadJudgement} alt="Bad Judgement" />
                             <StyledText>
                                 <Show.Eu>
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />

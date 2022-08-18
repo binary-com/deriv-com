@@ -34,7 +34,7 @@ export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, op
         <>{lazyTemplates}</>
     ) : (
         <>
-            <span>laoding</span>
+            <span>loading</span>
         </>
     )
 }

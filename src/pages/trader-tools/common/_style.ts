@@ -581,7 +581,7 @@ export const FormulaHighlightMobile = styled(Flex)`
     height: ${(props) => (props.height ? props.height : '68px')};
     gap: ${(props) => (props.gp ? props.gp : 0)};
     border-radius: 4px;
-    border: 1.5px solid var(--color-blue-5);
+    border: 1px solid #85acb0;
     background-color: white;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     align-items: center;
@@ -611,10 +611,61 @@ export const FormulaValueSwapSyntheticMobile = styled.div`
     text-align: center;
     margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
 `
+export const FormulaValuePnlMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 40px;
+    }
+    @media ${device.mobileM} {
+        min-width: 32px;
+    }
+`
+export const FormulaValuePnlMobileTakeProfit = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 25px;
+    }
+    @media ${device.mobileM} {
+        min-width: 15px;
+    }
+`
+export const PnlMobileTakeProfitPip = styled.div`
+    display: inline-block;
+    text-align: center;
+    @media ${device.tabletL} {
+        min-width: 28px;
+    }
+    @media ${device.mobileM} {
+        min-width: 15px;
+    }
+`
+export const FormulaValuePnlStoplossPip = styled.div`
+    display: inline-block;
+    text-align: center;
+    @media ${device.tabletL} {
+        min-width: 30px;
+    }
+    @media ${device.mobileM} {
+        min-width: 22px;
+    }
+`
+export const FormulaValuePnlStoploss = styled.div`
+    display: inline-block;
+    text-align: center;
+    @media ${device.tabletL} {
+        min-width: 30px;
+    }
+    @media ${device.mobileM} {
+        min-width: 22px;
+    }
+`
 
 export const FormulaValueMobile = styled.div`
     display: inline-block;
-    min-width: ${(props: FormulaValueType) => (props.mw ? 'props.mw' : '28px')};
     text-align: center;
     margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
 
@@ -639,7 +690,7 @@ export const FormulaGreen = styled.span`
 export const PointerContainer = styled.div<PointerContainerType>`
     display: flex;
     position: absolute;
-    height: ${(props) => (props.height ? 'props.height' : '80px')};
+    height: ${(props) => (props.height ? props.height : '80px')};
     margin-top: ${(props) => (props.top ? '-100px' : '8px')};
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     align-items: center;
@@ -651,7 +702,7 @@ export const PointerContainer = styled.div<PointerContainerType>`
 export const PointerContainerMobile = styled.div<PointerContainerType>`
     display: flex;
     position: absolute;
-    height: ${(props) => (props.height ? 'props.height' : '80px')};
+    height: ${(props) => (props.height ? props.height : '80px')};
     margin-top: ${(props) => (props.top ? '-100px' : '8px')};
     flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
@@ -755,12 +806,20 @@ export const FormulaTopWrapperPnl = styled.div<FormulaWrapperType>`
 export const FormulaTopWrapperMobile = styled.div<FormulaWrapperType>`
     display: grid;
     grid-auto-flow: column;
-    grid-column-gap: ${(props) => (props.cg ? props.cg : '6px')};
+    grid-column-gap: ${(props) => (props.cg ? props.cg : '0')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
-    @media ${device.mobileM} {
-        grid-column-gap: ${(props) => (props.cg ? props.cg : '2px')};
-    }
+`
+export const FormulaTopWrapperPnlMobile = styled.div<FormulaWrapperType>`
+    display: flex;
+    margin-top: 14px;
+`
+export const PnlBottomWrapperMobile = styled.div<FormulaWrapperType>`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -20px;
+    margin-top: -28px;
 `
 export const FormulaTopWrapperPnlMultiplierMobile = styled.div<FormulaWrapperType>`
     display: grid;
@@ -775,11 +834,16 @@ export const FormulaTopWrapperPnlMultiplierMobile = styled.div<FormulaWrapperTyp
 export const FormulaBottomWrapperPnlMobile = styled.div<FormulaWrapperType>`
     display: grid;
     grid-auto-flow: column;
-    grid-column-gap: 6px;
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     @media ${device.mobileM} {
         grid-column-gap: 2px;
+    }
+    @media ${device.tabletL} {
+        margin-left: ${(props) => (props.ml ? props.ml : '113px')};
+    }
+    @media ${device.mobileM} {
+        margin-left: ${(props) => (props.ml ? props.ml : '-97px')};
     }
 `
 export const FormulaBottomWrapperPnl = styled.div<FormulaWrapperType>`

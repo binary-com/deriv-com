@@ -182,7 +182,7 @@ const Layout = ({
     }, [is_redirection_applied])
 
     React.useEffect(() => {
-        if (window.location.pathname.includes('academy/blog')) {
+        if (window.location.pathname.includes('academy/blog/posts/')) {
             const slugs = academy_data.blog.map((item) => item.slug)
             const current_page = window.location.pathname.split('/')[4]
             if (!slugs.includes(current_page)) {

@@ -132,6 +132,7 @@ type CountryCardProps = {
     country_name: string
     continent: string
     city_name: string
+    thumbnail_name: string
     link: string
     img_alt: string
     img_data: ImageDataLike
@@ -195,6 +196,7 @@ const CountryCard = ({
     country_name,
     continent,
     city_name,
+    thumbnail_name,
     link,
     img_alt,
     img_data,
@@ -205,7 +207,7 @@ const CountryCard = ({
             <QueryImage data={img_data} alt={img_alt} width="100%" />
             <StyledDiv>
                 <StyledFrame>
-                    <StyledHeader weight="bold">{city_name}</StyledHeader>
+                    <StyledHeader weight="bold">{city_name && thumbnail_name}</StyledHeader>
                     <StyledBox>
                         <StyledName weight="bold">{continent}</StyledName>
                     </StyledBox>
@@ -371,6 +373,7 @@ const Locations = () => {
                                             country_name={office.country}
                                             continent={office.display_continent}
                                             city_name={office.display_name}
+                                            thumbnail_name={office.display_thumbnail_name}
                                             link={office.link}
                                             img_alt={office.img_alt}
                                         />

@@ -596,8 +596,8 @@ export const ProfitPipValue = () => {
             </Show.Desktop>
 
             <Show.Mobile>
-                <FormulaContainerMobile pt="60px" height="202px">
-                    <FormulaHighlightMobile height="110px">
+                <FormulaContainerMobile pt="60px" height="212px">
+                    <FormulaHighlightMobile height="100px">
                         <FormulaTopWrapperMobile mt="-20px" cg="6px" ml="-100px">
                             <FormulaValueMobile>
                                 <Localize translate_text="|(221.5961" />

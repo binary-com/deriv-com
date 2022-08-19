@@ -36,11 +36,10 @@ const AccountType = ({ setCardSelected }: AccountTypeProps) => {
             <Header align="center" type="paragraph-1" pb="8px" weight="normal">
                 {localize('Choose which plan you would like to subscribe to:')}
             </Header>
-            {cards.map(({ icon, title, description, value }, index) => {
+            {cards.map(({ icon, title, description }, index) => {
                 return (
                     <Card
                         key={`selectedkey-${index}`}
-                        value={value}
                         icon={icon}
                         title={title}
                         description={description}

@@ -13,7 +13,7 @@ const NavAcademy = () => {
     const { scroll_y, scroll_direction } = useScroll()
 
     useEffect(() => {
-        if (scroll_direction === 'down' && scroll_y > 100) {
+        if (scroll_direction === 'down' && scroll_y > 72) {
             setHideNav(true)
         } else {
             setHideNav(false)

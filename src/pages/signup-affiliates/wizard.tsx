@@ -14,18 +14,19 @@ const AffiliateSignup = () => {
         'Personal details',
         'Terms of use',
     ]
-    const [nextaccounttype, setNextAccount] = useState(false)
+    const [next_account_type, setNextAccount] = useState(false)
 
     const handleNext = () => {
         setNextAccount(true)
     }
+
     return (
         <AffiliateSignupLayout>
             <SignUpWrapper>
                 <Wizard
                     title={localize('Add an affiliate account')}
                     steps_names={Steps}
-                    enable_next_button={nextaccounttype ? true : false}
+                    enable_next_button={next_account_type ? true : false}
                 >
                     <AccountType setCardSelected={handleNext} />
                     <AccountDetails />

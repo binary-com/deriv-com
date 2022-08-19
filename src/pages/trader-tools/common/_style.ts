@@ -40,6 +40,9 @@ type PointerStickType = {
     ml?: string
     w?: string
 }
+type PointerDotType = {
+    ml?: string
+}
 
 type PointerTextType = {
     ml?: string
@@ -711,10 +714,11 @@ export const PointerContainerMobile = styled.div<PointerContainerType>`
     white-space: normal;
 `
 
-export const PointerDot = styled.div`
+export const PointerDot = styled.div<PointerDotType>`
     height: 9px;
     width: 9px;
     background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
     border-radius: 50%;
     opacity: 0.1;
 `
@@ -731,10 +735,19 @@ export const PointerStick = styled.div<PointerStickType>`
     position: relative;
     height: ${(props) => (props.height ? props.height : '25px')};
     width: 1px;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
     background-color: black;
     opacity: 0.1;
 `
-
+export const PointerStickHorizontal = styled.div<PointerStickType>`
+    position: relative;
+    height: 0;
+    width: ${(props) => (props.w ? props.w : '59px')};
+    border: 1px solid;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    opacity: 0.1;
+`
 export const PointerStickMobile = styled.div<PointerStickType>`
     position: relative;
     height: ${(props) => (props.height ? props.height : '24px')};
@@ -801,7 +814,7 @@ export const FormulaTopWrapperSwapMobile = styled.div`
 `
 export const FormulaTopWrapperPnl = styled.div<FormulaWrapperType>`
     display: block;
-    margin-top: 24px;
+    margin-top: ${(props) => (props.mt ? props.mt : '24px')};
 `
 export const FormulaTopWrapperMobile = styled.div<FormulaWrapperType>`
     display: grid;

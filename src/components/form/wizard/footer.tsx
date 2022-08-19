@@ -22,8 +22,10 @@ const enum ButtonType {
     Previous = 'PREVIOUS',
     Next = 'NEXT',
 }
-
-const Footer = ({ disabled }: { disabled: boolean }) => {
+type FooterProps = {
+    disabled: boolean
+}
+const Footer = ({ disabled }: FooterProps) => {
     const { step, setStep, max_step, setEnableNext } = React.useContext(StepContext)
 
     const buttonHandler = React.useCallback(

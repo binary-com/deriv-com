@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
 import AccountType from './components/_account-type'
+import AccountDetails from './components/_account-details'
+import PhoneNumber from './components/_phone_number'
 import { WithIntl, localize } from 'components/localization'
 import { Wizard } from 'components/form'
 
@@ -12,15 +14,22 @@ const AffiliateSignup = () => {
         'Personal details',
         'Terms of use',
     ]
+    const [nextaccounttype, setNextAccount] = useState(false)
+
+    const handleNext = () => {
+        setNextAccount(true)
+    }
     return (
         <AffiliateSignupLayout>
             <SignUpWrapper>
                 <Wizard
-                    title={localize('Create partner account')}
+                    title={localize('Add an affiliate account')}
                     steps_names={Steps}
-                    enable_next_button={true}
+                    enable_next_button={nextaccounttype ? true : false}
                 >
-                    <AccountType />
+                    <AccountType setCardSelected={handleNext} />
+                    <AccountDetails />
+                    <PhoneNumber />
                 </Wizard>
             </SignUpWrapper>
         </AffiliateSignupLayout>

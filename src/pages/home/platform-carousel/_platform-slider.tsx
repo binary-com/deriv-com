@@ -7,7 +7,6 @@ import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -108,13 +107,11 @@ type PlatformSliderProps = {
 }
 
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
-    const { is_row } = useCountryRule()
-
-    const slide_starting_index = (is_row && 42) || (!is_row && 0)
+    const slide_starting_index = 42
 
     const [viewportRef, embla] = useEmblaCarousel({
         startIndex: slide_starting_index,
-        loop: is_row ? true : false,
+        loop: true,
         axis: 'y',
         skipSnaps: false,
         draggable: false,

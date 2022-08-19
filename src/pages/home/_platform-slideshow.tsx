@@ -1,20 +1,10 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import QueryImage from 'components/elements/query-image'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
-
-const ImagePlaceHolder = styled.div`
-    width: 690px;
-
-    @media ${device.tabletL} {
-        width: 100%;
-        height: 360px;
-    }
-`
 
 const query = graphql`
     query {
@@ -70,39 +60,12 @@ const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
     const data = useStaticQuery(query)
 
-    const { is_row, is_eu, is_uk, is_loading } = useCountryRule()
-
-    const slide_images = useMemo(() => {
-        if (is_row)
-            return [
-                { key: 'hero1', image: data.hero_platform1 },
-                { key: 'hero2', image: data.hero_platform2 },
-                { key: 'hero3', image: data.hero_platform3 },
-                { key: 'hero4', image: data.hero_platform4 },
-            ]
-
-        if (is_eu)
-            return [
-                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
-            ]
-
-        if (is_uk)
-            return [
-                { key: 'hero1', image: data.hero_platform1_uk_and_eu },
-                { key: 'hero2', image: data.hero_platform2_uk_and_eu },
-            ]
-    }, [
-        data.hero_platform1,
-        data.hero_platform1_uk_and_eu,
-        data.hero_platform2,
-        data.hero_platform2_uk_and_eu,
-        data.hero_platform3,
-        data.hero_platform4,
-        is_eu,
-        is_row,
-        is_uk,
-    ])
+    const slide_images = [
+        { key: 'hero1', image: data.hero_platform1 },
+        { key: 'hero2', image: data.hero_platform2 },
+        { key: 'hero3', image: data.hero_platform3 },
+        { key: 'hero4', image: data.hero_platform4 },
+    ]
 
     const intervalRef = useRef(null)
 
@@ -121,10 +84,6 @@ const PlatformSlideshow = () => {
 
         return () => clearInterval(intervalRef.current)
     }, [slide_images])
-
-    if (is_loading) {
-        return <ImagePlaceHolder />
-    }
 
     return (
         <Flex max_width="690px" max_height="626px" tablet={{ max_height: '360px', ai: 'center' }}>

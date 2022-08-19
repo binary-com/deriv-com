@@ -5,7 +5,6 @@ import PlatformSlider from './_platform-slider'
 import { TPlatformDetails } from './_utils'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const StyledDesktopCarousel = styled(Flex)`
     @media ${device.desktopL} {
@@ -21,15 +20,13 @@ type DesktopPlatformCarouselProps = {
 const DesktopPlatformCarousel = ({ carousel_data }: DesktopPlatformCarouselProps) => {
     const [slide_index, setSlideIndex] = useState(42)
     const [platform_details, setPlatformDetails] = useState(null)
-    const { is_row } = useCountryRule()
 
     useEffect(() => {
-        if (!is_row) setSlideIndex(0)
-        if (is_row) setSlideIndex(42)
-    }, [is_row])
+        setSlideIndex(0)
+    }, [])
 
     useEffect(() => {
-        const no_slide_sets = (!is_row && 1) || (is_row && 11)
+        const no_slide_sets = 11
         const getPlatformDetails = (no_of_copies) => {
             const new_details = []
             let current_index = 0
@@ -46,7 +43,7 @@ const DesktopPlatformCarousel = ({ carousel_data }: DesktopPlatformCarouselProps
         }
 
         setPlatformDetails(getPlatformDetails(no_slide_sets))
-    }, [carousel_data, is_row])
+    }, [carousel_data])
 
     return (
         <StyledDesktopCarousel ai="start" jc="center">

@@ -1,16 +1,13 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { BackgroundImage, Header } from 'components/elements'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { Localize } from 'components/localization'
-import { EU, UK, ROW } from 'components/containers/visibility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const query = graphql`
@@ -21,23 +18,12 @@ const query = graphql`
     }
 `
 
-type HeroProps = {
-    is_ppc?: boolean
-}
-
 const contents = [
     <Localize key={0} translate_text="Tight spreads" />,
     <Localize key={1} translate_text="Sharp prices" />,
     <Localize key={2} translate_text="24x7 trading" />,
     <Localize key={3} translate_text="100+ tradeable assets" />,
     <Localize key={4} translate_text="20+ years of experience" />,
-]
-
-const contents_ppc = [
-    <Localize key={3} translate_text="Tight spreads" />,
-    <Localize key={2} translate_text="Sharp prices" />,
-    <Localize key={1} translate_text="100+ tradeable assets" />,
-    <Localize key={0} translate_text="20+ years of experience" />,
 ]
 
 const HeroWrapper = styled.section`
@@ -77,9 +63,8 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const Hero = ({ is_ppc }: HeroProps) => {
+const Hero = () => {
     const data = useStaticQuery(query)
-    const { is_uk, is_loading } = useCountryRule()
     const handleSignup = useHandleSignup()
 
     return (
@@ -135,22 +120,11 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                 min_height="auto"
                                 weight="normal"
                             >
-                                <EU>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, and commodities." />
-                                </EU>
-                                <UK>
-                                    <Localize translate_text="Trade forex, stocks & indices, and commodities." />
-                                </UK>
-                                <ROW>
-                                    <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
-                                </ROW>
+                                <Localize translate_text="Trade forex, synthetics, stocks & indices, cryptocurrencies, basket indices, and commodities." />
                             </Header>
-                            <VerticalCarousel
-                                contents={is_ppc && is_uk ? contents_ppc : contents}
-                            />
+                            <VerticalCarousel contents={contents} />
                             <Box tabletL={{ mt: '-8px' }}>
                                 <HeroButton
-                                    disabled={is_loading}
                                     onClick={handleSignup}
                                     id="dm-hero-signup"
                                     secondary="true"
@@ -165,10 +139,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
             </BackgroundImage>
         </HeroWrapper>
     )
-}
-
-Hero.propTypes = {
-    is_ppc: PropTypes.bool,
 }
 
 export default Hero

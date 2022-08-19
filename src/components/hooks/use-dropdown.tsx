@@ -1,20 +1,55 @@
-import { MouseEventHandler, useRef, useState } from 'react'
+import {
+    Dispatch,
+    FocusEventHandler,
+    KeyboardEventHandler,
+    MouseEventHandler,
+    MutableRefObject,
+    useRef,
+    useState,
+} from 'react'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { FormikErrors } from 'pages/trader-tools/common/_formik-types'
 
-export type DropdownErrorsType = {
-    error?: string | FormikErrors<any> | string[] | FormikErrors<any>[]
+type ErrorsType = { errors?: { leverage?: string; symbol?: string } }
+type TouchedType = { touched?: { leverage?: string; symbol?: string } }
+export type SelectedType = {
+    name?: string
+    display_name?: string
+    key?: string
+    icon?: string
+    market?: string
 }
+export type OptionsType = {
+    name?: number
+    display_name?: number
+} & Pick<SelectedType, 'key' | 'icon'>
+
+export type NodesType = {
+    set?: (display_name: number, c: string) => void
+} & Pick<OptionsType, 'name' | 'display_name'>
+
+export type OptionOrSelectedType = SelectedType | OptionsType
+export type HandleChangeType = OptionOrSelectedType & FormikErrorsType
+
+export type ToggleListVisibilityType = FocusEventHandler<HTMLInputElement> &
+    KeyboardEventHandler<HTMLInputElement | HTMLElement> &
+    MouseEventHandler<HTMLInputElement | HTMLLIElement | SVGSVGElement>
+
+export type FormikErrorsType =
+    | string
+    | string[]
+    | FormikErrors<string | ErrorsType | TouchedType>
+    | FormikErrors<string | ErrorsType | TouchedType>[]
 
 export const useDropdown = (
-    onChange: (value: any) => void,
+    onChange: (value: string) => void,
 ): [
     boolean,
-    React.MutableRefObject<null>,
-    Map<any, any>,
-    (option: { name?: string }, error: DropdownErrorsType) => void,
-    MouseEventHandler<HTMLInputElement>,
-    React.Dispatch<React.SetStateAction<boolean>>,
+    MutableRefObject<null>,
+    NodesType,
+    (option: HandleChangeType, error: HandleChangeType) => void,
+    ToggleListVisibilityType,
+    Dispatch<React.SetStateAction<boolean>>,
 ] => {
     const [is_open, setOpen] = useState(false)
     const dropdown_ref = useRef(null)

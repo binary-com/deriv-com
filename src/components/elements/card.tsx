@@ -244,13 +244,13 @@ export const Card = ({
 }
 
 type CardChildrenProps = {
-    Icon?: () => ReactElement
-    title?: string
-    width?: string
     children?: ReactNode
+    Icon?: (string) => ReactElement
+    title?: string
+
     icon_width?: string
     icon_height?: string
-}
+} & CSSProperties
 
 export const CardChildren = ({
     Icon,

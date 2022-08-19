@@ -1,16 +1,52 @@
-import React, { HTMLAttributes, MouseEventHandler } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
-import { useDropdown } from 'components/hooks/use-dropdown'
+import {
+    FormikErrorsType,
+    HandleChangeType,
+    NodesType,
+    OptionOrSelectedType,
+    OptionsType,
+    SelectedType,
+    ToggleListVisibilityType,
+    useDropdown,
+} from 'components/hooks/use-dropdown'
 import { Text } from 'components/elements/typography'
 import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
 type DropdownStyledProps = {
-    has_short_name?: boolean
     open?: boolean
-    active?: boolean | OptionsType
+    active?: boolean | React.SetStateAction<OptionOrSelectedType>
+} & Pick<DropdownProps, 'has_short_name'>
+
+type DropdownSelectedProps = {
+    role?: string
+    id?: string
+    tabIndex?: number
+    onClick?: ToggleListVisibilityType
+    onKeyDown?: ToggleListVisibilityType
+} & Pick<DropdownProps, 'has_short_name'>
+
+type ListItemProps = {
+    is_selected?: boolean
+    tabIndex?: number
+    id?: string
+    key?: number
+    ref?: ((instance: HTMLLIElement) => void) & ((c: number) => void)
+    onClick?: () => void
+    onKeyDown?: (e: React.KeyboardEvent<HTMLLIElement>) => void
 }
+type ArrowType = {
+    expanded?: boolean
+    onClick?: React.KeyboardEventHandler<HTMLInputElement> &
+        React.FocusEventHandler<HTMLInputElement> &
+        React.MouseEventHandler<HTMLInputElement> &
+        React.MouseEventHandler<SVGSVGElement>
+}
+type DropdownContainerProps = {
+    mb?: string
+} & Pick<DropdownProps, 'has_short_name' | 'active' | 'error'>
 
 const Symbol = styled(Flex)`
     width: fit-content;
@@ -43,13 +79,6 @@ const Symbol = styled(Flex)`
         }
     }
 `
-
-type DropdownContainerProps = {
-    active?: boolean
-    mb?: string
-    has_short_name?: boolean
-    error?: Error
-}
 
 export const DropdownContainer = styled.ul<DropdownContainerProps>`
     list-style: none;
@@ -109,7 +138,7 @@ const StyledDiv = styled.div`
     top: -30px;
 `
 
-const DropdownSelected = styled.li<any>`
+const DropdownSelected = styled.li<DropdownSelectedProps>`
     color: var(--color-grey-6);
     list-style-position: inside;
     white-space: nowrap;
@@ -136,7 +165,7 @@ const ListContainer = styled.li`
     list-style: none;
 `
 
-const ListItem = styled.li<HTMLAttributes<HTMLSelectElement>>`
+const ListItem = styled.li<ListItemProps>`
     color: var(--color-grey-6);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
@@ -201,11 +230,6 @@ const UnorderedList = styled.ul<DropdownStyledProps>`
             max-height: 30rem;
         `}
 `
-
-type ArrowType = {
-    expanded?: boolean
-    onClick?: MouseEventHandler<SVGSVGElement> & MouseEventHandler<HTMLInputElement>
-}
 
 export const Arrow = styled(Chevron)<ArrowType>`
     position: absolute;
@@ -277,33 +301,11 @@ const DefaultOptionText = styled(Text)`
     color: var(--color-grey-5);
 `
 
-type OptionsType = {
-    name?: string | number
-    display_name?: string | number
-    key?: string
-    icon?: string
-}
-
-type SelectedType = {
-    name?: string
-    display_name?: string
-    key?: string
-    icon?: string
-}
-
-type NodesType = {
-    option?: OptionsType
-    set?: (display_name?: string | number, c?: string) => void
-}
-
 type ItemListProps = {
-    handleChange?: (option?: OptionsType, error?: string | Error) => void
     is_open?: boolean
     nodes?: NodesType
-    option_list?: OptionsType[]
-    selected_option?: OptionsType
-    error?: Error
-}
+    handleChange?: (option: HandleChangeType, error: FormikErrorsType) => void
+} & Pick<DropdownProps, 'option_list' | 'error' | 'selected_option'>
 
 export const ItemList = ({
     error,
@@ -321,8 +323,8 @@ export const ItemList = ({
                         (option) =>
                             option && (
                                 <ListItem
-                                    tabIndex="0"
-                                    id={option?.name}
+                                    tabIndex={0}
+                                    id={String(option?.name)}
                                     key={option?.name}
                                     ref={(c) => nodes.set(option?.display_name, c)}
                                     onClick={() => handleChange(option, error)}
@@ -345,12 +347,10 @@ export const ItemList = ({
     )
 }
 
-type BottomLabelProps = {
-    contractSize?: string | number
-    error?: Error
-}
-
-export const BottomLabel = ({ error, contractSize }: BottomLabelProps) => {
+export const BottomLabel = ({
+    error,
+    contractSize,
+}: Pick<DropdownProps, 'error' | 'contractSize'>) => {
     return (
         <StyledDiv>
             <ErrorMessages lh="1.4" align="left" color="red-1">
@@ -365,26 +365,36 @@ export const BottomLabel = ({ error, contractSize }: BottomLabelProps) => {
         </StyledDiv>
     )
 }
+type ItemsType = {
+    contractSize?: string
+    margin?: number
+    marginSymbol?: string
+    volume?: string
+    assetPrice?: string
+    accountType?: string
+    symbol?: string
+    leverage?: string
+    optionList?: SelectedType[]
+} & OptionsType
 
 export type DropdownProps = {
     id?: string
-    contractSize?: string | number
     active?: boolean
-    default_item?: OptionsType
-    default_option?: { display_name?: string }
+    default_item?: SelectedType
+    default_option?: SelectedType
     onBlur?: {
-        (e: React.FocusEvent<any, Element>): void
+        (e: React.FocusEvent<Element>): void
     }
     autoComplete?: string
     has_short_name?: boolean
-    items?: SelectedType[]
+    items?: ItemsType[]
     label?: string
+    error?: FormikErrorsType
     onChange?: (value: string) => void
-    option_list?: OptionsType[]
-    selected_option?: OptionsType
+    option_list?: ItemsType[]
+    selected_option?: OptionOrSelectedType
     selected_item?: SelectedType
-    error?: Error
-}
+} & Pick<ItemsType, 'contractSize'>
 
 const Dropdown = ({
     default_option,
@@ -412,7 +422,7 @@ const Dropdown = ({
                 <DropdownSelected
                     id="selected_dropdown"
                     role="button"
-                    tabIndex="0"
+                    tabIndex={0}
                     onClick={toggleListVisibility}
                     onKeyDown={toggleListVisibility}
                     has_short_name={has_short_name}

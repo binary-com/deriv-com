@@ -1,11 +1,4 @@
-import React, {
-    useState,
-    useEffect,
-    useCallback,
-    CSSProperties,
-    HTMLAttributes,
-    ReactNode,
-} from 'react'
+import React, { useState, useEffect, useCallback, CSSProperties, ReactNode } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import {
     Embla,
@@ -20,7 +13,7 @@ import {
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 
-export type ButtonsProps = HTMLAttributes<HTMLDivElement> & {
+export type ButtonsProps = React.HTMLAttributes<HTMLDivElement> & {
     color?: string
     enabled?: boolean
     is_enabled?: boolean
@@ -82,21 +75,18 @@ type ChevronStyleType = {
     chevron_right?: CSSProperties
     is_displayed_on_mobile?: boolean
 }
-
 type NavigationStyleType = {
     nav_color?: string
     bottom_offset?: number
     chevron_right?: CSSProperties
     height?: number
 }
-
 type OptionsType = {
     align?: number
     containScroll?: 'trimSnaps' | 'keepSnaps'
     loop?: boolean
     slidesToScroll?: number
 }
-
 type CarouselProps = {
     autoplay_delay?: number
     autoplay_interval?: number

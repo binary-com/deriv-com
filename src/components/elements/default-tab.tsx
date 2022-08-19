@@ -112,11 +112,9 @@ const TextWrapper = styled(Header)`
 type TabPanelProps = {
     children?: ReactElement
 }
-
 const TabPanel = ({ children }: TabPanelProps) => (
     <TabContent role="tabpanel">{children}</TabContent>
 )
-
 type TabsProps = {
     children?: ReactElement | ReactElement[]
     has_no_query?: boolean

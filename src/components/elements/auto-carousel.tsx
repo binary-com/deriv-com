@@ -53,13 +53,12 @@ const ItemsWrapper = styled.div<CarouselItemProps>`
 type AutoCarouselProps = {
     carousel_width?: string
     children?: ReactNode[]
-    [children: string]: ReactNode
     items_padding?: number
     transition_duration?: number
 }
 
 class AutoCarousel extends React.PureComponent<AutoCarouselProps> {
-    my_ref = createRef()
+    my_ref = createRef<HTMLDivElement>()
     // carousel_width: define carousel's width by percentage
     // items_padding: define items padding by pixle
     // transition_duaration: takes a whole loop, define it by ms

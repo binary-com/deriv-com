@@ -100,12 +100,10 @@ type ItemExpandedProps = {
     child_idx?: number
     id?: string
     is_default_open?: boolean
-    nodes?: ReactNode[]
+    nodes?: ReactNode
 }
 
 const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }: ItemExpandedProps) => {
-    console.log(nodes)
-
     const getHeight = (active_idx: number) => {
         return (
             nodes[active_idx] &&

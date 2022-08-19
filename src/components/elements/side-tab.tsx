@@ -146,19 +146,17 @@ type TabChildrenType = {
         is_mobile?: boolean
         label?: string
         text?: string
+        size?: string
+        tab_header?: string
         onClick?: (e: string) => void
-    }
+    } & React.ReactNode &
+        Pick<TabProps, 'line_height' | 'opacity'>
 }
-
 type SideTabProps = {
-    children: TabChildrenType[]
-    font_size: string
-    is_mobile: boolean
-    is_sticky: boolean
-    line_height: string
-    opacity: string
-    tab_header: string
-}
+    children?: TabChildrenType[]
+    is_sticky?: boolean
+    tab_header?: string
+} & Pick<TabProps, 'font_size' | 'line_height' | 'opacity'>
 
 const SideTab = ({
     children,

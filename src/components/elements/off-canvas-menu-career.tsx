@@ -42,7 +42,7 @@ type OffCanvasMenuWrapperCareerProps = {
 
 export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProps) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const canvas = useRef()
+    const canvas = useRef<HTMLDivElement>()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()

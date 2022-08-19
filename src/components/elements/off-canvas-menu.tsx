@@ -602,7 +602,7 @@ type OffCanvasMenuPartnerProps = {
 }
 
 export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
-    const canvas = useRef()
+    const canvas = useRef<HTMLDivElement>()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()

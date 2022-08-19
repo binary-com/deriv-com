@@ -8,23 +8,25 @@ import {
     ItemList,
     StyledLabel,
 } from './dropdown'
-import { useDropdown } from 'components/hooks/use-dropdown'
+import {
+    FormikErrorsType,
+    SelectedType,
+    ToggleListVisibilityType,
+    useDropdown,
+} from 'components/hooks/use-dropdown'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
 type DropdownInputProps = {
-    has_short_name?: boolean
-    id?: string
-    tabIndex?: string
-    onClick?: React.MouseEventHandler<HTMLInputElement>
-    onChange?: React.ChangeEventHandler<HTMLInputElement>
-    onFocus?: React.FocusEventHandler<HTMLInputElement> & React.MouseEventHandler<HTMLInputElement>
-    onKeyDown?: React.MouseEventHandler<HTMLInputElement>
-    onKeyUp?: React.MouseEventHandler<HTMLInputElement>
-    value?: any
+    tabIndex?: number
+    onClick?: ToggleListVisibilityType
+    onFocus?: ToggleListVisibilityType
+    onKeyDown?: ToggleListVisibilityType
+    value?: string
     is_active?: boolean
+    is_selected?: boolean
     placeholder?: string
-}
+} & Pick<DropdownProps, 'has_short_name' | 'id' | 'onChange'>
 
 const DropdownInput = styled.input<DropdownInputProps>`
     color: var(--color-black-3);
@@ -83,9 +85,9 @@ const DropdownSearch = ({
         toggleListVisibility(e)
     }
 
-    const handleSelectItem = (option, error) => {
+    const handleSelectItem = (option: SelectedType, handled_error: FormikErrorsType) => {
         setInputValue(option.display_name ?? '')
-        handleChange(option, error)
+        handleChange(option, handled_error)
     }
 
     const handleKeyUp = (e) => {
@@ -95,7 +97,7 @@ const DropdownSearch = ({
                 : items.filter((i) => {
                       if (!/^[\w\d\s]/.test(input_value)) return false
                       const regex = new RegExp(input_value, 'gi')
-                      return !!regex.test(i.name)
+                      return !!regex.test(String(i.name))
                   })
         setDropdownItems(filtered_items)
         toggleListVisibility(e)
@@ -120,16 +122,16 @@ const DropdownSearch = ({
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
-                        // tabIndex="0"
+                        tabIndex={0}
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
-                        // onFocus={toggleListVisibility}
+                        onFocus={toggleListVisibility}
                         onKeyDown={toggleListVisibility}
-                        // onKeyUp={handleKeyUp}
-                        // has_short_name={has_short_name}
-                        // value={input_value}
-                        // is_active={is_open}
-                        // placeholder={label}
+                        onKeyUp={handleKeyUp}
+                        has_short_name={has_short_name}
+                        value={input_value}
+                        is_active={is_open}
+                        placeholder={label}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />
                 </Flex>

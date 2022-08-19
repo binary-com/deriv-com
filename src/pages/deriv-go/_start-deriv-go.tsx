@@ -37,7 +37,6 @@ const StyledHeader = styled(Header)`
         padding: 0 20px;
     }
 `
-
 const StyledLocalizedLink = styled(LocalizedLink)`
     text-decoration: none;
     color: rgba(255, 68, 79, 1);

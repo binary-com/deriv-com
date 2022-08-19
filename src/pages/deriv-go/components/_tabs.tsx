@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
@@ -18,7 +17,6 @@ const TabContent = styled.div`
         }
     }
 `
-
 const TabButton = styled(Flex)`
     position: relative;
     z-index: 2;
@@ -35,8 +33,7 @@ const TabButton = styled(Flex)`
         margin-left: 0;
     }
 `
-
-const TabList = styled.div`
+const TabList = styled.div<{ is_reverse: boolean }>`
     max-width: 100%;
     ${(props) =>
         props.is_reverse
@@ -47,7 +44,6 @@ const TabList = styled.div`
                   margin-right: 2.4rem;
               `}
 `
-
 const TabListWrapper = styled.div`
     max-width: 28.2rem;
     display: flex;
@@ -63,7 +59,6 @@ const animateTab = keyframes`
     100% {opacity:1;}
 
 `
-
 const TextLabel = styled(Text)`
     color: ${(props) => (props.selected ? 'rgba(51, 51, 51, 1)' : 'rgba(153, 153, 153, 1)')};
     font-size: 32px;
@@ -73,7 +68,6 @@ const TextLabel = styled(Text)`
         font-size: 24px;
     }
 `
-
 const TextDesc = styled(Text)`
     display: ${(props) => (!props.selected ? 'none' : '')};
     font-size: 24px;
@@ -83,7 +77,6 @@ const TextDesc = styled(Text)`
         font-size: 18px;
     }
 `
-
 const Content = styled(Flex)`
     display: grid;
     justify-content: center;
@@ -94,8 +87,7 @@ const Content = styled(Flex)`
         padding-left: 0;
     }
 `
-
-const CarouselDot = styled.div`
+const CarouselDot = styled.div<{ selected: boolean }>`
     height: 12px;
     align-self: center;
     width: 12px;
@@ -117,7 +109,6 @@ const Desktop = styled(Show.Desktop)`
     flex: 1;
     width: 100%;
 `
-
 const Mobile = styled(Show.Mobile)`
     @media ${device.tabletL} {
         margin-top: 0.8rem;
@@ -133,18 +124,24 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children, className }) => (
-    <TabContent className={className} role="tabpanel" tabindex="0">
+type TabsProps = {
+    children: ReactElement[]
+    label?: ReactElement
+    description?: ReactElement
+    className?: string
+    is_reverse?: boolean
+    max_width?: string
+}
+
+type TabPanelProps = Pick<TabsProps, 'children' | 'className' | 'label' | 'description'>
+
+const TabPanel = ({ children, className }: TabPanelProps) => (
+    <TabContent className={className} role="tabpanel">
         {children}
     </TabContent>
 )
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-}
-
-const Tabs = ({ children, is_reverse, className, max_width }) => {
+const Tabs = ({ children, is_reverse, className, max_width }: TabsProps) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
 
     useEffect(() => {
@@ -192,7 +189,6 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
                                         {description}
                                     </TextDesc>
                                 </TabButton>
-
                                 <Mobile
                                     className="side-tab__mobile"
                                     min_width={max_width || 'tabletL'}
@@ -211,7 +207,7 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
                     })}
                 </Content>
             </Desktop>
-            <CarouselContainer ai="flex-end">
+            <CarouselContainer>
                 {React.Children.map(children, (child, index) => (
                     <CarouselDot selected={selected_tab === index} />
                 ))}
@@ -221,12 +217,5 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
 }
 
 Tabs.Panel = TabPanel
-
-Tabs.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    is_reverse: PropTypes.bool,
-    max_width: PropTypes.string,
-}
 
 export default Tabs

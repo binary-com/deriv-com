@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import { ROW } from 'components/containers'
 
 export const AmericasDetails = () => (
     <DetailsContainer>
@@ -346,12 +347,14 @@ export const EuropeanIndicesDetails = (): ReactElement => (
                 'Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe.',
             )}
         </Text>
-        <Text>
-            <Localize
-                translate_text="<0>Netherland 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
-                components={[<strong key={0} />]}
-            />
-        </Text>
+        <ROW>
+            <Text>
+                <Localize
+                    translate_text="<0>Netherland 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
+                    components={[<strong key={0} />]}
+                />
+            </Text>
+        </ROW>
         <Text>
             <Localize
                 translate_text="<0>Europe 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."

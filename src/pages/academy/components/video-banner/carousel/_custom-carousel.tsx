@@ -1,6 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, {
+    useState,
+    useEffect,
+    useCallback,
+    ReactNode,
+    CSSProperties,
+    MouseEventHandler,
+} from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import styled from 'styled-components'
+import type { EmblaOptionsType } from 'embla-carousel-react'
 import {
     Embla,
     EmblaContainer,
@@ -25,19 +32,51 @@ import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 import { Header } from 'components/elements'
 import { Flex } from 'components/containers'
 
-const StyledDiv = styled.div<{ style?: string; onClick?: () => void }>``
-
-export type ButtonsProps = {
-    color?: string
-    enabled?: boolean
-    disabled?: boolean
-    left?: boolean
-    is_reviews?: boolean
-    onClick?: () => void
-    style?: CustomBlogVideoNavStyleType | string
+type ChevronStyleProps = {
+    chevron_color: string
+    chevron_left: CSSProperties
+    chevron_right: CSSProperties
+    is_displayed_on_mobile: boolean
 }
 
-export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: ButtonsProps) => (
+type CustomCarouselProps = {
+    autoplay_interval?: number
+    chevron_style?: ChevronStyleProps
+    children: ReactNode[]
+    container_style?: CSSProperties
+    custom_blog_video_nav?: boolean
+    custom_blog_video_nav_style?: CSSProperties & {
+        custom_chevron_color?: string
+        custom_is_displayed_on_mobile?: boolean
+    }
+    has_autoplay?: boolean
+    navigation_style?: {
+        nav_color?: string
+        bottom_offset?: string
+    }
+    options?: EmblaOptionsType
+    slide_mobile_style?: CSSProperties
+    slide_style?: CSSProperties
+    vertical_container?: CSSProperties
+    view_port?: CSSProperties
+}
+
+type ButtonProps = {
+    chevron_style?: ChevronStyleProps
+    enabled: boolean
+    onClick?: MouseEventHandler<HTMLDivElement>
+    color: string
+    is_reviews: boolean
+    style: CSSProperties
+}
+
+type NavigationButtonProps = {
+    color: string
+    is_enabled: boolean
+    onClick: MouseEventHandler<HTMLDivElement>
+}
+
+export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: ButtonProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -49,18 +88,12 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }: Butto
     </StyledButtonWrapper>
 )
 
-type NavigationButtonProps = {
-    color: string
-    is_enabled: boolean
-    onClick?: () => void
-}
-
 // TODO: will remove later,not using this for now
 export const NavigationButton = ({ color, is_enabled, onClick }: NavigationButtonProps) => (
     <StyledDot onClick={onClick} color={is_enabled ? color : null} />
 )
 
-export const NextButton = ({ color, enabled, is_reviews, onClick, style }: ButtonsProps) => (
+export const NextButton = ({ color, enabled, is_reviews, onClick, style }: ButtonProps) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -70,38 +103,6 @@ export const NextButton = ({ color, enabled, is_reviews, onClick, style }: Butto
         {color ? <ChevronRight color={color} /> : <ChevronRight />}
     </StyledButtonWrapper>
 )
-
-type ChevronStyleType = {
-    chevron_color: string
-    chevron_left: string
-    chevron_right: string
-    is_displayed_on_mobile: boolean
-}
-type CustomBlogVideoNavStyleType = {
-    custom_chevron_color: string
-    custom_is_displayed_on_mobile: boolean
-}
-type NavigationStyleType = {
-    nav_color: string
-    bottom_offset: string
-}
-
-type CustomCarouselProps = {
-    autoplay_interval: number
-    chevron_style: ChevronStyleType
-    children: React.ReactElement[]
-    container_style: string
-    custom_blog_video_nav: boolean
-    custom_blog_video_nav_style: CustomBlogVideoNavStyleType
-    has_autoplay: boolean
-    navigation_style: NavigationStyleType
-    options: object
-    slide_mobile_style: string
-    slide_style: string
-    vertical_container: object
-    view_port: object
-    chevron_color?: string
-}
 
 export const CustomCarousel = ({
     autoplay_interval,
@@ -158,7 +159,7 @@ export const CustomCarousel = ({
         [embla, stop],
     )
     const onSlideClick = useCallback(
-        (index, event) => {
+        (_index, event) => {
             if (!embla || !embla.clickAllowed()) return
             event.preventDefault()
         },
@@ -193,7 +194,7 @@ export const CustomCarousel = ({
     const is_custom_arrow = prevBtnEnabled || nextBtnEnabled
 
     return (
-        <StyledDiv style={container_style}>
+        <div style={container_style}>
             {custom_blog_video_nav && custom_chevron_color && is_custom_arrow && (
                 <NavigationWrapper>
                     <Divider />
@@ -221,13 +222,13 @@ export const CustomCarousel = ({
                 <ViewPort style={view_port} ref={emblaRef}>
                     <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
-                            <StyledDiv
+                            <div
                                 key={idx}
                                 style={is_mobile ? slide_mobile_style : slide_style}
                                 onClick={() => onSlideClick.bind(idx, this)}
                             >
                                 <EmblaSlideInner>{child}</EmblaSlideInner>
-                            </StyledDiv>
+                            </div>
                         ))}
                         {!is_mobile && (
                             <Flex m="auto 0" height="100%" key="lastchild of carousel">
@@ -271,7 +272,7 @@ export const CustomCarousel = ({
                 {/*  TODO: will remove later,not using this for now */}
                 {nav_color && (
                     <NavigationContainer bottom_offset={bottom_offset}>
-                        {children.map((child, idx) => (
+                        {children.map((_child, idx) => (
                             <NavigationButton
                                 key={idx}
                                 color={nav_color}
@@ -282,6 +283,6 @@ export const CustomCarousel = ({
                     </NavigationContainer>
                 )}
             </Embla>
-        </StyledDiv>
+        </div>
     )
 }

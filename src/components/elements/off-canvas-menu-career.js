@@ -1,11 +1,10 @@
 //keeping this for potential future use once career page has been redesigned
 
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header } from './typography'
 import { LocalizedLinkText } from 'components/elements'
-import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { DerivStore } from 'store'
 
 const OffCanvasMenuCareer = styled.section`
@@ -17,14 +16,15 @@ const OffCanvasMenuCareer = styled.section`
     overflow: scroll;
     transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    right: 0;
-    ${({ is_canvas_menu_open }) => !is_canvas_menu_open && 'transform: translateX(254px)'};
+    left: -254px;
+    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
 `
 
 const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2.4rem 1.6rem;
+    height: 100vh;
 
     div {
         a:first-child {
@@ -37,7 +37,22 @@ export const OffCanvasMenuWrapperCareer = (props) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
-    useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
+    const handleArrowClick = () => {
+        props.closeOffCanvasMenu()
+    }
+
+    const outerClick = (e) => {
+        if (!canvas.current.contains(e.target)) {
+            props.closeOffCanvasMenu()
+        } else return
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', outerClick, false)
+        return () => {
+            document.removeEventListener('mousedown', outerClick, false)
+        }
+    }, [])
 
     return (
         <OffCanvasMenuCareer
@@ -46,13 +61,13 @@ export const OffCanvasMenuWrapperCareer = (props) => {
             is_eu_country={is_eu_country}
         >
             <OffCanvasMenuContainer>
-                <LocalizedLinkText to="/careers/" p="10px">
+                <LocalizedLinkText to="/careers/" onClick={handleArrowClick} p="10px">
                     <Header type="main-paragraph">Home</Header>
                 </LocalizedLinkText>
-                <LocalizedLinkText to="/careers/locations/" p="10px">
+                <LocalizedLinkText to="/careers/locations/" onClick={handleArrowClick} p="10px">
                     <Header type="main-paragraph">Location</Header>
                 </LocalizedLinkText>
-                <LocalizedLinkText to="/careers/besquare/" p="10px">
+                <LocalizedLinkText to="/careers/besquare/" onClick={handleArrowClick} p="10px">
                     <Header type="main-paragraph">BeSquare</Header>
                 </LocalizedLinkText>
             </OffCanvasMenuContainer>

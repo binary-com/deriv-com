@@ -142,6 +142,11 @@ const ButtonDerivP2P = styled(Button)`
     margin-top: 24px;
     margin-bottom: 40px;
     width: 100%;
+    font-size: 20px;
+
+    @media ${device.tabletL} {
+        font-size: 20px;
+    }
 `
 const StyledHeader = styled(Header)`
     color: var(--color-white);

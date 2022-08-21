@@ -133,11 +133,17 @@ const Item = styled.div`
 
 const ResponsiveText = styled(Text)`
     white-space: nowrap;
+    color: white;
 
     @media ${device.mobileL} {
         display: none;
     }
 `
+
+const LanguageText = styled(Text)`
+    color: ${({ current_option }) => (current_option ? 'red' : 'black')};
+`
+
 /* stylelint-enable */
 
 const Icon = styled.img`
@@ -174,7 +180,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
                     <Icon src={flags[default_abbreviation]} alt="language icon" />
-                    <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
+                    <ResponsiveText ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
                     <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
@@ -197,9 +203,9 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav, security
                                     key={idx}
                                 >
                                     <Icon src={flags[abbreviation]} alt="language icon" />
-                                    <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
+                                    <LanguageText ml="0.8rem" current_option={current_option}>
                                         {option.text}
-                                    </Text>
+                                    </LanguageText>
                                 </Item>
                             )
                         })}

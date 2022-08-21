@@ -96,13 +96,15 @@ const MarginCalculator = () => {
 
     useEffect(() => {
         const tempSpotPrice = {}
+
+        if (activeSymbols.length < 1) {
+            return
+        }
         activeSymbols.forEach((item) => {
             tempSpotPrice[item.symbol] = item.spot
         })
 
-        if (activeSymbols.length > 1) {
-            setSymbolSpotPrice(tempSpotPrice)
-        }
+        setSymbolSpotPrice(tempSpotPrice)
     }, [activeSymbols])
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {

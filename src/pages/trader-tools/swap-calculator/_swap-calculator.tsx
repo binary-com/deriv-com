@@ -232,9 +232,12 @@ const SwapCalculator = () => {
 
     useEffect(() => {
         const tempSpotPrice = {}
-        for (const { spot, symbol } of activeSymbols) {
-            tempSpotPrice[symbol] = spot
+        if (activeSymbols.length < 1) {
+            return
         }
+        activeSymbols.forEach((item) => {
+            tempSpotPrice[item.symbol] = item.spot
+        })
         setSymbolSpotPrice(tempSpotPrice)
     }, [activeSymbols])
 

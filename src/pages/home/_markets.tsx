@@ -71,7 +71,6 @@ const MarketCard = styled.article<{ mb?: string; mr?: string }>`
 const MarketLink = styled(LocalizedLinkText)`
     display: block;
     margin-top: 0.8rem;
-    color: var(--color-red);
 `
 
 type MarketsProps = {
@@ -98,7 +97,7 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                         </Text>
                         <Localize
                             translate_text="<0>Learn more</0>"
-                            components={[<MarketLink key={0} to="/markets/forex/" />]}
+                            components={[<MarketLink key={0} to="/markets/forex/" color="red" />]}
                         />
                     </div>
                 </MarketCard>
@@ -115,7 +114,7 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                         </Text>
                         <Localize
                             translate_text="<0>Learn more</0>"
-                            components={[<MarketLink key={0} to="/markets/stock/" />]}
+                            components={[<MarketLink key={0} to="/markets/stock/" color="red" />]}
                         />
                     </div>
                 </MarketCard>
@@ -134,7 +133,9 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                                 </Text>
                                 <Localize
                                     translate_text="<0>Learn more</0>"
-                                    components={[<MarketLink key={0} to="/markets/synthetic/" />]}
+                                    components={[
+                                        <MarketLink key={0} to="/markets/synthetic/" color="red" />,
+                                    ]}
                                 />
                             </div>
                         </MarketCard>
@@ -153,7 +154,9 @@ const Markets = ({ is_ppc }: MarketsProps) => (
                         </Text>
                         <Localize
                             translate_text="<0>Learn more</0>"
-                            components={[<MarketLink key={0} to="/markets/commodities/" />]}
+                            components={[
+                                <MarketLink key={0} to="/markets/commodities/" color="red" />,
+                            ]}
                         />
                     </div>
                 </MarketCard>

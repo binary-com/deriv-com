@@ -614,6 +614,29 @@ export const FormulaValueSwapSyntheticMobile = styled.div`
     text-align: center;
     margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
 `
+export const FormulaValuePnlMultiplierMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 19px;
+    }
+    @media ${device.mobileM} {
+        min-width: 12px;
+    }
+`
+
+export const FormulaValueSwapMobile = styled.div`
+    display: inline-block;
+    text-align: center;
+    margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
+    @media ${device.tabletL} {
+        min-width: 28px;
+    }
+    @media ${device.mobileM} {
+        min-width: 20px;
+    }
+`
 export const FormulaValuePnlMobile = styled.div`
     display: inline-block;
     text-align: center;
@@ -678,11 +701,14 @@ export const FormulaValueMobile = styled.div`
 `
 export const FormulaValueSwapFinancialMobile = styled.div`
     display: inline-block;
-    min-width: ${(props: FormulaValueType) => (props.mw ? 'props.mw' : '14px')};
     text-align: center;
     margin-bottom: ${(props: FormulaValueType) => (props.mb ? props.mb : '0')};
-    @media ${device.mobileS} {
-        font-size: 12px;
+
+    @media ${device.tabletL} {
+        min-width: 20px;
+    }
+    @media ${device.mobileM} {
+        min-width: 16px;
     }
 `
 export const FormulaGreen = styled.span`
@@ -723,10 +749,11 @@ export const PointerDot = styled.div<PointerDotType>`
     opacity: 0.1;
 `
 
-export const PointerDotMobile = styled.div`
+export const PointerDotMobile = styled.div<PointerDotType>`
     height: 7px;
     width: 7px;
     background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
     border-radius: 50%;
     opacity: 0.1;
 `
@@ -747,6 +774,20 @@ export const PointerStickHorizontal = styled.div<PointerStickType>`
     background-color: black;
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     opacity: 0.1;
+`
+export const PointerStickHorizontalMobile = styled.div<PointerStickType>`
+    position: relative;
+    height: 0;
+    border: 1px solid;
+    background-color: black;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    opacity: 0.1;
+    @media ${device.tabletL} {
+        width: 83px;
+    }
+    @media ${device.mobileM} {
+        width: 76px;
+    }
 `
 export const PointerStickMobile = styled.div<PointerStickType>`
     position: relative;
@@ -793,7 +834,7 @@ export const PointerTextMobilePnlMultiplier = styled.div<PointerTextType>`
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     font-weight: 600;
     color: var(--color-blue-5);
-    font-size: 14px;
+    font-size: 13px;
     @media ${device.mobileM} {
         font-size: 12px;
     }
@@ -850,7 +891,7 @@ export const FormulaBottomWrapperPnlMobile = styled.div<FormulaWrapperType>`
     margin-top: ${(props) => (props.mt ? props.mt : '0')};
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
     @media ${device.mobileM} {
-        grid-column-gap: 2px;
+        grid-column-gap: ${(props) => (props.cg ? props.cg : '2px')};
     }
     @media ${device.tabletL} {
         margin-left: ${(props) => (props.ml ? props.ml : '113px')};

@@ -244,7 +244,7 @@ export const PipForexExample = () => {
 
             <Show.Mobile>
                 <FormulaContainerMobile>
-                    <FormulaHighlightMobile pd="12px">
+                    <FormulaHighlightMobile jc="space-evenly">
                         <FormulaValueMobile>
                             <Localize translate_text="0.00001" />
                             <PointerContainerMobile mw="0" top>
@@ -259,13 +259,13 @@ export const PipForexExample = () => {
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <FormulaGreen> x </FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
                         <FormulaValueMobile>
                             <Localize translate_text="2" />
-                            <PointerContainerMobile>
+                            <PointerContainerMobile ml="-5px">
                                 <PointerDotMobile />
                                 <PointerStickMobile />
                                 <PointerTextMobile>
@@ -274,9 +274,9 @@ export const PipForexExample = () => {
                             </PointerContainerMobile>
                         </FormulaValueMobile>
 
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <FormulaGreen>x</FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
                         <FormulaValueMobile>
                             <Localize translate_text="100,000" />
@@ -291,16 +291,16 @@ export const PipForexExample = () => {
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
-                        <FormulaValueSwapSynthetic>
+                        <FormulaValueMobile>
                             <FormulaGreen>=</FormulaGreen>
-                        </FormulaValueSwapSynthetic>
+                        </FormulaValueMobile>
 
                         <FormulaValueMobile>
                             <Localize
                                 translate_text="<0>2</0>"
                                 components={[<FormulaGreen key={0} />]}
                             />
-                            <PointerContainerMobile ml="-10px" mw="0">
+                            <PointerContainerMobile ml="-15px" mw="0">
                                 <PointerDotMobile />
                                 <PointerStickMobile />
                                 <PointerTextMobile ml="-14px">

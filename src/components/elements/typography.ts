@@ -82,7 +82,9 @@ export const BaseElement = css<BaseElementProps>`
 //////////////////////////////////////////////////////////////////////////////
 /////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
-export const Text = styled.p<HeaderProps>`
+type TextProps = { size?: string; type?: string; weight?: string; width?: string }
+
+export const Text = styled.p<TextProps>`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
     font-size: ${(props) => props.size || '1.6rem'};
@@ -101,12 +103,8 @@ export const Text = styled.p<HeaderProps>`
 type HeaderProps = {
     as?: string
     children?: React.ReactNode
-    props?: { size?: string; type?: string; weight?: string; width?: string }
-    size?: string
-    type?: string
-    weight?: string
-    width?: string
-}
+    props?: TextProps
+} & TextProps
 
 export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),

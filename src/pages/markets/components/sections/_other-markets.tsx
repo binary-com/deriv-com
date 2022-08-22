@@ -101,7 +101,7 @@ const LearnMore = styled(LocalizedLink)`
     border-radius: 100px;
     background-color: var(--color-white);
     position: absolute;
-    bottom: -20px;
+    bottom: -33px;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -196,7 +196,7 @@ const Card = ({ market }: CardProps) => {
         <StyledFlex
             direction="column"
             max_width="28.2rem"
-            height="296px"
+            height="326px"
             width="282px"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"

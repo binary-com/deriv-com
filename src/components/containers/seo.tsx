@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
@@ -19,11 +18,46 @@ const non_localized_links = [
     '/bug-bounty/',
 ]
 
+type SiteMetadataType = {
+    siteMetadata?: {
+        author?: string
+        description?: string
+        siteUrl?: string
+        title?: string
+    }
+}
+type MetaAttributesType = {
+    og_title?: string
+    og_description?: string
+    og_type?: string
+    og_img?: string
+    og_img_width?: string
+    og_img_height?: string
+}
+
+type SeoProps = {
+    description?: string
+    has_organization_schema?: boolean
+    meta?: []
+    meta_attributes?: MetaAttributesType
+    no_index?: boolean
+    title?: string
+}
+type QueriesType = {
+    site?: SiteMetadataType
+}
+
 const languages = Object.keys(language_config)
 languages.push('x-default')
-const SEO = ({ description, meta, title, no_index, has_organization_schema, meta_attributes }) => {
-    let queries = []
-    queries = useStaticQuery(
+const SEO = ({
+    description,
+    meta,
+    title,
+    no_index,
+    has_organization_schema,
+    meta_attributes,
+}: SeoProps) => {
+    const queries: QueriesType = useStaticQuery(
         graphql`
             query {
                 site {
@@ -37,6 +71,9 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
             }
         `,
     )
+
+    console.log('meta:', meta, 'queries:', queries)
+
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
@@ -211,15 +248,6 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
 
 SEO.defaultProps = {
     meta: [],
-}
-
-SEO.propTypes = {
-    description: PropTypes.string,
-    has_organization_schema: PropTypes.bool,
-    meta: PropTypes.arrayOf(PropTypes.object),
-    meta_attributes: PropTypes.object,
-    no_index: PropTypes.bool,
-    title: PropTypes.string.isRequired,
 }
 
 export default SEO

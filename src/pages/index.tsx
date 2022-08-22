@@ -35,29 +35,21 @@ const Home = () => {
             <TradeTypes
                 fallback={
                     <div>
-                        <img src={TRADE_DUMMY} style={{ width: '100%' }} alt="trade-type-dummy" />
+                        <img src={TRADE_DUMMY} style={{ width: '100%' }} alt="trade-type" />
                     </div>
                 }
             />
             <OurPlatforms
                 fallback={
                     <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '100%' }} alt="platform-dummy" />
+                        <img src={PLATFORM_DUMMY} style={{ width: '100%' }} alt="platform" />
                     </div>
                 }
             />
             <WhatOurClientsSay
                 fallback={
                     <div>
-                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs-dummy" />
-                    </div>
-                }
-            />
-            <Signup
-                appearance={Appearances.public}
-                fallback={
-                    <div>
-                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs-dummy" />
+                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs" />
                     </div>
                 }
             />
@@ -65,11 +57,19 @@ const Home = () => {
                 <P2PHomeBanner
                     fallback={
                         <div>
-                            <img src={WCS_DUMMY} style={{ width: '100%' }} alt="wcs-dummy" />
+                            <img src={WCS_DUMMY} style={{ width: '100%' }} alt="p2p" />
                         </div>
                     }
                 />
             )}
+            <Signup
+                appearance={Appearances.public}
+                fallback={
+                    <div>
+                        <img src={WCS_DUMMY} style={{ width: '100%' }} alt="signup" />
+                    </div>
+                }
+            />
         </>
     )
     const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)

@@ -26,7 +26,7 @@ const StyledContainer = styled(Container)`
     @media ${device.tabletL} {
         flex-direction: column;
         background-color: #f2f3f4;
-        margin-top: 0rem;
+        margin-top: 0;
         padding: 3rem 0;
     }
 `

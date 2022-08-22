@@ -338,12 +338,12 @@ export const paris: LocationsType = {
     flagIcon: FranceFlagIcon,
     thumbnail: 'thumbnail_paris',
     first_p:
-        "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It is going to bring together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
+        "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
     map: 'ChIJ71ubXstv5kcRgI6dxotwI4Y',
     map_text:
-        'Deriv (France) is going to be the heart of our research and development. We’re going to create an elite think tank in this centre that will help create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
+        'Deriv (France) is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
     google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
@@ -487,22 +487,22 @@ export const singapore: LocationsType = {
 }
 
 export const all_offices: LocationsType[] = [
-    berlin,
-    dubai,
+    paris,
     malta,
     cyprus,
+    guernsey,
+    berlin,
     cyberjaya,
-    labuan,
     ipoh,
     melaka,
-    paris,
-    guernsey,
-    asuncion,
-    rwanda,
-    jordan,
-    minsk,
+    labuan,
     singapore,
     vanuatu,
+    dubai,
+    jordan,
+    minsk,
+    rwanda,
+    asuncion,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,

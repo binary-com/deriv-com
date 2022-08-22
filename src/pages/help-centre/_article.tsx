@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import device from 'themes/device'
-import { queryParamData } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 export type ArticleProps = {
     children?: React.ReactNode
     header?: string
@@ -36,7 +36,6 @@ const TabWrapper = styled.div`
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
-const platform = queryParamData()
 export const Article = ({
     children,
     header = '',
@@ -46,6 +45,8 @@ export const Article = ({
     label = '',
     is_mounted = false,
 }: ArticleProps) => {
+    const { platform, has_platform } = usePlatformQueryParam()
+
     return (
         <Layout>
             <SEO
@@ -57,7 +58,7 @@ export const Article = ({
             />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
-                    to={platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
+                    to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
                     has_arrow="true"
                     color="black"
                     size="var(--text-size-s)"

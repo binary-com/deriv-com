@@ -5,12 +5,13 @@ import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import Layout from 'components/layout/layout'
-import { SEO, ROW } from 'components/containers'
+import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
 const P2PBanner = Loadable(() => import('./_p2p_banner'))
+import { DerivStore } from 'store'
 
 const meta_attributes = {
     og_title: localize('Payment agents | Partners | Deriv'),
@@ -20,6 +21,7 @@ const meta_attributes = {
 }
 
 const PaymentAgent = () => {
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
             <SEO
@@ -36,9 +38,7 @@ const PaymentAgent = () => {
             <TapInto />
             <YourControl />
             <WhoCanApply />
-            <ROW>
-                <P2PBanner />
-            </ROW>
+            {is_p2p_allowed_country && <P2PBanner />}
             <Faq />
         </Layout>
     )

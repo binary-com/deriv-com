@@ -72,8 +72,6 @@ const SEO = ({
         `,
     )
 
-    console.log('meta:', meta, 'queries:', queries)
-
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl

@@ -87,7 +87,7 @@ module.exports = {
     },
     bn: {
         path: 'bn',
-        display_name: 'বঙ্গালী',
+        display_name: 'বাংলা',
         short_name: 'BN',
         affiliate_lang: 15,
     },

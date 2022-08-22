@@ -243,7 +243,7 @@ const SwapCalculator = () => {
 
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            const price = symbolSpotPrice[selectedSymbol] ?? 0
+            const price = symbolSpotPrice[selectedSymbol]
             setAssetPrice('assetPrice', price)
         },
         [symbolSpotPrice],

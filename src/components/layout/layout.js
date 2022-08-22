@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { closestMatch, distance } from 'closest-match'
 import useGTMData from '../hooks/use-gtm-data'
 import { LocationProvider } from './location-context'
 import NavAcademy from './nav/nav-academy'
@@ -27,7 +28,6 @@ import device from 'themes/device'
 import { DerivStore, useDerivWS } from 'store'
 import { Container } from 'components/containers'
 import { loss_percent } from 'common/constants'
-const closest_match = require('closest-match')
 
 const Footer = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -186,8 +186,8 @@ const Layout = ({
             const slugs = academy_data.blog.map((item) => item.slug)
             const current_page = window.location.pathname.split('/')[4]
             if (!slugs.includes(current_page)) {
-                const closest_slug = closest_match.closestMatch(current_page, slugs)
-                const character_distance = closest_match.distance(current_page, closest_slug)
+                const closest_slug = closestMatch(current_page, slugs)
+                const character_distance = distance(current_page, closest_slug)
                 if (character_distance < 10) {
                     window.location.pathname = `academy/blog/posts/${closest_slug}`
                 }

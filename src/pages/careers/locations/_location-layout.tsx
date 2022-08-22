@@ -51,8 +51,8 @@ const SecondStyledHeader = styled(Header)`
 const HeroBadge = styled(QueryImage)`
     position: absolute;
     left: 13%;
-    width: 94px;
-    height: 160px;
+    width: 124px;
+    height: 190px;
 
     @media ${device.laptopS} {
         left: 230px;

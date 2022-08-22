@@ -85,6 +85,12 @@ module.exports = {
         short_name: 'TR',
         affiliate_lang: 14,
     },
+    bn: {
+        path: 'bn',
+        display_name: 'বঙ্গালী',
+        short_name: 'BN',
+        affiliate_lang: 15,
+    },
     // TODO: uncomment when supported
     // de: {
     //     path: 'de',

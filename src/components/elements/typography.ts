@@ -1,9 +1,22 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import PropTypes from 'prop-types'
 import { generateResponsiveStyles } from '../containers/box'
-import { Margins, Paddings } from 'themes/function'
+import { Margins, MarginsType, Paddings, PaddingsType } from 'themes/function'
 import device from 'themes/device'
+
+type BaseElementProps = {
+    align?: string
+    padding?: string
+    color?: string
+    lh?: string
+    max_width?: string
+    min_width?: string
+    min_height?: string
+    max_height?: string
+    mobile_max_width?: string
+} & MarginsType &
+    PaddingsType &
+    React.CSSProperties
 
 const baseStyles = ({
     m,
@@ -24,7 +37,7 @@ const baseStyles = ({
     max_height,
     width,
     height,
-}) => css`
+}: BaseElementProps) => css`
     min-width: ${min_width};
     max-width: ${max_width};
     min-height: ${min_height};
@@ -51,7 +64,7 @@ export const BaseLink = css`
     }
 `
 
-export const BaseElement = css`
+export const BaseElement = css<BaseElementProps>`
     text-align: ${(props) => props.align || 'left'};
     padding: ${(props) => props.padding || ''};
     color: ${({ color }) => (color ? `var(--color-${color})` : 'var(--color-black-3)')};
@@ -69,7 +82,7 @@ export const BaseElement = css`
 //////////////////////////////////////////////////////////////////////////////
 /////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
-export const Text = styled.p`
+export const Text = styled.p<HeaderProps>`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
     font-size: ${(props) => props.size || '1.6rem'};
@@ -85,7 +98,17 @@ export const Text = styled.p`
 /////////////////// TEXT IS DEPRECATED. PLEASE USE HEADER. ///////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-export const Header = styled(({ as = 'h2', children, ...props }) =>
+type HeaderProps = {
+    as?: string
+    children?: React.ReactNode
+    props?: { size?: string; type?: string; weight?: string; width?: string }
+    size?: string
+    type?: string
+    weight?: string
+    width?: string
+}
+
+export const Header = styled(({ as = 'h2', children, ...props }: HeaderProps) =>
     createElement(as, props, children),
 )`
     ${BaseElement}
@@ -186,9 +209,3 @@ export const LinkText = styled(Text).attrs({ as: 'a' })`
 export const SpanLinkText = styled(Text).attrs({ as: 'span' })`
     ${BaseLink}
 `
-
-Header.propTypes = {
-    as: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    type: PropTypes.string.isRequired,
-}

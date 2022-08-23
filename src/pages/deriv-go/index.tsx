@@ -72,9 +72,9 @@ const derivGoPortalData: DerivGoPortalType = {
 }
 
 const DerivGo = () => {
-    const { is_row } = useCountryRule()
+    const { is_loading, is_row } = useCountryRule()
 
-    if (is_row) {
+    if (!is_loading && is_row) {
         return (
             <Layout>
                 <SEO

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import ArticleCard from './_article-card'
 import FirstArticle from './_first-article'
@@ -41,15 +41,13 @@ const AllArticles = ({ article_data }: AllArticlesProps) => {
         index_of_last_article,
     )
 
-    const myRef = useRef(null)
-
     const paginate = (page_number) => {
-        myRef.current.scrollIntoView({ behavior: 'smooth' })
+        window.scrollTo(0, 0)
         setCurrentPage(page_number)
     }
 
     return (
-        <Container ref={myRef} m="0 auto" fd="column" ai="center">
+        <Container m="0 auto" fd="column" ai="center">
             <Flex jc="flex-start" ai="center" mt="40px">
                 <LocalizedLinkText to="/academy/" color="grey-5">
                     Home

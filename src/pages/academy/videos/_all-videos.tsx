@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import { RedirectLink } from '../components/recent-featured-posts/_style'
 import VideoCard from './_video-card'
@@ -33,10 +33,8 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
     const index_of_first_post = index_of_last_post - videos_per_page
     const current_videos = video_data.slice(index_of_first_post, index_of_last_post)
 
-    const myRef = useRef(null)
-
     const paginate = (page_number) => {
-        myRef.current.scrollIntoView({ behavior: 'smooth' })
+        window.scrollTo(0, 0)
         setCurrentPage(page_number)
     }
 
@@ -53,7 +51,7 @@ const AllVideos = ({ video_data }: AllVideosProps) => {
     }, [is_mobile, is_tablet, video_data])
 
     return (
-        <Container ref={myRef} m="0 auto" fd="column">
+        <Container m="0 auto" fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
                 <LocalizedLinkText to="/academy/" color="grey-5">
                     Home

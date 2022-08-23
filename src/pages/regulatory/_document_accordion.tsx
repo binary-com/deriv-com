@@ -6,7 +6,6 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
-import { DerivStore } from 'store'
 
 type DocumentAccordionProps = { locale: { language: string } }
 
@@ -117,8 +116,6 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     const supported_languages = ['es', 'it', 'pl', 'pt']
 
     const is_supported_language = (language: string) => supported_languages.includes(language)
-
-    const { is_eu_country } = React.useContext(DerivStore)
 
     return (
         <Accordion has_single_state id="kid">

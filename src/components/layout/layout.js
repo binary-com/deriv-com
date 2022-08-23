@@ -115,9 +115,17 @@ export const CFDWarning = ({ is_ppc }) => {
 }
 
 const Main = styled.main`
-    margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
+    margin-top: ${(props) =>
+        (props.margin_top &&
+            `${
+                props.margin_top === '0' || props.margin_top === 0
+                    ? props.margin_top
+                    : props.margin_top + 'rem'
+            }`) ||
+        '7rem'};
     background: var(--color-white);
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: relative;
 `
 

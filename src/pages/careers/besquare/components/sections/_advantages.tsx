@@ -9,7 +9,7 @@ const Advantages = () => {
     const style = {
         card_wrapper: {
             width: ['auto'],
-            max_width: ['auto', '328px'],
+            max_width: ['auto', '128px'],
             height: ['244px', '180px'],
             grid_template_rows: ['64px 68px auto', '48px 44px auto'],
             padding: ['32px 16px 32px 32px', '24px 16px 24px 24px'],
@@ -30,7 +30,7 @@ const Advantages = () => {
             as="h3"
             font_size={['24px', '16px']}
             line_height={['36px', '20px']}
-            padding={['24px 0 8px', '16px 0 8px']}
+            padding={['24px 0 0', '16px 0 8px']}
         >
             {title}
         </Title>

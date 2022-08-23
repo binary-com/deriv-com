@@ -22,7 +22,7 @@ const Hero = () => (
                 line_height={['36px', '22px']}
                 max_width={['384px', '328px']}
             >
-                Launch your IT career with our graduate programme
+                Launch your IT caree with our graduate programme
             </TextWrapper>
         </HeaderContainer>
         <ImageWrapper src={HeroImage} alt="BeSquare students standing with their laptops" />

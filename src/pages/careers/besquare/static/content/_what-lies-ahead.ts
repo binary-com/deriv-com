@@ -59,17 +59,6 @@ export default {
             ],
         },
         {
-            src: PlatformArchitecture,
-            alt: 'Platform architecture Icon',
-            text: 'Platform architecture',
-            content: [
-                'Design and plan systems from high-level system concepts down to low-level details.',
-                'Explore horizontal and vertical scaling — service, database, cache, and code patterns.',
-                'Work with the CAP theorem of distributed systems.',
-                'Study cloud technologies — what’s out there and how to choose the right pieces for the puzzle.',
-            ],
-        },
-        {
             src: QualityAssurance,
             alt: 'Quality assurance Icon',
             text: 'Quality assurance',

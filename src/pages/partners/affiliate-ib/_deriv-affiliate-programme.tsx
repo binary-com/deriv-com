@@ -311,7 +311,7 @@ const DerivAffiliateProgramme = () => {
                                     </Text>
                                     <Text>
                                         <Localize
-                                            translate_text="This plan is available exclusively for EU-based clients.<0>Please note that according to regulations, you cannot have clients who reside in Portugal or Spain.</0>"
+                                            translate_text="This plan is available exclusively for EU-based clients. <0>Please note that according to regulations, you cannot have clients who reside in Portugal or Spain.</0>"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>

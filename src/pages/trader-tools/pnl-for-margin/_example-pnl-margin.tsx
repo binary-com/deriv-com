@@ -3,7 +3,6 @@ import {
     FormulaContainer,
     FormulaHighlight,
     FormulaValueSwapSynthetic,
-    FormulaValueSwapSyntheticMobile,
     FormulaGreen,
     FormulaValue,
     PointerContainer,
@@ -23,7 +22,7 @@ import {
     FormulaBottomWrapperPnlMobile,
     Sup,
     FormulaTopWrapper,
-    FormulaBottomWrapper,
+    StyledSpan,
     FormulaValuePnlMobile,
     FormulaValuePnlMobileTakeProfit,
 } from '../common/_style'
@@ -84,10 +83,8 @@ export const StopLoss = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Contract size<0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Contract size" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -169,10 +166,8 @@ export const StopLoss = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
-                                        <Localize
-                                            translate_text="Contract size <0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Contract size" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
@@ -246,10 +241,8 @@ export const PipValue = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Point value <0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Point value" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -316,10 +309,8 @@ export const PipValue = () => {
                                 <PointerDotMobile />
                                 <PointerStickMobile height="32px" />
                                 <PointerTextMobile top>
-                                    <Localize
-                                        translate_text="Point value<0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Point value" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
@@ -406,10 +397,8 @@ export const TakeProfitLevel = () => {
                                 <PointerDot />
                                 <PointerStick height="28px" />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Contract size <0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Contract size" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValue>
@@ -492,10 +481,8 @@ export const TakeProfitLevel = () => {
                                 <PointerDotMobile />
                                 <PointerStickMobile height="24px" />
                                 <PointerTextMobile top ml="60px">
-                                    <Localize
-                                        translate_text="Contract size <0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Contract size" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerTextMobile>
                             </PointerContainerMobile>
                         </FormulaValueMobile>
@@ -566,10 +553,8 @@ export const ProfitPipValue = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Point value <0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Point value" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -638,10 +623,8 @@ export const ProfitPipValue = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="24px" />
                                     <PointerTextMobile top>
-                                        <Localize
-                                            translate_text="Point value<0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Point value" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>

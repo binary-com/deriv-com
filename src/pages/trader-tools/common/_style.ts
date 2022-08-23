@@ -435,16 +435,20 @@ export const RightContent = styled.div`
 
 export const FormulaText = styled.div`
     background-color: var(--color-grey-25);
-    padding: 1.6rem;
-    font-size: 14px;
-    line-height: 2;
+    padding: 1rem;
+    font-size: 12px;
+    line-height: 30px;
     width: auto;
 
     @media ${device.tablet} {
         width: auto;
+        line-height: 20px;
     }
 `
-
+export const StyledSpan = styled.span`
+    color: black;
+    font-size: 13px;
+`
 export const StyledOl = styled.ol`
     list-style-type: none;
     counter-reset: item;

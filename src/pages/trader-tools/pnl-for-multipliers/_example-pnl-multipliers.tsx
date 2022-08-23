@@ -3,7 +3,6 @@ import {
     FormulaContainer,
     FormulaHighlight,
     FormulaValueSwapSynthetic,
-    FormulaValueSwapSyntheticMobile,
     FormulaValuePnlMobile,
     FormulaGreen,
     FormulaValue,
@@ -23,6 +22,7 @@ import {
     PointerTextMobile,
     PointerTextMobilePnlMultiplier,
     Sup,
+    StyledSpan,
     FormulaHighlightForPnlMultiplier,
     FormulaValuePnlMultiplierMobile,
     FormulaTopWrapperPnl,
@@ -77,10 +77,8 @@ export const StopLossLevelUp = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
-                                    <Localize
-                                        translate_text="Commission <0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Commission" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -181,14 +179,12 @@ export const StopLossLevelUp = () => {
 
                             <FormulaValueSwapSynthetic>
                                 <Localize translate_text="0.2 )" />
-                                <PointerContainerMobile top ml="10px">
+                                <PointerContainerMobile top ml="-44px" mw="0">
                                     <PointerDotMobile />
                                     <PointerStickMobile />
                                     <PointerTextMobile top ml="40px">
-                                        <Localize
-                                            translate_text="Commission<0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Commission" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueSwapSynthetic>
@@ -295,10 +291,8 @@ export const TakeProfitLevelUp = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
-                                    <Localize
-                                        translate_text="Commission <0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Commission" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -399,14 +393,12 @@ export const TakeProfitLevelUp = () => {
 
                             <FormulaValueSwapSynthetic>
                                 <Localize translate_text="0.2 )" />
-                                <PointerContainerMobile top ml="10px">
+                                <PointerContainerMobile top ml="-44px" mw="0">
                                     <PointerDotMobile />
                                     <PointerStickMobile />
                                     <PointerTextMobile top ml="40px">
-                                        <Localize
-                                            translate_text="Commission<0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Commission" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueSwapSynthetic>
@@ -556,14 +548,12 @@ export const TakeProfitAmountUp = () => {
                             </FormulaValue>
                             <FormulaValue>
                                 <Localize translate_text="0.2}," />
-                                <PointerContainer height="89px">
+                                <PointerContainer height="89px" width="0" ml="-27px">
                                     <PointerDot />
                                     <PointerStick height="62px" />
                                     <PointerText ml="5px">
-                                        <Localize
-                                            translate_text="Commission<0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Commission" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
@@ -692,14 +682,12 @@ export const TakeProfitAmountUp = () => {
 
                             <FormulaValueMobile>
                                 <Localize translate_text="0.2 }," />
-                                <PointerContainerMobile ml="4px">
+                                <PointerContainerMobile ml="-42px" mw="0">
                                     <PointerDotMobile />
                                     <PointerStickMobile height="28px" />
-                                    <PointerTextMobilePnlMultiplier ml="70px">
-                                        <Localize
-                                            translate_text="Commission<0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                    <PointerTextMobilePnlMultiplier ml="42px">
+                                        <Localize translate_text="Commission" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobilePnlMultiplier>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
@@ -832,14 +820,12 @@ export const StopLossAmountDown = () => {
                             </FormulaValue>
                             <FormulaValue>
                                 <Localize translate_text="0.2}," />
-                                <PointerContainer ml="-10px" height="89px">
+                                <PointerContainer ml="-28px" height="89px" width="0">
                                     <PointerDot />
                                     <PointerStick height="62px" />
                                     <PointerText ml="5px">
-                                        <Localize
-                                            translate_text="Commission<0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Commission" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerText>
                                 </PointerContainer>
                             </FormulaValue>
@@ -969,14 +955,12 @@ export const StopLossAmountDown = () => {
 
                             <FormulaValueMobile>
                                 <Localize translate_text="0.2 }," />
-                                <PointerContainerMobile ml="4px">
+                                <PointerContainerMobile ml="-42px" mw="0">
                                     <PointerDotMobile />
                                     <PointerStickMobile height="28px" />
-                                    <PointerTextMobilePnlMultiplier ml="70px">
-                                        <Localize
-                                            translate_text="Commission<0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                    <PointerTextMobilePnlMultiplier ml="42px">
+                                        <Localize translate_text="Commission" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobilePnlMultiplier>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>

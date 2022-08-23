@@ -40,7 +40,7 @@ import {
     FormulaContainer,
     FormulaHighlight,
     FormulaValue,
-    FormulaValueSwapSynthetic,
+    StyledSpan,
     FormulaValueSwapSyntheticMobile,
     FormulaGreen,
     PointerContainer,
@@ -357,10 +357,8 @@ const MarginCalculator = () => {
                                                     <PointerDot />
                                                     <PointerStick height="32px" />
                                                     <PointerText top>
-                                                        <Localize
-                                                            translate_text="Contract size <0>1</0>"
-                                                            components={[<Sup key={0} />]}
-                                                        />
+                                                        <Localize translate_text="Contract size" />
+                                                        <StyledSpan> 1</StyledSpan>
                                                     </PointerText>
                                                 </PointerContainer>
                                             </FormulaValue>
@@ -439,10 +437,8 @@ const MarginCalculator = () => {
                                                     <PointerDotMobile />
                                                     <PointerStickMobile />
                                                     <PointerTextMobile top>
-                                                        <Localize
-                                                            translate_text="Contract size <0>1</0>"
-                                                            components={[<Sup key={0} />]}
-                                                        />
+                                                        <Localize translate_text="Contract size" />
+                                                        <StyledSpan> 1</StyledSpan>
                                                     </PointerTextMobile>
                                                 </PointerContainerMobile>
                                             </FormulaValueMobile>

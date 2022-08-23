@@ -18,6 +18,7 @@ import {
     PointerDotMobile,
     PointerTextMobile,
     Sup,
+    StyledSpan,
     FormulaTopWrapperSwapMobile,
     FormulaTopWrapperMobile,
     FormulaBottomWrapperMobile,
@@ -53,10 +54,8 @@ export const SwapSyntheticExample = () => {
                                 <PointerDot />
                                 <PointerStick height="34px" />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Contract size <0>1</>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Contract size" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -86,10 +85,8 @@ export const SwapSyntheticExample = () => {
                                 <PointerDot />
                                 <PointerStick height="34px" />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Swap rate <0>2</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Swap rate" />
+                                    <StyledSpan> 2</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -156,10 +153,8 @@ export const SwapSyntheticExample = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="50px" />
                                     <PointerTextMobile>
-                                        <Localize
-                                            translate_text="Contract size <0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Contract size" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
@@ -189,10 +184,8 @@ export const SwapSyntheticExample = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="28px" />
                                     <PointerTextMobile top>
-                                        <Localize
-                                            translate_text="Swap rate <0>2</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Swap rate" />
+                                        <StyledSpan> 2</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueMobile>
@@ -266,10 +259,8 @@ export const SwapFinancialExample = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Contract size <0>1</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Contract size" />
+                                    <StyledSpan> 1</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -284,10 +275,8 @@ export const SwapFinancialExample = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText>
-                                    <Localize
-                                        translate_text="Point value <0>2</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Point value" />
+                                    <StyledSpan> 2</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -302,10 +291,8 @@ export const SwapFinancialExample = () => {
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
-                                    <Localize
-                                        translate_text="Swap rate <0>3</0>"
-                                        components={[<Sup key={0} />]}
-                                    />
+                                    <Localize translate_text="Swap rate" />
+                                    <StyledSpan> 3</StyledSpan>
                                 </PointerText>
                             </PointerContainer>
                         </FormulaValueSwapSynthetic>
@@ -356,10 +343,8 @@ export const SwapFinancialExample = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
-                                        <Localize
-                                            translate_text="Contract size <0>1</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Contract size" />
+                                        <StyledSpan> 1</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueSwapFinancialMobile>
@@ -374,10 +359,8 @@ export const SwapFinancialExample = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="22px" />
                                     <PointerTextMobile>
-                                        <Localize
-                                            translate_text="Point value<0>2</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Point value" />
+                                        <StyledSpan> 2</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueSwapFinancialMobile>
@@ -392,10 +375,8 @@ export const SwapFinancialExample = () => {
                                     <PointerDotMobile />
                                     <PointerStickMobile height="22px" />
                                     <PointerTextMobile top>
-                                        <Localize
-                                            translate_text="Swap rate <0>3</0>"
-                                            components={[<Sup key={0} />]}
-                                        />
+                                        <Localize translate_text="Swap rate" />
+                                        <StyledSpan> 3</StyledSpan>
                                     </PointerTextMobile>
                                 </PointerContainerMobile>
                             </FormulaValueSwapFinancialMobile>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ContentType } from './index'
 import IconEasyAccess from 'images/svg/deriv-go/easy-access.svg'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
@@ -17,7 +18,6 @@ const StyledHeader = styled(Header)`
         padding: 0 20px;
     }
 `
-
 const Card = styled(Flex)`
     flex-direction: column;
     max-width: 384px;
@@ -38,7 +38,7 @@ const StyledText = styled(Text)`
     }
 `
 
-const trade_data = [
+const trade_data: ContentType[] = [
     {
         icon: Icon24_7,
         title: <Localize translate_text="24/7 trading" />,
@@ -71,17 +71,17 @@ const WhyTradeDerivGo = () => {
                         {localize('Why trade with Deriv GO')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px" mr="8px">
-                        {trade_data.map((index) => {
+                        {trade_data.map((item, index) => {
                             return (
-                                <Card key={index.title}>
+                                <Card key={index}>
                                     <div>
-                                        <img src={index.icon} width={72} height={72} alt="" />
+                                        <img src={item.icon} width={72} height={72} alt="" />
                                     </div>
                                     <Header as="h3" type="heading-3" align="center" mt="24px">
-                                        {index.title}
+                                        {item.title}
                                     </Header>
                                     <StyledText align="center" mt="8px">
-                                        {index.subtitle}
+                                        {item.subtitle}
                                     </StyledText>
                                 </Card>
                             )

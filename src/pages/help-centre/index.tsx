@@ -13,6 +13,7 @@ import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
@@ -191,6 +192,7 @@ const HelpCentre = () => {
 
     const general_articles = articles.filter((article) => article.section === 'General')
     const platforms_articles = articles.filter((article) => article.section === 'Platforms')
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <Layout>
@@ -260,7 +262,7 @@ const HelpCentre = () => {
             <Desktop breakpoint={'tabletS'}>
                 <Community />
             </Desktop>
-            <DidntFindYourAnswerBanner />
+            {!is_deriv_go && <DidntFindYourAnswerBanner />}
         </Layout>
     )
 }

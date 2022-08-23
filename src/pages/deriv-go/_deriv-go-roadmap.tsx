@@ -15,7 +15,6 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding-top: 40px;
     }
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 32px;
@@ -66,7 +65,7 @@ const StyledButton = styled(LinkButton)`
     z-index: 3;
 `
 
-const RoadmapDerivGO = () => {
+const DerivGoRoadmap = () => {
     return (
         <StyledSectionContainer>
             <Container>
@@ -100,4 +99,4 @@ const RoadmapDerivGO = () => {
     )
 }
 
-export default RoadmapDerivGO
+export default DerivGoRoadmap

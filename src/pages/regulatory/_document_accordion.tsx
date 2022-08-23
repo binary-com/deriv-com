@@ -130,13 +130,9 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 parent_style={parent_style}
             >
                 <Text>
-                    {is_eu_country
-                        ? localize(
-                              'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Investment Firms Regulation (EU) 2019/2033 ("IFR") and the Investment Firms Directive (EU) 2019/2034 ("IFD"). Read our report to understand how we comply with market discipline as a market participant.',
-                          )
-                        : localize(
-                              'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
-                          )}
+                    {localize(
+                        'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Investment Firms Regulation (EU) 2019/2033 ("IFR") and the Investment Firms Directive (EU) 2019/2034 ("IFD"). Read our report to understand how we comply with market discipline as a market participant.',
+                    )}
                 </Text>
                 <Flex mt="1.8rem">
                     <FlexText_Pillar

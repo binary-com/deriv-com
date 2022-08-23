@@ -27,14 +27,14 @@ const Title = styled.h2`
 
 type HeaderProps = {
     title: string
-    setShow: React.Dispatch<React.SetStateAction<boolean>>
+    setShowWizard: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Header = ({ title, setShow }: HeaderProps) => {
+const Header = ({ title, setShowWizard }: HeaderProps) => {
     return (
         <StyledHeader>
             <Title>{title}</Title>
-            <CloseButton src={CloseSVG} onClick={() => setShow(false)} />
+            <CloseButton src={CloseSVG} onClick={() => setShowWizard(false)} />
         </StyledHeader>
     )
 }

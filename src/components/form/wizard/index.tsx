@@ -7,6 +7,7 @@ import device from 'themes/device'
 
 type WizardProps = {
     children: React.ReactElement[]
+    show_wizard?: boolean
     steps_names: string[]
     title: string
     enable_next_button: boolean
@@ -47,8 +48,8 @@ const Modal = styled.div`
     }
 `
 
-const Wizard = ({ children, steps_names, title, enable_next_button }: WizardProps) => {
-    const [show, setShow] = useState(true)
+const Wizard = ({ children, show_wizard, steps_names, title, enable_next_button }: WizardProps) => {
+    const [show, setShow] = useState(show_wizard || true)
     const [step, setStep] = useState(1)
     const max_step = children.length
     const [enable_next, setEnableNext] = useState(enable_next_button)

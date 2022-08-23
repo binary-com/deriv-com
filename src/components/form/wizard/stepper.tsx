@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StepContext } from '.'
 import device from 'themes/device'
+
+type StepperProps = { step: number; step_names: string[] }
 
 const StepperWrapper = styled.div`
     padding: 30px 0 50px 0;
@@ -78,9 +79,7 @@ const Label = styled.h4<{ active: boolean }>`
     color: ${(props) => (props.active ? `#FF444F` : `#999999`)};
 `
 
-const Stepper = ({ step_names }: { step_names: string[] }) => {
-    const { step } = React.useContext(StepContext)
-
+const Stepper = ({ step, step_names }: StepperProps) => {
     return (
         <StepperWrapper>
             {step_names.map((step_name, id) => (

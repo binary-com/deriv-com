@@ -7,16 +7,17 @@ import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
 
 type AccountTypeProps = {
-    setCardSelected: () => void
+    updateData: (e) => void
+    cardSelected: number
 }
-const AccountType = ({ setCardSelected }: AccountTypeProps) => {
+const AccountType = ({ updateData, cardSelected }: AccountTypeProps) => {
     const MainWrapper = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     `
-    const [selecteditem, setSelectedItem] = useState(-1)
+    const [selected_item, setSelectedItem] = useState(cardSelected)
 
     const cards: CardProps[] = [
         {
@@ -43,10 +44,10 @@ const AccountType = ({ setCardSelected }: AccountTypeProps) => {
                         icon={icon}
                         title={title}
                         description={description}
-                        selected={selecteditem === index ? true : false}
+                        selected={selected_item === index ? true : false}
                         onClick={() => {
                             setSelectedItem(index)
-                            setCardSelected()
+                            updateData(index)
                         }}
                     />
                 )

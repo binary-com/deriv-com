@@ -97,16 +97,15 @@ export const SwapTabSelector = styled(Flex)`
     cursor: pointer;
 
     :nth-child(2) {
-        margin-left: 0px;
+        margin-left: 0;
         margin-right: 15px;
     }
 
     ${swap_tab_selector_css}
-    
-        @media ${device.mobileL} {
+
+    @media ${device.mobileL} {
         width: 160px;
     }
-
 `
 
 export const ContentContainer = styled(Flex)`
@@ -155,7 +154,7 @@ export const CalculatorForm = styled(Form)`
     ${CalculatorFormStyles}
 `
 export const PnlCalculatorFormMobile = styled(Form)`
-    width:43rem;
+    width: 43rem;
     ${CalculatorFormStyles}
 
     @media (min-width: 1200px) {
@@ -364,7 +363,7 @@ const CalculatorTabItemStyles = css`
 
 export const CalculatorTabItem = styled.div<CalculatorTabItemProps>`
     :nth-child(2) {
-        margin-right: 0rem;
+        margin-right: 0;
     }
 
     ${CalculatorTabItemStyles}
@@ -376,7 +375,7 @@ export const PnlCalculatorTabItem = styled.div<PnlCalculatorTabItemProps>`
     height: 53px;
 
     :nth-child(2) {
-        margin-right: 0rem;
+        margin-right: 0;
     }
 
     ${CalculatorTabItemStyles}

@@ -38,10 +38,10 @@ import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
 import ChartImage from 'images/common/help-centre/dbot-chart.png'
 
 const ImageWrapper = styled.div`
-    padding: 2.4rem 10.2rem;
+    padding: 2.4rem;
     max-width: 60rem;
     width: 100%;
-    margin: 0 10rem;
+    margin-right: 2rem;
 
     @media ${device.laptopL} {
         padding: 2.4rem 0;

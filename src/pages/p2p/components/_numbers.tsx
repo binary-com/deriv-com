@@ -92,7 +92,7 @@ const StyledLinkButton = styled(LinkButton)`
     border: unset;
     height: 64px;
     margin: 20px auto;
-    width: 220px;
+    min-width: 220px;
     white-space: nowrap;
     margin-top: 40px;
     @media ${device.mobileL} {

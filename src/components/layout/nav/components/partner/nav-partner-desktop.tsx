@@ -9,7 +9,7 @@ import {
     Wrapper,
 } from '../../styles/nav-styles'
 import { handleScroll, useMoveButton } from '../../util/nav-methods'
-import { NonEU } from 'components/containers'
+import { ROW } from 'components/containers'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
@@ -160,13 +160,13 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                         to="/partners/affiliate-ib/"
                         title={localize('Affiliates and IBs')}
                     />
-                    <NonEU>
+                    <ROW>
                         <NavLinkCard
                             active="payment"
                             to="/partners/payment-agent/"
                             title={localize('Payment agents')}
                         />
-                    </NonEU>
+                    </ROW>
 
                     <NavLinkCard
                         active="api"

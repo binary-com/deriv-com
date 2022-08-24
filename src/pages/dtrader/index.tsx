@@ -7,7 +7,7 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import { EU, ROW } from 'components/containers/visibility'
+import { ROW, UKEU } from 'components/containers/visibility'
 import dtrader_logo from 'images/svg/dtrader/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader/dtrader-bg-mobile.svg'
@@ -115,7 +115,7 @@ const PlatformContainer = styled.div`
 `
 const Dtrader = () => {
     const [is_mobile, setMobile] = useState(false)
-    const { is_eu } = useCountryRule()
+    const { is_uk_eu } = useCountryRule()
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -146,7 +146,7 @@ const Dtrader = () => {
                 join_us_for_free
                 go_to_live_demo
                 Logo={dtrader_logo}
-                image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
+                image_name={is_uk_eu ? 'dtrader_eu' : 'dtrader'}
                 is_mobile={is_mobile}
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('Trade volatility indices with DTrader at Deriv')}
@@ -154,9 +154,9 @@ const Dtrader = () => {
             <ROW>
                 <DNumber items={items} justify="space-around" />
             </ROW>
-            <EU>
+            <UKEU>
                 <DNumber items={itemsEU} justify="space-around" />
-            </EU>
+            </UKEU>
             <DHowItWorks
                 Video={DtraderVideo}
                 title={<Localize translate_text="Make a trade in 3 easy steps" />}
@@ -164,9 +164,9 @@ const Dtrader = () => {
             <ROW>
                 <DTrading trading={trading} />
             </ROW>
-            <EU>
+            <UKEU>
                 <DTrading trading={trading_eu} />
-            </EU>
+            </UKEU>
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>

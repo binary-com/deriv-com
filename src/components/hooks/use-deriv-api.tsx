@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import DerivWS from 'common/websocket/api'
 
 export type DerivApiProps = {
@@ -9,7 +9,7 @@ export const useDerivApi = () => {
     const [is_opened, setOpened] = useState(false)
     const ws = useRef(null)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (!is_opened) {
             const deriv_api = new DerivWS()
             setOpened(true)

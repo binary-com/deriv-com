@@ -57,8 +57,8 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
                 onClick={toggleIsListOpen}
                 src={is_list_open ? Minimize : Maximize}
                 alt=""
-                width="32"
-                height="32"
+                width="20"
+                height="23"
             />
         )
         if (is_list_open) {

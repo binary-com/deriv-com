@@ -17,12 +17,6 @@ export default {
             text: 'A job offer from Deriv for the best BeSquare graduates',
         },
         {
-            src: WorldExposureIcon,
-            alt: 'Real-world exposure icon',
-            title: 'Real-world exposure',
-            text: 'Real-life projects led by Deriv best IT minds',
-        },
-        {
             src: CrossDomainTrainingIcon,
             alt: 'Cross-domain training icon',
             title: 'Cross-domain training',
@@ -45,6 +39,12 @@ export default {
             alt: 'Paid programme icon',
             title: 'Paid programme',
             text: 'On-the-job experience with a sponsoring FinTech company',
+        },
+        {
+            src: WorldExposureIcon,
+            alt: 'Real-world exposure icon',
+            title: 'Real-world exposure',
+            text: 'Real-life projects led by Deriv best IT minds',
         },
     ],
 }

@@ -6,7 +6,7 @@ import { Flex } from 'components/containers'
 const Highlights = () => {
     return (
         <Flex mb="80px">
-            <VideoPlayer src={HighlightVideo} max_width="900px" mobile_max_width="90%" controls />
+            <VideoPlayer src={HighlightVideo} max_width="900px" mobile_max_width="40%" controls />
         </Flex>
     )
 }

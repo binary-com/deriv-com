@@ -222,7 +222,7 @@ const SwapCalculator = () => {
     useEffect(() => {
         const { send } = deriv_api
         send({ active_symbols: 'full' }, (response) => {
-            if (!response.error) {
+            if (!response.error && response.active_symbols.length > 0) {
                 const data = response.active_symbols
                 setActiveSymbols(data)
                 setDisableDropdown(false)

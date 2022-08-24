@@ -86,7 +86,6 @@ const MarginCalculator = () => {
     useEffect(() => {
         const { send } = deriv_api
         send({ active_symbols: 'full' }, (response) => {
-            console.log('response', response)
             if (!response.error && response.active_symbols.length > 0) {
                 const data = response.active_symbols
                 setActiveSymbols(data)
@@ -109,8 +108,6 @@ const MarginCalculator = () => {
     }, [activeSymbols])
     const fetchTickData = useCallback(
         (selectedSymbol, setAssetPrice) => {
-            console.log('selectedSymbol', selectedSymbol)
-            console.log('symbolSpotPrice', symbolSpotPrice)
             const price = symbolSpotPrice[selectedSymbol]
             setAssetPrice('assetPrice', price)
         },
@@ -239,7 +236,6 @@ const MarginCalculator = () => {
                                                 items={values.optionList}
                                                 label={localize('Symbol')}
                                                 onChange={(value) => {
-                                                    console.log('activeSymbols', activeSymbols)
                                                     setFieldValue(
                                                         'marginSymbol',
                                                         getCurrency(value),

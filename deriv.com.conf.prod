@@ -102,3 +102,4 @@ server {
     location ~* \.(pdf)$ {
         expires 5m;
     }
+}

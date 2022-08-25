@@ -61,8 +61,7 @@ export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
-export const besquare_signup_url =
-    'https://deriv.zohorecruit.eu/jobs/Careers/47807000001891637/BeSquare-Graduate-Trainee-2-0?source=CareerSite '
+export const besquare_signup_url = 'https://app.deriv.com/'
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'

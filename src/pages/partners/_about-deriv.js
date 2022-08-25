@@ -23,6 +23,9 @@ const WrapContainer = styled(Flex)`
 const ImageWrapper = styled.div`
     width: 48.6rem;
     height: 32rem;
+    @media ${device.laptopS} {
+        margin-top: 12rem;
+    }
 `
 
 const AboutDeriv = () => {

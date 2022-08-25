@@ -199,11 +199,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {<Localize translate_text="Affiliates and IBs" />}
                             </Link>
                         </LinkWrapper>
-                        <LinkWrapper>
-                            <Link to="/partners/payment-agent/">
-                                {<Localize translate_text="Payment agents" />}
-                            </Link>
-                        </LinkWrapper>
+                        <ROW>
+                            <LinkWrapper>
+                                <Link to="/partners/payment-agent/">
+                                    {<Localize translate_text="Payment agents" />}
+                                </Link>
+                            </LinkWrapper>
+                        </ROW>
                         <LinkWrapper>
                             <Link
                                 to=""

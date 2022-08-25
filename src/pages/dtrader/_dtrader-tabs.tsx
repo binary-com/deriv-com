@@ -6,6 +6,7 @@ import { ReactComponent as Macbook } from 'images/svg/dtrader/macbook.svg'
 import device from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form'
+import { DerivStore } from 'store'
 
 type StepCommonType = {
     no_margin: boolean
@@ -123,6 +124,8 @@ class DtraderTabs extends React.Component {
         handler: 0,
         is_ios: true,
     }
+    static contextType = DerivStore
+
     handler = async (entries) => {
         let entry
         for (entry of entries) {
@@ -197,6 +200,9 @@ class DtraderTabs extends React.Component {
         })
     }
     render() {
+        const { is_eu_country, is_uk_country } = this.context
+        const is_uk_eu = is_eu_country || is_uk_country
+
         return (
             <Container>
                 <TabsWrapper>
@@ -273,8 +279,17 @@ class DtraderTabs extends React.Component {
                         muted
                         playsInline
                     >
-                        <source src="/Dtrader_GIF.mp4" type="video/mp4" />
-                        <source src="/Dtrader_GIF.webm" type="video/webm" />
+                        {is_uk_eu ? (
+                            <>
+                                <source src="/Dtrader_GIF_EU.mp4" type="video/mp4" />
+                                <source src="/Dtrader_GIF_EU.webm" type="video/webm" />
+                            </>
+                        ) : (
+                            <>
+                                <source src="/Dtrader_GIF.mp4" type="video/mp4" />
+                                <source src="/Dtrader_GIF.webm" type="video/webm" />
+                            </>
+                        )}
                     </Video>
                 </VideoWrapper>
             </Container>

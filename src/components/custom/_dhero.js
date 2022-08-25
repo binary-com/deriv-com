@@ -279,7 +279,14 @@ const DHero = ({
             </InformationWrapper>
 
             <LottieWrapper>
-                <QueryImage data={data[is_eu ? 'dtrader_eu' : 'dtrader']} alt={background_alt} />
+                {image_name === 'dtrader' ? (
+                    <QueryImage
+                        data={data[is_eu ? 'dtrader_eu' : 'dtrader']}
+                        alt={background_alt}
+                    />
+                ) : (
+                    <QueryImage data={data[image_name]} alt={background_alt} />
+                )}
             </LottieWrapper>
         </Wrapper>
     )

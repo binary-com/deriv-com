@@ -4,17 +4,33 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, SectionContainer, Box, Desktop, Mobile } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import AppStore from 'images/svg/dmt5/app-store.svg'
-import GooglePlay from 'images/svg/dmt5/google-play.svg'
-import GooglePlayMobile from 'images/svg/dmt5/google-play-mobile.svg'
-import MacOS from 'images/svg/dmt5/macos.svg'
-import MoreInfo from 'images/svg/dmt5/more-info.svg'
-import Windows from 'images/svg/dmt5/windows.svg'
+import MoreInfo from 'images/svg/dmt5/more_info.svg'
+import MoreInfoDesktop from 'images/svg/dmt5/more-info.svg'
 import device from 'themes/device'
-import { dmt5_macos_url, dmt5_windows_url, dmt5_android_url, dmt5_ios_url } from 'common/constants'
+import LinuxOs from 'images/svg/dmt5/dmt5_linux.svg'
+import WebBrowser from 'images/svg/dmt5/dmt5_web_browser.svg'
+import Windows from 'images/svg/dmt5/dmt5_windows.svg'
+import MacOs from 'images/svg/dmt5/dmt5_macos_dmg.svg'
+import GooglePlay from 'images/svg/dmt5/dmt5_google_play.svg'
+import AppGallery from 'images/svg/dmt5/dmt5_app_gallery.svg'
+import AppStore from 'images/svg/dmt5/dmt5_app_store.svg'
+import {
+    dmt5_web_browser_url,
+    dmt5_windows,
+    dmt5_macos_url,
+    dmt5_linux_url,
+    dmt5_app_store_url,
+    dmt5_android_url,
+    dmt5_app_gallery_url,
+} from 'common/constants'
 
 type ImageWrapperProps = {
     mt?: string
+}
+type LinkType = {
+    mt?: string
+    mb?: string
+    mr?: string
 }
 
 const query = graphql`
@@ -25,44 +41,74 @@ const query = graphql`
     }
 `
 
-const DownloadLinkWrapper = styled.div`
+const DownloadLinkWrapper = styled.div<LinkType>`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr;
     grid-gap: 8px;
+    margin-top: ${(props) => (props.mt ? props.mt : '')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '')};
+
+    @media ${device.tabletL} {
+        grid-template-columns: 1fr 1fr;
+    }
+`
+const DownloadLinkMobileWrapper = styled.div<LinkType>`
+    display: flex;
+    grid-gap: 8px;
+    margin-top: ${(props) => (props.mt ? props.mt : '')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '')};
+    margin-right: ${(props) => (props.mr ? props.mr : '')};
+
+    @media ${device.tabletL} {
+        margin-top: 8px;
+        margin-right: 8px;
+    }
 `
 const Section = styled(SectionContainer)`
     display: flex;
-    height: 30rem;
-    padding: 0 12rem 0;
-    justify-content: center;
+    padding: 0 0 0 24rem;
+    justify-content: speace-evenly;
     align-items: flex-start;
     background-color: var(--color-grey-25);
+    gap: 90px;
 
     @media ${device.laptopL} {
-        padding: 0 1rem 0;
+        padding: 0 0 0 15rem;
     }
+    @media ${device.laptopM} {
+        padding: 0 0 0 10rem;
+        gap: 45px;
+    }
+    @media ${device.desktopL} {
+        padding: 0 0 0 12rem;
+        gap: 0;
+    }
+
     @media ${device.tabletL} {
-        padding: 40px 0 0;
+        padding: 24px 0 0;
         flex-direction: column;
         height: auto;
         align-items: center;
+        gap: 0;
     }
 `
 const Separator = styled.div`
     width: 2px;
-    height: 100%;
+    height: 312px;
     background-color: rgba(133, 147, 164, 0.16);
+    margin-right: 10px;
 
     @media ${device.tabletL} {
         width: 100%;
         height: 1px;
         margin-top: 40px;
+        margin-right: 0;
     }
 `
 
 const ImageWrapper = styled.div<ImageWrapperProps>`
     margin-top: 4rem;
-    width: 38.4rem;
+    max-width: 384px;
     position: relative;
 
     @media ${device.tabletL} {
@@ -70,11 +116,65 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
     }
 `
 const StyledInfo = styled.img`
-    margin-top: 0.5rem;
+    width: 24px;
+    height: 24px;
+    margin-top: 96px;
+
+    @media ${device.tabletL} {
+        width: 16px;
+        height: 16px;
+        margin-top: 0;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 20px;
+        text-align: center;
+    }
+`
+const StyledFlex = styled(Flex)`
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 32rem;
+    margin-right: 120px;
+    height: auto;
+
+    @media ${device.tabletL} {
+        justify-content: center;
+        text-align: center;
+        margin-right: 0;
+        width: auto;
+        box-shadow: inset 0 -2px 0 #e7e7e7;
+    }
+`
+const StyledFlexMobile = styled(Flex)`
+    margin-top: 0.8rem;
+    justify-content: flex-start;
+    height: auto;
+    margin-bottom: 40px;
+`
+const StyledFlexBottom = styled(Flex)`
+    display: flex;
+    flex-direction: column;
+
+    @media ${device.tabletL} {
+        padding: 0 160px;
+        background: white;
+    }
+    @media ${device.mobileL} {
+        padding: 0 20px;
+        background: white;
+    }
+`
+const StyledInfoContainer = styled(Flex)`
+    display: flex;
+    margin-left: -60px;
+    width: 32rem;
+
+    @media ${device.laptopL} {
+        margin-left: -120px;
+        width: 24rem;
+        margin-right: 0;
     }
 `
 
@@ -83,29 +183,36 @@ const DownloadApp = () => {
 
     return (
         <Section>
-            <Flex
-                jc="flex-start"
-                tablet_jc="center"
-                fd="column"
-                width="100%"
-                max_width="38.2rem"
-                mt="4rem"
-                height="auto"
-                tabletL={{ mt: '0', pl: '10px', pr: '10px' }}
-            >
+            <StyledFlex>
                 <Desktop>
-                    <StyledHeader as="h4" type="subtitle-1">
+                    <StyledHeader as="h4" type="subtitle-1" mt="8px">
                         {localize('Desktop')}
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <DownloadLinkWrapper>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_windows_url}
+                                to={dmt5_linux_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={Windows} alt="windows" />
+                                <img src={LinuxOs} alt="linux" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_web_browser_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={WebBrowser} alt="linux" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_windows}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Windows} alt="linux" />
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
@@ -113,7 +220,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={MacOS} alt="macos" />
+                                <img src={MacOs} alt="macos" />
                             </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
@@ -121,67 +228,98 @@ const DownloadApp = () => {
                     <StyledHeader mt="2.4rem" as="h4" type="subtitle-1">
                         {localize('Mobile')}
                     </StyledHeader>
-                    <Flex mt="0.8rem" jc="flex-start">
-                        <Box mr="0.8rem">
+                    <Flex mt="0.8rem" jc="flex-start" wrap="wrap">
+                        <DownloadLinkWrapper>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_ios_url}
+                                to={dmt5_android_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={AppStore} alt="app store" />
+                                <img src={GooglePlay} alt="google play" width="138" height="40" />
                             </LocalizedLink>
-                        </Box>
-                        <LocalizedLink
-                            external="true"
-                            to={dmt5_android_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={GooglePlay} alt="google play" width="138" height="40" />
-                        </LocalizedLink>
+                        </DownloadLinkWrapper>
+                        <DownloadLinkWrapper mt="8px" mb="8px">
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_app_gallery_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={AppGallery} alt="google play" width="138" height="40" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_app_store_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={AppStore} alt="google play" width="138" height="40" />
+                            </LocalizedLink>
+                        </DownloadLinkWrapper>
                     </Flex>
                 </Desktop>
 
                 <Mobile>
                     <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
-                    <Flex mt="0.8rem" jc="flex-start">
-                        <Box mr="0.8rem">
+                    <Flex mt="0.8rem" wrap="wrap">
+                        <DownloadLinkMobileWrapper mr="8px">
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_ios_url}
+                                to={dmt5_android_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={AppStore} alt="appstore mobile" />
+                                <img src={GooglePlay} alt="google play" width="138" height="40" />
                             </LocalizedLink>
-                        </Box>
-                        <LocalizedLink
-                            external="true"
-                            to={dmt5_android_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src={GooglePlayMobile}
-                                alt="google play mobile"
-                                width="138"
-                                height="40"
-                            />
-                        </LocalizedLink>
+                        </DownloadLinkMobileWrapper>
+                        <DownloadLinkMobileWrapper mt="8px">
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_app_gallery_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={AppGallery} alt="google play" width="138" height="40" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_app_store_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={AppStore} alt="google play" width="138" height="40" />
+                            </LocalizedLink>
+                        </DownloadLinkMobileWrapper>
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
                         {localize('Desktop')}
                     </StyledHeader>
-                    <Flex mt="0.8rem" jc="flex-start" height="auto">
+                    <StyledFlexMobile>
                         <DownloadLinkWrapper>
                             <LocalizedLink
                                 external="true"
-                                to={dmt5_windows_url}
+                                to={dmt5_linux_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={Windows} alt="windows" />
+                                <img src={LinuxOs} alt="linux" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_web_browser_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={WebBrowser} alt="linux" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_windows}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Windows} alt="linux" />
                             </LocalizedLink>
                             <LocalizedLink
                                 external="true"
@@ -189,36 +327,50 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={MacOS} alt="macos" />
+                                <img src={MacOs} alt="macos" />
                             </LocalizedLink>
                         </DownloadLinkWrapper>
+                    </StyledFlexMobile>
+                </Mobile>
+            </StyledFlex>
+            <Desktop>
+                <StyledInfoContainer>
+                    <Separator />
+
+                    <StyledInfo src={MoreInfoDesktop} alt="more info" />
+                    <Text width="100%" ml="1.6rem" size="var(--text-size-m)" mt="96px">
+                        <Localize
+                            translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
+                            components={[<strong key={0} />]}
+                        />
+                    </Text>
+                </StyledInfoContainer>
+            </Desktop>
+            <StyledFlexBottom>
+                <Mobile>
+                    <Flex
+                        height="auto"
+                        max_width="310px"
+                        mt="10.8rem"
+                        ai="flex-start"
+                        tabletL={{ max_width: '320px', mt: '40px' }}
+                        laptopM={{ mr: '2px', ml: '2px' }}
+                        margin_left="-60px"
+                    >
+                        <StyledInfo src={MoreInfo} alt="more info" />
+
+                        <Text width="100%" ml="26px" size="var(--text-size-m)">
+                            <Localize
+                                translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
+                                components={[<strong key={0} />]}
+                            />
+                        </Text>
                     </Flex>
                 </Mobile>
-            </Flex>
-
-            <Separator />
-
-            <Flex
-                height="auto"
-                ml="5.6rem"
-                max_width="31rem"
-                mt="10.8rem"
-                mr="5.6rem"
-                ai="flex-start"
-                tabletL={{ max_width: '290px', mt: '40px' }}
-                laptopM={{ mr: '2px', ml: '2px' }}
-            >
-                <StyledInfo src={MoreInfo} alt="more info" />
-                <Text width="100%" ml="1.6rem" size="var(--text-size-m)">
-                    <Localize
-                        translate_text="For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>."
-                        components={[<strong key={0} />]}
-                    />
-                </Text>
-            </Flex>
-            <ImageWrapper mt="4rem">
-                <QueryImage data={data['mobile_phone']} alt="DMT5 mobile app" />
-            </ImageWrapper>
+                <ImageWrapper mt="4rem">
+                    <QueryImage data={data['mobile_phone']} alt="DMT5 mobile app" />
+                </ImageWrapper>
+            </StyledFlexBottom>
         </Section>
     )
 }

@@ -11,7 +11,8 @@ import { isBrowser } from 'common/utility'
 import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
 import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
 import HighLeverageSVG from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import TwelveIndicesSVG from 'images/svg/stock-indices/stocks-12-world-indices.svg'
+import ElevenIndicesSVG from 'images/svg/stock-indices/stocks-12-world-indices.svg'
+import TenIndicesSVG from 'images/svg/stock-indices/stocks-12-world-indices.svg'
 import FourtyStocksSVG from 'images/svg/stock-indices/stocks-80-analytic-objects.svg'
 import LowCapitalSVG from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 
@@ -54,7 +55,7 @@ const WhyTradeWithUsArr = [
     },
     {
         title: <Localize translate_text="11+ world indices" />,
-        icon: TwelveIndicesSVG,
+        icon: ElevenIndicesSVG,
     },
     {
         title: <Localize translate_text="40+ stocks" />,
@@ -77,7 +78,7 @@ const WhyTradeWithUsArr_eu = [
     },
     {
         title: <Localize translate_text="10+ world indices" />,
-        icon: TwelveIndicesSVG,
+        icon: TenIndicesSVG,
     },
     {
         title: <Localize translate_text="40+ stocks" />,

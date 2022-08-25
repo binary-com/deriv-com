@@ -65,7 +65,7 @@ jobs:
         # with:
         #   tagRegex: "staging(.*)"
       - name: Building docker image 🐳
-        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA Dockerfile.staging .
+        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA -f Dockerfile.staging .
 
       - name: Verify nginx image
         run: |

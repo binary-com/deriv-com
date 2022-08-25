@@ -5,6 +5,7 @@ import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import device from 'themes/device'
 
 const BannerWrapper = styled(Flex)`
@@ -144,7 +145,7 @@ type FooterBannerProps = {
     is_ppc: boolean
     title: ReactElement
     small_title: ReactElement
-    data: { stocks_banner: ImageDataLike }
+    data: { stocks_banner; stocks_banner_eu: ImageDataLike }
 }
 
 const FooterBanner = ({
@@ -154,6 +155,8 @@ const FooterBanner = ({
     small_title,
     title,
 }: FooterBannerProps) => {
+    const { is_eu } = useCountryRule()
+
     return (
         <BannerWrapper>
             <MainWrapper>
@@ -187,14 +190,14 @@ const FooterBanner = ({
                     <Flex>
                         <DesktopImageWrapper>
                             <QueryImage
-                                data={data['stocks_banner']}
+                                data={data[is_eu ? 'stocks_banner_eu' : 'stocks_banner']}
                                 alt="deriv platform"
                                 width="100%"
                             />
                         </DesktopImageWrapper>
                         <MobileImageWrapper>
                             <QueryImage
-                                data={data['stocks_banner']}
+                                data={data[is_eu ? 'stocks_banner_eu' : 'stocks_banner']}
                                 alt="deriv platform"
                                 width="100%"
                             />

@@ -87,16 +87,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
                         </LinkWrapper>
-                        {is_non_uk &&
-                            !is_ppc(
-                                <>
-                                    <LinkWrapper>
-                                        <Link to="/markets/synthetic/">
-                                            {<Localize translate_text="Synthetic indices" />}
-                                        </Link>
-                                    </LinkWrapper>
-                                </>,
-                            )}
+                        {is_non_uk && !is_ppc && (
+                            <LinkWrapper>
+                                <Link to="/markets/synthetic/">
+                                    {<Localize translate_text="Synthetic indices" />}
+                                </Link>
+                            </LinkWrapper>
+                        )}
                         <LinkWrapper>
                             <Link to="/markets/stock/">
                                 {<Localize translate_text="Stocks & indices" />}

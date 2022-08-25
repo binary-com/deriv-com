@@ -557,12 +557,14 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                         </StyledLink>
-                        <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={PaymentAgent} alt="" width="32" height="32" />
-                            </div>
-                            <span>{<Localize translate_text="Payment agents" />}</span>
-                        </StyledLink>
+                        <ROW>
+                            <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                                <div>
+                                    <img src={PaymentAgent} alt="" width="32" height="32" />
+                                </div>
+                                <span>{<Localize translate_text="Payment agents" />}</span>
+                            </StyledLink>
+                        </ROW>
                         <StyledLink
                             to=""
                             type="api"
@@ -623,12 +625,14 @@ export const OffCanvasMenuPartner = (props) => {
                     </div>
                     <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                 </StyledLink>
-                <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
-                    <div>
-                        <img src={PaymentAgent} alt="" width="32" height="32" />
-                    </div>
-                    <span>{<Localize translate_text="Payment agents" />}</span>
-                </StyledLink>
+                <ROW>
+                    <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                        <div>
+                            <img src={PaymentAgent} alt="" width="32" height="32" />
+                        </div>
+                        <span>{<Localize translate_text="Payment agents" />}</span>
+                    </StyledLink>
+                </ROW>
                 <StyledLink
                     to=""
                     type="api"

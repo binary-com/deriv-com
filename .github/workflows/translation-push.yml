@@ -52,7 +52,7 @@ jobs:
                       {
                         attachments: [{
                           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} *`
+                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} (https://crowdin.com/project/deriv-com/content/files) *`
                         }]
                       }
               env:

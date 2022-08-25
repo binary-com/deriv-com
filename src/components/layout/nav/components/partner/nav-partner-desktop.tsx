@@ -9,7 +9,6 @@ import {
     Wrapper,
 } from '../../styles/nav-styles'
 import { handleScroll, useMoveButton } from '../../util/nav-methods'
-import { ROW } from 'components/containers'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
@@ -127,6 +126,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
 }
 
 const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
+    const { is_row } = useCountryRule()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
     const [mounted, setMounted] = useState(false)
@@ -160,13 +160,13 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                         to="/partners/affiliate-ib/"
                         title={localize('Affiliates and IBs')}
                     />
-                    <ROW>
+                    {is_row && (
                         <NavLinkCard
                             active="payment"
                             to="/partners/payment-agent/"
                             title={localize('Payment agents')}
                         />
-                    </ROW>
+                    )}
 
                     <NavLinkCard
                         active="api"

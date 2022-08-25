@@ -87,17 +87,16 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                         <LinkWrapper>
                             <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
                         </LinkWrapper>
-                        {is_non_uk && (
-                            <>
-                                {!is_ppc && (
+                        {is_non_uk &&
+                            !is_ppc(
+                                <>
                                     <LinkWrapper>
                                         <Link to="/markets/synthetic/">
                                             {<Localize translate_text="Synthetic indices" />}
                                         </Link>
                                     </LinkWrapper>
-                                )}
-                            </>
-                        )}
+                                </>,
+                            )}
                         <LinkWrapper>
                             <Link to="/markets/stock/">
                                 {<Localize translate_text="Stocks & indices" />}
@@ -207,13 +206,13 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect }) => {
                                 {<Localize translate_text="Affiliates and IBs" />}
                             </Link>
                         </LinkWrapper>
-                        <ROW>
+                        {is_row && (
                             <LinkWrapper>
                                 <Link to="/partners/payment-agent/">
                                     {<Localize translate_text="Payment agents" />}
                                 </Link>
                             </LinkWrapper>
-                        </ROW>
+                        )}
                         <LinkWrapper>
                             <Link
                                 to=""

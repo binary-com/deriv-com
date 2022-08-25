@@ -559,14 +559,14 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                         </StyledLink>
-                        <ROW>
+                        {is_row && (
                             <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                                 <div>
                                     <img src={PaymentAgent} alt="" width="32" height="32" />
                                 </div>
                                 <span>{<Localize translate_text="Payment agents" />}</span>
                             </StyledLink>
-                        </ROW>
+                        )}
                         <StyledLink
                             to=""
                             type="api"
@@ -600,6 +600,7 @@ OffCanvasMenuWrapper.propTypes = {
 
 export const OffCanvasMenuPartner = (props) => {
     const canvas = useRef()
+    const { is_row } = useCountryRule()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
@@ -627,14 +628,14 @@ export const OffCanvasMenuPartner = (props) => {
                     </div>
                     <span>{<Localize translate_text="Affiliates and IBs" />}</span>
                 </StyledLink>
-                <ROW>
+                {is_row && (
                     <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                         <div>
                             <img src={PaymentAgent} alt="" width="32" height="32" />
                         </div>
                         <span>{<Localize translate_text="Payment agents" />}</span>
                     </StyledLink>
-                </ROW>
+                )}
                 <StyledLink
                     to=""
                     type="api"

@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../button'
-import { StepContext } from '.'
 import { localize } from 'components/localization'
+
+type FooterProps = {
+    step: number
+    setStep: React.Dispatch<React.SetStateAction<number>>
+    max_step: number
+    setEnableNext: React.Dispatch<React.SetStateAction<boolean>>
+    disabled: boolean
+}
 
 const StyledFooter = styled.div`
     display: flex;
@@ -22,12 +29,8 @@ const enum ButtonType {
     Previous = 'PREVIOUS',
     Next = 'NEXT',
 }
-type FooterProps = {
-    disabled: boolean
-}
-const Footer = ({ disabled }: FooterProps) => {
-    const { step, setStep, max_step, setEnableNext } = React.useContext(StepContext)
 
+const Footer = ({ step, setStep, max_step, setEnableNext, disabled }: FooterProps) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {
@@ -43,13 +46,11 @@ const Footer = ({ disabled }: FooterProps) => {
 
     return (
         <StyledFooter>
-            <Button
-                tertiary="true"
-                disabled={step <= 1}
-                onClick={() => buttonHandler(ButtonType.Previous)}
-            >
-                {localize('Previous')}
-            </Button>
+            {step > 1 && (
+                <Button tertiary="true" onClick={() => buttonHandler(ButtonType.Previous)}>
+                    {localize('Previous')}
+                </Button>
+            )}
             <Button
                 secondary="true"
                 disabled={disabled}

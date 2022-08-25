@@ -34,10 +34,6 @@ type TradingType = {
     image_alt: string
 }
 
-type StateType = {
-    is_mobile: boolean
-}
-
 const meta_attributes: MetaAttributesType = {
     og_title: localize('DBot Trading | Auto Trading Robot | Deriv'),
     og_description: localize(

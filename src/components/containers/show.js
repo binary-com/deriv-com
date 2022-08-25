@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Media } from 'themes/media'
-import { DerivStore } from 'store'
 
 export const Desktop = ({ children, max_width, ...props }) => (
     <Media greaterThanOrEqual={max_width || 'tabletL'} {...props}>
@@ -14,33 +13,9 @@ export const Mobile = ({ children, min_width, ...props }) => (
     </Media>
 )
 
-export const Eu = ({ children }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-
-    if (is_eu_country) return <>{children}</>
-    else return null
-}
-
-export const NonEU = ({ children }) => {
-    const { is_eu_country } = React.useContext(DerivStore)
-
-    if (is_eu_country === false) return <>{children}</>
-    else return null
-}
-
 export default {
-    Eu,
-    NonEU,
     Mobile,
     Desktop,
-}
-
-NonEU.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
-
-Eu.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
 Desktop.propTypes = {
@@ -51,12 +26,4 @@ Desktop.propTypes = {
 Mobile.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     min_width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
-
-Eu.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
-
-NonEU.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }

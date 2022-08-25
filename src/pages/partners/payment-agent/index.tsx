@@ -14,6 +14,7 @@ const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
 const P2PBanner = Loadable(() => import('./_p2p_banner'))
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 const meta_attributes = {
     og_title: localize('Payment agents | Partners | Deriv'),
@@ -25,7 +26,6 @@ const meta_attributes = {
 const PaymentAgent = () => {
     const { is_row } = useCountryRule()
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
-
     return (
         <>
             <SEO
@@ -35,7 +35,6 @@ const PaymentAgent = () => {
                 )}
                 meta_attributes={meta_attributes}
             />
-
             {is_row ? (
                 <Layout type="partners" margin_top={10} no_login_signup>
                     <Helmet>

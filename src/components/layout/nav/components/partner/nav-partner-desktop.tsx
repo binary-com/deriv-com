@@ -15,6 +15,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/constants'
 import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean

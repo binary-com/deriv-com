@@ -127,7 +127,7 @@ const OtherApps = () => {
                             return (
                                 <Card key={item.id}>
                                     <div>
-                                        <img src={item.icon} alt={item.title} />
+                                        <img src={item.icon} alt="icon" />
                                     </div>
                                     <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {item.title}

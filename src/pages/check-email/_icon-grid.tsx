@@ -74,7 +74,7 @@ export const IconGrid = () => (
     <Grid>
         {GridContent.map((item, index) => (
             <GridCol key={`key-${index}`}>
-                <Img src={item.Icon} alt={item.Icon} />
+                <Img src={item.Icon} alt="icon" />
                 <StyledText color="black-3" lh="1.55" mt="0.8rem">
                     {item.content}
                 </StyledText>

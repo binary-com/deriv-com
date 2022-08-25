@@ -28,7 +28,7 @@ type Link = {
 const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => (
     <GridCol>
         <IconWrapper>
-            <img src={Icon} alt={title} />
+            <img src={Icon} alt="icon" />
         </IconWrapper>
         <Header as="h4" type="sub-section-title">
             {title}

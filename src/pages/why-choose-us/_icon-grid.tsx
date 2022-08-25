@@ -64,7 +64,7 @@ type ColProps = {
 
 const Col = ({ Icon, content, title }: ColProps) => (
     <GridCol>
-        <img src={Icon} alt={title} />
+        <img src={Icon} alt="icon" />
         <Container>
             <StyledHeader as="h4" type="sub-section-title">
                 {title}

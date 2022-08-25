@@ -75,7 +75,7 @@ const WhyTradeDerivGo = () => {
                             return (
                                 <Card key={index}>
                                     <div>
-                                        <img src={item.icon} width={72} height={72} alt="" />
+                                        <img src={item.icon} width={72} height={72} alt="icon" />
                                     </div>
                                     <Header as="h3" type="heading-3" align="center" mt="24px">
                                         {item.title}

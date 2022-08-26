@@ -28,7 +28,7 @@ const Home = () => {
     const options = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3,
+        threshold: 0.7,
     }
     const lazy_components: ReactNode = (
         <>

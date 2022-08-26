@@ -7,12 +7,6 @@ export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, op
 
     const handleIntersect = (entries, observer) => {
         const [entry] = entries
-        if (typeof entry.isVisible === 'undefined') {
-            // The browser doesn't support Intersection Observer v2, falling back to v1 behavior.
-            setIsVisible(entry.isIntersecting)
-            observer.disconnect()
-            return
-        }
         if (entry.isIntersecting) {
             setIsVisible(entry.isIntersecting)
             observer.disconnect()
@@ -20,7 +14,7 @@ export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, op
     }
     useEffect(() => {
         createObserver()
-        if (window.innerHeight >= 950) {
+        if (window.innerHeight >= 990) {
             setLargeScreen(true)
         }
     }, [])

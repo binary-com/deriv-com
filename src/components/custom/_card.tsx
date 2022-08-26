@@ -8,6 +8,8 @@ export type CardProps = {
     title?: string | object
     description?: string | object
     selected?: boolean
+    value?: number | string
+    onClick?: (e) => void
 }
 
 const StyledCard = styled.div<{ selected: boolean }>`
@@ -57,9 +59,12 @@ const SelectedIcon = styled.img`
     height: 16px;
 `
 
-const Card = ({ icon, title, description, selected }: CardProps) => {
+const Card = ({ icon, title, description, selected, value, onClick }: CardProps) => {
     const [is_selected, setIsSelected] = React.useState(false)
-    const clickHandler = () => setIsSelected(true)
+    const clickHandler = () => {
+        setIsSelected(true)
+        onClick && onClick(value)
+    }
 
     React.useEffect(() => {
         setIsSelected(selected)

@@ -22,14 +22,14 @@ const CiudadDelEste = () => {
 
     return (
         <Layout type="careers">
-            {/*
-                ---TO DO: Add SEO once it's ready---
-            <SEO
-                title={localize('Ciudad del Este | Our office | Deriv')}
-                description={localize(
-                    '',
-                )}
-            /> */}
+            {
+                <SEO
+                    title={localize('Ciudad del Este – Our office | Deriv')}
+                    description={localize(
+                        'Join great marketing minds at Deriv’s office in Ciudad del Este, Paraguay. Be part of a vibrant team that develops the company’s growth in the region. ',
+                    )}
+                />
+            }
             <NewLocationLayout location={ciudad} images={images} />
         </Layout>
     )

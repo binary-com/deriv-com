@@ -502,9 +502,14 @@ export const ciudad: LocationsType = {
     first_p:
         'Our second office in Paraguay is to open in the border city of Ciudad del Este. Located in the World Trade Center, this office will tap into the local talent pool to build Marketing and Customer Support teams to cater to the growing market demands in South America. ',
     first_img: 'living_in_ciudad',
-    first_img_alt: 'Working with Deriv’s Ciudad del Este’s team',
+    first_img_alt: 'Deriv’s Ciudad del Este office in Paraguay',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
-    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'cayman map', 'guernsey grid 4'],
+    grid_img_alt: [
+        'guernsey grid 1',
+        'guernsey grid 2',
+        'Deriv’s Ciudad del Este office location',
+        'guernsey grid 4',
+    ],
     map: 'ChIJ8wOKkS-F9pQRIdgDbSjs_6A',
     map_text:
         'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este will have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',

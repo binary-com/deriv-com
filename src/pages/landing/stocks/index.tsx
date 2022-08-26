@@ -128,7 +128,7 @@ const Stocks = () => {
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
-    const { is_eu, is_row } = useCountryRule()
+    const { is_row } = useCountryRule()
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -176,13 +176,10 @@ const Stocks = () => {
                     <Localize translate_text="All this is available on our Deriv MT5 platform" />
                 }
                 small_title={
-                    is_eu ? (
-                        <Localize translate_text="Enjoy high leverage and low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
+                    is_row ? (
+                        <Localize translate_text="Enjoy low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
                     ) : (
-                        <Localize
-                            translate_text="Enjoy low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love.
-                    "
-                        />
+                        <Localize translate_text="Enjoy high leverage and low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
                     )
                 }
                 data={data}

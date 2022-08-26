@@ -453,12 +453,13 @@ export const StyledOl = styled.ol`
     list-style-type: none;
     counter-reset: item;
     font-weight: bold;
-    margin-left: 4px;
+    font-size: 10px;
 
     li {
         display: block;
         position: relative;
-        margin-left: 12px;
+        line-height: 14px;
+        margin: 14px;
     }
     li::before {
         position: absolute;

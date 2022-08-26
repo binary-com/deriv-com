@@ -128,7 +128,7 @@ const Stocks = () => {
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
-    const { is_eu } = useCountryRule()
+    const { is_eu, is_row } = useCountryRule()
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -137,7 +137,7 @@ const Stocks = () => {
 
     const data = useStaticQuery(query)
 
-    const display_items = is_eu ? WhyTradeWithUsArr_eu : WhyTradeWithUsArr
+    const display_items = is_row ? WhyTradeWithUsArr : WhyTradeWithUsArr_eu
     return (
         <Layout is_ppc_redirect={true}>
             <SEO

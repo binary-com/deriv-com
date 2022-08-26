@@ -37,7 +37,7 @@ const FAQ = () => {
                     <Title as="h2">FAQs</Title>
                 </ContentContainer>
                 <AccordionWrapper>
-                    <Accordion has_single_state>
+                    <Accordion has_single_state is_default_open>
                         {faq_content.map((topic, index) => (
                             <AccordionItem
                                 key={index}

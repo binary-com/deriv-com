@@ -478,7 +478,7 @@ export const georgetown: LocationsType = {
     first_p:
         'Deriv Group Ltd’s new base will be in the Cayman Commodities and Derivatives City of the Cayman Enterprise City. This office will serve as a centre for compliance, corporate governance, and operational risk management for the Deriv Group. It will also assist with trading support for the North American time zone. ',
     first_img: 'living_in_georgetown',
-    first_img_alt: 'Working with Deriv’s George Town team',
+    first_img_alt: 'Deriv’s office in the Cayman Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'cayman map', 'guernsey grid 4'],
     map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',

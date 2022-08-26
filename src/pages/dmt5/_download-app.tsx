@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, SectionContainer, Box, Desktop, Mobile } from 'components/containers'
-import { Header, QueryImage, Text } from 'components/elements'
+import { Flex, Desktop, Mobile } from 'components/containers'
+import { Header, QueryImage } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import MoreInfo from 'images/svg/dmt5/more_info.svg'
 import MoreInfoDesktop from 'images/svg/dmt5/more-info.svg'
@@ -64,23 +64,25 @@ const DownloadLinkMobileWrapper = styled.div<LinkType>`
         margin-right: 8px;
     }
 `
-const Section = styled(SectionContainer)`
+const Section = styled.section`
     display: flex;
-    padding: 0 0 0 24rem;
-    justify-content: speace-evenly;
     align-items: flex-start;
     background-color: var(--color-grey-25);
-    gap: 90px;
+    gap: 100px;
+    padding-left: 22rem;
+    width: 100%;
 
     @media ${device.laptopL} {
-        padding: 0 0 0 15rem;
+        padding-left: 8rem;
+        gap: 0;
     }
     @media ${device.laptopM} {
-        padding: 0 0 0 10rem;
-        gap: 45px;
+        padding-left: 5rem;
+        gap: 0;
     }
+
     @media ${device.desktopL} {
-        padding: 0 0 0 12rem;
+        padding-left: 12rem;
         gap: 0;
     }
 
@@ -93,14 +95,14 @@ const Section = styled(SectionContainer)`
     }
 `
 const Separator = styled.div`
-    width: 2px;
-    height: 312px;
+    min-width: 2px;
+    min-height: 312px;
     background-color: rgba(133, 147, 164, 0.16);
     margin-right: 10px;
 
     @media ${device.tabletL} {
         width: 100%;
-        height: 1px;
+        min-height: 1px;
         margin-top: 40px;
         margin-right: 0;
     }
@@ -116,13 +118,13 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
     }
 `
 const StyledInfo = styled.img`
-    width: 24px;
-    height: 24px;
+    max-width: 24px;
+    max-height: 24px;
     margin-top: 96px;
 
     @media ${device.tabletL} {
-        width: 16px;
-        height: 16px;
+        max-width: 16px;
+        max-height: 16px;
         margin-top: 0;
     }
 `
@@ -135,21 +137,23 @@ const StyledHeader = styled(Header)`
 const StyledFlex = styled(Flex)`
     justify-content: flex-start;
     flex-direction: column;
-    width: 32rem;
+    max-width: 32rem;
     margin-right: 120px;
     height: auto;
 
+    @media ${device.laptopL} {
+        max-width: 25rem;
+    }
     @media ${device.tabletL} {
         justify-content: center;
         text-align: center;
         margin-right: 0;
-        width: auto;
+        max-width: fit-content;
         box-shadow: inset 0 -2px 0 #e7e7e7;
     }
 `
 const StyledFlexMobile = styled(Flex)`
     margin-top: 0.8rem;
-    justify-content: flex-start;
     height: auto;
     margin-bottom: 40px;
 `
@@ -168,14 +172,7 @@ const StyledFlexBottom = styled(Flex)`
 `
 const StyledInfoContainer = styled(Flex)`
     display: flex;
-    margin-left: -60px;
-    width: 32rem;
-
-    @media ${device.laptopL} {
-        margin-left: -120px;
-        width: 24rem;
-        margin-right: 0;
-    }
+    min-width: 32rem;
 `
 
 const DownloadApp = () => {
@@ -338,12 +335,18 @@ const DownloadApp = () => {
                     <Separator />
 
                     <StyledInfo src={MoreInfoDesktop} alt="more info" />
-                    <Text width="100%" ml="1.6rem" size="var(--text-size-m)" mt="96px">
+                    <Header
+                        weight="normal"
+                        width="100%"
+                        ml="1.6rem"
+                        size="var(--text-size-m)"
+                        mt="96px"
+                    >
                         <Localize
                             translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
                             components={[<strong key={0} />]}
                         />
-                    </Text>
+                    </Header>
                 </StyledInfoContainer>
             </Desktop>
             <StyledFlexBottom>
@@ -359,12 +362,12 @@ const DownloadApp = () => {
                     >
                         <StyledInfo src={MoreInfo} alt="more info" />
 
-                        <Text width="100%" ml="26px" size="var(--text-size-m)">
+                        <Header weight="normal" width="100%" ml="26px" size="var(--text-size-m)">
                             <Localize
                                 translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
                                 components={[<strong key={0} />]}
                             />
-                        </Text>
+                        </Header>
                     </Flex>
                 </Mobile>
                 <ImageWrapper mt="4rem">

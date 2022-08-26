@@ -32,6 +32,7 @@ const AccountType = ({ updateData, cardSelected, onValidate }: AccountTypeProps)
             description: <Localize translate_text="Register as a company or business unit" />,
         },
     ]
+
     React.useEffect(() => {
         onValidate(selected_item < 0 ? false : true)
     }, [onValidate, selected_item])
@@ -48,7 +49,7 @@ const AccountType = ({ updateData, cardSelected, onValidate }: AccountTypeProps)
                         icon={icon}
                         title={title}
                         description={description}
-                        selected={selected_item === index ? true : false}
+                        selected={selected_item === index}
                         onClick={() => {
                             setSelectedItem(index)
                             updateData(index)

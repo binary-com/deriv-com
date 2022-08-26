@@ -156,6 +156,7 @@ const FooterBanner = ({
     title,
 }: FooterBannerProps) => {
     const { is_eu } = useCountryRule()
+    const stocks_display = is_eu ? 'stocks_banner_eu' : 'stocks_banner'
 
     return (
         <BannerWrapper>
@@ -190,14 +191,14 @@ const FooterBanner = ({
                     <Flex>
                         <DesktopImageWrapper>
                             <QueryImage
-                                data={data[is_eu ? 'stocks_banner_eu' : 'stocks_banner']}
+                                data={data[stocks_display]}
                                 alt="deriv platform"
                                 width="100%"
                             />
                         </DesktopImageWrapper>
                         <MobileImageWrapper>
                             <QueryImage
-                                data={data[is_eu ? 'stocks_banner_eu' : 'stocks_banner']}
+                                data={data[stocks_display]}
                                 alt="deriv platform"
                                 width="100%"
                             />

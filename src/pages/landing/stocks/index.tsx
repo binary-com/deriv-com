@@ -6,7 +6,7 @@ import Layout from 'components/layout/layout'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
-import { DerivStore } from 'store'
+import { useCountryRule } from 'components/hooks/use-country-rule'
 import { isBrowser } from 'common/utility'
 import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
 import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
@@ -128,7 +128,7 @@ const Stocks = () => {
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useCountryRule()
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -137,6 +137,7 @@ const Stocks = () => {
 
     const data = useStaticQuery(query)
 
+    const display_items = is_eu ? WhyTradeWithUsArr_eu : WhyTradeWithUsArr
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
@@ -165,7 +166,7 @@ const Stocks = () => {
                 contentMargin={'24px'}
             />
             <WhyTradeWithUs
-                itemsArr={is_eu_country ? WhyTradeWithUsArr_eu : WhyTradeWithUsArr}
+                itemsArr={display_items}
                 mainTitle={<Localize translate_text="Why trade stocks and indices on Deriv" />}
                 columnPerRow={3}
             />
@@ -175,7 +176,7 @@ const Stocks = () => {
                     <Localize translate_text="All this is available on our Deriv MT5 platform" />
                 }
                 small_title={
-                    is_eu_country ? (
+                    is_eu ? (
                         <Localize translate_text="Enjoy high leverage and low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love." />
                     ) : (
                         <Localize

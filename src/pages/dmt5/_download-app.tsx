@@ -25,12 +25,12 @@ import {
 } from 'common/constants'
 
 type ImageWrapperProps = {
-    mt?: string
+    mt: string
 }
 type LinkType = {
-    mt?: string
-    mb?: string
-    mr?: string
+    mt: string
+    mb: string
+    mr: string
 }
 
 const query = graphql`
@@ -45,8 +45,8 @@ const DownloadLinkWrapper = styled.div<LinkType>`
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 8px;
-    margin-top: ${(props) => (props.mt ? props.mt : '')};
-    margin-bottom: ${(props) => (props.mb ? props.mb : '')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr 1fr;
@@ -55,9 +55,9 @@ const DownloadLinkWrapper = styled.div<LinkType>`
 const DownloadLinkMobileWrapper = styled.div<LinkType>`
     display: flex;
     grid-gap: 8px;
-    margin-top: ${(props) => (props.mt ? props.mt : '')};
-    margin-bottom: ${(props) => (props.mb ? props.mb : '')};
-    margin-right: ${(props) => (props.mr ? props.mr : '')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
+    margin-right: ${(props) => (props.mr ? props.mr : '0')};
 
     @media ${device.tabletL} {
         margin-top: 8px;
@@ -74,16 +74,16 @@ const Section = styled.section`
 
     @media ${device.laptopL} {
         padding-left: 8rem;
-        gap: 0;
+        gap: 90px;
     }
     @media ${device.laptopM} {
         padding-left: 5rem;
-        gap: 0;
+        gap: 20px;
     }
 
     @media ${device.desktopL} {
         padding-left: 12rem;
-        gap: 0;
+        gap: 20px;
     }
 
     @media ${device.tabletL} {
@@ -160,6 +160,7 @@ const StyledFlexMobile = styled(Flex)`
 const StyledFlexBottom = styled(Flex)`
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     @media ${device.tabletL} {
         padding: 0 160px;
@@ -173,6 +174,10 @@ const StyledFlexBottom = styled(Flex)`
 const StyledInfoContainer = styled(Flex)`
     display: flex;
     min-width: 32rem;
+
+    @media ${device.laptop} {
+        min-width: 20rem;
+    }
 `
 
 const DownloadApp = () => {

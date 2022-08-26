@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react'
+import { DotLoader } from 'components/elements'
 
 export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, options: object) => {
     const [is_visible, setIsVisible] = useState(false)
@@ -34,7 +35,7 @@ export const useHandleLazyLoad = (lazyTemplates: ReactNode, targetId: string, op
         <>{lazyTemplates}</>
     ) : (
         <>
-            <span>loading</span>
+            <DotLoader />
         </>
     )
 }

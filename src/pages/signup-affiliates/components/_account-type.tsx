@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import IndividualIcon from 'images/svg/signup-affiliates/individual 2.svg'
 import BusinessIcon from 'images/svg/signup-affiliates/company 2.svg'
@@ -9,8 +9,9 @@ import { Header } from 'components/elements'
 type AccountTypeProps = {
     updateData: (e) => void
     cardSelected: number
+    onValidate: (e) => void
 }
-const AccountType = ({ updateData, cardSelected }: AccountTypeProps) => {
+const AccountType = ({ updateData, cardSelected, onValidate }: AccountTypeProps) => {
     const MainWrapper = styled.div`
         display: flex;
         flex-direction: column;
@@ -31,6 +32,9 @@ const AccountType = ({ updateData, cardSelected }: AccountTypeProps) => {
             description: <Localize translate_text="Register as a company or business unit" />,
         },
     ]
+    React.useEffect(() => {
+        onValidate(selected_item < 0 ? false : true)
+    }, [onValidate, selected_item])
 
     return (
         <MainWrapper>

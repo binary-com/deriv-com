@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import AffiliateSignupLayout, { SignUpWrapper } from './components/_layout'
 import AccountType from './components/_account-type'
 import AccountDetails from './components/_account-details'
@@ -15,7 +15,7 @@ const AffiliateSignup = () => {
         'Terms of use',
     ]
 
-    const [next_account_type, setNextAccount] = useState(false)
+    const [next_btn_enabled, setNextBtnEnabled] = useState(false)
 
     const [affiliate_account, setAffiliateAccount] = useState({
         account_type: -1,
@@ -25,17 +25,12 @@ const AffiliateSignup = () => {
         terms_use: null,
     })
 
-    const handleNext = () => {
-        setNextAccount(true)
-    }
     const updateAffiliateValues = (value) => {
         affiliate_account.account_type = value
         setAffiliateAccount({
             ...affiliate_account,
             account_type: value,
         })
-
-        handleNext()
     }
 
     return (
@@ -44,11 +39,14 @@ const AffiliateSignup = () => {
                 <Wizard
                     title={localize('Add an affiliate account')}
                     steps_names={Steps}
-                    enable_next_button={next_account_type ? true : false}
+                    enable_next_button={next_btn_enabled}
                 >
                     <AccountType
                         cardSelected={affiliate_account.account_type}
                         updateData={updateAffiliateValues}
+                        onValidate={(valid) => {
+                            setNextBtnEnabled(valid)
+                        }}
                     />
                     <AccountDetails />
                     <PhoneNumber />

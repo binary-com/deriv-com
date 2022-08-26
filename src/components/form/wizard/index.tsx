@@ -72,7 +72,7 @@ const Wizard = ({ children, show, steps_names, title, enable_next_button }: Wiza
                         setStep={setStep}
                         max_step={max_step}
                         setEnableNext={setEnableNext}
-                        disabled={!enable_next}
+                        disabled={!enable_next_button}
                     />
                 </Modal>
                 <Background></Background>

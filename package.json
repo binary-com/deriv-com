@@ -121,7 +121,7 @@
         "translate:transform": "ts-node ./i18n/scripts/transform-crowdin.ts",
         "translate:replace-localize": "ts-node ./i18n/scripts/replace-localize.ts",
         "translate:replace-translate": "ts-node ./i18n/scripts/replace-translate-text.ts",
-        "translate:replace": "npm run replace-localize && npm run replace-translate",
+        "translate:replace": "npm run translate:replace-localize && npm run translate:replace-translate",
         "translation:pull": "node scripts/handle-translations.js pull",
         "translation:fetch": "node scripts/handle-translations.js pull-master",
         "translation:branch": "node scripts/handle-translations.js branch",

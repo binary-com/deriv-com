@@ -13,11 +13,14 @@ const FILE_ENCODING = 'utf-8'
 const TRANSLATIONS_GLOB_PATTERN = './src/translations/*.json'
 const translations: translationType[] = []
 
+const messagesKeysPath = path.resolve(__dirname, '../../crowdin/messages.json');
+const derivedKeysPath = path.resolve(__dirname, '../../crowdin/derived.json');
+
 // default lang ( EN ) translations
-const defaultTranslationFile = fs.readFileSync('./i18n/keys/defaults.json', FILE_ENCODING)
+const defaultTranslationFile = fs.readFileSync(messagesKeysPath, FILE_ENCODING)
 const defaultTranslationObject = JSON.parse(defaultTranslationFile)
 
-const derivedKeysFile = fs.readFileSync("./i18n/keys/derived.json", FILE_ENCODING);
+const derivedKeysFile = fs.readFileSync(derivedKeysPath, FILE_ENCODING);
 const derivedKeysObject = JSON.parse(derivedKeysFile);
 const derivedKeys = Object.keys(derivedKeysObject);
 

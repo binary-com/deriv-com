@@ -15,7 +15,7 @@ const defaults: KeyValueRefsType = {}
 const derivedKeys = {}
 let tempHashKey = ""
 
-function findAndReplace() {
+function extractTranslations() {
     // Find all file types listed in `globs`
     for (let i = 0; i < TranslateAbleGlobPatters.length; i++) {
         let filesFound = glob.sync(`${TranslateAbleBasePath}${TranslateAbleGlobPatters[i]}`)
@@ -46,10 +46,10 @@ function findAndReplace() {
             console.log(e)
         }
     }
-    fs.writeFileSync(path.resolve('./i18n/keys/defaults.json'), JSON.stringify(defaults, null, 2))
+    fs.writeFileSync(path.resolve(__dirname, '../../crowdin/messages.json'), JSON.stringify(defaults, null, 2))
     fs.writeFileSync(
-        path.resolve('./i18n/keys/derived.json'),
+        path.resolve(__dirname, '../../crowdin/derived.json'),
         JSON.stringify(derivedKeys, null, 2),
     )
 }
-findAndReplace()
+extractTranslations()

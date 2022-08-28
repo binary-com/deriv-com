@@ -116,8 +116,12 @@
         "serve": "gatsby serve",
         "test": "npm run eslint && npm run stylelint",
         "translate:download": "crowdin download -b crowdin && crowdin download -b crowdin -l zh-CN",
-        "translate:extract": "cd scripts && node extract-translations.js && cd ..",
+        "translate:extract": "ts-node ./i18n/scripts/extract-keys.ts",
         "translate:upload": "crowdin upload sources -b crowdin",
+        "translate:transform": "ts-node ./i18n/scripts/transform-crowdin.ts",
+        "translate:replace-localize": "ts-node ./i18n/scripts/replace-localize.ts",
+        "translate:replace-translate": "ts-node ./i18n/scripts/replace-translate-text.ts",
+        "translate:replace": "npm run replace-localize && npm run replace-translate",
         "translation:pull": "node scripts/handle-translations.js pull",
         "translation:fetch": "node scripts/handle-translations.js pull-master",
         "translation:branch": "node scripts/handle-translations.js branch",
@@ -133,12 +137,7 @@
         "storybook": "start-storybook -p 6006",
         "build:storybook": "build-storybook -c .storybook -o public/storybook",
         "codegen": "graphql-codegen --config codegen.yml",
-        "codegen:watch": "graphql-codegen --config codegen.yml --watch",
-        "replace:localize": "ts-node ./i18n/scripts/replace-localize.ts",
-        "replace:translate": "ts-node ./i18n/scripts/replace-translate-text.ts",
-        "replace": "npm run replace:localize && npm run replace:translate",
-        "extract": "ts-node ./i18n/scripts/extract-keys.ts",
-        "transform": "ts-node ./i18n/scripts/transform-crowdin.ts"
+        "codegen:watch": "graphql-codegen --config codegen.yml --watch"
     },
     "repository": {
         "type": "git",

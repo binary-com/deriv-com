@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
@@ -308,18 +308,21 @@ export const mobile_pins: MapPinType[] = [
 ]
 
 type DerivNumbersType = {
-    count: ReactElement
+    count: number | ReactElement
     title: ReactElement
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: <Localize translate_text="_t_850+_t_" />, title: <Localize translate_text="_t_employees_t_" /> },
+    {
+        count: <Localize translate_text="_t_850+_t_" />,
+        title: <Localize translate_text="_t_employees_t_" />,
+    },
     {
         count: <Localize translate_text="_t_50+_t_" />,
         title: <Localize translate_text="_t_nationalities_t_" />,
     },
-    { count: localize(all_offices.length), title: <Localize translate_text="_t_locations_t_" /> },
-    { count: localize(all_countries.length), title: <Localize translate_text="_t_countries_t_" /> },
+    { count: all_offices.length, title: <Localize translate_text="_t_locations_t_" /> },
+    { count: all_countries.length, title: <Localize translate_text="_t_countries_t_" /> },
 ]
 
 export const deriv_numbers: DerivNumbersType[][] = [

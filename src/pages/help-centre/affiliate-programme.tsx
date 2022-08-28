@@ -85,7 +85,9 @@ const WhyAffiliate = ({ text }: ArticleProps) => (
                 </Text>
             </StyledListItem>
             <StyledListItem marginTop="0.3rem">
-                <Text>{localize("_t_You'll have a dedicated account manager to help you._t_")}</Text>
+                <Text>
+                    {localize("_t_You'll have a dedicated account manager to help you._t_")}
+                </Text>
             </StyledListItem>
         </StyledList>
     </ArticleWrapper>
@@ -122,8 +124,7 @@ const CommissionPlans = ({ text }: ArticleProps) => (
         </Text>
         <Text>
             <Localize
-                translate_text="
-                Learn more about our commission plans on <0>our Affiliate and IB Programme page</0>."
+                translate_text="_t_Learn more about our commission plans on <0>our Affiliate and IB Programme page</0>._t_"
                 components={[
                     <ExternalLink
                         to={'https://deriv.com/partners/affiliate-ib/'}
@@ -174,8 +175,7 @@ const WhoCanApply = ({ text }: ArticleProps) => (
             <StyledListItem marginTop="1rem">
                 <Text>
                     <Localize
-                        translate_text="<0>A software developer</0><br/>
-                Build your own trading platform using our API and earn commission when your clients sign up and trade."
+                        translate_text="_t_<0>A software developer</0><br/>Build your own trading platform using our API and earn commission when your clients sign up and trade._t_"
                         components={[<strong key={0} />]}
                     />
                 </Text>

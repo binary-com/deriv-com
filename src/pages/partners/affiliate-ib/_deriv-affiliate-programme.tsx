@@ -263,9 +263,7 @@ const DerivAffiliateProgramme = () => {
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
                                             <StyledTrap isTitle="true">
-                                                <StyledText weight="bold">
-                                                    {localize(col.title)}
-                                                </StyledText>
+                                                <StyledText weight="bold">{col.title}</StyledText>
                                             </StyledTrap>
                                             {col.data.map((data, id) => (
                                                 <TRAPREVERSE even={id % 2 ? 'true' : ''} key={id}>
@@ -301,7 +299,9 @@ const DerivAffiliateProgramme = () => {
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('_t_CPA (EU only)_t_')}
                                 </Header>
-                                <Text>{localize('_t_Earn based on each successful referral._t_')}</Text>
+                                <Text>
+                                    {localize('_t_Earn based on each successful referral._t_')}
+                                </Text>
                                 <CPAContent>
                                     <Text>
                                         <Localize

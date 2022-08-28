@@ -1,7 +1,14 @@
+// disable-translation
 import { ArcticlesType } from './_help-articles'
 
 export const convertToHash = (category, label, qparam) => {
-    const categoryFormatter = category.replace(/\s/g, '-').toLowerCase()
+    const regex = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
+    const result = regex.exec(category)
+    // since we are passing the translation key to link generator, we have to remove the "_t_" prefix and postfix
+    // TODO: this should be removed when the help center is updated with new translation approach
+    const pure_category_text = result?.[2] ?? category
+
+    const categoryFormatter = pure_category_text.replace(/\s/g, '-').toLowerCase()
     if (qparam) {
         return `/help-centre/${categoryFormatter}/?platform=${qparam}#${label}`
     } else {

@@ -114,7 +114,9 @@ export const SearchError = ({ search }: SearchErrorProps) => (
             size="var(--text-size-sm)"
             mb="0.8rem"
         >
-            {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
+            {localize("_t_Sorry, we couldn’t find any results matching '{{search}}'._t_", {
+                search,
+            })}
         </ErrorHeader>
         <SearchText color="green">{localize('_t_Search tips:_t_')}</SearchText>
         <Ul>

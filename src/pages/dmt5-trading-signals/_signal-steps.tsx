@@ -77,8 +77,7 @@ const content = {
         step_two_header: <Localize translate_text="_t_2. Fill the broker field_t_" />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>
-(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
+                translate_text="_t_Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/> (You can find the account server name on your <2>Deriv MT5 dashboard</2>.)_t_"
                 components={[
                     <strong key={0} />,
                     <br key={1} />,

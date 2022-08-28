@@ -253,7 +253,7 @@ const SideSubscriptionBanner = () => {
             </StyledHeader>
             <StyledSmallHeader as="h3" type="paragraph-2" weight="normal">
                 {localize(
-                    '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates.  _t_',
+                    '_t_Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates._t_',
                 )}
             </StyledSmallHeader>
             <EmailForm onSubmit={handleEmailSignup} noValidate>
@@ -334,7 +334,7 @@ const SideSubscriptionBanner = () => {
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                     color="#C2C2C2"
-                                    link_text={localize('_t_Send me marketing materials too!_t_')}
+                                    link_text={'_t_Send me marketing materials too!_t_'}
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize

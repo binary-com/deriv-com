@@ -1,5 +1,4 @@
 import React from 'react'
-import Proptypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
@@ -9,6 +8,7 @@ import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
 import { useCountryRule } from 'components/hooks/use-country-rule'
+import { Tstring } from 'types/generics'
 
 const ImageWrapper = styled.div`
     width: 124px;
@@ -134,21 +134,17 @@ const StyledImg = styled.img`
     }
 `
 
-const CheckedText = ({ children }) => (
+const CheckedText = ({ text }: { text: Tstring }) => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
             <StyledText size="16px" weight="bold">
-                <Localize translate_text={children} />
+                <Localize translate_text={text} />
             </StyledText>
         </Flex>
         <Separator />
     </>
 )
-
-CheckedText.propTypes = {
-    children: Proptypes.string,
-}
 
 const InterestFreeTrading = () => {
     const { is_uk, is_eu, is_row } = useCountryRule()
@@ -163,17 +159,17 @@ const InterestFreeTrading = () => {
                     <Localize translate_text="_t_interest_t_" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
-                    <CheckedText>Forex</CheckedText>
-                    {is_uk && <CheckedText>Stocks & indices</CheckedText>}
+                    <CheckedText text={'_t_Forex_t_'} />
+                    {is_uk && <CheckedText text={'_t_Stocks & indices_t_'} />}
                     {(is_eu || is_row) && (
                         <>
-                            <CheckedText>Synthetic indices</CheckedText>
-                            <CheckedText>Stocks & indices</CheckedText>
-                            <CheckedText>Cryptocurrencies</CheckedText>
+                            <CheckedText text={'_t_Synthetic indices_t_'} />
+                            <CheckedText text={'_t_Stocks & indices_t_'} />
+                            <CheckedText text={'_t_Cryptocurrencies_t_'} />
                         </>
                     )}
-                    {is_row && <CheckedText>Basket indices</CheckedText>}
-                    <CheckedText>Commodities</CheckedText>
+                    {is_row && <CheckedText text={'_t_Basket indices_t_'} />}
+                    <CheckedText text={'_t_Commodities_t_'} />
                 </TextWrapperFlex>
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" ac="center" height="100%" width="51.4rem">

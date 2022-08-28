@@ -7,16 +7,17 @@ import { Carousel, Header, LinkText, QueryImage, Text } from 'components/element
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import { Tstring } from 'types/generics'
 
 type CalculatorProps = {
     children?: React.ReactNode
     key?: number
     index?: number
-    name: React.ReactElement
-    text: React.ReactElement
+    name: Tstring
+    text: Tstring
     image_name: string
-    image_alt_name: string
-    button_text: React.ReactElement
+    image_alt_name: Tstring
+    button_text: Tstring
     link: string
 }
 
@@ -160,9 +161,9 @@ const StyledFlex = styled(Flex)`
 
 const CalculatorCard = ({
     button_text,
-    image_alt_name = '',
-    image_name = '',
-    link = '',
+    image_alt_name,
+    image_name,
+    link,
     name,
     text,
 }: CalculatorProps) => {
@@ -170,15 +171,20 @@ const CalculatorCard = ({
     return (
         <StyledCardContainer>
             <SubHeader as="h3" align="center">
-                {name}
+                <Localize translateText={name} />
             </SubHeader>
-            <CardText align="center">{text}</CardText>
+            <CardText align="center">
+                <Localize translate_text={text} />
+            </CardText>
             <ImageWrapper>
                 <Desktop>
-                    <QueryImage data={data[image_name]} alt={image_alt_name} />
+                    <QueryImage data={data[image_name]} alt={localize(image_alt_name)} />
                 </Desktop>
                 <Mobile>
-                    <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
+                    <QueryImage
+                        data={data[image_name + '_mobile']}
+                        alt={localize(image_alt_name)}
+                    />
                 </Mobile>
             </ImageWrapper>
             <StyledLinkButton tertiary="true" to={link}>
@@ -188,37 +194,23 @@ const CalculatorCard = ({
     )
 }
 
-CalculatorCard.propTypes = {
-    button_text: Proptypes.string,
-    image_alt_name: Proptypes.string,
-    image_name: Proptypes.string,
-    is_mobile: Proptypes.bool,
-    link: Proptypes.string,
-    name: Proptypes.string,
-    text: Proptypes.string,
-}
-
 const calculators: CalculatorProps[] = [
     {
         index: 0,
-        name: <Localize translate_text="_t_Margin calculator_t_" />,
-        text: (
-            <Localize translate_text="_t_Calculate the margin you need to open and hold your positions with our margin calculator._t_" />
-        ),
+        name: '_t_Margin calculator_t_',
+        text: '_t_Calculate the margin you need to open and hold your positions with our margin calculator._t_',
         image_name: 'margin_calculator',
-        image_alt_name: localize('_t_DMT5 margin trading calculator_t_'),
-        button_text: <Localize translate_text="_t_Try our margin calculator_t_" />,
+        image_alt_name: '_t_DMT5 margin trading calculator_t_',
+        button_text: '_t_Try our margin calculator_t_',
         link: '/trader-tools/margin-calculator/',
     },
     {
         index: 1,
-        name: <Localize translate_text="_t_Swap calculator_t_" />,
-        text: (
-            <Localize translate_text="_t_Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract._t_" />
-        ),
+        name: '_t_Swap calculator_t_',
+        text: '_t_Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract._t_',
         image_name: 'swap_calculator',
-        image_alt_name: localize('_t_DMT5 swap trading calculator_t_'),
-        button_text: <Localize translate_text="_t_Try our swap calculator_t_" />,
+        image_alt_name: '_t_DMT5 swap trading calculator_t_',
+        button_text: '_t_Try our swap calculator_t_',
         link: '/trader-tools/swap-calculator/',
     },
 ]

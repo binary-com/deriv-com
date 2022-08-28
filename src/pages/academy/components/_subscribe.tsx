@@ -375,7 +375,7 @@ const Subscribe = () => {
                                 isChecked={is_checked}
                                 handleChangeCheckbox={handleChange}
                                 color="#C2C2C2"
-                                link_text={localize('_t_Send me marketing materials too!_t_')}
+                                link_text={'_t_Send me marketing materials too!_t_'}
                             />
                             <AdditionalFlex color="#C2C2C2">
                                 <Localize

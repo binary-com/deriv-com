@@ -190,12 +190,14 @@ const Banner = () => {
                 >
                     <div>
                         <StyledHeader as="h1" color="white" width="64rem" type="heading-1">
-                            {localize('_t_Trade forex, synthetics, and cryptocurrencies on the go_t_')}
+                            {localize(
+                                '_t_Trade forex, synthetics, and cryptocurrencies on the go_t_',
+                            )}
                         </StyledHeader>
                         <Mobile>
                             <Header size="18px" color="white" weight="200" mt="10px">
                                 {localize(
-                                    '_t_Download the app now and start trading whenever, wherever you want. _t_',
+                                    '_t_Download the app now and start trading whenever, wherever you want._t_',
                                 )}
                             </Header>
                         </Mobile>
